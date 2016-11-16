@@ -52,7 +52,7 @@ The following diagram shows an example of a multi-hop topology with multiple pat
 
 ![Multi-hop transit](./media/vpn-gateway-bgp-overview/full-mesh-transit.png)
 
-## BGP FAQs
+## BGP FAQ
 [!INCLUDE [vpn-gateway-bgp-faq-include](../../includes/vpn-gateway-bpg-faq-include.md)]
 
 ## Next steps
