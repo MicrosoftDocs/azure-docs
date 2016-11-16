@@ -73,34 +73,32 @@ Integration of an HPC Pack cluster with Azure AD can help you achieve the follow
     * Select **Yes** for **User assignment required to access app**.
 
 6. Click **Save**. When saving completes, click **Manage Manifest**. This action downloads your application’s manifest JavaScript object notation (JSON) file. Edit the downloaded manifest by locating the `appRoles` setting and adding the following application role:
-
-```json
-"appRoles": [
-    {
-      "allowedMemberTypes": [
-        "User",
-        "Application"
-      ],
-      "displayName": "HpcAdminMirror",
-      "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
-      "isEnabled": true,
-      "description": "HpcAdminMirror",
-      "value": "HpcAdminMirror"
-    },
-    {
-      "allowedMemberTypes": [
-        "User",
-        "Application"
-      ],
-      "description": "HpcUsers",
-      "displayName": "HpcUsers",
-      "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
-      "isEnabled": true,
-      "value": "HpcUsers"
-    }
-  ],
-```
-
+    ```json
+    "appRoles": [
+        {
+        "allowedMemberTypes": [
+            "User",
+            "Application"
+        ],
+        "displayName": "HpcAdminMirror",
+        "id": "61e10148-16a8-432a-b86d-ef620c3e48ef",
+        "isEnabled": true,
+        "description": "HpcAdminMirror",
+        "value": "HpcAdminMirror"
+        },
+        {
+        "allowedMemberTypes": [
+            "User",
+            "Application"
+        ],
+        "description": "HpcUsers",
+        "displayName": "HpcUsers",
+        "id": "91e10148-16a8-432a-b86d-ef620c3e48ef",
+        "isEnabled": true,
+        "value": "HpcUsers"
+        }
+    ],
+    ```
 7. Save the file. Then in the portal, click **Manage Manifest** > **Upload Manifest**. You can then upload the edited manifest.
 8. Click **Users**, select a user, and then click **Assign**. Assign one of the available roles (HpcUsers or HpcAdminMirror) to the user. Repeat this step with additional users in the directory. For background information about cluster users, see [Managing Cluster Users](https://technet.microsoft.com/library/ff919335(v=ws.11).aspx).
 

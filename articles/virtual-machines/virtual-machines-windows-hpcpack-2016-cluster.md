@@ -126,7 +126,7 @@ Click **Review legal terms** to review the terms. If you agree, click **Purchase
 ## Connect to the cluster
 1. After the HPC Pack cluster is deployed, go to the [Azure portal](https://portal.azure.com). Click **Resource groups**, and find the resource group in which the cluster was deployed. You can find the head node virtual machines.
 
-![Cluster head nodes in the portal](./media/virtual-machines-windows-hpcpack-2016-cluster/clusterhns.png)
+    ![Cluster head nodes in the portal](./media/virtual-machines-windows-hpcpack-2016-cluster/clusterhns.png)
 
 2. Click one head node (in a high-availability cluster, click any of the head nodes). In **Essentials**, you can find the public IP address or full DNS name of the cluster.
 
