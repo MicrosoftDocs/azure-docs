@@ -21,7 +21,7 @@ ms.author: erikje
 [Plans](azure-stack-key-features.md) are groupings of one or more services. As a provider, you can create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include. This example shows you how to create a plan that includes the compute, network, and storage resource providers. This plan gives subscribers the ability to provision virtual machines.
 
 1. In an internet browser, navigate to https://portal.azurestack.local.
-2. [Sign in](azure-stack-connect-azure-stack.md) to the Azure Stack Portal as a service administrator and enter your service administrator credentials. These are the credentials for the account that you created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section).
+2. [Sign in](azure-stack-connect-azure-stack.md) to the Azure Stack Portal as a service administrator. Enter the credentials for the account that you created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section.
 
    Service administrators can create offers and plans, and manage users.
 3. To create a plan and offer that tenants can subscribe to, click **New** > **Tenant Offers + Plans** > **Plan**.
