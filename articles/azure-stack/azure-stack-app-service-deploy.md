@@ -129,14 +129,14 @@ The deployment will take about 45-60 minutes to complete.
 ## Register the newly deployed App Service provider with Azure Resource Manager
 1.	Open a PowerShell instance as **azurestack\administrator**.
 2.	Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
-3.	Run the **Register-AppServiceResourceProvider.ps1** script. 
+3.	Run the **Register-AppServiceResourceProvider.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example myazurestack.onmicrosoft.com.
 4. 	In the Azure Stack Authentication window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.
 **Note:** Enter the Azure Active Directory account that you provided when you deployed Azure Stack.
 
 ## Register the App Service Gallery Items in the Azure Stack Gallery.
 1.  Open a PowerShell instance as **azurestack\administrator**.
 2.  Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
-3.  Run the **Register-AppServiceGalleryItems.ps1** script.
+3.  Run the **Register-AppServiceGalleryItems.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example myazurestack.onmicrosoft.com.
 4.  In the Azure Stack Authentication window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.
 **Note:** Enter the Azure Active Directory account that you provided when you deployed Azure Stack.
 
