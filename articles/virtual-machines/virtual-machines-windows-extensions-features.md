@@ -23,7 +23,7 @@ ms.author: nepeters
 ## Azure VM extensions
 Azure Virtual Machine extensions are small applications that provide post deployment configuration and automation task on Azure Virtual Machines. For example, if a Virtual Machine requires software to be installed, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Resource Manage templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment, or run against any existing system.
 
-This document provides prerequisites for Azure Virtual Machine extension, and guidance on how to detect available VM extensions. 
+This document provides an overview of virtual machine extenstion, prerequisites for Azure Virtual Machine extension, and guidance on how to detect, manage, and remove virtual mahcine extensions. Additional in-depth documentation will be provided for several specific virtual mahcine extensions.
 
 ## Use cases and samples
 
@@ -149,4 +149,3 @@ Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name 
 | Custom Script Extension for Windows |Run scripts against an Azure Virtual Machine |[Custom Script Extension for Windows](virtual-machines-windows-extensions-customscript.md) |
 | DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension. |[Docker VM Extension](virtual-machines-windows-extensions-dsc-overview.md) |
 | Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-
