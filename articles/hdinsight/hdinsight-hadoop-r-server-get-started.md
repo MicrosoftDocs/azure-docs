@@ -377,28 +377,38 @@ myHadoopCluster <- rxSparkConnect(reset = TRUE)
 
 
 ```
+#..create a Spark compute context
+
+myHadoopCluster <- rxSparkConnect(reset = TRUE)
+rxSetComputeContext(myHadoopCluster)
+```
+
+
+```
 #..retrieve some sample data from Hive and run a model 
 
 hiveData <- RxHiveData("select * from hivesampletable", 
                  colInfo = list(devicemake = list(type = "factor")))
 rxGetInfo(hiveData, getVarInfo = TRUE)
 
-rxSetComputeContext(myHadoopCluster)
 rxLinMod(querydwelltime ~ devicemake, data=hiveData)
 ```
 
+
 ```
-#..retrieve some sample data from Parquet and run a model
-pqData <- RxParquetData("/share/SampleData/AirlineDemoSmallParquet")
+#..retrieve some sample data from Parquet and run a model 
+
+pqData <- RxParquetData("/share/SampleData/AirlineDemoSmallParquet",
+         colInfo = list(DayOfWeek = list(type = "factor")))
 rxGetInfo(pqData, getVarInfo = TRUE)
 
-rxSetComputeContext(myHadoopCluster)
-rxLinMod(ArrDelay~CRSDepTime + DayOfWeek, data = pqData)
-```   
- 
-
+rxLinMod(ArrDelay~CRSDepTime + DayOfWeek, data = pqData)   
 ```
-#..check on Spark data objects, cleanup, and close the Spark session
+
+
+``` 
+#..check on Spark data objects, cleanup, and close the Spark session 
+
 ls <- rxSparkListData() # two data objs are cached
 rxSparkRemoveData(ls)
 rxSparkListData() # it should show empty list

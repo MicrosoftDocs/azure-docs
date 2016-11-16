@@ -26,11 +26,10 @@
 # Reference
 ## [Quotas and limits](event-hubs-quotas.md)
 ## [Messaging exceptions](event-hubs-messaging-exceptions.md)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [Java](/java/api)
+## [.NET](/dotnet/api)
 ## [AMQP1.0 protocol guide](../service-bus-messaging/service-bus-amqp-protocol-guide.md)
-## [Event Processor Host API reference](https://msdn.microsoft.com/library/microsoft.servicebus.messaging)
-## [REST](/rest/api/eventhub/)
+## [REST](/rest/api/eventhub)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/en-us/pricing/details/event-hubs/)
