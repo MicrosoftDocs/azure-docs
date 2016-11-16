@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Data Lake Analytics using Azure Command-line Interface | Microsoft Docs
-description: 'Learn how to use the Azure Command-line Interface to create a Data Lake Store account, create a Data Lake Analytics job using U-SQL, and submit the job. '
+description: 'Learn how to use the Azure Command-line Interface to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. '
 services: data-lake-analytics
 documentationcenter: ''
 author: edmacauley
