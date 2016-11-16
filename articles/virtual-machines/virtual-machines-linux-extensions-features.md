@@ -24,18 +24,18 @@ ms.author: nepeters
 
 Azure Virtual Machine extensions are small applications that perform post deployment configuration and automation task on Azure Virtual Machines. For example, if a Virtual Machine requires software to be installed, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Resource Manage templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment, or run against an existing system.
 
-This document provides an overview of Azure virtual machine extensions, prerequisites, and guidance on how to detect, manage, and remove virtual machine extensions. Additional in-depth documentation will be provided for several specific extensions.
+This document provides an overview of Azure virtual machine extensions, prerequisites, and guidance on how to detect, manage, and remove virtual machine extensions. Additional in-depth documentation is provided for several specific extensions.
 
 ## Use cases and samples
 
-Several different Azure VM extensions are available, each with a specific use case. Some example are:
+Several different Azure VM extensions are available, each with a specific use case. Some examples are:
 
 - Apply PowerShell Desired State Configurations to a virtual machine using the DSC extension for Linux. For more information, see [Azure Desired State configuration extension](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
 - Configure monitoring of a virtual machine with the Microsoft Monitoring Agent VM extension. For more information, see [Enable or disable VM monitoring](virtual-machines-linux-vm-monitoring.md). 
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure a Docker host on an Azure virtual machine using the Docker VM extension. For more information, see [Docker VM extension](virtual-machines-linux-dockerextension.md).
 
-In addition to process specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any bash script to be run on a virtual machine. This becomes very powerful when designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](virtual-machines-linux-extensions-customscript.md).
+In addition to process specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any bash script to be run on a virtual machine. This becomes powerful when designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](virtual-machines-linux-extensions-customscript.md).
 
 To see how a VM extension can be used in an end to end Azure deployment, check out [Automating application deployments to Azure Virtual Machines](virtual-machines-linux-dotnet-core-1-landing.md).
 
@@ -86,13 +86,13 @@ info:    vm extension set command OK
 
 VM extension can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine > extensions > and click add. Doing so provides a list of available extensions. Select the one you want, which provides a wizard for configuration. 
 
-The following image depicts the installation of the Linux custom script extion from the Azure portal.
+The following image depicts the installation of the Linux custom script extension from the Azure portal.
 
 ![Antimalware Extension](./media/virtual-machines-linux-extensions-features/script-extension-linux.jpg)
 
 ### Azure Resource Manager templates
 
-VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. Deploying extension with a template is useful for creating fully configured Azure deployments. For example, the following JSON is taken from a Resource Manager template that deploys a set of load balanced virtual machines, an Azure SQL database, and then installs and configures a .Net Core application on each virtual machine. The VM extension takes care of the software installation. 
+VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. Deploying extension with a template is useful for creating fully configured Azure deployments. For example, the following JSON is taken from a Resource Manager template that deploys a set of load balanced virtual machines, an Azure SQL database, and installs a .Net Core application on each VM. The VM extension takes care of the software installation. 
 
 The full Resource Manager template can be found [here](https://github.com/Microsoft/dotnet-core-sample-templates/tree/master/dotnet-core-music-linux).
 
@@ -154,7 +154,7 @@ info:    vm extension get command OK         :
 
 ### Rerunning VM Extension 
 
-There may be cases where a virtual machine extension needs to be re-run. This can be accomplished by removing the extension, and then re-running the extension with an execution method of your choice. To remove an extension, run the following command with the Azure CLI. Replace example parameter names with your own values.
+There may be cases where a virtual machine extension needs to be rerun. This can be accomplished by removing the extension, and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure CLI. Replace example parameter names with your own values.
 
 ```azurecli
 azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0

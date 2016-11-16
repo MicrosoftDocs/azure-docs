@@ -23,13 +23,13 @@ ms.author: nepeters
 ## Azure VM extensions
 Azure Virtual Machine extensions are small applications that provide post deployment configuration and automation task on Azure Virtual Machines. For example, if a Virtual Machine requires software to be installed, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Resource Manage templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment, or run against any existing system.
 
-This document provides an overview of virtual machine extenstion, prerequisites for Azure Virtual Machine extension, and guidance on how to detect, manage, and remove virtual mahcine extensions. Additional in-depth documentation will be provided for several specific virtual mahcine extensions.
+This document provides an overview of virtual machine extensions, prerequisites for Azure Virtual Machine extension, and guidance on how to detect, manage, and remove virtual machine extensions. Additional in-depth documentation is provided for several specific virtual machine extensions.
 
 ## Use cases and samples
 
 There are many different Azure VM extensions available, each with a specific use case. Some example use cases are:
 
-- Apply PowerShell Desired State Configurations to an virtual machine using the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](virtual-machines-windows-extensions-dsc-overview.md).
+- Apply PowerShell Desired State Configurations to a virtual machine using the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](virtual-machines-windows-extensions-dsc-overview.md).
 - Configure monitoring of virtual machines with using the Microsoft Monitoring Agent VM extension. For more information, see [Connect Azure virtual machines to Log Analytics](../log-analytics/log-analytics-azure-vm-extension.md). 
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure an Azure virtual machine using Chef. For more information, see [Automating Azure virtual machine deployment with Chef](virtual-machines-windows-chef-automation.md).
@@ -137,7 +137,7 @@ ForceUpdateTag          :
 
 ### Rerunning VM Extension 
 
-There may be cases where a virtual machine extension needs to be re-run. This can be accomplished by removing the extension, and then re-running the extension with an execution method of your choice. To remove an extension, run the following command with the Azure PowerShell module. Replace example parameter names with your own values.
+There may be cases where a virtual machine extension needs to be rerun. This can be accomplished by removing the extension, and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure PowerShell module. Replace example parameter names with your own values.
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
