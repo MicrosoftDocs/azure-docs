@@ -21,7 +21,10 @@ ms.author: saudas
 ---
 # Using the Azure CLI 2.0 preview to create an Azure Container Service cluster
 
-You can install the Azure CLI 2.0 preview using the instructions provided [here](https://github.com/Azure/azure-cli).
+To create an Azure Container Service cluster, you need:
+* an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
+* the [Azure CLI v. 2.0 (Preview)](https://github.com/Azure/azure-cli#installation) installed
+* to be logged in to your Azure account (type [az login](/cli/azure/#login))
 
 ## Log in to your account
 ```
