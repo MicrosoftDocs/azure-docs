@@ -1,4 +1,4 @@
-If you use a parameter file to pass parameter values during deployment, you need to create a JSON file with a format similar to the following example.
+If you use a parameter file to pass parameter values during deployment, you need to create a JSON file with a format similar to the following example:
 
     {
         "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
