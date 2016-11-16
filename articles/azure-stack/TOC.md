@@ -48,8 +48,6 @@
 ## [Create and publish a Marketplace item](azure-stack-create-and-publish-marketplace-item.md)
 ## [Add a custom virtual machine image](azure-stack-add-vm-image.md)
 
-# [Tools](azure-stack-tools-paas-services.md)
-
 # Manage secure values with Key Vault
 ## [Introduction](azure-stack-kv-intro.md)
 ## [Getting started](azure-stack-kv-getting-started.md)
@@ -63,24 +61,23 @@
 ## [Tenant resource usage API](azure-stack-tenant-resource-usage-api.md)
 ## [Usage FAQ](azure-stack-usage-related-faq.md)
 
-# Deploy SQL or MySQL resource provider
-## [Use MySQL databases as PaaS on Azure Stack](azure-stack-mysql-rp-deploy-short.md)
-## [Deploy the SQL Server Resource Provider Adapter on Azure Stack](azure-stack-sql-rp-deploy-long.md)
-## [Use SQL databases on Azure Stack](azure-stack-sql-rp-deploy-short.md)
-
-# Plan and deploy Web Apps
-## [Azure Stack Web Apps Overview](azure-stack-webapps-overview.md)
-## [Before you get started with Azure Stack Web Apps](azure-stack-webapps-before-you-get-started.md)
-## [Deploy the MySQL Resource Provider on Azure Stack to use with WebApps](azure-stack-mysql-rp-deploy-long.md)
-## [Web Apps: Adding more web worker roles](azure-stack-webapps-add-worker-roles.md)
-## [Add a Web Apps resource provider to Azure Stack](azure-stack-webapps-deploy.md)
-
 # Other scenarios
 ## [Manage user permissions](azure-stack-manage-permissions.md)
 ## [Add an Azure Stack tenant](azure-stack-add-new-user-aad.md)
 ## [Deploy Linux virtual machines](azure-stack-linux.md)
 ## [Manage updates](azure-stack-updates.md)
 ## [Develop for Azure Stack](azure-stack-developer.md)
+## Deploy SQL or MySQL resource provider
+### [Use MySQL databases as PaaS on Azure Stack](azure-stack-mysql-rp-deploy-short.md)
+### [Deploy the SQL Server Resource Provider Adapter on Azure Stack](azure-stack-sql-rp-deploy-long.md)
+### [Use SQL databases on Azure Stack](azure-stack-sql-rp-deploy-short.md)
+
+## Plan and deploy Web Apps
+### [Azure Stack Web Apps Overview](azure-stack-webapps-overview.md)
+### [Before you get started with Azure Stack Web Apps](azure-stack-webapps-before-you-get-started.md)
+### [Deploy the MySQL Resource Provider on Azure Stack to use with WebApps](azure-stack-mysql-rp-deploy-long.md)
+### [Web Apps: Adding more web worker roles](azure-stack-webapps-add-worker-roles.md)
+### [Add a Web Apps resource provider to Azure Stack](azure-stack-webapps-deploy.md)
 
 # Troubleshoot
 ## [Troubleshoot Azure Stack](azure-stack-troubleshooting.md)
@@ -88,5 +85,6 @@
 ## [Web Apps Resource Provider](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # Resources
+## [Tools](azure-stack-tools-paas-services.md)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-stack)
