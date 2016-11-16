@@ -29,6 +29,7 @@ App Service on Linux currently supports the following application stacks:
 
 * Node.js
 * PHP
+* .Net Core
 
 Customers can deploy their applications by using:
 
@@ -70,4 +71,5 @@ See the following links to get started with App Service on Linux. You can post q
 * [Creating Web Apps in App Service on Linux](app-service-linux-how-to-create-a-web-app.md)
 * [How to use a custom Docker image for App Service on Linux](app-service-linux-using-custom-docker-image.md)
 * [Using PM2 Configuration for Node.js in Web Apps on Linux](app-service-linux-using-nodejs-pm2.md)
+* [Using .NET Core in Azure App Service Web Apps on Linux](app-service-linux-intro.md)
 

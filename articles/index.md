@@ -1,4 +1,4 @@
---- 
+---
 layout: HubPage
 hide_bc: true
 title: Microsoft Azure Documentation
@@ -102,6 +102,12 @@ title: Microsoft Azure Documentation
                                             <a href="/azure/container-service/">
                                                 <img src="media/index/ContainerService.svg" alt="" />
                                                 <p>Azure Container Service</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/container-registry/">
+                                                <img src="media/index/ContainerService.svg" alt="" />
+                                                <p>Azure Container Registry</p>
                                             </a>
                                         </li>
                                         <li>
@@ -317,12 +323,12 @@ title: Microsoft Azure Documentation
                                                 <p>Power BI Embedded</p>
                                             </a>
                                         </li>
-                                        <!-- <li>
+                                        <li>
                                             <a href="/azure/analysis-services/">
                                                 <img src="media/index/AnalysisServices.svg" alt="" />
                                                 <p>Analysis Services</p>
                                             </a>
-                                        </li> -->
+                                        </li>
                                     </ul>
                                     <h3>Developer Tools</h3>
                                     <ul>
@@ -645,7 +651,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Windows Virtual Machines</h3>
-                                                    <p>Provision virtual machines for SQL Server, SharePoint and more</p>
+                                                    <p>Provision virtual machines for SQL Server, SharePoint, and more</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -703,6 +709,25 @@ title: Microsoft Azure Documentation
                                                 <div class="cardText">
                                                     <h3>Azure Container Service</h3>
                                                     <p>Use Docker based tools to deploy and manage containers</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/container-registry/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure Container Registry</h3>
+                                                    <p>Store and manage images for all types of container deployments</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -961,7 +986,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Storage</h3>
-                                                    <p>Durable, highly available and massively scalable cloud storage</p>
+                                                    <p>Durable, highly available, and massively scalable cloud storage</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1195,7 +1220,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Search</h3>
-                                                    <p>Fully-managed search-as-a-service</p>
+                                                    <p>Fully managed search-as-a-service</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1376,7 +1401,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>Powerful cloud based predictive analytics tool to enable predictive maintenance</p>
+                                                    <p>Powerful cloud-based predictive analytics tool to enable predictive maintenance</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1497,6 +1522,25 @@ title: Microsoft Azure Documentation
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="/azure/analysis-services/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/PowerBIEmbedded.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Analysis Services</h3>
+                                                    <p>Enterprise-grade data modeling in the cloud</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -1590,7 +1634,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Machine Learning</h3>
-                                                    <p>Powerful cloud based predictive analytics tool to enable predictive maintenance</p>
+                                                    <p>Powerful cloud-based predictive analytics tool to enable predictive maintenance</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1690,7 +1734,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Management</h3>
-                                                    <p>Publish APIs to developers, partners and employees securely and at scale</p>
+                                                    <p>Publish APIs to developers, partners, and employees securely and at scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1771,7 +1815,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Security Center</h3>
-                                                    <p>Prevent, detect and respond to threats with increased visibility</p>
+                                                    <p>Prevent, detect, and respond to threats with increased visibility</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1893,7 +1937,7 @@ title: Microsoft Azure Documentation
                                 </a>
                             </li>
                         </ul>
-                    </li> 
+                    </li>
                     <li>
                         <a href="#devtools">Developer Tools</a>
                         <ul id="devtools" class="cardsA">
@@ -1966,7 +2010,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>API Management</h3>
-                                                    <p>Publish APIs to developers, partners and employees securely and at scale</p>
+                                                    <p>Publish APIs to developers, partners, and employees securely and at scale</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2104,7 +2148,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Scheduler</h3>
-                                                    <p>Run your jobs on simple or comples recurring schedules</p>
+                                                    <p>Run your jobs on simple or complex recurring schedules</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2142,7 +2186,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Monitor</h3>
-                                                    <p>Highly granular and real-time monitorign data for any Azure resource</p>
+                                                    <p>Highly granular and real-time monitoring data for any Azure resource</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2286,7 +2330,7 @@ title: Microsoft Azure Documentation
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs/">Get the Nodejs SDK</a>
+                                                    <a href="https://azure.microsoft.com/develop/nodejs/">Get the Node.js SDK</a>
                                                 </h3>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/develop/nodejs">Get started</a>

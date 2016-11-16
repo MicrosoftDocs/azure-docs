@@ -1,9 +1,6 @@
 ---
 layout: LandingPage
 ---
----
-layout: LandingPage
----
 # Analysis Services Documentation
 
 Built on the proven analytics engine in Microsoft SQL Server Analysis Services, Azure Analysis Services provides enterprise-grade data modeling in the cloud.
@@ -16,7 +13,7 @@ Built on the proven analytics engine in Microsoft SQL Server Analysis Services, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/analysis-services.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -34,7 +31,7 @@ Built on the proven analytics engine in Microsoft SQL Server Analysis Services, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -52,7 +49,7 @@ Built on the proven analytics engine in Microsoft SQL Server Analysis Services, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
