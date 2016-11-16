@@ -45,13 +45,13 @@ ms.author: erikje
 9. Click **Microsoft.Network (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
     ![](media/azure-stack-create-plan/image07.png)
-10. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
+10. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **OK**.
 
     ![](media/azure-stack-create-plan/image08.png)
 11. Click **Microsoft.Compute (local)**, and then either select the default quota or click **Create new quota** to customize the quota.
 
     ![](media/azure-stack-create-plan/image09.png)
-12. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **Create**.
+12. Type a name for the quota, click **Quota Settings**, set the quota values and click **OK**, and then click **OK**.
 
     ![](media/azure-stack-create-plan/image10.png)
 13. In the **Quotas** blade, click **OK**, and then in the **New Plan** blade, click **Create** to create the plan.
