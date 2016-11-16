@@ -18,7 +18,7 @@ ms.author: jeffstok
 
 ---
 # Get started using R Server on HDInsight
-The premium tier offering for HDInsight includes R Server as part of your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. In this document, you will learn how to create a new R Server on HDInsight, then run an R script that demonstrates using Spark for distributed R computations.
+HDInsight includes an R Server option to be integrated into your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. In this document, you will learn how to create a new R Server on HDInsight, then run an R script that demonstrates using Spark for distributed R computations.
 
 ![Diagram of the workflow for this document](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 
@@ -341,7 +341,7 @@ A compute context allows you to control whether computation will be performed lo
         summary(modelSpark)
    
    > [!NOTE]
-   > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for R Server on HDInsight premium](hdinsight-hadoop-r-server-compute-contexts.md).
+   > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
    > 
    > 
 
@@ -444,9 +444,9 @@ Script Actions are Bash scripts that are used to make configuration changes to t
 ## Next steps
 Now that you understand how to create a new HDInsight cluster that includes R Server, and the basics of using the R console from an SSH session, use the following to discover other ways of working with R Server on HDInsight.
 
-* [Add RStudio Server to HDInsight premium](hdinsight-hadoop-r-server-install-r-studio.md)
-* [Compute context options for R Server on HDInsight premium](hdinsight-hadoop-r-server-compute-contexts.md)
-* [Azure Storage options for R Server on HDInsight premium](hdinsight-hadoop-r-server-storage.md)
+* [Add RStudio Server to HDInsight](hdinsight-hadoop-r-server-install-r-studio.md)
+* [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
+* [Azure Storage options for R Server on HDInsight](hdinsight-hadoop-r-server-storage.md)
 
 ### Azure Resource Manager templates
 If you're interested in automating the creation of R Server on HDInsight using Azure Resource Manager templates, see the following example templates.
