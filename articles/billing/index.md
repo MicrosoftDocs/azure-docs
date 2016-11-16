@@ -7,7 +7,7 @@ Customers and partners require the ability to accurately predict and manage thei
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/billing-usage-rate-card-overview">
+        <a href="/azure/billing/billing-understand-your-bill">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ Customers and partners require the ability to accurately predict and manage thei
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/free/">
+        <a href="https://azure.microsoft.com/free">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
