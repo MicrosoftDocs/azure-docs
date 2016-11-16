@@ -26,7 +26,7 @@ The Azure DocumentDB Emulator provides a local environment that emulates the Azu
 
 We recommend getting started by watching the following video, where Kirill Gavrylyuk shows how to get started with the DocumentDB Emulator.
 
-> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/DataExposedQueryingDocumentDB/player]
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
 > 
 > 
 
