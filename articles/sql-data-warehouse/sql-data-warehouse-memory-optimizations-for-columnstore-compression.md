@@ -67,7 +67,7 @@ If possible, design the table with fewer columns. When a rowgroup is compressed 
 
 
 ### Use fewer string columns
-Columns of string data types require significantly more memory than numeric and date data types. To reduce memory requirements, consider removing string columns from fact tables and putting them in smaller dimension tables.
+Columns of string data types require more memory than numeric and date data types. To reduce memory requirements, consider removing string columns from fact tables and putting them in smaller dimension tables.
 
 Additional memory requirements for string compression:
 
@@ -84,11 +84,11 @@ Another reason to avoid over-partitioning is there is a memory overhead for load
 
 The database shares the memory grant for a query among all the operators in the query. When a load query has complex sorts and joins, the memory available for compression is reduced.
 
-Design the load query to focus only on loading the query. If you need to run transformations on the data,  run them separate from the load query. For example, stage the data in a heap table, run the transformations, and then load the staging table into the columnstore index. You can also load the data first and then use the MPP system to transform the data.
+Design the load query to focus only on loading the query. If you need to run transformations on the data, run them separate from the load query. For example, stage the data in a heap table, run the transformations, and then load the staging table into the columnstore index. You can also load the data first and then use the MPP system to transform the data.
 
 ### Adjust MAXDOP
 
-Each distribution compresses rowgroups into the columnstore in parallel when there is more than one CPU core available per distribution. The parallelism requires additional memory resources which can lead to memory pressure and rowgroup trimming. 
+Each distribution compresses rowgroups into the columnstore in parallel when there is more than one CPU core available per distribution. The parallelism requires additional memory resources, which can lead to memory pressure and rowgroup trimming. 
 
 To reduce memory pressure, you can use the MAXDOP query hint to force the load operation to run in serial mode within each distribution.
 
