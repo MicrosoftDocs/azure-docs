@@ -25,8 +25,10 @@ In a mobile first, cloud first world, Azure Active Directory enables your users 
 - Empower the end users to be able to do what they want to do
 - Protect the corporate assets at any time
 
-While Azure Active Directory provides your users with a broad range of options to access your corporate assets, what if you have good reasons to limit these options under certain conditions? What if you even have conditions under which you want to block access to certain resources?  
-Conditional access is a capability of Azure Active Directory that enables you to address these questions using a policy-based approach. A policy-based approach simplifies your configuration experience because it follows the way you think about your requirements. Typically, you define your requirements using statements that are based on the following pattern:
+While providing your users with a broad range of options to access your corporate assets helps to improve productivity, it can become a nightmare to IT admins that are in charge of protecting your assets. Azure Active Directory enables you to configure who can access your resources; however, what if you have good reasons to limit the access options under certain conditions? What if you even have conditions under which you want to block access to certain resources?  
+
+Conditional access is a capability of Azure Active Directory that enables you to address these questions using a policy-based approach. A policy-based approach simplifies your configuration experience because it follows the way you think about your access requirements.  
+Typically, you define your access requirements using statements that are based on the following pattern:
 
 When *this* happens, then do *this*.
 
@@ -34,12 +36,14 @@ When you replace the two occurrences of “*this*” with real-world information
 
 *When contractors are trying to access our cloud apps from networks that are not trusted, then block access.*
 
+The policy statement above highlights the power of conditional access. While you can enable contractors to basically access your cloud apps, you can define conditions under which the access is possible. 
 
 In the context of Azure Active Directory conditional access, 
 
 - "**When this happens**" is called **condition statement**
 - "**Then do this**" is called **controls**
 
+The combination of a condition statement with your controls represents a conditional access policy.
 
 ## Controls
 
@@ -64,27 +68,36 @@ If you have more than one requirement selected in a conditional access policy, y
 
 ## Condition Statement
 
-The previous section has introduced you to supported options to block or finetune access to your resources in form of controls. In a conditional access policy, you define the criteria that need to be met for your controls to be applied in form of a condition statement.  
+The previous section has introduced you to supported options to block or fine-tune access to your resources in form of controls. In a conditional access policy, you define the criteria that need to be met for your controls to be applied in form of a condition statement.  
 
 You can include the following assignments into your condition statement:
-
-![Control](./media/active-directory-conditional-access-azure-portal/07.png)
     
-- Users and groups
-
-- Cloud apps
-
-- Conditions
+![Control](./media/active-directory-conditional-access-azure-portal/07.png)
 
 
+- **Who** - In many cases, you want your controls to be applied to a specific set of users. In a condition statement, you can define this set by selecting the users and groups your policy applies to. If necessary, you can also explicitly exclude a set of users from your policy to avoid that the wrong people are affected by a policy.  
+By selecting users and groups, you define the scope of users your policy applies to.    
+
+	![Control](./media/active-directory-conditional-access-azure-portal/08.png)
 
 
 
-## Conditions
+- **What** - Typically, there are certain apps that are running in your environment requiring, from a protection perspective, more attention than others. This affects, for example, apps that have access to sensitive data. By selecting cloud apps, you can narrow down the scope of apps by selecting them. If necessary, you can also explicitly exclude a set of apps from your policy.  
+By selecting cloud apps, you define the scope of cloud apps your policy applies to. 
 
-Conditions define the criteria that need to be met for your conditional access policy to be applied. In the current implementation of Azure Active Directory, you can define conditions for the following areas:
+	![Control](./media/active-directory-conditional-access-azure-portal/09.png)
 
-![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
+
+- **How** - As long as access to your apps is performed under conditions you can control, there might be no need for imposing additional controls on how your cloud apps are accessed by your users. However, things might look different if access to your cloud apps is performed, for example, from networks that are not trusted or devices that are not compliant. In a condition statement, you can define certain access conditions that have additional requirements for how access to your apps is performed.
+
+	![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
+
+
+## Access Conditions
+
+With access conditions, you cover how access to your cloud apps is performed.  
+In the current implementation of Azure Active Directory, you can define conditions for the following areas:
+
 
 - **Device platforms** – The device platform is characterized by the operating system that is running on your device (Android, iOS, Windows Phone, Windows). You can define the device platforms that are included as well as device platforms that are exempted from a policy.
 
