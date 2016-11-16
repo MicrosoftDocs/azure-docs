@@ -48,48 +48,66 @@ Service Map enhances your use of OMS System Update Assessment by showing you whi
 ## Mapping Overview
 Service Map agents gather information about all TCP-connected processes on the server where they’re installed, as well as details about the inbound and outbound connections for each process.  Using the Machine List on the left side of the Service Map solution, machines with Service Map agents can be selected to visualize their dependencies over a selected time range.  Machine dependency maps focus on a specific machine, and show all the machines that are direct TCP clients or servers of that machine.
 
-![Service Map overview](media/operations-management-suite-application-dependency-monitor/adm-overview.png)
+![Service Map overview](media/oms-service-map/service-map-overview.png)
 
 Machines can be expanded in the map to show the running processes with active network connections during the selected time range.  When a remote machine with a Service Map agent is expanded to show process details, only those processes communicating with the focus machine are shown.  The count of agentless front-end machines connecting into the focus machine is indicated on the left side of the processes they connect to.  If the focus machine is making a connection to a back-end machine without an agent, that back-end is represented with a node in the map that shows its IPv4 address, and the node can be expanded to show individual ports and services that the focus machine is communicating with.
 
 By default, Service Map maps show the last 10 minutes of dependency information.  Using the time controls in the upper left, maps can be queried for historical time ranges, up to one-hour wide, to show how dependencies looked in the past, e.g. during an incident or before a change occurred.    Service Map data is stored for 30 days in paid workspaces, and for 7 days in free workspaces.
 
-![Machine map with selected machine properties](media/operations-management-suite-application-dependency-monitor/machine-map.png)
+![Machine map with selected machine properties](media/oms-service-map/machine-map.png)
 
 ## Failed Connections
 Failed Connections are shown in Service Map maps for processes and computers, with a dashed red line showing if a client system is failing to reach a process or port.  Failed connections are reported from any system with a deployed Service Map agent if that system is the one attempting the failed connection.  Service Map measures this by observing TCP sockets that fail to establish a connection.  This could be due to a firewall, a misconfiguration in the client or server, or a remote service being unavailable.
 
-![Failed connections](media/operations-management-suite-application-dependency-monitor/failed-connections.png)
+![Failed connections](media/oms-service-map/failed-connections.png)
 
 Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding.  Sometimes failed connections are harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, …or two application tiers not being able to talk after a cloud migration.  In the image above, IIS and WebSphere are both running, but they can’t connect.
 
 ## Computer and Process Properties
 When navigating a Service Map map, you can select machines and processes to gain additional context about their properties.  Machines provide information about DNS name, IPv4 addresses, CPU and Memory capacity, VM Type, Operating System version, Last Reboot time, and the IDs of their OMS and Service Map agents.
 
-Process	 details are gathered from Operating System metadata about running processes, including process name, process description, user name and domain (on Windows), company name, product name, product version, working directory, command line, and process start time.
+![Machine properties](media/oms-service-map/machine-properties.png)
 
-![Process properties](media/operations-management-suite-application-dependency-monitor/process-properties.png)
+Process	details are gathered from Operating System metadata about running processes, including process name, process description, user name and domain (on Windows), company name, product name, product version, working directory, command line, and process start time.
+
+![Process properties](media/oms-service-map/process-properties.png)
 
 The Process Summary panel provides additional information about that process’s connectivity, including its bound ports, inbound and outbound connections, and failed connections.
 
-![Process summary](media/operations-management-suite-application-dependency-monitor/process-summary.png)
+![Process summary](media/oms-service-map/process-summary.png)
+
+## Computer Summary
+The Machine Summary panel includes an overview of a server's Operating System and dependency counts along with a variety of data from other OMS solutions, including Performance Metrics, Change Tracking, Security, Updates, etc.
+
+![Machine summary](media/oms-service-map/machine-summary.png)
 
 ## OMS Change Tracking Integration
-ADM’s integration with Change Tracking is automatic when both solutions are enabled and configured in your OMS workspace.
-
-The Machine Summary Panel indicates whether Change Tracking events have occurred on the selected machine during the selected time range.
-
-![Machine Summary Panel](media/operations-management-suite-application-dependency-monitor/machine-summary.png)
+Service Map's integration with Change Tracking is automatic when both solutions are enabled and configured in your OMS workspace.
 
 The Machine Change Tracking Panel shows a list of all changes, with the most recent first, along with a link to drill into Log Search for additional details.
-![Machine Change Tracking Panel](media/operations-management-suite-application-dependency-monitor/machine-change-tracking.png)
+![Machine Change Tracking Panel](media/oms-service-map/change-tracking.png)
 
 Following is a drill down view of Configuration Change event after selecting **Show in Log Analytics**.
-![Configuration Change Event](media/operations-management-suite-application-dependency-monitor/configuration-change-event.png)
+![Configuration Change Event](media/oms-service-map/configuration-change-event.png)
+
+
+## OMS Performance Integration
+The Machine Performance Panel shows standard performance metrics for the selected server.  The metrics include CPU Utilization, Memory Utilization, Network Bytes Sent and Received, and a list of the top processes by Network Bytes sent and received.
+![Machine Change Tracking Panel](media/oms-service-map/machine-performance.png)
+
+
+## OMS Security Integration
+The Machine Security Panel shows data from the OMS Security and Audit solution for the selected server.  The panel will list a summary of any outstanding security issues for the server during the selected time range.  Clicking on any of the security issues will drill down into a Log Search for details about the security issues.
+![Machine Change Tracking Panel](media/oms-service-map/machine-security.png)
+
+
+## OMS Updates Integration
+The Machine Updates Panel shows data from the OMS Update Management solution for the selected server.  The panel will list a summary of any missing updates for the server during the selected time range.
+![Machine Change Tracking Panel](media/oms-service-map/machine-updates.png)
 
 
 ## Log Analytics records
-ADM’s computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics.  This can be applied to scenarios including migration planning, capacity analysis, discovery, and ad hoc performance troubleshooting.
+Service Map's computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics.  This can be applied to scenarios including migration planning, capacity analysis, discovery, and ad hoc performance troubleshooting.
 
 One record is generated per hour for each unique computer and process in addition to records generated when that process or computer starts or is on-boarded to Service Map.  These records have the properties in the following tables.
 
@@ -158,36 +176,22 @@ Records with a type of **ServiceMapProcess_CL** have inventory data for TCP-conn
 ### List the physical memory capacity of all managed computers.
 Type=ServiceMapComputer_CL | select TotalPhysicalMemory_d, ComputerName_s | Dedup ComputerName_s
 
-![Service Map query example](media/operations-management-suite-application-dependency-monitor/adm-example-01.png)
-
 ### List computer name, DNS, IP, and OS version.
 Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemVersion_s, DnsNames_s, IPv4s_s  | dedup ComputerName_s
-
-![Service Map query example](media/operations-management-suite-application-dependency-monitor/adm-example-02.png)
 
 ### Find all processes with "sql" in the command line
 Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ProcessId_s
 
-![Service Map query example](media/operations-management-suite-application-dependency-monitor/adm-example-03.png)
-
 ### After viewing event data for given process, use its machine ID to retrieve the computer’s name
 Type=ServiceMapComputer_CL "m!m-9bb187fa-e522-5f73-66d2-211164dc4e2b" | Distinct ComputerName_s
-
-![Service Map query example](media/operations-management-suite-application-dependency-monitor/adm-example-04.png)
 
 ### List all computers running SQL
 Type=ServiceMapComputer_CL MachineId_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineId_s} | Distinct ComputerName_s
 
-![Service Map query example](media/operations-management-suite-application-dependency-monitor/adm-example-05.png)
-
 ### List of all unique product versions of curl in my datacenter
 Type=ServiceMapProcess_CL Name_s=curl | Distinct ProductVersion_s
 
-![Service Map query example](media/operations-management-suite-application-dependency-monitor/adm-example-06.png)
-
 ### Create a Computer Group of all computers running CentOS
-
-![Service Map query example](media/operations-management-suite-application-dependency-monitor/adm-example-07.png)
 
 
 
