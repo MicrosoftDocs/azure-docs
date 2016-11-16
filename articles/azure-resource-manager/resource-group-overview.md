@@ -310,7 +310,7 @@ In addition to these samples, you can search through the gallery samples.
 * For a more thorough walkthrough of creating a template, see [Resource Manager Template Walkthrough](../resource-manager-template-walkthrough.md).
 * To understand the functions you can use in a template, see [Template functions](../resource-group-template-functions.md)
 * For information about using Visual Studio with Resource Manager, see [Creating and deploying Azure resource groups through Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-* For information about using VS Code with Resource Manager, see [Working with Azure Resource Manager Templates in Visual Studio Code](../resource-manager-vs-code.md).
+* For information about using VS Code with Resource Manager, see [Working with Azure Resource Manager Templates in Visual Studio Code](resource-manager-vs-code.md).
 
 Here's a video demonstration of this overview:
 

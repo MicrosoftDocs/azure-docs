@@ -29,7 +29,7 @@ ms.author: tomfitz
 
 You can view the operations for a deployment through the Azure portal. You may be most interested in viewing the operations when you have received an error during deployment so this article focuses on viewing operations that have failed. The portal provides an interface that enables you to easily find the errors and determine potential fixes.
 
-[!INCLUDE [resource-manager-troubleshoot-introduction](../includes/resource-manager-troubleshoot-introduction.md)]
+[!INCLUDE [resource-manager-troubleshoot-introduction](../../includes/resource-manager-troubleshoot-introduction.md)]
 
 ## Use deployment operations to troubleshoot
 To see the deployment operations, use the following steps:
@@ -58,7 +58,7 @@ To see the deployment operations, use the following steps:
     ![see events](./media/resource-manager-troubleshoot-deployments-portal/see-all-events.png)
 
 ## Use audit logs to troubleshoot
-[!INCLUDE [resource-manager-audit-limitations](../includes/resource-manager-audit-limitations.md)]
+[!INCLUDE [resource-manager-audit-limitations](../../includes/resource-manager-audit-limitations.md)]
 
 To see errors for a deployment, use the following steps:
 
