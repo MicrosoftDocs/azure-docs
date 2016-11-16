@@ -1,9 +1,10 @@
 # Overview
 ## [What is Azure Advisor?](advisor-overview.md)
-## [Cost recommendations](advisor-cost-recommendations.md)
-## [Performance recommendations](advisor-performance-recommendations.md)
-## [High Availability recommendations](advisor-high-availability-recommendations.md)
-## [Security recommendations](advisor-security-recommendations.md)
+## Recommendations
+### [Cost recommendations](advisor-cost-recommendations.md)
+### [Performance recommendations](advisor-performance-recommendations.md)
+### [High Availability recommendations](advisor-high-availability-recommendations.md)
+### [Security recommendations](advisor-security-recommendations.md)
 
 # Get started
 ## [Get started with Advisor ](advisor-get-started.md)
