@@ -66,9 +66,6 @@ If you have questions related to this SDK, post to [StackOverflow](http://stacko
 | --- | --- | --- |
 | [0.1.0-preview](#0.1.0-preview) |November 15, 2016 |--- |
 
-## FAQ
-[!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
-
 ## See Also
 To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
 

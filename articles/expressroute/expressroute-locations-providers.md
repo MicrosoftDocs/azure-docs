@@ -1,4 +1,4 @@
-﻿---
+---
 title: ExpressRoute locations | Microsoft Docs
 description: This article provides a detailed overview of locations where services are offered and how to connect to Azure regions.
 services: expressroute
@@ -25,7 +25,10 @@ ExpressRoute is supported across all Azure regions and locations. The following 
 
 ![Location map][0]
 
-You will have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region. The following table provides a map of Azure regions to ExpressRoute locations within a geopolitical region.
+You will have access to Azure services across all regions within a geopolitical region if you connected to at least one ExpressRoute location within the geopolitical region. 
+
+### Azure regions to ExpressRoute locations within a geopolitical region
+The following table provides a map of Azure regions to ExpressRoute locations within a geopolitical region.
 
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
 | --- | --- | --- |
@@ -37,6 +40,7 @@ You will have access to Azure services across all regions within a geopolitical 
 | **Australia** |Australia Southeast, Australia East |Melbourne, Sydney |
 | **India** |India West, India Central, India South |Chennai, Mumbai |
 
+### Regions and geopolitical boundaries for national clouds
 The table below provides information on regions and geopolitical boundaries for national clouds.
 
 | **Geopolitical region** | **Azure regions** | **ExpressRoute locations** |
@@ -47,10 +51,10 @@ The table below provides information on regions and geopolitical boundaries for 
 
 Connectivity across geopolitical regions is not supported on the standard ExpressRoute SKU. You will need to enable the ExpressRoute premium add-on to support global connectivity. Connectivity to national cloud environments is not supported. You can work with your connectivity provider if such a need arises.
 
-## Connectivity provider locations
+## <a name="locations"></a>Connectivity provider locations
 > [!div class="op_single_selector"]
-> [Locations By Provider](expressroute-locations.md#connectivity-provider-locations)
-> [Providers By Location](expressroute-locations-providers.md#connectivity-provider-locations)
+> * [Locations By Provider](expressroute-locations.md#locations)
+> * [Providers By Location](expressroute-locations-providers.md#locations)
 > 
 > 
 
@@ -86,7 +90,8 @@ Connectivity across geopolitical regions is not supported on the standard Expres
  **+** denotes coming soon
 
 ### National cloud environments
-#### US Government cloud
+
+### US Government cloud
 | **Location** | **Service Providers** |
 | --- | --- |
 | **Chicago** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
@@ -94,7 +99,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **New York** |Equinix, Level 3 Communications+, Verizon |
 | **Washington DC** |AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 
-#### China
+### China
 | **Location** | **Service Providers** |
 | --- | --- |
 | **Beijing** |China Telecom |
@@ -102,7 +107,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 
 To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/features/expressroute/)
 
-#### Germany
+### Germany
 | **Location** | **Service Providers** |
 | --- | --- |
 | **Berlin** |Colt+, e-shelter |
