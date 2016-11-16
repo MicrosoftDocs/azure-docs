@@ -4,6 +4,7 @@
 ## [Understand Resource Manager and Classic deployment](../resource-manager-deployment-model.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Prescriptive subscription governance](../resource-manager-subscription-governance.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Governance examples for enterprises](../resource-manager-subscription-examples.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+
 # Get started
 ## [Export template](../resource-manager-export-template.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [Template walkthrough](../resource-manager-template-walkthrough.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
@@ -51,13 +52,14 @@
 ### [View deployment operations with PowerShell](../resource-manager-troubleshoot-deployments-powershell.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [View deployment operations with Azure CLI](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [View deployment operations with REST API](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
+
 # Reference
-## [Throttling requests](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
-## [Template schemas](https://github.com/Azure/azure-resource-manager-schemas)
 ## [PowerShell](/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources)
 ## [Azure CLI](/cli/azure)
 ## [Java](/java/api)
 ## [.NET](/dotnet/api/microsoft.azure.management.resourcemanager)
+## [Template schemas](https://github.com/Azure/azure-resource-manager-schemas)
+## [Throttling requests](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [REST](/rest/api/resources/)
 
 # Resources
