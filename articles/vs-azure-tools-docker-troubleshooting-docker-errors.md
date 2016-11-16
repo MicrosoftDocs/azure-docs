@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 06/08/2016
-ms.author: allclark
+ms.author: mlearned
 
 ---
 # Troubleshooting Visual Studio Docker Development
