@@ -1,5 +1,5 @@
 ---
-title: Enable Remote Desktop an Azure Cloud Service | Microsoft Azure
+title: Enable Remote Desktop an Azure Cloud Service | Microsoft Docs
 description: How to configure your azure cloud service application to allow remote desktop connections
 services: cloud-services
 documentationcenter: ''
