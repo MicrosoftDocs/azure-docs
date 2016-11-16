@@ -112,9 +112,9 @@ These are the limits for B2B protocols
 
 |Name|Limit|
 |----|----|
-|AS2Encode/Decode|50MB|
-|X12Encode/Decode|50MB|
-|EDIFACTEncode/Decode|50MB|
+|AS2|50MB|Applicable to decode and encode|
+|X12|50MB|Applicable to decode and encode|
+|EDIFACT|50MB|Applicable to decode and encode|
 
 ## Configuration
 
