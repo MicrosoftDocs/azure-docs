@@ -17,7 +17,7 @@ ms.date: 10/10/2016
 ms.author: cherylmc
 
 ---
-# Router configuration samples to setup and manage NAT
+# Router configuration samples to set up and manage NAT
 This page provides NAT configuration samples for Cisco ASA and Juniper SRX series routers. These are intended to be samples for guidance only and must not be used as is. You can work with your vendor to come up with appropriate configurations for your network. 
 
 > [!IMPORTANT]
