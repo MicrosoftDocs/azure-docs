@@ -18,7 +18,7 @@ ms.author: adegeo
 
 ---
 # Install .NET on a Cloud Service Role
-This article describes how to install differnet versions of .NET framework on Cloud Service Web and Worker Roles than what comes with the Guest OS. For example, you can use these steps to install .NET 4.6.1 on the Azure Guest OS Family 4 which does not come with any version of .NET 4.6. For the latest information on Guest OS releases see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md).
+This article describes how to install different versions of .NET framework on Cloud Service Web and Worker Roles than what comes with the Guest OS. For example, you can use these steps to install .NET 4.6.1 on the Azure Guest OS Family 4 which does not come with any version of .NET 4.6. For the latest information on Guest OS releases see the [Azure Guest OS release news](cloud-services-guestos-update-matrix.md).
 
 >[!NOTE]
 >Guest OS 5 includes .NET 4.6
