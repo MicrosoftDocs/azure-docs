@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create VNet Peering using Resource Manager templates | Microsoft Docs
 description: Learn how to create a virtual network peering using the templates in Resource Manager.
 services: virtual-network
@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 75f8d10e-23e8-44bd-9972-aab74048cf38
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
@@ -305,34 +305,34 @@ To create a peering between virtual networks from different deployment models, f
 1. The text below shows the definition of a VNet peering link for VNET1 to VNET2 in this scenario. Only one link is required to peer a classic virtual network to a Azure resource manager virtual network.
    
     Be sure to put in your subscription ID for where the classic virtual network or VNET2 is located and change MyResouceGroup to the appropriate resource group name.
-   
-    {
-    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-    },
-    "variables": {
-    },
-    "resources": [
-   
-        {
-        "apiVersion": "2016-06-01",
-        "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
-        "name": "VNET1/LinkToVNET2",
-        "location": "[resourceGroup().location]",
-        "properties": {
-        "allowVirtualNetworkAccess": true,
-        "allowForwardedTraffic": false,
-        "allowGatewayTransit": false,
-        "useRemoteGateways": false,
-            "remoteVirtualNetwork": {
-            "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"
-    }
-   
-        }
-        }
-    ]
-    }
+
+	   	{
+	    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	    "contentVersion": "1.0.0.0",
+	    "parameters": {
+	    },
+	    "variables": {
+	    },
+	    "resources": [
+
+	        {
+	        "apiVersion": "2016-06-01",
+	        "type": "Microsoft.Network/virtualNetworks/virtualNetworkPeerings",
+	        "name": "VNET1/LinkToVNET2",
+	        "location": "[resourceGroup().location]",
+	        "properties": {
+	        "allowVirtualNetworkAccess": true,
+	        "allowForwardedTraffic": false,
+	        "allowGatewayTransit": false,
+	        "useRemoteGateways": false,
+	            "remoteVirtualNetwork": {
+	            "id": "[resourceId('Microsoft.ClassicNetwork/virtualNetworks', 'VNET2')]"
+		}
+
+	        }
+	        }
+	    ]
+	    }
 2. To deploy the template file, run the following cmdlet to create or update the deployment.
    
         New-AzureRmResourceGroupDeployment -ResourceGroupName MyResourceGroup -TemplateFile .\VnetPeering.json -DeploymentDebugLogLevel all
