@@ -13,7 +13,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 11/15/2016
 ms.author: larryfr
 
 ---
@@ -21,7 +21,7 @@ ms.author: larryfr
 You can install R on any type of cluster in Hadoop on HDInsight by using **Script Action** cluster customization. This enables data scientists and analysts to use R to deploy the powerful MapReduce/YARN programming framework to process large amounts of data on Hadoop clusters that are deployed in HDInsight.
 
 > [!IMPORTANT]
-> The [premium tier](https://azure.microsoft.com/pricing/details/hdinsight/) offering for HDInsight includes R Server as part of your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. For more information, see [Get started using R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md). 
+> The [HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) offering for HDInsight includes R Server as part of your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. For more information, see [Get started using R Server on HDInsight](hdinsight-hadoop-r-server-get-started.md). 
 > 
 > 
 
@@ -68,7 +68,7 @@ This section provides instructions about how to use the script when creating a n
 > 
 > 
 
-1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#portal), but do not complete provisioning.
+1. Start provisioning a cluster by using the steps in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md), but do not complete provisioning.
 2. On the **Optional Configuration** blade, select **Script Actions**, and provide the information below:
    
    * **NAME**: Enter a friendly name for the script action.
@@ -78,7 +78,7 @@ This section provides instructions about how to use the script when creating a n
    * **ZOOKEEPER**: Check this option to install on the Zookeeper node.
    * **PARAMETERS**: Leave this field blank
 3. At the bottom of the **Script Actions**, use the **Select** button to save the configuration. Finally, use the **Select** button at the bottom of the **Optional Configuration** blade to save the optional configuration information.
-4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md#portal).
+4. Continue provisioning the cluster as described in [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 
 ## Run R scripts
 After the cluster has finished provisioning, use the following steps to use R to perform a MapReduce operation on the cluster.

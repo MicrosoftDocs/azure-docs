@@ -106,7 +106,7 @@ title: Microsoft Azure Documentation
                                         </li>
                                         <li>
                                             <a href="/azure/container-registry/">
-                                                <img src="media/index/ContainerService.svg" alt="" />
+                                                <img src="media/index/container-registry.svg" alt="" />
                                                 <p>Azure Container Registry</p>
                                             </a>
                                         </li>
@@ -347,7 +347,7 @@ title: Microsoft Azure Documentation
                                         <li>
                                             <a href="/azure/application-insights/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
-                                                <p>Visual Studio Application Insights</p>
+                                                <p>Application Insights</p>
                                             </a>
                                         </li>
                                         <li>
@@ -444,7 +444,7 @@ title: Microsoft Azure Documentation
                                         <li>
                                             <a href="/azure/application-insights/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
-                                                <p>Visual Studio Application Insights</p>
+                                                <p>Application Insights</p>
                                             </a>
                                         </li>
                                         <li>
@@ -722,7 +722,7 @@ title: Microsoft Azure Documentation
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                        <img src="media/index/container-registry.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1990,7 +1990,7 @@ title: Microsoft Azure Documentation
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Application Insights</h3>
+                                                    <h3>Application Insights</h3>
                                                     <p>Detect, triage, and diagnose issues in your web apps and services</p>
                                                 </div>
                                             </div>
@@ -2052,7 +2052,7 @@ title: Microsoft Azure Documentation
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Application Insights</h3>
+                                                    <h3>Application Insights</h3>
                                                     <p>Detect, triage, and diagnose issues in your web apps and services</p>
                                                 </div>
                                             </div>
@@ -2312,7 +2312,7 @@ title: Microsoft Azure Documentation
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://github.com/Azure-Samples?utf8=%E2%9C%93&query=python">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">Get examples</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2555,13 +2555,13 @@ title: Microsoft Azure Documentation
                                                     <a href="/en-us/dotnet/articles/core/docker/visual-studio-tools-for-docker">Get Started</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680&clcid=0x409">Download for Visual Studio</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780680">Download for Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681&clcid=0x409">Download for Visual Studio Code</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780681">Download for Visual Studio Code</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682&clcid=0x409">Download for Team Services</a>
+                                                    <a href="https://go.microsoft.com/fwlink/?LinkId=780682">Download for Team Services</a>
                                                 </p>
                                             </div>
                                         </div>

@@ -48,26 +48,23 @@ ms.author: rnagpal
 
 ## Release Notes
 
-### <a name="0.1.0"/>[0.1.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/0.1.0)
+### <a name="0.1.0-preview"/>[0.1.0-preview](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/0.1.0-preview)
 
 The DocumentDB .NET Core Preview SDK enables you to build fast, cross-platform [ASP.NET Core](https://www.asp.net/core) and [.NET Core](https://www.microsoft.com/net/core#windows) apps to run on Windows, Mac, and Linux, as well as create [Universal Windows Platform (UWP)](https://www.visualstudio.com/vs/universal-windows-platform/) apps.
 
-The DocumentDB .NET Core Preview SDK has feature parity with the [DocumentDB .NET SDK version 1.10.0](documentdb-sdk-dotnet.md#1.10.0) and supports the following:
+The DocumentDB .NET Core Preview SDK has feature parity with the latest version of the [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) and supports the following:
 * All [connection modes](documentdb-performance-tips.md#networking): Gateway mode, Direct TCP, and Direct HTTPs. 
 * All [consistency levels](documentdb-consistency-levels.md): Strong, Session, Bounded Staleness, and Eventual.
 * [Partitioned collections](documentdb-partition-data.md). 
 * [Multi-region database accounts and geo-replication](documentdb-distribute-data-globally.md).
 
-If you have questions related to this SDK, post to [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), the [MSDN forums](http://go.microsoft.com/fwlink/?LinkId=631655), or send email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com). 
+If you have questions related to this SDK, post to [StackOverflow](http://stackoverflow.com/questions/tagged/azure-documentdb), the [MSDN forums](http://go.microsoft.com/fwlink/?LinkId=631655), or send email to [askdocdb@microsoft.com](mailto:askdocdb@microsoft.com). Or file an issue in the [github repository](https://github.com/Azure/azure-documentdb-dotnet/issues). 
 
 ## Release & Retirement Dates
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [0.1.0](#0.1.0) |November 15, 2016 |--- |
-
-## FAQ
-[!INCLUDE [documentdb-sdk-faq](../../includes/documentdb-sdk-faq.md)]
+| [0.1.0-preview](#0.1.0-preview) |November 15, 2016 |--- |
 
 ## See Also
 To learn more about DocumentDB, see [Microsoft Azure DocumentDB](https://azure.microsoft.com/services/documentdb/) service page. 
