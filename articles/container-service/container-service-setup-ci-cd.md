@@ -55,6 +55,9 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 1. Create an ACS cluster with default settings: 
 
 	`az acs create --resource-group myacs-rg --name myacs --dns-prefix myacs`
+	
+>[!NOTE]
+> You will need to have an SSH key named `%homepath% /.ssh/id_rsa`. For guidance on creating Secure Shell (SSH) keys, see the [Linux]( https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys) and [Windows]( https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-ssh-from-windows) articles.
 
 This step takes several minutes, so feel free to read on.  The `acs create` command returns information about the newly created cluster (or you can list the ACS clusters in your subscription with `az acs list`). For more ACS configuration options, [read more about creating and configuring an ACS cluster](https://azure.microsoft.com/documentation/articles/container-service-deployment/).
 
@@ -65,7 +68,7 @@ While the cluster is being created, we can set up sample code that we deploy to 
 1. Once you have created a fork in your own GitHub account, locally clone the repository on your computer:
 
 	```
-	git clone  https://github.com/azuresamples/container-service-dotnet-continuous-integration-multi-container.git
+	git clone  https://github.com/your-github-account/container-service-dotnet-continuous-integration-multi-container.git
 	cd container-service-dotnet-continuous-integration-multi-container
 	```
 	
@@ -77,7 +80,7 @@ Let's take a closer look at the code:
 * In addition to `service-a` and `service-b`, a third service named `cache` runs a Redis cache that `service-a` can use. `cache` differs from the first two services in that we don't have code for it in our source repository. Instead, we fetch a pre-made `redis:alpine` image from Docker Hub and deploy it to ACS.
 * `/service-a/server.js` contains code where `service-a` calls both `service-b` and `cache`. Notice that `service-a` code references `service-b` and `cache` by how they are named in `docker-compose.yml`. If we run these services on our local machine via `docker-compose`, Docker ensures the services are all networked appropriately to find each other by name. Running the services in a cluster environment with load-balanced networking typically makes it much more complex than running locally. The good news is the Azure CLI commands set up a CI/CD flow that ensures this straight-forward service discovery code continues to run as-is in ACS. 
 
-	![Multi-container sample app overview](media/container-service-setup-ci-cd/multi-container-sample-app-overview.png)
+	![Multi-container sample app overview](media/container-service-setup-ci-cd/multi-container-sample-app-overview.PNG)
 
 ## Set up continuous integration and deployment
 1. Ensure the ACS cluster is ready: run `az acs list` and confirm that our ACS cluster is listed. (Note: ACS must be running DC/OS 1.8 or greater.)
@@ -112,11 +115,11 @@ You can always find the release definition URL associated with an ACS cluster by
 
 `az container release list --target-name myacs --target-resource-group myacs-rg` 
 
-![VSTS Build](media/container-service-setup-ci-cd/vsts-build.png)
+![VSTS Build](media/container-service-setup-ci-cd/vsts-build.PNG)
 
 *VSTS screenshot showing CI results of our multi-container app*
 
-![VSTS Release](media/container-service-setup-ci-cd/vsts-release.png)
+![VSTS Release](media/container-service-setup-ci-cd/vsts-release.PNG)
 
 *VSTS docker-compose release with multiple environments*
 
@@ -124,7 +127,18 @@ You can always find the release definition URL associated with an ACS cluster by
 At this point, our application is deployed to our shared dev environment and is not publicly exposed. In the meantime, use the DC/OS dashboard to view and manage our services and [create an SSH tunnel to the DC/OS-related endpoints](https://azure.microsoft.com/documentation/articles/container-service-connect/) or run a convenience command provided by the Azure CLI.
 
 > [!IMPORTANT]
-> On a first-time deployment, confirm the VSTS release successfully deployed before proceeding.*
+> On a first-time deployment, confirm the VSTS release successfully deployed before proceeding.
+
+> [!NOTE]
+> Windows Only:  You will need to set up [Pageant](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to complete this section.
+> 
+>* Launch *PuttyGen* and load the private SSH key you used to create the ACS cluster (%homepath%\id_rsa).
+>* Save the private SSH key as `id_rsa.ppk` in the same folder.
+>* Launch *Pageant* - it will start running and display an icon in your bottom-right system tray.
+>* Right-click the system tray icon and select *Add Key*.
+>* Add the `id_rsa.ppk` file.
+> 
+> 
 
 1. Open the ACS cluster's DC/OS dashboard using the Azure CLI convenience command:
 	
@@ -154,11 +168,11 @@ You can perform many useful things in the DC/OS dashboard
 
 Click a task to open its view, then click one of its available endpoints.
 
-![service a task](media/container-service-setup-ci-cd/service-a-task.png)
+![service a task](media/container-service-setup-ci-cd/service-a-task.PNG)
 
 Our simple web app calls `service-a`, which calls `service-b`, and returns a hello world message. A counter is incremented on Redis each time a request is made.
 
-![service a web app](media/container-service-setup-ci-cd/service-a-web-app.png)
+![service a web app](media/container-service-setup-ci-cd/service-a-web-app.PNG)
 
 ### (Optional) Reaching a service from the command line
 If you want to reach a service via curl from the command line:
@@ -178,7 +192,7 @@ While we're in the DC/OS dashboard, let's scale our services.
 1. Navigate to the application in the *dev* subfolder.
 1. Hover over `service-b`, click the gear icon, and select **Scale**.
 
-	![Action menu](media/container-service-setup-ci-cd/marathon-ui-action-menu.png)
+	![Action menu](media/container-service-setup-ci-cd/marathon-ui-action-menu.PNG)
 
 1. Increase the number to 3 and click **Scale Service**.
 
@@ -191,13 +205,13 @@ Our VSTS release pipeline set up three environments by default: *Dev*, *Test*, a
 
 1. In the VSTS web UI, navigate to **Releases**
 
-	![VSTS Releases menu](media/container-service-setup-ci-cd/vsts-releases-menu.png)
+	![VSTS Releases menu](media/container-service-setup-ci-cd/vsts-releases-menu.PNG)
 
 1. Open the most recent release.
 
 1. In the release definition's menu bar, click **Deploy**, then select **Test** as the next environment we want to deploy to to start a new deployment, reusing the same images that were previously deployed to *Dev*. Click **Logs** if you want to follow along the deployment in more detail.
 
-	![VSTS promotes release](media/container-service-setup-ci-cd/vsts-promote-release.png)
+	![VSTS promotes release](media/container-service-setup-ci-cd/vsts-promote-release.PNG)
 
 Once deployment to *Test* has succeeded, a new root folder in Marathon UI named *test* that contains the running services for that environment. 
 
