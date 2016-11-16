@@ -141,7 +141,7 @@ If you’ve chosen to include RStudio Server community edition in your installat
 
 1. Either by going to the following URL (where **CLUSTERNAME** is the name of the cluster your created): 
 
-https://**CLUSTERNAME**.azurehdinsight.net/rstudio/
+    https://**CLUSTERNAME**.azurehdinsight.net/rstudio/
 
 2. Or by opening the entry for your cluster in the Azure Portal, selecting the R Server Dashboards quick link, and then selecting the R Studio Dashboard:
 
