@@ -402,30 +402,21 @@ Azure Stream Analytics is designed to elastically scale so that it can handle a 
     FROM EntryStream TIMESTAMP BY EntryTime PARTITION BY PartitionId
     GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 
-1. Stop the current job, update the query in the **QUERY** tab, and open the **SCALE** tab.
+1. Stop the current job, update the query in the **QUERY** tab, and open the **Settings** gear in the job dashboard. Click **Scale**.
    
     **STREAMING UNITS** define the amount of compute power that the job can receive.
-2. Move the slider to 6.
+2. Change the drop down from 1 from 6.
    
-    ![Screenshot of selecting 6 streaming units](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image52.jpg)
+    ![Screenshot of selecting 6 streaming units](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image52.png)
 3. Go to the **OUTPUTS** tab and change the name of the SQL table to **TollDataTumblingCountPartitioned**.
 
 If you start the job now, Azure Stream Analytics can distribute work across more compute resources and achieve better throughput. Please note that the TollApp application is also sending events partitioned by TollId.
 
 ## Monitor
-The **MONITOR** tab contains statistics about the running job.
+The **MONITOR** area contains statistics about the running job. First time configuration is needed to use the storage account in the same region (name toll like the rest of this document).
 
-![Screenshot of statistics about running jobs](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image53.png)
+You can access **Activity Logs** from the job dashboard **Settings** area.
 
-You can access **Operation Logs** from the **DASHBOARD** tab.
-
-![The "Operation Logs" option](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image54.jpg)
-
-![Screenshot of operation logs where you can see the status of jobs](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image55.png)
-
-To see additional information about a particular event, click the event, and then click the **DETAILS** button.
-
-![Screenshot of details about a selected event](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image56.png)
 
 ## Conclusion
 This tutorial introduced you to the Azure Stream Analytics service. It demonstrated how to configure inputs and outputs for the Stream Analytics job. Using the Toll Data scenario, the tutorial explained common types of problems that arise in the space of data in motion and how they can be solved with simple SQL-like queries in Azure Stream Analytics. The tutorial described SQL extension constructs for working with temporal data. It showed how to join data streams, how to enrich the data stream with static reference data, and how to scale out a query to achieve higher throughput.
@@ -443,6 +434,5 @@ Refer to the [online documentation](https://azure.microsoft.com/documentation/se
    > Resources are identified by the name. Make sure you carefully review each item before confirming removal.
    > 
    > 
-   
-    ![Screenshot of the cleanup process](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image57.png)
+
 
