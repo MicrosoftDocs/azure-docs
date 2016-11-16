@@ -57,7 +57,8 @@
 # Reference
 ## [API versions](search-api-versions.md)
 ## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [Service .NET](/dotnet/api/microsoft.azure.search)
+## [Management .NET](/dotnet/api/microsoft.azure.management.search)
 ## [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323)
 ## [Simple query syntax](https://msdn.microsoft.com/library/azure/dn798920)
 ## [Service REST](/rest/api/searchservice/)
