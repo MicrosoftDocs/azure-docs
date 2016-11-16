@@ -83,9 +83,7 @@
 
 
 # Reference
-## [Java](/java/api/)
 ## [Java SDK](documentdb-sdk-java.md)
-## [.NET](/dotnet/api/)
 ## [.NET SDK](documentdb-sdk-dotnet.md)
 ## [.NET samples](documentdb-dotnet-samples.md)
 ## [Node.js SDK](documentdb-sdk-node.md)
