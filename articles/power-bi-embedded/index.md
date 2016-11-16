@@ -84,14 +84,50 @@ Power BI Embedded is an Azure service that enables application developers to add
 
 ## Reference
 
-### PowerShell
-[Power BI Embedded PowerShell Cmdlets](/powershell/resourcemanager/)
-
-### .NET
-[Power BI Embedded Managed Reference](/dotnet/api)
-
-### REST
-[Power BI Embedded REST API Reference](/rest/api/powerbiembedded/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/resourcemanager/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Power BI Embedded PowerShell Cmdlets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	 <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Power BI Embedded Managed Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/rest/api/powerbiembedded/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Power BI Embedded REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 
 

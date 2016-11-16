@@ -120,17 +120,64 @@ Visual Studio Application Insights is an extensible Application Performance Mana
 
 ## Reference
 
-### Java
-[Application Insights Java API Reference](/java/api/)
-
-### .NET 
-[Application Insights Managed Reference API](/dotnet/api/)
-
-### JavaScript
-[Application Insights JS API Reference](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-
-### REST 
-[Application Insights REST API Reference](https://dev.applicationinsights.io/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="https://docs.microsoft.com/java/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Application Insights Java API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	 <li>
+        <a href="https://docs.microsoft.com/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Application Insights Managed Reference API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	 <li>
+        <a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>JavaScript</h3>
+                        <p>Application Insights JS API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	 <li>
+        <a href="https://dev.applicationinsights.io/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Application Insights REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    </ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">

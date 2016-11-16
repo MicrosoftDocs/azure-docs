@@ -24,7 +24,7 @@ Azure Functions is a solution for easily running small pieces of code ("function
         </div>
         </a>
     </li>
-   
+
    <li>
         <a href="/azure/azure-functions/functions-create-first-azure-function">
         <div class="cardSize">
@@ -100,18 +100,6 @@ Azure Functions is a solution for easily running small pieces of code ("function
 </ul>
 
 ---
-
-##Reference
-
-### C&#35;
-[C# Developer Reference](/azure/azure-functions/functions-reference-csharp)
-
-### F&#35;
-[F# Developer Reference](/azure/azure-functions/functions-reference-fsharp)
-
-### Node.js
-[Node.js Developer Reference](/azure/azure-functions/functions-reference-node)
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-functions.pdf">

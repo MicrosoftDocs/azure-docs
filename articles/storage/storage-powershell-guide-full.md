@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using Azure PowerShell with Azure Storage | Microsoft Docs
 description: Learn how to use the Azure PowerShell cmdlets for Azure Storage to create and manage storage accounts; work with blobs, tables, queues, and files; configure and query storage analytics, and create shared access signatures.
 services: storage
@@ -41,79 +41,79 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
 4. Now, we’ll give you a simple script that shows basic PowerShell commands to access Azure Storage. The script will first ask your Azure account credentials to add your Azure account to the local PowerShell environment. Then, the script will set the default Azure subscription and create a new storage account in Azure. Next, the script will create a new container in this new storage account and upload an existing image file (blob) to that container. After the script lists all blobs in that container, it will create a new destination directory in your local computer and download the image file.
 5. In the following code section, select the script between the remarks **#begin** and **#end**. Press CTRL+C to copy it to the clipboard.
 
-    ```powershell   
-   # begin
-   # Update with the name of your subscription.
-     $SubscriptionName = "YourSubscriptionName"
+```powershell   
+    # begin
+    # Update with the name of your subscription.
+    $SubscriptionName = "YourSubscriptionName"
    
-   # Give a name to your new storage account. It must be lowercase!
-     $StorageAccountName = "yourstorageaccountname"
+    # Give a name to your new storage account. It must be lowercase!
+    $StorageAccountName = "yourstorageaccountname"
    
-   # Choose "West US" as an example.
-     $Location = "West US"
+    # Choose "West US" as an example.
+    $Location = "West US"
    
-   # Give a name to your new container.
-     $ContainerName = "imagecontainer"
+    # Give a name to your new container.
+    $ContainerName = "imagecontainer"
    
-   # Have an image file and a source directory in your local computer.
-     $ImageToUpload = "C:\Images\HelloWorld.png"
+    # Have an image file and a source directory in your local computer.
+    $ImageToUpload = "C:\Images\HelloWorld.png"
    
-   # A destination directory in your local computer.
-     $DestinationFolder = "C:\DownloadImages"
+    # A destination directory in your local computer.
+    $DestinationFolder = "C:\DownloadImages"
    
-   # Add your Azure account to the local PowerShell environment.
-     Add-AzureAccount
+    # Add your Azure account to the local PowerShell environment.
+    Add-AzureAccount
    
-   # Set a default Azure subscription.
-     Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
+    # Set a default Azure subscription.
+    Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
    
-   # Create a new storage account.
-     New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $Location
+    # Create a new storage account.
+    New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $Location
    
-   # Set a default storage account.
-     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+    # Set a default storage account.
+    Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
    
-   # Create a new container.
-     New-AzureStorageContainer -Name $ContainerName -Permission Off
+    # Create a new container.
+    New-AzureStorageContainer -Name $ContainerName -Permission Off
    
-   # Upload a blob into a container.
-     Set-AzureStorageBlobContent -Container $ContainerName -File $ImageToUpload
+    # Upload a blob into a container.
+    Set-AzureStorageBlobContent -Container $ContainerName -File $ImageToUpload
    
-   # List all blobs in a container.
-     Get-AzureStorageBlob -Container $ContainerName
+    # List all blobs in a container.
+    Get-AzureStorageBlob -Container $ContainerName
    
-   # Download blobs from the container:
-   # Get a reference to a list of all blobs in a container.
-     $blobs = Get-AzureStorageBlob -Container $ContainerName
+    # Download blobs from the container:
+    # Get a reference to a list of all blobs in a container.
+    $blobs = Get-AzureStorageBlob -Container $ContainerName
    
-   # Create the destination directory.
-     New-Item -Path $DestinationFolder -ItemType Directory -Force  
+    # Create the destination directory.
+    New-Item -Path $DestinationFolder -ItemType Directory -Force  
    
-   # Download blobs into the local destination directory.
-     $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
+    # Download blobs into the local destination directory.
+    $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
    
-   # end
-   ```
+    # end
+```
 
 6. In **Windows PowerShell ISE**, press CTRL+V to copy the script. Click **File** > **Save**. In the **Save As** dialog window, type the name of the script file, such as "mystoragescript". Click **Save**.
 7. Now, you need to update the script variables based on your configuration settings. You must update the **$SubscriptionName** variable with your own subscription. You can keep the other variables as specified in the script or update them as you wish.
    
    * **$SubscriptionName:** You must update this variable with your own subscription name. Follow one of the following three ways to locate the name of your subscription:
      
-     a. In **Windows PowerShell ISE**, click **File** > **New** to create a new script file. Copy the following script to the new script file and click **Debug** > **Run**. The following script will first ask your Azure account credentials to add your Azure account to the local PowerShell environment and then show all the subscriptions that are connected to the local PowerShell session. Take a note of the name of the subscription that you want to use while following this tutorial:
+	a. In **Windows PowerShell ISE**, click **File** > **New** to create a new script file. Copy the following script to the new script file and click **Debug** > **Run**. The following script will first ask your Azure account credentials to add your Azure account to the local PowerShell environment and then show all the subscriptions that are connected to the local PowerShell session. Take a note of the name of the subscription that you want to use while following this tutorial:
      
-        ```powershell   
-         Add-AzureAccount
+```powershell   
+         Add-AzureAccount 
              Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
-        ```
+```
+	b. To locate and copy your subscription name in the [Azure Portal](https://portal.azure.com), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
+     
+     ![Azure Portal](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
 
-     b. To locate and copy your subscription name in the [Azure Portal](https://portal.azure.com), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
+	c. To locate and copy your subscription name in the [Azure Classic Portal](https://manage.windowsazure.com/), scroll down and click **Settings** on the left side of the portal. Click **Subscriptions** to see a list of your subscriptions. Copy the name of subscription that you want to use while running the scripts given in this guide.
      
-     ![Azure Portal][Image2]
-     
-     c. To locate and copy your subscription name in the [Azure Classic Portal](https://manage.windowsazure.com/), scroll down and click **Settings** on the left side of the portal. Click **Subscriptions** to see a list of your subscriptions. Copy the name of subscription that you want to use while running the scripts given in this guide.
-     
-     ![Azure Classic Portal][Image1]
+     ![Azure Classic Portal](./media/storage-powershell-guide-full/Subscription_currentportal.png)
+
    * **$StorageAccountName:** Use the given name in the script or enter a new name for your storage account. **Important:** The name of the storage account must be unique in Azure. It must be lowercase, too!
    * **$Location:** Use the given "West US" in the script or choose other Azure locations, such as East US, North Europe, and so on.
    * **$ContainerName:** Use the given name in the script or enter a new name for your container.
@@ -123,7 +123,7 @@ See [Assigning administrator roles in Azure Active Directory (Azure AD)](https:/
 
 After the script runs, you should have a local destination folder that includes the downloaded image file. The following screenshot shows an example output:
 
-![Download Blobs][Image3]
+![Download Blobs](./media/storage-powershell-guide-full/Blobdownload.png)
 
 > [!NOTE]
 > The "Getting started with Azure Storage and PowerShell in 5 minutes" section provided a quick introduction on how to use Azure PowerShell with Azure Storage. For detailed information and instructions, we encourage you to read the following sections.
@@ -142,47 +142,54 @@ You can run the cmdlets in the standard Windows PowerShell console or the Window
 To manage Azure Storage using Azure PowerShell, you need to authenticate your client environment with Azure via Azure Active Directory authentication or certificate-based authentication. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md) tutorial. This guide uses the Azure Active Directory authentication.
 
 1. In Windows PowerShell ISE, type the following command to add your Azure account to the local PowerShell environment:
-   
-   	`Add-AzureAccount`
+
+```powershell   
+    Add-AzureAccount
+```
 
 2. In the “Sign in to Microsoft Azure” window, type the email address and password associated with your account. Azure authenticates and saves the credential information, and then closes the window.
 3. Next, run the following command to view the Azure accounts in your local PowerShell environment, and verify that your account is listed:
    
-   	`Get-AzureAccount`
-   
+```powershell
+    Get-AzureAccount
+````
 4. Then, run the following cmdlet to view all the subscriptions that are connected to the local PowerShell session, and verify that your subscription is listed:
-   
-   	`Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName`
 
+```powershell
+    Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName`
+````
 5. To set a default Azure subscription, run the Select-AzureSubscription cmdlet:
 
-	```powershell   
-		$SubscriptionName = 'Your subscription Name'
-		Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
-	```
+```powershell   
+    $SubscriptionName = 'Your subscription Name'
+    Select-AzureSubscription -SubscriptionName $SubscriptionName –Default
+```
 
 6. Verify the name of the default subscription by running the Get-AzureSubscription cmdlet:
-   
-	`Get-AzureSubscription -Default`
 
+```powershell   
+    Get-AzureSubscription -Default
+```
 7. To see all the available PowerShell cmdlets for Azure Storage, run:
-   
-   	`Get-Command -Module Azure -Noun *Storage*`
-
+    
+```powershell   
+    Get-Command -Module Azure -Noun *Storage*`
+```
 ### How to create a new Azure storage account
 To use Azure storage, you will need a storage account. You can create a new Azure storage account after you have configured your computer to connect to your subscription.
 
 1. Run the Get-AzureLocation cmdlet to find all the available datacenter locations:
-   
-   	`Get-AzureLocation | Format-Table -Property Name, AvailableServices, StorageAccountTypes`
 
+```powershell   
+    Get-AzureLocation | Format-Table -Property Name, AvailableServices, StorageAccountTypes
+```
 2. Next, run the New-AzureStorageAccount cmdlet to create a new storage account. The following example creates a new storage account in the "West US" datacenter.
    
-	```powershell   
-		 $location = "West US"
-		 $StorageAccountName = "yourstorageaccount"
-		 New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $location
-	```
+```powershell   
+    $location = "West US"
+	$StorageAccountName = "yourstorageaccount"
+	New-AzureStorageAccount –StorageAccountName $StorageAccountName -Location $location
+```
 
 > [!IMPORTANT]
 > The name of your storage account must be unique within Azure and must be lowercase. For naming conventions and restrictions, see [About Azure Storage Accounts](storage-create-storage-account.md) and [Naming and Referencing Containers, Blobs, and Metadata](http://msdn.microsoft.com/library/azure/dd135715.aspx).
@@ -193,23 +200,24 @@ To use Azure storage, you will need a storage account. You can create a new Azur
 You can have multiple storage accounts in your subscription. You can choose one of them and set it as the default storage account for all the storage commands in the same PowerShell session. This enables you to run the Azure PowerShell storage commands without specifying the storage context explicitly.
 
 1. To set a default storage account for your subscription, you can run the Set-AzureSubscription cmdlet.
-   
-	```powershell   
-	     $SubscriptionName = "Your subscription name"
-	     $StorageAccountName = "yourstorageaccount"  
-	     Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
-	 ```
+
+```powershell   
+    $SubscriptionName = "Your subscription name"
+	$StorageAccountName = "yourstorageaccount"  
+	Set-AzureSubscription -CurrentStorageAccountName $StorageAccountName -SubscriptionName $SubscriptionName
+```
 
 2. Next, run the Get-AzureSubscription cmdlet to verify that the storage account is associated with your default subscription account. This command returns the subscription properties on the current subscription including its current storage account.
 
-	`Get-AzureSubscription –Current`
-
+```powershell
+    Get-AzureSubscription –Current
+```
 ### How to list all Azure storage accounts in a subscription
 Each Azure subscription can have up to 100 storage accounts. For the most up-to-date information on limits, see [Azure Subscription and Service Limits, Quotas, and Constraints](../azure-subscription-service-limits.md).
 
 Run the following cmdlet to find out the name and status of the storage accounts in the current subscription:
 
-```powershell   
+```powershell       
     Get-AzureStorageAccount | Format-Table -Property StorageAccountName, Location, AccountType, StorageAccountStatus
 ```
 
@@ -220,26 +228,26 @@ Use one of the following three ways to create a storage context:
 
 * Run the [Get-AzureStorageKey](http://msdn.microsoft.com/library/azure/dn495235.aspx) cmdlet to find out the primary storage access key for your Azure storage account. Next, call the [New-AzureStorageContext](http://msdn.microsoft.com/library/azure/dn806380.aspx) cmdlet to create a storage context:
 
-	```powershell     
-	    $StorageAccountName = "yourstorageaccount"
-	    $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
-	    $Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
-	```
+```powershell     
+    $StorageAccountName = "yourstorageaccount"
+	$StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
+	$Ctx = New-AzureStorageContext $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
+```
 
 * Generate a shared access signature token for an Azure storage container and use it to create a storage context:
 
-	```powershell   
-	    $sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
-	    $Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
-	```
+```powershell   
+    $sasToken = New-AzureStorageContainerSASToken -Container abc -Permission rl
+	$Ctx = New-AzureStorageContext -StorageAccountName $StorageAccountName -SasToken $sasToken
+```
 
     For more information, see [New-AzureStorageContainerSASToken](http://msdn.microsoft.com/library/azure/dn806416.aspx) and [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md).
 * In some cases, you may want to specify the service endpoints when you create a new storage context. This might be necessary when you have registered a custom domain name for your storage account with the Blob service or you want to use a shared access signature for accessing storage resources. Set the service endpoints in a connection string and use it to create a new storage context as shown below:
 
-	```powershell
-		$ConnectionString = "DefaultEndpointsProtocol=http;BlobEndpoint=<blobEndpoint>;QueueEndpoint=<QueueEndpoint>;TableEndpoint=<TableEndpoint>;AccountName=<AccountName>;AccountKey=<AccountKey>"
-		$Ctx = New-AzureStorageContext -ConnectionString $ConnectionString
-	```
+```powershell
+    $ConnectionString = "DefaultEndpointsProtocol=http;BlobEndpoint=<blobEndpoint>;QueueEndpoint=<QueueEndpoint>;TableEndpoint=<TableEndpoint>;AccountName=<AccountName>;AccountKey=<AccountKey>"
+	$Ctx = New-AzureStorageContext -ConnectionString $ConnectionString
+```
 
 For more information on how to configure a storage connection string, see [Configuring Connection Strings](storage-configure-connection-string.md).
 
@@ -249,7 +257,7 @@ Now that you have set up your computer and learned how to manage subscriptions a
 An Azure Storage account comes with two account keys. You can use the following cmdlet to retrieve your keys.
 
 ```powershell
-	Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
+    Get-AzureStorageKey -StorageAccountName "yourstorageaccount"
 ```
 
 Use the following cmdlet to retrieve a specific key. Valid values are Primary and Secondary.  
@@ -567,16 +575,17 @@ You can delete an entity using its partition and row keys. The following example
     $table = Get-AzureStorageTable -Name $TableName -Context $Ctx -ErrorAction Ignore
 
     #If the table exists, start deleting its entities.
-    if ($table -ne $null) {
-       #Together the PartitionKey and RowKey uniquely identify every  
-       #entity within a table.
-       $tableResult = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Retrieve("Partition2", "Row1"))
-       $entity = $tableResult.Result
-    if ($entity -ne $null)
+    if ($table -ne $null) 
     {
-       #Delete the entity.
-       $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($entity))
-    }
+        #Together the PartitionKey and RowKey uniquely identify every  
+        #entity within a table.
+        $tableResult = $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Retrieve("Partition2", "Row1"))
+        $entity = $tableResult.Result
+        if ($entity -ne $null)
+        {
+            #Delete the entity.
+            $table.CloudTable.Execute([Microsoft.WindowsAzure.Storage.Table.TableOperation]::Delete($entity))
+        }
     }
 ```
 
@@ -639,7 +648,7 @@ The following example demonstrates how to add message to a queue. The example fi
        # Create a new message using a constructor of the CloudQueueMessage class.
        $QueueMessage = New-Object -TypeName Microsoft.WindowsAzure.Storage.Queue.CloudQueueMessage -ArgumentList MessageInfo
 
-       #Add a new message to the queue.
+       # Add a new message to the queue.
        $Queue.CloudQueue.AddMessage($QueueMessage)
     }
 ```
@@ -648,20 +657,20 @@ The following example demonstrates how to add message to a queue. The example fi
 Your code de-queues a message from a queue in two steps. When you call the [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.GetMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.getmessage.aspx) method, you get the next message in a queue. A message returned from **GetMessage** becomes invisible to any other code reading messages from this queue. To finish removing the message from the queue, you must also call the [Microsoft.WindowsAzure.Storage.Queue.CloudQueue.DeleteMessage](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.queue.cloudqueue.deletemessage.aspx) method. This two-step process of removing a message assures that if your code fails to process a message due to hardware or software failure, another instance of your code can get the same message and try again. Your code calls **DeleteMessage** right after the message has been processed.
 
 ```powershell
-    #Define the storage account and context.
+    # Define the storage account and context.
     $StorageAccountName = "yourstorageaccount"
     $StorageAccountKey = Get-AzureStorageKey -StorageAccountName $StorageAccountName
     $Ctx = New-AzureStorageContext –StorageAccountName $StorageAccountName -StorageAccountKey $StorageAccountKey.Primary
 
-    #Retrieve the queue.
+    # Retrieve the queue.
     $QueueName = "queuename"
     $Queue = Get-AzureStorageQueue -Name $QueueName -Context $ctx
 
     $InvisibleTimeout = [System.TimeSpan]::FromSeconds(10)
 
-    #Get the message object from the queue.
+    # Get the message object from the queue.
     $QueueMessage = $Queue.CloudQueue.GetMessage($InvisibleTimeout)
-    #Delete the message.
+    # Delete the message.
     $Queue.CloudQueue.DeleteMessage($QueueMessage)
 ```
 
@@ -741,33 +750,39 @@ To use Azure Storage with AzureChinaCloud, you need to create a storage context 
 
 1. Run the [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) cmdlet to see the available Azure environments:
    
-   `Get-AzureEnvironment`
+```powershell
+    Get-AzureEnvironment
+```
 
 2. Add an Azure China account to Windows PowerShell:
    
-   `Add-AzureAccount –Environment AzureChinaCloud`
+```powershell
+    Add-AzureAccount –Environment AzureChinaCloud
+```
 
 3. Create a storage context for an AzureChinaCloud account:
    
-	```powershell
-		$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
-	```
+```powershell
+    $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureChinaCloud
+```
 
 To use Azure Storage with [U.S. Azure Government](https://azure.microsoft.com/features/gov/), you should define a new environment and then create a new storage context with this environment:
 
 1. Run the [Get-AzureEnvironment](https://msdn.microsoft.com/library/azure/dn790368.aspx) cmdlet to see the available Azure environments:
-   
-   `Get-AzureEnvironment`
 
+```powershell       
+    Get-AzureEnvironment
+```
 2. Add an Azure US Government account to Windows PowerShell:
    
-   `Add-AzureAccount –Environment AzureUSGovernment`
-
+```powershell
+    Add-AzureAccount –Environment AzureUSGovernment
+```
 3. Create a storage context for an AzureUSGovernment account:
    
-	```powershell
-		$Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureUSGovernment
-	```
+```powershell
+    $Ctx = New-AzureStorageContext -StorageAccountName $AccountName -StorageAccountKey $AccountKey> -Environment AzureUSGovernment
+```
      
 For more information, see:
 
@@ -780,11 +795,6 @@ In this guide, you've learned how to manage Azure Storage with Azure PowerShell.
 * [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
 * [Azure Storage PowerShell Cmdlets](http://msdn.microsoft.com/library/azure/dn806401.aspx)
 * [Windows PowerShell Reference](https://msdn.microsoft.com/library/ms714469.aspx)
-
-[Image1]: ./media/storage-powershell-guide-full/Subscription_currentportal.png
-[Image2]: ./media/storage-powershell-guide-full/Subscription_Previewportal.png
-[Image3]: ./media/storage-powershell-guide-full/Blobdownload.png
-
 
 [Getting started with Azure Storage and PowerShell in 5 minutes]: #getstart
 [Prerequisites for using Azure PowerShell with Azure Storage]: #pre
