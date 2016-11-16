@@ -1,9 +1,9 @@
-﻿---
+---
 title: Java web app analytics with Application Insights | Microsoft Docs
-description: 'Monitor performance and usage of your Java website with Application Insights. '
+description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
 
 ms.assetid: 051d4285-f38a-45d8-ad8a-45c3be828d91
@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Get started with Application Insights in a Java web project
-*Application Insights is in Preview.*
+
 
 [Application Insights](https://azure.microsoft.com/services/application-insights/) is an extensible analytics service for web developers that helps you understand the performance and usage of your live application. Use it to [detect and diagnose performance issues and exceptions](app-insights-detect-triage-diagnose.md), and [write code][api] to track what users do with your app.
 
@@ -179,7 +179,7 @@ To get the most accurate results, the filter should be mapped before all other f
     </filter-mapping>
 
 #### If you're using Spring Web MVC 3.1 or later
-Edit these elements to include the Application Insights package:
+Edit these elements in *-servlet.xml to include the Application Insights package:
 
     <context:component-scan base-package=" com.springapp.mvc, com.microsoft.applicationinsights.web.spring"/>
 
@@ -241,11 +241,15 @@ Now publish your app to the server, let people use it, and watch the telemetry s
   
   * dc.services.visualstudio.com:443
   * f5.services.visualstudio.com:443
+
+* If outgoing traffic must be routed through a firewall, define system properties `http.proxyHost` and `http.proxyPort`. 
+
 * On Windows servers, install:
   
   * [Microsoft Visual C++ Redistributable](http://www.microsoft.com/download/details.aspx?id=40784)
     
     (This component enables performance counters.)
+
 
 ## Exceptions and request failures
 Unhandled exceptions are automatically collected:

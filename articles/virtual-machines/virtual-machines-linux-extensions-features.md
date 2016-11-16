@@ -76,7 +76,10 @@ azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensi
 Which provides output similar to the following text:
 
 ```powershell
-<fill out>
+info:    Executing command vm extension set
++ Looking up the VM "myVM"
++ Installing extension "CustomScript", VM: "mvVM"
+info:    vm extension set command OK
 ```
 
 ### Azure portal
@@ -164,8 +167,8 @@ An extension can also be removed using the Azure portal. To do so, select a virt
 ## Common VM Extensions
 | Extension Name | Description | More Information |
 | --- | --- | --- |
-| Custom Script Extension for Linux |Run scripts against an Azure Virtual Machine |[Custom Script Extension for Linux](virtual-machines-linux-extensions-customscript.md) |
-| Docker Extension |Installs the Docker daemon to support remote Docker commands. |[Docker VM Extension](virtual-machines-linux-dockerextension.md) |
+| Custom Script Extension for Linux |Run scripts against an Azure Virtual Machine |[Custom Script Extension for Linux](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Docker Extension |Installs the Docker daemon to support remote Docker commands. |[Docker VM Extension](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
 | VM Access Extension |Regain access to Azure Virtual Machine |[VM Access Extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 

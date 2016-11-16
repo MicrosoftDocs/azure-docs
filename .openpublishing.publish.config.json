@@ -1,15 +1,13 @@
 {
 	"build_entry_point": "docs",
 	"need_generate_pdf": false,
-	"need_generate_pdf_url_template": true,
+	"need_generate_pdf_url_template": false,
 	"need_generate_intellisense": false,
 	"enable_push_aggregation": true,
 	"enable_pull_request_aggregation": true,	
 	"branch_target_mapping": {
-		"live": ["Publish",
-		"Pdf"],
-		"master": ["Publish",
-		"Pdf"]
+		"live": ["Publish"],
+		"master": ["Publish"]
 	},
 	"docsets_to_publish": [{
 		"docset_name": "azure-documents",
@@ -17,7 +15,7 @@
 		"build_output_subfolder": "azure",
 		"locale": "en-us",
 		"version": 0,
-		"open_to_public_contributors": false,
+		"open_to_public_contributors": true,
 		"type_mapping": {
 			"Conceptual": "Content",
 			"ManagedReference": "Content",
@@ -35,6 +33,8 @@
 	"branches_to_filter": [],
 	"skip_source_output_uploading": false,
 	"need_preview_pull_request": true,
+	"git_repository_url_open_to_public_contributors": "https://github.com/Microsoft/azure-docs",
+	"git_repository_branch_open_to_public_contributors": "master",
 	"enable_incremental_build": true,
 	"dependent_repositories": [{
 		"path_to_root": "_themes",
