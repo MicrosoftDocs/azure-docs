@@ -415,7 +415,9 @@ If you start the job now, Azure Stream Analytics can distribute work across more
 ## Monitor
 The **MONITOR** area contains statistics about the running job. First time configuration is needed to use the storage account in the same region (name toll like the rest of this document).
 
-You can access **Activity Logs** from the job dashboard **Settings** area.
+    ![Screenshot of monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+
+You can access **Activity Logs** from the job dashboard **Settings** area as well.
 
 
 ## Conclusion
