@@ -21,9 +21,9 @@ ms.author: deli
 Hybrid cloud connectivity is at the heart of Logic Apps. On-premises data gateway enables you to manage data and securely access resources that are on-premises from Logic Apps. In this article, we demonstrate how to connect to an on-premises file system with a simple scenario: copy a file that’s uploaded to Dropbox to a file share, then send an email.
 
 ## Prerequisites
-- Install and configure on-premises data gateway.
+- Install and configure the latest [on-premises data gateway](https://www.microsoft.com/en-us/download/details.aspx?id=53127).
 
- Install the on-premises data gateway if you haven’t done so already. Instructions can be found in [this article](http://aka.ms/logicapps-gateway). The gateway must be installed on an on-premises machine before you can continue with the rest of the steps.
+ Install the latest on-premises data gateway, version 1.15.6150.1 or above, if you haven’t already. Instructions can be found in [this article](http://aka.ms/logicapps-gateway). The gateway must be installed on an on-premises machine before you can continue with the rest of the steps.
 
 ## Use File System Connector
 
