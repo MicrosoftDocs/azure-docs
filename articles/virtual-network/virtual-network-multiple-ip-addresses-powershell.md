@@ -38,7 +38,7 @@ This article explains how to use PowerShell to assign multiple IP addresses to a
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
 ## Scenario
-A VM with a single NIC is created and connected to a virtual network. The VM requires 3 different *private* IP addresses and two *public* IP addresses. The IP addresses are assigned to the following IP configurations:
+A VM with a single NIC is created and connected to a virtual network. The VM requires three different *private* IP addresses and two *public* IP addresses. The IP addresses are assigned to the following IP configurations:
 
 * **IPConfig-1:** Assigns a *dynamic* private IP address (default) and a *static* public IP address.
 * **IPConfig-2:** Assigns a *static* private IP address and a *static* public IP address.
@@ -53,19 +53,23 @@ The IP configurations are associated to the NIC when the NIC is created and the 
 The steps that follow explain how to create an example VM with multiple IP addresses, as described in the scenario. Change variable names and IP address types as required for your implementation.
 
 1. Open a PowerShell command prompt and complete the remaining steps in this section within a single PowerShell session. If you don't already have PowerShell installed and configured, complete the steps in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) article.
-2. Register for the preview by sending an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not attempt to complete the remaining steps until after you receive an e-mail notifying you that you've been accepted into the preview and follow the instructions within it, or some of the following steps will fail.
-3. Complete steps 1-4 of the [Create a Windows VM](../virtual-machines/virtual-machines-windows-ps-create.md) article. Do not complete step 5 (creation of public IP resource and network interface). If you change the names of any variables used in that article, you'll need to change the names of those variables that follow accordingly.
+2. Register for the preview by sending an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not attempt to complete the remaining steps (or they will fail):
+	- Until you receive an e-mail notifying you that you've been accepted into the preview.
+	- Without following the instructions in the email you receive.
+3. Complete steps 1-4 of the [Create a Windows VM](../virtual-machines/virtual-machines-windows-ps-create.md) article. Do not complete step 5 (creation of public IP resource and network interface). If you change the names of any variables used in that article, change the names of the variables in the remaining steps too.
 4. Create a variable to store the subnet object created in Step 4 (Create a VNet) of the Create a Windows VM article by typing the following command:
 
 	```powershell
 	$SubnetName = $mySubnet.Name
 	$Subnet = $myVnet.Subnets | Where-Object { $_.Name -eq $SubnetName }
 	```
-5. Define the IP configurations you want to assign to the NIC. You can add, remove, or change the following configurations below as necessary. The following configurations are those described in the scenario:
+5. Define the IP configurations you want to assign to the NIC. You can add, remove, or change the configurations as necessary. The following configurations are described in the scenario:
 
 	**IPConfig-1**
 
-	Enter the following commands to create a public IP address resource with a static public IP address and an IP configuration with the public IP address resource and a dynamic private IP address:
+	Enter the commands that follow to create:
+	- A public IP address resource with a static public IP address
+	- An IP configuration with the public IP address resource and a dynamic private IP address
 
 	```powershell
 	$myPublicIp1     = New-AzureRmPublicIpAddress -Name "myPublicIp1" -ResourceGroupName $myResourceGroup -Location $location -AllocationMethod Static
@@ -81,7 +85,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 
 	**IPConfig-2**
 
-	Change the value of the **$IPAddress** variable that follows to an available, valid address on the subnet you created. To check whether or not the address 10.0.0.5 is avaialble on the subnet enter the command `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.5 -VirtualNetwork $myVnet`. If it's avaialble the output will return *True*. If it's not available, the output will return *False* and a list of addresses that are available. Enter the following commands to create a new public IP address resource and a new IP configuration with a static public IP address and a static private IP address:
+	Change the value of the **$IPAddress** variable that follows to an available, valid address on the subnet you created. To check whether the address 10.0.0.5 is available on the subnet, enter the command `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.5 -VirtualNetwork $myVnet`. If the address is available the output returns *True*. If it's not available, the output returns *False* and a list of addresses that are available. Enter the following commands to create a new public IP address resource and a new IP configuration with a static public IP address and a static private IP address:
 	
 	```powershell
 	$IpConfigName2 = "IPConfig-2"
@@ -112,19 +116,21 @@ The steps that follow explain how to create an example VM with multiple IP addre
 7. Complete step 6 of the [Create a VM](../virtual-machines/virtual-machines-windows-ps-create.md) article. 
 
 	> [!WARNING]
-	> Step 6 in the Create a VM article will fail if you changed the variable named $myNIC to something else in step 6 of this article, or haven't completed the previous steps of this article or the Create a VM article.
+	> Step 6 in the Create a VM article will fail if:
+	> - You changed the variable named $myNIC to something else in step 6 of this article.
+	> - You haven't completed the previous steps of this article and the Create a VM article.
 	>
 8. View the private IP addresses that Azure DHCP assigned to the NIC and the public IP address resource assigned to the NIC by entering the following command:
 
 	```powershell
 	$myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
 	```
-9. <a name="os"></a>After the VM is created, connect and login to it. You must manually add all the private IP addresses (including the primary) to the TCP/IP configuration in the operating system by completing the steps in one of the following sections:
+9. <a name="os"></a>After the VM is created, connect and login to it. Manually add all the private IP addresses (including the primary) to the TCP/IP configuration of the operating system by completing the steps in one of the following sections:
 
 	**Windows**
 
 	1. From a command prompt, type *ipconfig /all*.  You only see the *Primary* private IP address (through DHCP).
-	2. Next type *ncpa.cpl* in the command prompt window. This will open a new window.
+	2. Next type *ncpa.cpl* in the command prompt window. This opens a new window.
 	3. Open the properties for **Local Area Connection**.
 	4. Double-click Internet Protocol version 4 (IPv4).
 	5. Select **Use the following IP address** and enter the following values:
@@ -133,22 +139,22 @@ The steps that follow explain how to create an example VM with multiple IP addre
 		* **Subnet mask**: Set based on your subnet. For example, if the subnet is a /24 subnet then the subnet mask is 255.255.255.0.
 		* **Default gateway**: The first IP address in the subnet. If your subnet is 10.0.0.0/24, then the gateway IP address is 10.0.0.1.
 		* Click **Use the following DNS server addresses** and enter the following values:
-			* **Preferred DNS server**:** Enter 168.63.129.16 if you are not using your own DNS server.  If you are, enter the IP address for your DNS server.
+			* **Preferred DNS server**: If you are not using your own DNS server, enter 168.63.129.16.  If you are using your own DNS server, enter the IP address for your server.
 		* Click the **Advanced** button and add additional IP addresses. Add each of the secondary private IP addresses listed in step 8 to the NIC with the same subnet specified for the primary IP address.
-		* Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. This will then reestablish your RDP connection.
+		* Click **OK** to close out the TCP/IP settings and then **OK** again to close the adapter settings. Your RDP connection is re-established.
 	6. From a command prompt, type *ipconfig /all*. All IP addresses you added are shown and DHCP is turned off.
 	
 	**Linux (Ubuntu)**
 
 	1. Open a terminal window.
-	2. Make sure you are the root user. If you are not, you can do this by using the following command:
+	2. Make sure you are the root user. If you are not, enter the following command:
 
 		```bash
 		sudo -i
 		```
 	3. Update the configuration file of the network interface (assuming ‘eth0’).
 
-		* Keep the existing line item for dhcp. This will configure the primary IP address as it used to be earlier.
+		* Keep the existing line item for dhcp. This configures the primary IP address as it was previously.
 		* Add a configuration for an additional static IP address with the following commands:
 
 			```bash
@@ -267,7 +273,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 	```powershell
 	$myNIC = Get-AzureRmNetworkInterface -Name $NICname -ResourceGroupName $myResourceGroup
 	```
-4. In the following commands, change *myVNet* and *mySubnet* to the names of the VNet and subnet the NIC is connected to, then enter the commands to retrieve the VNet and subnet objects the NIC is connected to:
+4. In the following commands, change *myVNet* and *mySubnet* to the names of the VNet and subnet the NIC is connected to. Enter the commands to retrieve the VNet and subnet objects the NIC is connected to:
 
 	```powershell
 	$myVnet = Get-AzureRMVirtualnetwork -Name myVNet -ResourceGroupName $myResourceGroup
@@ -277,7 +283,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 	```powershell
 	$mynic.IpConfigurations
 	```
-	In the output returned, look for a line similar to the following:
+	Look for a line similar to the following in the returned output:
 
 		Subnet   : {
 					 "Id": "/subscriptions/[Id]/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet/subnets/mySubnet"
@@ -287,7 +293,8 @@ You can add additional private and public IP addresses to an existing NIC by com
 5. Complete the steps in one of the following sections, based on your requirements:
 
 	**Add a private IP address**
-	You must create a new IP configuration to add a private IP address to a NIC. The following command creates a configuration with a static IP address of 10.0.0.7. If you want to add a dynamic private IP address, remove `-PrivateIpAddress 10.0.0.7` before entering the command. When specifying a static IP address, it must be an unused address for the subnet. It's recommended that you first test the address to ensure it's available by entering the `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` command. If it's available the output will return *True*. If it's not available, the output will return *False* and a list of addresses that are available.
+	
+	To add a private IP address to a NIC, you must create a new IP configuration. The following command creates a configuration with a static IP address of 10.0.0.7. If you want to add a dynamic private IP address, remove `-PrivateIpAddress 10.0.0.7` before entering the command. When specifying a static IP address, it must be an unused address for the subnet. It's recommended that you first test the address to ensure it's available by entering the `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` command. If the IP address is available, the output returns *True*. If it's not available, the output returns *False*, and a list of addresses that are available.
 
 	```powershell
 	Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
@@ -296,13 +303,15 @@ You can add additional private and public IP addresses to an existing NIC by com
 	Create as many configurations as you require, using unique configuration names and private IP addresses (for configurations with static IP addresses).
 
 	**Add a public IP address**
-	A public IP address can be added by associating it to either a new IP configuration or an existing IP configuration. Complete the steps in one of the sections that follow, as you require.
+	
+	A public IP address is added by associating it to either a new IP configuration or an existing IP configuration. Complete the steps in one of the sections that follow, as you require.
 
 	> [!NOTE]
 	> Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page. There is a limit to the number of public IP addresses that can be used in a subscription. To learn more about the limits, read the [Azure limits](../azure-subscription-service-limits.md#networking-limits) article.
 	>
 
 	**Associate the resource to a new IP configuration**
+	
 	You can't associate a public IP address resource to a new IP configuration without also adding a private IP address, because all IP configurations must have a private IP address. You can either add an existing public IP address resource, or create a new one. To create a new one, enter the following command:
 	
 	```powershell
@@ -310,7 +319,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 	-Location $location -AllocationMethod Static
 	```
 
- 	Enter the following command to create a new IP configuration with a dynamic private IP address and the associated *myPublicIp3* public IP address resource:
+ 	To create a new IP configuration with a dynamic private IP address and the associated *myPublicIp3* public IP address resource, enter the following command:
 
 	```powershell
 	Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
@@ -318,13 +327,13 @@ You can add additional private and public IP addresses to an existing NIC by com
 	```
 
 	**Associate the resource to an existing IP configuration**
-	A public IP address resource can only be associated to an IP configuration that doesn't already have one associated. You can determine whether or not an IP configuration has an associated public IP address by entering the following command:
+	A public IP address resource can only be associated to an IP configuration that doesn't already have one associated. You can determine whether an IP configuration has an associated public IP address by entering the following command:
 
 	```powershell
 	$myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
 	```
 
-	The output from the previous command will look similar to the following:
+	Look for a line similar to the one that follows in the returned output:
 
 		Name       PrivateIpAddress PublicIpAddress                                           Primary
 		----       ---------------- ---------------                                           -------
@@ -351,7 +360,7 @@ You can add additional private and public IP addresses to an existing NIC by com
 	Set-AzureRmNetworkInterface -NetworkInterface $myNIC
 	```
 
-7. View the private IP addresses that Azure DHCP assigned to the NIC and the public IP address resource assigned to the NIC by entering the following command:
+7. View the private IP addresses and the public IP address resources assigned to the NIC by entering the following command:
 
 	```powershell   
 	$myNIC.IpConfigurations | Format-Table Name, PrivateIPAddress, PublicIPAddress, Primary
