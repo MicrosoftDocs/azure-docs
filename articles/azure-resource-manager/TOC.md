@@ -52,7 +52,7 @@
 ### [View deployment operations with Azure CLI](../resource-manager-troubleshoot-deployments-cli.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ### [View deployment operations with REST API](../resource-manager-troubleshoot-deployments-rest.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 # Reference
-## [PowerShell cmdlets](/powershell/azureps-cmdlets-docs/)
+## [PowerShell cmdlets](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](/cli/azure)
 ## [Java](/java/api)
 ## [.NET API](/dotnet/api)

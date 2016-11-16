@@ -8,7 +8,7 @@ author: naziml
 manager: wpickett
 editor: ''
 
-ms.assetid: 
+ms.assetid: b97bd4e6-dff0-4976-ac20-d5c109a559a8
 ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -35,7 +35,7 @@ To use a custom Docker image from Docker Hub:
 
 1. In the [Azure portal](https://portal.azure.com), locate your web app on Linux, then in **Settings** click **Docker Container**.
 
-2.  Select **Docker Hub** as the **Image source**, then click either **Public** or **Private** and type the **Image and optional tag name**, such as `node:4.5`. The **Startup command ** is set automatically based on what is defined in the Docker image file, but you can set your own commands.  
+2.  Select **Docker Hub** as the **Image source**, then click either **Public** or **Private** and type the **Image and optional tag name**, such as `node:4.5`. The **Startup command** is set automatically based on what is defined in the Docker image file, but you can set your own commands.  
 
     ![Configure Docker Hub public repository image][2]
 

@@ -40,7 +40,7 @@
 ### [One-click PowerShell](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [.NET](/dotnet/api/)
 ## [Query language](https://msdn.microsoft.com/library/azure/dn834998)
 ## [REST](/rest/api/streamanalytics/)
