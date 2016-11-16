@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Security Management and Monitoring Overview | Microsoft Docs
 description: " Azure provides security mechanisms to aid in the management and monitoring of Azure cloud services and virtual machines.  This article provides an overview of these core security features and services. "
 services: security
@@ -62,8 +62,8 @@ Learn more:
 
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](azure-security-antimalware.md)
-* [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-trend.md)
-* [How to install and configure Symantec Endpoint Protection on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-symantec.md)
+* [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-trend.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
+* [How to install and configure Symantec Endpoint Protection on a Windows VM](../virtual-machines/virtual-machines-windows-classic-install-symantec.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 * [New Antimalware Options for Protecting Azure Virtual Machines – McAfee Endpoint Protection](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
 ## Multi-Factor Authentication

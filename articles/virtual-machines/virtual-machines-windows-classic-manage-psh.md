@@ -21,7 +21,7 @@ ms.author: kasing
 # Manage your virtual machines by using Azure PowerShell
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-For common PowerShell commands using the Resource Manager model, see [here](virtual-machines-windows-ps-common-ref.md).
+For common PowerShell commands using the Resource Manager model, see [here](virtual-machines-windows-ps-common-ref.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 Many tasks you do each day to manage your VMs can be automated by using Azure PowerShell cmdlets. This article gives you example commands for simpler tasks, and links to articles that show the commands for more complex tasks.
 
@@ -95,7 +95,7 @@ To attach data disks from an existing .vhd file in blob storage, run this comman
 
 ## Create a Windows-based VM
 To create a new Windows-based virtual machine in Azure, use the instructions in
-[Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-windows-classic-create-powershell.md). This topic steps you through the creation of an Azure PowerShell command set that creates a Windows-based VM that can be preconfigured:
+[Use Azure PowerShell to create and preconfigure Windows-based virtual machines](virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). This topic steps you through the creation of an Azure PowerShell command set that creates a Windows-based VM that can be preconfigured:
 
 * With Active Directory domain membership.
 * With additional disks.

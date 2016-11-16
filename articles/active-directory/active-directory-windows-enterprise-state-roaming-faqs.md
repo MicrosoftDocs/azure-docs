@@ -41,7 +41,7 @@ In Windows 8 and Windows 8.1, settings sync always used consumer Microsoft accou
 The primary account is defined as the account used to sign in to Windows. This can be a Microsoft account, an Azure Active Directory (Azure AD) account, an on-premises Active Directory account, or a local account. In addition to the primary account, Windows 10 users can add one or more secondary cloud accounts to their device. A secondary account is generally a Microsoft account, an Azure AD account, or some other account such as Gmail or Facebook. These secondary accounts provide access to additional services such as single sign-on and the Windows Store, but they are not capable of powering settings sync.
 
 In Windows 10, only the primary account for the device can be used for settings sync (see
-[How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10?](active-directory-windows-enterprise-state-roaming-faqs.md#How-do-I-upgrade-from-Microsoft-account-settings-sync-in-Windows-8-to-Azure-AD-settings-sync-in Windows-10?)).
+[How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10?](active-directory-windows-enterprise-state-roaming-faqs.md#how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10)).
 
 Data is never mixed between the different user accounts on the device. There are two rules for settings sync:
 
@@ -52,8 +52,8 @@ If an app’s owner cannot be identified, it will roam with the primary account.
 
 > [!NOTE]
 > Windows 10 devices that are enterprise-owned and are connected to Azure AD can no longer connect their Microsoft accounts to a domain account. The ability to connect a Microsoft account to a domain account and have all the user's data sync to the Microsoft account (that is, the Microsoft account roaming via the connected Microsoft account and Active Directory functionality) is removed from Windows 10 devices that are joined to a connected Active Directory or Azure AD environment.
-> 
-> 
+>
+>
 
 ## How do I upgrade from Microsoft account settings sync in Windows 8 to Azure AD settings sync in Windows 10?
 If you are joined to the Active Directory domain running Windows 8 or Windows 8.1 with a connected Microsoft account, you will sync settings through your Microsoft account. After upgrading to Windows 10, you will continue to sync user settings via Microsoft account as long as you are a domain-joined user and the Active Directory domain does not connect with Azure AD.
@@ -123,9 +123,9 @@ If your organization is already using roaming in Windows 10 with the Azure RMS l
 ## Known issues
 * If you attempt to sign in to your Windows device using a smart card or virtual smart card, settings sync will stop working. Future updates to Windows 10 may resolve this issue.
 * You will need the July cumulative update for Windows 10 (build 10586.494 or higher) for Internet Explorer favorites syncing to work.
-* Data that is protected with Windows Information Protection will not sync through Enterprise State Roaming. In addition, machines that have Windows Information Protection enabled will not experience theme sync. 
+* Data that is protected with Windows Information Protection will not sync through Enterprise State Roaming. In addition, machines that have Windows Information Protection enabled will not experience theme sync.
 * Under certain conditions, Enterprise State Roaming can fail to sync data if Azure Multi-Factor Authentication is configured.
-  
+
   * If your device is configured to require [Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md) on the Azure Active Directory portal, you may fail to sync settings while signing in to a Windows 10 device using a password. This type of Multi-Factor Authentication configuration is intended to protect an Azure administrator account. Admin users may still be able to sync by signing in to their Windows 10 devices with their [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN or by completing Multi-Factor Authentication while accessing other Azure services like Office 365.
   * Sync can fail if the admin configures the Active Directory Federation Services Multi-Factor Authentication conditional access policy and the access token on the device expires.  Ensure that you sign in and sign out using the [Microsoft Passport for Work](active-directory-azureadjoin-passport.md) PIN or complete Multi-Factor Authentication while accessing other Azure services like Office 365.
 * If a machine is domain-joined with automatic registration to Azure Active Directory devices, it may experience sync fail if the machine is off-site for extended periods of time, and domain authentication can't complete. To resolve this issue, connect the machine to a corporate network so that sync can resume.
@@ -135,4 +135,3 @@ If your organization is already using roaming in Windows 10 with the Azure RMS l
 * [Enable enterprise state roaming in Azure Active Directory](active-directory-windows-enterprise-state-roaming-enable.md)
 * [Group policy and MDM settings for settings sync](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 * [Windows 10 roaming settings reference](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
-

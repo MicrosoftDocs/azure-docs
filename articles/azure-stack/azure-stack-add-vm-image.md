@@ -1,4 +1,4 @@
-﻿---
+---
 title: Adding a VM image to Azure Stack | Microsoft Docs
 description: Add your organization's custom Windows or Linux VM image for tenants to use
 services: azure-stack
@@ -35,7 +35,7 @@ If the VM image VHD is available locally on the console VM (or another externall
 
 1. Prepare a Windows or Linux operating system virtual hard disk image in VHD format (not VHDX).
    
-   * For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines/virtual-machines-windows-upload-image.md) contains image preparation instructions in the **Prepare the VHD for upload** section.
+   * For Windows images, the article [Upload a Windows VM image to Azure for Resource Manager deployments](../virtual-machines/virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) contains image preparation instructions in the **Prepare the VHD for upload** section.
    * For Linux images, follow the steps to
      prepare the image or use an existing Azure Stack Linux image as described in
      the article [Deploy Linux virtual machines on Azure

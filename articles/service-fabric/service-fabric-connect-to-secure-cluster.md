@@ -1,6 +1,6 @@
 ---
 title: Authenticate client access to a cluster | Microsoft Docs
-description: Describes how to authenticate client access to a Service Fabric cluster using certificates and how to secure communication between clients and a cluster.
+description: Describes how to authenticate client access to a Service Fabric cluster and how to secure communication between clients and a cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -13,34 +13,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/11/2016
 ms.author: ryanwi
 
 ---
-# Connect to a secure cluster without AAD
-When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security. This authentication ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate security must have been previously enabled on the cluster when the cluster was created.  At least two certificates should be used for securing the cluster, one for the cluster and server certificate and another for client access.  We recommend that you also use additional secondary certificates and client access certificates.  For more information on cluster security scenarios, see [Cluster security](service-fabric-cluster-security.md).
+# Connect to a secure cluster
+When a client connects to a Service Fabric cluster node, the client can be authenticated and secure communication established using certificate security or Azure Active Directory (AAD). This authentication ensures that only authorized users can access the cluster and deployed applications and perform management tasks.  Certificate or AAD security must have been previously enabled on the cluster when the cluster was created.  For more information on cluster security scenarios, see [Cluster security](service-fabric-cluster-security.md). If you are connecting to a cluster secured with certificates, [set up the client certificate](service-fabric-connect-to-secure-cluster.md#connectsecureclustersetupclientcert) on the computer that will connect to the cluster.
 
-To secure the communication between a client and a cluster node using certificate security, you first need to obtain and install the client certificate. The certificate can be installed into the Personal (My) store of the local computer or the current user.  You also need the thumbprint of the server certificate so that the client can authenticate the cluster.
-
-Run the following PowerShell cmdlet to set up the client certificate on the computer from which you access the cluster.
-
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
-        -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
-        -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
-
-If it is a self-signed certificate, you need to import it to your machine's "trusted people" store before you can use this certificate to connect to a secure cluster.
-
-```powershell
-Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
--FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
--Password (ConvertTo-SecureString -String test -AsPlainText -Force)
-```
 <a id="connectsecureclustercli"></a> 
 
-## Connect to a secure cluster using Azure CLI without AAD
-The following Azure CLI commands describe how to connect to a secure cluster. The certificate details must match a certificate on the cluster nodes. 
+## Connect to a secure cluster using Azure CLI
+The following Azure CLI commands describe how to connect to a secure cluster. 
+
+### Connect to a secure cluster using a client certificate
+The certificate details must match a certificate on the cluster nodes. 
 
 If your certificate has Certificate Authorities (CAs), you need to add the parameter `--ca-cert-path` as shown in the following example: 
 
@@ -71,8 +57,29 @@ After you connect, you should be able to run other CLI commands to interact with
 
 <a id="connectsecurecluster"></a>
 
-## Connect to a secure cluster using PowerShell without AAD
-Run the following PowerShell command to connect to a secure cluster. The certificate details must match a certificate on the cluster nodes.
+## Connect to a secure cluster using PowerShell
+Before you perform operations on a cluster through PowerShell, first establish a connection to the cluster. The cluster connection is used for all subsequent commands in the given PowerShell session.
+
+### Connect to an unsecure cluster
+
+To connect to an unsecure cluster, provide the cluster endpoint address to the **Connect-ServiceFabricCluster** command:
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 
+```
+
+### Connect to a secure cluster using Azure Active Directory
+
+To connect to a secure cluster that uses Azure Active Directory to authorize cluster administrator access, provide the cluster certificate thumbprint and use the *AzureActiveDirectory* flag.  
+
+```powershell
+Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
+-ServerCertThumbprint <Server Certificate Thumbprint> `
+-AzureActiveDirectory
+```
+
+### Connect to a secure cluster using a client certificate
+Run the following PowerShell command to connect to a secure cluster that uses client certificates to authorize administrator access. Provide the cluster certificate thumbprint as well as the thumbprint of the client certificate that has been granted permissions for cluster management. The certificate details must match a certificate on the cluster nodes.
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <Cluster FQDN>:19000 `
@@ -94,10 +101,28 @@ Connect-ServiceFabricCluster -ConnectionEndpoint clustername.westus.cloudapp.azu
 ```
 
 
-
+<a id="connectsecureclusterfabricclient"></a>
 
 ## Connect to a secure cluster using the FabricClient APIs
-For more information on FabricClient APIs, see [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) set on [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Following this process enables mutual authentication between the client and the cluster nodes.
+The Service Fabric SDK provides the [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx) class for cluster management. 
+
+### Connect to an unsecure cluster
+
+To connect to a remote unsecured cluster, simply create a FabricClient instance and provide the cluster address:
+
+```csharp
+FabricClient fabricClient = new FabricClient("clustername.westus.cloudapp.azure.com:19000");
+```
+
+For code that is running from within a cluster, for example, in a Reliable Service, create a FabricClient *without* specifying the cluster address. FabricClient connects to the local management gateway on the node the code is currently running on, avoiding an extra network hop.
+
+```csharp
+FabricClient fabricClient = new FabricClient();
+```
+
+### Connect to a secure cluster using a client certificate
+
+The nodes in the cluster must have valid certificates whose common name or DNS name in SAN appears in the [RemoteCommonNames property](https://msdn.microsoft.com/library/azure/system.fabric.x509credentials.remotecommonnames.aspx) set on [FabricClient](https://msdn.microsoft.com/library/system.fabric.fabricclient.aspx). Following this process enables mutual authentication between the client and the cluster nodes.
 
 ```csharp
 string clientCertThumb = "71DE04467C9ED0544D021098BCD44C71E183414E";
@@ -143,6 +168,50 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 }
 ```
 
+<a id="connectsecureclustersfx"></a>
+
+## Connect to a secure cluster using Service Fabric Explorer
+In order to reach [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) for a given cluster, point your browser to:
+
+`http://<your-cluster-endpoint>:19080/Explorer`
+
+The full URL is also available in the cluster essentials pane of the Azure portal.
+
+### Connect to a secure cluster using Azure Active Directory
+
+To connect to a cluster that is secured with AAD, point your browser to:
+
+`https://<your-cluster-endpoint>:19080/Explorer`
+
+You will automatically be prompted to log in with AAD.
+
+### Connect to a secure cluster using a client certificate
+
+To connect to a cluster that is secured with certifcates, point your browser to:
+
+`https://<your-cluster-endpoint>:19080/Explorer`
+
+You will automatically be prompted to select a client certificate.
+
+<a id="connectsecureclustersetupclientcert"></a>
+## Set up a client certificate on the remote computer
+At least two certificates should be used for securing the cluster, one for the cluster and server certificate and another for client access.  We recommend that you also use additional secondary certificates and client access certificates.  To secure the communication between a client and a cluster node using certificate security, you first need to obtain and install the client certificate. The certificate can be installed into the Personal (My) store of the local computer or the current user.  You also need the thumbprint of the server certificate so that the client can authenticate the cluster.
+
+Run the following PowerShell cmdlet to set up the client certificate on the computer from which you access the cluster.
+
+```powershell
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\My `
+        -FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+        -Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+```
+
+If it is a self-signed certificate, you need to import it to your machine's "trusted people" store before you can use this certificate to connect to a secure cluster.
+
+```powershell
+Import-PfxCertificate -Exportable -CertStoreLocation Cert:\CurrentUser\TrustedPeople `
+-FilePath C:\docDemo\certs\DocDemoClusterCert.pfx `
+-Password (ConvertTo-SecureString -String test -AsPlainText -Force)
+```
 
 ## Next steps
 * [Service Fabric Cluster upgrade process and expectations from you](service-fabric-cluster-upgrade.md)

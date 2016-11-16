@@ -1,4 +1,4 @@
-﻿---
+---
 title: Run Cassandra with Linux on Azure | Microsoft Docs
 description: How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app
 services: virtual-machines-linux
@@ -291,7 +291,7 @@ Log into the virtual machine using the hostname (hk-cas-template.cloudapp.net) a
 Execute the following sequence of actions to capture the image:
 
 ##### 1. Deprovision
-Use the command “sudo waagent –deprovision+user” to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](virtual-machines-linux-classic-capture-image.md) to Use as a Template more details on the image capture process.
+Use the command “sudo waagent –deprovision+user” to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) to Use as a Template more details on the image capture process.
 
 ##### 2: Shutdown the VM
 Make sure that the virtual machine is highlighted and click the SHUTDOWN link from the bottom command bar.

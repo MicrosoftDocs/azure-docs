@@ -52,25 +52,25 @@ For additional examples using Table storage, see [Getting Started with Azure Tab
 
 ### Add namespace declarations
 Add the following `using` statements to the top of the `program.cs` file:
-
+```csharp
     using Microsoft.Azure; // Namespace for CloudConfigurationManager
     using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
     using Microsoft.WindowsAzure.Storage.Table; // Namespace for Table storage types
-
+```
 ### Parse the connection string
 [!INCLUDE [storage-cloud-configuration-manager-include](../../includes/storage-cloud-configuration-manager-include.md)]
 
 ### Create the Table service client
 The **CloudTableClient** class enables you to retrieve tables and entities stored in Table storage. Here's one way to create the service client:
-
+```csharp
     // Create the table client.
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
-
+```
 Now you are ready to write code that reads data from and writes data to Table storage.
 
 ## Create a table
 This example shows how to create a table if it does not already exist:
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -83,7 +83,7 @@ This example shows how to create a table if it does not already exist:
 
     // Create the table if it doesn't exist.
     table.CreateIfNotExists();
-
+```
 ## Add an entity to a table
 Entities map to C\# objects by using a custom class derived from
 **TableEntity**. To add an entity to a table, create a
@@ -95,7 +95,7 @@ same partition key can be queried faster than those with different
 partition keys, but using diverse partition keys allows for greater scalability of parallel operations.  For any property that should be stored in the Table service,
 the property must be a public property of a supported type that exposes both `get` and `set`.
 Also, your entity type *must* expose a parameter-less constructor.
-
+```csharp
     public class CustomerEntity : TableEntity
     {
         public CustomerEntity(string lastName, string firstName)
@@ -110,11 +110,11 @@ Also, your entity type *must* expose a parameter-less constructor.
 
         public string PhoneNumber { get; set; }
     }
-
+```
 Table operations that involve entities are performed via the **CloudTable**
 object that you created earlier in the "Create a table" section. The operation to be performed
 is represented by a **TableOperation** object.  The following code example shows the creation of the **CloudTable** object and then a **CustomerEntity** object.  To prepare the operation, a **TableOperation** object is created to insert the customer entity into the table.  Finally, the operation is executed by calling **CloudTable.Execute**.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -135,7 +135,7 @@ is represented by a **TableOperation** object.  The following code example shows
 
     // Execute the insert operation.
     table.Execute(insertOperation);
-
+```
 ## Insert a batch of entities
 You can insert a batch of entities into a table in one write
 operation. Some other notes on batch
@@ -150,7 +150,7 @@ operations:
 <!-- -->
 The following code example creates two entity objects and adds each
 to **TableBatchOperation** by using the **Insert** method. Then, **CloudTable.Execute** is called to execute the operation.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -180,13 +180,13 @@ to **TableBatchOperation** by using the **Insert** method. Then, **CloudTable.Ex
 
     // Execute the batch operation.
     table.ExecuteBatch(batchOperation);
-
+```
 ## Retrieve all entities in a partition
 To query a table for all entities in a partition, use a **TableQuery** object.
 The following code example specifies a filter for entities where 'Smith'
 is the partition key. This example prints the fields of
 each entity in the query results to the console.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -206,14 +206,14 @@ each entity in the query results to the console.
         Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
             entity.Email, entity.PhoneNumber);
     }
-
+```
 ## Retrieve a range of entities in a partition
 If you don't want to query all the entities in a partition, you can
 specify a range by combining the partition key filter with a row key filter. The following code example
 uses two filters to get all entities in partition 'Smith' where the row
 key (first name) starts with a letter earlier than 'E' in the alphabet and then
 prints the query results.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -237,7 +237,7 @@ prints the query results.
         Console.WriteLine("{0}, {1}\t{2}\t{3}", entity.PartitionKey, entity.RowKey,
             entity.Email, entity.PhoneNumber);
     }
-
+```
 ## Retrieve a single entity
 You can write a query to retrieve a single, specific entity. The
 following code uses **TableOperation** to specify the customer 'Ben Smith'.
@@ -245,7 +245,7 @@ This method returns just one entity rather than a
 collection, and the returned value in **TableResult.Result** is a **CustomerEntity** object.
 Specifying both partition and row keys in a query is the fastest way to
 retrieve a single entity from the Table service.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -267,7 +267,7 @@ retrieve a single entity from the Table service.
        Console.WriteLine(((CustomerEntity)retrievedResult.Result).PhoneNumber);
     else
        Console.WriteLine("The phone number could not be retrieved.");
-
+```
 ## Replace an entity
 To update an entity, retrieve it from the Table service, modify the
 entity object, and then save the changes back to the Table service. The
@@ -281,7 +281,7 @@ update by another component of your application.  The proper handling of this fa
 is to retrieve the entity again, make your changes (if still valid), and then
 perform another **Replace** operation.  The next section will
 show you how to override this behavior.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -317,7 +317,7 @@ show you how to override this behavior.
 
     else
        Console.WriteLine("Entity could not be retrieved.");
-
+```
 ## Insert-or-replace an entity
 **Replace** operations will fail if the entity has been changed since
 it was retrieved from the server.  Furthermore, you must retrieve
@@ -330,7 +330,7 @@ replaces it if it does, regardless of when the last update was made.  In the
 following code example, the customer entity for Ben Smith is still retrieved, but it is then saved back to the server via **InsertOrReplace**.  Any updates
 made to the entity between the retrieval and update operations will be
 overwritten.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -366,13 +366,13 @@ overwritten.
 
     else
        Console.WriteLine("Entity could not be retrieved.");
-
+```
 ## Query a subset of entity properties
 A table query can retrieve just a few properties from an entity instead of all the entity properties. This technique, called projection, reduces bandwidth and can improve query performance, especially for large entities. The query in the
 following code returns only the email addresses of entities in the
 table. This is done by using a query of **DynamicTableEntity** and
 also **EntityResolver**. You can learn more about projection on the [Introducing Upsert and Query Projection blog post][Introducing Upsert and Query Projection blog post]. Note that projection is not supported on the local storage emulator, so this code runs only when you're using an account on the Table service.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -393,12 +393,12 @@ also **EntityResolver**. You can learn more about projection on the [Introducing
     {
         Console.WriteLine(projectedEmail);
     }
-
+```
 ## Delete an entity
 You can easily delete an entity after you have retrieved it, by using the same pattern
 shown for updating an entity.  The following code
 retrieves and deletes a customer entity.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -431,12 +431,12 @@ retrieves and deletes a customer entity.
 
     else
        Console.WriteLine("Could not retrieve the entity.");
-
+```
 ## Delete a table
 Finally, the following code example deletes a table from a storage account. A
 table that has been deleted will be unavailable to be re-created for a
 period of time following the deletion.
-
+```csharp
     // Retrieve the storage account from the connection string.
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("StorageConnectionString"));
@@ -449,10 +449,10 @@ period of time following the deletion.
 
     // Delete the table it if exists.
     table.DeleteIfExists();
-
+```
 ## Retrieve entities in pages asynchronously
 If you are reading a large number of entities, and you want to process/display entities as they are retrieved rather than waiting for them all to return, you can retrieve entities by using a segmented query. This example shows how to return results in pages by using the Async-Await pattern so that execution is not blocked while you're waiting for a large set of results to return. For more details on using the Async-Await pattern in .NET, see [Asynchronous programming with Async and Await (C# and Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx).
-
+```csharp
     // Initialize a default TableQuery to retrieve all the entities in the table.
     TableQuery<CustomerEntity> tableQuery = new TableQuery<CustomerEntity>();
 
@@ -474,7 +474,7 @@ If you are reading a large number of entities, and you want to process/display e
 
     // Loop until a null continuation token is received, indicating the end of the table.
     } while(continuationToken != null);
-
+```
 ## Next steps
 Now that you've learned the basics of Table storage, follow these links
 to learn about more complex storage tasks:

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Always On Availability Group Listeners – Microsoft Azure
 description: Configure Availability Group Listeners on the Azure Resource Manager model, using an internal load balancer with one or more IP addresses.
 services: virtual-machines
@@ -25,13 +25,13 @@ This topic shows how to do two things:
 
 In SQL Server an availability group listener is a virtual network name which clients connect to in order to access a database in the primary or secondary replica. On Azure virtual machines, a load balancer holds the IP address for  the listener. The load balancer routes traffic to the instance of SQL Server that is listening on the probe port. In most cases, an availability group uses an internal load balancer. An Azure internal load balancer can host one or many IP addresses. Each IP address uses a specific probe port. This document shows how to use PowerShell to create a new load balancer, or add IP addresses to an existing load balancer for SQL Server availability groups. 
 
-The ability to assign multiple IP addresses to an internal load balancer is new to Azure and is only available in Resource Manager model. To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines in Resource Manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) to automatically create the availability group in Azure Resource Manager. This template automatically creates the availability group, including the internal load balancer for you. If you prefer, you can [manually configure an AlwaysOn availability group](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+The ability to assign multiple IP addresses to an internal load balancer is new to Azure and is only available in Resource Manager model. To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines in Resource Manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to automatically create the availability group in Azure Resource Manager. This template automatically creates the availability group, including the internal load balancer for you. If you prefer, you can [manually configure an AlwaysOn availability group](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 This topic requires that your availability groups are already configured.  
 
 Related topics include:
 
-* [Configure AlwaysOn Availability Groups in Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md)   
+* [Configure AlwaysOn Availability Groups in Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)   
 * [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-vm-powershell.md)]
@@ -41,7 +41,7 @@ Configure the Windows Firewall to allow SQL Server access. You will need to conf
 
 ## Example Script: Create an internal load balancer with PowerShell
 > [!NOTE]
-> If you created your availability group with the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md) the load you do not need to complete this step. 
+> If you created your availability group with the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) the load you do not need to complete this step. 
 > 
 > 
 
@@ -237,7 +237,7 @@ Note the following guidelines on availability group listener in Azure using inte
 * With an internal load balancer you only access the listener from within the same virtual network.
 
 ## For more information
-For more information see [Configure Always On availability group in Azure VM manually](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
+For more information see [Configure Always On availability group in Azure VM manually](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### PowerShell cmdlets
 Use the following PowerShell cmdlets to create an internal load balancer for Azure virtual machines.

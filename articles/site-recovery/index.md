@@ -1,23 +1,23 @@
 ---
 layout: LandingPage
 ---
-#Site Recovery Documentation
+# Site Recovery Documentation
 
-Site Recovery is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Site Recovery represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Azure Site Recovery contributes to your business continuity and disaster recovery (BCDR) strategy by orchestrating replication of on-premises virtual machines and physical servers. You can replicate servers and VMs from your primary on-premises datacenter to Azure or to a secondary datacenter. If an outage occurs in your primary site, you fail over to the secondary site to keep workloads accessible and available.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/site-recovery/site-recovery-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/site-recovery.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Site Recovery Getting Started Samples</h3>
+                        <h3>Learn about Azure Site Recovery</h3>
                     </div>
                 </div>
             </div>
@@ -25,35 +25,17 @@ Site Recovery is a distributed systems platform that makes it easy to package, d
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-management-party-cluster/">
+        <a href="/azure/site-recovery/site-recovery-best-practices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Azure Site Recovery Party Cluster</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-core-getting-started/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Getting started with Site Recovery with .NET Core</h3>
+                        <h3>Get started with Azure Site Recovery</h3>
                     </div>
                 </div>
             </div>
@@ -64,16 +46,55 @@ Site Recovery is a distributed systems platform that makes it easy to package, d
 
 ---
 
-##Reference
+## Reference
 
-###REST
-[Site Recovery REST API Reference](/rest/api/)
-
-###.NET
-[Site Recovery Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+<ul class="panelContent cardsW">
+	<li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Site Recovery Java API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="https://msdn.microsoft.com/en-us/library/mt750497">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Site Recovery REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>	
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/site-recovery.pdf">
         <div class="img"></div>
         <div class="text">
             Download Site Recovery Documentation

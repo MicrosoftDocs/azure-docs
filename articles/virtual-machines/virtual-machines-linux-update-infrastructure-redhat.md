@@ -1,4 +1,4 @@
-﻿---
+---
 title: Red Hat Update Infrastructure (RHUI) | Microsoft Docs
 description: Learn about Red Hat Update Infrastructure (RHUI) for on-demand Red Hat Enterprise Linux instances in Microsoft Azure
 services: virtual-machines-linux
@@ -200,7 +200,7 @@ To unregister RHUI and reregister to your update infrastructure follow the below
 > [!NOTE]
 > Access to the Azure-hosted RHUI is included in the RHEL Pay-As-You-Go (PAYG) image price. Unregistering a PAYG RHEL VM from the Azure-hosted RHUI does not convert the virtual machine into Bring-Your-Own-License (BYOL) type VM and hence you may be incurring double charges if you register the same VM with another source of updates. 
 > 
-> If you consistently need to use an update infrastructure other than Azure-hosted RHUI consider creating and deploying your own (BYOL-type) images as described in [Create and Upload Red Hat-based virtual machine for Azure](virtual-machines-linux-redhat-create-upload-vhd.md) article.
+> If you consistently need to use an update infrastructure other than Azure-hosted RHUI consider creating and deploying your own (BYOL-type) images as described in [Create and Upload Red Hat-based virtual machine for Azure](virtual-machines-linux-redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article.
 > 
 > 
 

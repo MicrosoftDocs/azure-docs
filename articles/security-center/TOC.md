@@ -8,7 +8,6 @@
 # Get started
 ## [Quick start](security-center-get-started.md)
 ## [Planning and operations](security-center-planning-and-operations-guide.md)
-## [Manage and monitor](security-center-sql-database.md)
 ## [FAQ](security-center-faq.md)
 
 # How to
@@ -57,9 +56,11 @@
 ## [REST API](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # Related
-## [Azure Security](../security/azure-security-getting-started.md)
+## [Azure Security](/azure/security/)
 
 # Resources
 ## [Azure Security, Privacy, & Compliance blog](http://blogs.msdn.com/b/azuresecurity/)
-## [Service overview](https://azure.microsoft.com/services/security-center/)
 ## [Pricing](security-center-pricing.md)
+## [Service overview](https://azure.microsoft.com/services/security-center/)
+## [Service updates](https://azure.microsoft.com/updates/?product=security-center)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=security-center)

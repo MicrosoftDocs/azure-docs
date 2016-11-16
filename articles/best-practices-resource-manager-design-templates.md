@@ -1,4 +1,4 @@
-﻿---
+---
 title: Patterns for Resource Manager templates | Microsoft Docs
 description: Show design patterns for Azure Resource Manager templates
 services: azure-resource-manager
@@ -127,7 +127,7 @@ You might initially think a template should give consumers the utmost flexibilit
 ### Free-form configurations
 On the surface, free-form configurations sound ideal. They allow you to select a VM type and provide an arbitrary number of nodes and attached disks for those nodes — and do so as parameters to a template. However, this approach is not ideal for some scenarios.
 
-In [Sizes for virtual machines](virtual-machines/virtual-machines-windows-sizes.md), the different VM types and available sizes are identified, and each of the number of durable disks (2, 4, 8, 16, or 32) that can be attached. Each attached disk provides 500 IOPS and multiples of these disks can be pooled for a multiplier of that number of IOPS. For example, 16 disks can be pooled to provide 8,000 IOPS. Pooling is done with configuration in the operating system, using Microsoft Windows Storage Spaces or redundant array of inexpensive disks (RAID) in Linux.
+In [Sizes for virtual machines](virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), the different VM types and available sizes are identified, and each of the number of durable disks (2, 4, 8, 16, or 32) that can be attached. Each attached disk provides 500 IOPS and multiples of these disks can be pooled for a multiplier of that number of IOPS. For example, 16 disks can be pooled to provide 8,000 IOPS. Pooling is done with configuration in the operating system, using Microsoft Windows Storage Spaces or redundant array of inexpensive disks (RAID) in Linux.
 
 A free-form configuration enables the selection of a number of VM instances, a number of different VM types and sizes for those instances, a number of disks that can vary based on the VM type, and one or more scripts to configure the VM contents.
 

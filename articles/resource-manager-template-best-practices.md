@@ -27,7 +27,7 @@ There are generally three types of resource names you work with:
 2. Resource names that do not need to be unique but you want to provide a name that helps identify the context.
 3. Resource names that can be generic.
 
-For help with establishing a naming convention, see [Infrastructure naming guidelines](virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md). For information about resource name restrictions, see [Recommended naming conventions for Azure resources](guidance/guidance-naming-conventions.md).
+For help with establishing a naming convention, see [Infrastructure naming guidelines](virtual-machines/virtual-machines-windows-infrastructure-naming-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For information about resource name restrictions, see [Recommended naming conventions for Azure resources](guidance/guidance-naming-conventions.md).
 
 ### Unique resource names
 You must provide a unique resource name for any resource type that has a data access endpoint. Some common types that require a unique name include:
@@ -230,10 +230,10 @@ For resource types that are largely accessed through another resource, you can u
      For more information about connecting to virtual machines, see:
    
    * [Running VMs for an N-tier architecture on Azure](guidance/guidance-compute-n-tier-vm.md)
-   * [Setting up WinRM access for Virtual Machines in Azure Resource Manager](virtual-machines/virtual-machines-windows-winrm.md)
-   * [Allow external access to your VM using the Azure portal](virtual-machines/virtual-machines-windows-nsg-quickstart-portal.md)
-   * [Allow external access to your VM using PowerShell](virtual-machines/virtual-machines-windows-nsg-quickstart-powershell.md)
-   * [Opening ports and endpoints](virtual-machines/virtual-machines-linux-nsg-quickstart.md)
+   * [Setting up WinRM access for Virtual Machines in Azure Resource Manager](virtual-machines/virtual-machines-windows-winrm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+   * [Allow external access to your VM using the Azure portal](virtual-machines/virtual-machines-windows-nsg-quickstart-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+   * [Allow external access to your VM using PowerShell](virtual-machines/virtual-machines-windows-nsg-quickstart-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+   * [Opening ports and endpoints](virtual-machines/virtual-machines-linux-nsg-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 2. The **domainNameLabel** property for publicIPAddresses must be unique. domainNameLabel is required to be between 3 and 63 characters long and to follow the rules specified by this regular expression `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. As the uniqueString function generates a string that is 13 characters long, the dnsPrefixString parameter is limited to no more than 50 characters.
    
         "parameters": {
@@ -343,6 +343,6 @@ You can conditionally link to nested templates by using a parameter that becomes
 ## Next steps
 * For guidance on architecting your solution for virtual machines, see [Running a Windows VM on Azure](guidance/guidance-compute-single-vm.md) and [Running a Linux VM on Azure](guidance/guidance-compute-single-vm-linux.md).
 * For guidance on setting up a storage account, see [Microsoft Azure Storage Performance and Scalability Checklist](storage/storage-performance-checklist.md).
-* For help with virtual networks, see [Networking infrastructure guidelines](virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md).
+* For help with virtual networks, see [Networking infrastructure guidelines](virtual-machines/virtual-machines-windows-infrastructure-networking-guidelines.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * For guidance on how enterprises can use Resource Manager to effectively manage subscriptions, see [Azure enterprise scaffold - prescriptive subscription governance](resource-manager-subscription-governance.md).
 

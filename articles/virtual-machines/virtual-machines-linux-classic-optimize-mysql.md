@@ -1,4 +1,4 @@
-﻿---
+---
 title: Optimize MySQL Performance on Linux VMs | Microsoft Docs
 description: Learn how to optimize MySQL running on an Azure virtual machine (VM) running Linux.
 services: virtual-machines-linux
@@ -23,7 +23,7 @@ There are many factors that impact MySQL performance on Azure, both in virtual h
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-For information about Linux VM optimizations with the Resource Manager model, see [here](virtual-machines-linux-optimization.md).
+For information about Linux VM optimizations with the Resource Manager model, see [here](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Utilizing RAID on an Azure virtual machine
 Storage is the key factor that impacts database performance in cloud environments.  Compared to a single disk, RAID can provide faster access via concurrency.  Refer to [Standard RAID Levels](http://en.wikipedia.org/wiki/Standard_RAID_levels) for more detail.   
@@ -70,7 +70,7 @@ You can see the added drives in the virtual machine by looking at the kernel mes
 #### Step 2: Create RAID with the additional disks
 Follow this article for detailed RAID setup steps:  
 
-[Configure software RAID on Linux](virtual-machines-linux-configure-raid.md)
+[Configure software RAID on Linux](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 > [!NOTE]
 > If you are using the XFS file system, follow the steps below after you have created RAID.

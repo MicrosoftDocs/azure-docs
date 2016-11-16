@@ -374,7 +374,7 @@ In the web site resource, add a definition for the code to install:
 ```
 
 ### Virtual machine extension
-For examples of virtual machine extensions, see [Azure Windows VM Extension Configuration Samples](virtual-machines/virtual-machines-windows-extensions-configuration-samples.md).
+For examples of virtual machine extensions, see [Azure Windows VM Extension Configuration Samples](virtual-machines/virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Virtual network gateway
 Add a virtual network gateway resource type.

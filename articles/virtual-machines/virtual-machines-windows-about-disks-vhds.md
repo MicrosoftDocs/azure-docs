@@ -1,4 +1,4 @@
-﻿---
+---
 title: About disks and VHDs for Windows VMs | Microsoft Docs
 description: Learn about the basics of disks and VHDs for Windows virtual machines in Azure.
 services: virtual-machines-windows
@@ -19,7 +19,7 @@ ms.author: cynthn
 
 ---
 # About disks and VHDs for Azure virtual machines
-Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – a Windows operating system disk and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs. This article is also available for [Linux virtual machines](virtual-machines-linux-about-disks-vhds.md).
+Just like any other computer, virtual machines in Azure use disks as a place to store an operating system, applications, and data. All Azure virtual machines have at least two disks – a Windows operating system disk and a temporary disk. The operating system disk is created from an image, and both the operating system disk and the image are virtual hard disks (VHDs) stored in an Azure storage account. Virtual machines also can have one or more data disks, that are also stored as VHDs. This article is also available for [Linux virtual machines](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-both-include.md)]
 
@@ -29,10 +29,10 @@ Every virtual machine has one attached operating system disk. It’s registered 
 ## Temporary disk
 The temporary disk is automatically created for you. The temporary disk is labeled as the D: drive by default and it used for storing pagefile.sys. 
 
-The size of the temporary disk varies, based on the size of the virtual machine. For more information, see [Sizes for Windows virtual machines](virtual-machines-windows-sizes.md).
+The size of the temporary disk varies, based on the size of the virtual machine. For more information, see [Sizes for Windows virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 > [!WARNING]
-> Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. To remap this disk to a different drive letter, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md).
+> Don’t store data on the temporary disk. It provides temporary storage for applications and processes and is intended to only store data such as page or swap files. To remap this disk to a different drive letter, see [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 > 
 > 
 
@@ -42,7 +42,7 @@ For more information on how Azure uses the temporary disk, see [Understanding th
 A data disk is a VHD that’s attached to a virtual machine to store application data, or other data you need to keep. Data disks are registered as SCSI drives and are labeled with a letter that you choose.  Each data disk has a maximum capacity of 1023 GB. The size of the virtual machine determines how many data disks you can attach to it and the type of storage you can use to host the disks.
 
 > [!NOTE]
-> For more information about virtual machines capacities, see [Sizes for Windows virtual machines](virtual-machines-windows-sizes.md).
+> For more information about virtual machines capacities, see [Sizes for Windows virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > 
 
@@ -67,7 +67,7 @@ Before you can delete a source .vhd file, you’ll need to remove the lease by d
 > 
 
 ## Next steps
-* [Attach a disk](virtual-machines-windows-attach-disk-portal.md) to add additional storage for your VM.
-* [Upload a Windows VM image to Azure](virtual-machines-windows-upload-image.md) to use when creating a new VM.
-* [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md) so your application can use the D: drive for data.
+* [Attach a disk](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to add additional storage for your VM.
+* [Upload a Windows VM image to Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to use when creating a new VM.
+* [Change the drive letter of the Windows temporary disk](virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) so your application can use the D: drive for data.
 

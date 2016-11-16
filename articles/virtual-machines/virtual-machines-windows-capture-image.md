@@ -22,7 +22,7 @@ ms.author: cynthn
 This article shows you how to use Azure PowerShell to create an image of a generalized Azure VM. You can then use the image to create another VM. The image includes the OS disk and the data disks that are attached to the virtual machine. The image doesn't include the virtual network resources, so you need to set up those resources when you create the new VM. 
 
 ## Prerequisites
-* You need to have already [generalized the VM](virtual-machines-windows-generalize-vhd.md). Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image.
+* You need to have already [generalized the VM](virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). Generalizing a VM removes all your personal account information, among other things, and prepares the machine to be used as an image.
 * You need to have Azure PowerShell version 1.0.x or newer installed. If you haven't already installed PowerShell, read [How to install and configure Azure PowerShell](../powershell-install-configure.md) for installation steps.
 
 ## Log in to Azure PowerShell
@@ -78,5 +78,5 @@ This article shows you how to use Azure PowerShell to create an image of a gener
     You can also verify the URI in the portal. The image is copied to a container named **system** in your storage account. 
 
 ## Next steps
-* Now you can [create a VM from the image](virtual-machines-windows-create-vm-generalized.md).
+* Now you can [create a VM from the image](virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

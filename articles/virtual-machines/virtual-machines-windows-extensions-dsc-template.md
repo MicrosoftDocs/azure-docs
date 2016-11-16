@@ -1,4 +1,4 @@
-﻿---
+---
 title: Desired State Configuration Resource Manager Template | Microsoft Docs
 description: Resource Manager Template definition for Desired State Configuration in Azure with examples and troubleshooting
 services: virtual-machines-windows
@@ -20,7 +20,7 @@ ms.author: zachal
 
 ---
 # Windows VMSS and Desired State Configuration with Azure Resource Manager templates
-This article describes the Resource Manager template for the [Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md). 
+This article describes the Resource Manager template for the [Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 ## Template example for a Windows VM
 The following snippet goes into the Resource section of the template.
@@ -166,7 +166,7 @@ If the configuration needs credentials, they can be included in protectedSetting
 ```
 
 ## Example
-The following example derives from the "Getting Started" section of the [DSC Extension Handler Overview page](virtual-machines-windows-extensions-dsc-overview.md).
+The following example derives from the "Getting Started" section of the [DSC Extension Handler Overview page](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 This example uses Resource Manager templates instead of cmdlets to deploy the extension. 
 Save the "IisInstall.ps1" configuration, place it in a .ZIP file, and upload the file in an accessible URL. This example uses Azure blob storage, but it is possible to download .ZIP files from any arbitrary location.
 
@@ -294,9 +294,9 @@ Solutions:
 ## Next Steps
 Learn about DSC and virtual machine scale sets in [Using Virtual Machine Scale Sets with the Azure DSC Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md)
 
-Find more details on [DSC's secure credential management](virtual-machines-windows-extensions-dsc-credentials.md). 
+Find more details on [DSC's secure credential management](virtual-machines-windows-extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-For more information on the Azure DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md). 
+For more information on the Azure DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 For more information about PowerShell DSC, [visit the PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
 

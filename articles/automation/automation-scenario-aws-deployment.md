@@ -1,4 +1,4 @@
-﻿---
+---
 title: Automating deployment of a VM in Amazon Web Services | Microsoft Docs
 description: This article demonstrates how to use Azure Automation to automate creation of an Amazon Web Service VM
 services: automation
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/17/2016
+ms.date: 11/15/2016
 ms.author: tiandert; bwren
 
 ---

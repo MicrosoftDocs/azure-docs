@@ -71,7 +71,7 @@ After you complete the tutorial, you might want to delete the cluster. With HDIn
 To begin working with your new HBase cluster, you can use the procedures found in [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md).
 
 ## Connect to the HBase cluster using HBase Java RPC APIs
-1. Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md). When following the steps in this document, you must use the following for the Network configuration:
+1. Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). When following the steps in this document, you must use the following for the Network configuration:
 
    * **Virtual network**: &lt;Cluster name>-vnet
    * **Subnet**: default

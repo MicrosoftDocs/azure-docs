@@ -25,7 +25,7 @@ Creating a service principal consists of several steps, including creating an Az
 > [!IMPORTANT]
 > Be sure to follow all the steps in the [linked tutorial](../articles/resource-group-create-service-principal-portal.md).  It is *extremely important* that you complete it exactly as described.  Make sure to note your **tenant ID**, **tenant domain name** (commonly a *.onmicrosoft.com* domain unless you've specified a custom domain), **client ID**, and **client authentication key**, as we will need these later.  Be very careful to guard your **client ID** and **client authentication key**, as these credentials can be used by anyone to execute operations as the service principal. 
 > 
-> When you get to the step named [Configure multi-tenant application](../articles/resource-group-create-service-principal-portal.md#configure-multi-tenant-application), select **No**.
+> When you get to the step named Configure multi-tenant application, select **No**.
 > 
 > When you get to the step [Assign application to role](../articles/resource-group-create-service-principal-portal.md#assign-application-to-role), use the resource group we created earlier,  *CdnConsoleTutorial*, but instead of the **Reader** role, assign the **CDN Profile Contributor** role.  After you assign the application the **CDN Profile Contributor** role on your resource group, return to this tutorial. 
 > 

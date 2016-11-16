@@ -18,11 +18,11 @@ ms.author: robmcm
 
 ---
 # Build and deploy a Node.js application to an Azure Cloud Service
+
 > [!div class="op_single_selector"]
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
 > * [.NET](cloud-services-dotnet-get-started.md)
->
->
+> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
+> * [Python](cloud-services-python-ptvs.md)
 
 This tutorial shows how to create a simple Node.js application running in an Azure Cloud Service. Cloud Services are the building blocks of scalable cloud applications in Azure. They allow the separation and independent management and scale-out of front-end and back-end components of your application.  Cloud Services provide a robust dedicated virtual machine for hosting each role reliably.
 

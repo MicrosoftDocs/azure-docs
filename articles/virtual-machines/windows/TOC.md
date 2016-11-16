@@ -17,7 +17,6 @@
 ## [FAQ](../virtual-machines-windows-faq.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Get started
-## [Free account](https://azure.microsoft.com/free/)
 ## [Create a VM using the portal](../virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Log on to a VM](../virtual-machines-windows-connect-logon.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Install a role and open ports](../virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -32,9 +31,9 @@
 ### [Application deployment](../virtual-machines-windows-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # How to
-## Store
-### [Attach a data disk using the portal](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Detach a data disk using the portal](../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## Use Storage
+### [Attach a data disk](../virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Detach a data disk](../virtual-machines-windows-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Expand the OS disk](../virtual-machines-windows-expand-os-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Use D: as a data disk](../virtual-machines-windows-classic-change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Disk encryption](../../security/azure-security-disk-encryption.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -50,15 +49,6 @@
 ### [Create a static public IP](../../virtual-network/virtual-network-deploy-static-pip-arm-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Connect Classic VNets to Resource Manager VNets](../../vpn-gateway/vpn-gateway-connect-different-deployment-models-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## Upload images
-### [Prepare a VHD to upload](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Generalize a VM using Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Upload a VM image](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Capture a generalized Azure VM](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Copy a specialized Azure VM](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Create a VM from a generalized VHD](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-### [Create a VM from a specialized VHD](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-
 ## Deploy
 ### [Use Software Assurance licensing](../virtual-machines-windows-hybrid-use-benefit-licensing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Find VM images using Powershell](../virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -71,6 +61,14 @@
 ### [Deploy using C#](../virtual-machines-windows-csharp.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Deploy using C# and templates](../virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Deploy application frameworks from a template](../virtual-machines-windows-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### Images
+#### [Prepare a VHD to upload](../virtual-machines-windows-prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Generalize a VM using Sysprep](../virtual-machines-windows-generalize-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Upload a VM image](../virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Capture a generalized Azure VM](../virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Copy a specialized Azure VM](../virtual-machines-windows-vhd-copy.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Create a VM from a generalized VHD](../virtual-machines-windows-create-vm-generalized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Create a VM from a specialized VHD](../virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Configure
 ### [Create availability set](../virtual-machines-windows-create-availability-set.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -84,7 +82,7 @@
 ### [CLI common tasks](../virtual-machines-windows-cli-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 ## Manage
-### [Create a work or school identity in Azure Active Directory](../virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+### [Create a work or school identity in Azure AD](../virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Manage access](../../active-directory/active-directory-accessmanagement-groups-with-advanced-rules.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Set up Key Vault](../virtual-machines-windows-key-vault-setup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Set up WinRM access](../virtual-machines-windows-winrm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -107,7 +105,7 @@
 ### [Configuration samples](../virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Troubleshoot extensions](../virtual-machines-windows-extensions-troubleshoot.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Azure Automation overview](../virtual-machines-windows-manage-using-azure-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Vertically scale VMs with Azure Automation](../virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Vertically scale VMs](../virtual-machines-windows-vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Download the template for a VM](../virtual-machines-windows-download-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [Automate with Chef](../virtual-machines-windows-chef-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
@@ -130,7 +128,7 @@
 ### [Azure planned maintenance](../virtual-machines-windows-planned-maintenance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Schedule](../virtual-machines-windows-planned-maintenance-schedule.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-## Deploy workloads
+## Manage workloads
 ### [High-performance Computing (HPC)](../virtual-machines-windows-hpcpack-cluster-options.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [MATLAB](../virtual-machines-windows-matlab-mdcs-cluster.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 ### [MongoDB](../virtual-machines-windows-install-mongodb.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -147,7 +145,7 @@
 #### [High availability and disaster recovery](../virtual-machines-windows-sql-high-availability-dr.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Automated Backup](../virtual-machines-windows-sql-automated-backup.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Backup and Restore](../virtual-machines-windows-sql-backup-recovery.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-#### [Use Azure Storage for SQL Server Backup and Restore](../virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+#### [Use Azure Storage for Backup and Restore](../virtual-machines-windows-use-storage-sql-server-backup-restore.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Automated Patching](../virtual-machines-windows-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Performance best practices](../virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 #### [Security Considerations](../virtual-machines-windows-sql-security.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -178,15 +176,16 @@
 ### [Redeploy a VM](../virtual-machines-windows-redeploy-to-new-node.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [Azure CLI](../azure-cli-arm-commands.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
-## [Author Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+## [Azure CLI](/cli/azure/vm)
+## [Java](/java/api/)
+## [Author Resource Manager templates](../../resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ## [Community templates](https://azure.microsoft.com/documentation/templates/)
-## [Compute REST](https://docs.microsoft.com/rest/api/compute/)
-## [Network REST](https://msdn.microsoft.com/library/mt163658.aspx)
-## [Storage REST](https://docs.microsoft.com/rest/api/storageservices/)
+## [Compute REST](/rest/api/compute/)
+## [Network REST](/rest/api/)
+## [Storage REST](/rest/api/storageservices/)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/#Windows)
 ## [Regional availability](https://azure.microsoft.com/regions/services/)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)

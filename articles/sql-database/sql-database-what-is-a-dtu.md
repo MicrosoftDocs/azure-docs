@@ -29,7 +29,7 @@ A DTU is a unit of measure of the resources that are guaranteed to be available 
 You can [change service tiers](sql-database-scale-up.md) at any time with minimal downtime to your application (generally averaging under four seconds). For many businesses and apps, being able to create databases and dial single database performance up or down on demand is enough, especially if usage patterns are relatively predictable. But if you have unpredictable usage patterns, it can make it hard to manage costs and your business model. For this scenario, you use an elastic pool with a certain number of eDTUs.
 
 ## What are elastic Database Transaction Units (eDTUs)
-An eDTU is a unit of measure of the set of resources (DTUs) that can be shared between a set of databases on an Azure SQL server - called an [elastic pool](sql-database-elastic-pool.png). Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns. See [elastic pools and service tiers](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) for more information.
+An eDTU is a unit of measure of the set of resources (DTUs) that can be shared between a set of databases on an Azure SQL server - called an [elastic pool](sql-database-elastic-pool.md). Elastic pools provide a simple cost effective solution to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns. See [elastic pools and service tiers](sql-database-service-tiers.md#elastic-pool-service-tiers-and-performance-in-edtus) for more information.
 
 ![Intro to SQL Database: eDTUs by tier and level](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
@@ -51,4 +51,3 @@ Performance levels are calibrated and governed to provide the needed resources t
 * See [Azure SQL Database resource limits](sql-database-resource-limits.md) for information on limit on resources other than CPU, memory, data I/O, and transaction log I/O.
 * See [SQL Database Query Performance Insight](sql-database-query-performance.md) to understand your (DTUs) consumption.
 * See [SQL Database benchmark overview](sql-database-benchmark-overview.md) to understand the methodology behind the OLTP benchmark workload used to determine the DTU blend.
-

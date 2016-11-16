@@ -21,8 +21,8 @@ ms.author: cynthn
 # Create a copy of a specialized Windows VM running in Azure
 This article shows you how to use the AZCopy tool to create a copy of the VHD from a specialized Windows VM that is running in Azure. You can then use the copy of the VHD to create a new VM. 
 
-* If want to copy a generalized VM, see [How to create a VM image from an existing generalized Azure VM](virtual-machines-windows-capture-image.md).
-* If you want to upload a VHD from an on-premises VM, like one created using Hyper-V, the see [Upload a Windows VHD from an on-premises VM to Azure](virtual-machines-windows-upload-image.md).
+* If want to copy a generalized VM, see [How to create a VM image from an existing generalized Azure VM](virtual-machines-windows-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+* If you want to upload a VHD from an on-premises VM, like one created using Hyper-V, the see [Upload a Windows VHD from an on-premises VM to Azure](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Before you begin
 Make sure that you:
@@ -93,5 +93,5 @@ Elapsed time:            00.00:13:07
 * When you use AZCopy, if you see the error "Server failed to authenticate the request. Make sure the value of Authorization header is formed correctly including the signature." and you are using Key 2 or the secondary storage key, try using the primary or 1st storage key.
 
 ## Next steps
-* You can create a new VM by [attaching the copy of the VHD to a VM as an OS disk](virtual-machines-windows-create-vm-specialized.md).
+* You can create a new VM by [attaching the copy of the VHD to a VM as an OS disk](virtual-machines-windows-create-vm-specialized.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
