@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 11/16/2016
 ms.author: curtand
 
 ---
 # Azure Active Directory editions
 All Microsoft Online business services rely on Azure Active Directory (Azure AD) for sign-in and other identity needs. If you subscribe to any of Microsoft Online business services (for example, Office 365 or Microsoft Azure), you get Azure AD with access to all of the Free features, described below.  
 
-Azure Active Directory is a comprehensive, highly available identity and access management cloud solution that combines core directory services, advanced identity governance, and application access management. Azure Active Directory also offers a rich, standards-based platform that enables developers to deliver access control to their applications, based on centralized policy and rules. With the Azure Active Directory Free edition, you can manage users and groups, synchronize with on-premises directories, get single sign-on across Azure, Office 365, and thousands of popular SaaS applications like Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, and more. To learn more about Azure Active Directory, read [What is Azure AD](active-directory-whatis.md).
+Azure Active Directory is a comprehensive, highly available identity and access management cloud solution that combines core directory services, advanced identity governance, and application access management. Azure Active Directory also offers a rich, standards-based platform that enables developers to deliver access control to their applications, based on centralized policy and rules. With the Azure Active Directory Free edition, you can manage users and groups, synchronize with on-premises directories, get single sign-on across Azure, Office 365, and thousands of popular SaaS applications like Salesforce, Workday, Concur, DocuSign, Google Apps, Box, ServiceNow, Dropbox, and more. To learn more about Azure Active Directory, read [What is Azure AD?](active-directory-whatis.md)
 
 To enhance your Azure Active Directory, you can add paid capabilities using the Azure Active Directory Basic, Premium P1, and Premium P2 editions. Azure Active Directory paid editions are built on top of your existing free directory, providing enterprise class capabilities spanning self-service, enhanced monitoring, security reporting, Multi-Factor Authentication (MFA), and secure access for your mobile workforce.
 
@@ -190,7 +190,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| ![Check][12] |![Check][12] |![Check][12] | |
+|  |![Check][12] |![Check][12] | ![Check][12] |
 
 **More details:**
 
@@ -203,7 +203,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 
 | Free Edition | Basic Edition | Premium (P1 and P2) Editions | Office 365 Apps Only |
 |:---:|:---:|:---:|:---:|
-| ![Check][12] |![Check][12] |![Check][12] | |
+|  |![Check][12] |![Check][12] | ![Check][12] |
 
 **More details:**
 
