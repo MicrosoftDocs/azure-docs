@@ -1,13 +1,9 @@
-<!---author: alkohli, last updated: 11/16/2016 --->
-
 #### To configure and register the virtual device
 
-1. Select the StorSimple virtual device you just created in the **Devices** page. 
-
+1. Select the StorSimple virtual device you just created in the **Devices** page.
 2. Click **complete device setup**. This starts the Configure device wizard.
     
-    ![StorSimple complete device setup in Devices page]
-    (./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
+    ![StorSimple complete device setup in Devices page](./media/storsimple-configure-register-virtual-device/StorSimple_CompleteDeviceSetupSVA1M.png)
 
 4. Enter the **Service Data Encryption Key** in the space provided.
 

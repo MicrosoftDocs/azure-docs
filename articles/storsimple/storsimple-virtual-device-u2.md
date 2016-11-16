@@ -124,6 +124,7 @@ If the creation of the virtual device fails in this step, you may not have conne
 Before starting this procedure, make sure that you have a copy of the service data encryption key. The service data encryption key was created when you configured your first StorSimple device and you were instructed to save it in a secure location. If you do not have a copy of the service data encryption key, you must contact Microsoft Support for assistance.
 
 Perform the following steps to configure and register your StorSimple virtual device.
+
 [!INCLUDE [Configure and register a virtual device](../../includes/storsimple-configure-register-virtual-device.md)]
 
 ### Step 3: (Optional) Modify the device configuration settings
