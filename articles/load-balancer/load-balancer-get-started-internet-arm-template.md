@@ -5,7 +5,6 @@ services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 tags: azure-resource-manager
 
 ms.assetid: b24f4729-4559-4458-8527-71009d242647
@@ -46,9 +45,9 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 2. Run the **New-AzureRmResourceGroupDeployment** cmdlet to create a resource group using the template.
 
     ```powershell
-        New-AzureRmResourceGroupDeployment -Name TestRG -Location uswest `
-            -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
-            -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'
+    New-AzureRmResourceGroupDeployment -Name TestRG -Location uswest `
+        -TemplateFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' `
+        -TemplateParameterFile 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.parameters.json'
     ```
 
 ## Deploy the template by using the Azure CLI
@@ -59,7 +58,7 @@ To deploy the template by using the Azure CLI, follow the steps below.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
     ```azurecli
-        azure config mode arm
+    azure config mode arm
     ```
 
     Here is the expected output for the command above:
@@ -70,7 +69,7 @@ To deploy the template by using the Azure CLI, follow the steps below.
 4. Run the **azure group deployment create** cmdlet to deploy the new load balancer by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
     ```azurecli
-        azure group create --name TestRG --location westus --template-file 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' --parameters-file 'c:\lb\azuredeploy.parameters.json'
+    azure group create --name TestRG --location westus --template-file 'https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-2-vms-loadbalancer-lbrules/azuredeploy.json' --parameters-file 'c:\lb\azuredeploy.parameters.json'
     ```
 
 ## Next steps

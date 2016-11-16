@@ -5,7 +5,6 @@ services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 tags: azure-resource-manager
 
 ms.assetid: c6c98981-df9d-4dd7-a94b-cc7d1dc99369
@@ -56,7 +55,7 @@ Make sure you have the latest production version of the Azure module for PowerSh
 ### Step 1
 
 ```powershell
-    Login-AzureRmAccount
+Login-AzureRmAccount
 ```
 
 ### Step 2
@@ -64,7 +63,7 @@ Make sure you have the latest production version of the Azure module for PowerSh
 Check the subscriptions for the account
 
 ```powershell
-    Get-AzureRmSubscription
+Get-AzureRmSubscription
 ```
 
 You will be prompted to Authenticate with your credentials.
@@ -74,7 +73,7 @@ You will be prompted to Authenticate with your credentials.
 Choose which of your Azure subscriptions to use.
 
 ```powershell
-    Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
+Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### Create Resource Group for load balancer
@@ -82,7 +81,7 @@ Choose which of your Azure subscriptions to use.
 Create a new resource group (skip this step if using an existing resource group)
 
 ```powershell
-    New-AzureRmResourceGroup -Name NRP-RG -location "West US"
+New-AzureRmResourceGroup -Name NRP-RG -location "West US"
 ```
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure all commands to create a load balancer will use the same resource group.
@@ -183,7 +182,7 @@ Create a second network interface called LB-Nic2-BE:
 This step creates a second network interface, assigning to the same load balancer back end pool and associating the second NAT rule created for RDP:
 
 ```powershell
-    $backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
+$backendnic2= New-AzureRmNetworkInterface -ResourceGroupName "NRP-RG" -Name lb-nic2-be -Location "West US" -PrivateIpAddress 10.0.2.7 -Subnet $backendSubnet -LoadBalancerBackendAddressPool $nrplb.BackendAddressPools[0] -LoadBalancerInboundNatRule $nrplb.InboundNatRules[1]
 ```
 
 The end result will show the following:

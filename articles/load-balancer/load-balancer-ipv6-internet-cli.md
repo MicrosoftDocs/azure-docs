@@ -5,7 +5,6 @@ services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 tags: azure-resource-manager
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
 
@@ -64,7 +63,7 @@ For this example, we are running the CLI tools in a PowerShell command window. W
 2. Run the **azure config mode** command to switch to Resource Manager mode.
 
     ```azurecli
-        azure config mode arm
+    azure config mode arm
     ```
 
     Expected output:
@@ -74,29 +73,31 @@ For this example, we are running the CLI tools in a PowerShell command window. W
 3. Sign in to Azure and get a list of subscriptions.
 
     ```azurecli
-        azure login
+    azure login
     ```
 
     Enter your Azure credentials when prompted.
 
-        azure account list
+    ```azurecli
+    azure account list
+    ```
 
     Pick the subscription you want to use. Make note of the subscription Id for the next step.
 
 4. Set up PowerShell variables for use with the CLI commands.
 
     ```powershell
-        $subscriptionid = "########-####-####-####-############"  # enter subscription id
-        $location = "southcentralus"
-        $rgName = "pscontosorg1southctrlus09152016"
-        $vnetName = "contosoIPv4Vnet"
-        $vnetPrefix = "10.0.0.0/16"
-        $subnet1Name = "clicontosoIPv4Subnet1"
-        $subnet1Prefix = "10.0.0.0/24"
-        $subnet2Name = "clicontosoIPv4Subnet2"
-        $subnet2Prefix = "10.0.1.0/24"
-        $dnsLabel = "contoso09152016"
-        $lbName = "myIPv4IPv6Lb"
+    $subscriptionid = "########-####-####-####-############"  # enter subscription id
+    $location = "southcentralus"
+    $rgName = "pscontosorg1southctrlus09152016"
+    $vnetName = "contosoIPv4Vnet"
+    $vnetPrefix = "10.0.0.0/16"
+    $subnet1Name = "clicontosoIPv4Subnet1"
+    $subnet1Prefix = "10.0.0.0/24"
+    $subnet2Name = "clicontosoIPv4Subnet2"
+    $subnet2Prefix = "10.0.1.0/24"
+    $dnsLabel = "contoso09152016"
+    $lbName = "myIPv4IPv6Lb"
     ```
 
 ## Create a resource group, a load balancer, a virtual network, and subnets
@@ -104,26 +105,26 @@ For this example, we are running the CLI tools in a PowerShell command window. W
 1. Create a resource group
 
     ```azurecli
-        azure group create $rgName $location
+    azure group create $rgName $location
     ```
 
 2. Create a load balancer
 
     ```azurecli
-        $lb = azure network lb create --resource-group $rgname --location $location --name $lbName
+    $lb = azure network lb create --resource-group $rgname --location $location --name $lbName
     ```
 
 3. Create a virtual network (VNet).
 
     ```azurecli
-        $vnet = azure network vnet create  --resource-group $rgname --name $vnetName --location $location --address-prefixes $vnetPrefix
+    $vnet = azure network vnet create  --resource-group $rgname --name $vnetName --location $location --address-prefixes $vnetPrefix
     ```
 
     Create two subnets in this VNet.
 
     ```azurecli
-        $subnet1 = azure network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
-        $subnet2 = azure network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
+    $subnet1 = azure network vnet subnet create --resource-group $rgname --name $subnet1Name --address-prefix $subnet1Prefix --vnet-name $vnetName
+    $subnet2 = azure network vnet subnet create --resource-group $rgname --name $subnet2Name --address-prefix $subnet2Prefix --vnet-name $vnetName
     ```
 
 ## Create public IP addresses for the front-end pool
@@ -131,15 +132,15 @@ For this example, we are running the CLI tools in a PowerShell command window. W
 1. Set up the PowerShell variables
 
     ```powershell
-        $publicIpv4Name = "myIPv4Vip"
-        $publicIpv6Name = "myIPv6Vip"
+    $publicIpv4Name = "myIPv4Vip"
+    $publicIpv6Name = "myIPv6Vip"
     ```
 
 2. Create a public IP address the front-end IP pool.
 
     ```azurecli
-        $publicipV4 = azure network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
-        $publicipV6 = azure network public-ip create --resource-group $rgname --name $publicIpv6Name --location $location --ip-version IPv6 --allocation-method Dynamic --domain-name-label $dnsLabel
+    $publicipV4 = azure network public-ip create --resource-group $rgname --name $publicIpv4Name --location $location --ip-version IPv4 --allocation-method Dynamic --domain-name-label $dnsLabel
+    $publicipV6 = azure network public-ip create --resource-group $rgname --name $publicIpv6Name --location $location --ip-version IPv6 --allocation-method Dynamic --domain-name-label $dnsLabel
     ```
 
     > [!IMPORTANT]
@@ -153,19 +154,19 @@ This example creates the front-end IP pool that receives the incoming network tr
 1. Set up the PowerShell variables
 
     ```powershell
-        $frontendV4Name = "FrontendVipIPv4"
-        $frontendV6Name = "FrontendVipIPv6"
-        $backendAddressPoolV4Name = "BackendPoolIPv4"
-        $backendAddressPoolV6Name = "BackendPoolIPv6"
+    $frontendV4Name = "FrontendVipIPv4"
+    $frontendV6Name = "FrontendVipIPv6"
+    $backendAddressPoolV4Name = "BackendPoolIPv4"
+    $backendAddressPoolV6Name = "BackendPoolIPv6"
     ```
 
 2. Create a front-end IP pool associating the public IP created in the previous step and the load balancer.
 
     ```azurecli
-        $frontendV4 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-name $publicIpv4Name --lb-name $lbName
-        $frontendV6 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV6Name --public-ip-name $publicIpv6Name --lb-name $lbName
-        $backendAddressPoolV4 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV4Name --lb-name $lbName
-        $backendAddressPoolV6 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
+    $frontendV4 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV4Name --public-ip-name $publicIpv4Name --lb-name $lbName
+    $frontendV6 = azure network lb frontend-ip create --resource-group $rgname --name $frontendV6Name --public-ip-name $publicIpv6Name --lb-name $lbName
+    $backendAddressPoolV4 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV4Name --lb-name $lbName
+    $backendAddressPoolV6 = azure network lb address-pool create --resource-group $rgname --name $backendAddressPoolV6Name --lb-name $lbName
     ```
 
 ## Create the probe, NAT rules, and LB rules
@@ -182,11 +183,11 @@ This example creates the following items:
 1. Set up the PowerShell variables
 
     ```powershell
-        $probeV4V6Name = "ProbeForIPv4AndIPv6"
-        $natRule1V4Name = "NatRule-For-Rdp-VM1"
-        $natRule2V4Name = "NatRule-For-Rdp-VM2"
-        $lbRule1V4Name = "LBRuleForIPv4-Port80"
-        $lbRule1V6Name = "LBRuleForIPv6-Port80"
+    $probeV4V6Name = "ProbeForIPv4AndIPv6"
+    $natRule1V4Name = "NatRule-For-Rdp-VM1"
+    $natRule2V4Name = "NatRule-For-Rdp-VM2"
+    $lbRule1V4Name = "LBRuleForIPv4-Port80"
+    $lbRule1V6Name = "LBRuleForIPv6-Port80"
     ```
 
 2. Create the probe
@@ -194,27 +195,27 @@ This example creates the following items:
     The following example creates a TCP probe that checks for connectivity to back-end TCP port 80 every 15 seconds. It will mark the back-end resource unavailable after two consecutive failures.
 
     ```azurecli
-        $probeV4V6 = azure network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --count 2 --lb-name $lbName
+    $probeV4V6 = azure network lb probe create --resource-group $rgname --name $probeV4V6Name --protocol tcp --port 80 --interval 15 --count 2 --lb-name $lbName
     ```
 
 3. Create inbound NAT rules that allow RDP connections to the back-end resources
 
     ```azurecli
-        $inboundNatRuleRdp1 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
-        $inboundNatRuleRdp2 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
+    $inboundNatRuleRdp1 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule1V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3389 --backend-port 3389 --lb-name $lbName
+    $inboundNatRuleRdp2 = azure network lb inbound-nat-rule create --resource-group $rgname --name $natRule2V4Name --frontend-ip-name $frontendV4Name --protocol Tcp --frontend-port 3391 --backend-port 3389 --lb-name $lbName
     ```
 
 4. Create a load balancer rules that send traffic to different back-end ports depending on which front end received the request
 
     ```azurecli
-        $lbruleIPv4 = azure network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-address-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
-        $lbruleIPv6 = azure network lb rule create --resource-group $rgname --name $lbRule1V6Name --frontend-ip-name $frontendV6Name --backend-address-pool-name $backendAddressPoolV6Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 8080 --lb-name $lbName
+    $lbruleIPv4 = azure network lb rule create --resource-group $rgname --name $lbRule1V4Name --frontend-ip-name $frontendV4Name --backend-address-pool-name $backendAddressPoolV4Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 80 --lb-name $lbName
+    $lbruleIPv6 = azure network lb rule create --resource-group $rgname --name $lbRule1V6Name --frontend-ip-name $frontendV6Name --backend-address-pool-name $backendAddressPoolV6Name --probe-name $probeV4V6Name --protocol Tcp --frontend-port 80 --backend-port 8080 --lb-name $lbName
     ```
 
 5. Check your settings
 
     ```azurecli
-        azure network lb show --resource-group $rgName --name $lbName
+    azure network lb show --resource-group $rgName --name $lbName
     ```
 
     Expected output:
@@ -264,24 +265,24 @@ Create NICs and associate them to NAT rules, load balancer rules, and probes.
 1. Set up the PowerShell variables
 
     ```powershell
-        $nic1Name = "myIPv4IPv6Nic1"
-        $nic2Name = "myIPv4IPv6Nic2"
-        $subnet1Id = "/subscriptions/$subscriptionid/resourceGroups/$rgName/providers/Microsoft.Network/VirtualNetworks/$vnetName/subnets/$subnet1Name"
-        $subnet2Id = "/subscriptions/$subscriptionid/resourceGroups/$rgName/providers/Microsoft.Network/VirtualNetworks/$vnetName/subnets/$subnet2Name"
-        $backendAddressPoolV4Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/loadbalancers/$lbName/backendAddressPools/$backendAddressPoolV4Name"
-        $backendAddressPoolV6Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/loadbalancers/$lbName/backendAddressPools/$backendAddressPoolV6Name"
-        $natRule1V4Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/loadbalancers/$lbName/inboundNatRules/$natRule1V4Name"
-        $natRule2V4Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/loadbalancers/$lbName/inboundNatRules/$natRule2V4Name"
+    $nic1Name = "myIPv4IPv6Nic1"
+    $nic2Name = "myIPv4IPv6Nic2"
+    $subnet1Id = "/subscriptions/$subscriptionid/resourceGroups/$rgName/providers/Microsoft.Network/VirtualNetworks/$vnetName/subnets/$subnet1Name"
+    $subnet2Id = "/subscriptions/$subscriptionid/resourceGroups/$rgName/providers/Microsoft.Network/VirtualNetworks/$vnetName/subnets/$subnet2Name"
+    $backendAddressPoolV4Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/loadbalancers/$lbName/backendAddressPools/$backendAddressPoolV4Name"
+    $backendAddressPoolV6Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/loadbalancers/$lbName/backendAddressPools/$backendAddressPoolV6Name"
+    $natRule1V4Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/loadbalancers/$lbName/inboundNatRules/$natRule1V4Name"
+    $natRule2V4Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/loadbalancers/$lbName/inboundNatRules/$natRule2V4Name"
     ```
 
 2. Create a NIC for each back-end and add an IPv6 configuration.
 
     ```azurecli
-        $nic1 = azure network nic create --name $nic1Name --resource-group $rgname --location $location --private-ip-version "IPv4" --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
-        $nic1IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic1Name
+    $nic1 = azure network nic create --name $nic1Name --resource-group $rgname --location $location --private-ip-version "IPv4" --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
+    $nic1IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic1Name
 
-        $nic2 = azure network nic create --name $nic2Name --resource-group $rgname --location $location --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
-        $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
+    $nic2 = azure network nic create --name $nic2Name --resource-group $rgname --location $location --subnet-id $subnet1Id --lb-address-pool-ids $backendAddressPoolV4Id --lb-inbound-nat-rule-ids $natRule1V4Id
+    $nic2IPv6 = azure network nic ip-config create --resource-group $rgname --name "IPv6IPConfig" --private-ip-version "IPv6" --lb-address-pool-ids $backendAddressPoolV6Id --nic-name $nic2Name
     ```
 
 ## Create the back-end VM resources and attach each NIC
@@ -291,19 +292,19 @@ To create VMs, you must have a storage account. For load balancing, the VMs need
 1. Set up the PowerShell variables
 
     ```powershell
-        $storageAccountName = "ps08092016v6sa0"
-        $availabilitySetName = "myIPv4IPv6AvailabilitySet"
-        $vm1Name = "myIPv4IPv6VM1"
-        $vm2Name = "myIPv4IPv6VM2"
-        $nic1Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/networkInterfaces/$nic1Name"
-        $nic2Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/networkInterfaces/$nic2Name"
-        $disk1Name = "WindowsVMosDisk1"
-        $disk2Name = "WindowsVMosDisk2"
-        $osDisk1Uri = "https://$storageAccountName.blob.core.windows.net/vhds/$disk1Name.vhd"
-        $osDisk2Uri = "https://$storageAccountName.blob.core.windows.net/vhds/$disk2Name.vhd"
-        $imageurn "MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest"
-        $vmUserName = "vmUser"
-        $mySecurePassword = "PlainTextPassword*1"
+    $storageAccountName = "ps08092016v6sa0"
+    $availabilitySetName = "myIPv4IPv6AvailabilitySet"
+    $vm1Name = "myIPv4IPv6VM1"
+    $vm2Name = "myIPv4IPv6VM2"
+    $nic1Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/networkInterfaces/$nic1Name"
+    $nic2Id = "/subscriptions/$subscriptionid/resourceGroups/$rgname/providers/Microsoft.Network/networkInterfaces/$nic2Name"
+    $disk1Name = "WindowsVMosDisk1"
+    $disk2Name = "WindowsVMosDisk2"
+    $osDisk1Uri = "https://$storageAccountName.blob.core.windows.net/vhds/$disk1Name.vhd"
+    $osDisk2Uri = "https://$storageAccountName.blob.core.windows.net/vhds/$disk2Name.vhd"
+    $imageurn "MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:latest"
+    $vmUserName = "vmUser"
+    $mySecurePassword = "PlainTextPassword*1"
     ```
 
     > [!WARNING]
@@ -314,21 +315,21 @@ To create VMs, you must have a storage account. For load balancing, the VMs need
     You may use an existing storage account when you create the VMs. The following command creates a new storage account.
 
     ```azurecli
-        $storageAcc = azure storage account create $storageAccountName --resource-group $rgName --location $location --sku-name "LRS" --kind "Storage"
+    $storageAcc = azure storage account create $storageAccountName --resource-group $rgName --location $location --sku-name "LRS" --kind "Storage"
     ```
 
     Next, create the availability set.
 
     ```azurecli
-        $availabilitySet = azure availset create --name $availabilitySetName --resource-group $rgName --location $location
+    $availabilitySet = azure availset create --name $availabilitySetName --resource-group $rgName --location $location
     ```
 
 3. Create the virtual machines with the associated NICs
 
     ```azurecli
-        $vm1 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm1Name --nic-id $nic1Id --os-disk-vhd $osDisk1Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
+    $vm1 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm1Name --nic-id $nic1Id --os-disk-vhd $osDisk1Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
 
-        $vm2 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm2Name --nic-id $nic2Id --os-disk-vhd $osDisk2Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
+    $vm2 = azure vm create --resource-group $rgname --location $location --availset-name $availabilitySetName --name $vm2Name --nic-id $nic2Id --os-disk-vhd $osDisk2Uri --os-type "Windows" --admin-username $vmUserName --admin-password $mySecurePassword --vm-size "Standard_A1" --image-urn $imageurn --storage-account-name $storageAccountName --disable-bginfo-extension
     ```
 
 ## Next steps

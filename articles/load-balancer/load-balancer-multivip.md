@@ -5,7 +5,6 @@ services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: tysonn
 
 ms.assetid: 85f6d26a-3df5-4b8e-96a1-92b2793b5284
 ms.service: load-balancer

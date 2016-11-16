@@ -41,11 +41,10 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
    * On **Ubuntu 12.04 and 14.04**, edit the file `/etc/network/interfaces.d/eth0.cfg`
    * On **Ubuntu 16.04**, edit the file `/etc/network/interfaces.d/50-cloud-init.cfg`
 
-     ```
-     iface eth0 inet6 auto
-       up sleep 5
-       up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
-     ```
+        iface eth0 inet6 auto
+            up sleep 5
+            up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
+
 3. Renew IPv6 address:
 
     ```bash
@@ -53,14 +52,17 @@ This document describes how to enable DHCPv6 so that your Linux virtual machine 
     ```
 
 ## Debian
+
 1. Edit the file `/etc/dhcp/dhclient6.conf` and add the following line:
 
         timeout 10;
+
 2. Edit the file `/etc/network/interfaces` and add the following configuration:
 
         iface eth0 inet6 auto
             up sleep 5
             up dhclient -1 -6 -cf /etc/dhcp/dhclient6.conf -lf /var/lib/dhcp/dhclient6.eth0.leases -v eth0 || true
+
 3. Renew IPv6 address:
 
     ```bash
