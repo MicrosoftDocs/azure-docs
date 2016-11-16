@@ -375,9 +375,10 @@ The following provides some sample code on use of the new functions:
 
 myHadoopCluster <- rxSparkConnect(reset = TRUE)
 
-#..retrieve some sample data from Hive and run a model 
 
 ```
+#..retrieve some sample data from Hive and run a model 
+
 hiveData <- RxHiveData("select * from hivesampletable", 
                  colInfo = list(devicemake = list(type = "factor")))
 rxGetInfo(hiveData, getVarInfo = TRUE)
@@ -386,9 +387,8 @@ rxSetComputeContext(myHadoopCluster)
 rxLinMod(querydwelltime ~ devicemake, data=hiveData)
 ```
 
-#..retrieve some sample data from Parquet and run a model 
-
 ```
+#..retrieve some sample data from Parquet and run a model
 pqData <- RxParquetData("/share/SampleData/AirlineDemoSmallParquet")
 rxGetInfo(pqData, getVarInfo = TRUE)
 
@@ -396,14 +396,15 @@ rxSetComputeContext(myHadoopCluster)
 rxLinMod(ArrDelay~CRSDepTime + DayOfWeek, data = pqData)
 ```   
  
-#..check on Spark data objects, cleanup, and close the Spark session 
 
 ```
+#..check on Spark data objects, cleanup, and close the Spark session
 ls <- rxSparkListData() # two data objs are cached
 rxSparkRemoveData(ls)
 rxSparkListData() # it should show empty list
 rxSparkDisconnect(myHadoopCluster)
 ```
+
 For additional info on use of these new functions see the online help in R Server through use of the ?RxHivedata and ?RxParquetData commands.  
 
 
