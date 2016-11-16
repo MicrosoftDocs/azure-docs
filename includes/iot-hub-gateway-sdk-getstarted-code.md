@@ -65,7 +65,7 @@ The JSON settings file contains a list of modules to load. Each module must spec
 The JSON file also contains the links between the modules that will be passed to the broker. A link has two properties:
 
 * **source**: a module name from the `modules` section, or "\*".
-* **sink**: a module name from the `modules` section
+* **sink**: a module name from the `modules` section.
 
 Each link defines a message route and direction. Messages from module `source` are to be delivered to the module `sink`. The `source` may be set to "\*", indicating that messages from any module will be received by `sink`.
 

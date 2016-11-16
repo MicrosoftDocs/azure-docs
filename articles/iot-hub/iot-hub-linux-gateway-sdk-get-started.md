@@ -35,30 +35,29 @@ Before you get started, you must [set up your development environment][lnk-setup
 ## How to run the sample
 1. The **build.sh** script generates its output in the **build** folder in your local copy of the **azure-iot-gateway-sdk** repository. This includes the two modules used in this sample.
    
-    The build script places **liblogger_hl.so** in the **build/modules/logger/** folder and **libhello_world_hl.so** in  the **build/modules/hello_world/** folder. Use these paths for the **module path** value as shown in the JSON settings file below.
-2. The file **hello_world_lin.json** in the **samples/hello_world/src** folder is an example JSON settings file for Linux that you can use to run the sample. The example JSON settings shown below assumes that you will run the sample from the root of your local copy of the **azure-iot-gateway-sdk** repository.
-3. For the **logger_hl** module, in the **args** section, set the **filename** value to the name and path of the file that will contain the log data.
-   
-    This is an example of a JSON settings file for Linux that will write to the **log.txt** to the folder where you run the sample.
+    The build script places **liblogger.so** in the **build/modules/logger/** folder and **libhello_world.so** in  the **build/modules/hello_world/** folder. Use these paths for the **module path** value as shown in the JSON settings file below.
+2. The hello_world_sample process takes the path to a JSON configuration file as an argument in the command line. An example JSON file has been provided as part of the repo at **azure-iot-gateway-sdk/samples/hello_world/src/hello_world_win.json** and is copied below. It will work as is unless you have modified the build script to place modules or sample executables in non-default locations.
+
+   > Note: The module paths are relative to the current working directory from where the hello_world_sample executable is launched, not the directory where the executable is located. The sample JSON configuration file defaults to writing 'log.txt' in your current working directory.
    
     ```
     {
       "modules" :
       [ 
         {
-          "module name" : "logger_hl",
+          "module name" : "logger",
           "loading args": {
-            "module path" : "./build/modules/logger/liblogger_hl.so"
+            "module path" : "./build/modules/logger/liblogger.so"
           },
           "args" : 
           {
-            "filename":"./log.txt"
+            "filename":"log.txt"
           }
         },
         {
           "module name" : "hello_world",
           "loading args": {
-            "module path" : "./build/modules/hello_world/libhello_world_hl.so"
+            "module path" : "./build/modules/hello_world/libhello_world.so"
           },
           "args" : null
         }
@@ -67,13 +66,13 @@ Before you get started, you must [set up your development environment][lnk-setup
       [
         {
           "source": "hello_world",
-          "sink": "logger_hl"
+          "sink": "logger"
         }
       ]
     }
     ```
-4. In your shell, navigate to **azure-iot-gateway-sdk** folder.
-5. Run the following command:
+3. Navigate to **azure-iot-gateway-sdk** folder.
+4. Run the following command:
    
    ```
    ./build/samples/hello_world/hello_world_sample ./samples/hello_world/src/hello_world_lin.json
