@@ -215,7 +215,7 @@ The following sections explain which properties from the standard AMQP message s
 This section covers advanced capabilities of Azure Service Bus that are based on draft extensions to AMQP currently being developed in the OASIS Technical Committee for AMQP. Azure Service Bus implements the latest status of these drafts and will adopt changes introduced as those drafts reach standard status.
 
 > [!NOTE]
-> Service Bus Messaging advanced operations are supported thought a request/response pattern. The details of these operations are described in the document [AMQP 1.0 in Service Bus: request/response-based operations](https://msdn.microsoft.com/library/azure/mt727956.aspx).
+> Service Bus Messaging advanced operations are supported through a request/response pattern. The details of these operations are described in the document [AMQP 1.0 in Service Bus: request/response-based operations](https://msdn.microsoft.com/library/azure/mt727956.aspx).
 > 
 > 
 
