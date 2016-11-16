@@ -18,6 +18,8 @@ ms.author: juanpere
 
 ---
 # Tutorial: Schedule and broadcast jobs (preview)
+[!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
+
 ## Introduction
 Azure IoT Hub is a fully managed service that enables an application back end to create and track jobs that schedule and update millions of devices.  Jobs can be used for the following actions:
 
@@ -37,87 +39,79 @@ This tutorial shows you how to:
 * Create a simulated device that has a direct method which enables lockDoor which can be called by the application back end.
 * Create a console application that calls the lockDoor direct method on the simulated device using a job and updates the device twin desired properties using a device job.
 
-At the end of this tutorial, you have two Node.js console applications:
+At the end of this tutorial, you have a Node.js console applications for the device side and a .NET (C#) console application for the service side:
 
 **simDevice.js**, which connects to your IoT hub with the device identity and receives a lockDoor direct method.
 
-**scheduleJobService.js**, which calls a direct method on the simulated device  and update the device twin's desired properties using a job.
+**ScheduleJob**, which calls a direct method on the simulated device  and update the device twin's desired properties using a job.
 
 To complete this tutorial, you need the following:
 
-Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
-
-An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
+* Microsoft Visual Studio 2015.
+* Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
+* An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 [!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
-## Create a simulated device app
-In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
-
-1. Create a new empty folder called **simDevice**.  In the **simDevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
-   
-    ```
-    npm init
-    ```
-2. At your command-prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
-   
-    ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
-    ```
-3. Using a text editor, create a new **simDevice.js** file in the **simDevice** folder.
-4. Add the following 'require' statements at the start of the **simDevice.js** file:
-   
-    ```
-    'use strict';
-   
-    var Client = require('azure-iot-device').Client;
-    var Protocol = require('azure-iot-device-mqtt').Mqtt;
-    ```
-5. Add a **connectionString** variable and use it to create a device client.  
-   
-    ```
-    var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
-    var client = Client.fromConnectionString(connectionString, Protocol);
-    ```
-6. Add the following function to handle the lockDoor method.
-   
-    ```
-    var onLockDoor = function(request, response) {
-   
-        // Respond the cloud app for the direct method
-        response.send(200, function(err) {
-            if (!err) {
-                console.error('An error occured when sending a method response:\n' + err.toString());
-            } else {
-                console.log('Response to method \'' + request.methodName + '\' sent successfully.');
-            }
-        });
-   
-        console.log('Locking Door!');
-    };
-    ```
-7. Add the following code to register the handler for the lockDoor method.
-   
-    ```
-    client.open(function(err) {
-        if (err) {
-            console.error('Could not connect to IotHub client.');
-        }  else {
-            console.log('Client connected to IoT Hub.  Waiting for reboot direct method.');
-            client.onDeviceMethod('lockDoor', onLockDoor);
-        }
-    });
-    ```
-8. Save and close the **simDevice.js** file.
-
-> [!NOTE]
-> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
-> 
-> 
-
 ## Schedule jobs for calling a direct method and updating a device twin's properties
-In this section, you create a Node.js console app that initiates a remote lockDoor on a device using a direct method and update the device twin's properties.
+In this section, you create a .NET console app (using C#) that initiates a remote lockDoor on a device using a direct method and update the device twin's properties.
 
+1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **ScheduleJob**.
+
+    ![New Visual C# Windows Classic Desktop project][img-createapp]
+
+2. In Solution Explorer, right-click the **ScheduleJob** project, and then click **Manage Nuget Packages**.
+3. In the **Nuget Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
+
+    ![Nuget Package Manager window][img-servicenuget]
+4. Add the following `using` statements at the top of the **Program.cs** file:
+   
+        using Microsoft.Azure.Devices;
+        
+5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section.
+   
+        static RegistryManager registryManager;
+        static string connString = "{iot hub connection string}";
+        static ServiceClient client;
+        static JobClient jobClient;
+        static string targetDevice = "{deviceIdForTargetDevice}";
+        
+6. Add the following method to the **Program** class:
+   
+        public static async Task QueryTwinFWUpdateReported()
+        {
+            Twin twin = await registryManager.GetTwinAsync(targetDevice);
+            Console.WriteLine(twin.Properties.Reported.ToJson());
+        }
+        
+7. Add the following method to the **Program** class:
+
+        public static async Task StartFirmwareUpdate()
+        {
+            client = ServiceClient.CreateFromConnectionString(connString);
+            CloudToDeviceMethod method = new CloudToDeviceMethod("firmwareUpdate");
+            method.ResponseTimeout = TimeSpan.FromSeconds(30);
+            method.SetPayloadJson(
+                @"{
+                    fwPackageUri : 'https://someurl'
+                }");
+
+            CloudToDeviceMethodResult result = await client.InvokeDeviceMethodAsync(targetDevice, method);
+
+            Console.WriteLine("Invoked firmware update on device.");
+        }
+
+7. Finally, add the following lines to the **Main** method:
+   
+        registryManager = RegistryManager.CreateFromConnectionString(connString);
+        StartFirmwareUpdate().Wait();
+        QueryTwinFWUpdateReported().Wait();
+        Console.WriteLine("Press ENTER to exit.");
+        Console.ReadLine();
+        
+8. Build the solution.
+
+[//]: # (TODO: Delete node code) 
 1. Create a new empty folder called **scheduleJobService**.  In the **scheduleJobService** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
    
     ```
@@ -230,6 +224,70 @@ In this section, you create a Node.js console app that initiates a remote lockDo
     ```
 9. Save and close the **scheduleJobService.js** file.
 
+## Create a simulated device app
+In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
+
+1. Create a new empty folder called **simDevice**.  In the **simDevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
+   
+    ```
+    npm init
+    ```
+2. At your command-prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+   
+    ```
+    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    ```
+3. Using a text editor, create a new **simDevice.js** file in the **simDevice** folder.
+4. Add the following 'require' statements at the start of the **simDevice.js** file:
+   
+    ```
+    'use strict';
+   
+    var Client = require('azure-iot-device').Client;
+    var Protocol = require('azure-iot-device-mqtt').Mqtt;
+    ```
+5. Add a **connectionString** variable and use it to create a device client.  
+   
+    ```
+    var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
+    var client = Client.fromConnectionString(connectionString, Protocol);
+    ```
+6. Add the following function to handle the lockDoor method.
+   
+    ```
+    var onLockDoor = function(request, response) {
+   
+        // Respond the cloud app for the direct method
+        response.send(200, function(err) {
+            if (!err) {
+                console.error('An error occured when sending a method response:\n' + err.toString());
+            } else {
+                console.log('Response to method \'' + request.methodName + '\' sent successfully.');
+            }
+        });
+   
+        console.log('Locking Door!');
+    };
+    ```
+7. Add the following code to register the handler for the lockDoor method.
+   
+    ```
+    client.open(function(err) {
+        if (err) {
+            console.error('Could not connect to IotHub client.');
+        }  else {
+            console.log('Client connected to IoT Hub.  Waiting for reboot direct method.');
+            client.onDeviceMethod('lockDoor', onLockDoor);
+        }
+    });
+    ```
+8. Save and close the **simDevice.js** file.
+
+> [!NOTE]
+> To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
+> 
+> 
+
 ## Run the applications
 You are now ready to run the applications.
 
@@ -238,11 +296,8 @@ You are now ready to run the applications.
     ```
     node simDevice.js
     ```
-2. At the command-prompt in the **scheduleJobService** folder, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
-   
-    ```
-    node scheduleJobService.js
-    ```
+2. Run the C# console app **ScheduleJob**- right click on the **ScheduleJob** project, select **Debug** and **Start new instance**.
+
 3. You will see the output from both device and back end applications.
 
 ## Next steps
@@ -253,6 +308,10 @@ To continue getting started with IoT Hub and device management patterns such as 
 [Tutorial: How to do a firmware update][lnk-fwupdate]
 
 To continue getting started with IoT Hub, see [Getting started with the IoT Gateway SDK][lnk-gateway-SDK].
+
+<!-- images -->
+[img-servicenuget]: media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png
+[img-createapp]: media/iot-hub-csharp-node-schedule-jobs/createnetapp.png
 
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md

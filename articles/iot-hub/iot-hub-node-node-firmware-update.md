@@ -34,9 +34,8 @@ At the end of this tutorial, you have two Node.js console applications:
 
 To complete this tutorial, you need the following:
 
-Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
-
-An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
+* Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
+* An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 Follow the [Get started with device management](iot-hub-device-management-get-started.md) article to create your IoT hub and get your connection string.
 
