@@ -19,7 +19,12 @@ ms.author: awills
 # Explore Java trace logs in Application Insights
 If you're using Logback or Log4J (v1.2 or v2.0) for tracing, you can have your trace logs sent automatically to Application Insights where you can explore and search on them.
 
+## Install the Java SDK
+
 Install [Application Insights SDK for Java][java], if you haven't already done that.
+
+(If you don't want to track HTTP requests, you can omit most of the .xml configuration file, but you must at least include the `InstrumentationKey` element. You should also call `new TelemetryClient()` to initialize the SDK.)
+
 
 ## Add logging libraries to your project
 *Choose the appropriate way for your project.*

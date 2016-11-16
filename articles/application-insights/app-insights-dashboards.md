@@ -31,7 +31,7 @@ The overview blade (page) for your app shows a summary of the key diagnostic met
 You can customize any of the other charts and pin them to a dashboard. That way, you can bring together the key charts from different apps.
 
 ## Dashboards
-The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Visual Studio Application Insights](app-insights-overview.md).
+The first thing you see after you sign in to the [Microsoft Azure portal](https://portal.azure.com) is a dashboard. Here you can bring together the charts that are most important to you across all your Azure resources, including telemetry from [Azure Application Insights](app-insights-overview.md).
 
 ![A customized dashboard.](./media/app-insights-dashboards/31.png)
 
