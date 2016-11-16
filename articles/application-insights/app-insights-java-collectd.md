@@ -1,9 +1,9 @@
 ---
 title: 'collectd: perf stats for Java on Unix in Application Insights'
-description: Extended monitoring of your Java website with the CollectD plug-in for Application Insights
+description: Extended application performance monitoring of your Java website with the CollectD plug-in for Application Insights
 services: application-insights
 documentationcenter: java
-author: alancameronwills
+author: harelbr
 manager: douge
 
 ms.assetid: 40c68f45-197a-4624-bf89-541eb7323002
@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # collectd: Unix performance metrics in Application Insights
-*Application Insights is in Preview.*
+
 
 To explore Unix system performance metrics in [Application Insights](app-insights-overview.md), install [collectd](http://collectd.org/), together with its Application Insights plug-in. This open-source solution gathers various system and network statistics.
 

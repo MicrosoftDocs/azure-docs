@@ -1,4 +1,4 @@
-﻿---
+---
 title: Usage analysis for web applications with Application Insights
 description: Overview of usage analytics for web apps with Application Insights
 services: application-insights
@@ -19,7 +19,7 @@ ms.author: awills
 # Usage analysis for web applications with Application Insights
 Knowing how people use your application lets you focus your development work on the scenarios that are most important to them, and gain insights into the goals that they find easier or more difficult to achieve. 
 
-Visual Studio Application Insights provides two levels of usage tracking:
+Azure Application Insights provides two levels of usage tracking:
 
 * **User, session and page view data** - provided out of the box.  
 * **Custom telemetry** - You [write code][api] to trace your users through your app's user experience. 
