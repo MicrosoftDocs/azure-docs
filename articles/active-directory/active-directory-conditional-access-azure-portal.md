@@ -93,7 +93,7 @@ By selecting cloud apps, you define the scope of cloud apps your policy applies 
 	![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
 
 
-## Access Conditions
+### Access Conditions
 
 With access conditions, you cover how access to your cloud apps is performed.  
 In the current implementation of Azure Active Directory, you can define conditions for the following areas:
@@ -113,35 +113,6 @@ In the current implementation of Azure Active Directory, you can define conditio
 	![Conditions](./media/active-directory-conditional-access-azure-portal/04.png)
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 ## Next steps
-See the following resource categories and articles to learn more about setting conditional access for your organization.
 
-### Multi-factor authentication and location policies
-* [Getting started with conditional access to Azure AD-connected apps based on group, location, and multi-factor authentication policies](active-directory-conditional-access-azuread-connected-apps.md)
-* [Applications that are supported](active-directory-conditional-access-supported-apps.md)
-
-### Device-based conditional access
-* [Set device-based conditional access policy for access control to Azure Active Directory-connected applications](active-directory-conditional-access-policy-connected-applications.md)
-* [Set up automatic registration of Windows domain-joined devices with Azure Active Directory](active-directory-conditional-access-automatic-device-registration-setup.md)
-* [Troubleshooting for Azure Active Directory access issues](active-directory-conditional-access-device-remediation.md)
-* [Help protect data on lost or stolen devices by using Microsoft Intune](https://docs.microsoft.com/intune/deploy-use/use-remote-wipe-to-help-protect-data-using-microsoft-intune)
-
-### Protect resources based on sign-in risk
-* [Azure AD identity protection](active-directory-identityprotection.md)
-
-### Next steps
-* [Conditional access FAQs](active-directory-conditional-faqs.md)
-* [Technical reference](active-directory-conditional-access-technical-reference.md)
-
+TBD
