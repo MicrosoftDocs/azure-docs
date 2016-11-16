@@ -329,6 +329,12 @@ title: Microsoft Azure Documentation
                                                 <p>Analysis Services</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="https://docs.botframework.com/en-us/azure-bot-service/">
+                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                <p>Bot Service</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Developer Tools</h3>
                                     <ul>
@@ -1560,6 +1566,25 @@ title: Microsoft Azure Documentation
                                                 <div class="cardText">
                                                     <h3>Analysis Services</h3>
                                                     <p>Enterprise-grade data modeling in the cloud</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://docs.botframework.com/en-us/azure-bot-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Bot Service</h3>
+                                                    <p>Intelligent, serverless bot service that scales on demand</p>
                                                 </div>
                                             </div>
                                         </div>
