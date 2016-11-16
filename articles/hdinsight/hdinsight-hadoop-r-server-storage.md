@@ -1,6 +1,6 @@
 ﻿---
-title: Azure Storage options for R Server on HDInsight (preview) | Microsoft Docs
-description: Learn about the different storage options available to users with R Server on HDInsight (preview)
+title: Azure Storage options for R Server on HDInsight | Microsoft Docs
+description: Learn about the different storage options available to users with R Server on HDInsight
 services: HDInsight
 documentationcenter: ''
 author: jeffstokes72
@@ -13,12 +13,12 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/01/2016
+ms.date: 11/16/2016
 ms.author: jeffstok
 
 ---
-# Azure Storage options for R Server on HDInsight (preview)
-Microsoft R Server on HDInsight (preview) has access to both Azure Blob and [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/), as a means of persisting data, code, result objects from analysis, and so on.
+# Azure Storage options for R Server on HDInsight
+Microsoft R Server on HDInsight has access to both Azure Blob and [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/), as a means of persisting data, code, result objects from analysis, and so on.
 
 When you create a Hadoop cluster in HDInsight, you specify an Azure storage account. A specific Blob storage container from that account holds the file system for the cluster you create (for example, the Hadoop Distributed File System). For performance purposes, the HDInsight cluster is created in the same data center as the primary storage account that you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md "Use Azure Blob storage with HDInsight").   
 
@@ -186,6 +186,6 @@ Now that you understand the basics of how to use the R console from an SSH sessi
 
 * [Overview of R Server on HDInsight](hdinsight-hadoop-r-server-overview.md)
 * [Get started with R server on Hadoop](hdinsight-hadoop-r-server-get-started.md)
-* [Add RStudio Server to HDInsight premium](hdinsight-hadoop-r-server-install-r-studio.md)
+* [Add RStudio Server to HDInsight](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 
