@@ -42,24 +42,33 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 
 
 ## Create an Azure Container Service cluster configured with DC/OS
-1. First, type the following command in a terminal window to log in to your Azure subscription with the Azure CLI: 
+
+>[!IMPORTANT]
+> To create a secure cluster you pass your SSH public key file to pass when you call `az acs create` . Either you can have the Azure CLI 2.0 generate the keys for you and pass them at the same time using the `--generate-ssh-keys` option, or you can pass the path to your keys using the `--ssh-key-value` option (the default location on Linux is `~/.ssh/id_rsa.pub` and on Windows `%HOMEPATH%\.ssh\id_rsa.pub`, but this can be changed). 
+> To create SSH public and private key files on Linux, see [Create SSH keys on Linux and Mac](../virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+> To create SSH public and private key files on Windows, see [Create SSH keys on Windows](../virtual-machines/virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fcontainer-services%2ftoc.json). 
+
+1. First, type the [az login](/cli/azure/#login) command in a terminal window to log in to your Azure subscription with the Azure CLI: 
 
 	`az login`
 
-1. Create a resource group in which we place our cluster:
+1. Create a resource group in which we place our cluster using [az resource group create](/cli/azure/resource/group#create):
 	
 	`az resource group create --name myacs-rg --location westus`
 
 	You may want to specify the [Azure datacenter region](https://azure.microsoft.com/regions) closest to you. 
 
-1. Create an ACS cluster with default settings: 
+1. Create an ACS cluster with default settings using [az acs create](/cli/azure/acs#create) and passing the path to you public SSH key file: 
 
-	`az acs create --resource-group myacs-rg --name myacs --dns-prefix myacs`
+	```azurecli
+	az acs create \
+	--resource-group myacs-rg 
+	--name myacs \
+	--dns-prefix myacs \
+	--ssh-key-value ~/.ssh/id_rsa.pub
+	```
 	
->[!NOTE]
-> You need to have an SSH key named `%homepath% /.ssh/id_rsa`. For guidance on creating Secure Shell (SSH) keys, see the [Linux]( https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys) and [Windows]( https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-ssh-from-windows) articles.
-
-This step takes several minutes, so feel free to read on.  The `acs create` command returns information about the newly created cluster (or you can list the ACS clusters in your subscription with `az acs list`). For more ACS configuration options, [read more about creating and configuring an ACS cluster](https://azure.microsoft.com/documentation/articles/container-service-deployment/).
+This step takes several minutes, so feel free to read on.  The `acs create` command returns information about the newly created cluster (or you can list the ACS clusters in your subscription with `az acs list`). For more ACS configuration options, [read more about creating and configuring an ACS cluster](container-service-deployment.md).
 
 ## Set up sample code
 While the cluster is being created, we can set up sample code that we deploy to ACS.
@@ -67,7 +76,7 @@ While the cluster is being created, we can set up sample code that we deploy to 
 1. [Fork](https://help.github.com/articles/fork-a-repo/) the sample GitHub repository so that you have your own copy: [https://github.com/azuresamples/container-service-dotnet-continuous-integration-multi-container.git](https://github.com/azuresamples/container-service-dotnet-continuous-integration-multi-container.git). The app is essentially a multi-container version of "hello world."
 1. Once you have created a fork in your own GitHub account, locally clone the repository on your computer:
 
-	```
+	```bash
 	git clone  https://github.com/your-github-account/container-service-dotnet-continuous-integration-multi-container.git
 	cd container-service-dotnet-continuous-integration-multi-container
 	```
@@ -83,15 +92,20 @@ Let's take a closer look at the code:
 	![Multi-container sample app overview](media/container-service-setup-ci-cd/multi-container-sample-app-overview.PNG)
 
 ## Set up continuous integration and deployment
-1. Ensure the ACS cluster is ready: run `az acs list` and confirm that our ACS cluster is listed. (Note: ACS must be running DC/OS 1.8 or greater.)
+1. Ensure the ACS cluster is ready: run [az acs list](/cli/azure/acs#list) and confirm that our ACS cluster is listed. (Note: ACS must be running DC/OS 1.8 or greater.)
 
 1. [Create a GitHub personal access token](https://help.github.com/articles/creating-an-access-token-for-command-line-use/), granting it at least the `repo` scope.  Don't forget to copy the token to your clipboard, as we'll use it in the next command (it will set up a [webhook](https://help.github.com/articles/about-webhooks/) on our GitHub repo). 
 
-1. Set your current directory to the root of your cloned source repository, and create a build and release pipeline:
+1. Set your current directory to the root of your cloned source repository, and create a build and release pipeline, using the _&lt;GitHubPersonalAccessToken&gt; that you just created:
 	
 	`cd container-service-dotnet-continuous-integration-multi-container`
 
-	`az container release create --target-name myacs --target-resource-group myacs-rg --remote-access-token <GitHubPersonalAccessToken>`
+	```azurecli
+	az container release create \
+	--target-name myacs \
+	--target-resource-group myacs-rg \
+	--remote-access-token <GitHubPersonalAccessToken>
+	```
 
 	Where `--target-name` is the name of your ACS cluster, and `--target-resource-group` is the ACS cluster's resource group name.
 
@@ -106,14 +120,26 @@ On first run, this command may take a minute or so to complete. Once completed, 
 
 The following snippet is an example command you would type if you already have an existing Azure Container Registry named `myregistry`. Create and build release definitions with a VSTS account at `myvstsaccount.visualstudio.com`, and an existing VSTS project `myvstsproject`:
 		
-		az container release create --target-name myacs --target-resource-group myacs-rg --registry-name myregistry --vsts-account-name myvstsaccount --vsts-project-name myvstsproject --remote-access-token <GitHubPersonalAccessToken>
+	```azurecli
+	az container release create \
+	--target-name myacs \
+	--target-resource-group myacs-rg \
+	--registry-name myregistry \
+	--vsts-account-name myvstsaccount \
+	--vsts-project-name myvstsproject \
+	--remote-access-token <GitHubPersonalAccessToken>
+	```
 
 ## View deployment pipeline progress
 Once the pipeline is created, a first-time build and deployment is kicked off automatically. Subsequent builds are triggered each time code is pushed to the source repository. You can check progress of a build and/or release by opening your browser to the build definition or release definition URLs.
 
 You can always find the release definition URL associated with an ACS cluster by running this command:
 
-`az container release list --target-name myacs --target-resource-group myacs-rg` 
+```azurecli
+az container release list \
+--target-name myacs \
+--target-resource-group myacs-rg
+``` 
 
 ![VSTS Build](media/container-service-setup-ci-cd/vsts-build.PNG)
 
@@ -248,7 +274,7 @@ If you open the build definition in VSTS, you'll see something like this:
 
 1. Add the following yaml code to a new file named `docker-compose.env.production.yml` at the root folder of your source repository. This adds a label that causes a public endpoint to be exposed for `service-a`. 
 	
-	```
+	```yaml
 	version: "2"
 	services:
 	  service-a:
