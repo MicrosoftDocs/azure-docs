@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 # Azure Search Documentation
 
-Azure Search is a cloud search-as-a-service solution that delegates server and infrastructure management to Microsoft, leaving you with a ready-to-use service that you can populate with your data and then use to add search to your web or mobile application. Azure Search allows you to easily add a robust search experience to your applications using a simple REST API or .NET SDK without managing search infrastructure or becoming an expert in search.
+Azure Search is a managed cloud search service that helps you build a powerful search experience into custom apps, and then monitor service, index, and query activity through portal views. Key capabilities include scalable full-text search over multiple languages, geo-spatial search, filtering and faceted navigation, type-ahead queries, hit highlighting, and custom analyzers.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -43,7 +43,7 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
         </a>
     </li>
     <li>
-        <a href="/azure/search/search-create-service">
+        <a href="/azure/search/search-create-service-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
