@@ -1,6 +1,6 @@
 ---
-title: Use File Connector With On-Premises Data Gateway in Logic Apps | Microsoft Docs
-description: Logic Apps lets you easily connect to on-premises file share as part of your workflow.
+title: Use File System Connector With On-Premises Data Gateway in Logic Apps | Microsoft Docs
+description: Logic Apps lets you easily connect to on-premises file system as part of your workflow.
 services: logic-apps
 documentationcenter: dev-center-name
 author: derek1ee
@@ -8,7 +8,7 @@ manager: erikre
 
 
 ms.service: logic-apps
-ms.devlang: may be required
+ms.devlang: wdl
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
@@ -16,17 +16,18 @@ ms.date: 11/15/2016
 ms.author: deli
 
 ---
-# Use File Connector With On-Premises Data Gateway
+# Use File System Connector With On-Premises Data Gateway
 
 Hybrid cloud connectivity is at the heart of Logic Apps. On-premises data gateway enables you to manage data and securely access resources that are on-premises from Logic Apps. In this article, we demonstrate how to connect to an on-premises file system with a simple scenario: copy a file that’s uploaded to Dropbox to a file share, then send an email.
 
 ## Prerequisites
 - Install and configure on-premises data gateway.
-	Install the on-premises data gateway if you haven’t done so already. Instructions can be found in [this article](http://aka.ms/logicapps-gateway). The gateway must be installed on an on-premises machine before you can continue with the rest of the steps.
 
-## Use File Connector
+ Install the on-premises data gateway if you haven’t done so already. Instructions can be found in [this article](http://aka.ms/logicapps-gateway). The gateway must be installed on an on-premises machine before you can continue with the rest of the steps.
 
-1. Let’s create a Dropbox “When a file is created" trigger, then, get a glance of all the supported file connector action is as simple as typing “File” in search.
+## Use File System Connector
+
+1. Let’s create a Dropbox “When a file is created" trigger, then, get a glance of all the supported file connector action is as simple as typing “File System” in search.
 
  ![Search for file connector](./media/app-service-logic-use-file-connector/search-file-connector.png)
 
@@ -57,7 +58,7 @@ Hybrid cloud connectivity is at the heart of Logic Apps. On-premises data gatewa
  > [!TIP]
  > Check out how to [monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md).
 
-7. All done, now you have a working Logic App using the file connector. You can start exploring other functionalities it offers:
+7. All done, now you have a working Logic App using the file system connector. You can start exploring other functionalities it offers:
 	- Create file
 	- List files in folder
 	- Append file
