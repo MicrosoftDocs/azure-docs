@@ -1,4 +1,4 @@
-﻿---
+---
 title: Working with Geospatial data in Azure DocumentDB | Microsoft Docs
 description: Understand how to create, index and query spatial objects with Azure DocumentDB.
 services: documentdb
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/01/2016
+ms.date: 11/16/2016
 ms.author: arramac
 
 ---
@@ -32,8 +32,8 @@ Spatial data describes the position and shape of objects in space. In most appli
 ### GeoJSON
 DocumentDB supports indexing and querying of geospatial point data that's represented using the [GeoJSON specification](http://geojson.org/geojson-spec.html). GeoJSON data structures are always valid JSON objects, so they can be stored and queried using DocumentDB without any specialized tools or libraries. The DocumentDB SDKs provide helper classes and methods that make it easy to work with spatial data. 
 
-### Points, linestrings and polygons
-A **Point** denotes a single position in space. In geospatial data, a point represents the exact location, which could be a street address of a grocery store, a kiosk, an automobile or a city.  A point is represented in GeoJSON (and DocumentDB) using its coordinate pair or longitude and latitude. Here's an example JSON for a point.
+### Points, LineStrings and Polygons
+A **Point** denotes a single position in space. In geospatial data, a Point represents the exact location, which could be a street address of a grocery store, a kiosk, an automobile or a city.  A point is represented in GeoJSON (and DocumentDB) using its coordinate pair or longitude and latitude. Here's an example JSON for a point.
 
 **Points in DocumentDB**
 
@@ -64,7 +64,7 @@ This can be embedded in a DocumentDB document as shown in this example of a user
        }
     }
 
-In addition to points, GeoJSON also supports LineStrings and Polygons. **LineStrings** represent a series of two or more points in space and the line segments that connect them. In geospatial data, linestrings are commonly used to represent highways or rivers. A **polygon** is a boundary of connected points that forms a closed LineString. Polygons are commonly used to represent natural formations like lakes or political jurisdictions like cities and states. Here's an example of a polygon in DocumentDB. 
+In addition to points, GeoJSON also supports LineStrings and Polygons. **LineStrings** represent a series of two or more points in space and the line segments that connect them. In geospatial data, LineStrings are commonly used to represent highways or rivers. A **Polygon** is a boundary of connected points that forms a closed LineString. Polygons are commonly used to represent natural formations like lakes or political jurisdictions like cities and states. Here's an example of a Polygon in DocumentDB. 
 
 **Polygons in DocumentDB**
 
@@ -80,9 +80,9 @@ In addition to points, GeoJSON also supports LineStrings and Polygons. **LineStr
     }
 
 > [!NOTE]
-> The GeoJSON specification requires that for valid polygons, the last coordinate pair provided should be the same as the first, to create a closed shape.
+> The GeoJSON specification requires that for valid Polygons, the last coordinate pair provided should be the same as the first, to create a closed shape.
 > 
-> Points within a polygon must be specified in counter-clockwise order. A polygon specified in clockwise order represents the inverse of the region within it.
+> Points within a Polygon must be specified in counter-clockwise order. A Polygon specified in clockwise order represents the inverse of the region within it.
 > 
 > 
 
@@ -186,9 +186,9 @@ Spatial functions can be used to perform proximity queries against spatial data.
 
 If you include spatial indexing in your indexing policy, then "distance queries" will be served efficiently through the index. For more details on spatial indexing, please see the section below. If you don't have a spatial index for the specified paths, you can still perform spatial queries by specifying `x-ms-documentdb-query-enable-scan` request header with the value set to "true". In .NET, this can be done by passing the optional **FeedOptions** argument to queries with [EnableScanInQuery](https://msdn.microsoft.com/library/microsoft.azure.documents.client.feedoptions.enablescaninquery.aspx#P:Microsoft.Azure.Documents.Client.FeedOptions.EnableScanInQuery) set to true. 
 
-ST_WITHIN can be used to check if a point lies within a polygon. Commonly polygons are used to represent boundaries like zip codes, state boundaries, or natural formations. Again if you include spatial indexing in your indexing policy, then "within" queries will be served efficiently through the index. 
+ST_WITHIN can be used to check if a point lies within a Polygon. Commonly Polygons are used to represent boundaries like zip codes, state boundaries, or natural formations. Again if you include spatial indexing in your indexing policy, then "within" queries will be served efficiently through the index. 
 
-Polygon arguments in ST_WITHIN can contain only a single ring, i.e. the polygons must not contain holes in them. 
+Polygon arguments in ST_WITHIN can contain only a single ring, i.e. the Polygons must not contain holes in them. 
 
 **Query**
 
@@ -210,7 +210,7 @@ Polygon arguments in ST_WITHIN can contain only a single ring, i.e. the polygons
 > 
 > 
 
-DocumentDB also supports performing inverse queries, i.e. you can index polygons or lines in DocumentDB, then query for the areas that contain a specified point. This pattern is commonly used in logistics to identify e.g. when a truck enters or leaves a designated area. 
+DocumentDB also supports performing inverse queries, i.e. you can index Polygons or lines in DocumentDB, then query for the areas that contain a specified point. This pattern is commonly used in logistics to identify e.g. when a truck enters or leaves a designated area. 
 
 **Query**
 
@@ -241,7 +241,7 @@ ST_ISVALID and ST_ISVALIDDETAILED can be used to check if a spatial object is va
       "$1": false
     }]
 
-These functions can also be used to validate polygons. For example, here we use ST_ISVALIDDETAILED to validate a polygon that is not closed. 
+These functions can also be used to validate Polygons. For example, here we use ST_ISVALIDDETAILED to validate a Polygon that is not closed. 
 
 **Query**
 
@@ -254,7 +254,7 @@ These functions can also be used to validate polygons. For example, here we use 
     [{
        "$1": { 
             "valid": false, 
-            "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a polygon must have the same start and end points." 
+            "reason": "The Polygon input is not valid because the start and end points of the ring number 1 are not the same. Each ring of a Polygon must have the same start and end points." 
           }
     }]
 
@@ -271,7 +271,7 @@ Here's an example of a LINQ query that finds all documents in the DocumentDB col
         Console.WriteLine("\t" + user);
     }
 
-Similarly, here's a query for finding all the documents whose "location" is within the specified box/polygon. 
+Similarly, here's a query for finding all the documents whose "location" is within the specified box/Polygon. 
 
 **LINQ query for Within**
 
@@ -297,9 +297,9 @@ Similarly, here's a query for finding all the documents whose "location" is with
 Now that we've taken a look at how to query documents using LINQ and SQL, let's take a look at how to configure DocumentDB for spatial indexing.
 
 ## Indexing
-As we described in the [Schema Agnostic Indexing with Azure DocumentDB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper, we designed DocumentDB’s database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of DocumentDB natively understands spatial data (points, polygons and lines) represented in the GeoJSON standard.
+As we described in the [Schema Agnostic Indexing with Azure DocumentDB](http://www.vldb.org/pvldb/vol8/p1668-shukla.pdf) paper, we designed DocumentDB’s database engine to be truly schema agnostic and provide first class support for JSON. The write optimized database engine of DocumentDB natively understands spatial data (points, Polygons and lines) represented in the GeoJSON standard.
 
-In a nutshell, the geometry is projected from geodetic coordinates onto a 2D plane then divided progressively into cells using a **quadtree**. These cells are mapped to 1D based on the location of the cell within a **Hilbert space filling curve**, which preserves locality of points. Additionally when location data is indexed, it goes through a process known as **tessellation**, i.e. all the cells that intersect a location are identified and stored as keys in the DocumentDB index. At query time, arguments like points and polygons are also tessellated to extract the relevant cell ID ranges, then used to retrieve data from the index.
+In a nutshell, the geometry is projected from geodetic coordinates onto a 2D plane then divided progressively into cells using a **quadtree**. These cells are mapped to 1D based on the location of the cell within a **Hilbert space filling curve**, which preserves locality of points. Additionally when location data is indexed, it goes through a process known as **tessellation**, i.e. all the cells that intersect a location are identified and stored as keys in the DocumentDB index. At query time, arguments like points and Polygons are also tessellated to extract the relevant cell ID ranges, then used to retrieve data from the index.
 
 If you specify an indexing policy that includes spatial index for /* (all paths), then all points found within the collection are indexed for efficient spatial queries (ST_WITHIN and ST_DISTANCE). Spatial indexes do not have a precision value, and always use a default precision value.
 
@@ -310,7 +310,7 @@ If you specify an indexing policy that includes spatial index for /* (all paths)
 
 The following JSON snippet shows an indexing policy with spatial indexing enabled, i.e. index any GeoJSON point found within documents for spatial querying. If you are modifying the indexing policy using the Azure Portal, you can specify the following JSON for indexing policy to enable spatial indexing on your collection.
 
-**Collection Indexing Policy JSON with Spatial enabled for points and polygons**
+**Collection Indexing Policy JSON with Spatial enabled for points and Polygons**
 
     {
        "automatic":true,
