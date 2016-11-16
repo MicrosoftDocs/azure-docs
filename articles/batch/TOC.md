@@ -25,7 +25,7 @@
 ### [Batch diagnostic logs](batch-diagnostics.md)
 
 # Reference
-## [PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/)
+## [PowerShell cmdlets](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
 ## [Java](https://docs.microsoft.com/java/api)
 ## [.NET API](https://docs.microsoft.com/dotnet/api)
 ## [Python SDK](https://go.microsoft.com/fwlink/p/?linkid=833496)
