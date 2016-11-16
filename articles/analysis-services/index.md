@@ -63,6 +63,40 @@ Built on the proven analytics engine in Microsoft SQL Server Analysis Services, 
 </ul>
 
 ---
+## Reference
+
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/resourcemanager">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Powershell with Azure Resource Manager cmdlets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/rest/api/analysisservices">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>REST with Azure Analysis Services REST API reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
+
+---
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/analysis-services.pdf">
