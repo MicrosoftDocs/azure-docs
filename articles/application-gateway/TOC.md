@@ -5,8 +5,8 @@
 ## [URL routing](application-gateway-url-route-overview.md)
 ## [Multi-site](application-gateway-multi-site-overview.md)
 ## [End to end SSL](application-gateway-backend-ssl.md)
-## [Websocket](application-gateway-websocket.md)
-## [Subscription and service limits](../azure-subscription-service-limits.md#application-gateway-limits.md)
+## [WebSocket](application-gateway-websocket.md)
+## [Service limits](../azure-subscription-service-limits.md#application-gateway-limits?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 # Get started
 ## Create an Application Gateway
 ### Public facing
@@ -19,24 +19,25 @@
 #### [PowerShell](application-gateway-ilb-arm.md)
 #### [PowerShell (classic)](application-gateway-ilb.md)
 # How to
-## Create with web application firewall
+## Configure web application firewall
 ### [Portal](application-gateway-web-application-firewall-portal.md)
 ### [PowerShell](application-gateway-web-application-firewall-powershell.md)
-## Configure for SSL
+## Configure for SSL offload
 ### [Portal](application-gateway-ssl-portal.md)
 ### [PowerShell](application-gateway-ssl-arm.md)
 ### [PowerShell (Classic)](application-gateway-ssl.md)
 ### [Policy and end to end](application-gateway-end-to-end-ssl-powershell.md)
-## Create URL path based Routing
+## Configure URL path based routing
 ### [Portal](application-gateway-create-url-route-portal.md)
 ### [PowerShell](application-gateway-create-url-route-arm-ps.md)
-## Configure for multiple site hosting
+## Configure multiple site hosting
 ### [Portal](application-gateway-create-multisite-portal.md)
 ### [PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-## Create health probes
+## Configure health probes
 ### [Portal](application-gateway-create-probe-portal.md)
 ### [PowerShell](application-gateway-create-probe-ps.md)
 ### [PowerShell (Classic)](application-gateway-create-probe-classic-ps.md)
+## [Combine load balancing services](../traffic-manager/traffic-manager-load-balancing-azure.md?toc=%2fazure%2fapplication-gateway%2ftoc.json)
 ## Manage
 ### [Diagnostics](application-gateway-diagnostics.md)
 ### [Troubleshoot](application-gateway-troubleshooting-502.md)
