@@ -370,9 +370,9 @@ If a commercial vehicle is registered with the toll company, it can pass through
 
 To test a query by using reference data, you need to define an input source for the reference data, which you have done already.
 
-To test this query, paste the query into the **QUERY** tab, click **Test**, and specify the two input sources and the registration sample data and click **Test**.
+To test this query, paste the query into the **QUERY** tab, click **Test**, and specify the two input sources and the registration sample data and click **Test**.  
    
-    ![Output of the test](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image46.png)
+![Output of the test](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image46.png)
 
 ## Start the Stream Analytics job
 Now it's time to finish the configuration and start the job. Save the query from Question 3, which will produce output that matches the schema of the **TollDataRefJoin** output table.
@@ -415,7 +415,7 @@ If you start the job now, Azure Stream Analytics can distribute work across more
 ## Monitor
 The **MONITOR** area contains statistics about the running job. First time configuration is needed to use the storage account in the same region (name toll like the rest of this document).
 
-    ![Screenshot of monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+![Screenshot of monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
 
 You can access **Activity Logs** from the job dashboard **Settings** area as well.
 
