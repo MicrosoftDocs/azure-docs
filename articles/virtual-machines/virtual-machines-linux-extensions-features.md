@@ -125,7 +125,7 @@ The full Resource Manager template can be found [here](https://github.com/Micros
 
 For more information, see [Authoring Azure Resource Manager templates with linux VM extensions](virtual-machines-linux-extensions-authoring-templates.md).
 
-## Troubleshooting VM extension
+## Troubleshoot VM extensions
 
 Each VM extension may have troubleshooting steps specific to the extensions. For instance, when using the Custom Script Extension, script execution details can be found locally on the virtual machine on which the extension was run. Any extension-specific troubleshooting steps are detailed in extension-specific documentation. 
 

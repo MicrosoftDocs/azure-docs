@@ -100,7 +100,7 @@ The following image depicts the installation of the Microsoft Antimalware extens
 
 VM extensions can be added to an Azure Resource Manager template and executed with the deployment of the template. Deploying extension with a template is useful for creating fully configured Azure deployments. For more information, see [Authoring Azure Resource Manager templates with Windows VM extensions](virtual-machines-windows-extensions-authoring-templates.md).
 
-## Troubleshooting VM extension
+## Troubleshoot VM extensions
 
 Each VM extension may have troubleshooting steps specific to the extensions. For instance, when using the Custom Script Extension, script execution details can be found locally on the virtual machine on which the extension was run. Any extension-specific troubleshooting steps are detailed in extension-specific documentation. 
 The following troubleshooting steps apply to all Virtual Machine extensions.
