@@ -28,7 +28,7 @@ Here are the steps to deploy a simple Kubernetes cluster:
 
 1. [generate your ssh key](https://github.com/Azure/azure-quickstart-templates/blob/master/101-acs-dcos/docs/SSHKeyManagement.md#ssh-key-generation)
 3. [generate your service principal](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md)
-4. Click the [Deploy to Azure Button on README](../README.md) and fill in the fields
+4. Click the [Deploy to Azure Button on README](https://github.com/Azure/azure-quickstart-templates/blob/master/101-acs-kubernetes/README.md) and fill in the fields
 
 ## Walkthrough
 
