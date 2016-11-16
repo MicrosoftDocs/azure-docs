@@ -19,14 +19,9 @@ Setting up such an environment can be challenging. Onboarding your fleet of serv
 Microsoft Operations Management Suite – now available in Azure Government – is a service that enables you to do all of these things leveraging the power of map reduce and machine learning as a service. OMS can:
 * Deploy agents to individual VMS (Linux and Windows) on Azure, other cloud providers, and/or on-premises.
 * Connect your existing logs via an Azure Government Storage Account or SCOM endpoint with existing logging data.
-* Run evergreen machine learning and map reduce services powered by hyper-scale log search to expose threats in your environment out-of-the-box. Some cybersecurity solutions include:
+* Run evergreen machine learning and map reduce services powered by hyper-scale log search to expose threats in your environment out-of-the-box.
 
-All this monitoring can then be integrated with OMS Alerts and Notifications as well as Azure Automation to systematize responses to these cybersecurity threats.
-Onboarding servers to OMS. Furthermore - OMS provides you with out-of-box services (called Solutions) that lets you gain immediate insight into your log archives. Some examples include:
-
-* Antimalware Assessment - leverage log search to monitor, detect, and action against viruses and other malware occurences in your fleet.
-* Identity and Access - monitor all log-in attempts to your server fleet and protect them against external credential exposure cybersecurity threats.
-* Threat Intelligence - catch data inflitration and exflitration from your server fleet with machine learning and map reduced provided as a service.
+Let's explore how we can get OMS integrated into your fleet and some of the out-of-box solutions that can address the above points.
 
 ## Onboarding servers to OMS
 The first thing to integrating your Cloud assets with Operations Management Suite is installing the OMS agent across your sources of logs.
