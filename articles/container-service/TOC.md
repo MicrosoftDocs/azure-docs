@@ -1,8 +1,8 @@
 # Overview
 ## [What is the Azure Container Service?](container-service-intro.md)
 # Get Started
-
 ## [Deploy an ACS cluster](container-service-deployment.md)
+## [Deploy to ACS using the Azure CLI 2.0 Preview](container-service-create-acs-cluster-cli.md)
 ## [Connect with an ACS cluster](container-service-connect.md)
 ## [Scale an ACS cluster](container-service-scale.md)
 
