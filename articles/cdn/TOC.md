@@ -42,7 +42,7 @@
 ### [File compression](cdn-troubleshoot-compression.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [.NET](/dotnet/api/)
 ## [Azure CDN POP Locations](cdn-pop-locations.md)
 ## [REST](/rest/api/cdn/)

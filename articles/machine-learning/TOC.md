@@ -178,7 +178,7 @@
 
 #Reference
 ## [Release notes](machine-learning-whats-new.md)
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell overview](machine-learning-powershell-module.md)
 ## [Use PowerShell to create models](machine-learning-create-models-and-endpoints-with-powershell.md)
 ## [R quick start](machine-learning-r-quickstart.md)

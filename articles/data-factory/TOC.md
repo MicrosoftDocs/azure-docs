@@ -83,7 +83,7 @@
 # Reference
 ## [Release notes for Data Management Gateway](data-factory-gateway-release-notes.md)
 ## [Azure Data Factory Developer Reference](data-factory-sdks.md)
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/datafactory/)
 

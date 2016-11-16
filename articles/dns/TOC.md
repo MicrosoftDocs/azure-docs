@@ -34,7 +34,7 @@
 ## [Automate DNS operations with the .NET SDK](dns-sdk.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST APIs](/rest/api/dns/)
 
 # Related
