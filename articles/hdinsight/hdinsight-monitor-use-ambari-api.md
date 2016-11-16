@@ -128,16 +128,16 @@ The following table lists some of the most common Ambari monitoring API calls. F
 | --- | --- | --- |
 | Get clusters |`/api/v1/clusters` | |
 | Get cluster info. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net` |clusters, services, hosts |
-| Get services |`/api/v1/clusters/<ClusterName>.azurehdinsight.net<br/>/services` |Services include: hdfs, mapreduce |
-| Get services info. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net<br/>/services/<ServiceName>` | |
-| Get service components |`/api/v1/clusters/<ClusterName>.azurehdinsight.net<br/>/services/<ServiceName>/components` |HDFS: namenode, datanode<br/>MapReduce: jobtracker; tasktracker |
-| Get component info. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net<br/>/services/<ServiceName>/components/<ComponentName>` |ServiceComponentInfo, host-components, metrics |
-| Get hosts |`/api/v1/clusters/<ClusterName>.azurehdinsight.net<br/>/hosts` |headnode0, workernode0 |
-| Get host info. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net<br/>/hosts/<HostName>` | |
-| Get host components |`/api/v1/clusters/<ClusterName>.azurehdinsight.net<br/>/hosts/<HostName>/host_components` |namenode, resourcemanager |
-| Get host component info. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net<br/>/hosts/<HostName>/host_components/<ComponentName>` |HostRoles, component, host, metrics |
-| Get configurations |`/api/v1/clusters/<ClusterName>.azurehdinsight.net<br/>/configurations` |Config types: core-site, hdfs-site, mapred-site, hive-site |
-| Get configuration info. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net<br/>/configurations?type=<ConfigType>&tag=<VersionName>` |Config types: core-site, hdfs-site, mapred-site, hive-site |
+| Get services |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services` |Services include: hdfs, mapreduce |
+| Get services info. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>` | |
+| Get service components |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components` |HDFS: namenode, datanodeMapReduce: jobtracker; tasktracker |
+| Get component info. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/services/<ServiceName>/components/<ComponentName>` |ServiceComponentInfo, host-components, metrics |
+| Get hosts |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts` |headnode0, workernode0 |
+| Get host info. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>` | |
+| Get host components |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components` |namenode, resourcemanager |
+| Get host component info. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/hosts/<HostName>/host_components/<ComponentName>` |HostRoles, component, host, metrics |
+| Get configurations |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations` |Config types: core-site, hdfs-site, mapred-site, hive-site |
+| Get configuration info. |`/api/v1/clusters/<ClusterName>.azurehdinsight.net/configurations?type=<ConfigType>&tag=<VersionName>` |Config types: core-site, hdfs-site, mapred-site, hive-site |
 
 ## Next Steps
 Now you have learned how to use Ambari monitoring API calls. To learn more, see:
