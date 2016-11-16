@@ -1,5 +1,5 @@
 ---
-title: Python web and worker roles with Visual Studio | Microsoft Docs
+title: Get started with Python and Azure Cloud Services | Microsoft Docs
 description: Overview of using Python Tools for Visual Studio to create Azure cloud services including web roles and worker roles.
 services: cloud-services
 documentationcenter: python
@@ -13,11 +13,17 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: hero-article
-ms.date: 08/03/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 
 ---
 # Python web and worker roles with Python Tools for Visual Studio
+
+> [!div class="op_single_selector"]
+> * [.NET](cloud-services-dotnet-get-started.md)
+> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
+> * [Python](cloud-services-python-ptvs.md)
+
 This article provides an overview of using Python web and worker roles using [Python Tools for Visual Studio][Python Tools for Visual Studio]. You will learn how to use Visual Studio to create and deploy a basic Cloud Service that uses Python.
 
 ## Prerequisites
@@ -163,7 +169,7 @@ The **PYTHON2** and **PYPATH** variables needs to be added to the worker startup
 Next, create the **PrepPython.ps1** and **PipInstaller.ps1** files in the **./bin** folder of your role.
 
 #### PrepPython.ps1
-This script installs python. If the **PYTHON2** enviornment variable is set to **on** then Python 2.7 will be installed, otherwise Python 3.5 will be installed.
+This script installs python. If the **PYTHON2** environment variable is set to **on** then Python 2.7 will be installed, otherwise Python 3.5 will be installed.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -209,7 +215,7 @@ if (-not $is_emulated){
 ```
 
 #### PipInstaller.ps1
-This script calls up pip and installs all of the dependencies in the **requirements.txt** file. If the **PYTHON2** enviornment variable is set to **on** then Python 2.7 will be used, otherwise Python 3.5 will be used.
+This script calls up pip and installs all of the dependencies in the **requirements.txt** file. If the **PYTHON2** environment variable is set to **on** then Python 2.7 will be used, otherwise Python 3.5 will be used.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"
@@ -244,7 +250,7 @@ if (-not $is_emulated){
 
 The **bin\LaunchWorker.ps1** was originally created to do a lot of prep work but it doesn't really work. Replace the contents in that file with the following script.
 
-This script calls the **worker.py** file from your python project. If the **PYTHON2** enviornment variable is set to **on** then Python 2.7 will be used, otherwise Python 3.5 will be used.
+This script calls the **worker.py** file from your python project. If the **PYTHON2** environment variable is set to **on** then Python 2.7 will be used, otherwise Python 3.5 will be used.
 
 ```powershell
 $is_emulated = $env:EMULATED -eq "true"

@@ -73,7 +73,7 @@ This step takes several minutes, so feel free to read on.  The `acs create` comm
 ## Set up sample code
 While the cluster is being created, we can set up sample code that we deploy to ACS.
 
-1. [Fork](https://help.github.com/articles/fork-a-repo/) the sample GitHub repository so that you have your own copy: [https://github.com/azuresamples/container-service-dotnet-continuous-integration-multi-container.git](https://github.com/azuresamples/container-service-dotnet-continuous-integration-multi-container.git). The app is essentially a multi-container version of "hello world."
+1. [Fork](https://help.github.com/articles/fork-a-repo/) the sample GitHub repository so that you have your own copy: [https://github.com/azure-samples/container-service-dotnet-continuous-integration-multi-container.git](https://github.com/azure-samples/container-service-dotnet-continuous-integration-multi-container.git). The app is essentially a multi-container version of "hello world."
 1. Once you have created a fork in your own GitHub account, locally clone the repository on your computer:
 
 	```bash
@@ -120,15 +120,15 @@ On first run, this command may take a minute or so to complete. Once completed, 
 
 The following snippet is an example command you would type if you already have an existing Azure Container Registry named `myregistry`. Create and build release definitions with a VSTS account at `myvstsaccount.visualstudio.com`, and an existing VSTS project `myvstsproject`:
 		
-	```azurecli
-	az container release create \
-	--target-name myacs \
-	--target-resource-group myacs-rg \
-	--registry-name myregistry \
-	--vsts-account-name myvstsaccount \
-	--vsts-project-name myvstsproject \
-	--remote-access-token <GitHubPersonalAccessToken>
-	```
+```azurecli
+az container release create \
+--target-name myacs \
+--target-resource-group myacs-rg \
+--registry-name myregistry \
+--vsts-account-name myvstsaccount \
+--vsts-project-name myvstsproject \
+--remote-access-token <GitHubPersonalAccessToken>
+```
 
 ## View deployment pipeline progress
 Once the pipeline is created, a first-time build and deployment is kicked off automatically. Subsequent builds are triggered each time code is pushed to the source repository. You can check progress of a build and/or release by opening your browser to the build definition or release definition URLs.
@@ -257,7 +257,7 @@ Let's simulate what would happen if a developer on our team pushed a code change
 
 1. Save the file, then commit and push the code change to your source repository.
 
-	```
+	```bash
 	git commit -am 'updated title'
 	git push
 	```
@@ -287,7 +287,7 @@ If you open the build definition in VSTS, you'll see something like this:
 
 1. Commit and push the file to your master source repository to start another build.
 
-	```
+	```bash
 	git add .
 	git commit -am "expose public port for service-a"
 	git push
@@ -314,8 +314,10 @@ Some next steps to explore:
 
 ## Clean up
 To limit your compute charges related to this tutorial, run the following command and take note of the deployment pipeline resources that are related to an ACS cluster:
-	
-	az container release list --resource-name myacs --resource-group myacs-rg
+
+```azurecli	
+az container release list --resource-name myacs --resource-group myacs-rg
+```
 
 Delete the ACS cluster:
 1. Sign into the [Azure portal](https://portal.azure.com)

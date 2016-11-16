@@ -85,9 +85,7 @@
 
 
 # Reference
-## [Java](/java/api/)
 ## [Java SDK](documentdb-sdk-java.md)
-## [.NET](/dotnet/api/)
 ## [.NET SDK](documentdb-sdk-dotnet.md)
 ## [.NET samples](documentdb-dotnet-samples.md)
 ## [Node.js SDK](documentdb-sdk-node.md)
@@ -97,6 +95,7 @@
 ## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 ## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
 ## [REST](/rest/api/documentdb/)
+## [REST Resource Provider](/rest/api/documentdbresourceprovider/)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)
