@@ -120,6 +120,7 @@ If you already have a VNet, verify that the settings are compatible with your VP
 
 ## <a name="subnets"></a>2. Add additional address space and create subnets
 You can add additional address space and create subnets once your VNet has been created.
+
 [!INCLUDE [vpn-gateway-additional-address-space](../../includes/vpn-gateway-additional-address-space-include.md)]
 
 ## <a name="gatewaysubnet"></a>3. Create a gateway subnet
