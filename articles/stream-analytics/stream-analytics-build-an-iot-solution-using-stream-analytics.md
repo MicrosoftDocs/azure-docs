@@ -370,27 +370,24 @@ If a commercial vehicle is registered with the toll company, it can pass through
 
 To test a query by using reference data, you need to define an input source for the reference data, which you have done already.
 
-1. To test this query, paste the query into the **QUERY** tab, click **Test**, and specify the two input sources:
+To test this query, paste the query into the **QUERY** tab, click **Test**, and specify the two input sources and the registration sample data and click **Test**.
    
     ![Screenshot of selected input files](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image46.png)
-2. View the output of the query:
-   
-    ![Screenshot of query output](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image47.png)
 
 ## Start the Stream Analytics job
 Now it's time to finish the configuration and start the job. Save the query from Question 3, which will produce output that matches the schema of the **TollDataRefJoin** output table.
 
 Go to the job **DASHBOARD**, and click **START**.
 
-![Screenshot of the Start button in the job dashboard](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image48.jpg)
+![Screenshot of the Start button in the job dashboard](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image48.png)
 
-In the dialog box that opens, change the **START OUTPUT** time to **CUSTOM TIME**. Change the hour to one hour before the current time. This change ensures that all events from the event hub are processed since you started to generate the events at the beginning of the tutorial. Now click the check mark to start the job.
+In the dialog box that opens, change the **START OUTPUT** time to **CUSTOM TIME**. Change the hour to one hour before the current time. This change ensures that all events from the event hub are processed since you started to generate the events at the beginning of the tutorial. Now click the **Start** button to start the job.
 
 ![Selection of custom time](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image49.png)
 
 Starting the job can take a few minutes. You can see the status on the top-level page for Stream Analytics.
 
-![Screenshot of the status of the job](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.jpg)
+![Screenshot of the status of the job](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image50.png)
 
 ## Check results in Visual Studio
 1. Open Visual Studio Server Explorer, and right-click the **TollDataRefJoin** table.
