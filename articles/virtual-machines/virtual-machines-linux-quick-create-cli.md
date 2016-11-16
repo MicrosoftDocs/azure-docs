@@ -23,7 +23,7 @@ This article shows how to quickly deploy a Linux virtual machine (VM) on Azure b
 > [!NOTE] 
 > The Azure CLI 2.0 Preview is our next generation multi-platform CLI. Try it out and let us know what you think on the [GitHub project page](https://github.com/Azure/azure-cli).
 >
-> The rest of our docs use the existing Azure CLI. To create a VM using the existing Azure CLI and not the CLI 2.0 Preview, see [Create a VM with the Azure CLI](virtual-machines-linux-quick-create-cli-classic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> The rest of our docs use the existing Azure CLI. To create a VM using the existing Azure CLI and not the CLI 2.0 Preview, see [Create a VM with the Azure CLI](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 To create a VM, you need: 
 
