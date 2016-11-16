@@ -1,6 +1,6 @@
 ﻿---
-title: Get started with R Server on HDInsight (preview) | Microsoft Docs
-description: Learn how to create a Apache Spark on HDInsight (Hadoop) cluster that includes R Server (preview), and then submit an R script on the cluster.
+title: Get started with R Server on HDInsight | Microsoft Docs
+description: Learn how to create a Apache Spark on HDInsight cluster that includes R Server, and then submit an R script on the cluster.
 services: HDInsight
 documentationcenter: ''
 author: jeffstokes72
@@ -13,12 +13,12 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 08/19/2016
+ms.date: 11/15/2016
 ms.author: jeffstok
 
 ---
-# Get started using R Server on HDInsight (preview)
-The premium tier offering for HDInsight includes R Server as part of your HDInsight (preview) cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. In this document, you will learn how to create a new R Server on HDInsight, then run an R script that demonstrates using Spark for distributed R computations.
+# Get started using R Server on HDInsight
+HDInsight includes an R Server option to be integrated into your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. In this document, you will learn how to create a new R Server on HDInsight, then run an R script that demonstrates using Spark for distributed R computations.
 
 ![Diagram of the workflow for this document](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 
@@ -49,19 +49,15 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
 3. Enter a name for the cluster in the **Cluster Name** field. If you have multiple Azure subscriptions, use the **Subscription** entry to select the one you want to use.
    
     ![Cluster name and subscription selections](./media/hdinsight-getting-started-with-r/clustername.png)
-4. Select **Select Cluster Type**. On the **Cluster Type** blade, select the following options:
+4. Select **Select Cluster Configuration**. On the **Cluster Configuration** blade, select the following options:
    
-   * **Cluster Type**: R Server on Spark
-   * **Cluster Tier**: Premium
-     
+   * **Cluster Type**: R Server
+   * **Version**: select the version of R Server to install on the cluster. Select the newest version for the latest capabilities. Other versions are available if needed for compatibility. Release notes for each of the available versions are available [here](https://msdn.microsoft.com/en-us/microsoft-r/notes/r-server-notes).
+   * **R Studio community edition for R Server**: this browser-based IDE is installed by default on the edge node.  If you would prefer to not have it installed, then un-check the check box. If you choose to have it installed, then you’ll find the URL for accessing the RStudio Server login on a portal application blade for your cluster once it’s been created.
      Leave the other options at the default values, then use the **Select** button to save the cluster type.
      
      ![Cluster type blade screenshot](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
-     
-     > [!NOTE]
-     > You can also add R Server to other HDInsight cluster types (such as Hadoop or HBase,) by selecting the cluster type, and then selecting **Premium**.
-     > 
-     > 
+
 5. Select **Resource Group** to see a list of existing resource groups and then select the one to create the cluster in. Or, you can select **Create New** and then enter the name of the new resource group. A green check will appear to indicate that the new group name is available.
    
    > [!NOTE]
@@ -76,7 +72,7 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
    
     ![Credentials blade](./media/hdinsight-getting-started-with-r/clustercredentials.png)
    
-    **SSH Authentication Type**: Select **PASSWORD** as the authentication type unless you prefer use of a public key.  You’ll need a public/private key pair if you’d like to access R Server on the cluster via a remote client, e.g. RTVS, RStudio or another desktop IDE.   
+    **SSH Authentication Type**: Select **PASSWORD** as the authentication type unless you prefer use of a public key.  You’ll need a public/private key pair if you’d like to access R Server on the cluster via a remote client, e.g. RTVS, RStudio or another desktop IDE. Note that you will need to choose SSH password if you install RStudio Server community edition.     
    
     To create and use a public/private key pair select ‘PUBLIC KEY’ and proceed as follows.  These instructions assume that you have Cygwin with ssh-keygen or equivalent installed.
    
@@ -138,6 +134,21 @@ The premium tier offering for HDInsight includes R Server as part of your HDInsi
    > It will take some time for the cluster to be created, usually around 15 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the creation process.
    > 
    > 
+
+## Connect to RStudio Server
+
+If you’ve chosen to include RStudio Server community edition in your installation, then you can access the RStudio login via two different methods.
+
+1. Either by going to the following URL (where **CLUSTERNAME** is the name of the cluster your created): 
+
+    https://**CLUSTERNAME**.azurehdinsight.net/rstudio/
+
+2. Or by opening the entry for your cluster in the Azure Portal, selecting the R Server Dashboards quick link, and then selecting the R Studio Dashboard:
+
+     ![Access the R studio dashboard](./media/hdinsight-getting-started-with-r/rstudiodashboard.png)
+
+   > [!IMPORTANT]
+   > No matter the method, the first time you login you will need to authenticate two times.  At the first authentication, provide the cluster Admin userid and password. At the second prompt provide the SSH userid and password. Subsequent logins will only require the SSH password and userid. 
 
 ## Connect to the R Server edge node
 Connect to R Server edge node of the HDInsight cluster using SSH:
@@ -330,7 +341,7 @@ A compute context allows you to control whether computation will be performed lo
         summary(modelSpark)
    
    > [!NOTE]
-   > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for R Server on HDInsight premium](hdinsight-hadoop-r-server-compute-contexts.md).
+   > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
    > 
    > 
 
@@ -356,6 +367,46 @@ If you are still using the Spark or MapReduce context, this will return the node
     $rxElem4
         nodename
     "wn3-myrser"
+
+## Accessing Data in Hive and Parquet
+A new feature available in R Server 9.0 and above allows direct access to data in Hive and Parquet for use by ScaleR functions in the Spark compute context. These capabilities are available through new ScaleR data source functions called RxHiveData and RxParquetData that work through use of Spark SQL to load data directly into a Spark DataFrame for analysis by ScaleR.  
+
+The following provides some sample code on use of the new functions: 
+
+myHadoopCluster <- rxSparkConnect(reset = TRUE)
+
+
+```
+#..retrieve some sample data from Hive and run a model 
+
+hiveData <- RxHiveData("select * from hivesampletable", 
+                 colInfo = list(devicemake = list(type = "factor")))
+rxGetInfo(hiveData, getVarInfo = TRUE)
+
+rxSetComputeContext(myHadoopCluster)
+rxLinMod(querydwelltime ~ devicemake, data=hiveData)
+```
+
+```
+#..retrieve some sample data from Parquet and run a model
+pqData <- RxParquetData("/share/SampleData/AirlineDemoSmallParquet")
+rxGetInfo(pqData, getVarInfo = TRUE)
+
+rxSetComputeContext(myHadoopCluster)
+rxLinMod(ArrDelay~CRSDepTime + DayOfWeek, data = pqData)
+```   
+ 
+
+```
+#..check on Spark data objects, cleanup, and close the Spark session
+ls <- rxSparkListData() # two data objs are cached
+rxSparkRemoveData(ls)
+rxSparkListData() # it should show empty list
+rxSparkDisconnect(myHadoopCluster)
+```
+
+For additional info on use of these new functions see the online help in R Server through use of the ?RxHivedata and ?RxParquetData commands.  
+
 
 ## Install R packages
 If you would like to install additional R packages on the edge node, you can use `install.packages()` directly from within the R console when connected to the edge node through SSH. However, if you need to install R packages on the worker nodes of the cluster, you must use a Script Action.
@@ -394,9 +445,9 @@ Script Actions are Bash scripts that are used to make configuration changes to t
 ## Next steps
 Now that you understand how to create a new HDInsight cluster that includes R Server, and the basics of using the R console from an SSH session, use the following to discover other ways of working with R Server on HDInsight.
 
-* [Add RStudio Server to HDInsight premium](hdinsight-hadoop-r-server-install-r-studio.md)
-* [Compute context options for R Server on HDInsight premium](hdinsight-hadoop-r-server-compute-contexts.md)
-* [Azure Storage options for R Server on HDInsight premium](hdinsight-hadoop-r-server-storage.md)
+* [Add RStudio Server to HDInsight](hdinsight-hadoop-r-server-install-r-studio.md)
+* [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
+* [Azure Storage options for R Server on HDInsight](hdinsight-hadoop-r-server-storage.md)
 
 ### Azure Resource Manager templates
 If you're interested in automating the creation of R Server on HDInsight using Azure Resource Manager templates, see the following example templates.
