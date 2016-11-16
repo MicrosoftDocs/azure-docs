@@ -67,9 +67,9 @@ The following notes provide additional technical details about the zone import p
 
 The format of the Azure CLI command to import a DNS zone is:
 
-    ```azurecli
-    azure network dns zone import [options] <resource group> <zone name> <zone file name>
-    ```
+```azurecli
+azure network dns zone import [options] <resource group> <zone name> <zone file name>
+```
 
 Values:
 
