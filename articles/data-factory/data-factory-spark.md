@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/15/2016
 ms.author: spelluru
 
 ---
@@ -36,7 +36,7 @@ You find sample pipelines in the **ADFJsons/Pipeline** folder. Review a pipeline
 The MapReduce activity is configured to invoke **com.adf.sparklauncher.jar** in the **adflibs** container in your Azure storage (specified in the StorageLinkedService.json). The source code for this program is in Spark-ADF/src/main/java/com/adf/ folder and it calls spark-submit and run Spark jobs. 
 
 > [!IMPORTANT]
-> Read through [README.TXT](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.txt) for the latest and additional information before using the sample. 
+> Read through [README.md](https://github.com/Azure/Azure-DataFactory/blob/master/Samples/Spark/README.md) for the latest and additional information before using the sample. 
 > 
 > Use your own HDInsight Spark cluster with this approach to invoke Spark programs using the MapReduce activity. Using an on-demand HDInsight cluster is not supported.   
 > 

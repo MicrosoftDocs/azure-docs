@@ -90,9 +90,9 @@ Install the Azure Powershell module on the machine where you want to run the scr
     Each web test has a corresponding alert rule. The web test should go first.
    
     You can also include alerts on metrics. [Metric names](app-insights-powershell-alerts.md#metric-names).
-5. To satisfy the schema, insert this line in each resource:
+5. Insert this line in each resource:
    
-    `"apiVersion": "2014-04-01",`
+    `"apiVersion": "2015-05-01",`
 
 ## Parameterize the template
 Now you have to replace the specific names with parameters. To [parameterize a template](../resource-group-authoring-templates.md), you write expressions using a [set of helper functions](../resource-group-template-functions.md). 
@@ -334,5 +334,6 @@ Other automation articles:
 * [Set up Alerts](app-insights-powershell-alerts.md)
 * [Create web tests](https://azure.microsoft.com/blog/creating-a-web-test-alert-programmatically-with-application-insights/)
 * [Send Azure Diagnostics to Application Insights](app-insights-powershell-azure-diagnostics.md)
+* [Deploy to Azure from Github](http://blogs.msdn.com/b/webdev/archive/2015/09/16/deploy-to-azure-from-github-with-application-insights.aspx)
 * [Create release annotations](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1)
 
