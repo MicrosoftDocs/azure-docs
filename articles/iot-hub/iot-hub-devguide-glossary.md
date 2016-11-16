@@ -213,7 +213,7 @@ A shared access policy defines the permissions granted to anyone who has a valid
 For convenience, many of the IoT Hub tutorials use simulated devices to enable you to run samples on your local machine. In contrast, a [physical device](#physical-device) is a real device such as a Raspberry Pi that connects to an IoT hub.
 
 ## Solution
-A _solution_ can refer to a Visual Studio solution that includes one or more projects. A _solution_ might also refer to an IoT solution that includes elements such as devices, [device apps](#device-app), an IoT hub, other Azure services, and [back-end apps](back-end-app).
+A _solution_ can refer to a Visual Studio solution that includes one or more projects. A _solution_ might also refer to an IoT solution that includes elements such as devices, [device apps](#device-app), an IoT hub, other Azure services, and [back-end apps](#back-end-app).
 
 ## Subscription
 An Azure subscription is where billing takes place. Each Azure resource you create or Azure service you use is associated with a single subscription. Many quotas also apply at the level of a subscription.
@@ -231,4 +231,4 @@ Devices collect telemetry data, such as wind speed or temperature, and use [data
 You can use a token service to implement an authentication mechanism for your devices. It uses an IoT Hub [shared access policy](#shared-access-policy) with **DeviceConnect** permissions to create *device-scoped* tokens. These tokens enable a device to connect to your IoT hub. A device uses a custom authentication mechanism to authenticate with the token service. IF the device authenticates successfully, the token service issues a SAS token for the device to use to access your IoT hub.
 
 ## X.509 client certificate
-A device can use an X.509 certificate to authenticate with [IoT Hub](#iot-hub). Using an X.509 certificate is an alternative to using a [SAS token](shared-access-signature).
+A device can use an X.509 certificate to authenticate with [IoT Hub](#iot-hub). Using an X.509 certificate is an alternative to using a [SAS token](#shared-access-signature).
