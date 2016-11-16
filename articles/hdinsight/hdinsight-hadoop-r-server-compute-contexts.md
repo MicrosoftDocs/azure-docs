@@ -69,7 +69,7 @@ You can also refer to the “ScaleR Distributed Computing Guide” that's availa
 In this article, you learned how to create a new HDInsight cluster that includes R Server. You also learned the basics of using the R console from an SSH session. Now you can read the following articles to discover other ways of working with R Server on HDInsight:
 
 * [Overview of R Server for Hadoop](hdinsight-hadoop-r-server-overview.md)
-* [Get started with R server for Hadoop](hdinsight-hadoop-r-server-get-started.md)
+* [Get started with R Server for Hadoop](hdinsight-hadoop-r-server-get-started.md)
 * [Add RStudio Server to HDInsight](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Azure Storage options for R Server on HDInsight](hdinsight-hadoop-r-server-storage.md)
 
