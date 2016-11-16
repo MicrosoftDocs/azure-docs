@@ -28,7 +28,7 @@ The first thing to integrating your Cloud assets with Operations Management Suit
 For Virtual Machines this is very simple – you can manually download the agent from your OMS workspace.
 
 ![alt text](./media/documentation-government-oms-figure1.png)
-Figure 1: Windows Servers connected to OMS
+<p align="center">Figure 1: Windows Servers connected to OMS</p>
 
 You can connect Azure VMs to OMS directly through the Portal. Instructions [here](https://blogs.technet.microsoft.com/momteam/2016/02/10/new-ways-to-enable-log-analytics-oms-on-your-azure-vms/).
 You can also connect them programmatically and/or configure the OMS extension right into your Azure Resource Manager (ARM) templates. Instructions for Windows’ based machine [here](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents) and Linux [here](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents).
