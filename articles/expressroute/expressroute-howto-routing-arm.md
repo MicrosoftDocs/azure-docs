@@ -20,9 +20,9 @@ ms.author: ganesr
 ---
 # Create and modify routing for an ExpressRoute circuit
 > [!div class="op_single_selector"]
-> [Azure Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
-> [PowerShell - Classic](expressroute-howto-routing-classic.md)
+> * [Azure Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
+> * [PowerShell - Classic](expressroute-howto-routing-classic.md)
 > 
 > 
 
@@ -246,7 +246,9 @@ This section provides instructions on how to create, get, update and delete the 
      
        Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $ckt
 
-    >[AZURE.IMPORTANT] Ensure that you specify your AS number as peering ASN and not customer ASN.
+	> [!IMPORTANT]
+	> Ensure that you specify your AS number as peering ASN, not customer ASN.
+
 
 ### To view Azure public peering details
 You can get configuration details using the following cmdlet

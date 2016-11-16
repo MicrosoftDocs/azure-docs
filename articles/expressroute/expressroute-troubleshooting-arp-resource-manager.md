@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/10/2016
+ms.date: 10/11/2016
 ms.author: ganesr
 
 ---
 # ExpressRoute Troubleshooting guide - Getting ARP tables in the Resource Manager deployment model
 > [!div class="op_single_selector"]
-> [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
-> [PowerShell - Classic](expressroute-troubleshooting-arp-classic.md)
+> * [PowerShell - Resource Manager](expressroute-troubleshooting-arp-resource-manager.md)
+> * [PowerShell - Classic](expressroute-troubleshooting-arp-classic.md)
 > 
 > 
 

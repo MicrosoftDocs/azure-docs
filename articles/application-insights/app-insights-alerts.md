@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Set Alerts in Application Insights
-[Visual Studio Application Insights][start] can alert you to changes in performance or usage metrics in your web app. 
+[Azure Application Insights][start] can alert you to changes in performance or usage metrics in your web app. 
 
 Application Insights monitors your live app on a [wide variety of platforms][platforms] to help you diagnose performance issues and understand usage patterns.
 

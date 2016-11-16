@@ -36,7 +36,7 @@ In the [classic Azure portal](https://manage.windowsazure.com), these tests were
 
 Read more about [Availability tests here](app-insights-monitor-web-app-availability.md).
 
-Availability tests are part of [Visual Studio Application Insights](app-insights-overview.md), which is an extensible analytics service for any web application.
+Availability tests are part of [Azure Application Insights](app-insights-overview.md), which is an extensible analytics service for any web application.
 
 ## So what's happening to my endpoint tests?
 * We have copied your endpoint monitoring tests to the new Application Insights Availability tests.
@@ -85,7 +85,7 @@ The new tests are configured separately from the web app or VM that you're testi
 We are migrating the tests to ensure you continue to have control over them while using the new portal. 
 
 ## What is Application Insights?
-The new availability tests are part of [Visual Studio Application Insights](app-insights-overview.md). Here's a [2-minute video](http://go.microsoft.com/fwlink/?LinkID=733921).
+The new availability tests are part of [Azure Application Insights](app-insights-overview.md). Here's a [2-minute video](http://go.microsoft.com/fwlink/?LinkID=733921).
 
 ## Am I paying for the new tests?
 The migrated tests are set up in an Application Insights resource in the default Free plan. This allows collection of up to 5 million data points. That easily covers the data volume your tests will use currently. 
