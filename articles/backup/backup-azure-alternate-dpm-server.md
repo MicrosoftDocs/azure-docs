@@ -20,7 +20,8 @@ ms.author: giridham;jimpark;trinadhk;markgal
 # Recovering data from another Azure Backup Server in the backup vault
 You can now recover the data you've protected to an Azure Backup vault from any Azure Backup Server registered to that vault. The process for doing so is completely integrated into the ABS management console and is similar to the other recovery workflows.
 
-> [!NOTE] This article and the following steps are also applicable to [System Center Data Protection Manager UR7] (https://support.microsoft.com/en-us/kb/3065246) with the [latest Azure Backup agent](http://aka.ms/azurebackup_agent).
+> [!NOTE] 
+> This article and the following steps are also applicable to [System Center Data Protection Manager UR7] (https://support.microsoft.com/en-us/kb/3065246) with the [latest Azure Backup agent](http://aka.ms/azurebackup_agent).
 >
 >
 
