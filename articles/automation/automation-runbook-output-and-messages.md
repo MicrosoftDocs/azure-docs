@@ -1,4 +1,4 @@
-﻿---
+---
 title: Runbook Output and Messages in Azure Automation | Microsoft Docs
 description: Desribes how to create and retrieve output and error messages from runbooks in Azure Automation.
 services: automation
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/24/2016
+ms.date: 11/11/2016
 ms.author: magoedte;bwren
 
 ---
@@ -98,11 +98,11 @@ In the following example, we have two graphical runbooks to demonstrate this fea
 
 Here is the basic logic of the **AuthenticateTo-Azure** runbook.<br> ![Authenticate Runbook Template Example](media/automation-runbook-output-and-messages/runbook-authentication-template.png).  
 
-It includes the output type *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, which will return the authentication profile properties.<br> ![Runbook Output Type Example](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png)
+It includes the output type *Microsoft.Azure.Commands.Profile.Models.PSAzureContext*, which will return the authentication profile properties.<br> ![Runbook Output Type Example](media/automation-runbook-output-and-messages/runbook-input-and-output-add-blade.png) 
 
 While this runbook is very straight forward, there is one configuration item to call out here.  The last activity is executing the **Write-Output** cmdlet and writes the profile data to a $_ variable using a PowerShell expression for the **Inputobject** parameter, which is required for that cmdlet.  
 
-For the second runbook in this example, named *Test-ChildOutputType*, we simply have two activities.<br> ![Example Child Output Type Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png)
+For the second runbook in this example, named *Test-ChildOutputType*, we simply have two activities.<br> ![Example Child Output Type Runbook](media/automation-runbook-output-and-messages/runbook-display-authentication-results-example.png) 
 
 The first activity calls the **AuthenticateTo-Azure** runbook and the second activity is running the **Write-Verbose** cmdlet with the **Data source** of **Activity output** and the value for **Field path** is **Context.Subscription.SubscriptionName**, which is specifying the context output from the **AuthenticateTo-Azure** runbook.<br> ![Write-Verbose cmdlet Parameter Data Source](media/automation-runbook-output-and-messages/runbook-write-verbose-parameters-config.png)    
 
@@ -200,9 +200,21 @@ The Trace records can be especially numerous.  With Graphical runbook tracing yo
 3. On the Runbooks blade, click to select a graphical runbook from your list of runbooks.
 4. On the Settings blade for the selected runbook, click **Logging and Tracing**.
 5. On the Logging and Tracing blade, under Log verbose records, click **On** to enable verbose logging and udner Activity-level tracing, change the trace level to **Basic** or **Detailed** based on the level of tracing you require.<br>
-
+   
    ![Graphical Authoring Logging and Tracing Blade](media/automation-runbook-output-and-messages/logging-and-tracing-settings-blade.png)
+
+### Microsoft Operations Management Suite (OMS) Log Analytics
+Automation can send runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  With Log Analytics you can,
+
+* Get insight on your Automation jobs 
+* Trigger an email or alert based on your runbook job status (e.g. failed or suspended) 
+* Write advanced queries across your job streams 
+* Correlate jobs across Automation accounts 
+* Visualize your job history over time    
+
+For more information on how to configure integration with Log Analytics to collect, correlate and act on job data, see [Forward job status and job streams from Automation to Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).
 
 ## Next steps
 * To learn more about runbook execution, how to monitor runbook jobs, and other technical details, see [Track a runbook job](automation-runbook-execution.md)
 * To understand how to design and use child runbooks, see [Child runbooks in Azure Automation](automation-child-runbooks.md)
+

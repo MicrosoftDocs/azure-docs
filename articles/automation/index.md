@@ -1,58 +1,41 @@
 ---
-title: Automation Documentation | Microsoft Azure
-description: Automation Documentation
-services: automation
-documentationcenter: ''
-author: kriscrider
-manager: carolz
-editor: ''
-tags: 
-
-ms.assetid: 4e73be25-f7ab-4524-b5c8-066399e34222
-ms.service: automation
-ms.devlang: na
-ms.topic: landing page
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/07/2016
-ms.author: kriscr
-
+layout: LandingPage
 ---
 # Automation Documentation
 
-Microsoft Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud and enterprise environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals.
+Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals.
 
-<ul class="panelContent cardsA">
+<ul class="panelContent cardsFTitle">
     <li>
-        <a href="automation/automation-intro/">
+        <a href="/azure/automation/automation-intro">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/automation.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Learn about Azure Automation<p>
+                        <h3>Learn about Azure Automation</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>   
-     <li>
+    </li>
+    <li>
         <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=automation">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Azure Automation Video Library<p>
+                        <h3>Automation Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -60,17 +43,17 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
         </a>
     </li>
     <li>
-        <a href="automation-first-runbook-graphical/">
+        <a href="/azure/automation/automation-first-runbook-graphical">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create a graphical Runbook<p>
+                        <h3>Get Started with Automation using Runbooks</h3>
                     </div>
                 </div>
             </div>
@@ -78,35 +61,17 @@ Microsoft Azure Automation provides a way for users to automate the manual, long
         </a>
     </li>
     <li>
-        <a href="automation-first-runbook-textual-powershell">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-r                        <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <p>Create a PowerShell Runbook<p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="automation-first-runbook-textual">
+        <a href="/azure/automation/automation-first-runbook-textual-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/powershell.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create a PowerShell Workflow Runbook<p>
+                        <h3>Get Started with Automation using PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -114,43 +79,96 @@ r                        <div class="cardImage">
         </a>
     </li>
     <li>
-        <a href="automation-role-based-access-control">
+        <a href="/azure/automation/automation-first-runbook-textual">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/powershell.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create a Role-based access control for Azure resources<p>
+                        <h3>Create your first PowerShell Workflow Runbook</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/automation/automation-role-based-access-control">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/tutorial.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with Automation using PowerShell Workflow</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    
 </ul>
 
 ---
 
 ## Reference
 
-### PowerShell
-[Automation PowerShell Cmdlets (ARM)](/powershell/resourcemanager) 
-[Automation PowerShell Cmdlets (ASM)](/powershell/servicemanagement)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	 <li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Azure Managed Reference API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	 <li>
+        <a href="https://msdn.microsoft.com/en-us/library/azure/mt662285">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Automation REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	</ul>
 
-### .NET
-[Automation Managed Reference API](https://docs.microsoft.com/dotnet/api)
-
-### REST
-[Automation REST API Reference](https://msdn.microsoft.com/library/azure/dn690262)
-
----
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/automation.pdf">
         <div class="img"></div>
         <div class="text">
             Download Automation Documentation

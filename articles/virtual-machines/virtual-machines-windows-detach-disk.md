@@ -46,13 +46,15 @@ The second command removes the data disk named DataDisk3 from the virtual machin
 
 The final command updates the state of the virtual machine to complete the process of removing the data disk.
 
-    $VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" 
-    Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
-    Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+```powershell
+$VirtualMachine = Get-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" 
+Remove-AzureRmVMDataDisk -VM $VirtualMachine -Name "DataDisk3"
+Update-AzureRmVM -ResourceGroupName "RG11" -Name "MyVM07" -VM $VirtualMachine
+```
 
 
 For more information, see [Remove-AzureRmVMDataDisk](https://msdn.microsoft.com/library/mt603614.aspx)
 
 ## Next steps
-If you want to reuse the data disk, you can just [attach it to another VM](virtual-machines-windows-attach-disk-portal.md)
+If you want to reuse the data disk, you can just [attach it to another VM](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

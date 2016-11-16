@@ -4,7 +4,7 @@ description: Learn how to retrieve Issuer Name and Issuer Key for either Service
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
-manager: erikre
+manager: anneta
 editor: ''
 
 ms.assetid: 067fe356-d1aa-420f-b2f2-1a418686470a
@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
+ms.date: 11/07/2016
 ms.author: mandia
 
 ---
@@ -34,36 +34,38 @@ The Access Control Issuer Name and Issuer Key are used by the following:
 * Your Azure BizTalk Service application created in Visual Studio: To successfully deploy your BizTalk Service application in Visual Studio to Azure, you enter the Access Control Issuer Name and Issuer Key. 
 * The Azure BizTalk Services  Portal: When you create a BizTalk Service and open the BizTalk Services Portal, your Access Control Issuer Name and Issuer Key are automatically registered for your deployments with the same Access Control values.
 
-### To copy and paste the Access Control Issuer Name and Issuer Key
-1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. In the left navigation pane, select **BizTalk Services**.
-3. Select your BizTalk Service. 
-4. Select **Connection Information** in the task bar. The Access Control Namespace, Default Issuer (Issuer Name), and Default Key (Issuer Key) are listed and can be copied and pasted.  
+### Get the Access Control Issuer Name and Issuer Key
+
+To use ACS for authentication, and get the Issuer Name and Issuer Key values, the overall steps include:
+
+1. Install the [Azure Powershell cmdlets](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+2. Add your Azure account: `Add-AzureAccount`
+3. Return your subscription name: `get-azuresubscription`
+4. Select your subscription: `select-azuresubscription <name of your subscription>` 
+5. Create a new namespace: `new-azuresbnamespace <name for the service bus> "Location" -CreateACSNamespace $true -NamespaceType Messaging`
+
+    Example:
+      `new-azuresbnamespace biztalksbnamespace "South Central US" -CreateACSNamespace $true -NamespaceType Messaging`
+      
+5. When the new ACS namespace is created (which can take several minutes), the Issuer Name and Issuer Key values are listed in the connection string: 
+
+    ```
+    Name                  : biztalksbnamespace
+    Region                : South Central US
+    DefaultKey            : abcdefghijklmnopqrstuvwxyz
+    Status                : Active
+    CreatedAt             : 10/18/2016 9:36:30 PM
+    AcsManagementEndpoint : https://biztalksbnamespace-sb.accesscontrol.windows.net/
+    ServiceBusEndpoint    : https://biztalksbnamespace.servicebus.windows.net/
+    ConnectionString      : Endpoint=sb://biztalksbnamespace.servicebus.windows.net/;SharedSecretIssuer=owner;SharedSecretValue=abcdefghijklmnopqrstuvwxyz
+    NamespaceType         : Messaging
+    ```
 
 To summarize:  
-Issuer Name = Default Issuer  
-Issuer Key = Default Key
+Issuer Name = SharedSecretIssuer  
+Issuer Key = SharedSecretKey
 
-You can also select **Open ACS Management Portal** to get the Access Control values:
-
-1. Sign in to the [Azure classic portal](http://go.microsoft.com/fwlink/p/?LinkID=213885).
-2. In the left navigation pane, select **BizTalk Services**.
-3. Select your BizTalk Service.
-4. Select the Connection Information button and select **Open ACS Management Portal**.
-5. In the Portal under **Service Settings**, select **Service Identities**. This displays your Service Identity, which is your Access Control Issuer Name value. Select your Service Identity link to see the Password, which is your Issuer Key value. Their values can be copied.<br/><br/>
-   For example, in **Service Identities**, you see "owner". "Owner" is your Access Control Issuer Name. When you click the "owner" link, you see the **Password**. When you click the "Password" link, you see the value. This Password value is your Access Control Issuer Key.  
-
-To summarize:  
-Issuer Name = Service Identity name  
-Issuer Key = Password value
-
-In the left navigation pane, you can also select **Active Directory** to retrieve the Access Control values. 
-
-> [!IMPORTANT]
-> When an Access Control Namespace is created using **Active Directory**, a Service Identity is **not** automatically created. When you provision a BizTalk Service, an Access Control Namespace, Service Identity named "owner" (Issuer Name), Password (Issuer Key), and Symmetric Key are automatically created.<br /> 
-> [How to: Use ACS Management Service to Configure Service Identities](http://go.microsoft.com/fwlink/p/?LinkID=303942) provides more information on Access Control Service Identities.
-> 
-> 
+More on the [New-AzureSBNamespace](https://msdn.microsoft.com/library/dn495165.aspx) cmdlet. 
 
 ## Service Bus Issuer Name and Issuer Key
 Service Bus Issuer Name and Issuer Key are used by BizTalk Adapter Services. In your BizTalk Services project in Visual Studio, you use the BizTalk Adapter Services to connect to an on-premises Line-of-Business (LOB) system. To connect, you create the LOB Relay and enter your LOB system details. When doing this, you also enter the Service Bus Issuer Name and Issuer Key.

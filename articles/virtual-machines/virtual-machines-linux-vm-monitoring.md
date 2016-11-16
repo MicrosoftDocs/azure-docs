@@ -1,4 +1,4 @@
-﻿---
+---
 title: Enable or Disabling Azure VM Monitoring
 description: Describes How to Enable or Disable Azure VM Monitoring
 services: virtual-machines-linux
@@ -48,7 +48,7 @@ To enable monitoring for an Azure VM.
 
 [Azure.Note] You can change from version 2.0 to a later version when available. 
 
-For more details about configuring monitoring metrics and samples, visit the document - **[Using Linux Diagnostic Extension to Monitor Linux VM’s performance and diagnostic data](virtual-machines-linux-classic-diagnostic-extension.md).
+For more details about configuring monitoring metrics and samples, visit the document - **[Using Linux Diagnostic Extension to Monitor Linux VM’s performance and diagnostic data](virtual-machines-linux-classic-diagnostic-extension.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 <!--Image references-->
 [1]: ./media/virtual-machines-linux-vm-monitoring/portal-enable-disable.png

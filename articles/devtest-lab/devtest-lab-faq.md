@@ -138,7 +138,7 @@ When a VM is created in Azure DevTest Labs, permission is given to access that V
 A custom image is a VHD (virtual hard disk), whereas a formula is an image that you can configure with additional settings that you can save and reproduce. A custom image may be preferable if you want to quickly create several environments with the same basic, immutable image. A formula may be better if you want to reproduce the configuration of your VM with the latest bits, a virtual network/subnet, or a specific size. For a more in-depth explanation, see the article, [Comparing custom images and formulas in DevTest Labs](devtest-lab-comparing-vm-base-image-types.md). 
 
 ### How do I create multiple VMs from the same template at once?
-You can use the [VSTS tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) or [generate an Azure Resource Manager template](devtest-lab-add-vm-with-artifacts.md#save-arm-template) while creating a VM and [deploy the Azure Resource Manager template from Windows PowerShell](../resource-group-template-deploy.md). 
+You can use the [VSTS tasks extension](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) or [generate an Azure Resource Manager template](devtest-lab-add-vm-with-artifacts.md#save-azure-resource-manager-template) while creating a VM and [deploy the Azure Resource Manager template from Windows PowerShell](../resource-group-template-deploy.md). 
 
 ### How do I move my existing Azure VMs into my Azure DevTest Labs lab?
 We are designing a solution to directly move VMs to Azure DevTest Labs, but currently you can copy your existing VMs to Azure DevTest Labs as follows: 

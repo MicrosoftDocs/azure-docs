@@ -7,6 +7,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Category | Quality review item |
 | --- | --- |
 | Prerequisites |The "ready-to-merge" label is assigned to the PR (use the #sign-off comment) and the validation status is "passed". |
+| Prerequisites |Any pull request to the Live branch should be closed. The user should be redirected to the master branch. |
 | Prerequisites |The pull request cannot be blocked by a merge conflict. |
 | Prerequisites |The pull request contains updates only to technical articles and images. PRs that mix updates to TOC files, index files, and articles will be closed without further review. |
 | Repo integrity |Pull request contains no obvious content regressions. |
@@ -15,6 +16,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Repo integrity |If articles are deleted in the pull request, the deletions must be by the listed author. If not by the listed author, the PR must contain a comment indicating the article deletions are intentional |
 | Naming |File names for new files follow the [file naming guidelines](file-names-and-locations.md). |
 | Naming |New folders introduced into the repo follow the [folder naming guidelines](file-names-and-locations.md#folder-names-in-the-repo). |
+| Metadata | Metadata section is in the correct YAML format for OPS. |
 | Metadata | The ms.date value cannot be set more than 5 days into the future. |
 | Content |The article is a technical document, and therefore in the correct content channel. See the [what goes where guidance](content-channel-guidance.md). |
 | Content |The subject matter in the technical document is appropriate for a technical article. See the [what goes where guidance](content-channel-guidance.md). |
@@ -22,7 +24,6 @@ The updates in the pull request must comply with the following criteria to be me
 | Content |The article contains an introductory paragraph, and a procedural or conceptual body of content. The article needs to contain sufficient, complete content to stand on its own as an article. It should not be a small fragment of information. (Exception: A "Limits" topic if it is in the context of a large article that lists all of the limits of a service.) |
 | Content |Elements that should be numbered lists are numbered, elements that should be unordered lists are bulleted. This is basic usability. |
 | Content |Unusual or novel graphics, information architecture or structures, or obviously non-standard designs need to be vetted with the lead PR reviewer. Teams that are experimenting with new things need to have a problem/solution canvas or plan in place for evaluating experiments. |
-
 | Content |If an article is being deleted, all crosslinks to that article must be deleted. Check the build report to ensure there are no articles that contain broken links to the article being deleted |
 | Site/design functionality |Switchers are used only for switching across multiple versions of the same article. |
 | Site/design functionality |The titles of switchered articles contain information that differentiates each article from the other articles in the switchered set. |
@@ -30,7 +31,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Site/design functionality |If H2 headings are present, the article contains at least two H2 headings. Using one H2 heading creates a single-item article TOC. H2 headings must be used before H3 headings to ensure a TOC is created. |
 | Markdown |HTML: Source content does not contain HTML at the block level – minor inline HTML is permitted – such as superscript, subscript, special characters, and other minor things that you can’t do with markdown. HTML tables are allowed ONLY if the table contains bulleted or numbered lists, but that is usually an indication the content needs to be simplified so the source can be coded in markdown. |
 | Markdown |Custom markdown elements are used where appropriate. Ex: Notes are coded using the AZURE.NOTE extension, not as plain text. |
-| SEO |The " &#124; Microsoft Docs" site identifier is required |
+| SEO |The " &#124; Microsoft Docs" site identifier is required. We no longer use the " &#124; Microsoft Azure" site identifier |
 | SEO |The *title* metadata value must include the word "Azure" |
 | SEO |The H1 title contains sufficient information to describe the content of the article, to differentiate it from other Azure articles, and to map to likely customer keywords. For example "Overview" as the H1 title is a fail. |
 | Terminology |The use of the ARM acronym, V1, or V2 as references to the classic and Resource Manager deployment models is a blocking terminology item. |

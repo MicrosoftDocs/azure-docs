@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/22/2016
+ms.date: 11/11/2016
 ms.author: jingwang
 
 ---
@@ -30,8 +30,8 @@ First, let's see how data migration occurs between two cloud data stores, and be
 
 > [!NOTE]
 > To learn about activities in general, see [Understanding pipelines and activities](data-factory-create-pipelines.md).
-> 
-> 
+>
+>
 
 ### Copy data between two cloud data stores
 When both source and sink data stores are in the cloud, Copy Activity goes through the following stages to copy data from the source to the sink. The service that powers Copy Activity:
@@ -97,11 +97,13 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 | Central India |Central India |
 | South India |Central India |
 | West India |Central India |
+| Canada Central | Canada Central |
+| Canada East | Canada Central |
 
 > [!NOTE]
 > If the region of the destination data store is not in the preceding list, Copy Activity fails instead of going through an alternative region.
-> 
-> 
+>
+>
 
 ### Copy data between an on-premises data store and a cloud data store
 When data is being copied between on-premises (or Azure virtual machines/IaaS) and cloud stores, [Data Management Gateway](data-factory-data-management-gateway.md) performs data movement on an on-premises machine or virtual machine. The data does not flow through the service in the cloud, unless you use the [staged copy](data-factory-copy-activity-performance.md#staged-copy) capability. In this case, data flows through the staging Azure Blob storage before it is written into the sink data store.
@@ -170,7 +172,7 @@ You can specify more than one input dataset to Copy Activity. They are used to v
 See the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md), which describes key factors that affect the performance of data movement (Copy Activity) in Azure Data Factory. It also lists the observed performance during internal testing and discusses various ways to optimize the performance of Copy Activity.
 
 ## Scheduling and sequential copy
-See [Scheduling and execution](data-factory-scheduling-and-execution.md) for detailed information about how scheduling and execution works in Data Factory. It is possible to run multiple copy operations one after another in a sequential/ordered manner. See the [Ordered copy](data-factory-scheduling-and-execution.md#ordered-copy) section.
+See [Scheduling and execution](data-factory-scheduling-and-execution.md) for detailed information about how scheduling and execution works in Data Factory. It is possible to run multiple copy operations one after another in a sequential/ordered manner. See the [Copy sequentially](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence) section.
 
 ## Type conversions
 Different data stores have different native type systems. Copy Activity performs automatic type conversions from source types to sink types with the following two-step approach:
@@ -183,4 +185,3 @@ The mapping from a native type system to a .NET type for a data store is in the 
 ## Next steps
 * To learn about the Copy Activity more, see [Copy data from Azure Blob storage to Azure SQL Database](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md).
 * To learn about moving data from an on-premises data store to a cloud data store, see [Move data from on-premises to cloud data stores](data-factory-move-data-between-onprem-and-cloud.md).
-

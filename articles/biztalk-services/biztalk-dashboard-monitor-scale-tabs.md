@@ -4,7 +4,7 @@ description: 'Learn about the controls and monitor performance on the classic po
 services: biztalk-services
 documentationcenter: ''
 author: MandiOhlinger
-manager: erikre
+manager: anneta
 editor: ''
 
 ms.assetid: 7a1815db-0de2-4274-8be0-198c1b077324
@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/07/2016
 ms.author: mandia
 
 ---

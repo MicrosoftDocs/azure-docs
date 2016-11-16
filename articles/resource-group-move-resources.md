@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 11/11/2016
 ms.author: tomfitz
 
 ---
@@ -25,7 +25,7 @@ Typically, you move resources when you decide that:
 * For billing purposes, a resource needs to live in a different subscription.
 * A resource no longer shares the same lifecycle as the resources it was previously grouped with. You want to move it to a new resource group so you can manage that resource separately from the other resources.
 
-When moving resources, both the source group and the target group are locked during the operation. Write and delete operations are blocked on the groups until the move completes.
+When moving resources, both the source group and the target group are locked during the operation. Write and delete operations are blocked on the resource groups until the move completes. This lock means you cannot add, update, or delete resources in the resource groups, but it does not mean the resources are frozen. For example, if you move a SQL Server and its database to a new resource group, an application that uses the database experiences no downtime. It can still read and write to the database. 
 
 You cannot change the location of the resource. Moving a resource only moves it to a new resource group. The new resource group may have a different location, but that does not change the location of the resource.
 
@@ -37,7 +37,7 @@ You cannot change the location of the resource. Moving a resource only moves it 
 ## Checklist before moving resources
 There are some important steps to perform before moving a resource. By verifying these conditions, you can avoid errors.
 
-1. The service must enable the ability to move resources. See the list below for information about which [services enable moving resources](#services-that-enable-move).
+1. The service must enable the ability to move resources. This topic lists which services enable moving resources and which services do not enable moving resources.
 2. The source and destination subscriptions must exist within the same [Active Directory tenant](active-directory/active-directory-howto-tenant.md). To move to a new tenant, call support.
 3. The destination subscription must be registered for the resource provider of the resource being moved. If not, you receive an error stating that the **subscription is not registered for a resource type**. You might encounter this problem when moving a resource to a new subscription, but that subscription has never been used 
    with that resource type. To learn how to check the registration status and register resource providers, see [Resource providers and types](resource-manager-supported-services.md#resource-providers-and-types).
@@ -99,7 +99,7 @@ For now, the services that enable moving to both a new resource group and subscr
 * Storage
 * Storage (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Stream Analytics
-* SQL Database server - The database and server must reside in the same resource group. When you move a SQL server, all of its databases are also moved.
+* SQL Database server - The database and server must reside in the same resource group. When you move a SQL server, all its databases are also moved.
 * Traffic Manager
 * Virtual Machines - however, does not support move to a new subscription when its certificates are stored in a Key Vault
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
@@ -278,7 +278,7 @@ You are asked to confirm that you want to move the specified resources.
     [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): y
 
 ## Use Azure CLI
-To move existing resources to another resource group or subscription, use the **azure resource move** command. You need to provide the resource ids of the resources to move. You can get resource ids with the following command:
+To move existing resources to another resource group or subscription, use the **azure resource move** command. Provide the resource IDs of the resources to move. You can get resource IDs with the following command:
 
     azure resource list -g sourceGroup --json
 
@@ -299,7 +299,7 @@ Which returns the following format:
       }
     ]
 
-The following example shows how to move a storage account to a new resource group. In the **-i** parameter, provide a comma-separated list of the resource id's to move.
+The following example shows how to move a storage account to a new resource group. In the **-i** parameter, provide a comma-separated list of the resource IDs to move.
 
     azure resource move -i "/subscriptions/{guid}/resourceGroups/sourceGroup/providers/Microsoft.Storage/storageAccounts/storagedemo" -d "destinationGroup"
 

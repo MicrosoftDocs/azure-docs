@@ -20,15 +20,16 @@ ms.tgt_pltfrm: NA
 # Archive an Azure SQL database to a BACPAC file by using PowerShell
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-export.md)
+> * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+> * [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 > * [PowerShell](sql-database-export-powershell.md)
-> 
 > 
 
 This article provides directions for archiving your Azure SQL database to a [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) file (stored in Azure Blob storage) using PowerShell.
 
 When you need to create an archive of an Azure SQL database, you can export the database schema and data to a BACPAC file. A BACPAC file is simply a ZIP file with an extension of .bacpac. A BACPAC file can later be stored in Azure Blob storage or in local storage in an on-premises location. It can also be imported back into Azure SQL Database or into a SQL Server installation on-premises.
 
-**Considerations**
+## Considerations
 
 * For an archive to be transactionally consistent, you must ensure that no write activity is occurring during the export, or that you are exporting from a [transactionally consistent copy](sql-database-copy.md) of your Azure SQL database.
 * The maximum size of a BACPAC file archived to Azure Blob storage is 200 GB. To archive a larger BACPAC file to local storage, use the [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) command-prompt utility. This utility ships with both Visual Studio and SQL Server. You can also [download](https://msdn.microsoft.com/library/mt204009.aspx) the latest version of SQL Server Data Tools to get this utility.
@@ -109,7 +110,9 @@ Replace the following `VARIABLE-VALUES` with values for your specific Azure reso
     # Check status of the export
     Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
 
+## Automate export using Azure Automation
 
+You can use Azure automation to archive SQL databases periodically according to a schedule of your choice. You can download the [sample script from Github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). Please see [Azure Automation Overview](../automation/automation-intro.md) for more details about Azure Automation.
 
 ## Next steps
 * To learn how to import an Azure SQL database by using Powershell, see [Import a BACPAC using PowerShell](sql-database-import-powershell.md).

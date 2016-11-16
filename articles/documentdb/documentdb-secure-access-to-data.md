@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 11/12/2016
 ms.author: kipandya
 
 ---
@@ -140,9 +140,9 @@ The following code snippet shows how to create a permission resource, read the r
         ResourceLink = documentCollection.SelfLink,
         Id = "readperm"
     };
-
-  docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
-  Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
+    
+    docPermission = await client.CreatePermissionAsync(UriFactory.CreateUserUri("db", "user"), docPermission);
+    Console.WriteLine(docPermission.Id + " has token of: " + docPermission.Token);
 
 If you have specified a partition key for your collection, then the permission for collection, document and attachment resources must also include the ResourcePartitionKey in addition to the ResourceLink.
 
