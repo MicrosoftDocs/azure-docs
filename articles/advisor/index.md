@@ -35,7 +35,7 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get starte with Azure Advisor</h3>
+                        <h3>Get started with Azure Advisor</h3>
                     </div>
                 </div>
             </div>
