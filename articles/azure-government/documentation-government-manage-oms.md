@@ -13,7 +13,9 @@ editor: ''
 
 ## Cybersecurity in the Cloud
 A crucial aspect for our customers moving to the Cloud is retaining could asset management and security of your Azure Government services that you have deployed to the Cloud. Virtual Machines firewalls need to be configured correctly. The Virtual Networks need to have the right Network Security Groups applied to them. Access to your assets needs to be locked down to the right people at the right time. All of this are necessary work streams that needs to be planned, designed, and provisioned to enable a secure infrastructure for your agency to use.
+
 Setting up such an environment can be challenging. Onboarding your fleet of servers to any monitoring service is hard to scale as well as update. Monitoring infrastructure on different cloud providers as well as across the Cloud and on-premises is difficult. Lastly keeping your monitoring up to date and enabling insights to monitor, detect, alert, and action against cybersecurity threats requires time, resources, and compute power.
+
 Microsoft Operations Management Suite – now available in Azure Government – is a service that enables you to do all of these things leveraging the power of map reduce and machine learning as a service. OMS can:
 * Deploy agents to individual VMS (Linux and Windows) on Azure, other cloud providers, and/or on-premises.
 * Connect your existing logs via an Azure Government Storage Account or SCOM endpoint with existing logging data.
