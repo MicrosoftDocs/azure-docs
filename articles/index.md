@@ -106,7 +106,7 @@ title: Microsoft Azure Documentation
                                         </li>
                                         <li>
                                             <a href="/azure/container-registry/">
-                                                <img src="media/index/ContainerService.svg" alt="" />
+                                                <img src="media/index/container-registry.svg" alt="" />
                                                 <p>Azure Container Registry</p>
                                             </a>
                                         </li>
@@ -347,7 +347,7 @@ title: Microsoft Azure Documentation
                                         <li>
                                             <a href="/azure/application-insights/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
-                                                <p>Visual Studio Application Insights</p>
+                                                <p>Application Insights</p>
                                             </a>
                                         </li>
                                         <li>
@@ -444,7 +444,7 @@ title: Microsoft Azure Documentation
                                         <li>
                                             <a href="/azure/application-insights/">
                                                 <img src="media/index/ApplicationInsights.svg" alt="" />
-                                                <p>Visual Studio Application Insights</p>
+                                                <p>Application Insights</p>
                                             </a>
                                         </li>
                                         <li>
@@ -722,7 +722,7 @@ title: Microsoft Azure Documentation
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/ContainerService.svg" alt="" />
+                                                        <img src="media/index/container-registry.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1990,7 +1990,7 @@ title: Microsoft Azure Documentation
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Application Insights</h3>
+                                                    <h3>Application Insights</h3>
                                                     <p>Detect, triage, and diagnose issues in your web apps and services</p>
                                                 </div>
                                             </div>
@@ -2052,7 +2052,7 @@ title: Microsoft Azure Documentation
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Visual Studio Application Insights</h3>
+                                                    <h3>Application Insights</h3>
                                                     <p>Detect, triage, and diagnose issues in your web apps and services</p>
                                                 </div>
                                             </div>
