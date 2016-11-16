@@ -22,7 +22,7 @@
 ### [View events and audit logs](../monitoring-and-diagnostics/insights-debugging-with-events.md)
 ### [Receive alert notifications](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
-# Reference
+# Related
 ## [Azure resource manager template functions](../resource-group-template-functions.md)
 ## [Best practices for Autoscale](../monitoring-and-diagnostics/insights-autoscale-best-practices.md)
 ## [Common metrics for Autoscale](../monitoring-and-diagnostics/insights-autoscale-common-metrics.md)
@@ -31,6 +31,12 @@
 ## [Webhooks for alerts on metrics](../monitoring-and-diagnostics/insights-webhooks-alerts.md)
 ## [Azure Insights PowerShell quick start samples](../monitoring-and-diagnostics/insights-powershell-samples.md)
 ## [Azure Insights CLI quick start samples](../monitoring-and-diagnostics/insights-cli-samples.md)
+
+# Resources
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazuremanagement) 
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-management-portal)
+
+
 
 
 

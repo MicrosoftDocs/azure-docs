@@ -62,3 +62,8 @@
 ## [.NET client library for Resource Manager](/dotnet/api/microsoft.azure.management.resourcemanager)
 ## [Throttling requests](../resource-manager-request-limits.md?toc=%2fazure%2fazure-resource-manager%2ftoc.json)
 ## [REST](/rest/api/resources/)
+
+# Resources
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-resource-manager)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager)
+## [Service updates](https://azure.microsoft.com/updates/?product=azure-resource-manager) 

@@ -36,7 +36,7 @@ To use the Azure portal:
 8. Review your configuration settings. When you're done, click **Create**.
 9. While Azure creates your virtual machine, you can track the progress under **Virtual Machines** in the hub menu.
 
-To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md)
+To use Azure PowerShell commands to create an Azure virtual machine and add it to a new or existing availability set, see [Use Azure PowerShell to create and preconfigure Windows-based virtual machines](../articles/virtual-machines/virtual-machines-windows-classic-create-powershell.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ## <a id="addmachine"> </a>Option 2: Add an existing virtual machine to an availability set
 In the Azure portal, you can add existing classic virtual machines to an existing availability set

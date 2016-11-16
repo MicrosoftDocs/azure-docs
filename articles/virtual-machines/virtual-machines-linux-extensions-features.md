@@ -27,7 +27,7 @@ This document provides prerequisites for Azure Virtual Machine extension, and gu
 ## Azure VM Agent
 The Azure VM Agent manages interaction between an Azure Virtual Machine and the Azure Fabric Controller. The VM agent is responsible for many functional aspects of deploying and managing Azure Virtual Machines, including running VM Extensions. The Azure VM Agent is pre-installed on Azure Gallery Images, and can be installed on supported operating systems. 
 
-For information on supported operating systems and installation instructions, see [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md).
+For information on supported operating systems and installation instructions, see [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Discover VM Extensions
 Many different VM extensions are available for use with Azure Virtual Machines. To see a complete list, run the following command with the Azure CLI, replacing the location with the location of choice.
@@ -41,8 +41,8 @@ azure vm extension-image list westus
 ## Common VM Extensions
 | Extension Name | Description | More Information |
 | --- | --- | --- |
-| Custom Script Extension for Linux |Run scripts against an Azure Virtual Machine |[Custom Script Extension for Linux](virtual-machines-linux-extensions-customscript.md) |
-| Docker Extension |Installs the Docker daemon to support remote Docker commands. |[Docker VM Extension](virtual-machines-linux-dockerextension.md) |
+| Custom Script Extension for Linux |Run scripts against an Azure Virtual Machine |[Custom Script Extension for Linux](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
+| Docker Extension |Installs the Docker daemon to support remote Docker commands. |[Docker VM Extension](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
 | VM Access Extension |Regain access to Azure Virtual Machine |[VM Access Extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
 

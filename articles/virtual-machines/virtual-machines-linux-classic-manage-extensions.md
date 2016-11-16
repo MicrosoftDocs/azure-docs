@@ -23,7 +23,7 @@ Describes how to find, add, modify, or remove VM Extensions with either Windows 
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-For information about using VM extensions with the Resource Manager model, see [here](virtual-machines-linux-extensions-features.md).
+For information about using VM extensions with the Resource Manager model, see [here](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-manage-extensions](../../includes/virtual-machines-common-classic-manage-extensions.md)]
 

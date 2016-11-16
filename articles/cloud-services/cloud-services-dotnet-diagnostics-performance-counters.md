@@ -102,31 +102,31 @@ There are many counters you can use. The following example shows several perform
 
 Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above) and add the following to the DiagnosticMonitorConfiguration element:
 
-```
-    <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
-       <PerformanceCounterConfiguration counterSpecifier="\Memory\Available Bytes" sampleRate="PT30S" />
-       <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT30S" />
+```xml
+<PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
+    <PerformanceCounterConfiguration counterSpecifier="\Memory\Available Bytes" sampleRate="PT30S" />
+    <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT30S" />
 
     <!-- Use the Process(w3wp) category counters in a web role -->
 
-       <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\% Processor Time" sampleRate="PT30S" />
-       <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\Private Bytes" sampleRate="PT30S" />
-       <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\Thread Count" sampleRate="PT30S" />
+    <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\% Processor Time" sampleRate="PT30S" />
+    <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\Private Bytes" sampleRate="PT30S" />
+    <PerformanceCounterConfiguration counterSpecifier="\Process(w3wp)\Thread Count" sampleRate="PT30S" />
 
     <!-- Use the Process(WaWorkerHost) category counters in a worker role.
-       <PerformanceCounterConfiguration counterSpecifier="\Process(WaWorkerHost)\% Processor Time" sampleRate="PT30S" />
-       <PerformanceCounterConfiguration counterSpecifier="\Process(WaWorkerHost)\Private Bytes" sampleRate="PT30S" />
-       <PerformanceCounterConfiguration counterSpecifier="\Process(WaWorkerHost)\Thread Count" sampleRate="PT30S" />
+        <PerformanceCounterConfiguration counterSpecifier="\Process(WaWorkerHost)\% Processor Time" sampleRate="PT30S" />
+        <PerformanceCounterConfiguration counterSpecifier="\Process(WaWorkerHost)\Private Bytes" sampleRate="PT30S" />
+        <PerformanceCounterConfiguration counterSpecifier="\Process(WaWorkerHost)\Thread Count" sampleRate="PT30S" />
     -->
 
-       <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Interop(_Global_)\# of marshalling" sampleRate="PT30S" />
-       <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Loading(_Global_)\% Time Loading" sampleRate="PT30S" />
-       <PerformanceCounterConfiguration counterSpecifier="\.NET CLR LocksAndThreads(_Global_)\Contention Rate / sec" sampleRate="PT30S" />
-       <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Memory(_Global_)\# Bytes in all Heaps" sampleRate="PT30S" />
-       <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Networking(_Global_)\Connections Established" sampleRate="PT30S" />
-       <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Remoting(_Global_)\Remote Calls/sec" sampleRate="PT30S" />
-       <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Jit(_Global_)\% Time in Jit" sampleRate="PT30S" />
-    </PerformanceCounters>
+    <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Interop(_Global_)\# of marshalling" sampleRate="PT30S" />
+    <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Loading(_Global_)\% Time Loading" sampleRate="PT30S" />
+    <PerformanceCounterConfiguration counterSpecifier="\.NET CLR LocksAndThreads(_Global_)\Contention Rate / sec" sampleRate="PT30S" />
+    <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Memory(_Global_)\# Bytes in all Heaps" sampleRate="PT30S" />
+    <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Networking(_Global_)\Connections Established" sampleRate="PT30S" />
+    <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Remoting(_Global_)\Remote Calls/sec" sampleRate="PT30S" />
+    <PerformanceCounterConfiguration counterSpecifier="\.NET CLR Jit(_Global_)\% Time in Jit" sampleRate="PT30S" />
+</PerformanceCounters>
 ```
 
 The bufferQuotaInMB attribute, which specifies the maximum amount of file system storage that is available for the data collection type (Azure logs, IIS logs, etc.). The default is 0. When the quota is reached, the oldest data is deleted as new data is added. The sum of all the bufferQuotaInMB properties must be greater than the value of the OverallQuotaInMB attribute. For a more detailed discussion of determining how much storage will be required for the collection of diagnostics data, see the Setup WAD section of [Troubleshooting Best Practices for Developing Azure Applications](https://msdn.microsoft.com/library/windowsazure/hh771389.aspx).
@@ -150,16 +150,16 @@ For Azure SDK 2.5 the Storage Account can be specified in the diagnostics.wadcfg
 To set the connection strings:
 
 1. Open the ServiceConfiguration.Cloud.cscfg file using your favorite text editor and set the connection string for your storage. The *AccountName* and *AccountKey* values are found in the Azure classic portal in the storage account dashboard, under Manage Keys.
-   
-    ```
+  
+    ```xml
     <ConfigurationSettings>
-       <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>"/>
+      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="DefaultEndpointsProtocol=https;AccountName=<name>;AccountKey=<key>"/>
     </ConfigurationSettings>
     ```
 2. Save the ServiceConfiguration.Cloud.cscfg file.
 3. Open the ServiceConfiguration.Local.cscfg file and verify that UseDevelopmentStorage is set to true.
    
-    ```
+    ```xml
     <ConfigurationSettings>
       <Settingname="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="UseDevelopmentStorage=true"/>
     </ConfigurationSettings>
@@ -177,62 +177,62 @@ Perform the following steps to create a simple custom performance counter named 
 1. Open the service definition file (CSDEF) for your application.
 2. Add the Runtime element to the WebRole or WorkerRole element to allow execution with elevated privileges:
    
-    ```
+    ```xml
     <runtime executioncontext="elevated"/>
     ```
 3. Save the file.
 4. Open the diagnostics file (diagnostics.wadcfg in SDK 2.4 and below or diagnostics.wadcfgx in SDK 2.5 and above) and add the following to the DiagnosticMonitorConfiguration 
    
-    ```
+    ```xml
     <PerformanceCounters bufferQuotaInMB="0" scheduledTransferPeriod="PT30M">
-     <PerformanceCounterConfiguration counterSpecifier="\MyCustomCounterCategory\MyButton1Counter" sampleRate="PT30S"/>
+      <PerformanceCounterConfiguration counterSpecifier="\MyCustomCounterCategory\MyButton1Counter" sampleRate="PT30S"/>
     </PerformanceCounters>
     ```
 5. Save the file.
 6. Create the custom performance counter category in the OnStart method of your role, before invoking base.OnStart. The following C# example creates a custom category, if it does not already exist:
    
-    ```
+    ```csharp
     public override bool OnStart()
     {
-    if (!PerformanceCounterCategory.Exists("MyCustomCounterCategory"))
-    {
-       CounterCreationDataCollection counterCollection = new CounterCreationDataCollection();
+      if (!PerformanceCounterCategory.Exists("MyCustomCounterCategory"))
+      {
+         CounterCreationDataCollection counterCollection = new CounterCreationDataCollection();
    
-       // add a counter tracking user button1 clicks
-       CounterCreationData operationTotal1 = new CounterCreationData();
-       operationTotal1.CounterName = "MyButton1Counter";
-       operationTotal1.CounterHelp = "My Custom Counter for Button1";
-       operationTotal1.CounterType = PerformanceCounterType.NumberOfItems32;
-       counterCollection.Add(operationTotal1);
+         // add a counter tracking user button1 clicks
+         CounterCreationData operationTotal1 = new CounterCreationData();
+         operationTotal1.CounterName = "MyButton1Counter";
+         operationTotal1.CounterHelp = "My Custom Counter for Button1";
+         operationTotal1.CounterType = PerformanceCounterType.NumberOfItems32;
+         counterCollection.Add(operationTotal1);
    
-       PerformanceCounterCategory.Create(
-         "MyCustomCounterCategory",
-         "My Custom Counter Category",
-         PerformanceCounterCategoryType.SingleInstance, counterCollection);
+         PerformanceCounterCategory.Create(
+           "MyCustomCounterCategory",
+           "My Custom Counter Category",
+           PerformanceCounterCategoryType.SingleInstance, counterCollection);
    
-       Trace.WriteLine("Custom counter category created.");
-    }
-    else{
-       Trace.WriteLine("Custom counter category already exists.");
-    }
+         Trace.WriteLine("Custom counter category created.");
+      }
+      else {
+        Trace.WriteLine("Custom counter category already exists.");
+      }
    
     return base.OnStart();
     }
     ```
 7. Update the counters within your application. The following example updates a custom performance counter on Button1_Click events:
    
-    ```
+    ```csharp
     protected void Button1_Click(object sender, EventArgs e)
-        {
-         PerformanceCounter button1Counter = new PerformanceCounter(
-           "MyCustomCounterCategory",
-           "MyButton1Counter",
-           string.Empty,
-           false);
-         button1Counter.Increment();
-        this.Button1.Text = "Button 1 count: " +
-           button1Counter.RawValue.ToString();
-        }
+    {
+      PerformanceCounter button1Counter = new PerformanceCounter(
+        "MyCustomCounterCategory",
+        "MyButton1Counter",
+        string.Empty,
+        false);
+      button1Counter.Increment();
+      this.Button1.Text = "Button 1 count: " +
+        button1Counter.RawValue.ToString();
+    }
     ```
 8. Save the file.  
 
@@ -243,77 +243,77 @@ Once your application is deployed and running the Diagnostics monitor will begin
 
 The following C# example shows a simple query against the WADPerformanceCountersTable table and saves the diagnostics data to a CSV file. Once the performance counters are saved to a CSV file you can use the graphing capabilities in Microsoft Excel or some other tool to visualize the data. Be sure to add a reference to Microsoft.WindowsAzure.Storage.dll, which is included in the Azure SDK for .NET October 2012 and later. The assembly is installed to the %Program Files%\Microsoft SDKs\Microsoft Azure.NET SDK\version-num\ref\ directory.
 
-```
-    using Microsoft.WindowsAzure.Storage;
-    using Microsoft.WindowsAzure.Storage.Auth;
-    using Microsoft.WindowsAzure.Storage.Table;
-    ...
+```csharp
+using Microsoft.WindowsAzure.Storage;
+using Microsoft.WindowsAzure.Storage.Auth;
+using Microsoft.WindowsAzure.Storage.Table;
+...
 
-    // Get the connection string. When using Microsoft Azure Cloud Services, it is recommended
-    // you store your connection string using the Microsoft Azure service configuration
-    // system (*.csdef and *.cscfg files). You can you use the CloudConfigurationManager type
-    // to retrieve your storage connection string.  If you're not using Cloud Services, it's
-    // recommended that you store the connection string in your web.config or app.config file.
-    // Use the ConfigurationManager type to retrieve your storage connection string.
+// Get the connection string. When using Microsoft Azure Cloud Services, it is recommended
+// you store your connection string using the Microsoft Azure service configuration
+// system (*.csdef and *.cscfg files). You can you use the CloudConfigurationManager type
+// to retrieve your storage connection string.  If you're not using Cloud Services, it's
+// recommended that you store the connection string in your web.config or app.config file.
+// Use the ConfigurationManager type to retrieve your storage connection string.
 
-    string connectionString = Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnectionString");
-    //string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString;
+string connectionString = Microsoft.WindowsAzure.CloudConfigurationManager.GetSetting("StorageConnectionString");
+//string connectionString = System.Configuration.ConfigurationManager.ConnectionStrings["StorageConnectionString"].ConnectionString;
 
-    // Get a reference to the storage account using the connection string.  You can also use the development
-    // storage account (Storage Emulator) for local debugging.
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
-    //CloudStorageAccount storageAccount = CloudStorageAccount.DevelopmentStorageAccount;
+// Get a reference to the storage account using the connection string.  You can also use the development
+// storage account (Storage Emulator) for local debugging.
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
+//CloudStorageAccount storageAccount = CloudStorageAccount.DevelopmentStorageAccount;
 
-    // Create the table client.
-    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+// Create the table client.
+CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
 
-    // Create the CloudTable object that represents the "WADPerformanceCountersTable" table.
-    CloudTable table = tableClient.GetTableReference("WADPerformanceCountersTable");
+// Create the CloudTable object that represents the "WADPerformanceCountersTable" table.
+CloudTable table = tableClient.GetTableReference("WADPerformanceCountersTable");
 
-    // Create the table query, filter on a specific CounterName, DeploymentId and RoleInstance.
-    TableQuery<PerformanceCountersEntity> query = new TableQuery<PerformanceCountersEntity>()
-       .Where(
-          TableQuery.CombineFilters(
-          TableQuery.GenerateFilterCondition("CounterName", QueryComparisons.Equal, @"\Processor(_Total)\% Processor Time"),
-          TableOperators.And,
-          TableQuery.CombineFilters(
-          TableQuery.GenerateFilterCondition("DeploymentId", QueryComparisons.Equal, "ec26b7a1720447e1bcdeefc41c4892a3"),
-          TableOperators.And,
-          TableQuery.GenerateFilterCondition("RoleInstance", QueryComparisons.Equal, "WebRole1_IN_0")
-          )
-       )
-    );
+// Create the table query, filter on a specific CounterName, DeploymentId and RoleInstance.
+TableQuery<PerformanceCountersEntity> query = new TableQuery<PerformanceCountersEntity>()
+  .Where(
+    TableQuery.CombineFilters(
+      TableQuery.GenerateFilterCondition("CounterName", QueryComparisons.Equal, @"\Processor(_Total)\% Processor Time"),
+      TableOperators.And,
+      TableQuery.CombineFilters(
+      TableQuery.GenerateFilterCondition("DeploymentId", QueryComparisons.Equal, "ec26b7a1720447e1bcdeefc41c4892a3"),
+      TableOperators.And,
+      TableQuery.GenerateFilterCondition("RoleInstance", QueryComparisons.Equal, "WebRole1_IN_0")
+    )
+  )
+);
 
-    // Execute the table query.
-    IEnumerable<PerformanceCountersEntity> result = table.ExecuteQuery(query);
+// Execute the table query.
+IEnumerable<PerformanceCountersEntity> result = table.ExecuteQuery(query);
 
-    // Process the query results and build a CSV file.
-    StringBuilder sb = new StringBuilder("TimeStamp,EventTickCount,DeploymentId,Role,RoleInstance,CounterName,CounterValue\n");
+// Process the query results and build a CSV file.
+StringBuilder sb = new StringBuilder("TimeStamp,EventTickCount,DeploymentId,Role,RoleInstance,CounterName,CounterValue\n");
 
-    foreach (PerformanceCountersEntity entity in result)
-    {
-       sb.Append(entity.Timestamp + "," + entity.EventTickCount + "," + entity.DeploymentId + ","
-          + entity.Role + "," + entity.RoleInstance + "," + entity.CounterName + "," + entity.CounterValue+"\n");
-    }
+foreach (PerformanceCountersEntity entity in result)
+{
+  sb.Append(entity.Timestamp + "," + entity.EventTickCount + "," + entity.DeploymentId + ","
+    + entity.Role + "," + entity.RoleInstance + "," + entity.CounterName + "," + entity.CounterValue+"\n");
+}
 
-    StreamWriter sw = File.CreateText(@"C:\temp\PerfCounters.csv");
-    sw.Write(sb.ToString());
-    sw.Close();
+StreamWriter sw = File.CreateText(@"C:\temp\PerfCounters.csv");
+sw.Write(sb.ToString());
+sw.Close();
 ```
 
 Entities map to C# objects using a custom class derived from **TableEntity**. The following code defines an entity class that represents a performance counter in the **WADPerformanceCountersTable** table.
 
-    public class PerformanceCountersEntity : TableEntity
-    {
-       public long EventTickCount { get; set; }
-       public string DeploymentId { get; set; }
-       public string Role { get; set; }
-       public string RoleInstance { get; set; }
-       public string CounterName { get; set; }
-       public double CounterValue { get; set; }
-    }
-
+```csharp
+public class PerformanceCountersEntity : TableEntity
+{
+  public long EventTickCount { get; set; }
+  public string DeploymentId { get; set; }
+  public string Role { get; set; }
+  public string RoleInstance { get; set; }
+  public string CounterName { get; set; }
+  public double CounterValue { get; set; }
+}
+```
 
 ## Next Steps
 [View additional articles on Azure Diagnostics](../azure-diagnostics.md)
-

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and upload a FreeBSD VM image | Microsoft Docs
 description: Learn to create and upload a virtual hard disk (VHD) that contains the FreeBSD operating system to create an Azure virtual machine
 services: virtual-machines-linux
@@ -23,7 +23,7 @@ This article shows you how to create and upload a virtual hard disk (VHD) that c
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-For information about uploading a VHD using the Resource Manager model, see [here](virtual-machines-linux-upload-vhd.md).
+For information about uploading a VHD using the Resource Manager model, see [here](virtual-machines-linux-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Prerequisites
 This article assumes that you have the following items:

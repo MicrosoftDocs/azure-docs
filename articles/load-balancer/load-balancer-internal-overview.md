@@ -41,15 +41,13 @@ The database servers are behind an ILB endpoint which the web servers use for st
 
 The following image shows the Internet facing multi-tier application within the same cloud service.
 
-Figure 1 - Internet facing multi-tier application
-
 ![Internal load balancing single cloud service](./media/load-balancer-internal-overview/IC736321.png)
+
+Figure 1 - Internet facing multi-tier application
 
 Another possible use for a multi-tier application is when the ILB deployed to a different cloud service than the one consuming the service for the ILB.
 
-Cloud services using the same virtual network will have access to the ILB endpoint.
-
-Figure 2 shows front-end web servers are in a different cloud service from the database back-end and using the ILB endpoint within the same virtual network.
+Cloud services using the same virtual network will have access to the ILB endpoint. The following image shows front-end web servers are in a different cloud service from the database back-end and using the ILB endpoint within the same virtual network.
 
 ![Internal load balancing between cloud services](./media/load-balancer-internal-overview/IC744147.png)
 

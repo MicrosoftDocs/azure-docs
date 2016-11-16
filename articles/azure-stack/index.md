@@ -7,13 +7,13 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/azure-stack/azure-stack-poc/">
+        <a href="/azure/azure-stack/azure-stack-poc">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/azure-stack.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -31,7 +31,7 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -43,17 +43,17 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
         </a>
     </li>
     <li>
-        <a href="/azure/azure-stack/azure-stack-provision-vm/">
+        <a href="/azure/azure-stack/azure-stack-provision-vm">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Tutorial</h3>
+                        <h3>Get started provisioning a virtual machine </h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +67,11 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/deploy.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Deploy</h3>
+                        <h3>Get started connecting with PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -79,3 +79,14 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
         </a>
     </li>
 </ul>
+
+---
+
+<div class="downloadHolder">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-stack.pdf">
+        <div class="img"></div>
+        <div class="text">
+            Download Azure Stack Documentation
+        </div>
+    </a>
+</div>

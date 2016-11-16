@@ -1,4 +1,4 @@
-﻿---
+---
 title: Multiple VIPs for Azure Load Balancer | Microsoft Docs
 description: Overview of Multiple VIPs on Azure Load Balancer
 services: load-balancer
@@ -124,7 +124,7 @@ The destination of the inbound flow is the VIP address on the loopback interface
 
 Notice that this example does not change the destination port. Even though this is a Floating IP scenario, Azure Load Balancer also supports defining a rule to rewrite the backend destination port and to make it different from the frontend destination port.
 
-The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) configuration. Over time, we will document more of these scenarios.
+The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) configuration. Over time, we will document more of these scenarios.
 
 ## Limitations
 

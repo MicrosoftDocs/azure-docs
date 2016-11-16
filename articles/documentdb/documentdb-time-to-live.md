@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/28/2016
+ms.date: 11/12/2016
 ms.author: kipandya
 
 ---
@@ -98,35 +98,11 @@ There is no additional cost to setting a TTL on a document.
 
 **How long will it take to delete my document once the TTL is up?**
 
-The documents are marked as unavailable as soon as the document has expired (ttl + _ts >= current server time). No operation will be allowed on these documents after this time and they will be excluded from the results of any queries performed. The documents are physically deleted by the system in the background. This will not consume any RUs from the collection's budget.
-
-**If it takes a period of time to delete the documents, will they count toward my quota (and bill) until they get deleted?**
-
-No, once the document has expired you will not be billed for the storage of these documents and the size of the documents will not count toward the storage quota for a collection.
+The documents are expired immediately once the TTL is up, and will not be accessible via CRUD or query APIs. 
 
 **Will TTL on a document have any impact on RU charges?**
 
-No, there will be no impact on RU charges for operations performed on any document within DocumentDB.
-
-**Will the deleting of documents impact on the throughput I have provisioned on my collection?**
-
-No, serving requests against your collection will receive priority over running the background process to delete your documents. Adding TTL to any document will not impact this.
-
-**When a document expires, how long will it remain in my collection until it’s deleted?**
-
-As soon as the document expires it will no longer be accessible. The exact time a document will remain in your collection before actually being deleted is non-deterministic and will be based on when the background process is able to delete the document.
-
-**Are expired documents deleted across all nodes, or is it “eventually consistent?”**
-
-The document will become unavailable at the same time across all nodes and in all regions.
-
-**Is there an RU cost for TTL-monitoring background tasks?**
-
-No, there is no RU cost for this.
-
-**How often are TTL expirations checked?**
-
-Checking TTL expirations doesn’t happen as a background process. When responding to a request the backend service will do the checks inline and exclude any documents that have expired. The deletion of the physical document is the only process that is asynchronously run in the background. The frequency of this process is determined by the available RUs on the collection.
+No, there will be no impact on RU charges for deletions of expired documents via TTL in DocumentDB.
 
 **Does the TTL feature only apply to entire documents, or can I expire individual document property values?**
 
@@ -134,7 +110,7 @@ TTL applies to the entire document. If you would like to expire just a portion o
 
 **Does the TTL feature have any specific indexing requirements?**
 
-Yes. The collection must have [indexing policy set](documentdb-indexing-policies.md) to either Lazy or Consistent. Trying to set DefaultTTL on a collection with indexing set to None will result in an error, as will trying to turn off indexing on a collection that has a DefaultTTL already set.
+Yes. The collection must have [indexing policy set](documentdb-indexing-policies.md) to either Consistent or Lazy. Trying to set DefaultTTL on a collection with indexing set to None will result in an error, as will trying to turn off indexing on a collection that has a DefaultTTL already set.
 
 ## Next steps
 To learn more about Azure DocumentDB, refer to the service [*documentation*](https://azure.microsoft.com/documentation/services/documentdb/) page.

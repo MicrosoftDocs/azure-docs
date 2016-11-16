@@ -1,4 +1,4 @@
-﻿---
+---
 title: Multiple IP addresses for virtual machines - PowerShell | Microsoft Docs
 description: Learn how to assign multiple IP addresses to a virtual machine using Azure PowerShell.
 services: virtual-network
@@ -49,7 +49,7 @@ The following example configurations will be created and assigned to a NIC that 
 
 This scenario assumes you have a resource group called *RG1* within which there is a VNet called *VNet1* and a subnet called *Subnet1*. Further, it assumes you have a VM called *VM1*, a network interface called *VM1-NIC1* associated to it and a public IP address called *PIP1*.
 
-[This article](../virtual-machines/virtual-machines-windows-ps-create.md) walks through how to create the resources mentioned above in case you have not created them before.
+[This article](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) walks through how to create the resources mentioned above in case you have not created them before.
 
 Note that IPConfig-2 and IPConfig-3 can also be associated with public IP addresses by following the same method outlined for IPConfig-1.
 
@@ -143,7 +143,7 @@ Note that IPConfig-2 and IPConfig-3 can also be associated with public IP addres
 5. Create the NIC using the IP configurations defined in the previous step.
 
         $nic = New-AzureRmNetworkInterface -Name $NicName -ResourceGroupName $RgName -Location $Location -IpConfiguration $IpConfig1,$IpConfig2,$IpConfig3
-6. Attach the NIC when creating a VM by following the steps in the [Create a VM](../virtual-machines/virtual-machines-windows-ps-create.md) article. Though the article creates a VM running Windows Server, the steps are the same for a Linux VM, other than selecting a different operating system. Complete steps 1-3 of the article. Skip steps 4 and 5 and then complete step 6 in the Create a VM article.
+6. Attach the NIC when creating a VM by following the steps in the [Create a VM](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) article. Though the article creates a VM running Windows Server, the steps are the same for a Linux VM, other than selecting a different operating system. Complete steps 1-3 of the article. Skip steps 4 and 5 and then complete step 6 in the Create a VM article.
 
    > [!WARNING]
    > Step 6 in the Create a VM article will fail if you changed the variable named $nic to something else in step 6 of this article, or haven't completed the previous steps of this article.

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 11/15/2016
 ms.author: juliako
 
 ---
@@ -77,8 +77,8 @@ Contains a sequence of the following elements.
 | **Bitrate**<br /><br /> minOccurs="0" |**xs:int** |The bitrate used for this video layer, specified in kbps. |
 | **MaxBitrate**<br /><br /> minOccurs="0" |**xs:int** |The maximum bitrate used for this video layer, specified in kbps. |
 | **BufferWindow**<br /><br /> minOccurs="0"<br /><br /> default="00:00:05" |**xs:time** |Length of the video buffer. |
-| **Width**<br /><br /> minOccurs="0" |**xs:int** |Width of the output video frame, in pixels.<br /><br /> Note that currently, you must specify both Width and Height . |
-| **Height**<br /><br /> minOccurs="0" |**xs:int** |Height of the output video frame, in pixels.<br /><br /> Note that currently, you must specify both Width and Height . |
+| **Width**<br /><br /> minOccurs="0" |**xs:int** |Width of the output video frame, in pixels.<br /><br /> Note that currently, you must specify both Width and Height. The Width and Height need to be even numbers. |
+| **Height**<br /><br /> minOccurs="0" |**xs:int** |Height of the output video frame, in pixels.<br /><br /> Note that currently, you must specify both Width and Height . The Width and Height need to be even numbers.|
 | **BFrames**<br /><br /> minOccurs="0" |**xs:int** |Number of B frames between reference frames. |
 | **ReferenceFrames**<br /><br /> minOccurs="0"<br /><br /> default=”3” |**xs:int** |Number of reference frames in a GOP. |
 | **EntropyMode**<br /><br /> minOccurs="0"<br /><br /> default=”Cabac” |**xs:string** |Could be one of the following values: **Cabac** and **Cavlc**. |
