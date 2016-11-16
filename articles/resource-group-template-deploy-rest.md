@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/11/2016
+ms.date: 11/15/2016
 ms.author: tomfitz
 
 ---
@@ -82,6 +82,8 @@ Your template can be either a local file or an external file that is available t
    
           GET https://management.azure.com/subscriptions/<YourSubscriptionId>/resourcegroups/<YourResourceGroupName>/providers/Microsoft.Resources/deployments/<YourDeploymentName>?api-version=2015-01-01
            <common headers>
+
+## Parameter file
 
 [!INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 

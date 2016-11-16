@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2016
+ms.date: 11/15/2016
 ms.author: tomfitz
 
 ---
@@ -85,20 +85,8 @@ If you have not previously used Azure CLI with Resource Manager, see [Using the 
 5. Validate your deployment before executing it by running the **azure group template validate** command. When testing the deployment, provide parameters exactly as you would when executing the deployment (shown in the next step).
    
         azure group template validate -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup
-6. To deploy resources to your resource group, run the following command and provide the necessary parameters. The parameters include a name for your deployment, the name of your resource group, the path or URL to the template, and any other parameters needed for your scenario. 
+6. To deploy resources to your resource group, run the following command and provide the necessary parameters. The parameters include a name for your deployment, the name of your resource group, the path or URL to the template, and any other parameters needed for your scenario. Options for passing parameter values are shown in the [Parameters](#parameters) section.
    
-     You have the following three options for providing parameter values: 
-   
-   1. Use inline parameters and a local template. Each parameter is in the format: `"ParameterName": { "value": "ParameterValue" }`. The following example shows the parameters with escape characters.
-      
-          azure group deployment create -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
-   2. Use inline parameters and a link to a template.
-      
-          azure group deployment create --template-uri <LinkToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
-   3. Use a parameter file. For information about the template file, see [Parameter file](#parameter-file).
-      
-          azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
-      
       After the resources have been deployed through one of the three methods above, you will see a summary of the deployment.
       
       info:    Executing command group deployment create
@@ -155,6 +143,18 @@ To deploy a private template in a storage account, retrieve a SAS token and incl
         azure group deployment create --template-uri $fullurl -g ExampleResourceGroup
 
 For an example of using a SAS token with linked templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
+
+## Parameters
+
+You have the following two options for providing parameter values: 
+   
+1. Use inline parameters. Each parameter is in the format: `"ParameterName": { "value": "ParameterValue" }`. The following example shows the parameters with escape characters.
+      
+       azure group deployment create -f <PathToTemplate> -p "{\"ParameterName\":{\"value\":\"ParameterValue\"}}" -g ExampleResourceGroup -n ExampleDeployment
+2. Use a parameter file.
+      
+       azure group deployment create -f <PathToTemplate> -e <PathToParameterFile> -g ExampleResourceGroup -n ExampleDeployment
+      
 
 [!INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
 

@@ -1,4 +1,3 @@
-## Parameter file
 If you use a parameter file to pass parameter values during deployment, you need to create a JSON file with a format similar to the following example.
 
     {

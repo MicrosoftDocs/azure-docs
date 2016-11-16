@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/15/2016
+ms.date: 11/15/2016
 ms.author: tomfitz
 
 ---
@@ -28,6 +28,8 @@ ms.author: tomfitz
 
 This topic explains how to use Azure PowerShell with Resource Manager templates to deploy your resources to Azure.  
 
+Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
+
 > [!TIP]
 > For help with debugging an error during deployment, see:
 > 
@@ -36,13 +38,13 @@ This topic explains how to use Azure PowerShell with Resource Manager templates 
 > 
 > 
 
-Your template can be either a local file or an external file that is available through a URI. When your template resides in a storage account, you can restrict access to the template and provide a shared access signature (SAS) token during deployment.
-
 ## Quick steps to deployment
 This article describes all the different options available to you during deployment. However, often you only need two simple commands. To quickly get started with deployment, use the following commands:
 
-    New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
-    New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
+```powershell
+New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West US"
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
+```
 
 To learn more about options for deployment that might be better suited to your scenario, continue reading this article.
 
@@ -91,34 +93,17 @@ To learn more about options for deployment that might be better suited to your s
    
         New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate>
    
-     You have the following options for providing parameter values: 
-   
-   1. Use inline parameters.
+     You are prompted to provide parameter values. More options for passing parameter values are shown in the [Parameters](#parameters) section.
+     
+     After the resources have been deployed, you will see a summary of the deployment.
       
-          New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -myParameterName "parameterValue"
-   2. Use a parameter object.
+          DeploymentName    : ExampleDeployment
+          ResourceGroupName : ExampleResourceGroup
+          ProvisioningState : Succeeded
+          Timestamp         : 4/14/2015 7:00:27 PM
+          Mode              : Incremental
+          ...
       
-          $parameters = @{"<ParameterName>"="<Parameter Value>"}
-          New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterObject $parameters
-   3. Use a local parameter file. For information about the template file, see [Parameter file](#parameter-file).
-      
-          New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
-   4. Use an external parameter file. For information about the template file, see [Parameter file](#parameter-file). 
-      
-          New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate> -TemplateParameterUri <LinkToParameterFile>
-      
-      When you use an external parameter file, you cannot pass other values either inline or from a local file. For more information, see [Parameter precedence](#parameter-precedence).
-      
-      After the resources have been deployed, you will see a summary of the deployment.
-      
-      DeploymentName    : ExampleDeployment
-      ResourceGroupName : ExampleResourceGroup
-      ProvisioningState : Succeeded
-      Timestamp         : 4/14/2015 7:00:27 PM
-      Mode              : Incremental
-      ...
-      
-      If your template includes a parameter with the same name as one of the parameters in the PowerShell command, you are prompted to provide a value for that parameter. The parameter from your template will include the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet. You are prompted to provide a value for **ResourceGroupNameFromTemplate**. In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
 6. If you want to log additional information about the deployment that may help you troubleshoot any deployment errors, use the **DeploymentDebugLogLevel** parameter. You can specify that request content, response content, or both be logged with the deployment operation.
    
         New-AzureRmResourceGroupDeployment -Name ExampleDeployment -DeploymentDebugLogLevel All -ResourceGroupName ExampleResourceGroup -TemplateFile <PathOrLinkToTemplate>
@@ -167,14 +152,33 @@ To deploy a private template in a storage account, retrieve a SAS token and incl
 
 For an example of using a SAS token with linked templates, see [Using linked templates with Azure Resource Manager](resource-group-linked-templates.md).
 
-[!INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)]
+## Parameters
 
-## Parameter precedence
+You have the following options for providing parameter values: 
+   
+1. Use inline parameters.
+      
+       New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -myParameterName "parameterValue"
+2. Use a parameter object.
+      
+       $parameters = @{"<ParameterName>"="<Parameter Value>"}
+       New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterObject $parameters
+3. Use a local parameter file.
+      
+       New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile <PathToTemplate> -TemplateParameterFile <PathToParameterFile>
+4. Use an external parameter file.
+      
+       New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateUri <LinkToTemplate> -TemplateParameterUri <LinkToParameterFile>
+      
+[!INCLUDE [resource-manager-parameter-file](../includes/resource-manager-parameter-file.md)] 
+
 You can use inline parameters and a local parameter file in the same deployment operation. For example, you can specify some values in the local parameter file and add other values inline during deployment. If you provide values for a parameter in both the local parameter file and inline, the inline value takes precedence.
 
-However, you cannot use inline parameters with an external parameter file. When you specify a parameter file in the **TemplateParameterUri** parameter, all inline parameters are ignored. You must provide all parameter values in the external file. If your template includes a sensitive value that you cannot include in the parameter file, either add that value to a key vault and reference the key vault in your external parameter file, or dynamically provide all parameter values inline.
+However, when you use an external parameter file, you cannot pass other values either inline or from a local file. When you specify a parameter file in the **TemplateParameterUri** parameter, all inline parameters are ignored. You must provide all parameter values in the external file. If your template includes a sensitive value that you cannot include in the parameter file, either add that value to a key vault and reference the key vault in your external parameter file, or dynamically provide all parameter values inline.
 
 For details about using a KeyVault reference to pass secure values, see [Pass secure values during deployment](resource-manager-keyvault-parameter.md).
+
+If your template includes a parameter with the same name as one of the parameters in the PowerShell command, you are prompted to provide a value for that parameter. The parameter from your template will include the postfix **FromTemplate**. For example, a parameter named **ResourceGroupName** in your template conflicts with the **ResourceGroupName** parameter in the [New-AzureRmResourceGroupDeployment](https://msdn.microsoft.com/library/azure/mt679003.aspx) cmdlet. You are prompted to provide a value for **ResourceGroupNameFromTemplate**. In general, you should avoid this confusion by not naming parameters with the same name as parameters used for deployment operations.
 
 ## Next steps
 * For an example of deploying resources through the .NET client library, see [Deploy resources using .NET libraries and a template](virtual-machines/virtual-machines-windows-csharp-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
