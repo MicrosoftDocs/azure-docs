@@ -185,11 +185,11 @@ When all the previous steps have been completed, set the IPsec/IKE pre-shared ke
 
         Set-AzureVNetGatewayKey -VNetName VNet2 -LocalNetworkSiteName VNet1Local -SharedKey A1b2C3D4
 
-1. Wait for the connections to initialize. Once the gateway has initialized, the gateway looks like the following graphic.
+4. Wait for the connections to initialize. Once the gateway has initialized, the gateway looks like the following graphic.
    
     ![Gateway Status - Connected](./media/virtual-networks-configure-vnet-to-vnet-connection/IC736059.jpg)  
    
-    [!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)] 
+[!INCLUDE [vpn-gateway-no-nsg-include](../../includes/vpn-gateway-no-nsg-include.md)] 
 
 ## Next steps
 You can add virtual machines to your virtual networks. See the [Virtual Machines documentation](https://docs.microsoft.com/azure/#pivot=services&panel=Compute) for more information.
