@@ -24,7 +24,7 @@ ms.author: saudas
 To create an Azure Container Service cluster, you need:
 * an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/))
 * the [Azure CLI v. 2.0 (Preview)](https://github.com/Azure/azure-cli#installation) installed
-* to be logged in to your Azure account (type [az login](/cli/azure/#login))
+* to be logged in to your Azure account (see below)
 
 ## Log in to your account
 ```
