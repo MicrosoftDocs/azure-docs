@@ -73,7 +73,7 @@ This step takes several minutes, so feel free to read on.  The `acs create` comm
 ## Set up sample code
 While the cluster is being created, we can set up sample code that we deploy to ACS.
 
-1. [Fork](https://help.github.com/articles/fork-a-repo/) the sample GitHub repository so that you have your own copy: [https://github.com/azuresamples/container-service-dotnet-continuous-integration-multi-container.git](https://github.com/azuresamples/container-service-dotnet-continuous-integration-multi-container.git). The app is essentially a multi-container version of "hello world."
+1. [Fork](https://help.github.com/articles/fork-a-repo/) the sample GitHub repository so that you have your own copy: [https://github.com/azure-samples/container-service-dotnet-continuous-integration-multi-container.git](https://github.com/azure-samples/container-service-dotnet-continuous-integration-multi-container.git). The app is essentially a multi-container version of "hello world."
 1. Once you have created a fork in your own GitHub account, locally clone the repository on your computer:
 
 	```bash
