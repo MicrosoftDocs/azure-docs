@@ -421,6 +421,12 @@ title: Microsoft Azure Documentation
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/iot-suite/">
+                                                <img src="media/index/iot-suite.svg" alt="" />
+                                                <p>Azure IoT Suite</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/event-hubs/">
                                                 <img src="media/index/EventHubs.svg" alt="" />
                                                 <p>Event Hubs</p>
@@ -1628,6 +1634,25 @@ title: Microsoft Azure Documentation
                                                 <div class="cardText">
                                                     <h3>Azure IoT Hub</h3>
                                                     <p>Connect, monitor, and control billions of IoT assets</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-suite/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/iot-suite.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure IoT Suite</h3>
+                                                    <p>Capture and analyze untapped data to improve business results</p>
                                                 </div>
                                             </div>
                                         </div>
