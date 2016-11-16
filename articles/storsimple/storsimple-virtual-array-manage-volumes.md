@@ -33,6 +33,7 @@ StorSimple volumes can be:
 
 ### Provisioned capacity
 Refer to the following table for maximum provisioned capacity for each volume type.
+
 | **Limit identifier**                                       | **Limit**     |
 |------------------------------------------------------------|---------------|
 | Minimum size of a tiered volume                            | 500 GB        |
