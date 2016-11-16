@@ -1,4 +1,4 @@
-﻿---
+---
 title: U-SQL Programmability Guide for Azure Data Lake Aanlytics | Microsoft Docs
 description: 'U-SQL Programmability Guide'
 services: data-lake-analytics
