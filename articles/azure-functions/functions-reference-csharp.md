@@ -245,11 +245,15 @@ public static async Task<HttpResponseMessage> Run(Order req, IAsyncCollector<Ord
     log.Info(req.ToString());
     log.Info("Submitting to processing queue.");
 
-    await outputQueueItem.AddAsync(req);
-
-    return req == null
-        ? new HttpResponseMessage(HttpStatusCode.BadRequest)
-        : new HttpResponseMessage(HttpStatusCode.OK);
+    if (req.orderId == null)
+    {
+        return new HttpResponseMessage(HttpStatusCode.BadRequest);
+    }
+    else
+    {
+        await outputQueueItem.AddAsync(req);
+        return new HttpResponseMessage(HttpStatusCode.OK);
+    }
 }
 ```
 
