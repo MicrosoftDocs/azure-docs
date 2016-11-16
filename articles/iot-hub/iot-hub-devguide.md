@@ -29,6 +29,8 @@ Azure IoT Hub provides you with:
 This IoT Hub developer guide includes the following articles:
 
 * [Send and receive messages with IoT Hub][devguide-messaging] describes the messaging features (device-to-cloud and cloud-to-device) that IoT Hub exposes. The article also includes information about topics such as message formats, and the supported communications protocols and the port numbers they use.
+* [Device-to-cloud communications guidance][devguide-d2c] describes the different options for device-to-cloud communication.
+* [Cloud-to-device communications guidance][devguide-c2d] describes the different options for cloud-to-device communication.
 * [Upload files from a device][devguide-upload] describes how you can upload files from a device. The article also includes information about topics such as the notifications the uplaod process can send.
 * [Manage device identities in IoT Hub][devguide-identities] describes what information each IoT hub's device identity registry stores, and how you can access and modify it.
 * [Control access to IoT Hub][devguide-security] describes the security model used to grant access to IoT Hub functionality for both devices and cloud components. The article includes information about using tokens and X.509 certificates, and details of the permissions you can grant.
@@ -38,6 +40,7 @@ This IoT Hub developer guide includes the following articles:
 * [Reference - IoT Hub endpoints][devguide-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations. The article also describes how you can use a field gateway to enable some devices to connect to your IoT Hub endpoints.
 * [Reference - query language for device twins, methods, and jobs][devguide-query] describes that query language that enables to retrieve information from your hub about your device twins and jobs.
 * [Reference - quotas and throttling][devguide-quotas] summarizes the quotas set in the IoT Hub service and the throttling behavior you can expect to see when you exceed a quota.
+* [Reference - pricing][devguide-pricing] provides general information on different SKUs and pricing for IoT Hub and additional details on how the various IoT Hub functionalities are metered as messages by IoT Hub.
 * [Reference - Device and service SDKs][devguide-sdks] lists the SDKs you can use develop both device and service applications that interact with your IoT hub. The article includes links to online API documentation.
 * [Reference - IoT Hub MQTT support][devguide-mqtt] provides detailed information about how IoT Hub supports the MQTT protocol. The article describes the support for the MQTT protocol built-in to the SDKs and provides information about using the MQTT protocol directly.
 * [Glossary][devguide-glossary] a list of common IoT Hub-related terms.
