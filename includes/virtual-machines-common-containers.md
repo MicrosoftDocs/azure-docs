@@ -12,7 +12,7 @@ Azure offers you great cloud solutions, built on virtual machines&mdash;based on
 
 And because you can programmatically create VMs and Linux containers on Azure, you can also use VM and container *orchestration* tools to create groups of Virtual Machines (VMs) and to deploy applications inside both Linux containers and now [Windows Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview).
 
-This article not only discusses these concepts at a high level, it also contains tons of links to more information, tutorials, and products related to container and cluster usage on Azure. If you know all this, and just want the links, they're right here at [tools for working with containers](#tools-for-working-with-containers).
+This article not only discusses these concepts at a high level, it also contains tons of links to more information, tutorials, and products related to container and cluster usage on Azure. If you know all this, and just want the links, they're right here at [tools for working with containers](#tools-for-working-with-azure-vms-and-containers).
 
 ## The difference between virtual machines and containers
 Virtual machines run inside an isolated hardware virtualization environment provided by a [hypervisor](http://en.wikipedia.org/wiki/Hypervisor). In Azure, the [Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) service handles all that for you: You just create Virtual Machines by choosing the operating system and configuring it to run the way you want&mdash;or by uploading your own custom VM image. Virtual Machines are a time-tested, "battle-hardened" technology, and there are many tools available to manage operating systems and to configure the applications you install and run. Anything running in a virtual machine is hidden from the host operating system and, from the point of view of an application or user running inside a virtual machine, the virtual machine appears to be an autonomous physical computer.
@@ -23,7 +23,7 @@ Because in this isolation and execution model the kernel of the Docker host comp
 
 It's pretty cool.
 
-Windows Containers provide the same advantages as Linux containers for applications that run on Windows. Windows Containers support the Docker image format and Docker API, but they can also be managed using PowerShell. Two container runtimes are available with Windows Containers, Windows Server Containers and Hyper-V Containers. Hyper-V Containers provide an additional layer of isolation by hosting each container in a super-optimized virtual machine. To learn more about Windows Containers see [About Windows Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). To try Windows Containers in Azure, see the [Windows Container Azure Quick Start](https://msdn.microsoft.com/virtualization/windowscontainers/quick_start/azure_setup).
+Windows Containers provide the same advantages as Linux containers for applications that run on Windows. Windows Containers support the Docker image format and Docker API, but they can also be managed using PowerShell. Two container runtimes are available with Windows Containers, Windows Server Containers and Hyper-V Containers. Hyper-V Containers provide an additional layer of isolation by hosting each container in a super-optimized virtual machine. To learn more about Windows Containers see [About Windows Containers](https://msdn.microsoft.com/virtualization/windowscontainers/about/about_overview). To get started with Windows Containers in Azure, learn how to [deploy an Azure Container Service cluster](/articles/container-service/container-service-deployment.md).
 
 That's pretty cool, too.
 
@@ -121,8 +121,8 @@ Working with containers and Azure VMs uses tools. This section provides a list o
 
 > [!NOTE]
 > This area is changing amazingly rapidly, and while we will do our best to keep this topic and its links up to date, it might well be an impossible task. Make sure you search on interesting subjects to keep up to date!
-> 
-> 
+>
+>
 
 ### Containers and VM technologies
 Some Linux container technologies:
@@ -169,26 +169,26 @@ Configuration, cluster management, and container orchestration:
 
 * [Fleet on CoreOS](https://coreos.com/using-coreos/clustering/)
 * Deis
-  
+
   * [Create a 3-Node Azure VM group, install Deis, and start a Hello World Go application](../articles/virtual-machines/virtual-machines-linux-deis-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Kubernetes
-  
+
   * [Complete guide to automated Kubernetes cluster deployment with CoreOS and Weave](https://github.com/GoogleCloudPlatform/kubernetes/blob/master/docs/getting-started-guides/coreos/azure/README.md#kubernetes-on-azure-with-coreos-and-weave)
   * [Kubernetes Visualizer](https://azure.microsoft.com/blog/2014/08/28/hackathon-with-kubernetes-on-azure/)
 * [Mesos](http://mesos.apache.org/)
-  
+
   * [Mesosphere's Data Center Operating System (DCOS)](http://beta-docs.mesosphere.com/install/azurecluster/)
 * [Jenkins](https://jenkins-ci.org/) and [Hudson](http://hudson-ci.org/)
-  
+
   * [Blog: Jenkins Slave Plug-in for Azure](http://msopentech.com/blog/2014/09/23/announcing-jenkins-slave-plugin-azure/)
   * [GitHub repo: Jenkins Storage Plug-in for Azure](https://github.com/jenkinsci/windows-azure-storage-plugin)
   * [Third Party: Hudson Slave Plug-in for Azure](http://wiki.hudson-ci.org/display/HUDSON/Azure+Slave+Plugin)
   * [Third Party: Hudson Storage Plug-in for Azure](https://github.com/hudson3-plugins/windows-azure-storage-plugin)
 * [Azure Automation](https://azure.microsoft.com/services/automation/)
-  
+
   * [Video: How to Use Azure Automation with Linux VMs](http://channel9.msdn.com/Shows/Azure-Friday/Azure-Automation-104-managing-Linux-and-creating-Modules-with-Joe-Levy)
 * Powershell DSC for Linux
-  
+
   * [Blog: How to do Powershell DSC for Linux](http://blogs.technet.com/b/privatecloud/archive/2014/05/19/powershell-dsc-for-linux-step-by-step.aspx)
   * [GitHub: Docker Client DSC](https://github.com/anweiss/DockerClientDSC)
 
