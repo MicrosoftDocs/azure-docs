@@ -372,7 +372,7 @@ To test a query by using reference data, you need to define an input source for 
 
 To test this query, paste the query into the **QUERY** tab, click **Test**, and specify the two input sources and the registration sample data and click **Test**.
    
-    ![Screenshot of selected input files](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image46.png)
+    ![Output of the test](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image46.png)
 
 ## Start the Stream Analytics job
 Now it's time to finish the configuration and start the job. Save the query from Question 3, which will produce output that matches the schema of the **TollDataRefJoin** output table.
