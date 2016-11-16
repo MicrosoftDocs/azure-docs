@@ -53,7 +53,7 @@ Azure Search is a managed cloud search service that helps you build a powerful s
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with Azure Search using the Azure Portal</h3>
+                        <h3>Get Started with Azure Search using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -87,13 +87,27 @@ Azure Search is a managed cloud search service that helps you build a powerful s
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="/dotnet/api/">
+        <a href="/dotnet/api/microsoft.azure.search">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>.NET</h3>
-                        <p>.NET Managed Reference API</p>
+                        <p>Service .NET API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/dotnet/api/microsoft.azure.management.search">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Management .NET API</p>
                     </div>
                 </div>
             </div>
@@ -101,13 +115,27 @@ Azure Search is a managed cloud search service that helps you build a powerful s
         </a>
     </li>
 	<li>
+        <a href="/rest/api/searchservice/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Service REST API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
         <a href="/rest/api/searchmanagement/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Search REST API Reference</p>
+                        <p>Management REST API</p>
                     </div>
                 </div>
             </div>
