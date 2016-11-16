@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/15/2016
+ms.date: 11/16/2016
 ms.author: v-livech
 
 ---
 
 # Deploy a Linux VM into an existing VNet & NSG using the portal
 
-Deploying with the `azure-cli`, a value that is specified for the VNet that does not exist, is created, and a value that already exists deploys that VM into that VNet.  It is recommended that Azure assets like the VNets and NSGs should be static and long lived resources that are rarely deployed.  Once a VNet has been deployed, it can be reused by constant redeployments without any adverse affects to the infrastructure.  Thinking about a VNet as being a traditional hardware network switch, you would not need to configure a brand new hardware switch with each deployment.  
+This article shows how to deploy a VM into an existing virtual network (VNet).  It is recommended that Azure assets like the VNets and NSGs (Network Security Groups) should be static and long lived resources that are rarely deployed.  Once a VNet has been deployed, it can be reused by constant redeployments without any adverse affects to the infrastructure.  Thinking about a VNet as being a traditional hardware network switch, you would not need to configure a brand new hardware switch with each deployment.  
 
 With a correctly configured VNet, we can continue to deploy new servers into that VNet over and over with few, if any, changes required over the life of the VNet.
 
@@ -51,13 +51,13 @@ Azure NSGs are equivalent to a firewall at the network layer. For more informati
 
 ## Add an inbound SSH allow rule
 
-The Linux VM needs access from the internet so a rule allowing inbound port 22 traffic to be passed through the network to port 22 on the Linux VM is needed.
+The Linux VM needs access from the internet so a rule allowing inbound port 22 traffic to be passed through the network to port 22 on the Linux VM is created.
 
 ![createInboundSSH](../media/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal/createInboundSSH.png)
 
 ## Associate the NSG with the subnet
 
-With the VNet, and the subnet created we associate the NSG with that subnet.  NSGs can be associated with either an entire subnet or an individual VNic.  With the firewall filtering traffic at the subnet level, all VNics and the VMs within the subnet are protected.
+With the VNet, and the subnet created, we associate the NSG with the subnet.  NSGs can be associated with either an entire subnet or an individual VNic.  With the firewall filtering traffic at the subnet level, all VNics and the VMs within the subnet are protected by the NSG versus the NSG being associated with just a single VNic and protecting just one VM.
 
 ![associateNSG](../media/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal/associateNSG.png)
 
@@ -68,7 +68,7 @@ Using the Azure portal, the Linux VM is deployed to the existing Azure Resource 
 
 ![createVM](../media/virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-portal/createVM.png)
 
-By using the cli flags to call out existing resources, we instruct Azure to deploy the VM inside the existing network.  To reiterate, once a VNet and subnet have been deployed, they can be left as static or permanent resources inside your Azure region.  
+By using the portal to choose existing resources, we instruct Azure to deploy the VM inside the existing network.  To reiterate, once a VNet and subnet have been deployed, they can be left as static or permanent resources inside your Azure region.  
 
 ## Next steps
 
