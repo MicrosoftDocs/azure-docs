@@ -102,10 +102,11 @@ $blobs | Get-AzureStorageBlobContent –Destination $DestinationFolder
      
 	a. In **Windows PowerShell ISE**, click **File** > **New** to create a new script file. Copy the following script to the new script file and click **Debug** > **Run**. The following script will first ask your Azure account credentials to add your Azure account to the local PowerShell environment and then show all the subscriptions that are connected to the local PowerShell session. Take a note of the name of the subscription that you want to use while following this tutorial:
      
-```powershell   
-Add-AzureAccount 
-  Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
-```
+	```powershell   
+	Add-AzureAccount 
+	  Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName
+	```
+
 	b. To locate and copy your subscription name in the [Azure portal](https://portal.azure.com), in the Hub menu on the left, click **Subscriptions**. Copy the name of subscription that you want to use while running the scripts in this guide.
      
      ![Azure portal](./media/storage-powershell-guide-full/Subscription_Previewportal.png)
