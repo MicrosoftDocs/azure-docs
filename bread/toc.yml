@@ -51,6 +51,9 @@
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/automation-intro
+  - name: Container Registry
+    tocHref: /azure/container-registry/
+    topicHref: /azure/container-registry/container-registry-info
   - name: Functions
     tocHref: /azure/azure-functions/
     topicHref: /azure/azure-functions/functions-overview
