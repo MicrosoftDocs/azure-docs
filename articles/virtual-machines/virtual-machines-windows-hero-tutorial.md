@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/06/2016
+ms.date: 11/16/2016
 ms.author: cynthn
 
 ---
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 We use a Windows Server 2012 R2 Datacenter image as an example, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, some desktop images are available to [MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the hub menu, click **New** > **Virtual Machines** > **Windows Server 2012 R2 Datacenter**.
+2. On the hub menu, click **New** > **Compute** > **Windows Server 2012 R2 Datacenter**.
    
     ![Screenshot that shows the Azure VM images available in the portal](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 3. On the **Windows Server 2012 R2 Datacenter** blade, in **Select a deployment model**, verify that **Resource Manager** is selected. Click **Create**.
