@@ -57,7 +57,7 @@ Let's touch on some key aspects of the app and its deployment flow that we are s
 	`az acs create --resource-group myacs-rg --name myacs --dns-prefix myacs`
 	
 >[!NOTE]
-> You will need to have an SSH key named `%homepath% /.ssh/id_rsa`. For guidance on creating Secure Shell (SSH) keys, see the [Linux]( https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys) and [Windows]( https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-ssh-from-windows) articles.
+> You need to have an SSH key named `%homepath% /.ssh/id_rsa`. For guidance on creating Secure Shell (SSH) keys, see the [Linux]( https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys) and [Windows]( https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-ssh-from-windows) articles.
 
 This step takes several minutes, so feel free to read on.  The `acs create` command returns information about the newly created cluster (or you can list the ACS clusters in your subscription with `az acs list`). For more ACS configuration options, [read more about creating and configuring an ACS cluster](https://azure.microsoft.com/documentation/articles/container-service-deployment/).
 
@@ -100,7 +100,7 @@ On first run, this command may take a minute or so to complete. Once completed, 
 * `vstsProject`: [Visual Studio Team Services](https://www.visualstudio.com/team-services/) (VSTS) is configured to *drive* the workflow (the actual build and deployment tasks run within containers in ACS). If you would like to use a specific VSTS account and project, you can define using the `--vsts-account-name` and `--vsts-project-name` parameters.
 * `buildDefinition`: defines the tasks that run for each build. Container images are produced for each service defined in the docker-compose.yml, and then pushed to a Docker container registry. 
 * `containerRegistry`: The Azure Container Registry is a managed service that runs a Docker container registry. A new Azure Container Registry is created with a default name or you can alternatively specify an Azure Container Registry name via the `--registry-name` parameter.
-* `releaseDefinition`: efines the tasks that are run for each deployment. Container images for the services defined in docker-compose.yml are pulled from the container registry, and deployed to the ACS cluster. By default, three environments are created: *Dev*, *Test*, and *Production*. The release definition is configured by default to automatically deploy to *Dev* each time a build completes successfully. A release can be promoted to *Test* or *Production* manually without requiring a re-build. The default flow can be customized in VSTS. 
+* `releaseDefinition`: defines the tasks that are run for each deployment. Container images for the services defined in docker-compose.yml are pulled from the container registry, and deployed to the ACS cluster. By default, three environments are created: *Dev*, *Test*, and *Production*. The release definition is configured by default to automatically deploy to *Dev* each time a build completes successfully. A release can be promoted to *Test* or *Production* manually without requiring a rebuild. The default flow can be customized in VSTS. 
 * `containerService`: the target ACS cluster (must be running DC/OS 1.8).
 
 
@@ -130,7 +130,7 @@ At this point, our application is deployed to our shared dev environment and is 
 > On a first-time deployment, confirm the VSTS release successfully deployed before proceeding.
 
 > [!NOTE]
-> Windows Only:  You will need to set up [Pageant](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to complete this section.
+> Windows Only:  You need to set up [Pageant](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html) to complete this section.
 > 
 >* Launch *PuttyGen* and load the private SSH key used to create the ACS cluster (%homepath%\id_rsa).
 >* Save the private SSH key as `id_rsa.ppk` in the same folder.
@@ -209,7 +209,7 @@ Our VSTS release pipeline set up three environments by default: *Dev*, *Test*, a
 
 1. Open the most recent release.
 
-1. In the release definition's menu bar, click **Deploy**, then select **Test** as the next environment we want to deploy to to start a new deployment, reusing the same images that were previously deployed to *Dev*. Click **Logs** if you want to follow along the deployment in more detail.
+1. In the release definition's menu bar, click **Deploy**, then select **Test** as the next environment we want to deploy to start a new deployment, reusing the same images that were previously deployed to *Dev*. Click **Logs** if you want to follow along the deployment in more detail.
 
 	![VSTS promotes release](media/container-service-setup-ci-cd/vsts-promote-release.PNG)
 
@@ -257,7 +257,7 @@ If you open the build definition in VSTS, you'll see something like this:
 	```
 
 	* For the label value, you can either specify the URL of your ACS agent's fully qualified domain name (FQDN), or a custom domain (for example, app.contoso.com). To find your ACS agent's FQDN, run the command `az acs list`, and check the property for `agentPoolProfiles.fqdn`. For example, `myacsagents.westus.cloudapp.azure.com`.
-	* By following the filename convention docker-compose.env.*environment-name*.yml, these settings only affects the named environment (in this case, the environment named *Production*). Inspect the release definition in VSTS, each environment's deployment task is set up to read from a docker-compose file named after this convention.
+	* By following the filename convention docker-compose.env.*environment-name*.yml, these settings only affect the named environment (in this case, the environment named *Production*). Inspect the release definition in VSTS, each environment's deployment task is set up to read from a docker-compose file named after this convention.
 
 1. Commit and push the file to your master source repository to start another build.
 
