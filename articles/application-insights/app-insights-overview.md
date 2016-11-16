@@ -1,4 +1,4 @@
-﻿---
+---
 title: Application Performance Management with Application Insights | Microsoft Docs
 description: Track performance and usage of your live web application.  Detect, triage and diagnose problems.
 services: application-insights
@@ -184,6 +184,10 @@ For diagnostic purposes, there's a custom event `TrackTrace(message)` that you c
 
 If you already use a logging framework such as Log4Net, NLog, Log4J, or System.Diagnostic.Trace, then those trace calls can be captured by Application Insights, and will appear alongside the other telemetry. The Visual Studio tools automatically add the appropriate SDK module.
 
+## Profiling your live site
+
+No idea where the time goes? The Application Insights profiler will trace HTTP calls to your live site and show you which functions in your code took the longest time. The profiler is currently in limited preview - you can [sign up to try it](https://aka.ms/AIProfilerPreview).
+
 ## Dashboards
 Many applications consist of several components such as a web service and one or more back end processors. Each component will be monitored by a separate Application Insights resource. If your system runs on Azure, you might be using - and monitoring - services such as event hubs and machine learning as well.
 
@@ -239,7 +243,7 @@ It's also useful if you have some [custom telemetry](app-insights-api-custom-eve
   * In the Search window's Settings, there's an option to search local diagnostics even if your app sends telemetry to the portal.
   * To stop telemetry being sent to the portal, comment out the line `<instrumentationkey>...` from ApplicationInsights.config. When you're ready to send telemetry to the portal again, uncomment it.
 
-## Trends
+### Trends
 Trends is a tool in Visual Studio for visualizing how your app behaves over time.
 
 Choose **Explore Telemetry Trends** from the Application Insights toolbar button or Application Insights Search window. Choose one of five common queries to get started. You can analyze different datasets based on telemetry types, time ranges, and other properties.
@@ -262,6 +266,8 @@ Unlike Metrics Explorer, Live Metrics Stream displays a fixed set of metrics. Th
 ![Example of annotations with visible correlation with server response time](./media/app-insights-overview/00.png)
 
 Release annotations are a feature of the cloud-based build and release service of Visual Studio Team Services.
+
+
 
 ## Alerts
 If something goes wrong with your app, you'll want to know about it immediately.

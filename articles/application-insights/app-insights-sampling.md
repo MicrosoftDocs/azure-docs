@@ -1,4 +1,4 @@
-﻿---
+---
 title: Telemetry sampling in Application Insights | Microsoft Docs
 description: How to keep the volume of telemetry under control.
 services: application-insights
@@ -37,7 +37,7 @@ There are three alternative sampling methods:
 
 * **Adaptive sampling** automatically adjusts the volume of telemetry sent from the SDK in your ASP.NET app. Default from SDK v 2.0.0-beta3. Currently available for ASP.NET server-side telemetry only. 
 * **Fixed-rate sampling** reduces the volume of telemetry sent from both your ASP.NET server and from your users' browsers. You set the rate. The client and server will synchronize their sampling so that, in Search, you can navigate between related page views and requests.
-* **Ingestion sampling** reduces the volume of telemetry retained by the Application Insights service, at a rate that you set. It doesn't reduce telemetry traffic, but helps you keep within your monthly quota. 
+* **Ingestion sampling** works in the Azure portal. It discards some of the telemetry that arrives from your app, at a rate that you set. It doesn't reduce telemetry traffic, but helps you keep within your monthly quota. The big advantage of ingestion sampling is that you can set it without redeploying your app, and it works uniformly for all servers and clients. 
 
 If Adaptive or Fixed rate sampling are in operation, Ingestion sampling is disabled.
 
