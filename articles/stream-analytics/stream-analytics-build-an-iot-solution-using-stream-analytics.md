@@ -362,11 +362,13 @@ Azure Stream Analytics can use static snapshots of data to join with temporal da
 
 If a commercial vehicle is registered with the toll company, it can pass through the toll booth without being stopped for inspection. You will use Commercial Vehicle Registration lookup table to identify all commercial vehicles that have expired registrations.
 
-    SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
-    FROM EntryStream TIMESTAMP BY EntryTime
-    JOIN Registration
-    ON EntryStream.LicensePlate = Registration.LicensePlate
-    WHERE Registration.Expired = '1'
+```
+SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
+FROM EntryStream TIMESTAMP BY EntryTime
+JOIN Registration
+ON EntryStream.LicensePlate = Registration.LicensePlate
+WHERE Registration.Expired = '1'
+```
 
 To test a query by using reference data, you need to define an input source for the reference data, which you have done already.
 
@@ -413,7 +415,7 @@ Azure Stream Analytics is designed to elastically scale so that it can handle a 
 If you start the job now, Azure Stream Analytics can distribute work across more compute resources and achieve better throughput. Please note that the TollApp application is also sending events partitioned by TollId.
 
 ## Monitor
-The **MONITOR** area contains statistics about the running job. First time configuration is needed to use the storage account in the same region (name toll like the rest of this document).
+The **MONITOR** area contains statistics about the running job. First time configuration is needed to use the storage account in the same region (name toll like the rest of this document).   
 
 ![Screenshot of monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
 
