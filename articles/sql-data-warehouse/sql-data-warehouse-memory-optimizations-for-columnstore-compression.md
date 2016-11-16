@@ -34,7 +34,7 @@ For best query performance, the goal is to maximize the number of rows per rowgr
 
 During a bulk load or columnstore index rebuild, sometimes there isn't enough memory available to compress all the rows designated for each rowgroup. When there is memory pressure, columnstore indexes trim the rowgroup sizes so compression into the columnstore can succeed. 
 
-When there is insufficient memory to compress at least 10,000 rows into each rowgroup, SQL Data Warehouse will generate an error. 
+When there is insufficient memory to compress at least 10,000 rows into each rowgroup, SQL Data Warehouse generates an error. 
 
 For more information on bulk loading, see [Bulk load into a clustered columnstore index](https://msdn.microsoft.com/en-us/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
@@ -72,19 +72,19 @@ Columns of string data types require significantly more memory than numeric and 
 Additional memory requirements for string compression:
 
 - String data types up to 32 characters can require 32 additional bytes per value.
-- String data types with more than 32 characters are compressed using dictionary methods.  For each column, this can require up to an additional 16 MB per column to build the dictionary. 
+- String data types with more than 32 characters are compressed using dictionary methods.  Each column in the rowgroup can require up to an additional 16 MB to build the dictionary. 
 
 ### Avoid over-partitioning
 
-Columnstore indexes create one or more rowgroups per partition. In SQL Data Warehouse, the number of partitions grows quickly because the data is distributed and each distribution is partitioned. If the table has too many partitions there might not be enough rows to fill the rowgroups. This doesn't create memory pressure, but it leads to rowgroups that do not achieve the best columnstore query performance.
+Columnstore indexes create one or more rowgroups per partition. In SQL Data Warehouse, the number of partitions grows quickly because the data is distributed and each distribution is partitioned. If the table has too many partitions, there might not be enough rows to fill the rowgroups. The lack of rows does not create memory pressure during compression, but it leads to rowgroups that do not achieve the best columnstore query performance.
 
-Another reason to avoid over-partitioning is there is a memory overhead for loading rows into a columnstore index on a partitioned table. During a load, many partitions could receive the incoming rows which are held in memory until each partition has enough rows to be compressed. This creates additional memory pressure. 
+Another reason to avoid over-partitioning is there is a memory overhead for loading rows into a columnstore index on a partitioned table. During a load, many partitions could receive the incoming rows, which are held in memory until each partition has enough rows to be compressed. Having too many partitions creates additional memory pressure. 
 
 ### Simplify the load query
 
-The database shares the memory grant for a query among all the operators in the query. If the load query has complex sorts and joins, this erodes the available memory for compression.
+The database shares the memory grant for a query among all the operators in the query. When a load query has complex sorts and joins, the memory available for compression is reduced.
 
-Design the load query to focus only on loading the query. If you need to run transformations on the data, you can first stage the data in a heap table, run the transformations, and then load the staging table into the columnstore index. You can also load the data first and then use the MPP system to transform the data.
+Design the load query to focus only on loading the query. If you need to run transformations on the data,  run them separate from the load query. For example, stage the data in a heap table, run the transformations, and then load the staging table into the columnstore index. You can also load the data first and then use the MPP system to transform the data.
 
 ### Adjust MAXDOP
 
@@ -101,14 +101,14 @@ OPTION (MAXDOP 1);
 
 ## Ways to allocate more memory
 
-The DWU size and user’s resource class together determine how much memory is available for a user query. To increase the memory grant for a load query, you can either increase the number of DWUs or increase the resource class.
+DWU size and the user resource class together determine how much memory is available for a user query. To increase the memory grant for a load query, you can either increase the number of DWUs or increase the resource class.
 
-- To increase the DWUs, see [How do I scale performance?](sql-data-warehouse-manage-compute-overview.md#scale-performance).
+- To increase the DWUs, see [How do I scale performance?](sql-data-warehouse-manage-compute-overview.md#scale-performance)
 - To change the resource class for a query, see [Change a user resource class example](sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).
 
-For example, on DWU 100 a user in the smallrc resource class can use 100MB of memory for each distribution. For the details, see [Concurrency in SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
+For example, on DWU 100 a user in the smallrc resource class can use 100 MB of memory for each distribution. For the details, see [Concurrency in SQL Data Warehouse](sql-data-warehouse-develop-concurrency.md).
 
-Suppose you determine that you need 700 MB of memory to get high quality rowgroup sizes. These examples show how you can run the load query with enough memory.
+Suppose you determine that you need 700 MB of memory to get high-quality rowgroup sizes. These examples show how you can run the load query with enough memory.
 
 - Using DWU 1000 and mediumrc, your memory grant is 800 MB
 - Using DWU 600 and largerc, your memory grant is 800 MB.
@@ -116,7 +116,7 @@ Suppose you determine that you need 700 MB of memory to get high quality rowgrou
 
 ## Next steps
 
-
+To find more ways to improve performance in SQL Data Warehouse, see the [Performance overview](sql-data-warehouse-performance-overview.md).
 
 <!--Image references-->
 
