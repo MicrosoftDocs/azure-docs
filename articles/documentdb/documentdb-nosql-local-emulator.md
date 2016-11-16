@@ -50,6 +50,10 @@ The DocumentDB Emulator provides a high-fidelity emulation of the DocumentDB ser
 
 While we created a high-fidelity local emulation of the actual DocumentDB service, the implementation of the DocumentDB Emulator is different than that of the service. For example, the DocumentDB Emulator uses standard OS components such as the local file system for persistence, and HTTPS protocol stack for connectivity. This means that some functionality that relies on Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are not available via the DocumentDB Emulator.
 
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
+> 
+> 
+
 ## Authenticating requests against the DocumentDB Emulator
 Just as with Azure Document in the cloud, every request that you make against the DocumentDB Emulator must be authenticated. The DocumentDB Emulator supports a single fixed account and a well-known authentication key for master key authentication. This account and key are the only credentials permitted for use with the DocumentDB Emulator. They are:
 
@@ -79,7 +83,7 @@ Once you have the DocumentDB Emulator running on your desktop, you can use any s
 
     // Connect to the DocumentDB Emulator running locally
     DocumentClient client = new DocumentClient(
-        new Uri("https://localhost:443"), 
+        new Uri("https://localhost:8081"), 
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the DocumentDB Emulator. You can also migrate data between the DocumentDB Emulator and the Azure DocumentDB service using the [DocumentDB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
@@ -126,7 +130,7 @@ To view the list of options, type `DocumentDB.LocalEmulator.exe /?` at the comma
 </tr>
 <tr>
   <td>Port</td>
-  <td>Specifies the port number to use for the emulator.  Default is 443</td>
+  <td>Specifies the port number to use for the emulator.  Default is 8081</td>
   <td>DocumentDB.LocalEmulator.exe /port=&lt;port&gt;</td>
   <td>&lt;port&gt;: Single port number</td>
 </tr>
