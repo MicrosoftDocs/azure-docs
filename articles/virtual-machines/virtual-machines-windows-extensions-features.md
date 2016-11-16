@@ -29,8 +29,8 @@ This document provides an overview of virtual machine extenstion, prerequisites 
 
 There are many different Azure VM extensions available, each with a specific use case. Some example use cases are:
 
-- Apply PowerShell Desired State Configurations to an Azure virtual machine. For more information, see [Azure Desired State configuration extension](virtual-machines-windows-extensions-dsc-overview.md).
-- Configure monitoring of your Azure virtual machine with the Log Analytics using the Microsoft Monitoring Agent VM extension. For more information, see [Connect Azure virtual machines to Log Analytics](../log-analytics/log-analytics-azure-vm-extension.md). 
+- Apply PowerShell Desired State Configurations to an virtual machine using the DSC extension for Windows. For more information, see [Azure Desired State configuration extension](virtual-machines-windows-extensions-dsc-overview.md).
+- Configure monitoring of virtual machines with using the Microsoft Monitoring Agent VM extension. For more information, see [Connect Azure virtual machines to Log Analytics](../log-analytics/log-analytics-azure-vm-extension.md). 
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure an Azure virtual machine using Chef. For more information, see [Automating Azure virtual machine deployment with Chef](virtual-machines-windows-chef-automation.md).
 
@@ -91,7 +91,9 @@ The `Set-AzureRmVMExtension` command can be used as a catch all or general comma
 
 ### Azure portal
 
-VM extension can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine – extensions – and click add. Doing so provides a list of available extensions. Select the one you want, which provides a wizard for configuration. The following image depicts the installation of the Microsoft Antimalware extension from the Azure portal.
+VM extension can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine – extensions – and click add. Doing so provides a list of available extensions. Select the one you want, which provides a wizard for configuration. 
+
+The following image depicts the installation of the Microsoft Antimalware extension from the Azure portal.
 
 ![Antimalware Extension](./media/virtual-machines-windows-extensions-features/anti-virus-extension.png)
 
@@ -135,11 +137,13 @@ ForceUpdateTag          :
 
 ### Rerunning VM Extension 
 
-If you are running scripts on the VM using Custom Script Extension, you may sometimes run into an error where VM was created successfully but the script has failed. The recommended way to recover from this situation is to remove the extension and rerun the extension. The following PowerShell command removes the extension.
+There may be cases where a virtual machine extension needs to be re-run. This can be accomplished by removing the extension, and then re-running the extension with an execution method of your choice. To remove an extension, run the following command with the Azure PowerShell module. Replace example parameter names with your own values.
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
 ```
+
+An extension can also be removed using the Azure portal. To do so, select a virtual machine > extensions > the desired extension > uninstall.
 
 <br />
 
