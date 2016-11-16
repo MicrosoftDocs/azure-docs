@@ -43,7 +43,7 @@ established by many other networking APIs:
 There is a listener that first indicates readiness to handle incoming
 connections, and subsequently accepts them as they arrive. On the other side,
 there is a connecting client that connects towards the listener, expecting that
-connection to accepted for establishing a bi-directional communication path.
+connection to be accepted for establishing a bi-directional communication path.
 "Connect," "Listen," and "Accept" are the same terms you will find on most socket
 APIs.
 
