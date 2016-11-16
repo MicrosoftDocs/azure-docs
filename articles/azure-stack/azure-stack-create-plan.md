@@ -21,7 +21,7 @@ ms.author: erikje
 [Plans](azure-stack-key-features.md) are groupings of one or more services. As a provider, you can create plans to offer to your tenants. In turn, your tenants subscribe to your offers to use the plans and services they include. This example shows you how to create a plan that includes the compute, network, and storage resource providers. This plan gives subscribers the ability to provision virtual machines.
 
 1. In an internet browser, navigate to https://portal.azurestack.local.
-2. [Sign in](azure-stack-connect-azure-stack.md) to the Azure Stack Portal as a service administrator and enter your service administrator credentials (the account that you created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section), and then click **Sign in**.
+2. [Sign in](azure-stack-connect-azure-stack.md) to the Azure Stack Portal as a service administrator and enter your service administrator credentials. These are the credentials for the account that you created during step 5 of the [Run the PowerShell script](azure-stack-run-powershell-script.md) section).
 
    Service administrators can create offers and plans, and manage users.
 3. To create a plan and offer that tenants can subscribe to, click **New** > **Tenant Offers + Plans** > **Plan**.
@@ -30,7 +30,7 @@ ms.author: erikje
 4. In the **New Plan** blade, fill in **Display Name** and **Resource Name**. The Display Name is the plan's friendly name that tenants see. Only the admin can see the Resource Name. It's the name that admins use to work with the plan as an Azure Resource Manager resource.
 
    ![](media/azure-stack-create-plan/image02.png)
-5. Create a new **Resource Group**, or select an existing one, as a container for the plan (e.g. "OffersAndPlans")
+5. Create a new **Resource Group**, or select an existing one, as a container for the plan.
 
    ![](media/azure-stack-create-plan/image02a.png)
 6. Click **Services**, select **Microsoft.Compute**, **Microsoft.Network**, and **Microsoft.Storage**, and then click **Select**.
