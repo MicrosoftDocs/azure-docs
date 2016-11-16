@@ -1,29 +1,31 @@
-<properties
-	pageTitle="Use MySQL databases as PaaS on Azure Stack | Microsoft Azure"
-	description="Understand the quick steps to deploy the MySQL resource provider and provide MySQL as a service on Azure Stack."
-	services="azure-stack"
-	documentationCenter=""
-	authors="JeffGo"
-	editor=""/>
+---
+title: Use MySQL databases as PaaS on Azure Stack | Microsoft Azure
+description: Learn how you can deploy the MySQL Resource Provider and provide MySQL databases as a service on Azure Stack
+services: azure-stack
+documentationCenter: ''
+author: JeffGo
+manager: byronr
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/20/2016"
-	ms.author="jeffgo"/>
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/16/2016
+ms.author: JeffGo
+
+---
 
 # Use MySQL databases as PaaS on Azure Stack
 
-> [AZURE.NOTE] The following information only applies to Azure Stack TP2 deployments. There have been many changes since the TP1 release, so read this page carefully. Deployment now uses a single script.
+> [!NOTE] The following information only applies to Azure Stack TP2 deployments. There have been many changes since the TP1 release, so read this page carefully. Deployment now uses a single script.
 
 You can deploy a MySQL resource provider on Azure Stack. After you deploy the resource provider, you can create MySQL servers and databases through Azure Resource Manager deployment templates and provide MySQL databases as a service. MySQL databases, which are common on web sites, support many website platforms. As an example, after you deploy the resource provider, you can create WordPress websites from the Azure Web Apps platform as a service (PaaS) add-on for Azure Stack.
 
 To deploy the MySQL provider on a system that does not have internet access, you can copy the files [mysql-5.6.26-winx64.zip](https://dev.mysql.com/get/Downloads/MySQL-5.6/mysql-5.6.26-winx64.zip) and [mysql-5.5.44-winx64.zip](https://downloads.mysql.com/archives/get/file/mysql-5.5.44-winx64.zip) to a local share and provide that share name when prompted (see below).
 
-> [AZURE.NOTE] The deployment script will perform retries, if necessary, to accommodate less reliable network connections or if an operation exceeds a timeout.
+> [!NOTE] The deployment script will perform retries, if necessary, to accommodate less reliable network connections or if an operation exceeds a timeout.
 
 ## Steps to deploy the resource provider
 
@@ -61,7 +63,7 @@ The script prompts for required parameters:
 
 Depending on the system performance and download speeds, installation may take as little as 20 minutes or as long as several hours.
 
-> [AZURE.NOTE] If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file, but the deployment will be retried from the failing step. Systems that do not meet the minimum required memory and core specifications may not be able to deploy the MySQL RP.
+> [!NOTE] If the installation takes more than 90 minutes, it may fail and you will see a failure message on the screen and in the log file, but the deployment will be retried from the failing step. Systems that do not meet the minimum required memory and core specifications may not be able to deploy the MySQL RP.
 
 
 ## Create your first MySQL database to test your deployment
