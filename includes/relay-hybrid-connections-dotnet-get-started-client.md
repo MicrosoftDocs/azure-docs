@@ -8,7 +8,7 @@
 ### Write some code to send messages
 1. Add the following `using` statements to the top of the Program.cs file.
    
-    ```cs
+    ```csharp
     using System;
     using System.IO;
     using System.Threading;
@@ -17,7 +17,7 @@
     ```
 2. Add constants to the `Program` class for the Hybrid Connection connection details. Replace the placeholders in brackets with the proper values that were obtained when creating the Hybrid Connection.
    
-    ```cs
+    ```csharp
     private const string RelayNamespace = "{RelayNamespace}";
     private const string ConnectionName = "{HybridConnectionName}";
     private const string KeyName = "{SASKeyName}";
@@ -25,7 +25,7 @@
     ```
 3. Add a new method to the `Program` class like the following:
    
-    ```cs
+    ```csharp
     private static async Task RunAsync()
     {
         Console.WriteLine("Enter lines of text to send to the server with ENTER");
@@ -86,13 +86,13 @@
     ```
 4. Add the following line of code to the `Main` method in the `Program` class.
    
-    ```cs
+    ```csharp
     RunAsync().GetAwaiter().GetResult();
     ```
    
     Here is what your Program.cs should look like.
    
-    ```cs
+    ```csharp
     using System;
     using System.IO;
     using System.Threading;
