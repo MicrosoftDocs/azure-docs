@@ -28,10 +28,9 @@
 
 ### [Overview](sql-data-warehouse-connect-overview.md)
 ### [Connection strings](sql-data-warehouse-connection-strings.md)
-### Query
-#### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
-#### [SSMS](sql-data-warehouse-query-ssms.md)
-#### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
+### [sqlcmd](sql-data-warehouse-get-started-connect-sqlcmd.md)
+### [SSMS](sql-data-warehouse-query-ssms.md)
+### [Visual Studio](sql-data-warehouse-query-visual-studio.md)
 ### [Install Visual Studio](sql-data-warehouse-install-visual-studio.md)
 
 ## Develop
@@ -111,6 +110,7 @@
 ## Performance
 
 ### [Overview](sql-data-warehouse-overview-manage-user-queries.md)
+### [Columnstore compression](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)
 ### [Queries](sql-data-warehouse-manage-monitor.md)
 ### [Workload](sql-data-warehouse-develop-concurrency.md)
 ### [Troubleshoot](sql-data-warehouse-troubleshoot.md)
