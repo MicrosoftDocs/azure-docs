@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory audit API reference | Microsoft Docs
 description: How to get started with the Azure Active Directory audit API
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 11/16/2016
 ms.author: dhanyahk;markvi
 
 ---
@@ -87,7 +87,7 @@ To specify the type of records you care about, you can build a filter statement 
 
 **Example**:
 
-    $filter=tdomain + 'activities/audit?api-version=beta&`$filter=eventTime gt ' + $7daysago    
+    $filter=tdomain + 'activities/audit?api-version=beta&`$filter=activityDate gt ' + $7daysago    
 
 **Notes**:
 
