@@ -193,7 +193,7 @@ Before running the sample, you need to verify that your Raspberry Pi 3 can conne
     [CHG] Device A0:E6:F8:B5:F6:00 Modalias: bluetooth:v000Dp0000d0110
     ```
    
-    > Note: You can list the GATT characteristics of the device again using the **list-attributes** command.
+    > Note that you can list the GATT characteristics of the device again using the **list-attributes** command.
 9. You can now disconnect from the device using the **disconnect** command and then exit from the bluetooth shell using the **quit** command:
    
     ```
