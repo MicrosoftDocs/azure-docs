@@ -13,12 +13,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/16/2016
 ms.author: erikje
 
 ---
-# Tools for Azure Stack
-You can download the tools described below. If you want to be notified of new services and tools, follow #AzureStack on Twitter.
+# Tools and PaaS services for Azure Stack
+
+You can deploy [Platform as a Service](https://azure.microsoft.com/overview/what-is-paas/) (PaaS) services for Azure Stack from Microsoft and other 3rd party providers. You can also download the tools described below. If you want to be notified of new services and tools, follow #AzureStack on Twitter.
+
+## PaaS services
+
+[Add an App Service resource provider to Azure Stack](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-overview)
+[Add a SQL Server resource provider to Azure Stack](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-sql-rp-deploy)
+[Add a MySQL Server resource provider to Azure Stack](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-mysql-rp-deploy)
+
+
+## Additional PaaS services
+In Technical Preview 1, three PaaS resource providers are now available.
+
+[Add a SQL Server resource provider to Azure Stack](azure-stack-sql-rp-deploy-short.md)
+
+[Add a MySQL resource provider to Azure Stack](azure-stack-mysql-rp-deploy-short.md)
+
+[Add a Web Apps resource provider to Azure Stack](azure-stack-webapps-deploy.md)
+
 
 ## Template tools
 ### Azure Stack Github templates

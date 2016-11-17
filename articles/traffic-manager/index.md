@@ -86,7 +86,7 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
 
 <ul class="panelContent cardsW">
 	<li>
-        <a href="/powershell/azurepd-cmdlets-docs">
+        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
