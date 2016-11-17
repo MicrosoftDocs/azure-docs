@@ -3,7 +3,7 @@ layout: LandingPage
 ---
 # Azure Advisor Documentation
 
-Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry t. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
+Azure Advisor is a personalized cloud consultant that helps you follow best practices to optimize your Azure deployments. It analyzes your resource configuration and usage telemetry. It then recommends solutions to help improve the performance, security, and high availability of your resources while looking for opportunities to reduce your overall Azure spend.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -43,14 +43,3 @@ Azure Advisor is a personalized cloud consultant that helps you follow best prac
         </a>
     </li>
 </ul>
-
----
-
-<div class="downloadHolder">
-    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/advisor.pdf">
-        <div class="img"></div>
-        <div class="text">
-            Download Azure Advisor Documentation
-        </div>
-    </a>
-</div>

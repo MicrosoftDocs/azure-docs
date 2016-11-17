@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Resource Limits
+title: Azure SQL Database Resource Limits | Microsoft Docs
 description: This page describes some common resource limits for Azure SQL Database.
 services: sql-database
 documentationcenter: na
