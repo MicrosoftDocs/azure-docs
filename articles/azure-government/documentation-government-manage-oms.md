@@ -80,7 +80,7 @@ Another common cybersecurity scenario in the Cloud is in credential compromise. 
 OMS will sum and organize all login attempts in your fleet and bucket them depending on type (remote, local, username used etc.)
 For example – in the below – I can see a mass amount of unsuccessful login attempts from largely random strings as usernames. This most likely points to my computers being exposed and not properly protected by firewalls and access control lists.
 
-![alt text](documentation-government-oms-figure5.png)
+![alt text](./media/documentation-government-oms-figure5.png)
 <p align="center">Figure 5: 97.3% Logon Failed in the last 24 hours</p>
 
 ### Threat Intelligence
@@ -93,7 +93,7 @@ Double clicking on the inbound tag – I can find out that a Linux VM that is be
 
 You can also setup Alerts to OMS Solutions like Threat Intelligence. Below I’ve setup an Alert so should OMS detect > 10 outbound connections to a known malicious IP it sends an alert out to me via email. I then configure that alert to fire an Azure Automation job which is setup to automatically shut down that VM.
 
-![alt text](documentation-government-oms-figure6.png)
+![alt text](./media/documentation-government-oms-figure6.png)
 <p align="center">Figure 6: OMS Alerts & Automation</p>
 
 This is just one example of an out-of-box OMS solution that can be applied to your fleet, whether it’s running on Azure, another cloud service provider, or on your premises.
