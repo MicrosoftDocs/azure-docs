@@ -20,7 +20,7 @@ Limits depend on the [pricing plan](https://azure.microsoft.com/pricing/details/
 
 1. All these numbers are per instrumentation key.
 2. Metric names are defined both in TrackMetric and in the measurement parameter of other Track*() calls. Metric names are global per instrumentation key.
-3. [Properties][apiproperties] can be used for filtering and group-by only while they have less than 100 unique values for each property. After the number of unique values exceeds 100, you can still search the property, but no longer use it for filters or group-by.
+3. Properties can be used for filtering and group-by only while they have less than 100 unique values for each property. After the number of unique values exceeds 100, you can still search the property, but no longer use it for filters or group-by.
 4. Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values." The original values can still be used for full text search and filtering.
 
 
