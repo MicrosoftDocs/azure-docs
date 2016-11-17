@@ -22,7 +22,7 @@ Steps to create a query that filters the data for a specific interchange control
 
 ## Prerequisites
 
-Enable diagnostics for your [Integration Account](app-service-logic-monitor-b2b-message.md), [logic apps](app-service-logic-monitor-your-logic-apps.md/#azure-diagnostics-and-alerts) that have X12 connectors for richer details and debugging.  Follow the steps [here](app-service-logic-track-b2b-messages-omsportal.md) to publish diagnostic data to OMS portal.
+Enable diagnostics for your [Integration Account](app-service-logic-monitor-b2b-message.md), [logic apps](app-service-logic-monitor-your-logic-apps.md#azure-diagnostics-and-alerts) that have X12 connectors for richer details and debugging.  Follow the steps [here](app-service-logic-track-b2b-messages-omsportal.md) to publish diagnostic data to OMS portal.
 
 ## Create a query to search data for a specific interchange control number
 
