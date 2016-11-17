@@ -100,7 +100,7 @@ Restart xrdp service, use:
 
 Check that your firewall is allowing connections to port 3389
 
-    #sudo ufw verbose
+    #sudo ufw status verbose
 
 If it isn't, add the new rule
 
