@@ -135,7 +135,7 @@ Make sure these URLs are accessible from the server
 |  https://dev.mysql.com/get/archives/mysql-5.5/mysql-5.5.37-win32.msi | | | | Required |
 
 ## Next steps
-After lreviewing general deployment requirements, read the detailed prerequisites and deploy a scenario.
+After reviewing general deployment requirements, read the detailed prerequisites and deploy a scenario.
 
 * [Replicate VMware virtual machines to Azure](site-recovery-vmware-to-azure-classic.md)
 * [Replicate physical servers to Azure](site-recovery-vmware-to-azure-classic.md)
