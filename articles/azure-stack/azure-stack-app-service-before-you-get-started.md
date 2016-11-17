@@ -71,7 +71,8 @@ Perform the following steps from the MAS-CON01 VM, PowerShell console:
     b.	When the machine has restarted, check for the modules again
 7.  The AzureRM modules have now been Installed and can now be used by the CurrentUser
 8.  Exit the PS Console and open another before you start using the cmdlets
->[!NOTE]  
+
+> [!NOTE]  
 > These same instructions can be used to install the AzureRM modules on other machines as well.
 
 ## Using Visual Studio 2015 and Azure Stack TP2 on the MAS-CON01 VM
