@@ -24,6 +24,12 @@ ms.author: arramac
 
 The Azure DocumentDB Emulator provides a local environment that emulates the Azure DocumentDB service for development purposes. Using the DocumentDB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the DocumentDB Emulator, you can switch to using an Azure DocumentDB account in the cloud.
 
+We recommend getting started by watching the following video, where Kirill Gavrylyuk shows how to get started with the DocumentDB Emulator.
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
+> 
+> 
+
 ## DocumentDB Emulator system requirements
 The DocumentDB Emulator has the following hardware and software requirements:
 
@@ -34,7 +40,7 @@ The DocumentDB Emulator has the following hardware and software requirements:
   *	10 GB available hard disk space
 
 ## Installing the DocumentDB Emulator
-You can download and install the DocumentDB Emulator from the [Microsoft Download Center](https://aka.ms/documentdb-emulator). To install, configure, and run the DocumentDB Emulator, you must have administrative privileges on the computer.
+You can download and install the DocumentDB Emulator from the [Microsoft Download Center](https://aka.ms/documentdb-emulator). 
 
 > [!NOTE]
 > To install, configure, and run the DocumentDB Emulator, you must have administrative privileges on the computer.
@@ -49,6 +55,7 @@ The DocumentDB Emulator includes a built-in Azure DocumentDB Data Explorer to br
 The DocumentDB Emulator provides a high-fidelity emulation of the DocumentDB service. It supports identical functionality as Azure DocumentDB, including support for creating and querying JSON documents, provisioning and scaling collections, and executing stored procedures and triggers. You can develop and test applications using the DocumentDB Emulator, and deploy them to Azure at global scale by just making a single configuration change to the connection endpoint for DocumentDB.
 
 While we created a high-fidelity local emulation of the actual DocumentDB service, the implementation of the DocumentDB Emulator is different than that of the service. For example, the DocumentDB Emulator uses standard OS components such as the local file system for persistence, and HTTPS protocol stack for connectivity. This means that some functionality that relies on Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are not available via the DocumentDB Emulator.
+
 
 ## Authenticating requests against the DocumentDB Emulator
 Just as with Azure Document in the cloud, every request that you make against the DocumentDB Emulator must be authenticated. The DocumentDB Emulator supports a single fixed account and a well-known authentication key for master key authentication. This account and key are the only credentials permitted for use with the DocumentDB Emulator. They are:
@@ -77,7 +84,7 @@ Once you have the DocumentDB Emulator running on your desktop, you can use any s
 
     // Connect to the DocumentDB Emulator running locally
     DocumentClient client = new DocumentClient(
-        new Uri("https://localhost:443"), 
+        new Uri("https://localhost:8081"), 
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
 
 You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the DocumentDB Emulator. You can also migrate data between the DocumentDB Emulator and the Azure DocumentDB service using the [DocumentDB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
@@ -124,7 +131,7 @@ To view the list of options, type `DocumentDB.LocalEmulator.exe /?` at the comma
 </tr>
 <tr>
   <td>Port</td>
-  <td>Specifies the port number to use for the emulator.  Default is 443</td>
+  <td>Specifies the port number to use for the emulator.  Default is 8081</td>
   <td>DocumentDB.LocalEmulator.exe /port=&lt;port&gt;</td>
   <td>&lt;port&gt;: Single port number</td>
 </tr>

@@ -329,6 +329,12 @@ title: Microsoft Azure Documentation
                                                 <p>Analysis Services</p>
                                             </a>
                                         </li>
+                                        <li>
+                                            <a href="https://docs.botframework.com/en-us/azure-bot-service/">
+                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                <p>Bot Service</p>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <h3>Developer Tools</h3>
                                     <ul>
@@ -412,6 +418,12 @@ title: Microsoft Azure Documentation
                                             <a href="/azure/iot-hub/">
                                                 <img src="media/index/IoTHub.svg" alt="" />
                                                 <p>Azure IoT Hub</p>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="/azure/iot-suite/">
+                                                <img src="media/index/iot-suite.svg" alt="" />
+                                                <p>Azure IoT Suite</p>
                                             </a>
                                         </li>
                                         <li>
@@ -1566,6 +1578,25 @@ title: Microsoft Azure Documentation
                                     </div>
                                 </a>
                             </li>
+                            <li>
+                                <a href="https://docs.botframework.com/en-us/azure-bot-service/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Bot Service</h3>
+                                                    <p>Intelligent, serverless bot service that scales on demand</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
                         </ul>
                     </li>
                     <li>
@@ -1603,6 +1634,25 @@ title: Microsoft Azure Documentation
                                                 <div class="cardText">
                                                     <h3>Azure IoT Hub</h3>
                                                     <p>Connect, monitor, and control billions of IoT assets</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/iot-suite/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/iot-suite.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Azure IoT Suite</h3>
+                                                    <p>Capture and analyze untapped data to improve business results</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2328,10 +2378,10 @@ title: Microsoft Azure Documentation
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/develop/python/">Get the Python SDK</a>
+                                                    <a href="https://www.visualstudio.com/vs/python/">Get the Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/python/">Get started</a>
+                                                    <a href="https://www.visualstudio.com/vs/python/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
