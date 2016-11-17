@@ -92,7 +92,7 @@ If the service connection point doesn’t exist, create it by running the follow
 
 **Remarks:**
 
-- When you run **$aadAdminCred = Get-Credential**, you are required to enter a user name. For the user name, use the following format: **user@example.com** 
+- When you run **$aadAdminCred = Get-Credential**, you are required to type a user name. For the user name, use the following format: **user@example.com** 
 
 
 - When you run the **Initialize-ADSyncDomainJoinedComputerSync** cmdlet, replace [*connector account name*] with the domain account that's used in the Active Directory connector account.
@@ -138,7 +138,7 @@ For more details about verified domain names, see [Add a custom domain name to A
 To create these rules manually, in AD FS, use one of the following PowerShell scripts in a session that is connected to your server. Replace the first line with your organization's validated domain name in Azure AD.
 
 
-Windows 10 and Windows Server 2016 domain joined computers authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. The end-point is `adfs/services/trust/13/windowstransport`. 
+Windows 10 and Windows Server 2016 domain joined computers authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. The end-point is **adfs/services/trust/13/windowstransport**. 
 
 It should be enabled in the AD FS management console under **Service > Endpoints**. If you don’t have AD FS as your on-premises federation server, follow the instructions of your vendor to make sure the corresponding end-point is enabled. 
 
@@ -277,10 +277,10 @@ Make sure that WIA is set as a valid alternative to multi-factor authentication 
 3. On the **Issuance Transform Rules** tab, select **Add Rule**.
 4. In the **Claim rule** template list, select **Send Claims Using a Custom Rule**.
 5. Select **Next**.
-6. In the **Claim rule name** box, enter **Auth Method Claim Rule**.
-7. In the **Claim rule** box, enter this rule:  
+6. In the **Claim rule name** box, type **Auth Method Claim Rule**.
+7. In the **Claim rule** box, type this rule:  
 **c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);**
-8. On your federation server, enter this PowerShell command:
+8. On your federation server, type this PowerShell command:
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
@@ -317,7 +317,7 @@ To control the rollout of automatic registration of domain-joined computers with
 1. Open Server Manager, and then go to **Tools** > **Group Policy Management**.
 2. Go to the domain node that corresponds to the domain where you want to activate auto-registration of Windows 10 or Windows Server 2016 computers.
 3. Right-click **Group Policy Objects**, and then select **New**.
-4. Enter a name for your Group Policy object. For example, *Automatic Registration to Azure AD*. Select **OK**.
+4. Type a name for your Group Policy object. For example, *Automatic Registration to Azure AD*. Select **OK**.
 5. Right-click your new Group Policy object, and then select **Edit**.
 6. Go to **Computer Configuration** > **Policies** > **Administrative Templates** > **Windows Components** > **Device Registration**. Right-click **Register domain joined computers as devices**, and then select **Edit**.
    
