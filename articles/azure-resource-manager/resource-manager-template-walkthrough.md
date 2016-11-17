@@ -26,7 +26,7 @@ Let's take a look at a common infrastructure:
 * A single NIC and VM IP address for each virtual machine.
 * A load balancer with a load balancing rule on port 80
 
-![architecture](./media/resource-group-overview/arm_arch.png)
+![architecture](./media/resource-manager-template-walkthrough/arm_arch.png)
 
 This topic walks you through the steps of creating a Resource Manager template for that infrastructure. The final template you create is based on a Quickstart template called [2 VMs in a Load Balancer and load balancing rules](https://azure.microsoft.com/documentation/templates/201-2-vms-loadbalancer-lbrules/).
 

@@ -315,6 +315,6 @@ In the request body, you specify the target resource group and the resources to 
 ## Next steps
 * To learn about PowerShell cmdlets for managing your subscription, see [Using Azure PowerShell with Resource Manager](powershell-azure-resource-manager.md).
 * To learn about Azure CLI commands for managing your subscription, see [Using the Azure CLI with Resource Manager](xplat-cli-azure-resource-manager.md).
-* To learn about portal features for managing your subscription, see [Using the Azure portal to manage resources](azure-portal/resource-group-portal.md).
+* To learn about portal features for managing your subscription, see [Using the Azure portal to manage resources](resource-group-portal.md).
 * To learn about applying a logical organization to your resources, see [Using tags to organize your resources](resource-group-using-tags.md).
 

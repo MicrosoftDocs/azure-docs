@@ -124,7 +124,7 @@ You can use the Azure portal to manage resources that were created through class
 ## Changes for compute, network, and storage
 The following diagram displays compute, network, and storage resources deployed through Resource Manager.
 
-![Resource Manager architecture](./media/virtual-machines-azure-resource-manager-architecture/arm_arch3.png)
+![Resource Manager architecture](./media/resource-manager-deployment-model/arm_arch3.png)
 
 Note the following relationships between the resources:
 
@@ -137,7 +137,7 @@ Note the following relationships between the resources:
 
 Here are the components and their relationships for classic deployment:
 
-![classic architecture](./media/virtual-machines-azure-resource-manager-architecture/arm_arch1.png)
+![classic architecture](./media/resource-manager-deployment-model/arm_arch1.png)
 
 The classic solution for hosting a virtual machine includes:
 
@@ -154,7 +154,7 @@ The following table describes changes in how Compute, Network, and Storage resou
 | Storage Accounts |The virtual machine requires a storage account that stores the VHDs for the operating system, temporary, and additional data disks. |The virtual machine requires a storage account to store its disks in blob storage. |
 | Availability Sets |Availability to the platform was indicated by configuring the same “AvailabilitySetName” on the Virtual Machines. The maximum count of fault domains was 2. |Availability Set is a resource exposed by Microsoft.Compute Provider. Virtual Machines that require high availability must be included in the Availability Set. The maximum count of fault domains is now 3. |
 | Affinity Groups |Affinity Groups were required for creating Virtual Networks. However, with the introduction of Regional Virtual Networks, that was not required anymore. |To simplify, the Affinity Groups concept doesn’t exist in the APIs exposed through Azure Resource Manager. |
-| Load Balancing |Creation of a Cloud Service provides an implicit load balancer for the Virtual Machines deployed. |The Load Balancer is a resource exposed by the Microsoft.Network provider. The primary network interface of the Virtual Machines that needs to be load balanced should be referencing the load balancer. Load Balancers can be internal or external. A load balancer instance references the backend pool of IP addresses that include the NIC of a virtual machine (optional) and references a load balancer public or private IP address (optional). [Read more.](virtual-network/resource-groups-networking.md) |
+| Load Balancing |Creation of a Cloud Service provides an implicit load balancer for the Virtual Machines deployed. |The Load Balancer is a resource exposed by the Microsoft.Network provider. The primary network interface of the Virtual Machines that needs to be load balanced should be referencing the load balancer. Load Balancers can be internal or external. A load balancer instance references the backend pool of IP addresses that include the NIC of a virtual machine (optional) and references a load balancer public or private IP address (optional). [Read more.](../virtual-network/resource-groups-networking.md) |
 | Virtual IP Address |Cloud Services get a default VIP (Virtual IP Address) when a VM is added to a cloud service. The Virtual IP Address is the address associated with the implicit load balancer. |Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. Dynamic Public IPs can be assigned to a Load Balancer. Public IPs can be secured using Security Groups. |
 | Reserved IP Address |You can reserve an IP Address in Azure and associate it with a Cloud Service to ensure that the IP Address is sticky. |Public IP Address can be created in “Static” mode and it offers the same capability as a “Reserved IP Address”. Static Public IPs can only be assigned to a Load balancer right now. |
 | Public IP Address (PIP) per VM |Public IP Addresses can also be associated to a VM directly. |Public IP address is a resource exposed by the Microsoft.Network provider. Public IP Address can be Static (Reserved) or Dynamic. However, only dynamic Public IPs can be assigned to a Network Interface to get a Public IP per VM right now. |

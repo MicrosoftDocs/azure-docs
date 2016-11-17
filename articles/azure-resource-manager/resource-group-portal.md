@@ -81,7 +81,7 @@ When you select a resource, the resource blade presents default graphs and table
    
     ![dashboard](./media/resource-group-portal/create-dashboard.png)
    
-     To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](azure-portal-dashboards.md).
+     To learn about working with dashboards, see [Creating and sharing dashboards in the Azure portal](../azure-portal/azure-portal-dashboards.md).
 
 ## Manage resources
 In the blade for a resource, you see the options for managing the resource. The portal presents management options for that particular resource type. You see the management commands across the top of the resource blade and on the left side.

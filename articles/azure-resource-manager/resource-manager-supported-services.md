@@ -120,7 +120,7 @@ Cloud Services (classic) can be used with other classic resources; however, clas
 | Service Bus |Yes |[Service Bus REST](https://msdn.microsoft.com/library/azure/mt639375.aspx) |[2015-08-01](https://github.com/Azure/azure-resource-manager-schemas/blob/master/schemas/2015-08-01/Microsoft.ServiceBus.json) |[Microsoft.ServiceBus](https://github.com/Azure/azure-quickstart-templates/search?utf8=%E2%9C%93&q=%22Microsoft.ServiceBus%22&type=Code) |
 
 ## Identity & Access Management
-Azure Active Directory works with Resource Manager to enable role-based access control for your subscription. To learn about using role-based access control and Active Directory, see [Azure Role-based Access Control](active-directory/role-based-access-control-configure.md).
+Azure Active Directory works with Resource Manager to enable role-based access control for your subscription. To learn about using role-based access control and Active Directory, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).
 
 ## Developer Services
 | Service | Resource Manager Enabled | REST API | Schema | Quickstart Templates |

@@ -44,7 +44,7 @@ To complete this topic, you must have sufficient permissions in both your Azure 
 
 In your Active Directory, your account must be an administrator (such as **Global Admin** or **User Admin**). If your account is assigned to the **User** role, you need to have an administrator elevate your permissions.
 
-In your subscription, your account must have `Microsoft.Authorization/*/Write` access, which is granted through the [Owner](active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](../active-directory/role-based-access-built-in-roles.md#user-access-administrator) role. If your account is assigned to the **Contributor** role, you receive an error when attempting to assign the service principal to a role. Again, your subscription administrator must grant you sufficient access.
+In your subscription, your account must have `Microsoft.Authorization/*/Write` access, which is granted through the [Owner](../active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](../active-directory/role-based-access-built-in-roles.md#user-access-administrator) role. If your account is assigned to the **Contributor** role, you receive an error when attempting to assign the service principal to a role. Again, your subscription administrator must grant you sufficient access.
 
 Now, proceed to a section for either [password](#create-service-principal-with-password) or [certificate](#create-service-principal-with-certificate) authentication.
 
@@ -112,7 +112,7 @@ Now, you need to log in as the application to perform operations.
    
         $tenant = (Get-AzureRmSubscription).TenantId
    
-     If you have more than one subscription, specify the subscription where your Active Directory resides. For more information, see [How Azure subscriptions are associated with Azure Active Directory](active-directory/active-directory-how-subscriptions-associated-directory.md).
+     If you have more than one subscription, specify the subscription where your Active Directory resides. For more information, see [How Azure subscriptions are associated with Azure Active Directory](../active-directory/active-directory-how-subscriptions-associated-directory.md).
    
         $tenant = (Get-AzureRmSubscription -SubscriptionName "Contoso Default").TenantId
 4. Log in as the service principal by specifying that this account is a service principal and by providing the credentials object. 

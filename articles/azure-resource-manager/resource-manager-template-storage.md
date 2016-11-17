@@ -50,7 +50,7 @@ The following tables describe the values you need to set in the schema.
 ### properties object
 | Name | Value |
 | --- | --- |
-| accountType |String<br />Required<br />**Standard_LRS**, **Standard_ZRS**, **Standard_GRS**, **Standard_RAGRS**, or **Premium_LRS**<br /><br />The type of storage account. The permitted values correspond to Standard Locally Redundant, Standard Zone Redundant, Standard Geo-Redundant, Standard Read-Access Geo-Redundant, and Premium Locally Redundant. For information about these account types, see [Azure Storage replication](storage/storage-redundancy.md). |
+| accountType |String<br />Required<br />**Standard_LRS**, **Standard_ZRS**, **Standard_GRS**, **Standard_RAGRS**, or **Premium_LRS**<br /><br />The type of storage account. The permitted values correspond to Standard Locally Redundant, Standard Zone Redundant, Standard Geo-Redundant, Standard Read-Access Geo-Redundant, and Premium Locally Redundant. For information about these account types, see [Azure Storage replication](../storage/storage-redundancy.md). |
 
 ## Examples
 The following example deploys a Standard Locally Redundant storage account with a unique name based on the resource group id.

@@ -53,9 +53,9 @@ Dave assigns the following roles for the subscription:
 
 | Role | Assigned to | Description |
 | --- | --- | --- |
-| [Owner](active-directory/role-based-access-built-in-roles.md#owner) |Managed ID from Contoso's AD |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited. |
-| [Security Manager](active-directory/role-based-access-built-in-roles.md#security-manager) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources. |
-| [Network Contributor](./active-directory/role-based-access-built-in-roles.md#network-contributor) |Network team |This role allows Contoso's network team to manage the Site to Site VPN and the Virtual Networks. |
+| [Owner](../active-directory/role-based-access-built-in-roles.md#owner) |Managed ID from Contoso's AD |This ID is controlled with Just in Time (JIT) access through Contoso's Identity Management tool and ensures that subscription owner access is fully audited. |
+| [Security Manager](../active-directory/role-based-access-built-in-roles.md#security-manager) |Security and risk management department |This role allows users to look at the Azure Security Center and the status of the resources. |
+| [Network Contributor](../active-directory/role-based-access-built-in-roles.md#network-contributor) |Network team |This role allows Contoso's network team to manage the Site to Site VPN and the Virtual Networks. |
 | *Custom role* |Application owner |Dave creates a role that grants the ability to modify resources within the resource group. For more information, see [Custom Roles in Azure RBAC](../active-directory/role-based-access-control-custom-roles.md) |
 
 ### Policies
