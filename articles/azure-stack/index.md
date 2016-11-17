@@ -43,6 +43,24 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
         </a>
     </li>
     <li>
+        <a href="/azure/azure-stack/azure-stack-run-powershell-script">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/deploy.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Deploy Azure Stack POC</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
         <a href="/azure/azure-stack/azure-stack-provision-vm">
         <div class="cardSize">
             <div class="cardPadding">
@@ -54,24 +72,6 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
                     </div>
                     <div class="cardText">
                         <h3>Get started provisioning a virtual machine </h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="/azure/azure-stack/azure-stack-run-powershell-script">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/deploy.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started connecting with PowerShell</h3>
                     </div>
                 </div>
             </div>
