@@ -39,6 +39,8 @@ Azure Site Recovery in the Azure portal provides several new features:
 
 After reading this article, post any comments at the bottom in the Disqus comments. Ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
+## Overview
+
 
 Organizations need a BCDR strategy that determines how apps, workloads, and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Your BCDR strategy should keep business data safe and recoverable, and ensure that workloads remain continuously available when disaster occurs.
 
@@ -110,9 +112,10 @@ Network mapping maps between VMM VM networks on the primary and secondary VMM se
 * [Learn more](site-recovery-network-mapping.md) about how network mapping works.
 
 ## Prepare for deployment with a single VMM server
-If you only have a single VMM server you can replicate VMs in Hyper-V hosts in the VMM cloud to [Azure](site-recovery-vmm-to-azure.md) or to a secondary VMM cloud. We recommend the first option because replicating between clouds isn't seamless, but if you need to do this here's what you need to do:
 
-1. **Set up VMM on a Hyper-V VM**. When we do this we suggest you colocate the SQL Server instance used by VMM on the same VM. This saves time as only one VM has to be created. If you want to use remote instance of SQL Server and an outage occurs, you need to recover that instance before you can recover VMM.
+If you only have a single VMM server, you can replicate VMs in Hyper-V hosts in the VMM cloud to [Azure](site-recovery-vmm-to-azure.md) or to a secondary VMM cloud. We recommend the first option because replicating between clouds isn't seamless, but if you need to do this here's what you need to do:
+
+1. **Set up VMM on a Hyper-V VM**. We suggest that you colocate the SQL Server instance used by VMM on the same VM. This saves time as only one VM has to be created. If you want to use remote instance of SQL Server and an outage occurs, you need to recover that instance before you can recover VMM.
 2. **Ensure the VMM server has at least two clouds configured**. One cloud will contain the VMs you want to replicate and the other cloud will serve as the secondary location. The cloud that contains the VMs you want to protect should comply with [prerequisites](#on-premises-prerequisites).
 3. Set up Site Recovery as described in this article. Create and register the VMM server in the vault, set up a replication policy, and enable replication. You should specify that initial replication takes place over the network.
 4. When you set up network mapping you map the VM network for the primary cloud to the VM network for the secondary cloud.
