@@ -1,7 +1,4 @@
-# Overview
-
 # StorSimple Virtual Array
-
 ## Overview
 ### [What is the solution?](storsimple-ova-overview.md)
 
@@ -64,6 +61,7 @@
 ##### [Physical device in Azure - Update 1](storsimple-deployment-walkthrough-u1.md)
 ##### [Physical device in Azure - GA](storsimple-deployment-walkthrough.md)
 #### [Physical device in Government Portal - current](storsimple-deployment-walkthrough-gov-u2.md)
+##### [Physical device in Government Portal - current](storsimple-deployment-walkthrough-gov.md)
 #### [Virtual device in Azure](storsimple-virtual-device-u2.md)
 #### [StorSimple Snapshot Manager](storsimple-snapshot-manager-deployment.md)
 #### [StorSimple Adapter for SharePoint](storsimple-adapter-for-sharepoint.md)
@@ -161,7 +159,8 @@
 ### [Release - GA](storsimple-july-2014-release-notes.md)
 
 ## Reference
-### [PowerShell](/powershell/servicemanagement/)
+### [Azure PowerShell](/powershell/servicemanagement)
+### [Windows PowerShell for StorSimple cmdlets] (https://technet.microsoft.com/library/dn688168.aspx)
 
 # Related
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
