@@ -20,9 +20,9 @@ ms.author: nepeters
 ---
 # About virtual machine extensions and features
 
-Azure Virtual Machine extensions are small applications that perform post deployment configuration and automation task on Azure Virtual Machines. For example, if a Virtual Machine requires software to be installed, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Resource Manage templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment, or run against an existing system.
+Azure Virtual Machine extensions are small applications that provide post deployment configuration and automation task on Azure Virtual Machines. For example, if a Virtual Machine requires software to be installed, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Resource Manage templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment, or run against any existing system.
 
-This document provides an overview of Azure virtual machine extensions, prerequisites, and guidance on how to detect, manage, and remove virtual machine extensions. Additional in-depth documentation is provided for several specific extensions.
+This document provides an overview of virtual machine extensions, prerequisites for using Azure Virtual Machine extensions, and guidance on how to detect, manage, and remove virtual machine extensions. Additional in-depth documentation is provided for many process specific virtual machine extensions.
 
 ## Use cases and samples
 
@@ -35,11 +35,11 @@ Several different Azure VM extensions are available, each with a specific use ca
 
 In addition to process specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any bash script to be run on a virtual machine. This becomes powerful when designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](virtual-machines-linux-extensions-customscript.md).
 
-To see how a VM extension can be used in an end to end Azure deployment, check out [Automating application deployments to Azure Virtual Machines](virtual-machines-linux-dotnet-core-1-landing.md).
+To work through an example where a VM extension is used in an end to end application deployment, check out [Automating application deployments to Azure Virtual Machines](virtual-machines-linux-dotnet-core-1-landing.md).
 
 ## Prerequisites
 
-Each virtual machine extension may have its own set of prerequisites. For instance, the Docker VM extension has a prerequisite of a supported Linux distribution. Requirements for individual extension are detailed in the extension-specific documentation. 
+Each virtual machine extension may have its own set of prerequisites. For instance, the Docker VM extension has a prerequisite of a supported Linux distribution. Requirements of individual extension are detailed in the extension-specific documentation. 
 
 ### Azure VM Agent
 
@@ -57,7 +57,7 @@ azure vm extension-image list westus
 
 ## Running VM extensions
 
-Azure virtual machine extensions can be run on existing virtual machines, or bundled with Azure Resource Manager template deployments.
+Azure virtual machine extensions can be run on existing virtual machines, which is useful when needing to make configuration changes or recover connectivity on an already deployed VM. VM extensions can also be bundled with Azure Resource Manager template deployments. Using extension with Resource Manager templates enables Azure virtual machines to be deployed and configured without the need for post deployment intervention.
 
 The following methods can be used to run an extension against an existing virtual machine. 
 
@@ -150,6 +150,8 @@ data:    Microsoft.Azure.Extensions  DockerExtension  1.0      Succeeded
 info:    vm extension get command OK         :
 ```
 
+Extension execution status can also be found in the Azure portal. To view the status of an extension, select the virtual machine > extensions > select the desired extension.
+
 ### Rerunning VM extension 
 
 There may be cases where a virtual machine extension needs to be rerun. This can be accomplished by removing the extension, and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure CLI. Replace example parameter names with your own values.
@@ -167,4 +169,5 @@ An extension can also be removed using the Azure portal. To do so, select a virt
 | Docker Extension |Installs the Docker daemon to support remote Docker commands. |[Docker VM Extension](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) |
 | VM Access Extension |Regain access to Azure Virtual Machine |[VM Access Extension](https://github.com/Azure/azure-linux-extensions/tree/master/VMAccess) |
 | Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Azure VM Access Extension |Manage users and credentials |[VM Access Extension for Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
 
