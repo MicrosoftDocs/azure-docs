@@ -1,14 +1,14 @@
 ---
 title: Service Bus AMQP overview with Java | Microsoft Docs
 description: Learn about using Java with the Advanced Message Queuing Protocol (AMQP) 1.0 in Azure.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: java
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: f3bcb0f6-8389-4360-b3fd-ea41dcc0017f
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
