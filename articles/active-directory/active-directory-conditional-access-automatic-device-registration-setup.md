@@ -57,19 +57,19 @@ If some devices in your organizations are not Windows 10 domain-joined devices, 
 * Set a policy in Azure AD so that users can register devices
 * Set Integrated Windows Authentication (IWA) as a valid alternative to multi-factor authentication in AD FS
 
-## Set a service connection point for discovery of the Azure AD tenant
-A service connection point object must exist in the configuration naming context partition of the forest of the domain where computers are joined. The service connection point holds discovery information about the Azure AD tenant where computers register. In a multi-forest Active Directory configuration, the service connection point must exist in all forests that have domain-joined computers.
+## Step 1: Configure service connection point 
 
-Set the service connection point at these locations in Active Directory:
+A service connection point (SCP) object must exist in the configuration naming context partition of the computer's domain. The service connection point holds discovery information about the Azure AD tenant where computers register. In a multi-forest Active Directory configuration, the service connection point must exist in all forests that have domain-joined computers.
 
-    CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,[Configuration Naming Context]
+The SCP is located at:  
 
-> [!NOTE]
-> For a forest with the Active Directory domain name *example.com*, the configuration naming context is CN=Configuration,DC=example,DC=com.
-> 
-> 
+**CN=62a0ff2e-97b9-4513-943f-0d221bd30080,CN=Device Registration Configuration,CN=Services,[Your Configuration Naming Context]**
 
-You can check for the Azure AD tenant object and discovery values by using the following Windows PowerShell script. (Replace the configuration naming context in the example with your configuration naming context.)
+For a forest with the Active Directory domain name *example.com*, the configuration naming context is:  
+
+**CN=Configuration,DC=example,DC=com**
+
+With the following Windows PowerShell script, you can verify the existence of the object and retrieve the discovery values: 
 
     $scp = New-Object System.DirectoryServices.DirectoryEntry;
 
@@ -77,13 +77,13 @@ You can check for the Azure AD tenant object and discovery values by using the f
 
     $scp.Keywords;
 
-The `$scp.Keywords` output shows the Azure AD tenant information:
+The **$scp.Keywords** output shows the Azure AD tenant information:
 
-    azureADName:microsoft.com
+azureADName:microsoft.com
 
-    azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
+azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
-If the service connection point doesn’t exist, create it by running the following PowerShell script on the Azure AD Connect server:
+If the service connection point doesn’t exist, create it by running the following PowerShell script on your Azure AD Connect server:
 
     Import-Module -Name "C:\Program Files\Microsoft Azure Active Directory Connect\AdPrep\AdSyncPrep.psm1";
 
@@ -92,12 +92,19 @@ If the service connection point doesn’t exist, create it by running the follow
     Initialize-ADSyncDomainJoinedComputerSync –AdConnectorAccount [connector account name] -AzureADCredentials $aadAdminCred;
 
 
-> [!NOTE]
-> When you run `$aadAdminCred = Get-Credential`, use the format *user@example.com* for the user name in the **Get-Credential** dialog box.  
-> When you run the Initialize-ADSyncDomainJoinedComputerSync cmdlet, replace [*connector account name*] with the domain account that's used in the Active Directory connector account.  
-> The cmdlet uses the Active Directory PowerShell module, which relies on Active Directory Web Services in a domain controller. Active Directory Web Services is supported in domain controllers in Windows Server 2008 R2 and later versions. For domain controllers in Windows Server 2008 or earlier versions, use the System.DirectoryServices API via PowerShell to create the service connection point, and then assign the Keywords values.
-> 
-> 
+
+**Remarks:**
+
+When you run **$aadAdminCred = Get-Credential**, you are required to enter a user name. For the user name, use the following format:
+
+**user@example.com** 
+
+
+When you run the **Initialize-ADSyncDomainJoinedComputerSync** cmdlet, replace [*connector account name*] with the domain account that's used in the Active Directory connector account.
+  
+The cmdlet uses the Active Directory PowerShell module, which relies on Active Directory Web Services in a domain controller. Active Directory Web Services is supported on domain controllers in Windows Server 2008 R2 and later. For domain controllers in Windows Server 2008 or earlier versions, use the System.DirectoryServices API via PowerShell to create the service connection point, and then assign the Keywords values.
+ 
+ 
 
 
 
