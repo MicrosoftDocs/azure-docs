@@ -196,73 +196,73 @@ If you have than one verified domain, perform the following steps:
 
 1. Remove the existing IssuerID rule   created as part of Azure AD Connect first
 
-	c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
-	=> issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
+		c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
+		=> issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
 
 2. Run the script
 
-	<#----------------------------------------------------------------------
-	|   Modify the Azure AD Relying Party to include the claims needed
-	|   for DomainJoin++. The rules include:
-	|   -ObjectGuid
-	|   -AccountType
-	|   -ObjectSid
-	+---------------------------------------------------------------------#>
+		<#----------------------------------------------------------------------
+		|   Modify the Azure AD Relying Party to include the claims needed
+		|   for DomainJoin++. The rules include:
+		|   -ObjectGuid
+		|   -AccountType
+		|   -ObjectSid
+		+---------------------------------------------------------------------#>
 
-	$VerifiedDomain = "example.com"      # Replace example.com with your verified domain
+		$VerifiedDomain = "example.com"      # Replace example.com with your verified domain
 
-	$rule1 = '@RuleName = "Issue object GUID" 
+		$rule1 = '@RuleName = "Issue object GUID" 
 
-    c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] && 
+    	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] && 
 
-    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
+    	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
 
-    => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/identity/claims/onpremobjectguid"), query = ";objectguid;{0}", param = c2.Value);' 
+    	=> issue(store = "Active Directory", types = ("http://schemas.microsoft.com/identity/claims/onpremobjectguid"), query = ";objectguid;{0}", param = c2.Value);' 
 
-	$rule2 = '@RuleName = "Issue account type for domain joined computers" 
+		$rule2 = '@RuleName = "Issue account type for domain joined computers" 
 
-	c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
+		c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
 
-	=> issue(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "DJ");' 
+		=> issue(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "DJ");' 
 
-	$rule3 = '@RuleName = "Pass through primary SID" 
+		$rule3 = '@RuleName = "Pass through primary SID" 
 
-	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] && 
+		c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] && 
 
-	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
+		c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
 
-	=> issue(claim = c2);' 
+		=> issue(claim = c2);' 
 
-	$rule4 = '@RuleName = "Issue AccountType with the value User when it’s not a computer account" 
+		$rule4 = '@RuleName = "Issue AccountType with the value User when it’s not a computer account" 
 
-	NOT EXISTS([Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "DJ"]) 
+		NOT EXISTS([Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "DJ"]) 
 
-	=> add(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "User");' 
+		=> add(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "User");' 
 
-	$rule5 = '@RuleName = "Capture UPN when AccountType is User and issue the IssuerID" 
+		$rule5 = '@RuleName = "Capture UPN when AccountType is User and issue the IssuerID" 
 
-	c1:[Type == "http://schemas.xmlsoap.org/claims/UPN"] && 
+		c1:[Type == "http://schemas.xmlsoap.org/claims/UPN"] && 
 
-	c2:[Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "User"] 
+		c2:[Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "User"] 
 
-	=> issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c1.Value, ".+@(?<domain>.+)", "http://${domain}/ /adfs/services/trust/"));' 
+		=> issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c1.Value, ".+@(?<domain>.+)", "http://${domain}/ /adfs/services/trust/"));' 
 
-	$rule6 = '@RuleName = "Update issuer for DJ computer auth" 
+		$rule6 = '@RuleName = "Update issuer for DJ computer auth" 
 
-	c1:[Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "DJ"] 
+		c1:[Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "DJ"] 
 
-	=> issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = "http://'+$VerifiedDomain+'/adfs/services/trust/");' 
+		=> issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = "http://'+$VerifiedDomain+'/adfs/services/trust/");' 
 
-	}
+		}
 
-	$existingRules = (Get-ADFSRelyingPartyTrust -Identifier urn:federation:MicrosoftOnline).IssuanceTransformRules 
+		$existingRules = (Get-ADFSRelyingPartyTrust -Identifier urn:federation:MicrosoftOnline).IssuanceTransformRules 
 
-	$updatedRules = $existingRules + $rule1 + $rule2 + $rule3 + $rule4 + $rule5 + $rule6 
+		$updatedRules = $existingRules + $rule1 + $rule2 + $rule3 + $rule4 + $rule5 + $rule6 
 
-	$crSet = New-ADFSClaimRuleSet -ClaimRule $updatedRules 
+		$crSet = New-ADFSClaimRuleSet -ClaimRule $updatedRules 
 
-	Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
+		Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
 
 
 Windows 10 and Windows Server 2016 domain joined computers authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. The end-point is `adfs/services/trust/13/windowstransport`. 
