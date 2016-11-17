@@ -36,7 +36,7 @@ Learn how to access Advisor using the Azure portal, get recommendations, impleme
 
   ![Azure Advisor dashboard](./media/advisor-overview/advisor-all-tab.png)
 
-## Get Advisor recommendation details and implement recommendation
+## Get Advisor recommendation details and implement a recommendation
 
 The **Recommendation** blade in Advisor offers additional information about the Advisor recommendation. 
 
