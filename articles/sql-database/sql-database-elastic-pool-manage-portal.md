@@ -63,7 +63,10 @@ You can edit the chart and the metric blade to display other metrics such as CPU
 
 - In the **Edit Chart** blade, select a new time range (past hour, today, or past week), or click **custom** to select any date range in the last two weeks. Select the chart type (bar or line), then select the resources to monitor.
 
-> Note: Only metrics with the same unit of measure can be displayed in the chart at the same time. For example, if you select "eDTU percentage" then you will only be able to select other metrics with percentage as the unit of measure.
+> [!Note]
+> Only metrics with the same unit of measure can be displayed in the chart at the same time. For example, if you select "eDTU percentage" then you will only be able to select other metrics with percentage as the unit of measure.
+>
+>
 
 	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
