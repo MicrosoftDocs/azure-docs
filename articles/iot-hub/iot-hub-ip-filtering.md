@@ -76,6 +76,12 @@ To save your new IP filter rule order, click **Save**.
 
 ![][img-ip-filter-rule-order]
 
+## Next steps
+
+To further explore the capabilities of IoT Hub, see:
+
+* [Operations monitoring][lnk-monitor]
+* [IoT Hub metrics][lnk-metrics]
 
 <!-- Images -->
 [img-ip-filter-default]: ./media/iot-hub-ip-filtering/ip-filter-default.png
@@ -89,3 +95,6 @@ To save your new IP filter rule order, click **Save**.
 
 [IoT Hub Developer Guide]: iot-hub-devguide.md
 [Azure Express Route]:  https://azure.microsoft.com/en-us/documentation/articles/expressroute-faqs/#supported-services
+
+[lnk-monitor]: iot-hub-operations-monitoring.md
+[lnk-metrics]: iot-hub-metrics.md
