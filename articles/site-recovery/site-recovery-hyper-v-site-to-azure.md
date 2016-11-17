@@ -334,8 +334,8 @@ We recommend that you verify the properties of the source machine.
      * If the VM has multiple network adapters they will all connect to the same network.
      * If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
 
-
      ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/test-failover4.png)
+
 4. In **Disks** you can see the operating system and data disks on the VM that will be replicated.
 
 ## Step 7: Test the deployment
