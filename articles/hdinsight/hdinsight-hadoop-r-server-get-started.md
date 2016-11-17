@@ -373,7 +373,6 @@ A new feature available in R Server 9.0 and above allows direct access to data i
 
 The following provides some sample code on use of the new functions: 
 
-myHadoopCluster <- rxSparkConnect(reset = TRUE)
 
 
 ```
