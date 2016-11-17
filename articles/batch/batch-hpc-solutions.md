@@ -67,9 +67,7 @@ Clustering and job scheduling tools for Windows-based and Linux-based clusters c
 As shown in the following sections, you can also take advantage of Azure services to manage compute resources and schedule jobs without (or in addition to) traditional cluster management tools.
 
 ## Scenarios
-Here are three common scenarios to run Big Comp
-
-ute workloads in Azure by using existing HPC cluster solutions, Azure services, or a combination of the two. Key considerations for choosing each scenario are listed but aren't exhaustive. More about the available Azure services you might use in your solution is later in the article.
+Here are three common scenarios to run Big Compute workloads in Azure by using existing HPC cluster solutions, Azure services, or a combination of the two. Key considerations for choosing each scenario are listed but aren't exhaustive. More about the available Azure services you might use in your solution is later in the article.
 
 | Scenario | Why choose it? |
 | --- | --- | --- |
@@ -89,7 +87,7 @@ Here is more about the compute, data, networking, and related services you can c
 Azure compute services are the core of a Big Compute solution, and the different compute services offer advantages for different scenarios. At a basic level, these services offer different modes for applications to run on virtual machine-based compute instances that Azure provides using Windows Server Hyper-V technology. These instances can run standard and custom Linux and Windows operating systems and tools. Azure gives you a choice of [instance sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) with different configurations of CPU cores, memory, disk capacity, and other characteristics. Depending on your needs, you can scale the instances to thousands of cores and then scale down when you need fewer resources.
 
 > [!NOTE]
-> Take advantage of the Azure compute-intensive instances such as the H-series to improve the performance and scalability of HPC workloads. These instances also support parallel MPI applications that require a low latency and high throughput application network. See [About H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). [N-series](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) VMs with NVIDIA GPUs expand the range of computing and visualization scenarios you can bring to Azure.  
+> Take advantage of the Azure [compute-intensive instances such as the H-series](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to improve the performance and scalability of HPC workloads. These instances also support parallel MPI applications that require a low-latency and high-throughput application network. Also available are [N-series](https://azure.microsoft.com/blog/azure-n-series-general-availability-on-december-1/) VMs with NVIDIA GPUs to expand the range of computing and visualization scenarios in Azure.  
 > 
 > 
 
