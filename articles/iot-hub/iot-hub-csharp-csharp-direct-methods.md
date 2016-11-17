@@ -1,5 +1,5 @@
 ---
-title: Use direct methods (C#) | Microsoft Docs
+title: Use Azure IoT Hub direct methods (C#) | Microsoft Docs
 description: This tutorial shows you how to use direct methods
 services: iot-hub
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Developer guide - Cloud to device communications guidance | Microsoft Docs
+title: Azure IoT Hub cloud to device communications guidance | Microsoft Docs
 description: Azure IoT Hub developer guide - guidance on when to use direct methods, device twin's desired properties, or cloud-to-device messages. 
 services: iot-hub
 documentationcenter: ''
@@ -48,3 +48,6 @@ Learn how to use direct methods, desired properties, and cloud-to-device message
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-c2d]: iot-hub-devguide-messaging.md#cloud-to-device-messages
 [lnk-methods]: iot-hub-devguide-direct-methods.md
+[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
+[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-c2d-tutorial]: iot-hub-node-node-c2d.md
