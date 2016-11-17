@@ -70,7 +70,7 @@ The following steps guide you through the installation stages:
 5.	Review the App Cloud Service configuration information and click **Next**.![App Service on Azure Stack Technical Preview 2 App Service Cloud Configuration][2]
 6.  Click **Connect** (Next to the Azure Stack Subscriptions box).![App Service on Azure Stack Technical Preview 2 App Service Cloud Configuration Screen Two][3]
 7.	In the Azure Stack Authentication window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.
->[!NOTE] 
+> [!NOTE] 
 > Enter the Azure Active Directory account that you provided when you deployed Azure Stack.
 	- Click the **Down Arrow** on the right side of the box next to **Azure Stack Subscriptions** and then select your subscription.
 > ![App Service on Azure Stack Technical Preview 2 Subscription Selection][5]
@@ -120,7 +120,7 @@ The following steps guide you through the installation stages:
 2.  Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
 3.  Run the **Register-AppServiceGalleryItems.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example myazurestack.onmicrosoft.com.
 4.  In the Azure Stack Authentication window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.
->[!Note:**]
+> [!NOTE]
 > Enter the Azure Active Directory account that you provided when you deployed Azure Stack.
 
 ## Test Drive App Service on Azure Stack
