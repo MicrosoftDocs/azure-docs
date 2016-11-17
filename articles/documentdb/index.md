@@ -71,7 +71,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDb using .NET</h3>
+                        <h3>Get Started with DocumentDB using .NET</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDb using Node.js</h3>
+                        <h3>Get Started with DocumentDB using Node.js</h3>
                     </div>
                 </div>
             </div>
