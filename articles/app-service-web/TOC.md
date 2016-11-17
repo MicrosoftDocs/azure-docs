@@ -149,11 +149,11 @@
 #### [Configure GoDaddy domains](web-sites-godaddy-custom-domain-name.md)
 #### [Custom domains with Traffic Manager](web-sites-traffic-manager-custom-domain-name.md)
 
-### [Configure container for App Service on Linux](app-service-linux-using-custom-docker-image.md)
 ### [Clone an existing app](app-service-web-app-cloning-portal.md)
 ### [On-premises connections](web-sites-hybrid-connection-get-started.md)
 ### [Azure Virtual Network](web-sites-integrate-with-vnet.md)
 ### [Advanced configuration](web-sites-transform-extend.md)
+### [Configure container for App Service on Linux](app-service-linux-using-custom-docker-image.md)
 ### [Resource groups](app-service-move-resources.md)
 ### [Convert WordPress to Multisite](web-sites-php-convert-wordpress-multisite.md) 
 
