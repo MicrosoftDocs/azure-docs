@@ -37,7 +37,7 @@
 
 # Reference
 
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [.NET](/dotnet/api/)
 ## [U-SQL](https://msdn.microsoft.com/library/azure/mt591959)
 ## [Node.js](https://www.npmjs.com/package/azure-arm-datalake-analytics)
