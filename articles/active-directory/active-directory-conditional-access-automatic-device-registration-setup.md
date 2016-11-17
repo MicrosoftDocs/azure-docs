@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set up automatic registration of Windows domain-joined devices with Azure Active Directory | Microsoft Docs
 description: Set up your domain-joined Windows devices to register automatically and silently with Azure Active Directory.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/24/2016
+ms.date: 11/17/2016
 ms.author: markvi
 
 ---
@@ -99,20 +99,40 @@ If the service connection point doesn’t exist, create it by running the follow
 > 
 > 
 
-## Create AD FS rules for instant device registration in federated organizations
-In a federated Azure AD configuration, devices rely on AD FS (or on the on-premises federation server) to authenticate to Azure AD. Then, they register against Azure Active Directory Device Registration Service (Azure AD Device Registration Service).
 
-> [!NOTE]
-> In a non-federated configuration, user password hashes are synced to Azure AD, and Windows 10 and Windows Server 2016 domain-joined computers authenticate against Azure AD Device Registration Service. A user authenticates by using a credential that the user writes into their on-premises computer accounts, and which is relayed to Azure AD via Azure AD Connect. For non-Windows 10 and Windows Server 2016 computers in a non-federated configuration, you have options for setting a device-based certificate authority in your organization. For more information, see the section Download Windows Installer packages for non-Windows 10 computers in this article.
-> 
-> 
+
+## Device registration
+
+
+### Device registration in non-federated organizations
+
+In a non-federated configuration that has password sync enabled, Windows 10 and Windows Server 2016 domain-joined computers authenticate against the Azure AD Device Registration Service using a credential that is:
+ 
+- Stored in the on-premises computer account
+- Synchronized to Azure AD via Azure AD Connect 
+
+
+For non Windows 10 and Windows Server 2016 computers, 
+
+
+
+
+
+
+
+### Device registration in federated organizations
+
+In a federated Azure AD configuration, devices rely on AD FS (or on the on-premises federation server) to authenticate to Azure AD. Then, they register against Azure Active Directory Device Registration Service (Azure AD Device Registration Service).
 
 For Windows 10 and Windows Server 2016 computers, Azure AD Connect associates the device object in Azure AD with the on-premises computer account object. The following claims must exist during authentication for Azure AD Device Registration Service to complete registration and create the device object:
 
-* http://schemas.microsoft.com/ws/2012/01/accounttype contains the DJ value, which identifies the principal authenticator as a domain-joined computer.
-* http://schemas.microsoft.com/identity/claims/onpremobjectguid contains the value of the **objectGUID** attribute of the on-premises computer account.
-* http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid contains the computer's primary security identifier (SID), which corresponds to the **objectSid** attribute value of the on-premises computer account.
-* http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid contains the value that Azure AD uses to trust the token issued from AD FS or from the on-premises Security Token Service (STS). This is important in a multi-forest Active Directory configuration. In this configuration, computers might be joined to a forest other than the one that connects to Azure AD at the AD FS or on-premises STS. For the AD FS, use the value http://<*domain-name*>/adfs/services/trust/, where <*domain-name*> is the validated domain name in Azure AD.
+- `http://schemas.microsoft.com/ws/2012/01/accounttype` - Contains the DJ value, which identifies the principal authenticator as a domain-joined computer.
+
+- `http://schemas.microsoft.com/identity/claims/onpremobjectguid` - Contains the value of the **objectGUID** attribute of the on-premises computer account.
+ 
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid` - Contains the computer's primary security identifier (SID), which corresponds to the **objectSid** attribute value of the on-premises computer account.
+
+- `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid` - Contains the value that Azure AD uses to trust the token issued from AD FS or from the on-premises Security Token Service (STS). This is important if you have several verified domains in Azure AD. For the AD FS case, use `http://<*domain-name*>/adfs/services/trust/`, where \<*domain-name*\> is the verified domain name in Azure AD.
 
 To create these rules manually, in AD FS, use the following PowerShell script in a session that is connected to your server. Replace the first line with your validated organization domain name in Azure AD.
 
@@ -121,67 +141,135 @@ To create these rules manually, in AD FS, use the following PowerShell script in
 > 
 > 
 
-    $validatedDomain = "example.com"      # Replace example.com with your organization's validated domain name in Azure AD
+### Setting AD FS rules in a single domain environment
 
-    $rule1 = '@RuleName = "Issue object GUID"
+Use the following script to add the rules required for a single verified domain.
 
-        c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] &&
 
-          c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"]
+	<#----------------------------------------------------------------------
+	|   Modify the Azure AD Relying Party to include the claims needed
+	|   for DomainJoin++. The rules include:
+	|   -ObjectGuid
+	|   -AccountType
+	|   -ObjectSid
+	+---------------------------------------------------------------------#>
 
-          => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/identity/claims/onpremobjectguid"), query = ";objectguid;{0}", param = c2.Value);'
+	$rule1 = '@RuleName = "Issue object GUID" 
 
-    $rule2 = '@RuleName = "Issue account type for domain-joined computers"
+    c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] && 
 
-      c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"]
+    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
 
-      => issue(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "DJ");'
+    => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/identity/claims/onpremobjectguid"), query = ";objectguid;{0}", param = c2.Value);' 
 
-> [!NOTE]
-> Use only the first three rules if your environment on-premises is a single forest. If your computers are in a different forest than the one synchronizing with Azure AD or if the you use alternate names to the ones in the synchronization configuration, you must also include the remaining rules.
-> 
-> 
+	$rule2 = '@RuleName = "Issue account type for domain joined computers" 
 
-    $rule3 = '@RuleName = "Pass through primary SID"
+	c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
 
-      c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] &&
+	=> issue(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "DJ");' 
 
-      c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"]
+	$rule3 = '@RuleName = "Pass through primary SID" 
 
-      => issue(claim = c2);'
+	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] && 
 
-    $rule4 = '@RuleName = "Issue AccountType with the value User when it’s not a computer account"
+	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
 
-      NOT EXISTS([Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "DJ"])
+	=> issue(claim = c2);' 
 
-      => add(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "User");'
+	$existingRules = (Get-ADFSRelyingPartyTrust -Identifier urn:federation:MicrosoftOnline).IssuanceTransformRules 
 
-    $rule5 = '@RuleName = "Capture UPN when AccountType is User and issue the IssuerID"
+	$updatedRules = $existingRules + $rule1 + $rule2 + $rule3
 
-      c1:[Type == "http://schemas.xmlsoap.org/claims/UPN"] &&
+	$crSet = New-ADFSClaimRuleSet -ClaimRule $updatedRules 
 
-      c2:[Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "User"]
+	Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
 
-      => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c1.Value, ".+@(?<domain>.+)", "http://${domain}/adfs/services/trust/"));'
 
-    $rule6 = '@RuleName = "Update issuer for DJ computer auth"
+Windows 10 and Windows Server 2016 domain joined computers authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. The end-point is `adfs/services/trust/13/windowstransport`. 
 
-      c1:[Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "DJ"]
+It should be be enabled in the AD FS management console under **Service > Endpoints**. If you don’t have AD FS as your on-premises federation server, follow the instructions of your vendor to make sure the corresponding end-point is enabled. 
 
-      => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = "http://'+$validatedDomain+'/adfs/services/trust/");'
 
-    $existingRules = (Get-ADFSRelyingPartyTrust -Identifier urn:federation:MicrosoftOnline).IssuanceTransformRules
+### Setting AD FS rules in a multi domain environment
 
-    $updatedRules = $existingRules + $rule1 + $rule2 + $rule3 + $rule4 + $rule5 + $rule6
+If you have than one verified domain, perform the following steps:
 
-    $crSet = New-ADFSClaimRuleSet -ClaimRule $updatedRules
+1. Remove the existing IssuerID rule   created as part of Azure AD Connect first
 
-    Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString
+	c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
+	=> issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
-> [!NOTE]
-> Windows 10 and Windows Server 2016 domain-joined computers authenticate by using IWA to an active WS-Trust endpoint that is hosted by AD FS. Make sure that the endpoint is active. If you are using the Web Application Proxy, be sure that this endpoint is published through the proxy. The endpoint is adfs/services/trust/13/windowstransport. To check whether it's active, in the AD FS management console go to **Service** > **Endpoints**. If you don’t use AD FS for your on-premises federation server, follow your vendor's instructions to make sure that the corresponding endpoint is active.
-> 
-> 
+
+2. Run the script
+
+	<#----------------------------------------------------------------------
+	|   Modify the Azure AD Relying Party to include the claims needed
+	|   for DomainJoin++. The rules include:
+	|   -ObjectGuid
+	|   -AccountType
+	|   -ObjectSid
+	+---------------------------------------------------------------------#>
+
+	$VerifiedDomain = "example.com"      # Replace example.com with your verified domain
+
+	$rule1 = '@RuleName = "Issue object GUID" 
+
+    c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] && 
+
+    c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
+
+    => issue(store = "Active Directory", types = ("http://schemas.microsoft.com/identity/claims/onpremobjectguid"), query = ";objectguid;{0}", param = c2.Value);' 
+
+	$rule2 = '@RuleName = "Issue account type for domain joined computers" 
+
+	c:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
+
+	=> issue(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "DJ");' 
+
+	$rule3 = '@RuleName = "Pass through primary SID" 
+
+	c1:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value =~ "-515$", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] && 
+
+	c2:[Type == "http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid", Issuer =~ "^(AD AUTHORITY|SELF AUTHORITY|LOCAL AUTHORITY)$"] 
+
+	=> issue(claim = c2);' 
+
+	$rule4 = '@RuleName = "Issue AccountType with the value User when it’s not a computer account" 
+
+	NOT EXISTS([Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "DJ"]) 
+
+	=> add(Type = "http://schemas.microsoft.com/ws/2012/01/accounttype", Value = "User");' 
+
+	$rule5 = '@RuleName = "Capture UPN when AccountType is User and issue the IssuerID" 
+
+	c1:[Type == "http://schemas.xmlsoap.org/claims/UPN"] && 
+
+	c2:[Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "User"] 
+
+	=> issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c1.Value, ".+@(?<domain>.+)", "http://${domain}/ /adfs/services/trust/"));' 
+
+	$rule6 = '@RuleName = "Update issuer for DJ computer auth" 
+
+	c1:[Type == "http://schemas.microsoft.com/ws/2012/01/accounttype", Value == "DJ"] 
+
+	=> issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = "http://'+$VerifiedDomain+'/adfs/services/trust/");' 
+
+	}
+
+	$existingRules = (Get-ADFSRelyingPartyTrust -Identifier urn:federation:MicrosoftOnline).IssuanceTransformRules 
+
+	$updatedRules = $existingRules + $rule1 + $rule2 + $rule3 + $rule4 + $rule5 + $rule6 
+
+	$crSet = New-ADFSClaimRuleSet -ClaimRule $updatedRules 
+
+	Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
+
+
+Windows 10 and Windows Server 2016 domain joined computers authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. The end-point is `adfs/services/trust/13/windowstransport`. 
+
+It should be be enabled in the AD FS management console under **Service > Endpoints**. If you don’t have AD FS as your on-premises federation server, follow the instructions of your vendor to make sure the corresponding end-point is enabled. 
+
+
 
 ## Set up AD FS for authentication of device registration
 Make sure that IWA is set as a valid alternative to multi-factor authentication for device registration in AD FS. To do this, you need to have an issuance transform rule that passes through the authentication method.
@@ -194,13 +282,13 @@ Make sure that IWA is set as a valid alternative to multi-factor authentication 
 6. In the **Claim rule name** box, enter **Auth Method Claim Rule**.
 7. In the **Claim rule** box, enter this command:
    
-   `c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
-   => issue(claim = c);`.
+	`c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
+	=> issue(claim = c);`.
 8. On your federation server, enter this PowerShell command:
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
-<*RPObjectName*> is the relying party object name for your Azure AD relying party trust object. This object usually is named *Microsoft Office 365 Identity Platform*.
+\<*RPObjectName*\> is the relying party object name for your Azure AD relying party trust object. This object usually is named *Microsoft Office 365 Identity Platform*.
 
 ## Deployment and rollout
 When domain-joined computers meet the prerequisites, they are ready to register with Azure AD.
@@ -239,7 +327,7 @@ To set the policy, do these steps:
 8. Select **OK**.
 9. Link the Group Policy object to a location of your choice. For example, you can link it to a specific organizational unit. You also could link it to a specific security group of computers that automatically register with Azure AD. To set this policy for all domain-joined Windows 10 and Windows Server 2016 computers in your organization, link the Group Policy object to the domain.
 
-### Download Windows Installer packages for non-Windows 10 computers
+### Windows Installer packages for non-Windows 10 computers
 To register domain-joined computers running Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2, you can download and install these Windows Installer package (.msi) files:
 
 * [x64](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x64.msi)
