@@ -104,6 +104,18 @@ The Machine Updates Panel shows data from the OMS Update Management solution for
 ![Machine Change Tracking Panel](media/oms-service-map/machine-updates.png)
 
 
+## OMS Alert Integration
+Service Map's integrates with OMS Alerts to show fired alerts for the selected server in the selected time range.  The server will show an icon if there are current alerts and the Machine Alerts Panel will list the alerts
+
+![Machine Alerts Panel](media/oms-service-map/machine-alerts.png)
+
+Note that for Service Map to be able to display relevant alerts, the alert rule must be created so that it fires for a specific computer.  To create proper alerts:
+- Include a clause to group by computer: "by Computer interval 1minute"
+- Choose to alert based on Metric measurement
+
+![Alert configuration](media/oms-service-map/alert-configuration.png)
+
+
 ## Log Analytics records
 Service Map's computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics.  This can be applied to scenarios including migration planning, capacity analysis, discovery, and ad hoc performance troubleshooting.
 
