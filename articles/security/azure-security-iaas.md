@@ -26,13 +26,13 @@ As you started thinking about moving workloads to Azure IaaS you probably came t
 
 Before we get going let's start by saying that we should not expect to bring on-premises resources as one to one to Azure. The new challenges and the new options bring about an opportunity to reevaluate existing deigns, tools, and processes.
 
->[!NOTE]
-> Your responsability for security is based on the type of cloud service. The following chart summarizes the balance of responsibility for both Microsoft and you.
+
 
 
 ![Creating a DevTestLab](./media/azure-security-iaas/sec-cloudstack-new.png)
 
-
+>[!NOTE]
+> Your responsability for security is based on the type of cloud service. The chart above summarizes the balance of responsibility for both Microsoft and you.
 
 ## Best practices
 We will be discussing some of the options available in Azure that could help you meet your organization’s security requirements. While doing this we must keep in mind the different types of workloads and how their requirements may vary. Not one of these best practices can by itself secure your systems. Like anything else in security, you have to choose the appropriate options and see how the solutions can complement each other by filling gaps left by the others.
