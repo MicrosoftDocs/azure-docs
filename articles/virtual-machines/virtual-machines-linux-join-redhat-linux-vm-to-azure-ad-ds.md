@@ -26,6 +26,8 @@ This article shows you how to join a Red Hat Enterprise Linux (RHEL) 7 virtual m
 
 - [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md)
 
+- [an Azure Active Directory Domain Services DC](../active-directory-domain-services/active-directory-ds-getting-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
 ## Quick Commands
 
 Replace any examples with your own settings.
