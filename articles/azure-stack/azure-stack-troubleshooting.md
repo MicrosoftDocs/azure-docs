@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/13/2016
+ms.date: 11/17/2016
 ms.author: helaw
 
 ---
@@ -33,7 +33,7 @@ Code examples are provided as is and expected results cannot be guaranteed. This
   * “InvokeEceAction: Cannot bind argument to parameter 'Message' because it is an empty string.”
 * You may see deployment fail at step 60.61.93 with an error "Application with identifier 'URI' not found.” This behavior is due to the way applications are registered in Azure Active Directory.  If you receive this error, continue to [rerun the installation script](azure-stack-rerun-deploy.md) from step 60.61.93 until deployment is complete.
 * You will see that the **Availability Set** resource in the Marketplace shows up under the **virtualMachine-ARM** category – this appearance is only a cosmetic issue.
-* When creating a new virtual machine in the portal, in the **Basics** step, the storage option defaults to SSD.  This setting must be changed to HDD or on the **Size** step of VM deployment, you will not see VM sizes available to select and continue deployment. 
+* When creating a new virtual machine in the portal, in the **Basics** step, the storage option may default to SSD.  This setting must be changed to HDD or on the **Size** step of VM deployment, you will not see VM sizes available to select and continue deployment. 
 * You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM (in TP1 this was named ClientVM). This behavior is by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
 * You will see that the **Microsoft.Insights** resource provider is not automatically registered for tenant subscriptions. If you would like to see monitoring data for a VM deployed as a tenant, run the following command from PowerShell (after you [install and connect](azure-stack-connect-powershell.md) as a tenant): 
   
@@ -125,13 +125,6 @@ The following information about Azure Stack installation steps may be useful for
 | 60.61.101 |(Katal) Setup prerequisites for WAS VMs. |Sets up the prerequisites for Microsoft Azure Stack on the guest VMs. |
 | 60.61.102 |(Katal) Setup WAS VMs |Installs Microsoft Azure Stack on the guest VMs. |
 | 60.120.121 |(FBI) Deploy Resource providers and Controllers |Installs Resource providers and Controllers |
-| 60.120.121 |(FBI) Deploy Resource providers and Controllers |Installs Resource providers and Controllers |
-| 60.120.121 |(FBI) Deploy Resource providers and Controllers |Installs Resource providers and Controllers |
-| 60.120.121 |(FBI) Deploy Resource providers and Controllers |Installs Resource providers and Controllers |
-| 60.120.121 |(FBI) Deploy Resource providers and Controllers |Installs Resource providers and Controllers |
-| 60.120.121 |(FBI) Deploy Resource providers and Controllers |Installs Resource providers and Controllers |
-| 60.120.121 |(FBI) Deploy Resource providers and Controllers |Installs Resource providers and Controllers |
-| 60.120.121 |(FBI) Deploy Resource providers and Controllers |Installs Resource providers and Controllers |
 | 60.120.122 |(FBI) Controller Configuration |Configures Controllers |
 | 60.120.123 |(Katal) Configure WAS VMs |Configures Microsoft Azure Stack on the guest VMs. |
 | 60.120.124 |(Katal) Azure Stack AAD Configuration. |Configures Azure Stack with Azure AD. |
@@ -154,12 +147,12 @@ The following information about Azure Stack installation steps may be useful for
 | 60.160.168 |(FBI) FRP Prerequisite |Installs FRP prerequisites |
 | 60.160.169 |(FBI) FRP Deployment |Installs FRP |
 | 60.160.170 |(FBI) FRP Configuration |Configures FRP |
-| 60.160.174 |(FBI) URP Prerequisite |Installs URP prerequisites |
-| 60.160.175 |(FBI) URP Deployment |Installs URP |
-| 60.160.176 |(FBI) URP Configuration |Configures URP |
 | 60.160.171 |(FBI) HRP Prerequisite |Installs HRP prerequisites |
 | 60.160.172 |(FBI) HRP Deployment |Installs HRP |
 | 60.160.173 |(FBI) HRP Configuration |Configures HRP |
+| 60.160.174 |(FBI) URP Prerequisite |Installs URP prerequisites |
+| 60.160.175 |(FBI) URP Deployment |Installs URP |
+| 60.160.176 |(FBI) URP Configuration |Configures URP |
 | 60.160.177 |(KV) KeyVault Prerequisite |Installs KeyVault prerequisites |
 | 60.160.178 |(KV) KeyVault Deployment |Installs KeyVault |
 | 60.160.179 |(KV) KeyVault Configuration |Configures KeyVault |

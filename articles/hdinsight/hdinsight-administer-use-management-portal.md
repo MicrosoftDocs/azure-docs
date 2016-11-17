@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 11/15/2016
 ms.author: jgao
 
 ---
@@ -101,10 +101,10 @@ Installation of custom software on the cluster by using Remote Desktop Connectio
 
      **Usage**:
 
-     ![Azure portal hdinsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
+     ![Azure portal HDInsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight-portal-cluster-usage.png)
 5. Click **Settings**.
 
-    ![Azure portal hdinsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
+    ![Azure portal HDInsight cluster usage](./media/hdinsight-administer-use-management-portal/hdinsight.portal.cluster.settings.png)
 
    * **Properties**: View the cluster properties.
    * **Cluster AAD Identity**:
@@ -187,10 +187,10 @@ The impact of changing the number of data nodes for each type of cluster support
 
     Here is an example how to use the CLI command to rebalance the Storm topology:
 
-    ## Reconfigure the topology "mytopology" to use 5 worker processes,
-    ## the spout "blue-spout" to use 3 executors, and
-    ## the bolt "yellow-bolt" to use 10 executors
-      $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
+        ## Reconfigure the topology "mytopology" to use 5 worker processes,
+        ## the spout "blue-spout" to use 3 executors, and
+        ## the bolt "yellow-bolt" to use 10 executors
+        $ storm rebalance mytopology -n 5 -e blue-spout=3 -e yellow-bolt=10
 
 **To scale clusters**
 
@@ -326,7 +326,7 @@ The credentials for the cluster that you provided at its creation give access to
 3. Click **Settings** from the top menu, and then click **Remote Desktop**.
 4. Enter **Expires On**, **Remote Desktop Username** and **Remote Desktop Password**, and then click **Enable**.
 
-    ![hdinsight enable disable configure remote desktop](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
+    ![HDInsight enable disable configure remote desktop](./media/hdinsight-administer-use-management-portal/hdinsight.portal.remote.desktop.png)
 
     The default values for Expires On is a week.
 

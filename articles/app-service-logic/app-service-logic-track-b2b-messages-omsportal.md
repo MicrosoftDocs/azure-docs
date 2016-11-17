@@ -18,7 +18,7 @@ ms.author: padmavc
 
 ---
 # Tracking B2B messages in OMS portal
-B2B communication involves message exchanges between two running business processes or applications. Tracking B2B messages in OMS portal provides a rich, web-based tracking capabilities that allow to viewing whether messages processed correctly.  You can track
+B2B communication involves message exchanges between two running business processes or applications. Tracking B2B messages in OMS portal provides a rich, web-based tracking capabilities that allow to view whether messages processed correctly.  You can track
 
 * Count and status of messages
 * Acknowledgments status
@@ -29,9 +29,10 @@ B2B communication involves message exchanges between two running business proces
 ## Prerequisites
 * An Azure account; you can create a [free account](https://azure.microsoft.com/free)
 * An Integration Account; you can create an [Integration Account](app-service-logic-enterprise-integration-create-integration-account.md) and enable logging; you can find steps [here](app-service-logic-monitor-b2b-message.md)
-* A Logic App; you can create a [Logic App](app-service-logic-create-a-logic-app.md) and enable logging; you can find steps [here](app-service-logic-monitor-your-logic-apps.md)
+* A Logic App; you can create a [Logic App](app-service-logic-create-a-logic-app.md) and enable logging; you can find steps [here](app-service-logic-monitor-your-logic-apps.md#azure-diagnostics-and-alerts)
 
 ## Adding Logic Apps B2B solution to OMS portal
+
 1. Select **More Services** in portal, search **log analytics** and select **log analytics**
 ![Search log analytics](./media/app-service-logic-track-b2b-messages-omsportal/browseloganalytics.png)  
 
@@ -53,19 +54,43 @@ B2B communication involves message exchanges between two running business proces
 7. Browse home page to view **Logic Apps B2B Messages**
 ![Select home page](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage4.png)
 
-8. Post message process; the home page updates with message count
+## Tracking data in OMS portal
+
+1. Post message process; the home page updates with message count
 ![Select home page](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage6.png)
 
-9. Selecting **Logic Apps B2B Messages** on home page leads to AS2 and X12 message status.  The data is based on last one day.
+2. Selecting **Logic Apps B2B Messages** on home page leads to AS2 and X12 message status.  The data is based on last one day.
 ![Select Logic Apps B2B Messages](./media/app-service-logic-track-b2b-messages-omsportal/omshomepage5.png)
 
-10. Selecting AS2 or X12 messages by status takes you to the message list
+3. Selecting AS2 or X12 messages by status takes you to the message list
 ![Select AS2 message status](./media/app-service-logic-track-b2b-messages-omsportal/as2messagelist.png)
 
     ![Select X12 message status](./media/app-service-logic-track-b2b-messages-omsportal/x12messagelist.png)
 
-11. Select a row in AS2 or X12 message list takes you to log search.  Log search lists all the actions that have same **Run ID**
+4. Select a row in AS2 or X12 message list takes you to log search.  Log search lists all the actions that have same **Run ID**
 ![Select message status](./media/app-service-logic-track-b2b-messages-omsportal/logsearch.png)
+
+## Queries in OMS portal
+
+On the search page, you can create a query, and then when you search, you can filter the results by using facet controls.
+
+### How to create a query
+
+1. In the log search, write a query and select **Save**.  [Here](app-service-logic-track-b2b-messages-omsportal-query-filter-control-number.md) are the steps to write a query 
+![Select home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery.png)
+
+2. **Save Search** opens.  Give a **name**, **category**, and click **Save**   
+![Select home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery1.png)
+
+3. To view the query, select **favorites**    
+![Select home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery3.png)
+
+    ![Select home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery4.png)
+
+### How to use a saved query
+
+1. In the log search, select **favorites** to view saved queries.  Selecting one of the gives query results
+![Select home page](./media/app-service-logic-track-b2b-messages-omsportal/logsearchaddquery5.png)
 
 
 ## Next steps
