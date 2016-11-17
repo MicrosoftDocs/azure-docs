@@ -95,6 +95,10 @@ By default, the App Service on Azure Stack installer is set to use the SQL Serve
 >[!NOTE]
 > You can deploy and use another server to run SQL Server. You can choose the SQL Server instance to use when you complete the options in the App Service on Azure Stack installer.
 
+## Next steps
+
+- [Install the App Service Resource Provider](azure-stack-app-service-deploy.md)
+
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-before-you-get-started/PSGallery.png
 [2]: ./media/azure-stack-app-service-before-you-get-started/WebPI_InstalledProducts.png
