@@ -112,7 +112,7 @@ The following steps guide you through the installation stages:
 2.	Navigate to the location of the scripts downloaded and extracted in the [prerequisite step](#Download-Required-Components).
 3.	Run the **Register-AppServiceResourceProvider.ps1** script.  When prompted for your AAD Tenant ID - enter the AAD Tenant ID you are using for your Azure Stack deployment, for example myazurestack.onmicrosoft.com.
 4. 	In the Azure Stack Authentication window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.
->[!Note]
+> [!NOTE]
 > Enter the Azure Active Directory account that you provided when you deployed Azure Stack.
 
 ## Register the App Service Gallery Items in the Azure Stack Gallery.
