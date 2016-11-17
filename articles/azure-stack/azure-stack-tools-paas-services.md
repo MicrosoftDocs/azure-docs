@@ -28,16 +28,6 @@ You can deploy [Platform as a Service](https://azure.microsoft.com/overview/what
 [Add a MySQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
 
 
-## Additional PaaS services
-In Technical Preview 1, three PaaS resource providers are now available.
-
-[Add a SQL Server resource provider to Azure Stack](azure-stack-sql-rp-deploy-short.md)
-
-[Add a MySQL resource provider to Azure Stack](azure-stack-mysql-rp-deploy-short.md)
-
-[Add a Web Apps resource provider to Azure Stack](azure-stack-webapps-deploy.md)
-
-
 ## Template tools
 ### Azure Stack Github templates
 Explore the growing collection of [Azure Stack GitHub Templates](https://github.com/Azure/AzureStack-QuickStart-Templates). Just like [Azure](https://github.com/Azure/azure-quickstart-templates), these “Quick Start” Azure Resource Manager templates aim to get you started with simple building blocks and examples, ready to deploy on the Microsoft Azure Stack Technical Preview Proof of Concept Environment. Included are first party workload examples for [ad-non-ha](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/ad-non-ha), [sql-2014-non-ha](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sql-2014-non-ha), [sharepoint-2013-non-ha](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/sharepoint-2013-non-ha), as well as several simple 101 templates like [101-simple-windows-vm](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/master/101-simple-windows-vm).
