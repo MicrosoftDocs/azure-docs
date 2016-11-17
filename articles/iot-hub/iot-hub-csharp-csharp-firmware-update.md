@@ -1,5 +1,5 @@
 ---
-title: How to do a firmware update | Microsoft Docs
+title: How to do a firmware update with Azure IoT Hub | Microsoft Docs
 description: This tutorial shows you how to do a firmware update
 services: iot-hub
 documentationcenter: .net

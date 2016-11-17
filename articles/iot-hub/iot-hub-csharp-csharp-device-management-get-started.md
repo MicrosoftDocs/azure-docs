@@ -1,5 +1,5 @@
 ---
-title: Get started with device management | Microsoft Docs
+title: Get started with Azure IoT Hub device management | Microsoft Docs
 description: This tutorial shows you how to get started with device management on Azure IoT Hub
 services: iot-hub
 documentationcenter: .net

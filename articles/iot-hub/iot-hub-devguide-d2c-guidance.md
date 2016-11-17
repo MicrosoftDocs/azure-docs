@@ -1,5 +1,5 @@
 ---
-title: Developer guide - Device to cloud communications guidance | Microsoft Docs
+title: Azure IoT Hub device to cloud communications guidance | Microsoft Docs
 description: Azure IoT Hub developer guide - guidance on when to use device-to-cloud messages, device twin's reported properties, or file upload. 
 services: iot-hub
 documentationcenter: .net

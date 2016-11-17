@@ -1,5 +1,5 @@
 ---
-title: How to schedule jobs | Microsoft Docs
+title: How to schedule jobs with Azure IoT Hub | Microsoft Docs
 description: This tutorial shows you how to schedule jobs
 services: iot-hub
 documentationcenter: .net
