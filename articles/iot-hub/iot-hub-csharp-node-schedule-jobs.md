@@ -70,159 +70,76 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         
 5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section.
    
-        static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
         static JobClient jobClient;
-        static string targetDevice = "{deviceIdForTargetDevice}";
         
 6. Add the following method to the **Program** class:
    
-        public static async Task QueryTwinFWUpdateReported()
+        public static async Task MonitorJob(string jobId)
         {
-            Twin twin = await registryManager.GetTwinAsync(targetDevice);
-            Console.WriteLine(twin.Properties.Reported.ToJson());
+            JobResponse result;
+            do
+            {
+                result = await jobClient.GetJobAsync(jobId);
+                Console.WriteLine("Job Status : " + result.Status.ToString());
+                Thread.Sleep(2000);
+            } while ((result.Status != JobStatus.Completed) && (result.Status != JobStatus.Failed));
         }
-        
+                
 7. Add the following method to the **Program** class:
 
-        public static async Task StartFirmwareUpdate()
+        public static async Task StartMethodJob(string jobId)
         {
-            client = ServiceClient.CreateFromConnectionString(connString);
-            CloudToDeviceMethod method = new CloudToDeviceMethod("firmwareUpdate");
-            method.ResponseTimeout = TimeSpan.FromSeconds(30);
-            method.SetPayloadJson(
-                @"{
-                    fwPackageUri : 'https://someurl'
-                }");
+            CloudToDeviceMethod directMethod = new CloudToDeviceMethod("lockDoor", TimeSpan.FromSeconds(5), TimeSpan.FromSeconds(5));
 
-            CloudToDeviceMethodResult result = await client.InvokeDeviceMethodAsync(targetDevice, method);
+            JobResponse result = await jobClient.ScheduleDeviceMethodAsync(jobId,
+                "SELECT * from DEVICES",
+                directMethod,
+                DateTime.Now,
+                10);
 
-            Console.WriteLine("Invoked firmware update on device.");
+            Console.WriteLine("Started Method Job");
         }
 
-7. Finally, add the following lines to the **Main** method:
+8. Add the following method to the **Program** class:
+
+        public static async Task StartTwinUpdateJob(string jobId)
+        {
+            var twin = new Twin();
+            twin.Properties.Desired["Building"] = "43";
+            twin.Properties.Desired["Floor"] = "3";
+            twin.ETag = "*";
+
+            JobResponse result = await jobClient.ScheduleTwinUpdateAsync(jobId,
+                "SELECT * from DEVICES", 
+                twin,
+                DateTime.Now,
+                10);
+
+            Console.WriteLine("Started Twin Update Job");
+        }
+ 
+
+9. Finally, add the following lines to the **Main** method:
    
-        registryManager = RegistryManager.CreateFromConnectionString(connString);
-        StartFirmwareUpdate().Wait();
-        QueryTwinFWUpdateReported().Wait();
+        jobClient = JobClient.CreateFromConnectionString(connString);
+
+        string methodJobId = Guid.NewGuid().ToString();
+
+        StartMethodJob(methodJobId);
+        MonitorJob(methodJobId).Wait();
+        Console.WriteLine("Press ENTER to run the next job.");
+        Console.ReadLine();
+
+        string twinUpdateJobId = Guid.NewGuid().ToString();
+
+        StartTwinUpdateJob(twinUpdateJobId);
+        MonitorJob(twinUpdateJobId).Wait();
         Console.WriteLine("Press ENTER to exit.");
         Console.ReadLine();
-        
-8. Build the solution.
-
-[//]: # (TODO: Delete node code) 
-1. Create a new empty folder called **scheduleJobService**.  In the **scheduleJobService** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
-   
-    ```
-    npm init
-    ```
-2. At your command-prompt in the **scheduleJobService** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
-   
-    ```
-    npm install azure-iothub@dtpreview uuid --save
-    ```
-3. Using a text editor, create a new **scheduleJobService.js** file in the **scheduleJobService** folder.
-4. Add the following 'require' statements at the start of the **dmpatterns_gscheduleJobServiceetstarted_service.js** file:
-   
-    ```
-    'use strict';
-   
-    var uuid = require('uuid');
-    var JobClient = require('azure-iothub').JobClient;
-    ```
-5. Add the following variable declarations and replace the placeholder values:
-   
-    ```
-    var connectionString = '{iothubconnectionstring}';
-    var deviceArray = ['myDeviceId'];
-    var startTime = new Date();
-    var maxExecutionTimeInSeconds =  3600;
-    var jobClient = JobClient.fromConnectionString(connectionString);
-    ```
-6. Add the following function that will be used to monitor the execution of the job:
-   
-    ```
-    function monitorJob (jobId, callback) {
-        var jobMonitorInterval = setInterval(function() {
-            jobClient.getJob(jobId, function(err, result) {
-            if (err) {
-                console.error('Could not get job status: ' + err.message);
-            } else {
-                console.log('Job: ' + jobId + ' - status: ' + result.status);
-                if (result.status === 'completed' || result.status === 'failed' || result.status === 'cancelled') {
-                clearInterval(jobMonitorInterval);
-                callback(null, result);
-                }
-            }
-            });
-        }, 5000);
-    }
-    ```
-7. Add the following code to schedule the job that calls the device method:
-   
-    ```
-    var methodParams = {
-        methodName: 'lockDoor',
-        payload: null,
-        timeoutInSeconds: 45
-    };
-   
-    var methodJobId = uuid.v4();
-    console.log('scheduling Device Method job with id: ' + methodJobId);
-    jobClient.scheduleDeviceMethod(methodJobId,
-                                deviceArray,
-                                methodParams,
-                                startTime,
-                                maxExecutionTimeInSeconds,
-                                function(err) {
-        if (err) {
-            console.error('Could not schedule device method job: ' + err.message);
-        } else {
-            monitorJob(methodJobId, function(err, result) {
-                if (err) {
-                    console.error('Could not monitor device method job: ' + err.message);
-                } else {
-                    console.log(JSON.stringify(result, null, 2));
-                }
-            });
-        }
-    });
-    ```
-8. Add the following code to schedule the job to update the device twin:
-   
-    ```
-    var twinPatch = {
-        etag: '*',
-        desired: {
-            building: '43',
-            floor: 3
-        }
-    };
-   
-    var twinJobId = uuid.v4();
-   
-    console.log('scheduling Twin Update job with id: ' + twinJobId);
-    jobClient.scheduleTwinUpdate(twinJobId,
-                                deviceArray,
-                                twinPatch,
-                                startTime,
-                                maxExecutionTimeInSeconds,
-                                function(err) {
-        if (err) {
-            console.error('Could not schedule twin update job: ' + err.message);
-        } else {
-            monitorJob(twinJobId, function(err, result) {
-                if (err) {
-                    console.error('Could not monitor twin update job: ' + err.message);
-                } else {
-                    console.log(JSON.stringify(result, null, 2));
-                }
-            });
-        }
-    });
-    ```
-9. Save and close the **scheduleJobService.js** file.
+                   
+10. Build the solution.
 
 ## Create a simulated device app
 In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
