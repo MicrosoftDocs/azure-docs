@@ -31,7 +31,7 @@ Azure Data Catalog is a fully managed cloud service that enables users to discov
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/data-catalog.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
