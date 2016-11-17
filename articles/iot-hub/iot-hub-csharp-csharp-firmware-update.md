@@ -347,3 +347,4 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [lnk-rpi-implementation]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt_dm/pi_device
+[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

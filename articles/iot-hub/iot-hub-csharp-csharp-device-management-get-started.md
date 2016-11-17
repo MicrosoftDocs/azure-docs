@@ -247,3 +247,4 @@ To continue getting started with IoT Hub, see [Getting started with the IoT Gate
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/

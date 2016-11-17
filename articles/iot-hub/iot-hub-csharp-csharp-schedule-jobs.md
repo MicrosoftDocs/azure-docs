@@ -241,3 +241,4 @@ To continue getting started with IoT Hub, see [Getting started with the IoT Gate
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
