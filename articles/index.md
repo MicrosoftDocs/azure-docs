@@ -2378,10 +2378,10 @@ title: Microsoft Azure Documentation
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/develop/python/">Get the Python SDK</a>
+                                                    <a href="https://www.visualstudio.com/vs/python/">Get the Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/python/">Get started</a>
+                                                    <a href="https://www.visualstudio.com/vs/python/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
