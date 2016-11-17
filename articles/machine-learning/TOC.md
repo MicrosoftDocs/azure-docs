@@ -28,16 +28,16 @@
 ### [4: Predict an answer](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: Copy other people's work](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 # How To
-## Setup tools and utilities
-### [Setup environments](machine-learning-data-science-environment-setup.md)
-### [Setup virtual machines](machine-learning-data-science-virtual-machines.md)
+## Set up tools and utilities
+### [Set up environments](machine-learning-data-science-environment-setup.md)
+### [Set up virtual machines](machine-learning-data-science-virtual-machines.md)
 ### [Customize Hadoop](machine-learning-data-science-customize-hadoop-cluster.md)
-### Setup a virtual machine
+### Set up a virtual machine
 #### [DS VM overview](machine-learning-data-science-virtual-machine-overview.md)
 #### [How to use the DS VM](machine-learning-data-science-vm-do-ten-things.md)
 #### [Provision the DS VM](machine-learning-data-science-provision-vm.md)
-#### [Setup Azure VM](machine-learning-data-science-setup-virtual-machine.md)
-#### [Setup SQL VM](machine-learning-data-science-setup-sql-server-virtual-machine.md)
+#### [Set up Azure VM](machine-learning-data-science-setup-virtual-machine.md)
+#### [Set up SQL VM](machine-learning-data-science-setup-sql-server-virtual-machine.md)
 #### [Provision Linux VM](machine-learning-data-science-linux-dsvm-intro.md)
 #### [Use Linux VM](machine-learning-data-science-linux-dsvm-walkthrough.md)
 ### Manage a workspace
