@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/16/2016
 ms.author: dobett
 
 ---
@@ -40,8 +40,8 @@ To complete this tutorial, you need the following:
 ## Prepare your Visual Studio project
 1. In Visual Studio, create a Visual C# Windows project using the **Console Application** project template. Name the project **CreateIoTHub**.
 2. In Solution Explorer, right-click on your project and then click **Manage NuGet Packages**.
-3. In Nuget Package Manager, check **Include prerelease**, and search for **Microsoft.Azure.Management.ResourceManager**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
-4. In Nuget Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
+3. In NuGet Package Manager, check **Include prerelease**, and search for **Microsoft.Azure.Management.ResourceManager**. Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the licenses.
+4. In NuGet Package Manager, search for **Microsoft.IdentityModel.Clients.ActiveDirectory**.  Click **Install**, in **Review Changes** click **OK**, then click **I Accept** to accept the license.
 5. In Program.cs, replace the existing **using** statements with the following:
    
     ```
@@ -69,7 +69,7 @@ To complete this tutorial, you need the following:
 Use a JSON template and parameter file to create an IoT hub in your resource group. You can also use an Azure Resource Manager template to make changes to an existing IoT hub.
 
 1. In Solution Explorer, right-click on your project, click **Add**, and then click **New Item**. Add a JSON file called **template.json** to your project.
-2. Replace the contents of **template.json** with the following resource definition to add a standard IoT hub to the **East US** region (for the current list of regions that support IoT Hub see [Azure Status][lnk-status]):
+2. Replace the contents of **template.json** with the following resource definition to add a standard IoT hub to the **East US** region. For the current list of regions that support IoT Hub see [Azure Status][lnk-status]:
    
     ```
     {
@@ -105,7 +105,7 @@ Use a JSON template and parameter file to create an IoT hub in your resource gro
     }
     ```
 3. In Solution Explorer, right-click on your project, click **Add**, and then click **New Item**. Add a JSON file called **parameters.json** to your project.
-4. Replace the contents of **parameters.json** with the following parameter information that sets a name for the new IoT hub such as **{your initials}mynewiothub**. Note that the IoT hub name must be globally unique so it should include your name or initials):
+4. Replace the contents of **parameters.json** with the following parameter information that sets a name for the new IoT hub such as **{your initials}mynewiothub**. The IoT hub name must be globally unique so it should include your name or initials:
    
     ```
     {

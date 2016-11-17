@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 11/11/2016
 ms.author: cgronlun;garye
 
 ---
@@ -25,8 +25,8 @@ Learn how to evaluate your data to make sure it meets basic criteria to be ready
 To get the most out of the series, watch them all. [Go to the list of videos](#other-videos-in-this-series)
 
 > [!VIDEO https://channel9.msdn.com/Shows/SupervisionNotRequired/9/player]
-> 
-> 
+>
+>
 
 ## Other videos in this series
 *Data Science for Beginners* is a quick introduction to data science in five short videos.
@@ -107,4 +107,3 @@ Be sure to check out the other four videos in *Data Science for Beginners* from 
 ## Next steps
 * [Try a first data science experiment with Machine Learning Studio](machine-learning-create-experiment.md)
 * [Get an introduction to Machine Learning on Microsoft Azure](machine-learning-what-is-machine-learning.md)
-

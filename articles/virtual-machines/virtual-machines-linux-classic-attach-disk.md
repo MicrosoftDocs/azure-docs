@@ -1,6 +1,6 @@
 ---
 title: Attach a disk to a Linux VM | Microsoft Docs
-description: Learn how to attach a data disk to an Azure virtual machine running Linux and initialize it so it's ready for use.
+description: Learn how to attach a data disk to a Linux VM using the Classic deployment model and initialize the disk so it's ready for use
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 08/23/2016
+ms.date: 11/14/2016
 ms.author: iainfou
 
 ---
@@ -34,12 +34,14 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
 [!INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-linux.md)]
 
 ## Initialize a new data disk in Linux
-1. SSH to your VM. For further details, see [How to log on to a virtual machine running Linux][Logon].
+1. SSH to your VM. For more information, see [How to log on to a virtual machine running Linux][Logon].
 2. Next you need to find the device identifier for the data disk to initialize. There are two ways to do that:
    
     a) Grep for SCSI devices in the logs, such as in the following command:
    
-            $sudo grep SCSI /var/log/messages
+    ```bash
+    sudo grep SCSI /var/log/messages
+    ```
    
     For recent Ubuntu distributions, you may need to use `sudo grep SCSI /var/log/syslog` because logging to `/var/log/messages` might be disabled by default.
    
@@ -50,113 +52,143 @@ You can attach both empty disks and disks that contain data to your Azure VMs. B
     OR
    
     b) Use the `lsscsi` command to find out the device id. `lsscsi` can be installed by either `yum install lsscsi` (on Red Hat based distributions) or `apt-get install lsscsi` (on Debian based distributions). You can find the disk you are looking for by its *lun* or **logical unit number**. For example, the *lun* for the disks you attached can be easily seen from `azure vm disk list <virtual-machine>` as:
-   
-            ~$ azure vm disk list TestVM
-            info:    Executing command vm disk list
-            + Fetching disk images
-            + Getting virtual machines
-            + Getting VM disks
-            data:    Lun  Size(GB)  Blob-Name                         OS
-            data:    ---  --------  --------------------------------  -----
-            data:         30        TestVM-2645b8030676c8f8.vhd  Linux
-            data:    0    100       TestVM-76f7ee1ef0f6dddc.vhd
-            info:    vm disk list command OK
+
+    ```azurecli
+    azure vm disk list myVM
+    ```
+
+    The output is similar to the following:
+
+    ```azurecli
+    info:    Executing command vm disk list
+    + Fetching disk images
+    + Getting virtual machines
+    + Getting VM disks
+    data:    Lun  Size(GB)  Blob-Name                         OS
+    data:    ---  --------  --------------------------------  -----
+    data:         30        myVM-2645b8030676c8f8.vhd  Linux
+    data:    0    100       myVM-76f7ee1ef0f6dddc.vhd
+    info:    vm disk list command OK
+    ```
    
     Compare this data with the output of `lsscsi` for the same sample virtual machine:
    
-            ops@TestVM:~$ lsscsi
-            [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
-            [2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
-            [3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
-            [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
+    ```bash
+    [1:0:0:0]    cd/dvd  Msft     Virtual CD/ROM   1.0   /dev/sr0
+    [2:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sda
+    [3:0:1:0]    disk    Msft     Virtual Disk     1.0   /dev/sdb
+    [5:0:0:0]    disk    Msft     Virtual Disk     1.0   /dev/sdc
+    ```
    
     The last number in the tuple in each row is the *lun*. See `man lsscsi` for more information.
 3. At the prompt, type the following command to create your device:
    
-        $sudo fdisk /dev/sdc
-4. When prompted, type **n** to create a new partition.
+    ```bash
+    sudo fdisk /dev/sdc
+    ```
+
+4. When prompted, type **n** to create a partition.
 
     ![Create device](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartition.png)
 
-1. When prompted, type **p** to make the partition the primary partition. Type **1** to make it the first partition, and then type enter to accept the default value for the cylinder. On some systems, it can show the default values of the first and the last sectors, instead of the cylinder. You can choose to accept these defaults.
+5. When prompted, type **p** to make the partition the primary partition. Type **1** to make it the first partition, and then type enter to accept the default value for the cylinder. On some systems, it can show the default values of the first and the last sectors, instead of the cylinder. You can choose to accept these defaults.
 
     ![Create partition](./media/virtual-machines-linux-classic-attach-disk/fdisknewpartdetails.png)
 
 
-
-1. Type **p** to see the details about the disk that is being partitioned.
+6. Type **p** to see the details about the disk that is being partitioned.
 
     ![List disk information](./media/virtual-machines-linux-classic-attach-disk/fdiskpartitiondetails.png)
 
 
-
-1. Type **w** to write the settings for the disk.
+7. Type **w** to write the settings for the disk.
 
     ![Write the disk changes](./media/virtual-machines-linux-classic-attach-disk/fdiskwritedisk.png)
 
-1. Now you can create the file system on the new partition. Append the partition number to the device ID (in the following example `/dev/sdc1`). The following example creates an ext4 partition on /dev/sdc1:
+8. Now you can create the file system on the new partition. Append the partition number to the device ID (in the following example `/dev/sdc1`). The following example creates an ext4 partition on /dev/sdc1:
    
-        # sudo mkfs -t ext4 /dev/sdc1
+    ```bash
+    sudo mkfs -t ext4 /dev/sdc1
+    ```
    
     ![Create file system](./media/virtual-machines-linux-classic-attach-disk/mkfsext4.png)
    
    > [!NOTE]
    > SuSE Linux Enterprise 11 systems only support read-only access for ext4 file systems. For these systems, it is recommended to format the new file system as ext3 rather than ext4.
-   > 
-   > 
-2. Make a directory to mount the new file system, as follows:
-   
-        # sudo mkdir /datadrive
-3. Finally you can mount the drive, as follows:
-   
-       # sudo mount /dev/sdc1 /datadrive
-   
-   The data disk is now ready to use as **/datadrive**.
-   
-   ![Create the directory and mount the disk](./media/virtual-machines-linux-classic-attach-disk/mkdirandmount.png)
-4. Add the new drive to /etc/fstab:
-   
-   To ensure the drive is remounted automatically after a reboot it must be added to the /etc/fstab file. In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (i.e. /dev/sdc1). Using the UUID avoids the incorrect disk being mounted to a given location if the OS detects a disk error during boot and any remaining data disks then being assigned those device IDs. To find the UUID of the new drive, you can use the **blkid** utility:
-   
-       # sudo -i blkid
-   
-   The output looks similar to the following:
-   
-       /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
-       /dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
-       /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 
-    >[AZURE.NOTE] Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
+9. Make a directory to mount the new file system, as follows:
+   
+    ```bash
+    sudo mkdir /datadrive
+    ```
+
+10. Finally you can mount the drive, as follows:
+   
+    ```bash
+    sudo mount /dev/sdc1 /datadrive
+    ```
+   
+    The data disk is now ready to use as **/datadrive**.
+   
+    ![Create the directory and mount the disk](./media/virtual-machines-linux-classic-attach-disk/mkdirandmount.png)
+
+11. Add the new drive to /etc/fstab:
+   
+    To ensure the drive is remounted automatically after a reboot it must be added to the /etc/fstab file. In addition, it is highly recommended that the UUID (Universally Unique IDentifier) is used in /etc/fstab to refer to the drive rather than just the device name (i.e. /dev/sdc1). Using the UUID avoids the incorrect disk being mounted to a given location if the OS detects a disk error during boot and any remaining data disks then being assigned those device IDs. To find the UUID of the new drive, you can use the **blkid** utility:
+   
+    ```bash
+    sudo -i blkid
+    ```
+   
+    The output looks similar to the following example:
+   
+    ```bash
+    /dev/sda1: UUID="11111111-1b1b-1c1c-1d1d-1e1e1e1e1e1e" TYPE="ext4"
+    /dev/sdb1: UUID="22222222-2b2b-2c2c-2d2d-2e2e2e2e2e2e" TYPE="ext4"
+    /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
+    ```
+
+    > [!NOTE]
+    > Improperly editing the **/etc/fstab** file could result in an unbootable system. If unsure, refer to the distribution's documentation for information on how to properly edit this file. It is also recommended that a backup of the /etc/fstab file is created before editing.
 
     Next, open the **/etc/fstab** file in a text editor:
 
-        # sudo vi /etc/fstab
+    ```bash
+    sudo vi /etc/fstab
+    ```
 
     In this example, we use the UUID value for the new **/dev/sdc1** device that was created in the previous steps, and the mountpoint **/datadrive**. Add the following line to the end of the **/etc/fstab** file:
 
-        UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
+    ```sh
+    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,nofail   1   2
+    ```
 
     Or, on systems based on SuSE Linux you may need to use a slightly different format:
 
-        /dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults,nofail   1   2
+    ```sh
+    /dev/disk/by-uuid/33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext3   defaults,nofail   1   2
+    ```
 
-    >[AZURE.NOTE] The `nofail` option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/).
+    > [!NOTE]
+    > The `nofail` option ensures that the VM starts even if the filesystem is corrupt or the disk does not exist at boot time. Without this option, you may encounter behavior as described in [Cannot SSH to Linux VM due to FSTAB errors](https://blogs.msdn.microsoft.com/linuxonazure/2016/07/21/cannot-ssh-to-linux-vm-after-adding-data-disk-to-etcfstab-and-rebooting/).
 
     You can now test that the file system is mounted properly by unmounting and then remounting the file system, i.e. using the example mount point `/datadrive` created in the earlier steps:
 
-        # sudo umount /datadrive
-        # sudo mount /datadrive
+    ```bash
+    sudo umount /datadrive
+    sudo mount /datadrive
+    ```
 
     If the `mount` command produces an error, check the /etc/fstab file for correct syntax. If additional data drives or partitions are created, enter them into /etc/fstab separately as well.
 
     Make the drive writable by using this command:
 
-        # sudo chmod go+w /datadrive
+    ```bash
+    sudo chmod go+w /datadrive
+    ```
 
-> [!NOTE]
-> Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options that allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
-> 
-> 
+    > [!NOTE]
+    > Subsequently removing a data disk without editing fstab could cause the VM to fail to boot. If this is a common occurrence, most distributions provide either the `nofail` and/or `nobootwait` fstab options that allow a system to boot even if the disk fails to mount at boot time. Consult your distribution's documentation for more information on these parameters.
 
 ### TRIM/UNMAP support for Linux in Azure
 Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. These operations are primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded. Discarding pages can save cost if you create large files and then delete them.
@@ -164,19 +196,26 @@ Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the
 There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
 
 * Use the `discard` mount option in `/etc/fstab`, for example:
-  
-        UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+
+    ```sh
+    UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive   ext4   defaults,discard   1   2
+    ```
+
 * Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
   
     **Ubuntu**
   
-        # sudo apt-get install util-linux
-        # sudo fstrim /datadrive
+    ```bash
+    sudo apt-get install util-linux
+    sudo fstrim /datadrive
+    ```
   
     **RHEL/CentOS**
   
-        # sudo yum install util-linux
-        # sudo fstrim /datadrive
+    ```bash
+    sudo yum install util-linux
+    sudo fstrim /datadrive
+    ```
 
 ## Troubleshooting
 [!INCLUDE [virtual-machines-linux-lunzero](../../includes/virtual-machines-linux-lunzero.md)]

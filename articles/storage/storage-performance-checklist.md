@@ -172,8 +172,9 @@ If using the .NET Framework, this section lists several quick configuration sett
 #### <a name="subheading9"></a>Increase default connection limit
 In .NET, the following code increases the default connection limit (which is usually 2 in a client environment or 10 in a server environment) to 100. Typically, you should set the value to approximately the number of threads used by your application.  
 
+```csharp
     ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
-
+```
 You must set the connection limit before opening any connections.  
 
 For other programming languages, see that language’s documentation to determine how to set the connection limit.  
@@ -183,8 +184,9 @@ For additional information, see the blog post [Web Services: Concurrent Connecti
 #### <a name="subheading10"></a>Increase ThreadPool Min Threads if using synchronous code with Async Tasks
 This code will increase the thread pool min threads:  
 
+```csharp
     ThreadPool.SetMinThreads(100,100); //(Determine the right number for your application)  
-
+```
 For more information, see [ThreadPool.SetMinThreads Method](http://msdn.microsoft.com/library/system.threading.threadpool.setminthreads%28v=vs.110%29.aspx).  
 
 #### <a name="subheading11"></a>Take advantage of .NET 4.5 Garbage Collection
@@ -369,31 +371,33 @@ Alternatively, your application could store the CPU usage for each hour as a sep
 Sometimes structured data feels like it should go in tables, but ranges of entities are always retrieved together and can be batch inserted.  A good example of this is a log file.  In this case, you can batch several minutes of logs, insert them, and then you are always retrieving several minutes of logs at a time as well.  In this case, for performance, it’s better to use blobs instead of tables, since you can significantly reduce the number of objects written/returned, as well as usually the number of requests that need made.  
 
 ## Queues
-### <a name=subheading39"></a>Scalability Limits
+In addition to the proven practices for [All Services](#allservices) described previously, the following proven practices apply specifically to the queue service.  
+
+### <a name="subheading39"></a>Scalability Limits
 A single queue can process approximately 2,000 messages (1KB each) per second (each AddMessage, GetMessage, and DeleteMessage count as a message here). If this is insufficient for your application, you should use multiple queues and spread the messages across them.  
 
 View current scalability targets at [Azure Storage Scalability and Performance Targets](storage-scalability-targets.md).  
 
-### <a name=subheading40"></a>Nagle Off
+### <a name="subheading40"></a>Nagle Off
 See the section on table configuration that discusses the Nagle algorithm — the Nagle algorithm is generally bad for the performance of queue requests, and you should disable it.  
 
-### <a name=subheading41"></a>Message Size
+### <a name="subheading41"></a>Message Size
 Queue performance and scalability decreases as message size increases. You should place only the information the receiver needs in a message.  
 
-### <a name=subheading42"></a>Batch Retrieval
+### <a name="subheading42"></a>Batch Retrieval
 You can retrieve up to 32 messages from a queue in a single operation. This can reduce the number of roundtrips from the client application, which is especially useful for environments, such as mobile devices, with high latency.  
 
-### <a name=subheading43"></a>Queue Polling Interval
+### <a name="subheading43"></a>Queue Polling Interval
 Most applications poll for messages from a queue, which can be one of the largest sources of transactions for that application. Select your polling interval wisely: polling too frequently could cause your application to approach the scalability targets for the queue. However, at 200,000 transactions for $0.01 (at the time of writing), a single processor polling once every second for a month would cost less than 15 cents so cost is not typically a factor that affects your choice of polling interval.  
 
 For up-to-date cost information, see [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/).  
 
-### <a name=subheading44"></a>UpdateMessage
+### <a name="subheading44"></a>UpdateMessage
 You can use **UpdateMessage** to increase the invisibility timeout or to update state information of a message. While this is powerful, remember that each **UpdateMessage** operation counts towards the scalability target. However, this can be a much more efficient approach than having a workflow that passes a job from one queue to the next, as each step of the job is completed. Using the **UpdateMessage** operation allows your application to save the job state to the message and then continue working, instead of re-queuing the message for the next step of the job every time a step completes.  
 
 For more information, see the article [How to: Change the contents of a queued message](storage-dotnet-how-to-use-queues.md#change-the-contents-of-a-queued-message).  
 
-### <a name=subheading45"></a>Application architecture
+### <a name="subheading45"></a>Application architecture
 You should use queues to make your application architecture scalable. The following lists some ways you can use queues to make your application more scalable:  
 
 * You can use queues to create backlogs of work for processing and smooth out workloads in your application. For example, you could queue up requests from users to perform processor intensive work such as resizing uploaded images.
@@ -401,4 +405,3 @@ You should use queues to make your application architecture scalable. The follow
 
 ## Conclusion
 This article discussed some of the most common, proven practices for optimizing performance when using Azure Storage. We encourage every application developer to assess their application against each of the above practices and consider acting on the recommendations to get great performance for their applications that use Azure Storage.
-

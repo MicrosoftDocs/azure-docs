@@ -1,7 +1,6 @@
-﻿
----
-title: Azure Storage options for R Server on HDInsight (preview) | Microsoft Docs
-description: Learn about the different storage options available to users with R Server on HDInsight (preview)
+﻿---
+title: Azure Storage options for R Server on HDInsight | Microsoft Docs
+description: Learn about the different storage options available to users with R Server on HDInsight
 services: HDInsight
 documentationcenter: ''
 author: jeffstokes72
@@ -14,12 +13,12 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 09/01/2016
+ms.date: 11/16/2016
 ms.author: jeffstok
 
 ---
-# Azure Storage options for R Server on HDInsight (preview)
-Microsoft R Server on HDInsight (preview) has access to both Azure Blob and [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/), as a means of persisting data, code, result objects from analysis, and so on.
+# Azure Storage options for R Server on HDInsight
+Microsoft R Server on HDInsight has access to both Azure Blob and [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/), as a means of persisting data, code, result objects from analysis, and so on.
 
 When you create a Hadoop cluster in HDInsight, you specify an Azure storage account. A specific Blob storage container from that account holds the file system for the cluster you create (for example, the Hadoop Distributed File System). For performance purposes, the HDInsight cluster is created in the same data center as the primary storage account that you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md "Use Azure Blob storage with HDInsight").   
 
@@ -30,36 +29,33 @@ If necessary, you can access multiple Azure storage accounts or containers with 
 2. Specify an additional storage account called **storage2**.  
 3. Copy the mycsv.csv file to the /share directory, and perform analysis on that file.  
    
-    ````
-    hadoop fs –mkdir /share
-    hadoop fs –copyFromLocal myscsv.scv /share  
-    ````
+        hadoop fs –mkdir /share
+        hadoop fs –copyFromLocal myscsv.scv /share  
+
 4. In R code, set the name node to **default,** and set your directory and file to process.  
    
-   ````
-   myNameNode <- "default"
-   myPort <- 0
-   ````
+        myNameNode <- "default"
+        myPort <- 0
    
-   Location of the data:  
+    Location of the data:  
    
-   bigDataDirRoot <- "/share"  
+        bigDataDirRoot <- "/share"  
    
-   Define Spark compute context:
+    Define Spark compute context:
    
-   mySparkCluster <- RxSpark(consoleOutput=TRUE)
+        mySparkCluster <- RxSpark(consoleOutput=TRUE)
    
-   Set compute context:
+    Set compute context:
    
-   rxSetComputeContext(mySparkCluster)
+        rxSetComputeContext(mySparkCluster)
    
-   Define the Hadoop Distributed File System (HDFS) file system:
+    Define the Hadoop Distributed File System (HDFS) file system:
    
-   hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
+        hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
    
-   Specify the input file to analyze in HDFS:
+    Specify the input file to analyze in HDFS:
    
-   inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
+        inputFile <-file.path(bigDataDirRoot,"mycsv.csv")
 
 All of the directory and file references point to the storage account wasbs://container1@storage1.blob.core.windows.net. This is the **default storage account** that's associated with the HDInsight cluster.
 
@@ -67,36 +63,50 @@ Now, suppose you want to process a file called mySpecial.csv that's located in t
 
 In your R code, point the name node reference to the **storage2** storage account.
 
-    myNameNode <- "wasbs://container2@storage2.blob.core.windows.net"
-    myPort <- 0
+````
+myNameNode <- "wasbs://container2@storage2.blob.core.windows.net"
+myPort <- 0
+````
 
-  Location of the data:
+Location of the data:
 
-    bigDataDirRoot <- "/private"
+````
+bigDataDirRoot <- "/private"
+````
 
-  Define Spark compute context:
+Define Spark compute context:
 
-    mySparkCluster <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort)
+````
+mySparkCluster <- RxSpark(consoleOutput=TRUE, nameNode=myNameNode, port=myPort)
+````
 
-  Set compute context:
+Set compute context:
 
-    rxSetComputeContext(mySparkCluster)
+````
+rxSetComputeContext(mySparkCluster)
+````
 
-  Define HDFS file system:
+Define HDFS file system:
 
-    hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
+````
+hdfsFS <- RxHdfsFileSystem(hostName=myNameNode, port=myPort)
+````
 
-  Specify the input file to analyze in HDFS:
+Specify the input file to analyze in HDFS:
 
-    inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
+````
+inputFile <-file.path(bigDataDirRoot,"mySpecial.csv")
+````
 
 All of the directory and file references now point to the storage account wasbs://container2@storage2.blob.core.windows.net. This is the **Name Node** that you’ve specified.
 
 Note that you will have to configure the /user/RevoShare/<SSH username> directory on **storage2** as follows:
 
-    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
-    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare
-    hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
+````
+hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user
+hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare
+hadoop fs -mkdir wasbs://container2@storage2.blob.core.windows.net/user/RevoShare/<RDP username>
+````
 
 ## Use an Azure Data Lake store
 To use Data Lake stores with your HDInsight account, you need to give your cluster access to each Azure Data Lake store that you want to use. You use the store in your R script much like you use a secondary storage account (as described in the previous procedure).
@@ -176,6 +186,6 @@ Now that you understand the basics of how to use the R console from an SSH sessi
 
 * [Overview of R Server on HDInsight](hdinsight-hadoop-r-server-overview.md)
 * [Get started with R server on Hadoop](hdinsight-hadoop-r-server-get-started.md)
-* [Add RStudio Server to HDInsight premium](hdinsight-hadoop-r-server-install-r-studio.md)
+* [Add RStudio Server to HDInsight](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md)
 

@@ -85,11 +85,36 @@ Azure Search is a cloud search-as-a-service solution that delegates server and i
 
 ## Reference
 
-### .NET 
-[.NET Managed Reference API](/dotnet/api/) 
-
-### REST 
-[Search REST API Reference](/rest/api/searchmanagement/) 
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>.NET Managed Reference API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/rest/api/searchmanagement/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Search REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/search.pdf">
