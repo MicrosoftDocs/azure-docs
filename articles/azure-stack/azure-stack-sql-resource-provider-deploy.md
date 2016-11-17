@@ -106,8 +106,7 @@ This should get your SQL Server resource provider up and running in about 45 min
 2. Click **Resource Providers** &gt; **SQL Resource Provider** &gt; **SQL Hosting Servers** &gt; **+Add**.
 
 	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
-
-
+	
 	![Hosting Servers](./media/azure-stack-sql-rp-deploy/7.png)
 
 3. Fill the form with the connection details of your SQL Server instance. By default, a preconfigured SQL Server called “SQLRP” with the administrator username “sa” and the password you called out in the "LocalCredential" parameter is running on the VM.
@@ -145,5 +144,4 @@ This should get your SQL Server resource provider up and running in about 45 min
 ## Next steps
 
 Create plans and offers to make SQL databases available for tenants. You will need to create a plan, add the Microsoft.Sql service to the plan, add an existing Tier Quota, or create a new one. If you create a quota, you can specify the capacity to allow the tenant.
-
 	![Create plans and offers to include databases](./media/azure-stack-sql-rp-deploy/12.png)
