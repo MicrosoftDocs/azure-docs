@@ -10,22 +10,22 @@
 ### [Get started with IoT Hub (Node)](iot-hub-node-node-getstarted.md)
 ## Get started with a Raspberry Pi
 ### [Get Started with Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
-### Configure your device
+### Lesson 1: Configure your device
 #### [Configure your device](iot-hub-raspberry-pi-kit-node-lesson1-configure-your-device.md)
 #### [Get the tools (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
 #### [Get the tools (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
 #### [Get the tools (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
 #### [Create and deploy the blink application](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md)
-### Create your IoT hub
+### Lesson 2: Create your IoT hub
 #### [Get the Azure tools (Windows 7+)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-win32.md)
 #### [Get the Azure tools (Ubuntu 16.04)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-ubuntu.md)
 #### [Get the Azure tools (macOS 10.10)](iot-hub-raspberry-pi-kit-node-lesson2-get-azure-tools-mac.md)
 #### [Create your IoT hub and register your Raspberry Pi](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md)
-### Send device-to-cloud messages
+### Lesson 3: Send device-to-cloud messages
 #### [Create an Azure function app and storage account](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md)
 #### [Run the sample application to send messages](iot-hub-raspberry-pi-kit-node-lesson3-run-azure-blink.md)
 #### [Read messages persisted in storage](iot-hub-raspberry-pi-kit-node-lesson3-read-table-storage.md)
-### Send cloud-to-device messages
+### Lesson 4: Send cloud-to-device messages
 #### [Run the sample application to receive messages](iot-hub-raspberry-pi-kit-node-lesson4-send-cloud-to-device-messages.md)
 #### [Optional: Change the LED behavior](iot-hub-raspberry-pi-kit-node-lesson4-change-led-behavior.md)
 ### [Troubleshoot](iot-hub-raspberry-pi-kit-node-troubleshooting.md)
