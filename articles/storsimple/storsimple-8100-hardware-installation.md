@@ -243,5 +243,5 @@ Perform the following steps to cable your serial port.
 Your device is now cabled for power, network access, and serial connectivity. The next step is to configure the software and deploy your device.
 
 ## Next steps
-Learn how to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough.md).
+Learn how to [deploy and configure your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
 
