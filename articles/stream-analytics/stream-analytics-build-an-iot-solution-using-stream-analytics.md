@@ -169,19 +169,19 @@ You will also see another window that's similar to the following screenshot. Thi
 
 ![Screenshot of "Sending event hub data"](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image7.png)
 
-You should be able to see all created resources in Azure portal now. Go to <https://portal.azure.com>, and sign in with your account credentials.
+You should be able to see your resources in Azure portal now. Go to <https://portal.azure.com>, and sign in with your account credentials. Note that currently some functionality utilizes the classic portal. These steps will be clearly indicated.
 
 ### Azure Event Hubs
-In the Azure portal, click **More services** on the bottom of the left management pane. Type **Event hubs** in the field provided and click **Event hubs**. This launches a new browser window to display the **SERVICE BUS** and Event Hub created by the Setup.ps1 script.
+In the Azure portal, click **More services** on the bottom of the left management pane. Type **Event hubs** in the field provided and click **Event hubs**. This launches a new browser window to display the **SERVICE BUS** area in the **classic portal**. Here you can see the Event Hub created by the Setup.ps1 script.
 
 ![Service Bus](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image8.png)
 
 Click the one that starts with *tolldata*. Click the **EVENT HUBS** tab. You will see two event hubs named *entry* and *exit* created in this namespace.
 
-![Event Hubs tab in the Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
+![Event Hubs tab in the classic portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image9.png)
 
 ### Azure Storage container
-1. Click **STORAGE** on the left side of the Azure portal to see the Azure Storage container that's used in the tutorial.
+1. Go back to the tab in your browser open to Azure portal. Click **STORAGE** on the left side of the Azure portal to see the Azure Storage container that's used in the tutorial.
    
     ![Storage menu item](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image11.png)
 2. Click the one that start with *tolldata*. Click the **CONTAINERS** tab to see the created container.
@@ -242,7 +242,7 @@ However, if you are interested in implementation details, you can find the sourc
 
 2. Click the **INPUTS** tab to define the source data.
    
-    ![The Inputs tab](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image24.jpg)
+    ![The Inputs tab](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image24.png)
 3. Click **ADD AN INPUT**.
    
     ![The Add an Input option](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image25.png)
@@ -266,7 +266,7 @@ However, if you are interested in implementation details, you can find the sourc
     
     You have defined two input streams:
     
-    ![Defined input streams in the Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image32.jpg)
+    ![Defined input streams in the Azure portal](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image32.png)
     
     Next, you will add reference data input for the blob file that contains car registration data.
 11. Click **ADD**, and then follow the same process for the stream inputs but select **REFERENCE DATA** instead of **Data Stream** and the **Input Alias** is **Registration**.
