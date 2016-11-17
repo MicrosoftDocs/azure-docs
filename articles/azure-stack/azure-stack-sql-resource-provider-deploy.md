@@ -1,5 +1,5 @@
 ---
-title: Using SQL databases on Azure Stack | Microsoft Azure
+title: Using SQL databases on Azure Stack | Microsoft Docs
 description: Learn how you can deploy SQL databases as a service on Azure Stack and the quick steps to deploy the SQL Server resource provider adapter
 services: azure-stack
 documentationCenter: ''
@@ -92,11 +92,11 @@ This should get your SQL Server resource provider up and running in about 45 min
 
 2. Verify that the deployment succeeded. Click **Resource Groups** &gt; click the resource group you used (default is **Microsoft-SQL-RP1**), and then make sure that the essentials part of the blade (upper half) reads **_date_ (Succeeded)**.
 
-      ![](./media/azure-stack-sql-rp-deploy/5.png)
+      ![Verify Deployment of the SQL RP](./media/azure-stack-sql-rp-deploy/5.png)
 
 3. Verify that the registration succeeded. Click **Resource providers**, and then look for **SQL Resource Provider**:
 
-      ![](./media/azure-stack-sql-rp-deploy/6.png)
+      ![Verify the SQL RP was registered](./media/azure-stack-sql-rp-deploy/6.png)
 
 
 ## Provide capacity to your SQL Resource Provider by connecting it to a hosting SQL server
@@ -108,7 +108,7 @@ This should get your SQL Server resource provider up and running in about 45 min
 	The **SQL Hosting Servers** blade is where you can connect the SQL Server Resource Provider to actual instances of SQL Server that serve as the resource provider’s backend.
 
 
-![](./media/azure-stack-sql-rp-deploy/7.png)
+	![Hosting Servers](./media/azure-stack-sql-rp-deploy/7.png)
 
 3. Fill the form with the connection details of your SQL Server instance. By default, a preconfigured SQL Server called “SQLRP” with the administrator username “sa” and the password you called out in the "LocalCredential" parameter is running on the VM.
 
@@ -117,17 +117,17 @@ This should get your SQL Server resource provider up and running in about 45 min
 1. Sign in to the Azure Stack POC portal as service admin.
 
 2. Click **+ New** &gt;**Data + Storage"** &gt; **SQL Server Database (preview)** &gt; **Add**
-  ![](./media/azure-stack-sql-rp-deploy/8.png)
+	![Add a database](./media/azure-stack-sql-rp-deploy/8.png)
 
 3. Fill in the form with database details, including a **Server Name**, **Server Admin Login**, and **Password** for a new *virtual server* in the **New Server** blade.
 
-	![](./media/azure-stack-sql-rp-deploy/9.png)
+	![Virtual database server](./media/azure-stack-sql-rp-deploy/9.png)
 
 	The virtual server is an artificial construct. It doesn’t map to the SQL Server itself but instead manifests through the username inside the connection string, which the resource provider generates at the end of this process. **Note the password you input separately for the virtual server**. The portal will never show the password.
 
 4. You're asked to pick a pricing tier for your database.
 
-	![](./media/azure-stack-sql-rp-deploy/10.png)
+	![Pick a pricing tier](./media/azure-stack-sql-rp-deploy/10.png)
 
 	Tiers are not implemented in this version, but their consumption is tracked by the Azure Resource Manager as a way to showcase the differentiation you can create in quota enforcement etc.
 
@@ -135,7 +135,7 @@ This should get your SQL Server resource provider up and running in about 45 min
 
 6. In the resulting blade, notice the “Connection string” field. You can use that string in any application that requires SQL Server access (for example, a web app) in your Azure Stack.
 
-	![](./media/azure-stack-sql-rp-deploy/11.png)
+	![Retrieve the connection string](./media/azure-stack-sql-rp-deploy/11.png)
 
 ## Add Capacity
 
@@ -146,4 +146,4 @@ This should get your SQL Server resource provider up and running in about 45 min
 
 Create plans and offers to make SQL databases available for tenants. You will need to create a plan, add the Microsoft.Sql service to the plan, add an existing Tier Quota, or create a new one. If you create a quota, you can specify the capacity to allow the tenant.
 
-![](./media/azure-stack-sql-rp-deploy/12.png)
+	![Create plans and offers to include databases](./media/azure-stack-sql-rp-deploy/12.png)

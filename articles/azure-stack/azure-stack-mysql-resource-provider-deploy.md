@@ -1,5 +1,5 @@
 ---
-title: Use MySQL databases as PaaS on Azure Stack | Microsoft Azure
+title: Use MySQL databases as PaaS on Azure Stack | Microsoft Docs
 description: Learn how you can deploy the MySQL Resource Provider and provide MySQL databases as a service on Azure Stack
 services: azure-stack
 documentationCenter: ''
@@ -78,7 +78,7 @@ Depending on the system performance and download speeds, installation may take a
 2. Click the **+ New** button &gt; **Data + Storage** &gt; **MySQL Server & database (preview)**.
 
 3. Fill in the form with the database details.
-![](./media/azure-stack-mysql-rp-deploy/mysqldbdeployment.png)
+![Create a test MySQL database](./media/azure-stack-mysql-rp-deploy/mysqldbdeployment.png)
 
 	**Make a note of the "server name" you enter.** The connections string for your database includes the "server name" as part of the user name: for example, **"user@server1"**. You will need to input the user name in this format when you connect to a MySQL database: for example, when you deploy a MySQL web site using the Azure Web Site resource provider.
 
