@@ -88,8 +88,8 @@ The following steps guide you through the installation stages:
 18.	Enter the **certificate password** that you set when you created the certificates.
 19.	Click **Browse** next to the **Resource Provider Root Certificate File** and navigate to the **AzureStackCertificationAuthority** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
 20.	Click **Next** the installer will verify the certificate password provided.![App Service on Azure Stack Technical Preview 2 Certificate Details][6]
-The deployment will take about 45-60 minutes to complete.![App Service on Azure Stack Technical Preview 2 Installation Progress][7]
-21. After the installer successfully completes, click **Exit**.
+21. The deployment will take about 45-60 minutes to complete.![App Service on Azure Stack Technical Preview 2 Installation Progress][7]
+22. After the installer successfully completes, click **Exit**.
 
 ## Validate App Service on Azure Stack Installation
 
