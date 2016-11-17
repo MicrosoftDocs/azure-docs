@@ -245,7 +245,7 @@ You can track the progress of your load using dynamic management views (DMVs).
 SELECT * FROM sys.dm_pdw_exec_requests;
 
 -- To see a particular request identified by its label
-SELECT * FROM sys.dm_pdw_exec_requests as r;
+SELECT * FROM sys.dm_pdw_exec_requests as r
 WHERE r.[label] = 'CTAS : Load [cso].[DimProduct]             '
       OR r.[label] = 'CTAS : Load [cso].[FactOnlineSales]        '
 ;

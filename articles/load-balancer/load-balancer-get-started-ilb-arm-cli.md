@@ -5,7 +5,6 @@ services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 tags: azure-resource-manager
 
 ms.assetid: c7a24e92-b4da-43c0-90f2-841c1b7ce489
@@ -53,7 +52,7 @@ For more information, see [Azure Resource Manager support for Load Balancer](loa
 2. Run the **azure config mode** command to switch to Resource Manager mode, as follows:
 
     ```azurecli
-        azure config mode arm
+    azure config mode arm
     ```
 
     Expected output:
@@ -65,7 +64,7 @@ For more information, see [Azure Resource Manager support for Load Balancer](loa
 1. Sign in to Azure.
 
     ```azurecli
-        azure login
+    azure login
     ```
 
     When prompted, enter your Azure credentials.
@@ -73,7 +72,7 @@ For more information, see [Azure Resource Manager support for Load Balancer](loa
 2. Change the command tools to Azure Resource Manager mode.
 
     ```azurecli
-        azure config mode arm
+    azure config mode arm
     ```
 
 ## Create a resource group
@@ -91,7 +90,7 @@ azure group create <resource group name> <location>
     In the following scenario, a resource group named nrprg is created in East US region.
 
     ```azurecli
-        azure network lb create --name nrprg --location eastus
+    azure network lb create --name nrprg --location eastus
     ```
 
    > [!NOTE]
@@ -102,13 +101,13 @@ azure group create <resource group name> <location>
     The IP address that you use must be within the subnet range of your virtual network.
 
     ```azurecli
-        azure network lb frontend-ip create --resource-group nrprg --lb-name ilbset --name feilb --private-ip-address 10.0.0.7 --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet
+    azure network lb frontend-ip create --resource-group nrprg --lb-name ilbset --name feilb --private-ip-address 10.0.0.7 --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet
     ```
 
 3. Create the back-end address pool.
 
     ```azurecli
-        azure network lb address-pool create --resource-group nrprg --lb-name ilbset --name beilb
+    azure network lb address-pool create --resource-group nrprg --lb-name ilbset --name beilb
     ```
 
     After you define a front-end IP address and a back-end address pool, you can create load balancer rules, inbound NAT rules, and customized health probes.
@@ -118,7 +117,7 @@ azure group create <resource group name> <location>
     When you follow the previous steps, the command creates a load-balancer rule for listening to port 1433 in the front-end pool and sending load-balanced network traffic to the back-end address pool, also using port 1433.
 
     ```azurecli
-        azure network lb rule create --resource-group nrprg --lb-name ilbset --name ilbrule --protocol tcp --frontend-port 1433 --backend-port 1433 --frontend-ip-name feilb --backend-address-pool-name beilb
+    azure network lb rule create --resource-group nrprg --lb-name ilbset --name ilbrule --protocol tcp --frontend-port 1433 --backend-port 1433 --frontend-ip-name feilb --backend-address-pool-name beilb
     ```
 
 5. Create inbound NAT rules.
@@ -126,9 +125,9 @@ azure group create <resource group name> <location>
     Inbound NAT rules are used to create endpoints in a load balancer that go to a specific virtual machine instance. The previous steps created two NAT rules  for remote desktop.
 
     ```azurecli
-        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule1 --protocol TCP --frontend-port 5432 --backend-port 3389
+    azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule1 --protocol TCP --frontend-port 5432 --backend-port 3389
 
-        azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule2 --protocol TCP --frontend-port 5433 --backend-port 3389
+    azure network lb inbound-nat-rule create --resource-group nrprg --lb-name ilbset --name NATrule2 --protocol TCP --frontend-port 5433 --backend-port 3389
     ```
 
 6. Create health probes for the load balancer.
@@ -136,7 +135,7 @@ azure group create <resource group name> <location>
     A health probe checks all virtual machine instances to make sure they can send network traffic. The virtual machine instance with failed probe checks is removed from the load balancer until it goes back online and a probe check determines that it's healthy.
 
     ```azurecli
-        azure network lb probe create --resource-group nrprg --lb-name ilbset --name ilbprobe --protocol tcp --interval 300 --count 4
+    azure network lb probe create --resource-group nrprg --lb-name ilbset --name ilbprobe --protocol tcp --interval 300 --count 4
     ```
 
     > [!NOTE]
@@ -150,7 +149,7 @@ You need to create NICs (or modify existing ones) and associate them to NAT rule
 1. Create an NIC named *lb-nic1-be*, and then associate it with the *rdp1* NAT rule and the *beilb* back-end address pool.
 
     ```azurecli
-        azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" --location eastus
+    azure network nic create --resource-group nrprg --name lb-nic1-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp1" --location eastus
     ```
 
     Expected output:
@@ -182,13 +181,13 @@ You need to create NICs (or modify existing ones) and associate them to NAT rule
 2. Create an NIC named *lb-nic2-be*, and then associate it with the *rdp2* NAT rule and the *beilb* back-end address pool.
 
     ```azurecli
-        azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" --location eastus
+    azure network nic create --resource-group nrprg --name lb-nic2-be --subnet-name nrpvnetsubnet --subnet-vnet-name nrpvnet --lb-address-pool-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/backendAddressPools/beilb" --lb-inbound-nat-rule-ids "/subscriptions/####################################/resourceGroups/nrprg/providers/Microsoft.Network/loadBalancers/nrplb/inboundNatRules/rdp2" --location eastus
     ```
 
 3. Create a virtual machine named *DB1*, and then associate it with the NIC named *lb-nic1-be*. A storage account called *web1nrp* is created before the following command runs:
 
     ```azurecli
-        azure vm create --resource--resource-grouproup nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
+    azure vm create --resource--resource-grouproup nrprg --name DB1 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic1-be --availset-name nrp-avset --storage-account-name web1nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
     ```
     > [!IMPORTANT]
     > VMs in a load balancer need to be in the same availability set. Use `azure availset create` to create an availability set.
@@ -196,7 +195,7 @@ You need to create NICs (or modify existing ones) and associate them to NAT rule
 4. Create a virtual machine (VM) named *DB2*, and then associate it with the NIC named *lb-nic2-be*. A storage account called *web1nrp* was created before running the following command.
 
     ```azurecli
-        azure vm create --resource--resource-grouproup nrprg --name DB2 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
+    azure vm create --resource--resource-grouproup nrprg --name DB2 --location eastus --vnet-name nrpvnet --vnet-subnet-name nrpvnetsubnet --nic-name lb-nic2-be --availset-name nrp-avset --storage-account-name web2nrp --os-type Windows --image-urn MicrosoftWindowsServer:WindowsServer:2012-R2-Datacenter:4.0.20150825
     ```
 
 ## Delete a load balancer
