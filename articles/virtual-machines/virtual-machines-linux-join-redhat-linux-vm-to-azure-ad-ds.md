@@ -39,8 +39,14 @@ azure vm quick-create \
 -l westus \
 -y Linux \
 -u ahmet \
--M ~/.ssh/id_rsa \
+-M ~/.ssh/id_rsa.pub \
 -Q RHEL
+```
+
+### SSH to the VM
+
+```bash
+ssh -i ~/.ssh/id_rsa ahmet@
 ```
 
 ### Update YUM packages
