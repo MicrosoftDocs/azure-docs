@@ -39,14 +39,14 @@ To complete this tutorial you need the following:
 [!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
 ## Create a simulated device app
-In this section, you create a Node.js console app that responds to a method called by the cloud.
+In this section, you create a Node.js console app that responds to a method called by the back end.
 
 1. Create a new empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
    
     ```
         npm install azure-iot-device azure-iot-device-mqtt --save
@@ -66,7 +66,7 @@ In this section, you create a Node.js console app that responds to a method call
     var connectionString = '{device connection string}';
     var client = DeviceClient.fromConnectionString(connectionString, Mqtt);
     ```
-6. Add the following function to implement the method on the device:
+6. Add the following function to implement the direct method on the device:
    
     ```
     function onWriteLine(request, response) {
@@ -81,7 +81,7 @@ In this section, you create a Node.js console app that responds to a method call
         });
     }
     ```
-7. Open the connection to your IoT hub and start initialize the method listener:
+7. Open the connection to your IoT hub and initialize the method listener:
    
     ```
     client.open(function(err) {
@@ -100,8 +100,8 @@ In this section, you create a Node.js console app that responds to a method call
 > 
 > 
 
-## Call a method on a device
-In this section, you create a Node.js console app that calls a method on the simulated device and then displays the response.
+## Call a direct method on a device
+In this section, you create a .NET console app that calls a method on the simulated device and then displays the response.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **CallMethodOnDevice**.
    

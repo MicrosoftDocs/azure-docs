@@ -167,7 +167,7 @@ Note how the **query** object is instantiated with a page size (up to 1000), and
 It is important to note that the query object exposes multiple **next\***, depending on the deserialization option required by the query, such as device twin or job objects, or plain Json to be used when using projections.
 
 ### Limitations
-Currently, comparisons are supported only between primitive types (i.e. no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
+Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
 
 ## Getting started with jobs queries
 [Jobs][lnk-jobs] provide a way to execute operations on sets of devices. Each device twin contains the information of the jobs of which it is part in a collection called **jobs**.
@@ -200,7 +200,7 @@ Logically,
             ]                                                             
         }
 
-Currently, this collection is queriable as **devices.jobs** in the IoT Hub query language.
+Currently, this collection is queryable as **devices.jobs** in the IoT Hub query language.
 
 > [!IMPORTANT]
 > Currently, the jobs property is never returned when querying device twins (i.e. queries that contains 'FROM devices'). It can only be accessed directly with queries using `FROM devices.jobs`.
