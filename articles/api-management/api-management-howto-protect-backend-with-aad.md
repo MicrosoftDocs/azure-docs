@@ -239,6 +239,7 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "First operand. Default value is <code>100</code>.",
                 "required": true,
+                "type": "string",
                 "default": "100",
                 "enum": [
                   "100"
@@ -249,6 +250,7 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "Second operand. Default value is <code>50</code>.",
                 "required": true,
+                "type": "string",
                 "default": "50",
                 "enum": [
                   "50"
@@ -268,6 +270,7 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "First operand. Default value is <code>100</code>.",
                 "required": true,
+                "type": "string",
                 "default": "100",
                 "enum": [
                   "100"
@@ -278,6 +281,7 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "Second operand. Default value is <code>20</code>.",
                 "required": true,
+                "type": "string",
                 "default": "20",
                 "enum": [
                   "20"
@@ -297,6 +301,7 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "First operand. Default value is <code>20</code>.",
                 "required": true,
+                "type": "string",
                 "default": "20",
                 "enum": [
                   "20"
@@ -307,6 +312,7 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "Second operand. Default value is <code>5</code>.",
                 "required": true,
+                "type": "string",
                 "default": "5",
                 "enum": [
                   "5"
