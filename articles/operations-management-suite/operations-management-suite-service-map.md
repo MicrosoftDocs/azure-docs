@@ -20,12 +20,6 @@
 
 This article describes the details of using Service Map.  For information on configuring Service Map and onboarding agents, see [Configuring Service Map solution in Operations Management Suite (OMS)](operations-management-suite-application-dependency-monitor-configure.md)
 
->[AZURE.NOTE]Service Map is currently in private preview.  You can request access to the Service Map private preview at [https://aka.ms/getadm](https://aka.ms/getadm).
->
->During private preview, all OMS accounts have unlimited access to Service Map.  Service Map nodes are free, but Log Analytics data for ServiceMapComputer_CL and ServiceMapProcess_CL types will be metered like any other solution.
->
->After Service Map enters public preview, it will be available only to free and paid customers of Insight & Analytics in the OMS Pricing Plan.  Free tier accounts will be limited to 5 Service Map nodes.  If you are participating in the private preview and are not enrolled in the OMS Pricing Plan when Service Map enters public preview, Service Map will be disabled at that time.
-
 
 ## Use Cases: Make Your IT Processes Dependency Aware
 
@@ -61,7 +55,7 @@ Failed Connections are shown in Service Map maps for processes and computers, wi
 
 ![Failed connections](media/oms-service-map/failed-connections.png)
 
-Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding.  Sometimes failed connections are harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, …or two application tiers not being able to talk after a cloud migration.  In the image above, IIS and WebSphere are both running, but they can’t connect.
+Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding.  Sometimes failed connections are harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, …or two application tiers not being able to talk after a cloud migration.
 
 ## Computer and Process Properties
 When navigating a Service Map map, you can select machines and processes to gain additional context about their properties.  Machines provide information about DNS name, IPv4 addresses, CPU and Memory capacity, VM Type, Operating System version, Last Reboot time, and the IDs of their OMS and Service Map agents.
@@ -97,11 +91,15 @@ The Machine Performance Panel shows standard performance metrics for the selecte
 
 
 ## OMS Security Integration
+Service Map's integration with Security and Audit is automatic when both solutions are enabled and configured in your OMS workspace.
+
 The Machine Security Panel shows data from the OMS Security and Audit solution for the selected server.  The panel will list a summary of any outstanding security issues for the server during the selected time range.  Clicking on any of the security issues will drill down into a Log Search for details about the security issues.
 ![Machine Change Tracking Panel](media/oms-service-map/machine-security.png)
 
 
 ## OMS Updates Integration
+Service Map's integration with Update Management is automatic when both solutions are enabled and configured in your OMS workspace.
+
 The Machine Updates Panel shows data from the OMS Update Management solution for the selected server.  The panel will list a summary of any missing updates for the server during the selected time range.
 ![Machine Change Tracking Panel](media/oms-service-map/machine-updates.png)
 
@@ -192,6 +190,7 @@ Type=ServiceMapComputer_CL MachineId_s IN {Type=ServiceMapProcess_CL \*sql\* | D
 Type=ServiceMapProcess_CL Name_s=curl | Distinct ProductVersion_s
 
 ### Create a Computer Group of all computers running CentOS
+Type=ServiceMapComputer_CL OperatingSystemVersion_s = "CentOS" | Distinct ComputerName_s
 
 
 
