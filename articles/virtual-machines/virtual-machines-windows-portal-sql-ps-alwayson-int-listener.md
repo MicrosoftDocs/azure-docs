@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/20/2016
-ms.author: MikeRayMSFT
+ms.date: 11/17/2016
+ms.author: mikeray
 
 ---
 # Configure one or more Always On Availability Group Listeners - Resource Manager
@@ -171,8 +171,11 @@ In this step, you add a client access point to the failover cluster with Failove
 7. Click the **Resources** tab, then expand the Client Access Point you just created. Right-click the IP resource and click properties. Note the name of the IP address. You will use this name in the `$IPResourceName` variable in the PowerShell script.
 8. Under **IP Address** click **Static IP Address** and set the static IP address to the same address that you used when you set the load balancer IP address on the Azure portal. 
 9. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
-10. Make the SQL Server Availability Group resource dependent on the IP address. Right click on the resource in cluster manager, this is on the **Resources** tab under **Other Resources**. 
-11. On the cluster node that currently hosts the primary replica, open an elevated PowerShell ISE and paste the following commands into a new script. On the **Dependencies** tab, click the name of the listener.
+
+10. Make the SQL Server Availability Group resource dependent on the availability group listener resource name. In Failover Cluster Manager, **Roles** click your Availability Group. On the **Resources** tab, right-click the listener name and click **Properties**. Set a dependency on the listener resource name on the **Dependencies** tab. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**. 
+11. Right-click the listener name and click **Bring Online**. 
+12. Update the cluster parameters by using the following PowerShell script: 
+
     
     ```PowerShell
     $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
@@ -189,18 +192,11 @@ In this step, you add a client access point to the failover cluster with Failove
     > [!NOTE]
     > If your SQL Servers are in separate regions, you need to run the PowerShell script twice. The first time use the cluster network name, cluster IP resource name, and load balancer IP address from the first resource group. The second time use the cluster network name, cluster IP resource name, and load balancer IP address from the second resource group.
     > 
-    > 
+
 
 Now the cluster has an availability group listener resource.
 
-## 2. Bring the listener online
-With the availability group listener resource configured, you can bring the listener online so that applications can connect to databases in the availability group with the listener.
-
-1. Navigate back to Failover Cluster Manager. Expand **Roles** and then highlight your Availability Group. On the **Resources** tab, right-click the listener name and click **Properties**.
-2. Click the **Dependencies** tab. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**.
-3. Right-click the listener name and click **Bring Online**.
-4. Once the listener is online, from the **Resources** tab, right-click the availability group and click **Properties**.
-5. Create a dependency on the listener name resource (not the IP address resources name). Click **OK**.
+## Set the listener port in SQL Server Management Studio
 6. Launch SQL Server Management Studio and connect to the primary replica.
 7. Navigate to **AlwaysOn High Availability** | **Availability Groups** | **Availability Group Listeners**. 
 8. You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and click **Properties**.
