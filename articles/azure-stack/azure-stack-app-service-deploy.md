@@ -64,27 +64,19 @@ The following steps guide you through the installation stages:
 > You MUST use an elevated account (local or domain administrator) to execute the installer. If you sign in as azurestack\azurestackuser, you will be prompted for elevated credentials. 
 
 1.	Run appservice.exe as **azurestack\administrator**. 
-2.	Click **Deploy using Azure Resource Manager**.
-
+2.  Click **Deploy using Azure Resource Manager**.
 ![App Service on Azure Stack Technical Preview 2 Installer][1]
-
-3.	Review and accept the Microsoft Software Pre-Release License Terms, and then click **Next**.
-4.	Review and accept the third-party license terms, and then click **Next**.
+3.  Review and accept the Microsoft Software Pre-Release License Terms, and then click **Next**.
+4.  Review and accept the third-party license terms, and then click **Next**.
 5.	Review the App Cloud Service configuration information and click **Next**.
-
 ![App Service on Azure Stack Technical Preview 2 App Service Cloud Configuration][2]
-
-6. Click **Connect** (Next to the Azure Stack Subscriptions box).
-
+6.  Click **Connect** (Next to the Azure Stack Subscriptions box).
 ![App Service on Azure Stack Technical Preview 2 App Service Cloud Configuration Screen Two][3]
-
 7.	In the Azure Stack Authentication window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.
 >[!NOTE] 
 > Enter the Azure Active Directory account that you provided when you deployed Azure Stack.
 	- Click the **Down Arrow** on the right side of the box next to **Azure Stack Subscriptions** and then select your subscription.
-
 ![App Service on Azure Stack Technical Preview 2 Subscription Selection][5]
-
 8.	Click the **Down Arrow** on the right side of the box next to **Azure Stack Locations**.
 	- Select **Local**.
 9. Enter the **Name** for your administrator.
@@ -93,22 +85,16 @@ The following steps guide you through the installation stages:
 12.	Review the **SysAdmin Login Account** and make changes if necessary.
 13.	Enter the **SysAdmin Password**.
 14.	Click **Next**.  At this point, the installer will verify the connection details for SQL Server provided.
-
 ![App Service on Azure Stack Technical Preview 2 Subscription Selection][4]	
-
 15.	Click **Browse** next to the **App Service Default SSL Certificate File** and navigate to the **_.appservice.AzureStack.Local** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
 16.	Enter the **certificate password** that you set when you created the certificates.
 17.	Click **Browse** next to the **Resource Provider SSL Certificate File** and navigate to the **api.appservice.AzureStack.Local** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
 18.	Enter the **certificate password** that you set when you created the certificates.
 19.	Click **Browse** next to the **Resource Provider Root Certificate File** and navigate to the **AzureStackCertificationAuthority** certificate [created earlier](#Create-Certificates-To-Be-Used-By-Azure-Stack-Web-Apps).
 20.	Click **Next** the installer will verify the certificate password provided.
-
 ![App Service on Azure Stack Technical Preview 2 Certificate Details][6]
-
 The deployment will take about 45-60 minutes to complete.
-
 ![App Service on Azure Stack Technical Preview 2 Installation Progress][7]
-
 21. After the installer successfully completes, click **Exit**.
 
 ## Validate App Service on Azure Stack Installation
