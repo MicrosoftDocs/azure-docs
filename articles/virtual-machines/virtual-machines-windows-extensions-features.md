@@ -22,7 +22,7 @@ ms.author: nepeters
 
 Azure Virtual Machine extensions are small applications that provide post deployment configuration and automation task on Azure Virtual Machines. For example, if a Virtual Machine requires software to be installed, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Resource Manage templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment, or run against any existing system.
 
-This document provides an overview of virtual machine extensions, prerequisites for using Azure Virtual Machine extensions, and guidance on how to detect, manage, and remove virtual machine extensions. Additional in-depth documentation is provided for many process specific virtual machine extensions.
+This document provides an overview of virtual machine extensions, prerequisites for using Azure Virtual Machine extensions, and guidance on how to detect, manage, and remove virtual machine extensions. Additional in-depth documentation is provided for many process-specific virtual machine extensions.
 
 ## Use cases and samples
 
@@ -33,7 +33,7 @@ There are many different Azure VM extensions available, each with a specific use
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure an Azure virtual machine using Chef. For more information, see [Automating Azure virtual machine deployment with Chef](virtual-machines-windows-chef-automation.md).
 
-In addition to process specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Windows allows any PowerShell script to be run on the virtual machine. For more information, see [Windows VM Custom Script extension](virtual-machines-windows-extensions-customscript.md).
+In addition to process specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Windows allows any PowerShell script to be run on a virtual machine. This is useful when designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Windows VM Custom Script extension](virtual-machines-windows-extensions-customscript.md).
 
 To work through an example where a VM extension is used in an end to end application deployment, check out [Automating application deployments to Azure Virtual Machines](virtual-machines-windows-dotnet-core-1-landing.md).
 
@@ -86,7 +86,7 @@ Cmdlet          Set-AzureRmVMExtension                             2.2.0      Az
 Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      AzureRM.Compute
 ```
 
-For instance, the following command will use the custom script extension to download a script from a GitHub repository onto the target virtual machine, and run the script. For more information on the VM Access Extension, see [Custom Script Extension overview](virtual-machines-windows-extensions-customscript.md).
+For instance, the following command uses the custom script extension to download a script from a GitHub repository onto the target virtual machine, and run the script. For more information on the VM Access Extension, see [Custom Script Extension overview](virtual-machines-windows-extensions-customscript.md).
 
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
