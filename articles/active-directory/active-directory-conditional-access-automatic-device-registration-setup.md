@@ -95,20 +95,18 @@ If the service connection point doesn’t exist, create it by running the follow
 
 **Remarks:**
 
-When you run **$aadAdminCred = Get-Credential**, you are required to enter a user name. For the user name, use the following format:
-
-**user@example.com** 
+- When you run **$aadAdminCred = Get-Credential**, you are required to enter a user name. For the user name, use the following format: **user@example.com** 
 
 
-When you run the **Initialize-ADSyncDomainJoinedComputerSync** cmdlet, replace [*connector account name*] with the domain account that's used in the Active Directory connector account.
+- When you run the **Initialize-ADSyncDomainJoinedComputerSync** cmdlet, replace [*connector account name*] with the domain account that's used in the Active Directory connector account.
   
-The cmdlet uses the Active Directory PowerShell module, which relies on Active Directory Web Services in a domain controller. Active Directory Web Services is supported on domain controllers in Windows Server 2008 R2 and later. For domain controllers in Windows Server 2008 or earlier versions, use the System.DirectoryServices API via PowerShell to create the service connection point, and then assign the Keywords values.
+- The cmdlet uses the Active Directory PowerShell module, which relies on Active Directory Web Services in a domain controller. Active Directory Web Services is supported on domain controllers in Windows Server 2008 R2 and later. For domain controllers in Windows Server 2008 or earlier versions, use the System.DirectoryServices API via PowerShell to create the service connection point, and then assign the Keywords values.
  
  
 
 
 
-## Device registration
+##Step 2: Register your device
 
 
 ### Device registration in non-federated organizations
@@ -122,26 +120,21 @@ In a non-federated configuration that has password sync enabled, Windows 10 and 
 For non Windows 10 and Windows Server 2016 computers, 
 
 
-
-
-
-
-
 ### Device registration in federated organizations
 
 In a federated Azure AD configuration, devices rely on AD FS (or on the on-premises federation server) to authenticate to Azure AD. Then, they register against Azure Active Directory Device Registration Service (Azure AD Device Registration Service).
 
 For Windows 10 and Windows Server 2016 computers, Azure AD Connect associates the device object in Azure AD with the on-premises computer account object. The following claims must exist during authentication for Azure AD Device Registration Service to complete registration and create the device object:
 
-- `http://schemas.microsoft.com/ws/2012/01/accounttype` - Contains the DJ value, which identifies the principal authenticator as a domain-joined computer.
+- **http://schemas.microsoft.com/ws/2012/01/accounttype** - Contains the DJ value, which identifies the principal authenticator as a domain-joined computer.
 
-- `http://schemas.microsoft.com/identity/claims/onpremobjectguid` - Contains the value of the **objectGUID** attribute of the on-premises computer account.
+- **http://schemas.microsoft.com/identity/claims/onpremobjectguid** - Contains the value of the **objectGUID** attribute of the on-premises computer account.
  
-- `http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid` - Contains the computer's primary security identifier (SID), which corresponds to the **objectSid** attribute value of the on-premises computer account.
+- **http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid** - Contains the computer's primary security identifier (SID), which corresponds to the **objectSid** attribute value of the on-premises computer account.
 
-- `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid` - Contains the value that Azure AD uses to trust the token issued from AD FS or from the on-premises Security Token Service (STS). This is important if you have several verified domains in Azure AD. For the AD FS case, use `http://<*domain-name*>/adfs/services/trust/`, where \<*domain-name*\> is the verified domain name in Azure AD.
+- **http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid** - Contains the value that Azure AD uses to trust the token issued from AD FS or from the on-premises Security Token Service (STS). This is important if you have several verified domains in Azure AD. For the AD FS case, use `http://<*domain-name*>/adfs/services/trust/`, where \<*domain-name*\> is the verified domain name in Azure AD.
 
-To create these rules manually, in AD FS, use the following PowerShell script in a session that is connected to your server. Replace the first line with your validated organization domain name in Azure AD.
+To create these rules manually, in AD FS, use one of the following PowerShell scripts in a session that is connected to your server. Replace the first line with your organization's validated domain name in Azure AD.
 
 > [!NOTE]
 > If you don’t use AD FS for your on-premises federation server, follow your vendor's instructions to create the rules that issue these claims.
@@ -278,7 +271,8 @@ It should be be enabled in the AD FS management console under **Service > Endpoi
 
 
 
-## Set up AD FS for authentication of device registration
+## Step 3: Setup AD FS for authentication of device registration
+
 Make sure that IWA is set as a valid alternative to multi-factor authentication for device registration in AD FS. To do this, you need to have an issuance transform rule that passes through the authentication method.
 
 1. In the AD FS management console, go to **AD FS** > **Trust Relationships** > **Relying Party Trusts**.
@@ -297,7 +291,7 @@ Make sure that IWA is set as a valid alternative to multi-factor authentication 
 
 \<*RPObjectName*\> is the relying party object name for your Azure AD relying party trust object. This object usually is named *Microsoft Office 365 Identity Platform*.
 
-## Deployment and rollout
+##Step 4: Deployment and rollout
 When domain-joined computers meet the prerequisites, they are ready to register with Azure AD.
 
 The Windows 10 Anniversary Update and Windows Server 2016 domain-joined computers automatically register with Azure AD the next time the device restarts or when a user signs in to Windows. New computers that are joined to the domain register with Azure AD when the device restarts after the domain join operation.
