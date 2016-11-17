@@ -34,7 +34,10 @@ Here is a detailed comparison of the various device-to-cloud communication optio
 | Frequency | High. Refer to [IoT Hub limits][lnk-quotas] for more information. | Medium. Refer to [IoT Hub limits][lnk-quotas] for more information. | Low. Refer to [IoT Hub limits][lnk-quotas] for more information. |
 | Protocol | Available on all protocols. | Currently available only when using MQTT. | Available when using any protocol, but requires HTTP on the device. |
 
-> [AZURE.NOTE] It is possible that an application requires to both send information as a telemetry time series or alert and also to make it available in the twin. In those cases, the device app can both send a D2C message and report a property change, or the back end can store the information in the twin's tags when it receives the message. Since D2C messages allow much higher throughput than twin updates, it is sometimes desirable to avoid updating the twin for every D2C message.
+> [!NOTE]
+> It is possible that an application requires to both send information as a telemetry time series or alert and also to make it available in the twin. In those cases, the device app can both send a D2C message and report a property change, or the back end can store the information in the twin's tags when it receives the message. Since D2C messages allow much higher throughput than twin updates, it is sometimes desirable to avoid updating the twin for every D2C message.
+> 
+> 
 
 [lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-fileupload]: iot-hub-devguide-file-upload.md
