@@ -86,11 +86,11 @@ Cmdlet          Set-AzureRmVMExtension                             2.2.0      Az
 Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      AzureRM.Compute
 ```
 
-For instance, the following command uses the custom script extension to download a script from a GitHub repository onto the target virtual machine, and run the script. For more information on the VM Access Extension, see [Custom Script Extension overview](virtual-machines-windows-extensions-customscript.md).
+The following example uses the custom script extension to download a script from a GitHub repository onto the target virtual machine, and run the script. For more information on the VM Access Extension, see [Custom Script Extension overview](virtual-machines-windows-extensions-customscript.md).
 
 ```powershell
-Set-AzureRmVMCustomScriptExtension -ResourceGroupName myResourceGroup `
-    -VMName myVM -Name custom-script-demo `
+Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
+    -VMName "myVM" -Name "myCustomScript" `
     -FileUri "https://raw.githubusercontent.com/neilpeterson/nepeters-azure-templates/master/windows-custom-script-simple/support-scripts/Create-File.ps1" `
     -Run "Create-File.ps1" -Location "West US"
 ```
@@ -100,12 +100,12 @@ In this example, the VM Access Extension is used to reset the administrative pas
 ```powershell
 $cred=Get-Credential
 
-Set-AzureRmVMAccessExtension -ResourceGroupName "myRG" -VMName "myVM" -Name "myVMAccess" `
+Set-AzureRmVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Name "myVMAccess" `
     -Location WestUS -UserName $cred.GetNetworkCredential().Username `
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-The `Set-AzureRmVMExtension` command can be used as a catch all or general command for starting a VM extension. For more information, see [Set-AzureRmVMExtension reference](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
+The `Set-AzureRmVMExtension` command can be used as a catch all or general command for starting any VM extension. For more information, see [Set-AzureRmVMExtension reference](https://msdn.microsoft.com/en-us/library/mt603745.aspx).
 
 
 ### Azure portal
