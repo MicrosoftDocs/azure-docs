@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 11/17/2016
 ms.author: cbrooks
 
 ---
@@ -100,7 +100,7 @@ Since the rules are processed in the order they are present in the request body,
 ### Example – CORS rules evaluation
 The following example shows a partial request body for an operation to set CORS rules for the storage services. See [Set Blob Service Properties](https://msdn.microsoft.com/library/hh452235.aspx), [Set Queue Service Properties](https://msdn.microsoft.com/library/hh452232.aspx), and [Set Table Service Properties](https://msdn.microsoft.com/library/hh452240.aspx) for details on constructing the request.
 
-```
+```xml
 <Cors>
     <CorsRule>
         <AllowedOrigins>http://www.contoso.com</AllowedOrigins>

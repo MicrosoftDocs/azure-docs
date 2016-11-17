@@ -30,7 +30,7 @@ A connection string includes the authentication information needed to access dat
 ## Storing your connection string
 Your application will need to access the connection string at runtime in order to authenticate requests made to Azure Storage. You have a few different options for storing your connection string:
 
-* For an application running on the desktop or on a device, you can store the connection string in an `app.config `file or a `web.config` file. Add the connection string to the **AppSettings** section.
+* For an application running on the desktop or on a device, you can store the connection string in an **app.config** file or a **web.config** file. Add the connection string to the **AppSettings** section.
 * For an application running in an Azure cloud service, you can store your connection string in the [Azure service configuration schema (.cscfg) file](https://msdn.microsoft.com/library/ee758710.aspx). Add the connection string to the **ConfigurationSettings** section of the service configuration file.
 * You can also use your connection string directly in your code. For most scenarios, however, we recommend that you store your configuration string in a configuration file.
 
@@ -44,7 +44,7 @@ You can use the [Microsoft Azure Configuration Manager](https://www.nuget.org/pa
 See [Use the Azure Storage Emulator for Development and Testing](storage-use-emulator.md) for more information about the storage emulator.
 
 ## Create a connection string to an Azure storage account
-To create a connection string to your Azure storage account, use the connection string format below. Indicate whether you want to connect to the storage account through HTTPS (recommended) or HTTP, replace `myAccountName` with the name of your storage account, and replace `myAccountKey` with your account access key:
+To create a connection string to your Azure storage account, use the connection string format below. Indicate whether you want to connect to the storage account through HTTPS (recommended) or HTTP, replace *myAccountName* with the name of your storage account, and replace *myAccountKey* with your account access key:
 
 `DefaultEndpointsProtocol=[http|https];AccountName=myAccountName;AccountKey=myAccountKey`
 
@@ -99,7 +99,7 @@ The endpoint value that is listed in the connection string is used to construct 
 Note that if you choose to omit a service endpoint from the connection string, then you will not be able to use that connection string to access data in that service from your code.
 
 ### Creating a connection string with an endpoint suffix
-To create a connection string for storage service in regions or instances with different endpoint suffixes, such as for Azure China or Azure Governance, use the following connection string format. Indicate whether you want to connect to the storage account through HTTP or HTTPS, replace `myAccountName` with the name of your storage account, replace `myAccountKey` with your account access key, and replace `mySuffix` with the URI suffix:
+To create a connection string for storage service in regions or instances with different endpoint suffixes, such as for Azure China or Azure Governance, use the following connection string format. Indicate whether you want to connect to the storage account through HTTP or HTTPS, replace *myAccountName* with the name of your storage account, replace *myAccountKey* with your account access key, and replace *mySuffix* with the URI suffix:
 
 ```
 DefaultEndpointsProtocol=[http|https];

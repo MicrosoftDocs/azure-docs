@@ -86,7 +86,9 @@ You cannot delete a blob with snapshots unless the snapshots are also deleted. Y
 
 The following code example shows how to delete a blob and its snapshots in .NET, where `blockBlob` is a variable of type **CloudBlockBlob**:
 
-    await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+```csharp
+await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+```
 
 ## Snapshots with Azure Premium Storage
 Using snapshots with Premium Storage follow these rules:
