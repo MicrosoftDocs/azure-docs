@@ -78,6 +78,6 @@
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux)
-## [Regional availability](https://azure.microsoft.com/regions/services/)
+## [Regional availability](https://azure.microsoft.com/regions/services)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-virtual-machine)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=virtual-machines)
