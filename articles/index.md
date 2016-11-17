@@ -2378,10 +2378,10 @@ title: Microsoft Azure Documentation
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python/">Get the Python SDK</a>
+                                                    <a href="https://azure.microsoft.com/develop/python">Get the Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.visualstudio.com/vs/python/">Get started</a>
+                                                    <a href="https://azure.microsoft.com/develop/python">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
@@ -2705,13 +2705,13 @@ title: Microsoft Azure Documentation
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Microsoft/PTVS/releases/v2.2.4">Python Tools for Visual Studio 2015</a>
+                                                    <a href="https://www.visualstudio.com/vs/python">Python Tools</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://ptvs.azureedge.net/download/PTVS%20Samples%202.2.4.vsix">Samples</a>
+                                                    <a href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Get Started with Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://ptvs.azureedge.net/download/PTVS%202.2.4%20VS%202015.msi">Download</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Get Started with Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>
