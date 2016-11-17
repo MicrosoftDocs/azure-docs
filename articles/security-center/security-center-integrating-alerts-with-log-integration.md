@@ -17,8 +17,8 @@ ms.date: 11/17/2016
 ms.author: terrylan
 
 ---
-# Integrating Security Center alerts with Azure log integration (Preview)
-Many security operations and incident response teams rely on a Security Information and Event Management (SIEM) solution as the starting point for triaging and investigating security alerts. With Azure log integration, customers can sync Azure Security Center alerts, along with virtual machine security events collected by Azure Diagnostics and Azure Audit Logs, with their log analytics or SIEM solution in near real-time.
+# Integrating Azure Security Center alerts with Azure log integration (Preview)
+Many security operations and incident response teams rely on a Security Information and Event Management (SIEM) solution as the starting point for triaging and investigating security alerts. With Azure log integration, customers can sync Security Center alerts and virtual machine security events, collected by Azure Diagnostics and Azure Audit Logs, with their log analytics or SIEM solution in near real-time.
 
 Azure log integration works with HP ArcSight, Splunk, IBM QRadar, and others.
 
@@ -52,15 +52,15 @@ The Azure log integration service collects telemetry data from the machine on wh
 1. Open the command prompt and **cd** into **c:\Program Files\Microsoft Azure Log Integration**.
 2. Run the **azlog createazureid** command to create an [Azure Active Directory Service Principal](../active-directory/active-directory-application-objects.md) in the Azure Active Directory (AD) tenants that host the Azure subscriptions.
 
-    You will be prompted for your Azure login.
+    You are prompted for your Azure login.
 
    > [!NOTE]
    > You must be the subscription Owner or a Co-Administrator of the subscription.
    >
    >
 
-    Authentication to Azure is done through Azure AD.  Creating a service principal for Azure log integration will create the Azure AD identity that will be given access to read from Azure subscriptions.
-3. Run the **azlog authorize <SubscriptionID>** command to assign Reader access on the subscription to the service principal created in step 2. If you don’t specify a **SubscriptionID**, then the service principal will be assigned the Reader role to all subscriptions to which you have access.
+    Authentication to Azure is done through Azure AD.  Creating a service principal for Azure log integration creates the Azure AD identity that is given access to read from Azure subscriptions.
+3. Run the **azlog authorize <SubscriptionID>** command to assign Reader access on the subscription to the service principal created in step 2. If you don’t specify a **SubscriptionID**, then the service principal is assigned the Reader role to all subscriptions to which you have access.
 
    > [!NOTE]
    > You may see warnings if you run the **authorize** command immediately after the **createazureid** command because there is some latency between when the Azure AD account is created and when the account is available for use. If you wait about 10 seconds after running the **createazureid** command to run the **authorize** command, then you should not see these warnings.
@@ -74,9 +74,9 @@ The Azure log integration service collects telemetry data from the machine on wh
 
    * **c:\Users\azlog\ AzureSecurityCenterJson**
    * **c:\Users\azlog\AzureSecurityCenterJsonLD**
-6. Point the standard SIEM file forwarder connector to the appropriate folder to pipe the data to the SIEM instance. Please refer to [SIEM configurations](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm) on your SIEM configuration.
+6. Point the standard SIEM file forwarder connector to the appropriate folder to pipe the data to the SIEM instance. Refer to [SIEM configurations](https://azsiempublicdrops.blob.core.windows.net/drops/ALL.htm) on your SIEM configuration.
 
-If you have questions about Azure Log Integration, please send an email to [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
+If you have questions about Azure Log Integration, send an email to [AzSIEMteam@microsoft.com](mailto:AzSIEMteam@microsoft.com)
 
 ## Next steps
 To learn more about Azure Audit Logs and property definitions, see:
