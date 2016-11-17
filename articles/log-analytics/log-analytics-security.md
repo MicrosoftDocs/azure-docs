@@ -113,8 +113,10 @@ OMS Log Analytics meets the following compliance requirements:
 * Microsoft Trustworthy Computing
 * As an Azure service, the components that OMS uses adhere to Azure compliance requirements. You can read more at [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx).
 
-[!NOTE] In some certifications/attestations Log Analytics is listed under its former name of *Operational Insights*.
-
+> [!NOTE] 
+> In some certifications/attestations Log Analytics is listed under its former name of *Operational Insights*.
+>
+>
 ## Cloud computing security data flow
 The following diagram shows a cloud security architecture as the flow of information from your company and how it is secured as is moves to the Log Analytics service, ultimately seen by you in the OMS portal. More information about each step follows the diagram.
 
