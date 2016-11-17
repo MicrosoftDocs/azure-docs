@@ -7,7 +7,6 @@
 ## Team Data Science Process
 ### [Overview](http://aka.ms/datascienceprocess)
 ### [Lifecycle](data-science-process-overview.md)
-### [Tools and Utilities](machine-learning-data-science-environment-setup.md)
 ### [Walkthroughs](data-science-process-walkthroughs.md)
 ## [Frequently asked questions](machine-learning-faq.md)
 ## [What's new?](machine-learning-whats-new.md)
@@ -100,7 +99,6 @@
 #### [Use Hive queries](machine-learning-data-science-create-features-hive.md)
 #### [TDSP feature selection](machine-learning-data-science-select-features.md)
 ### Create and train models
-#### [Create your first experiment](machine-learning-create-experiment.md)
 #### [Convert to scoring](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Manage iterations](machine-learning-manage-experiment-iterations.md)
 #### [Use PowerShell to create models](machine-learning-create-models-and-endpoints-with-powershell.md)
@@ -109,7 +107,6 @@
 ##### [Algorithm cheat sheet](machine-learning-algorithm-cheat-sheet.md)
 ##### [Use linear regression](machine-learning-linear-regression-in-azure.md)
 ##### [Use text analytics](machine-learning-text-analytics-module-tutorial.md)
-##### [Algorithm reference](https://go.microsoft.com/fwlink/?linkid=834781)
 #### Evaluate and interpret results
 ##### [Evaluate performance](machine-learning-evaluate-model-performance.md)
 ##### [Optimize parameters](machine-learning-algorithm-parameters-optimize.md)
@@ -171,10 +168,9 @@
 #### [Binomial Distribution Suite](machine-learning-r-csharp-binomial-distribution.md)
 #### [Marketplace FAQ](machine-learning-marketplace-faq.md)
 # Reference
-## [Release notes](machine-learning-whats-new.md)
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell module for Machine Learning](machine-learning-powershell-module.md)
-## [Algorithm reference](https://go.microsoft.com/fwlink/?linkid=834781)
+## [Algorithm reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [R quick start](machine-learning-r-quickstart.md)
 ## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
 ## [Management REST APIs](/rest/api/machinelearning/index)
