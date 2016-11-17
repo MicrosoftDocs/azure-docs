@@ -7,7 +7,7 @@ Azure Data Lake Store is a hyper-scale repository for big data analytic workload
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/data-lake-store/data-lake-store-overview/">
+        <a href="/azure/data-lake-store/data-lake-store-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
