@@ -148,7 +148,8 @@ Now that you have deployed and registered the App Service resource provider, you
 ## Next steps
 
 You can also try out other [platform as a service (PaaS) services](azure-stack-tools-paas-services.md)
-
+*  [SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md) 
+*  [MySQL resource provider](azure-stack-mysql-resource-provider-deploy.md).
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-deploy/AppService_exe_Start.png
