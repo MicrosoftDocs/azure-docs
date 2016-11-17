@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: elioda
 
 ---
-# Understand device twins - preview
+# Understand device twins
 ## Overview
 *Device twins* are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub. This article will describe:
 
@@ -37,7 +37,8 @@ Use device twins to:
 * Synchronize the state of long-running workflows between device app and back end, for example back end specifying the new firmware version to install, and the device app reporting the various stages of the update process.
 * Query your device metadata, configuration, or state.
 
-Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events such as time series of sensor data or alarms. Use [direct methods][lnk-methods] for interactive control of devices, such as turning on a fan.
+Refer to [Device-to-cloud communication guidance][lnk-d2c-guidance] if in doubt between using reported properties, device-to-cloud messages, or file upload.
+Refer to [Cloud-to-device communication guidance][lnk-c2d-guidance] if in doubt between using desired properties, direct methods, or cloud-to-device messages.
 
 ## Device twins
 Device twins store device-related information that:
@@ -181,8 +182,29 @@ The following reference topics provide you with more information about controlli
 ## Tags and properties format
 Tags, desired and reported properties are JSON objects with the following restrictions:
 
-* All keys in JSON objects are case-sensitive 128-char UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `'.'`, `' '`, and `'$'`.
-* All values in JSON object can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
+* All keys in JSON objects are case-sensitive 64 bytes UTF-8 UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `'.'`, `' '`, and `'$'`.
+* All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
+* All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. For instance, the following object is valid:
+
+        {
+            ...
+            "tags": {
+                "one": {
+                    "two": {
+                        "three": {
+                            "four": {
+                                "five": {
+                                    "property": "value"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            ...
+        }
+
+* All string values can be at most 512 bytes in length.
 
 ## Device twin size
 IoT Hub enforces an 8KB size limitation on the values of `tags`, `properties/desired`, and `properties/reported`, excluding read-only elements.
@@ -291,6 +313,8 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-security]: iot-hub-devguide-security.md
+[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
+[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 
 [ISO8601]: https://en.wikipedia.org/wiki/ISO_8601
 [RFC7232]: https://tools.ietf.org/html/rfc7232

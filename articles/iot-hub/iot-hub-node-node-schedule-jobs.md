@@ -17,7 +17,8 @@ ms.date: 09/30/2016
 ms.author: juanpere
 
 ---
-# Tutorial: Schedule and broadcast jobs (preview)
+# Tutorial: Schedule and broadcast jobs
+
 ## Introduction
 Azure IoT Hub is a fully managed service that enables an application back end to create and track jobs that schedule and update millions of devices.  Jobs can be used for the following actions:
 
@@ -34,22 +35,23 @@ Learn more about each of these capabilities in these articles:
 
 This tutorial shows you how to:
 
-* Create a simulated device that has a direct method which enables lockDoor which can be called by the application back end.
-* Create a console application that calls the lockDoor direct method on the simulated device using a job and updates the device twin desired properties using a device job.
+* Create a simulated device that has a direct method which enables **lockDoor** which can be called by the application back end.
+* Create a console application that calls the **lockDoor** direct method on the simulated device using a job and updates the device twin desired properties using a device job.
 
 At the end of this tutorial, you have two Node.js console applications:
 
-**simDevice.js**, which connects to your IoT hub with the device identity and receives a lockDoor direct method.
+**simDevice.js**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
 
 **scheduleJobService.js**, which calls a direct method on the simulated device  and update the device twin's desired properties using a job.
 
 To complete this tutorial, you need the following:
 
-Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
+* Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
+* An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
+[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-[!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create a simulated device app
 In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
@@ -62,7 +64,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 2. At your command-prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **simDevice.js** file in the **simDevice** folder.
 4. Add the following 'require' statements at the start of the **simDevice.js** file:
@@ -79,7 +81,7 @@ In this section, you create a Node.js console app that responds to a direct meth
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Add the following function to handle the lockDoor method.
+6. Add the following function to handle the **lockDoor** method.
    
     ```
     var onLockDoor = function(request, response) {
@@ -96,7 +98,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         console.log('Locking Door!');
     };
     ```
-7. Add the following code to register the handler for the lockDoor method.
+7. Add the following code to register the handler for the **lockDoor** method.
    
     ```
     client.open(function(err) {
@@ -116,7 +118,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 > 
 
 ## Schedule jobs for calling a direct method and updating a device twin's properties
-In this section, you create a Node.js console app that initiates a remote lockDoor on a device using a direct method and update the device twin's properties.
+In this section, you create a Node.js console app that initiates a remote **lockDoor** on a device using a direct method and update the device twin's properties.
 
 1. Create a new empty folder called **scheduleJobService**.  In the **scheduleJobService** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
    
@@ -126,7 +128,7 @@ In this section, you create a Node.js console app that initiates a remote lockDo
 2. At your command-prompt in the **scheduleJobService** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iothub@dtpreview uuid --save
+    npm install azure-iothub uuid --save
     ```
 3. Using a text editor, create a new **scheduleJobService.js** file in the **scheduleJobService** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_gscheduleJobServiceetstarted_service.js** file:
@@ -243,7 +245,7 @@ You are now ready to run the applications.
     ```
     node scheduleJobService.js
     ```
-3. You will see the output from both device and back end applications.
+3. You see the device response to the direct method in the console.
 
 ## Next steps
 In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.

@@ -31,7 +31,10 @@ IoT Hub supports multiple [device-facing protocols][lnk-protocols] (such as MQTT
 IoT Hub exposes an [Event Hub-compatible endpoint][lnk-compatible-endpoint] to enable back-end applications to read the device-to-cloud messages received by the hub.
 
 ### When to use
-Messaging is a core capability of IoT Hub. Use it whenever you need to send messages from your device to your back end, or send messages from your back end to a device.
+Use device-to-cloud messages for sending time series telemetry and alerts from your device app, and cloud-to-device messages for one-way notifications to the device app.
+
+Refer to [Device-to-cloud communication guidance][lnk-d2c-guidance] if in doubt between using reported properties, device-to-cloud messages, or file upload.
+Refer to [Cloud-to-device communication guidance][lnk-c2d-guidance] if in doubt between using desired properties, direct methods, or cloud-to-device messages.
 
 For a comparison of the IoT Hub and Event Hubs services, see [Comparison of IoT Hub and Event Hubs][lnk-compare].
 
@@ -272,6 +275,16 @@ The following table lists the set of system properties in IoT Hub messages.
 | ConnectionDeviceGenerationId |An ID set by IoT Hub on device-to-cloud messages. It contains the **generationId** (as per [Device identity properties][lnk-device-properties]) of the device that sent the message. |
 | ConnectionAuthMethod |An authentication method set by IoT Hub on device-to-cloud messages. This property contains information about the authentication method used to authenticate the device sending the message. For more information, see [Device to cloud anti-spoofing][lnk-antispoofing]. |
 
+## Message size
+
+IoT Hub measures message size in a protocol-agnostic way, considering only the actual payload. The size in bytes is calculated as the sum of the following:
+
+* The body size in bytes, plus
+* The size in bytes of all the values of the message system properties, plus
+* The size in bytes of all user property names and values.
+
+Note that property names and values are limited to ASCII characters, so the the length of the strings equals the size in bytes.
+
 ## Communication protocols
 IoT Hub allows devices to use [MQTT][lnk-mqtt], MQTT over WebSockets, [AMQP][lnk-amqp], AMQP over WebSockets, and HTTP protocols for device-side communications. The following table provides the high-level recommendations for your choice of protocol:
 
@@ -358,6 +371,9 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-portal]: iot-hub-create-through-portal.md
+
+[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
+[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md

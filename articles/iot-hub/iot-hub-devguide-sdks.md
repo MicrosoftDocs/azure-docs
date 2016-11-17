@@ -17,8 +17,8 @@ ms.date: 09/30/2016
 ms.author: dobett
 
 ---
-# IoT Hub SDKs
-## IoT Hub device SDKs
+# Azure IoT SDKs
+## Azure IoT device SDK
 The Microsoft Azure IoT device SDKs contain code that facilitates building devices and applications that connect to and are managed by Azure IoT Hub services.
 
 The following IoT device SDKs are available to download from GitHub:
@@ -37,7 +37,7 @@ The following IoT device SDKs are available to download from GitHub:
 ## OS Platforms and hardware compatibility
 For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog][lnk-certified].
 
-## IoT Hub service SDKs
+## Azure IoT service SDK
 The Microsoft Azure IoT service SDKs contain code that facilitates building applications that interact directly with IoT Hub to manage devices and security.
 
 The following IoT service SDKs are available to download from GitHub:
