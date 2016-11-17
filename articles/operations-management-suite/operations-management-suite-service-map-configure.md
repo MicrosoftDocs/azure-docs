@@ -79,7 +79,7 @@ Service Map will deliver BlueStripe technology into OMS in phases. FactFinder is
 ### Download the Dependency Agent
 In addition to the Microsoft Management Agent (MMA) and OMS Linux Agent which provide the connection between the computer and OMS, all computers analyzed by Service Map must have the Dependency Agent installed.  On Linux, the OMS Agent for Linux must be installed before the Dependency Agent. 
 
-![Service Map tile](media/operations-management-suite-application-dependency-monitor/tile.png)
+![Service Map tile](media/oms-service-map/additional_configuration.png)
 
 In order to download the Dependency Agent, click **Configure Solution** in the **Service Map** tile to open the **Dependency Agent** blade.  The Dependency Agent blade has links for the Windows and the Linux agents. Click the appropriate link to download each agent. See the following sections for details on installing the agent on different systems.
 
