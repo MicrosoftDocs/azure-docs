@@ -37,9 +37,9 @@ plans can use all resources that are available in each plan.
    [https://portal.azurestack.local](https://portal.azurestack.local/).
    
    Sign in to the Azure Stack portal as an administrator (by using the credentials that you provided during deployment).
-2. Select **New**, and then select **Quota**.
+2. Select **New**, then **Tenant Offers + Plans**, and select **Quota**.
 3. Select the first service for which you want to create a quota. For an IaaS quota, follow these steps for the Compute, Network, and Storage services.
-   In this example, we first create a quota for the Compute service. In the **Namespace** list, select the **Microsoft.Compute.Admin** namespace.
+   In this example, we first create a quota for the Compute service. In the **Namespace** list, select the **Microsoft.Compute** namespace.
    
    > ![Creating a new Compute quota](./media/azure-stack-setting-quota/NewComputeQuota.PNG)
    > 
