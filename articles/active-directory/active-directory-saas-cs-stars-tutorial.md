@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 11/17/2016
 ms.author: jeedes
 
 ---
@@ -102,16 +102,14 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     ![Azure AD Single Sign-On][7]
 3. On the **Configure App Settings** dialog page, perform the following steps: 
    
-    ![Configure App Settings][8]
+	![Configure App Settings][8]
    
-     3.1 in the **Sign On URL** textbox, type your URL used by your users to sign on to your CS Stars application (e.g.: `https://uat.csstars.com/enterprise/default.cmdx?ssoclient=C234UAT2`).
+	a. in the **Sign On URL** textbox, type your URL used by your users to sign on to your CS Stars application (e.g.: `https://uat.csstars.com/enterprise/default.cmdx?ssoclient=C234UAT2`).
    
-   > [!NOTE]
-   > If you don't know what the right value is, contact your Marsh ClearSight representative.
-   > 
-   > 
+	> [!NOTE]
+	> If you don't know what the right value is, contact your Marsh ClearSight representative.
    
-     3.2. Click **Next**.
+	b. Click **Next**.
 4. On the **Configure single sign-on at CS Stars** page, click **Download metadata**, and then save the metadata file locally on your computer.
    
     ![What is Azure AD Connect][9]
@@ -151,17 +149,17 @@ The objective of this section is to create a test user in the Azure classic port
     c. Click **Next**.
 6. On the **User Profile** dialog page, perform the following steps: 
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png) 
+	![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+	a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** txtbox, type, **Simon**.
+	b. In the **Last Name** txtbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+	c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+	d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+	e. Click **Next**.
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_07.png) 
