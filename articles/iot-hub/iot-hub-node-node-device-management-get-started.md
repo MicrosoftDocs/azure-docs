@@ -51,17 +51,21 @@ To complete this tutorial, you need the following:
 [!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
 ## Create a simulated device app
-In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
+In this section, you will
+
+* Create a Node.js console app that responds to a direct method called by the cloud
+* Trigger a simulated device reboot
+* Use the device twin reported properties to enable device twin queries to identify devices and when they last rebooted
 
 1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device@dtpreview** Device SDK package and **azure-iot-device-mqtt@dtpreview** package:
+2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **dmpatterns_getstarted_device.js** file in the **manageddevice** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_device.js** file:
@@ -143,10 +147,10 @@ In this section, you create a Node.js console app that initiates a remote reboot
     ```
     npm init
     ```
-2. At your command-prompt in the **triggerrebootondevice** folder, run the following command to install the **azure-iothub@dtpreview** Device SDK package and **azure-iot-device-mqtt@dtpreview** package:
+2. At your command-prompt in the **triggerrebootondevice** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iothub@dtpreview --save
+    npm install azure-iothub --save
     ```
 3. Using a text editor, create a new **dmpatterns_getstarted_service.js** file in the **triggerrebootondevice** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_service.js** file:
@@ -215,8 +219,8 @@ In this section, you create a Node.js console app that initiates a remote reboot
     ```
 9. Save and close the **dmpatterns_getstarted_service.js** file.
 
-## Run the applications
-You are now ready to run the applications.
+## Run the apps
+You are now ready to run the apps.
 
 1. At the command-prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
    
@@ -228,7 +232,7 @@ You are now ready to run the applications.
     ```
     node dmpatterns_getstarted_service.js
     ```
-3. You will see the react to the direct method by printing out the message
+3. You see the device response to the direct method in the console.
 
 ## Customize and extend the device management actions
 Your IoT solutions can expand the defined set of device management patterns or enable custom patterns through the use of the device twin and direct method primitives. Other examples of device management actions include factory reset, firmware update, software update, power management, network and connectivity management, and data encryption.

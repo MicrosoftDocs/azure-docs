@@ -42,17 +42,21 @@ Follow the [Get started with device management](iot-hub-node-node-device-managem
 [!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
 ## Create a simulated device app
-In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device firmware update and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
+In this section, you will
+
+* Create a Node.js console app that responds to a direct method called by the cloud
+* Trigger a simulated firmware update
+* Use the device twin reported properties to enable device twin queries to identify devices and when they last completed a firmware update
 
 1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device@dtpreview** Device SDK package and **azure-iot-device-mqtt@dtpreview** package:
+2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_fwupdate_device.js** file:
@@ -69,7 +73,7 @@ In this section, you create a Node.js console app that responds to a direct meth
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Add the following function which will be used to update device twin reported properties
+6. Add the following function which is used to update device twin reported properties
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -85,7 +89,7 @@ In this section, you create a Node.js console app that responds to a direct meth
       });
     };
     ```
-7. Add the following functions which will simulate the download and apply of the firmware image.
+7. Add the following functions which simulates the download and apply of the firmware image.
    
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -107,7 +111,7 @@ In this section, you create a Node.js console app that responds to a direct meth
       callback(error);
     }
     ```
-8. Add the following function which will update the firmware update status through the device twin reported properties to waiting to download.  Typically, devices are informed of an avaiable update and an administrator defined policy causes the device to start downloading and applying the update.  This is where the logic to enable that policy would run.  For simplicity, we're delaying for 4 seconds and proceeding to download the firmware image. 
+8. Add the following function which updates the firmware update status through the device twin reported properties to waiting to download.  Typically, devices are informed of an avaiable update and an administrator defined policy causes the device to start downloading and applying the update.  This is where the logic to enable that policy would run.  For simplicity, we're delaying for 4 seconds and proceeding to download the firmware image. 
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -122,7 +126,7 @@ In this section, you create a Node.js console app that responds to a direct meth
       setTimeout(callback, 4000);
     };
     ```
-9. Add the following function which will update the firmware update status through the device twin reported properties to downloading the firmware image.  It follows up by simulating a firmware download and finally updates the firmware update status to inform of either a download success or failure.
+9. Add the following function which updates the firmware update status through the device twin reported properties to downloading the firmware image.  It follows up by simulating a firmware download and finally updates the firmware update status to inform of either a download success or failure.
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -159,7 +163,7 @@ In this section, you create a Node.js console app that responds to a direct meth
       }, 4000);
     }
     ```
-10. Add the following function which will update the firmware update status through the device twin reported properties to applying the firmware image.  It follows up by simulating a applying of the firmware image and finally updates the firmware update status to inform of either a apply success or failure.
+10. Add the following function which updates the firmware update status through the device twin reported properties to applying the firmware image.  It follows up by simulating a applying of the firmware image and finally updates the firmware update status to inform of either a apply success or failure.
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -261,7 +265,7 @@ In this section, you create a Node.js console app that initiates a remote firmwa
 2. At your command-prompt in the **triggerfwupdateondevice** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-hub@dtpreview --save
+    npm install azure-iot-hub --save
     ```
 3. Using a text editor, create a new **dmpatterns_getstarted_service.js** file in the **triggerfwupdateondevice** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_service.js** file:
@@ -325,8 +329,8 @@ In this section, you create a Node.js console app that initiates a remote firmwa
     ```
 9. Save and close the **dmpatterns_fwupdate_service.js** file.
 
-## Run the applications
-You are now ready to run the applications.
+## Run the apps
+You are now ready to run the apps.
 
 1. At the command-prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
    
@@ -338,7 +342,7 @@ You are now ready to run the applications.
     ```
     node dmpatterns_fwupdate_service.js
     ```
-3. You will see the react to the direct method by printing out the message
+3. You see the device response to the direct method in the console.
 
 ## Next steps
 In this tutorial, you used a direct method to trigger a remote firmware update on a device and periodically used the device twin reported properties to understand the progress of the firmware update process.  

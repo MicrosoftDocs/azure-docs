@@ -21,14 +21,14 @@ ms.author: juanpere
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## Introduction
-In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [cloud-to-device (C2D) methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and provides guidance and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample.
+In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [cloud-to-device (C2D) methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the [Raspberry Pi device implementation sample][lnk-rpi-implementation].
 
 This tutorial shows you how to:
 
-* Create a console application that calls the firmwareUpdate direct method on the simulated device via your IoT hub.
-* Create a simulated device that implements a firmwareUpdate direct method which goes through a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies th firmware image.  Throughout executing each stage the device uses the device twin reported properties to update progress.
+* Create a console app that calls the firmwareUpdate direct method on the simulated device through your IoT hub.
+* Create a simulated device that implements a firmwareUpdate direct method which goes through a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image.  Throughout executing each stage the device uses the device twin reported properties to update progress.
 
-At the end of this tutorial, you have a Node.js console applications for the device side and a .NET (C#) console application for the service side:
+At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
 
 **dmpatterns_fwupdate_service.js**, which calls a direct method on the simulated device, displays the response, and periodically (every 500ms) displays the updated device twin reported properties.
 
@@ -59,7 +59,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
    
         using Microsoft.Azure.Devices;
         
-5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section.
+5. Add the following fields to the **Program** class. Replace the multiple placeholder value with the connection string for the IoT hub that you created in the previous section.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -103,17 +103,21 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 8. Build the solution.
 
 ## Create a simulated device app
-In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device firmware update and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
+In this section, you will
+
+* Create a Node.js console app that responds to a direct method called by the cloud
+* Trigger a simulated firmware update
+* Use the device twin reported properties to enable device twin queries to identify devices and when they last completed a firmware update
 
 1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device@dtpreview** Device SDK package and **azure-iot-device-mqtt@dtpreview** package:
+2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **dmpatterns_fwupdate_device.js** file in the **manageddevice** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_fwupdate_device.js** file:
@@ -130,7 +134,7 @@ In this section, you create a Node.js console app that responds to a direct meth
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Add the following function which will be used to update device twin reported properties
+6. Add the following function which is used to update device twin reported properties
    
     ```
     var reportFWUpdateThroughTwin = function(twin, firmwareUpdateValue) {
@@ -146,7 +150,7 @@ In this section, you create a Node.js console app that responds to a direct meth
       });
     };
     ```
-7. Add the following functions which will simulate the download and apply of the firmware image.
+7. Add the following functions which simulates the download and apply of the firmware image.
    
     ```
     var simulateDownloadImage = function(imageUrl, callback) {
@@ -168,7 +172,7 @@ In this section, you create a Node.js console app that responds to a direct meth
       callback(error);
     }
     ```
-8. Add the following function which will update the firmware update status through the device twin reported properties to waiting to download.  Typically, devices are informed of an avaiable update and an administrator defined policy causes the device to start downloading and applying the update.  This is where the logic to enable that policy would run.  For simplicity, we're delaying for 4 seconds and proceeding to download the firmware image. 
+8. Add the following function which updates the firmware update status through the device twin reported properties to waiting to download.  Typically, devices are informed of an avaiable update and an administrator defined policy causes the device to start downloading and applying the update.  This is where the logic to enable that policy would run.  For simplicity, we're delaying for 4 seconds and proceeding to download the firmware image. 
    
     ```
     var waitToDownload = function(twin, fwPackageUriVal, callback) {
@@ -183,7 +187,7 @@ In this section, you create a Node.js console app that responds to a direct meth
       setTimeout(callback, 4000);
     };
     ```
-9. Add the following function which will update the firmware update status through the device twin reported properties to downloading the firmware image.  It follows up by simulating a firmware download and finally updates the firmware update status to inform of either a download success or failure.
+9. Add the following function which updates the firmware update status through the device twin reported properties to downloading the firmware image.  It follows up by simulating a firmware download and finally updates the firmware update status to inform of either a download success or failure.
    
     ```
     var downloadImage = function(twin, fwPackageUriVal, callback) {
@@ -220,7 +224,7 @@ In this section, you create a Node.js console app that responds to a direct meth
       }, 4000);
     }
     ```
-10. Add the following function which will update the firmware update status through the device twin reported properties to applying the firmware image.  It follows up by simulating a applying of the firmware image and finally updates the firmware update status to inform of either a apply success or failure.
+10. Add the following function which updates the firmware update status through the device twin reported properties to applying the firmware image.  It follows up by simulating a applying of the firmware image and finally updates the firmware update status to inform of either a apply success or failure.
     
     ```
     var applyImage = function(twin, imageData, callback) {
@@ -257,7 +261,7 @@ In this section, you create a Node.js console app that responds to a direct meth
       }, 4000);
     }
     ```
-11. Add the following functoin which handle the firmwareUpdate method and initiate the multi-stage firmware update process.
+11. Add the following functoin which handle the **firmwareUpdate** method and initiate the multi-stage firmware update process.
     
     ```
     var onFirmwareUpdate = function(request, response) {
@@ -292,7 +296,7 @@ In this section, you create a Node.js console app that responds to a direct meth
       });
     }
     ```
-12. Finally, add the following code which connects to IoT hub as a device, 
+12. Finally, add the following code which connects to your IoT hub as a device, 
     
     ```
     client.open(function(err) {
@@ -311,8 +315,8 @@ In this section, you create a Node.js console app that responds to a direct meth
 > 
 > 
 
-## Run the applications
-You are now ready to run the applications.
+## Run the apps
+You are now ready to run the apps.
 
 1. At the command-prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
    
@@ -321,7 +325,7 @@ You are now ready to run the applications.
     ```
 2. Run the C# console app **TriggerFWUpdate**- right click on the **TriggerFWUpdate** project, select **Debug** and **Start new instance**.
 
-3. You will see the react to the direct method by printing out the message
+3. You see the device response to the direct method in the console.
 
 ## Next steps
 In this tutorial, you used a direct method to trigger a remote firmware update on a device and periodically used the device twin reported properties to understand the progress of the firmware update process.  
@@ -340,3 +344,4 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
+[lnk-rpi-implementation]: https://github.com/Azure/azure-iot-sdks/tree/master/c/iothub_client/samples/iothub_client_sample_mqtt_dm/pi_device

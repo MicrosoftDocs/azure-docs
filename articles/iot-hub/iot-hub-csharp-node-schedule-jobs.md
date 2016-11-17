@@ -21,13 +21,13 @@ ms.author: juanpere
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
 ## Introduction
-Azure IoT Hub is a fully managed service that enables an application back end to create and track jobs that schedule and update millions of devices.  Jobs can be used for the following actions:
+Azure IoT Hub is a fully managed service that enables an back-end app to create and track jobs that schedule and update millions of devices.  Jobs can be used for the following actions:
 
 * Update device twin desired properties
 * Update device twin tags
 * Invoke direct methods
 
-Conceptually, a job wraps one of these actions and tracks the progress of execution against a set of devices, which is defined by a device twin query.  For example, using a job an application back end can invoke a reboot method on 10,000 devices, specified by a device twin query and scheduled at a future time.  That application can then track progress as each of those devices receive and execute the reboot method.
+Conceptually, a job wraps one of these actions and tracks the progress of execution against a set of devices, which is defined by a device twin query.  For example, using a job an back-end app can invoke a reboot method on 10,000 devices, specified by a device twin query and scheduled at a future time.  That application can then track progress as each of those devices receive and execute the reboot method.
 
 Learn more about each of these capabilities in these articles:
 
@@ -36,14 +36,14 @@ Learn more about each of these capabilities in these articles:
 
 This tutorial shows you how to:
 
-* Create a simulated device that has a direct method which enables lockDoor which can be called by the application back end.
-* Create a console application that calls the lockDoor direct method on the simulated device using a job and updates the device twin desired properties using a device job.
+* Create a simulated device that has a direct method which enables **lockDoor** which can be called by the back-end app.
+* Create a console application that calls the **lockDoor** direct method on the simulated device using a job and updates the device twin desired properties using a device job.
 
-At the end of this tutorial, you have a Node.js console applications for the device side and a .NET (C#) console application for the service side:
+At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
 
-**simDevice.js**, which connects to your IoT hub with the device identity and receives a lockDoor direct method.
+**simDevice.js**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
 
-**ScheduleJob**, which calls a direct method on the simulated device  and update the device twin's desired properties using a job.
+**ScheduleJob**, which calls a direct method on the simulated device and updates the device twin's desired properties using a job.
 
 To complete this tutorial, you need the following:
 
@@ -54,7 +54,7 @@ To complete this tutorial, you need the following:
 [!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
 
 ## Schedule jobs for calling a direct method and updating a device twin's properties
-In this section, you create a .NET console app (using C#) that initiates a remote lockDoor on a device using a direct method and update the device twin's properties.
+In this section, you create a .NET console app (using C#) that initiates a remote **lockDoor** on a device using a direct method and update the device twin's properties.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **ScheduleJob**.
 
@@ -68,7 +68,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
    
         using Microsoft.Azure.Devices;
         
-5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section.
+5. Add the following fields to the **Program** class. Replace the multiple placeholders with the connection string for the IoT hub that you created in the previous section.
    
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
@@ -152,7 +152,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 2. At your command-prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **simDevice.js** file in the **simDevice** folder.
 4. Add the following 'require' statements at the start of the **simDevice.js** file:
@@ -169,7 +169,7 @@ In this section, you create a Node.js console app that responds to a direct meth
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Add the following function to handle the lockDoor method.
+6. Add the following function to handle the **lockDoor** method.
    
     ```
     var onLockDoor = function(request, response) {
@@ -186,7 +186,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         console.log('Locking Door!');
     };
     ```
-7. Add the following code to register the handler for the lockDoor method.
+7. Add the following code to register the handler for the **lockDoor** method.
    
     ```
     client.open(function(err) {
@@ -205,8 +205,8 @@ In this section, you create a Node.js console app that responds to a direct meth
 > 
 > 
 
-## Run the applications
-You are now ready to run the applications.
+## Run the apps
+You are now ready to run the apps.
 
 1. At the command-prompt in the **simDevice** folder, run the following command to begin listening for the reboot direct method.
    
@@ -215,7 +215,7 @@ You are now ready to run the applications.
     ```
 2. Run the C# console app **ScheduleJob**- right click on the **ScheduleJob** project, select **Debug** and **Start new instance**.
 
-3. You will see the output from both device and back end applications.
+3. You see the output from both device and back-end apps.
 
 ## Next steps
 In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.

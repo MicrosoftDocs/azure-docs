@@ -60,7 +60,7 @@ In this section, you create a Node.js console app that responds to a method call
 2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **SimulatedDevice.js** file in the **simulateddevice** folder.
 4. Add the following `require` statements at the start of the **SimulatedDevice.js** file:
@@ -122,7 +122,7 @@ In this section, you create a Node.js console app that calls a method on the sim
 2. At your command-prompt in the **callmethodondevice** folder, run the following command to install the **azure-iothub** package:
    
     ```
-    npm install azure-iothub@dtpreview --save
+    npm install azure-iothub --save
     ```
 3. Using a text editor, create a **CallMethodOnDevice.js** file in the **callmethodondevice** folder.
 4. Add the following `require` statements at the start of the **CallMethodOnDevice.js** file:
@@ -164,8 +164,8 @@ In this section, you create a Node.js console app that calls a method on the sim
     ```
 8. Save and close the **CallMethodOnDevice.js** file.
 
-## Run the applications
-You are now ready to run the applications.
+## Run the apps
+You are now ready to run the apps.
 
 1. At a command-prompt in the **simulateddevice** folder, run the following command to start listening for method calls from your IoT Hub:
    

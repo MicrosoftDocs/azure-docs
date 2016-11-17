@@ -36,12 +36,12 @@ Learn more about each of these capabilities in these articles:
 
 This tutorial shows you how to:
 
-* Create a simulated device that has a direct method which enables lockDoor which can be called by the application back end.
-* Create a console application that calls the lockDoor direct method on the simulated device using a job and updates the device twin desired properties using a device job.
+* Create a simulated device that has a direct method which enables **lockDoor** which can be called by the application back end.
+* Create a console application that calls the **lockDoor** direct method on the simulated device using a job and updates the device twin desired properties using a device job.
 
 At the end of this tutorial, you have two Node.js console applications:
 
-**simDevice.js**, which connects to your IoT hub with the device identity and receives a lockDoor direct method.
+**simDevice.js**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
 
 **scheduleJobService.js**, which calls a direct method on the simulated device  and update the device twin's desired properties using a job.
 
@@ -80,7 +80,7 @@ In this section, you create a Node.js console app that responds to a direct meth
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
     var client = Client.fromConnectionString(connectionString, Protocol);
     ```
-6. Add the following function to handle the lockDoor method.
+6. Add the following function to handle the **lockDoor** method.
    
     ```
     var onLockDoor = function(request, response) {
@@ -97,7 +97,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         console.log('Locking Door!');
     };
     ```
-7. Add the following code to register the handler for the lockDoor method.
+7. Add the following code to register the handler for the **lockDoor** method.
    
     ```
     client.open(function(err) {
@@ -117,7 +117,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 > 
 
 ## Schedule jobs for calling a direct method and updating a device twin's properties
-In this section, you create a Node.js console app that initiates a remote lockDoor on a device using a direct method and update the device twin's properties.
+In this section, you create a Node.js console app that initiates a remote **lockDoor** on a device using a direct method and update the device twin's properties.
 
 1. Create a new empty folder called **scheduleJobService**.  In the **scheduleJobService** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
    
@@ -244,7 +244,7 @@ You are now ready to run the applications.
     ```
     node scheduleJobService.js
     ```
-3. You will see the output from both device and back end applications.
+3. You see the device response to the direct method in the console.
 
 ## Next steps
 In this tutorial, you used a job to schedule a direct method to a device and the update of the device twin's properties.

@@ -17,15 +17,15 @@ ms.date: 09/30/2016
 ms.author: juanpere
 
 ---
-# Tutorial: Get started with device management (preview)
+# Tutorial: Get started with device management
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 ## Introduction
-IoT cloud applications can use primitives in Azure IoT Hub, namely the device twin and direct methods, to remotely start and monitor device management actions on devices.  This article provides guidance and code for how an IoT cloud application and a device work together to initiate and monitor a remote device reboot using IoT Hub.
+IoT back-end apps can use primitives in Azure IoT Hub, namely the device twin and direct methods, to remotely start and monitor device management actions on devices.  This article provides guidance and code for how an IoT back-end apps and a device work together to initiate and monitor a remote device reboot using IoT Hub.
 
-To remotely start and monitor device management actions on your devices from a cloud-based, back-end app, use Azure IoT Hub primitives such as [device twin][lnk-devtwin] and [cloud-to-device (C2D) methods][lnk-c2dmethod]. This tutorial shows you how a back-end app and a device can work together to enable you initiate and monitor remote device reboot from IoT Hub.
+To remotely start and monitor device management actions on your devices from a cloud-based, back-end app, use IoT Hub primitives such as [device twin][lnk-devtwin] and [cloud-to-device (C2D) methods][lnk-c2dmethod]. This tutorial shows you how a back-end app and a device can work together to enable you initiate and monitor remote device reboot from IoT Hub.
 
-You use a C2D method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
+You use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
 
 * Handling the method request sent from IoT Hub.
 * Initiating the corresponding device specific action on the device.
@@ -37,9 +37,9 @@ This tutorial shows you how to:
 
 * Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
 * Create a simulated device that has a direct method which enables reboot which can be called by the cloud.
-* Create a console application that calls the reboot direct method on the simulated device via your IoT hub.
+* Create a console application that calls the reboot direct method on the simulated device through your IoT hub.
 
-At the end of this tutorial, you have a Node.js console applications for the device side and a .NET (C#) console application for the service side:
+At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
 
 **dmpatterns_getstarted_device.js**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
 
@@ -68,7 +68,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
    
         using Microsoft.Azure.Devices;
         
-5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section.
+5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section and the target device.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -76,7 +76,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
         static JobClient jobClient;
         static string targetDevice = "{deviceIdForTargetDevice}";
         
-6. Add the following method to the **Program** class:
+6. Add the following method to the **Program** class.  This code gets the twin for the rebooting device and outputs the reported properties.
    
         public static async Task QueryTwinRebootReported()
         {
@@ -84,7 +84,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
             Console.WriteLine(twin.Properties.Reported.ToJson());
         }
         
-7. Add the following method to the **Program** class:
+7. Add the following method to the **Program** class.  This code initiates the reboot on the device using a direct method.
 
         public static async Task StartReboot()
         {
@@ -108,17 +108,21 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 8. Build the solution.
 
 ## Create a simulated device app
-In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
+In this section, you will
+
+* Create a Node.js console app that responds to a direct method called by the cloud
+* Trigger a simulated device reboot
+* Use the device twin reported properties to enable device twin queries to identify devices and when they last rebooted
 
 1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device@dtpreview** Device SDK package and **azure-iot-device-mqtt@dtpreview** package:
+2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **dmpatterns_getstarted_device.js** file in the **manageddevice** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_device.js** file:
@@ -176,7 +180,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         console.log('Rebooting!');
     };
     ```
-7. Open the connection to your IoT hub and start the direct method listener:
+7. Add the following code to open the connection to your IoT hub and start the direct method listener:
    
     ```
     client.open(function(err) {
@@ -193,8 +197,8 @@ In this section, you create a Node.js console app that responds to a direct meth
    [AZURE.NOTE] To keep things simple, this tutorial does not implement any retry policy. In production code, you should implement retry policies (such as an exponential backoff), as suggested in the MSDN article [Transient Fault Handling][lnk-transient-faults].
 
 
-## Run the applications
-You are now ready to run the applications.
+## Run the apps
+You are now ready to run the apps.
 
 1. At the command-prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
    
@@ -203,10 +207,10 @@ You are now ready to run the applications.
     ```
 2. Run the C# console app **TriggerReboot**- right click on the **TriggerReboot** project, select **Debug** and **Start new instance**.
 
-3. You will see the react to the direct method by printing out the message
+3. You see the device response to the direct method in the console.
 
 ## Customize and extend the device management actions
-Your IoT solutions can expand the defined set of device management patterns or enable custom patterns through the use of the device twin and C2D method primitives. Other examples of device management actions include factory reset, firmware update, software update, power management, network and connectivity management, and data encryption.
+Your IoT solutions can expand the defined set of device management patterns or enable custom patterns through the use of the device twin and cloud-to-device method primitives. Other examples of device management actions include factory reset, firmware update, software update, power management, network and connectivity management, and data encryption.
 
 ## Device maintenance windows
 Typically, you configure devices to perform actions at a time that minimizes interruptions and downtime.  Device maintenance windows are a commonly used pattern to define the time when a device should update its configuration. Your back-end solutions can use the desired properties of the device twin to define and activate a policy on your device that enables a maintenance window. When a device receives the maintenance window policy, it can use the reported property of the device twin to report the status of the policy. The back-end app can then use device twin queries to attest to compliance of devices and each policy.
