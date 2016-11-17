@@ -46,35 +46,34 @@ To deploy the SQL provider on a system that does not have internet access, you c
 2. Open an elevated PowerShell console and change to the directory where you extracted the files.
 
 3. Run the DeploySqlProvider.ps1 script.
-	
-	The script does all of the following:
 
-		* If necessary, download a compatible version of Azure PowerShell.
-		* Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
-		* Download an evaluation build of SQL Server SP1 from the internet or from a local file share.
-		* Upload the certificate and all other artifacts to a storage account on your Azure Stack.
-		* Publish gallery package so that you can deploy SQL database through the gallery.
-		* Deploy a VM using the default Windows Server 2012 R2 image that comes with Azure Stack. 
-		* Register a local DNS record that maps to your resource provider VM.
-		* Register your resource provider with the local Azure Resource Manager.
-		* Connect the resource provider to the SQL server instance on the RP VM
-		
+The script does all of the following:
 
-	Use “sa” for username and the password that you used when you deployed the resource provider VM.
+* If necessary, download a compatible version of Azure PowerShell.
+* Create a wildcard certificate to secure communication between the resource provider and Azure Resource Manager.
+* Download an evaluation build of SQL Server SP1 from the internet or from a local file share.
+* Upload the certificate and all other artifacts to a storage account on your Azure Stack.
+* Publish gallery package so that you can deploy SQL database through the gallery.
+* Deploy a VM using the default Windows Server 2012 R2 image that comes with Azure Stack.
+* Register a local DNS record that maps to your resource provider VM.
+* Register your resource provider with the local Azure Resource Manager.
+* Connect the resource provider to the SQL server instance on the RP VM
+
+Use “sa” for username and the password that you used when you deployed the resource provider VM.
 
 ### Parameters
 The script prompts for required parameters:
-Parameter Name|Description|Comment
---- | --- | ---
-  **AadTenantDirectoryName**|The Azure Active Directory Name|_required_
-  **AzCredential**|Azure Stack Service Admin account credential (use the same account as you used for deploying Azure Stack)|_required_
-  **LocalCredential**|This is used for the local administrator account of the SQL resource provider VM and the password is also be used for the SQL **sa** account|_required_
-  **ResourceGroupName**|Resource Group for the items created by this script|Default: Microsoft-SQL-RP1
-  **VmName**|Name of the VM holding the resource provider|Default: sqlrp
-  **DependencyFilesLocalPath**|Path to a local share containing the SQL ISO if you did an offline deployment. You can download [SQL 2014 SP1 Enterprise Evaluation ISO](http://care.dlservice.microsoft.com/dl/download/2/F/8/2F8F7165-BB21-4D1E-B5D8-3BD3CE73C77D/SQLServer2014SP1-FullSlipstream-x64-ENU.iso) from the Microsoft Download Center.|_leave blank to download from the internet_
-  **MaxRetryCount**|Each operation will be retried if there is a failure|5
-  **RetryDuration**|Timeout between retries, in seconds|300
-  | | 
+
+|Parameter Name|Description|Comment|
+| ---------------|-------------|--------|
+|**AadTenantDirectoryName**|The Azure Active Directory Name|_required_|
+|**AzCredential**|Azure Stack Service Admin account credential (use the same account as you used for deploying Azure Stack)|_required_|
+|**LocalCredential**|This is used for the local administrator account of the SQL resource provider VM and the password is also be used for the SQL **sa** account|_required_|
+|**ResourceGroupName**|Resource Group for the items created by this script|Default: Microsoft-SQL-RP1|
+|**VmName**|Name of the VM holding the resource provider|Default: sqlrp|
+|**DependencyFilesLocalPath**|Path to a local share containing the SQL ISO if you did an offline deployment. You can download [SQL 2014 SP1 Enterprise Evaluation ISO](http://care.dlservice.microsoft.com/dl/download/2/F/8/2F8F7165-BB21-4D1E-B5D8-3BD3CE73C77D/SQLServer2014SP1-FullSlipstream-x64-ENU.iso) from the Microsoft Download Center.|_leave blank to download from the internet_|
+|**MaxRetryCount**|Each operation will be retried if there is a failure|5|
+|**RetryDuration**|Timeout between retries, in seconds|300|
 
 
 This should get your SQL Server resource provider up and running in about 45 minutes (depending on your hardware and download speed). Make sure you reopen your browser before proceeding with the following steps.
@@ -133,7 +132,7 @@ This should get your SQL Server resource provider up and running in about 45 min
 
 	![](./media/azure-stack-sql-rp-deploy/11.png)
 
-## Add Capacity 
+## Add Capacity
 
 [Add Capacity by adding additional SQL hosts](#markdown-header-provide-capacity-to-your-sql-resource-provider-by-connecting-it-to-a-hosting-SQL-server)
 		in the Azure Stack portal. If you wish to use another instance of SQL instead of the one installed on the provider VM, click **Resource Providers** &gt; **SQL Resource Provider** &gt; **SQL Hosting Servers** &gt; **+Add**.
@@ -143,4 +142,3 @@ This should get your SQL Server resource provider up and running in about 45 min
 Create plans and offers to make SQL databases available for tenants. You will need to create a plan, add the Microsoft.Sql service to the plan, add an existing Tier Quota, or create a new one. If you create a quota, you can specify the capacity to allow the tenant.
 
 ![](./media/azure-stack-sql-rp-deploy/12.png)
-
