@@ -11,7 +11,7 @@
 
 # How To
 ## Integrate
-### Connected sourcces
+### Connected sources
 #### [Windows agents](log-analytics-windows-agents.md)
 #### [Linux agents](log-analytics-linux-agents.md)
 #### [Azure virtual machines](log-analytics-azure-vm-extension.md)
@@ -38,7 +38,6 @@
 #### [Alert management](log-analytics-solution-alert-management.md)
 #### [Capacity Management](log-analytics-capacity.md)
 #### [Change Tracking](log-analytics-change-tracking.md)
-#### [Configuration Assessment](log-analytics-configuration-assessment.md)
 #### [Containers](log-analytics-containers.md)
 #### [Key Vault](log-analytics-azure-key-vault.md)
 #### [Malware Assessment](log-analytics-malware.md)
@@ -48,7 +47,6 @@
 #### [Service Fabric](log-analytics-service-fabric.md)
 #### [SQL Assessment](log-analytics-sql-assessment.md)
 #### [Surface Hub](log-analytics-surface-hubs.md)
-#### [System Update Assessment](log-analytics-system-update.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Wire Data](log-analytics-wire-data.md)
 ## Analyze
@@ -63,6 +61,5 @@
 
 # Resources
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
-
-
-
+## [Pricing](https://azure.microsoft.com/pricing/details/log-analytics/)
+## [Service updates](https://azure.microsoft.com/updates/?product=log-analytics)
