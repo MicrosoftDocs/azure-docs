@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/02/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 
 ---
@@ -35,13 +35,16 @@ If you need to update the application code for your cloud service, use **Update*
 2. In the blade, click the **Update** button.
    
     ![Update Button](./media/cloud-services-how-to-manage-portal/update-button.png)
+
 3. Update the deployment with a new service package file (.cspkg) and service configuration file (.cscfg).
    
     ![UpdateDeployment](./media/cloud-services-how-to-manage-portal/update-blade.png)
+
 4. **Optionally** update the deployment label and the storage account. 
 5. If any roles have only one role instance, select the **Deploy even if one or more roles contain a single instance** to enable the upgrade to proceed. 
    
     Azure can only guarantee 99.95 percent service availability during a cloud service update if each role has at least two role instances (virtual machines). With two role instances, one virtual machine will process client requests while the other is updated.
+    
 6. Check **Start deployment** to have the update applied after the upload of the package has finished.
 7. Click **OK** to begin updating the service.
 
@@ -54,9 +57,11 @@ You can swap deployments from the **Cloud Services** page or the dashboard.
 2. In the blade, click the **Swap** button.
    
     ![Cloud Services Swap](./media/cloud-services-how-to-manage-portal/swap-button.png)
+
 3. The following confirmation prompt opens.
    
     ![Cloud Services Swap](./media/cloud-services-how-to-manage-portal/swap-prompt.png)
+
 4. After you verify the deployment information, click **OK** to swap the deployments.
    
     The deployment swap happens quickly because the only thing that changes is the virtual IP addresses (VIPs) for the deployments.
@@ -77,9 +82,11 @@ Use the following procedure to delete a deployment or your cloud service.
 2. In the blade, click the **Delete** button.
    
     ![Cloud Services Swap](./media/cloud-services-how-to-manage-portal/delete-button.png)
+
 3. You can delete the entire cloud service by checking **Cloud service and its deployments** or choose either the **Production deployment** or the **Staging deployment**.
    
     ![Cloud Services Swap](./media/cloud-services-how-to-manage-portal/delete-blade.png) 
+
 4. Click the **Delete** button at the bottom.
 5. To delete the cloud service, click **Delete cloud service**. Then, at the confirmation prompt, click **Yes**.
 

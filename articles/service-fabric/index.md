@@ -102,19 +102,67 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 
 ---
 
-##Reference
+## Reference
 
-###PowerShell
-[Service Fabric PowerShell Reference](/powershell/servicefabric/vlatest/servicefabric)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/servicefabric/vlatest/servicefabric">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Service Fabric PowerShell Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/java/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Java</h3>
+                        <p>Java API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="/dotnet/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>.NET Managed Reference API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	<li>
+        <a href="http://msdn.microsoft.com/library/dn707692.aspx">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Service Fabric REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>	
 
-###Java
-[Java API Reference](/java/api)
-
-###.NET
-[.NET Managed Reference API](/dotnet/api/)  
-
-###REST
-[Service Fabric REST API Reference](http://msdn.microsoft.com/library/dn707692.aspx)
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/service-fabric.pdf">

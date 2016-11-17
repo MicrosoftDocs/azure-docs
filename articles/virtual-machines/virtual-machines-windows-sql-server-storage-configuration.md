@@ -24,8 +24,6 @@ This topic explains how Azure configures storage for your SQL Server VMs both du
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-classic deployment model.
-
 ## Prerequisites
 To use the automated storage configuration settings, your virtual machine requires the following characteristics:
 

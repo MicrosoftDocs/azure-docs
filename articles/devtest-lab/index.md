@@ -1,9 +1,9 @@
 ---
 layout: LandingPage
 ---
-#Devtest Lab Documentation
+#Devtest Labs Documentation
 
-Devtest Lab is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Devtest Lab represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
+Azure Devtest Labs is a service that helps developers and testers quickly create environments in Azure while minimizing waste and controlling cost.  You can test the latest version of your application by quickly provisioning Windows and Linux environments using reusable templates and artifacts.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -53,7 +53,7 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a lab in Azure DevTest Labs</h3>
+                        <h3>Get Started with Azure DevTest Labs using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -67,11 +67,11 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a VM artifacts with Azure DevTest labs</h3>
+                        <h3>Get Started creating VM artifacts with Azure DevTest labs</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +85,11 @@ Devtest Lab is a distributed systems platform that makes it easy to package, dep
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/tutorial.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a lab for training using Azure DevTest Labs</h3>
+                        <h3>Get Started by creating a lab for training using Azure DevTest Labs</h3>
                     </div>
                 </div>
             </div>
