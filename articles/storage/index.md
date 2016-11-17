@@ -7,7 +7,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/storage/storage-introduction/ ">
+        <a href="/azure/storage/storage-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
         </a>
     </li>
     <li>
-        <a href="/azure/storage/storage-getting-started-guide/ ">
+        <a href="/azure/storage/storage-getting-started-guide">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

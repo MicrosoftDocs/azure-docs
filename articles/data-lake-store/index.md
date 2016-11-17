@@ -222,6 +222,6 @@ Azure Data Lake Store is a hyper-scale repository for big data analytic workload
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/data-lake-store.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Azure Batch Documentation
+            Download Azure Data Lake Store Documentation
         </div>
     </a>

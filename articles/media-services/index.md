@@ -159,7 +159,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs/">
+        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

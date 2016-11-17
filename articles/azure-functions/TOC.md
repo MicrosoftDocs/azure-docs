@@ -38,9 +38,6 @@
 ## Deploy
 ### [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
 
-# Reference
-## [.NET API](https://msdn.microsoft.com/library/azure/dn961176.aspx)
-
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/functions/)  
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
