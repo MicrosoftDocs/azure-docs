@@ -62,7 +62,7 @@ If you want to keep script URLs and parameters private, you can set the script U
         ]
         },
         "protectedSettings": {
-        "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -start.ps1",
+        "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File start.ps1",
         "storageAccountName": "yourStorageAccountName",
         "storageAccountKey": "yourStorageAccountKey"
         }
