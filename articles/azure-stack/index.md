@@ -25,7 +25,7 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=azure-stack">
+        <a href="https://azure.microsoft.com/search/videos/?q=azure+stack">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
