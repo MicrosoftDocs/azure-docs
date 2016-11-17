@@ -46,7 +46,7 @@ Before you can attach your virtual hard disk to another VM, you need to identify
 
 Select your resource group from the portal, then select your storage account. Click **Blobs**, as in the following example:
 
-![Select storage blobs](./media/virtual-machines-linux-troubleshoot-recovery-disks/storage-container.png)
+![Select storage blobs](./media/virtual-machines-linux-troubleshoot-recovery-disks/storage-account-overview.png)
 
 Typically you have a container named **vhds** that stores your virtual hard disks. Select the container to view a list of virtual hard disks. Note the name of your VHD (the prefix is usually the name of your VM):
 
@@ -78,7 +78,7 @@ For the next few steps, you use another VM for troubleshooting purposes. You att
 
 2. To select your existing virtual hard disk, click **VHD File**:
 
-    ![Browse for existing VHD](./media/virtual-machines-linux-troubleshoot-recovery-disks/attach-existing-disk.png)
+    ![Browse for existing VHD](./media/virtual-machines-linux-troubleshoot-recovery-disks/select-vhd-location.png)
 
 3. Select your storage account and container, then click your existing VHD. Click the **Select** button to confirm your choice:
 
