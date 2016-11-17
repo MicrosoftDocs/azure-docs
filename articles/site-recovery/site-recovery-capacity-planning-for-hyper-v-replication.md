@@ -1,4 +1,4 @@
-﻿---
+---
 title: Run the Hyper-V capacity planner tool for Site Recovery | Microsoft Docs
 description: This article describes how to run the Hyper-V capacity planner tool for Azure Site Recovery
 services: site-recovery
@@ -72,11 +72,10 @@ We recommend you set up a single Hyper-V host as a recovery server, so that a du
      ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image1.png)
    * Run **netsh http show servicestate**, to check that the listener is running for the protocol/port you specified:  
 4. Set up firewalls. During Hyper-V installation, firewall rules are created to allow traffic on the default ports (HTTPS on 443, Kerberos on 80). Enable these rules as follows:
-
-        - Certificate authentication on cluster (443): **Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}**
-        - Kerberos authentication on cluster (80): **Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}**
-        - Certificate authentication on standalone server: **Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"**
-        - Kerberos authentication on standalone server: **Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"**
+  - Certificate authentication on cluster (443): ``Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"}}``
+  - Kerberos authentication on cluster (80): ``Get-ClusterNode | ForEach-Object {Invoke-command -computername \$\_.name -scriptblock {Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"}}``
+  - Certificate authentication on standalone server: ``Enable-Netfirewallrule -displayname "Hyper-V Replica HTTPS Listener (TCP-In)"``
+  - Kerberos authentication on standalone server: ``Enable-Netfirewallrule -displayname "Hyper-V Replica HTTP Listener (TCP-In)"``
 
 ## Step 3: Run the capacity planner tool
 After you've prepared your primary site, and set up a recovery server, you can run the tool.
@@ -97,7 +96,7 @@ After you've prepared your primary site, and set up a recovery server, you can r
 8. If you've configured a replica server or cluster, in **Network information**, specify the approximate WAN bandwidth you think will be used between the primary and replica sites, and select the certificates if you've configured certificate authentication.
 
     ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image5.png)
-9. In **Summary** check settings, and click **Next** to begin collecting metrics. Tool progress and status is displayed on the **Calculate Capacity** page. When the tool finishes running, click **View Report** to view the output. By default, reports and logs are stored in **%systemdrive%\Users\Public\Documents\Capacity Planner**.
+9. In **Summary**, check the settings and click **Next** to begin collecting metrics. Tool progress and status is displayed on the **Calculate Capacity** page. When the tool finishes running, click **View Report** to view the output. By default, reports and logs are stored in **%systemdrive%\Users\Public\Documents\Capacity Planner**.
 
    ![](./media/site-recovery-capacity-planning-for-hyper-v-replication/image6.png)
 
