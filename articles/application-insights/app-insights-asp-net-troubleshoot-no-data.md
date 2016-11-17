@@ -1,6 +1,6 @@
 ---
 title: Troubleshooting no data - Application Insights for .NET
-description: Not seeing data in Visual Studio Application Insights? Try here.
+description: Not seeing data in Azure Application Insights? Try here.
 services: application-insights
 documentationcenter: .net
 author: alancameronwills

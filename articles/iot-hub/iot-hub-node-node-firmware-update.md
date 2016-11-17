@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: juanpere
 
 ---
-# Tutorial: How to do a firmware update (preview)
+# Tutorial: How to do a firmware update
 ## Introduction
 In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and provides guidance and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample.
 
@@ -39,7 +39,9 @@ To complete this tutorial, you need the following:
 
 Follow the [Get started with device management](iot-hub-node-node-device-management-get-started.md) article to create your IoT hub and get your connection string.
 
-[!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create a simulated device app
 In this section, you will

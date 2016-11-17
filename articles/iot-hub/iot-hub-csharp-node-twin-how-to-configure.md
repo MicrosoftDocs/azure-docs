@@ -38,7 +38,9 @@ To complete this tutorial you need the following:
 
 If you followed the [Get started with device twins][lnk-twin-tutorial] tutorial, you already have a device management enabled hub and a device identity called **myDeviceId**; and you can skip to the [Create the simulated device app][lnk-how-to-configure-createapp] section.
 
-[!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create the simulated device app
 In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, waits for a desired configuration update and then reports updates on the simulated configuration update process.
@@ -51,7 +53,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 2. At your command-prompt in the **simulatedeviceconfiguration** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **SimulateDeviceConfiguration.js** file in the **simulatedeviceconfiguration** folder.
 4. Add the following code to the **SimulateDeviceConfiguration.js** file, and substitute the **{device connection string}** placeholder with the connection string you copied when you created the **myDeviceId** device identity:
@@ -158,7 +160,7 @@ In this section, you will create a .NET console app that updates the *desired pr
    
     ![New Visual C# Windows Classic Desktop project][img-createapp]
 2. In Solution Explorer, right-click the **SetDesiredConfigurationAndQuery** project, and then click **Manage Nuget Packages**.
-3. In the **Nuget Package Manager** window, make sure that **Include prerelease** is checked, search for **microsoft.azure.devices**, select **Install** to install the the *prerelease* version of the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
+3. In the **Nuget Package Manager** window, select **Browse**, search for **microsoft.azure.devices**, select **Install** to install the **Microsoft.Azure.Devices** package, and accept the terms of use. This procedure downloads, installs, and adds a reference to the [Microsoft Azure IoT Service SDK][lnk-nuget-service-sdk] Nuget package and its dependencies.
    
     ![Nuget Package Manager window][img-servicenuget]
 4. Add the following `using` statements at the top of the **Program.cs** file:

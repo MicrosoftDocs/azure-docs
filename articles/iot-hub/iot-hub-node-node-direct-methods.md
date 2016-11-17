@@ -18,19 +18,7 @@ ms.author: nberdy
 
 ---
 # Tutorial: Use direct methods
-## Introduction
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. IoT Hub also gives you the ability to invoke non-durable methods on devices from the cloud. Methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout) to let the user know the status of the call. [Invoke a direct method on a device][lnk-devguide-methods] describes methods in more detail and offers guidance about when to use methods versus cloud-to-device messages.
-
-This tutorial shows you how to:
-
-* Use the Azure portal to create an IoT hub and create a device identity in your IoT hub.
-* Create a simulated device that has a direct method which can be called by the cloud.
-* Create a console application that calls a direct method on the simulated device via your IoT hub.
-
-> [!NOTE]
-> At this time, direct methods are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
-> 
-> 
+[!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
 At the end of this tutorial, you have two Node.js console applications:
 
@@ -38,7 +26,7 @@ At the end of this tutorial, you have two Node.js console applications:
 * **SimulatedDevice.js**, which connects to your IoT hub with the device identity created earlier, and responds to the method called by the cloud.
 
 > [!NOTE]
-> The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution back end.
+> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution back end.
 > 
 > 
 
@@ -47,7 +35,9 @@ To complete this tutorial, you need the following:
 * Node.js version 0.10.x or later.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-[!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create a simulated device app
 In this section, you create a Node.js console app that responds to a method called by the cloud.

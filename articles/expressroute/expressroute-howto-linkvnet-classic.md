@@ -1,4 +1,4 @@
-﻿---
+---
 title: Link a virtual network to an ExpressRoute circuit by using the classic deployment model and PowerShell | Microsoft Docs
 description: This document provides an overview of how to link virtual networks (VNets) to ExpressRoute circuits by using the classic deployment model and PowerShell.
 services: expressroute
@@ -67,7 +67,9 @@ The *circuit owner* is the administrator/coadministrator of the subscription in 
 The circuit owner has the power to modify and revoke authorizations at any time. Revoking an authorization will result in all links being deleted from the subscription whose access was revoked.
 
 ### Circuit owner operations
-#### Creating an authorization
+
+**Creating an authorization**
+
 The circuit owner authorizes the administrators of other subscriptions to use the specified circuit. In the following example, the administrator of the circuit (Contoso IT) enables the administrator of another subscription (Dev-Test) to link up to two virtual networks to the circuit. The Contoso IT administrator enables this by specifying the Dev-Test Microsoft ID. The cmdlet doesn't send email to the specified Microsoft ID. The circuit owner needs to explicitly notify the other subscription owner that the authorization is complete.
 
     New-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -Description "Dev-Test Links" -Limit 2 -MicrosoftIds 'devtest@contoso.com'
@@ -78,7 +80,8 @@ The circuit owner authorizes the administrators of other subscriptions to use th
     MicrosoftIds        : devtest@contoso.com
     Used                : 0
 
-#### Reviewing authorizations
+**Reviewing authorizations**
+
 The circuit owner can review all authorizations that are issued on a particular circuit by running the following cmdlet:
 
     Get-AzureDedicatedCircuitLinkAuthorization -ServiceKey: "**************************"
@@ -102,7 +105,8 @@ The circuit owner can review all authorizations that are issued on a particular 
     Used                : 2
 
 
-#### Updating authorizations
+**Updating authorizations**
+
 The circuit owner can modify authorizations by using the following cmdlet:
 
     Set-AzureDedicatedCircuitLinkAuthorization -ServiceKey "**************************" -AuthorizationId "&&&&&&&&&&&&&&&&&&&&&&&&&&&&"-Limit 5
@@ -114,14 +118,17 @@ The circuit owner can modify authorizations by using the following cmdlet:
     Used                : 0
 
 
-#### Deleting authorizations
+**Deleting authorizations**
+
 The circuit owner can revoke/delete authorizations to the user by running the following cmdlet:
 
     Remove-AzureDedicatedCircuitLinkAuthorization -ServiceKey "*****************************" -AuthorizationId "###############################"
 
 
 ### Circuit user operations
-#### Reviewing authorizations
+
+**Reviewing authorizations**
+
 The circuit user can review authorizations by using the following cmdlet:
 
     Get-AzureAuthorizedDedicatedCircuit
@@ -136,7 +143,8 @@ The circuit user can review authorizations by using the following cmdlet:
     Status                           : Enabled
     UsedLinks                        : 0
 
-#### Redeeming link authorizations
+**Redeeming link authorizations**
+
 The circuit user can run the following cmdlet to redeem a link authorization:
 
     New-AzureDedicatedCircuitLink –servicekey "&&&&&&&&&&&&&&&&&&&&&&&&&&" –VnetName 'SalesVNET1'
