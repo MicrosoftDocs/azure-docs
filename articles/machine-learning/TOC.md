@@ -172,8 +172,7 @@
 #### [Marketplace FAQ](machine-learning-marketplace-faq.md)
 # Reference
 ## [Release notes](machine-learning-whats-new.md)
-## [PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs)
-## [PowerShell overview](https://docs.microsoft.com/en-us/azure/machine-learning/machine-learning-powershell-module)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell module for Machine Learning](machine-learning-powershell-module.md)
 ## [Algorithm reference](https://go.microsoft.com/fwlink/?linkid=834781)
 ## [R quick start](machine-learning-r-quickstart.md)
