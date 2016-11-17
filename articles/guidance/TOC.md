@@ -28,7 +28,7 @@
 #### [Run Linux VMs in multiple regions for high availability](guidance-compute-multiple-datacenters-linux.md)
 #### [Run Windows VMs in multiple regions for high availability](guidance-compute-multiple-datacenters.md)
 
-### [Connect your on-premises network to Azure]](guidance-ra-hybrid-networking.md)
+### [Connect your on-premises network to Azure](guidance-ra-hybrid-networking.md)
 #### [Hybrid network architecture with Azure ExpressRoute](guidance-hybrid-network-expressroute.md)
 #### [Hybrid network architecture with Azure and On-premises VPN](guidance-hybrid-network-vpn.md)
 #### [Highly available hybrid network architecture](guidance-hybrid-network-expressroute-vpn-failover.md)
