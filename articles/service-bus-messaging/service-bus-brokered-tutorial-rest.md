@@ -1,14 +1,14 @@
-﻿---
+---
 title: Service Bus brokered messaging REST tutorial | Microsoft Docs
 description: Brokered messaging REST tutorial.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 9b7a8147-a1b1-42fc-b30e-f52e79a902b5
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na

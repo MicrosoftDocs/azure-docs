@@ -300,6 +300,12 @@ title: Microsoft Azure Documentation
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/data-catalog/">
+                                                <img src="media/index/data-catalog.svg" alt="" />
+                                                <p>Data Catalog</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Analytics</p>
@@ -620,7 +626,7 @@ title: Microsoft Azure Documentation
                                         </li>
                                         <li>
                                             <a href="/azure/sql-server-stretch-database/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
@@ -1333,7 +1339,7 @@ title: Microsoft Azure Documentation
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                        <img src="media/index/SQLDatabase.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1477,6 +1483,25 @@ title: Microsoft Azure Documentation
                                                 <div class="cardText">
                                                     <h3>Cognitive Services</h3>
                                                     <p>Add smart API capabilities to enable contextual interactions</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/azure/data-catalog/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/data-catalog.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Catalog</h3>
+                                                    <p>Enable self-service data source discovery across the enterprise</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -1842,7 +1867,7 @@ title: Microsoft Azure Documentation
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                        <img src="media/index/SQLDatabase.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">

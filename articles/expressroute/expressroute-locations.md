@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2016
+ms.date: 11/17/2016
 ms.author: cherylmc
 
 ---
@@ -80,7 +80,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **[Interxion](http://www.interxion.com/why-interxion/colocate-with-the-clouds/colocated-hybrid-cloud/microsoft-azure/)** |Supported |Supported |Amsterdam, London, Paris |
 | **Jisc** |Supported |Supported |London |
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |Supported |Supported |Amsterdam, Chicago, Dallas, Las Vegas+, London, Seattle, Silicon Valley, Washington DC |
-| **Megaport** |Supported |Supported |Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Washington DC |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |Supported |Supported |Dallas, Hong Kong, Las Vegas, Los Angeles, Melbourne, New York, Seattle, Singapore, Sydney, Washington DC |
 | **MTN** |Supported |Supported |London |
 | **Next Generation Data** |Coming Soon |Coming Soon |Newport(Wales)+ |
 | **NEXTDC** |Supported |Supported |Melbourne, Sydney |
