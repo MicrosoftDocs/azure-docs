@@ -223,12 +223,11 @@ The following example shows how to enable telemetry for the specified AMS accoun
 	    }
 	}
 
+
+## Next steps
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
 ## Provide feedback
 
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-##Next steps
- 
-See Azure Media Services learning paths to help you learn about great features offered by AMS.  
-
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]

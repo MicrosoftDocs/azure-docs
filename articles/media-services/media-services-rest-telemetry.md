@@ -200,12 +200,12 @@ Response
 
 For information about consuming telemetry information, see [this](media-services-telemetry-overview.md) topic.
 
+
+
+## Next steps
+
+[!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+
 ## Provide feedback
 
-[AZURE.INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-##Next steps
- 
-See Azure Media Services learning paths to help you learn about great features offered by AMS.  
-
-[AZURE.INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
+[!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
