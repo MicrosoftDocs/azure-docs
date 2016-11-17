@@ -92,7 +92,7 @@ You will need to do the following:
 
 2. Run this command, substituting the name of your virtual machine for **myVM**.
 
-	``   
+	```   
         azure vm extension set MyVM VMAccessForLinux Microsoft.OSTCExtensions 1.* --private-config-path PrivateConf.json
 	```
 
