@@ -27,6 +27,6 @@
 | Max database size | 500 GB | 500 GB | 500  GB | 500 GB | 1 TB | 1 TB |
 | Max in-memory OLTP storage | 1 GB | 2 GB | 4 GB | 8 GB | 14 GB | 32 GB |
 | Max concurrent workers | 200 | 400 | 800 | 1600 | 2400 | 6400 |
-| Max concurrent logins | 30000 | 30000| 30000| 30000| 30000| 30000 |
+| Max concurrent logins | 200 | 400| 800| 1600| 2400| 6400 |
 | Max concurrent sessions | 30000| 30000| 30000| 30000| 30000| 30000 |
 |||||||
