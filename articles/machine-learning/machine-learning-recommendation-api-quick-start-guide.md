@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 11/17/2016
 ms.author: luisca
 
 ---
@@ -151,7 +151,7 @@ If you upload several catalog files to the same model with several calls, we wil
 | filename |Textual identifier of the catalog.<br>Only letters (A-Z, a-z), numbers (0-9), hyphens (-) and underscore (_) are allowed.<br>Max length: 50 |
 | apiVersion |1.0 |
 |  | |
-| Request Body |Catalog data. Format:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, max length 50</td><td>Unique identifier of an item</td></tr><tr><td>Item Name</td><td>Yes</td><td>Alphanumeric, max length 255</td><td>Item name</td></tr><tr><td>Item Category</td><td>Yes</td><td>Alphanumeric, max length 255</td><td>Category to which this item belongs (e.g. Cooking Books, Drama…)</td></tr><tr><td>Description</td><td>No</td><td>Alphanumeric, max length 4000</td><td>Description of this item</td></tr></table><br>Maximum file size is 200MB.<br><br>Example:<br><pre>2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book</pre> |
+| Request Body |Catalog data. Format:<br>`<Item Id>,<Item Name>,<Item Category>[,<description>]`<br><br><table><tr><th>Name</th><th>Mandatory</th><th>Type</th><th>Description</th></tr><tr><td>Item Id</td><td>Yes</td><td>Alphanumeric, max length 50</td><td>Unique identifier of an item</td></tr><tr><td>Item Name</td><td>Yes</td><td>Alphanumeric, max length 255</td><td>Item name</td></tr><tr><td>Item Category</td><td>Yes</td><td>Alphanumeric, max length 255</td><td>Category to which this item belongs (e.g. Cooking Books, Drama…)</td></tr><tr><td>Description</td><td>No</td><td>Alphanumeric, max length 4000</td><td>Description of this item</td></tr></table><br>Maximum file size is 200MB.<br><br>Example:<br>`2406e770-769c-4189-89de-1c9283f93a96,Clara Callan,Book<br>21bf8088-b6c0-4509-870c-e1c7ac78304a,The Forgetting Room: A Fiction (Byzantium Book),Book<br>3bb5cb44-d143-4bdd-a55c-443964bf4b23,Spadework,Book<br>552a1940-21e4-4399-82bb-594b46d7ed54,Restraint of Beasts,Book` |
 
 **Response**:
 
