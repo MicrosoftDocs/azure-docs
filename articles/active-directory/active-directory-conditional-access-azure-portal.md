@@ -18,7 +18,16 @@ ms.date: 11/15/2016
 ms.author: markvi
 
 ---
-# Conditional access in Azure Active Directory - Preview
+# Conditional access in Azure Active Directory - preview
+
+> [!div class="op_single_selector"]
+> * [Azure portal](active-directory-conditional-access-azure-portal.md)
+> * [Azure classic portal](active-directory-conditional-access.md)
+
+The behavior 
+
+[What's in the preview?](active-directory-preview-explainer.md) 
+
 
 In a mobile first, cloud first world, Azure Active Directory enables your users to access your apps and services from everywhere using a variety of devices with a single sign-on operation. With the proliferation of devices and trends like bring your own device, as well as bring your own application or SaaS applications into the enterprise, perhaps the toughest challenge for the IT professional is to accomplish two major goals at the same time: 
 
