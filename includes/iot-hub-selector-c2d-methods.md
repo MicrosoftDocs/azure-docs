@@ -1,6 +1,6 @@
 > [!div class="op_single_selector"]
-> * [Node.js](../articles/iot-hub/iot-hub-c2d-methods.md)
-> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md.md)
+> * [Node.js](../articles/iot-hub/iot-hub-node-node-direct-methods.md)
+> * [C#](../articles/iot-hub/iot-hub-csharp-csharp-direct-methods.md)
 > 
 > 
 
@@ -17,3 +17,12 @@ This tutorial shows you how to:
 > At this time, direct methods are accessible only from devices that connect to IoT Hub using the MQTT protocol. Please refer to the [MQTT support][lnk-devguide-mqtt] article for instructions on how to convert existing device app to use MQTT.
 > 
 > 
+
+
+
+
+[lnk-devguide-methods]: ../articles/iot-hub/iot-hub-devguide-direct-methods.md
+[lnk-devguide-mqtt]: ../articles/iot-hub/iot-hub-mqtt-support.md
+
+[Send Cloud-to-Device messages with IoT Hub]: ../articles/iot-hub/iot-hub-csharp-csharp-c2d.md
+[Get started with IoT Hub]: ../articles/iot-hub/iot-hub-node-node-getstarted.md

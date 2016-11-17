@@ -36,7 +36,9 @@ To complete this tutorial you need the following:
 * Node.js version 0.10.x or later.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-[!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
+
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create a simulated device app
 In this section, you create a Node.js console app that responds to a method called by the back end.
@@ -186,7 +188,7 @@ To learn how to extend your IoT solution and schedule method calls on multiple d
 [lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
-[lnk-tutorial-jobs]: iot-hub-schedule-jobs.md
+[lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-devguide-methods]: iot-hub-devguide-direct-methods.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
 

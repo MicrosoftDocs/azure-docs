@@ -42,7 +42,7 @@ Learn how to use direct methods, desired properties, and cloud-to-device message
 * [Use desired properties to configure devices][lnk-twin-properties], for twin's desired properties; 
 * [Send cloud-to-device messages][lnk-c2d-tutorial], for cloud-to-device messages.
 
-[lnk-twins]: iot-hub/iot-hub-devguide-device-twins.md
+[lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-jobs]: iot-hub-devguide-jobs.md

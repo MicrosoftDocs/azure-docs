@@ -1,5 +1,3 @@
-[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
-
 ## Create a device identity
 In this section, you use a Node tool called [IoT Hub Explorer][iot-hub-explorer] to create a device identity for this tutorial.
 
@@ -20,7 +18,7 @@ Make a note of the device connection string from the result. This connection str
 Refer to [Getting started with IoT Hub][lnk-getstarted] for a way to create device identities programmatically.
 
 <!-- images and links -->
-[img-identity]: media/iot-hub-get-started-create-hub-pp/devidentity.png
+[img-identity]: media/iot-hub-get-started-create-device-identity/devidentity.png
 
 [iot-hub-explorer]: https://github.com/Azure/azure-iot-sdks/tree/master/tools/iothub-explorer
 
