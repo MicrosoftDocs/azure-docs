@@ -98,6 +98,13 @@ Restart xrdp service, use:
 
     #sudo service xrdp restart
 
+Check that your firewall is allowing connections to port 3389
+
+    #sudo ufw verbose
+
+If it isn't, add the new rule
+
+    #sudo ufw allow 3389/tcp
 
 ## Connect your Linux VM from a Windows machine
 In a Windows machine, start the remote desktop client, input your Linux VM DNS name, or go to `Dashboard` of your VM in Azure classic portal and click `Connect` to connect your Linux VM, you will see below login window:
