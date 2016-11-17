@@ -148,7 +148,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
         </a>
     </li>
 	<li>
-        <a href="http://msdn.microsoft.com/library/dn707692.aspx">
+        <a href="/rest/api/servicefabric">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
