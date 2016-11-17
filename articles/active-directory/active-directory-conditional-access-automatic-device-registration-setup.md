@@ -1,5 +1,5 @@
 ---
-title: Set up automatic registration of Windows domain-joined devices with Azure Active Directory | Microsoft Docs
+title: How to configure automatic registration of Windows domain-joined devices with Azure Active Directory | Microsoft Docs
 description: Set up your domain-joined Windows devices to register automatically and silently with Azure Active Directory.
 services: active-directory
 documentationcenter: ''
@@ -17,44 +17,42 @@ ms.date: 11/17/2016
 ms.author: markvi
 
 ---
-# Set up automatic registration of Windows domain-joined devices with Azure Active Directory
-To use [Azure Active Directory device-based conditional access](active-directory-conditional-access.md), your Windows domain-joined computers must be registered with Azure Active Directory (Azure AD). In this article, you can learn what you need to do to set up registration of Windows domain-joined devices with Azure AD in your organization.
+# How to configure automatic registration of Windows domain-joined devices with Azure Active Directory
 
-Using conditional access in Azure AD gives you these advantages:
-
-* Enhanced single sign-on (SSO) experience in Azure AD apps through work or school accounts
-* Enterprise roaming of settings across devices
-* Access to Windows Store for Business
-* Stronger authentication and convenient sign-in with Windows Hello
+To use [Azure Active Directory device-based conditional access](active-directory-conditional-access.md), your  computers must be registered with Azure Active Directory (Azure AD). This article provides you with the steps for configuring the automatic registration of Windows domain-joined devices with Azure AD in your organization.
 
 > [!NOTE]
 > The Windows 10 November Update offers some of the enhanced user experiences in Azure AD, but the Windows 10 Anniversary Update fully supports device-based conditional access. For more information about conditional access, see [Azure Active Directory device-based conditional access](active-directory-conditional-access.md). For more information about Windows 10 devices in the workplace and how a user registers a Windows 10 device with Azure AD, see [Windows 10 for the enterprise: Use devices for work](active-directory-azureadjoin-windows10-devices-overview.md).
 > 
 > 
 
-You can register some earlier versions of Windows, including these versions:
+For devices running Windows, you can register some earlier versions of Windows, including:
 
-* Windows 8.1
-* Windows 7
+- Windows 8.1
+- Windows 7
 
-If you are using a Windows Server computer as a desktop, you can register these platforms:
+For devices running Windows Server, you can register the following platforms:
 
-* Windows Server 2016
-* Windows Server 2012 R2
-* Windows Server 2012
-* Windows Server 2008 R2
+- Windows Server 2016
+- Windows Server 2012 R2
+- Windows Server 2012
+- Windows Server 2008 R2
+
+
 
 ## Prerequisites
+
 The main requirement for automatic registration of domain-joined devices by using Azure AD is to have an up-to-date version of Azure Active Directory Connect (Azure AD Connect).
 
 Depending on how you deployed Azure AD Connect, and whether you used an express or custom installation or an in-place upgrade, the following prerequisites might have been configured automatically:
 
-* **Service connection point in on-premises Active Directory**. For discovery of Azure AD tenant information by computers that register for Azure AD.
-* **Active Directory Federation Services (AD FS) issuance transform rules**. For computer authentication on registration (applicable to federated configurations).
+- **Service connection point in on-premises Active Directory** - For discovery of Azure AD tenant information by computers that register for Azure AD.
+ 
+- **Active Directory Federation Services (AD FS) issuance transform rules** - For computer authentication on registration (applicable to federated configurations).
 
-If some devices in your organizations are not Windows 10 domain-joined devices, make sure you do the following tasks:
+If some devices in your organizations are not Windows 10 domain-joined devices, perform the following steps:
 
-* Set a policy in Azure AD so that users can register devices
+* Set a policy in Azure AD to enable users to register devices
 * Set Integrated Windows Authentication (IWA) as a valid alternative to multi-factor authentication in AD FS
 
 ## Step 1: Configure service connection point 
@@ -77,10 +75,9 @@ With the following Windows PowerShell script, you can verify the existence of th
 
     $scp.Keywords;
 
-The **$scp.Keywords** output shows the Azure AD tenant information:
+The **$scp.Keywords** output shows the Azure AD tenant information, for example:
 
-azureADName:microsoft.com
-
+azureADName:microsoft.com  
 azureADId:72f988bf-86f1-41af-91ab-2d7cd011db47
 
 If the service connection point doesn’t exist, create it by running the following PowerShell script on your Azure AD Connect server:
@@ -106,23 +103,25 @@ If the service connection point doesn’t exist, create it by running the follow
 
 
 
-##Step 2: Register your device
+##Step 2: Register your devices
+
+The right steps for registering your device depend on whether your organization is federated or not. 
 
 
 ### Device registration in non-federated organizations
 
-In a non-federated configuration that has password sync enabled, Windows 10 and Windows Server 2016 domain-joined computers authenticate against the Azure AD Device Registration Service using a credential that is:
- 
-- Stored in the on-premises computer account
-- Synchronized to Azure AD via Azure AD Connect 
+Device registration in a non-federated organization is only supported if the following is true:
 
+- You are either running Windows 10 and Windows Server 2016 on your device
+- Your devices are domain-joined
+- Password sync using Azure AD Connect is enabled
 
-For non Windows 10 and Windows Server 2016 computers, 
+If all of these requirements are satisfied, you don't have to do anything to get your devices registered.  
 
 
 ### Device registration in federated organizations
 
-In a federated Azure AD configuration, devices rely on AD FS (or on the on-premises federation server) to authenticate to Azure AD. Then, they register against Azure Active Directory Device Registration Service (Azure AD Device Registration Service).
+In a federated Azure AD configuration, devices rely on AD FS (or on the on-premises federation server) to authenticate to Azure AD. They register against Azure Active Directory Device Registration Service.
 
 For Windows 10 and Windows Server 2016 computers, Azure AD Connect associates the device object in Azure AD with the on-premises computer account object. The following claims must exist during authentication for Azure AD Device Registration Service to complete registration and create the device object:
 
@@ -132,9 +131,18 @@ For Windows 10 and Windows Server 2016 computers, Azure AD Connect associates th
  
 - **http://schemas.microsoft.com/ws/2008/06/identity/claims/primarysid** - Contains the computer's primary security identifier (SID), which corresponds to the **objectSid** attribute value of the on-premises computer account.
 
-- **http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid** - Contains the value that Azure AD uses to trust the token issued from AD FS or from the on-premises Security Token Service (STS). This is important if you have several verified domains in Azure AD. For the AD FS case, use `http://<*domain-name*>/adfs/services/trust/`, where \<*domain-name*\> is the verified domain name in Azure AD.
+- **http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid** - Contains the value that Azure AD uses to trust the token issued from AD FS or from the on-premises Security Token Service (STS). This is important if you have several verified domains in Azure AD. For the AD FS case, use **http://\<*domain-name*\>/adfs/services/trust/**, where **\<domain-name\>** is the verified domain name in Azure AD.
+
+For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-add-domain.md).
 
 To create these rules manually, in AD FS, use one of the following PowerShell scripts in a session that is connected to your server. Replace the first line with your organization's validated domain name in Azure AD.
+
+
+Windows 10 and Windows Server 2016 domain joined computers authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. The end-point is `adfs/services/trust/13/windowstransport`. 
+
+It should be enabled in the AD FS management console under **Service > Endpoints**. If you don’t have AD FS as your on-premises federation server, follow the instructions of your vendor to make sure the corresponding end-point is enabled. 
+
+
 
 > [!NOTE]
 > If you don’t use AD FS for your on-premises federation server, follow your vendor's instructions to create the rules that issue these claims.
@@ -143,7 +151,7 @@ To create these rules manually, in AD FS, use one of the following PowerShell sc
 
 ### Setting AD FS rules in a single domain environment
 
-Use the following script to add the rules required for a single verified domain.
+Use the following script to add the AD FS rules if you only have **one verified domain**:
 
 
 	<#----------------------------------------------------------------------
@@ -185,22 +193,17 @@ Use the following script to add the rules required for a single verified domain.
 	Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
 
 
-Windows 10 and Windows Server 2016 domain joined computers authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. The end-point is `adfs/services/trust/13/windowstransport`. 
-
-It should be be enabled in the AD FS management console under **Service > Endpoints**. If you don’t have AD FS as your on-premises federation server, follow the instructions of your vendor to make sure the corresponding end-point is enabled. 
-
-
 ### Setting AD FS rules in a multi domain environment
 
-If you have than one verified domain, perform the following steps:
+If you have more than one verified domain, perform the following steps:
 
-1. Remove the existing IssuerID rule   created as part of Azure AD Connect first
+1. Remove the existing **IssuerID** rule created by Azure AD Connect.  
+Here is an example for this rule:
+c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
+=> issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
-		c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
-		=> issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)",  "http://${domain}/adfs/services/trust/")); 
 
-
-2. Run the script
+2. Run this script:
 
 		<#----------------------------------------------------------------------
 		|   Modify the Azure AD Relying Party to include the claims needed
@@ -210,7 +213,7 @@ If you have than one verified domain, perform the following steps:
 		|   -ObjectSid
 		+---------------------------------------------------------------------#>
 
-		$VerifiedDomain = "example.com"      # Replace example.com with your verified domain
+		$VerifiedDomain = "example.com"      # Replace example.com with on of your verified domains
 
 		$rule1 = '@RuleName = "Issue object GUID" 
 
@@ -265,15 +268,9 @@ If you have than one verified domain, perform the following steps:
 		Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
 
 
-Windows 10 and Windows Server 2016 domain joined computers authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. The end-point is `adfs/services/trust/13/windowstransport`. 
-
-It should be be enabled in the AD FS management console under **Service > Endpoints**. If you don’t have AD FS as your on-premises federation server, follow the instructions of your vendor to make sure the corresponding end-point is enabled. 
-
-
-
 ## Step 3: Setup AD FS for authentication of device registration
 
-Make sure that IWA is set as a valid alternative to multi-factor authentication for device registration in AD FS. To do this, you need to have an issuance transform rule that passes through the authentication method.
+Make sure that WIA is set as a valid alternative to multi-factor authentication for device registration in AD FS. To do this, you need to have an issuance transform rule that passes through the authentication method.
 
 1. In the AD FS management console, go to **AD FS** > **Trust Relationships** > **Relying Party Trusts**.
 2. Right-click the Microsoft Office 365 Identity Platform relying party trust object, and then select **Edit Claim Rules**.
@@ -281,17 +278,18 @@ Make sure that IWA is set as a valid alternative to multi-factor authentication 
 4. In the **Claim rule** template list, select **Send Claims Using a Custom Rule**.
 5. Select **Next**.
 6. In the **Claim rule name** box, enter **Auth Method Claim Rule**.
-7. In the **Claim rule** box, enter this command:
-   
-	`c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"]
-	=> issue(claim = c);`.
+7. In the **Claim rule** box, enter this rule:  
+**c:[Type == "http://schemas.microsoft.com/claims/authnmethodsreferences"] => issue(claim = c);**
 8. On your federation server, enter this PowerShell command:
    
     `Set-AdfsRelyingPartyTrust -TargetName <RPObjectName> -AllowedAuthenticationClassReferences wiaormultiauthn`
 
-\<*RPObjectName*\> is the relying party object name for your Azure AD relying party trust object. This object usually is named *Microsoft Office 365 Identity Platform*.
+**\<RPObjectName\>** is the relying party object name for your Azure AD relying party trust object. This object usually is named **Microsoft Office 365 Identity Platform**.
+
+
 
 ##Step 4: Deployment and rollout
+
 When domain-joined computers meet the prerequisites, they are ready to register with Azure AD.
 
 The Windows 10 Anniversary Update and Windows Server 2016 domain-joined computers automatically register with Azure AD the next time the device restarts or when a user signs in to Windows. New computers that are joined to the domain register with Azure AD when the device restarts after the domain join operation.
@@ -301,7 +299,9 @@ The Windows 10 Anniversary Update and Windows Server 2016 domain-joined computer
 > 
 > 
 
-You can use a Group Policy object to control the rollout of automatic registration of Windows 10 and Windows Server 2016 domain-joined computers. To roll out automatic registration of non-Windows 10 domain-joined computers, you can deploy a Windows Installer package to computers that you select.
+You can use a Group Policy object to control the rollout of automatic registration of Windows 10 and Windows Server 2016 domain-joined computers. 
+
+To roll out automatic registration of non-Windows 10 domain-joined computers, you can deploy a Windows Installer package to computers that you select.
 
 > [!NOTE]
 > The Group Policy for rollout control also triggers the registration of Windows 8.1 domain-joined computers. You can use the policy for registering Windows 8.1 domain-joined computers. Or, if you have a mix of Windows versions, including Windows 7 or Windows Server versions, you can register all your non-Windows 10 and Windows Server 2016 computers by using a Windows Installer package.
@@ -309,9 +309,10 @@ You can use a Group Policy object to control the rollout of automatic registrati
 > 
 
 ### Create a Group Policy object to control the rollout of automatic registration
+
 To control the rollout of automatic registration of domain-joined computers with Azure AD, you can deploy the **Register domain-joined computers as devices** Group Policy to the computers you want to register. For example, you can deploy the policy to an organizational unit or to a security group.
 
-To set the policy, do these steps:
+**To set the policy:**
 
 1. Open Server Manager, and then go to **Tools** > **Group Policy Management**.
 2. Go to the domain node that corresponds to the domain where you want to activate auto-registration of Windows 10 or Windows Server 2016 computers.
@@ -329,7 +330,7 @@ To set the policy, do these steps:
 9. Link the Group Policy object to a location of your choice. For example, you can link it to a specific organizational unit. You also could link it to a specific security group of computers that automatically register with Azure AD. To set this policy for all domain-joined Windows 10 and Windows Server 2016 computers in your organization, link the Group Policy object to the domain.
 
 ### Windows Installer packages for non-Windows 10 computers
-To register domain-joined computers running Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2, you can download and install these Windows Installer package (.msi) files:
+To register domain-joined computers running Windows 8.1, Windows 7, Windows Server 2012 R2, Windows Server 2012, or Windows Server 2008 R2 in a federated environment, you can download and install these Windows Installer package (.msi) files:
 
 * [x64](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x64.msi)
 * [x86](http://download.microsoft.com/download/C/A/7/CA79FAE2-8C18-4A8C-A4C0-5854E449ADB8/Workplace_x86.msi)
