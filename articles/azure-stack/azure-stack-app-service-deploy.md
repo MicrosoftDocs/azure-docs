@@ -69,11 +69,7 @@ The following steps guide you through the installation stages:
 4.  Review and accept the third-party license terms, and then click **Next**.
 5.	Review the App Cloud Service configuration information and click **Next**.![App Service on Azure Stack Technical Preview 2 App Service Cloud Configuration][2]
 6.  Click **Connect** (Next to the Azure Stack Subscriptions box).![App Service on Azure Stack Technical Preview 2 App Service Cloud Configuration Screen Two][3]
-7.	In the Azure Stack Authentication window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.
-
-> [!NOTE] 
-> Enter the Azure Active Directory account that you provided when you deployed Azure Stack.
-	
+7.	In the Azure Stack Authentication window provide your **Azure Active Directory Service Admin account** and **password**, and then Click **Sign In**.  You **must** enter the Azure Active Directory account that you provided when you deployed Azure Stack.
 8.  Click the **Down Arrow** on the right side of the box next to **Azure Stack Subscriptions** and then select your subscription.![App Service on Azure Stack Technical Preview 2 Subscription Selection][5]
 9.	Click the **Down Arrow** on the right side of the box next to **Azure Stack Locations**.
 	- Select **Local**.
