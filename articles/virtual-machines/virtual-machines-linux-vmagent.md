@@ -22,15 +22,11 @@ ms.author: nepeters
 
 ## VM Agent functionality
 
-## VM Agent 
-
 ## Install the VM Agent
 
 ### Azure gallery image
 
 ### Manual installation
-
-http://go.microsoft.com/fwlink/?LinkID=394789
 
 ## Upgrade the VM Agent
 
@@ -42,6 +38,6 @@ http://go.microsoft.com/fwlink/?LinkID=394789
 
 <Notes>
 
-Classic Doc - https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-classic-agents-and-extensions
-Linux Reference - https://github.com/Azure/WALinuxAgent / https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-agent-user-guide
-Linux Update Agent - https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-update-agent
+- Classic Doc - https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-classic-agents-and-extensions
+- Linux Reference - https://github.com/Azure/WALinuxAgent / https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-agent-user-guide
+- Linux Update Agent - https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-update-agent
