@@ -80,12 +80,13 @@ Create one storage account for diagnostic logs. This storage account can be shar
 
 There are two options for scaling out VMs in Azure: 
 
-* Use a load balancer to distribute network traffic across a set of VMs. To scale out, provision additional VMs and put them behind the load balancer. 
+* Use a load balancer to distribute network traffic across a set of VMs. To scale out, provision additional VMs and put them in the load balancer's back-end address pool. 
 * Use [virtual machine scale sets][vmss]. A scale set contains a speficied number of identical VMs behind a load balancer. VM scale sets support autoscaling based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. 
 
 The next sections compare these two options.
 
 ### Load balancer without VM scale sets
+
 A load balancer takes incoming network requests and distributes them across the NICs in the back-end address pool. To scale horizontally, add more VM instances to the availability set (or deallocate VMs to scale down). 
 
 For example, suppose you're running a web server. You would add a load balancer rule for port 80 and/or port 443 (for SSL). When a client sends an HTTP request, the load balancer picks a back-end IP address using a [hashing algorithm][load balancer hashing] that includes the source IP address. In that way, client requests are distributed across all the VMs. 
