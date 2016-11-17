@@ -1,14 +1,14 @@
 ---
 title: Service Bus messaging overview | Microsoft Docs
 description: 'Service Bus Messaging: flexible data delivery in the cloud'
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: f99766cb-8f4b-4baf-b061-4b1e2ae570e4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple

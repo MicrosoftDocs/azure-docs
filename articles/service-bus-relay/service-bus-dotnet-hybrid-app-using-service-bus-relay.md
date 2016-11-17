@@ -1,14 +1,14 @@
 ---
 title: Hybrid on-premises/cloud application (.NET) | Microsoft Docs
 description: Learn how to create a .NET on-premises/cloud hybrid application using the Azure Service Bus relay.
-services: service-bus
+services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
