@@ -108,7 +108,8 @@ As part of this procedure, you are required to upload a base-64 encoded certific
 
     c. Create a **Base-64 encoded** file from your downloaded certificate. 
 
-    > [!TIP] For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
+    > [!TIP] 
+    > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
 
     d. Click **"Choose certificate"** button, and then browse to your **base-64 encoded certificate file**.

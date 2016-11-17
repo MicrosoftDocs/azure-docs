@@ -77,7 +77,8 @@ The objective of this section is to outline how to enable users to authenticate 
    
     c. Click **Next**. 
 
-    > [!TIP] The Sign On URL and the Identifier values are only placeholders. Instructions for how to retrieve the actual values for your environment are covered later in this topic.
+    > [!TIP] 
+    > The Sign On URL and the Identifier values are only placeholders. Instructions for how to retrieve the actual values for your environment are covered later in this topic.
 
 
 1. On the **Configure single sign-on at DocuSign** page, click **Download certificate**, and then save the certificate file locally on your computer.
@@ -120,10 +121,10 @@ The objective of this section is to outline how to enable users to authenticate 
 
 1. In the **Custom Attribute Mapping** section, choose the field you want to map with Azure AD Claim. In this example, the **emailaddress** claim is mapped with the value of **http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress**. This is the default claim name from Azure AD for email claim. 
    
-   > [!NOTE]
-   > Use the appropriate **User identifier** to map the user from Azure AD to Docusign user mapping. Select the proper Field and enter the appropriate value based on your organization settings.
-   > 
-   > 
+	> [!NOTE]
+	> Use the appropriate **User identifier** to map the user from Azure AD to Docusign user mapping. Select the proper Field and enter the appropriate value based on your organization settings.
+	> 
+	> 
    
 	![Configuring single sign-on][57]
 2. In the **Identity Provider Certificate** section, click **Add Certificate**, and then upload the certificate you have downloaded from Azure AD classic portal.   

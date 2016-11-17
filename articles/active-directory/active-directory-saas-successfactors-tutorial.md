@@ -138,7 +138,8 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
    
     ![Configuring single sign-on on app side][11]
 
-    > [!NOTE] This value is just used as the on/off switch. If any value is saved, the SAML SSO is ON. If a blank value is saved the SAML SSO is OFF.
+    > [!NOTE] 
+    > This value is just used as the on/off switch. If any value is saved, the SAML SSO is ON. If a blank value is saved the SAML SSO is OFF.
 
 1. Native to below screenshot and perform the following actions.
    
@@ -162,7 +163,8 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
    
     i. Copy the content of the downloaded certificate file, and then paste it into the **SAML Verifying Certificate** textbox.
 
-    > [!NOTE] The certificate content must have begin certificate and end certificate tags.
+    > [!NOTE] 
+    > The certificate content must have begin certificate and end certificate tags.
 
 1. Navigate to SAML V2, and then perform the following steps:
    
@@ -189,7 +191,8 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
    
 	![Configure Single Sign-On][29]
 
-    > [!NOTE] If you try to enable this, the system checks if it will create a duplicate SAML login name. For example if the customer has usernames User1 and user1. Taking away case sensitivity makes these duplicates. The system will give you an error message and will not enable the feature. The customer will need to change one of the usernames so it’s actually spelled different. 
+    > [!NOTE] 
+    > If you try to enable this, the system checks if it will create a duplicate SAML login name. For example if the customer has usernames User1 and user1. Taking away case sensitivity makes these duplicates. The system will give you an error message and will not enable the feature. The customer will need to change one of the usernames so it’s actually spelled different. 
 
 1. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog.
    
