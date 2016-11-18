@@ -135,8 +135,7 @@ For Windows 10 and Windows Server 2016 computers, Azure AD Connect associates th
 
 For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-add-domain.md).
 
-To create these rules manually, in AD FS, use one of the following PowerShell scripts in a session that is connected to your server. Replace the first line with your organization's validated domain name in Azure AD.
-
+To get a list of your verified company domains, you can use the [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain) cmdlet. 
 
 Windows 10 and Windows Server 2016 domain joined computers authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. The end-point is **adfs/services/trust/13/windowstransport**. 
 
@@ -149,7 +148,19 @@ It should be enabled in the AD FS management console under **Service > Endpoints
 > 
 > 
 
-### Setting AD FS rules in a single domain environment
+
+
+
+**To create the rules manually, in AD FS:**
+
+- Select the one of the following Windows PowerShell scripts 
+- Run the Windows PowerShell script in a session that is connected to your server. 
+- Replace the first line with your organization's validated domain name in Azure AD.
+
+
+
+
+#### Setting AD FS rules in a single domain environment
 
 Use the following script to add the AD FS rules if you only have **one verified domain**:
 
@@ -193,7 +204,7 @@ Use the following script to add the AD FS rules if you only have **one verified 
 	Set-AdfsRelyingPartyTrust -TargetIdentifier urn:federation:MicrosoftOnline -IssuanceTransformRules $crSet.ClaimRulesString 
 
 
-### Setting AD FS rules in a multi domain environment
+#### Setting AD FS rules in a multi domain environment
 
 If you have more than one verified domain, perform the following steps:
 
