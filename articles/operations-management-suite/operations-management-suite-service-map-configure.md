@@ -225,12 +225,13 @@ The Dependency Agent typically consumes 0.1% of system memory and 0.1% of system
 The following sections list the supported operating systems for the Dependency Agent.   32-bit architectures are not supported for any operating system.
 
 ### Windows Server
+- Windows Server 2016
 - Windows Server 2012 R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 
 ### Windows Desktop
-- Note: Windows 10 is not yet supported
+- WIndows 10
 - Windows 8.1
 - Windows 8
 - Windows 7
