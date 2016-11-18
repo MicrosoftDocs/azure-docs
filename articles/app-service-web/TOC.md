@@ -153,6 +153,7 @@
 ### [On-premises connections](web-sites-hybrid-connection-get-started.md)
 ### [Azure Virtual Network](web-sites-integrate-with-vnet.md)
 ### [Advanced configuration](web-sites-transform-extend.md)
+### [Configure container for App Service on Linux](app-service-linux-using-custom-docker-image.md)
 ### [Resource groups](app-service-move-resources.md)
 ### [Convert WordPress to Multisite](web-sites-php-convert-wordpress-multisite.md) 
 

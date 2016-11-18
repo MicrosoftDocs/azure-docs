@@ -1,8 +1,8 @@
 ---
-Layout: LandingPage
+layout: LandingPage
 ---
 
-#Monitoring and Diagnostics Documentation
+# Monitoring and Diagnostics Documentation
 
 Monitoring and Diagnostics is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices and addresses the significant challenges in developing and managing cloud applications.  Monitoring and Diagnostics represents the next-generation middleware platform for building and managing these enterprise-class, Tier-1 cloud-scale applications.
 
@@ -147,7 +147,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
         </a>
     </li>
 	<li>
-        <a href="/rest/api/monitor">
+        <a href="https://msdn.microsoft.com/library/azure/dn931943">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

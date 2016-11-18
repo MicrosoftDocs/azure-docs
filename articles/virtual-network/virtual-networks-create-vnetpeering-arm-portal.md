@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create VNet Peering using the Azure portal | Microsoft Docs
 description: Learn how to create a virtual network using the Azure portal in Resource Manager.
 services: virtual-network
@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: 026bca75-2946-4c03-b4f6-9f3c5809c69a
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016

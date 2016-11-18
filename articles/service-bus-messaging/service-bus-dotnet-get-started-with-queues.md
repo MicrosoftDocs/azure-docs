@@ -1,14 +1,14 @@
-﻿---
+---
 title: Get started with Service Bus queues | Microsoft Docs
 description: How to write a C# console application for Service Bus messaging
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: ''
 
 ms.assetid: 68a34c00-5600-43f6-bbcc-fea599d500da
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: hero-article
 ms.tgt_pltfrm: dotnet

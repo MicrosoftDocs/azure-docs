@@ -28,5 +28,7 @@
 ### [Monitoring + management](documentation-government-services-monitoringandmanagement.md)
 
 # Resources
-## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Pricing](https://azure.microsoft.com/pricing/)
+## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)
+
+
