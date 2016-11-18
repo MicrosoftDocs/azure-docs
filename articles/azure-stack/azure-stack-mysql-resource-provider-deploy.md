@@ -78,10 +78,12 @@ Depending on the system performance and download speeds, installation may take a
 2. Click the **+ New** button &gt; **Data + Storage** &gt; **MySQL Server & database (preview)**.
 
 3. Fill in the form with the database details.
-![Create a test MySQL database](./media/azure-stack-mysql-rp-deploy/mysqldbdeployment.png)
+![Create a test MySQL database](./media/azure-stack-mysql-rp-deploy/mysqldbdeployment2.png)
 
 	**Make a note of the "server name" you enter.** The connections string for your database includes the "server name" as part of the user name: for example, **"user@server1"**. You will need to input the user name in this format when you connect to a MySQL database: for example, when you deploy a MySQL web site using the Azure Web Site resource provider.
 
 ## Next steps
 
 Create plans and offers to make MySQL databases available for tenants. You will need to add the Microsoft.MySql service, add a new quota, and accept the default values.
+
+Try other [PaaS services](azure-stack-tools-paas-services.md) like the [SQL Server resource provider](azure-stack-sql-resource-provider-deploy.md) and the [App Services resource provider](azure-stack-app-service-overview.md).
