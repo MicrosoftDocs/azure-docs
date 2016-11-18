@@ -29,7 +29,7 @@ Before we get going let's start by saying that we should not expect to bring on-
 
 
 
-![Creating a DevTestLab](./media/azure-security-iaas/sec-cloudstack-new.png)
+![Areas of Responsability](./media/azure-security-iaas/sec-cloudstack-new.png)
 
 >[!NOTE]
 > Your responsibility for security is based on the type of cloud service. The chart above summarizes the balance of responsibility for both Microsoft and you.
