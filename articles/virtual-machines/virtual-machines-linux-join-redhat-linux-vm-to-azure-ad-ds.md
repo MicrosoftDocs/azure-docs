@@ -56,17 +56,6 @@ azure vm create myVM \
 -l "West US"
 ```
 
-```bash
-azure vm quick-create \
--n myVM \
--g myResourceGroup \
--l westus \
--y Linux \
--u ahmet \
--M ~/.ssh/id_rsa.pub \
--Q RHEL
-```
-
 ### SSH to the VM
 
 ```bash
