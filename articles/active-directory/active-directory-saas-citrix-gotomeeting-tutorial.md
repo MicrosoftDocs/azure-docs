@@ -85,7 +85,7 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    
 	![Configure single sign-on](./media/active-directory-saas-citrix-gotomeeting-tutorial/IC768999.png "Configure single sign-on")
 
-5. In a different browser window, log into your Citrix Organization Center ([https://account.citrixonline.com/organization/administration/](https://account.citrixonline.com/organization/administration/)).
+5. In a different browser window, log into your [Citrix Organization Center](https://account.citrixonline.com/organization/administration/).
 
 6. Click the **Identity Provider** tab, and then perform the following steps:  
    
@@ -127,7 +127,6 @@ The objective of this section is to outline how to enable provisioning of Active
     a. In the **Citrix GoToMeeting Admin User Name** textbox, type the user name of an administrator.
 
     b. In the **Citrix GoToMeeting Admin Password** textbox, the administrator's password.
-
 
     c. Click **Next**.
 
