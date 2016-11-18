@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/18/2016
+ms.date: 11/18/2016
 ms.author: jgao
 
 ---
@@ -42,19 +42,19 @@ In this section, you will create a Linux-based HBase cluster with the dependent 
 > * **Location**: East US 2
 > * __Cluster version: 3.4
 > * **Cluster worker node count**: 4
-> * **Default storage account**: &lt;Cluster Name>store
+> * **Default storage account**: a unique string
 > * **Virtual network name**: &lt;Cluster Name>-vnet
 > * **Virtual network address space**: 10.0.0.0/16
-> * **Subnet name**: default
+> * **Subnet name**: subnet1
 > * **Subnet address range**: 10.0.0.0/24
 >
 > &lt;Cluster Name> will be replaced with the cluster name you provide when using the template.
 >
 >
 
-1. Click the following image to open the template in the Azure portal. The template is located in a public blob container.
+1. Click the following image to open the template in the Azure portal. The template is located in [Azure QuickStart Templates](https://azure.microsoft.com/resources/templates/101-hdinsight-hbase-linux-vnet/).
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-vnet.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-linux-vnet%2Fazuredeploy.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. From the **Custom deployment** blade, enter the following:
 
    * **Subscription**: Select an Azure subscription used to create the HDInsight cluster, the dependent Storage account and the Azure virtual network.
