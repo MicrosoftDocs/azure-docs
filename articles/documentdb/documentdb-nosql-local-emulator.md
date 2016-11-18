@@ -40,7 +40,7 @@ The DocumentDB Emulator has the following hardware and software requirements:
   *	10 GB available hard disk space
 
 ## Installing the DocumentDB Emulator
-You can download and install the DocumentDB Emulator from the [Microsoft Download Center](https://aka.ms/documentdb-emulator). To install, configure, and run the DocumentDB Emulator, you must have administrative privileges on the computer.
+You can download and install the DocumentDB Emulator from the [Microsoft Download Center](https://aka.ms/documentdb-emulator). 
 
 > [!NOTE]
 > To install, configure, and run the DocumentDB Emulator, you must have administrative privileges on the computer.
