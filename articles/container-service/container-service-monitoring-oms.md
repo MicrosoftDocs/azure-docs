@@ -35,7 +35,7 @@ excess container on a host.
 
 For more information about Container Solution, please refer to the
 [Container Solution Log
-Analytics](../log-analytics/log-analytics-containers/).
+Analytics](../log-analytics/log-analytics-containers.md).
 
 ## Setting up OMS from the DC/OS universe
 
@@ -114,7 +114,7 @@ Once you’ve selected your workspace, click **Create**.
 
 For more information about the OMS Container Solution, please refer to the
 [Container Solution Log
-Analytics](../log-analytics/log-analytics-containers/).
+Analytics](../log-analytics/log-analytics-containers.md).
 
 ### How to scale OMS Agent with ACS DC/OS 
 
