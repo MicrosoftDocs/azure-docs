@@ -8,7 +8,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/expressroute/express-route-introduction">
+        <a href="/azure/expressroute/expressroute-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
