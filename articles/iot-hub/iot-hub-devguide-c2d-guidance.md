@@ -1,13 +1,13 @@
 ---
-title: Developer guide - Cloud to device communications guidance | Microsoft Docs
+title: Azure IoT Hub cloud to device communications guidance | Microsoft Docs
 description: Azure IoT Hub developer guide - guidance on when to use direct methods, device twin's desired properties, or cloud-to-device messages. 
 services: iot-hub
-documentationcenter: .net
+documentationcenter: ''
 author: fsautomata
 manager: timlt
 editor: ''
 
-ms.assetid: 8a3da072-a5bf-46e5-8de4-24cdbb2a03fa
+ms.assetid: 1ac90923-1edf-4134-bbd4-77fee9b68d24
 ms.service: iot-hub
 ms.devlang: multiple
 ms.topic: article
@@ -42,9 +42,12 @@ Learn how to use direct methods, desired properties, and cloud-to-device message
 * [Use desired properties to configure devices][lnk-twin-properties], for twin's desired properties; 
 * [Send cloud-to-device messages][lnk-c2d-tutorial], for cloud-to-device messages.
 
-[lnk-twins]: iot-hub/iot-hub-devguide-device-twins.md
+[lnk-twins]: iot-hub-devguide-device-twins.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-query]: iot-hub-devguide-query-language.md
 [lnk-jobs]: iot-hub-devguide-jobs.md
 [lnk-c2d]: iot-hub-devguide-messaging.md#cloud-to-device-messages
 [lnk-methods]: iot-hub-devguide-direct-methods.md
+[lnk-methods-tutorial]: iot-hub-node-node-direct-methods.md
+[lnk-twin-properties]: iot-hub-node-node-twin-how-to-configure.md
+[lnk-c2d-tutorial]: iot-hub-node-node-c2d.md

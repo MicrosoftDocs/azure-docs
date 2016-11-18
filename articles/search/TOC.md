@@ -55,14 +55,21 @@
 ### [Multi-lingual search](search-language-support.md)
 
 # Reference
-## [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165)
-## [Service REST API](https://msdn.microsoft.com/library/azure/dn798935)
-## [Service REST API (Preview version)](search-api-2015-02-28-preview.md)
-## [Management REST API](https://msdn.microsoft.com/library/azure/dn832684)
 ## [API versions](search-api-versions.md)
 ## [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323)
 ## [Simple query syntax](https://msdn.microsoft.com/library/azure/dn798920)
+## [Java](/java/api/)
+## .NET
+### [Service .NET](/dotnet/api/microsoft.azure.search)
+### [Management .NET](/dotnet/api/microsoft.azure.management.search)
+## REST
+### [Service REST](/rest/api/searchservice/)
+### [Service REST (Preview)](search-api-2015-02-28-preview.md)
+### [Management REST](/rest/api/searchmanagement/)
+
 # Resources
+## [Service updates](https://azure.microsoft.com/updates/?product=search)
+## [Pricing](https://azure.microsoft.com/pricing/details/search/)
 ## Demo sites
 ### [Job listings app](http://aka.ms/azjobsdemo)
 ### [Live demo apps](https://searchsamples.azurewebsites.net/)
@@ -73,6 +80,6 @@
 ## Partner & community
 ### [Model relational data](http://blogs.technet.com/b/onsearch/archive/2015/09/08/modeling-the-adventureworks-inventory-database-for-azure-search.aspx)
 ### [Multi-level faceting](http://blogs.technet.com/b/onsearch/archive/2015/09/09/multi-level-taxonomy-facets-in-azure-search.aspx)
-### [MSDN Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
+### [Forum](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureSearch)
 ### [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-search)
 ### [Azure Search Github](https://github.com/Azure-Samples/?utf8=%E2%9C%93&query=search)

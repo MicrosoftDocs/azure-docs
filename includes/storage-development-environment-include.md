@@ -54,6 +54,7 @@ For more information about connection strings, see [Configure a Connection Strin
 
 To configure your connection string, open the `app.config` file from Solution Explorer in Visual Studio. Add the contents of the `<appSettings>` element shown below. Replace `account-name` with the name of your storage account, and `account-key` with your account access key:
 
+```xml
     <configuration>
         <startup> 
             <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
@@ -62,12 +63,12 @@ To configure your connection string, open the `app.config` file from Solution Ex
             <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key" />
           </appSettings>
     </configuration>
-
+```
 For example, your configuration setting will be similar to:
-
+```xml
     <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=storagesample;AccountKey=nYV0gln6fT7mvY+rxu2iWAEyzPKITGkhM88J8HUoyofvK7C6fHcZc2kRZp6cKgYRUM74lHI84L50Iau1+9hPjB==" />
-
+```
 To target the storage emulator, you can use a shortcut that maps to the well-known account name and key. In that case, your connection string setting will be:
-
+```xml
     <add key="StorageConnectionString" value="UseDevelopmentStorage=true;" />
-
+```

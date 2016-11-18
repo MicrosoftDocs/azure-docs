@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: 9f6a044c-0b36-4a1d-8080-33e28696c42a
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 08/23/2016
+ms.date: 11/09/2016
 ms.author: curtand
 
 ---
@@ -30,7 +30,7 @@ Azure Active Directory B2B collaboration is easy to configure with simplified si
 
 ## B2B collaboration process
 1. Azure AD B2B collaboration allows a company administrator to invite and authorize a set of external users by uploading a comma-separated values (CSV) file of no more than 2000 lines to the B2B collaboration portal.
-   
+
    ![CSV file upload dialog](./media/active-directory-b2b-collaboration-overview/upload-csv.png)
 2. The portal will send email invitations to these external users.
 3. The invited user will either sign in to an existing work account with Microsoft (managed in Azure AD), or get a new work account in Azure AD.
@@ -51,4 +51,3 @@ Browse our other articles on Azure AD B2B collaboration.
 * [External user object attribute changes](active-directory-b2b-references-external-user-object-attribute-changes.md)
 * [Current preview limitations](active-directory-b2b-current-preview-limitations.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-

@@ -1,25 +1,33 @@
 # Overview
-## [What is Relay?](service-bus-relay-overview.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
-## [FAQ](../service-bus-messaging/service-bus-faq.md)
+## [What is Relay?](relay-what-is-it.md)
+## [FAQ](relay-faq.md)
+
 # Get Started
-## [How to use Relay](service-bus-dotnet-how-to-use-relay.md)
-## [Shared Access Signatures (SAS)](../service-bus-messaging/service-bus-sas-overview.md)
-## [An on-premises/cloud hybrid application using Service Bus Relay](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
-## [Relay .NET tutorial](service-bus-relay-tutorial.md)
-## [Relay REST tutorial](service-bus-relay-rest-tutorial.md)
+## [Create a namespace](relay-create-namespace-portal.md)
+## [Get started with Hybrid Connections](relay-hybrid-connections-dotnet-get-started.md)
+## [Get started with WCF Relay](service-bus-dotnet-how-to-use-relay.md)
+## [Shared Access Signatures](../service-bus-messaging/service-bus-sas-overview.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [WCF Relay hybrid tutorial](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
+## [WCF Relay .NET tutorial](service-bus-relay-tutorial.md)
+## [WCF Relay REST tutorial](service-bus-relay-rest-tutorial.md)
 
 # How To
-## Develop
-### [Service Bus authentication and authorization](../service-bus-messaging/service-bus-authentication-and-authorization.md)
-### [Handling Service Bus outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md)
+## [Authenticate and authorize](../service-bus-messaging/service-bus-authentication-and-authorization.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [Plan for outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [Hybrid Connections protocol](relay-hybrid-connections-protocol.md)
+## [Common exceptions](relay-exceptions.md)
+
 # Reference
 ## [Samples](service-bus-relay-samples.md)
-## [.NET API reference](https://msdn.microsoft.com/library/azure/jj933424)
-## [Exceptions](../service-bus-messaging/service-bus-messaging-exceptions.md)
-## [Quotas](../service-bus-messaging/service-bus-quotas.md)
+## [Hybrid Connections .NET API](/dotnet/api/microsoft.servicebus)
+## [WCF Relay .NET API](/dotnet/api/microsoft.servicebus)
+
+
 # Resources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
+## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
+## [Service updates](https://azure.microsoft.com/updates/?product=service-bus)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)

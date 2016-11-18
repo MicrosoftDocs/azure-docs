@@ -27,8 +27,8 @@ Autoscaling takes advantage of the elasticity of cloud-hosted environments while
 
 > [!NOTE]
 > Autoscaling applies to all of the resources used by an application, not just the compute resources. For example, if your system uses message queues to send and receive information, it could create additional queues as it scales.
-> 
-> 
+>
+>
 
 ## Types of scaling
 Scaling typically takes one of the following two forms:
@@ -73,7 +73,7 @@ Consider the following points when using Autoscale:
 * If you configure autoscaling using the SDK rather than the web portal, you can specify a more detailed schedule during which the rules are active. You can also create your own metrics and use them with or without any of the existing ones in your autoscaling rules. For example, you may wish to use alternative counters, such as the number of requests per second or the average memory availability, or use custom counters that measure specific business processes.
 * When autoscaling Azure Virtual Machines, you must deploy a number of instances of the virtual machine that is equal to the maximum number you will allow autoscaling to start. These instances must be part of the same availability set. The Virtual Machines autoscaling mechanism does not create or delete instances of the virtual machine; instead, the autoscaling rules you configure will start and stop an appropriate number of these instances. For more information, see [Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines](cloud-services/cloud-services-how-to-scale.md).
 * If new instances cannot be started, perhaps because the maximum for a subscription has been reached or an error occurs during startup, the portal may show that an autoscaling operation succeeded. However, subsequent **ChangeDeploymentConfiguration** events displayed in the portal will show only that a service startup was requested, and there will be no event to indicate it was successfully completed.
-* You can use the web portal UI to link resources such as SQL Database instances and queues to a compute service instance. This allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see [How to: Link a resource to a cloud service](cloud-services/cloud-services-how-to-manage.md#linkresources) and [How to Scale an Application](cloud-services/cloud-services-how-to-scale.md).
+* You can use the web portal UI to link resources such as SQL Database instances and queues to a compute service instance. This allows you to more easily access the separate manual and automatic scaling configuration options for each of the linked resources. For more information, see "How to: Link a resource to a cloud service" in [How to Manage Cloud Services](./cloud-services/cloud-services-how-to-manage.md) and [How to Scale an Application](cloud-services/cloud-services-how-to-scale.md).
 * When you configure multiple policies and rules, they could conflict with each other. Autoscale uses the following conflict resolution rules to ensure that there is always a sufficient number of instances running:
   * Scale out operations always take precedence over scale in operations.
   * When scale out operations conflict, the rule that initiates the largest increase in the number of instances takes precedence.
@@ -104,13 +104,12 @@ The following patterns and guidance may also be relevant to your scenario when i
 
 ## More information
 * [How to Scale an Application](cloud-services/cloud-services-how-to-scale.md)
-* [Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines](cloud-services/cloud-services-how-to-manage.md#linkresources)
-* [How to: Link a resource to a cloud service](cloud-services/cloud-services-how-to-manage.md#linkresources)
-* [Scale linked resources](cloud-services/cloud-services-how-to-scale.md#scale-link-resources)
+* [Automatically scale an application running Web Roles, Worker Roles, or Virtual Machines](./cloud-services/cloud-services-how-to-manage.md)
+* [How to: Link a resource to a cloud service](./cloud-services/cloud-services-how-to-manage.md)
+* [Scale linked resources](./cloud-services/cloud-services-how-to-scale.md)
 * [Azure Monitoring Services Management Library](http://www.nuget.org/packages/Microsoft.WindowsAzure.Management.Monitoring)
 * [Azure Service Management REST API](http://msdn.microsoft.com/library/azure/ee460799.aspx)
 * [Azure Resource Manager REST API](https://msdn.microsoft.com/library/azure/dn790568.aspx)
 * [Microsoft Insights library](https://www.nuget.org/packages/Microsoft.Azure.Insights/)
 * [Operations on Autoscaling](http://msdn.microsoft.com/library/azure/dn510374.aspx)
 * [Microsoft.WindowsAzure.Management.Monitoring.Autoscale Namespace](http://msdn.microsoft.com/library/azure/microsoft.windowsazure.management.monitoring.autoscale.aspx)
-

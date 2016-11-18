@@ -1,39 +1,33 @@
 # Overview
-## [Hybrid Connections overview](integration-hybrid-connection-overview.md)
+## [Editions](biztalk-editions-feature-chart.md)
+## [About Hybrid Connections](integration-hybrid-connection-overview.md)
 
 # Get Started
-## [Create BizTalk Services using the Azure portal](biztalk-provision-services.md)
+## [Create BizTalk Services](biztalk-provision-services.md)
+
 # How To
-
 ## Plan and design
-### [Editions chart](biztalk-editions-feature-chart.md)
 ### [Administration and developer task list](biztalk-services-administration-and-development-task-list.md)
-
-## Backup
-### [Backup and restore](biztalk-backup-restore.md)
-
+## [Back up and restore](biztalk-backup-restore.md)
 ## Configure
-### [BizTalk Services: Throttling](biztalk-throttling-thresholds.md)
-### [Review the Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](biztalk-dashboard-monitor-scale-tabs.md)
-
+### [Throttling](biztalk-throttling-thresholds.md)
+### [Service settings and monitoring](biztalk-dashboard-monitor-scale-tabs.md)
 ## Integrate
-### [Create and Manage Hybrid Connections](integration-hybrid-connection-create-manage.md)
-
+### [Hybrid Connections](integration-hybrid-connection-create-manage.md)
 ## Migrate
-### [Migrating BizTalk Server EDI Solutions to BizTalk Services](biztalk-migrating-to-edi-guide.md)
-
+### [BizTalk Server EDI solutions to BizTalk Services](biztalk-migrating-to-edi-guide.md)
 ## Monitor
-### [BizTalk Services: Service state chart](biztalk-service-state-chart.md)
-
+### [Tasks that depend on service states](biztalk-service-state-chart.md)
 ## Secure
-### [Issuer name and issuer key](biztalk-issuer-name-issuer-key.md)
-
-## Troubleshoot
-### [Troubleshoot using operation logs](biztalk-troubleshoot-using-ops-logs.md)
+### [Access control](biztalk-issuer-name-issuer-key.md)
+## [Troubleshoot](biztalk-troubleshoot-using-ops-logs.md)
 
 # Reference
-
-# Related
+## [Release notes](biztalk-release-notes.md)
 
 # Resources
-## [Release Notes](biztalk-release-notes.md)
+## [Service updates](https://azure.microsoft.com/updates/?product=biztalk-services)
+## [Pricing](https://azure.microsoft.com/pricing/details/biztalk-services/)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurebiztalksvcs)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/biztalk-services)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=biztalk-services)

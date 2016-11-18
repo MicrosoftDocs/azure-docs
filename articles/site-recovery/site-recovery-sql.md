@@ -29,7 +29,7 @@ Many workloads use SQL Server as a foundation. Applications such as SharePoint, 
 * **SQL Server Failover Clustering Instances (Always On FCI)**: Two or more nodes of SQL server instances with shared disks are configured in a Windows Failover cluster. If any of the cluster instances is down, the cluster can fail over SQL Server to another instance. This setup is typically used for HA on a primary site. It doesn't protect against failure or outage in the shared storage layer. Shared disk can be implemented using ISCSI, Fiber channel or Shared VHDx.
 * **SQL Always On Availability Groups**: In this setup, two nodes are setup in a shared nothing cluster with SQL Server databases configured in an availability group with synchronous replication and automatic failover.
 
-In Enterprise editions, SQL Server also provides native disaster recovery technologies for recovering databases to a remote site. In this article, we'll leverage and integrate with these native SQL disaster recovery technologies: 
+In Enterprise editions, SQL Server also provides native disaster recovery technologies for recovering databases to a remote site. In this article, we'll leverage and integrate with these native SQL disaster recovery technologies:
 
 * SQL Always On Availability Groups for disaster recovery for SQL Server 2012 or 2014 Enterprise editions.
 * SQL database mirroring in high safety mode for SQL Server Standard edition (any version), or for SQL Server 2008 R2.
@@ -87,12 +87,12 @@ You'll need Active Directory on the secondary recovery site for SQL Server to ru
 The instructions in this document presume that a domain controller is available in the secondary location. [Read more](site-recovery-active-directory.md) about protecting Active Directory with Site Recovery.
 
 ## Integrate protection with SQL Server Always-On (on-premises to Azure)
-Site Recovery natively supports SQL AlwaysOn. If you've created a SQL Availability Group with an Azure virtual machine set up as ‘Secondary’ then you can use Site Recovery to manage the failover of the Availability Groups. 
+Site Recovery natively supports SQL AlwaysOn. If you've created a SQL Availability Group with an Azure virtual machine set up as ‘Secondary’ then you can use Site Recovery to manage the failover of the Availability Groups.
 
 > [!NOTE]
-> This capability is currently in preview and available when Hyper-V host servers in the primary datacenter are managed in VMM clouds and when VMware setup is managed by a [Configuration Server](site-recovery-vmware-to-azure.md#configuration-server-prerequisites). Right now this capability is not available in the new Azure portal.
-> 
-> 
+> This capability is currently in preview and available when Hyper-V host servers in the primary datacenter are managed in VMM clouds and when VMware setup is managed by a [Configuration Server](site-recovery-vmware-to-azure.md#configuration-server-or-additional-process-server-prerequisites). Right now this capability is not available in the new Azure portal.
+>
+>
 
 #### Prerequisites
 Here's what you need to integrate SQL AlwaysOn with Site Recovery:
@@ -104,7 +104,7 @@ Here's what you need to integrate SQL AlwaysOn with Site Recovery:
 * A user account should be added on the on-premises SQL Server, in these SQL user groups with at least these permissions:
   * ALTER AVAILABILITY GROUP: permissions [here](https://msdn.microsoft.com/library/hh231018.aspx), and [here](https://msdn.microsoft.com/library/ff878601.aspx#Anchor_3)
   * ALTER DATABASE - permissions[here](https://msdn.microsoft.com/library/ff877956.aspx#Security)
-* A RunAs account should be created on VMM Server or an account should be created on the Configuration Server using the CSPSConfigtool.exe for the user mentioned in the previous step 
+* A RunAs account should be created on VMM Server or an account should be created on the Configuration Server using the CSPSConfigtool.exe for the user mentioned in the previous step
 * The SQL PS module should be installed on SQL Servers running on-premises,and on Azure virtual machines
 * The VM Agent should be installed virtual machines running on Azure
 * NTAUTHORITY\System should have following permissions on SQL Server running on virtual machines in Azure:
@@ -112,46 +112,46 @@ Here's what you need to integrate SQL AlwaysOn with Site Recovery:
   * ALTER DATABASE - permissions [here](https://msdn.microsoft.com/library/ff877956.aspx#Security)
 
 #### Step 1: Add a SQL Server
-1. Click **Add SQL** to add a new SQL Server. 
-   
+1. Click **Add SQL** to add a new SQL Server.
+
     ![Add SQL](./media/site-recovery-sql/add-sql.png)
 2. In **Configure SQL Settings** > **Name** provide a friendly name to refer to the SQL Server.
 3. **In SQL Server (FQDN)** specify the FQDN of the source SQL Server that you want to add. In case the SQL Server is installed on a Failover Cluster, then provide FQDN of the cluster and not of any of the cluster nodes.  
 4. In **SQL Server Instance** choose the default instance or provide the name of the custom instance.
 5. In **Management Server** select a VMM server or Configuration Server registered in the Site Recovery vault. Site Recovery uses this Management server to communicate with the SQL Server.
 6. In **Run as Account** provide the name of a RunAs account that was created on the specified VMM server or the Account that was created on the Configuraaaon Server. This account is used to access the SQL Server and should have Read and Failover permissions on availability groups on the SQL Server machine.
-   
+
     ![Add SQL Dialog](./media/site-recovery-sql/add-sql-dialog.png)
 
-After you add the SQL Server it will appear in the **SQL Servers** tab. 
+After you add the SQL Server it will appear in the **SQL Servers** tab.
 
 ![SQL Server List](./media/site-recovery-sql/sql-server-list.png)
 
 #### Step 2: Add a SQL Availability Group
-1. After the SQL Server machine is added the next step is to add the Availability Groups to Site Recovery. To do that, drill down inside the SQL Server added in previous step and click on Add SQL Availability Group. 
-   
+1. After the SQL Server machine is added the next step is to add the Availability Groups to Site Recovery. To do that, drill down inside the SQL Server added in previous step and click on Add SQL Availability Group.
+
     ![Add SQL AG](./media/site-recovery-sql/add-sqlag.png)
 2. SQL Availability Group can be replicating to one or more virtual machines in Azure. When adding the sql availability group you are required to provide the name and subscription of the Azure virtual machine where you want the availability group to be failed over to by Site Recovery.
-   
+
     ![Add SQL AG Dialog](./media/site-recovery-sql/add-sqlag-dialog.png)
-3. In the above example Availability Group DB1-AG would become Primary on virtual machine SQLAGVM2 running inside subscription DevTesting2 on a failover. 
+3. In the above example Availability Group DB1-AG would become Primary on virtual machine SQLAGVM2 running inside subscription DevTesting2 on a failover.
 
 > [!NOTE]
 > Only the Availability Groups that are Primary on the SQL Server added in step above are available to be added to Site Recovery. If you have made an Availability Group Primary on the SQL Server or if you have added more Availability Groups on the SQL Server after it was added, refresh it using the Refresh option available on the SQL Server.
-> 
-> 
+>
+>
 
 #### Step 3: Create a Recovery Plan
-The next step is to create a recovery plan using both virtual machines and the availability groups. 
+The next step is to create a recovery plan using both virtual machines and the availability groups.
 Select the same VMM Server or Configuration Server that you used in Step-1 as source and Microsoft Azure as target.
 
 ![Create Recovery Plan](./media/site-recovery-sql/create-rp1.png)
 
 ![Create Recovery Plan](./media/site-recovery-sql/create-rp2.png)
 
-In the example the Sharepoint application consists of 3 virtual machines which use a SQL Availability Group as its backend. In this recovery plan we could select both the availability group as well the virtual machine that constitute the application. 
+In the example the Sharepoint application consists of 3 virtual machines which use a SQL Availability Group as its backend. In this recovery plan we could select both the availability group as well the virtual machine that constitute the application.
 
-You can further customize the recovery plan by moving virtual machines to different failover groups to sequence the order of failover. Availability group is always failed over first as it would be used as a backend of any application. 
+You can further customize the recovery plan by moving virtual machines to different failover groups to sequence the order of failover. Availability group is always failed over first as it would be used as a backend of any application.
 
 ![Customize Recovery Plan](./media/site-recovery-sql/customize-rp.png)
 
@@ -177,47 +177,47 @@ If you want to make the Availability Group again Primary on the on-premises SQL 
 
 > [!NOTE]
 > After an unplanned failover reverse replication has to be triggered on the Availability Group to resume the replication. Till this is done the replication remains suspended.
-> 
-> 
+>
+>
 
 ### Protect machines without a VMM Server or a Configuration Server
 For the environments that are not managed by a VMM Server or a Configuration Server, Azure Automation Runbooks can be used to configure a scripted failover of SQL Availability Groups. Below are the steps to configure that:
 
 1. Create a local file for the script to fail over an availability group. This sample script specifies a path to the availability group on the Azure replica and fails it over to that replica instance. This script will be run on the SQL Server replica virtual machine by passing is with the custom script extension.
-   
+
      Param(
      [string]$SQLAvailabilityGroupPath
      )
      import-module sqlps
      Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
 2. Upload the script to a blob in an Azure storage account. Use this example:
-   
+
      $context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
      Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
-3. Create an Azure automation runbook to invoke the scripts on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](site-recovery-runbook-automation.md) about using automation runbooks in recovery plans. 
-   
+3. Create an Azure automation runbook to invoke the scripts on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](site-recovery-runbook-automation.md) about using automation runbooks in recovery plans.
+
      workflow SQLAvailabilityGroupFailover
      {
-   
+
          param (
              [Object]$RecoveryPlanContext
          )
-   
+
          $Cred = Get-AutomationPSCredential -name 'AzureCredential'
-   
+
          #Connect to Azure
          $AzureAccount = Add-AzureAccount -Credential $Cred
          $AzureSubscriptionName = Get-AutomationVariable –Name ‘AzureSubscriptionName’
          Select-AzureSubscription -SubscriptionName $AzureSubscriptionName
-   
+
          InLineScript
          {
           #Update the script with name of your storage account, key and blob name
           $context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key";
           $sasuri = New-AzureStorageBlobSASToken -Container "script-container"- Blob "AGFailover.ps1" -Permission r -FullUri -Context $context;
-   
+
           Write-output "failovertype " + $Using:RecoveryPlanContext.FailoverType;
-   
+
           if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
                 {
                 #Skipping TFO in this version.
@@ -230,23 +230,23 @@ For the environments that are not managed by a VMM Server or a Configuration Ser
                 #Get the SQL Azure Replica VM.
                 #Update the script to use the name of your VM and Cloud Service
                 $VM = Get-AzureVM -Name "SQLAzureVM" -ServiceName "SQLAzureReplica";     
-   
+
                 Write-Output "Installing custom script extension"
                 #Install the Custom Script Extension on teh SQL Replica VM
-                Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.3| Update-AzureVM; 
-   
+                Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.3| Update-AzureVM;
+
                 Write-output "Starting AG Failover";
                 #Execute the SQL Failover script
                 #Pass the SQL AG path as the argument.
-   
+
                 $AGArgs="-SQLAvailabilityGroupPath sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag";
-   
+
                 Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument $AGArgs | Update-AzureVM;
-   
+
                 Write-output "Completed AG Failover";
-   
+
                 }
-   
+
          }
      }
 4. When you create a recovery plan for the application add a "pre-Group 1 boot" scripted step that invokes the automation runbook to fail over availability groups.
@@ -266,7 +266,7 @@ For applications that use distributed transactions we recommendation you use [Si
 
 ### Recovery plan considerations
 1. Add this sample script to the VMM library on the primary and secondary sites.
-   
+
         Param(
         [string]$SQLAvailabilityGroupPath
         )
@@ -301,4 +301,3 @@ For SQL standard clusters, failback after an unplanned failover will require a S
 
 ## Next steps
 [Learn more](site-recovery-best-practices.md) about getting ready to deploy Site Recovery.
-

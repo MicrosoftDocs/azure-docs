@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Data Lake Analytics using Azure Command-line Interface | Microsoft Docs
-description: 'Learn how to use the Azure Command-line Interface to create a Data Lake Store account, create a Data Lake Analytics job using U-SQL, and submit the job. '
+description: 'Learn how to use the Azure Command-line Interface to create a Data Lake Analytics account, create a Data Lake Analytics job using U-SQL, and submit the job. '
 services: data-lake-analytics
 documentationcenter: ''
 author: edmacauley
@@ -142,9 +142,11 @@ The Data Lake Analytics jobs are written in the U-SQL language. To learn more ab
 
 The following commands can be used to list jobs, get job details, and cancel jobs:
 
-      azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
-      azure datalake analytics job list "<Data Lake Analytics Account Name>"
-    azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>"
+```
+azure datalake analytics job cancel "<Data Lake Analytics Account Name>" "<Job Id>"
+azure datalake analytics job list "<Data Lake Analytics Account Name>"
+azure datalake analytics job show "<Data Lake Analytics Account Name>" "<Job Id>"
+```
 
 After the job is completed, you can use the following cmdlets to list the file, and download the file:
 

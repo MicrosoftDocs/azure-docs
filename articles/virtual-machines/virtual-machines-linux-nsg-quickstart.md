@@ -23,7 +23,7 @@ You open a port, or create an endpoint, to a virtual machine (VM) in Azure by cr
 ## Quick commands
 To create a Network Security Group and rules you need [the Azure CLI](../xplat-cli-install.md) installed and using Resource Manager mode:
 
-```bash
+```azurecli
 azure config mode arm
 ```
 
@@ -31,14 +31,14 @@ In the following examples, replace example parameter names with your own values.
 
 Create your Network Security Group, entering your own names and location appropriately. The following example creates a Network Security Group named `myNetworkSecurityGroup` in the `WestUS` location:
 
-```
+```azurecli
 azure network nsg create --resource-group myResourceGroup --location westus \
     --name myNetworkSecurityGroup
 ```
 
 Add a rule to allow HTTP traffic to your webserver (or adjust for your own scenario, such as SSH access or database connectivity). The following example creates a rule named `myNetworkSecurityGroupRule` to allow TCP traffic on port 80:
 
-```
+```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
     --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
     --protocol tcp --direction inbound --priority 1000 \
@@ -47,14 +47,14 @@ azure network nsg rule create --resource-group myResourceGroup \
 
 Associate the Network Security Group with your VM's network interface (NIC). The following example associates an existing NIC named `myNic` with the Network Security Group named `myNetworkSecurityGroup`:
 
-```
+```azurecli
 azure network nic set --resource-group myResourceGroup \
     --network-security-group-name myNetworkSecurityGroup --name myNic
 ```
 
 Alternatively, you can associate your Network Security Group with a virtual network subnet rather than just to the network interface on a single VM. The following example associates an existing subnet named `mySubnet` in the `myVnet` virtual network with the Network Security Group named `myNetworkSecurityGroup`:
 
-```
+```azurecli
 azure network vnet subnet set --resource-group myResourceGroup \
     --network-security-group-name myNetworkSecurityGroup \
     --vnet-name myVnet --name mySubnet

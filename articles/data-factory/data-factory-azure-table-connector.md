@@ -21,17 +21,17 @@ ms.author: jingwang
 This article outlines how you can use the Copy Activity in an Azure data factory to move data to/from Azure Table from/to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement and supported data store combinations with copy activity.
 
 ## Copy data wizard
-The easiest way to create a pipeline that copies data to/from Azure Table Storage is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+The easiest way to create a pipeline that copies data to/from Azure Table Storage is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure Table Storage and Azure Blob Database. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure Table Storage and Azure Blob Database. However, data can be copied **directly** from any of the sources to any of the supported sinks. For more information, see the section "Supported data stores and formats" in [Move data by using Copy Activity](data-factory-data-movement-activities.md).
 
 ## Sample: Copy data from Azure Table to Azure Blob
 The following sample shows:
 
-1. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (used for both table & blob).
+1. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md) (used for both table & blob).
 2. An input [dataset](data-factory-create-datasets.md) of type [AzureTable](#azure-table-dataset-type-properties).
-3. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties). 
-4. The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [AzureTableSource](#azure-table-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties). 
+3. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
+4. The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [AzureTableSource](#azure-table-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
 The sample copies data belonging to the default partition in an Azure Table to a blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
@@ -80,7 +80,7 @@ Setting “external”: ”true” informs the Data Factory service that the dat
 
 **Azure Blob output dataset:**
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
     {
       "name": "AzureBlobOutput",
@@ -188,10 +188,10 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 ## Sample: Copy data from Azure Blob to Azure Table
 The following sample shows:
 
-1. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) (used for both table & blob)
+1. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md) (used for both table & blob)
 2. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-3. An output [dataset](data-factory-create-datasets.md) of type [AzureTable](#azure-table-dataset-type-properties). 
-4. The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [AzureTableSink](#azure-table-copy-activity-type-properties). 
+3. An output [dataset](data-factory-create-datasets.md) of type [AzureTable](#azure-table-dataset-type-properties).
+4. The [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [AzureTableSink](#azure-table-copy-activity-type-properties).
 
 The sample copies time-series data from an Azure blob to an Azure table hourly. The JSON properties used in these samples are described in sections following the samples.
 
@@ -207,7 +207,7 @@ The sample copies time-series data from an Azure blob to an Azure table hourly. 
       }
     }
 
-Azure Data Factory supports two types of Azure Storage linked services: **AzureStorage** and **AzureStorageSas**. For the first one, you specify the connection string that includes the account key and for the later one, you specify the Shared Access Signature (SAS) Uri. See [Linked Services](#linked-services) section for details. 
+Azure Data Factory supports two types of Azure Storage linked services: **AzureStorage** and **AzureStorageSas**. For the first one, you specify the connection string that includes the account key and for the later one, you specify the Shared Access Signature (SAS) Uri. See [Linked Services](#linked-services) section for details.
 
 **Azure Blob input dataset:**
 
@@ -278,7 +278,7 @@ Data is picked up from a new blob every hour (frequency: hour, interval: 1). The
 
 **Azure Table output dataset:**
 
-The sample copies data to a table named “MyTable” in Azure Table. Create an Azure table with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour. 
+The sample copies data to a table named “MyTable” in Azure Table. Create an Azure table with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
 
     {
       "name": "AzureTableOutput",
@@ -297,7 +297,7 @@ The sample copies data to a table named “MyTable” in Azure Table. Create an 
 
 **Pipeline with the Copy activity:**
 
-The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **AzureTableSink**. 
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **BlobSource** and **sink** type is set to **AzureTableSink**.
 
     {  
         "name":"SamplePipeline",
@@ -368,7 +368,7 @@ For schema-free data stores such as Azure Table, the Data Factory service infers
 Therefore, for schema-free data sources, the best practice is to specify the structure of data using the **structure** property.
 
 ## Azure Table Copy Activity type properties
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output datasets, and policies are available for all types of activities. 
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output datasets, and policies are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
@@ -380,11 +380,11 @@ Properties available in the typeProperties section of the activity on the other 
 | azureTableSourceIgnoreTableNotFound |Indicate whether swallow the exception of table not exist. |TRUE<br/>FALSE |No |
 
 ### azureTableSourceQuery examples
-If Azure Table column is of string type: 
+If Azure Table column is of string type:
 
     azureTableSourceQuery": "$$Text.Format('PartitionKey ge \\'{0:yyyyMMddHH00_0000}\\' and PartitionKey le \\'{0:yyyyMMddHH00_9999}\\'', SliceStart)"
 
-If Azure Table column is of datetime type: 
+If Azure Table column is of datetime type:
 
     "azureTableSourceQuery": "$$Text.Format('DeploymentEndTime gt datetime\\'{0:yyyy-MM-ddTHH:mm:ssZ}\\' and DeploymentEndTime le datetime\\'{1:yyyy-MM-ddTHH:mm:ssZ}\\'', SliceStart, SliceEnd)"
 
@@ -408,9 +408,9 @@ In the following example, source column DivisionID is mapped to the destination 
     "translator": {
         "type": "TabularTranslator",
         "columnMappings": "DivisionID: DivisionID, FirstName: FirstName, LastName: LastName"
-    } 
+    }
 
-The DivisionID is specified as the partition key. 
+The DivisionID is specified as the partition key.
 
     "sink": {
         "type": "AzureTableSink",
@@ -428,7 +428,7 @@ As mentioned in the [data movement activities](data-factory-data-movement-activi
 1. Convert from native source types to .NET type
 2. Convert from .NET type to native sink type
 
-When moving data to & from Azure Table, the following [mappings defined by Azure Table service](https://msdn.microsoft.com/library/azure/dd179338.aspx) are used from Azure Table OData types to .NET type and vice versa. 
+When moving data to & from Azure Table, the following [mappings defined by Azure Table service](https://msdn.microsoft.com/library/azure/dd179338.aspx) are used from Azure Table OData types to .NET type and vice versa.
 
 | OData Data Type | .NET Type | Details |
 | --- | --- | --- |
@@ -442,9 +442,9 @@ When moving data to & from Azure Table, the following [mappings defined by Azure
 | Edm.String |String |A UTF-16-encoded value. String values may be up to 64 KB. |
 
 ### Type Conversion Sample
-The following sample is for copying data from an Azure Blob to Azure Table with type conversions. 
+The following sample is for copying data from an Azure Blob to Azure Table with type conversions.
 
-Suppose the Blob dataset is in CSV format and contains three columns. One of them is a datetime column with a custom datetime format using abbreviated French names for day of the week. 
+Suppose the Blob dataset is in CSV format and contains three columns. One of them is a datetime column with a custom datetime format using abbreviated French names for day of the week.
 
 Define the Blob Source dataset as follows along with type definitions for the columns.
 
@@ -452,7 +452,7 @@ Define the Blob Source dataset as follows along with type definitions for the co
         "name": " AzureBlobInput",
         "properties":
         {
-             "structure": 
+             "structure":
               [
                     { "name": "userid", "type": "Int64"},
                     { "name": "name", "type": "String"},
@@ -485,7 +485,7 @@ Define the Blob Source dataset as follows along with type definitions for the co
         }
     }
 
-Given the type mapping from Azure Table OData type to .NET type, you would define the table in Azure Table with the following schema. 
+Given the type mapping from Azure Table OData type to .NET type, you would define the table in Azure Table with the following schema.
 
 **Azure Table schema:**
 
@@ -518,4 +518,3 @@ In this case, Data Factory automatically does type conversions including the Dat
 
 ## Performance and Tuning
 To learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it, see [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md).
-

@@ -56,27 +56,27 @@ View of the cluster with Service Fabric Explorer:
 
 > [!NOTE]
 > Read more about [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md).
-> 
-> 
+>
+>
 
 ## Health queries
 Service Fabric exposes health queries for each of the supported [entity types](service-fabric-health-introduction.md#health-entities-and-hierarchy). They can be accessed through the API (the methods can be found on **FabricClient.HealthManager**), PowerShell cmdlets, and REST. These queries return complete health information about the entity: the aggregated health state, entity health events, child health states (when applicable), and unhealthy evaluations when the entity is not healthy.
 
 > [!NOTE]
 > A health entity is returned when it is fully populated in the health store. The entity must be active (not deleted) and have a system report. Its parent entities on the hierarchy chain must also have system reports. If any of these conditions is not satisfied, the health queries return an exception that shows why the entity is not returned.
-> 
-> 
+>
+>
 
 The health queries must pass in the entity identifier, which depends on the entity type. The queries accept optional health policy parameters. If no health policies are specified, the [health policies](service-fabric-health-introduction.md#health-policies) from the cluster or application manifest are used for evaluation. The queries also accept filters for returning only partial children or events--the ones that respect the specified filters.
 
 > [!NOTE]
 > The output filters are applied on the server side, so the message reply size is reduced. We recommended that you use the output filters to limit the data returned, rather than apply filters on the client side.
-> 
-> 
+>
+>
 
 An entity's health contains:
 
-* The aggregated health state of the entity. Computed by the health store based on entity health reports, child health states (when applicable), and health policies. Read more about [entity health evaluation](service-fabric-health-introduction.md#entity-health-evaluation).  
+* The aggregated health state of the entity. Computed by the health store based on entity health reports, child health states (when applicable), and health policies. Read more about [entity health evaluation](service-fabric-health-introduction.md#health-evaluation).  
 * The health events on the entity.
 * The collection of health states of all children for the entities that can have children. The health states contain entity identifiers and the aggregated health state. To get complete health for a child, call the query health for the child entity type and pass in the child identifier.
 * The unhealthy evaluations that point to the report that triggered the state of the entity, if the entity is not healthy.
@@ -989,8 +989,8 @@ General queries return a list of Service Fabric entities of a specified type. Th
 
 > [!NOTE]
 > General queries return the aggregated health state of the entity and do not contain rich health data. If an entity is not healthy, you can follow up with health queries to get all its health information, including events, child health states, and unhealthy evaluations.
-> 
-> 
+>
+>
 
 If general queries return an unknown health state for an entity, it's possible that the health store doesn't have complete data about the entity. It's also possible that a subquery to the health store wasn't successful (for example, there was a communication error, or the health store was throttled). Follow up with a health query for the entity. If the subquery encountered transient errors, such as network issues, this follow-up query may succeed. It may also give you more details from the health store about why the entity is not exposed.
 
@@ -1020,8 +1020,8 @@ The queries that contain **HealthState** for entities are:
 
 > [!NOTE]
 > Some of the queries return paged results. The return of these queries is a list derived from [PagedList<T>](https://msdn.microsoft.com/library/azure/mt280056.aspx). If the results do not fit a message, only a page is returned and a ContinuationToken that tracks where enumeration stopped. You should continue to call the same query and pass in the continuation token from the previous query to get next results.
-> 
-> 
+>
+>
 
 ### Examples
 The following code gets the unhealthy applications in the cluster:
@@ -1135,8 +1135,8 @@ Whenever there is an issue with the cluster or an application, look at the clust
 
 > [!NOTE]
 > The unhealthy evaluations show the first reason the entity is evaluated to current health state. There may be multiple other events that trigger this state, but they are not be reflected in the evaluations. To get more information, drill down into the health entities to figure out all the unhealthy reports in the cluster.
-> 
-> 
+>
+>
 
 ## Next steps
 [Use system health reports to troubleshoot](service-fabric-understand-and-troubleshoot-with-system-health-reports.md)
@@ -1148,4 +1148,3 @@ Whenever there is an issue with the cluster or an application, look at the clust
 [Monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 
 [Service Fabric application upgrade](service-fabric-application-upgrade.md)
-

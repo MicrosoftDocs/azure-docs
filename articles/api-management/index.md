@@ -1,46 +1,29 @@
 ---
-title: API Management Documentation | Microsoft Azure
-description: API Management Documentation
-services: api-management
-documentationcenter: ''
-author: kriscrider
-manager: carolz
-editor: ''
-tags: 
-
-ms.assetid: 7173473b-d0a8-4a4c-87d0-d57415fdd1c3
-ms.service: api-management
-ms.devlang: na
-ms.topic: landing page
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/06/2016
-ms.author: kriscr
-
+layout: LandingPage
 ---
 # API Management Documentation
 
-API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services. Businesses everywhere are looking to extend their operations as a digital platform, creating new channels, finding new customers and driving deeper engagement with existing ones. API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
+API Management helps organizations publish APIs to external, partner and internal developers to unlock the potential of their data and services.  API Management provides the core competencies to ensure a successful API program through developer engagement, business insights, analytics, security and protection.
 
-<ul class="panelContent cardsA">
+<ul class="panelContent cardsFTitle">
     <li>
-        <a href="api-management-key-concepts">
+        <a href="/azure/api-management/api-management-key-concepts">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/api-management.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Learn about API Management<p>
+                        <h3>Learn about API Management</h3>
                     </div>
                 </div>
             </div>
         </div>
         </a>
-    </li>    
+    </li>
     <li>
         <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=api-management">
         <div class="cardSize">
@@ -48,11 +31,11 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>API Management Video Library<p>
+                        <h3>API Management Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -60,17 +43,17 @@ API Management helps organizations publish APIs to external, partner and interna
         </a>
     </li>
     <li>
-        <a href="api-management-get-started">
+        <a href="/azure/api-management/api-management-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create your first API<p>
+                        <h3>Get started with API Management</h3>
                     </div>
                 </div>
             </div>
@@ -78,35 +61,17 @@ API Management helps organizations publish APIs to external, partner and interna
         </a>
     </li>
     <li>
-        <a href="api-management-howto-product-with-rules">
+        <a href="/azure/api-management/api-management-howto-create-apis">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create protection for the API with rate limits<p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="api-management-howto-cache">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <p>Create caching to improve performance<p>
+                        <h3>Get Started creating APIs in Azure API Management</h3>
                     </div>
                 </div>
             </div>
@@ -119,19 +84,41 @@ API Management helps organizations publish APIs to external, partner and interna
 
 ## Reference
 
-### PowerShell
-[API Management PowerShell cmdlet reference (ARM)](/powershell/resourcemanager) | [API Management PowerShell cmdlet reference (ASM)](/powershell/servicemanagement)
-
-### Policies
-[API Management Policy Reference ](https://msdn.microsoft.com/en-us/library/azure/dn894081)
-
-### REST
-[API Management REST API Reference](https://docs.microsoft.com/rest/api/apimanagement/)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/resourcemanager">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>API Management Resource Manager PowerShell cmdlet</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/rest/api/apimanagement/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>API Management REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/api-management.pdf">
         <div class="img"></div>
         <div class="text">
             Download API Management Documentation

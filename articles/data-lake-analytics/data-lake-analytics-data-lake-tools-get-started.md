@@ -252,7 +252,10 @@ The following procedure only works in Visual Studio 2015. In older Visual Studio
 1. Create a C# Assembly project, and build it to generate the output dll.
 2. Register the dll using a U-SQL statement:
 
-     CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+    ```
+    CREATE ASSEMBLY assemblyname FROM @"..\..\path\to\output\.dll";
+    ```
+    
 3. Set breakpoints in the C# code.
 4. Press **F5** to debug the script with referencing the C# dll locally.  
 

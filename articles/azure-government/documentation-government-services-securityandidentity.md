@@ -1,5 +1,5 @@
 ---
-title: Azure Government documentation | Microsoft Docs
+title: Azure Government Security + Identity | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: Azure-Government
 cloud: gov
@@ -18,9 +18,9 @@ ms.date: 10/12/2016
 ms.author: ryansoc
 
 ---
-# Azure Government Security and Identity
+# Azure Government Security + Identity
 ## Key Vault
-For details on this service and how to use it, see the <a href="https://azure.microsoft.com/documentation/services/key-vault">Azure Key Vault public documentation. </a>
+For details on this service and how to use it, see the [Azure Key Vault public documentation](../key-vault/index.md).
 
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Key Vault:

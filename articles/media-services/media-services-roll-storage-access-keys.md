@@ -26,13 +26,13 @@ Media Services depends on a storage key provided to it. Specifically, the locato
 
 > [!NOTE]
 > If you have multiple storage accounts, you would perform this procedure with each storage account.
-> 
+>
 > Before executing steps described in this topic on a production account, make sure to test them on a pre-production account.
-> 
-> 
+>
+>
 
 ## Step 1: Regenerate secondary storage access key
-Start with regenerating secondary storage key. By default, the secondary key is not used by Media Services.  For information on how to roll storage keys, see [How to: View, copy, and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Start with regenerating secondary storage key. By default, the secondary key is not used by Media Services.  For information on how to roll storage keys, see [How to: View, copy, and regenerate storage access keys](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 ## <a id="step2"></a>Step 2:  Update Media Services to use the new secondary storage key
 Update Media Services to use the secondary storage access key. You can use one of the following two methods to synchronize the regenerated storage key with Media Services.
@@ -80,14 +80,14 @@ After this step, update existing locators (that have dependency on the old stora
 
 > [!NOTE]
 > Wait for 30 minutes before performing any operations with Media Services (for example, creating new locators) in order to prevent any impact on pending jobs.
-> 
-> 
+>
+>
 
 ## Step 3: Update locators
 > [!NOTE]
 > When rolling storage access keys, you need to make sure to update your existing locators so there is no interruption in your streaming service.
-> 
-> 
+>
+>
 
 Wait at least 30 minutes after synchronizing the new storage key with AMS. Then, you can recreate your OnDemand locators so they take dependency on the specified storage key and maintain the existing URL.
 
@@ -95,8 +95,8 @@ Note that when you update (or recreate) a SAS locator, the URL will always chang
 
 > [!NOTE]
 > To make sure you preserve the existing URLs of your OnDemand locators, you need to delete the existing locator and create a new one with the same ID.
-> 
-> 
+>
+>
 
 The .NET example below shows how to recreate a locator with the same ID.
 
@@ -136,15 +136,15 @@ if (locator.ExpirationDateTime <= DateTime.UtcNow)
 
 
 ## Step 5: Regenerate  primary storage access key
-Regenerate the primary storage access key. For information on how to roll storage keys, see [How to: View, copy, and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+Regenerate the primary storage access key. For information on how to roll storage keys, see [How to: View, copy, and regenerate storage access keys](../storage/storage-create-storage-account.md#view-and-copy-storage-access-keys).
 
 ## Step 6: Update Media Services to use the new primary storage key
 Use the same procedure as described in [step 2](media-services-roll-storage-access-keys.md#step2) only this time synchronize the new primary storage  access key with the Media Services account.
 
 > [!NOTE]
 > Wait for 30 minutes before performing any operations with Media Services (for example, creating new locators) in order to prevent any impact on pending jobs.
-> 
-> 
+>
+>
 
 ## Step 7: Update locators
 After 30 minutes you can recreate your OnDemand locators so they take dependency on the new primary storage key and maintain the existing URL.
@@ -159,4 +159,3 @@ Use the same procedure as described in [step 3](media-services-roll-storage-acce
 
 ### Acknowledgments
 We would like to acknowledge the following people who contributed towards creating this document: Cenk Dingiloglu, Milan Gada, Seva Titov.
-

@@ -1,14 +1,14 @@
 ---
 title: Manage Azure Service Bus using Azure Automation | Microsoft Docs
 description: Learn how to use the Azure Automation service to manage Azure Service Bus.
-services: service-bus, automation
+services: service-bus-messaging, automation
 documentationcenter: ''
 author: mgoedtel
 manager: jwhit
 editor: ''
 
 ms.assetid: 2a06e94b-92ef-4b5d-a2b7-fe827063df82
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na

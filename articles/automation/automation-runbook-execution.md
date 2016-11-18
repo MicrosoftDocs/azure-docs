@@ -1,5 +1,5 @@
-﻿---
-title: Runbook execution in Azure Automation
+---
+title: Runbook execution in Azure Automation | Microsoft Docs
 description: Describes the details of how a runbook in Azure Automation is processed.
 services: automation
 documentationcenter: ''
@@ -48,23 +48,15 @@ The following table describes the different statuses that are possible for a job
 | Suspended |The job was suspended by the user, by the system, or by a command in the runbook. A job that is suspended can be started again and will resume from its last checkpoint or from the beginning of the runbook if it has no checkpoints. The runbook will only be suspended by the system in the case of an exception. By default, ErrorActionPreference is set to **Continue** meaning that the job will keep running on an error. If this preference variable is set to **Stop** then the job will suspend on an error.  Applies to [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. |
 | Suspending |The system is attempting to suspend the job at the request of the user. The runbook must reach its next checkpoint before it can be suspended. If it has already passed its last checkpoint, then it will complete before it can be suspended.  Applies to [Graphical and PowerShell Workflow runbooks](automation-runbook-types.md) only. |
 
-## Viewing job status using the Azure Management Portal
-### Automation Dashboard
-The Automation Dashboard shows a summary of all of the runbooks for a particular automation account. It also includes a Usage Overview for the account. The summary graph shows the number of total jobs for all runbooks that entered each status over a given number of days or hours. You can select the time range on the top right corner of the graph. The time axis of the chart will change according to the type of time range that you select. You can choose whether to display the line for a particular status by clicking on it at the top of screen.
+## Viewing job status from the Azure portal
+You can view a summarized status of all runbook jobs or drill into details of a specific runbook job in the Azure portal or by configuring integration with your Microsoft Operations Management Suite (OMS) Log Analytics workspace to forward runbook job status and job streams.  For more information about integrating with OMS Log Analytics, see [Forward job status and job streams from Automation to Log Analytics (OMS)](automation-manage-send-joblogs-log-analytics.md).  
 
-You can use the following steps to display the Automation Dashboard.
+### Automation runbook jobs summary
+From the Automation account blade, you can see a summary of all of the runbook jobs for a selected Automation account under **Job Statistics** tile.<br><br> ![Job Statistics tile](./media/automation-runbook-execution/automation-account-job-status-summary.png).<br> This tile displays a count and graphical representation of the job status for all jobs executed.  
 
-1. In the Azure Management Portal, select **Automation** and then then click the name of an automation account.
-2. Select the **Dashboard** tab.
+Clicking on the tile will present the **Jobs** blade, which includes a summarized list of all jobs executed, with status, job execution start and completion times.<br><br> ![Automation account Jobs blade](./media/automation-runbook-execution/automation-account-jobs-status-blade.png)<br><br>  You can filter the list of jobs by selecting **Filter jobs** on the **Jobs** blade and filter on a specific runbook, job status, or from the drop-down list, the date/time range to search within.<br><br> ![Filter Job status](./media/automation-runbook-execution/automation-account-jobs-filter.png)
 
-### Runbook Dashboard
-The Runbook Dashboard shows a summary for a single runbook. The summary graph shows the number of total jobs for the runbook that entered each status over a given number of days or hours. You can select the time range on the top right corner of the graph. The time axis of the chart will change according to the type of time range that you select. You can choose whether to display the line for a particular status by clicking on it at the top of screen.
-
-You can use the following steps to display the Runbook Dashboard.
-
-1. In the Azure Management Portal, select **Automation** and then then click the name of an automation account.
-2. Click the name of a runbook.
-3. Select the **Dashboard** tab.
+Alternatively, you can view job summary details for a specific runbook by selecting that runbook from the **Runbooks** blade in your Automation account, and then select the **Jobs** tile.  This will present the **Jobs** blade, and from there you can click on the job record to view its detail and output.<br><br> ![Automation account Jobs blade](./media/automation-runbook-execution/automation-runbook-job-summary-blade.png)<br> 
 
 ### Job Summary
 You can view a list of all of the jobs that have been created for a particular runbook and their most recent status. You can filter this list by job status and the range of dates for the last change to the job. Click on the name of a job to view its detailed information and its output. The detailed view of the job includes the values for the runbook parameters that were provided to that job.
@@ -79,13 +71,14 @@ You can use the following steps to view the jobs for a runbook.
 ## Retrieving job status using Windows PowerShell
 You can use the [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx) to retrieve the jobs created for a runbook and the details of a particular job. If you start a runbook with Windows PowerShell using [Start-AzureRmAutomationRunbook](https://msdn.microsoft.com/library/mt603661.aspx), then it will return the resulting job. Use [Get-AzureRmAutomationJob](https://msdn.microsoft.com/library/mt619440.aspx)Output to get a job’s output.
 
-The following sample commands retrieves the last job for a sample runbook and displays it’s status, the values provide for the runbook parameters, and the output from the job.
+The following sample commands retrieve the last job for a sample runbook and displays its status, the values provided for the runbook parameters, and the output from the job.
 
-    $job = (Get-AzureRmAutomationJob –AutomationAccountName "MyAutomationAccount" –RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate –desc)[0]
+    $job = (Get-AzureRmAutomationJob –AutomationAccountName "MyAutomationAccount" `
+    –RunbookName "Test-Runbook" -ResourceGroupName "ResourceGroup01" | sort LastModifiedDate –desc)[0]
     $job.Status
     $job.JobParameters
-    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
-
+    Get-AzureRmAutomationJobOutput -ResourceGroupName "ResourceGroup01" `
+    –AutomationAccountName "MyAutomationAcct" -Id $job.JobId –Stream Output
 
 ## Fair share
 In order to share resources among all runbooks in the cloud, Azure Automation will temporarily unload any job after it has been running for 3 hours.  [Graphical](automation-runbook-types.md#graphical-runbooks) and [PowerShell Workflow](automation-runbook-types.md#powershell-workflow-runbooks) runbooks will be resumed from their last [checkpoint](http://technet.microsoft.com/library/dn469257.aspx#bk_Checkpoints). During this time, the job will show a status of Running, Waiting for Resources. If the runbook has no checkpoints or the job had not reached the first checkpoint before being unloaded, then it will restart from the beginning.  [PowerShell](automation-runbook-types.md#powershell-runbooks) runbooks are always restarted from the beginning since they don't support checkpoints.

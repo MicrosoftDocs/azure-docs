@@ -125,8 +125,11 @@ Sample JSON document in the Person collection in a DocumentDB database:
 
 DocumentDB supports querying documents using a SQL like syntax over hierarchical JSON documents.
 
-Example:
-    SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
+Example: 
+
+```sql
+SELECT Person.PersonId, Person.Name.First AS FirstName, Person.Name.Middle as MiddleName, Person.Name.Last AS LastName FROM Person
+```
 
 The following pipeline copies data from the Person collection in the DocumentDB database to an Azure blob. As part of the copy activity the input and output datasets have been specified.  
 

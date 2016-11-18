@@ -1,5 +1,5 @@
-# [Overview](functions-overview.md)
-
+# Overview
+## [What is Azure Functions?](functions-overview.md)
 # Get Started
 ## [Create your first function](functions-create-first-azure-function.md)
 ## [Create a webhook function](functions-create-a-web-hook-or-api-function.md)
@@ -8,7 +8,7 @@
 # How To
 ## Plan and design
 ### [Choose between Flow, Logic Apps, Functions, and WebJobs](functions-compare-logic-apps-ms-flow-webjobs.md)
-### [Choose between Consumption and App Service Plan](functions-scale.md)
+### [Choose between hosting plans](functions-scale.md)
 
 ## Develop
 ### [Develop function apps](functions-reference.md)
@@ -21,7 +21,7 @@
 #### [Mobile Apps bindings](functions-bindings-mobile-apps.md)
 #### [Notification Hub output binding](functions-bindings-notification-hubs.md)
 #### [Service Bus triggers and bindings for queues and topics](functions-bindings-service-bus.md)
-#### Storage
+#### Storage bindings
 ##### [Blob bindings](functions-bindings-storage-blob.md)
 ##### [Queue bindings](functions-bindings-storage-queue.md)
 ##### [Table bindings](functions-bindings-storage-table.md)
@@ -30,6 +30,7 @@
 ### [Create a function from the Azure portal](functions-create-first-azure-function-azure-portal.md)
 ### [Testing Azure Functions](functions-test-a-function.md)
 ### [Develop and debug locally](functions-run-local.md)
+### [Best practices for Azure Functions](functions-best-practices.md)
 ### [Use Azure Functions to perform a scheduled clean-up task](functions-scenario-database-table-cleanup.md)
 
 ## Manage
@@ -38,7 +39,11 @@
 ## Deploy
 ### [Continuous deployment for Azure Functions](functions-continuous-deployment.md)
 
+## Monitor
+### [Monitoring Azure Functions](functions-monitoring.md)
 
 # Resources
-## [Service Updates](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)
-## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
+## [Pricing](https://azure.microsoft.com/pricing/details/functions/)  
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureFunctions)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-functions)
+## [Service updates](https://azure.microsoft.com/en-us/updates/?product=functions&updatetype=&platform=)

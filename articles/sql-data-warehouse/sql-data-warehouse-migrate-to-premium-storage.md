@@ -57,8 +57,8 @@ By default, we will migrate your database for you during 6pm and 6am in your reg
 
 > [!NOTE]
 > You will not be able to use your existing Data Warehouse during the migration.  Once the migration is complete, your Data Warehouse will be back online.
-> 
-> 
+>
+>
 
 The details below are steps that Microsoft is taking on your behalf to complete the migration and does not require any involvement on your part.  In this example, imagine that your existing DW on Standard Storage is currently named “MyDW.”
 
@@ -70,11 +70,11 @@ The details below are steps that Microsoft is taking on your behalf to complete 
 
 > [!NOTE]
 > These settings do not carry over as part of the migration:
-> 
+>
 > * Auditing at the Database level needs to be re-enabled
 > * Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
-> 
-> 
+>
+>
 
 ### Automatic migration schedule
 Automatic migrations occur from 6pm – 6am (local time per region) during the following outage schedule.
@@ -118,11 +118,11 @@ If you would like to control your downtime, you can self-migrate your Data Wareh
 
 > [!NOTE]
 > These settings do not carry over as part of the migration:
-> 
+>
 > * Auditing at the Database level needs to be re-enabled
 > * Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
-> 
-> 
+>
+>
 
 #### Optional: steps to rename during migration
 Two databases on the same logical server cannot have the same name. SQL Data Warehouse now supports the ability to rename a DW.
@@ -139,11 +139,11 @@ In this example, imagine that your existing DW on Standard Storage is currently 
 
 > [!NOTE]
 > These settings do not carry over as part of the migration:
-> 
+>
 > * Auditing at the Database level needs to be re-enabled
 > * Firewall rules at the **Database** level need to be readded.  Firewall rules at the **Server** level are not be impacted.
-> 
-> 
+>
+>
 
 ## Next steps
 With the change to Premium Storage, we have also increased the number of database blob files in the underlying architecture of your Data Warehouse.  To maximize the performance benefits of this change, we recommend that you rebuild your Clustered Columnstore Indexes using the following script.  The script below works by forcing some of your existing data to the additional blobs.  If you take no action, the data will naturally redistribute over time as you load more data into your Data Warehouse tables.
@@ -210,8 +210,8 @@ If you encounter any issues with your Data Warehouse, [create a support ticket][
 [Pause]: sql-data-warehouse-manage-compute-portal.md#pause-compute
 [Restore]: sql-data-warehouse-restore-database-portal.md
 [steps to rename during migration]: #optional-steps-to-rename-during-migration
-[scale compute power]: sql-data-warehouse-manage-compute-portal#scale-compute-power
-[mediumrc role]: sql-data-warehouse-develop-concurrency.md#workload-management
+[scale compute power]: sql-data-warehouse-manage-compute-portal.md#scale-compute-power
+[mediumrc role]: sql-data-warehouse-develop-concurrency.md
 
 <!--MSDN references-->
 

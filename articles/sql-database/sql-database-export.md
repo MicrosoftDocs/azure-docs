@@ -20,8 +20,9 @@ ms.tgt_pltfrm: NA
 # Archive an Azure SQL database to a BACPAC file using the Azure Portal
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-export.md)
+> * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
+> * [SqlPackage](sql-database-cloud-migrate-compatible-export-bacpac-sqlpackage.md)
 > * [PowerShell](sql-database-export-powershell.md)
-> 
 > 
 
 This article provides directions for archiving your Azure SQL database to a BACPAC file (stored in Azure blob storage) using the [Azure portal](https://portal.azure.com).

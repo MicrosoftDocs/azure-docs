@@ -28,6 +28,7 @@ When an API Management service is created initially, it contains only one [unit]
 > 
 
 ## <a name="add-region"> </a>Deploy an API Management service instance to a new region
+> [!NOTE]
 > If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
 > 
 > 

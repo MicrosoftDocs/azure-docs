@@ -33,7 +33,7 @@ Schema:
 * **fileUris**: (optional, string array) the URLs for files to be downloaded.
 * **timestamp** (optional, integer) use this field only to trigger a rerun of the script by changing value of this field.
 
-```none
+```json
 {
   "fileUris": ["<url>"],
   "commandToExecute": "<command-to-execute>"
@@ -58,14 +58,17 @@ Schema:
 ## Azure CLI
 When using the Azure CLI to run the Custom Script Extension, create a configuration file or files containing at minimum the file uri, and the script execution command.
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /scirpt-config.json
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version --public-config-path /scirpt-config.json
 ```
 
 Optionally, the command can be run using the `--public-config` and `--private-config` option, which allows the configuration to be specified during execution and without a separate configuration file.
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version \
+  --public-config '{"fileUris": ["https://gist.github.com/ahmetalpbalkan/b5d4a856fe15464015ae87d5587a4439/raw/466f5c30507c990a4d5a2f5c79f901fa89a80841/hello.sh"],"commandToExecute": "./hello.sh"}'
 ```
 
 ### Azure CLI Examples
@@ -80,8 +83,9 @@ azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.E
 
 Azure CLI command:
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /public.json
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version --public-config-path /public.json
 ```
 
 **Example 2** - Public configuration with no script file.
@@ -94,8 +98,9 @@ azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.E
 
 Azure CLI command:
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path /public.json
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version --public-config-path /public.json
 ```
 
 **Example 3** - A public configuration file is used to specify the script file URI, and a protected configuration file is used to specify the command to be executed.
@@ -118,8 +123,9 @@ Protected configuration file:
 
 Azure CLI command:
 
-```none
-azure vm extension set <resource-group> <vm-name> CustomScript Microsoft.Azure.Extensions 2.0 --auto-upgrade-minor-version --public-config-path ./public.json --private-config-path ./protected.json
+```azurecli
+azure vm extension set myResourceGroup myVM CustomScript Microsoft.Azure.Extensions 2.0 \
+  --auto-upgrade-minor-version --public-config-path ./public.json --private-config-path ./protected.json
 ```
 
 ## Resource Manager Template
@@ -191,25 +197,25 @@ See the .Net Core Music Store Demo for a complete example - [Music Store Demo](h
 ## Troubleshooting
 When the Custom Script Extension runs, the script is created or downloaded into a directory similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` file.
 
-```none
+```bash
 /var/lib/azure/custom-script/download/0/
 ```
 
 The Azure Script Extension produces a log, which can be found here.
 
-```none
+```bash
 /var/log/azure/customscript/handler.log
 ```
 
 The execution state of the Custom Script Extension can also be retrieved with the Azure CLI.
 
-```none
-azure vm extension get <resource-group> <vm-name>
+```azurecli
+azure vm extension get myResourceGroup myVM
 ```
 
 The output looks like the following text:
 
-```none
+```azurecli
 info:    Executing command vm extension get
 + Looking up the VM "scripttst001"
 data:    Publisher                   Name                                      Version  State
@@ -220,5 +226,5 @@ info:    vm extension get command OK
 ```
 
 ## Next Steps
-For information on other VM Script Extensions, see [Azure Script Extension overview for Linux](virtual-machines-linux-extensions-features.md).
+For information on other VM Script Extensions, see [Azure Script Extension overview for Linux](virtual-machines-linux-extensions-features.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 

@@ -127,12 +127,13 @@ There are quite a few ways to deploy a template, as you can see in the [Resource
 New-AzureRmResourceGroup -Name ExampleResourceGroup -Location "West Europe"
 
 # deploy the template to the resource group
-New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup -TemplateFile azuredeploy.json
+New-AzureRmResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile azuredeploy.json
 ```
 
 Or, to deploy the template using Azure CLI, use:
 
-```
+```azurecli
 azure group create -n ExampleResourceGroup -l "West Europe"
 
 azure group deployment create -f azuredeploy.json -g ExampleResourceGroup -n ExampleDeployment
@@ -165,7 +166,7 @@ The value you specify for **type** contains both the resource provider and the r
 
 Or, if you are using Azure CLI, you can run the following command:
 
-```
+```azurecli
     azure provider list
 ```
 Given that in this topic you are creating with storage accounts, virtual machines, and virtual networking, you will work with:
@@ -182,7 +183,7 @@ To see the resource types for a particular provider, run the following PowerShel
 
 Or, for Azure CLI, the following command will return the available types in JSON format and save it to a file.
 
-```
+```azurecli
     azure provider show Microsoft.Compute --json > c:\temp.json
 ```
 
@@ -392,7 +393,7 @@ You will create 2 virtual machines, using copyIndex() function, as you did in cr
 The VM creation depends on the storage account, network interface and availability set. This VM will be created from a marketplace image, as defined in the `storageProfile` property - `imageReference` is used to define the image publisher, offer, sku and version. 
 Finally, a diagnostic profile is configured to enable diagnostics for the VM. 
 
-To find the relevant properties for a marketplace image, follow the [select Linux virtual machine images](virtual-machines/virtual-machines-linux-cli-ps-findimage.md) or [select Windows virtual machine images](virtual-machines/virtual-machines-windows-cli-ps-findimage.md) articles.
+To find the relevant properties for a marketplace image, follow the [select Linux virtual machine images](virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [select Windows virtual machine images](virtual-machines/virtual-machines-windows-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) articles.
 
 ```json
 {
@@ -586,5 +587,5 @@ You can re-deploy the template by using the same commands you used when deployin
 * [Azure Resource Manager Template Visualizer](http://armviz.io/#/) is a great tool to visualize Resource Manager templates, as they might become too large to understand just from reading the json file.
 * To learn more about the structure of a template, see [Authoring Azure Resource Manager templates](resource-group-authoring-templates.md).
 * To learn about deploying a template, see [Deploy a Resource Group with Azure Resource Manager template](resource-group-template-deploy.md)
-* For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md). This series covers application architecture, access and security, availability and scale, and application deployment.
+* For a four part series about automating deployment, see [Automating application deployments to Azure Virtual Machines](virtual-machines/virtual-machines-windows-dotnet-core-1-landing.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This series covers application architecture, access and security, availability and scale, and application deployment.
 

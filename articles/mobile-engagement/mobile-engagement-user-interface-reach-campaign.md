@@ -88,9 +88,8 @@ You can use the Languages drop-down menu to send a different version of your Pus
 ## Campaign
 You can use the Campaign section to set the name and category of your campaign as well as if you plan to ignore the audience section of a Push campaign and send this campaign via the Reach API (and some elements with the low level Push API) instead. Categories can be used with a custom notification template to control in-app notifications based on predefined settings. You can get a list of your existing “Categories” via the Reach API.
 
-> Warning: If you use the "Ignore Audience, push will be sent to users via the API" option in the "Campaign" section of a Reach campaign, the campaign will NOT automatically send, you will need to send it manually via the Reach API.
-> 
-> 
+> [!WARNING]
+> If you use the "Ignore Audience, push will be sent to users via the API" option in the "Campaign" section of a Reach campaign, the campaign will NOT automatically send, you will need to send it manually via the Reach API.
 
 ![Reach-Campaign3][22]
 
@@ -125,9 +124,8 @@ You can use the Content section to modify the content of your Announcements, Pol
 ## Audience
 You can use the Audience section to define a standard list of items to limit your campaign or limits your campaign based on customized criteria. The standard set of options to Limit your Audience allows you to push to either new or old users or native push users only. You can also set a quota to limit the number of users who receive the push. You can manually Edit the expression for how your campaign is filtered to include one or more criterion to target users. You can manually type an audience expression. Such an expression must explicitly define the relation between criteria. A criterion is described by an identifier that must start with a capital letter and cannot contain spaces. The relation between the criteria can be described using 'and', 'or', 'not' operators as well as '(', ')'. Example: "Criterion1 or (Criterion1 and not Criterion2)".
 
-> Note: With a large audience included in campaigns, the server side targeting scan can be slow, especially if you attempt to start multiple campaigns at the same time.
-> 
-> 
+> [!NOTE]
+> With a large audience included in campaigns, the server side targeting scan can be slow, especially if you attempt to start multiple campaigns at the same time.
 
 * If possible, only start one campaign at a time.
 * At the most, only start four campaigns at a time.
@@ -153,9 +151,8 @@ You can use the Audience section to define a standard list of items to limit you
 ## Time Frame
 You can use the Time Frame section to set when the push will be sent or you can leave the time frame blank to start the campaign immediately. Remember that using the end-users' time zone may start the campaign a day earlier than you expect for your end-users in Asia and send small batches of pushes at a time until all time zones in the world match the time frame set for your campaign. Using the end users' time zone can also cause delays in campaigns since it has to request the time from the phone before starting the push.
 
-> Note: Campaigns without an end date can cache pushes locally and still display them after you manually complete campaigns. To avoid this behavior, specific an end time for campaigns.
-> 
-> 
+> [!NOTE]
+> Campaigns without an end date can cache pushes locally and still display them after you manually complete campaigns. To avoid this behavior, specific an end time for campaigns.
 
 ### See also
 * [Reach - How Tos – Scheduling][Link 3] 
@@ -168,9 +165,8 @@ You can use the Time Frame section to set when the push will be sent or you can 
 ## Test
 You can use the Test section to send this push to your own test device before saving the campaign. If you have configured any custom languages for this campaign, you can test the push in each language. You can setup a test device from “My Account”.
 
-> Note: No server side data is logged when you use the button to "test" pushes, data is only logged for real push campaigns.
-> 
-> 
+> [!NOTE]
+> No server side data is logged when you use the button to "test" pushes, data is only logged for real push campaigns.
 
 ### See also
 * [UI Documentation - My Account][Link 14]

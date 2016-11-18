@@ -24,15 +24,15 @@ ms.author: mwasson
 > [!div class="op_single_selector"]
 > * [Running Linux VMs in multiple regions for high availability](guidance-compute-multiple-datacenters-linux.md)
 > * [Running Windows VMs in multiple regions for high availability](guidance-compute-multiple-datacenters.md)
-> 
-> 
+>
+>
 
 In this article, we recommend a set of practices to run Linux virtual machines (VMs) in multiple Azure regions, to achieve availability and a robust disaster recovery infrastructure.
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager][resource groups] and classic. This article uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
+>
+>
 
 A multi-region architecture can provide higher availability than deploying to a single region. If a regional outage affects the primary region, you can use [Traffic Manager][traffic-manager] to fail over to the secondary region. This architecture can also help if an individual subsystem of the application fails.
 
@@ -45,11 +45,11 @@ There are several general approaches to achieving high availability across data 
 This architecture focuses on active/passive with hot standby, using Traffic Manager for failover. Note that you could deploy a small number of VMs for hot standby and then scale out as needed.
 
 ## Architecture diagram
-The following diagram builds on the architecture shown in [Adding reliability to an N-tier architecture on Azure](guidance-compute-n-tier-vm-linux.md). 
+The following diagram builds on the architecture shown in [Adding reliability to an N-tier architecture on Azure](guidance-compute-n-tier-vm-linux.md).
 
 > A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Compute - multi region (Linux) page.
-> 
-> 
+>
+>
 
 ![[0]][0]
 
@@ -116,7 +116,7 @@ We recommend [DataStax Enterprise][datastax] for production use. For more inform
 * Assign a public IP address to each node. This enables the clusters to communicate across regions using the Azure backbone infrastructure, providing high throughput at low cost.
 * Secure nodes using the appropriate firewall and NSG configurations, allowing traffic only to and from known hosts, including clients and other cluster nodes. Note that Cassandra uses different ports for communication, OpsCenter, Spark, and so forth. For port usage in Cassandra, see [Configuring firewall port access][cassandra-ports].
 * Use SSL encryption for all [client-to-node][ssl-client-node] and [node-to-node][ssl-node-node] communications.
-* Within a region, follow the guidelines in [Cassandra recommendations](guidance-compute-n-tier-vm-linux.md#cassandra-recommendations).
+* Within a region, follow the guidelines in [Cassandra recommendations](guidance-compute-n-tier-vm-linux.md#recommendations).
 
 ## Availability considerations
 With a complex N-tier app, you may not need to replicate the entire application in the secondary region. Instead, you might just replicate a critical subsystem that is needed to support business continuity.

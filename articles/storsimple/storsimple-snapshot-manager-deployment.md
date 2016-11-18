@@ -89,7 +89,9 @@ Use the following steps to install StorSimple Snapshot Manager.
 2. In File Explorer, right-click the compressed folder, and then click **Extract all**.
 3. In the **Extract Compressed (Zipped) Folders** window, in the **Select a destination and extract files** box, type or browse to the path where you would like to file to be extracted. 
    
-       >[AZURE.IMPORTANT] You must install StorSimple Snapshot Manager on the C: drive.
+    > [!IMPORTANT]
+    > You must install StorSimple Snapshot Manager on the C: drive.
+    
 4. Select the **Show extracted files when complete** check box, and then click **Extract**.
    
     ![Extract files dialog box](./media/storsimple-snapshot-manager-deployment/HCS_SSM_extract_files.png) 

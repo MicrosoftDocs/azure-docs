@@ -1,14 +1,14 @@
 ---
 title: How to use Service Bus topics (Ruby) | Microsoft Docs
 description: Learn how to use Service Bus topics and subscriptions in Azure. Code samples are written for Ruby applications.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: ruby
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 3ef2295e-7c5f-4c54-a13b-a69c8045d4b6
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby

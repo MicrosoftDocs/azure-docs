@@ -27,7 +27,7 @@ This project has adopted the [Microsoft Open Source Code of Conduct](https://ope
 
 ## About your contributions to Azure content
 ### Minor corrections
-Minor corrections or clarifications you submit for documentation and code examples in this repo are covered by the [docs.microsoft.com Terms of Use](https://docs.microsoft.com/en-us/enterprise-mobility-security/termsofuse).
+Minor corrections or clarifications you submit for documentation and code examples in this repo are covered by the [docs.microsoft.com Terms of Use](/enterprise-mobility-security/termsofuse).
 
 ### Larger submissions
 If you submit a pull request with new or significant changes to documentation and code examples, we'll send a comment in GitHub asking you to submit an online Contribution License Agreement (CLA) if you are not an employee of Microsoft. We need you to complete the online form before we can accept your pull request.

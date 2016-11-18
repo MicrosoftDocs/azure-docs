@@ -25,8 +25,8 @@ This article describes best practices for connecting an on-premises network to v
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager](../azure-resource-manager/resource-group-overview.md) and classic. This blueprint uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
+>
+>
 
 Typical use cases for this architecture include:
 
@@ -41,14 +41,14 @@ Note that if the ExpressRoute circuit is unavailable, the VPN route will only ha
 ## Architecture diagram
 > [!NOTE]
 > The [Azure VPN Gateway service][azure-vpn-gateway] implements two types of virtual network gateways; VPN virtual network gateways and ExpressRoute virtual network gateways. Throughout this document, the term *VPN Gateway* refers to the Azure service, while the phrases *VPN virtual network gateway* and *ExpressRoute virtual network gateway* are used to refer to the VPN and ExpressRoute implementations of the gateway respectively.
-> 
-> 
+>
+>
 
 The following diagram highlights the important components in this architecture:
 
 > A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "Hybrid network - ER-VPN" page.
-> 
-> 
+>
+>
 
 ![[0]][0]
 
@@ -58,8 +58,8 @@ The following diagram highlights the important components in this architecture:
 
 > [!NOTE]
 > For a list of supported VPN appliances and information on configuring selected VPN appliances for connecting to an Azure VPN Gateway, see the instructions for the appropriate device in the [list of VPN devices supported by Azure][vpn-appliance].
-> 
-> 
+>
+>
 
 * **VPN virtual network gateway.** The VPN virtual network gateway enables the VNet to connect to the VPN appliance in the on-premises network. The VPN virtual network gateway is configured to accept requests from the on-premises network only through the VPN appliance. For more information, see [Connect an on-premises network to a Microsoft Azure virtual network][connect-to-an-Azure-vnet].
 * **ExpressRoute virtual network gateway.** The ExpressRoute virtual network gateway enables the VNet to connect to the ExpressRoute circuit used for connectivity with your on-premises network.
@@ -122,7 +122,7 @@ If you have an existing on-premises infrastructure already configured with a sui
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
    [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-vpn-er%2Fazuredeploy.json)
 2. Wait for the link to open in the Azure portal, then follow these steps:
-   
+
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-hybrid-vpn-er-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -132,7 +132,7 @@ If you have an existing on-premises infrastructure already configured with a sui
 4. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
    [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-vpn-er%2Fazuredeploy-expressRouteCircuit.json)
 5. Wait for the link to open in the Azure portal, then enter then follow these steps:
-   
+
    * Select **Use existing** in the **Resource group** section and enter `ra-hybrid-vpn-er-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -148,8 +148,8 @@ If you have an existing on-premises infrastructure already configured with a sui
 [azure-network-security-group]: ../virtual-network/virtual-networks-nsg.md
 [getting-started-with-azure-security]: ./../security/azure-security-getting-started.md
 [expressroute-prereq]: ../expressroute/expressroute-prerequisites.md
-[implementing-expressroute]: ./guidance-hybrid-network-expressroute.md#implementing-this-architecture
-[implementing-vpn]: ./guidance-hybrid-network-vpn.md#implementing-this-architecture
+[implementing-expressroute]: ./guidance-hybrid-network-expressroute.md
+[implementing-vpn]: ./guidance-hybrid-network-vpn.md
 [guidance-expressroute]: ./guidance-hybrid-network-expressroute.md
 [guidance-vpn]: ./guidance-hybrid-network-vpn.md
 [best-practices-security]: ../best-practices-network-security.md

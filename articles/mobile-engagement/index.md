@@ -1,40 +1,23 @@
 ---
-title: Mobile Engagement Documentation | Microsoft Azure
-description: Mobile Engagement Documentation
-services: mobile-engagement
-documentationcenter: ''
-author: kriscrider
-manager: carolz
-editor: ''
-tags: 
-
-ms.assetid: 0a7ecde1-3648-4f6a-8b3c-55a6b47de779
-ms.service: mobile-engagement
-ms.devlang: na
-ms.topic: landing page
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/06/2016
-ms.author: kriscr
-
+layout: LandingPage
 ---
 # Mobile Engagement Documentation
 
-Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platform that provides data-driven insights into app usage, real-time user segmentation, and enables contextually-aware push notifications and in-app messaging.
+Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platform that provides data-driven insights into app usage, user segmentation, and enables push notifications and in-app messaging.
 
-<ul class="panelContent cardsA">
+<ul class="panelContent cardsFTitle">
     <li>
-        <a href="mobile-engagement-overview">
+        <a href="/azure/mobile-engagement/mobile-engagement-overview/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/mobile-engagement.svg" alt="" />
                         </div>
                     </div>
-                    <div class="cardText">                       
-                        <p>Learn about Azure Mobile Engagement</p>
+                    <div class="cardText">
+                        <h3>Learn about Mobile Engagement</h3>
                     </div>
                 </div>
             </div>
@@ -48,11 +31,11 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
-                    <div class="cardText">                        
-                        <p>Azure Mobile Engagement Video Library</p>
+                    <div class="cardText">
+                        <h3>Mobile Engagement Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -60,17 +43,17 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
         </a>
     </li>
     <li>
-        <a href="mobile-engagement-android-get-started">
+        <a href="/azure/mobile-engagement/mobile-engagement-android-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
-                    <div class="cardText">                        
-                       <p>Create an Andriod app using GCM</p>
+                    <div class="cardText">
+                        <h3>Get started with Azure Mobile Engagement for Android apps</h3>
                     </div>
                 </div>
             </div>
@@ -78,17 +61,17 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
         </a>
     </li>
     <li>
-        <a href="mobile-engagement-cordova-get-started">
+        <a href="/azure/mobile-engagement/mobile-engagement-cordova-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
-                    <div class="cardText">                        
-                        <p>Create a Cordova app using Mac and integrate Mobile Engagement SDK</p>
+                    <div class="cardText">
+                        <h3>Get started with Azure Mobile Engagement for Cordova/Phonegap</h3>
                     </div>
                 </div>
             </div>
@@ -96,17 +79,17 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
         </a>
     </li>
     <li>
-        <a href="mobile-engagement-ios-get-started">
+        <a href="/azure/mobile-engagement/mobile-engagement-ios-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
-                    <div class="cardText">                        
-                        <p>Create an iOS app using APNS</p>
+                    <div class="cardText">
+                        <h3>Get started with Azure Mobile Engagement for iOS apps in Objective C</h3>
                     </div>
                 </div>
             </div>
@@ -114,17 +97,17 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
         </a>
     </li>
     <li>
-        <a href="mobile-engagement-ios-swift-get-started">
+        <a href="/azure/mobile-engagement/mobile-engagement-ios-swift-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
-                    <div class="cardText">                        
-                        <p>Create an iOS apps in Swift</p>
+                    <div class="cardText">
+                        <h3>Get started with Azure Mobile Engagement for iOS Apps in Swift</h3>
                     </div>
                 </div>
             </div>
@@ -132,17 +115,17 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
         </a>
     </li>
     <li>
-        <a href="mobile-engagement-unity-android-get-started">
+        <a href="/azure/mobile-engagement/mobile-engagement-unity-android-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
-                    <div class="cardText">                        
-                        <p>Create an Andriod app using Unity</p>
+                    <div class="cardText">
+                        <h3>Get started with Azure Mobile Engagement for Unity Android deployment</h3>
                     </div>
                 </div>
             </div>
@@ -150,17 +133,17 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
         </a>
     </li>
     <li>
-        <a href="mobile-engagement-unity-ios-get-started">
+        <a href="/azure/mobile-engagement/mmobile-engagement-unity-ios-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
-                    <div class="cardText">                        
-                        <p>Create an iOS app using Unity</p>
+                    <div class="cardText">
+                        <h3>Get started with Azure Mobile Engagement for Unity iOS deployment</h3>
                     </div>
                 </div>
             </div>
@@ -168,17 +151,17 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
         </a>
     </li>
     <li>
-        <a href="mobile-engagement-windows-store-dotnet-get-started">
+        <a href="/azure/mobile-engagement/mobile-engagement-windows-store-dotnet-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
-                    <div class="cardText">                        
-                        <p>Create a Windows Universal App</p>
+                    <div class="cardText">
+                        <h3>Get started with Azure Mobile Engagement for Windows Universal apps</h3>
                     </div>
                 </div>
             </div>
@@ -188,20 +171,13 @@ Azure Mobile Engagement is a software-as-a-service (SaaS) user-engagement platfo
 </ul>
 
 ---
-## Reference
 
-### .NET
-[Mobile Engagement .NET API Reference](/dotnet/api)
-
-### REST
-[Mobile Engagement REST API Reference](/rest/api/mobile-engagement)
-
----
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/mobile-engagement.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Mobile Engagement Documentation
+            Download Azure Mobile Engagement Documentation
         </div>
     </a>
 </div>
+

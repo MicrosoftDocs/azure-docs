@@ -1,8 +1,5 @@
 # Overview
 ## [What's Machine Learning?](machine-learning-what-is-machine-learning.md)
-## [Frequently asked questions](machine-learning-faq.md)
-## [What's new?](machine-learning-whats-new.md)
-## [Get help from live chat](machine-learning-live-chat.md)
 ## Machine Learning Studio
 ### [What's the Studio?](machine-learning-what-is-ml-studio.md)
 ### [Studio capabilities](machine-learning-studio-overview-diagram.md)
@@ -10,11 +7,12 @@
 ## Team Data Science Process
 ### [Overview](http://aka.ms/datascienceprocess)
 ### [Lifecycle](data-science-process-overview.md)
-### [Tools and Utilities](machine-learning-data-science-environment-setup.md)
 ### [Walkthroughs](data-science-process-walkthroughs.md)
+## [Frequently asked questions](machine-learning-faq.md)
+## [What's new?](machine-learning-whats-new.md)
 # Get Started
 ## [Create your first experiment](machine-learning-create-experiment.md)
-## Walkthrough
+## Example walkthrough
 ### [Create a predictive solution](machine-learning-walkthrough-develop-predictive-solution.md)
 ### [1: Create a workspace](machine-learning-walkthrough-1-create-ml-workspace.md)
 ### [2: Upload data](machine-learning-walkthrough-2-upload-data.md)
@@ -29,28 +27,28 @@
 ### [4: Predict an answer](machine-learning-data-science-for-beginners-predict-an-answer-with-a-simple-model.md)
 ### [5: Copy other people's work](machine-learning-data-science-for-beginners-copy-other-peoples-work-to-do-data-science.md)
 # How To
-## Business understanding
-### [Identify scenarios](machine-learning-data-science-plan-your-environment.md)
-### [View sample scenarios](machine-learning-data-science-plan-sample-scenarios.md)
-## Tools and utilities
-### [Setup environments](machine-learning-data-science-environment-setup.md)
-### [Setup virtual machines](machine-learning-data-science-virtual-machines.md)
+## Set up tools and utilities
+### [Set up environments](machine-learning-data-science-environment-setup.md)
+### [Set up virtual machines](machine-learning-data-science-virtual-machines.md)
 ### [Customize Hadoop](machine-learning-data-science-customize-hadoop-cluster.md)
-### Setup a virtual machine
+### Set up a virtual machine
 #### [DS VM overview](machine-learning-data-science-virtual-machine-overview.md)
 #### [How to use the DS VM](machine-learning-data-science-vm-do-ten-things.md)
 #### [Provision the DS VM](machine-learning-data-science-provision-vm.md)
-#### [Setup Azure VM](machine-learning-data-science-setup-virtual-machine.md)
-#### [Setup SQL VM](machine-learning-data-science-setup-sql-server-virtual-machine.md)
+#### [Set up Azure VM](machine-learning-data-science-setup-virtual-machine.md)
+#### [Set up SQL VM](machine-learning-data-science-setup-sql-server-virtual-machine.md)
 #### [Provision Linux VM](machine-learning-data-science-linux-dsvm-intro.md)
 #### [Use Linux VM](machine-learning-data-science-linux-dsvm-walkthrough.md)
 ### Manage a workspace
-#### [Create a workspace](machine-learning-create-workspace.md)
-#### [Manage a workspace](machine-learning-manage-workspace.md)
+#### [Create](machine-learning-create-workspace.md)
+#### [Manage](machine-learning-manage-workspace.md)
 #### [Troubleshoot](machine-learning-troubleshooting-creating-ml-workspace.md)
 #### [Deploy using ARM](machine-learning-deploy-with-resource-manager-template.md)
 #### [Create in another region](machine-learning-multi-geo.md)
-## Data acquisition and understanding
+## Analyze business needs
+### [Technical needs](machine-learning-data-science-plan-your-environment.md)
+### [Identify your scenario](machine-learning-data-science-plan-sample-scenarios.md)
+## Acquire and understand data
 ### Load data into storage
 #### [Overview](machine-learning-data-science-ingest-data.md)
 #### [Blob storage](machine-learning-data-science-move-azure-blob.md)
@@ -62,12 +60,12 @@
 #### [Move to SQL database](machine-learning-data-science-move-sql-azure.md)
 #### [Load into hive tables](machine-learning-data-science-move-hive-tables.md)
 #### [Load from on-prem SQL](machine-learning-data-science-move-sql-azure-adf.md)
+#### [Load fromSQL partition tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)
 ### Import training data
 #### [Overview](machine-learning-data-science-import-data.md)
 #### [From a local file](machine-learning-import-data-from-local-file.md)
 #### [From online sources](machine-learning-import-data-from-online-sources.md)
 #### [From an experiment](machine-learning-import-data-from-an-experiment.md)
-#### [Use SQL partition tables](machine-learning-data-science-parallel-load-sql-partitioned-tables.md)
 #### [Use on-prem SQL](machine-learning-use-data-from-an-on-premises-sql-server.md)
 ### Explore and visualize data
 #### [Prepare data](machine-learning-data-science-prepare-data.md)
@@ -87,39 +85,38 @@
 ##### [Use Azure Data Lake](machine-learning-data-science-process-data-lake-walkthrough.md)
 ##### [Use SQL VM](machine-learning-data-science-process-sql-server-virtual-machine.md)
 ##### [Use data pipeline](machine-learning-automated-data-pipeline-cheat-sheet.md)
-#### Use Spark
+#### Process data with Spark
 ##### [Overview](machine-learning-data-science-spark-overview.md)
 ##### [Explore data](machine-learning-data-science-spark-data-exploration-modeling.md)
 ##### [Score models](machine-learning-data-science-spark-model-consumption.md)
 ##### [Advanced data exploration](machine-learning-data-science-spark-advanced-data-exploration-modeling.md)
 ##### [Use Scala and Spark](machine-learning-data-science-process-scala-walkthrough.md)
-## Modeling
-### Feature engineering
+## Develop models
+### Engineer and select features
 #### [Overview](machine-learning-data-science-create-features.md)
 #### [Use Pandas](machine-learning-data-science-create-features-blob.md)
 #### [Use SQL+Python](machine-learning-data-science-create-features-sql-server.md)
 #### [Use Hive queries](machine-learning-data-science-create-features-hive.md)
-#### [TDSP overview](machine-learning-data-science-select-features.md)
+#### [TDSP feature selection](machine-learning-data-science-select-features.md)
 ### Create and train models
-#### [Create your first experiment](machine-learning-create-experiment.md)
 #### [Convert to scoring](machine-learning-convert-training-experiment-to-scoring-experiment.md)
 #### [Manage iterations](machine-learning-manage-experiment-iterations.md)
+#### [Use PowerShell to create models](machine-learning-create-models-and-endpoints-with-powershell.md)
 #### Select algorithms
 ##### [Choose algorithms](machine-learning-algorithm-choice.md)
 ##### [Algorithm cheat sheet](machine-learning-algorithm-cheat-sheet.md)
 ##### [Use linear regression](machine-learning-linear-regression-in-azure.md)
 ##### [Use text analytics](machine-learning-text-analytics-module-tutorial.md)
-##### [Algorithm reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 #### Evaluate and interpret results
 ##### [Evaluate performance](machine-learning-evaluate-model-performance.md)
 ##### [Optimize parameters](machine-learning-algorithm-parameters-optimize.md)
 ##### [Interpret results](machine-learning-interpret-model-results.md)
 ##### [Debug](machine-learning-debug-models.md)
-#### Using R and Python
+#### Use R and Python
 ##### [Execute R scripts](machine-learning-extend-your-experiment-with-r.md)
 ##### [Author custom R modules](machine-learning-custom-r-modules.md)
 ##### [Execute Python scripts](machine-learning-execute-python-scripts.md)
-## Deployment
+## Deploy and consume models
 ### [Overview](machine-learning-deploy-consume-web-service-guide.md)
 ### Deploy models
 #### [How it works](machine-learning-model-progression-experiment-to-web-service.md)
@@ -147,58 +144,37 @@
 #### [Use Excel](machine-learning-consuming-from-excel.md)
 #### [Use Excel add-in](machine-learning-excel-add-in-for-web-services.md)
 #### [Use web app template](machine-learning-consume-web-service-with-web-app-template.md)
-# Examples
-## [Sample experiments](machine-learning-sample-experiments.md)
-## [Sample datasets](machine-learning-use-sample-datasets.md)
-## [Customer churn example](machine-learning-azure-ml-customer-churn-scenario.md)
-## APIs
-### [Anomaly detection](machine-learning-apps-anomaly-detection.md)
-### [Text analytics](machine-learning-apps-text-analytics.md)
-### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
-### Recommendations
-#### [Overview](machine-learning-recommendation-api-sample-application.md)
-#### [Quick start](machine-learning-recommendation-api-quick-start-guide.md)
-#### [Reference](machine-learning-recommendation-api-documentation.md)
-#### [Use JavaScript](machine-learning-recommendation-api-javascript-integration.md)
-#### [FAQ](machine-learning-recommendation-api-faq.md)
-## Cortana Analytics
-### Predictive maintenance
-#### [Overview](cortana-analytics-playbook-predictive-maintenance.md)
-#### [Architecture](cortana-analytics-architecture-predictive-maintenance.md)
-#### [Technical guide](cortana-analytics-technical-guide-predictive-maintenance.md)
-### Vehicle telemetry
-#### [Overview](cortana-analytics-playbook-vehicle-telemetry.md)
-#### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
-#### [Setup](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
-## Data Science Process
-### [Use Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md)
-### [Use Hadoop with 1TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
-### [Use SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
-### [Use SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
-## Web services
-### [Examples with R](machine-learning-r-csharp-web-service-examples.md)
-### [Binary Classifier](machine-learning-r-csharp-binary-classifier.md)
-### [Cluster Model](machine-learning-r-csharp-cluster-model.md)
-### [Multivariate Linear Regression](machine-learning-r-csharp-multivariate-linear-regression.md)
-### [Forecasting - Exponential Smoothing](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
-### [Forecasting - ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
-### [Forecasting - ARIMA](machine-learning-r-csharp-arima.md)
-### [Survival Analysis](machine-learning-r-csharp-survival-analysis.md)
-### [Lexicon Based Sentiment Analysis](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
-### [Difference in Proportions Test](machine-learning-r-csharp-difference-in-two-proportions.md)
-### [Normal Distribution Suite](machine-learning-r-csharp-normal-distribution.md)
-### [Binomial Distribution Suite](machine-learning-r-csharp-binomial-distribution.md)
-### [Marketplace FAQ](machine-learning-marketplace-faq.md)
+## Examples
+### [Sample experiments](machine-learning-sample-experiments.md)
+### [Sample datasets](machine-learning-use-sample-datasets.md)
+### [Customer churn example](machine-learning-azure-ml-customer-churn-scenario.md)
+### End-to-end scenarios
+#### [Use Hadoop clusters](machine-learning-data-science-process-hive-walkthrough.md)
+#### [Use Hadoop with 1TB](machine-learning-data-science-process-hive-criteo-walkthrough.md)
+#### [Use SQL Server](machine-learning-data-science-process-sql-walkthrough.md)
+#### [Use SQL Data Warehouse](machine-learning-data-science-process-sqldw-walkthrough.md)
+### Web service examples
+#### [Examples with R](machine-learning-r-csharp-web-service-examples.md)
+#### [Binary Classifier](machine-learning-r-csharp-binary-classifier.md)
+#### [Cluster Model](machine-learning-r-csharp-cluster-model.md)
+#### [Multivariate Linear Regression](machine-learning-r-csharp-multivariate-linear-regression.md)
+#### [Forecasting - Exponential Smoothing](machine-learning-r-csharp-forecasting-exponential-smoothing.md)
+#### [Forecasting - ETS + STL](machine-learning-r-csharp-retail-demand-forecasting.md)
+#### [Forecasting - ARIMA](machine-learning-r-csharp-arima.md)
+#### [Survival Analysis](machine-learning-r-csharp-survival-analysis.md)
+#### [Lexicon Based Sentiment Analysis](machine-learning-r-csharp-lexicon-based-sentiment-analysis.md)
+#### [Difference in Proportions Test](machine-learning-r-csharp-difference-in-two-proportions.md)
+#### [Normal Distribution Suite](machine-learning-r-csharp-normal-distribution.md)
+#### [Binomial Distribution Suite](machine-learning-r-csharp-binomial-distribution.md)
+#### [Marketplace FAQ](machine-learning-marketplace-faq.md)
 # Reference
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell module for Machine Learning](machine-learning-powershell-module.md)
+## [Algorithm reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
 ## [R quick start](machine-learning-r-quickstart.md)
-## [PowerShell overview](machine-learning-powershell-module.md)
-## [Use PowerShell to create models](machine-learning-create-models-and-endpoints-with-powershell.md)
-## [Web service REST API](https://msdn.microsoft.com/library/azure/dn950030.aspx)
 ## [Net# Neural Networks Language](machine-learning-azure-ml-netsharp-reference-guide.md)
+## [Management REST APIs](/rest/api/machinelearning/index)
 # Related
-# Resources
-## [Blog](http://blogs.technet.com/b/machinelearning/)
-## [Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
 ## Cortana Intelligence Gallery
 ### [Overview](machine-learning-gallery-how-to-use-contribute-publish.md)
 ### [Industries](machine-learning-gallery-industries.md)
@@ -210,3 +186,30 @@
 ### [Tutorials](machine-learning-gallery-tutorials.md)
 ### [Collections](machine-learning-gallery-collections.md)
 ### [Custom Modules](machine-learning-gallery-custom-modules.md)
+## Cortana Analytics
+### APIs
+#### [Anomaly detection](machine-learning-apps-anomaly-detection.md)
+#### [Text analytics](machine-learning-apps-text-analytics.md)
+#### [Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)
+#### Recommendations
+##### [Overview](machine-learning-recommendation-api-sample-application.md)
+##### [Quick start](machine-learning-recommendation-api-quick-start-guide.md)
+##### [Reference](machine-learning-recommendation-api-documentation.md)
+##### [Use JavaScript](machine-learning-recommendation-api-javascript-integration.md)
+##### [FAQ](machine-learning-recommendation-api-faq.md)
+#### Predictive maintenance
+##### [Overview](cortana-analytics-playbook-predictive-maintenance.md)
+##### [Architecture](cortana-analytics-architecture-predictive-maintenance.md)
+##### [Technical guide](cortana-analytics-technical-guide-predictive-maintenance.md)
+#### Vehicle telemetry
+##### [Overview](cortana-analytics-playbook-vehicle-telemetry.md)
+##### [Playbook](cortana-analytics-playbook-vehicle-telemetry-deep-dive.md)
+##### [Setup](cortana-analytics-playbook-vehicle-telemetry-powerbi.md)
+# Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/machine-learning/)
+## [Service updates](https://azure.microsoft.com/updates/?product=machine-learning)
+## [Blog](http://blogs.technet.com/b/machinelearning/)
+## [MSDN forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-machine-learning)
+## [Videos](https://azure.microsoft.com/resources/videos/index/?services=machine-learning)
+## [Get help from live chat](machine-learning-live-chat.md)

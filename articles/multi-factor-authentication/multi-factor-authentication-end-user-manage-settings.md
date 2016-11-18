@@ -29,10 +29,10 @@ If your IT admin sent out a specific URL or steps to manage two-step verificatio
 1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com)  
 2. At the top, select **profile**.  
 3. Select **Additional security verification**.  
-   
+
     ![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. The Additional security verification page loads with your settings.
-   
+
     ![Proofup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
 
 ## I want to change my phone number, or add a secondary number
@@ -40,8 +40,8 @@ It is important to configure a secondary authentication phone number.  Because y
 
 > [!NOTE]
 > If you don't have access to your primary phone number, and need help getting in to your account, see our help topics in [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md).
-> 
-> 
+>
+>
 
 **To change your primary phone number:**  
 
@@ -56,9 +56,8 @@ It is important to configure a secondary authentication phone number.  Because y
 3. Select **Save** and your changes are finished.  
 
 ## How do I clean up Microsoft Authenticator from my old device and move to a new one?
-When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. You should use the steps outlined in [moving to a new device](multi-factor-authentication-microsoft-authenticator.md#how-to-move-to-the-new-microsoft-authenticator-app).
+When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. For more information, see [Microsoft Authenticator](multi-factor-authentication-microsoft-authenticator.md).
 
 ## Next steps
 * Get troubleshooting tips and help on [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md)
 * Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-step verification.
-

@@ -1,78 +1,23 @@
 ---
-title: DocumentDB Documentation | Microsoft Azure
-description: DocumentDB Documentation
-services: ''
-documentationcenter: ''
-author: kriscrider
-manager: carolz
-editor: ''
-tags: documentdb
-
-ms.assetid: 5fc4d342-8113-4c09-bfc6-b9e73254092f
-ms.service: value
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 11/6/2016
-ms.author: kriscr
-Layout: Landing Page
+layout: LandingPage
 ---
-
 #DocumentDB Documentation
 
-DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. As a schema-free NoSQL database, DocumentDB provides rich and familiar SQL query capabilities with consistent low latencies on JSON data - ensuring that 99% of your reads are served under 10 milliseconds and 99% of your writes are served under 15 milliseconds. These unique benefits make DocumentDB a great fit for web, mobile, gaming, and IoT, and many other applications that need seamless scale and global replication.
+Azure DocumentDB is a fully managed NoSQL database service built for fast and predictable performance, high availability, elastic scaling, global distribution, and ease of development. As a schema-free NoSQL database, DocumentDB provides rich and familiar SQL query capabilities with consistent low latencies on JSON data.
 
-<ul class="panelContent cardsA">
-    <li>
-        <a href="documentdb-introduction.html">
+<ul class="panelContent cardsFTitle">
+     <li>
+        <a href="/azure/documentdb/documentdb-introduction">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/documentdb.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Learn about DocumentDB<p>                  
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-<li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=documentdb">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                          <img src="images/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <p>DocumentDB Video Library<p>                  
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>    
-    <li>
-        <a href="documentdb-get-started.html">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
-
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <p>Create a DocumentDB C# console application with .NET<p>                  
+                        <h3>Learn about Azure DocumentDB</h3>
                     </div>
                 </div>
             </div>
@@ -80,18 +25,17 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="documentdb-nodejs-get-started.html">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=documentdb">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-   
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create a DocumentDB Node.js console application<p>                        
+                        <h3>Azure DocumentDB Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -99,18 +43,17 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="documentdb-dotnet-application.html">
+        <a href="/azure/documentdb/documentdb-resources">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
- 
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create a Web app in DocumentDB using ASP.NET MVC<p>                        
+                        <h3>Get started with Azure DocumentDB</h3>
                     </div>
                 </div>
             </div>
@@ -118,18 +61,35 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="documentdb-nodejs-application.html">
+        <a href="/azure/documentdb/documentdb-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create a Node.js web application using DocumentDB<p>                        
+                        <h3>Get started with DocumentDB using .NET</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+     <li>
+        <a href="/azure/documentdb/documentdb-dotnet-application">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with DocumentDB using ASP.NET MVC</h3>
                     </div>
                 </div>
             </div>
@@ -137,19 +97,17 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="documentdb-java-application.html">
+        <a href="/azure/documentdb/documentdb-nodejs-get-started">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create a Java web app using DocumentDB<p>
-                        
+                        <h3>Get started with DocumentDB using Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -157,17 +115,53 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
         </a>
     </li>
     <li>
-        <a href="documentdb-python-application.html">
+        <a href="/azure/documentdb/documentdb-nodejs-application">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="images/placeholder.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <p>Create a Python Flask Web Application Development with DocumentDB<p>                        
+                        <h3>Get started with DocumentDB using Node.js Express</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/documentdb/documentdb-java-application">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with DocumentDB using a Java JSP app</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
+        <a href="/azure/documentdb/documentdb-python-application">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get started with DocumentDB using a Python Flask Web app</h3>
                     </div>
                 </div>
             </div>
@@ -180,22 +174,30 @@ DocumentDB is a fully managed NoSQL database service built for fast and predicta
 
 ## Reference
 
-### .NET 
-[DocumentDB Managed Reference API](documentdb-sdk-dotnet)
-
 ### Java
-[Java SDK Reference](documentdb-sdk-java)
+[Java SDK Reference](http://azure.github.io/azure-documentdb-java)
 
-### Node.js 
-[Node.js SDK Reference](documentdb-sdk-node)
+### .NET
+[.NET Managed Reference](https://msdn.microsoft.com/library/azure/dn948556)
+
+### Node
+[Node SDK Reference](http://azure.github.io/azure-documentdb-node/DocumentClient)
+
+### Python
+[Python Reference](http://azure.github.io/azure-documentdb-python/api/pydocumentdb)
+
+### SQL
+[SQL Reference](https://msdn.microsoft.com/library/azure/dn782250)
 
 ### REST
-[DocumentDB REST API Reference](rest/api/documentdb/)
+[REST API Reference](/rest/api/documentdb)
+
+[Resource provider API Reference](/rest/api/documentdbresourceprovider)
 
 ---
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">
         <div class="img"></div>
         <div class="text">
             Download DocumentDB Documentation

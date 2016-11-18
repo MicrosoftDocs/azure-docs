@@ -31,11 +31,11 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 * Include a **web app** or **web API** in the application.
 * Use the **redirect uniform resource identifier** `https://localhost:44316/` for the web app. This is the default location of the web app client for this code sample.
 * Copy the **application ID** that is assigned to your app. You'll need it later.
-  
+
   [!INCLUDE [active-directory-b2c-devquickstarts-v2-apps](../../includes/active-directory-b2c-devquickstarts-v2-apps.md)]
 
 ## Create your policies
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). The client in this code sample contains three identity experiences: sign up, sign in, and edit profile. You will need to create a policy for each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). When you create your three policies, be sure to:
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). The client in this code sample contains three identity experiences: sign up, sign in, and edit profile. You will need to create a policy for each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). When you create your three policies, be sure to:
 
 * Choose either **User ID sign-up** or **Email sign-up** in the identity providers blade.
 * Choose **Display name** and other sign-up attributes in your sign-up policy.

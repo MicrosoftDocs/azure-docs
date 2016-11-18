@@ -26,8 +26,8 @@ The architecture implements a web front end using [Azure App Service][app-servic
 
 > [!NOTE]
 > This article is not focused on application development, and doesn't assume any particular application framework. Instead, the goal is to understand how the various Azure services fit together within this application architecture.
-> 
-> 
+>
+>
 
 ## Architecture diagram
 ![[0]][0]
@@ -70,7 +70,7 @@ There are two ways to scale an App Service app:
 
 * *Scale up*, which means changing the instance size. The instance size determines the memory, number of cores, and storage on each VM instance. You can scale up manually by changing the instance size or the plan tier.  
 * *Scale out*, which means adding instances to handle increased load. Each pricing tier has a maximum number of instances. You can scale out manually by changing the instance count, or use [autoscaling][web-app-autoscale] to have Azure automatically add or remove instances based on a schedule and/or performance metrics. There are a few considerations to be aware of when using autoscaling:
-  
+
   * An autoscale profile defines the minimum and maximum number of instances. Profiles can be scheduled. For example, you can create separate profiles for weekdays and weekends.
   * Optionally, a profile has rules for when to add or remove instances within the minimum and mazimum range defined by the profile. For example: Add two instances if CPU usage is above 70% for 5 minutes. Each scale operation happens quickly &mdash; typically within seconds.
   * Autoscale rules include a *cool-down* period, which is the interval to wait after a scale action has completed before starting a new scale action. The cool-down period lets the system stabilize before scaling again.
@@ -90,8 +90,8 @@ At the time of writing, the SLA for App Service is 99.95% and the SLA for SQL Da
 
 > [!NOTE]
 > The App Service SLA applies to both single and multiple instances.  
-> 
-> 
+>
+>
 
 ### Backups
 In the event of data loss, SQL Database provides point-in-time restore and geo-restore. These features are available in all tiers and are automatically enabled, so it's not necessary to schedule or manage the backups. Use point-in-time restore to [recover from human error][sql-human-error] by returning the database to an earlier point in time. Use geo-restore to [recover from a service outage][sql-outage-recovery] by restoring a database from a geo-redundant backup. For more information about these options, see [Cloud business continuity and database disaster recovery with SQL Database][sql-backup].
@@ -215,7 +215,7 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [app-service-plans-tiers]: https://azure.microsoft.com/en-us/pricing/details/app-service/
 [app-service-security]: ../app-service-web/web-sites-security.md
 [app-settings]: ../app-service-web/web-sites-configure.md
-[arm-template]: ../resource-group-overview.md#resource-groups
+[arm-template]: ../azure-resource-manager/resource-group-overview.md#resource-groups
 [custom-domain-name]: ../app-service-web/web-sites-custom-domain-name.md
 [deploy]: ../app-service-web/web-sites-deploy.md
 [deploy-arm-template]: ../resource-group-template-deploy.md
@@ -235,16 +235,16 @@ For more information, see [Deploy resources with Azure Resource Manager template
 [sql-db-scale]: ../sql-database/sql-database-scale-up-powershell.md
 [sql-db-service-tiers]: ../sql-database/sql-database-service-tiers.md
 [sql-db-v12]: ../sql-database/sql-database-v12-whats-new.md
-[sql-dtu]: ../sql-database/sql-database-service-tiers.md#understanding-dtus
+[sql-dtu]: ../sql-database/sql-database-service-tiers.md
 [sql-human-error]: ../sql-database/sql-database-business-continuity.md#recover-a-database-after-a-user-or-application-error
 [sql-outage-recovery]: ../sql-database/sql-database-business-continuity.md#recover-a-database-to-another-region-from-an-azure-regional-data-center-outage
-[ssl-redirect]: ../app-service-web/web-sites-configure-ssl-certificate.md#4-enforce-https-on-your-app
+[ssl-redirect]: ../app-service-web/web-sites-configure-ssl-certificate.md#bkmk_enforce
 [sql-resource-limits]: ../sql-database/sql-database-resource-limits.md
 [ssl-cert]: ../app-service-web/web-sites-purchase-ssl-web-site.md
 [troubleshoot-blade]: https://azure.microsoft.com/en-us/updates/self-service-troubleshooting-for-app-service-web-apps-customers/
 [troubleshoot-web-app]: ../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md
 [vsts]: https://www.visualstudio.com/en-us/features/vso-cloud-load-testing-vs.aspx
-[web-app-autoscale]: ../app-service-web/web-sites-scale.md#scaling-to-standard-or-premium-mode
+[web-app-autoscale]: ../app-service-web/web-sites-scale.md
 [web-app-backup]: ../app-service-web/web-sites-backup.md
 [web-app-log-stream]: ../app-service-web/web-sites-enable-diagnostic-log.md#streamlogs
 [0]: ./media/blueprints/paas-basic-web-app.png "Architecture of a basic Azure web application"

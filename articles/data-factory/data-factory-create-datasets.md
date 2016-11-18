@@ -28,12 +28,12 @@ Datasets identify data within different data stores, such as tables, files, fold
 In Azure Data Factory, you can get data from a dataset by using copy activity in a pipeline.
 
 > [!NOTE]
-> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview of Azure Data Factory service. See [Build your first data factory](data-factory-build-your-first-pipeline.md) for a tutorial to create your first data factory. These two articles provide you background information you need to understand this article better. 
-> 
-> 
+> If you are new to Azure Data Factory, see [Introduction to Azure Data Factory](data-factory-introduction.md) for an overview of Azure Data Factory service. See [Build your first data factory](data-factory-build-your-first-pipeline.md) for a tutorial to create your first data factory. These two articles provide you background information you need to understand this article better.
+>
+>
 
 ## Define datasets
-A dataset in Azure Data Factory is defined as follows: 
+A dataset in Azure Data Factory is defined as follows:
 
     {
         "name": "<name of dataset>",
@@ -55,7 +55,7 @@ A dataset in Azure Data Factory is defined as follows:
                 "frequency": "<Specifies the time unit for data slice production. Supported frequency: Minute, Hour, Day, Week, Month>",
                 "interval": "<Specifies the interval within the defined frequency. For example, frequency set to 'Hour' and interval set to 1 indicates that new data slices should be produced hourly>"
             },
-           "policy": 
+           "policy":
             {      
             }
         }
@@ -74,18 +74,18 @@ The following table describes properties in the above JSON:
 | policy |Defines the criteria or the condition that the dataset slices must fulfill. <br/><br/>For details, see [Dataset Policy](#Policy) section. |No |NA |
 
 ## Dataset example
-In the following example, the dataset represents a table named **MyTable** in an **Azure SQL database**. 
+In the following example, the dataset represents a table named **MyTable** in an **Azure SQL database**.
 
     {
         "name": "DatasetSample",
         "properties": {
             "type": "AzureSqlTable",
             "linkedServiceName": "AzureSqlLinkedService",
-            "typeProperties": 
+            "typeProperties":
             {
                 "tableName": "MyTable"
             },
-            "availability": 
+            "availability":
             {
                 "frequency": "Day",
                 "interval": 1
@@ -93,11 +93,11 @@ In the following example, the dataset represents a table named **MyTable** in an
         }
     }
 
-Note the following points: 
+Note the following points:
 
 * type is set to AzureSqlTable.
 * tableName type property (specific to AzureSqlTable type) is set to MyTable.
-* linkedServiceName refers to a linked service of type AzureSqlDatabase. See the definition of the following linked service. 
+* linkedServiceName refers to a linked service of type AzureSqlDatabase. See the definition of the following linked service.
 * availability frequency is set to Day and interval is set to 1, which means that the slice is produced daily.  
 
 AzureSqlLinkedService is defined as follows:
@@ -113,7 +113,7 @@ AzureSqlLinkedService is defined as follows:
         }
     }
 
-In the above JSON: 
+In the above JSON:
 
 * type is set to AzureSqlDatabase
 * connectionString type property specifies information to connect to an Azure SQL database.  
@@ -122,24 +122,24 @@ As you can see, the linked service defines how to connect to an Azure SQL databa
 
 > [!IMPORTANT]
 > Unless a dataset is being produced by Azure Data Factory, it should be marked as **external**. This setting generally applies to inputs of first activity in a pipeline.   
-> 
-> 
+>
+>
 
 ## <a name="Type"></a> Dataset Type
-The supported data sources and dataset types are aligned. See topics referenced in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores) article for information on types and configuration of datasets. For example, if you are using data from an Azure SQL database, click Azure SQL Database in the list of supported data stores to see detailed information.  
+The supported data sources and dataset types are aligned. See topics referenced in the [Data Movement Activities](data-factory-data-movement-activities.md#supported-data-stores-and-formats) article for information on types and configuration of datasets. For example, if you are using data from an Azure SQL database, click Azure SQL Database in the list of supported data stores to see detailed information.  
 
 ## <a name="Structure"></a>Dataset Structure
 The **structure** section defines the schema of the dataset. It contains a collection of names and data types of columns.  In the following example, the dataset has three columns slicetimestamp, projectname, and pageviews and they are of type: String, String, and Decimal respectively.
 
     structure:  
-    [ 
+    [
         { "name": "slicetimestamp", "type": "String"},
         { "name": "projectname", "type": "String"},
         { "name": "pageviews", "type": "Decimal"}
     ]
 
 ## <a name="Availability"></a> Dataset Availability
-The **availability** section in a dataset defines the processing window (hourly, daily, weekly etc.) or the slicing model for the dataset. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing and dependency model. 
+The **availability** section in a dataset defines the processing window (hourly, daily, weekly etc.) or the slicing model for the dataset. See [Scheduling and Execution](data-factory-scheduling-and-execution.md) article for more details on the dataset slicing and dependency model.
 
 The following availability section specifies that the output dataset is either produced hourly (or) input dataset is available hourly:
 
@@ -149,7 +149,7 @@ The following availability section specifies that the output dataset is either p
         "interval": 1    
     }
 
-The following table describes properties you can use in the availability section: 
+The following table describes properties you can use in the availability section:
 
 | Property | Description | Required | Default |
 | --- | --- | --- | --- |
@@ -160,7 +160,7 @@ The following table describes properties you can use in the availability section
 | offset |Timespan by which the start and end of all dataset slices are shifted. <br/><br/>**Note:** If both anchorDateTime and offset are specified, the result is the combined shift. |No |NA |
 
 ### offset example
-Daily slices that start at 6 AM instead of the default midnight. 
+Daily slices that start at 6 AM instead of the default midnight.
 
     "availability":
     {
@@ -169,8 +169,8 @@ Daily slices that start at 6 AM instead of the default midnight.
         "offset": "06:00:00"
     }
 
-The **frequency** is set to **Day** and **interval** is set to **1** (once a day): 
-If you want the slice to be produced at 6 AM instead of at the default time: 12 AM. Remember that this time is an UTC time. 
+The **frequency** is set to **Day** and **interval** is set to **1** (once a day):
+If you want the slice to be produced at 6 AM instead of at the default time: 12 AM. Remember that this time is an UTC time.
 
 ## anchorDateTime example
 **Example:** 23 hours dataset slices that start on 2007-04-19T08:00:00
@@ -183,7 +183,7 @@ If you want the slice to be produced at 6 AM instead of at the default time: 12 
     }
 
 ## offset/style Example
-If you need dataset on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), use the **offset** tag to set the date and time it should run. 
+If you need dataset on monthly basis on specific date and time (suppose on 3rd of every month at 8:00 AM), use the **offset** tag to set the date and time it should run.
 
     {
       "name": "MyDataset",
@@ -235,9 +235,9 @@ The **policy** section in dataset definition defines the criteria or the conditi
     }
 
 ### External datasets
-External datasets are the ones that are not produced by a running pipeline in the data factory. If the dataset is marked as **external**, the **ExternalData** policy may be defined to influence the behavior of the dataset slice availability. 
+External datasets are the ones that are not produced by a running pipeline in the data factory. If the dataset is marked as **external**, the **ExternalData** policy may be defined to influence the behavior of the dataset slice availability.
 
-Unless a dataset is being produced by Azure Data Factory, it should be marked as **external**. This setting generally applies to the inputs of first activity in a pipeline unless activity or pipeline chaining is being used. 
+Unless a dataset is being produced by Azure Data Factory, it should be marked as **external**. This setting generally applies to the inputs of first activity in a pipeline unless activity or pipeline chaining is being used.
 
 | Name | Description | Required | Default Value |
 | --- | --- | --- | --- |
@@ -251,8 +251,8 @@ You can create datasets that are scoped to a pipeline by using the **datasets** 
 
 > [!IMPORTANT]
 > Scoped datasets are supported only with one-time pipelines (**pipelineMode** set to **OneTime**). See [Onetime pipeline](data-factory-scheduling-and-execution.md#onetime-pipeline) for details.
-> 
-> 
+>
+>
 
     {
         "name": "CopyPipeline-rdc",

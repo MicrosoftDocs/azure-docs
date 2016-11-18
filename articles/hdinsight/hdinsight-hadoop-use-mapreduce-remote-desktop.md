@@ -30,49 +30,49 @@ To complete the steps in this article, you will need the following:
 * A client computer running Windows 10, Windows 8, or Windows 7
 
 ## <a id="connect"></a>Connect with Remote Desktop
-Enable Remote Desktop for the HDInsight cluster, then connect to it by following the instructions at [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
+Enable Remote Desktop for the HDInsight cluster, then connect to it by following the instructions at [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 
 ## <a id="hadoop"></a>Use the Hadoop command
 When you are connected to the desktop for the HDInsight cluster, use the following steps to run a MapReduce job by using the Hadoop command:
 
 1. From the HDInsight desktop, start the **Hadoop Command Line**. This opens a new command prompt in the **c:\apps\dist\hadoop-&lt;version number>** directory.
-   
+
    > [!NOTE]
    > The version number changes as Hadoop is updated. The **HADOOP_HOME** environment variable can be used to find the path. For example, `cd %HADOOP_HOME%` changes directories to the Hadoop directory, without requiring you to know the version number.
-   > 
-   > 
+   >
+   >
 2. To use the **Hadoop** command to run an example MapReduce job, use the following command:
-   
+
         hadoop jar hadoop-mapreduce-examples.jar wordcount wasbs:///example/data/gutenberg/davinci.txt wasbs:///example/data/WordCountOutput
-   
+
     This starts the **wordcount** class, which is contained in the **hadoop-mapreduce-examples.jar** file in the current directory. As input, it uses the **wasbs://example/data/gutenberg/davinci.txt** document, and output is stored at: **wasbs:///example/data/WordCountOutput**.
-   
+
    > [!NOTE]
    > for more information about this MapReduce job and the example data, see <a href="hdinsight-use-mapreduce.md">Use MapReduce in HDInsight Hadoop</a>.
-   > 
-   > 
+   >
+   >
 3. The job emits details as it is processed, and it returns information similar to the following when the job is complete:
-   
+
         File Input Format Counters
         Bytes Read=1395666
         File Output Format Counters
         Bytes Written=337623
 4. When the job is complete, use the following command to list the output files stored at **wasbs://example/data/WordCountOutput**:
-   
+
         hadoop fs -ls wasbs:///example/data/WordCountOutput
-   
+
     This should display two files, **_SUCCESS** and **part-r-00000**. The **part-r-00000** file contains the output for this job.
-   
+
    > [!NOTE]
    > Some MapReduce jobs may split the results across multiple **part-r-#####** files. If so, use the ##### suffix to indicate the order of the files.
-   > 
-   > 
+   >
+   >
 5. To view the output, use the following command:
-   
+
         hadoop fs -cat wasbs:///example/data/WordCountOutput/part-r-00000
-   
+
     This displays a list of the words that are contained in the **wasbs://example/data/gutenberg/davinci.txt** file, along with the number of times each word occured. The following is an example of the data that will be contained in the file:
-   
+
         wreathed        3
         wreathing       1
         wreaths         1
@@ -93,4 +93,3 @@ For information about other ways you can work with Hadoop on HDInsight:
 
 * [Use Hive with Hadoop on HDInsight](hdinsight-use-hive.md)
 * [Use Pig with Hadoop on HDInsight](hdinsight-use-pig.md)
-

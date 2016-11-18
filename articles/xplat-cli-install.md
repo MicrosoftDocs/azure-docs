@@ -22,8 +22,6 @@ ms.author: rasquill
 > [!div class="op_single_selector"]
 > * [PowerShell](powershell-install-configure.md)
 > * [Azure CLI](xplat-cli-install.md)
-> 
-> 
 
 Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several options to install these cross-platform tools on your computer: 
 
@@ -38,20 +36,24 @@ Once the Azure CLI is installed, [connect it with your Azure subscription](xplat
 ## Option 1: Install an npm package
 To install the CLI from an npm package, make sure you have downloaded and installed the [latest Node.js and npm](https://nodejs.org/en/download/package-manager/). Then, run **npm install** to install the azure-cli package: 
 
-    npm install -g azure-cli
+```bash
+npm install -g azure-cli
+```
 
 On Linux distributions, you might need to use **sudo** to successfully run the **npm** command, as follows:
 
-    sudo npm install -g azure-cli
+```bash
+sudo npm install -g azure-cli
+```
 
 > [!NOTE]
 > If you need to install or update Node.js and npm on your Linux distribution or OS, we recommend that you install the most recent Node.js LTS version (4.x). If you use an older version, you might get installation errors. 
-> 
-> 
 
 If you prefer, download the latest Linux [tar file][linux-installer] for the npm package locally. Then, install the downloaded npm package as follows (on Linux distributions you might need to use **sudo**):
 
-    npm install -g <path to downloaded tar file>
+```bash
+npm install -g <path to downloaded tar file>
+```
 
 ## Option 2: Use an installer
 If you use a Mac or Windows computer, the following CLI installers are available for download:
@@ -61,35 +63,31 @@ If you use a Mac or Windows computer, the following CLI installers are available
 
 > [!TIP]
 > On Windows, you can also download the [Web Platform Installer](https://go.microsoft.com/?linkid=9828653) to install the CLI. This installer gives you the option to install additional Azure SDK and command-line tools after installing the CLI. 
-> 
-> 
 
 ## Option 3: Use a Docker container
 If you have set up your computer as a [Docker](https://docs.docker.com/engine/understanding-docker/) host, you can run the latest Azure CLI in a Docker container. Run the following command (on Linux distributions you might need to use **sudo**):
 
-```
+```bash
 docker run -it microsoft/azure-cli
 ```
-
 
 ## Run Azure CLI commands
 After the Azure CLI is installed, run the **azure** command from your command-line user interface (Bash, Terminal, Command prompt, and so on). For example, to run the help command, type the following:
 
-```
+```azurecli
 azure help
 ```
+
 > [!NOTE]
 > On some Linux distributions, you may receive an error similar to `/usr/bin/env: ‘node’: No such file or directory`. This error comes from recent installations of Node.js being installed at /usr/bin/nodejs. To fix it, create a symbolic link to /usr/bin/node by running this command:
-> 
-> 
 
-```
+```bash
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 ```
 
 To see the version of the Azure CLI you installed, type the following:
 
-```
+```azurecli
 azure --version
 ```
 
@@ -97,13 +95,11 @@ Now you are ready! To access all the CLI commands to work with your own resource
 
 > [!NOTE]
 > When you first use Azure CLI, you see a message asking if you want to allow Microsoft to collect usage information. Participation is voluntary. If you choose to participate, you can stop at any time by running `azure telemetry --disable`. To enable participation at any time, run `azure telemetry --enable`.
-> 
-> 
 
 ## Update the CLI
 Microsoft frequently releases updated versions of the Azure CLI. Reinstall the CLI using the installer for your operating system, or run the latest Docker container. Or, if you have the latest Node.js and npm installed, update by typing the following (on Linux distributions you might need to use **sudo**).
 
-```
+```bash
 npm update -g azure-cli
 ```
 
@@ -112,13 +108,13 @@ Tab completion of CLI commands is supported for Mac and Linux.
 
 To enable it in zsh, run:
 
-```
+```bash
 echo '. <(azure --completion)' >> .zshrc
 ```
 
 To enable it in bash, run:
 
-```
+```bash
 azure --completion >> ~/azure.completion.sh
 echo 'source ~/azure.completion.sh' >> ~/.bash_profile
 ```

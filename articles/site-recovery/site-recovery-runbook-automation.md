@@ -39,7 +39,7 @@ recovery into a single-click recovery action. We will also look at how you
 can troubleshoot a simple script if it goes wrong.
 
 ## Customize the recovery plan
-1. Let us begin by operning the resource blade of the recovery plan. You can see the recovery plan has two virtual machines added to it for recovery. 
+1. Let us begin by operning the resource blade of the recovery plan. You can see the recovery plan has two virtual machines added to it for recovery.
 
     ![](media/site-recovery-runbook-automation-new/essentials-rp.PNG)
 - - -
@@ -53,7 +53,7 @@ can troubleshoot a simple script if it goes wrong.
 3. Name the script 'Hello World'.
 4. Choose an Automation Account name. This is the Azure Automation account. Note that this account can be in any Azure geography but has to be in the same subscription as the Site Recovery vault.
 5. Select a runbook from the Automation Account. This is the script that will run during the execution of the recovery plan after the recovery of first group.
-   
+
     ![](media/site-recovery-runbook-automation-new/update-rp.PNG)
 6. Select OK to save the script. This will add the script to the post action group of Group 1: Start.
 
@@ -106,7 +106,7 @@ Sometimes, a runbook requires more information than just the RecoveryPlanContext
 Consider that you want to use 3 additional parameters in a runbook. Let us encode them into a JSON form
 {"Var1":"testautomation","Var2":"Unplanned","Var3":"PrimaryToSecondary"}
 
-Use [AA complex variable](../automation/automation-variables.md#variable-types Complex variable) to create a new Automation asset.
+Use [AA complex variable](../automation/automation-variables.md#variable-types) to create a new Automation asset.
 Name the variable as <RecoveryPlanName>-params.
 You can use the reference here to create a [complex variable](https://msdn.microsoft.com/library/dn913767.aspx?f=255&MSPPError=-2147217396).
 
@@ -155,4 +155,3 @@ The NSGwithCustomScript runbook will assign Public IP addresses to every VM with
 [Azure Automation Overview](http://msdn.microsoft.com/library/azure/dn643629.aspx "Azure Automation Overview")
 
 [Sample Azure Automation Scripts](http://gallery.technet.microsoft.com/scriptcenter/site/search?f\[0\].Type=User&f\[0\].Value=SC%20Automation%20Product%20Team&f\[0\].Text=SC%20Automation%20Product%20Team "Sample Azure Automation Scripts")
-

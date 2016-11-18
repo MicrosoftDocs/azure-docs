@@ -45,12 +45,27 @@ The timer trigger to a function uses the following JSON object in the `bindings`
 
 The value of `schedule` is a [CRON expression](http://en.wikipedia.org/wiki/Cron#CRON_expression) that includes 6 fields: 
 `{second} {minute} {hour} {day} {month} {day of the week}`. Many of the cron expressions you find online omit the 
-`{second}` field. If you copy from one of them, you need to adjust for the extra `{second}` field. See 
-[`schedule` examples](#examples) below.
+`{second}` field. If you copy from one of them, you need to adjust for the extra `{second}` field. For specific examples, see 
+[Schedule examples](#examples) below.
+
+The default time zone used with the CRON expressions is Coordinated Universal Time (UTC). If you want your CRON expression to be based on another time zone, create a new app setting for your function app named `WEBSITE_TIME_ZONE`. Set the value to the the name of the desired time zone as shown in the [Microsoft Time Zone Index](https://msdn.microsoft.com/library/ms912391.aspx). 
+
+For example, *Eastern Standard Time* is UTC-05:00. If you want your timer trigger to fire at 10:00 AM EST every day, your could use the following CRON expression which accounts for UTC time zone:
+
+```json
+"schedule": "0 0 15 * * *",
+```	
+
+Alternatively, you could add a new app setting for your function app named `WEBSITE_TIME_ZONE` and set the value to **Eastern Standard Time**.  Then the following CRON expression could be used for 10:00 AM EST: 
+
+```json
+"schedule": "0 0 10 * * *",
+```	
+
 
 <a name="examples"></a>
 
-## `schedule` examples
+## Schedule examples
 Here are some samples of CRON expressions you can use for the `schedule` property. 
 
 To trigger once every 5 minutes:
@@ -96,7 +111,7 @@ When a timer trigger function is invoked, the
 [timer object](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) 
 is passed into the function. The following JSON is an example representation of the timer object. 
 
-```
+```json
 {
     "Schedule":{
     },
@@ -130,7 +145,7 @@ See the language-specific sample that reads the timer object to see whether it's
 
 <a name="triggercsharp"></a>
 
-### Trigger sample in C\
+### Trigger sample in C# #
 ```csharp
 public static void Run(TimerInfo myTimer, TraceWriter log)
 {
@@ -144,7 +159,7 @@ public static void Run(TimerInfo myTimer, TraceWriter log)
 
 <a name="triggerfsharp"></a>
 
-### Trigger sample in F\
+### Trigger sample in F# #
 ```fsharp
 let Run(myTimer: TimerInfo, log: TraceWriter ) =
     if (myTimer.IsPastDue) then

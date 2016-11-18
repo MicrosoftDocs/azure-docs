@@ -25,8 +25,8 @@ Learn how to use the [Apache Mahout](http://mahout.apache.org) machine learning 
 
 > [!NOTE]
 > The steps in this document require a Windows client and a Windows-based HDInsight cluster. For information on using Mahout from a Linux, OS X, or Unix client, with a Linux-based HDInsight cluster, see [Generate movie recommendations by using Apache Mahout with Linux-based Hadoop in HDInsight](hdinsight-hadoop-mahout-linux-mac.md)
-> 
-> 
+>
+>
 
 ## <a name="learn"></a>What you will learn
 Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains algorithms for processing data, such as filtering, classification, and clustering. In this article, you will use a recommendation engine to generate movie recommendations that are based on movies your friends have seen. You will also learn how to perform classifications with a decision forest. This will teach you the following:
@@ -34,25 +34,25 @@ Mahout is a [machine learning][ml] library for Apache Hadoop. Mahout contains al
 * How to run Mahout jobs by using Windows PowerShell
 * How to run Mahout jobs from the Hadoop command line
 * How to install Mahout on HDInsight 3.0 and HDInsight 2.0 clusters
-  
+
   > [!NOTE]
   > Mahout is provided with the HDInsight 3.1 version of the clusters. If you are using an earlier version of HDInsight, see [Install Mahout](#install) before you continue.
-  > 
-  > 
+  >
+  >
 
 ## prerequisites
 * **An Windows-based Hadoop cluster in HDInsight**. For information about creating one, see [Get started using Hadoop in HDInsight][getstarted]
 * **A workstation with Azure PowerShell**.
-  
+
     [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## <a name="recommendations"></a>Generate recommendations by using Windows PowerShell
 > [!NOTE]
 > Although the job used in this section works by using Windows PowerShell, many of the classes provided with Mahout do not currently work with Windows PowerShell, and they must be run by using the Hadoop command line. For a list of classes that do not work with Windows PowerShell, see the [Troubleshooting](#troubleshooting) section.
-> 
+>
 > For an example of using the Hadoop command line to run Mahout jobs, see [Classify data by using the Hadoop command line](#classify).
-> 
-> 
+>
+>
 
 One of the functions that is provided by Mahout is a recommendation engine. This engine accepts data in the format of `userID`, `itemId`, and `prefValue` (the users preference for the item). Mahout can then perform co-occurance analysis to determine: *users who have a preference for an item also have a preference for these other items*. Mahout then determines users with like-item preferences, which can be used to make recommendations.
 
@@ -155,8 +155,8 @@ Use the following Windows PowerShell script to run a job that uses the Mahout re
 
 > [!NOTE]
 > Mahout jobs do not remove temporary data that is created while processing the job. The `--tempDir` parameter is specified in the example job to isolate the temporary files into a specific directory.
-> 
-> 
+>
+>
 
 The Mahout job does not return the output to STDOUT. Instead, it stores it in the specified output directory as **part-r-00000**. The script downloads this file to **output.txt** in the current directory on your workstation.
 
@@ -321,12 +321,12 @@ One of the classification methods available with Mahout is to build a [random fo
 
 ### Load the data
 1. Download the following files from [The NSL-KDD Data Set](http://nsl.cs.unb.ca/NSL-KDD/).
-   
+
    * [KDDTrain+.ARFF](http://nsl.cs.unb.ca/NSL-KDD/KDDTrain+.arff): the training file
    * [KDDTest+.ARFF](http://nsl.cs.unb.ca/NSL-KDD/KDDTest+.arff): the test data
 2. Open each file and remove the lines at the top that begin with '@', and then save the files. If these are not removed, you will receive error messages when using this data with Mahout.
 3. Upload the files to **example/data**. You can do this by using the following script. Replace **CLUSTERNAME** with the name of the HDInsight cluster. Replace FILENAME with the name fo the file to be uploaded.
-   
+
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterName="CLUSTERNAME"
         $fileToUpload="FILENAME"
@@ -338,12 +338,12 @@ One of the classification methods available with Mahout is to build a [random fo
         $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
         -ResourceGroupName $resourceGroup)[0].Value
-   
+
         #Create a storage content and upload the file
         $context = New-AzureStorageContext `
             -StorageAccountName $storageAccountName `
             -StorageAccountKey $storageAccountKey
-   
+
         Set-AzureStorageBlobContent `
             -File $fileToUpload `
             -Blob $blobPath `
@@ -351,42 +351,42 @@ One of the classification methods available with Mahout is to build a [random fo
             -Context $context
 
 ### Run the job
-1. This job requires the Hadoop command line. Enable Remote Desktop for the HDInsight cluster, then connect to it by following the instructions at [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#rdp).
+1. This job requires the Hadoop command line. Enable Remote Desktop for the HDInsight cluster, then connect to it by following the instructions at [Connect to HDInsight clusters using RDP](hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp).
 2. After connecting, use the **Hadoop Command Line** icon to open the Hadoop command line:
-   
+
     ![hadoop cli][hadoopcli]
 3. Use the following command to generate the file descriptor (**KDDTrain+.info**), which uses Mahout.
-   
+
         hadoop jar "c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar" org.apache.mahout.classifier.df.tools.Describe -p "wasbs:///example/data/KDDTrain+.arff" -f "wasbs:///example/data/KDDTrain+.info" -d N 3 C 2 N C 4 N C 8 N 2 C 19 N L
-   
+
     The `N 3 C 2 N C 4 N C 8 N 2 C 19 N L` describes the attributes of the data in the file. For example, L indicates a label.
 4. Build a forest of decision trees by using the following command:
-   
+
         hadoop jar c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar org.apache.mahout.classifier.df.mapreduce.BuildForest -Dmapred.max.split.size=1874231 -d wasbs:///example/data/KDDTrain+.arff -ds wasbs:///example/data/KDDTrain+.info -sl 5 -p -t 100 -o nsl-forest
-   
+
     The output of this operation is stored in the **nsl-forest** directory, which is located in the storage for your HDInsight cluster at __wasbs://user/&lt;username>/nsl-forest/nsl-forest.seq. The &lt;username> is the user name that you used for your Remote Desktop session. This file is not readable by humans.
 5. Test the forest by classifying the **KDDTest+.arff** dataset. Use the following command:
-   
+
         hadoop jar c:/apps/dist/mahout-0.9.0.2.2.9.1-8/examples/target/mahout-examples-0.9.0.2.2.9.1-8-job.jar org.apache.mahout.classifier.df.mapreduce.TestForest -i wasbs:///example/data/KDDTest+.arff -ds wasbs:///example/data/KDDTrain+.info -m nsl-forest -a -mr -o wasbs:///example/data/predictions
-   
+
     This command returns summary information about the classification process similar to the following:
-   
+
         14/07/02 14:29:28 INFO mapreduce.TestForest:
-   
+
         =======================================================
         Summary
         -------------------------------------------------------
         Correctly Classified Instances          :      17560       77.8921%
         Incorrectly Classified Instances        :       4984       22.1079%
         Total Classified Instances              :      22544
-   
+
         =======================================================
         Confusion Matrix
         -------------------------------------------------------
         a       b       <--Classified as
         9437    274      |  9711        a     = normal
         4710    8123     |  12833       b     = anomaly
-   
+
         =======================================================
         Statistics
         -------------------------------------------------------
@@ -394,33 +394,33 @@ One of the classification methods available with Mahout is to build a [random fo
         Accuracy                                   77.8921%
         Reliability                                53.4921%
         Reliability (standard deviation)            0.4933
-   
+
    This job also produces a file located at **wasbs:///example/data/predictions/KDDTest+.arff.out**. However, this file is not readable by humans.
 
 > [!NOTE]
 > Mahout jobs do not overwrite files. If you want to run these jobs again, you must delete the files that were created by previous jobs.
-> 
-> 
+>
+>
 
 ## <a name="troubleshooting"></a>Troubleshooting
 ### <a name="install"></a>Install Mahout
 Mahout is installed on HDInsight 3.1 clusters, and it can be installed manually on HDInsight 3.0 or HDInsight 2.1 clusters by using the following steps:
 
 1. The version of Mahout to use depends on the HDInsight version of your cluster. You can find the cluster version by viewing the properties for the cluster in the Azure portal.
-   
+
    * **For HDInsight 2.1**, you can download a Java Archive (JAR) file that contains [Mahout 0.9](http://repo2.maven.org/maven2/org/apache/mahout/mahout-core/0.9/mahout-core-0.9-job.jar).
    * **For HDInsight 3.0**, you must [build Mahout from the source][build] and specify the Hadoop version provided by HDInsight. Install the prerequisites listed on the build page, download the source, and then use the following command to create the Mahout jar files:
-     
+
             mvn -Dhadoop2.version=2.2.0 -DskipTests clean package
-     
+
         After the build completes, you can find the JAR file at **mahout\mrlegacy\target\mahout-mrlegacy-1.0-SNAPSHOT-job.jar**.
-     
+
      > [!NOTE]
      > When Mahout 1.0 is released, you should be able to use the prebuilt packages with HDInsight 3.0.
-     > 
-     > 
+     >
+     >
 2. Upload the jar file to **example/jars** in the default storage for your cluster. Replace CLUSTERNAME in the following script with the name of your HDInsight cluster, and replace FILENAME with the path to the **mahout-coure-0.9-job.jar** file..
-   
+
         #Get the cluster info so we can get the resource group, storage, etc.
         $clusterName = "CLUSTERNAME"
         $fileToUpload = "FILENAME"
@@ -431,12 +431,12 @@ Mahout is installed on HDInsight 3.1 clusters, and it can be installed manually 
         $storageAccountKey=(Get-AzureRmStorageAccountKey `
             -Name $storageAccountName `
         -ResourceGroupName $resourceGroup)[0].Value
-   
+
         #Create a storage content and upload the file
         $context = New-AzureStorageContext `
             -StorageAccountName $storageAccountName `
             -StorageAccountKey $storageAccountKey
-   
+
         Set-AzureStorageBlobContent `
             -File $fileToUpload `
             -Blob "example/jars/mahout-core-0.9-job.jar" `
@@ -509,4 +509,3 @@ Now that you have learned how to use Mahout, discover other ways of working with
 [connect]: ./media/hdinsight-mahout/connect.png
 [hadoopcli]: ./media/hdinsight-mahout/hadoopcli.png
 [tools]: https://github.com/Blackmist/hdinsight-tools
-

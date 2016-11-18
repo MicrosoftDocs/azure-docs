@@ -99,8 +99,8 @@ Your first pilot project should have a few individuals who produce data and cons
 
 One of the business problems that **Azure Data Catalog** solves is to connect **Data Producers** to **Data Consumers**. It does this by serving as a central repository for information about enterprise data sources. Using Data Catalog, David registers Adventure Works and SQL Server data sources. Using crowdsourcing any user who discovers this data source can share her opinions on the data, in addition to using the data she has discovered. For example, Nancy discovers the data sources by searching the catalog, and shares her specialized knowledge about the data.  Now, others in the organization benefit from shared knowledge by simply searching the data catalog.
 
-* To learn more about registering data sources, see [Register data sources](data-catalog-get-started.md#exercise-2-registering-data-sources).
-* To learn more about discovering data sources, see [Search data sources](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets).
+* To learn more about registering data sources, see [Register data sources](data-catalog-get-started.md).
+* To learn more about discovering data sources, see [Search data sources](data-catalog-get-started.md).
 
 ### Start small and focused
 For most enterprise pilot projects, you should seed the catalog with high-value data sources so that business users can quickly see the value of Data Catalog. IT is a good place to start identifying common data sources that would be of interest to your pilot team. For supported data sources, such as SQL Server, we recommend using the **Azure Data Catalog** data source registration tool. With the data source registration tool, you can register a wide range of data sources including SQL Server and Oracle databases, and SQL Server Reporting Services reports. For a complete list of current data sources, see [Azure Data Catalog supported data sources](data-catalog-dsr.md).
@@ -120,8 +120,8 @@ As part of the pilot project, Nancy's team also uses data sources which are desc
 
 > [!NOTE]
 > We wrote a sample tool that uses the **Azure Data Catalog** API to migrate an Excel workbook to Data Catalog. To learn more about the Data Catalog API and the sample tool, you can [Download the Ad Hoc workbook code sample](https://azure.microsoft.com/documentation/samples/data-catalog-dotnet-excel-register-data-assets/), and check out the [Azure Data Catalog REST API](https://msdn.microsoft.com/library/azure/mt267593.aspx) documentation.
-> 
-> 
+>
+>
 
 After the pilot project is in place, it's time to execute your Data Catalog adoption plan.
 
@@ -139,9 +139,9 @@ Here are some tips to get you started:
 Before your pilot team jumps into using Data Catalog, schedule a kick-off meeting to discuss expectations for the pilot project, and provide initial training.
 
 ### Set expectations
-Setting exceptions and goals helps business users focus on specific deliverables. To keep the project on track, assign regular (perhaps daily or weekly based on the scope and duration of the pilot) homework assignments. One of the most valuable capabilities of Data Catalog is crowdsourcing data assets so that business users can benefit from knowledge of enterprise data. A great homework assignment is for each pilot team member to register or annotate at least one data source they have used. See [Register a data source](data-catalog-get-started.md#exercise-2-registering-data-sources) and [How to annotate data sources](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Setting exceptions and goals helps business users focus on specific deliverables. To keep the project on track, assign regular (perhaps daily or weekly based on the scope and duration of the pilot) homework assignments. One of the most valuable capabilities of Data Catalog is crowdsourcing data assets so that business users can benefit from knowledge of enterprise data. A great homework assignment is for each pilot team member to register or annotate at least one data source they have used. See [Register a data source](data-catalog-get-started.md) and [How to annotate data sources](data-catalog-get-started.md).
 
-Meet with the team on a regular schedule to review some of the annotations. Good annotations about data sources are at the heart of a successful Data Catalog adoption because they provide meaningful data source insights in a central location. Without good annotations, knowledge about data sources remains scattered throughout the enterprise. See [How to annotate data sources](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources).
+Meet with the team on a regular schedule to review some of the annotations. Good annotations about data sources are at the heart of a successful Data Catalog adoption because they provide meaningful data source insights in a central location. Without good annotations, knowledge about data sources remains scattered throughout the enterprise. See [How to annotate data sources](data-catalog-get-started.md).
 
 And, of course, the ultimate test of the project is whether users can discover and understand the data sources they need to use. Pilot users should regularly test the catalog to ensure that the data sources they use for their day to day work are relevant. When a required data source is missing or not properly annotated, this should serve as a reminder to register additional data sources or to provide additional annotations. This practice does not only add value to the pilot effort, it also builds effective habits that carry over to other teams after the pilot is complete.
 
@@ -159,8 +159,7 @@ This article was about getting started with **Azure Data Catalog** in your organ
 * [Azure Data Catalog product page](https://azure.microsoft.com/services/data-catalog/)
 * [Azure Data Catalog documentation](https://azure.microsoft.com/documentation/services/data-catalog/)
 * [Azure Data Catalog common scenarios](data-catalog-common-scenarios.md)
-* [Register data sources](data-catalog-get-started.md#exercise-2-registering-data-sources)
-* [Search data sources](data-catalog-get-started.md#exercise-3-discovering-registered-data-assets)
-* [Annotate data sources](data-catalog-get-started.md#exercise-4-annotating-registered-data-sources)
-* [Crowdsourcing metadata](data-catalog-get-started.md#exercise-5-crowdsourcing-metadata)
-
+* [Register data sources](data-catalog-get-started.md)
+* [Search data sources](data-catalog-get-started.md)
+* [Annotate data sources](data-catalog-get-started.md)
+* [Crowdsourcing metadata](data-catalog-get-started.md)

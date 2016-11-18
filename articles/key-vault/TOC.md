@@ -1,6 +1,5 @@
 # Overview
 ## [What is Key Vault?](key-vault-whatis.md)
-## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Service overview](https://azure.microsoft.com/services/key-vault/)
 
 # Get started
@@ -30,11 +29,14 @@
 # Reference
 ## [About Keys and Secrets](https://msdn.microsoft.com/en-us/library/azure/dn903623)
 ## [Code Samples](https://www.microsoft.com/download/details.aspx?id=45343)
-## [.NET for Key Vault](https://msdn.microsoft.com/en-us/library/azure/mt430941)
-## [REST for Key Vault](https://msdn.microsoft.com/en-us/library/azure/dn903609)
+
+## [Key Vault Resource Manager PowerShell Cmdlets](/powershell/resourcemanager/)
+## [Key Vault Classic PowerShell Cmdlets](/powershell/servicemanagement/)
+## [Key Vault using Azure CLI](/cli/azure/)
+## [Key Vault in Java Reference](/java/api/)
+## [Key Vault Managed Reference API](/dotnet/api/) 
+## [Key Vault REST API Reference](/rest/api/keyvault) 
 ## [Node.js for Key Vault](http://azure.github.io/azure-sdk-for-node/azure-arm-keyvault/latest/)
-## [Key Vault cmdlets](https://msdn.microsoft.com/en-us/library/azure/dn868052)
-## [Microsoft Azure PowerShell](https://msdn.microsoft.com/en-us/library/azure/jj156055.aspx)
 
 # Related
 ## [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -43,5 +45,6 @@
 ## [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 
 # Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/key-vault/)
 ## [Blog](http://blogs.technet.com/b/kv/)
 ## [Forums](https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureKeyVault)

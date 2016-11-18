@@ -27,8 +27,8 @@ This architecture requires a connection to your on-premises datacenter implement
 
 > [!NOTE]
 > Azure has two different deployment models: [Resource Manager](../azure-resource-manager/resource-group-overview.md) and classic. This reference architecture uses Resource Manager, which Microsoft recommends for new deployments.
-> 
-> 
+>
+>
 
 Typical use cases for this architecture include:
 
@@ -40,8 +40,8 @@ Typical use cases for this architecture include:
 The following diagram highlights the important components in this architecture:
 
 > A Visio document that includes this architecture diagram is available for download at the [Microsoft download center][visio-download]. This diagram is on the "DMZ - Private" page.
-> 
-> 
+>
+>
 
 [![0]][0]
 
@@ -54,8 +54,8 @@ The following diagram highlights the important components in this architecture:
 
 > [!NOTE]
 > Depending on the requirements of your VPN connection, you can configure Border Gateway Protocol (BGP) routes as an alternative to to using UDRs to implement the forwarding rules that direct traffic back through the on-premises network.
-> 
-> 
+>
+>
 
 * **Management subnet.** This subnet contains VMs that implement management and monitoring capabilities for the components running in the VNet.
 
@@ -108,8 +108,8 @@ We also recommend that you implement NSGs for each subnet to provide a second le
 
 > [!NOTE]
 > Don't completely block Internet traffic from the web, business and application tiers. If these tiers use Azure PaaS services they rely on public IP addresses for VM diagnostics logging, download of VM extensions, and other functionality. Azure diagnostics also requires that components can read and write to an internet-dependent Azure storage account.
-> 
-> 
+>
+>
 
 We further recommend that you verify outbound internet traffic is force-tunneled correctly. If you're using a VPN connection with the [routing and remote access service][routing-and-remote-access-service] on an on-premises server, use a tool such as [WireShark][wireshark] or [Microsoft Message Analyzer](https://www.microsoft.com/en-us/download/details.aspx?id=44226).
 
@@ -130,8 +130,8 @@ The standard SKU VPN gateway supports sustained throughput of up to 100 Mbps. Th
 
 > [!NOTE]
 > The articles [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute] describe issues surrounding the scalability of Azure gateways.
-> 
-> 
+>
+>
 
 ## Availability considerations
 The reference architecture implements a load balancer distributing requests from on-premises to a pool of NVA devices in Azure. The NVA devices are VMs executing network traffic routing rules and are deployed into an [availability set][availability-set]. The load balancer regularly queries a health probe implemented on each NVA and will remove any unresponsive NVAs from the pool.
@@ -151,8 +151,8 @@ If you're using ExpressRoute to provide the connectivity between your on-premise
 
 > [!NOTE]
 > You can find additional information specifically aimed at monitoring and managing VPN and ExpressRoute connections in the articles [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute].
-> 
-> 
+>
+>
 
 ## Security considerations
 This reference architecture implements multiple levels of security:
@@ -170,8 +170,8 @@ Restrict the operations that DevOps can perform on each tier using [RBAC][rbac] 
 
 > [!NOTE]
 > For more extensive information, examples, and scenarios about managing network security with Azure, see [Microsoft cloud services and network security][cloud-services-network-security]. For detailed information about protecting resources in the cloud, see [Getting started with Microsoft Azure security][getting-started-with-azure-security]. For additional details on addressing security concerns across an Azure gateway connection, see [Implementing a Hybrid Network Architecture with Azure and On-premises VPN][guidance-vpn-gateway] and [Implementing a hybrid network architecture with Azure ExpressRoute][guidance-expressroute].
-> 
-> 
+>
+>
 
 ## Solution deployment
 A deployment for a reference architecture that implements these recommendations is available on Github. This reference architecture includes a virtual network (VNet), network security group (NSG), load balancer, and two virtual machines (VMs).
@@ -181,7 +181,7 @@ The reference architecture can be deployed either with Windows or Linux VMs by f
 1. Right click the button below and select either "Open link in new tab" or "Open link in new window":  
    [![Deploy to Azure](./media/blueprints/deploybutton.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2Fmspnp%2Freference-architectures%2Fmaster%2Fguidance-hybrid-network-secure-vnet%2Fazuredeploy.json)
 2. Once the link has opened in the Azure portal, you must enter values for some of the settings:
-   
+
    * The **Resource group** name is already defined in the parameter file, so select **Create New** and enter `ra-private-dmz-rg` in the text box.
    * Select the region from the **Location** drop down box.
    * Do not edit the **Template Root Uri** or the **Parameter Root Uri** text boxes.
@@ -209,7 +209,7 @@ The reference architecture can be deployed either with Windows or Linux VMs by f
 [guidance-expressroute]: ./guidance-hybrid-network-expressroute.md
 [guidance-vpn-failover]: ./guidance-hybrid-network-expressroute-vpn-failover.md
 [guidance-vpn-gateway]: ./guidance-hybrid-network-vpn.md
-[ip-forwarding]: ../virtual-network/virtual-networks-udr-overview.md#IP-forwarding
+[ip-forwarding]: ../virtual-network/virtual-networks-udr-overview.md#ip-forwarding
 [ra-expressroute]: ./guidance-hybrid-network-expressroute.md
 [ra-n-tier]: ./guidance-compute-n-tier-vm.md
 [ra-vpn]: ./guidance-hybrid-network-vpn.md

@@ -1,5 +1,6 @@
-# [Overview](app-service-how-works-readme.md)
+# Overview
 ## [What is App Service](app-service-value-prop-what-is.md)
+## [How it works](app-service-how-works-readme.md)
 ## [App Service plans](azure-web-sites-web-hosting-plans-in-depth-overview.md)
 
 # Get started
@@ -149,11 +150,11 @@
 ## [App Service reference](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [Best practices](../app-service-web/app-service-best-practices.md?toc=%2fazure%2fapp-service%2ftoc.json)
 ## [WebJob resources](../app-service-web/websites-webjobs-resources.md?toc=%2fazure%2fapp-service%2ftoc.json)
-
-# Related
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service%2ftoc.json)
+## [REST](https://docs.microsoft.com/rest/api/appservice/)
 
-
-
-
-
+# Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/app-service/)  
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=windowsazurewebsitespreview)  
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=app-service) 
+## [Service updates](https://azure.microsoft.com/updates/?product=app-service) 

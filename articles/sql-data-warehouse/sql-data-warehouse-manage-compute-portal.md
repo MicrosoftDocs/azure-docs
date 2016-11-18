@@ -24,10 +24,10 @@ ms.author: barbkess
 > * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 > * [REST](sql-data-warehouse-manage-compute-rest-api.md)
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
-> 
-> 
+>
+>
 
-Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether. 
+Scale performance by scaling out compute resources and memory to meet the changing demands of your workload. Save costs by scaling back resources during non-peak times or pausing compute altogether.
 
 This collection of tasks uses the Azure portal to:
 
@@ -37,22 +37,19 @@ This collection of tasks uses the Azure portal to:
 
 For more information, see [Manage compute overview][Manage compute overview].
 
-<a name="scale-performance-bk"></a>
-<a name="scale-compute-bk"></a>
-
 ## Scale compute power
 [!INCLUDE [SQL Data Warehouse scale DWUs description](../../includes/sql-data-warehouse-scale-dwus-description.md)]
 
 To change compute resources:
 
 1. Open the [Azure portal][Azure portal], open your database, and click **Scale**.
-   
+
     ![Click Scale][1]
 2. In the Scale blade, move the slider left or right to change the DWU setting.
-   
+
     ![Move Slider][2]
 3. Click **Save**. A confirmation message appears. Click **yes** to confirm or **no** to cancel.
-   
+
     ![Click Save][3]
 
 <a name="pause-compute-bk"></a>
@@ -62,15 +59,15 @@ To change compute resources:
 
 To pause a database:
 
-1. Open the [Azure portal][Azure portal] and open your database. Notice that the Status is **Online**. 
-   
+1. Open the [Azure portal][Azure portal] and open your database. Notice that the Status is **Online**.
+
     ![Online status][6]
 2. To suspend compute and memory resources, click **Pause**, and then a confirmation message appears. Click **yes** to confirm or **no** to cancel.
-   
+
     ![Confirm pause][7]
 3. While SQL Data Warehouse is starting the database, the status is **Pausing**.
 4. When the status is **Paused**, the pause operation is done and you are no longer being charged for DWUs.
-   
+
     ![Pause status][4]
 
 <a name="resume-compute-bk"></a>
@@ -80,15 +77,15 @@ To pause a database:
 
 To resume a database:
 
-1. Open the [Azure portal][Azure portal] and open your database. Notice that the Status is **Paused**. 
-   
+1. Open the [Azure portal][Azure portal] and open your database. Notice that the Status is **Paused**.
+
     ![Pause database][4]
 2. To resume the database click **Start**, and then a confirmation message appears. Click **yes** to confirm or **no** to cancel.
-   
+
     ![Confirm resume][5]
 3. While SQL Data Warehouse is starting the database, the status is "Resuming".
 4. When the status is **online**, the database is ready.
-   
+
     ![Online status][6]
 
 <a name="next-steps-bk"></a>

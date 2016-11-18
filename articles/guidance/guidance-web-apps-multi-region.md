@@ -66,8 +66,8 @@ If there is a regional outage, you can fail over by selecting another region to 
 
 > [!NOTE]
 > All of the replicas belong to the same resource group.
-> 
-> 
+>
+>
 
 ### Storage
 For Azure Storage, use [read-access geo-redundant storage][ra-grs] (RA-GRS). With RA-GRS storage, the data is replicated to a secondary region. You have read-only access to the data in the secondary region through a separate endpoint. If there is a regional outage or disaster, the Azure Storage team might determine to perform a geo-failover to the secondary region. There is no customer action required for this failover.
@@ -105,7 +105,7 @@ RA-GRS Storage provides durable storage, but it's important to understand what c
 * If a regional outage or disaster affects the primary location and the data there cannot be recovered, the Azure Storage team may determine to perform a geo-failover to the secondary region.
 * Data replication to the secondary region is performed asynchronously. Therefore, if a geo-failover is performed, some data loss is possible if the data can't be recovered from the primary region.
 * Transient failures, such as a network outage, will not trigger a storage failover. Design your application to be resilient to transient failures. Possible mitigations:
-  
+
   * Read from the secondary.
   * Temporarily switch to another storage account for new write operations (for example, to queue messages).
   * Copy data from the secondary to another storage account.
@@ -156,7 +156,7 @@ If the primary database fails, perform a manual failover to the secondary databa
 [services-by-region]: https://azure.microsoft.com/en-us/regions/#services
 [sql-failover]: ../sql-database/sql-database-disaster-recovery.md
 [sql-replication]: ../sql-database/sql-database-geo-replication-overview.md
-[sql-rpo]: ../sql-database/sql-database-business-continuity.md#sql-database-business-continuity-features
+[sql-rpo]: ../sql-database/sql-database-business-continuity.md#sql-database-features-that-you-can-use-to-provide-business-continuity
 [storage-outage]: ../storage/storage-disaster-recovery-guidance.md
 [tm-configure-failover]: ../traffic-manager/traffic-manager-configure-failover-routing-method.md
 [tm-monitoring]: ../traffic-manager/traffic-manager-monitoring.md

@@ -19,13 +19,13 @@ ms.author: spelluru
 ---
 # Create, monitor, and manage Azure data factories using Data Factory .NET SDK
 ## Overview
-You can create, monitor, and manage Azure data factories programmatically using Data Factory .NET SDK. This article contains a walkthrough that you can follow to create a sample .NET console application that creates and monitors a data factory. See [Data Factory Class Library Reference](https://msdn.microsoft.com/library/mt415893.aspx) for details about Data Factory .NET SDK. 
+You can create, monitor, and manage Azure data factories programmatically using Data Factory .NET SDK. This article contains a walkthrough that you can follow to create a sample .NET console application that creates and monitors a data factory. See [Data Factory Class Library Reference](https://msdn.microsoft.com/library/mt415893.aspx) for details about Data Factory .NET SDK.
 
 ## Prerequisites
 * Visual Studio 2012 or 2013 or 2015
 * Download and install [Azure .NET SDK](http://azure.microsoft.com/downloads/).
 * Add a native client application to Azure Active Directory. See [Integrating applications with Azure Active Directory](../active-directory/active-directory-integrating-applications.md) for steps to add the application. Note down the **CLIENT ID** and **REDIRECT URI** on the **CONFIGURE** page.
-* Get your Azure **subscription ID** and **tenant ID**. See [Get Azure subscription and tenant IDs](#get-azure-subscription-and-tenant-ids) for instructions. 
+* Get your Azure **subscription ID** and **tenant ID**. See [Get Azure subscription and tenant IDs](#get-azure-subscription-and-tenant-ids) for instructions.
 * Download and install NuGet packages for Azure Data Factory. Instructions are in the walkthrough.  
 
 ## Walkthrough
@@ -38,22 +38,22 @@ You can create, monitor, and manage Azure data factories programmatically using 
    6. Select **C:\ADFGetStarted** for the **Location**.
    7. Click **OK** to create the project.
 2. Click **Tools**, point to **NuGet Package Manager**, and click **Package Manager Console**.
-3. In the **Package Manager Console**, execute the following commands one-by-one. 
-   
+3. In the **Package Manager Console**, execute the following commands one-by-one.
+
          Install-Package Microsoft.Azure.Management.DataFactories
          Install-Package Microsoft.IdentityModel.Clients.ActiveDirectory -Version 2.19.208020213
-4. Add the following **appSetttings** section to the **App.config** file. These configuration values are used by the **GetAuthorizationHeader** method. 
-   
+4. Add the following **appSetttings** section to the **App.config** file. These configuration values are used by the **GetAuthorizationHeader** method.
+
    > [!IMPORTANT]
    > Replace values for **AdfClientId**, **RedirectUri**, **SubscriptionId**, and **ActiveDirectoryTenantId** with your own values.  
-   > 
-   > 
-   
+   >
+   >
+
         <appSettings>
             <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
             <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
             <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
-   
+
             <!-- Replace the following values with your own -->
             <add key="AdfClientId" value="Your AAD application ID" />
             <add key="RedirectUri" value="Your AAD application's redirect URI" />
@@ -61,38 +61,38 @@ You can create, monitor, and manage Azure data factories programmatically using 
             <add key="ActiveDirectoryTenantId" value="your tenant ID" />
         </appSettings>
 5. Add the following **using** statements to the source file (Program.cs) in the project.
-   
+
         using System.Threading;
         using System.Configuration;
         using System.Collections.ObjectModel;
-   
+
         using Microsoft.Azure.Management.DataFactories;
         using Microsoft.Azure.Management.DataFactories.Models;
         using Microsoft.Azure.Management.DataFactories.Common.Models;
-   
+
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Azure;
 6. Add the following code that creates an instance of **DataPipelineManagementClient** class to the **Main** method. You use this object to create a data factory, a linked service, input and output datasets, and a pipeline. You also use this object to monitor slices of a dataset at runtime.    
-   
+
         // create data factory management client
         string resourceGroupName = "resourcegroupname";
         string dataFactoryName = "APITutorialFactorySP";
-   
+
         TokenCloudCredentials aadTokenCredentials =
             new TokenCloudCredentials(
                 ConfigurationManager.AppSettings["SubscriptionId"],
                 GetAuthorizationHeader());
-   
+
         Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
-   
+
         DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
-   
+
    > [!NOTE]
    > Replace the **resourcegroupname** with the name of your Azure resource group. You can create a resource group using the [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) cmdlet.
-   > 
-   > 
+   >
+   >
 7. Add the following code that creates a **data factory** to the **Main** method.
-   
+
         // create a data factory
         Console.WriteLine("Creating a data factory");
         client.DataFactories.CreateOrUpdate(resourceGroupName,
@@ -106,13 +106,13 @@ You can create, monitor, and manage Azure data factories programmatically using 
                 }
             }
         );
-8. Add the following code that creates a **linked service** to the **Main** method. 
-   
+8. Add the following code that creates a **linked service** to the **Main** method.
+
    > [!NOTE]
-   > Use **account name** and **account key** of your Azure storage account for the **ConnectionString**. 
-   > 
-   > 
-   
+   > Use **account name** and **account key** of your Azure storage account for the **ConnectionString**.
+   >
+   >
+
         // create a linked service
         Console.WriteLine("Creating a linked service");
         client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
@@ -128,17 +128,17 @@ You can create, monitor, and manage Azure data factories programmatically using 
                 }
             }
         );
-9. Add the following code that creates **input and output datasets** to the **Main** method. 
-   
+9. Add the following code that creates **input and output datasets** to the **Main** method.
+
     The **FolderPath** for the input blob is set to **adftutorial/** where **adftutorial** is the name of the container in your blob storage. If this container does not exist in your Azure blob storage, create a container with this name: **adftutorial** and upload a text file to the container.
-   
+
     The FolderPath for the output blob is set to: **adftutorial/apifactoryoutput/{Slice}** where **Slice** is dynamically calculated based on the value of **SliceStart** (start date-time of each slice.)  
-   
+
         // create input and output datasets
         Console.WriteLine("Creating input and output datasets");
         string Dataset_Source = "DatasetBlobSource";
         string Dataset_Destination = "DatasetBlobDestination";
-   
+
         client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
             new DatasetCreateOrUpdateParameters()
             {
@@ -159,7 +159,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
                             Frequency = SchedulePeriod.Hour,
                             Interval = 1,
                         },
-   
+
                         Policy = new Policy()
                         {
                             Validation = new ValidationPolicy()
@@ -170,7 +170,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
                     }
                 }
             });
-   
+
         client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
             new DatasetCreateOrUpdateParameters()
             {
@@ -179,7 +179,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
                     Name = Dataset_Destination,
                     Properties = new DatasetProperties()
                     {
-   
+
                         LinkedServiceName = "LinkedService-AzureStorage",
                         TypeProperties = new AzureBlobDataset()
                         {
@@ -197,7 +197,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
                                 }
                             }
                         },
-   
+
                         Availability = new Availability()
                         {
                             Frequency = SchedulePeriod.Hour,
@@ -207,15 +207,15 @@ You can create, monitor, and manage Azure data factories programmatically using 
                 }
             });
 10. Add the following code that **creates and activates a pipeline** to the **Main** method. This pipeline has a **CopyActivity** that takes **BlobSource** as a source and **BlobSink** as a sink.
-    
-    The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity. 
-    
+
+    The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.
+
             // create a pipeline
         Console.WriteLine("Creating a pipeline");
         DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
         DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
         string PipelineName = "PipelineBlobSample";
-    
+
         client.Pipelines.CreateOrUpdate(resourceGroupName, dataFactoryName,
             new PipelineCreateOrUpdateParameters()
             {
@@ -225,11 +225,11 @@ You can create, monitor, and manage Azure data factories programmatically using 
                     Properties = new PipelineProperties()
                     {
                         Description = "Demo Pipeline for data transfer between blobs",
-    
+
                         // Initial value for pipeline's active period. With this, you won't need to set slice status
                         Start = PipelineActivePeriodStartTime,
                         End = PipelineActivePeriodEndTime,
-    
+
                         Activities = new List<Activity>()
                         {                                
                             new Activity()
@@ -258,13 +258,13 @@ You can create, monitor, and manage Azure data factories programmatically using 
                                     }
                                 }
                             }
-    
+
                         },
                     }
                 }
             });
-11. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to log in to Azure portal. 
-    
+11. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to log in to Azure portal.
+
         public static string GetAuthorizationHeader()
         {
             AuthenticationResult result = null;
@@ -273,7 +273,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
                 try
                 {
                     var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
-    
+
                     result = context.AcquireToken(
                         resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
                         clientId: ConfigurationManager.AppSettings["AdfClientId"],
@@ -285,38 +285,38 @@ You can create, monitor, and manage Azure data factories programmatically using 
                     Console.WriteLine(threadEx.Message);
                 }
             });
-    
+
             thread.SetApartmentState(ApartmentState.STA);
             thread.Name = "AcquireTokenThread";
             thread.Start();
             thread.Join();
-    
+
             if (result != null)
             {
                 return result.AccessToken;
             }
-    
+
             throw new InvalidOperationException("Failed to acquire token");
         }  
 12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only slice expected in this sample.   
-    
+
         // Pulling status within a timeout threshold
         DateTime start = DateTime.Now;
         bool done = false;
-    
+
         while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
         {
             Console.WriteLine("Pulling the slice status");
             // wait before the next status check
             Thread.Sleep(1000 * 12);
-    
+
             var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
                 new DataSliceListParameters()
                 {
                     DataSliceRangeStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
                     DataSliceRangeEndTime = PipelineActivePeriodEndTime.ConvertToISO8601DateTimeString()
                 });
-    
+
             foreach (DataSlice slice in datalistResponse.DataSlices)
             {
                 if (slice.State == DataSliceState.Failed || slice.State == DataSliceState.Ready)
@@ -332,13 +332,13 @@ You can create, monitor, and manage Azure data factories programmatically using 
             }
         }
 13. **(optional)** Add the following code to get run details for a data slice to the **Main** method.
-    
+
         Console.WriteLine("Getting run details of a data slice");
-    
+
         // give it a few minutes for the output slice to be ready
         Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
         Console.ReadKey();
-    
+
         var datasliceRunListResponse = client.DataSliceRuns.List(
                 resourceGroupName,
                 dataFactoryName,
@@ -348,7 +348,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
                     DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
                 }
             );
-    
+
         foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
         {
             Console.WriteLine("Status: \t\t{0}", run.Status);
@@ -359,29 +359,29 @@ You can create, monitor, and manage Azure data factories programmatically using 
             Console.WriteLine("ProcessingEndTime: \t{0}", run.ProcessingEndTime);
             Console.WriteLine("ErrorMessage: \t{0}", run.ErrorMessage);
         }
-    
+
         Console.WriteLine("\nPress any key to exit.");
         Console.ReadKey();
-14. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for `System.Configuration` assembly and click **OK**. 
-15. Build the console application. Click **Build** on the menu and click **Build Solution**. 
+14. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for `System.Configuration` assembly and click **OK**.
+15. Build the console application. Click **Build** on the menu and click **Build Solution**.
 16. Confirm that there is at least one file in the adftutorial container in your Azure blob storage. If not, create Emp.txt file in Notepad with the following content and upload it to the adftutorial container.
-    
+
         John, Doe
-        Jane, Doe 
-17. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**. 
-18. Use the Azure portal to verify that the data factory **APITutorialFactory** is created with the following artifacts: 
-    * Linked service: **LinkedService_AzureStorage** 
+        Jane, Doe
+17. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**.
+18. Use the Azure portal to verify that the data factory **APITutorialFactory** is created with the following artifacts:
+    * Linked service: **LinkedService_AzureStorage**
     * Dataset: **DatasetBlobSource** and **DatasetBlobDestination**.
-    * Pipeline: **PipelineBlobSample** 
+    * Pipeline: **PipelineBlobSample**
 19. Verify that an output file is created in the **apifactoryoutput** folder in the **adftutorial** container.
 
 ## Log in without popup dialog box
-The sample code in the walkthrough launches a dialog box for you to enter Azure credentials. If you need to sign in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md#authenticate-service-principal-with-certificate---powershell). 
+The sample code in the walkthrough launches a dialog box for you to enter Azure credentials. If you need to sign in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md#create-service-principal-with-certificate). 
 
 > [!IMPORTANT]
 > Add a Web application to Azure Active Directory and note down the client ID and client secret of the application.  
-> 
-> 
+>
+>
 
 ### Example
 Create GetAuthorizationHeaderNoPopup method.  
@@ -405,38 +405,37 @@ Replace **GetAuthorizationHeader** call with a call to **GetAuthorizationHeaderN
             ConfigurationManager.AppSettings["SubscriptionId"],
             GetAuthorizationHeaderNoPopup());
 
-Here is how you can create the Active Directory application, service principal, and then assign it to the Data Factory Contributor role: 
+Here is how you can create the Active Directory application, service principal, and then assign it to the Data Factory Contributor role:
 
-1. Create the AD application. 
-   
+1. Create the AD application.
+
         $azureAdApplication = New-AzureRmADApplication -DisplayName "MyADAppForADF" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.myadappforadf.org/example" -Password "Pass@word1"
-2. Create the AD service principal. 
-   
+2. Create the AD service principal.
+
         New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
-3. Add service principal to the Data Factory Contributor role. 
-   
+3. Add service principal to the Data Factory Contributor role.
+
         New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
 4. Get the application ID.
-   
+
         $azureAdApplication
 
-Note down the application ID and the password (client secret) and use it in the walkthrough. 
+Note down the application ID and the password (client secret) and use it in the walkthrough.
 
 ## Get Azure subscription and tenant IDs
 If you do not have latest version of PowerShell installed on your machine, follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install it.
 
 1. Start Azure PowerShell and run the following command
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
-   
+
         Login-AzureRmAccount
-   
+
     If you have only one Azure subscription associated with this account, you do not need to perform the next two steps.  
 3. Run the following command to view all the subscriptions for this account.
-   
+
         Get-AzureRmSubscription
 4. Run the following command to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription.
-   
-        Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext 
+
+        Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext
 
 Note down the **SubscriptionId** and **TenantId** values.
-

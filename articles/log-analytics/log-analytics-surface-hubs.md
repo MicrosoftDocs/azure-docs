@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 11/09/2016
 ms.author: banders
 
 ---
@@ -47,7 +47,7 @@ InTune is a Microsoft product that allows you to centrally manage the OMS config
 4. Navigate to the OMS (Azure Operational Insights) section of the policy, and add the *Workspace ID* and *Workspace Key* to the policy.
 5. Save the policy.
 6. Associate the policy with the appropriate group of devices.
-   
+
    ![InTune policy](./media/log-analytics-surface-hubs/intune.png)
 
 InTune then syncs the OMS settings with the devices in the target group, enrolling them in your OMS workspace.
@@ -73,7 +73,7 @@ Monitoring your Surface Hubs using OMS is much like monitoring any other enrolle
 1. Sign in to the OMS portal.
 2. Navigate to the Surface Hub solution pack dashboard.
 3. Your device's health is displayed.
-   
+
    ![Surface Hub dashboard](./media/log-analytics-surface-hubs/surface-hub-dashboard.png)
 
 You can create [alerts](log-analytics-alerts.md) based on existing or custom log searches. Using the data the OMS collects from your Surface Hubs, you can search for issues and alert on the conditions that you define for your devices.
@@ -81,4 +81,3 @@ You can create [alerts](log-analytics-alerts.md) based on existing or custom log
 ## Next steps
 * Use [Log searches in Log Analytics](log-analytics-log-searches.md) to view detailed Surface Hub data.
 * Create [alerts](log-analytics-alerts.md) to notify you when issues occur with your Surface Hubs.
-

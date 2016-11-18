@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set up MySQL on a Linux VM | Microsoft Docs
 description: Learn how to install the MySQL stack on a Linux virtual machine (Ubuntu or RedHat family OS) in Azure
 services: virtual-machines-linux
@@ -26,13 +26,13 @@ In this article, you will learn how to install and configure MySQL on an Azure v
 ## Install MySQL on your virtual machine
 > [!NOTE]
 > You must already have a Microsoft Azure virtual machine running Linux in order to complete this tutorial. Please see the
-> [Azure Linux VM tutorial](virtual-machines-linux-quick-create-cli.md) to create and set up a Linux VM with `mysqlnode` as the VM name and `azureuser` as user before proceeding.
+> [Azure Linux VM tutorial](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to create and set up a Linux VM with `mysqlnode` as the VM name and `azureuser` as user before proceeding.
 > 
 > 
 
 In this case, use 3306 port as the MySQL port.  
 
-Connect to the Linux VM you created via putty. If this is the first time you use Azure Linux VM, see how to use putty connect to a Linux VM [here](virtual-machines-linux-mac-create-ssh-keys.md).
+Connect to the Linux VM you created via putty. If this is the first time you use Azure Linux VM, see how to use putty connect to a Linux VM [here](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 We will use repository package to install MySQL5.6 as an example in this article. Actually, MySQL5.6 has more improvement in performance than MySQL5.5.  More information [here](http://www.mysqlperformanceblog.com/2013/02/18/is-mysql-5-6-slower-than-mysql-5-5/).
 

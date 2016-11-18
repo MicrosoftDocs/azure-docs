@@ -188,7 +188,7 @@ In order for the [SLA for Virtual Machines][vm-sla] to apply, you must deploy tw
 [premium-storage]: ../articles/storage/storage-premium-storage.md
 [rbac]: ../articles/active-directory/role-based-access-control-what-is.md
 [rbac-roles]: ../articles/active-directory/role-based-access-built-in-roles.md
-[rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-lab-user
+[rbac-devtest]: ../articles/active-directory/role-based-access-built-in-roles.md#devtest-labs-user
 [rbac-network]: ../articles/active-directory/role-based-access-built-in-roles.md#network-contributor
 [reboot-logs]: https://azure.microsoft.com/en-us/blog/viewing-vm-reboot-logs/
 [Resize-VHD]: https://technet.microsoft.com/en-us/library/hh848535.aspx

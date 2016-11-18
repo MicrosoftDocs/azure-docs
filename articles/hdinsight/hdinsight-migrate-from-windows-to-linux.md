@@ -24,8 +24,8 @@ This document provides details on the differences between HDInsight on Windows a
 
 > [!NOTE]
 > HDInsight clusters use Ubuntu long term support (LTS) as the operating system for the nodes in the cluster. For information on the version of Ubuntu available with HDInsight, along with other component versioning information, see [HDInsight component versions](hdinsight-component-versioning.md).
-> 
-> 
+>
+>
 
 ## Migration tasks
 The general workflow for migration is as follows.
@@ -54,7 +54,7 @@ There are many methods to copy the data and jobs, however the two discussed in t
 You can use the Hadoop HDFS command to directly copy data from the storage for your existing production cluster, to the storage for a new test cluster using the following steps.
 
 1. Find the storage account and default container information for your existing cluster. You can do this by using the following Azure PowerShell script.
-   
+
         $clusterName="Your existing HDInsight cluster name"
         $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
         write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
@@ -63,17 +63,17 @@ You can use the Hadoop HDFS command to directly copy data from the storage for y
 3. From the Optional Configuration blade, select **Linked Storage Accounts**.
 4. Select **Add a storage key**, and when prompted, select the storage account that was returned by the PowerShell script in step 1. Click **Select** on each blade to close them. Finally, create the cluster.
 5. Once the cluster has been created, connect to it using **SSH.** If you are not familiar with using SSH with HDInsight, see one of the following articles.
-   
+
    * [Use SSH with Linux-based HDInsight from Windows clients](hdinsight-hadoop-linux-use-ssh-windows.md)
    * [Use SSH with Linux-based HDInsight from Linux, Unix, and Mac clients](hdinsight-hadoop-linux-use-ssh-unix.md)
 6. From the SSH session, use the following command to copy files from the linked storage account to the new default storage account. Replace CONTAINER and ACCOUNT with the container and account information returned by the PowerShell script in step 1. Replace the path to data with the path to a data file.
-   
+
         hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
-   
+
     [AZURE.NOTE] If the directory structure that contains the data does not exist on the test environment, you can create it using the following command.
-   
+
         hdfs dfs -mkdir -p /new/path/to/create
-   
+
     The `-p` switch enables the creation of all directories in
     the path.
 
@@ -133,10 +133,10 @@ Ambari has an alert system that can tell you of potential problems with the clus
 
 > [!IMPORTANT]
 > Ambari alerts indicate that there *may* be a problem, not that there *is* a problem. For example, you may receive an alert that HiveServer2 cannot be accessed, even though you can access it normally.
-> 
+>
 > Many alerts are implemented as interval-based queries against a service, and expect a response within a specific time frame. So the alert doesn't necessarily mean that the service is down, just that it didn't return results within the expected time frame.
-> 
-> 
+>
+>
 
 In general, you should evaluate whether an alert has been occurring for an extended period, or mirrors user problems that have previously been reported with the cluster before taking action on it.
 
@@ -191,7 +191,7 @@ Spark clusters were available on Windows-clusters during preview; however, for r
 ### Azure Data Factory custom .NET activities
 Azure Data Factory custom .NET activities are not currently supported on Linux-based HDInsight clusters. Instead, you should use one of the following methods to implement custom activities as part of your ADF pipeline.
 
-* Execute .NET activities on Azure Batch pool. See the Use Azure Batch linked service section of [Use custom activities in an Azure Data Factory pipeline](../data-factory/data-factory-use-custom-activities.md#AzureBatch)
+* Execute .NET activities on Azure Batch pool. See the Use Azure Batch linked service section of [Use custom activities in an Azure Data Factory pipeline](../data-factory/data-factory-use-custom-activities.md)
 * Implement the activity as a MapReduce activity. See [Invoke MapReduce Programs from Data Factory](../data-factory/data-factory-map-reduce.md) for more information.
 
 ### Line endings
@@ -204,12 +204,12 @@ If you have scripts that will be executed directly on the Linux-cluster nodes (s
 If you know that the scripts do not contain strings with embedded CR characters, you can bulk change the line endings using one of the following methods:
 
 * **If you have scripts that you plan on uploading to the cluster**, use the following PowerShell statements to change the line endings from CRLF to LF before uploading the script to the cluster.
-  
+
       $original_file ='c:\path\to\script.py'
       $text = [IO.File]::ReadAllText($original_file) -replace "`r`n", "`n"
       [IO.File]::WriteAllText($original_file, $text)
 * **If you have scripts that are already in the storage used by the cluster**, you can use the following command from an SSH session to the Linux-based cluster to modify the script.
-  
+
       hdfs dfs -get wasbs:///path/to/script.py oldscript.py
       tr -d '\r' < oldscript.py > script.py
       hdfs dfs -put -f script.py wasbs:///path/to/script.py
@@ -219,4 +219,3 @@ If you know that the scripts do not contain strings with embedded CR characters,
 * [Connect to a Linux-based cluster using SSH from a Windows client](hdinsight-hadoop-linux-use-ssh-windows.md)
 * [Connect to a Linux-based cluster using SSH from a Linux, Unix, or Mac client](hdinsight-hadoop-linux-use-ssh-unix.md)
 * [Manage a Linux-based cluster using Ambari](hdinsight-hadoop-manage-ambari.md)
-

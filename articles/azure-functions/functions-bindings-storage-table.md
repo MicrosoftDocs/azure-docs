@@ -41,17 +41,19 @@ The Azure Storage table input binding enables you to use a storage table in your
 
 The Storage table input to a function uses the following JSON objects in the `bindings` array of function.json:
 
-    {
-        "name": "<Name of input parameter in function signature>",
-        "type": "table",
-        "direction": "in"
-        "tableName": "<Name of Storage table>",
-        "partitionKey": "<PartitionKey of table entity to read - see below>",
-        "rowKey": "<RowKey of table entity to read - see below>",
-        "take": "<Maximum number of entities to read in Node.js - optional>",
-        "filter": "<OData filter expression for table input in Node.js - optional>",
-        "connection": "<Name of app setting - see below>",
-    }
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "type": "table",
+    "direction": "in"
+    "tableName": "<Name of Storage table>",
+    "partitionKey": "<PartitionKey of table entity to read - see below>",
+    "rowKey": "<RowKey of table entity to read - see below>",
+    "take": "<Maximum number of entities to read in Node.js - optional>",
+    "filter": "<OData filter expression for table input in Node.js - optional>",
+    "connection": "<Name of app setting - see below>",
+}
+```
 
 Note the following: 
 
@@ -113,7 +115,7 @@ See the language-specific sample that reads a single table entity.
 
 <a name="inputcsharp"></a>
 
-### Input sample in C\
+### Input sample in C# #
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
@@ -131,7 +133,7 @@ public class Person
 
 <a name="inputfsharp"></a>
 
-### Input sample in F\
+### Input sample in F# #
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -163,15 +165,17 @@ The Azure Storage table output binding enables you to write entities to a Storag
 
 The Storage table output for a function uses the following JSON objects in the `bindings` array of function.json:
 
-    {
-        "name": "<Name of input parameter in function signature>",
-        "type": "table",
-        "direction": "out"
-        "tableName": "<Name of Storage table>",
-        "partitionKey": "<PartitionKey of table entity to write - see below>",
-        "rowKey": "<RowKey of table entity to write - see below>",
-        "connection": "<Name of app setting - see below>",
-    }
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "type": "table",
+    "direction": "out"
+    "tableName": "<Name of Storage table>",
+    "partitionKey": "<PartitionKey of table entity to write - see below>",
+    "rowKey": "<RowKey of table entity to write - see below>",
+    "connection": "<Name of app setting - see below>",
+}
+```
 
 Note the following: 
 
@@ -227,7 +231,7 @@ See the language-specific sample that creates multiple table entities.
 
 <a name="outcsharp"></a>
 
-### Output sample in C\
+### Output sample in C# #
 ```csharp
 public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
 {
@@ -254,7 +258,7 @@ public class Person
 ```
 <a name="outfsharp"></a>
 
-### Output sample in F\
+### Output sample in F# #
 ```fsharp
 [<CLIMutable>]
 type Person = {

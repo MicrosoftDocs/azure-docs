@@ -28,7 +28,7 @@ InMage Scout in Azure Site Recovery provides real-time replication between on-pr
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click New > Management > Backup and Site Recovery (OMS). Alternatively, you can click Browse > Recovery Services Vault > Add.
 3. In **Name** specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
-4. In **Resource group** Create a new resource group or select an existing one. Specify an Azure region to complete required fields. 
+4. In **Resource group** Create a new resource group or select an existing one. Specify an Azure region to complete required fields.
 5. In **Location**, select the geographic region for the vault. To check supported regions, see [Azure Site Recovery
    Pricing](https://azure.microsoft.com/pricing/details/site-recovery/).
 6. If you want to quickly access the vault from the Dashboard click Pin to dashboard and then click Create.
@@ -53,13 +53,13 @@ Read about the latest [updates](#updates). You'll install the update files on se
 Install the updates as follows:
 
 1. Download the [update](https://aka.ms/asr-scout-update4) .zip file. This .zip file contains the following files:
-   
+
    * RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz
    * CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe
    * UA_Windows_8.0.4.0_GA_Update_4_9035261_27Sep16.exe
    * UA_RHEL6-64_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
    * vCon_Windows_8.0.4.0_GA_Update_4_8921562_16Sep16.exe
-   * UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz 
+   * UA update4 bits for RHEL5, OL5, OL6, SUSE 10, SUSE 11: UA_<Linux OS>_8.0.4.0_GA_Update_4_9035261_26Sep16.tar.gz
 2. Extract the .zip files.<br>
 3. **For the RX server**: Copy **RX_8.0.4.0_GA_Update_4_8725872_16Sep16.tar.gz** to the RX server and extract it. In the extracted folder, run **/Install**.<br>
 4. **For the configuration server/process server**: Copy **CX_Windows_8.0.4.0_GA_Update_4_8725865_14Sep16.exe** to the configuration server and process server. Double-click to run it.<br>
@@ -72,7 +72,7 @@ Install the updates as follows:
 ## Step 4: Set up replication
 1. Set up replication between the source and target VMware sites.
 2. For guidance, use the InMage Scout documentation that's downloaded with the product. Alternatively, you can access the documentation as follows:
-   
+
    * [Release notes](https://aka.ms/asr-scout-release-notes)
    * [Compatibility matrix](https://aka.ms/asr-scout-cm)
    * [User guide](https://aka.ms/asr-scout-user-guide)
@@ -83,21 +83,21 @@ Install the updates as follows:
 ### Azure Site Recovery Scout 8.0.1 Update 4
 Scout Update 4 is a cumulative update. It has all the fixes of update1 till update3 and following new bug fixes and enhancements.
 
-**New platform support** 
+**New platform support**
 
 * Support has been added for vCenter/vSphere 6.0, 6.1 and 6.2
 * Support has been added for following Linux operating systems
-  * Red Hat Enterprise Linux (RHEL)7.0, 7.1 and 7.2 
+  * Red Hat Enterprise Linux (RHEL)7.0, 7.1 and 7.2
   * CentOS 7.0, 7.1 and 7.2
   * Red Hat Enterprise Linux (RHEL) 6.8
   * CentOS 6.8
 
 > [!NOTE]
-> RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download Scout GA package from portal as mentioned in [step1](site-recovery-vmware-to-vmware.md#Step 1: Create a vault).
-> 
-> 
+> RHEL/CentOS 7 64 bit  **InMage_UA_8.0.1.0_RHEL7-64_GA_06Oct2016_release.tar.gz** is packaged with base Scout GA package **InMage_Scout_Standard_8.0.1 GA.zip**. Download Scout GA package from portal as mentioned in [step 1](#step-1-create-a-vault).
+>
+>
 
-**Bug fixes and enhancements** 
+**Bug fixes and enhancements**
 
 * Improved shutdown handling for following Linux OSes and clones to prevent unwanted re-sync issues.
   * Red Hat Enterprise Linux (RHEL) 6.x
@@ -110,19 +110,19 @@ Scout Update 4 is a cumulative update. It has all the fixes of update1 till upda
 * Sometime retention information is not reported to the CX.  
 * For physical cluster, volume Re-size operation through vContinuum wizard is failing when source volume shrink happened.
 * Cluster protection failed with error "Failed to find the disk signature" when cluster disk is PRDM disk.
-* cxps transport server crash because of out-of-range exception. 
+* cxps transport server crash because of out-of-range exception.
 * Server name and IP columns are now resizable in push install page of vContinuum wizard.
 * RX API Enhancements
   * Provides Five latest available common consistency points (Only Guaranteed tags).
   * Provides capacity and free space details for all the protected devices.
-  * Provides Scout driver state on source server. 
+  * Provides Scout driver state on source server.
 
 > [!NOTE]
 > * **InMage_Scout_Standard_8.0.1_GA.zip** base package now has updated CX base installer **InMage_CX_8.0.1.0_Windows_GA_26Feb2015_release.exe**  and Windows Master Target  base installer **InMage_Scout_vContinuum_MT_8.0.1.0_Windows_GA_26Feb2015_release.exe**. For all new installation use new CX and Windows Master Target GA bits.
 > * Update 4 can be directly applied on 8.0.1 GA.
 > * The configuration server and RX updates can’t be rolled back after they're applied on the system.
-> 
-> 
+>
+>
 
 ### Azure Site Recovery Scout 8.0.1 Update 3
 Update 3 includes the following bug fixes and enhancements:
@@ -158,8 +158,8 @@ Update 3 includes the following bug fixes and enhancements:
 > [!NOTE]
 > * All Site Recovery updates are cumulative. Update 3 has all the fixes of Update 1 and Update 2. Update 3 can be directly applied on 8.0.1 GA.
 > * The configuration server and RX updates can’t be rolled back after they're applied on the system.
-> 
-> 
+>
+>
 
 ### Azure Site Recovery Scout 8.0.1 Update 2 (Update 03Dec15)
 Fixes in Update 2 include:
@@ -194,4 +194,3 @@ Update 1 includes the following bug fixes and new features:
 
 ## Next steps
 Post any questions that you have on the [Azure Recovery Services forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
-

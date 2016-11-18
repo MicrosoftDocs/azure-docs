@@ -18,16 +18,16 @@ ms.author: jingwang
 
 ---
 # Move data to and from an on-premises file system by using Azure Data Factory
-This article outlines how you can use Azure Data Factory Copy Activity to move data to and from an on-premises file system. See [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores) for a list of data stores that can be used as sources or sinks with the on-premises file system. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with Copy Activity and supported data store combinations.
+This article outlines how you can use Azure Data Factory Copy Activity to move data to and from an on-premises file system. See [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) for a list of data stores that can be used as sources or sinks with the on-premises file system. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with Copy Activity and supported data store combinations.
 
 Data Factory supports connecting to and from an on-premises file system via Data Management Gateway. To learn about Data Management Gateway and for step-by-step instructions on setting up the gateway, see [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md).
 
 > [!NOTE]
 > Apart from Data Management Gateway, no other binary files need to be installed to communicate to and from an on-premises file system.
-> 
-> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshoot-gateway-issues) for tips on troubleshooting connection/gateway-related issues.
-> 
-> 
+>
+> See [Troubleshoot gateway issues](data-factory-data-management-gateway.md#troubleshooting-gateway-issues) for tips on troubleshooting connection/gateway-related issues.
+>
+>
 
 ## Linux file share
 Perform the following two steps to use a Linux file share with the File Server linked service:
@@ -38,15 +38,15 @@ Perform the following two steps to use a Linux file share with the File Server l
 ## Copy Wizard
 The easiest way to create a pipeline that copies data to and from an on-premises file system is to use the Copy Wizard. For a quick walkthrough, see [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md).
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from an on-premises file system and Azure Blob storage. However, you can copy data *directly* from any of the sources to any of the sinks listed in [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores) by using Copy Activity in Azure Data Factory.
+The following examples provide sample JSON definitions that you can use to create a pipeline by using the [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md), [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md), or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from an on-premises file system and Azure Blob storage. However, you can copy data *directly* from any of the sources to any of the sinks listed in [Supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) by using Copy Activity in Azure Data Factory.
 
 ## Sample: Copy data from an on-premises file system to Azure Blob storage
 This sample shows how to copy data from an on-premises file system to Azure Blob storage.
 
 The sample has the following Data Factory entities:
 
-* A linked service of type [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#onpremisesfileserver-linked-service-properties).
-* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+* A linked service of type [OnPremisesFileServer](data-factory-onprem-file-system-connector.md#on-premises-file-server-linked-service-properties).
+* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 * An input [dataset](data-factory-create-datasets.md) of type [FileShare](data-factory-onprem-file-system-connector.md#on-premises-file-system-dataset-type-properties).
 * An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 * The [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](data-factory-onprem-file-system-connector.md#file-share-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
@@ -446,7 +446,7 @@ You can link an on-premises file system to an Azure data factory with the On-Pre
 | encryptedCredential |Specify the encrypted credentials that you can get by running the New-AzureRmDataFactoryEncryptValue cmdlet. |No (if you choose to specify userid and password in plain text) |
 | gatewayName |Specifies the name of the gateway that Data Factory should use to connect to the on-premises file server. |Yes |
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises File System data source.
+See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises File System data source.
 
 ### Sample linked service and dataset definitions
 | Scenario | Host in linked service definition | folderPath in dataset definition |
@@ -456,13 +456,13 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 
 **To find the version of a gateway:**
 
-1. Launch [Data Management Gateway Configuration Manager](data-factory-data-management-gateway.md#data-management-gateway-configuration-manager) on your machine.
+1. Launch [Data Management Gateway Configuration Manager](data-factory-data-management-gateway.md#configuration-manager) on your machine.
 2. Switch to the **Help** tab.
 
 > [!NOTE]
-> We recommend that you [upgrade your gateway to Data Management Gateway 2.0 or later](data-factory-data-management-gateway.md#update-data-management-gateway) to take advantage of the latest features and fixes.
-> 
-> 
+> We recommend that you [upgrade your gateway to Data Management Gateway 2.0 or later](data-factory-data-management-gateway.md#update) to take advantage of the latest features and fixes.
+>
+>
 
 **Example: Using username and password in plain text**
 
@@ -509,8 +509,8 @@ The typeProperties section is different for each type of dataset. It provides in
 
 > [!NOTE]
 > You cannot use fileName and fileFilter simultaneously.
-> 
-> 
+>
+>
 
 ### Using partitionedBy property
 As mentioned in the previous section, you can specify a dynamic folderPath and fileName for time-series data with partitionedBy. You can do so with the Data Factory macros and the system variables SliceStart and SliceEnd, which indicate the logical time period for a given data slice.
@@ -574,4 +574,3 @@ This section describes the resulting behavior of the Copy operation for differen
 
 ## Performance and tuning
  To learn about key factors that impact the performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it, see the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md).
-

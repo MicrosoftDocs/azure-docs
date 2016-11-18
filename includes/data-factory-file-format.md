@@ -1,4 +1,4 @@
-## Specifying formats
+﻿## Specifying formats
 Azure Data Factory supports the following format types: 
 
 * [Text Format](#specifying-textformat)
@@ -68,7 +68,7 @@ Note the following points:
 * [Complex data types](http://avro.apache.org/docs/current/spec.html#schema_complex) are not supported (records, enums, arrays, maps, unions and fixed)
 
 ### Specifying JsonFormat
-To import/export JSON files as-is into/from DocumentDB, see [Import/export JSON documents](../articles/data-factory/data-factory-azure-documentdb-connector.md#import/export-json-documents) section in DocumentDB connector with details.
+To import/export JSON files as-is into/from DocumentDB, see [Import/export JSON documents](../articles/data-factory/data-factory-azure-documentdb-connector.md#importexport-json-documents) section in DocumentDB connector with details.
 
 If the format is set to **JsonFormat**, you can specify the following **optional** properties in the **Format** section.
 

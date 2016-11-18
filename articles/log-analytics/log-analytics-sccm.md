@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 11/09/2016
 ms.author: banders
 
 ---
@@ -37,25 +37,25 @@ The following procedure provides the Azure Management Portal with permissions to
 
 > [!NOTE]
 > You must specify permissions to OMS for Configuration Manager. Otherwise, you'll receive an error message when you use the configuration wizard in Configuration Manager.
-> 
-> 
+>
+>
 
 1. Open the [Azure portal](https://portal.azure.com/) and click **Browse** > **Log Analytics (OMS)** to open the Log Analytics (OMS) blade.  
 2. On the **Log Analytics (OMS)** blade, click **Add** to open the **OMS Workspace** blade.  
    ![OMS blade](./media/log-analytics-sccm/sccm-azure01.png)
 3. On the **OMS Workspace** blade, provide the following information and then click **OK**.
-   
+
    * **OMS Workspace**
    * **Subscription**
    * **Resource group**
    * **Location**
    * **Pricing tier**  
      ![OMS blade](./media/log-analytics-sccm/sccm-azure02.png)  
-     
+
      > [!NOTE]
      > The example above creates a new resource group. The resource group is only used to provide Configuration Manager with permissions to the OMS workspace in this example.
-     > 
-     > 
+     >
+     >
 4. Click **Browse** > **Resource groups** to open the **Resource groups** blade.
 5. In the **Resource groups** blade, click the resource group that you created above to open the &lt;resource group name&gt; settings blade.  
    ![resource group settings blade](./media/log-analytics-sccm/sccm-azure03.png)
@@ -72,7 +72,7 @@ In order to add an OMS connection, your Configuration Manager environment must h
 
 1. In the **Administration** workspace of Configuration Manager, select **OMS Connector**. This opens the **Add OMS Connection Wizard**. Select **Next**.
 2. On the **General** screen, confirm that you have done the following actions and that you have details for each item, then select **Next**.
-   
+
    1. In the Azure Management Portal, you've registered Configuration Manager as a Web Application and/or Web API app, and that you have the [client ID from the registration](../active-directory/active-directory-integrating-applications.md).
    2. In the Azure Management Portal, you've created an app secret key for the registered app in Azure Active Directory.  
    3. In the Azure Management Portal, you've provided the registered web app with permission to access OMS.  
@@ -87,8 +87,8 @@ In order to add an OMS connection, your Configuration Manager environment must h
 
 > [!NOTE]
 > You must connect OMS to the top-tier site in your hierarchy. If you connect OMS to a standalone primary site and then add a central administration site to your environment, you'll have to delete and recreate the OMS connection within the new hierarchy.
-> 
-> 
+>
+>
 
 After you have linked Configuration Manager to OMS, you can add or remove collections, and view the properties of the OMS connection.
 
@@ -126,4 +126,3 @@ When you click either one, Search opens, displaying either all of the imported g
 
 ## Next steps
 * Use [Log Search](log-analytics-log-searches.md) to view detailed information about your Configuration Manager data.
-

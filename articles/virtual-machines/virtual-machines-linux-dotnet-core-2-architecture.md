@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploying Compute Resources with Azure Resource Manager Templates | Microsoft Docs
 description: Azure Virtual Machine DotNet Core Tutorial
 services: virtual-machines-linux
@@ -266,5 +266,5 @@ For more information on deploying Azure SQL Database, see [Azure SQL Database do
 ## Next step
 <hr>
 
-[Step 2 - Access and Security in Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-3-access-security.md)
+[Step 2 - Access and Security in Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

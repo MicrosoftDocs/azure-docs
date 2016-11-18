@@ -70,12 +70,12 @@ module.exports = function(context) {
 The `context.bindings` object collects all your input and output data. The data is added onto the `context.bindings` object via the `name` property of the binding. For instance, given the following binding definition in *function.json*, you can access the contents of the queue via `context.bindings.myInput`. 
 
 ```json
-    {
-        "type":"queue",
-        "direction":"in",
-        "name":"myInput"
-        ...
-    }
+{
+    "type":"queue",
+    "direction":"in",
+    "name":"myInput"
+    ...
+}
 ```
 
 ```javascript
@@ -187,6 +187,7 @@ There isn't, yet, any direct support for auto-compiling TypeScript/CoffeeScript 
 ## Next steps
 For more information, see the following resources:
 
+* [Best Practices for Azure Functions](functions-best-practices.md)
 * [Azure Functions developer reference](functions-reference.md)
 * [Azure Functions C# developer reference](functions-reference-csharp.md)
 * [Azure Functions F# developer reference](functions-reference-fsharp.md)

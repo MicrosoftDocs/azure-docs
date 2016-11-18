@@ -31,10 +31,12 @@
     "resource": [
       {
         "files": [
+          "**/*.svg",
           "**/*.png",
           "**/*.jpg",
           "**/*.jpeg",
-          "**/*.gif"
+          "**/*.gif",
+          "**/*.svg"
         ],
         "exclude": [
           "**/obj/**",
@@ -45,6 +47,7 @@
       },
       {
         "files": [
+          "includes/**/*.svg",
           "includes/**/*.png",
           "includes/**/*.jpg",
           "includes/**/*.jpeg",
@@ -61,7 +64,9 @@
     "overwrite": [],
     "externalReference": [],
     "globalMetadata": {
-      "breadcrumb_path": "/azure/bread/toc.json"
+      "breadcrumb_path": "/azure/bread/toc.json",
+      "brand": "azure",
+      "searchScope": ["Azure"]
     },
     "fileMetadata": {},
     "template": [

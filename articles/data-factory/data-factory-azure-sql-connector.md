@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move data to/from Azure SQL Database | Microsoft Docs
 description: Learn how to move data to/from Azure SQL Database using Azure Data Factory.
 services: data-factory
@@ -18,7 +18,7 @@ ms.author: jingwang
 
 ---
 # Move data to and from Azure SQL Database using Azure Data Factory
-This article outlines how you can use the Copy Activity in an Azure data factory to move data to/from Azure SQL Database from/to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations. 
+This article outlines how you can use the Copy Activity in an Azure data factory to move data to/from Azure SQL Database from/to another data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with copy activity and supported data store combinations.
 
 ## Supported sources and sinks
 See [Supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table for a list of data stores supported as sources or sinks by the copy activity. You can move data from any supported source data store to Azure SQL Database or from Azure SQL Database to any supported sink data store.
@@ -36,18 +36,19 @@ You can create a pipeline with a copy activity that moves data to/from an Azure 
 See [Copy activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions for creating a pipeline with a copy activity in different ways.   
 
 ## Copy data wizard
-The easiest way to create a pipeline that copies data to/from Azure SQL Database is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+The easiest way to create a pipeline that copies data to/from Azure SQL Database is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Database and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.
+
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). They show how to copy data to and from Azure SQL Database and Azure Blob Storage. However, data can be copied **directly** from any of sources to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.
+
 
 ## Sample: Copy data from Azure SQL Database to Azure Blob
 The same defines the following Data Factory entities:
 
 1. A linked service of type [AzureSqlDatabase](#azure-sql-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties). 
-3. An input [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](#azure-sql-dataset-type-properties). 
-4. An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
-5. A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [SqlSource](#azure-sql-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
+3. An input [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](#azure-sql-dataset-type-properties).
+
 
 The sample copies time-series data (hourly, daily, etc.) from a table in Azure SQL database to a blob every hour. The JSON properties used in these samples are described in sections following the samples.  
 
@@ -63,7 +64,7 @@ The sample copies time-series data (hourly, daily, etc.) from a table in Azure S
       }
     }
 
-See the [Azure SQL Linked Service](#azure-sql-linked-service-properties) section for the list of properties supported by this linked service. 
+See the [Azure SQL Linked Service](#azure-sql-linked-service-properties) section for the list of properties supported by this linked service.
 
 **Azure Blob storage linked service**
 
@@ -77,11 +78,12 @@ See the [Azure SQL Linked Service](#azure-sql-linked-service-properties) section
       }
     }
 
-See the [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) article for the list of properties supported by this linked service. 
+See the [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) article for the list of properties supported by this linked service.
+
 
 **Azure SQL input dataset**
 
-The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data. 
+The sample assumes you have created a table “MyTable” in Azure SQL and it contains a column called “timestampcolumn” for time series data.
 
 Setting “external”: ”true” informs the Azure Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
@@ -112,7 +114,7 @@ See the [Azure SQL dataset type properties](#azure-sql-dataset-type-properties) 
 
 **Azure Blob output dataset**
 
-Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time. 
+Data is written to a new blob every hour (frequency: hour, interval: 1). The folder path for the blob is dynamically evaluated based on the start time of the slice that is being processed. The folder path uses year, month, day, and hours parts of the start time.
 
     {
       "name": "AzureBlobOutput",
@@ -221,20 +223,20 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 
 In the example, **sqlReaderQuery** is specified for the SqlSource. The Copy Activity runs this query against the Azure SQL Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
 
-If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query to run against the Azure SQL Database. For example: `select column1, column2 from mytable`. If the dataset definition does not have the structure, all columns are selected from the table. 
+If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query to run against the Azure SQL Database. For example: `select column1, column2 from mytable`. If the dataset definition does not have the structure, all columns are selected from the table.
 
-See the [Sql Source](#sqlsource) section and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) for the list of properties supported by SqlSource and BlobSink. 
+See the [Sql Source](#sqlsource) section and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) for the list of properties supported by SqlSource and BlobSink.
 
 ## Sample: Copy data from Azure Blob to Azure SQL Database
 The sample defines the following Data Factory entities:  
 
 1. A linked service of type [AzureSqlDatabase](data-factory-azure-sql-connector.md#azure-sql-linked-service-properties).
-2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+2. A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 3. An input [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 4. An output [dataset](data-factory-create-datasets.md) of type [AzureSqlTable](data-factory-azure-sql-connector.md#azure-sql-dataset-type-properties).
 5. A [pipeline](data-factory-create-pipelines.md) with Copy activity that uses [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) and [SqlSink](data-factory-azure-sql-connector.md#azure-sql-copy-activity-type-properties).
 
-The sample copies time-series data (hourly, daily, etc.) from Azure blob to a table in Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies time-series data (hourly, daily, etc.) from Azure blob to a table in Azure SQL database every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **Azure SQL linked service**
 
@@ -248,7 +250,7 @@ The sample copies time-series data (hourly, daily, etc.) from Azure blob to a ta
       }
     }
 
-See the [Azure SQL Linked Service](#azure-sql-linked-service-properties) section for the list of properties supported by this linked service. 
+See the [Azure SQL Linked Service](#azure-sql-linked-service-properties) section for the list of properties supported by this linked service.
 
 **Azure Blob storage linked service**
 
@@ -262,7 +264,8 @@ See the [Azure SQL Linked Service](#azure-sql-linked-service-properties) section
       }
     }
 
-See the [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties) article for the list of properties supported by this linked service.
+See the [Azure Blob](data-factory-azure-blob-connector.md#azure-storage-linked-service) article for the list of properties supported by this linked service.
+
 
 **Azure Blob input dataset**
 
@@ -335,7 +338,7 @@ See the [Azure Blob dataset type properties](data-factory-azure-blob-connector.m
 
 **Azure SQL output dataset**
 
-The sample copies data to a table named “MyTable” in Azure SQL. Create the table in Azure SQL with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour. 
+The sample copies data to a table named “MyTable” in Azure SQL. Create the table in Azure SQL with the same number of columns as you expect the Blob CSV file to contain. New rows are added to the table every hour.
 
     {
       "name": "AzureSqlOutput",
@@ -403,7 +406,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
        }
     }
 
-See the [Sql Sink](#sqlsink) section and [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) for the list of properties supported by SqlSink and BlobSource. 
+See the [Sql Sink](#sqlsink) section and [BlobSource](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties) for the list of properties supported by SqlSink and BlobSource.
 
 ## Azure SQL linked service properties
 In the samples, you have used a linked service of type **AzureSqlDatabase** to link an Azure SQL database to a data factory. The following table provides description for JSON elements specific to Azure SQL linked service.
@@ -414,32 +417,32 @@ In the samples, you have used a linked service of type **AzureSqlDatabase** to l
 | connectionString |Specify information needed to connect to the Azure SQL Database instance for the connectionString property. |Yes |
 
 > [!NOTE]
-> Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Database from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure SQL Database. 
-> 
-> 
+> Configure [Azure SQL Database Firewall](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure) the database server to [allow Azure Services to access the server](https://msdn.microsoft.com/library/azure/ee621782.aspx#ConnectingFromAzure). Additionally, if you are copying data to Azure SQL Database from outside Azure including from on-premises data sources with data factory gateway, configure appropriate IP address range for the machine that is sending data to Azure SQL Database.
+>
+>
 
 ## Azure SQL dataset type properties
-In the samples, you have used a dataset of type **AzureSqlTable** to represent a table in an Azure SQL database. 
+In the samples, you have used a dataset of type **AzureSqlTable** to represent a table in an Azure SQL database.
 
-For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.). 
+For a full list of sections & properties available for defining datasets, see the [Creating datasets](data-factory-create-datasets.md) article. Sections such as structure, availability, and policy of a dataset JSON are similar for all dataset types (Azure SQL, Azure blob, Azure table, etc.).
 
 The typeProperties section is different for each type of dataset and provides information about the location of the data in the data store. The **typeProperties** section for the dataset of type **AzureSqlTable** has the following properties:
 
 | Property | Description | Required |
 | --- | --- | --- |
-| tableName |Name of the table in the Azure SQL Database instance that linked service refers to. |Yes |
+| tableName |Name of the table or view in the Azure SQL Database instance that linked service refers to. |Yes |
 
 ## Azure SQL copy activity type properties
 For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
 > [!NOTE]
 > The Copy Activity takes only one input and produces only one output.
-> 
-> 
+>
+>
 
-Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks. 
+Properties available in the **typeProperties** section of the activity on the other hand vary with each activity type. For Copy activity, they vary depending on the types of sources and sinks.
 
-If you are moving data from an Azure SQL database, you set the source type in the copy activity to **SqlSource**. Similarly, if you are moving data to an Azure SQL database, you set the sink type in the copy activity to **SqlSink**. This section provides a list of properties supported by SqlSource and SqlSink. 
+If you are moving data from an Azure SQL database, you set the source type in the copy activity to **SqlSource**. Similarly, if you are moving data to an Azure SQL database, you set the sink type in the copy activity to **SqlSink**. This section provides a list of properties supported by SqlSource and SqlSink.
 
 ### SqlSource
 In copy activity, when the source is of type **SqlSource**, the following properties are available in **typeProperties** section:
@@ -450,14 +453,14 @@ In copy activity, when the source is of type **SqlSource**, the following proper
 | sqlReaderStoredProcedureName |Name of the stored procedure that reads data from the source table. |Name of the stored procedure. |No |
 | storedProcedureParameters |Parameters for the stored procedure. |Name/value pairs. Names and casing of parameters must match the names and casing of the stored procedure parameters. |No |
 
-If the **sqlReaderQuery** is specified for the SqlSource, the Copy Activity runs this query against the Azure SQL Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters). 
+If the **sqlReaderQuery** is specified for the SqlSource, the Copy Activity runs this query against the Azure SQL Database source to get the data. Alternatively, you can specify a stored procedure by specifying the **sqlReaderStoredProcedureName** and **storedProcedureParameters** (if the stored procedure takes parameters).
 
-If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (`select column1, column2 from mytable`) to run against the Azure SQL Database. If the dataset definition does not have the structure, all columns are selected from the table. 
+If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the columns defined in the structure section of the dataset JSON are used to build a query (`select column1, column2 from mytable`) to run against the Azure SQL Database. If the dataset definition does not have the structure, all columns are selected from the table.
 
 > [!NOTE]
-> When you use **sqlReaderStoredProcedureName**, you still need to specify a value for the **tableName** property in the dataset JSON. There are no validations performed against this table though. 
-> 
-> 
+> When you use **sqlReaderStoredProcedureName**, you still need to specify a value for the **tableName** property in the dataset JSON. There are no validations performed against this table though.
+>
+>
 
 ### SqlSource example
     "source": {
@@ -469,7 +472,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
         }
     }
 
-**The stored procedure definition:** 
+**The stored procedure definition:**
 
     CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
     (
@@ -515,9 +518,9 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
     }
 
 ## Identity columns in the target database
-This section provides an example for copying data from a source table without an identity column to a destination table with an identity column. 
+This section provides an example for copying data from a source table without an identity column to a destination table with an identity column.
 
-**Source table:** 
+**Source table:**
 
     create table dbo.SourceTbl
     (
@@ -535,7 +538,7 @@ This section provides an example for copying data from a source table without an
     )
 
 
-Notice that the target table has an identity column. 
+Notice that the target table has an identity column.
 
 **Source dataset JSON definition**
 
@@ -580,9 +583,9 @@ Notice that the target table has an identity column.
     }
 
 
-Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn’t include the identity column. 
+Notice that as your source and target table have different schema (target has an additional column with identity). In this scenario, you need to specify **structure** property in the target dataset definition, which doesn’t include the identity column.
 
-Then, you map columns from source dataset to columns in the destination dataset. See [Column mapping samples](#column-mapping-samples) section for an example. 
+Then, you map columns from source dataset to columns in the destination dataset. See [Column mapping samples](#column-mapping-samples) section for an example.
 
 [!INCLUDE [data-factory-type-repeatability-for-sql-sources](../../includes/data-factory-type-repeatability-for-sql-sources.md)]
 
@@ -641,4 +644,3 @@ The mapping is same as the SQL Server Data Type Mapping for ADO.NET.
 
 ## Performance and Tuning
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
-

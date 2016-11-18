@@ -26,7 +26,7 @@ Azure Event Hubs is an event processing service that provides event and telemetr
 
 An Event Hub is created at the Event Hubs namespace level, similar to Service Bus queues and topics. Event Hubs uses AMQP and HTTP as its primary API interfaces. The following diagram shows the relationship between Event Hubs and Service Bus.
 
-![Event Hubs](./media/event-hubs-overview/IC741188.png)
+![Event Hubs](./media/event-hubs-overview/ehoverview2.png)
 
 ## Conceptual overview
 Event Hubs provides message streaming through a partitioned consumer pattern. Queues and topics use a [Competing Consumer](https://msdn.microsoft.com/library/dn568101.aspx) model in which each consumer attempts to read from the same queue or resource. This competition for resources ultimately results in complexity and scale limits for stream processing applications. Event Hubs uses a partitioned consumer pattern in which each consumer only reads a specific subset, or partition, of the message stream. This pattern enables horizontal scale for event processing and provides other stream-focused features that are unavailable in queues and topics.

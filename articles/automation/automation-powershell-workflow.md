@@ -135,7 +135,7 @@ You can pass values into an InlineScript block, but you must use **$Using** scop
 While InlineScript activities may be critical in certain workflows, they do not support workflow constructs and should only be used when necessary for the following reasons:
 
 * You cannot use [checkpoints](#checkpoints) inside of an InlineScript block. If a failure occurs within the block, it must be resumed from the beginning of the block.
-* You cannot use [parallel execution](#parallel-execution) inside of an InlineScriptBlock.
+* You cannot use [parallel execution](#parallel-processing) inside of an InlineScriptBlock.
 * InlineScript affects scalability of the workflow since it holds the Windows PowerShell session for the entire length of the InlineScript block.
 
 For further details on using InlineScript, see [Running Windows PowerShell Commands in a Workflow](http://technet.microsoft.com/library/jj574197.aspx) and [about_InlineScript](http://technet.microsoft.com/library/jj649082.aspx).

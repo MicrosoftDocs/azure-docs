@@ -32,7 +32,7 @@ ms.author: rupisure
 4. Test the template with the Microsoft Azure Stack APIs to make sure that the resource can be deployed successfully.
 5. If your template relies on a virtual machine image, follow the instructions to [add a virtual machine image to Azure Stack](azure-stack-add-vm-image.md).
 6. Save your Azure Resource Manager template in the **/Contoso.TodoList/DeploymentTemplates/** folder.
-7. Choose the icons and text for your Marketplace item. Add icons to the **Icons** folder, and add text to the **resources** file in the **Strings** folder. Use the Small, Medium, Large, and Wide naming convention for icons. See [Marketplace item UI reference](## Reference: Marketplace item UI) for a detailed description.
+7. Choose the icons and text for your Marketplace item. Add icons to the **Icons** folder, and add text to the **resources** file in the **Strings** folder. Use the Small, Medium, Large, and Wide naming convention for icons. See [Marketplace item UI reference](#reference-marketplace-item-ui) for a detailed description.
    
    > [!NOTE]
    > All four icon sizes (small, medium, large, wide) are required for building the Marketplace item correctly.
@@ -53,7 +53,7 @@ ms.author: rupisure
              "categories":[
                  "My Marketplace Items"
               ],
-11. For any further edits to manifest.json, refer to [Reference: Marketplace item manifest.json](## Reference: Marketplace item manifest.json).
+11. For any further edits to manifest.json, refer to [Reference: Marketplace item manifest.json](#reference-marketplace-item-manifestjson).
 12. Open a command prompt and run the following command to package the folders into an .azpkg file:
     
         AzureGalleryPackager.exe package –m <path to manifest.json> -o <output location for the package>

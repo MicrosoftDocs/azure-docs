@@ -38,15 +38,17 @@ In a C# and F# functions, any changes made to the record are automatically sent 
 
 The Mobile Apps input to a function uses the following JSON object in the `bindings` array of function.json:
 
-    {
-        "name": "<Name of input parameter in function signature>",
-        "type": "mobileTable",
-        "tableName": "<Name of your mobile app's data table>",
-        "id" : "<Id of the record to retrieve - see below>",
-        "connection": "<Name of app setting that has your mobile app's URL - see below>",
-        "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
-        "direction": "in"
-    }
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "type": "mobileTable",
+    "tableName": "<Name of your mobile app's data table>",
+    "id" : "<Id of the record to retrieve - see below>",
+    "connection": "<Name of app setting that has your mobile app's URL - see below>",
+    "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
+    "direction": "in"
+}
+```
 
 Note the following:
 
@@ -88,27 +90,29 @@ In Node.js functions, use `context.bindings.<name>` to access the input record. 
 ## Input sample
 Suppose you have the following function.json, that retrieves a Mobile App table record with the id of the queue trigger message:
 
+```json
+{
+"bindings": [
     {
-    "bindings": [
-        {
-        "name": "myQueueItem",
-        "queueName": "myqueue-items",
-        "connection":"",
-        "type": "queueTrigger",
+    "name": "myQueueItem",
+    "queueName": "myqueue-items",
+    "connection":"",
+    "type": "queueTrigger",
+    "direction": "in"
+    },
+    {
+        "name": "record",
+        "type": "mobileTable",
+        "tableName": "MyTable",
+        "id" : "{queueTrigger}",
+        "connection": "My_MobileApp_Url",
+        "apiKey": "My_MobileApp_Key",
         "direction": "in"
-        },
-        {
-            "name": "record",
-            "type": "mobileTable",
-            "tableName": "MyTable",
-            "id" : "{queueTrigger}",
-            "connection": "My_MobileApp_Url",
-            "apiKey": "My_MobileApp_Key",
-            "direction": "in"
-        }
-    ],
-    "disabled": false
     }
+],
+"disabled": false
+}
+```
 
 See the language-specific sample that uses the input record from the binding. The C# and F# samples also modify the record's `text` property.
 
@@ -117,35 +121,43 @@ See the language-specific sample that uses the input record from the binding. Th
 
 <a name="inputcsharp"></a>
 
-### Input sample in C\
-    #r "Newtonsoft.Json"    
-    using Newtonsoft.Json.Linq;
+### Input sample in C# #
 
-    public static void Run(string myQueueItem, JObject record)
+```cs
+#r "Newtonsoft.Json"    
+using Newtonsoft.Json.Linq;
+
+public static void Run(string myQueueItem, JObject record)
+{
+    if (record != null)
     {
-        if (record != null)
-        {
-            record["Text"] = "This has changed.";
-        }    
-    }
+        record["Text"] = "This has changed.";
+    }    
+}
+```
 
 <!--
 <a name="inputfsharp"></a>
-### Input sample in F\# 
+### Input sample in F# ## 
 
-    #r "Newtonsoft.Json"    
-    open Newtonsoft.Json.Linq
-    let Run(myQueueItem: string, record: JObject) =
-      inputDocument?text <- "This has changed."
+```fsharp
+#r "Newtonsoft.Json"    
+open Newtonsoft.Json.Linq
+let Run(myQueueItem: string, record: JObject) =
+  inputDocument?text <- "This has changed."
+```
 -->
 
 <a name="inputnodejs"></a>
 
 ### Input sample in Node.js
-    module.exports = function (context, myQueueItem) {    
-        context.log(context.bindings.record);
-        context.done();
-    };
+
+```javascript
+module.exports = function (context, myQueueItem) {    
+    context.log(context.bindings.record);
+    context.done();
+};
+```
 
 <a name="output"></a>
 
@@ -154,14 +166,16 @@ Use the Mobile Apps output binding to write a new record to a Mobile Apps table 
 
 The Mobile Apps output for a function uses the following JSON object in the `bindings` array of function.json:
 
-    {
-        "name": "<Name of output parameter in function signature>",
-        "type": "mobileTable",
-        "tableName": "<Name of your mobile app's data table>",
-        "connection": "<Name of app setting that has your mobile app's URL - see below>",
-        "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
-        "direction": "out"
-    }
+```json
+{
+    "name": "<Name of output parameter in function signature>",
+    "type": "mobileTable",
+    "tableName": "<Name of your mobile app's data table>",
+    "connection": "<Name of app setting that has your mobile app's URL - see below>",
+    "apiKey": "<Name of app setting that has your mobile app's API key - see below>",
+    "direction": "out"
+}
+```
 
 Note the following:
 
@@ -196,26 +210,28 @@ In C# functions, use a named output parameter of type `out object` to access the
 ## Output sample
 Suppose you have the following function.json, that defines a queue trigger and a Mobile Apps output:
 
+```json
+{
+"bindings": [
     {
-    "bindings": [
-        {
-        "name": "myQueueItem",
-        "queueName": "myqueue-items",
-        "connection":"",
-        "type": "queueTrigger",
-        "direction": "in"
-        },
-        {
-        "name": "record",
-        "type": "mobileTable",
-        "tableName": "MyTable",
-        "connection": "My_MobileApp_Url",
-        "apiKey": "My_MobileApp_Key",
-        "direction": "out"
-        }
-    ],
-    "disabled": false
+    "name": "myQueueItem",
+    "queueName": "myqueue-items",
+    "connection":"",
+    "type": "queueTrigger",
+    "direction": "in"
+    },
+    {
+    "name": "record",
+    "type": "mobileTable",
+    "tableName": "MyTable",
+    "connection": "My_MobileApp_Url",
+    "apiKey": "My_MobileApp_Key",
+    "direction": "out"
     }
+],
+"disabled": false
+}
+```
 
 See the language-specific sample that creates a record in the Mobile Apps table endpoint with the content of the queue message.
 
@@ -224,29 +240,38 @@ See the language-specific sample that creates a record in the Mobile Apps table 
 
 <a name="outcsharp"></a>
 
-### Output sample in C\
-    public static void Run(string myQueueItem, out object record)
-    {
-        record = new {
-            Text = $"I'm running in a C# function! {myQueueItem}"
-        };
-    }
+### Output sample in C# #
+
+```cs
+public static void Run(string myQueueItem, out object record)
+{
+    record = new {
+        Text = $"I'm running in a C# function! {myQueueItem}"
+    };
+}
+```
 
 <!--
 <a name="outfsharp"></a>
-### Output sample in F\# 
+### Output sample in F# ## 
+```fsharp
+
+```
 -->
 <a name="outnodejs"></a>
 
 ### Output sample in Node.js
-    module.exports = function (context, myQueueItem) {
 
-        context.bindings.record = {
-            text : "I'm running in a Node function! Data: '" + myQueueItem + "'"
-        }   
+```javascript
+module.exports = function (context, myQueueItem) {
 
-        context.done();
-    };
+    context.bindings.record = {
+        text : "I'm running in a Node function! Data: '" + myQueueItem + "'"
+    }   
+
+    context.done();
+};
+```
 
 ## Next steps
 [!INCLUDE [next steps](../../includes/functions-bindings-next-steps.md)]

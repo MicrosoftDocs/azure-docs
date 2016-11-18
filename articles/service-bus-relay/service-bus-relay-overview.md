@@ -1,14 +1,14 @@
 ---
 title: Service Bus relay overview | Microsoft Docs
 description: Overview of Service Bus relay.
-services: service-bus
+services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 1038a2d8-5def-4f48-8703-cb0070fc5f10
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
