@@ -189,10 +189,10 @@ Placing several VMs behind a load balancer is a building block for creating mult
 [bastion host]: https://en.wikipedia.org/wiki/Bastion_host
 [github-folder]: https://github.com/mspnp/reference-architectures/tree/master/guidance-compute-multi-vm
 [health probe log]: ../load-balancer/load-balancer-monitor-log.md
-[health probes]: ../load-balancer/load-balancer-overview.md#service-monitoring
+[health probes]: ../load-balancer/load-balancer-overview.md#load-balancer-features
 [health-probe-ip]: ../virtual-network/virtual-networks-nsg.md#special-rules
 [load balancer]: ../load-balancer/load-balancer-get-started-internet-arm-cli.md
-[load balancer hashing]: ../load-balancer/load-balancer-overview.md#hash-based-distribution
+[load balancer hashing]: ../load-balancer/load-balancer-overview.md#load-balancer-features
 [n-tier-linux]: guidance-compute-n-tier-vm-linux.md
 [n-tier-windows]: guidance-compute-n-tier-vm.md
 [naming conventions]: guidance-naming-conventions.md
