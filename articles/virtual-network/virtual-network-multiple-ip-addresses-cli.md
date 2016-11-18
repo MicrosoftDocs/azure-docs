@@ -57,7 +57,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 2. Register for the preview by sending an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not attempt to complete the remaining steps:
 	- Until you receive an e-mail notifying you that you've been accepted into the preview
 	- Without following the instructions in the email you receive
-3. [Create a resource group](~/articles/virtual-machines/virtual-machines-linux-cli-complete.md?toc=/azure/virtual-machines/linux/toc.json#create-resource-groups-and-choose-deployment-locations) followed by a [virtual network and subnet](~/articles/virtual-machines/virtual-machines-linux-cli-complete.md?toc=/azure/virtual-machines/linux/toc.json#create-a-virtual-network-and-subnet). Change the ``` --address-prefixes ``` and ```--address-prefix``` fields to the following to follow the exact sceanrio outlined in this article:
+3. [Create a resource group](../virtual-machines/virtual-machines-linux-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) followed by a [virtual network and subnet](../virtual-machines/virtual-machines-linux-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet). Change the ``` --address-prefixes ``` and ```--address-prefix``` fields to the following to follow the exact sceanrio outlined in this article:
 
 	```azurecli
 	--address-prefixes 10.0.0.0/16
@@ -66,9 +66,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	>[!NOTE] 
 	>The referenced article above uses West Europe as the location to create resources, but this article uses West Central US. Make location changes appropriately.
 
-4. [Create  a storage account](~/articles/virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=/azure/virtual-machines/linux/toc.json#create-a-storage-account) for your VM.
-
-
+4. [Create  a storage account](../articles/virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account) for your VM.
 
 
 5. Create the NIC and the IP configurations you want to assign to the NIC. You can add, remove, or change the configurations as necessary. The following configurations are described in the scenario:
@@ -111,9 +109,10 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	>[!NOTE] 
 	>Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs article.
 
-6. [Create a Linux VM](.~/articles/virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=/azure/virtual-machines/linux/toc.json#create-the-linux-vms) article. Be sure to remove the ```  --availset-name myAvailabilitySet \ ``` property as it is not required for this scenario. Use the appropriate location based on your scenario. 
+6. [Create a Linux VM](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=/azure/virtual-machines/linux/toc.json#create-the-linux-vms) article. Be sure to remove the ```  --availset-name myAvailabilitySet \ ``` property as it is not required for this scenario. Use the appropriate location based on your scenario. 
 
-	>[!WARNING] Step 6 in the Create a VM article fails if the VM size is not supported in the location you selected. Run the following command to get a full list of VMs in US West Central, for example. This location name can be changed based on your scenario.
+	>[!WARNING] 
+	> Step 6 in the Create a VM article fails if the VM size is not supported in the location you selected. Run the following command to get a full list of VMs in US West Central, for example. This location name can be changed based on your scenario.
 	> ```azurecli
 	> azure vm sizes --location westcentralus
 	> ```
@@ -316,13 +315,13 @@ You can add additional private and public IP addresses to an existing NIC by com
 	```
 
 	Look for a line similar to the one that follows in the returned output:
-	```azurecli
-	 Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
-	 -----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
-     default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
-     IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
-     IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet
-	 ```
+	
+		Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
+		-----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
+		default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
+		IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
+		IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet
+	 
 	Since the **Public IP** column for *IpConfig-3* is blank, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
 
 	```azurecli
@@ -342,11 +341,11 @@ You can add additional private and public IP addresses to an existing NIC by com
 	azure network nic ip-config list --resource-group myResourceGroup --nic-name myNic1
 	```
 	You should see output similar to the following: 
-	```azurecli
-	 Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
-	 -----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
-     default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
-     IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
-     IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet  myPublicIP3
-	 ```
+	
+		Name               Provisioning state  Primary  Private IP allocation  Private IP version  Private IP address  Subnet    Public IP
+		-----------------  ------------------  -------  ---------------------  ------------------  ------------------  --------  -----------
+		default-ip-config  Succeeded           true     Dynamic                IPv4                10.0.0.4            mySubnet  myPublicIP
+		IPConfig-2         Succeeded           false    Static                 IPv4                10.0.0.5            mySubnet  myPublicIP2
+		IPConfig-3         Succeeded           false    Dynamic                IPv4                10.0.0.6            mySubnet  myPublicIP3
+	 
 9. Add the IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#OsConfig) section of this article.
