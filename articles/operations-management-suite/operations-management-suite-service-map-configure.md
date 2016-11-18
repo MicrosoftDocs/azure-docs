@@ -3,7 +3,7 @@ title: Configuring Service Map in Operations Management Suite (OMS) | Microsoft 
 description: Service Map is an Operations Management Suite (OMS) solution that automatically discovers application components on Windows and Linux systems and maps the communication between services.  This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
 services: operations-management-suite
 documentationcenter: ''
-author: daseidma;dairwin
+author: dairwin
 manager: jwhit
 editor: tysonn
 
