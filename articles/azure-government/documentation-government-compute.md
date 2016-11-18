@@ -23,7 +23,7 @@ ms.author: ryansoc
 For details on this service and how to use it, see [Azure Virtual Machines Sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Variations
-The following VM SKUs are generally available (GA) in Azure Government:
+The products (VMs) are available in Azure Government:
 
 | Products (VMs) | US Gov VA | US Gov IA |
 | --- | --- | --- |
@@ -31,7 +31,6 @@ The following VM SKUs are generally available (GA) in Azure Government:
 | D-series |Y |N |
 | Dv2-series |Y |Y |
 | DS-series |Y |N |
-| DSv2-series |N |N |
 | F-series |Y |Y |
 | FS-series |Y |N |
 | G-series |Y |N |
