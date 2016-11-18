@@ -103,6 +103,7 @@ The following error codes are described in this topic:
 * [InvalidContentLink](#invalidcontentlink)
 * [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
 * [Authorization failed](#authorization-failed)
+* [SkuNotAvailable](#sku-not-available)
 
 ### InvalidTemplate
 This error can result from several different types of errors.
@@ -358,6 +359,23 @@ You may receive an error during deployment because the account or service princi
 For more information about role-based access control, see [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md).
 
 In addition to role-based access control, your deployment actions may be limited by policies on the subscription. Through policies, the administrator can enforce conventions on all resources deployed in the subscription. For example, an administrator can require that a particular tag value is provided for a resource type. If you do not fulfill the policy requirements, you receive an error during deployment. For more information about policies, see [Use Policy to manage resources and control access](resource-manager-policy.md).
+
+### SkuNotAvailable
+
+When deploying a resource (typically a virtual machine), you may receive the following error code and error message:
+
+```
+Code: SkuNotAvailable
+Message: The requested tier for resource '<resource>' is currently not available in location '<location>' for subscription '<subscriptionID>'. Please try another tier or deploy to a different location.
+```
+
+You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. You have two options to resolve this issue:
+
+- Log into portal and begin adding a new resource through the UI. As you set the values, you will see the available SKUs for that resource.
+
+    ![available skus](./media/resource-manager-common-deployment-errors/view-sku.png)
+
+- If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, please reach out to [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
 
 ## Create a troubleshooting template
 In some cases, the easiest way to troubleshoot your template is to test parts of it. You can create a simplified template that enables you to focus on the part that you believe is causing the error. For example, suppose you are receiving an error when referencing a resource. Rather than dealing with an entire template, simply return the part that may be causing your problem. It can help you determine whether you are passing in the right parameters, using template functions correctly, and getting the resource you expect.
