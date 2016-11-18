@@ -66,7 +66,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	>[!NOTE] 
 	>The referenced article above uses West Europe as the location to create resources, but this article uses West Central US. Make location changes appropriately.
 
-4. [Create  a storage account](../articles/virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account) for your VM.
+4. [Create  a storage account](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account) for your VM.
 
 
 5. Create the NIC and the IP configurations you want to assign to the NIC. You can add, remove, or change the configurations as necessary. The following configurations are described in the scenario:
@@ -109,10 +109,11 @@ The steps that follow explain how to create an example VM with multiple IP addre
 	>[!NOTE] 
 	>Though this article assigns all IP configurations to a single NIC, you can also assign multiple IP configurations to any NIC in a VM. To learn how to create a VM with multiple NICs, read the Create a VM with multiple NICs article.
 
-6. [Create a Linux VM](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=/azure/virtual-machines/linux/toc.json#create-the-linux-vms) article. Be sure to remove the ```  --availset-name myAvailabilitySet \ ``` property as it is not required for this scenario. Use the appropriate location based on your scenario. 
+6. [Create a Linux VM](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-the-linux-vms) article. Be sure to remove the ```  --availset-name myAvailabilitySet \ ``` property as it is not required for this scenario. Use the appropriate location based on your scenario. 
 
 	>[!WARNING] 
 	> Step 6 in the Create a VM article fails if the VM size is not supported in the location you selected. Run the following command to get a full list of VMs in US West Central, for example. This location name can be changed based on your scenario.
+	
 	> ```azurecli
 	> azure vm sizes --location westcentralus
 	> ```
