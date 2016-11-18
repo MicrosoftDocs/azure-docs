@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 11/18/2016
 ms.author: jgao
 
 ---
@@ -218,53 +218,24 @@ For more information about HBase Rest, see [Apache HBase Reference Guide](https:
 ## Check cluster status
 HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI, you can request statistics or information about regions.
 
-SSH can also be used to tunnel local requests, such as web requests, to the HDInsight cluster. The request will then be routed to the requested resource as if it had originated on the HDInsight cluster head node. For more information, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
+**To access the HBase Master UI**
 
-**To establish an SSH tunneling session**
+1. Open the Ambari Web UI at https://&lt;Clustername>.azurehdinsight.net.
+2. Click **HBase** from the left menu.
+3. Click **Quick links** on the top of the page, point to the active Zookeeper node link, and then click **HBase Master UI**.  The UI is opened in a another brower tab:
 
-1. Open **PuTTY**.  
-2. If you provided an SSH key when you created your user account during the creation process, you must perform the following step to select the private key to use when authenticating to the cluster:
-   
-    In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
-3. In **Category**, click **Session**.
-4. From the Basic options for your PuTTY session screen, enter the following values:
-   
-   * **Host Name**: the SSH address of your HDInsight server in the Host name (or IP address) field. The SSH address is your cluster name, then **-ssh.azurehdinsight.net**. For example, *mycluster-ssh.azurehdinsight.net*.
-   * **Port**: 22. The ssh port on the primary headnode is 22.  
-5. In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then click **Tunnels**.
-6. Provide the following information on the Options controlling SSH port forwarding form:
-   
-   * **Source port** - The port on the client that you wish to forward. For example, 9876.
-   * **Dynamic** - Enables dynamic SOCKS proxy routing.
-7. Click **Add** to add the settings.
-8. Click **Open** at the bottom of the dialog to open an SSH connection.
-9. When prompted, log in to the server using an SSH account. This will establish an SSH session and enable the tunnel.
+        ![HDInsight HBase HMaster UI](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-**To find the FQDN of the zookeepers using Ambari**
+        The HBase Master UI contains the following sections:
 
-1. Browse to https://<ClusterName>.azurehdinsight.net/.
-2. Enter your cluster user account credentials twice.
-3. From the left menu, click **zookeeper**.
-4. Click one of the three **ZooKeeper Server** links from the Summary list.
-5. Copy **Hostname**. For example, zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net.
+        - region servers
+        - backup masters
+        - tables
+        - tasks
+        - software attributes
 
-**To configure a client program (Firefox) and check cluster status**
 
-1. Open Firefox.
-2. Click the **Open Menu** button.
-3. Click **Options**.
-4. Click **Advanced**, click **Network**, and then click **Settings**.
-5. Select **Manual proxy configuration**.
-6. Enter the following values:
-   
-   * **Socks Host**: localhost
-   * **Port**: Use the same port you configured in the Putty SSH tunneling.  For example, 9876.
-   * **SOCKS v5**: (selected)
-   * **Remote DNS**: (selected)
-7. Click **OK** to save the changes.
-8. Browse to http://&lt;The FQDN of a ZooKeeper>:60010/master-status.
 
-In a high availability cluster, you will find a link to the current active HBase master node that is hosting the Web UI.
 
 ## Delete the cluster
 To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.
