@@ -1,20 +1,22 @@
-<properties
-   pageTitle="Configuring Service Map in Operations Management Suite (OMS) | Microsoft Azure"
-   description="Service Map is an Operations Management Suite (OMS) solution that automatically discovers application components on Windows and Linux systems and maps the communication between services.  This article provides details for deploying Service Map in your environment and using it in a variety of scenarios."
-   services="operations-management-suite"
-   documentationCenter=""
-   authors="daseidma"
-   manager="jwhit"
-   editor="tysonn" />
-<tags
-   ms.service="operations-management-suite"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/28/2016"
-   ms.author="daseidma;bwren" />
+---
+title: Configuring Service Map in Operations Management Suite (OMS) | Microsoft Docs
+description: Service Map is an Operations Management Suite (OMS) solution that automatically discovers application components on Windows and Linux systems and maps the communication between services.  This article provides details for deploying Service Map in your environment and using it in a variety of scenarios.
+services: operations-management-suite
+documentationcenter: ''
+author: daseidma;dairwin
+manager: jwhit
+editor: tysonn
 
+ms.assetid: d3d66b45-9874-4aad-9c00-124734944b2e
+ms.service: operations-management-suite
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 11/18/2016
+ms.author: daseidma;bwren;dairwin
+
+---
 # Configuring Service Map solution in Operations Management Suite (OMS)
 ![Alert Management icon](media/oms-service-map/icon.png) Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services.  Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
 
