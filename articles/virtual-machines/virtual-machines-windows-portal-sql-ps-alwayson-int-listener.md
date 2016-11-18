@@ -157,7 +157,8 @@ The next step is to configure the listener on the cluster, and bring the listene
 2. Bring the listener online
 
 ## 1. Create the availability group listener on the failover cluster
-In this step, you:
+
+The availability group listener is an IP address and network name that the SQL Server availability group listens on. To create the availability group listener, do the following steps:
 
 1. [Get the name of the cluster network resource](#getnet).
 
