@@ -68,17 +68,12 @@ These statistics are real-time but the actual graphing of the execution data may
 
 
 
-
-
-
-
-
 ## Monitoring log files from a command line
 
 
 You can stream log files to a command line session on a local workstation using the Azure Command Line Interface (CLI) or PowerShell.
 
-### Streaming function app log file with the Azure CLI
+### Monitoring function app log files with the Azure CLI
 
 To get started, [install the Azure CLI](../xplat-cli-install.md)
 
@@ -99,7 +94,7 @@ The following command will stream the log files of your function app to the comm
 
 	azure site log tail -v <function app name>
 
-### Streaming function app log file with PowerShell
+### Monitoring function app log filea with PowerShell
 
 To get started, [install and configure Azure PowerShell](../powershell-install-configure.md).
 

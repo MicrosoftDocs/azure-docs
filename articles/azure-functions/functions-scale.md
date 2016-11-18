@@ -29,7 +29,7 @@ If you are not yet familiar with Azure Functions, see the [Azure Functions overv
 
 ## Choose a service plan
 
-When you create a new function app, you must configure a hosting plan for functions contained in the app. The available hosting plans are the **Consumption Plan** or the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Currently this choice must be made during the creation of the function app. You can not change between these two options after creation without recreating the function app. You can scale between tiers on the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). No changes are currently supported for the Consumption plan as scaling is dynamic.
+When you create a function app, you must configure a hosting plan for functions contained in the app. The available hosting plans are: the **Consumption Plan** and the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). Currently this choice must be made during the creation of the function app. You can not change between these two options after creation. You can scale between tiers on the [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). No changes are currently supported for the Consumption plan as scaling is dynamic.
 
 ### Consumption plan
 
