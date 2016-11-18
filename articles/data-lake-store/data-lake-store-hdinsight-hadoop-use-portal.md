@@ -138,7 +138,7 @@ In the query above,
 
 
 ### Use Data Lake Store with Spark cluster
-You can use a Spark cluster to run Spark jobs on data that is stored in Data Lake Store. For instructions on this, see [Use HDInsight Spark cluster to analyze data in Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md).
+You can use a Spark cluster to run Spark jobs on data that is stored in Data Lake Store. For instructions on this, see [Use HDInsight Spark cluster to analyze data in Data Lake Store](../hdinsight/hdinsight-apache-spark-use-with-data-lake-store.md).
 
 
 ### Use Data Lake Store in a Storm topology
