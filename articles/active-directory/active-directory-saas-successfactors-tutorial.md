@@ -106,35 +106,38 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
    
 	![Configuring single sign-on][9]
    
-   a. In the **Sign On URL** textbox, type a URL using one of the following patterns: 
+	a. In the **Sign On URL** textbox, type a URL using one of the following patterns: 
    
-   |  |
-   | --- |
-   | `https://<company name>.successfactors.com/<company name>` |
-   | `https://<company name>.sapsf.com/<company name>` |
-   | `https://<company name>.successfactors.eu/<company name>` |
-   | `https://<company name>.sapsf.eu` |
+	|  |
+	| --- |
+	| `https://<company name>.successfactors.com/<company name>` |
+	| `https://<company name>.sapsf.com/<company name>` |
+	| `https://<company name>.successfactors.eu/<company name>` |
+	| `https://<company name>.sapsf.eu` |
    
-   b. In the **Reply URL** textbox, type a URL using one of the following patterns: 
+	b. In the **Reply URL** textbox, type a URL using one of the following patterns: 
    
-   |  |
-   | --- |
-   | `https://<company name>.successfactors.com/<company name>` |
-   | `https://<company name>.sapsf.com/<company name>` |
-   | `https://<company name>.successfactors.eu/<company name>` |
-   | `https://<company name>.sapsf.eu` |
-   | `https://<company name>.sapsf.eu/<company name>` |
+	|  |
+	| --- |
+	| `https://<company name>.successfactors.com/<company name>` |
+	| `https://<company name>.sapsf.com/<company name>` |
+	| `https://<company name>.successfactors.eu/<company name>` |
+	| `https://<company name>.sapsf.eu` |
+	| `https://<company name>.sapsf.eu/<company name>` |
    
-   c. Click **Next**. 
+	c. Click **Next**. 
 
-    > [!TIP] 
+    > [!NOTE]
     > Please note that these are not the real values. You have to update these values with the actual Sign On URL and Reply URL. To get these values, contact [SuccessFactors support team](https://www.successfactors.com/en_us/support.html).
 
 1. On the **Configure single sign-on at SuccessFactors** page, click **Download certificate**, and then save the certificate file locally on your computer.
    
 	![Configuring single sign-on][10]
+
 2. In a different web browser window, log into your **SuccessFactors admin portal** as an administrator.
+
 3. Visit **Application Security** and native to **Single Sign On Feature**. 
+
 4. Place any value in the **Reset Token** and click **Save Token** to enable SAML SSO.
    
     ![Configuring single sign-on on app side][11]
