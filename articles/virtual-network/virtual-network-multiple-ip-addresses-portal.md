@@ -62,7 +62,8 @@ To create a multiple IP configurations based on the scenario above by using the 
 
     ![Alt image text](media\\virtual-network-multiple-ip-addresses-portal\\01-portal.PNG)
 
-    >[AZURE.NOTE] Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.
+    >[!NOTE] 
+    > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.
 
 1. Next, to add an IP configuration, under the **IP configurations** section of your network interface, click on **+Add**.
 
