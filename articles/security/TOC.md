@@ -9,6 +9,7 @@
 ### [Data security and encryption best practices](azure-security-data-encryption-best-practices.md)
 ### [Storage security guide](../storage/storage-security-guide.md?toc=%2fazure%2fsecurity%2ftoc.json)
 ## [Compute security](security-virtual-machines-overview.md)
+### [Best practices for IaaS workloads ](azure-security-iaas.md)
 ### [Microsoft Antimalware](azure-security-antimalware.md)
 ### [Disk encryption](azure-security-disk-encryption.md)
 ### [Encrypt Azure VM](../security-center/security-center-disk-encryption.md?toc=%2fazure%2fsecurity%2ftoc.json)

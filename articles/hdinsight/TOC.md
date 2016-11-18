@@ -11,11 +11,11 @@
 # Get Started
 ## [Start with Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
 ## [Start with Interactive Hive preview](hdinsight-hadoop-use-interactive-hive.md)
-## [Start with R Server preview](hdinsight-hadoop-r-server-get-started.md)
+## [Start with R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Start with Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Start with HBase & NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Start with Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
-## [Start with Kafka preview](hdinsight-apache-kafka-get-started.md )
+## [Start with Kafka preview](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
 ## [Tools for Visual Studio](hdinsight-hadoop-visual-studio-tools-get-started.md)
@@ -49,7 +49,7 @@
 ### [Use DataFu with Pig](hdinsight-hadoop-use-pig-datafu-udf.md)
 ### [On-demand clusters](hdinsight-hadoop-create-linux-clusters-adf.md)
 ### [Submit Hadoop jobs](hdinsight-submit-hadoop-jobs-programmatically.md)
-## Use R Server preview
+## Use R Server
 ### [Storage options](hdinsight-hadoop-r-server-storage.md)
 ### [Install RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Compute contexts](hdinsight-hadoop-r-server-compute-contexts.md)
@@ -180,12 +180,12 @@
 #### [Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Reference
-## [REST API reference](https://msdn.microsoft.com/library/mt622197.aspx)
-## [Spark REST API for remote jobs](https://msdn.microsoft.com/library/mt613023.aspx)
-## [PowerShell cmdlets](https://msdn.microsoft.com/library/mt438705.aspx)
+## [PowerShell cmdlets](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
 ## [.NET SDK for Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
 ## [.NET SDK for HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
 ## [.NET library for Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST API reference](/rest/api/hdinsight/)
+## [Spark REST API for remote jobs](/rest/api/hdinsightspark/)
 
 # Related
 ## Windows clusters

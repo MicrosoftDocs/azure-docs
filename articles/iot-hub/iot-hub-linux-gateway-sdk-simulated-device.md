@@ -17,7 +17,7 @@ ms.date: 08/29/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK (beta) – send device-to-cloud messages with a simulated device using Linux
+# Azure IoT Gateway SDK – send device-to-cloud messages with a simulated device using Linux
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## Build and run the sample

@@ -1,14 +1,14 @@
 ---
 title: Create a Service Bus namespace using the Azure portal | Microsoft Docs
 description: In order to get started with Service Bus, you will need a namespace. Here's how to create one using the Azure portal.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: jtaubensee
 manager: timlt
 editor: ''
 
 ms.assetid: fbb10e62-b133-4851-9d27-40bd844db3ba
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: get-started-article
 ms.tgt_pltfrm: dotnet
