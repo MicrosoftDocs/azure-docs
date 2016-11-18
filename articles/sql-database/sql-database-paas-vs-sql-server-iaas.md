@@ -58,10 +58,10 @@ The following table summarizes the main characteristics of SQL Database and SQL 
 |  | SQL Database | SQL Server in an Azure Virtual Machine |
 | --- | --- | --- |
 | **Best for:** |New cloud-designed applications that have time constraints in development and marketing. |Existing applications that require fast migration to the cloud with minimal changes. Rapid development and test scenarios when you do not want to buy on-premises non-production SQL Server hardware. |
-| Teams that need built-in high availability, disaster recovery, and upgrade for the database. |Teams that can configure and manage high availability, disaster recovery, and patching for SQL Server. Some provided automated features dramatically simplify this. | |
-| Teams that do not want to manage the underlying operating system and configuration settings. |If you need a customized environment with full administrative rights. | |
-| Databases of up to 1 TB, or larger databases that can be [horizontally or vertically partitioned](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) using a scale-out pattern. |SQL Server instances with up to 64 TB of storage. The instance can support as many databases as needed. | |
-| [Building Software-as-a-Service (SaaS) applications](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migrating and building enterprise and hybrid applications. | |
+| **Best for:** | Teams that need built-in high availability, disaster recovery, and upgrade for the database. |Teams that can configure and manage high availability, disaster recovery, and patching for SQL Server. Some provided automated features dramatically simplify this. |
+| **Best for:** | Teams that do not want to manage the underlying operating system and configuration settings. |If you need a customized environment with full administrative rights. |
+| **Best for:** | Databases of up to 1 TB, or larger databases that can be [horizontally or vertically partitioned](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling) using a scale-out pattern. |SQL Server instances with up to 64 TB of storage. The instance can support as many databases as needed. |
+| **Best for:** | [Building Software-as-a-Service (SaaS) applications](sql-database-design-patterns-multi-tenancy-saas-applications.md). |Migrating and building enterprise and hybrid applications. |
 |  | | |
 | **Resources:** |You do not want to employ IT resources for configuration and management of the underlying infrastructure, but want to focus on the application layer. |You have some IT resources for configuration and management. Some provided automated features dramatically simplify this. |
 | **Total cost of ownership:** |Eliminates hardware costs and reduces administrative costs. |Eliminates hardware costs. |
