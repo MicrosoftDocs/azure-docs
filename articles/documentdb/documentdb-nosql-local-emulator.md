@@ -69,7 +69,6 @@ Additionally, just as the Azure DocumentDB service, the DocumentDB Emulator supp
 
 ## Start and initialize the DocumentDB Emulator
 
-<<<<<<< HEAD
 To start the Azure DocumentDB Emulator, select the Start button or press the Windows key. Begin typing **DocumentDB Emulator**, and select the emulator from the list of applications. 
 
 ![Select the Start button or press the Windows key, begin typing **DocumentDB Emulator**, and select the emulator from the list of applications](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-start.png)
@@ -184,8 +183,7 @@ Because the DocumentDB Emulator provides an emulated environment running on a lo
 * The DocumentDB Emulator does not simulate different [DocumentDB consistency levels](documentdb-consistency-levels.md).
 * The DocumentDB Emulator does not simulate [multi-region replication](documentdb-distribute-data-globally.md).
 * The DocumentDB Emulator does not support the service quota overrides that are available in the Azure DocumentDB service (e.g. document size limits, increased partitioned collection storage).
-* As the DocumentDB Emulator might not be up to date with the most recent changes with the Azure DocumentDB service, please [DocumentDB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate production throughput (RUs) needs of your application.
-
+* As your copy of the DocumentDB Emulator might not be up to date with the most recent changes with the Azure DocumentDB service, please [DocumentDB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate production throughput (RUs) needs of your application.
 
 ## Next steps
 * To learn more about DocumentDB, see [Introduction to Azure DocumentDB](documentdb-introduction.md)
