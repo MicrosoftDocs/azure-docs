@@ -102,7 +102,7 @@ The PowerShell script can be downloaded from [GitHub](https://github.com/hdinsig
 While creating reverse DNS zones, the script will prompt you to enter a network ID. This network ID must be the Resource Manager virtual network’s address prefix. For example, if your Resource Manager virtual network subnet address space is 10.2.0.0/24, enter 10.2.0.0/24 when the tool prompts you for the network ID. 
 
 ## Create HDInsight cluster
-In this section, you create a Linux-based Hadoop cluster in HDInsight using either the Azure portal or [Azure Resource Manager template](../resource-group-template-deploy.md). For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using Resource Manager template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
+In this section, you create a Linux-based Hadoop cluster in HDInsight using either the Azure portal or [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md). For other cluster creation methods and understanding the settings, see [Create HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md). For more information about using Resource Manager template to create Hadoop clusters in HDInsight, see [Create Hadoop clusters in HDInsight using Resource Manager templates](hdinsight-hadoop-create-windows-clusters-arm-templates.md)
 
 **To create a Domain-joined HDInsight cluster using the Azure portal**
 
