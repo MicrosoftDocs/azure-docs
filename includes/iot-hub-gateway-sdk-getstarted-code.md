@@ -68,9 +68,9 @@ all the modules in this sample are dynamic libraries written in C. Please refer 
 samples for more information on using modules written in different languages.
     * **name**: name of the loader used to load the module.  
     * **entrypoint**: the path to the library containing the module. For Linux this is a .so 
-    file, on Windows this is a .dll file. Note that this entrypoint is specific to the type of 
-    loader being used. For example, the Node.js loader's entrypoint is a .js file, the Java 
-    loader's entery point is a classpath + class name, and the .Net loader's entry point is an 
+    file, on Windows this is a .dll file. Note that this entry point is specific to the type of 
+    loader being used. For example, the Node.js loader's entry point is a .js file, the Java 
+    loader's entry point is a classpath + class name, and the .Net loader's entry point is an 
     assembly name + class name.
 
 * **args**: any configuration information the module needs.
