@@ -63,11 +63,11 @@ In this article, you deploy a sample application on Raspberry Pi 3. The sample a
 ## Deploy and run the sample application
 Deploy and run the sample application on Pi by running the following command:
 
-```
-gulp
+```bash
+gulp deploy && gulp run
 ```
 
-The gulp command runs the install-tools task first. Then it deploys the sample application to Pi. Finally, it runs the application on Pi and a separate task on your host computer to send 20 blink messages to Pi from your IoT hub.
+The command deploys the sample application to Pi. Then, it runs the application on Pi and a separate task on your host computer to send 20 blink messages to Pi from your IoT hub.
 
 After the sample application runs, it starts listening to messages from your IoT hub. Meanwhile, the gulp task sends several "blink" messages from your IoT hub to Pi. For each blink message that Pi receives, the sample application calls the `blinkLED` function to blink the LED.
 
