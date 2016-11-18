@@ -89,7 +89,7 @@ When you redeem a refresh token for a new access token, you will receive a new r
 
 ## Validating access tokens
 
-As a developer, you should validate both access tokens and id_tokens that your app receives from the Azure AD endpoint. In order to validate access tokens, your app should validate the issuer, the audience and the signing tokens.   
+As a developer, you should validate both access tokens and id_tokens that your app receives from the Azure AD endpoint. In order to validate access tokens, your app should validate the issuer, the audience and the signing tokens. These need to be validated against the values in the OpenID discovery document. For example, the tenant independent version of the document is located at [https://login.windows.net/common/.well-known/openid-configuration](https://login.windows.net/common/.well-known/openid-configuration). Azure AD middleware has built-in capabilities for validating access tokens, and you can browse through our [samples](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-code-samples) to find one in the language of your choice. For more information on how to explicitly validate a JWT token, please see the [manual JWT validation sample](https://github.com/Azure-Samples/active-directory-dotnet-webapi-manual-jwt-validation)  
 
 ## Validating id_tokens
 
