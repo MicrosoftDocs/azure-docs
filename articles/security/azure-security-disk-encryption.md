@@ -45,7 +45,8 @@ The solution supports the following for IaaS VMs when enabled in Microsoft Azure
 * Disable encryption on data drives for Linux IaaS VMs
 * Enable encryption on IaaS VMs running Windows Client OS
 * Enable encryption on volumes with mount paths
-* Enable encryption on Linux VMs configured with Software-based RAID system 
+* Enable encryption on Linux VMs configured with disk striping (RAID) using mdadm.
+* Enable encryption on Linux VMs using LVM for data disks.
 * Enable encryption on Windows VMs configured with Storage Spaces
 * All Azure public regions are supported
 
@@ -55,7 +56,6 @@ The solution does not support the following scenarios, features and technology i
 * Disable encryption on OS drive for Linux IaaS VMs
 * IaaS VMs created using classic VM creation method
 * Integration with your on-premises Key Management Service
-* Windows Server 2016 Technical Preview is not supported in this release
 * Azure Files (Azure file share), Network file system (NFS), Dynamic volumes, Windows VMs configured with Software-based RAID systems
 
 ### Encryption Features
@@ -105,7 +105,7 @@ The high level steps required to disable disk encryption for IaaS VM’s are:
 The following are prerequisites to enable Azure Disk Encryption on Azure IaaS VMs for the supported scenarios called out in the overview section
 
 * User must have a valid active Azure subscription to create resources in Azure in the regions supported
-* Azure Disk Encryption is supported on the following Windows server SKU’s - Windows Server 2008 R2, Windows Server 2012 and Windows Server 2012 R2. Windows Server 2016 Technical Preview is not supported in this release.
+* Azure Disk Encryption is supported on the following Windows server SKU’s - Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2, and Windows Server 2016.
 * Azure Disk Encryption is supported on the following Windows client SKU’s - Windows 8 Client and Windows 10 Client.
 
 **Note**: For Windows Server 2008 R2, .Net framework 4.5 MUST be installed before enabling encryption in Azure. You can install it from Windows update by installing the optional update "Microsoft .NET Framework 4.5.2 for Windows Server 2008 R2 x64-based Systems ([KB2901983](https://support.microsoft.com/kb/2901983))"
