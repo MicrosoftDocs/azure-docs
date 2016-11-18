@@ -66,7 +66,7 @@ Now you can create your VM and its environment. Remember to replace the `----pub
 az vm create \
 --image credativ:Debian:8:latest \
 --admin-username ops \
---ssh-key-value ~/.ssh/id_rsa.pub \
+--ssh-publickey-file ~/.ssh/id_rsa.pub \
 --public-ip-address-dns-name mydns \
 --resource-group myResourceGroup \
 --location westus \
