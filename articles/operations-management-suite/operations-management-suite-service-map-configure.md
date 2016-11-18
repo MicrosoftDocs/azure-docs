@@ -16,9 +16,9 @@
    ms.author="daseidma;bwren" />
 
 # Configuring Service Map solution in Operations Management Suite (OMS)
-![Alert Management icon](media/operations-management-suite-application-dependency-monitor/icon.png) Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services.  Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
+![Alert Management icon](media/oms-service-map/icon.png) Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services.  Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
 
-This article describes the details of configuring Service Map and onboarding agents.  For information on using Service Map, see [Using Service Map solution in Operations Management Suite (OMS)](operations-management-suite-application-dependency-monitor.md)
+This article describes the details of configuring Service Map and onboarding agents.  For information on using Service Map, see [Using Service Map solution in Operations Management Suite (OMS)](operations-management-suite-application-service-map.md)
 
 
 ## Connected sources
@@ -26,23 +26,23 @@ The following table describes the connected sources that are supported by the Se
 
 | Connected Source | Supported | Description |
 |:--|:--|:--|
-| [Windows agents](../log-analytics/log-analytics-windows-agents.md) | Yes | Service Map analyzes and collects data from Windows agent computers.  <br><br>Note that in addition to the OMS agent, Windows agents require the Microsoft Dependency Agent.  Please see the [Supported Operating Systems](#supported-operating-systems) for a complete list of operating system versions. |
-| [Linux agents](../log-analytics/log-analytics-linux-agents.md) | Yes | Service Map analyzes and collects data from Linux agent computers.  <br><br>Note that in addition to the OMS agent, Linux agents require the Microsoft Dependency Agent.  Please see the [Supported Operating Systems](#supported-operating-systems) for a complete list of operating system versions. |
-| [SCOM management group](../log-analytics/log-analytics-om-agents.md) | Yes | Service Map analyzes and collects data from Windows and Linux agents in a connected SCOM management group. <br><br>A direct connection from the SCOM agent computer to OMS is required. Data is sent directly from forwarded from the management group to the OMS repository.|
+| [Windows agents](../log-analytics/log-analytics-windows-agents.md) | Yes | Service Map analyzes and collects data from Windows agent computers.  <br><br>In addition to the OMS Agent, Windows agents require the Microsoft Dependency Agent.  See the [Supported Operating Systems](#supported-operating-systems) for a complete list of operating system versions. |
+| [Linux agents](../log-analytics/log-analytics-linux-agents.md) | Yes | Service Map analyzes and collects data from Linux agent computers.  <br><br>In addition to the OMS Agent, Linux agents require the Microsoft Dependency Agent.  See the [Supported Operating Systems](#supported-operating-systems) for a complete list of operating system versions. |
+| [SCOM management group](../log-analytics/log-analytics-om-agents.md) | Yes | Service Map analyzes and collects data from Windows and Linux agents in a connected System Center Operations Manager (SCOM) management group. <br><br>A direct connection from the SCOM agent computer to OMS is required. Data is sent directly from forwarded from the management group to the OMS repository.|
 | [Azure storage account](../log-analytics/log-analytics-azure-storage.md) | No | Service Map collects data from agent computers, so there is no data from it to collect from Azure storage. |
 
-Note that Service Map only supports 64-bit platforms.
+Service Map only supports 64-bit platforms.
 
-On Windows, the Microsoft Monitoring Agent (MMA) is used by both SCOM and OMS to gather and send monitoring data.  (This agent is called the SCOM Agent, OMS Agent, MMA, or Direct Agent, depending on context.)  SCOM and OMS provide different out of the box versions of MMA, but these versions can each report to SCOM, to OMS, or to both.  On Linux, the OMS Agent for Linux gathers and sends monitoring data to OMS.  You can use Service Map on servers with OMS Direct Agents or on servers that are attached to OMS via SCOM Management Groups.  For the purpose of this documentation, we will refer to all of these agents – whether on Linux or Windows, whether connected to a SCOM MG or directly to OMS – as the "OMS Agent", unless the specific deployment name of the agent is needed for context.
+On Windows, the Microsoft Monitoring Agent (MMA) is used by both SCOM and OMS to gather and send monitoring data.  (This agent is called the SCOM Agent, OMS Agent, MMA, or Direct Agent, depending on context.)  SCOM and OMS provide different out of the box versions of MMA, but these versions can each report to SCOM, to OMS, or to both.  On Linux, the OMS Agent for Linux gathers and sends monitoring data to OMS.  You can use Service Map on servers with OMS Direct Agents or on servers that are attached to OMS via SCOM Management Groups.  In this documentation, we will refer to all agents – whether Linux or Windows, whether connected to a SCOM MG or directly to OMS – as the "OMS Agent", unless the specific deployment name of the agent is needed for context.
 
 The Service Map agent does not transmit any data itself, and it does not require any changes to firewalls or ports.  Service Map’s data is always transmitted by the OMS Agent to OMS, either directly or via the OMS Gateway.
 
-![Service Map Agents](media/operations-management-suite-application-dependency-monitor/agents.png)
+![Service Map Agents](media/oms-service-map/agents.png)
 
 If you are a SCOM customer with a Management Group connected to OMS:
 
 - If your SCOM agents can access the internet to connect to OMS, no additional configuration is required.  
-- If your SCOM agents cannot access OMS over the internet, you will need to configure the OMS Gateway to work with SCOM.
+- If your SCOM agents cannot access OMS over the internet, you need to configure the OMS Gateway to work with SCOM.
   
 If you are using the OMS Direct Agent, you need to configure the OMS Agent itself to connect to OMS or to your OMS Gateway.  The OMS Gateway can be downloaded from [https://www.microsoft.com/en-us/download/details.aspx?id=52666](https://www.microsoft.com/en-us/download/details.aspx?id=52666)
 
@@ -56,9 +56,9 @@ Configuration of OMS should happen in only one of the following locations:
 - The SCOM Console Operations Management Suite panel for Managed Computers
 - Azure Operational Insights configuration in the MMA properties
 
-Using both configurations with the same workspace in each will cause duplication of data. Using both with different workspaces can result in conflicting configuration (one with the Service Map solution enabled and the other without) that may prevent data from flowing to Service Map completely.  
+Using both configurations with the *same* workspace in each will cause duplication of data. Using both configurations with *different* workspaces can result in conflicting configuration (one with the Service Map solution enabled and the other without) that may prevent data from flowing to Service Map completely.  
 
-Note that even if the machine itself isn’t specified in the SCOM Console’s OMS configuration, if an Instance Group such as “Windows Server Instances Group” is active, it may still result in the machine receiving OMS configuration via SCOM.
+Even if the machine itself isn’t specified in the SCOM Console’s OMS configuration, if an Instance Group such as “Windows Server Instances Group” is active, it may still result in the machine receiving OMS configuration via SCOM.
 
 
 
@@ -77,23 +77,23 @@ In addition to Windows and Linux computers have an agent installed and connected
 Service Map will deliver BlueStripe technology into OMS in phases. FactFinder is still supported for existing customers but is no longer available for individual purchase.  This preview version of the Dependency Agent can only communicate with OMS.  If you are a current FactFinder customer, please identify a set of test servers for Service Map that are not managed by FactFinder. 
 
 ### Download the Dependency Agent
-In addition to the Microsoft Management Agent (MMA) and OMS Linux Agent which provide the connection between the computer and OMS, all computers analyzed by Service Map must have the Dependency Agent installed.  On Linux, the OMS Agent for Linux must be installed before the Dependency Agent. 
+In addition to the Microsoft Management Agent (MMA) and OMS Linux Agent, which provide the connection between the computer and OMS, all computers analyzed by Service Map must have the Dependency Agent installed.  On Linux, the OMS Agent for Linux must be installed before the Dependency Agent. 
 
 ![Service Map tile](media/oms-service-map/additional_configuration.png)
 
-In order to download the Dependency Agent, click **Configure Solution** in the **Service Map** tile to open the **Dependency Agent** blade.  The Dependency Agent blade has links for the Windows and the Linux agents. Click the appropriate link to download each agent. See the following sections for details on installing the agent on different systems.
+To download the Dependency Agent, click **Configure Solution** in the **Service Map** tile to open the **Dependency Agent** blade.  The Dependency Agent blade has links for the Windows and the Linux agents. See the following sections for details on installing the agent on different systems.
 
 ### Install the Dependency Agent
 
 #### Microsoft Windows
 Administrator privileges are required to install or uninstall the agent.
 
-The Dependency Agent is installed on Windows computers with Dependency-Agent-Windows.exe. If you run this executable without any options, then it will start a wizard that you can follow to perform the installation interactively.  
+The Dependency Agent is installed on Windows computers with Dependency-Agent-Windows.exe. If you run this executable without any options, then it will start a wizard that you can follow to install interactively.  
 
-Use the following steps to install the Dependency Agent on each Windows computer.
+Use the following steps to install the Dependency Agent on each Windows computer:
 
-1.	Ensure that the OMS agent is installed using the instructions at Connect computers directly to OMS.
-2.	Download the Windows agent and run it with the following command.<br>*Dependency-Agent-Windows.exe*
+1.	Ensure that the OMS Agent is installed using the instructions at Connect computers directly to OMS.
+2.	Download the Windows agent and run it with the following command: <br>*Dependency-Agent-Windows.exe*
 3.	Follow the wizard to install the agent.
 4.	If the Dependency Agent fails to start, check the logs for detailed error information. On Windows agents, the log directory is *C:\Program Files\Microsoft Dependency Agent\logs*. 
 
@@ -105,23 +105,23 @@ Root access is required to install or configure the agent.
 
 The Dependency Agent is installed on Linux computers with Dependency-Agent-Linux64.bin, a shell script with a self-extracting binary. You can run the file with sh or add execute permissions to the file itself.
  
-Use the following steps to install the Dependency Agent on each Linux computer.
+Use the following steps to install the Dependency Agent on each Linux computer:
 
-1.	Ensure that the OMS agent is installed using the instructions at [Collect and manage data from Linux computers.  This needs to be installed before the Linux Dependency Agent](https://technet.microsoft.com/library/mt622052.aspx).
-2.	Install the Linux Dependency agent as root using the following command.<br>*sh Dependency-Agent-Linux64.bin*.
+1.	Ensure that the OMS Agent is installed using the instructions at [Collect and manage data from Linux computers.  The OMS Agent needs to be installed before the Linux Dependency Agent](https://technet.microsoft.com/library/mt622052.aspx).
+2.	Install the Linux Dependency agent as root using the following command:<br>*sh Dependency-Agent-Linux64.bin*.
 3.	If the Dependency Agent fails to start, check the logs for detailed error information. On Linux agents, the log directory is */var/opt/microsoft/dependency-agent/log*.
 
 ### Uninstalling the Dependency Agent on Linux
-To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the proxy which is installed automatically with the agent.  You can uninstall both with the following single command.
+To completely uninstall the Dependency Agent from Linux, you must remove the agent itself and the proxy, which is installed automatically with the agent.  You can uninstall both with the following single command:
 
 	rpm -e dependency-agent dependency-agent-connector
 
 
 ### Installing from a Command Line
-The previous section provides guidance on installing the Dependency Monitor agent using default options.  The sections below provide guidance for installing the agent from a command line using custom options.
+The previous section provides guidance on installing the Dependency Monitor agent using default options.  The following sections provide guidance for installing the agent from a command line using custom options.
 
 #### Windows
-Use options from the table below to perform the installation from a command line. To see a list of the installation flags run the installer with the /? flag as follows.
+Use options from the following table to install from a command line. To see a list of the installation flags run the installer with the /? flag as follows.
 
 	Dependency-Agent-Windows.exe /?
 
@@ -133,7 +133,7 @@ Files for the Windows Dependency Agent are placed in *C:\Program Files\Microsoft
 
 
 #### Linux
-Use options from the table below to perform the installation. To see a list of the installation flags run the installation program with the -help flag as follows.
+Use options from the following table to install. To see a list of the installation flags run the installation program with the -help flag as follows.
 
 	Dependency-Agent-Linux64.bin -help
 
@@ -142,7 +142,7 @@ Use options from the table below to perform the installation. To see a list of t
 | -s | Perform a silent installation with no user prompts. |
 | --check | Checks permissions and operating system but does not install the agent. |
 
-Files for the Dependency Agent are placed in the following directories.
+Files for the Dependency Agent are placed in the following directories:
 
 | Files | Location |
 |:--|:--|
@@ -170,7 +170,7 @@ The Support Data Package is saved in the %USERPROFILE% directory for the current
 #### Microsoft Dependency Agent Management Pack for MMA
 The Dependency Agent Management Pack runs inside Microsoft Management Agent.  It receives data from the Dependency Agent and forwards it to the Service Map cloud service.
   
-Verify that the management pack is downloaded by performing the following steps.
+Verify that the management pack is downloaded by performing the following steps:
 
 1.	Look for a file called Microsoft.IntelligencePacks.ApplicationDependencyMonitor.mp in C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.  
 2.	If the file is not present and the agent is connected to a SCOM management group, then verify that it has been imported into SCOM by checking Management Packs in the Administration workspace of the Operations Console.
@@ -216,7 +216,7 @@ The log for the OMI and SCX components which provide performance metrics data ar
 
 
 ## Data collection
-You can expect each agent to transmit roughly 25MB per day, depending on how complex your system dependencies are.  Service Map dependency data is sent by each agent every 15 seconds.  
+You can expect each agent to transmit roughly 25 MB per day, depending on how complex your system dependencies are.  Service Map dependency data is sent by each agent every 15 seconds.  
 
 The Dependency Agent typically consumes 0.1% of system memory and 0.1% of system CPU.
 
@@ -235,7 +235,7 @@ The following sections list the supported operating systems for the Dependency A
 - Windows 8
 - Windows 7
 
-### Red Hat Enterprise Linux, CentOS Linux and Oracle Linux (with RHEL Kernel)
+### Red Hat Enterprise Linux, CentOS Linux, and Oracle Linux (with RHEL Kernel)
 - Only default and SMP Linux kernel releases are supported.
 - Non-standard kernel releases, such as PAE and Xen, are not supported for any Linux distribution. For example, a system with the release string of "2.6.16.21-0.8-xen" is not supported.
 - Custom kernels, including recompiles of standard kernels, are not supported
@@ -308,11 +308,11 @@ The following sections list the supported operating systems for the Dependency A
 | 10 SP4 | 2.6.16.60 |
 
 ## Diagnostic and usage data
-Microsoft automatically collects usage and performance data through your use of the Service Map service. Microsoft uses this Data to provide and improve the quality, security and integrity of the Service Map service. Data includes information about the configuration of your software like operating system and version and also includes IP address, DNS name, and Workstation name in order to provide accurate and efficient troubleshooting capabilities. We do not collect names, addresses or other contact information.
+Microsoft automatically collects usage and performance data through your use of the Service Map service. Microsoft uses this Data to provide and improve the quality, security and integrity of the Service Map service. Data includes information about the configuration of your software, like operating system and version, and also includes IP address, DNS name, and Workstation name in order to provide accurate and efficient troubleshooting capabilities. We do not collect names, addresses, or other contact information.
 
 For more information on data collection and usage, please see the [Microsoft Online Services Privacy Statement](https://go.microsoft.com/fwlink/?LinkId=512132).
 
 
 
 ## Next steps
-- Learn how to [use Service Map](operations-management-suite-application-dependency-monitor.md) once it has been deployed and configured.
+- Learn how to [use Service Map](operations-management-suite-application-service-map.md) once it has been deployed and configured.

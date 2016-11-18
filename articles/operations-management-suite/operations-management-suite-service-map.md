@@ -16,18 +16,18 @@
    ms.author="daseidma;bwren" />
 
 # Using Service Map solution in Operations Management Suite (OMS)
-![Alert Management icon](media/operations-management-suite-application-dependency-monitor/icon.png) Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services.  Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
+![Alert Management icon](media/oms-service-map/icon.png) Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services.  Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
 
-This article describes the details of using Service Map.  For information on configuring Service Map and onboarding agents, see [Configuring Service Map solution in Operations Management Suite (OMS)](operations-management-suite-application-dependency-monitor-configure.md)
+This article describes the details of using Service Map.  For information on configuring Service Map and onboarding agents, see [Configuring Service Map solution in Operations Management Suite (OMS)](operations-management-suite-service-map-configure.md)
 
 
 ## Use Cases: Make Your IT Processes Dependency Aware
 
 ### Discovery
-Service Map automatically builds a common reference map of dependencies across your servers, processes, and 3rd party services.  It discovers and maps all TCP dependencies, identifying surprise connections, remote 3rd party systems you depend on, and dependencies to traditional dark areas of your network such as DNS and AD.  Service Map discovers failed network connections that your managed systems are attempting to make, helping you identify potential server misconfiguration, service outages, and network issues.
+Service Map automatically builds a common reference map of dependencies across your servers, processes, and third-party services.  It discovers and maps all TCP dependencies, identifying surprise connections, remote third-party systems you depend on, and dependencies to traditional dark areas of your network such as DNS and AD.  Service Map discovers failed network connections that your managed systems are attempting to make, helping you identify potential server misconfiguration, service outages, and network issues.
 
 ### Incident Management
-Service Map helps eliminate the guesswork of problem isolation by showing you how systems are connected and affecting each other.  In addition to failed connections, information about connected clients help identify misconfigured load balancers, surprising or excessive load on critical services, and rogue clients such as developer machines talking to production systems.  Integrated workflows with OMS Change Tracking also allows you to see whether a change event on a back-end machine or service explains the root cause of an incident.
+Service Map helps eliminate the guesswork of problem isolation by showing you how systems are connected and affecting each other.  In addition to failed connections, information about connected clients helps identify misconfigured load balancers, surprising or excessive load on critical services, and rogue clients such as developer machines talking to production systems.  Integrated workflows with OMS Change Tracking also allow you to see whether a change event on a back-end machine or service explains the root cause of an incident.
 
 ### Migration Assurance
 Service Map allows you to effectively plan, accelerate, and validate Azure migrations, ensuring that nothing is left behind and there are no surprise outages.  You can discover all interdependent systems that need to migrate together, assess system configuration and capacity, and identify whether a running system is still serving users or is a candidate for decommissioning instead of migration.  After the move is done, you can check on client load and identity to verify that test systems and customers are connecting.  If your subnet planning and firewall definitions have issues, failed connections in Service Map maps will point you to the systems that need connectivity.
@@ -44,7 +44,7 @@ Service Map agents gather information about all TCP-connected processes on the s
 
 ![Service Map overview](media/oms-service-map/service-map-overview.png)
 
-Machines can be expanded in the map to show the running processes with active network connections during the selected time range.  When a remote machine with a Service Map agent is expanded to show process details, only those processes communicating with the focus machine are shown.  The count of agentless front-end machines connecting into the focus machine is indicated on the left side of the processes they connect to.  If the focus machine is making a connection to a back-end machine without an agent, that back-end is represented with a node in the map that shows its IPv4 address, and the node can be expanded to show individual ports and services that the focus machine is communicating with.
+Machines can be expanded in the map to show the running processes with active network connections during the selected time range.  When a remote machine with a Service Map agent is expanded to show process details, only those processes communicating with the focus machine are shown.  The count of agentless front-end machines connecting into the focus machine is indicated on the left side of the processes they connect to.  If the focus machine is making a connection to a back-end machine without an agent, that back-end is represented with a node in the map, and the node can be expanded to show individual ports and services that the focus machine is communicating with.
 
 By default, Service Map maps show the last 10 minutes of dependency information.  Using the time controls in the upper left, maps can be queried for historical time ranges, up to one-hour wide, to show how dependencies looked in the past, e.g. during an incident or before a change occurred.    Service Map data is stored for 30 days in paid workspaces, and for 7 days in free workspaces.
 
@@ -81,7 +81,7 @@ Service Map's integration with Change Tracking is automatic when both solutions 
 The Machine Change Tracking Panel shows a list of all changes, with the most recent first, along with a link to drill into Log Search for additional details.
 ![Machine Change Tracking Panel](media/oms-service-map/change-tracking.png)
 
-Following is a drill down view of Configuration Change event after selecting **Show in Log Analytics**.
+Following is a drill-down view of Configuration Change event after selecting **Show in Log Analytics**.
 ![Configuration Change Event](media/oms-service-map/configuration-change-event.png)
 
 
@@ -129,7 +129,7 @@ There are internally generated properties you can use to identify unique process
 
 
 ### ServiceMapComputer_CL records
-Records with a type of **ServiceMapComputer_CL** have inventory data for servers with Service Map agents.  These records have the properties in the following table.  
+Records with a type of **ServiceMapComputer_CL** have inventory data for servers with Service Map agents.  These records have the properties in the following table:
 
 | Property | Description |
 |:--|:--|
@@ -154,7 +154,7 @@ Records with a type of **ServiceMapComputer_CL** have inventory data for servers
 
 
 ### ServiceMapProcess_CL Type records
-Records with a type of **ServiceMapProcess_CL** have inventory data for TCP-connected processes on servers with Service Map agents.  These records have the properties in the following table.
+Records with a type of **ServiceMapProcess_CL** have inventory data for TCP-connected processes on servers with Service Map agents.  These records have the properties in the following table:
 
 | Property | Description |
 |:--|:--|
@@ -207,7 +207,7 @@ Type=ServiceMapComputer_CL OperatingSystemVersion_s = "CentOS" | Distinct Comput
 
 
 ## Diagnostic and usage data
-Microsoft automatically collects usage and performance data through your use of the Service Map service. Microsoft uses this Data to provide and improve the quality, security and integrity of the Service Map service. Data includes information about the configuration of your software like operating system and version and also includes IP address, DNS name, and Workstation name in order to provide accurate and efficient troubleshooting capabilities. We do not collect names, addresses or other contact information.
+Microsoft automatically collects usage and performance data through your use of the Service Map service. Microsoft uses this Data to provide and improve the quality, security, and integrity of the Service Map service. Data includes information about the configuration of your software like operating system and version and also includes IP address, DNS name, and Workstation name in order to provide accurate and efficient troubleshooting capabilities. We do not collect names, addresses, or other contact information.
 
 For more information on data collection and usage, please see the [Microsoft Online Services Privacy Statement](hhttps://go.microsoft.com/fwlink/?LinkId=512132).
 
