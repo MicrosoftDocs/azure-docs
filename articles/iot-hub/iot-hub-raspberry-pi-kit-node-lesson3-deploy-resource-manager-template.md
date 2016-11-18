@@ -59,11 +59,6 @@ Update the `arm-template-param.json` file in Visual Studio Code.
 * Replace **[your IoT Hub name]** with **{my hub name}** that you specified when you [created your IoT hub and registered Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-lesson2-prepare-azure-iot-hub.md).
 * Replace **[prefix string for new resources]** with any prefix you want. The prefix ensures that the resource name is globally unique to avoid conflict. Do not use a dash or number initial in the prefix.
 
-> [!NOTE]
-> You don't need `azure_storage_connection_string` in this article. Keep it as is.
-> 
-> 
-
 After you update the `arm-template-param.json` file, deploy the resources to Azure by running the following command:
 
 ```bash
