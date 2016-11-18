@@ -27,15 +27,15 @@
 
 ### Standard elastic pool limits (continued)
 
-| Pool size (eDTUs)  |  **1200** | **1600** | **2000** | **2500** | **3000** |
-|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |---: |
-| Max storage per pool* | 1.2 TB | 1.6 TB | 2 TB | 2.4 TB | 2.9 TB |
-| Max number DBs per pool | 500 | 500 | 500 | 500 | 500 | 500 |
-| Max concurrent workers per pool |  2400 | 3200 | 4000 | 5000 | 6000 |
-| Max concurrent logins per pool |  2400 | 3200 | 4000 | 5000 | 6000 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |30000 | 30000 |
-| Min eDTUs per database | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} |{0,10,20,<br>50,100} |
-| Max eDTUs per database | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} |
+| Pool size (eDTUs)  |  **1200** | **1600** | **2000** | **2500** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |
+| Max storage per pool* | 1.2 TB | 1.6 TB | 2 TB | 2.4 TB | 
+| Max number DBs per pool | 500 | 500 | 500 | 500 | 500 | 
+| Max concurrent workers per pool |  2400 | 3200 | 4000 | 5000 |
+| Max concurrent logins per pool |  2400 | 3200 | 4000 | 5000 | 
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 |30000 | 
+| Min eDTUs per database | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} | {0,10,20,<br>50,100} |
+| Max eDTUs per database | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | {10,20,<br>50,100} | 
 ||||||||
 
 ### Premium elastic pool limits
@@ -53,15 +53,15 @@
 
 ### Premium elastic pool limits (continued)
 
-| Pool size (eDTUs)  |  **2000** | **2500** | **3000** | **3500** | **4000** |
-|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |---: |
-| Max storage per pool* | 750 GB| 750 GB| 750 GB| 750 GB| 750 GB|
-| Max number DBs per pool | 100 | 100 | 100 | 100 | 100 | 100 |
-| Max concurrent workers per pool |  3200 | 4000 | 4800 | 5600 | 6400 |
-| Max concurrent logins per pool |  3200 | 4000 | 4800 | 5600 | 6400 |
-| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 30000 |
-| Min eDTUs per database | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750,4000} |
-| Max eDTUs per database | {125,250,500,<br>1000,1750} | {125,250,500,<br>1000,1750} | {125,250,500,<br>1000,1750} | {125,250,500,<br>1000,1750} | {125,250,500,<br>1000,1750,4000} |
+| Pool size (eDTUs)  |  **2000** | **2500** | **3000** | **3500** | 
+|:---|---:|---:|---:| ---: | ---: | ---: | ---: |---: |---: |---: |
+| Max storage per pool* | 750 GB| 750 GB| 750 GB| 750 GB| 
+| Max number DBs per pool | 100 | 100 | 100 | 100 | 100 | 
+| Max concurrent workers per pool |  3200 | 4000 | 4800 | 5600 | 
+| Max concurrent logins per pool |  3200 | 4000 | 4800 | 5600 | 
+| Max concurrent sessions per pool | 30000 | 30000 | 30000 | 30000 | 30000 | 
+| Min eDTUs per database | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | {0,25,50,75,<br>125,250,500,<br>1000,1750} | 
+| Max eDTUs per database | {125,250,500,<br>1000,1750} | {125,250,500,<br>1000,1750} | {125,250,500,<br>1000,1750} | {125,250,500,<br>1000,1750} | 
 ||||||||
 
 \* Elastic database share pool storage, so database storage is limited to the smaller of the remaining pool storage or max storage per database
