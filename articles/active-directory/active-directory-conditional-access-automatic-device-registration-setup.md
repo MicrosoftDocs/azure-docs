@@ -137,6 +137,9 @@ For more details about verified domain names, see [Add a custom domain name to A
 
 To get a list of your verified company domains, you can use the [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain) cmdlet. 
 
+![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
+
+
 Windows 10 and Windows Server 2016 domain joined computers authenticate using Windows Integrated authentication to an active WS-Trust endpoint hosted by AD FS. Ensure that this endpoint is enabled. If you are using the Web Authentication Proxy, also ensure that this endpoint is published through the proxy. The end-point is **adfs/services/trust/13/windowstransport**. 
 
 It should be enabled in the AD FS management console under **Service > Endpoints**. If you don’t have AD FS as your on-premises federation server, follow the instructions of your vendor to make sure the corresponding end-point is enabled. 
