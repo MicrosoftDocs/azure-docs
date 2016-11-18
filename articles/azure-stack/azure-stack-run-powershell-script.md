@@ -23,16 +23,19 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 ## Download and extract Microsoft Azure Stack POC TP2
 Before you start, make sure that you at least 85 GB of space.
 
-1. [Get the link to the Azure Stack POC deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try).
-2. When you receive the email, click on the download link, and then run the AzureStackDownloader.exe file. In the **Azure Stack POC Downloader** window, click **Download** and follow the instructions. After the download completes, the MicrosoftAzureStackPOC.exe file automatically runs.
-3. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
-4. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
-5. Select the Destination for the files to be extracted, click **Next**.
+1. [Go to the Get Started page](https://azure.microsoft.com/overview/azure-stack/try/?v=try), provide your details, and click **Submit**.
+2. Under **Download the software**, click **Azure Stack Technical Preview 2**.
+3. Run the downloaded AzureStackDownloader.exe file.
+4. In the **Azure Stack POC Downloader** window, click **Download**, and choose a folder to download the files.
+5. After the download completes, click **Run** to launch the MicrosoftAzureStackPOC.exe.
+6. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
+7. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
+8. Select the Destination for the files to be extracted, click **Next**.
    * The default is: <drive letter>:\<current folder>\Microsoft Azure Stack POC
-6. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~44.5 GB) and ThirdPartyLicenses.rtf files.
+9. Review the Destination location screen and information of the Self-Extractor Wizard, and then click **Extract** to extract the CloudBuilder.vhdx (~52 GB) and ThirdPartyLicenses.rtf files.
 
 > [!NOTE]
-> After you extract the files, you can delete the zip file to recover space on the machine. Or, you can move the zip file to another location so that if you need to redeploy you don’t need to download the zip files again.
+> After you extract the files, you can delete the exe and bin files to recover space on the machine. Or, you can move these files to another location so that if you need to redeploy you don’t need to download the files again.
 > 
 > 
 
