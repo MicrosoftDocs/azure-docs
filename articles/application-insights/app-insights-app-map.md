@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 06/15/2016
+ms.date: 11/18/2016
 ms.author: awills
 
 ---
@@ -81,6 +81,20 @@ By default, the map summarizes all the data available for the chosen time range.
 To save the filters you have applied, pin the filtered view onto a [dashboard](app-insights-dashboards.md).
 
 ![Pin to dashboard](./media/app-insights-app-map/12.png)
+
+## End-to-end system app maps
+
+If your application has several components - for example, a back end service in addition to the web app - then you can show them all on one integrated app map.
+
+![Set filters](./media/app-insights-app-map/multi-component-app-map.png)
+
+The app map will find server nodes by looking for all Application Insights resources within the current resource group. It will also detect server nodes by following any dependency calls tracked by Application Insights resources in the current resource group.
+
+
+### Setting up
+
+>[!NOTE] End-to-end system app map is in preview. You have to instrument your components with a special version of the SDK, and you have to use a special URL to see the app map. [Learn how to set up end-to-end system app maps](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/app-insights-app-map-preview.md).
+
 
 ## Feedback
 Please [provide feedback through the portal feedback option](app-insights-get-dev-support.md).

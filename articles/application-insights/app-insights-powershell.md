@@ -187,7 +187,7 @@ Here's the complete template I created. It has the application component, availa
       "type": "Microsoft.Insights/components",
       "apiVersion": "2014-04-01",
       "kind": "web",
-      "location": "Central US", // Restricted set of locations permitted.
+      "location": "East US", // Set to preferred location 
       "properties": {
         "Application_Type": "web",
         "Flow_Type": "Brownfield",
@@ -205,7 +205,7 @@ Here's the complete template I created. It has the application component, availa
       "name": "[variables('testName')]",
       "type": "Microsoft.Insights/webtests",
       "apiVersion": "2014-04-01",
-      "location": "Central US", // Must be Central US at present
+      "location": "East US", // Set to preferred location
       "dependsOn": [
         "[resourceId('Microsoft.Insights/components', parameters('appName'))]"
       ],
