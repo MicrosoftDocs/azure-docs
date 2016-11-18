@@ -67,7 +67,7 @@ In this topic, you will learn about the features supported by SQL Database, link
 | Point in time database restore | [Yes](https://msdn.microsoft.com/library/ms179451.aspx) | [Yes](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | Policy-based management | [Yes](https://msdn.microsoft.com/library/bb510667.aspx) | No |
 | Resource governor | [Yes](https://msdn.microsoft.com/library/bb933866.aspx) | [Built-in](sql-database-service-tiers.md) |
-| Restore database from backup | [Yes](https://msdn.microsoft.com/library/ms187048.aspx#Restore data backups) | [[From built-in backups only](sql-database-recovery-using-backups)] |
+| Restore database from backup | [Yes](https://msdn.microsoft.com/library/ms187048.aspx#Restore data backups) | [[From built-in backups only](sql-database-recovery-using-backups.md)] |
 | Row Level Security | [Yes](https://msdn.microsoft.com/library/dn765131.aspx) | [Yes](https://msdn.microsoft.com/library/dn765131.aspx) |
 | Semantic search | [Yes](https://msdn.microsoft.com/library/gg492075.aspx) | No |
 | Sequence numbers | [Yes](https://msdn.microsoft.com/library/ff878058.aspx) | [Yes](https://msdn.microsoft.com/library/ff878058.aspx) |
