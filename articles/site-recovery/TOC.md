@@ -2,7 +2,7 @@
 ## [What is Site Recovery?](site-recovery-overview.md)
 ## [How does Site Recovery work?](site-recovery-components.md)
 ## [What workloads can you protect?](site-recovery-workload.md)
-## [What operating systems are supported?](site-recovery-support-matrix.md)
+## [Site Recovery support matrix](site-recovery-support-matrix.md)
 ## [FAQ](site-recovery-faq.md)
 ## [Watch an introduction](https://www.youtube.com/watch?v=eOOwMQPBKfM)
 

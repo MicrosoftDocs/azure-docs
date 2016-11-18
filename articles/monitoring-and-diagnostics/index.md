@@ -147,7 +147,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
         </a>
     </li>
 	<li>
-        <a href="/rest/api/monitor">
+        <a href="https://msdn.microsoft.com/library/azure/dn931943">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

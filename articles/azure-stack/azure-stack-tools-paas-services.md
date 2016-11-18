@@ -24,18 +24,10 @@ You can deploy [Platform as a Service](https://azure.microsoft.com/overview/what
 ## PaaS services
 
 [Add an App Service resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-overview)
+
 [Add a SQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
+
 [Add a MySQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
-
-
-## Additional PaaS services
-In Technical Preview 1, three PaaS resource providers are now available.
-
-[Add a SQL Server resource provider to Azure Stack](azure-stack-sql-rp-deploy-short.md)
-
-[Add a MySQL resource provider to Azure Stack](azure-stack-mysql-rp-deploy-short.md)
-
-[Add a Web Apps resource provider to Azure Stack](azure-stack-webapps-deploy.md)
 
 
 ## Template tools
