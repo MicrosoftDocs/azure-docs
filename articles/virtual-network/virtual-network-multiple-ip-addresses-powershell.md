@@ -23,7 +23,8 @@ ms.author: jdial;annahar
 > [!div class="op_single_selector"]
 > * [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
-> 
+> * [CLI](virtual-network-multiple-ip-addresses-cli.md)
+>
 
 An Azure Virtual Machine (VM) has one or more network interfaces (NIC) attached to it. Any NIC can have one or more static or dynamic public and private IP addresses assigned to it. Assigning multiple IP addresses to a VM enables the following capabilities:
 
@@ -355,10 +356,10 @@ You can add additional private and public IP addresses to an existing NIC by com
 		Name       PrivateIpAddress PublicIpAddress                                           Primary
 		----       ---------------- ---------------                                           -------
 		IPConfig-1 10.0.0.4         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
-		IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress    True
+		IPConfig-2 10.0.0.5         Microsoft.Azure.Commands.Network.Models.PSPublicIpAddress   False
 		IpConfig-3 10.0.0.6                                                                     False
 
-	Since the **PublicIpAddress** column for *IpConfig-3* is blank, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to creation one:
+	Since the **PublicIpAddress** column for *IpConfig-3* is blank, no public IP address resource is currently associated to it. You can add an existing public IP address resource to IpConfig-3, or enter the following command to create one:
 
 	```powershell
 	$myPublicIp3   = New-AzureRmPublicIpAddress -Name "myPublicIp3" -ResourceGroupName $myResourceGroup `
