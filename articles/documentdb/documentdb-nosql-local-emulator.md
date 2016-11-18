@@ -92,7 +92,7 @@ Once you have the DocumentDB Emulator running on your desktop, you can use any s
 > [!NOTE]
 > When connecting to the emulator, you must set EnableEndpointDiscovery = false in the connection configuration.
 
-If you're using [DocumentDB protocol support for MongoDB](documentdb-protocol-mongodb), please use the following connection string:
+If you're using [DocumentDB protocol support for MongoDB](documentdb-protocol-mongodb.md), please use the following connection string:
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10250/admin?ssl=true&3t.sslSelfSignedCerts=true
 
