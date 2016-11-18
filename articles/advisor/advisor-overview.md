@@ -31,13 +31,13 @@ With Azure Advisor, you can:
 
 You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordashboard). Sign into the [portal](https://portal.azure.com), select **Browse**, and then scroll to **Azure Advisor**. The Advisor dashboard displays personalized recommendations for a selected subscription. The recommendations are divided into four categories. 
 
--   **High Availability** – to ensure and improve the continuity of your business-critical applications
+-   **High Availability** – to ensure and improve the continuity of your business-critical applications. For more information, see [Advisor High Availability recommendations](advisor-high-availability-recommendations.md).
 
--   **Security** – to detect threats and vulnerabilities that could lead to potential security breaches
+-   **Security** – to detect threats and vulnerabilities that could lead to potential security breaches. For more information, see [Advisor Security recommendations](advisor-security-recommendations.md).
 
--   **Performance** – to enhance the speed of your applications
+-   **Performance** – to enhance the speed of your applications. For more information, see [Advisor Performance recommendations](advisor-performance-recommendations.md).
 
--   **Cost** – to optimize and reduce your overall Azure spend
+-   **Cost** – to optimize and reduce your overall Azure spend. For more information, see [Advisor Cost recommendations](advisor-cost-recommendations.md).
 
   ![Advisor recommendation types](./media/advisor-overview/advisor-all-tab-examples.png)
 

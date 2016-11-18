@@ -61,17 +61,18 @@ Perform the following steps from the MAS-CON01 VM, PowerShell console:
 ![Get-PSRepository Result][1]
 4.  Execute the following command:
     Install-Module -Name AzureRM -RequiredVersion 1.2.6 -Scope CurrentUser
-    a.	-Scope CurrentUser is optional
-    b.	If you want everyone to have access to the modules, use an elevated command prompt and leave off the Scope parameter
+    1.	-Scope CurrentUser is optional
+    2.	If you want everyone to have access to the modules, use an elevated command prompt and leave off the Scope parameter
 5.  This command will execute, run for a bit, and install the AzureRM modules from the PSGallery
 6.  To confirm the installation of the AzureRM modules, execute the following commands:
     Get-Module -ListAvailable | where {$_.Name -match "AzureRM"}
     Get-Command -Module AzureRM.AzureStackAdmin
-    a.	If you do not see the AzureRM modules listed, restart the MAS-CON01 VM
-    b.	When the machine has restarted, check for the modules again
+    1.	If you do not see the AzureRM modules listed, restart the MAS-CON01 VM
+    2.	When the machine has restarted, check for the modules again
 7.  The AzureRM modules have now been Installed and can now be used by the CurrentUser
 8.  Exit the PS Console and open another before you start using the cmdlets
->[!NOTE]  
+
+> [!NOTE]  
 > These same instructions can be used to install the AzureRM modules on other machines as well.
 
 ## Using Visual Studio 2015 and Azure Stack TP2 on the MAS-CON01 VM
@@ -94,6 +95,10 @@ The following steps provide guidance on how to install Visual Studio Community 2
 By default, the App Service on Azure Stack installer is set to use the SQL Server that is installed along with the Azure Stack SQL Resource Provider. When you install the SQL Server Resource Provider (SQL RP), ensure you take note of the database administrator username and password. You need both when you install App Service on Azure Stack.
 >[!NOTE]
 > You can deploy and use another server to run SQL Server. You can choose the SQL Server instance to use when you complete the options in the App Service on Azure Stack installer.
+
+## Next steps
+
+- [Install the App Service Resource Provider](azure-stack-app-service-deploy.md)
 
 <!--Image references-->
 [1]: ./media/azure-stack-app-service-before-you-get-started/PSGallery.png
