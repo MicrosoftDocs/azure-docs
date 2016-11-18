@@ -251,12 +251,16 @@ In this section we will demonstrate the following scenarios using Azure portal, 
 * How to change disk caching policy of a data disk attached to a virtual machine.
 
 ### Create an Azure virtual machine using Premium Storage via the Azure portal
-#### 1. Create a Premium Storage account in Azure portal
+
+To create a virtual machine in Premium Storage, you first have to create a Premium Storage account.
+
+#### Create a Premium Storage account in Azure portal
+
 This section shows how to create a Premium Storage account using the Azure portal.
 
-a. Sign in to the [Azure portal](https://portal.azure.com). Check out the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) offer if you do not have a subscription yet.
-b. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**.
-c. Enter a name for your storage account.
+1. Sign in to the [Azure portal](https://portal.azure.com). Check out the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) offer if you do not have a subscription yet.
+2. On the Hub menu, select **New** -> **Data + Storage** -> **Storage account**.
+3. Enter a name for your storage account.
    
    > [!NOTE]
    > Storage account names must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
@@ -264,30 +268,33 @@ c. Enter a name for your storage account.
    > Your storage account name must be unique within Azure. The Azure portal will indicate if the storage account name you select is already in use.
    > 
    > 
-d. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
-e. Specify the performance tier for the storage account as **Premium**.
-f. **Locally-redundant storage (LRS)** is the only available replication option with Premium Storage. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
-g. Select the subscription in which you want to create the new storage account.
-g. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
-i. Select the geographic location for your storage account. You can confirm whether Premium Storage is available in the selected Location by referring to [Azure Services by Region](https://azure.microsoft.com/regions/#services).
-j. Click **Create** to create the storage account.
+4. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
+5. Specify the performance tier for the storage account as **Premium**.
+6. **Locally-redundant storage (LRS)** is the only available replication option with Premium Storage. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
+7. Select the subscription in which you want to create the new storage account.
+8. Specify a new resource group or select an existing resource group. For more information on resource groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+9. Select the geographic location for your storage account. You can confirm whether Premium Storage is available in the selected Location by referring to [Azure Services by Region](https://azure.microsoft.com/regions/#services).
+10. Click **Create** to create the storage account.
 
-#### 2. Create an Azure virtual machine via Azure portal
+#### Create an Azure virtual machine via Azure portal
+
 You must create a Premium Storage supported VM to be able to use Premium Storage. Follow the steps in [Create a Windows virtual machine in the Azure portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to create a new DS, DSv2, GS, or Fs virtual machine.
 
-#### 3. Attach a premium storage data disk via Azure portal
-a. Find the new or existing DS, DSv2, GS, or Fs VM in Azure portal.
-b. In the VM **All Settings**, go to **Disks** and click on **Attach New**.
-c. Enter the name of your data disk and select the **Type** as **Premium**. Select the desired **Size** and **Host caching** setting.
+#### Attach a premium storage data disk via Azure portal
+
+1. Find the new or existing DS, DSv2, GS, or Fs VM in Azure portal.
+2. In the VM **All Settings**, go to **Disks** and click on **Attach New**.
+3. Enter the name of your data disk and select the **Type** as **Premium**. Select the desired **Size** and **Host caching** setting.
    
     ![Premium Disk](./media/storage-premium-storage/Azure_attach_premium_disk.png)
 
-See more detailed steps in [How to attach a data disk in Azure portal](../virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+	See more detailed steps in [How to attach a data disk in Azure portal](../virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-#### 4. Change disk caching policy via Azure portal
-a. Find the new or existing DS, DSv2, GS, or Fs VM in Azure portal.
-b. In the VM All Settings, go to Disks and click on the disk you wish to change.
-c. Change the Host caching option to the desired value, None or ReadOnly or ReadWrite
+#### Change disk caching policy via Azure portal
+
+1. Find the new or existing DS, DSv2, GS, or Fs VM in Azure portal.
+2. In the VM All Settings, go to Disks and click on the disk you wish to change.
+3. Change the Host caching option to the desired value, None or ReadOnly or ReadWrite
 
 > [!WARNING]
 > Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
@@ -295,52 +302,58 @@ c. Change the Host caching option to the desired value, None or ReadOnly or Read
 > 
 
 ### Create an Azure virtual machine using Premium Storage via Azure PowerShell
-#### 1. Create a Premium Storage account in Azure PowerShell
+
+To create a virtual machine in Premium Storage, you first have to create a Premium Storage account.
+
+#### Create a Premium Storage account in Azure PowerShell
+
 This PowerShell example shows how to create a new Premium Storage account and attach a data disk that uses that account to a new Azure virtual machine.
 
-a. Setup your PowerShell environment by following the steps given at [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-b. Start the PowerShell console, connect to your subscription, and run the following PowerShell cmdlet in the console window. As seen in this PowerShell statement, you need to specify the **Type** parameter as **Premium_LRS** when you create a Premium Storage account.
- 
-	```powershell  
-	New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
-	```
+Setup your PowerShell environment by following the steps given at [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
-#### 2. Create an Azure virtual machine via Azure PowerShell
+Start the PowerShell console, connect to your subscription, and run the following PowerShell cmdlet in the console window. As seen in this PowerShell statement, you need to specify the **Type** parameter as **Premium_LRS** when you create a Premium Storage account.
+ 
+```powershell  
+New-AzureStorageAccount -StorageAccountName "yourpremiumaccount" -Location "West US" -Type "Premium_LRS"
+```
+
+#### Create an Azure virtual machine via Azure PowerShell
+
 Next, create a new DS-Series VM and specify that you want Premium Storage by running the following PowerShell cmdlets in the console window. You can create a GS-series VM using the same steps. Specify the appropriate VM size in the commands. For e.g. Standard_GS2:
 
-	```powershell
-	$storageAccount = "yourpremiumaccount"
-	$adminName = "youradmin"
-	$adminPassword = "yourpassword"
-	$vmName ="yourVM"
-	$location = "West US"
-	$imageName = "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201409.01-en.us-127GB.vhd"
-	$vmSize ="Standard_DS2"
-	$OSDiskPath = "https://" + $storageAccount + ".blob.core.windows.net/vhds/" + $vmName + "_OS_PIO.vhd"
-	$vm = New-AzureVMConfig -Name $vmName -ImageName $imageName -InstanceSize $vmSize -MediaLocation $OSDiskPath
-	Add-AzureProvisioningConfig -Windows -VM $vm -AdminUsername $adminName -Password $adminPassword
-	New-AzureVM -ServiceName $vmName -VMs $VM -Location $location
-	```
+```powershell
+$storageAccount = "yourpremiumaccount"
+$adminName = "youradmin"
+$adminPassword = "yourpassword"
+$vmName ="yourVM"
+$location = "West US"
+$imageName = "a699494373c04fc0bc8f2bb1389d6106__Windows-Server-2012-R2-201409.01-en.us-127GB.vhd"
+$vmSize ="Standard_DS2"
+$OSDiskPath = "https://" + $storageAccount + ".blob.core.windows.net/vhds/" + $vmName + "_OS_PIO.vhd"
+$vm = New-AzureVMConfig -Name $vmName -ImageName $imageName -InstanceSize $vmSize -MediaLocation $OSDiskPath
+Add-AzureProvisioningConfig -Windows -VM $vm -AdminUsername $adminName -Password $adminPassword
+New-AzureVM -ServiceName $vmName -VMs $VM -Location $location
+```
 
-#### 3. Attach a premium storage data disk via Azure PowerShell
+#### Attach a premium storage data disk via Azure PowerShell
 If you want more disk space for your VM, attach a new data disk to an existing Premium Storage supported VM after it is created by running the following PowerShell cmdlets in the console window:
 
-	```powershell
-		$storageAccount = "yourpremiumaccount"
-		$vmName ="yourVM"
-		$vm = Get-AzureVM -ServiceName $vmName -Name $vmName
-		$LunNo = 1
-		$path = "http://" + $storageAccount + ".blob.core.windows.net/vhds/" + "myDataDisk_" + $LunNo + "_PIO.vhd"
-		$label = "Disk " + $LunNo
-		Add-AzureDataDisk -CreateNew -MediaLocation $path -DiskSizeInGB 128 -DiskLabel $label -LUN $LunNo -HostCaching ReadOnly -VM $vm | Update-AzureVm
-	```
+```powershell
+$storageAccount = "yourpremiumaccount"
+$vmName ="yourVM"
+$vm = Get-AzureVM -ServiceName $vmName -Name $vmName
+$LunNo = 1
+$path = "http://" + $storageAccount + ".blob.core.windows.net/vhds/" + "myDataDisk_" + $LunNo + "_PIO.vhd"
+$label = "Disk " + $LunNo
+Add-AzureDataDisk -CreateNew -MediaLocation $path -DiskSizeInGB 128 -DiskLabel $label -LUN $LunNo -HostCaching ReadOnly -VM $vm | Update-AzureVm
+```
 
-#### 4. Change disk caching policy via Azure PowerShell
+#### Change disk caching policy via Azure PowerShell
 To update the disk caching policy, note the LUN number of the data disk attached. Run the following command to update data disk attached at LUN number 2, to ReadOnly.
 
-	```powershell
-	Get-AzureVM "myservice" -name "MyVM" | Set-AzureDataDisk -LUN 2 -HostCaching ReadOnly | Update-AzureVM
-	```
+```powershell
+Get-AzureVM "myservice" -name "MyVM" | Set-AzureDataDisk -LUN 2 -HostCaching ReadOnly | Update-AzureVM
+```
 
 > [!WARNING]
 > Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
@@ -348,51 +361,53 @@ To update the disk caching policy, note the LUN number of the data disk attached
 > 
 
 ### Create an Azure virtual machine using Premium Storage via the Azure Command-Line Interface
+
 The [Azure Command-Line Interface](../xplat-cli-install.md)(Azure CLI) provides a provides a set of open source, cross-platform commands for working with the Azure Platform. The following examples show how to use Azure CLI (version 0.8.14 and later) to create a Premium Storage account, a new virtual machine, and attach a new data disk from a Premium Storage account.
 
-#### a. Create a Premium Storage account via Azure CLI
+#### Create a Premium Storage account via Azure CLI
 
-	```
-	azure storage account create "premiumtestaccount" -l "west us" --type PLRS
-	```
+```
+azure storage account create "premiumtestaccount" -l "west us" --type PLRS
+```
 
-#### b. Create a DS-series virtual machine via Azure CLI
+#### Create a DS-series virtual machine via Azure CLI
 
-	```
-	azure vm create -z "Standard_DS2" -l "west us" -e 22 "premium-test-vm"
-	    "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB" -u "myusername" -p "passwd@123"
-	```
+```
+azure vm create -z "Standard_DS2" -l "west us" -e 22 "premium-test-vm"
+    "b39f27a8b8c64d52b05eac6a62ebad85__Ubuntu-14_10-amd64-server-20150202-en-us-30GB" -u "myusername" -p "passwd@123"
+```
 
-	Display information about the virtual machine
-	
-	```
-	azure vm show premium-test-vm
-	```
+Display information about the virtual machine
 
-#### c. Attach a new premium data disk via Azure CLI
+```
+azure vm show premium-test-vm
+```
 
-	```
-	azure vm disk attach-new premium-test-vm 20 https://premiumstorageaccount.blob.core.windows.net/vhd-store/data1.vhd
-	```
+#### Attach a new premium data disk via Azure CLI
 
-	Display information about the new data disk
+```
+azure vm disk attach-new premium-test-vm 20 https://premiumstorageaccount.blob.core.windows.net/vhd-store/data1.vhd
+```
 
-	```
-    azure vm disk show premium-test-vm-premium-test-vm-0-201502210429470316
-	```
+Display information about the new data disk
 
-#### d. Change disk caching policy
+```
+azure vm disk show premium-test-vm-premium-test-vm-0-201502210429470316
+```
+
+#### Change disk caching policy
+
 To change the cache policy on one of your disks using Azure CLI, run the following command:
 
-	```
-	$ azure vm disk attach -h ReadOnly <VM-Name> <Disk-Name>
-	```
+```
+$ azure vm disk attach -h ReadOnly <VM-Name> <Disk-Name>
+```
 
 Note that the caching policy options can be ReadOnly, None, or ReadWrite. For more options, see the help by running the following command:
 
-	```
-	azure vm disk attach --help
-	```
+```
+azure vm disk attach --help
+```
 
 > [!WARNING]
 > Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
@@ -403,27 +418,35 @@ Note that the caching policy options can be ReadOnly, None, or ReadWrite. For mo
 1. **Can I attach both premium and standard data disks to a Premium Storage supported VM?**
    
     Yes. You can attach both premium and standard data disks to a Premium Storage supported series VM.
+
 2. **Can I attach both premium and standard data disks to a D, Dv2, G or F series VM?**
    
     No. You can only attach a standard data disk to all VMs that are not Premium Storage supported series.
+
 3. **If I create a premium data disk from an existing VHD that was 80 GB in size, how much will that cost me?**
    
     A premium data disk created from 80 GB VHD will be treated as the next available premium disk size, a P10 disk. You will be charged as per the P10 disk pricing.
+
 4. **Are there any transaction costs when using Premium Storage?**
    
     There is a fixed cost for each disk size which comes provisioned with certain number of IOPS and Throughput. The only other costs are outbound bandwidth and snapshots capacity, if applicable. See [Azure Storage Pricing](https://azure.microsoft.com/pricing/details/storage/) for more details.
+
 5. **Where can I store boot diagnostics for my Premium Storage supported series VM?**
    
     Create a standard storage account to store the boot diagnostics of your Premium Storage supported series VM.
+
 6. **How many IOPS and Throughput can I get from the disk cache?**
    
     The combined limits for cache and local SSD for a DS series are 4000 IOPS per core and 33 MB per second per core. GS series offers 5000 IOPS per core and 50 MB per second per core.
+
 7. **What is the local SSD in a Premium Storage supported series VM?**
    
     The local SSD is a temporary storage that is included with a Premium Storage supported series VM. There is no extra cost for this temporary storage. It is recommended that you do not use this temporary storage or local SSD for storing your application data as it is not persisted in Azure Blob Storage.
+
 8. **Can I convert my standard storage account to a Premium Storage account?**
    
     No. It is not possible to convert standard storage account to Premium Storage account or vice versa. You must create a new storage account with the desired type and copy data to new storage account, if applicable.
+
 9. **How can I convert my D series VM to a DS series VM?**
    
     Please refer to the migration guide, [Migrating to Azure Premium Storage](storage-migration-to-premium-storage.md) to move your workload from a D series VM using standard storage account to a DS series VM using Premium Storage account.
