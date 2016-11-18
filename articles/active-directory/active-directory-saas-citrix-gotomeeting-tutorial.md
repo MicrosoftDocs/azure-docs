@@ -12,12 +12,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 11/18/2016
 ms.author: jeedes
 
 ---
 # Tutorial: Azure Active Directory integration with Citrix GoToMeeting
-Applies To: Azure
 
 The objective of this tutorial is to show the integration of Azure and Citrix GoToMeeting. The scenario outlined in this tutorial assumes that you already have the following items:
 
