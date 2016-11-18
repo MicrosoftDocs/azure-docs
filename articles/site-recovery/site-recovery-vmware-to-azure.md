@@ -142,7 +142,7 @@ To prepare for deployment you need to:
 * Alternatively you can set up [Azure ExpressRoute](../expressroute/expressroute-introduction.md). [Learn more](../expressroute/expressroute-howto-vnet-portal-classic.md) about setting up an Azure network with ExpressRoute.
 
 > [!NOTE]
-> [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
+> [Migration of networks](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
 >
 >
 
@@ -151,7 +151,7 @@ To prepare for deployment you need to:
 * If you're using a premium account for replicated data you need to create an additional standard account to store replication logs that capture ongoing changes to on-premises data.  
 
 > [!NOTE]
-> [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
+> [Migration of storage accounts](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 >
 >
 
@@ -180,7 +180,7 @@ The Site Recovery process server can automatically discover VMware VMs on vSpher
 
     ![New vault](./media/site-recovery-vmware-to-azure/new-vault3.png)
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
-4. [Create a new resource group](../resource-group-template-deploy-portal.md) or select an existing one. Specify an Azure region. Machines will be replicated to this region. Note that Azure storage and networks used for Site Recovery will need to be in the same region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Create a new resource group](../azure-resource-manager/resource-group-template-deploy-portal.md) or select an existing one. Specify an Azure region. Machines will be replicated to this region. Note that Azure storage and networks used for Site Recovery will need to be in the same region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. If you want to quickly access the vault from the Dashboard, click **Pin to dashboard** and then click **Create**.
 
     ![New vault](./media/site-recovery-vmware-to-azure/new-vault-settings.png)
