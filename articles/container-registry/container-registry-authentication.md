@@ -69,6 +69,6 @@ docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
 
 ### Next steps
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md).
-* For more information about authentication in the Container Registry preview, see the [blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/) 
+* For more information about authentication in the Container Registry preview, see the [blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/). 
 
 
