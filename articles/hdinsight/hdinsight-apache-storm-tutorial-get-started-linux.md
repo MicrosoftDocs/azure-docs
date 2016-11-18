@@ -35,9 +35,9 @@ You must have the following to successfully complete this Apache Storm tutorial:
 
 * **Familiarity with SSH and SCP**. For more information on using SSH and SCP with HDInsight, see the following:
   
-    * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Linux, OS X or Unix](hdinsight-hadoop-linux-use-ssh-unix.md)
+    * **Linux, Unix or OS X clients**: See [Use SSH with Linux-based Hadoop on HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md)
     
-    * **Windows clients**: See [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
+    * **Windows clients**: See [Use SSH (PuTTY) with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md)
 
 ### Access control requirements
 
