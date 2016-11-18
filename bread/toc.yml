@@ -40,6 +40,9 @@
     - name: API Apps
       tocHref: /azure/app-service-api/
       topicHref: /azure/app-service-api/app-service-api-apps-why-best-platform
+  - name: Advisor
+    tocHref: /azure/advisor/
+    topicHref: /azure/advisor/advisor-overview
   - name: Logic Apps
     tocHref: /azure/app-service-logic/
     topicHref: /azure/app-service-logic/app-service-logic-what-are-logic-apps
