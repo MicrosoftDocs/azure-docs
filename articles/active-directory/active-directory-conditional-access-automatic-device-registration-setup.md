@@ -133,8 +133,7 @@ For Windows 10 and Windows Server 2016 computers, Azure AD Connect associates th
 
 - **http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid** - Contains the value that Azure AD uses to trust the token issued from AD FS or from the on-premises Security Token Service (STS). This is important if you have several verified domains in Azure AD. For the AD FS case, use **http://\<*domain-name*\>/adfs/services/trust/**, where **\<domain-name\>** is the verified domain name in Azure AD.
 
-For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-add-domain.md).
-
+For more details about verified domain names, see [Add a custom domain name to Azure Active Directory](active-directory-add-domain.md).  
 To get a list of your verified company domains, you can use the [Get-MsolDomain](https://docs.microsoft.com/powershell/msonline/v1/get-msoldomain) cmdlet. 
 
 ![Get-MsolDomain](./media/active-directory-conditional-access-automatic-device-registration-setup/01.png)
