@@ -307,7 +307,7 @@ A combined approach is typically used for handling a variable, but ongoing, load
 
 ## Pool network configuration
 
-When you create an pool of compute nodes in Azure Batch, you can specify the ID of a [Virtual Network (VNet)](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/) in which the pool's compute nodes should be created.
+When you create a pool of compute nodes in Azure Batch, you can specify the ID of an Azure [virtual network (VNet)](https://azure.microsoft.com/documentation/articles/virtual-networks-overview/) in which the pool's compute nodes should be created.
 
 * Only **Cloud Services Configuration** pools can be assigned a VNet.
 
@@ -320,10 +320,10 @@ When you create an pool of compute nodes in Azure Batch, you can specify the ID 
 * The VNet should have enough free **IP addresses** to accommodate the `targetDedicated` property of the pool. If the subnet doesn't have enough free IP addresses, the Batch service partially allocates the compute nodes in the pool and returns a resize error.
 * The *MicrosoftAzureBatch* service principal must have the [Classic Virtual Machine Contributor](../active-directory/role-based-access-built-in-roles.md#classic-virtual-machine-contributor) Role-Based Access Control (RBAC) role for the specified VNet. In the Azure portal:
 
-  * Select the **VNet** > **Access control (IAM)** > **Roles** > **Classic Virtual Machine Contributor** > **Add**
+  * Select the **VNet**, then **Access control (IAM)** > **Roles** > **Classic Virtual Machine Contributor** > **Add**
   * Enter "MicrosoftAzureBatch" in the **Search** box
   * Check the **MicrosoftAzureBatch** check box
-  * Select the **Select** button.
+  * Select the **Select** button
 
 * If communication to the compute nodes is denied by a **Network Security Group (NSG)** associated with the VNet, then the Batch service will set the state of the compute nodes to **unusable**. The subnet must allow communication from the Azure Batch service to be able to schedule tasks on the compute nodes.
 
