@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
 
 ---
@@ -64,4 +64,3 @@ The article discusses the following topics:
 * [IoT solution developer](../iot-suite/iot-security-best-practices.md#iot-solution-developer)
 * [IoT solution deployer](../iot-suite/iot-security-best-practices.md#iot-solution-deployer)
 * [IoT solution operator](../iot-suite/iot-security-best-practices.md#iot-solution-operator)
-
