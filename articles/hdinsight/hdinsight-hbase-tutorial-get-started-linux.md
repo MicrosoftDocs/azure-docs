@@ -224,18 +224,15 @@ HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI
 2. Click **HBase** from the left menu.
 3. Click **Quick links** on the top of the page, point to the active Zookeeper node link, and then click **HBase Master UI**.  The UI is opened in another browser tab:
 
-        ![HDInsight HBase HMaster UI](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
+  ![HDInsight HBase HMaster UI](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-        The HBase Master UI contains the following sections:
+  The HBase Master UI contains the following sections:
 
-        - region servers
-        - backup masters
-        - tables
-        - tasks
-        - software attributes
-
-
-
+  - region servers
+  - backup masters
+  - tables
+  - tasks
+  - software attributes
 
 ## Delete the cluster
 To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.
