@@ -1,10 +1,7 @@
 ---
+
 title: OMS Container Solution | Microsoft Docs
-description: The OMS Container Solution is a solution in OMS Log
-Analytics, which helps you view the container inventory, performance,
-and logs in a single location. You can audit, troubleshoot containers by
-viewing the logs in centralized location, and find noisy consuming
-excess container on a host.
+description: The OMS Container Solution is a solution in OMS Log Analytics, which helps you view the container inventory, performance, and logs in a single location. You can audit, troubleshoot containers by viewing the logs in centralized location, and find noisy containers on a host.
 services: container-service
 documentationcenter: ''
 author: keikhara
