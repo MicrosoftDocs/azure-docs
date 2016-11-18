@@ -140,6 +140,20 @@ If your environment DOESN'T have DHCP enabled, you must include the following AD
 | Rerun |Optional |Use this flag to rerun deployment.  All previous input is used. Re-entering data previously provided is not supported because several unique values are generated and used for deployment. |
 | TimeServer |Optional |Use this parameter if you need to specify a specific time server. |
 
+## Reset the password expiration to 180 days
+
+To make sure that the password for the Azure Stack POC machine doesn't expire too soon, follow these steps:
+
+1. Log in to the Azure Stack POC physical machine as azurestack\azurestackadmin.
+
+2. Run the following command to display the current MaxPasswordAge of 42 days: `Get-ADDefaultDomainPasswordPolicy`.
+
+3. Run the following command to update the MaxPasswordAge to 180 days:
+
+    `Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurestack.local`   
+
+4. Run the following command again to confirm the password age change: `Get-ADDefaultDomainPasswordPolicy`.
+
 ## Next steps
 [Connect to Azure Stack](azure-stack-connect-azure-stack.md)
 
