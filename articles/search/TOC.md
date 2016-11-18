@@ -45,7 +45,7 @@
 ### [Azure DocumentDB indexer](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
 ### [Index CSV blobs](search-howto-index-csv-blobs.md)
 ### [Index JSON blobs](search-howto-index-json-blobs.md)
-### [SQL Server Azure VM Connection configuration](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [Configure indexer connections to SQL Server on Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Field mappings in indexers](search-indexer-field-mappings.md)
 ##  Design search experience
 ### [Lucene syntax query examples](search-query-lucene-examples.md)
@@ -59,13 +59,13 @@
 
 # Reference
 ## [API versions](search-api-versions.md)
-## [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323)
-## [Simple query syntax](https://msdn.microsoft.com/library/azure/dn798920)
 ## [Service .NET](/dotnet/api/microsoft.azure.search)
 ## [Management .NET](/dotnet/api/microsoft.azure.management.search)
 ## [Service REST](/rest/api/searchservice/)
 ## [Service REST (Preview)](search-api-2015-02-28-preview.md)
 ## [Management REST](/rest/api/searchmanagement/)
+## [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323)
+## [Simple query syntax](https://msdn.microsoft.com/library/azure/dn798920)
 
 # Resources
 ## [Service updates](https://azure.microsoft.com/updates/?product=search)
