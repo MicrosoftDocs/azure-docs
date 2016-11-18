@@ -1,14 +1,14 @@
 ---
 title: Hybrid on-premises/cloud application (.NET) | Microsoft Docs
-description: Learn how to create a .NET on-premises/cloud hybrid application using the Azure Service Bus relay.
-services: service-bus
+description: Learn how to create a .NET on-premises/cloud hybrid application using Azure WCF Relay.
+services: service-bus-relay
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 9ed02f7c-ebfb-4f39-9c97-b7dc15bcb4c1
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
@@ -17,7 +17,7 @@ ms.date: 09/16/2016
 ms.author: sethm
 
 ---
-# .NET on-premises/cloud hybrid application using Azure Service Bus WCF Relay
+# .NET on-premises/cloud hybrid application using Azure WCF Relay
 ## Introduction
 This article describes how to build a hybrid cloud application with Microsoft Azure and Visual Studio. The tutorial assumes you have no prior experience using Azure. In less than
 30 minutes, you will have an application that uses multiple Azure resources up and running in the cloud.
@@ -26,12 +26,12 @@ You will learn:
 
 * How to create or adapt an existing web service for consumption by a
   web solution.
-* How to use the Azure Service Bus WCF Relay service to share data between
+* How to use the Azure WCF Relay service to share data between
   an Azure application and a web service hosted elsewhere.
 
 [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
-## How the Service Bus relay helps with hybrid solutions
+## How Azure Relay helps with hybrid solutions
 Business solutions are typically composed of a combination of custom
 code written to tackle new and unique business requirements and existing
 functionality provided by solutions and systems that are already in
@@ -45,13 +45,13 @@ reach for access by the cloud solution. Many internal services are not
 built or hosted in a way that they can be easily exposed at the
 corporate network edge.
 
-The Service Bus relay is designed for the use-case of taking existing
+Azure Relay is designed for the use-case of taking existing
 Windows Communication Foundation (WCF) web services and making those
 services securely accessible to solutions that reside outside the
 corporate perimeter without requiring intrusive changes to the corporate
-network infrastructure. Such Service Bus relay services are still hosted
+network infrastructure. Such relay services are still hosted
 inside their existing environment, but they delegate listening for
-incoming sessions and requests to the cloud-hosted Service Bus. Service Bus also protects those services from unauthorized access by using [Shared Access Signature](../service-bus-messaging/service-bus-sas-overview.md) (SAS) authentication.
+incoming sessions and requests to the cloud-hosted relay service. Azure Relay also protects those services from unauthorized access by using [Shared Access Signature](../service-bus-messaging/service-bus-sas-overview.md) (SAS) authentication.
 
 ## Solution scenario
 In this tutorial, you will create an ASP.NET website that enables you to see a list of products on the product inventory page.
@@ -59,7 +59,7 @@ In this tutorial, you will create an ASP.NET website that enables you to see a l
 ![][0]
 
 The tutorial assumes that you have product information in an existing
-on-premises system, and uses the Service Bus relay to reach into that
+on-premises system, and uses Azure Relay to reach into that
 system. This is simulated by a web service that runs in a simple
 console application and is backed by an in-memory set of products. You
 will be able to run this console application on your own computer and
@@ -87,7 +87,7 @@ Before you can begin developing Azure applications, get the tools and set up you
    Visual Studio Express.
 
 ## Create a namespace
-To begin using Service Bus features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Service Bus resources within your application.
+To begin using the relay features in Azure, you must first create a service namespace. A namespace provides a scoping container for addressing Azure resources within your application.
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
 
@@ -479,10 +479,10 @@ Before running the application in the cloud, you must ensure that **ProductsPort
     ![][38]
 
 ## Next steps
-To learn more about Service Bus, see the following resources:  
+To learn more about Azure Relay, see the following resources:  
 
-* [Azure Service Bus][sbwacom]  
-* [How to Use Service Bus Queues][sbwacomqhowto]  
+* [What is Azure Relay?](relay-what-is-it.md)  
+* [How to use Relay](service-bus-dotnet-how-to-use-relay.md)  
 
 [0]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hybrid.png
 [1]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/App2.png
@@ -510,8 +510,4 @@ To learn more about Service Bus, see the following resources:
 [38]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/hy-service2.png
 [41]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-multi-tier-40.png
 [43]: ./media/service-bus-dotnet-hybrid-app-using-service-bus-relay/getting-started-hybrid-43.png
-
-
-[sbwacom]: /documentation/services/service-bus/  
-[sbwacomqhowto]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
