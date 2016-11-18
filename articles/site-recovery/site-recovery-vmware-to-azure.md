@@ -52,7 +52,7 @@ For a full deployment, we strongly recommend you follow the steps in the article
 | **Failback** |Fail back is to VMware only, even if you replicate physical servers.<br/><br/> You need a VPN or Azure Express Route between Azure and the primary site.<br/><br/> You need a temporary process server set up as an Azure VM. You can create this when you’re ready to fail back, and delete it after fail back is complete. |
 
 ## Site recovery in the Azure portal
-Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal and Azure portal. This article describes how to deploy in the Azure portal.
+Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal and Azure portal. This article describes how to deploy in the Azure portal.
 
 Site Recovery in the Azure portal provides some new features:
 

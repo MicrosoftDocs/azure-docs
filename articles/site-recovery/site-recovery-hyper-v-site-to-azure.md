@@ -28,7 +28,7 @@ ms.author: raynew
 Welcome to Azure Site Recovery! Use this article if you want to replicate on-premises Hyper-V  virtual machines that **aren't** managed in System Center Virtual Machines Manager (VMM) clouds to Azure. This article describes how to set up replication using Azure Site Recovery in the Azure portal.
 
 > [!NOTE]
-> Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models.
+> Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models.
 >
 > Azure Site Recovery supports the recovery and migration of Hyper-V virtual machines to Azure. The steps in this article apply identically while configuring replication to Azure for disaster recovery or for migrating VMs to Azure
 >
