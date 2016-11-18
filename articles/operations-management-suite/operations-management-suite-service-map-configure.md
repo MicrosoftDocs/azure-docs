@@ -18,7 +18,7 @@
 # Configuring Service Map solution in Operations Management Suite (OMS)
 ![Alert Management icon](media/oms-service-map/icon.png) Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services.  Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
 
-This article describes the details of configuring Service Map and onboarding agents.  For information on using Service Map, see [Using Service Map solution in Operations Management Suite (OMS)](operations-management-suite-application-service-map.md)
+This article describes the details of configuring Service Map and onboarding agents.  For information on using Service Map, see [Using Service Map solution in Operations Management Suite (OMS)](operations-management-suite-service-map.md)
 
 
 ## Connected sources
@@ -316,4 +316,4 @@ For more information on data collection and usage, please see the [Microsoft Onl
 
 
 ## Next steps
-- Learn how to [use Service Map](operations-management-suite-application-service-map.md) once it has been deployed and configured.
+- Learn how to [use Service Map](operations-management-suite-service-map.md) once it has been deployed and configured.
