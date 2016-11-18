@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
 
 ---
@@ -264,4 +264,3 @@ Azure Security Center helps you optimize and monitor network security by:
 Learn more:
 
 * [Introduction to Azure Security Center](../security-center/security-center-intro.md)
-
