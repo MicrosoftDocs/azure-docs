@@ -171,6 +171,7 @@ static X509Credentials GetCredentials(string clientCertThumb, string serverCertT
 ### Connect to a secure cluster using Azure Active Directory
 
 Following this process enables Azure Active Directory for client identity and server certificate for server identity.
+
 To use interactive mode which pops up an AAD interactive signin dialog:
 
 ```csharp
@@ -198,6 +199,10 @@ catch (Exception e)
     Console.WriteLine("Connect failed: {0}", e.Message);
 }
 ```
+
+This example relies on Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213
+
+Refer [Microsoft.IdentityModel.Clients.ActiveDirectory Namespace](https://msdn.microsoft.com/en-us/library/microsoft.identitymodel.clients.activedirectory.aspx) for how to acquire token and more information.
 
 To use silent mode without any human interaction:
 
