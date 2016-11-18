@@ -71,7 +71,7 @@ For most people, data appears in the tabular format:
 
 In HBase which is an implementation of BigTable, the same data looks like:
 
-![HDInsight HBase bigtable data][img-hbase-sample-data-bigtable]
+![HDInsight HBase BigTable data][img-hbase-sample-data-bigtable]
 
 It will make more sense after you finish the next procedure.  
 
@@ -92,7 +92,7 @@ It will make more sense after you finish the next procedure.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![hdinsight hadoop hbase shell][img-hbase-shell]
+    ![HDInsight Hadoop HBase shell][img-hbase-shell]
 4. Get a single row
    
         get 'Contacts', '1000'
@@ -143,7 +143,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
 2. Open the Hive shell.
    
        hive
-3. Run the following HiveQL script  to create an Hive Table that maps to the HBase table. Make sure that you have created the sample table referenced earlier in this tutorial by using the HBase shell before you run this statement.
+3. Run the following HiveQL script  to create a Hive table that maps to the HBase table. Make sure that you have created the sample table referenced earlier in this tutorial by using the HBase shell before you run this statement.
    
         CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
         STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
@@ -180,7 +180,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
    
         curl -u <UserName>:<Password> \
         -G https://<ClusterName>.azurehdinsight.net/hbaserest/
-3. Use the following command to create a new HBase table with two column families:
+3. Use the following command to create a new HBase table with two-column families:
    
         curl -u <UserName>:<Password> \
         -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
@@ -222,7 +222,7 @@ HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI
 
 1. Open the Ambari Web UI at https://&lt;Clustername>.azurehdinsight.net.
 2. Click **HBase** from the left menu.
-3. Click **Quick links** on the top of the page, point to the active Zookeeper node link, and then click **HBase Master UI**.  The UI is opened in a another brower tab:
+3. Click **Quick links** on the top of the page, point to the active Zookeeper node link, and then click **HBase Master UI**.  The UI is opened in another browser tab:
 
         ![HDInsight HBase HMaster UI](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
