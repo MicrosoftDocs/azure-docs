@@ -51,6 +51,12 @@ Create usually takes under a minute; often just a few seconds. If you selected *
 
  ![Dashboard](./media/analysis-services-create-server/aas-create-server-dashboard.png)
 
+## Automate server creation
+You can automate server provisioning on-the-fly with ARM template files. Watch this helpful video to learn more.
+
+>[!VIDEO https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation]
+
+
 ## Next steps
 Once you've created your server, you can [deploy a  model](analysis-services-deploy.md) to it by using SSDT or with SSMS.
 
