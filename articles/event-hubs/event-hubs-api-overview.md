@@ -13,14 +13,14 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/18/2016
 ms.author: sethm
 
 ---
 # Event Hubs API overview
 This article summarizes some of the key Event Hubs .NET client APIs. There are two categories: management and run-time APIs. Run-time APIs consist of all operations needed to send and receive a message. Management operations enable you to manage an Event Hubs entity state by creating, updating, and deleting entities.
 
-Monitoring scenarios span both management and run-time. For detailed reference documentation on the .NET APIs, see the [Service Bus .NET](https://msdn.microsoft.com/library/azure/mt419900.aspx) and [EventProcessorHost API](https://msdn.microsoft.com/library/azure/mt445521.aspx) references.
+Monitoring scenarios span both management and run-time. For detailed reference documentation on the .NET APIs, see the [Service Bus .NET](/dotnet/api) and [EventProcessorHost API](/dotnet/api) references.
 
 ## Management APIs
 To perform the following management operations, you must have **Manage** permissions on the Event Hubs namespace:
@@ -123,7 +123,7 @@ EventProcessorHost host = new EventProcessorHost(WorkerName, EventHubName, defau
 host.UnregisterEventProcessorAsync().Wait();   
 ```
 
-The [IEventProcessor](https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.ieventprocessor.aspx) interface is defined as follows:
+The [IEventProcessor](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) interface is defined as follows:
 
 ```
 public class SimpleEventProcessor : IEventProcessor
@@ -176,6 +176,6 @@ To learn more about Event Hubs scenarios, visit these links:
 
 The .NET API references are here:
 
-* [Service Bus and Event Hubs .NET API references](https://msdn.microsoft.com/library/azure/mt419900.aspx)
-* [Event processor host API reference](https://msdn.microsoft.com/library/azure/mt445521.aspx)
+* [Service Bus and Event Hubs .NET API references](/dotnet/api)
+* [Event processor host API reference](/dotnet/api)
 
