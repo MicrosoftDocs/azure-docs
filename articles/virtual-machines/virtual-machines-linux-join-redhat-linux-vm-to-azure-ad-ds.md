@@ -32,7 +32,29 @@ This article shows you how to join a Red Hat Enterprise Linux (RHEL) 7 virtual m
 
 Replace any examples with your own settings.
 
+### Switch the azure-cli to classic deployment mode
+
+```azurecli
+azure config mode asm
+```
+
+### Search for a RHEL version and image
+
+```azurecli
+azure vm image list | grep "Red Hat"
+```
+
 ### Create a Redhat Linux VM
+
+```azurecli
+azure vm create myVM \
+-o a879bbefc56a43abb0ce65052aac09f3__RHEL_7_2_Standard_Azure_RHUI-20161026220742 \
+-g ahmet \
+-p P@ssw0rd! \
+-z "Small" \
+-e \
+-l "West US"
+```
 
 ```bash
 azure vm quick-create \
