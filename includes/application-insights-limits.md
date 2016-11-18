@@ -2,7 +2,7 @@ There are some limits on the number of metrics and events per application (that 
 
 Limits depend on the [pricing plan](https://azure.microsoft.com/pricing/details/application-insights/) that you choose.
 
-| **Resource** | **Default Limit** |
+| **Resource** | **Default Limit** | **Note**
 | --- | --- | --- |
 | Total data per day | 100 GB | You can reduce by setting a cap.
 | Free data per month | 1 GB | Additional data charged per GB
