@@ -100,7 +100,7 @@ Before you start, make sure that you at least 85 GB of space.
    
     When the deployment succeeds, the PowerShell console displays: **COMPLETE: Action ‘Deployment’**.
    
-    If the deployment fails, you can try to [rerun it](azure-stack-rerun-deploy.md). Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
+    If the deployment fails, you can try run the script again using the -rerun parameter. Or, you can [redeploy](azure-stack-redeploy.md) it from scratch.
 
 ### Deployment script examples
 If your AAD Identity is only associated with ONE AAD Directory:
