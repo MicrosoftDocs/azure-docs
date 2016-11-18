@@ -79,7 +79,7 @@ Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To 
 > [!NOTE]
 > The name of your IoT hub must be globally unique.
 > 
-> You can create only one F1 edition of an IoT hub under your Azure subscription.
+> You can create only one F1 edition of Azure Iot Hub under your Azure subscription.
 > 
 > 
 
