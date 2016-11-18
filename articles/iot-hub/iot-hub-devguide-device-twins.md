@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: elioda
 
 ---
-# Understand device twins - preview
+# Understand device twins
 ## Overview
 *Device twins* are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub. This article will describe:
 
@@ -37,7 +37,8 @@ Use device twins to:
 * Synchronize the state of long-running workflows between device app and back end, for example back end specifying the new firmware version to install, and the device app reporting the various stages of the update process.
 * Query your device metadata, configuration, or state.
 
-Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events such as time series of sensor data or alarms. Use [direct methods][lnk-methods] for interactive control of devices, such as turning on a fan.
+Refer to [Device-to-cloud communication guidance][lnk-d2c-guidance] if in doubt between using reported properties, device-to-cloud messages, or file upload.
+Refer to [Cloud-to-device communication guidance][lnk-c2d-guidance] if in doubt between using desired properties, direct methods, or cloud-to-device messages.
 
 ## Device twins
 Device twins store device-related information that:
@@ -45,7 +46,7 @@ Device twins store device-related information that:
 * Device and back ends can use to synchronize device conditions and configuration.
 * The application back end can use to query and target long-running operations.
 
-The lifecycle of a device twin is linked to the corresponding [device identity][lnk-identity]. Twins are implicitly created and deleted when a new device identity is created or deleted in IoT Hub.
+The lifecycle of a device twin is linked to the corresponding [device identity][lnk-identity]. Device twins are implicitly created and deleted when a new device identity is created or deleted in IoT Hub.
 
 A device twin is a JSON document that includes:
 
@@ -126,7 +127,7 @@ In the above example, the `telemetryConfig` desired and reported properties are 
             ...
         }
         ...
-3. The app back end can keep track the results of the configuration operation across many devices, by [querying][lnk-query] twins.
+3. The app back end can keep track the results of the configuration operation across many devices, by [querying][lnk-query] device twins.
 
 > [!NOTE]
 > The above snippets are examples, optimized for readability, of a possible way to encode a device configuration and its status. IoT Hub does not impose a specific schema for the desired and reported properties in the device twins.
@@ -157,7 +158,7 @@ The back end operates on the device twin using the following atomic operations, 
 
 All the above operations support [Optimistic concurrency][lnk-concurrency] and require the **ServiceConnect** permission, as defined in the [Security][lnk-security] article.
 
-In addition to these operations, the back end can query the device twins using a SQL-like [query language][lnk-query], and perform operations on large sets of twins using [jobs][lnk-jobs].
+In addition to these operations, the back end can query the device twins using a SQL-like [query language][lnk-query], and perform operations on large sets of device twins using [jobs][lnk-jobs].
 
 ## Device operations
 The device app operates on the device twin using the following atomic operations:
@@ -181,8 +182,29 @@ The following reference topics provide you with more information about controlli
 ## Tags and properties format
 Tags, desired and reported properties are JSON objects with the following restrictions:
 
-* All keys in JSON objects are case-sensitive 128-char UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `'.'`, `' '`, and `'$'`.
-* All values in JSON object can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
+* All keys in JSON objects are case-sensitive 64 bytes UTF-8 UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `'.'`, `' '`, and `'$'`.
+* All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
+* All JSON objects in tags, desired, and reported properties can have a maximum depth of 5. For instance, the following object is valid:
+
+        {
+            ...
+            "tags": {
+                "one": {
+                    "two": {
+                        "three": {
+                            "four": {
+                                "five": {
+                                    "property": "value"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            ...
+        }
+
+* All string values can be at most 512 bytes in length.
 
 ## Device twin size
 IoT Hub enforces an 8KB size limitation on the values of `tags`, `properties/desired`, and `properties/reported`, excluding read-only elements.
@@ -266,7 +288,7 @@ Other reference topics in the Developer Guide include:
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 * [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [IoT Hub query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
@@ -291,6 +313,8 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-d2c]: iot-hub-devguide-messaging.md#device-to-cloud-messages
 [lnk-methods]: iot-hub-devguide-direct-methods.md
 [lnk-security]: iot-hub-devguide-security.md
+[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
+[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 
 [ISO8601]: https://en.wikipedia.org/wiki/ISO_8601
 [RFC7232]: https://tools.ietf.org/html/rfc7232
