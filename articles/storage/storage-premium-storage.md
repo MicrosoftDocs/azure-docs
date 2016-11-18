@@ -280,7 +280,7 @@ a. Find the new or existing DS, DSv2, GS, or Fs VM in Azure portal.
 b. In the VM **All Settings**, go to **Disks** and click on **Attach New**.
 c. Enter the name of your data disk and select the **Type** as **Premium**. Select the desired **Size** and **Host caching** setting.
    
-    ![Premium Disk][Image1]
+    ![Premium Disk](./media/storage-premium-storage/Azure_attach_premium_disk.png)
 
 See more detailed steps in [How to attach a data disk in Azure portal](../virtual-machines/virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -441,5 +441,3 @@ For more information about Azure Premium Storage refer to the following articles
 ### Blog Posts
 * [Azure Premium Storage Generally Available](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/)
 * [Announcing the GS-Series: Adding Premium Storage Support to the Largest VMs in the Public Cloud](https://azure.microsoft.com/blog/azure-has-the-most-powerful-vms-in-the-public-cloud/)
-
-[Image1]: ./media/storage-premium-storage/Azure_attach_premium_disk.png
