@@ -22,7 +22,8 @@ ms.author: juliako
 
 This topic describes general steps that you might take when configuring the Azure Media Services (AMS) telemetry using REST API. 
 
->[!NOTE]For the detailed explanation of what is AMS telemetry and how to consume it, see the [overview](media-services-telemetry-overview.md) topic.
+>[!NOTE]
+>For the detailed explanation of what is AMS telemetry and how to consume it, see the [overview](media-services-telemetry-overview.md) topic.
 
 The steps described in this topic are:
 
@@ -113,7 +114,8 @@ The steps described in this topic are:
 	
 	{"Name":"monitoring","EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/","EndPointType":2}
 
->[!NOTE] Don't forget to change the "https://telemetryvalidationstore.table.core.windows.net" value to your storage account.
+>[!NOTE]
+>Don't forget to change the "https://telemetryvalidationstore.table.core.windows.net" value to your storage account.
 
 ###Response
 

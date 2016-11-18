@@ -22,7 +22,8 @@ ms.author: juliako
 
 This topic describes general steps that you might take when configuring the Azure Media Services (AMS) telemetry using .NET SDK. 
 
->[!NOTE]For the detailed explanation of what is AMS telemetry and how to consume it, see the [overview](media-services-telemetry-overview.md) topic.
+>[!NOTE]
+>For the detailed explanation of what is AMS telemetry and how to consume it, see the [overview](media-services-telemetry-overview.md) topic.
 
 You can consume telemetry data in one of the following ways:
 
