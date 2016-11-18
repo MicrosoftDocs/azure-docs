@@ -98,4 +98,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Request a feature](https://feedback.azure.com/forums/270578-azure-data-factory)
-## [Index to all articles](data-factory-alltopcat.md)
