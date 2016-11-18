@@ -1,7 +1,7 @@
 ---
-title: DocumentDB protocol support for MongoDB | Microsoft Docs
-description: Learn about DocumentDB protocol support for MongoDB, now available in public preview.
-keywords: mongodb
+title: What is DocumentDB protocol support for MongoDB? | Microsoft Docs
+description: What is DocumentDB protocol support for MongoDB? It enables you to use Azure DocumentDB, a managed cloud-based service, as the data store for apps written for MongoDB.
+keywords: what is MongoDB
 services: documentdb
 author: AndrewHoh
 manager: jhubbard
@@ -18,12 +18,11 @@ ms.date: 11/17/2016
 ms.author: anhoh
 
 ---
-# DocumentDB protocol support for MongoDB
+# What is DocumentDB protocol support for MongoDB?
 
-## What is DocumentDB protocol support for MongoDB?
-DocumentDB databases can now be used as the data store for apps written for MongoDB. Using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/) for MongoDB, applications can easily and transparently communicate with DocumentDB, in many cases by simply changing a connection string.  Using this preview functionality, customers can easily build and run applications in the Azure cloud - leveraging DocumentDB's fully managed and scalable NoSQL databases - while continuing to use familiar skills and tools for MongoDB.
+DocumentDB databases can now be used as the data store for apps written for MongoDB. Using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/) for MongoDB databases, applications can easily and transparently communicate with DocumentDB, in many cases by simply changing a connection string. Using this preview functionality, customers can easily build and run MongoDB database applications in the Azure cloud - leveraging DocumentDB's fully managed and scalable NoSQL databases - while continuing to use familiar skills and tools for MongoDB.
 
-## What are the benefits of using DocumentDB protocol support for MongoDB?
+## What is the benefit of using DocumentDB protocol support for MongoDB?
 **No Server Management** - DocumentDB is a fully managed service, which means you do not have to manage any infrastructure or Virtual Machines yourself. DocumentDB is available in 20+ [Azure Regions](https://azure.microsoft.com/regions/services/).
 
 **Limitless Scale** - You can scale throughput and storage independently and elastically. You can add capacity to serve millions of requests per second with ease.
@@ -38,8 +37,8 @@ Create a DocumentDB account with protocol support for MongoDB in the (Azure Port
 For more detailed instructions, follow [create account](documentdb-create-mongodb-account.md) and [connect to your account](documentdb-connect-mongodb-account.md).
 
 ## Next steps
-* Learn how to [create](documentdb-create-mongodb-account.md) a DocumentDB account with protocol support for MongoDB.
-* Learn how to [connect](documentdb-connect-mongodb-account.md) to a DocumentDB account with protocol support for MongoDB.
-* Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB account with protocol support for MongoDB.
+* Follow the [Create a DocumentDB account with protocol support for MongoDB](documentdb-create-mongodb-account.md) tutorial to create a DocumentDB account.
+* Follow the [Connect to a DocumentDB account with protocol support for MongoDB](documentdb-connect-mongodb-account.md) tutorial to learn how to get your account connection string information.
+* Follow the [Use MongoChef with a DocumentDB account with protocol support for MongoDB](documentdb-mongodb-mongochef.md) tutorial to learn how to create a connection between your DocumentDB database and MongoDB app in MongoChef.
 * Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md).
 
