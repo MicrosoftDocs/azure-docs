@@ -81,7 +81,7 @@ Create one storage account for diagnostic logs. This storage account can be shar
 There are two options for scaling out VMs in Azure: 
 
 * Use a load balancer to distribute network traffic across a set of VMs. To scale out, provision additional VMs and put them in the load balancer's back-end address pool. 
-* Use [virtual machine scale sets][vmss]. A scale set contains a speficied number of identical VMs behind a load balancer. VM scale sets support autoscaling based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. 
+* Use [virtual machine scale sets][vmss]. A scale set contains a number of identical VMs behind a load balancer. VM scale sets support autoscaling based on performance metrics. As the load on the VMs increases, additional VMs are automatically added to the load balancer. 
 
 The next sections compare these two options.
 
@@ -110,7 +110,7 @@ Considerations for using VM scale sets:
 * Currently, scale sets do not support data disks. The options for storing data are Azure File storage, the OS drive, the temp drive, or an external store such as Azure Storage. 
 * All VM instances within a scale set automatically belong to the same availability set, with 5 fault domains and 5 update domains.
 * By default, scale sets use "overprovisioning," which means the scale set initially provisions more VMs than you ask for, then deletes the extra VMs. This improves the overall success rate when provisioning the VMs. 
-* We recommend no more then than 20 VMs per storage account with overprovisioning enabled, or no more than 40 VMs with overprovisioning disabled.  
+* We recommend no more than 20 VMs per storage account with overprovisioning enabled, or no more than 40 VMs with overprovisioning disabled.  
 * You can find Resource Manager templates for deploying scale sets in the [Azure Quickstart Templates][vmss-quickstart].
 * There are two basic ways to configure VMs deployed in a scale set: Create a custom image, or use extensions to configure the VM after it is provisioned.
 * A scale set built on a custom image must create all OS disk VHDs within one storage account. 
