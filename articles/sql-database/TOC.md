@@ -166,7 +166,7 @@
 ### [Column encryption](https://msdn.microsoft.com/library/azure/ms179331)
 
 ## Mask data
-### [Dynamic data masking](sql-database-dynamic-data-masking-get-started-portal.md)
+### [Dynamic data masking](sql-database-dynamic-data-masking-get-started.md)
 ### [Downlevel clients](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
 
 ## Migrate
@@ -298,5 +298,3 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-
