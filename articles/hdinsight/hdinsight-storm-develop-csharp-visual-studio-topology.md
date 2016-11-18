@@ -395,22 +395,21 @@ For an example hybrid topology, create a new project, and select **Storm Hybrid 
 
 * **Java spout** and **C# bolt**: Defined in **HybridTopology_javaSpout_csharpBolt**
   
-  * A transactional version is defined in **HybridTopologyTx_javaSpout_csharpBolt**
+    * A transactional version is defined in **HybridTopologyTx_javaSpout_csharpBolt**
+
 * **C# spout** and **Java bolt**: Defined in **HybridTopology_csharpSpout_javaBolt**
   
-  * A transactional version is defined in **HybridTopologyTx_csharpSpout_javaBolt**
-    
-    > [!NOTE]
-    > This version also demonstrates how to use Clojure code from a text file as a Java component.
-    > 
-    > 
+    * A transactional version is defined in **HybridTopologyTx_csharpSpout_javaBolt**
+  
+  > [!NOTE]
+  > This version also demonstrates how to use Clojure code from a text file as a Java component.
+
 
 To switch between the topology that is used when the project is submitted, simply move the `[Active(true)]` statement to the topology you want to use before submitting it to the cluster.
 
 > [!NOTE]
 > All the Java files that are required are provided as part of this project in the **JavaDependency** folder.
-> 
-> 
+
 
 Consider the following when creating and submitting a hybrid topology:
 

@@ -14,7 +14,7 @@ ms.devlang: java
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/12/2016
+ms.date: 11/18/2016
 ms.author: larryfr
 
 ---
@@ -201,7 +201,7 @@ If you are a .NET developer, you can create C# or hybrid C#/Java topologies usin
 
 For example topologies that can be used with Storm on HDInsight, see the following examples:
 
-    * [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
+* [Example topologies for Storm on HDInsight](hdinsight-storm-example-topology.md)
 
 [apachestorm]: https://storm.incubator.apache.org
 [stormdocs]: http://storm.incubator.apache.org/documentation/Documentation.html
