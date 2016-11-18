@@ -52,7 +52,7 @@ The architecture has the following components:
 
 ## Recommendations
 
-Azure offers many different resources and resource types, and this reference architecture can be deployed in many different ways. To deploy this architecture as illustrated in the figure above, see the [solution deployment](#solution-deployment) section at the end of this document for more information. If you choose to create your own reference architecture you should follow these recommendations unless you have a specific requirement that a recommendation does not fit. 
+Azure offers many different resources and resource types, and this reference architecture can be deployed in many different ways. To deploy this architecture as illustrated in the figure above, see the [solution deployment](#solution-deployment) section at the end of this document for more information. If you choose to create your own architecture you should follow these recommendations unless you have a specific requirement that a recommendation does not fit. 
 
 ### Availability set recommendations
 
