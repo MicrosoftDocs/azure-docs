@@ -64,19 +64,23 @@ In this section, you create an HDInsight Hadoop cluster that uses the Data Lake 
 
 3. On the **Data Source** blade, specify whether you want Azure Storage (WASB) or Data Lake Store as your default storage.
 
-	* **WASB as default storage**. For **Primary Storage Type**, click **Azure Storage**. Specify the details for the storage account and storage container, specify **Location** as **East US 2**, and then click **Cluster AAD Identity**.
+	**WASB as default storage**
 
-    	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Add service principal to HDInsight cluster")
+	For **Primary Storage Type**, click **Azure Storage**. Specify the details for the storage account and storage container, specify **Location** as **East US 2**, and then click **Cluster AAD Identity**.
+
+	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.png "Add service principal to HDInsight cluster")
 
 
-    * **Azure Data Lake Store as default storage**. Note that you can use this option only with HDInsight 3.5 clusters. Within HDInsight 3.5 clusters this option is not available for HBase cluster type.
+    **Azure Data Lake Store as default storage** 
 
-    	For **Primary Storage Type**, click **Data Lake Store**. Select a Data Lake Store account that already exists, provide a root folder path where the cluster-specific files will be stored (see note below), specify **Location** as **East US 2**, and then click **Cluster AAD Identity**.
+	Note that you can use this option only with HDInsight 3.5 clusters. Within HDInsight 3.5 clusters this option is not available for HBase cluster type.
 
-    	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Add service principal to HDInsight cluster")
+	For **Primary Storage Type**, click **Data Lake Store**. Select a Data Lake Store account that already exists, provide a root folder path where the cluster-specific files will be stored (see note below), specify **Location** as **East US 2**, and then click **Cluster AAD Identity**.
 
-    	> [!NOTE]
-    	> In the screen capture above, the root folder path is /clusters/myhdiadlcluster, where **myhdiadlcluster** is the name of the cluster being created. In such a case, make sure the **/clusters** folder already exists in the Data Lake Store account. The **myhdiadlcluster** folder will be created during cluster creation. Similarly, if the root path was set to /hdinsight/clusters/data/myhdiadlcluter, you must ensure that **/hdinsight/clusters/data/** already exists in the Data Lake Store account.
+	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Add service principal to HDInsight cluster")
+
+	> [!NOTE]
+	> In the screen capture above, the root folder path is /clusters/myhdiadlcluster, where **myhdiadlcluster** is the name of the cluster being created. In such a case, make sure the **/clusters** folder already exists in the Data Lake Store account. The **myhdiadlcluster** folder will be created during cluster creation. Similarly, if the root path was set to /hdinsight/clusters/data/myhdiadlcluter, you must ensure that **/hdinsight/clusters/data/** already exists in the Data Lake Store account.
 
 4. On the **Cluster AAD Identity** blade, you can choose to select an existing Service Principal or create a new one.
 
