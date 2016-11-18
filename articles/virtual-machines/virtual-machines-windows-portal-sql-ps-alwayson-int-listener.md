@@ -157,33 +157,69 @@ The next step is to configure the listener on the cluster, and bring the listene
 2. Bring the listener online
 
 ## 1. Create the availability group listener on the failover cluster
-In this step, you add a client access point to the failover cluster with Failover Cluster Manager, and then use PowerShell to configure the cluster resource to listen on the probe port. 
+In this step, you:
+
+1. Get the name of the cluster network resource.
+
+1. Add the client access point.
+
+1. Configure the IP resource for the availability group.
+
+1. Make the availability group resource dependent on the listener resource name.
+
+The following sections provide detailed instructions for each of these steps. 
+
+### Get the name of the cluster network resource 
 
 1. Use RDP to connect to the Azure virtual machine that hosts the primary replica. 
-2. Open Failover Cluster Manager.
-3. Select the **Networks** node, and note the cluster network name. Use this name in the `$ClusterNetworkName` variable in the PowerShell script.
-4. Expand the cluster name, and then click **Roles**.
-5. In the **Roles** pane, right-click the availability group name and then select **Add Resource** > **Client Access Point**.
-6. In the **Name** box, create a name for this new listener, then click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
-   
-    The name for the new listener is the network name that applications will use to connect to databases in the SQL Server availability group.
-7. Click the **Resources** tab, then expand the Client Access Point you just created. Right-click the IP resource and click properties. Note the name of the IP address. You will use this name in the `$IPResourceName` variable in the PowerShell script.
-8. Under **IP Address** click **Static IP Address** and set the static IP address to the same address that you used when you set the load balancer IP address on the Azure portal. 
-9. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
-10. Make the SQL Server Availability Group resource dependent on the availability group listener resource name. In Failover Cluster Manager, **Roles** click your Availability Group. On the **Resources** tab, right-click the listener name and click **Properties**. Set a dependency on the listener resource name on the **Dependencies** tab. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**. 
-11. Right-click the listener name and click **Bring Online**. 
-12. Set the cluster parameters. To do this, update the following PowerShell script. Set the variables with the values for your environment. Run the PowerShell script on one of the cluster nodes.  
 
+1. Open Failover Cluster Manager.
+
+1. Select the **Networks** node, and note the cluster network name. Use this name in the `$ClusterNetworkName` variable in the PowerShell script.
+
+### Add the client access point
+
+1. Expand the cluster name, and then click **Roles**.
+
+1. In the **Roles** pane, right-click the availability group name and then select **Add Resource** > **Client Access Point**.
+
+1. In the **Name** box, create a name for this new listener. 
+
+   The name for the new listener is the network name that applications will use to connect to databases in the SQL Server availability group.
+   
+   To finish creating the listener, click **Next** twice, and then click **Finish**. Do not bring the listener or resource online at this point.
+   
+### Configure the IP resource for the availability group
+
+1. Click the **Resources** tab, then expand the Client Access Point you just created. Right-click the IP resource and click properties. Note the name of the IP address. You will use this name in the `$IPResourceName` variable in the PowerShell script.
+
+1. Under **IP Address** click **Static IP Address** and set the static IP address to the same address that you used when you set the load balancer IP address on the Azure portal. 
+
+1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
+
+### Make the availability group resource dependent on the listener resource
+
+1. In Failover Cluster Manager click **Roles** and click your Availability Group. 
+
+1. On the **Resources** tab, right-click the availability resource group and click **Properties**. 
+
+1. Click the **Dependencies** tab. Set a dependency on the listener resource name. If there are multiple resources listed, verify that the IP addresses have OR, not AND, dependencies. Click **OK**. 
+
+1. Right-click the listener name and click **Bring Online**. 
+
+### Set the cluster parameters in PowerShell
+
+Set the cluster parameters. To do this, update the following PowerShell script. Set the variables with the values for your environment. Run the PowerShell script on one of the cluster nodes.  
     
-    ```PowerShell
-    $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
-    $IPResourceName = "<IPResourceName>" # the IP Address resource name
-    $ILBIP = “<n.n.n.n>” # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-    [int]$ProbePort = <nnnnn>
+   ```PowerShell
+   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
+   $IPResourceName = "<IPResourceName>" # the IP Address resource name
+   $ILBIP = “<n.n.n.n>” # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+   [int]$ProbePort = <nnnnn>
     
-    Import-Module FailoverClusters
+   Import-Module FailoverClusters
     
-    Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+   Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
     ```
     
     > [!NOTE]
@@ -194,18 +230,24 @@ In this step, you add a client access point to the failover cluster with Failove
 Now the cluster has an availability group listener resource.
 
 ## Set the listener port in SQL Server Management Studio
+
 1. Launch SQL Server Management Studio and connect to the primary replica.
+
 1. Navigate to **AlwaysOn High Availability** | **Availability Groups** | **Availability Group Listeners**. 
+
 1. You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and click **Properties**.
+
 1. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (1433 was the default), then click **OK**.
 
 You now have a SQL Server availability group in Azure virtual machines running in Resource Manager mode. 
 
 ## Test the connection to the listener
+
 To test the connection:
 
 1. RDP to a SQL Server that is in the same virtual network, but does not own the replica. This can be the other SQL Server in the cluster.
-2. Use **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
+
+1. Use **sqlcmd** utility to test the connection. For example, the following script establishes a **sqlcmd** connection to the primary replica through the listener with Windows authentication:
    
     ```
     sqlmd -S <listenerName> -E
