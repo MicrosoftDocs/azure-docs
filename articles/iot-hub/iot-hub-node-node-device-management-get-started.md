@@ -17,13 +17,13 @@ ms.date: 09/30/2016
 ms.author: juanpere
 
 ---
-# Tutorial: Get started with device management (preview)
+# Tutorial: Get started with device management
 ## Introduction
 IoT cloud applications can use primitives in Azure IoT Hub, namely the device twin and direct methods, to remotely start and monitor device management actions on devices.  This article provides guidance and code for how an IoT cloud application and a device work together to initiate and monitor a remote device reboot using IoT Hub.
 
-To remotely start and monitor device management actions on your devices from a cloud-based, back-end app, use Azure IoT Hub primitives such as [device twin][lnk-devtwin] and [cloud-to-device (C2D) methods][lnk-c2dmethod]. This tutorial shows you how a back-end app and a device can work together to enable you initiate and monitor remote device reboot from IoT Hub.
+To remotely start and monitor device management actions on your devices from a cloud-based, back-end app, use Azure IoT Hub primitives such as [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod]. This tutorial shows you how a back-end app and a device can work together to enable you initiate and monitor remote device reboot from IoT Hub.
 
-You use a C2D method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
+You use a direct method to initiate device management actions (such as reboot, factory reset, and firmware update) from a back-end app in the cloud. The device is responsible for:
 
 * Handling the method request sent from IoT Hub.
 * Initiating the corresponding device specific action on the device.
@@ -45,24 +45,29 @@ At the end of this tutorial, you have two Node.js console applications:
 
 To complete this tutorial, you need the following:
 
-Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
+* Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
+* An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
+[!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
-[!INCLUDE [iot-hub-get-started-create-hub-pp](../../includes/iot-hub-get-started-create-hub-pp.md)]
+[!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create a simulated device app
-In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
+In this section, you will
+
+* Create a Node.js console app that responds to a direct method called by the cloud
+* Trigger a simulated device reboot
+* Use the device twin reported properties to enable device twin queries to identify devices and when they last rebooted
 
 1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device@dtpreview** Device SDK package and **azure-iot-device-mqtt@dtpreview** package:
+2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **dmpatterns_getstarted_device.js** file in the **manageddevice** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_device.js** file:
@@ -144,10 +149,10 @@ In this section, you create a Node.js console app that initiates a remote reboot
     ```
     npm init
     ```
-2. At your command-prompt in the **triggerrebootondevice** folder, run the following command to install the **azure-iothub@dtpreview** Device SDK package and **azure-iot-device-mqtt@dtpreview** package:
+2. At your command-prompt in the **triggerrebootondevice** folder, run the following command to install the **azure-iothub** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iothub@dtpreview --save
+    npm install azure-iothub --save
     ```
 3. Using a text editor, create a new **dmpatterns_getstarted_service.js** file in the **triggerrebootondevice** folder.
 4. Add the following 'require' statements at the start of the **dmpatterns_getstarted_service.js** file:
@@ -216,8 +221,8 @@ In this section, you create a Node.js console app that initiates a remote reboot
     ```
 9. Save and close the **dmpatterns_getstarted_service.js** file.
 
-## Run the applications
-You are now ready to run the applications.
+## Run the apps
+You are now ready to run the apps.
 
 1. At the command-prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
    
@@ -229,10 +234,10 @@ You are now ready to run the applications.
     ```
     node dmpatterns_getstarted_service.js
     ```
-3. You will see the react to the direct method by printing out the message
+3. You see the device response to the direct method in the console.
 
 ## Customize and extend the device management actions
-Your IoT solutions can expand the defined set of device management patterns or enable custom patterns through the use of the device twin and C2D method primitives. Other examples of device management actions include factory reset, firmware update, software update, power management, network and connectivity management, and data encryption.
+Your IoT solutions can expand the defined set of device management patterns or enable custom patterns through the use of the device twin and direct method primitives. Other examples of device management actions include factory reset, firmware update, software update, power management, network and connectivity management, and data encryption.
 
 ## Device maintenance windows
 Typically, you configure devices to perform actions at a time that minimizes interruptions and downtime.  Device maintenance windows are a commonly used pattern to define the time when a device should update its configuration. Your back-end solutions can use the desired properties of the device twin to define and activate a policy on your device that enables a maintenance window. When a device receives the maintenance window policy, it can use the reported property of the device twin to report the status of the policy. The back-end app can then use device twin queries to attest to compliance of devices and each policy.
@@ -255,11 +260,11 @@ To continue getting started with IoT Hub, see [Getting started with the IoT Gate
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-fwupdate]: iot-hub-firmware-update.md
+[lnk-fwupdate]: iot-hub-node-node-firmware-update.md
 [Azure portal]: https://portal.azure.com/
 [Using resource groups to manage your Azure resources]: ../azure-portal/resource-group-portal.md
 [lnk-dm-github]: https://github.com/Azure/azure-iot-device-management
-[lnk-tutorial-jobs]: iot-hub-schedule-jobs.md
+[lnk-tutorial-jobs]: iot-hub-node-node-schedule-jobs.md
 [lnk-gateway-SDK]: iot-hub-linux-gateway-sdk-get-started.md
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
