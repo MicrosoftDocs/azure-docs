@@ -22,7 +22,7 @@ ms.author: juliako
 
 This topic describes general steps that you might take when configuring the Azure Media Services (AMS) telemetry using REST API. 
 
->[AZURE.NOTE]For the detailed explanation of what is AMS telemetry and how to consume it, see the [overview](media-services-telemetry-overview.md) topic.
+>[!NOTE]For the detailed explanation of what is AMS telemetry and how to consume it, see the [overview](media-services-telemetry-overview.md) topic.
 
 The steps described in this topic are:
 
@@ -79,7 +79,8 @@ The steps described in this topic are:
 	Accept: application/json; odata=verbose
 	Authorization: (redacted)
 	Host: wamsbnp1clus001rest-hs.cloudapp.net
-	Response
+	
+###Response
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
 	Content-Length: 20
@@ -112,9 +113,9 @@ The steps described in this topic are:
 	
 	{"Name":"monitoring","EndPointAddress":"https://telemetryvalidationstore.table.core.windows.net/","EndPointType":2}
 
->[AZURE.NOTE] Don't forget to change the "https://telemetryvalidationstore.table.core.windows.net" value to your storage account.
+>[!NOTE] Don't forget to change the "https://telemetryvalidationstore.table.core.windows.net" value to your storage account.
 
-Response
+###Response
 
 	HTTP/1.1 201 Created
 	Cache-Control: no-cache
@@ -144,7 +145,9 @@ Response
 	Accept: application/json; odata=verbose
 	Authorization: (redacted)
 	Host: wamsbnp1clus001rest-hs.cloudapp.net
-	Response
+
+###Response
+	
 	HTTP/1.1 200 OK
 	Cache-Control: no-cache
 	Content-Length: 20
@@ -199,8 +202,6 @@ Response
 ## Consuming telemetry information
 
 For information about consuming telemetry information, see [this](media-services-telemetry-overview.md) topic.
-
-
 
 ## Next steps
 

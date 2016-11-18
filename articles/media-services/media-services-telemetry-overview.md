@@ -90,7 +90,7 @@ There are three types of entity-specific telemetric data entries each pushed wit
 - Live channels: Every minute
 - Live archive: Every minute
 
-#### Streaming Endpoint
+**Streaming Endpoint**
 
 Property|Value|Examples
 ---|---|---
@@ -110,7 +110,7 @@ ServerLatency|Average server latency (including storage)|129
 E2ELatency|Average end-to-end latency|250
 
 
-#### Live channel
+**Live channel**
 
 Property|Value|Examples/notes
 ---|---|---
@@ -136,7 +136,7 @@ UnexpectedBitrate|True, if calculated/actual bitrate for audio/video track > 40,
 Healthy|True, if <br/>overlapCount, <br/>DiscontinuityCount, <br/>NonIncreasingCount, <br/>UnalignedKeyFrames, <br/>UnalignedPresentationTime, <br/>UnexpectedBitrate<br/> are all 0|True<br/><br/>Healthy is a composite function that returns false when any of the following conditions hold:<br/><br/>- OverlapCount > 0<br/>- DiscontinuityCount > 0<br/>- NonincreasingCount > 0<br/>- UnalignedKeyFrames == True<br/>- UnalignedPresentationTime == True<br/>- UnexpectedBitrate == True
 
 
-#### Live archive
+**Live archive**
 
 Property|Value|Examples/notes
 ---|---|---
