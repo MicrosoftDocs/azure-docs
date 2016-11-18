@@ -5,7 +5,6 @@ services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 tags: azure-service-management
 
 ms.assetid: e433a824-4a8a-44d2-8765-a74f52d4e584
@@ -41,7 +40,7 @@ This guide shows how to create an Internet load balancer based on the scenario a
 2. Run the **azure config mode** command to switch to classic mode, as shown below.
 
     ```azurecli
-        azure config mode asm
+    azure config mode asm
     ```
 
     Expected output:

@@ -27,7 +27,7 @@ This topic provides a high-level overview of Azure Functions. If you want to jum
 ## Features
 Here are some key features of Azure Functions:
 
-* **Choice of language** - Write functions using C#, F#, Node.js, Python, PHP, batch, bash, Java, or any executable.
+* **Choice of language** - Write functions using C#, F#, Node.js, Python, PHP, batch, bash, or any executable.
 * **Pay-per-use pricing model** - Pay only for the time spent running your code. See the Dynamic App Service Plan option in the [pricing section](#pricing) below.  
 * **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.  
 * **Integrated security** - Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.  
