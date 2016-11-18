@@ -1591,7 +1591,6 @@ The evaluated argument. If the argument is a table, returns the first column of 
 | * |Multiply |
 | / |Divide |
 | % |Modulo |
-|  | |
 | `<` |Less |
 | `<=` |Less or Equals |
 | `>` |Greater |

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 11/17/2016
 ms.author: juliako;
 
 ---
@@ -70,7 +70,6 @@ The output will include an annotations json file with face location data, as wel
 
 3. (Optional) Make any edits to the annotations.json file such as increasing the bounding box boundaries. 
 4. Right click the output asset from the first pass, select the Redactor, and run with the **Redact** mode. 
-
 
 	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 

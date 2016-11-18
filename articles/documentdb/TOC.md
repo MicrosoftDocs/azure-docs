@@ -11,6 +11,7 @@
 # Get Started
 ## Write your first app
 ### [.NET console app](documentdb-get-started.md)
+### [.NET Core console app](documentdb-dotnetcore-get-started.md)
 ### [Node.js console app](documentdb-nodejs-get-started.md)
 ### [C++ console app](documentdb-cpp-get-started.md)
 ## Build a web app
@@ -18,6 +19,7 @@
 ### [Node.js web app](documentdb-nodejs-application.md)
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
+## [Develop Locally](documentdb-nosql-local-emulator.md)
 ## [FAQ](documentdb-faq.md)
 
 # How To
@@ -85,6 +87,7 @@
 # Reference
 ## [Java SDK](documentdb-sdk-java.md)
 ## [.NET SDK](documentdb-sdk-dotnet.md)
+## [.NET Core SDK](documentdb-sdk-dotnet-core.md)
 ## [.NET samples](documentdb-dotnet-samples.md)
 ## [Node.js SDK](documentdb-sdk-node.md)
 ## [Node.js samples](documentdb-nodejs-samples.md)
