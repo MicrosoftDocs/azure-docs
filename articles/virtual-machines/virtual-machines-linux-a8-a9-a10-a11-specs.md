@@ -46,7 +46,7 @@ You can create clusters of RDMA-capable Linux VMs that run one of the following 
   * **SLES 12 SP1 for HPC image** - Install the Intel MPI packages distributed on the VM by running the following command:
     
           sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
-  * **SLES 12 for HPC image** - You must separately register to download and install Intel MPI. For instructions, se the [Intel MPI Library documentation](https://software.intel.com/en-us/intel-mpi-library/documentation).
+  * **SLES 12 for HPC image** - You must separately register to download and install Intel MPI. For instructions, see the [Intel MPI Library documentation](https://software.intel.com/en-us/intel-mpi-library/documentation).
   * **CentOS-based HPC images**  - Intel MPI 5.1 is already installed.  
     
     Additional system configuration is needed to run MPI jobs on clustered VMs. For example, on a cluster of VMs, you need to establish trust among the compute nodes. For typical settings, see [Set up a Linux RDMA cluster to run MPI applications](virtual-machines-linux-classic-rdma-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).

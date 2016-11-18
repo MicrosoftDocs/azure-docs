@@ -32,7 +32,7 @@ To work with container images in an Azure container registry, you log in using t
 
 ## Service principal
 
-You can [assign a service principal](container-registry-get-started-azure-cli.md#assign-a-service-principal) to your registry and use it for basic Docker authentication. This is recommended for most scenarios. Provide the app ID and password of the service principal to the `docker login` command, as shown in the following example:
+You can [assign a service principal](container-registry-get-started-azure-cli.md#assign-a-service-principal) to your registry and use it for basic Docker authentication. Using a service principal is recommended for most scenarios. Provide the app ID and password of the service principal to the `docker login` command, as shown in the following example:
 
 ```
 docker login myregistry-contoso.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -45,7 +45,7 @@ Once logged in, Docker caches the credentials, so you don't need to remember the
 > 
 
 
-Service principals allow [role-based access](../active-directory/role-based-access-control-configure.md) to a registry, including Reader, Contributor, and Owner access. You can assign multiple service principals to a registry, which allow different roles for individual users or applications. Service principals also enable "headless" connectivity to a registry in developer or DevOps scenarios such as the following:
+Service principals allow [role-based access](../active-directory/role-based-access-control-configure.md) to a registry. Available roles are Reader (pull only access), Contributor (pull and push), and Owner (pull, push, and assign roles to other users). You can assign multiple service principals to a registry, which allows you to define access for different users or applications. Service principals also enable "headless" connectivity to a registry in developer or DevOps scenarios such as the following:
 
   * Container deployments from a registry to orchestration systems including DC/OS, Docker Swarm and Kubernetes. You can also pull container registries to related Azure services such as [Container Service](../container-service/index.md), [App Service](../app-service/index.md), [Batch](../batch/index.md), and [Service Fabric](../service-fabric/index.md).
   
