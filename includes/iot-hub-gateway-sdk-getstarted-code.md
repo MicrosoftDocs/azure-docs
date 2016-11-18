@@ -53,7 +53,7 @@ int main(int argc, char** argv)
         Gateway_LL_Destroy(gateway);
     }
     return 0;
-}
+} 
 ```
 
 The JSON settings file contains a list of modules to load and links between the modules.
