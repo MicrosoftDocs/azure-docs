@@ -23,8 +23,8 @@ To deploy the Azure Stack POC, you first need to [prepare the deployment machine
 ## Download and extract Microsoft Azure Stack POC TP2
 Before you start, make sure that you at least 85 GB of space.
 
-1. [Download the Azure Stack POC deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try) (12 files, about 20 GB).
-2. Run the MicrosoftAzureStackPOC.exe file.
+1. [Get the link to the Azure Stack POC deployment package](https://azure.microsoft.com/overview/azure-stack/try/?v=try).
+2. When you receive the email, click on the download link, and then run the AzureStackDownloader.exe file. In the **Azure Stack POC Downloader** window, click **Download** and follow the instructions. After the download completes, the MicrosoftAzureStackPOC.exe file automatically runs.
 3. Review the License Agreement screen and information of the Self-Extractor Wizard and then click **Next**.
 4. Review the Privacy Statement screen and information of the Self-Extractor Wizard and then click **Next**.
 5. Select the Destination for the files to be extracted, click **Next**.
