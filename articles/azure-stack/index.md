@@ -43,7 +43,7 @@ Microsoft Azure Stack is a new hybrid cloud platform product that lets you deliv
         </a>
     </li>
     <li>
-        <a href="/azure/azure-stack/azure-stack-run-powershell-script">
+        <a href="/azure/azure-stack/azure-stack-run-powershell-script"> 
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
