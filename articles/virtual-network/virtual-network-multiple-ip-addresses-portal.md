@@ -22,8 +22,8 @@ ms.author: annahar
 > [!div class="op_single_selector"]
 > * [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
->
->
+> * [CLI](virtual-network-multiple-ip-addresses-cli.md)
+
 
 An Azure Virtual Machine (VM) can have one or more network interfaces (NIC) attached to it. Any NIC can have one or more public or private IP addresses assigned to it. If you're not familiar with IP addresses in Azure, read the [IP addresses in Azure](virtual-network-ip-addresses-overview-arm.md) article to learn more about them. This article explains how to use Azure Portal to assign multiple IP addresses to a VM in the Azure Resource Manager deployment model.
 

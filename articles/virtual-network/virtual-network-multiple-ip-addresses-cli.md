@@ -57,7 +57,7 @@ The steps that follow explain how to create an example VM with multiple IP addre
 2. Register for the preview by sending an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use. Do not attempt to complete the remaining steps:
 	- Until you receive an e-mail notifying you that you've been accepted into the preview
 	- Without following the instructions in the email you receive
-3. [Create a resource group](../virtual-machines/virtual-machines-linux-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) followed by a [virtual network and subnet](../virtual-machines/virtual-machines-linux-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet). Change the ``` --address-prefixes ``` and ```--address-prefix``` fields to the following to follow the exact sceanrio outlined in this article:
+3. [Create a resource group](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) followed by a [virtual network and subnet](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet). Change the ``` --address-prefixes ``` and ```--address-prefix``` fields to the following to follow the exact sceanrio outlined in this article:
 
 	```azurecli
 	--address-prefixes 10.0.0.0/16
@@ -113,10 +113,8 @@ The steps that follow explain how to create an example VM with multiple IP addre
 
 	>[!WARNING] 
 	> Step 6 in the Create a VM article fails if the VM size is not supported in the location you selected. Run the following command to get a full list of VMs in US West Central, for example. This location name can be changed based on your scenario.
-	
-	> ```azurecli
-	> azure vm sizes --location westcentralus
-	> ```
+	> 
+	> 		azure vm sizes --location westcentralus
 
 	To change the VM size to Standard DS2 v2, for example, simply add the following property ```  --vm-size Standard_DS3_v2``` to the ``` azure vm create ``` command in step 6.
 
