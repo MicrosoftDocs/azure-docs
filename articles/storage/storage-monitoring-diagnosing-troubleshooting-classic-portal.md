@@ -570,7 +570,6 @@ The following table shows a sample server-side log message from the Storage Logg
 | nbsp;				 |   ?sv=2014-02-14&sr=c&si=mypolicy&sig=XXXXX&;api-version=2014-02-14 |
 | Request id header  | a1f348d5-8032-4912-93ef-b393e5252a3b |
 | Client request ID  | 2d064953-8436-4ee0-aa0c-65cb874f7929 |
-| --- | --- |
 
 You should investigate why your client application is attempting to perform an operation it has not been granted permissions for.
 
