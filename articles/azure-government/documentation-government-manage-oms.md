@@ -12,7 +12,7 @@ editor: ''
 # Azure Government Cybersecurity: Monitoring and securing your assets with Operations Management Suite (OMS)
 
 ## Cybersecurity in the Cloud
-A crucial aspect for our customers moving to the Cloud is retaining could asset management and security of your Azure Government services that you have deployed to the Cloud. Virtual Machines firewalls need to be configured correctly. The Virtual Networks need to have the right Network Security Groups applied to them. Access to your assets needs to be locked down to the right people at the right time. All of this are necessary work streams that needs to be planned, designed, and provisioned to enable a secure infrastructure for your agency to use.
+A crucial aspect for our customers moving to the Cloud is retaining asset management and security of your Azure Government services that you have deployed to the Cloud. Virtual Machines firewalls need to be configured correctly. The Virtual Networks need to have the right Network Security Groups applied to them. Access to your assets needs to be locked down to the right people at the right time. All of this are necessary work streams that needs to be planned, designed, and provisioned to enable a secure infrastructure for your agency to use.
 
 Setting up such an environment can be challenging. Onboarding your fleet of servers to any monitoring service is hard to scale as well as update. Monitoring infrastructure on different cloud providers as well as across the Cloud and on-premises is difficult. Lastly keeping your monitoring up to date and enabling insights to monitor, detect, alert, and action against cybersecurity threats requires time, resources, and compute power.
 
