@@ -80,11 +80,20 @@ You can stream log files to a command line session on a local workstation using 
 
 ### Streaming function app log file with the Azure CLI
 
-To get started, [install the Azure CLI](../xplat-cli-install.md) and [connect to your Azure subscription](../xplat-cli-connect.md).
+To get started, [install the Azure CLI](../xplat-cli-install.md)
+
+Log into your Azure account using the following command, or any of the other options covered in, [Log in to Azure from the Azure CLI](../xplat-cli-connect.md).
+
+	azure login
 
 Use the following command to enable Azure CLI Service Management (ASM) mode:.
 
 	azure config mode asm
+
+If you have multiple subscriptions, use the following commands to list your subscriptions and set the current subscription to the subscription that contains your function app.
+
+	azure account list
+	azure account set <subscriptionNameOrId>
 
 The following command will stream the log files of your function app to the command line:
 
