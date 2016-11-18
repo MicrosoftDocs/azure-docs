@@ -337,7 +337,7 @@ title: Microsoft Azure Documentation
                                         </li>
                                         <li>
                                             <a href="https://docs.botframework.com/en-us/azure-bot-service/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                <img src="media/index/bot-service.svg" alt="" />
                                                 <p>Bot Service</p>
                                             </a>
                                         </li>
@@ -1610,7 +1610,7 @@ title: Microsoft Azure Documentation
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/bot-service.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2343,7 +2343,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Resource Manager</h3>
-                                                    <p>Work with the resources in as a group for Azure Services</p>
+                                                    <p>Deploy and manage Azure resources</p>
                                                 </div>
                                             </div>
                                         </div>
