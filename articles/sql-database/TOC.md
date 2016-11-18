@@ -106,7 +106,7 @@
 #### [Azure AD authentication](sql-database-aad-authentication.md)
 #### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
 ### Firewall rules
-#### [Azure Portal](sql-database-configure-firewall-settings.md)
+#### [Azure portal](sql-database-configure-firewall-settings.md)
 #### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 #### [REST API](sql-database-configure-firewall-settings-rest.md)
 #### [T-SQL](sql-database-configure-firewall-settings-tsql.md)
@@ -150,10 +150,10 @@
 #### [Entity Framework](https://www.nuget.org/packages/EntityFramework/)
 #### [Azure SDK (download)](https://www.visualstudio.com/vs/azure-tools/)
 #### [Azure SDK (documentation)](../dotnet-sdk.md)
-#### [PowerShell Service Management cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx)
+#### [PowerShell (classic))](https://msdn.microsoft.com/library/azure/dn546723.aspx)
 #### REST
 ##### [REST (Resource Management)](https://msdn.microsoft.com/library/azure/mt420159)
-##### [REST (Service Management)](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+##### [REST (classic)](https://msdn.microsoft.com/library/azure/dn505719.aspx)
 
 ## Detect threats
 ### [Threat detection](sql-database-threat-detection-get-started.md)
