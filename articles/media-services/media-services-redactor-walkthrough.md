@@ -71,7 +71,6 @@ The output will include an annotations json file with face location data, as wel
 3. (Optional) Make any edits to the annotations.json file such as increasing the bounding box boundaries. 
 4. Right click the output asset from the first pass, select the Redactor, and run with the **Redact** mode. 
 
-
 	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 
 5. Download or share the final redacted output asset. 
