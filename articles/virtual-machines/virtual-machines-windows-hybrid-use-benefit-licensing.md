@@ -78,7 +78,7 @@ Within your Resource Manager templates, an additional parameter for `licenseType
 
 
 ## Deploy an uploaded VM via PowerShell quickstart
-When deploying your Windows Server VM via PowerShell, you have an additional parameter for `-LicenseType`. Once you have your VHD uploaded to Azure, you create a new VM using `New-AzureRmVM` and specify the licensing type as follows:
+When deploying your Windows Server VM via PowerShell, you have an additional parameter for `-LicenseType`. Once you have your VHD uploaded to Azure, you create a VM using `New-AzureRmVM` and specify the licensing type as follows:
 
 ```powershell
 New-AzureRmVM -ResourceGroupName "myResourceGroup" -Location "West US" -VM $vm -LicenseType "Windows_Server"
@@ -94,7 +94,7 @@ Once you have deployed your VM through either the PowerShell or Resource Manager
 Get-AzureRmVM -ResourceGroup "myResourceGroup" -Name "myVM"
 ```
 
-The output is similar to the following:
+The output is similar to the following example:
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
@@ -102,7 +102,7 @@ Location                 : westus
 LicenseType              : Windows_Server
 ```
 
-This contrasts with the following VM deployed without Azure Hybrid Use Benefit licensing, such as a VM deployed straight from the Azure Gallery:
+This output contrasts with the following VM deployed without Azure Hybrid Use Benefit licensing, such as a VM deployed straight from the Azure Gallery:
 
 ```powershell
 Type                     : Microsoft.Compute/virtualMachines
