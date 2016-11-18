@@ -29,10 +29,11 @@ In this topic, you will learn about the features supported by SQL Database, link
 | Attach a database | [Yes](https://msdn.microsoft.com/library/ms190209.aspx) | No |
 | Auditing | [Yes](https://msdn.microsoft.com/library/cc280386.aspx) | [Yes](sql-database-auditing-get-started.md) |
 | Backup | [Exposed for users](https://msdn.microsoft.com/library/ms187048.aspx) | [Built-in](sql-database-automated-backups.md) |
-| BACPAC files | [Yes](https://msdn.microsoft.com/en-us/library/ee210546.aspx#Anchor_4) | [Yes](sql-database-export.md) |
+| BACPAC file (export) | [Yes](https://msdn.microsoft.com/en-us/library/hh213241.aspx) | [Yes](sql-database-export.md) |
+| BACPAC file (import) | [Yes](https://msdn.microsoft.com/en-us/library/hh710052.aspx) | [Yes](sql-database-import.md) |
 | Change Data Capture | [Yes](https://msdn.microsoft.com/library/cc645937.aspx) | No |
 | Change Tracking | [Yes](https://msdn.microsoft.com/library/bb933875.aspx) | [Yes](https://msdn.microsoft.com/library/bb933875.aspx) |
-| CLR | [Yes](https://msdn.microsoft.com/library/ms131102.aspx) | [Yes](https://msdn.microsoft.com/library/ms131102.aspx) |
+| CLR (Common language runtime) | [Yes](https://msdn.microsoft.com/library/ms131102.aspx) | [Yes](https://msdn.microsoft.com/library/ms131102.aspx) |
 | Columnstore indexes | [Yes](https://msdn.microsoft.com/library/gg492088.aspx) | [Premium edition only][Yes](https://msdn.microsoft.com/library/gg492088.aspx) |
 | Contained databases | [Yes](https://msdn.microsoft.com/library/ff929071.aspx) | Built-in |
 | Contained users | [Yes](https://msdn.microsoft.com/library/ff929188.aspx) | [Yes](sql-database-manage-logins.md#non-administrator-users) |
@@ -54,35 +55,30 @@ In this topic, you will learn about the features supported by SQL Database, link
 | File groups | [Yes](https://msdn.microsoft.com/library/ms189563.aspx#Anchor_2) | [Primary only](https://msdn.microsoft.com/library/ms189563.aspx#Anchor_2) |
 | Filestream | [Yes](https://msdn.microsoft.com/library/gg471497.aspx) | No |
 | Full-text search | [Yes](https://msdn.microsoft.com/library/ms142571.aspx) | [No third-party word breakers](https://msdn.microsoft.com/library/ms142571.aspx) |
-| Temporary tables | [Yes](https://msdn.microsoft.com/library/ms174979.aspx#Anchor_4) | [Local only](https://msdn.microsoft.com/library/ms174979.aspx#Anchor_4) |
-| HADR | Yes | Limited |
-| In-Memory | Yes | Limited |
-| Jobs | Yes | Limited |
-| JSON support | Yes | Limited |
-| Linked servers | Yes | Limited |
-| Log shipping | Yes | Limited |
-| Long term retention | Yes | Limited |
-| MDS (Master Data Services) | Yes | Limited |
-| Minimal and bulk logging | Yes | Limited |
-| Modifying system DBs master, msdb, model | Yes | Limited |
-| Online Index Rebuild | Yes | Limited |
-| Parallel Queries | Yes | Limited |
-| Point in Time Restore | Yes | Limited |
-| Policy-based management | Yes | Limited |
-| PowerShell | Yes | Limited |
-| Replication | Yes | Limited |
-| Resource Governor | Yes | Limited |
-| Restore a backup from on-premises database | Yes | Limited |
-| Restore from backup | Yes | Limited |
+| In-memory optimization | [Yes](https://msdn.microsoft.com/library/dn133186.aspx) | [Premium edition only](https://msdn.microsoft.com/library/dn133186.aspx) |
+| Jobs | [SQL Server Agent](https://msdn.microsoft.com/library/ms189237.aspx) | [Yes](sql-database-elastic-jobs-getting-started.md) |
+| JSON data support | [Yes](https://msdn.microsoft.com/library/dn921897.aspx) | [Yes](sql-database-json-features.md) |
+| Linked servers | [Yes](https://msdn.microsoft.com/library/ms188279.aspx) | No - see [Elastic query](sql-database-elastic-query-horizontal-partitioning.md) |
+| Log shipping | [Yes](https://msdn.microsoft.com/library/ms187103.aspx) | No - See [Active Geo-Replication](sql-database-geo-replication-overview.md) |
+| MDS (Master Data Services) | [Yes](https://msdn.microsoft.com/library/ff487003.aspx) | No |
+| Minimal logging in bulk import | [Yes](https://msdn.microsoft.com/library/ms190422.aspx) | No |
+| Modifying system data | [Yes](https://msdn.microsoft.com/library/ms178028.aspx) | No |
+| Online index operations | [Yes](https://msdn.microsoft.com/library/ms177442.aspx) | [Transaction size limited by service tier](https://msdn.microsoft.com/library/ms177442.aspx) |
+| Point in time database restore | [Yes](https://msdn.microsoft.com/library/ms179451.aspx) | [Yes](sql-database-recovery-using-backups.md#point-in-time-restore) |
+| Policy-based management | [Yes](https://msdn.microsoft.com/library/bb510667.aspx) | No |
+| Resource governor | [Yes](https://msdn.microsoft.com/library/bb933866.aspx) | [Built-in](sql-database-service-tiers.md) |
+| Restore database from backup | Yes | [From automatic backups only] |
 | Row Level Security | Yes | Limited |
 | Semantic search | Yes | Limited |
 | Sequence Objects | Yes | Limited |
 | Service Broker | Yes | Limited |
 | sp_configure | Yes | Limited |
 | Spatial | Yes | Limited |
-| SQL Agent | Yes | Limited |
+| SQL Server Agent | [Yes](https://msdn.microsoft.com/library/ms189237.aspx) | No - See [Elastic jobs]] |
 | SQL errorlog | Yes | Limited |
+| SQL Server PowerShell | [Yes](https://msdn.microsoft.com/library/hh245198.aspx) | [Yes](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | Yes | Limited |
+| SQL Server Replication | [Yes](https://msdn.microsoft.com/library/ms151198.aspx) | [Transactional replication subscriber only](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
 | SSAS (SQL Server Analysis Services) | Yes | Limited |
 | SSIS (SQL Server Integration Services) | Yes | Limited |
 | SSRS (SQL Server Reporting Services) | Yes | Limited |
@@ -90,6 +86,8 @@ In this topic, you will learn about the features supported by SQL Database, link
 | Stored procedures | Yes | Limited |
 | Table Partitioning | Yes | Limited |
 | TDE (encryption at rest) | Yes | Limited |
+| Temporary tables | [Yes](https://msdn.microsoft.com/library/ms174979.aspx#Anchor_4) | [Local only](https://msdn.microsoft.com/library/ms174979.aspx#Anchor_4) |
+| Temporal tables |
 | Transparent Data Encryption | Yes | Limited |
 | Triggers | Yes | Limited |
 | T-SQL Bulk insert / BCP | Yes | Limited |
