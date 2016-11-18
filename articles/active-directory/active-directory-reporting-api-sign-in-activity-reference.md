@@ -30,9 +30,18 @@ See:
 For questions, issues or feedback, please contact [AAD Reporting Help](mailto:aadreportinghelp@microsoft.com).
 
 ## Who can access the API data?
-* Users in the Security Admin or Security Reader role
+* Users and Service Principals in the Security Admin or Security Reader role
 * Global Admins
 * Any app that has authorization to access the API (app authorization can be setup only based on Global Admin’s permission)
+
+To configure access for an application to access security APIs such as signin events, use the following PowerShell to add the applications Service Principal into the Security Reader role
+
+```PowerShell
+Connect-MsolService
+$servicePrincipal = Get-MsolServicePrincipal -AppPrincipalId "<app client id>"
+$role = Get-MsolRole | ? Name -eq "Security Reader"
+Add-MsolRoleMember -RoleObjectId $role.ObjectId -RoleMemberType ServicePrincipal -RoleMemberObjectId $servicePrincipal.ObjectId
+```
 
 ## Prerequisites
 To access this report through the reporting API, you must have:
