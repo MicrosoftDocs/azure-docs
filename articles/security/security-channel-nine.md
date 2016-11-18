@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
 
 ---
@@ -75,4 +75,3 @@ Azure Active Directory (AD) Privileged Identity Management is a premium function
 [Azure Key Vault with Amit Bapat](https://channel9.msdn.com/Shows/Azure-Friday/Azure-Key-Vault-with-Amit-Bapat)
 
 Amit Bapat introduces Scott to Azure Key Vault. With Azure Key Vault, you can encrypt keys and small secrets like passwords using keys stored in hardware security modules (HSMs). It's cloud-based, hardware-based secret management for Microsoft Azure!
-
