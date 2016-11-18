@@ -26,7 +26,7 @@ You can use different types of logs in Azure to manage and troubleshoot load bal
 * **Health probe logs:** You can use this log to check for probe health check status, how many instances are online in the load balancer back-end and percentage of virtual machines receiving network traffic from the load balancer. This log is written on probe status event change.
 
 > [!IMPORTANT]
-> Log analytics currently works only for Internet facing load balancers. Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
+> Log analytics currently works only for Internet facing load balancers. Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For more information about the deployment models, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
 
 ## Enable logging
 

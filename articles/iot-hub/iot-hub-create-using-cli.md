@@ -32,7 +32,7 @@ To complete this tutorial you need the following:
   ```
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../resource-manager-deployment-model.md). The Azure CLI must be in Azure Resource Manager mode:
+> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). The Azure CLI must be in Azure Resource Manager mode:
 > 
 > ```
 > azure config mode arm
@@ -118,7 +118,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-CLI-install]: ../xplat-cli-install.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-CLI-arm]: ../xplat-cli-azure-resource-manager.md
+[lnk-CLI-arm]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-portal]: iot-hub-create-through-portal.md 
