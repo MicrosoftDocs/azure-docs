@@ -200,11 +200,11 @@ catch (Exception e)
 }
 ```
 
-This example relies on Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213
-
-Refer [Microsoft.IdentityModel.Clients.ActiveDirectory Namespace](https://msdn.microsoft.com/en-us/library/microsoft.identitymodel.clients.activedirectory.aspx) for how to acquire token and more information.
-
 To use silent mode without any human interaction:
+
+(This example relies on Microsoft.IdentityModel.Clients.ActiveDirectory, Version: 2.19.208020213
+
+Refer to [Microsoft.IdentityModel.Clients.ActiveDirectory Namespace](https://msdn.microsoft.com/library/microsoft.identitymodel.clients.activedirectory.aspx) about how to acquire token and more information)
 
 ```csharp
 string tenantId = "c15cfcea-02c1-40dc-8466-fbd0ee0b05d2";
