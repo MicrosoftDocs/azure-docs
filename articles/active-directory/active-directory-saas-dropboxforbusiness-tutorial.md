@@ -111,9 +111,9 @@ As part of this procedure, you are required to upload a base-64 encoded certific
     > [!TIP] 
     > For more details, see [How to convert a binary certificate into a text file](http://youtu.be/PlgrzUZ-Y1o).
 
-    d. Click **"Choose certificate"** button, and then browse to your **base-64 encoded certificate file**.
+    d. Click **Choose certificate**, and then browse to your **base-64 encoded certificate file**.
 
-    e. Click **"Save changes"** button to complete the configuration on your DropBox for Business tenant.
+    e. Click **Save changes** to complete the configuration on your DropBox for Business tenant.
 
 1. On the Azure classic portal, select the single sign-on configuration confirmation, and then click **Complete** to close the **Configure Single Sign On** dialog. 
    

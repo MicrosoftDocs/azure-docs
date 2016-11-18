@@ -58,7 +58,8 @@ The objective of this section is to outline how to enable the application integr
    
    ![EmpCentral](./media/active-directory-saas-empcenter-tutorial/IC802918.png "EmpCentral")
    
-   ## Configuring single sign-on
+
+## Configuring single sign-on
 
 The objective of this section is to outline how to enable users to authenticate to EmpCenter with their account in Azure AD using federation based on the SAML protocol.
 
@@ -89,7 +90,7 @@ The objective of this section is to outline how to enable users to authenticate 
    
    ![Configure Single Sign-On](./media/active-directory-saas-empcenter-tutorial/IC802923.png "Configure Single Sign-On")
    
-   ## Configuring user provisioning
+## Configuring user provisioning
 
 In order to enable Azure AD users to log into EmpCenter, they must be provisioned into EmpCenter.  
 In the case of EmpCenter, the user accounts need to be created by your EmpCenter support team.
