@@ -39,7 +39,8 @@ To configure Azure AD integration with Dow Jones Factiva, you need the following
 - A Dow Jones Factiva single-sign on enabled subscription
 
 
-> [!NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+> [!NOTE] 
+> To test the steps in this tutorial, we do not recommend using a production environment.
 
 
 To test the steps in this tutorial, you should follow these recommendations:
