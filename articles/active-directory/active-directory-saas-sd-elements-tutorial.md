@@ -121,7 +121,8 @@ The following screenshot shows an example for this:
 
     b. In the **Reply URL** textbox, type your tenant's reply URL using the following pattern: *https://\<your tenant name\>.sdelements.com/sso/saml2/acs/*       
 
-    > [!NOTE] If you need the actual Issuer URL and Reply URL for your tenant, contact your [SD Elements support team](mailto:support@sdelements.com).
+    > [!NOTE] 
+    > If you need the actual Issuer URL and Reply URL for your tenant, contact your [SD Elements support team](mailto:support@sdelements.com).
 
     c. Click **Next**.
 
