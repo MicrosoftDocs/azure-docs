@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-group-portal.md
+redirect_url: /azure/azure-resource-manager/resource-group-portal
 ---

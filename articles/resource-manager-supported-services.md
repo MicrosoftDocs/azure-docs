@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-manager-supported-services.md
+redirect_url: /azure/azure-resource-manager/resource-manager-supported-services
 ---

@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-manager-template-links.md
+redirect_url: /azure/azure-resource-manager/resource-manager-template-links
 ---

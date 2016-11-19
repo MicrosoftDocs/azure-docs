@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-manager-template-lock.md
+redirect_url: /azure/azure-resource-manager/resource-manager-template-lock
 ---

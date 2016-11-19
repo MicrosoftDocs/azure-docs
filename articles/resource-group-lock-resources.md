@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-group-lock-resources.md
+redirect_url: /azure/azure-resource-manager/resource-group-lock-resources
 ---

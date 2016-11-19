@@ -1,3 +1,3 @@
 ﻿---
-redirect_url: /azure/azure-resource-manager/resource-manager-policy.md
+redirect_url: /azure/azure-resource-manager/resource-manager-policy
 ---

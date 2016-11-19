@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-manager-vs-code.md
+redirect_url: /azure/azure-resource-manager/resource-manager-vs-code
 ---

@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/solution-dev-test-environments.md
+redirect_url: /azure/azure-resource-manager/solution-dev-test-environments
 ---

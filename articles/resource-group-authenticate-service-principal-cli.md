@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/azure-resource-manager/resource-group-authenticate-service-principal-cli.md
+redirect_url: /azure/azure-resource-manager/resource-group-authenticate-service-principal-cli
 ---
