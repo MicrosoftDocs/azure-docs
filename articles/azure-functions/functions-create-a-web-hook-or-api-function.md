@@ -31,7 +31,7 @@ The following video show how to perform the basic steps in this tutorial
 >
 
 ## Create a webhook-triggered function from the template
-A function app hosts the execution of your functions in Azure. Before you can create a function, you need to have an active Azure account. If you don't already have an Azure account, [free accounts are available](https://azure.microsoft.com/free/). 
+A function app hosts the execution of your functions in Azure. If you don't already have an Azure account, check out the [Try Functions](https://functions.azure.com/try) experience or  [create a free Azure acccount](https://azure.microsoft.com/free/). 
 
 1. Go to the [Azure Functions portal](https://functions.azure.com/signin) and sign-in with your Azure account.
 2. If you have an existing function app to use, select it from **Your function apps** then click **Open**. To create a new function app, type a unique **Name** for your new function app or accept the generated one, select your preferred **Region**, then click **Create + get started**. 
