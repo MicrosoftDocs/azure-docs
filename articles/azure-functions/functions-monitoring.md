@@ -94,7 +94,7 @@ The following command will stream the log files of your function app to the comm
 
 	azure site log tail -v <function app name>
 
-### Monitoring function app log filea with PowerShell
+### Monitoring function app log files with PowerShell
 
 To get started, [install and configure Azure PowerShell](../powershell-install-configure.md).
 
