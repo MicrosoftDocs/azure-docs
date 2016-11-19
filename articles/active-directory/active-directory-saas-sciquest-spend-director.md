@@ -157,7 +157,7 @@ The objective of this section is to create a test user in the Azure classic port
    
     b. In the User Name **textbox**, type **BrittaSimon**.
    
-    c. Click Next.
+    c. Click **Next**.
 
 6. On the **User Profile** dialog page, perform the following steps: 
    

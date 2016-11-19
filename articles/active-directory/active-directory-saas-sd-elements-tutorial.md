@@ -121,7 +121,7 @@ The following screenshot shows an example for this:
 
     b. In the **Reply URL** textbox, type your tenant's reply URL using the following pattern: *https://\<your tenant name\>.sdelements.com/sso/saml2/acs/*       
 
-    > [AZURE.NOTE] If you need the actual Issuer URL and Reply URL for your tenant, contact your [SD Elements support team](mailto:support@sdelements.com).
+    > [!NOTE] If you need the actual Issuer URL and Reply URL for your tenant, contact your [SD Elements support team](mailto:support@sdelements.com).
 
     c. Click **Next**.
 
@@ -133,15 +133,11 @@ The following screenshot shows an example for this:
     a. Click **Download certificate**, and then save the file on your computer.
    
     b. Click **Next**.
-
 2. To get single sign-on enabled, contact your [SD Elements support team](mailto:support@sdelements.com) and provide them with the downloaded certificate file.
-
 3. In a different browser window, singn-on to your SD Elements tenant as an administrator.
-
 4. In the menu on the top, click System, and then Single Sign-on. 
    
     ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_09.png) 
-
 5. On the **Single Sign-On Settings** dialog, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_10.png) 
@@ -153,26 +149,22 @@ The following screenshot shows an example for this:
     c. In the Azure classic portal, on the **Configure single sign-on at SD Elements** dialog page, copy the **Single Sign-On Service URL** value, and then paste it into the **Identity Provider Single Sign-On Service** textbox.
    
     d. Click **Save**.
-
 6. In the Azure classic portal, select the single sign-on configuration confirmation, and then click **Next**.
    
     ![Azure AD Single Sign-On][10]
-
 7. On the **Single sign-on confirmation** page, click **Complete**.  
    
     ![Azure AD Single Sign-On][11]
-
 8. In the menu on the top, click **Attributes** to open the **SAML Token Attributes** dialog. 
    
     ![Configure Single Sign-On][21]
-
 9. For each row in the following table, perform the following steps:
    
-	| Attribute Name | Attribute Value |
-    | --- | --- |
-    | email |user.mail |
-    | firstname |user.givenname |
-    | lastname |user.surname |
+   | Attribute Name | Attribute Value |
+   | --- | --- |
+   | email |user.mail |
+   | firstname |user.givenname |
+   | lastname |user.surname |
 
     a. Click **add user attribute**. 
 
@@ -200,17 +192,13 @@ The objective of this section is to create a test user in the Azure classic port
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_09.png) 
-
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
-
 3. To display the list of users, in the menu on the top, click **Users**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_03.png) 
-
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_04.png) 
-
 5. On the **Tell us about this user** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_05.png) 
@@ -220,25 +208,22 @@ The objective of this section is to create a test user in the Azure classic port
     b. In the User Name **textbox**, type **BrittaSimon**.
    
     c. Click **Next**.
-
 6. On the **User Profile** dialog page, perform the following steps:
    
-	![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_06.png) 
+   ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_06.png) 
    
-    a. In the **First Name** textbox, type **Britta**.  
+   a. In the **First Name** textbox, type **Britta**.  
    
-    b. In the **Last Name** textbox, type, **Simon**.
+   b. In the **Last Name** textbox, type, **Simon**.
    
-    c. In the **Display Name** textbox, type **Britta Simon**.
+   c. In the **Display Name** textbox, type **Britta Simon**.
    
-    d. In the **Role** list, select **User**.
+   d. In the **Role** list, select **User**.
    
-    e. Click **Next**.
-
+   e. Click **Next**.
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_07.png) 
-
 8. On the **Get temporary password** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-sd-elements-tutorial/create_aaduser_08.png) 
@@ -256,26 +241,23 @@ In the case of SD Elements, creating SD Elements users is a manual task.
 1. In a web browser window, sign-on to your SD Elements company site as an administrator.
 2. In the menu on the top, click User Management, and then Users.
    
-    ![Creating a SD Elements test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_11.png) 
-
+   ![Creating a SD Elements test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_11.png) 
 3. Click Add New User.
    
-    ![Creating a SD Elements test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_12.png) 
-
+   ![Creating a SD Elements test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_12.png) 
 4. On the Add New User dialog, perform the following steps:
    
-    ![Creating a SD Elements test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_13.png) 
+   ![Creating a SD Elements test user](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_13.png) 
    
-    a. In the **E-mail** textbox, type Britta's email address in Azure AD.
+   a. In the **E-mail** textbox, type Britta's email address in Azure AD.
    
-    b. In the **First Name** textbox, type **Britta**.
+   b. In the **First Name** textbox, type **Britta**.
    
-    c. In the **Last Name** textbox, type **Simon**.
+   c. In the **Last Name** textbox, type **Simon**.
    
-    d. As **Role**, select **User**. 
+   d. As **Role**, select **User**. 
    
-    e. Click **Create User**.
-
+   e. Click **Create User**.
 
 ### Assigning the Azure AD test user
 The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to SD Elements.
@@ -287,17 +269,13 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Assign User][201] 
-
 2. In the applications list, select **SD Elements**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-sd-elements-tutorial/tutorial_sd-elements_50.png) 
-
 3. In the menu on the top, click **Users**.
    
     ![Assign User][203] 
-
 4. In the **Users** list, select **Britta Simon**.
-
 5. In the toolbar on the bottom, click **Assign**.
    
     ![Assign User][205]
