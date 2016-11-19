@@ -1,4 +1,4 @@
-﻿---
+---
 title: Release notes for Data Management Gateway | Microsoft Docs
 description: Data Management Gateway tory release notes
 services: data-factory
@@ -25,14 +25,34 @@ See the following articles for detailed information about Data Management Gatewa
 * [Data Management Gateway](data-factory-data-management-gateway.md)
 * [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) 
 
-## Current version (2.2.6072.1)
+## CURRENT VERSION (2.4.6151.1)
+
+### What’s new
+
+- You can now store data source credentials locally. The credentials are encrypted. The data source credentials can be recovered and restored using the backup file that can be exported from the existing Gateway, all on premise. 
+
+### Enhancements-
+
+- Improved and more robust Gateway registration experience.
+- Support auto detection of QuoteChar configuration for Text format in copy wizard, and improve the overall format detection accuracy.
+
+
+## Earlier versions
+
+### 2.3.6100.2
+
+- Support firstRowAsHeader and SkipLineCount auto detection in copy wizard for text files in on-premises File system and HDFS.
+- Enhance the stability of network connection between gateway and Service Bus
+- A few bug fixes
+
+
+## 2.2.6072.1
 * Supports setting HTTP proxy for the gateway using the Gateway Configuration Manager. If configured, Azure Blob, Azure Table, Azure Data Lake, and Document DB are accessed through HTTP proxy.
 * Supports header handling for TextFormat when copying data from/to Azure Blob, Azure Data Lake Store, on-premises File System, and on-premises HDFS.
 * Supports copying data from Append Blob and Page Blob along with the already supported Block Blob.
 * Introduces a new gateway status **Online (Limited)**, which indicates that the main functionality of the gateway works except the interactive operation support for Copy Wizard.
 * Enhances the robustness of gateway registration using registration key.
 
-## Earlier versions
 ## 2.1.6040.1
 * DB2 driver is included in the gateway installation package now. You do not need to install it separately. 
 * DB2 driver now supports z/OS and DB2 for i (AS/400) along with the platforms already supported (Linux, Unix, and Windows). 

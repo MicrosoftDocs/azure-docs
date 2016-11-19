@@ -1,14 +1,14 @@
 ---
 title: Create a Service Bus namespace using a Resource Manager template | Microsoft Docs
 description: Use Azure Resource Manager template to create a Service Bus namespace
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: dc0d6482-6344-4cef-8644-d4573639f5e4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet

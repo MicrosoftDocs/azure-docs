@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 10/05/2016
+ms.date: 11/15/2016
 ms.author: tedway;garye
 
 ---

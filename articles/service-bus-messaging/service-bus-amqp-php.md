@@ -1,14 +1,14 @@
 ---
 title: Service Bus and PHP with AMQP 1.0 | Microsoft Docs
 description: Using Service Bus from PHP with AMQP.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: dfb26c2b-41d3-4ed6-936b-b8d2f1dbd470
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

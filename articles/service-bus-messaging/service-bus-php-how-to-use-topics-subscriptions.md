@@ -1,14 +1,14 @@
 ---
 title: How to use Service Bus topics with PHP | Microsoft Docs
 description: Learn how to use Service Bus topics with PHP in Azure.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: php
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: faaa4bbd-f6ef-42ff-aca7-fc4353976449
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP

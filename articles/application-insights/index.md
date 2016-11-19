@@ -1,9 +1,9 @@
 ---
 layout: LandingPage
 ---
-# Visual Studio Application Insights Documentation
+# Application Insights Documentation
 
-Visual Studio Application Insights is an extensible Application Performance Management (APM) service for web developers. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It also integrates with your devOps process, and has connection points to a wide variety of other tools.
+Application Insights is an extensible Application Performance Management (APM) service for web developers. Use it to monitor your live web application. It will automatically detect performance anomalies. It includes powerful analytics tools to help you diagnose issues and to understand what users actually do with your app. It's designed to help you continuously improve performance and usability. It works for apps on a wide variety of platforms including .NET, Node.js and J2EE, hosted on-premises or in the cloud. It also integrates with your devOps process, and has connection points to a wide variety of other tools.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -17,7 +17,7 @@ Visual Studio Application Insights is an extensible Application Performance Mana
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Visual Studio Application Insights</h3>
+                        <h3>Learn about Application Insights</h3>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@ Visual Studio Application Insights is an extensible Application Performance Mana
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Visual Studio Application Insights Video Library</h3>
+                        <h3>Application Insights Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -183,7 +183,7 @@ Visual Studio Application Insights is an extensible Application Performance Mana
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Visual Studio Application Insights Documentation
+            Download Application Insights Documentation
         </div>
     </a>
 </div>
