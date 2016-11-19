@@ -32,7 +32,7 @@ In a mobile first, cloud first world, Azure Active Directory enables your users 
 - Empower the end users to be able to do what they want to do
 - Protect the corporate assets at any time
 
-While providing your users with a broad range of options to access your corporate assets helps to improve productivity, it can become a nightmare to IT admins that are in charge of protecting your assets. Azure Active Directory enables you to configure who can access your resources; however, what if you have good reasons to limit the access options under certain conditions? What if you even have conditions under which you want to block access to certain resources?  
+While providing your users with a broad range of options to access your corporate assets helps to improve productivity, it can become a nightmare to IT admins that are in charge of protecting your assets. Azure Active Directory enables you to configure **who** can access your resources; however, what if you have good reasons to limit the access options under certain conditions? What if you even have conditions under which you want to block access to certain resources even for the *right people*? For example, it might be OK for if the right people are accessing certain apps from a trusted network; however you might not want that they are accessing these apps from a network you don't trust.  
 
 Conditional access is a capability of Azure Active Directory that enables you to address these questions using a policy-based approach. A policy-based approach simplifies your configuration experience because it follows the way you think about your access requirements.  
 Typically, you define your access requirements using statements that are based on the following pattern:
@@ -43,7 +43,7 @@ When you replace the two occurrences of “*this*” with real-world information
 
 *When contractors are trying to access our cloud apps from networks that are not trusted, then block access.*
 
-The policy statement above highlights the power of conditional access. While you can enable contractors to basically access your cloud apps, you can define conditions under which the access is possible. 
+The policy statement above highlights the power of conditional access. While you can enable contractors to basically access your cloud apps (**who**), with conditional access, you can also define conditions under which the access is possible (**how**). 
 
 In the context of Azure Active Directory conditional access, 
 
