@@ -9,7 +9,7 @@
 
 # How To
 
-## [Create a service principal](../resource-group-create-service-principal-portal.md)
+## [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 ## [Authenticate with a registry](container-registry-authentication.md)
 
 # Reference
