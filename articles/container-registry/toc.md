@@ -10,7 +10,7 @@
 # How To
 
 ## [Create a service principal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
-## [Authenticate with a registry](container-registry-authentication.md)
+## [Authenticate with a registry](container-registry-authentication.md?toc=%2fazure%2fcontainer-registry%2ftoc.json)
 
 # Reference
 
