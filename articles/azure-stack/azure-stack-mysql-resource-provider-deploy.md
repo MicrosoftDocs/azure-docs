@@ -7,7 +7,7 @@ author: JeffGoldner
 manager: byronr
 editor: ''
 
-ms.service: multiple
+ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
