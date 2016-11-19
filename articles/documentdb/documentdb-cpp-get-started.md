@@ -221,52 +221,52 @@ We have now added code to create, query, modify, and delete different DocumentDB
 
 You can do so by replacing the main function of your application with the following code. This writes over the account_configuration_uri and primary_key you copied into the code in Step 3, so save that line or copy the values in again from the portal.
 
-	int main() {
-		try {
-			// Start by defining your account's configuration
-			DocumentDBConfiguration conf (U("<account_configuration_uri>"), U("<primary_key>"));
-			// Create your client
-			DocumentClient client(conf);
-			// Create a new database
-			try {
-				shared_ptr<Database> db = client.CreateDatabase(U("FamilyDB"));
-				ucout << "\nCreating database:\n" << db->id();
-				// Create a collection inside database
-				shared_ptr<Collection> coll = db->CreateCollection(U("FamilyColl"));
-				ucout << "\n\nCreating collection:\n" << coll->id();
-				value document_family;
-				document_family[U("id")] = value::string(U("AndersenFamily"));
-				document_family[U("FirstName")] = value::string(U("Thomas"));
-				document_family[U("LastName")] = value::string(U("Andersen"));
-				shared_ptr<Document> doc =
-					coll->CreateDocumentAsync(document_family).get();
-				ucout << "\n\nCreating document:\n" << doc->id();
-				document_family[U("id")] = value::string(U("WakefieldFamily"));
-				document_family[U("FirstName")] = value::string(U("Lucy"));
-				document_family[U("LastName")] = value::string(U("Wakefield"));
-				doc = coll->CreateDocumentAsync(document_family).get();
-				ucout << "\n\nCreating document:\n" << doc->id();
-				executesimplequery(client, db->resource_id(), coll->resource_id());
-				replacedocument(client, db->resource_id(), coll->resource_id(),
-					doc->resource_id());
-				ucout << "\n\nReplaced document:\n" << doc->id();
-				executesimplequery(client, db->resource_id(), coll->resource_id());
-				deletedocument(client, db->resource_id(), coll->resource_id(),
-					doc->resource_id());
-				ucout << "\n\nDeleted document:\n" << doc->id();
-				deletedb(client, db->resource_id());
-				ucout << "\n\nDeleted db:\n" << db->id();
-				cin.get();
-			}
-			catch (ResourceAlreadyExistsException ex) {
-				ucout << ex.message();
-			}
-		}
-		catch (DocumentDBRuntimeException ex) {
-			ucout << ex.message();
-		}
-		cin.get();
-	}
+    int main() {
+        try {
+            // Start by defining your account's configuration
+            DocumentDBConfiguration conf (U("<account_configuration_uri>"), U("<primary_key>"));
+            // Create your client
+            DocumentClient client(conf);
+            // Create a new database
+            try {
+                shared_ptr<Database> db = client.CreateDatabase(U("FamilyDB"));
+                ucout << "\nCreating database:\n" << db->id();
+                // Create a collection inside database
+                shared_ptr<Collection> coll = db->CreateCollection(U("FamilyColl"));
+                ucout << "\n\nCreating collection:\n" << coll->id();
+                value document_family;
+                document_family[U("id")] = value::string(U("AndersenFamily"));
+                document_family[U("FirstName")] = value::string(U("Thomas"));
+                document_family[U("LastName")] = value::string(U("Andersen"));
+                shared_ptr<Document> doc =
+                    coll->CreateDocumentAsync(document_family).get();
+                ucout << "\n\nCreating document:\n" << doc->id();
+                document_family[U("id")] = value::string(U("WakefieldFamily"));
+                document_family[U("FirstName")] = value::string(U("Lucy"));
+                document_family[U("LastName")] = value::string(U("Wakefield"));
+                doc = coll->CreateDocumentAsync(document_family).get();
+                ucout << "\n\nCreating document:\n" << doc->id();
+                executesimplequery(client, db->resource_id(), coll->resource_id());
+                replacedocument(client, db->resource_id(), coll->resource_id(),
+                    doc->resource_id());
+                ucout << "\n\nReplaced document:\n" << doc->id();
+                executesimplequery(client, db->resource_id(), coll->resource_id());
+                deletedocument(client, db->resource_id(), coll->resource_id(),
+                    doc->resource_id());
+                ucout << "\n\nDeleted document:\n" << doc->id();
+                deletedb(client, db->resource_id());
+                ucout << "\n\nDeleted db:\n" << db->id();
+                cin.get();
+            }
+            catch (ResourceAlreadyExistsException ex) {
+                ucout << ex.message();
+            }
+        }
+        catch (DocumentDBRuntimeException ex) {
+            ucout << ex.message();
+        }
+        cin.get();
+    }
 
 You should now be able to build and run your code in Visual Studio by pressing F5 or alternatively in the terminal window by locating the application and running the executable. 
 
