@@ -204,8 +204,7 @@ Production workloads moved to Azure should integrate with existing backup soluti
 
 ### Monitor
 
-**Security Center**
-
+**Security Center** 
 [Security Center](../security-center/security-center-intro.md) provides ongoing evaluation of the security state of your Azure resources to identify potential security vulnerabilities. A list of recommendations guides you through the process of configuring needed controls.
 
 Examples include:
