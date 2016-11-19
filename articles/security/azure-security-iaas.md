@@ -204,7 +204,6 @@ Production workloads moved to Azure should integrate with existing backup soluti
 
 ### Monitor
 
-**Security Center** 
 [Security Center](../security-center/security-center-intro.md) provides ongoing evaluation of the security state of your Azure resources to identify potential security vulnerabilities. A list of recommendations guides you through the process of configuring needed controls.
 
 Examples include:
@@ -219,10 +218,9 @@ In the image below you can see some of the options available for you to enable i
 
 ![Azure security center policies](./media/azure-security-iaas/security-center-policies.png)
 
-**Operations Management Suite (OMS)**
-Operations Management Suite is a Microsoft cloud based IT management solution that helps you manage and protect your on-premise and cloud infrastructure. Since OMS is implemented as a cloud based service it can be deployed quickly and with minimal investment in infrastructure resources.
+ [Operations Management Suite](../operations-management-suite/operations-management-suite-overview.md) is a Microsoft cloud based IT management solution that helps you manage and protect your on-premise and cloud infrastructure. Since OMS is implemented as a cloud based service it can be deployed quickly and with minimal investment in infrastructure resources.
 
-New features are delivered automatically saving you from ongoing maintenance and upgrade costs. It also integrates with System Center Operations Manager.  OMS has different components to help you better manage your Azure workloads including a ['Security and Compliance'](../operations-management-suite/oms-security-getting-started.md) module.
+New features are delivered automatically saving you from ongoing maintenance and upgrade costs. It also integrates with System Center Operations Manager.  OMS has different components to help you better manage your Azure workloads including a [Security and Compliance](../operations-management-suite/oms-security-getting-started.md) module.
 
 The security and compliance features in OMS allow you to view information about your resources organized into four major categories:
 
@@ -236,7 +234,7 @@ The screenshot below shows an example of the type of information that can be dis
 
 ![OMS security baselines](./media/azure-security-iaas/oms-security-baseline.png)
 
-You can find more information on Operations Management Suite at the article [What is Operations Management Suite? ](../operations-management-suite/operations-management-suite-overview.md)
+
 
 ## Next Steps
 
