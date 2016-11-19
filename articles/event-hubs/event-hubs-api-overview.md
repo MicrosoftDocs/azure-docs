@@ -26,7 +26,7 @@ Monitoring scenarios span both management and run-time. For detailed reference d
 To perform the following management operations, you must have **Manage** permissions on the Event Hubs namespace:
 
 ### Create
-```
+```csharp
 // Create the Event Hub
 EventHubDescription ehd = new EventHubDescription(eventHubName);
 ehd.PartitionCount = SampleManager.numPartitions;
@@ -34,7 +34,7 @@ namespaceManager.CreateEventHubAsync(ehd).Wait();
 ```
 
 ### Update
-```
+```csharp
 EventHubDescription ehd = await namespaceManager.GetEventHubAsync(eventHubName);
 
 // Create a customer SAS rule with Manage permissions
@@ -46,19 +46,19 @@ namespaceManager.UpdateEventHubAsync(ehd).Wait();
 ```
 
 ### Delete
-```
+```csharp
 namespaceManager.DeleteEventHubAsync("Event Hub name").Wait();
 ```
 
 ## Run-time APIs
 ### Create publisher
-```
+```csharp
 // EventHubClient model (uses implicit factory instance, so all links on same connection)
 EventHubClient eventHubClient = EventHubClient.Create("Event Hub name");
 ```
 
 ### Publish message
-```
+```csharp
 // Create the device/temperature metric
 MetricEvent info = new MetricEvent() { DeviceId = random.Next(SampleManager.NumDevices), Temperature = random.Next(100) };
 EventData data = new EventData(new byte[10]); // Byte array
@@ -76,7 +76,7 @@ await client.SendAsync(data);
 ```
 
 ### Create consumer
-```
+```csharp
 // Create the Event Hubs client
 EventHubClient eventHubClient = EventHubClient.Create(EventHubName);
 
@@ -94,7 +94,7 @@ EventHubReceiver consumer = await defaultConsumerGroup.CreateReceiverAsync(shard
 ```
 
 ### Consume message
-```
+```csharp
 var message = await consumer.ReceiveAsync();
 
 // Provide a serializer
@@ -108,7 +108,7 @@ msg = UnicodeEncoding.UTF8.GetString(info);
 ## Event processor host APIs
 These APIs provide resiliency to worker processes that may become unavailable, by distributing shards across available workers.
 
-```
+```csharp
 // Checkpointing is done within the SimpleEventProcessor and on a per-consumerGroup per-partition basis, workers resume from where they last left off.
 // Use the EventData.Offset value for checkpointing yourself, this value is unique per partition.
 
@@ -125,7 +125,7 @@ host.UnregisterEventProcessorAsync().Wait();
 
 The [IEventProcessor](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.ieventprocessor) interface is defined as follows:
 
-```
+```csharp
 public class SimpleEventProcessor : IEventProcessor
 {
     IDictionary<string, string> map;
