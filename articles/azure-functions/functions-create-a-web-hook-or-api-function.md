@@ -74,7 +74,7 @@ See these topics for more information about Azure Functions.
 * [Testing Azure Functions](functions-test-a-function.md)  
   Describes various tools and techniques for testing your functions.
 * [How to scale Azure Functions](functions-scale.md)  
-  Discusses service plans available with Azure Functions, including the Dynamic service plan, and how to choose the right plan.  
+  Discusses service plans available with Azure Functions, including the Consumption App Service plan, and how to choose the right plan.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 
