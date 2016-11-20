@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Azure-docs by chainoy</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Azure-docs</h1>
+      <h2 class="project-tagline">docs</h2>
+      <a href="https://github.com/chainoy/azure-docs" class="btn">View on GitHub</a>
+      <a href="https://github.com/chainoy/azure-docs/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/chainoy/azure-docs/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="azure-technical-documentation-contributor-guide" class="anchor" href="#azure-technical-documentation-contributor-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Azure Technical Documentation Contributor Guide</h1>
+
+<p>You've found the GitHub repository that houses the source for the Azure technical documentation that is published on <a href="http://docs.microsoft.com/azure">http://docs.microsoft.com/azure</a>.</p>
+
+<p>This repository also contains guidance to help you contribute to our technical documentation. For a list of the articles in the contributors' guide, see <a href="contributor-guide/contributor-guide-index.md">the index</a>.</p>
+
+<h2>
+<a id="contribute-to-azure-documentation" class="anchor" href="#contribute-to-azure-documentation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contribute to Azure documentation</h2>
+
+<p>Thank you for your interest in Azure documentation!</p>
+
+<ul>
+<li><a href="#ways-to-contribute">Ways to contribute</a></li>
+<li><a href="#code-of-conduct">Code of conduct</a></li>
+<li><a href="#about-your-contributions-to-azure-content">About your contributions to Azure content</a></li>
+<li><a href="#repository-organization">Repository organization</a></li>
+<li><a href="#use-github-git-and-this-repository">Use GitHub, Git, and this repository</a></li>
+<li><a href="#how-to-use-markdown-to-format-your-topic">How to use markdown to format your topic</a></li>
+<li><a href="./contributor-guide/feedback-and-comments.md">Feedback, comments, and support</a></li>
+<li><a href="#more-resources">More resources</a></li>
+<li>
+<a href="contributor-guide/contributor-guide-index.md">Index of all contributors' guide articles</a> (opens new page)</li>
+</ul>
+
+<h2>
+<a id="ways-to-contribute" class="anchor" href="#ways-to-contribute" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Ways to contribute</h2>
+
+<p>You can submit updates to the <a href="http://docs.microsoft.com/azure">Azure documentation</a> as follows:</p>
+
+<ul>
+<li>You can easily contribute to technical articles in the GitHub user interface. Either find the article in this repository, or visit the article on <a href="http://docs.microsoft.com/azur">http://docs.microsoft.com/azur</a> and click the link in the article that goes to the GitHub source for the article.</li>
+<li>If you are making substantial changes to an existing article, adding or changing images, or contributing a new article, you need to fork this repository, install Git Bash, Markdown Pad, and learn some git commands.</li>
+</ul>
+
+<h2>
+<a id="code-of-conduct" class="anchor" href="#code-of-conduct" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Code of conduct</h2>
+
+<p>This project has adopted the <a href="https://opensource.microsoft.com/codeofconduct/">Microsoft Open Source Code of Conduct</a>. For more information see the <a href="https://opensource.microsoft.com/codeofconduct/faq/">Code of Conduct FAQ</a> or contact <a href="mailto:opencode@microsoft.com">opencode@microsoft.com</a> with any additional questions or comments.</p>
+
+<h2>
+<a id="about-your-contributions-to-azure-content" class="anchor" href="#about-your-contributions-to-azure-content" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>About your contributions to Azure content</h2>
+
+<h3>
+<a id="minor-corrections" class="anchor" href="#minor-corrections" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Minor corrections</h3>
+
+<p>Minor corrections or clarifications you submit for documentation and code examples in this repo are covered by the <a href="/enterprise-mobility-security/termsofuse">docs.microsoft.com Terms of Use</a>.</p>
+
+<h3>
+<a id="larger-submissions" class="anchor" href="#larger-submissions" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Larger submissions</h3>
+
+<p>If you submit a pull request with new or significant changes to documentation and code examples, we'll send a comment in GitHub asking you to submit an online Contribution License Agreement (CLA) if you are not an employee of Microsoft. We need you to complete the online form before we can accept your pull request.</p>
+
+<h2>
+<a id="repository-organization" class="anchor" href="#repository-organization" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Repository organization</h2>
+
+<p>The content in the azure-docs repository follows the organization of documentation on <a href="http://docs.microsoft.com/azure">http://docs.microsoft.com/azure</a>. This repository contains two root folders:</p>
+
+<h3>
+<a id="articles" class="anchor" href="#articles" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>\articles</h3>
+
+<p>The <em>\articles</em> folder contains the documentation articles formatted as markdown files with an <em>.md</em> extension. Articles are typically grouped by Azure service. </p>
+
+<p>Articles need to follow strict file naming guidelines - for details, see <a href="contributor-guide/file-names-and-locations.md">our file naming guidance</a>.</p>
+
+<p>The <em>\articles</em> folder contains the <em>\media</em> folder for root directory article media files, inside which are subfolders with the images for each article.  The service folders contain a separate media folder for the articles within each service folder. The article image folders are named identically to the article file, minus the <em>.md</em> file extension.</p>
+
+<h3>
+<a id="includes" class="anchor" href="#includes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>\includes</h3>
+
+<p>You can create reusable content sections to be included in one or more articles. See <a href="contributor-guide/custom-markdown-extensions.md">Custom extensions used in our technical content</a>.</p>
+
+<h3>
+<a id="markdown-templates" class="anchor" href="#markdown-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>\markdown templates</h3>
+
+<p>This folder contains our standard markdown template with the basic markdown formatting you need for an article.</p>
+
+<h3>
+<a id="contributor-guide" class="anchor" href="#contributor-guide" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>\contributor-guide</h3>
+
+<p>This folder contains articles that are part of our contributors' guide.  </p>
+
+<h2>
+<a id="use-github-git-and-this-repository" class="anchor" href="#use-github-git-and-this-repository" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Use GitHub, Git, and this repository</h2>
+
+<p>For information about how to contribute, how to use the GitHub UI to contribute small changes, and how to fork and clone the repository for more significant contributions, see <a href="contributor-guide/tools-and-setup.md">Install and set up tools for authoring in GitHub</a>.</p>
+
+<p>If you install GitBash and choose to work locally, the steps for creating a new local working branch, making changes, and submitting the changes back to the main branch are listed in <a href="contributor-guide/git-commands-for-master.md">Git commands for creating a new article or updating an existing article</a></p>
+
+<h3>
+<a id="branches" class="anchor" href="#branches" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Branches</h3>
+
+<p>We recommend that you create local working branches that target a specific scope of change. Each branch should be limited to a single concept/article both to streamline work flow and reduce the possibility of merge conflicts.  The following efforts are of the appropriate scope for a new branch:</p>
+
+<ul>
+<li>A new article (and associated images)</li>
+<li>Spelling and grammar edits on an article.</li>
+<li>Applying a single formatting change across a large set of articles (e.g. new copyright footer).</li>
+</ul>
+
+<h2>
+<a id="how-to-use-markdown-to-format-your-topic" class="anchor" href="#how-to-use-markdown-to-format-your-topic" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>How to use markdown to format your topic</h2>
+
+<p>All the articles in this repository use GitHub flavored markdown.  Here's a list of resources.</p>
+
+<ul>
+<li><a href="https://help.github.com/articles/markdown-basics/">Markdown basics</a></li>
+<li><a href="./contributor-guide/media/documents/markdown-cheatsheet.pdf?raw=true">Printable markdown cheatsheet</a></li>
+</ul>
+
+<h2>
+<a id="article-metadata" class="anchor" href="#article-metadata" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Article metadata</h2>
+
+<p>Article metadata enables certain functionalities, such as author attribution, contributor attribution, breadcrumbs, article descriptions, and SEO optimizations as well as reporting Microsoft uses to evaluate the performance of the content. So, the metadata is important! <a href="contributor-guide/article-metadata.md">Here's the guidance for making sure your metadata is done right</a>.</p>
+
+<h3>
+<a id="labels" class="anchor" href="#labels" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Labels</h3>
+
+<p>Automated labels are assigned to pull requests to help us manage the pull request workflow and to help let you know what's going on with your pull request:</p>
+
+<ul>
+<li>Contribution License Agreement related
+
+<ul>
+<li>cla-not-required: The change is relatively minor and does not require that you sign a CLA.</li>
+<li>cla-required: The scope of the change is relatively large and requires that you sign a CLA.</li>
+<li>cla-signed: The contributor signed the CLA, so the pull request can now move forward for review.</li>
+</ul>
+</li>
+<li>Pillar labels: Labels such as PnP, Modern Apps, and TDC help categorize the pull requests by the internal organization that needs to review the pull request.</li>
+<li>Change sent to author: The author has been notified of the pending pull request.</li>
+</ul>
+
+<h2>
+<a id="more-resources" class="anchor" href="#more-resources" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>More resources</h2>
+
+<p>See the <a href="contributor-guide/contributor-guide-index.md">index of our contributor's guide</a> for all our guidance topics.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/chainoy/azure-docs">Azure-docs</a> is maintained by <a href="https://github.com/chainoy">chainoy</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
