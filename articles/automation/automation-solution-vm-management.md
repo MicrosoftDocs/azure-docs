@@ -1,20 +1,21 @@
-<properties
-    pageTitle="Start/Stop VMs during off-hours [Preview] Solution | Microsoft Azure"
-    description="The VM Management solutions starts and stops your Azure Resource Manager Virtual Machines on a schedule and proactively monitor from Log Analytics."
-    services="automation"
-    documentationCenter=""
-    authors="MGoedtel"
-    manager="jwhit"
-    editor=""
-	/>
-<tags
-    ms.service="automation"
-    ms.workload="tbd"
-    ms.tgt_pltfrm="na"
-    ms.devlang="na"
-    ms.topic="get-started-article"
-    ms.date="11/18/2016"
-    ms.author="magoedte"/>
+---
+title: Start/Stop VMs during off-hours [Preview] Solution | Microsoft Docs
+description: The VM Management solutions starts and stops your Azure Resource Manager Virtual Machines on a schedule and proactively monitor from Log Analytics.
+services: automation
+documentationCenter: ''
+authors: mgoedtel
+manager: jwhit
+editor: ''
+
+ms.assetid: 06c27f72-ac4c-4923-90a6-21f46db21883 
+ms.service: automation
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/18/2016
+ms.author: magoedte
+---
 
 # Start/Stop VMs during off-hours [Preview] solution in Automation
 
@@ -221,7 +222,7 @@ If you decide you no longer need to use the solution any further, you can delete
 To delete the solution, perform the following steps:
 
 1.  From your automation account, select the **Solutions** tile.  
-2.  On the **Solutions** blade, select the solution **Start-Stop-VM[Workspace]**.  On the **VMManagementSolution[Workspace]** blade, from the menu click **Delete**.<br><br> ![Delete VM Mgmt Solution](../media/automation-solution-vm-management/vm-management-solution-delete.png)
+2.  On the **Solutions** blade, select the solution **Start-Stop-VM[Workspace]**.  On the **VMManagementSolution[Workspace]** blade, from the menu click **Delete**.<br><br> ![Delete VM Mgmt Solution](media/automation-solution-vm-management/vm-management-solution-delete.png)
 3.  In the **Delete Solution** window, confirm you want to delete the solution.
 4.  While the information is verified and the solution is deleted, you can track its progress under **Notifications** from the menu.  You will be returned to the **VMManagementSolution[Workspace]** blade after the process to remove solution starts.  
 
