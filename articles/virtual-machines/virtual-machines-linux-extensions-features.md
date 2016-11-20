@@ -32,7 +32,7 @@ For information on supported operating systems and installation instructions, se
 ## Discover VM Extensions
 Many different VM extensions are available for use with Azure Virtual Machines. To see a complete list, run the following command with the Azure CLI, replacing the location with the location of choice.
 
-```none
+```azurecli
 azure vm extension-image list westus
 ```
 
