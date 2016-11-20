@@ -31,7 +31,10 @@ IoT Hub supports multiple [device-facing protocols][lnk-protocols] (such as MQTT
 IoT Hub exposes an [Event Hub-compatible endpoint][lnk-compatible-endpoint] to enable back-end applications to read the device-to-cloud messages received by the hub.
 
 ### When to use
-Messaging is a core capability of IoT Hub. Use it whenever you need to send messages from your device to your back end, or send messages from your back end to a device.
+Use device-to-cloud messages for sending time series telemetry and alerts from your device app, and cloud-to-device messages for one-way notifications to the device app.
+
+Refer to [Device-to-cloud communication guidance][lnk-d2c-guidance] if in doubt between using reported properties, device-to-cloud messages, or file upload.
+Refer to [Cloud-to-device communication guidance][lnk-c2d-guidance] if in doubt between using desired properties, direct methods, or cloud-to-device messages.
 
 For a comparison of the IoT Hub and Event Hubs services, see [Comparison of IoT Hub and Event Hubs][lnk-compare].
 
@@ -124,7 +127,7 @@ When the service sends a message, it is considered *Enqueued*. When a device wan
 
 A device can also:
 
-* *Reject* the message, which causes IoT Hub to set it to the **Deadlettered** state. Note: devices connecting with MQTT cannot reject C2D messages.
+* *Reject* the message, which causes IoT Hub to set it to the **Deadlettered** state. Note: devices connecting with MQTT cannot reject cloud-to-device messages.
 * *Abandon* the message, which causes IoT Hub to put the message back in the queue, with the state set to **Enqueued**.
 
 A thread could fail to process a message without notifying IoT Hub. In this case, messages automatically transition from the **Invisible** state back to the **Enqueued** state after a *visibility (or lock) timeout*. The default value of this timeout is one minute.
@@ -272,6 +275,16 @@ The following table lists the set of system properties in IoT Hub messages.
 | ConnectionDeviceGenerationId |An ID set by IoT Hub on device-to-cloud messages. It contains the **generationId** (as per [Device identity properties][lnk-device-properties]) of the device that sent the message. |
 | ConnectionAuthMethod |An authentication method set by IoT Hub on device-to-cloud messages. This property contains information about the authentication method used to authenticate the device sending the message. For more information, see [Device to cloud anti-spoofing][lnk-antispoofing]. |
 
+## Message size
+
+IoT Hub measures message size in a protocol-agnostic way, considering only the actual payload. The size in bytes is calculated as the sum of the following:
+
+* The body size in bytes, plus
+* The size in bytes of all the values of the message system properties, plus
+* The size in bytes of all user property names and values.
+
+Note that property names and values are limited to ASCII characters, so the the length of the strings equals the size in bytes.
+
 ## Communication protocols
 IoT Hub allows devices to use [MQTT][lnk-mqtt], MQTT over WebSockets, [AMQP][lnk-amqp], AMQP over WebSockets, and HTTP protocols for device-side communications. The following table provides the high-level recommendations for your choice of protocol:
 
@@ -324,7 +337,7 @@ Other reference topics in the Developer Guide include:
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 * [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [IoT Hub query language for twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
@@ -358,6 +371,9 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-servicebus]: http://azure.microsoft.com/documentation/services/service-bus/
 [lnk-eventhub-partitions]: ../event-hubs/event-hubs-overview.md#partitions
 [lnk-portal]: iot-hub-create-through-portal.md
+
+[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
+[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 
 [lnk-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-quotas]: iot-hub-devguide-quotas-throttling.md

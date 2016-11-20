@@ -1,5 +1,5 @@
 ---
-title: Manage pricing and data volume for Application Insights | Microsoft Docs
+title: Manage features and data volume for Application Insights | Microsoft Docs
 description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
 documentationcenter: ''
@@ -16,25 +16,25 @@ ms.date: 11/16/2016
 ms.author: awills
 
 ---
-# Manage data volume in Application Insights
+# Manage features and data volume in Application Insights
 
 
 Pricing for [Azure Application Insights][start] is based on data volume per application. Low usage during development or for a small app is likely to be free, because there's a free monthly allowance of telemetry data.
 
 Each Application Insights resource is charged as a separate service, and contributes to the bill for your subscription to Azure.
 
-There are two pricing schemes. The default scheme is called Basic. You can opt for the Enterprise scheme, which has a daily charge, but enables certain additional features such as [continuous export](app-insights-export-telemetry.md).
+There are two pricing plans. The default plan is called Basic. You can opt for the Enterprise plan, which has a daily charge, but enables certain additional features such as [continuous export](app-insights-export-telemetry.md).
 
-[See the pricing scheme][pricing].
+[See the pricing plan][pricing].
 
-## Review pricing scheme for your Application Insights resource
+## Review pricing plan for your Application Insights resource
 Open the Features + Pricing blade in the Application Insights resource for your application.
 
 ![Choose Pricing.](./media/app-insights-pricing/01-pricing.png)
 
 1. Review your data volume for the month. This includes all the data received and retained (after any [sampling](app-insights-sampling.md) from your server and client apps, and from availability tests.
 2. A separate charge is made for [multi-step web tests](app-insights-monitor-web-app-availability.md#multi-step-web-tests). (This doesn't include simple availability tests, which are included in the data volume charge.)
-3. Enable the additional features provided by the Enterprise scheme. In this scheme there is no free data allowance.
+3. Enable the additional features provided by the Enterprise plan. In this plan there is no free data allowance.
 4. Click through to data management options to set a daily cap or set ingestion sampling.
 
 Application Insights charges are added to your Azure bill. You can see details of your Azure bill on the Billing section of the Azure portal or in the [Azure Billing Portal](https://account.windowsazure.com/Subscriptions). 
@@ -46,7 +46,7 @@ There are three ways in which the volume you send data is limited:
 
 * Daily cap. By default this is set at 100GB/day. When your app hits the cap, we send an email and discard data until the end of the day. Change it through the Data Volume Management blade.
 * [Sampling](app-insights-sampling.md). This mechanism can reduce the amount of telemetry sent from your server and client apps, with minimal distortion of metrics.
-* Throttling limits the data rate per minute. For the Basic pricing scheme, the limit is 200 data points/second averaged over 5 minutes and for Enterprise it is 500/s averaged over 1 minute. 
+* Throttling limits the data rate per minute. For the Basic pricing plan, the limit is 200 data points/second averaged over 5 minutes and for Enterprise it is 500/s averaged over 1 minute. 
 
 For throttling, three buckets are counted separately:
 
@@ -105,17 +105,12 @@ To discover the actual sampling rate no matter where it has been applied, use an
 In each retained record, `itemCount` indicates the number of original records that it represents, equal to 1 + the number of  previous discarded records. 
 
 
-## Name limits
-There are some limits on metric and dimension manes.
-
-1. Maximum of 200 unique metric names and 200 unique property names for your application. Metrics include data sent via TrackMetric as well as measurements on other  data types such as Events.  [Metrics and property names][api] are global per instrumentation key.
-2. [Properties][apiproperties] can be used for filtering and group-by only while they have less than 100 unique values for each property. After the number of unique values exceeds 100, you can still search the property, but no longer use it for filters or group-by.
-3. Standard properties such as Request Name and Page URL are limited to 1000 unique values per week. After 1000 unique values, additional values are marked as "Other values." The original values can still be used for full text search and filtering.
-
-
-
 ## Limits summary
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]
+
+## Next steps
+
+* [Sampling](app-insights-sampling.md)
 
 <!--Link references-->
 
