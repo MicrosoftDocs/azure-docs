@@ -77,14 +77,14 @@ The following table describes the sold to and payment instructions shown on your
 | Payment instructions |If your payment method is invoice, this is where to send checks, wire transfers, or overnight checks. For more information, see [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/) |
 
 ## Understand detailed usage charges (.csv)
-The usage file shows how much of each resource was used within the current billing period. It’s available in a comma-separated values (.csv) file format that you can open in a spreadsheet application. For more information, see [How to download your Azure billing invoice and daily usage data](../billing-download-azure-invoice-daily-usage-date.md).
+The usage file shows how much of each resource was used within the current billing period. It’s available in a comma-separated values (.csv) file format that you can open in a spreadsheet application. If you see two versions available, download version 2. That's the most current file format. For more information, see [How to download your Azure billing invoice and daily usage data](../billing-download-azure-invoice-daily-usage-date.md).
 
 Usage charges are the total **monthly** charges on a subscription minus any credit or discount. You are billed for your past month’s usage.  
 
-The following sections describe most of the terms shown in this file.
+The following sections describe most of the terms shown in version 2 of the detailed usage file.
 
 ### Statement 
-The top section of the file shows the services that you used for during the previous month's billing cycle. The following table lists the terms and descriptions shown in this section.
+The top section of the file shows the services that you used during the previous month's billing cycle. The following table lists the terms and descriptions shown in this section.
 
 | Term | Description |
 |:--- | --- |
@@ -121,10 +121,10 @@ The Daily usage section of the file shows usage details that affect the billing 
 |Consumed Quantity |The amount of the resource that has been consumed for that day. |
 |Resource Location |Identifies the datacenter where the resource is running. |
 |Consumed Service |The Azure platform service that you used. |
-|Resource Group |The resource group in which the deployed resource is running in. For more information, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md) |
-|Instance ID |The identifier for the resource. The identifier contains the name you specify for the resource when it was created. It's either the name of the resource or the fully qualified Resource ID.|
+|Resource Group |The resource group in which the deployed resource is running in. For more information, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md). |
+|Instance ID |The identifier for the resource. The identifier contains the name you specify for the resource when it was created. It's either the name of the resource or the fully qualified Resource ID. For more information, see [Azure Resource Manager API](/rest/api/resources/resources). |
 |Tags |Tag you assign to the resource. Use tags to group billing records. For example, you can use tags to distribute costs by the department that uses the resource. Services that support emitting tags are virtual machines, storage, and networking services provisioned by using the [Azure Resource Manager API](/rest/api/resources/resources). For more information, see [Organize your Azure resources with tags](http://azure.microsoft.com/updates/organize-your-azure-resources-with-tags/). |
-|Additional Info |Additional metadata related to the service. |
+|Additional Info |Service-specific metadata. For example, an image type for a virtual machine. |
 |Service Info 1 |The project name that the service belongs to on your subscription. |
 |Service Info 2 |This is a legacy field that captures optional service-specific metadata. |
 
