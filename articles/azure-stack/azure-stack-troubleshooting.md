@@ -52,10 +52,9 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 
 ## Deployment
 ### Deployment failure
-If you experience a failure during installation, you can use the -rerun parameter of the updated Azure Stack TP2 install script to try again from the failed step:
+If you experience a failure during installation, you can use the -rerun parameter of the updated Azure Stack TP2 install script to try again from the failed step.  From the PowerShell session where you noticed the failure, run the following:
 
 ```PowerShell
-cd C:\CloudDeployment\Configuration
 .\InstallAzureStackPOC.ps1 -rerun
 ```
 >[AZURE.NOTE]  Previous versions of Azure Stack required additional steps to rerun installation.  If the above steps don't restart installation, make sure you are using the updated Azure Stack [download](https://azure.microsoft.com/overview/azure-stack/try/?v=try).
