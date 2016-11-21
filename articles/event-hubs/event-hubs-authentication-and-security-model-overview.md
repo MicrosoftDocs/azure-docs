@@ -40,7 +40,7 @@ When creating an Event Hubs namespace, Azure Event Hubs generates a 256-bit SAS 
 
 The following example creates a send-only key when creating the Event Hub:
 
-```
+```csharp
 // Create namespace manager.
 string serviceNamespace = "YOUR_NAMESPACE";
 string namespaceManageKeyName = "RootManageSharedAccessKey";
@@ -61,7 +61,7 @@ nm.CreateEventHub(ed);
 ### Generate tokens
 You can generate tokens using the SAS key. You must produce only one token per device. Tokens can then be produced using the following method. All tokens are generated using the **EventHubSendKey** key. Each token is assigned a unique URI.
 
-```
+```csharp
 public static string SharedAccessSignatureTokenProvider.GetSharedAccessSignature(string keyName, string sharedAccessKey, string resource, TimeSpan tokenTimeToLive)
 ```
 
@@ -69,13 +69,13 @@ When calling this method, the URI should be specified as `//<NAMESPACE>.serviceb
 
 This method generates a token with the following structure:
 
-```
+```csharp
 SharedAccessSignature sr={URI}&sig={HMAC_SHA256_SIGNATURE}&se={EXPIRATION_TIME}&skn={KEY_NAME}
 ```
 
 The token expiration time is specified in seconds from Jan 1, 1970. The following is an example of a token:
 
-```
+```csharp
 SharedAccessSignature sr=contoso&sig=nPzdNN%2Gli0ifrfJwaK4mkK0RqAB%2byJUlt%2bGFmBHG77A%3d&se=1403130337&skn=RootManageSharedAccessKey
 ```
 
