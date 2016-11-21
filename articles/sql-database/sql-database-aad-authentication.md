@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 10/31/2016
+ms.date: 11/21/2016
 ms.author: rick.byham@microsoft.com
 
 ---
@@ -286,20 +286,26 @@ To create a contained database user representing an application that connects us
 
     CREATE USER [appName] FROM EXTERNAL PROVIDER;
 
+>  [!TIP]
+>  You cannot directly create a user from an Azure Active Directory other than the Azure Active
+Directory that is associated with your Azure subscription. However, members of other Active Directories that are imported users in the associated Active Directory (known as external users) can be added to an Active Directory group in the tenant Active Directory. By creating a contained database user for that AD group, the users from the external Active Directory can gain access to SQL Database.   
+
 For more information about creating contained database users based on Azure Active Directory identities, see [CREATE USER (Transact-SQL)](http://msdn.microsoft.com/library/ms173463.aspx).
 
 > [!NOTE]
-> Removing the Azure Active Directory administrator for Azure SQL Server prevents any Azure AD authentication user from connecting to the server. If necessary, unusable Azure AD users can be dropped manually by a SQL Database administrator.
-> 
-> 
+> Removing the Azure Active Directory administrator for Azure SQL Server prevents any Azure AD authentication user from connecting to the server. If necessary, unusable Azure AD users can be dropped manually by a SQL Database administrator.   
 
+>  [!NOTE]
+>  If you receive a **Connection Timeout Expired**, you may need to set the `TransparentNetworkIPResolution`
+parameter of the connection string to false. For more information, see [Connection timeout issue with .NET Framework 4.6.1 – TransparentNetworkIPResolution](https://blogs.msdn.microsoft.com/dataaccesstechnologies/2016/05/07/connection-timeout-issue-with-net-framework-4-6-1-transparentnetworkipresolution/).   
+
+   
 When you create a database user, that user receives the **CONNECT** permission and can connect to that database as a member of the **PUBLIC** role. Initially the only permissions available to the user are any permissions granted to the **PUBLIC** role, or any permissions granted to any Windows groups that they are a member of. Once you provision an Azure AD-based contained database user, you can grant the user additional permissions, the same way as you grant permission to any other type of user. Typically grant permissions to database roles, and add users to roles. For more information, see [Database Engine Permission Basics](http://social.technet.microsoft.com/wiki/contents/articles/4433.database-engine-permission-basics.aspx). For more information about special SQL Database roles, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md).
 A federated domain user that is imported into a manage domain, must use the managed domain identity.
 
 > [!NOTE]
-> Azure AD users are marked in the database metadata with type E (EXTERNAL_USER) and for groups with type X (EXTERNAL_GROUPS). For more information, see [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
-> 
-> 
+> Azure AD users are marked in the database metadata with type E (EXTERNAL_USER) and for groups with type X (EXTERNAL_GROUPS). For more information, see [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx). 
+
 
 ## 7. Connect by using Azure AD identities
 Azure Active Directory authentication supports the following methods of connecting to a database using Azure AD identities:
