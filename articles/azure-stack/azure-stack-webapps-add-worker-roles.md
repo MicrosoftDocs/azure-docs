@@ -32,24 +32,24 @@ There are two ways to add additional capacity to App Service on Azure Stack:
 1.  [Add additional workers directly from with within the App Service Resource Provider Admin](#Add-additional-workers-directly-from-within-the-App-Service-Resource-Provider-Admin).
 2.  [Create additional VMs manually and add them to the App Service Resource Provider](#Create-additional-VMs-manually-and-add-them-to-the-App-Service-Resource-Provider).
 
-## Add Additional Workers Directly within the App Service Resource Provider Admin.
+## Add additional workers directly within the App Service Resource Provider Admin.
 
 1.  Login to the Azure Stack portal as the service administrator;
 2.  Browse to **Resource Providers** and select the **App Service Resource Provider Admin**. ![Azure Stack Resource Providers][1]
-3.  Select **Roles**.  Here you will see the breakdown of all App Service roles deployed.
+3.  Click **Roles**.  Here you will see the breakdown of all App Service roles deployed.
 4.  Click the option **New Role Instance..** ![Add new role instance][2]
-5.  In the New Role Instance Blade:
+5.  In the **New Role Instance** blade:
     1. Choose how many additional roles you would like to add.  In the preview there is a maximum of 10.
     2. Select the role type.  In this preview this option is limited to Web Worker.
     3. Select the worker tier you would like to deploy this worker into, default choices are Small, Medium, Large or Shared.  If you have created your own worker tiers these will also be available for selection.
-    4. Click OK to deploy the additional workers
+    4. Click **OK** to deploy the additional workers
 6.  App Service on Azure Stack will now add the additional VMs, configure them, install all the required software and mark them as ready when this process is complete.  This process can take approximately 80 minutes.
 7.  You can monitor the progress of the readiness of the new workers by viewing the workers in the roles blade.
 
 >[!NOTE]
 >  In this preview the integrated New Role Instance flow is limited to Worker Roles and will only deploy VMs of size A1.  We will be expanding this capability in a future release.
 
-## Manually Adding Additional Capacity to App Service on Azure Stack.
+## Manually adding additional capacity to App Service on Azure Stack.
 
 The following steps are required to add additional roles:
 
@@ -74,7 +74,7 @@ Create a virtual machine as described in [this article](azure-stack-provision-vm
 Once the deployment has completed, the following configuration is required to support the web worker role:
 
 1. Browse to the AppService-LOCAL resource group in the portal and select the new machine you created in Step 1.
-2. Click connect in the VM Blade to download the remote desktop profile.  Open the profile to open a remote desktop session to your VM.
+2. Click connect in the VM blade to download the remote desktop profile.  Open the profile to open a remote desktop session to your VM.
 3. Login to the VM using the username and password you specified in Step 1.
 4. Open PowerShell by clicking on the **Start** button and typing PowerShell. Right-click **PowerShell.exe**, and select **Run
    as administrator** to open PowerShell in administrator mode.
@@ -96,7 +96,7 @@ Once the deployment has completed, the following configuration is required to su
 2. Navigate to **Resource Providers** &gt; **App Service Resource Provider Admin**.![App Service Resource Provider Admin][3]
 3. In the settings blade, click **Roles**.![App Service Resource Provider Roles][4]
 4. Click **Add Role Instance**.
-5. In the textbox for **Server Name** please enter the **IP Address** of the server you created earlier (in Section 1).
+5. In the textbox for **Server Name** enter the **IP Address** of the server you created earlier (in Section 1).
 6. Select the **Role Type** you would like to add - Controller, Management Server, Front End, Web Worker, Publisher or File Server.  In this instance, select Web Worker.
 7. Click the **Tier** you would like to deploy the new instance to (small, medium, large, or shared).  If you have created your own worker tiers these will also be available for selection.
 8. Click **OK.**
