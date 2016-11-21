@@ -1,4 +1,4 @@
-﻿---
+---
 title: " Source Control integration in Azure Automation | Microsoft Docs"
 description: This article describes source control integration with GitHub in Azure Automation.
 services: automation
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/12/2016
+ms.date: 11/21/2016
 ms.author: magoedte;sngun
 
 ---
@@ -104,7 +104,7 @@ Runbook check-in allows you to push the changes you have made to a runbook in Az
    > Source control runbooks are special Automation runbooks that you cannot view or edit. While they will not show up on your runbook list, you will see sync jobs showing up on your jobs list.
    > 
    > 
-3. The name of the modified runbook is sent as an input parameter to the check-in runbook. You can [view the job details](automation-runbook-execution.md#viewing-job-status-using-the-azure-management-portal) by expanding runbook in **Repository Synchronization** blade.  
+3. The name of the modified runbook is sent as an input parameter to the check-in runbook. You can [view the job details](automation-runbook-execution.md#viewing-job-status-from-the-azure-portal) by expanding runbook in **Repository Synchronization** blade.  
    
     ![Checkin Input](media/automation-source-control-integration/automation_09_CheckinInput.png)
 4. Refresh your GitHub repository once the job completes to view the changes.  There should be a commit in your repository with a commit message: **Updated *Runbook Name* in Azure Automation.**  
@@ -132,7 +132,7 @@ To disconnect from your GitHub account, open the Repository Synchronization blad
 
   ![Disconnect Button](media/automation-source-control-integration/automation_12_Disconnect.png)
 
-## Next Steps
+## Next steps
 For more information about source control integration, see the following resources:  
 
 * [Azure Automation: Source Control Integration in Azure Automation](https://azure.microsoft.com/blog/azure-automation-source-control-13/)  
