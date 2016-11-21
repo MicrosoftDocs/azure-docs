@@ -18,7 +18,7 @@ ms.date: 03/14/2016
 ms.author: jdial
 
 ---
-Manage NSGs using the portal
+# Manage NSGs using the portal
 
 > [!div class="op_single_selector"]
 > * [Portal](virtual-network-manage-nsg-arm-portal.md)
