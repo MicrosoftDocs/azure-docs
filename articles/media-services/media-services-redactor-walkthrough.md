@@ -3,7 +3,7 @@ title: Face redaction with Azure media analytics | Microsoft Docs
 description: This topic demonstrates how to redact faces with Azure media analytics.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: Lichard
 manager: erikre
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 11/17/2016
-ms.author: juliako;
+ms.author: rli; juliako;
 
 ---
 # Face redaction with Azure media analytics
