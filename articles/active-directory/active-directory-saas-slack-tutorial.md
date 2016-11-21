@@ -37,7 +37,7 @@ To configure Azure AD integration with Slack, you need the following items:
 - A Slack single-sign on enabled subscription
 
 
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+> [!NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
 To test the steps in this tutorial, you should follow these recommendations:
@@ -116,7 +116,6 @@ Slack application expects the SAML assertions in a specific format. Please confi
     ![Configure Single Sign-On](./media/active-directory-saas-slack-tutorial/tutorial_slack_03.png)
 
 2. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
-    
 
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
@@ -151,7 +150,7 @@ Slack application expects the SAML assertions in a specific format. Please confi
 
 	b. Click **Next**.
 
-	> [AZURE.NOTE] Please note that you have to update this value with the actual Sign On URL. To get this value, contact Slack support team.
+	> [!NOTE] Please note that you have to update this value with the actual Sign On URL. To get this value, contact Slack support team.
 
 6. On the **Configure single sign-on at Slack** page, click **Download certificate** and then save the file on your computer.
 
@@ -260,7 +259,7 @@ The objective of this section is to create a user called Britta Simon in Slack. 
 
 There is no action item for you in this section. A new user will be created during an attempt to access Slack if it doesn't exist yet.
 
-> [AZURE.NOTE] If you need to create an user manually, you need to contact the Slack support team.
+> [!NOTE] If you need to create an user manually, you need to contact the Slack support team.
 
 
 ### Assigning the Azure AD test user
