@@ -61,7 +61,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
         </a>
     </li>
     <li>
-        <a href="/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal/">
+        <a href="/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
         </a>
     </li>
      <li>
-        <a href="/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal/">
+        <a href="/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
         </a>
     </li>
      <li>
-        <a href="/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal/">
+        <a href="/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -117,7 +117,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
  </ul>
 ---
 
-## Reference
+##Reference
 
 <ul class="panelContent cardsW">
 	<li>
