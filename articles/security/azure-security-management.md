@@ -136,13 +136,13 @@ We recommend three primary configurations for a hardened workstation. The bigges
 | Configuration | Benefits | Cons |
 | --- | --- | --- |
 | Stand-alone hardened workstation |Tightly controlled workstation |higher cost for dedicated desktops |
-| | Reduced risk of application exploits |Increased management effort |
-| | Clear separation of duties | |
-| Corporate PC as virtual machine |Reduced hardware costs | |
-| | Segregation of role and applications | |
+| - | Reduced risk of application exploits |Increased management effort |
+| - | Clear separation of duties | - |
+| Corporate PC as virtual machine |Reduced hardware costs | - |
+| - | Segregation of role and applications | - |
 | Windows to go with BitLocker drive encryption |Compatibility with most PCs |Asset tracking |
-| | Cost-effectiveness and portability | |
-| | Isolated management environment |  |
+| - | Cost-effectiveness and portability | - |
+| - | Isolated management environment |- |
 
 It is important that the hardened workstation is the host and not the guest, with nothing between the host operating system and the hardware. Following the “clean source principle” (also known as “secure origin”) means that the host should be the most hardened. Otherwise, the hardened workstation (guest) is subject to attacks on the system on which it is hosted.
 
