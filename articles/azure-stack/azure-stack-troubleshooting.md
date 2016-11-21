@@ -52,7 +52,7 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 
 ## Deployment
 ### Deployment failure
-If you experience a failure during installation, you can use the -rerun parameter of the updated Azure Stack TP2 install script to try again from the failed step.  From the PowerShell session where you noticed the failure, run the following:
+If you experience a failure during installation, you can use the -rerun parameter of the updated Azure Stack TP2 install script to try again from the failed step.  Run the following from the PowerShell session where you noticed the failure:
 
 ```PowerShell
 .\InstallAzureStackPOC.ps1 -rerun
