@@ -1,5 +1,5 @@
 ---
-title: " Source Control integration in Azure Automation | Microsoft Docs"
+title: Source Control integration in Azure Automation | Microsoft Docs
 description: This article describes source control integration with GitHub in Azure Automation.
 services: automation
 documentationcenter: ''
@@ -91,7 +91,8 @@ Runbook check-in allows you to push the changes you have made to a runbook in Az
    
     ![Checkin Button](media/automation-source-control-integration/automation_06_CheckinButton.png)
 
-     >[AZURE.NOTE] Check-in from Azure Automation will overwrite the code that currently exists in your source control. The Git equivalent command line instruction to check-in is **git add + git commit + git push**  
+     > [!NOTE] 
+     > Check-in from Azure Automation will overwrite the code that currently exists in your source control. The Git equivalent command line instruction to check-in is **git add + git commit + git push**  
 
 1. When you click **check-in**, you will be prompted with a confirmation message, click yes to continue.  
    
@@ -119,7 +120,8 @@ The sync button on the Repository Synchronization blade allows you to pull all t
    
     ![Sync Runbook](media/automation-source-control-integration/automation_11_SyncRunbook.png)
 
-    >[AZURE.NOTE] A sync from source control overwrites the draft version of the runbooks that currently exist in your Automation account for **ALL** runbooks that are currently in source control. The Git equivalent command line instruction to sync is **git pull**
+    > [!NOTE] 
+    > A sync from source control overwrites the draft version of the runbooks that currently exist in your Automation account for **ALL** runbooks that are currently in source control. The Git equivalent command line instruction to sync is **git pull**
 
 
 ## Troubleshooting source control problems
