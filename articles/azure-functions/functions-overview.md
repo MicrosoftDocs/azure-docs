@@ -27,7 +27,7 @@ This topic provides a high-level overview of Azure Functions. If you want to jum
 ## Features
 Here are some key features of Azure Functions:
 
-* **Choice of language** - Write functions using C#, F#, Node.js, Python, PHP, batch, bash, Java, or any executable.
+* **Choice of language** - Write functions using C#, F#, Node.js, Python, PHP, batch, bash, or any executable.
 * **Pay-per-use pricing model** - Pay only for the time spent running your code. See the Dynamic App Service Plan option in the [pricing section](#pricing) below.  
 * **Bring your own dependencies** - Functions supports NuGet and NPM, so you can use your favorite libraries.  
 * **Integrated security** - Protect HTTP-triggered functions with OAuth providers such as Azure Active Directory, Facebook, Google, Twitter, and Microsoft Account.  
@@ -67,8 +67,8 @@ Azure Functions integrates with a variety of Azure and 3rd-party services. You c
 ## <a name="pricing"></a>How much does Functions cost?
 Azure Functions has two kinds of pricing plans, choose the one that best fits your needs: 
 
-* **Dynamic Hosting plan** - When your function runs, Azure provides all of the necessary computational resources. You don't have to worry about resource management, and you only pay for the time that your code runs. Full pricing details are available on the [Functions Pricing page](/pricing/details/functions). 
-* **App Service plan** - Run your functions just like your web, mobile, and API apps. When you are already using App Service for your other applications, you can run your functions on the same plan at no additional cost. Full details can be found on the [App Service Pricing page](/pricing/details/app-service/).
+* **Dynamic Hosting plan** - When your function runs, Azure provides all of the necessary computational resources. You don't have to worry about resource management, and you only pay for the time that your code runs. Full pricing details are available on the [Functions Pricing page](https://azure.microsoft.com/pricing/details/functions). 
+* **App Service plan** - Run your functions just like your web, mobile, and API apps. When you are already using App Service for your other applications, you can run your functions on the same plan at no additional cost. Full details can be found on the [App Service Pricing page](https://azure.microsoft.com/pricing/details/app-service/).
 
 For more information about scaling your functions, see [How to scale Azure Functions](functions-scale.md).
 

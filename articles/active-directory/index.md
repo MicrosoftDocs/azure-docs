@@ -115,7 +115,7 @@ Azure Active Directory (Azure AD) is Microsoft’s multi-tenant cloud based dire
         </a>
     </li>
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory">
+        <a href="/active-directory/adal/microsoft.identitymodel.clients.activedirectory">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

@@ -5,7 +5,6 @@ services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 tags: azure-service-management
 
 ms.assetid: 57966056-0f46-4f95-a295-483ca1ad135d
@@ -42,25 +41,25 @@ The internal load balancer configuration has to be set during the creation of th
 Open the service configuration file (.cscfg) for your cloud deployment in Visual Studio and add the following section to create the Internal Load Balancing under the last "`</Role>`" item for the network configuration.
 
 ```xml
-    <NetworkConfiguration>
-      <LoadBalancers>
-        <LoadBalancer name="name of the load balancer">
-          <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
-        </LoadBalancer>
-      </LoadBalancers>
-    </NetworkConfiguration>
+<NetworkConfiguration>
+    <LoadBalancers>
+    <LoadBalancer name="name of the load balancer">
+        <FrontendIPConfiguration type="private" subnet="subnet-name" staticVirtualNetworkIPAddress="static-IP-address"/>
+    </LoadBalancer>
+    </LoadBalancers>
+</NetworkConfiguration>
 ```
 
 Let's add the values for the network configuration file to show how it will look. In the example, assume you created a subnet called "test_vnet" with a subnet 10.0.0.0/24 called test_subnet and a static IP 10.0.0.4. The load balancer will be named testLB.
 
 ```xml
-    <NetworkConfiguration>
-      <LoadBalancers>
-        <LoadBalancer name="testLB">
-          <FrontendIPConfiguration type="private" subnet="test_subnet" staticVirtualNetworkIPAddress="10.0.0.4"/>
-        </LoadBalancer>
-      </LoadBalancers>
-    </NetworkConfiguration>
+<NetworkConfiguration>
+    <LoadBalancers>
+    <LoadBalancer name="testLB">
+        <FrontendIPConfiguration type="private" subnet="test_subnet" staticVirtualNetworkIPAddress="10.0.0.4"/>
+    </LoadBalancer>
+    </LoadBalancers>
+</NetworkConfiguration>
 ```
 
 For more information about the load balancer schema, see [Add load balancer](https://msdn.microsoft.com/library/azure/dn722411.aspx).
@@ -70,21 +69,21 @@ For more information about the load balancer schema, see [Add load balancer](htt
 Change the service definition (.csdef) file to add endpoints to the Internal Load Balancing. The moment a role instance is created, the service definition file will add the role instances to the Internal Load Balancing.
 
 ```xml
-    <WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
-      <Endpoints>
-        <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
-      </Endpoints>
-    </WorkerRole>
+<WorkerRole name="worker-role-name" vmsize="worker-role-size" enableNativeCodeExecution="[true|false]">
+    <Endpoints>
+    <InputEndpoint name="input-endpoint-name" protocol="[http|https|tcp|udp]" localPort="local-port-number" port="port-number" certificate="certificate-name" loadBalancerProbe="load-balancer-probe-name" loadBalancer="load-balancer-name" />
+    </Endpoints>
+</WorkerRole>
 ```
 
 Following the same values from the example above, let's add the values to the service definition file.
 
 ```xml
-    <WorkerRole name="WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
-      <Endpoints>
-        <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
-      </Endpoints>
-    </WorkerRole>
+<WorkerRole name="WorkerRole1" vmsize="A7" enableNativeCodeExecution="[true|false]">
+    <Endpoints>
+    <InputEndpoint name="endpoint1" protocol="http" localPort="80" port="80" loadBalancer="testLB" />
+    </Endpoints>
+</WorkerRole>
 ```
 
 The network traffic will be load balanced using the testLB load balancer using port 80 for incoming requests, sending to worker role instances also on port 80.

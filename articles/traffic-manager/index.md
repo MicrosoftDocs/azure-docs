@@ -86,7 +86,7 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
 
 <ul class="panelContent cardsW">
 	<li>
-        <a href="/powershell/azurepd-cmdlets-docs">
+        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -119,7 +119,7 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/traffic-manager.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Service Fabric Documentation
+            Download Traffic Manager Documentation
         </div>
     </a>
 </div>

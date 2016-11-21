@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
@@ -704,7 +704,7 @@ If you set any of these values yourself, consider removing the relevant line fro
     None. You don't need to wrap them in try-catch clauses. If the SDK encounters problems, it will log messages that you will see in the debug console output, and - if the messages get through - in diagnostic search.
 * *Is there a REST API to get data from the portal?*
 
-    Yes, coming soon. In the meantime, use [continuous export](app-insights-export-telemetry.md).
+    Yes, the [data access API](https://dev.applicationinsights.io/). Other ways of extracting data include [export from Analytics to Power BI](app-insights-export-power-bi.md) and [Continuous export](app-insights-export-telemetry.md).
 
 ## <a name="next"></a>Next steps
 [Search events and logs][diagnostic]

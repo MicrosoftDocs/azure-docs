@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
@@ -503,6 +503,31 @@ To verify whether a custom dimension is of a particular type:
       iff(notnull(todouble(customMeasurements.m1)), ...
 ```
 
+## Dashboards
+You can pin your results to a dashboard in order to bring together all your most important charts and tables.
+
+* [Azure shared dashboard](app-insights-dashboards.md#share-dashboards): Click the pin icon. Before you do this, you must have a shared dashboard. In the Azure portal, open or create a dashboard and click Share.
+* [Power BI dashboard](app-insights-export-power-bi.md): Click Export, Power BI Query. An advantage of this alternative is that you can display your query alongside a other results from a very wide range of sources.
+
+## Combine with imported data
+
+Analytics reports look great on the dashboard, but sometimes you want to translate the data to a more digestible form. For example, suppose your authenticated users are identified in the telemetry by an alias. You'd like to show their real names in your results. To do this, you just need a CSV file that maps from the aliases to the real names. 
+
+You can import a data file and use it just like any of the standard tables (requests, exceptions, and so on). Either query it on its own, or join it with other tables. For example, if you have a table named usermap, and it has columns `realName` and `userId`, then you can use it to translate the `user_AuthenticatedId` field in the request telemetry:
+
+```AIQL
+
+    requests
+    | where notempty(user_AuthenticatedId) 
+    | project userId = user_AuthenticatedId
+      // get the realName field from the usermap table:
+    | join kind=leftouter ( usermap ) on userId 
+      // count transactions by name:
+    | summarize count() by realName
+```
+
+To import a table, open **Settings**, **Data sources** and follow the instructions to add a source. Use this definition to upload tables.
+
 
 ## Tables
 The stream of telemetry received from your app is accessible through several tables. The schema of properties available for each table is visible at the left of the window.
@@ -592,11 +617,7 @@ Contains results of calls that your app makes to databases and REST APIs, and ot
 ### Traces table
 Contains the telemetry sent by your app using TrackTrace(), or [other logging frameworks](app-insights-asp-net-trace-logs.md).
 
-## Dashboards
-You can pin your results to a dashboard in order to bring together all your most important charts and tables.
 
-* [Azure shared dashboard](app-insights-dashboards.md#share-dashboards): Click the pin icon. Before you do this, you must have a shared dashboard. In the Azure portal, open or create a dashboard and click Share.
-* [Power BI dashboard](app-insights-export-power-bi.md): Click Export, Power BI Query. An advantage of this alternative is that you can display your query alongside a other results from a very wide range of sources.
 
 ## Next steps
 * [Analytics language reference](app-insights-analytics-reference.md)
