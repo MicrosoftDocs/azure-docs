@@ -202,15 +202,15 @@ Once your errors are resolved, you unmount and detach the existing virtual hard 
 
 
 ## Create VM from original hard disk
-To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-specialized-vm-in-existing-vnet). The actual JSON template is at the following link:
+To create a VM from your original virtual hard disk, use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd-existing-vnet). The actual JSON template is at the following link:
 
-- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-specialized-vm-in-existing-vnet/azuredeploy.json
+- https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-existing-vnet/azuredeploy.json
 
 The template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. The following example deploys the template to the resource group named `myResourceGroup`:
 
 ```azurecli
 azure group deployment create --resource-group myResourceGroup --name myDeployment \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-specialized-vm-in-existing-vnet/azuredeploy.json
+    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-existing-vnet/azuredeploy.json
 ```
 
 Answer the prompts for the template such as VM name (`myDeployedVM` the following example), OS type (`Windows`), and VM size (`Standard_DS1_v2`). The `osDiskVhdUri` is the same as previously used when attaching the existing virtual hard disk to the troubleshooting VM. An example of the command output and prompts is as follows:
