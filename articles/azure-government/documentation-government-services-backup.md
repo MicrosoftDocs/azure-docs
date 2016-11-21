@@ -32,7 +32,7 @@ This article provides an overview of the Azure Backup service and lists the Back
 If you're new to Azure Backup and would like an overview of the available features, read the article, [What is Azure Backup](../backup/backup-introduction-to-azure-backup.md) Azure Government Backup does not have the exact same.
 
 > [!IMPORTANT]
-> Azure Government Backup does not have feature parity with the commercial Azure Backup service. Premium Storage is not supported in Azure Government Backup. Currently, Azure Government Backup only supports Service Manager deployments, also known as the classic deployment model. Resource Manager deployments are not yet supported. See the following article for the [difference between Azure Resource Manager and classic deployment models](../resource-manager-deployment-model.md).
+> Azure Government Backup does not have feature parity with the commercial Azure Backup service. Premium Storage is not supported in Azure Government Backup. Currently, Azure Government Backup only supports Service Manager deployments, also known as the classic deployment model. Resource Manager deployments are not yet supported. See the following article for the [difference between Azure Resource Manager and classic deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
 
 [!INCLUDE [learn-about-backup-deployment models](../../includes/backup-deployment-models.md)]
 
