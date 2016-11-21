@@ -16,6 +16,7 @@
 ### [Enable DC/OS public access](container-service-enable-public-access.md)
 ### [Load balance containers in DC/OS](container-service-load-balancing.md)
 ### [App/User Specific Orchestrator in DC/OS](container-service-application-specific-marathon.md)
+### [Monitor with OMS (DC/OS)](container-service-monitoring-oms.md)
 ### [Monitor with Datadog (DC/OS)](container-service-monitoring.md)
 ### [Monitor with Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
 ## [Manage with Kubernetes](container-service-kubernetes-walkthrough.md)

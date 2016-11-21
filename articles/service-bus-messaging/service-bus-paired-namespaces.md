@@ -1,14 +1,14 @@
-﻿---
+---
 title: Service Bus paired namespaces | Microsoft Docs
 description: Paired namespace implementation details and cost
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 2440c8d3-ed2e-47e0-93cf-ab7fbb855d2e
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

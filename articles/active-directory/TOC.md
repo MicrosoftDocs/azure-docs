@@ -279,7 +279,7 @@
 # Reference
 ## [PowerShell cmdlets](/powershell/ )
 ## [Java API Reference](/java/api)
-## [.NET API](https://msdn.microsoft.com/library/azure/microsoft.identitymodel.clients.activedirectory)
+## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](active-directory-service-limits-restrictions.md)
 
 # Related
