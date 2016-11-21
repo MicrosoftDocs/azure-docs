@@ -29,6 +29,7 @@ Integrating Halosys with Azure AD provides you with the following benefits:
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
+
 ## Prerequisites
 
 To configure Azure AD integration with Halosys, you need the following items:
