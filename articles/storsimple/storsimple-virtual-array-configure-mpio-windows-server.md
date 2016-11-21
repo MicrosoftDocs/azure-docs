@@ -79,13 +79,12 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
 2. In the **iSCSI Initiator Properties** dialog box, click **Discovery**, and then click **Discover Target Portal**.
 3. In the **Discover Target Portal** dialog box, do the following:
    
-   * Enter the IP address of the first enabled network interface on your StorSimple Virtual Array. By default, this would be **Ethernet**. 
-   * Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
+    1. Enter the IP address of the first enabled network interface on your StorSimple Virtual Array. By default, this would be **Ethernet**. 
+    2. Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
      
-     > [!IMPORTANT]
-     > **If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.**
-     > 
-     > 
+    > [!IMPORTANT]
+    > If you are using a private network for iSCSI connections, enter the IP address of the DATA port that is connected to the private network.
+     
 4. Repeat steps 2-3 for a second network interface (for example, Ethernet 2) on your array. 
 5. Select the **Targets** tab in the **iSCSI Initiator Properties** dialog box. For your virtual array, you should see each volume surface as a target under **Discovered Targets**. In this case, three targets (corresponding to three volumes) would be discovered.
    
@@ -95,30 +94,38 @@ After MPIO is configured on Windows Server, volume(s) created on the StorSimple 
     ![mpio2](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio2.png)
 7. In the **Advanced Settings** dialog box, do the following:                                        
    
-   * On the **Local Adapter** drop-down list, select **Microsoft iSCSI Initiator**.
-   * On the **Initiator IP** drop-down list, select the IP address of the host.
-   * On the **Target Portal** IP drop-down list, select the IP of array interface.
-   * Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
+    1. On the **Local Adapter** drop-down list, select **Microsoft iSCSI Initiator**.
+    2. On the **Initiator IP** drop-down list, select the IP address of the host.
+    3. On the **Target Portal** IP drop-down list, select the IP of array interface.
+    4. Click **OK** to return to the **iSCSI Initiator Properties** dialog box.
      
-     ![mpio3](./media/storsimple-ova-configure-mpio-windows-server/mpio3.png)
+        ![mpio3](./media/storsimple-ova-configure-mpio-windows-server/mpio3.png)
+
 8. Click **Properties**. 
    
     ![mpio4](./media/storsimple-ova-configure-mpio-windows-server/mpio4.png)
+
 9. In the **Properties** dialog box, click **Add Session**.
    
    ![mpio5](./media/storsimple-ova-configure-mpio-windows-server/mpio5.png)
 10. In the **Connect to Target** dialog box, select the **Enable multi-path** check box. Click **Advanced**.
 11. In the **Advanced Settings** dialog box:                                        
     
-    * On the **Local adapter** drop-down list, select Microsoft iSCSI Initiator.
-    * On the **Initiator IP** drop-down list, select the IP address corresponding to the host. In this case, you are connecting two network interfaces on the array to a single network interface on the host. Therefore, this interface is the same as that provided for the first session.
-    * On the **Target Portal IP** drop-down list, select the IP address for the second data interface enabled on the array.
-    * Click **OK** to return to the iSCSI Initiator Properties dialog box. You have added a second session to the target.
+    1. On the **Local adapter** drop-down list, select Microsoft iSCSI Initiator.
+
+    2. On the **Initiator IP** drop-down list, select the IP address corresponding to the host. In this case, you are connecting two network interfaces on the array to a single network interface on the host. Therefore, this interface is the same as that provided for the first session.
+
+    3. On the **Target Portal IP** drop-down list, select the IP address for the second data interface enabled on the array.
+
+    4. Click **OK** to return to the iSCSI Initiator Properties dialog box. You have added a second session to the target.
       
        ![mpio11](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio11.png)
-    * After adding the desired sessions (paths), in the **iSCSI Initiator Properties** dialog box, select the target and click **Properties**. On the Sessions tab of the **Properties** dialog box, note the four session identifiers that correspond to the possible path permutations. To cancel a session, select the check box next to a session identifier, and then click **Disconnect**.
-    * To view devices presented within sessions, select the **Devices** tab. To configure the MPIO policy for a selected device, click **MPIO**.
-    * The **Details** dialog box will appear. On the **MPIO** tab, you can select the appropriate **Load Balance Policy** settings. You can also view the **Active** or **Standby** path type.
+    
+    5. After adding the desired sessions (paths), in the **iSCSI Initiator Properties** dialog box, select the target and click **Properties**. On the Sessions tab of the **Properties** dialog box, note the four session identifiers that correspond to the possible path permutations. To cancel a session, select the check box next to a session identifier, and then click **Disconnect**.
+
+    6. To view devices presented within sessions, select the **Devices** tab. To configure the MPIO policy for a selected device, click **MPIO**.
+
+    7. The **Details** dialog box will appear. On the **MPIO** tab, you can select the appropriate **Load Balance Policy** settings. You can also view the **Active** or **Standby** path type.
 12. Repeat steps 8-11 to add additional sessions (paths) to the target. With two interfaces on the host and two on the virtual array, you can add a total of four sessions for each target. 
     
     ![mpio14](./media/storsimple-virtual-array-configure-mpio-windows-server/mpio14.png)

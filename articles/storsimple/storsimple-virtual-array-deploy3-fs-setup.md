@@ -125,28 +125,29 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
     ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs3m.png)
 3. Click **Configure** on the command bar. This opens up the **Configure** blade. In the **Configure** blade, do the following:
    
-    a.  The file server name is automatically populated.
-   
-    d.    Make sure the cloud storage encryption is set to **Enabled**. This will encrypt all the data that is sent to the cloud. 
-   
-    e.  A 256-bit AES key is used with the user-defined key for encryption. Specify a 32 character key and then reenter the key to confirm it. Record the key in a key management app for future reference.
-   
-    e. Click **Configure required settings** to specify storage account credentials to be used with your device. Click **Add new** if there are no storage account credentials configured.
+    1. The file server name is automatically populated.
+    
+    2. Make sure the cloud storage encryption is set to **Enabled**. This will encrypt all the data that is sent to the cloud. 
+    
+    3. A 256-bit AES key is used with the user-defined key for encryption. Specify a 32 character key and then reenter the key to confirm it. Record the key in a key management app for future reference.
+    
+    4. Click **Configure required settings** to specify storage account credentials to be used with your device. Click **Add new** if there are no storage account credentials configured.
    
     ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs6m.png) 
 4. In the **Add a storage account credentials** blade, do the following: 
+
+    1. Choose current subscription if the storage account is in the same subscription as the service. Specify other is the storage account is outside of the service subscription. 
+    
+    2. From the dropdown list, choose an existing storage account. 
+    
+    3. The location will be automatically populated based on the specified storage account. 
+    
+    4. Enable SSL to ensure a secure network communication channel between the device and the cloud.
+    
+    5. Click **Add** to add this storage account credential. 
    
-    a.    Choose current subscription if the storage account is in the same subscription as the service. Specify other is the storage account is outside of the service subscription. 
-   
-    b.    From the dropdown list, choose an existing storage account. 
-   
-    c.    The location will be automatically populated based on the specified storage account. 
-   
-    d.    Enable SSL to ensure a secure network communication channel between the device and the cloud.
-   
-    e.    Click **Add** to add this storage account credential. 
-   
-    ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
+        ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs8m.png)
+
 5. Once the storage account credential is successfully created, the **Configure** blade will be updated to display the specified storage account credentials. Click **Configure**.
    
    ![Configure a file server](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs11m.png)
@@ -169,26 +170,23 @@ Perform the following steps in the [Azure portal](https://portal.azure.com/) to 
    
    ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs15m.png)
 2. Specify the following share settings:
+
+    1. A unique name for your share. The name must be a string that contains 3 to 127 characters.
+    
+    2. An optional **Description** for the share. The description will help identify the share owners.
+    
+    3. A **Type** for the share. The type can be **Tiered** or **Locally pinned**, with tiered being the default. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** share. For all other data, select a **Tiered** share.
+    A locally pinned share is thickly provisioned and ensures that the primary data on the share stays local to the device and does not spill to the cloud. A tiered share on the other hand is thinly provisioned. When you create a tiered share, 10% of the space is provisioned on the local tier and 90% of the space is provisioned in the cloud. For instance, if you provisioned a 1 TB volume, 100 GB would reside in the local space and 900 GB would be used in the cloud when the data tiers. This in turn implies that if you run out of all the local space on the device, you cannot provision a tiered share.
    
-    a.    A unique name for your share. The name must be a string that contains 3 to 127 characters.
+    4. In the **Set default full permissions to** field, assign the permissions to the user, or the group that is accessing this share. Specify the name of the user or the user group in *john@contoso.com* format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
    
-    b.    An optional **Description** for the share. The description will help identify the share owners.
+    5. Click **Add** to create the share. 
+    
+        ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
    
-    c.    A **Type** for the share. The type can be **Tiered** or **Locally pinned**, with tiered being the default. For workloads that require local guarantees, low latencies, and higher performance, select a **Locally pinned** share. For all other data, select a **Tiered** share.
+        You are notified that the share creation is in progress.
    
-    A locally pinned share is thickly provisioned and ensures that the primary data on the share stays local to the device and does not spill to the cloud. A tiered share on the other hand is thinly provisioned. 
-   
-    When you create a tiered share, 10% of the space is provisioned on the local tier and 90% of the space is provisioned in the cloud. For instance, if you provisioned a 1 TB volume, 100 GB would reside in the local space and 900 GB would be used in the cloud when the data tiers. This in turn implies that if you run out of all the local space on the device, you cannot provision a tiered share.
-   
-    d. In the **Set default full permissions to** field, assign the permissions to the user, or the group that is accessing this share. Specify the name of the user or the user group in *john@contoso.com* format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
-   
-    e. Click **Add** to create the share. 
-   
-      ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs18m.png)
-   
-      You are notified that the share creation is in progress.
-   
-      ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
+        ![Add a share](./media/storsimple-virtual-array-deploy3-fs-setup/deployfs19m.png)
    
     After the share is created with the specified settings, the **Shares** blade will update to reflect the new share. By default, monitoring and backup are enabled for the share.
    

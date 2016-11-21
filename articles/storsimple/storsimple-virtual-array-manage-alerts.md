@@ -100,9 +100,7 @@ When you click **Clear**, you will have the opportunity to provide comments abou
 
 ![alert comments](./media/storsimple-virtual-array-manage-alerts/alerts17.png)
 
-Some events will be cleared by the system if another event is triggered with new information. In that case, you will see the following message.
-
-[need new image]
+Some events will be cleared by the system if another event is triggered with new information. 
 
 ## Sort and review alerts
 
