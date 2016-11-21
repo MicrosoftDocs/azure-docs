@@ -18,7 +18,7 @@ ms.tgt_pltfrm: NA
 
 ---
 # In-memory OLTP processing with JSON data in Azure SQL Database (public preview)
-Azure SQL Database enables you to [work with the text formatted as JSON](sql-database-json-getting-started). In order to increase performance of your OLTP queries that process JSON data, you can store JSON documents in memory-optimized tables using standard string columns (NVARCHAR type). In the following example is shown a memory-optimized Product table with two JSON columns (Tags and Data):
+Azure SQL Database enables you to [work with the text formatted as JSON](sql-database-json-getting-started.md). In order to increase performance of your OLTP queries that process JSON data, you can store JSON documents in memory-optimized tables using standard string columns (NVARCHAR type). In the following example is shown a memory-optimized Product table with two JSON columns (Tags and Data):
 
 ```
 CREATE TABLE Product(
@@ -134,7 +134,7 @@ END
 ```
 
 ## Next steps
-JSON in in-memory OLTP native modules is performance improvement of standard JSON functionalities that are [available in Azure SQL Database](sql-database-json-getting-started). If you are interested about core scenarios when to use JSON, check out some of these resources:
+JSON in in-memory OLTP native modules is performance improvement of standard JSON functionalities that are [available in Azure SQL Database](sql-database-json-getting-started.md). If you are interested about core scenarios when to use JSON, check out some of these resources:
 
 * [TechNet Blog](https://blogs.technet.microsoft.com/dataplatforminsider/2016/01/05/json-in-sql-server-2016-part-1-of-4/)
 * [MSDN documentation](https://msdn.microsoft.com/library/dn921897.aspx)
