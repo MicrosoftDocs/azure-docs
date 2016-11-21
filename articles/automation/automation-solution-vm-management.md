@@ -217,7 +217,7 @@ Show job status over time for StartVM and StopVM runbooks | Category=JobLogs Run
 
 ## Removing the solution
 
-If you decide you no longer need to use the solution any further, you can delete it from the Automation account.  Deleting the solution will only remove the runbooks, it will not delete the schedules or variables that were created when the solution was added.  
+If you decide you no longer need to use the solution any further, you can delete it from the Automation account.  Deleting the solution will only remove the runbooks, it will not delete the schedules or variables that were created when the solution was added.  Those assets you will need to delete manually if you are not using them with other runbooks.  
 
 To delete the solution, perform the following steps:
 
@@ -226,7 +226,7 @@ To delete the solution, perform the following steps:
 3.  In the **Delete Solution** window, confirm you want to delete the solution.
 4.  While the information is verified and the solution is deleted, you can track its progress under **Notifications** from the menu.  You will be returned to the **VMManagementSolution[Workspace]** blade after the process to remove solution starts.  
 
-The Automation account and OMS workspace are not deleted as part of this process.  If you do not want to retain the OMS workspace, you will need to manually delete it.  This can be accomplished also from the Azure portal.   From the home-screen in the Azure portal, select **Log Analytics** and then on the **Log Analytics** blade, select the workspace and on the workspace settings blade from the menu, click **Delete**.  
+The Automation account and OMS workspace are not deleted as part of this process.  If you do not want to retain the OMS workspace, you will need to manually delete it.  This can be accomplished also from the Azure portal.   From the home-screen in the Azure portal, select **Log Analytics** and then on the **Log Analytics** blade, select the workspace and click **Delete** from the menu on the workspace settings blade.  
       
 ## Next steps
 
