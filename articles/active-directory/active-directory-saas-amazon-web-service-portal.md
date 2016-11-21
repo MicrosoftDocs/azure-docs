@@ -211,9 +211,7 @@ The following screenshot shows an example for this.
 
     ![Configure Single Sign-On][35]
 
-
      c. Click **Complete** to close the **Add User Attribute** dialog.
-
 
 1. Click **Apply Changes**. 
    
