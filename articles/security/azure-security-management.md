@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/25/2016
+ms.date: 11/21/2016
 ms.author: terrylan
 
 ---
@@ -71,8 +71,8 @@ In combination with client-side security configuration and datacenter deployment
 
 > [!NOTE]
 > Certain recommendations in this article may result in increased data, network, or compute resource usage, and may increase your license or subscription costs.
-> 
-> 
+>
+>
 
 ## Hardened workstation for management
 The goal of hardening a workstation is to eliminate all but the most critical functions required for it to operate, making the potential attack surface as small as possible. System hardening includes minimizing the number of installed services and applications, limiting application execution, restricting network access to only what is needed, and always keeping the system up to date. Furthermore, using a hardened workstation for management segregates administrative tools and activities from other end-user tasks.
@@ -136,13 +136,13 @@ We recommend three primary configurations for a hardened workstation. The bigges
 | Configuration | Benefits | Cons |
 | --- | --- | --- |
 | Stand-alone hardened workstation |Tightly controlled workstation |higher cost for dedicated desktops |
-| Reduced risk of application exploits |Increased management effort | |
-| Clear separation of duties | | |
+| | Reduced risk of application exploits |Increased management effort |
+| | Clear separation of duties | |
 | Corporate PC as virtual machine |Reduced hardware costs | |
-| Segregation of role and applications | | |
+| | Segregation of role and applications | |
 | Windows to go with BitLocker drive encryption |Compatibility with most PCs |Asset tracking |
-| Cost-effectiveness and portability | | |
-| Isolated management environment | | |
+| | Cost-effectiveness and portability | |
+| | Isolated management environment |  |
 
 It is important that the hardened workstation is the host and not the guest, with nothing between the host operating system and the hardware. Following the “clean source principle” (also known as “secure origin”) means that the host should be the most hardened. Otherwise, the hardened workstation (guest) is subject to attacks on the system on which it is hosted.
 
