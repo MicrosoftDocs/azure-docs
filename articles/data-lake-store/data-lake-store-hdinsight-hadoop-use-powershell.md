@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/14/2016
+ms.date: 11/18/2016
 ms.author: nitinme
 
 ---
@@ -25,20 +25,18 @@ ms.author: nitinme
 >
 >
 
-Learn how to use Azure PowerShell to configure an HDInsight cluster with access to Azure Data Lake Store. Some important considerations for this release:
+Learn how to use Azure PowerShell to configure an HDInsight cluster with access to Azure Data Lake Store. For supported cluster types, Data Lake Store be used as an default storage or additional storage account. When Data Lake Store is used as additional storage, the default storage account for the clusters will still be Azure Storage Blobs (WASB) and the cluster-related files (such as logs, etc.) are still written to the default storage, while the data that you want to process can be stored in a Data Lake Store account. Using Data Lake Store as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster.
 
-* **For Spark, R, and Interactive Hive clusters (Linux), and Hadoop/Storm clusters (Windows and Linux)**, Data Lake Store can only be used as an additional storage account. The default storage account for the such clusters will still be Azure Storage Blobs (WASB).
-* **For HBase clusters (Windows and Linux)**, Data Lake Store is **not supported** as a storage option, for both default storage as well as additional storage.
+Some important considerations:
 
-> [!NOTE]
-> Some important points to note.
->
-> * Option to create HDInsight clusters with access to Data Lake Store is available only for HDInsight versions 3.2, 3.4, and 3.5 (for Hadoop and Storm clusters on Windows as well as Linux). For Spark clusters on Linux, this option is only available on HDInsight 3.4 and 3.5 clusters.
-> * As mentioned above, Data Lake Store is available as additional storage for some HDInsight cluster types. Using Data Lake Store as an additional storage account does not impact performance or the ability to read/write to the storage from the cluster. Even when Data Lake Store is used as additional storage, cluster-related files (such as logs, etc.) are written to the default storage (Azure Blobs), while the data that you want to process can be stored in a Data Lake Store account.
->
->
+* Option to create HDInsight clusters with access to Data Lake Store as default storage is available for HDInsight version 3.5.
 
-In this article, we provision a Hadoop cluster with Data Lake Store as additional storage.
+* Option to create HDInsight clusters with access to Data Lake Store as additional storage is available for HDInsight versions 3.2, 3.4, and 3.5.
+
+* For HBase clusters (Windows and Linux), Data Lake Store is **not supported** as a storage option, for both default storage as well as additional storage.
+
+
+In this article, we provision a Hadoop cluster with Data Lake Store as additional storage. For instructions on how to create a Hadoop cluster with Data Lake Store as default storage, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](data-lake-store-hdinsight-hadoop-use-portal.md).
 
 Configuring HDInsight to work with Data Lake Store using PowerShell involves the following steps:
 
