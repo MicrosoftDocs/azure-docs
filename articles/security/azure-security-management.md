@@ -184,14 +184,14 @@ Don't assume that because a workstation has been locked down that other common s
 | Don't | Do |
 | --- | --- |
 | Don't email credentials for administrator access or other secrets (for example, SSL or management certificates) |Maintain confidentiality by delivering account names and passwords by voice (but not storing them in voice mail), perform a remote installation of client/server certificates (via an encrypted session), download from a protected network share, or distribute by hand via removable media. |
-| Proactively manage your management certificate life cycles. | |
+| - | Proactively manage your management certificate life cycles. |
 | Don't store account passwords unencrypted or un-hashed in application storage (such as in spreadsheets, SharePoint sites, or file shares). |Establish security management principles and system hardening policies, and apply them to your development environment. |
-| Use [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) certificate pinning rules to ensure proper access to Azure SSL/TLS sites. | |
+| - | Use [Enhanced Mitigation Experience Toolkit 5.5](https://technet.microsoft.com/security/jj653751) certificate pinning rules to ensure proper access to Azure SSL/TLS sites. |
 | Don't share accounts and passwords between administrators, or reuse passwords across multiple user accounts or services, particularly those for social media or other nonadministrative activities. |Create a dedicated Microsoft account to manage your Azure subscription—an account that is not used for personal email. |
 | Don't email configuration files. |Configuration files and profiles should be installed from a trusted source (for example, an encrypted USB flash drive), not from a mechanism that can be easily compromised, such as email. |
 | Don't use weak or simple logon passwords. |Enforce strong password policies, expiration cycles (changeon-first-use), console timeouts, and automatic account lockouts. Use a client password management system with multi-factor authentication for password vault access. |
 | Don't expose management ports to the Internet. |Lock down Azure ports and IP addresses to restrict management access. For more information, see the [Azure Network Security](http://download.microsoft.com/download/4/3/9/43902EC9-410E-4875-8800-0788BE146A3D/Windows%20Azure%20Network%20Security%20Whitepaper%20-%20FINAL.docx) white paper. |
-| Use firewalls, VPNs, and NAP for all management connections. | |
+| - | Use firewalls, VPNs, and NAP for all management connections. |
 
 ## Azure operations
 Within Microsoft’s operation of Azure, operations engineers and support personnel who access Azure’s production systems use [hardened workstation PCs with VMs](#stand-alone-hardened-workstation-for-management) provisioned on them for internal corporate network access and applications (such as e-mail, intranet, etc.). All management workstation computers have TPMs, the host boot drive is encrypted with BitLocker, and they are joined to a special organizational unit (OU) in Microsoft’s primary corporate domain.
