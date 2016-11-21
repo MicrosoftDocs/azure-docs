@@ -36,7 +36,7 @@ Select a connector to learn how to build workflows quickly.
 | [![API Icon][Service-Busicon]<br/>**Service Bus**][Service-Busdoc] |[![API Icon][SFTPicon]<br/>**SFTP**][SFTPdoc] |[![API Icon][SharePointicon]<br/>**SharePoint**][SharePointdoc] |[![API Icon][Slackicon]<br/>**Slack**][Slackdoc] |
 | [![API Icon][SMTPicon]<br/>**SMTP**][SMTPdoc] |![API Icon][SparkPosticon]<br/>**SparkPost** |[![API Icon][SQLicon]<br/>**SQL**][SQLdoc] |[![API Icon][Translatoricon]<br/>**Translator**][Translatordoc] |
 | [![API Icon][Trelloicon]<br/>**Trello**][Trellodoc] |[![API Icon][Twilioicon]<br/>**Twilio**][Twiliodoc] |[![API Icon][Twittericon]<br/>**Twitter**][Twitterdoc] |[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc] |
-| [![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc] |[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc] |![API Icon][YouTubeicon]<br/>**YouTube** | |
+| [![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc] |[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc] |![API Icon][YouTubeicon]<br/>**YouTube** | [![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc] |
 
 > [!NOTE]
 > If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
@@ -133,6 +133,7 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [mandrilldoc]: ./connectors-create-api-mandrill.md "Connects to Mandrill and can be used for communication."
 [youtubedoc]: ./connectors-create-api-youtube.md "Connects to YouTube and can interact with videos and channels."
 [sparkpostdoc]: ./connectors-create-api-sparkpost.md "Connects to SparkPost and can be used for communication."
+[filesystemdoc]: ..//app-servic-logic/app-service-logic-use-file-connector.md "Use file system connector to communicate with on-premises file system."
 
 <!--Icon references-->
 [Azure-Blobicon]: ./media/apis-list/azureblob.png
@@ -186,6 +187,7 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [API/Web-Appicon]: ./media/apis-list/api.png
 [Nested~Logic-Appicon]: ./media/apis-list/workflow.png
 [Recurrenceicon]: ./media/apis-list/recurrence.png
+[FileSystemIcon]: ./media/apis-list/filesystem.png
 
 <!-- EIP Icons -->
 [as2icon]: ./media/apis-list/as2new.png
