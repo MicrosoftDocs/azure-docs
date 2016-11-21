@@ -52,7 +52,13 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 
 ## Deployment
 ### Deployment failure
-If you experience a failure during installation, the Azure Stack installer allows you to continue a failed installation by following the [rerun deployment steps](azure-stack-rerun-deploy.md).
+If you experience a failure during installation, you can use the -rerun paramenter of the updated Azure Stack TP2 install script to try again from the failed step:
+
+```PowerShell
+cd C:\CloudDeployment\Configuration
+.\InstallAzureStackPOC.ps1 -rerun
+```
+>[AZURE.NOTE]  Previous versions of Azure Stack required additional steps to rerun installation.  If the above steps don't restart installation, make sure you are using the updated Azure Stack [download]((https://azure.microsoft.com/overview/azure-stack/try/?v=try).
 
 ### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
 This behavior is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment has actually succeeded but the script was paused when selecting the window. You can verify this is the case by looking for the word "select" in the titlebar of the command window.  Press the ESC key to unselect it, and the completion message should be shown after it.
