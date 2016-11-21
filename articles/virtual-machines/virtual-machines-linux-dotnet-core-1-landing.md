@@ -30,10 +30,10 @@ The Music Store Resource Manager template can be found here, [Music Store Linux 
 
 Each of these components, including the associate template JSON is examined in the following four articles.
 
-* [**Application Architecture**](virtual-machines-linux-dotnet-core-2-architecture.md) – Application components such as web sites and databases need to be hosted on Azure computer resources such as virtual machines and Azure SQL databases. This document walks through mapping compute need, to Azure resources, and deploying these resources with an Azure Resource Manager template. 
-* [**Access and Security**](virtual-machines-linux-dotnet-core-3-access-security.md) – When hosting applications in Azure, it is necessary to consider how the application is accessed, and how different application components access each other. This document details providing and securing internet access to an application and access between application components.
-* [**Availability and Scale**](virtual-machines-linux-dotnet-core-4-availability-scale.md) – Availability and scale refer to the applications ability to stay running during infrastructure downtime, and the ability to scale compute resources to meet application demand. This document details the components needed to deploy a load balanced and highly available application.
-* [**Application Deployment**](virtual-machines-linux-dotnet-core-5-app-deployment.md) - When deploying applications onto Azure Virtual Machines, the method by which the application binaries are installed on the Virtual Machine must be considered. This document details automating application installation using Azure Virtual Machine Custom Script Extensions.
+* [**Application Architecture**](virtual-machines-linux-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – Application components such as web sites and databases need to be hosted on Azure computer resources such as virtual machines and Azure SQL databases. This document walks through mapping compute need, to Azure resources, and deploying these resources with an Azure Resource Manager template. 
+* [**Access and Security**](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – When hosting applications in Azure, it is necessary to consider how the application is accessed, and how different application components access each other. This document details providing and securing internet access to an application and access between application components.
+* [**Availability and Scale**](virtual-machines-linux-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) – Availability and scale refer to the applications ability to stay running during infrastructure downtime, and the ability to scale compute resources to meet application demand. This document details the components needed to deploy a load balanced and highly available application.
+* [**Application Deployment**](virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) - When deploying applications onto Azure Virtual Machines, the method by which the application binaries are installed on the Virtual Machine must be considered. This document details automating application installation using Azure Virtual Machine Custom Script Extensions.
 
 The goal when developing Azure Resource Manager templates is to automate the deployment of Azure Infrastructure, and the installation and configuration of any applications being hosted on this Azure infrastructure. Working through these articles provides an example of this experience.
 
@@ -48,7 +48,7 @@ The Azure Resource Manager template requires the following parameter values.
 
 | Parameter Name | Description |
 | --- | --- |
-| SSHKEYDATA |SSH key data used to secure access to the Virtual Machine. For information on creating an SSH key pair, see [Creating SSH keys for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys.md). |
+| SSHKEYDATA |SSH key data used to secure access to the Virtual Machine. For information on creating an SSH key pair, see [Creating SSH keys for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). |
 | ADMINUSERNAME |Admin user name that is used on the virtual machine and the Azure SQL Database. |
 | SQLADMINPASSWORD |Password that is used on the Azure SQL Database. |
 | NUMBEROFINSTANCES |The number of virtual machines to be created. Each of these virtual machines host the Music Store web application, and all traffic is load balanced across them. |
@@ -59,11 +59,11 @@ When the template deployment has completed, browse to the public IP Address usin
 ## Next steps
 <hr>
 
-[Step 1 - Application Architecture with Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-2-architecture.md)
+[Step 1 - Application Architecture with Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-2-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Step 2 - Access and Security in Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-3-access-security.md)
+[Step 2 - Access and Security in Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-3-access-security.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Step 3 - Availability and Scale in Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-4-availability-scale.md)
+[Step 3 - Availability and Scale in Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-4-availability-scale.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-[Step 4 - Application Deployment with Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-5-app-deployment.md)
+[Step 4 - Application Deployment with Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
