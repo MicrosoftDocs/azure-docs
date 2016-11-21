@@ -1,4 +1,4 @@
-﻿---
+---
 title: Replicate Hyper-V virtual machines in VMM clouds to Azure using the Azure portal | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of Hyper-V VMs in VMM clouds to Azure, using the Azure portal
 services: site-recovery
@@ -278,11 +278,13 @@ The Recovery Services agent running on Hyper-V hosts needs internet access to Az
 ## Step 3: Set up the target environment
 Specify the Azure storage account to be used for replication, and the Azure network to which Azure VMs will connect after failover.
 
-1. Click **Prepare infrastructure** > **Target**, and select the Azure subscription you want to use.
-2. Specify the deployment model you want to use for VMs after failover.
-3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+1. Click **Prepare infrastructure** > **Target**, select the subscription and the resource group where you want to create the failed over virtual machines. Choose the deployment model that you want to use in Azure (classic or resource management) for the failed over virtual machines.
 
-   ![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+	![Storage](./media/site-recovery-vmm-to-azure/enablerep3.png)
+
+2. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+  	![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+
 4. If you haven't created a storage account, and you want to create one using Resource Manager, click **+Storage account** to do that inline.  On the **Create storage account** blade specify an account name, type, subscription, and location. The account should be in the same location as the Recovery Services vault.
 
    ![Storage](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
