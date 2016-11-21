@@ -229,8 +229,8 @@ To continue getting started with IoT Hub and device management patterns such as 
 To continue getting started with IoT Hub, see [Getting started with the IoT Gateway SDK][lnk-gateway-SDK].
 
 <!-- images -->
-[img-servicenuget]: media/iot-hub-csharp-csharp-schedule-jobs/servicesdknuget.png
-[img-createapp]: media/iot-hub-csharp-csharp-schedule-jobs/createnetapp.png
+[img-servicenuget]: media/iot-hub-csharp-node-schedule-jobs/servicesdknuget.png
+[img-createapp]: media/iot-hub-csharp-node-schedule-jobs/createnetapp.png
 
 [lnk-get-started-twin]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-props]: iot-hub-node-node-twin-how-to-configure.md
