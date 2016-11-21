@@ -35,7 +35,7 @@ To use [EventProcessorHost][EventProcessorHost], you must have an [Azure Storage
     
      Then, substitute the following code for the body of the class:
     
-     ```
+     ```csharp
      class SimpleEventProcessor : IEventProcessor
      {
          Stopwatch checkpointStopWatch;
