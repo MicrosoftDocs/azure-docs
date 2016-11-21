@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 11/21/2016
 ms.author: jeedes
 
 ---
@@ -222,46 +222,46 @@ The following screenshot shows an example for this.
 ### Creating an Azure AD test user
 The objective of this section is to create a test user in the Azure classic portal called Britta Simon.
 
-![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_01.png)
+![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_01.png)
 
 **To create a test user in Azure AD, perform the following steps:**
 
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_02.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_02.png) 
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
 3. To display the list of users, in the menu on the top, click **Users**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_03.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_03.png) 
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. 
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_04.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_04.png) 
 5. On the **Tell us about this user** dialog page, perform the following steps: 
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_05.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_05.png) 
    
-   1. As Type Of User, select New user in your organization.
-   2. In the User Name **textbox**, type **BrittaSimon**.
-   3. Click Next.
+    a. As Type Of User, select New user in your organization.
+    b. In the User Name **textbox**, type **BrittaSimon**.
+    c. Click Next.
 6. On the **User Profile** dialog page, perform the following steps: 
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_06.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** txtbox, type, **Simon**.
+    b. In the **Last Name** txtbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+    e. Click **Next**.
 7. On the **Get temporary password** dialog page, click **create**.
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_07.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_07.png) 
 8. On the **Get temporary password** dialog page, perform the following steps:
    
-    ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service/create_aaduser_08.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-amazon-web-service-tutorial/create_aaduser_08.png) 
    
     a. Write down the value of the **New Password**.
    
@@ -319,41 +319,41 @@ When you click the Amazon Web Service (AWS) tile in the Access Panel, you should
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saas-amazon-web-service/tutorial_general_01.png
-[2]: ./media/active-directory-saas-amazon-web-service/tutorial_general_02.png
-[3]: ./media/active-directory-saas-amazon-web-service/tutorial_general_03.png
-[4]: ./media/active-directory-saas-amazon-web-service/tutorial_general_04.png
-[5]: ./media/active-directory-saas-amazon-web-service/ic795019.png
-[6]: ./media/active-directory-saas-amazon-web-service/ic795020.png
-[7]: ./media/active-directory-saas-amazon-web-service/ic795027.png
-[8]: ./media/active-directory-saas-amazon-web-service/ic795028.png
-[9]: ./media/active-directory-saas-amazon-web-service/capture23.png
-[10]: ./media/active-directory-saas-amazon-web-service/capture24.png
-[11]: ./media/active-directory-saas-amazon-web-service/ic795031.png
-[12]: ./media/active-directory-saas-amazon-web-service/ic795032.png
-[13]: ./media/active-directory-saas-amazon-web-service/ic795033.png
-[14]: ./media/active-directory-saas-amazon-web-service/ic795034.png
-[15]: ./media/active-directory-saas-amazon-web-service/ic795035.png
-[16]: ./media/active-directory-saas-amazon-web-service/ic795022.png
-[17]: ./media/active-directory-saas-amazon-web-service/ic795023.png
-[18]: ./media/active-directory-saas-amazon-web-service/ic795024.png
-[19]: ./media/active-directory-saas-amazon-web-service/ic795025.png
-[20]: ./media/active-directory-saas-amazon-web-service/ic7950351.png
-[21]: ./media/active-directory-saas-amazon-web-service/tutorial_general_80.png
-[22]: ./media/active-directory-saas-amazon-web-service/ic7950352.png
-[23]: ./media/active-directory-saas-amazon-web-service/tutorial_general_81.png
-[24]: ./media/active-directory-saas-amazon-web-service/ic7950353.png
-[25]: ./media/active-directory-saas-amazon-web-service/tutorial_general_15.png
-[26]: ./media/active-directory-saas-amazon-web-service/tutorial_general_18.png
-[27]: ./media/active-directory-saas-amazon-web-service/ic7950357.png
-[28]: ./media/active-directory-saas-amazon-web-service/ic7950321.png
-[29]: ./media/active-directory-saas-amazon-web-service/tutorial_general_16.png
-[30]: ./media/active-directory-saas-amazon-web-service/ic795038.png
-[31]: ./media/active-directory-saas-amazon-web-service/tutorial_general_17.png
-[32]: ./media/active-directory-saas-amazon-web-service/ic7950251.png
-[33]: ./media/active-directory-saas-amazon-web-service/ic7950252.png
-[34]: ./media/active-directory-saas-amazon-web-service/ic7950253.png
-[35]: ./media/active-directory-saas-amazon-web-service/user_attributes_01.png
+[1]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_04.png
+[5]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795019.png
+[6]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795020.png
+[7]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795027.png
+[8]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795028.png
+[9]: ./media/active-directory-saas-amazon-web-service-tutorial/capture23.png
+[10]: ./media/active-directory-saas-amazon-web-service-tutorial/capture24.png
+[11]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795031.png
+[12]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795032.png
+[13]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795033.png
+[14]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795034.png
+[15]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795035.png
+[16]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795022.png
+[17]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795023.png
+[18]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795024.png
+[19]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795025.png
+[20]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950351.png
+[21]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_80.png
+[22]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950352.png
+[23]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_81.png
+[24]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950353.png
+[25]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_15.png
+[26]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_18.png
+[27]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950357.png
+[28]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950321.png
+[29]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_16.png
+[30]: ./media/active-directory-saas-amazon-web-service-tutorial/ic795038.png
+[31]: ./media/active-directory-saas-amazon-web-service-tutorial/tutorial_general_17.png
+[32]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950251.png
+[33]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950252.png
+[34]: ./media/active-directory-saas-amazon-web-service-tutorial/ic7950253.png
+[35]: ./media/active-directory-saas-amazon-web-service-tutorial/user_attributes_01.png
 
 
 
