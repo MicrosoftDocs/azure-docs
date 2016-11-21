@@ -1,6 +1,6 @@
 # Overview
 ## [What is Application Insights?](app-insights-overview.md)
-## [Detect, triage, diagnose](app-insights-detect-triage-diagnose.md)
+## [Performance monitoring in a devOps cycle](app-insights-detect-triage-diagnose.md)
 
 # Get started
 ## Monitor Azure
