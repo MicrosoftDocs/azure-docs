@@ -1,22 +1,21 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Boomi | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Boomi' | Microsoft Docs
 description: Learn how to use Boomi with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
 
-ms.assetid: 26aaaa14-e714-46c6-8f89-cab374c4f10a
+ms.assetid: 8e05afa9-2eda-4975-a0cc-6d408065860f
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 11/21/2016
 ms.author: jeedes
 
 ---
-
 # Tutorial: Azure Active Directory integration with Boomi
 
 In this tutorial, you learn how to integrate Boomi with Azure Active Directory (Azure AD).
@@ -37,7 +36,8 @@ To configure Azure AD integration with Boomi, you need the following items:
 - A Boomi single-sign on enabled subscription
 
 
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+> [!NOTE]
+> To test the steps in this tutorial, we do not recommend using a production environment.
 
 
 To test the steps in this tutorial, you should follow these recommendations:
@@ -124,7 +124,8 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
     b. Click **Next**.
 
-	> [AZURE.NOTE] Please note that this is not the real value. You have to update this value with the actual Reply URL. Contact Boomi support team to get this value.
+	> [!NOTE] 
+	> Please note that this is not the real value. You have to update this value with the actual Reply URL. Contact Boomi support team to get this value.
 
 4. On the **Configure single sign-on at Boomi** page, click **Download certificate** and then save the file on your computer:
 
@@ -216,7 +217,7 @@ The objective of this section is to create a test user in the classic portal cal
 
 
 
-### Creating an Boomi test user
+### Creating a Boomi test user
 
 In order to enable Azure AD users to log into Boomi, they must be provisioned into Boomi. In the case of Boomi, provisioning is a manual task.
 
@@ -244,7 +245,8 @@ In order to enable Azure AD users to log into Boomi, they must be provisioned in
 
 8. Click **OK**.
 
-	> [AZURE.NOTE] The user will not receive a welcome notification email containing a password that can be used to log into the AtomSphere account because his password will be managed through the identity provider. You may use any other Boomi user account creation tools or APIs provided by Boomi to provision AAD user accounts. 
+	> [!NOTE]
+	> The user will not receive a welcome notification email containing a password that can be used to log into the AtomSphere account because his password will be managed through the identity provider. You may use any other Boomi user account creation tools or APIs provided by Boomi to provision AAD user accounts. 
 
 ### Assigning the Azure AD test user
 
