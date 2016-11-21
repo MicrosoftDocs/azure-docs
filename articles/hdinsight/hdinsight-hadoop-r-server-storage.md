@@ -181,7 +181,7 @@ There is also a convenient data storage option for use on the edge node called [
 A major benefit of Azure Files is that the file shares can be mounted and used by any system that has a supported OS such as Windows or Linux. For example, it can be used by another HDInsight cluster that you or someone on your team has, by an Azure VM, or even by an on-premises system.
 
 ## Next steps
-In the Next Steps section replace the first sentence with “Now that you understand the Azure storage options, use the following links to discover other ways of working with R Server on HDInsight.
+Now that you understand the Azure storage options, use the following links to discover other ways of working with R Server on HDInsight.
 
 * [Overview of R Server on HDInsight](hdinsight-hadoop-r-server-overview.md)
 * [Get started with R server on Hadoop](hdinsight-hadoop-r-server-get-started.md)

@@ -70,6 +70,6 @@ In this article, you learned how to create a new HDInsight cluster that includes
 
 * [Overview of R Server for Hadoop](hdinsight-hadoop-r-server-overview.md)
 * [Get started with R Server for Hadoop](hdinsight-hadoop-r-server-get-started.md)
-* [Add RStudio Server to HDInsight](hdinsight-hadoop-r-server-install-r-studio.md)
+* [Add RStudio Server to HDInsight (if not added during cluster creation)](hdinsight-hadoop-r-server-install-r-studio.md)
 * [Azure Storage options for R Server on HDInsight](hdinsight-hadoop-r-server-storage.md)
 
