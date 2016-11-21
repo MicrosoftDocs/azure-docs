@@ -118,19 +118,45 @@ Find unsuccessful requests:
 
 By default, your queries are restricted to the last 24 hours. But you can change this range:
 
-
 ![](./media/app-insights-analytics-tour/change-time-range.png)
 
-Override the time range by writing any query that mentions `timestamp` in a where-clause:
+Override the time range by writing any query that mentions `timestamp` in a where-clause. For example:
 
 ```AIQL
 
+    // What were the slowest requests over the past 3 days?
     requests
-    | where timestamp > ago(12h) and
-    | 
+    | where timestamp > ago(3d)  // Override the time range 
+    | top 5 by duration
 ```
 
 The time range feature is equivalent to a 'where' clause inserted after each mention of one of the source tables. 
+
+`ago(3d)` means 'three days ago'. Other units of time include hours (`2h`, `2.5h`), minutes (`25m`) and seconds (`10s`). 
+
+Other examples:
+
+```AIQL
+
+    // Last calendar week:
+    requests 
+    | where timestamp > startofweek(now()-7d) 
+        and timestamp < startofweek(now()) 
+    | top 5 by duration
+
+    // First hour of every day in past seven days:
+    requests 
+    | where timestamp > ago(7d) and timestamp % 1d < 1h
+    | top 5 by duration
+
+    // Specific dates:
+    requests
+    | where timestamp > datetime(2016-11-19) and timestamp < datetime(2016-11-21)
+    | top 5 by duration
+
+```
+
+[Dates and times reference](app-insights-analytics-reference.md#date-and-time).
 
 
 ## [Project](app-insights-analytics-reference.md#project-operator): select, rename and compute columns
