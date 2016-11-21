@@ -55,23 +55,23 @@ An HTTP trigger is defined by including a JSON object similar to the following i
 ```
 The binding supports the following properties:
 
-* `name` : Required - the variable name used in function code for the request or request body. See [Working with an HTTP trigger from code](#httptriggerusage).
-* `type` : Required - must be set to *"httpTrigger"*.
-* `direction` : Required - must be set to *"in"*.
-* `authLevel` : This determines what keys, if any, need to be present on the request in order to invoke the function. See [Working with keys](#keys) below. The value can be one of the following:
-    * `anonymous`: No API key is required.
-    * `function`: A function-specific API key is required. This is the default value if none is provided.
-    * `admin`: The master key is required.
-* `methods` : This is an array of the HTTP methods to which the function will respond. If not specified, the function will respond to all HTTP methods. See [Customizing the HTTP endpoint](#url).
-* `route` : This defines the route template, controlling to which request URLs your function will respond. The default value is `api/<functionname>`. See [Customizing the HTTP endpoint](#url).
-* `webHookType`: This configures the HTTP trigger to act as a webhook reciever for the specified provider. The `methods` property should not be set if this is chosen. See [Responding to webhooks](#hooktrigger). The value can be one of the following:
-    * `genericJson`: A general purpose webhook endpoint without logic for a specific provider.
-    * `github`: The function will respond to GitHub webhooks. The `authLevel` property should not be set if this is chosen.
-    * `slack`: The function will respond to Slack webhooks. The `authLevel` property should not be set if this is chosen.
+* _name_ : Required - the variable name used in function code for the request or request body. See [Working with an HTTP trigger from code](#httptriggerusage).
+* _type_ : Required - must be set to "httpTrigger".
+* _direction_ : Required - must be set to "in".
+* _authLevel_ : This determines what keys, if any, need to be present on the request in order to invoke the function. See [Working with keys](#keys) below. The value can be one of the following:
+    * _anonymous_: No API key is required.
+    * _function_: A function-specific API key is required. This is the default value if none is provided.
+    * _admin_: The master key is required.
+* _methods_ : This is an array of the HTTP methods to which the function will respond. If not specified, the function will respond to all HTTP methods. See [Customizing the HTTP endpoint](#url).
+* _route_ : This defines the route template, controlling to which request URLs your function will respond. The default value if none is provided is `<functionname>`. See [Customizing the HTTP endpoint](#url).
+* _webHookType_: This configures the HTTP trigger to act as a webhook reciever for the specified provider. The _methods_ property should not be set if this is chosen. See [Responding to webhooks](#hooktrigger). The value can be one of the following:
+    * _genericJson_: A general purpose webhook endpoint without logic for a specific provider.
+    * _github_: The function will respond to GitHub webhooks. The _authLevel_ property should not be set if this is chosen.
+    * _slack_: The function will respond to Slack webhooks. The _authLevel_ property should not be set if this is chosen.
 
 <a name="httptriggerusage"></a>
 ### Working with an HTTP trigger from code
-For C# and F# functions, you can declare the type of your trigger input to be wither `HttpRequestMessage` or a custom type. If you choose `HttpRequestMessage`, then you will get full access to the request object. For a custom type (such as a POCO), Functions will attempt to parse the request body as JSON to populate the object properties.
+For C# and F# functions, you can declare the type of your trigger input to be either `HttpRequestMessage` or a custom type. If you choose `HttpRequestMessage`, then you will get full access to the request object. For a custom type (such as a POCO), Functions will attempt to parse the request body as JSON to populate the object properties.
 
 For Node.js functions, the Functions runtime provides the request body instead of the request object.
 
@@ -80,7 +80,7 @@ See [HTTP trigger samples](#httptriggersample) for example usages.
 
 <a name="output"></a>
 ## HTTP response output binding
-Use the HTTP output binding to respond to the HTTP request sender. This binding requires an HTTP trigger and allows you to change the response. If an HTTP output binding is not provided, an HTTP trigger will return HTTP 200 OK with an empty body. 
+Use the HTTP output binding to respond to the HTTP request sender. This binding requires an HTTP trigger and allows you to customize the response associated with the trigger's request. If an HTTP output binding is not provided, an HTTP trigger will return HTTP 200 OK with an empty body. 
 
 ### Configuring an HTTP output binding
 The HTTP output binding is defined by including a JSON object similar to the following in the `bindings` array of function.json:
@@ -94,25 +94,25 @@ The HTTP output binding is defined by including a JSON object similar to the fol
 ```
 The binding contains the following properties:
 
-* `name` : Required - the variable name used in function code for the response. See [Working with an HTTP output binding from code](#outputusage).
-* `type` : Required - must be set to *"http"*.
-* `direction` : Required - must be set to *"out"*.
+* _name_ : Required - the variable name used in function code for the response. See [Working with an HTTP output binding from code](#outputusage).
+* _type_ : Required - must be set to "http".
+* _direction_ : Required - must be set to "out".
 
 <a name="outputusage"></a>
 ### Working with an HTTP output binding from code
-You can use the output parameter (e.g., `res`) to respond to the http or webhook caller. Alternatively, you can use the
+You can use the output parameter (e.g., "res") to respond to the http or webhook caller. Alternatively, you can use the
 standard `Request.CreateResponse()` (C#) or `context.res` (Node.JS) pattern to return your response. For examples on how to use
-the latter method, see [HTTP trigger sample](#httptriggersample) and [Webhook trigger sample](#hooktriggersample).
+the latter method, see [HTTP trigger samples](#httptriggersample) and [Webhook trigger samples](#hooktriggersample).
 
 
 <a name="hooktrigger"></a>
 ## Responding to webhooks
-An HTTP trigger with the `webHookType` property will be configured to respond to [webhooks](https://en.wikipedia.org/wiki/Webhook). The basic configuration uses the `genericJson` setting. This restricts requests to only those using HTTP POST and with the `application/json` content type.
+An HTTP trigger with the _webHookType_ property will be configured to respond to [webhooks](https://en.wikipedia.org/wiki/Webhook). The basic configuration uses the "genericJson" setting. This restricts requests to only those using HTTP POST and with the `application/json` content type.
 
 The trigger can additionally be tailored to a specific webhook provider (e.g., [GitHub](https://developer.github.com/webhooks/) and [Slack](https://api.slack.com/outgoing-webhooks)). If a provider is specified, the Functions runtime can take care of the provider's validation logic for you.  
 
 ### Configuring Github as a webhook provider
-To respond to GitHub webhooks, first create your function with an HTTP Trigger, and set the `webHookType` property to `github`. Then copy its [URL](#url) and [API key](#keys)
+To respond to GitHub webhooks, first create your function with an HTTP Trigger, and set the _webHookType_ property to "github". Then copy its [URL](#url) and [API key](#keys)
 into your GitHub repository's **Add webhook** page. See GitHub's [Creating Webhooks](http://go.microsoft.com/fwlink/?LinkID=761099&clcid=0x409) documentation for more.
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
@@ -152,7 +152,7 @@ Using this configuration, the function is now addressable with the following rou
 
     http://<yourapp>.azurewebsites.net/api/products/electronics/357
 
-This allows the function code to support two parameters in the address, `category` and `id`. You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters. The following C# function code makes use of both parameters.
+This allows the function code to support two parameters in the address, "category" and "id". You can use any [Web API Route Constraint](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints) with your parameters. The following C# function code makes use of both parameters.
 
 ```csharp
     public static Task<HttpResponseMessage> Run(HttpRequestMessage request, string category, int? id, 
