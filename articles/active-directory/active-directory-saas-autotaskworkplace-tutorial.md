@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 11/21/2016
 ms.author: jeedes
 
 ---
@@ -37,7 +37,8 @@ To configure Azure AD integration with Autotask Workplace, you need the followin
 - An Autotask Workplace single-sign on enabled subscription
 
 
-> [!NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+> [!NOTE] 
+> To test the steps in this tutorial, we do not recommend using a production environment.
 
 
 To test the steps in this tutorial, you should follow these recommendations:
@@ -133,7 +134,8 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	b. Click **Next**.
 
-	> [!NOTE] Please note that you have to update these values with the actual Sign On URL, Identifier and Reply URL. To get these values, contact [Autotask Workplace support team](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm).
+	> [!NOTE] 
+	> Please note that you have to update these values with the actual Sign On URL, Identifier and Reply URL. To get these values, contact [Autotask Workplace support team](https://awp.autotask.net/help/Content/0_HOME/Support_for_End_Clients.htm).
 
 4. On the **Configure single sign-on at Autotask Workplace** page, click **Download metadata** and then save the file on your computer:
 
