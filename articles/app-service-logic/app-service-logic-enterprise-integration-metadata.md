@@ -13,7 +13,7 @@ ms.workload: integration
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 11/21/2016
 ms.author: padmavc
 
 ---
@@ -21,13 +21,13 @@ ms.author: padmavc
 
 ## Overview
 
-Partners, agreements, schemas, maps added to an integration account, have the ability to store metadata with key-value pairs.  Users can define custom metadata, which can be retrieved during runtime.  Right now the artifacts add page doesn't have the capability to create metadata; you can use rest APIs to create them.  Partner, agreements, and schema edit page has the capability to edit data in JSON page and allows for keying metadata information.  In a logic app, **Integration Account Artifact LookUp** helps in retrieving the metadata information.
+Partners, agreements, schemas, maps added to an integration account, store metadata with key-value pairs. You can define custom metadata, which can be retrieved during runtime.  Right now the artifacts do not have the capability to create metadata in UI; you can use rest APIs to create them.  Partner, agreements, and schema have **EDIT as JSON** and allows for keying metadata information.  In a logic app, **Integration Account Artifact LookUp** helps in retrieving the metadata information.
 
 ## How to Store metadata 
 
 1. Create an [Integration Account](app-service-logic-enterprise-integration-create-integration-account.md)   
 
-2. Create a [partner](app-service-logic-enterprise-integration-partners.md#how-to-create-a-partner.md) or an [agreement](app-service-logic-enterprise-integration-agreements.md#how-to-create-agreements.md) or a [schema](app-service-logic-enterprise-integration-schemas.md) in integration account
+2. Add a [partner](app-service-logic-enterprise-integration-partners.md#how-to-create-a-partner) or an [agreement](app-service-logic-enterprise-integration-agreements.md#how-to-create-agreements) or a [schema](app-service-logic-enterprise-integration-schemas.md) in integration account
 
 3. Select a parter or an agreement, or a schema. select **Edit as JSON** and enter metadata details    
 ![Enter metadata](./media/app-service-logic-enterprise-integration-metadata/image1.png)  
@@ -38,7 +38,7 @@ Partners, agreements, schemas, maps added to an integration account, have the ab
 
 2. [Link](app-service-logic-enterprise-integration-create-integration-account.md#how-to-link-an-integration-account-to-a-logic-app) Logic App with an Integration Account    
 
-3. You need to create a trigger using *Request* or *HTTP* before searching for **Integration Account Artifact LookUp**.  Search **integration** to look for **Integration Account Artifact LookUp** 
+3. Create a trigger using *Request* or *HTTP* before searching for **Integration Account Artifact LookUp**.  Search **integration** to look for **Integration Account Artifact LookUp** 
 ![Search lookup](./media/app-service-logic-enterprise-integration-metadata/image2.png) 
 
 3. Select **Integration Account Artifact LookUp**  
@@ -52,10 +52,10 @@ An example scenario to how to configure metadata
 1. Partner metadata has routing url details    
 ![Search lookup](./media/app-service-logic-enterprise-integration-metadata/image6.png)
 
-2. In a logic app configured **Integration Account Artifact LookUp** and **HTTP**
+2. In a logic app configure **Integration Account Artifact LookUp** and **HTTP**   
 ![Search lookup](./media/app-service-logic-enterprise-integration-metadata/image4.png)
 
-3. The code view looks like   
+3. To retrieve URI, the code view should look like    
 ![Search lookup](./media/app-service-logic-enterprise-integration-metadata/image5.png)
 
 
