@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 11/21/2016
 ms.author: jeedes
 
 ---
@@ -37,7 +37,7 @@ To configure Azure AD integration with Nexonia, you need the following items:
 - A Nexonia single-sign on enabled subscription
 
 
-> [AZURE.NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+> [!NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
 
 
 To test the steps in this tutorial, you should follow these recommendations:
