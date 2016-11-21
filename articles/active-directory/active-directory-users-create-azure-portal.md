@@ -24,7 +24,7 @@ ms.author: curtand
 > 
 > 
 
-This article explains how to add new users in your organization in the Azure Active Direstory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md)
+This article explains how to add new users in your organization in the Azure Active Directory (Azure AD) preview. [What's in the preview?](active-directory-preview-explainer.md)
 
 1. Sign in to the [Azure portal](https://portal.azure.com) with an account that's a global admin for the directory.
 2. Select **More services**, enter **Users and groups** in the text box, and then select **Enter**.
