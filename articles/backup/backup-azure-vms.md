@@ -30,7 +30,7 @@ This article provides the procedures for backing up a Classic-deployed Azure vir
 For additional information, see the articles on [planning your VM backup infrastructure in Azure](backup-azure-vms-introduction.md) and [Azure virtual machines](https://azure.microsoft.com/documentation/services/virtual-machines/).
 
 > [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../resource-manager-deployment-model.md). A Backup vault can only protect Classic-deployed VMs. You cannot protect Resource Manager-deployed VMs with a Backup vault. See [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md) for details on working with Recovery Services vaults.
+> Azure has two deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). A Backup vault can only protect Classic-deployed VMs. You cannot protect Resource Manager-deployed VMs with a Backup vault. See [Back up VMs to Recovery Services vault](backup-azure-arm-vms.md) for details on working with Recovery Services vaults.
 > 
 > 
 
