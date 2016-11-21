@@ -6,14 +6,15 @@ author: jeevansd
 documentationcenter: na
 manager: femila
 
-ms.assetid: 96c8534b-ac2b-4495-b80b-576e59476ff4
+ms.assetid: c7a0b761-75b7-4e6b-9980-71d645643a78
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 11/21/2016
 ms.author: jeedes
+
 ---
 
 # Tutorial: Azure Active Directory integration with Slack
