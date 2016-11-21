@@ -105,7 +105,7 @@ Creating a "create model" request:
 HTTP Status code: 200
 
 * `feed/entry/content/properties/id` - Contains the model ID.
-  **Note**: model ID is case sensitive.
+  Note that the model ID is case sensitive.
 
 OData XML
 
