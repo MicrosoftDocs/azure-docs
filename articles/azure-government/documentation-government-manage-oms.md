@@ -28,24 +28,24 @@ Let's explore how we can get OMS integrated into your fleet and some of the out-
 The first thing to integrating your Cloud assets with Operations Management Suite is installing the OMS agent across your sources of logs.
 For Virtual Machines this is very simple – you can manually download the agent from your OMS workspace.
 
-![alt text](./media/documentation-government-oms-figure1.png)
+![Figure 1: Windows Servers connected to OMS](./media/documentation-government-oms-figure1.png)
 <p align="center">Figure 1: Windows Servers connected to OMS</p>
 
 You can connect Azure VMs to OMS directly through the Portal. Instructions [here](https://blogs.technet.microsoft.com/momteam/2016/02/10/new-ways-to-enable-log-analytics-oms-on-your-azure-vms/).
 
-You can also connect them programmatically and/or configure the OMS extension right into your Azure Resource Manager (ARM) templates. Instructions for Windows’ based machine [here](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents) and Linux [here](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents).
+You can also connect them programmatically and/or configure the OMS extension right into your Azure Resource Manager templates. Instructions for Windows’ based machine [here](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents) and Linux [here](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents).
 
 ## Onboarding Storage Accounts and SCOM to OMS
 OMS can also connect to your Storage Account and/or existing SCOM 2013 deployments to offer you operations management in hybrid scenarios (across cloud providers or in cloud/on-prem infrastructures).
 
-![alt text](./media/documentation-government-oms-figure2.png)
+![Figure 2: Connecting Azure Storage and SCOM to OMS](./media/documentation-government-oms-figure2.png)
 <p align="center">Figure 2: Connecting Azure Storage and SCOM to OMS</p>
 
-OMS also supports logging information from other monitoring services like Chef and/or Puppet. Furthermore, for Azure deployments – we also have VMs with OMS enabled ARM templates so you can deploy Compute and onboard to your OMS workspace at the same time. 
+OMS also supports logging information from other monitoring services like Chef and/or Puppet. Furthermore, for Azure deployments – we also have VMs with OMS enabled Azure Resource Manager templates so you can deploy Compute and onboard to your OMS workspace at the same time. 
 
-![alt text](./media/documentation-government-oms-figure3a.png)
-![alt text](./media/documentation-government-oms-figure3b.png)
-<p align="center">Figure 3: ARM templates for Azure VMs with OMS extension</p>
+![Figure 3: Azure Resource Manager templates for Azure VMs with OMS extension](./media/documentation-government-oms-figure3a.png)
+![Figure 3: Azure Resource Manager templates for Azure VMs with OMS extension](./media/documentation-government-oms-figure3b.png)
+<p align="center">Figure 3: Azure Resource Manager templates for Azure VMs with OMS extension</p>
 
 Information on setting up OMS with your existing SCOM implementation on premises can be found [here](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-om-agents).
 
@@ -69,7 +69,7 @@ System Center Endpoint Protection.
 
 For example, below – you can see a threat was caught and automatically triaged by Systems Center:
 
-![alt test](./media/documentation-government-oms-figure4.png)
+![Figure 4: OMS Antimalware Assessment solution](./media/documentation-government-oms-figure4.png)
 <p align="center">Figure 4: OMS Antimalware Assessment solution</p>
 
 More information on Antimalware Assessment can be found here: [https://azure.microsoft.com/en-us/documentation/articles/log-analytics-malware/](https://azure.microsoft.com/en-us/documentation/articles/log-analytics-malware/)
@@ -80,7 +80,7 @@ Another common cybersecurity scenario in the Cloud is in credential compromise. 
 OMS will sum and organize all login attempts in your fleet and bucket them depending on type (remote, local, username used etc.)
 For example – in the below – I can see a mass amount of unsuccessful login attempts from largely random strings as usernames. This most likely points to my computers being exposed and not properly protected by firewalls and access control lists.
 
-![alt text](./media/documentation-government-oms-figure5.png)
+![Figure 5: 97.3% Logon Failed in the last 24 hours](./media/documentation-government-oms-figure5.png)
 <p align="center">Figure 5: 97.3% Logon Failed in the last 24 hours</p>
 
 ### Threat Intelligence
@@ -93,8 +93,8 @@ Double clicking on the inbound tag – I can find out that a Linux VM that is be
 
 You can also setup Alerts to OMS Solutions like Threat Intelligence. Below I’ve setup an Alert so should OMS detect > 10 outbound connections to a known malicious IP it sends an alert out to me via email. I then configure that alert to fire an Azure Automation job which is setup to automatically shut down that VM.
 
-![alt text](./media/documentation-government-oms-figure6.png)
-<p align="center">Figure 6: OMS Alerts & Automation</p>
+![Figure 6: OMS Alerts and Automation](./media/documentation-government-oms-figure6.png)
+<p align="center">Figure 6: OMS Alerts and Automation</p>
 
 This is just one example of an out-of-box OMS solution that can be applied to your fleet, whether it’s running on Azure, another cloud service provider, or on your premises.
 OMS will continue to update its machine learning to the latest threats automatically for you and we continue to roll out new Solutions to the OMS Solution Gallery as well.
