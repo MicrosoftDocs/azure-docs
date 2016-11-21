@@ -13,11 +13,10 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/16/2016
+ms.date: 11/21/2016
 ms.author: jeedes
 
 ---
-
 # Tutorial: Azure Active Directory integration with Halosys
 
 In this tutorial, you learn how to integrate Halosys with Azure Active Directory (Azure AD).
