@@ -141,7 +141,7 @@ When using Azure Active Directory with Geo-Replication, the Azure Active Directo
 2. In the left banner select **SQL servers**, select your **SQL server**, and then in the **SQL Server** blade, at the top click **Settings**.
    
     ![ad settings][9]
-3. In the **Settings** blade, click **Active Directory admin.
+3. In the **Settings** blade, click **Active Directory admin**.
 4. In the **Active Directory admin** blade, click **Active Directory admin**, and then at the top, click **Set admin**.
 5. In the **Add admin** blade, search for a user, select the user or group to be an administrator, and then click **Select**. (The Active Directory admin blade shows all members and groups of your Active Directory. Users or groups that are grayed out cannot be selected because they are not supported as Azure AD administrators. (See the list of supported admins in **Azure AD Features and Limitations** above.) Role-based access control (RBAC) applies only to the portal and is not propagated to SQL Server.
 6. At the top of the **Active Directory admin** blade, click **SAVE**.
