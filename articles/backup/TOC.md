@@ -1,10 +1,10 @@
 # Overview
 ## [What is Azure Backup?](backup-introduction-to-azure-backup.md)
 # Get started
-## [FAQ](backup-azure-backup-faq.md)
 ## [Back up files and folders](backup-try-azure-backup-in-10-mins.md)
 ## [Back up Azure virtual machines](backup-azure-vms-first-look.md)
 ## [Protect Azure VMs](backup-azure-vms-first-look-arm.md)
+## [FAQ](backup-azure-backup-faq.md)
 # How to
 ## Automate Backup using PowerShell
 ### [Azure VMs in Azure portal](backup-azure-vms-automation.md)
@@ -51,3 +51,9 @@
 ### [Azure VM backup problems in classic portal](backup-azure-vms-troubleshoot-classic.md)
 ### [Azure VM Backup fails: Could not communicate with the VM agent for snapshot status - Snapshot VM sub task timed out](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md)
 ### [Slow backup of files and folders in Azure Backup](backup-azure-troubleshoot-slow-backup-performance-issue.md)
+
+# Resources
+## [Pricing](https://azure.microsoft.com/pricing/details/backup/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=windowsazureonlinebackup) 
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=backup) 
+## [Service updates](https://azure.microsoft.com/updates/?product=backup)

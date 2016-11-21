@@ -9,12 +9,12 @@ editor: ''
 tags: azure-service-management
 
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 06/24/2016
+ms.workload: iaas-sql-server
+ms.date: 11/15/2016
 ms.author: jroth
 
 ---
@@ -27,7 +27,7 @@ For more information about the SQL Server security practices, see [SQL Server 20
 
 Azure complies with several industry regulations and standards that can enable you to build a compliant solution with SQL Server running in a Virtual Machine. For information about regulatory compliance with Azure, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
 
-Following is a list of security recommendations that should be considered when configuring and connecting to the instance of SQL Server in an Azure VM.
+Following is a list of security recommendations to consider when configuring and connecting to the instance of SQL Server in an Azure VM.
 
 ## Considerations for managing accounts:
 * Create a unique local administrator account that is not named **Administrator**.

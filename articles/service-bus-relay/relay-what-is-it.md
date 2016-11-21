@@ -1,20 +1,20 @@
 ---
 title: What is Azure relay? | Microsoft Docs
 description: Overview of Azure Relay
-services: service-bus
+services: service-bus-relay
 documentationcenter: .net
 author: banisadr
 manager: timlt
 editor: ''
 
 ms.assetid: 1e3e971d-2a24-4f96-a88a-ce3ea2b1a1cd
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: get-started-article
-ms.date: 10/28/2016
-ms.author: babanisa
+ms.date: 11/16/2016
+ms.author: babanisa,sethm
 
 ---
 # What is Azure Relay?
@@ -28,8 +28,8 @@ The key capability elements provided by Relay are bi-directional, unbuffered com
 
 Azure Relay has two features:
 
-1. [Hybrid Connections](#hybrid-connections) - Uses the open standard Web Sockets enabling multiplatform scenarios.
-2. [WCF Relays](#wcf-relays) - Uses Windows Communication Foundation (WCF) to enable remote procedure calls.
+1. [Hybrid Connections](#hybrid-connections) - Uses the open standard web sockets enabling multi-platform scenarios.
+2. [WCF Relays](#wcf-relays) - Uses Windows Communication Foundation (WCF) to enable remote procedure calls. WCF Relay is the legacy Relay offering that many customers may already use with their WCF programming models.
 
 Hybrid Connections and WCF Relays both enable secure connection to assets that exist within a corporate enterprise network. Use of one over the other is dependent on your particular needs, as described in the following table:
 
@@ -37,7 +37,7 @@ Hybrid Connections and WCF Relays both enable secure connection to assets that e
 | --- |:---:|:---:|
 | **WCF** |x | |
 | **.NET Core** | |x |
-| **.NET Framework** |x |x |
+| **.NET Framework** |x |
 | **JavaScript/NodeJS*** | |x |
 | **Java*** | |x |
 | **Standards-Based Open Protocol** | |x |
@@ -46,15 +46,13 @@ Hybrid Connections and WCF Relays both enable secure connection to assets that e
 *By General Availability
 
 ## Hybrid Connections
-The Azure Relay Hybrid Connections capability is a secure, open-protocol evolution of the existing Relay features that can be implemented on any platform and in any language that has a basic WebSocket capability, which explicitly includes the WebSocket API in common web browsers. Hybrid Connections is based on HTTP and WebSockets.
+The [Azure Relay Hybrid Connections](relay-hybrid-connections-protocol.md) capability is a secure, open-protocol evolution of the existing Relay features that can be implemented on any platform and in any language that has a basic WebSocket capability, which explicitly includes the WebSocket API in common web browsers. Hybrid Connections is based on HTTP and WebSockets.
 
 ## WCF Relays
 The WCF Relay works for the full .NET Framework (NETFX) and for WCF. You initiate the connection between your on-premises service and the relay service using a suite of WCF "relay" bindings. Behind the scenes, the relay bindings map to new transport binding elements designed to create WCF channel components that integrate with Service Bus in the cloud.
 
 ## Service history
 Hybrid Connections supplants the former, equally named "BizTalk Services" feature that was built on the Azure Service Bus WCF Relay. The new Hybrid Connections capability complements the existing WCF Relay and these two service capabilities will exist side-by-side in the Relay service for the foreseeable future; they share a common gateway, but are otherwise different implementations.
-
-WCF Relay is the legacy Relay offering that many customers may already use with their WCF programming models.
 
 ## Next steps:
 * [Relay FAQ](relay-faq.md)

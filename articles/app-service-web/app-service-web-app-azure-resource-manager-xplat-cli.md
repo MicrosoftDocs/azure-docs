@@ -44,6 +44,10 @@ Example to use this cmdlet:
 
     azure appserviceplan create --name ContosoAppServicePlan --location "South Central US" --resource-group ContosoAzureResourceGroup --sku P1 --instances 10
 
+#### Create a Linux App Service Plan
+
+Using the same **azure appserviceplan create** command, with the extra parameter **--islinux true**. Note the restrictions and regions outlined in [Introduction to App Service on Linux](app-service-linux-intro.md)
+
 ### List Existing App Service Plans
 To list the existing app service plans, use **azure appserviceplan list** command.
 
@@ -167,4 +171,4 @@ To delete hostname bindings, use:
 ### Next Steps
 * To learn about Azure Resource Manager CLI support, see [Use the Azure CLI to manage Azure resources and resource groups.](../xplat-cli-azure-resource-manager.md)
 * To learn about managing App Service using PowerShell, see [Using Azure Resource Manager-Based PowerShell to Manage Azure Web Apps.](app-service-web-app-azure-resource-manager-powershell.md)
-
+* To learn about Azure App Service on Linux, see [Introduction to App Service on Linux](app-service-linux-intro.md)

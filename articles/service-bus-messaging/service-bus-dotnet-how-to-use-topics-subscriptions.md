@@ -1,14 +1,14 @@
 ---
 title: Use Service Bus topics with .NET | Microsoft Docs
 description: Learn how to use Service Bus topics and subscriptions with .NET in Azure. Code samples are written for .NET applications.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 31d0bc29-6524-4b1b-9c7f-aa15d5a9d3b4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet

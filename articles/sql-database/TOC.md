@@ -1,6 +1,6 @@
 # Overview
 ## [What is SQL Database?](sql-database-technical-overview.md)
-## [SQL Database FAQ](sql-database-faq.md)
+
 ## Features
 ### [Service tiers](sql-database-service-tiers.md)
 ### [Database Transaction Units](sql-database-what-is-a-dtu.md)
@@ -75,6 +75,7 @@
 ## [Create and manage access and permissions](sql-database-get-started-security.md)
 ## [In-memory optimization](sql-database-in-memory.md)
 ## [Data sync](sql-database-get-started-sql-data-sync.md)
+## [SQL Database FAQ](sql-database-faq.md)
 
 # How To
 
@@ -105,7 +106,7 @@
 #### [Azure AD authentication](sql-database-aad-authentication.md)
 #### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
 ### Firewall rules
-#### [Azure Portal](sql-database-configure-firewall-settings.md)
+#### [Azure portal](sql-database-configure-firewall-settings.md)
 #### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 #### [REST API](sql-database-configure-firewall-settings-rest.md)
 #### [T-SQL](sql-database-configure-firewall-settings-tsql.md)
@@ -149,10 +150,10 @@
 #### [Entity Framework](https://www.nuget.org/packages/EntityFramework/)
 #### [Azure SDK (download)](https://www.visualstudio.com/vs/azure-tools/)
 #### [Azure SDK (documentation)](../dotnet-sdk.md)
-#### [PowerShell Service Management cmdlets](https://msdn.microsoft.com/library/azure/dn546723.aspx)
+#### [PowerShell (classic))](https://msdn.microsoft.com/library/azure/dn546723.aspx)
 #### REST
 ##### [REST (Resource Management)](https://msdn.microsoft.com/library/azure/mt420159)
-##### [REST (Service Management)](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+##### [REST (classic)](https://msdn.microsoft.com/library/azure/dn505719.aspx)
 
 ## Detect threats
 ### [Threat detection](sql-database-threat-detection-get-started.md)
@@ -165,7 +166,7 @@
 ### [Column encryption](https://msdn.microsoft.com/library/azure/ms179331)
 
 ## Mask data
-### [Dynamic data masking](sql-database-dynamic-data-masking-get-started-portal.md)
+### [Dynamic data masking](sql-database-dynamic-data-masking-get-started.md)
 ### [Downlevel clients](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md)
 
 ## Migrate
@@ -264,12 +265,12 @@
 ### [Moving databases](sql-database-troubleshoot-moving-data.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [PowerShell classic](/powershell/servicemanagement/)
 ## [Java](/java/api/)
 ## [.NET](/dotnet/api/)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/azure/mt574084(v=azure.300\).aspx)
+## [Azure SQL Database Cmdlets](/powershell/resourcemanager/AzureRM.Sql/v1.0.12/AzureRM.Sql)
 ## [SQL Server Cmdlets](https://msdn.microsoft.com/library/mt740629.aspx)
 ## [REST](/rest/api/sql/)
 
@@ -287,6 +288,9 @@
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/sql-database/)
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=ssdsgetstarted)
+## [Stack Overflow](http://stackoverflow.com/questions/tagged/sql-azure)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)
 ## [Service updates](https://azure.microsoft.com/updates/?service=sql-database)
 ## [SQL Server Tools](https://msdn.microsoft.com/library/mt238365.aspx)
 ## [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
@@ -294,5 +298,3 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-## [Forum](https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=sql-database)

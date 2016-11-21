@@ -25,7 +25,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
         </a>
     </li>
     <li>
-        <a href="/azure/dns-dns-getstarted-create-dnszone-portal">
+        <a href="/azure/dns/dns-getstarted-create-dnszone-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
         </a>
     </li>
     <li>
-        <a href="/azure/dns-dns-getstarted-create-dnszone">
+        <a href="/azure/dns/dns-getstarted-create-dnszone">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
         </a>
     </li>
      <li>
-        <a href="/azure/dns-dns-getstarted-create-recordset">
+        <a href="/azure/dns/dns-getstarted-create-recordset">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -82,20 +82,69 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
 
 ---
 
-##Reference
+## Reference
 
-###PowerShell
-[Azure PowerShell reference](/powershell/azureps-cmdlets-docs)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>Azure PowerShell reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###Azure CLI
-[Install the Azure CLI](/cli/azure/install-az-cli2)
+<li>
+        <a href="/cli/azure/network/dns">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Azure CLI</h3>
+                        <p>Azure DNS using the Azure CLI</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###.NET
-[.NET Managed Reference](/dotnet/api)
+<li>
+        <a href="/dotnet/api">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>.NET Managed Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 
-###REST
-[DNS REST API Reference](/rest/api/dns)
-
+<li>
+        <a href="/rest/api/dns">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>DNS REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/dns.pdf">
