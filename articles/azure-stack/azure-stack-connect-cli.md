@@ -21,7 +21,7 @@ ms.author: helaw
 In this document, we guide you through the process of using Azure Command-line Interface (CLI) to manage Azure Stack resources on Linux and Mac client platforms. 
 
 ## Install Node.js and npm
-As a prerequisite, install version 4.6.2 of Node.js. On Linux, this can be done with the following command:
+As a prerequisite, install version 4.6.2 of Node.js. On Linux, installation can be done with the following command:
 ```
 wget -qO- https://deb.nodesource.com/setup_4.x | sudo bash -
 sudo apt-get install nodejs
