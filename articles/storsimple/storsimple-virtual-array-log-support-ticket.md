@@ -34,13 +34,13 @@ Depending upon your [support plan](https://azure.microsoft.com/support/plans/), 
 
 2. In the **Basics** blade, do the following:
 
-    a. From the **Issue type** dropdown list, select **Technical**. 
+    1. From the **Issue type** dropdown list, select **Technical**. 
     
-    b. The current **Subscription**, **Service** type, and the **Resource** (StorSimple Device Manager service) are automatically chosen. 
+    2. The current **Subscription**, **Service** type, and the **Resource** (StorSimple Device Manager service) are automatically chosen. 
 
-    c. Specify one or more devices registered to your service that are experiencing issues.
+    3. Specify one or more devices registered to your service that are experiencing issues.
 
-    d. Choose an appropriate **support plan** if you have multiple plans associated with your subscription. You need a paid support plan to enable Technical Support.
+    4. Choose an appropriate **support plan** if you have multiple plans associated with your subscription. You need a paid support plan to enable Technical Support.
 
 3. In **Step 2**, choose the **Severity** and specify if the issue is related to the array or the StorSimple Device Manager service. Also, choose a **Category** for this issue and provide more **Details** about the issue.
    

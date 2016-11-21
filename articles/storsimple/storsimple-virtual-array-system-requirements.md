@@ -86,9 +86,9 @@ The following table lists the ports that need to be opened in your firewall to a
 | --- | --- | --- | --- | --- |
 | TCP 80 (HTTP) |Out |WAN |No |Outbound port is used for Internet access to retrieve updates. <br></br>The outbound web proxy is user configurable. |
 | TCP 443 (HTTPS) |Out |WAN |Yes |Outbound port is used for accessing data in the cloud. <br></br>The outbound web proxy is user configurable. |
-| UDP 53 (DNS) |Out |WAN |In some cases; see notes. |This port is required only if you are using an Internet-based DNS server. <br></br> **Note**: If deploying a file server, we recommend using local DNS server. |
-| UDP 123 (NTP) |Out |WAN |In some cases; see notes. |This port is required only if you are using an Internet-based NTP server.<br></br> **Note:** If deploying a file server, we recommend synchronizing time with your Active Directory domain controllers. |
-| TCP 80 (HTTP) |In |LAN |Yes |This is the inbound port for local UI on the StorSimple device for local management. <br></br> **Note**: Accessing the local UI over HTTP will automatically redirect to HTTPS. |
+| UDP 53 (DNS) |Out |WAN |In some cases; see notes. |This port is required only if you are using an Internet-based DNS server. <br></br> Note that if deploying a file server, we recommend using local DNS server. |
+| UDP 123 (NTP) |Out |WAN |In some cases; see notes. |This port is required only if you are using an Internet-based NTP server.<br></br> Note that if deploying a file server, we recommend synchronizing time with your Active Directory domain controllers. |
+| TCP 80 (HTTP) |In |LAN |Yes |This is the inbound port for local UI on the StorSimple device for local management. <br></br> Note that accessing the local UI over HTTP will automatically redirect to HTTPS. |
 | TCP 443 (HTTPS) |In |LAN |Yes |This is the inbound port for local UI on the StorSimple device for local management. |
 | TCP 3260 (iSCSI) |In |LAN |No |This port is used to access data over iSCSI. |
 

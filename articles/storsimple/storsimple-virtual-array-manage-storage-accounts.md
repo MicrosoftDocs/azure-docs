@@ -17,6 +17,7 @@ ms.date: 11/21/2016
 ms.author: alkohli
 ---
 # Use the StorSimple Device Manager service to manage storage account credentials for StorSimple Virtual Array
+
 ## Overview
 The **Configuration** section of the StorSimple Device Manager service blade of your StorSimple Virtual Array presents the global service parameters that can be created in the StorSimple Manager service. These parameters can be applied to all the devices connected to the service, and include:
 
@@ -27,7 +28,7 @@ The **Configuration** section of the StorSimple Device Manager service blade of 
 
 This tutorial explains how you can add, edit, or delete storage account credentials for your StorSimple Virtual Array. The information in this tutorial only applies to the StorSimple Virtual Array. For information on how to manage storage accounts in 8000 series, see [Use the StorSimple Manager service to manage your storage account](storsimple-manage-storage-accounts.md).
 
-storage account credentials contain the credentials that the device uses to access your storage account with your cloud service provider. For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key.
+Storage account credentials contain the credentials that the device uses to access your storage account with your cloud service provider. For Microsoft Azure storage accounts, these are credentials such as the account name and the primary access key.
 
 On the **Storage account credentials** blade, all storage account credentials that are created for the billing subscription are displayed in a tabular format containing the following information:
 
@@ -66,15 +67,12 @@ Use the following procedures to add Azure storage account credentials:
 3. Click **Add**.
 4. In the **Add a storage account** blade, do the following:
    
-   a. For **Subscription**, select **Current**.
+    1. For **Subscription**, select **Current**.
+    2. Provide the name of your Azure storage account.
+    3. Select **Enable** to create a secure channel for network communication between your StorSimple device and the cloud. Select **Disable** only if you are operating within a private cloud.
+    4. Click **Add**. You are notified after the storage account is successfully created.<br></br>
    
-   b. Provide the name of your Azure storage account.
-   
-   c. Select **Enable** to create a secure channel for network communication between your StorSimple device and the cloud. Select **Disable** only if you are operating within a private cloud.
-   
-   d. Click **Add**. You are notified after the storage account is successfully created.<br></br>
-   
-     ![Add an existing storage account credential](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
+        ![Add an existing storage account credential](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 
 #### To add an Azure storage account credential that is outside of the Device Manager service subscription
 
@@ -83,15 +81,16 @@ Use the following procedures to add Azure storage account credentials:
 3. Click **Add**.
 4. In the **Add a storage account** blade, do the following:
    
-   a.    For **Subscription**, select **Other**.
+    1. For **Subscription**, select **Other**.
    
-   b.    Provide the name of your Azure storage account credential.
+    2. Provide the name of your Azure storage account credential.
    
-   c.    In the **Storage account access key** text box, supply the primary Access Key for your Azure storage account credential. To get this key, go to the Azure Storage service, select your storage account credential, and click **Manage account keys**. You can now copy the primary access key.
+    3. In the **Storage account access key** text box, supply the primary Access Key for your Azure storage account credential. To get this key, go to the Azure Storage service, select your storage account credential, and click **Manage account keys**. You can now copy the primary access key.
    
-   d.    To enable SSL, click the **Enable** button to create a secure channel for network communication between your StorSimple Device Manager service and the cloud. Click the **Disable** button only if you are operating within a private cloud.
+    4. To enable SSL, click the **Enable** button to create a secure channel for network communication between your StorSimple Device Manager service and the cloud. Click the **Disable** button only if you are operating within a private cloud.
    
-   e.  Click **Add**. You are notified after the storage account credential is successfully created.
+    5. Click **Add**. You are notified after the storage account credential is successfully created.
+
 5. The newly created storage account credential is displayed on the StorSimple Configure Device Manager service blade under **Storage account credentials**.
    
     ![Add a storage account credential outside of the Device Manager service subscription](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-outside-storageacct.png)
@@ -138,9 +137,10 @@ To inform the StorSimple Device Manager service of the change, you need to acces
 2. On the **Storage account credentials** blade, in the list of Storage account credentials, select the storage account credential whose keys that you want to synchronize.
 3. In the **Properties** blade for the selected storage account credential, do the following:
    
-   a. Click **More**, and then click **Sync access key**.
+    1. Click **More**, and then click **Sync access key**.
    
-   b. When prompted for confirmation, click **Sync key** to complete the synchronization.
+    2. When prompted for confirmation, click **Sync key** to complete the synchronization.
+    
 4. In the StorSimple Device Manager service, you need to update the key that was previously changed in the Microsoft Azure Storage service. In the **Synchronize storage account key** blade, if the primary access key was changed (regenerated), click Primary, and then click **Sync Key**. If the secondary key was changed, click **Secondary**, and then click **Sync Key**.
    
     ![Sync access key](./media/storsimple-virtual-array-manage-storage-accounts/ova-sync-acess-key.png)

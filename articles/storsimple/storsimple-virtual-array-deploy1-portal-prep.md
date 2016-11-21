@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/11/2016
+ms.date: 11/21/2016
 ms.author: alkohli
 ---
 # Deploy StorSimple Virtual Array - Prepare the portal
@@ -151,13 +151,13 @@ Perform the following steps in the [Azure portal](https://ms.portal.azure.com/) 
 3. Click **Add**.
 4. In the **Add a storage account** blade, do the following:
    
-   a. For **Subscription**, select **Current**.
+    1. For **Subscription**, select **Current**.
    
-   b. Provide the name of your Azure storage account.
+    2. Provide the name of your Azure storage account.
    
-   c. Select **Enable** to create a secure channel for network communication between your StorSimple device and the cloud. Select **Disable** only if you are operating within a private cloud.
+    3. Select **Enable** to create a secure channel for network communication between your StorSimple device and the cloud. Select **Disable** only if you are operating within a private cloud.
    
-   d. Click **Add**. You are notified after the storage account is successfully created.<br></br>
+    4. Click **Add**. You are notified after the storage account is successfully created.<br></br>
    
      ![Add an existing storage account credential](./media/storsimple-virtual-array-manage-storage-accounts/ova-add-storageacct.png)
 

@@ -75,11 +75,15 @@ Use the instructions in this tutorial to perform the following tasks:
 
 1. In the **Add share** blade, do the following:
    
-   * In the **Share name** field, enter a unique name for your share. The name must be a string that contains 3 to 127 characters.
-   * An optional **Description** for the share. The description will help identify the share owners.
-   * In the **Type** dropdown list, specify whether to create a **Tiered** or **Locally pinned** share. For workloads that require local guarantees, low latencies, and higher performance, select **Locally pinned share**. For all other data, select **Tiered** share.
-   * In the **Capacity** field, specify the size of the share. A tiered share must be between 500 GB and 20 TB and a locally pinned share must be between 50 GB and 2 TB.
-   * In the **Set default full permissions to** field, assign the permissions to the user, or the group that is accessing this share. Specify the name of the user or the user group in _john@contoso.com_ format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
+    1. In the **Share name** field, enter a unique name for your share. The name must be a string that contains 3 to 127 characters.
+
+    2. An optional **Description** for the share. The description will help identify the share owners.
+
+    3. In the **Type** dropdown list, specify whether to create a **Tiered** or **Locally pinned** share. For workloads that require local guarantees, low latencies, and higher performance, select **Locally pinned share**. For all other data, select **Tiered** share.
+
+    4. In the **Capacity** field, specify the size of the share. A tiered share must be between 500 GB and 20 TB and a locally pinned share must be between 50 GB and 2 TB.
+
+    5. In the **Set default full permissions to** field, assign the permissions to the user, or the group that is accessing this share. Specify the name of the user or the user group in _john@contoso.com_ format. We recommend that you use a user group (instead of a single user) to allow admin privileges to access these shares. After you have assigned the permissions here, you can then use File Explorer to modify these permissions.
 2. When you've finished configuring your share, click **Create**. A share will be created with the specified settings and you will see a notification. By default, backup will be enabled for the share.
 3. To confirm that the share was successfully created, go to the **Shares** blade. You should see the share listed.
    
@@ -106,12 +110,15 @@ You may need to take a share offline when you are planning to modify it or delet
 1. Make sure that the share in question is not in use before taking it offline.
 2. Take the share on the array offline by performing the following steps:
    
-   * From the **Shares** setting on the StorSimple service summary blade, select the virtual array on which the share you wish you to take offline resides.
-   * **Select** the share and Click **...** (alternately right-click in this row) and from the context menu, select **Take offline**.
+    1. From the **Shares** setting on the StorSimple service summary blade, select the virtual array on which the share you wish you to take offline resides.
+
+    2. **Select** the share and Click **...** (alternately right-click in this row) and from the context menu, select **Take offline**.
      
-     ![Offline share](./media/storsimple-virtual-array-manage-shares/shares-offline.png)
-   * Review the information in the **Take offline** blade and confirm your acceptance of the operation. Click **Take offline** to take the share offline. You will see a notification of the operation in progress.
-   * To confirm that the share was successfully taken offline, go to the **Shares** blade. You should see the status of the share as offline.
+        ![Offline share](./media/storsimple-virtual-array-manage-shares/shares-offline.png)
+
+    3. Review the information in the **Take offline** blade and confirm your acceptance of the operation. Click **Take offline** to take the share offline. You will see a notification of the operation in progress.
+
+    4. To confirm that the share was successfully taken offline, go to the **Shares** blade. You should see the status of the share as offline.
 
 ## Delete a share
 

@@ -100,15 +100,15 @@ Perform the following steps to restore the device to a target StorSimple virtual
 
 2. Take volumes/shares offline on the host. To take the volumes/shares offline, refer to the operating system–specific instructions for the host. If not already offline, you need to take all the volumes/shares offline on the device by doing the following.
    
-    a. Go to **Devices** blade and select your device.
+    1. Go to **Devices** blade and select your device.
    
-    b. Go to **Settings > Manage > Shares** (or **Settings > Manage > Volumes**). 
+    2. Go to **Settings > Manage > Shares** (or **Settings > Manage > Volumes**). 
    
-    c. Select a share/volume, right click and select **Take offline**. 
+    3. Select a share/volume, right click and select **Take offline**. 
    
-    d. When prompted for confirmation, check **I understand the impact of taking this share offline.** 
+    4. When prompted for confirmation, check **I understand the impact of taking this share offline.** 
    
-    e. Click **Take offline**.
+    5. Click **Take offline**.
 
 3. In your StorSimple Device Manager service, go to **Management > Devices**. In the **Devices** blade, select and click your source device.
 
@@ -126,15 +126,15 @@ Perform the following steps to restore the device to a target StorSimple virtual
 9. In the **Device dashboard** blade, click **Fail over**. 
 10. In the **Fail over device** blade, do the following:
     
-     a. The source device field is automatically populated. Note the total data size for the source device. The data size should be lesser than the available capacity on the target device. Review the details associated with the source device such as device name, total capacity, and the names of the shares that are failed over.
+    1. The source device field is automatically populated. Note the total data size for the source device. The data size should be lesser than the available capacity on the target device. Review the details associated with the source device such as device name, total capacity, and the names of the shares that are failed over.
+
+    2. From the dropdown list of available devices, choose a **Target device**. Only the devices that have sufficient capacity are displayed in the dropdown list.
+
+    3. Check that **I understand that this operation will fail over data to the target device**. 
+
+    4. Click **Fail over**.
     
-     b. From the dropdown list of available devices, choose a **Target device**. Only the devices that have sufficient capacity are displayed in the dropdown list.
-    
-     c. Check that **I understand that this operation will fail over data to the target device**. 
-    
-     d. Click **Fail over**.
-    
-     ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
+        ![](./media/storsimple-virtual-array-failover-dr/failover4.png)
 11. A failover job initiates and you receive a notification. Go to **Devices > Jobs** to monitor the failover.
     
      ![](./media/storsimple-virtual-array-failover-dr/failover5.png)
@@ -147,11 +147,9 @@ Perform the following steps to restore the device to a target StorSimple virtual
     ![](./media/storsimple-virtual-array-failover-dr/failover7.png)
 13. After the failover is complete, go to the **Devices** blade.
     
-    a. Select and click the StorSimple device that was used as the target device for the failover process.
-    
-    b. Go to **Settings > Management > Shares** (or **Volumes** if iSCSI server). In the **Shares** blade, you can view all the shares (volumes) from the old device.
-    
-    ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
+    1. Select and click the StorSimple device that was used as the target device for the failover process.
+    2. Go to **Settings > Management > Shares** (or **Volumes** if iSCSI server). In the **Shares** blade, you can view all the shares (volumes) from the old device.
+        ![](./media/storsimple-virtual-array-failover-dr/failover9.png)
 14. You can now rename the device (same as the old source device) so that the application servers can directly connect to this device. If you do not want to rename the device, you will need to [create a DNS alias](https://support.microsoft.com/kb/168322) so that all the applications that are trying to connect can get redirected to the new device.
 
 ## Errors during DR

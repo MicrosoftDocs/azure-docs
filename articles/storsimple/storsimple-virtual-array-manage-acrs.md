@@ -61,17 +61,16 @@ Perform the following steps to add an ACR.
 2. In the **Access control records** blade, click **Add**.
 3. In the **Add ACR** blade, do the following:
    
-   a. Supply a **Name** for your ACR.
+    1. Supply a **Name** for your ACR.
+    
+    2. Under **iSCSI Initiator Name**, provide the IQN name of your Windows host. To get the IQN of your Windows Server host, do the following:
    
-   b. Under **iSCSI Initiator Name**, provide the IQN name of your Windows host. To get the IQN of your Windows Server host, do the following:
+    3. Start the Microsoft iSCSI initiator on your Windows host. In the iSCSI Initiator Properties window, on the **Configuration** tab, select and copy the string from the **Initiator Name** field.
+    Paste this string in the **IQN** field in the **Add ACR** blade.
    
-   * Start the Microsoft iSCSI initiator on your Windows host.
-   * In the iSCSI Initiator Properties window, on the **Configuration** tab, select and copy the string from the **Initiator Name** field.
-   * Paste this string in the **IQN** field in the **Add ACR** blade.
+    6. Click **Add** to add the ACR.  
    
-   c. Click **Add** to add the ACR.  
-   
-   ![Add access control records](./media/storsimple-virtual-array-manage-acrs/ova-add-acrs.png)
+        ![Add access control records](./media/storsimple-virtual-array-manage-acrs/ova-add-acrs.png)
 4. The tabular listing is updated to reflect this addition.
 
 ## Edit an ACR
@@ -90,11 +89,11 @@ Perform the following steps to edit an ACR.
 2. In the **Access control records** blade, from the tabular listing of the access control records, double-click the ACR that you wish to modify.
 3. In the **Edit access control records** blade, do the following:
    
-   a. Supply the IQN for the ACR.
+    1. Supply the IQN for the ACR.
    
-   b. Click **Save** at the top of the blade to save the modified ACR. You see the following confirmation message:
+    2. Click **Save** at the top of the blade to save the modified ACR. You see the following confirmation message:
    
-   ![Edit access control records](./media/storsimple-virtual-array-manage-acrs/ova-edit-acrs.png)
+        ![Edit access control records](./media/storsimple-virtual-array-manage-acrs/ova-edit-acrs.png)
 
 ## Delete an access control record
 
