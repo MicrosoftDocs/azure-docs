@@ -40,7 +40,7 @@ To complete this tutorial, you need the following:
 * Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-Follow the [Get started with device management](iot-hub-csharp-csharp-device-management-get-started.md) article to create your IoT hub and get your connection string.
+Follow the [Get started with device management](iot-hub-csharp-node-device-management-get-started.md) article to create your IoT hub and get your connection string.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -335,8 +335,8 @@ In this tutorial, you used a direct method to trigger a remote firmware update o
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 
 <!-- images -->
-[img-servicenuget]: media/iot-hub-csharp-csharp-firmware-update/servicesdknuget.png
-[img-createapp]: media/iot-hub-csharp-csharp-firmware-update/createnetapp.png
+[img-servicenuget]: media/iot-hub-csharp-node-firmware-update/servicesdknuget.png
+[img-createapp]: media/iot-hub-csharp-node-firmware-update/createnetapp.png
 
 [lnk-devtwin]: iot-hub-devguide-device-twins.md
 [lnk-c2dmethod]: iot-hub-devguide-direct-methods.md

@@ -61,7 +61,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
         </a>
     </li>
     <li>
-        <a href="/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal/">
+        <a href="/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
         </a>
     </li>
      <li>
-        <a href="/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal/">
+        <a href="/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
         </a>
     </li>
      <li>
-        <a href="/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal/">
+        <a href="/azure/vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -115,6 +115,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
         </a>
     </li>
  </ul>
+ 
 ---
 
 ## Reference
@@ -196,7 +197,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/vpn-gateway.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Azure Batch Documentation
+            Download Azure VPN Gateway Documentation
         </div>
     </a>
 </div>

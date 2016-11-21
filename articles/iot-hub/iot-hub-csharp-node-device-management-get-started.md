@@ -231,8 +231,8 @@ To continue getting started with IoT Hub, see [Getting started with the IoT Gate
 <!-- images and links -->
 [img-output]: media/iot-hub-get-started-with-dm/image6.png
 [img-dm-ui]: media/iot-hub-get-started-with-dm/dmui.png
-[img-servicenuget]: media/iot-hub-csharp-csharp-device-management-get-started/servicesdknuget.png
-[img-createapp]: media/iot-hub-csharp-csharp-device-management-get-started/createnetapp.png
+[img-servicenuget]: media/iot-hub-csharp-node-device-management-get-started/servicesdknuget.png
+[img-createapp]: media/iot-hub-csharp-node-device-management-get-started/createnetapp.png
 
 [lnk-dev-setup]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/get_started/node-devbox-setup.md
 
