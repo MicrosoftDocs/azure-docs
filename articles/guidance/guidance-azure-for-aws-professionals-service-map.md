@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 11/21/2016
 ms.author: lbrader
 
 ---
@@ -44,12 +44,12 @@ To help decide which platform is right for your needs, we’ve created a referen
 |**&nbsp;**|Data transport|Import/Export Snowball|Import/Export|A data transport solution that uses secure disks and appliances to transfer large amounts of data. Also offers data protection during transit.|
 |**&nbsp;**|Content delivery|CloudFront|Content Delivery Network|A global content delivery network that delivers audio, video, applications, images, and other files.|
 |**Networking**|Networking|Virtual Private Cloud|Virtual Network|Provides an isolated, private environment in the cloud. Users have control over their virtual networking environment, including selection of their own IP address range, creation of subnets, and configuration of route tables and network gateways.|
-|**&nbsp;**|Domain name system (DNS)|Route 53|DNS (Preview) <br/>Traffic Manager|A service that hosts domain names, plus routes users to Internet applications, connects user requests to datacenters, manages traffic to apps, and improves app availability with automatic failover.|
+|**&nbsp;**|Domain name system (DNS)|Route 53|DNS <br/>Traffic Manager|A service that hosts domain names, plus routes users to Internet applications, connects user requests to datacenters, manages traffic to apps, and improves app availability with automatic failover.|
 |**&nbsp;**|Dedicated network|Direct Connect|ExpressRoute|Establishes a dedicated, private network connection from a location to the cloud provider (not over the Internet).|
 |**&nbsp;**|Load balancing|Elastic Load Balancing|Load Balancer <br/>Application Gateway|Automatically distributes incoming application traffic to add scale, handle failover, and route to a collection of resources.|
 |**Database**|Relational database|RDS|SQL Database|Relational database-as-a-service (DBaaS) where the database resilience, scale, and maintenance are primarily handled by the platform.|
 |**&nbsp;**|NoSQL database|DynamoDB|DocumentDB|A NoSQL document database service that automatically indexes JSON data for applications that require rich query and multi-document transactions.|
-|**&nbsp;**|Data warehouse|Redshift|SQL Data Warehouse (Preview)|A fully managed data warehouse that analyzes data using business intelligence tools. It can transact SQL queries across relational and non-relational data.|
+|**&nbsp;**|Data warehouse|Redshift|SQL Data Warehouse |A fully managed data warehouse that analyzes data using business intelligence tools. It can transact SQL queries across relational and non-relational data.|
 |**&nbsp;**|Table storage|DynamoDB <br/>SimpleDB|Table Storage|A non-relational data store for semi-structured data. Developers store and query data items via web services requests.|
 |**&nbsp;**|Caching|ElastiCache|Azure Redis Cache|An in-memory based, distributed caching service that provides a high-performance store typically used to offload non-transactional work from a database.|
 |**&nbsp;**|Database migration|Database Migration Service (Preview)|SQL Database Migration Wizard|Typically is focused on the migration of database schema and data from one database format to a specific database technology in the cloud.|
@@ -59,7 +59,7 @@ To help decide which platform is right for your needs, we’ve created a referen
 |**&nbsp;**|Visualization|QuickSight (Preview)|PowerBI|Business intelligence tools that build visualizations, perform ad-hoc analysis, and develop business insights from data.|
 |**&nbsp;**|Machine learning|Machine Learning|Machine Learning|Produces an end-to-end workflow to create, process, refine, and publish predictive models that can be used to understand what might happen from complex data sets.|
 |**&nbsp;**|Search|Elasticsearch Service|Search|Delivers full-text search and related search analytics and capabilities.|
-|**&nbsp;**|Data discovery|**&nbsp;**|Data Catalog (Preview)|Provides the ability to better register, enrich, discover, understand, and consume data sources.|
+|**&nbsp;**|Data discovery|**&nbsp;**|Data Catalog |Provides the ability to better register, enrich, discover, understand, and consume data sources.|
 |**Internet of things (IoT)**|Streaming data|Kinesis Firehose <br/>Kinesis Streams|Event Hubs|Services that allow the mass ingestion of small data inputs, typically from devices and sensors, to process and route the data.|
 |**&nbsp;**|Internet of Things|IoT (Preview)|IoT Hub|Lets connected devices interact with cloud applications and other devices to capture and analyze real-time data.|
 |**Mobile services**|Pro app development|Mobile Hub (Beta) <br/>Cognito|Mobile Apps|Backend mobile services for rapid development of mobile solutions, plus provide identity management, data synchronization, and storage and notifications across devices.|
@@ -86,5 +86,5 @@ To help decide which platform is right for your needs, we’ve created a referen
 |**Security and identity**|Authentication and authorization|Identity and Access Management <br/>Multi-Factor Authentication|Azure AD/Role-based access control <br/>Multi-Factor Authentication|Lets users securely control access to services and resources while offering data security and protection. Create and manage users and groups, and use permissions to allow and deny access to resources.|
 |**&nbsp;**|Encryption|Key Management Service <br/>CloudHSM|Key Vault|Creates, controls, and protects the encryption keys used to encrypt data. HSM provides hardware-based key storage.|
 |**&nbsp;**|Firewall|Web Application Firewall|**&nbsp;**|A firewall that protects web applications from common web exploits. Users can define customizable web security rules.|
-|**&nbsp;**|Security|Inspector (Preview)|Security Center (Preview)|An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices.|
+|**&nbsp;**|Security|Inspector (Preview)|Security Center |An automated security assessment service that improves the security and compliance of applications. Automatically assess applications for vulnerabilities or deviations from best practices.|
 |**&nbsp;**|Directory|Directory Service|Azure Active Directory <br/>Azure Active Directory B2C <br/>Azure Active Directory Domain Services|Typically provides user/group properties that can be queried and used in applications. Also can provide capabilities to integrate to on-premises Active Directory services for single sign-on scenarios and SaaS management.|
