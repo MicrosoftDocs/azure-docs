@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/14/2016
+ms.date: 11/20/2016
 ms.author: raynew
 
 ---
@@ -21,7 +21,7 @@ ms.author: raynew
 
 This article summarizes supported operating systems and components for Azure Site Recovery. A list of supported components and prerequisites is available for each deployment scenario in each the corresponding deployment article, and this document summarizes them.
 
-## Supported operating systems for virtualization servers
+## Support for virtualization server operating systems
 
 ### Host servers (replicate to Azure)
 
@@ -36,7 +36,7 @@ vCenter 5.5 or 6.0 (support for 5.5 features only) <br/><br/> vSphere 6.0, 5.5, 
 vCenter 5.5 or 6.0 (support for 5.5 features only) <br/><br/> vSphere 6.0, 5.5, or 5.1 with latest updates | At least Windows Server 2012 with latest updates
 
 
-## Support requirements for replicated machines
+## Support for replicated machines
 
 ### Machines (replicate to Azure)
 
@@ -48,7 +48,7 @@ What's replicated | Any workload on Windows or Linux VM | Any workload | Any wor
 Host OS | 64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3<bbr/><br/> Storage required: File system (EXT3, ETX4, ReiserFS, XFS); Multipath software-Device Mapper (multipath)); Volume manager: (LVM2). Physical servers with HP CCISS controller storage are not supported. The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3. | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx) | Any guest OS [supported by Azure](https://technet.microsoft.com/library/cc794868.aspx)
 
 
-## Machines (replicate to secondary site)
+### Machines (replicate to secondary site)
 
 **Requirement** | **VMware/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
@@ -56,7 +56,7 @@ What's replicated | Any workload on Windows or Linux VM | Any workload | Any wor
 Host OS | 64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1<br/><br/> Red Hat Enterprise Linux 6.7, 7.1, 7.2 <br/><br/> Centos 6.5, 6.6, 6.7, 7.0, 7.1, 7.2 <br/><br/> Oracle Enterprise Linux 6.4, 6.5 running either the Red Hat compatible kernel or Unbreakable Enterprise Kernel Release 3 (UEK3) <br/><br/> SUSE Linux Enterprise Server 11 SP3<bbr/><br/> Storage required: File system (EXT3, ETX4, ReiserFS, XFS); Multipath software-Device Mapper (multipath)); Volume manager: (LVM2).<br/><br/> Physical servers with HP CCISS controller storage are not supported. The ReiserFS filesystem is supported only on SUSE Linux Enterprise Server 11 SP3. | Any guest OS supported by Hyper-V](https://technet.microsoft.com/library/mt126277.aspx)
 
 
-## Provider and agent versions
+## Support for Provider and agent
 
 **Name** | **Description** | **Latest version** | **Details**
 --- | --- | --- | --- | ---
@@ -65,7 +65,7 @@ Host OS | 64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 200
 **Mobility service** | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on  VMware VM or physical servers you want to replicate  | NA (available from portal) | .
 **Microsoft Azure Recovery Services (MARS) agent** | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without a VMM server) | |
 
-## Networking support requirements
+## Support for networking
 
 ### Networking (replicate to Azure)
 
@@ -115,7 +115,7 @@ Static IP (Linux) | Yes | Yes
 Multi-NIC | Yes | Yes
 
 
-## Storage support requirements
+## Support for storage
 
 ### Storage (replicate to Azure)
 
@@ -155,7 +155,7 @@ Premium storage | Yes | No | No
 Import/export service | No | No | No
 
 
-## Storage (replicate to secondary site)
+### Storage (replicate to secondary site)
 
 **Storage (host)** | **VMware/physical server** | **Hyper-V (with VMM)**
 --- | --- | ---
@@ -182,7 +182,7 @@ Hot add/remove disk | No | No
 Exclude disk | No | No
 Multi-path (MPIO) | NA | Yes
 
-## Actions supported for Recovery Services vaults
+## Support for Recovery Services vault actions
 
 ### Vaults (replicate to Azure)
 
@@ -199,7 +199,7 @@ Move vault across resource groups<br/><br/> Within and across subscriptions | No
 Move storage, network, Azure VMs across resource groups<br/><br/> Within and across subscriptions | No | No
 
 
-## Azure compute support (replicate to Azure)
+## Support for Azure compute (replicate to Azure)
 
 **Compute feature** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
