@@ -71,7 +71,7 @@ In this article you will learn how to install the community (free) version of RS
 
    * On a Linux client or a Windows client with [Cygwin](http://www.redhat.com/services/custom/cygwin/) then open a terminal session and use the following command.
 
-           ssh -L localhost:8787:localhost:8787 USERNAME@R-Server.CLUSTERNAME-ed-ssh.azurehdinsight.net
+           ssh -L localhost:8787:localhost:8787 USERNAME@CLUSTERNAME-ed-ssh.azurehdinsight.net
 
        Replace **USERNAME** with an SSH user for your HDInsight cluster, and replace **CLUSTERNAME** with the name of your HDInsight cluster
        You can also use a SSH key rather than a password by adding `-i id_rsa_key`        
@@ -100,7 +100,7 @@ In this article you will learn how to install the community (free) version of RS
            wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi.r
 *    If you created a Spark cluster with R, use this command.
 
-                 wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi_spark.r
+                    wget http://mrsactionscripts.blob.core.windows.net/rstudio-server-community-v01/testhdi_spark.r
 11. In RStudio, you will see the test script you downloaded. Double click the file to open it, select the contents of the file, and then click **Run**. You should see the output in the **Console** pane.
 
    ![Test the installation](./media/hdinsight-hadoop-r-server-install-r-studio/test-r-script.png "Test the installation")
