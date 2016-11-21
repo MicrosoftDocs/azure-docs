@@ -86,6 +86,20 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
 
 <ul class="panelContent cardsW">
     <li>
+        <a href="/powershell/azureps-cmdlets-docs">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>PowerShell</h3>
+                        <p>PowerShell Cmdlets</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+    <li>
         <a href="/cli/azure/install-az-cli2">
         <div class="cardSize">
             <div class="cardPadding">

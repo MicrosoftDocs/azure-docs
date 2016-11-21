@@ -170,12 +170,12 @@ To continue getting started with IoT Hub and to explore other IoT scenarios, see
 To learn how to extend your IoT solution and schedule method calls on multiple devices, see the [Schedule and broadcast jobs][lnk-tutorial-jobs] tutorial.
 
 <!-- Images. -->
-[7]: ./media/iot-hub-csharp-csharp-direct-methods/run-simulated-device.png
-[8]: ./media/iot-hub-csharp-csharp-direct-methods/netserviceapp.png
-[9]: ./media/iot-hub-csharp-csharp-direct-methods/methods-output.png
+[7]: ./media/iot-hub-csharp-node-direct-methods/run-simulated-device.png
+[8]: ./media/iot-hub-csharp-node-direct-methods/netserviceapp.png
+[9]: ./media/iot-hub-csharp-node-direct-methods/methods-output.png
 
-[10]: ./media/iot-hub-csharp-csharp-direct-methods/create-identity-csharp1.png
-[11]: ./media/iot-hub-csharp-csharp-direct-methods/create-identity-csharp2.png
+[10]: ./media/iot-hub-csharp-node-direct-methods/create-identity-csharp1.png
+[11]: ./media/iot-hub-csharp-node-direct-methods/create-identity-csharp2.png
 
 <!-- Links -->
 [lnk-transient-faults]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
