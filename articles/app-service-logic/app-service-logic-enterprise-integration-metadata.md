@@ -32,7 +32,7 @@ Partners, agreements, schemas, maps added to an integration account, store metad
 3. Select a parter or an agreement, or a schema. select **Edit as JSON** and enter metadata details    
 ![Enter metadata](./media/app-service-logic-enterprise-integration-metadata/image1.png)  
 
-## How to configure **Integration Account Artifact LookUp**
+## Call **Integration Account Artifact LookUp** from a logic app
 
 1. Create a [Logic App](app-service-logic-create-a-logic-app.md)
 
@@ -46,8 +46,7 @@ Partners, agreements, schemas, maps added to an integration account, store metad
 4. Select **Artifact Type** and provide **Artifact Name**  
 ![Search lookup](./media/app-service-logic-enterprise-integration-metadata/image3.png)
 
-## How to retrieve metadata
-An example scenario to how to configure metadata   
+## An example to retrieve partner metadata 
 
 1. Partner metadata has routing url details    
 ![Search lookup](./media/app-service-logic-enterprise-integration-metadata/image6.png)
