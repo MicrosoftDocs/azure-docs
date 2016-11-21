@@ -39,12 +39,12 @@ There are two ways to add additional capacity to App Service on Azure Stack:
 3.  Click **Roles**.  Here you will see the breakdown of all App Service roles deployed.
 4.  Click the option **New Role Instance..** ![Add new role instance][2]
 5.  In the **New Role Instance** blade:
-    1. Choose how many additional roles you would like to add.  In the preview there is a maximum of 10.
-    2. Select the role type.  In this preview this option is limited to Web Worker.
-    3. Select the worker tier you would like to deploy this worker into, default choices are Small, Medium, Large or Shared.  If you have created your own worker tiers these will also be available for selection.
+    1. Choose how many additional **role instances** you would like to add.  In the preview there is a maximum of 10.
+    2. Select the **role type**.  In this preview this option is limited to Web Worker.
+    3. Select the **worker tier** you would like to deploy this worker into, default choices are Small, Medium, Large or Shared.  If you have created your own worker tiers these will also be available for selection.
     4. Click **OK** to deploy the additional workers
 6.  App Service on Azure Stack will now add the additional VMs, configure them, install all the required software and mark them as ready when this process is complete.  This process can take approximately 80 minutes.
-7.  You can monitor the progress of the readiness of the new workers by viewing the workers in the roles blade.
+7.  You can monitor the progress of the readiness of the new workers by viewing the workers in the **roles** blade.
 
 >[!NOTE]
 >  In this preview the integrated New Role Instance flow is limited to Worker Roles and will only deploy VMs of size A1.  We will be expanding this capability in a future release.
@@ -73,7 +73,7 @@ Create a virtual machine as described in [this article](azure-stack-provision-vm
 ## Step 2: Configure the Virtual Machine
 Once the deployment has completed, the following configuration is required to support the web worker role:
 
-1. Browse to the AppService-LOCAL resource group in the portal and select the new machine you created in Step 1.
+1. Browse to the **AppService-LOCAL** resource group in the portal and select the new machine you created in Step 1.
 2. Click connect in the VM blade to download the remote desktop profile.  Open the profile to open a remote desktop session to your VM.
 3. Login to the VM using the username and password you specified in Step 1.
 4. Open PowerShell by clicking on the **Start** button and typing PowerShell. Right-click **PowerShell.exe**, and select **Run
