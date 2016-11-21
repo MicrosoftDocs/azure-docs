@@ -115,9 +115,10 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
         </a>
     </li>
  </ul>
+ 
 ---
 
-##Reference
+## Reference
 
 <ul class="panelContent cardsW">
 	<li>
