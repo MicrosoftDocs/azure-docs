@@ -89,7 +89,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started using Batch using Python</h3>
+                        <h3>Get Started with Batch using Python</h3>
                     </div>
                 </div>
             </div>
@@ -185,7 +185,7 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                 <div class="card">
                     <div class="cardText">
                         <h3>Python</h3>
-                        <p>Python SDK reference</p>
+                        <p>Python SDK Reference</p>
                     </div>
                 </div>
             </div>

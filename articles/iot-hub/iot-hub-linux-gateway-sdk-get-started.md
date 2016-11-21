@@ -17,7 +17,7 @@ ms.date: 08/25/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK (beta) - Get started using Linux
+# Azure IoT Gateway SDK - Get started using Linux
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## How to build the sample
@@ -43,33 +43,36 @@ Before you get started, you must [set up your development environment][lnk-setup
    
     ```
     {
-      "modules" :
-      [ 
-        {
-          "module name" : "logger",
-          "loading args": {
-            "module path" : "./build/modules/logger/liblogger.so"
-          },
-          "args" : 
-          {
-            "filename":"log.txt"
-          }
-        },
-        {
-          "module name" : "hello_world",
-          "loading args": {
-            "module path" : "./build/modules/hello_world/libhello_world.so"
-          },
-          "args" : null
-        }
-      ],
-      "links" :
-      [
-        {
-          "source": "hello_world",
-          "sink": "logger"
-        }
-      ]
+        "modules" :
+        [
+            {
+              "name" : "logger",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/logger/liblogger.so"
+                }
+              },
+              "args" : {"filename":"log.txt"}
+            },
+            {
+                "name" : "hello_world",
+              "loader": {
+                "name": "native",
+                "entrypoint": {
+                  "module.path": "./modules/hello_world/libhello_world.so"
+                }
+              },
+                "args" : null
+            }
+        ],
+        "links": 
+        [
+            {
+                "source": "hello_world",
+                "sink": "logger"
+            }
+        ]
     }
     ```
 3. Navigate to **azure-iot-gateway-sdk** folder.
