@@ -209,7 +209,7 @@ This tutorial uses an [HDInsight Storm][HDInsight Storm] installation, which com
 	}
 	```
 
-    This class creates a new Event Hubs spout, using the properties in the configuration file to instatiate it. It is important to note that this example creates as many spouts tasks as the number of partitions in the Event Hub, in order to use the maximum parallelism allowed by that Event Hub.
+    This class creates a new Event Hubs spout, using the properties in the configuration file to instantiate it. It is important to note that this example creates as many spouts tasks as the number of partitions in the Event Hub, in order to use the maximum parallelism allowed by that Event Hub.
 
 <!-- Links -->
 [Event Hubs overview]: ../articles/event-hubs/event-hubs-overview.md
