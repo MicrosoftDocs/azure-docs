@@ -1,5 +1,5 @@
 ---
-title: StorSimple Virtual Array system requirements| Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array system requirements| Microsoft Docs
 description: Learn about the software and networking requirements for your StorSimple Virtual Array
 services: storsimple
 documentationcenter: NA
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/11/2016
+ms.date: 11/21/2016
 ms.author: alkohli
 ---
 # StorSimple Virtual Array system requirements

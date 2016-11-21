@@ -1,5 +1,5 @@
 ---
-title: Disaster recovery and device failover for StorSimple Virtual Array| Microsoft Docs
+title: Disaster recovery and device failover for Microsoft Azure StorSimple Virtual Array| Microsoft Docs
 description: Learn more about how to failover your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/11/2016
+ms.date: 11/21/2016
 ms.author: alkohli
 ---
 # Disaster recovery and device failover for your StorSimple Virtual Array

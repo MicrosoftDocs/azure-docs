@@ -1,5 +1,5 @@
 ---
-title: StorSimple Virtual Array iSCSI server setup | Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array iSCSI server setup | Microsoft Docs
 description: Describes how to perform initial setup, register your StorSimple iSCSI server, and complete device setup.
 services: storsimple
 documentationcenter: NA
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/11/2016
+ms.date: 11/21/2016
 ms.author: alkohli
 ---
 # Deploy StorSimple Virtual Array – Set up your virtual device as an iSCSI server

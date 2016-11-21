@@ -1,5 +1,5 @@
 ---
-title: Use StorSimple Device Manager to manage volumes on virtual array | Microsoft Docs
+title: Use StorSimple Device Manager to manage volumes on Microsoft Azure StorSimple Virtual Array | Microsoft Docs
 description: Describes the StorSimple Device Manager and explains how to use it to manage volumes on your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 11/21/2016
 ms.author: manuaery
 ---
 # Use StorSimple Device Manager service to manage volumes on the StorSimple Virtual Array

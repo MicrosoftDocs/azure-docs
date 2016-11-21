@@ -1,5 +1,5 @@
 ---
-title: StorSimple Virtual Array backup tutorial | Microsoft Docs
+title: Microsoft Azure StorSimple Virtual Array backup tutorial | Microsoft Docs
 description: Describes how to back up StorSimple Virtual Array shares and volumes.
 services: storsimple
 documentationcenter: NA
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/11/2016
+ms.date: 11/21/2016
 ms.author: alkohli
 ---
 # Back up your StorSimple Virtual Array

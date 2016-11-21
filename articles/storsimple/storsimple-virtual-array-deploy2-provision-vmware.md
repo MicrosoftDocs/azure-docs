@@ -1,5 +1,5 @@
 ---
-title: Deploy StorSimple Virtual Array - Provision in VMware| Microsoft Docs
+title: Deploy Microsoft Azure StorSimple Virtual Array - Provision in VMware| Microsoft Docs
 description: This second tutorial in StorSimple Virtual Array deployment series involves provisioning a virtual device in VMware.
 services: storsimple
 documentationcenter: NA
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 11/11/2016
+ms.date: 11/21/2016
 ms.author: alkohli
 ---
 # Deploy StorSimple Virtual Array - Provision a Virtual Array in VMware

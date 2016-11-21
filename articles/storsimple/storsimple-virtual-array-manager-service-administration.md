@@ -1,5 +1,5 @@
 ---
-title: StorSimple Manager Virtual Array administration | Microsoft Docs
+title: Microsoft Azure StorSimple Manager Virtual Array administration | Microsoft Docs
 description: Learn how to manage your StorSimple on-premises Virtual Array by using the StorSimple Device Manager service in the Azure portal.
 services: storsimple
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 11/21/2016
 ms.author: alkohli
 ---
 # Use the StorSimple Device Manager service to administer your StorSimple Virtual Array

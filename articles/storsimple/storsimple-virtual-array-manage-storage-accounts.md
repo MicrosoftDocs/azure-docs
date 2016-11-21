@@ -1,5 +1,5 @@
 ---
-title: Manage your StorSimple storage account credentials | Microsoft Docs
+title: Manage your StorSimple storage account credentials for Microsoft Azure StorSimple Virtual Array | Microsoft Docs
 description: Explains how you can use the StorSimple Manager Configure page to add, edit, delete, or rotate the security keys for storage account credentials associated with the StorSimple Virtual Array.
 services: storsimple
 documentationcenter: NA
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/11/2016
+ms.date: 11/21/2016
 ms.author: alkohli
 ---
 # Use the StorSimple Device Manager service to manage storage account credentials for StorSimple Virtual Array

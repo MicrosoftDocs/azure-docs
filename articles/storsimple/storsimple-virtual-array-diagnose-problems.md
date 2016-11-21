@@ -1,5 +1,5 @@
 ---
-title: StorSimple Device Manager - Troubleshoot your Virtual Array | Microsoft Docs
+title: StorSimple Device Manager - Troubleshoot your Microsoft Azure StorSimple Virtual Array | Microsoft Docs
 description: Describes the StorSimple Device Manager diagnose capability and explains how to use it to troubleshoot your StorSimple Virtual Array.
 services: storsimple
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 11/21/2016
 ms.author: manuaery
 ---
 # Use the StorSimple Device Manager service to troubleshoot the StorSimple Virtual Array
