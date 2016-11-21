@@ -48,7 +48,7 @@ The Azure Resource Manager template requires the following parameter values.
 
 | Parameter Name | Description |
 | --- | --- |
-| SSHKEYDATA |SSH key data used to secure access to the Virtual Machine. For information on creating an SSH key pair, see [Creating SSH keys for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). |
+| SSHKEYDATA |SSH key data used to secure access to the Virtual Machine. For information on creating an SSH key pair, see [Creating SSH keys for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys.md). |
 | ADMINUSERNAME |Admin user name that is used on the virtual machine and the Azure SQL Database. |
 | SQLADMINPASSWORD |Password that is used on the Azure SQL Database. |
 | NUMBEROFINSTANCES |The number of virtual machines to be created. Each of these virtual machines host the Music Store web application, and all traffic is load balanced across them. |
