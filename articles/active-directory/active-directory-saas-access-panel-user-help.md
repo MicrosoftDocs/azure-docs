@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 11/21/2016
 ms.author: markvi
 
 ---
@@ -23,11 +23,11 @@ The Access Panel is a web portal that allows you to:
 
 - Manage and launch cloud-based applications
 - Manage your group memberships
-- Access user security settings. 
+- Manage your profile settings 
 
 ![Access Panel][1] 
 
-This topic provides you with instructions for performing common tasks and to troubleshoot issues.
+This topic provides you with instructions for performing common tasks and troubleshooting issues.
 
 
 
