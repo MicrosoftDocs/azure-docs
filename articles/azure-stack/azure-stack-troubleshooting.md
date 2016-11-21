@@ -31,7 +31,7 @@ Code examples are provided as is and expected results cannot be guaranteed. This
   * “The term 'C:\WinRM\Start-Logging.ps1' is not recognized”
   * “Invoke-EceAction: Cannot index into a null array” 
   * “InvokeEceAction: Cannot bind argument to parameter 'Message' because it is an empty string.”
-* You may see deployment fail at step 60.61.93 with an error "Application with identifier 'URI' not found.” This behavior is due to the way applications are registered in Azure Active Directory.  If you receive this error, continue to [rerun the installation script](azure-stack-rerun-deploy.md) from step 60.61.93 until deployment is complete.
+* You may see deployment fail at step 60.61.93 with an error "Application with identifier 'URI' not found.” This behavior is due to the way applications are registered in Azure Active Directory.  If you receive this error, continue to rerun the installation script using the *-rerun* parameter below until deployment is complete.
 * You will see that the **Availability Set** resource in the Marketplace shows up under the **virtualMachine-ARM** category – this appearance is only a cosmetic issue.
 * When creating a new virtual machine in the portal, in the **Basics** step, the storage option may default to SSD.  This setting must be changed to HDD or on the **Size** step of VM deployment, you will not see VM sizes available to select and continue deployment. 
 * You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM (in TP1 this was named ClientVM). This behavior is by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
@@ -52,7 +52,16 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 
 ## Deployment
 ### Deployment failure
-If you experience a failure during installation, the Azure Stack installer allows you to continue a failed installation by following the [rerun deployment steps](azure-stack-rerun-deploy.md).
+If you experience a failure during installation, you can use the -rerun parameter of the updated Azure Stack TP2 install script to try again from the failed step.  Run the following from the PowerShell session where you noticed the failure:
+
+```PowerShell
+cd C:\CloudDeployment\Configuration
+.\InstallAzureStackPOC.ps1 -rerun
+```
+> [!NOTE]  
+> Previous versions of Azure Stack required additional steps to rerun installation.  If the above steps don't restart installation, make sure you are using the updated Azure Stack [download](https://azure.microsoft.com/overview/azure-stack/try/?v=try).
+> 
+>
 
 ### At the end of the deployment, the PowerShell session is still open and doesn’t show any output
 This behavior is probably just the result of the default behavior of a PowerShell command window, when it has been selected. The POC deployment has actually succeeded but the script was paused when selecting the window. You can verify this is the case by looking for the word "select" in the titlebar of the command window.  Press the ESC key to unselect it, and the completion message should be shown after it.
