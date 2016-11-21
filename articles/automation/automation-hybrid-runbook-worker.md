@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Automation Hybrid Runbook Workers | Microsoft Docs
 description: This article provides information on installing and using Hybrid Runbook Worker which is a feature of Azure Automation that allows you to run runbooks on machines in your local data center.
 services: automation
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2016
+ms.date: 11/21/2016
 ms.author: bwren
 
 ---
@@ -29,8 +29,7 @@ You can designate one or more computers in your data center to act as a Hybrid R
 There are no inbound firewall requirements to support Hybrid Runbook Workers. The agent on the local computer initiates all communication with Azure Automation in the cloud. When a runbook is started, Azure Automation creates an instruction that is retrieved by agent. The agent then pulls down the runbook and any parameters before running it.  It will also retrieve any [assets](http://msdn.microsoft.com/library/dn939988.aspx) that are used by the runbook from Azure Automation.
 
 > [!NOTE]
-> Hybrid Runbook Workers do not currently support [DSC Configurations](automation-dsc-overview.md).
->
+> Hybrid Runbook Workers do not currently support having [DSC Configurations](automation-dsc-overview.md) applied to the computer hosting this role.
 >
 
 ## Hybrid Runbook Worker groups
