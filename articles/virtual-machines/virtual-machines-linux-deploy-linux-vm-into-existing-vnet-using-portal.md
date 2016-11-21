@@ -1,6 +1,6 @@
 ---
-title: Deploy a Linux VM into an existing VNet & NSG using the portal | Microsoft Docs
-description: Deploy a Linux VM into an existing Vnet & NSG using the portal.
+title: Deploy a Linux VM into an existing Azure Virtual Network using the portal | Microsoft Docs
+description: Deploy a Linux VM into an existing Azure Virtual Network using the portal.
 services: virtual-machines-linux
 documentationcenter: virtual-machines-linux
 author: vlivech
