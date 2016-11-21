@@ -37,7 +37,8 @@ To configure Azure AD integration with Nexonia, you need the following items:
 - A Nexonia single-sign on enabled subscription
 
 
-> [!NOTE] To test the steps in this tutorial, we do not recommend using a production environment.
+> [!NOTE] 
+> To test the steps in this tutorial, we do not recommend using a production environment.
 
 
 To test the steps in this tutorial, you should follow these recommendations:
