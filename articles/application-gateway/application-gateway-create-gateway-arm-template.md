@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 11/21/2016
 ms.author: gwallace
 
 ---
@@ -232,6 +232,14 @@ Select **Legal terms** and click **Buy**.
 ### Step 5
 
 On the Custom deployment blade, click **Create**.
+
+## Providing certificate data to Resource Manager templates
+
+When using SSL with a template the certificate needs to be provided in a base64 string instead of being uploaded. To convert a .pfx or .cer to a base64 string run the following PowerShell command. This will convert the certificate to a base64 string which can be provided to the template. The expected output is a string that can be stored in a variable and pasted in the template.
+
+```powershell
+[System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))
+```
 
 ## Next steps
 
