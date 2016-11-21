@@ -18,7 +18,7 @@ ms.author: jeffstok
 
 ---
 # Get started using R Server on HDInsight
-HDInsight includes an R Server option to be integrated into your HDInsight cluster. This allows R scripts to use MapReduce and Spark to run distributed computations. In this document, you will learn how to create a new R Server on HDInsight, then run an R script that demonstrates using Spark for distributed R computations.
+HDInsight includes an R Server option to be integrated into your HDInsight cluster. This allows R scripts to use Spark and MapReduce to run distributed computations. In this document, you will learn how to create a new R Server on HDInsight cluster, then run an R script that demonstrates using Spark for distributed R computations.
 
 ![Diagram of the workflow for this document](./media/hdinsight-getting-started-with-r/rgettingstarted.png)
 
@@ -38,17 +38,20 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
 ## Create the cluster
 > [!NOTE]
-> The steps in this document create an R Server on HDInsight using basic configuration information. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
+> The steps in this document will guide you through how to create an R Server on HDInsight cluster using basic configuration information. For other cluster configuration settings (such as adding additional storage accounts, using an Azure Virtual Network, or creating a metastore for Hive,) see [Create Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md).
 >
 > 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **NEW**, **Data + Analytics**, and then **HDInsight**.
+
+2. Select **NEW**, **Intelligence + Analytics**, and then **HDInsight**.
 
     ![Image of creating a new cluster](./media/hdinsight-getting-started-with-r/newcluster.png)
+
 3. Enter a name for the cluster in the **Cluster Name** field. If you have multiple Azure subscriptions, use the **Subscription** entry to select the one you want to use.
 
     ![Cluster name and subscription selections](./media/hdinsight-getting-started-with-r/clustername.png)
+
 4. Select **Select Cluster Configuration**. On the **Cluster Configuration** blade, select the following options:
 
    * **Cluster Type**: R Server
@@ -58,17 +61,9 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
      ![Cluster type blade screenshot](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
 
-5. Select **Resource Group** to see a list of existing resource groups and then select the one to create the cluster in. Or, you can select **Create New** and then enter the name of the new resource group. A green check will appear to indicate that the new group name is available.
+5. Select **Credentials**, then enter a **Cluster Login Username** and **Cluster Login Password**.
 
-   > [!NOTE]
-   > This entry will default to one of your existing resource groups, if any are available.
-   >
-   > ​
-
-    Use the **Select** button to save the resource group.
-6. Select **Credentials**, then enter a **Cluster Login Username** and **Cluster Login Password**.
-
-    Enter an **SSH Username**.  SSH is used to remotely connect to the cluster using a **Secure Shell (SSH)** client. You can either specify the SSH user in this dialog or after the cluster has been created (Configuration tab for the cluster). R Server is configured to expect a **SSH username** of “remoteuser”.  If you use a different username, you will have to perform an additional step after the cluster is created.
+    Enter an **SSH Username**.  SSH is used to remotely connect to the cluster using a **Secure Shell (SSH)** client. You can either specify the SSH user in this dialog or after the cluster has been created (Configuration tab for the cluster). R Server is configured to expect a **SSH username** of “remoteuser”.  If you use a different username, you must perform an additional step after the cluster is created.
 
     ![Credentials blade](./media/hdinsight-getting-started-with-r/clustercredentials.png)
 
@@ -90,7 +85,8 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
         ssh –i <private-key-filename> remoteuser@<hostname public ip>
 
      or as part the definition of your Hadoop Spark compute context for R Server on the client (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [RevoScaleR Hadoop Spark Getting Started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started).)
-7. Select **Data Source** to select a data source for the cluster. Either select an existing storage account by selecting **Select storage account** and then selecting the account, or create a new account using the **New** link in the **Select storage account** section.
+
+6. Select **Data Source** to select a data source for the cluster. Either select an existing storage account by selecting **Select storage account** and then selecting the account, or create a new account using the **New** link in the **Select storage account** section.
 
     If you select **New**, you must enter a name for the new storage account. A green check will appear if the name is accepted.
 
@@ -106,7 +102,8 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
     Use the **Select** button to save the data source configuration.
 
     ![Data source blade](./media/hdinsight-getting-started-with-r/datastore.png)
-8. Select **Node Pricing Tiers** to display information about the nodes that will be created for this cluster. Unless you know that you'll need a larger cluster, leave the number of worker nodes at the default of `4`. The estimated cost of the cluster will be shown within the blade.
+
+7. Select **Node Pricing Tiers** to display information about the nodes that will be created for this cluster. Unless you know that you'll need a larger cluster, leave the number of worker nodes at the default of `4`. The estimated cost of the cluster will be shown within the blade.
 
    > [!NOTE]
    > If needed, you can re-size your cluster later through the Portal (Cluster -> Settings -> Scale Cluster) to increase or decrease the number of worker nodes.  This can be useful for idling down the cluster when not in use, or for adding capacity to meet the needs of larger tasks.
@@ -116,6 +113,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
     Some factors to keep in mind when sizing your cluster, the data nodes, and the edge node include:  
 
    * The performance of distributed R Server analyses on Spark is proportional to the number of worker nodes when the data is large.  
+
    * The performance of R Server analyses is linear in the size of data being analyzed. For example:  
 
      * For small to modest data, performance will be best when analyzed in a local compute context on the edge node.  For more information on the scenarios under which the local and Spark compute contexts work best see  Compute context options for R Server on HDInsight.<br>
@@ -124,7 +122,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
      ![Node pricing tiers blade](./media/hdinsight-getting-started-with-r/pricingtier.png)
 
      Use the **Select** button to save the node pricing configuration.
-9. On the **New HDInsight Cluster** blade, make sure that **Pin to Startboard** is selected, and then select **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is creating, and will change to display the HDInsight icon once creation has completed.
+8. On the **New HDInsight Cluster** blade, make sure that **Pin to Startboard** is selected, and then select **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal. The icon will indicate that the cluster is creating, and will change to display the HDInsight icon once creation has completed.
 
    | While creating                           | Creation complete                        |
    | ---------------------------------------- | ---------------------------------------- |
