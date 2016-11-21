@@ -196,7 +196,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/vpn-gateway.pdf">
         <div class="img"></div>
         <div class="text">
-            Download Azure Batch Documentation
+            Download Azure VPN Gateway Documentation
         </div>
     </a>
 </div>
