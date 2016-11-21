@@ -17,7 +17,7 @@ ms.date: 09/13/2016
 ms.author: elioda
 
 ---
-# Tutorial: Get started with device twins (preview)
+# Tutorial: Get started with device twins
 [!INCLUDE [iot-hub-selector-twin-get-started](../../includes/iot-hub-selector-twin-get-started.md)]
 
 At the end of this tutorial, you will have two Node.js console applications:
@@ -138,7 +138,7 @@ In this section, you create a Node.js console app that connects to your hub as *
 2. At your command-prompt in the **reportconnectivity** folder, run the following command to install the **azure-iot-device**, and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device@dtpreview azure-iot-device-mqtt@dtpreview --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **ReportConnectivity.js** file in the **reportconnectivity** folder.
 4. Add the following code to the **ReportConnectivity.js** file, and substitute the **{device connection string}** placeholder with the connection string you copied when you created the **myDeviceId** device identity:

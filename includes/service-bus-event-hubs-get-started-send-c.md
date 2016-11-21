@@ -24,7 +24,7 @@ In this section we will write a C app to send events to your Event Hub. We will 
     ```
 5. In your work directory, create a new file called **sender.c** with the following content. Remember to substitute the value for your Event Hub name and namespace name (the latter is usually `{event hub name}-ns`). You must also substitute a URL-encoded version of the key for the **SendRule** created earlier. You can URL-encode it [here](http://www.w3schools.com/tags/ref_urlencode.asp).
    
-    ```
+    ```c
     #include "proton/message.h"
     #include "proton/messenger.h"
    
