@@ -143,10 +143,11 @@ Although connecting to an Azure Redis Cache instance from an on-premises applica
 
 >[!WARNING]  
 >Azure Redis Cache is not supported with ExpressRoute configurations that **incorrectly cross-advertise routes from the public peering path to the private peering path**. ExpressRoute configurations that have public peering configured, will receive route advertisements from Microsoft for a large set of Microsoft Azure IP address ranges. If these address ranges are incorrectly cross-advertised on the private peering path, the end result is that all outbound network packets from the Azure Redis Cache instance's subnet are incorrectly force-tunneled to a customer's on-premises network infrastructure. This network flow breaks Azure Redis Cache. The solution to this problem is to stop cross-advertising routes from the public peering path to the private peering path.
->
->Background information on user-defined routes is available in this [overview](../virtual-network/virtual-networks-udr-overview.md).
->
->For more information about ExpressRoute, see [ExpressRoute technical overview](../expressroute/expressroute-introduction.md)
+
+
+Background information on user-defined routes is available in this [overview](../virtual-network/virtual-networks-udr-overview.md).
+
+For more information about ExpressRoute, see [ExpressRoute technical overview](../expressroute/expressroute-introduction.md)
 
 ## Next steps
 Learn how to use more premium cache features.
