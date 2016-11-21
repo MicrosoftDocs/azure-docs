@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 11/21/2016
-ms.author: ShubhaVijayasarathy
+ms.author: shvija;sethm
 
 ---
 # Create an Event Hubs namespace with Event Hub and enable Archive using an Azure Resource Manager template
