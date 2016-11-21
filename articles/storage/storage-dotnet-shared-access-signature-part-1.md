@@ -156,13 +156,15 @@ A client who is in possession of a SAS can use the SAS to authenticate a request
 [!INCLUDE [storage-use-sas-in-connection-string-include](../../includes/storage-use-sas-in-connection-string-include.md)]
 
 ### Using a SAS in a constructor or method
-Many storage client library constructors and method overloads offer a SAS parameter.  
+Several Azure Storage client library constructors and method overloads offer a SAS parameter, so that you can authenticate a request to the service with a SAS.
 
 For example, here a SAS URI is used to create a reference to a block blob. The SAS provides the only credentials needed for the request. The block blob reference is then used for a write operation:
 
 ```csharp
-string sasUri = 
-    "https://storagesample.blob.core.windows.net/sample-container/sampleBlob.txt?sv=2015-07-08&sr=b&sig=39Up9JzHkxhUIhFEjEH9594DJxe7w6cIRCg0V6lCGSo%3D&se=2016-10-18T21%3A51%3A37Z&sp=rcw"
+string sasUri = "https://storagesample.blob.core.windows.net/sample-container/" +
+    "sampleBlob.txt?sv=2015-07-08&sr=b&sig=39Up9JzHkxhUIhFEjEH9594DJxe7w6cIRCg0V6lCGSo%3D" +
+    "&se=2016-10-18T21%3A51%3A37Z&sp=rcw";
+
 CloudBlockBlob blob = new CloudBlockBlob(new Uri(sasUri));
 
 // Create operation: Upload a blob with the specified name to the container.
