@@ -1,4 +1,4 @@
-﻿---
+---
 title: Machine learning web services examples built with R | Microsoft Docs
 description: Find a useful set of web services examples created with R code and Machine Learning, and published to the Azure Marketplace.
 keywords: csharp,r code,web services examples
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 11/21/2016
 ms.author: jaymathe
 
 ---
