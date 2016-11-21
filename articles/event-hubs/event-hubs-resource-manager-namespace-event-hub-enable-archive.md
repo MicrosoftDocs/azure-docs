@@ -31,7 +31,7 @@ For the complete template, see the [Event Hub and enable Archive template][Event
 > 
 > 
 
-## What you deploy?
+## What will you deploy?
 With this template, you deploy an Event Hubs namespace with an Event Hub, and also enable Event Hubs Archive.
 
 [Event Hubs](event-hubs-what-is-event-hubs.md) is an event processing service used to provide event and telemetry ingress to Azure at massive scale, with low latency and high reliability. Event Hubs Archive enables you to automatically deliver the streaming data in your Event Hubs to Azure Blob storage of your choice within a specified time or size interval of your choosing.
@@ -254,7 +254,7 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName \<resource-group-name\> -T
 ```
 
 ## Azure CLI
-```cli
+```
 azure config mode arm
 
 azure group deployment create \<my-resource-group\> \<my-deployment-name\> --template-uri [https://raw.githubusercontent.com/azure/azure-quickstart-templates/master/201-eventhubs-create-namespace-and-enable-archive/azuredeploy.json][]
