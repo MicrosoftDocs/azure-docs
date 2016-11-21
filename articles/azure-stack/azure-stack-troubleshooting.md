@@ -31,7 +31,7 @@ Code examples are provided as is and expected results cannot be guaranteed. This
   * “The term 'C:\WinRM\Start-Logging.ps1' is not recognized”
   * “Invoke-EceAction: Cannot index into a null array” 
   * “InvokeEceAction: Cannot bind argument to parameter 'Message' because it is an empty string.”
-* You may see deployment fail at step 60.61.93 with an error "Application with identifier 'URI' not found.” This behavior is due to the way applications are registered in Azure Active Directory.  If you receive this error, continue to [rerun the installation script](azure-stack-rerun-deploy.md) from step 60.61.93 until deployment is complete.
+* You may see deployment fail at step 60.61.93 with an error "Application with identifier 'URI' not found.” This behavior is due to the way applications are registered in Azure Active Directory.  If you receive this error, continue to rerun the installation script using the *-rerun* parameter below until deployment is complete.
 * You will see that the **Availability Set** resource in the Marketplace shows up under the **virtualMachine-ARM** category – this appearance is only a cosmetic issue.
 * When creating a new virtual machine in the portal, in the **Basics** step, the storage option defaults to SSD.  This setting must be changed to HDD or on the **Size** step of VM deployment, you will not see VM sizes available to select and continue deployment. 
 * You will see AzureRM PowerShell modules are no longer installed by default on the MAS-CON01 VM (in TP1 this was named ClientVM). This behavior is by design, because there is an alternate method to [install these modules and connect](azure-stack-connect-powershell.md).  
