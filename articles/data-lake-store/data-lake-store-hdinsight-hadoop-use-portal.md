@@ -70,14 +70,12 @@ In this section, you create an HDInsight Hadoop cluster that uses the Data Lake 
 
 
 4. If you want to use Azure Data Lake Store as default storage, for **Primary Storage Type**, click **Data Lake Store**. Select a Data Lake Store account that already exists, provide a root folder path where the cluster-specific files will be stored (see note below), specify **Location** as **East US 2**, and then click **Cluster AAD Identity**. You can use this option only with HDInsight 3.5 clusters. Within HDInsight 3.5 clusters this option is not available for HBase cluster type.
+
+	In the screen capture above, the root folder path is /clusters/myhdiadlcluster, where **myhdiadlcluster** is the name of the cluster being created. In such a case, make sure the **/clusters** folder already exists in the Data Lake Store account. The **myhdiadlcluster** folder will be created during cluster creation. Similarly, if the root path was set to /hdinsight/clusters/data/myhdiadlcluter, you must ensure that **/hdinsight/clusters/data/** already exists in the Data Lake Store account.
 		
 	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.1.adls.storage.png "Add service principal to HDInsight cluster")
-	
-			
-In the screen capture above, the root folder path is /clusters/myhdiadlcluster, where **myhdiadlcluster** is the name of the cluster being created. In such a case, make sure the **/clusters** folder already exists in the Data Lake Store account. The **myhdiadlcluster** folder will be created during cluster creation. Similarly, if the root path was set to /hdinsight/clusters/data/myhdiadlcluter, you must ensure that **/hdinsight/clusters/data/** already exists in the Data Lake Store account.  
 
-
-4. On the **Cluster AAD Identity** blade, you can choose to select an existing Service Principal or create a new one.
+5. On the **Cluster AAD Identity** blade, you can choose to select an existing Service Principal or create a new one.
 
    * **Create a new Service Principal** - In the **Cluster AAD Identity** blade, click **Create new**, click **Service Principal**, and then in the **Create a Service Principal** blade, provide values to create a new service principal. As part of that, a certificate and an Azure Active Directory application is also created. Click **Create**.
 
@@ -94,26 +92,26 @@ In the screen capture above, the root folder path is /clusters/myhdiadlcluster, 
 
        On the **Cluster AAD Identity** blade, upload the certificate (.pfx) associated with the service principal you selected, and then provide the certificate password.
 
-5. On the **Cluster AAD Identity** blade, click **Manage ADLS Access**. In the next pane, **Select file permissions** is already selected by default, and lists all the Data Lake Store accounts in your subscription. Click the Data Lake Store account that you want to associate with the cluster to list the files and folders in that account. You can then assign permissions at the file or folder level. If you want to associate the permissions at the root level of the account, select the check box next to the account name.
+6. On the **Cluster AAD Identity** blade, click **Manage ADLS Access**. In the next pane, **Select file permissions** is already selected by default, and lists all the Data Lake Store accounts in your subscription. Click the Data Lake Store account that you want to associate with the cluster to list the files and folders in that account. You can then assign permissions at the file or folder level. If you want to associate the permissions at the root level of the account, select the check box next to the account name.
 
      ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3.png "Add service principal to HDInsight cluster")
 
 	> [!NOTE]
 	> If you are using the Data Lake Store account as the default storage for a cluter, you **must** assign the permissions to the service principal at the root level of the Data Lake Store account.
 
-6. If you want to assign permissions for file or folders within an account, select the Data Lake Store account to see the files/folders in the next pane. Select the files/folders, select the permissions (READ/WRITE/EXECUTE) you want to assign on them, specify whether the permissions apply recursively to the child items as well, and then click **Select**.
+7. If you want to assign permissions for file or folders within an account, select the Data Lake Store account to see the files/folders in the next pane. Select the files/folders, select the permissions (READ/WRITE/EXECUTE) you want to assign on them, specify whether the permissions apply recursively to the child items as well, and then click **Select**.
 
 	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3-1.png "Add service principal to HDInsight cluster")
 
-7. In the next screen, click **Run** to assign the permissions for the Azure Active Directory service principal on the account, file, folder you selected.
+8. In the next screen, click **Run** to assign the permissions for the Azure Active Directory service principal on the account, file, folder you selected.
 
 	![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.3-2.png "Add service principal to HDInsight cluster")
 
-8. After the permission are successfully assigned, click **Done** on all the blades till you are back on the **Cluster AAD Identity** blade.
+9. After the permission are successfully assigned, click **Done** on all the blades till you are back on the **Cluster AAD Identity** blade.
 
 4. Click **Select** on the **Cluster AAD Identity** and then continue with cluster creation as described at [Create Hadoop clusters in HDInsight](../hdinsight/hdinsight-hadoop-create-linux-clusters-portal.md).
 
-5. Once the cluster is provisioned, you can verify that the Service Principal is associated with the HDInsight cluster. To do so, from the cluster blade, click **Cluster AAD Identity** to see the associated Service Principal.
+10. Once the cluster is provisioned, you can verify that the Service Principal is associated with the HDInsight cluster. To do so, from the cluster blade, click **Cluster AAD Identity** to see the associated Service Principal.
 
     ![Add service principal to HDInsight cluster](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.6.png "Add service principal to HDInsight cluster")
 
