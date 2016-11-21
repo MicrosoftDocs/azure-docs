@@ -19,7 +19,7 @@ ms.author: dobett
 ---
 # Manage device identities in IoT Hub
 ## Overview
-Every IoT hub has a device identity registry that stores information about the devices that are permitted to connect to the hub. Before a device can connect to a hub, there must be an entry for that device in the hub's device identity registry. A device must also authenticate with the hub based on credentials stored in the device identity registry.
+Every IoT hub has a device identity registry that stores information about the devices that are permitted to connect to the IoT hub. Before a device can connect to an IoT hub, there must be an entry for that device in the IoT hub's device identity registry. A device must also authenticate with the IoT hub based on credentials stored in the device identity registry.
 
 At a high level, the device identity registry is a REST-capable collection of device identity resources. When you add an entry to the registry, IoT Hub creates a set of per-device resources in the service such as the queue that contains in-flight cloud-to-device messages.
 
@@ -45,7 +45,7 @@ The IoT Hub device identity registry exposes the following operations:
 All these operations can use optimistic concurrency, as specified in [RFC7232][lnk-rfc7232].
 
 > [!IMPORTANT]
-> The only way to retrieve all identities in a hub's identity registry is to use the [Export][lnk-export] functionality.
+> The only way to retrieve all identities in an IoT hub's identity registry is to use the [Export][lnk-export] functionality.
 > 
 > 
 
@@ -104,7 +104,7 @@ Device identities are represented as JSON documents with the following propertie
 | Property | Options | Description |
 | --- | --- | --- |
 | deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
-| generationId |required, read-only |A hub-generated, case-sensitive string up to 128 characters long. This is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
+| generationId |required, read-only |An IoT hub-generated, case-sensitive string up to 128 characters long. This is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
 | etag |required, read-only |A string representing a weak etag for the device identity, as per [RFC7232][lnk-rfc7232]. |
 | auth |optional |A composite object containing authentication information and security materials. |
 | auth.symkey |optional |A composite object containing a primary and a secondary key, stored in base64 format. |
@@ -126,7 +126,7 @@ Other reference topics in the Developer Guide include:
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 * [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps

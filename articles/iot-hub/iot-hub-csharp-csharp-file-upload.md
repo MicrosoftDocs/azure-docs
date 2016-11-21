@@ -39,7 +39,7 @@ In order to complete this tutorial, you need the following:
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 ## Associate an Azure Storage account to IoT Hub
-Because the simulated device uploads a file to a blob, you must have an [Azure Storage] account associated to IoT Hub. When you associate an Azure Storage account with an IoT hub, the hub can generate a SAS URI that a device can use to securely upload a file to a blob container. The IoT Hub service and the device SDKs coordinate the process that generates the SAS URI and makes it available to a device to use to upload a file.
+Because the simulated device uploads a file to a blob, you must have an [Azure Storage] account associated to IoT Hub. When you associate an Azure Storage account with an IoT hub, the IoT hub can generate a SAS URI that a device can use to securely upload a file to a blob container. The IoT Hub service and the device SDKs coordinate the process that generates the SAS URI and makes it available to a device to use to upload a file.
 
 Follow the instructions in [Configure file uploads using the Azure portal][lnk-configure-upload] to associate an Azure Storage account to your IoT hub.
 

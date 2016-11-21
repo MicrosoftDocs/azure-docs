@@ -27,7 +27,7 @@ Azure IoT Hub is an Azure service that enables secure and reliable bi-directiona
 * Receive file uploads from devices.
 * Send cloud-to-device commands to specific devices.
 
-You can use IoT Hub to implement your own solution back end. In addition, IoT Hub includes a device identity registry used to provision devices, their security credentials, and their rights to connect to the hub. To learn more about IoT Hub, see [What is IoT Hub?][lnk-iot-hub].
+You can use IoT Hub to implement your own solution back end. In addition, IoT Hub includes a device identity registry used to provision devices, their security credentials, and their rights to connect to the IoT hub. To learn more about IoT Hub, see [What is IoT Hub?][lnk-iot-hub].
 
 To learn how Azure IoT Hub enables standards-based device management for you to remotely manage, configure, and update your devices, see [Overview of device management with IoT Hub][lnk-device-management].
 

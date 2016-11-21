@@ -114,7 +114,7 @@ Device provisioning is the process of adding the initial [device data](#device-d
 A [device twin](iot-hub-devguide-device-twins.md) is JSON document that stores device state information such as metadata, configurations, and conditions. [IoT Hub](#iot-hub) persists a device twin for each device that you provision in your IoT hub. Device twins enable you to synchronize [device conditions](#device-condition) and configurations between the device and the solution back end. You can query device twins to locate specific devices and query the status of long-running operations.
 
 ## Device twin queries
-[Device twin queries](iot-hub-devguide-query-language.md) use a SQL-like query language to retrieve information from your device twins. You can use the same query language to retrieve information about [jobs](#job) running in your IoT hub.
+[Device twin queries](iot-hub-devguide-query-language.md) use the SQL-like IoT Hub query language to retrieve information from your device twins. You can use the same IoT Hub query language to retrieve information about [jobs](#job) running in your IoT hub.
 
 ## Device twin synchronization
 Device twin synchronization uses the [desired properties](#desired-properties) in your device twins to configure your devices and retrieve [reported properties](#reported-properties) from your devices to store in the device twin.
@@ -123,7 +123,7 @@ Device twin synchronization uses the [desired properties](#desired-properties) i
 A [direct method](iot-hub-devguide-direct-methods.md) is a way for you to trigger a method to execute on a device by invoking an API on your IoT hub.
 
 ## Endpoint
-An IoT hub exposes multiple [endpoints](iot-hub-devguide-endpoints.md) that enable your apps to connect to the hub. There are device-facing endpoints that enable devices to perform operations such as sending [device-to-cloud](#device-to-cloud) messages and receiving [cloud-to-device](#cloud-to-device) messages. There are service-facing endpoints that enable [back-end apps](#back-end-app) to perform operations such as [device identity](#device-identity) management and device twin management.
+An IoT hub exposes multiple [endpoints](iot-hub-devguide-endpoints.md) that enable your apps to connect to the IoT hub. There are device-facing endpoints that enable devices to perform operations such as sending [device-to-cloud](#device-to-cloud) messages and receiving [cloud-to-device](#cloud-to-device) messages. There are service-facing endpoints that enable [back-end apps](#back-end-app) to perform operations such as [device identity](#device-identity) management and device twin management.
 
 ## Event Hubs service
 [Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is a highly scalable data ingress service that can ingest millions of events per second. The service enable you to process and analyze the massive amounts of data produced by your connected devices and applications. For a comparison with the IoT Hub service, see [Comparison of Azure IoT Hub and Azure Event Hubs](iot-hub-compare-event-hubs.md).
@@ -141,7 +141,7 @@ You can create a [free Azure account](https://azure.microsoft.com/pricing/free-t
 A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). See also [Field Gateway](#field-gateway), [Cloud Gateway](#cloud-gateway), and [Custom Gateway](#custom-gateway).
 
 ## Identity registry
-The [identity registry](iot-hub-devguide-identity-registry.md) is the built-in component of an IoT hub that stores information about the individual devices permitted to connect to a hub.
+The [identity registry](iot-hub-devguide-identity-registry.md) is the built-in component of an IoT hub that stores information about the individual devices permitted to connect to an IoT hub.
 
 ## Interactive message
 An interactive message is a [cloud-to-device](#cloud-to-device) message that triggers an immediate action in the application back end. For example, a device might send an alarm about a failure that should be automatically logged into a CRM system.
@@ -180,13 +180,13 @@ IoT Hub [operations monitoring](iot-hub-operations-monitoring.md) enables you to
 A physical device is a real device such as a Raspberry Pi that connects to an IoT hub. For convenience, many of the IoT Hub tutorials use [simulated devices](#simulated-device) to enable you to run samples on your local machine.
 
 ## Primary and secondary keys
-When you connect to a device-facing or service-facing endpoint on an IoT hub, your [connection string](#connection-string) includes key to grant you access. When you add a device to the [identity registry](#identity-registry) or add a [shared access policy](#shared-access-policy) to your hub, the service generates a primary and secondary key. Having two keys enables you to roll over from one key to another when you update a key without losing access to the hub.
+When you connect to a device-facing or service-facing endpoint on an IoT hub, your [connection string](#connection-string) includes key to grant you access. When you add a device to the [identity registry](#identity-registry) or add a [shared access policy](#shared-access-policy) to your hub, the service generates a primary and secondary key. Having two keys enables you to roll over from one key to another when you update a key without losing access to the IoT hub.
 
 ## Protocol gateway
 A protocol gateway is typically deployed in the cloud and provides protocol translation services for devices connecting to [IoT Hub](#iot-hub). For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md)
 
 ## Quotas and throttling
-There are various [quotas](iot-hub-devguide-quotas-throttling.md) that apply to your use of [IoT Hub](#iot-hub), many of the quotas vary based on the tier of the hub. [IoT Hub](#iot-hub) also applies [throttles](iot-hub-devguide-quotas-throttling.md) to your use of the service at run time.
+There are various [quotas](iot-hub-devguide-quotas-throttling.md) that apply to your use of [IoT Hub](#iot-hub), many of the quotas vary based on the tier of the IoT hub. [IoT Hub](#iot-hub) also applies [throttles](iot-hub-devguide-quotas-throttling.md) to your use of the service at run time.
 
 ## Reported configuration
 In the context of a [device twin](iot-hub-devguide-device-twins.md), reported configuration refers to the complete set of properties and metadata in the device twin that should be reported by the device to the solution back end.

@@ -24,7 +24,7 @@ However, the services have many differences, which are detailed in the following
 
 | Area | IoT Hub | Event Hubs |
 | --- | --- | --- |
-| Communication patterns | Enables [device-to-cloud communications][lnk-d2c-guidance] (messaging, file uploads, and device twin reported properties) and [cloud-to-device communications][lnk-c2d-guidance] (direct methods, device twin desired properties, messaging). |Only enables event ingress (usually considered for device-to-cloud scenarios). |
+| Communication patterns | Enables [device-to-cloud communications][lnk-d2c-guidance] (messaging, file uploads, and reported properties) and [cloud-to-device communications][lnk-c2d-guidance] (direct methods, desired properties, messaging). |Only enables event ingress (usually considered for device-to-cloud scenarios). |
 | Device state information | [Device twins][lnk-twins] can store and query device state information. | No device state information can be stored. |
 | Device protocol support |Supports MQTT, MQTT over WebSockets, AMQP, AMQP over WebSockets, and HTTP. Additionally, IoT Hub works with the [Azure IoT protocol gateway][lnk-azure-protocol-gateway], a customizable protocol gateway implementation to support custom protocols. |Supports AMQP, AMQP over WebSockets, and HTTP. |
 | Security |Provides per-device identity and revocable access control. See the [Security section of the IoT Hub developer guide]. |Provides Event Hubs-wide [shared access policies][Event Hubs - security], with limited revocation support through [publisher's policies][Event Hubs publisher policies]. IoT solutions are often required to implement a custom solution to support per-device credentials and anti-spoofing measures. |

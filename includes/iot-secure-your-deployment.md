@@ -29,7 +29,7 @@ Each IoT Hub has a [Device Identity Registry][lnk-identity-registry] that can be
 
 [IoT Hub supports protocols such as MQTT, AMQP, and HTTP][lnk-protocols]. Each of these protocols use security tokens from the IoT device to IoT Hub differently:
 
-* AMQP: SASL PLAIN and AMQP Claims-based security ({policyName}@sas.root.{iothubName} in the case of Hub-level tokens; {deviceId} in case of device-scoped tokens).
+* AMQP: SASL PLAIN and AMQP Claims-based security ({policyName}@sas.root.{iothubName} in the case of IoT hub-level tokens; {deviceId} in case of device-scoped tokens).
 * MQTT: CONNECT packet uses {deviceId} as the {ClientId}, {IoThubhostname}/{deviceId} in the **Username** field and a SAS token in the **Password** field.
 * HTTP: Valid token is in the authorization request header.
 

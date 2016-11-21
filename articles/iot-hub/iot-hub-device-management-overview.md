@@ -64,16 +64,16 @@ Within each of these five stages, there are several device operator requirements
 ## Device management patterns
 IoT Hub enables the following set of device management patterns.  The [device management tutorials][lnk-get-started] show you in more detail how to extend these patterns to fit your exact scenario and how to design new patterns based on these core templates.
 
-* **Reboot** - The back-end application informs the device through a direct method that it has initiated a reboot.  The device uses the device twin reported properties to update the reboot status of the device.
+* **Reboot** - The back-end application informs the device through a direct method that it has initiated a reboot.  The device uses the reported properties to update the reboot status of the device.
   
     ![Device management reboot pattern graphic][img-reboot_pattern]
-* **Factory Reset** - The back-end application informs the device through a direct method that it has initiated a factory reset.  The device uses the device twin reported properties to update the factory reset status of the device.
+* **Factory Reset** - The back-end application informs the device through a direct method that it has initiated a factory reset.  The device uses the reported properties to update the factory reset status of the device.
   
     ![Device management factory reset pattern graphic][img-facreset_pattern]
-* **Configuration** - The back-end application uses the device twin desired properties to configure software running on the device.  The device uses the device twin reported properties to update configuration status of the device.
+* **Configuration** - The back-end application uses the desired properties to configure software running on the device.  The device uses the reported properties to update configuration status of the device.
   
     ![Device management configuration pattern graphic][img-config_pattern]
-* **Firmware Update** - The back-end application informs the device through a direct method that it has initiated a firmware update.  The device initiates a multistep process to download the firmware image, apply the firmware image, and finally reconnect to the IoT Hub service.  Throughout the mult-step process, the device uses the device twin reported properties to update the progress and status of the device.
+* **Firmware Update** - The back-end application informs the device through a direct method that it has initiated a firmware update.  The device initiates a multistep process to download the firmware image, apply the firmware image, and finally reconnect to the IoT Hub service.  Throughout the mult-step process, the device uses the reported properties to update the progress and status of the device.
   
     ![Device management firmware update pattern graphic][img-fwupdate_pattern]
 * **Reporting progress and status** - The application back-end runs device twin queries, across a set of devices, to report on the status and progress of actions running on the devices.

@@ -102,7 +102,7 @@ When a device client subscribes to a topic with **QoS 2**, IoT Hub grants maximu
 
 ### Retrieving a device twin's properties
 
-First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message contaning the twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
+First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message contaning the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
 
 Request id can be any valid value for a message property value, as per [IoT Hub messaging develper's guide][lnk-messaging], and status is validated as an integer.
 The reponse body will contain the properties section of the device's twin:
@@ -135,10 +135,10 @@ Refer to the [Device twins developer's guide][lnk-devguide-twin] for more inform
 
 ### Update twin's reported properties
 
-First, a device has to be subscribed to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends a message, containing the twin update to `$iothub/twin/PATCH/properties/reported/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message contaning the twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
+First, a device has to be subscribed to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends a message, containing the device twin update to `$iothub/twin/PATCH/properties/reported/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message contaning the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
 
 The request message body contains a JSON document which provides new values for reported properties (no other property or metadata can be modified).
-Each member in the JSON document updates or add the corresponding member in the twin’s document. A member set to `null`, deletes the member from the containing object. E.g.
+Each member in the JSON document updates or add the corresponding member in the device twin’s document. A member set to `null`, deletes the member from the containing object. E.g.
 
         {
             "telemetrySendFrequency": "35m",

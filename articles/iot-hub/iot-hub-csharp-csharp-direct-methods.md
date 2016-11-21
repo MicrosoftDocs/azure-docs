@@ -160,7 +160,7 @@ You are now ready to run the applications.
     ![][9]
 
 ## Next steps
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the hub's identity registry. You used this device identity to enable the simulated device app to react to methods invoked by the cloud. You also created an app that invokes methods on the device and displays the response from the device. 
+In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the simulated device app to react to methods invoked by the cloud. You also created an app that invokes methods on the device and displays the response from the device. 
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 

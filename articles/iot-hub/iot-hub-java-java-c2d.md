@@ -51,7 +51,7 @@ To complete this tutorial, you need the following:
 In this section, you modify the simulated device application you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
 
 1. Using a text editor, open the simulated-device\src\main\java\com\mycompany\app\App.java file.
-2. Add the following **MessageCallback** class as a nested class inside the **App** class. The **execute** method is invoked when the device receives a message from IoT Hub. In this example, the device always notifies the hub that it has completed the message:
+2. Add the following **MessageCallback** class as a nested class inside the **App** class. The **execute** method is invoked when the device receives a message from IoT Hub. In this example, the device always notifies the IoT hub that it has completed the message:
    
     ```
     private static class MessageCallback implements

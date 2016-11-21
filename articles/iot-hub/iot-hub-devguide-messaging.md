@@ -28,7 +28,7 @@ Core properties of IoT Hub messaging functionality are the reliability and durab
 
 IoT Hub supports multiple [device-facing protocols][lnk-protocols] (such as MQTT, AMQP, and HTTP). To support seamless interoperability across protocols, IoT Hub defines a [common message format][lnk-message-format] that all device-facing protocols support.
 
-IoT Hub exposes an [Event Hub-compatible endpoint][lnk-compatible-endpoint] to enable back-end applications to read the device-to-cloud messages received by the hub.
+IoT Hub exposes an [Event Hub-compatible endpoint][lnk-compatible-endpoint] to enable back-end applications to read the device-to-cloud messages received by the IoT hub.
 
 ### When to use
 Use device-to-cloud messages for sending time series telemetry and alerts from your device app, and cloud-to-device messages for one-way notifications to the device app.
@@ -319,7 +319,7 @@ Devices can communicate with IoT Hub in Azure using various protocols. Typically
 | HTTP |443 |
 | LWM2M (Device management) |5684 |
 
-Once you have created an IoT hub in an Azure region, the hub keeps the same IP address for the lifetime of that hub. However, to maintain quality of service, if Microsoft moves the IoT hub to a different scale unit then it is assigned a new IP address.
+Once you have created an IoT hub in an Azure region, the IoT hub keeps the same IP address for the lifetime of that IoT hub. However, to maintain quality of service, if Microsoft moves the IoT hub to a different scale unit then it is assigned a new IP address.
 
 ## Notes on MQTT support
 IoT Hub implements the MQTT v3.1.1 protocol with the following limitations and specific behavior:
@@ -337,7 +337,7 @@ Other reference topics in the Developer Guide include:
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 * [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps

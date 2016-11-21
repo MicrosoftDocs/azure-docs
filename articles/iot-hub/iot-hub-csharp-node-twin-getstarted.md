@@ -41,7 +41,7 @@ To complete this tutorial you need the following:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create the service app
-In this section, you create a Node.js console app that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the hub selecting the devices located in the US, and then the ones that reporting a cellular connection.
+In this section, you create a Node.js console app that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the IoT hub selecting the devices located in the US, and then the ones that reporting a cellular connection.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Name the project **AddTagsAndQuery**.
    
@@ -100,7 +100,7 @@ In this section, you create a Node.js console app that adds location metadata to
 In the next section you create a device app that reports the connectivity information and changes the result of the query in the previous section.
 
 ## Create the device app
-In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its device twin's reported properties to contain the information that it is connected using a cellular network.
+In this section, you create a Node.js console app that connects to your hub as **myDeviceId**, and then updates its reported properties to contain the information that it is connected using a cellular network.
 
 1. Create a new empty folder called **reportconnectivity**. In the **reportconnectivity** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
    
@@ -162,7 +162,7 @@ In this section, you create a Node.js console app that connects to your hub as *
     ![][img-addtagapp2]
 
 ## Next steps
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the hub's identity registry. You added device metadata as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the IoT Hub SQL-like query language.
+In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You added device metadata as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the SQL-like IoT Hub query language.
 
 Use the following resources to learn how to:
 

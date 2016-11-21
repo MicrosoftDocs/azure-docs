@@ -40,7 +40,7 @@ To complete this tutorial you need the following:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create the service app
-In this section, you create a Node.js console app that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the hub selecting the devices located in the US, and then the ones that reporting a cellular connection.
+In this section, you create a Node.js console app that adds location metadata to the device twin associated with **myDeviceId**. It then queries the device twins stored in the IoT hub selecting the devices located in the US, and then the ones that reporting a cellular connection.
 
 1. Create a new empty folder called **addtagsandqueryapp**. In the **addtagsandqueryapp** folder, create a new package.json file using the following command at your command-prompt. Accept all the defaults:
    
@@ -194,7 +194,7 @@ In this section, you create a Node.js console app that connects to your hub as *
     ![][3]
 
 ## Next steps
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the hub's identity registry. You added device metadata as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the IoT Hub SQL-like query language.
+In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You added device metadata as tags from a back-end application, and wrote a simulated device app to report device connectivity information in the device twin. You also learned how to query this information using the SQL-like IoT Hub query language.
 
 Use the following resources to learn how to:
 

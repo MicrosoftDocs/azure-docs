@@ -35,7 +35,7 @@ You must have appropriate permissions to access any of the IoT Hub endpoints. Fo
 ## Access control and permissions
 You can grant [permissions](#iot-hub-permissions) in the following ways:
 
-* **Hub-level shared access policies**. Shared access policies can grant any combination of [permissions](#iot-hub-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
+* **IoT hub-level shared access policies**. Shared access policies can grant any combination of [permissions](#iot-hub-permissions). You can define policies in the [Azure portal][lnk-management-portal], or programmatically by using the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis]. A newly created IoT hub has the following default policies:
   
   * **iothubowner**: Policy with all permissions.
   * **service**: Policy with ServiceConnect permission.
@@ -74,7 +74,7 @@ If you use AMQP claims-based-security, the standard specifies how to transmit th
 
 For SASL PLAIN, the **username** can be:
 
-* `{policyName}@sas.root.{iothubName}` if using hub-level tokens.
+* `{policyName}@sas.root.{iothubName}` if using IoT hub-level tokens.
 * `{deviceId}@sas.{iothubname}` if using device-scoped tokens.
 
 In both cases, the password field contains the token, as described in [IoT Hub security tokens][lnk-sas-tokens].
@@ -98,8 +98,8 @@ When using SASL PLAIN with AMQP, a client connecting to an IoT hub can use a sin
 * Gateways usually connect on behalf of many devices. When using SASL PLAIN, they have to create a distinct TCP connection for each device connecting to an IoT hub. This scenario considerably increases the consumption of power and networking resources, and increases the latency of each device connection.
 * Resource-constrained devices are adversely affected by the increased use of resources to reconnect after each token expiration.
 
-## Scope hub-level credentials
-You can scope hub-level security policies by creating tokens with a restricted resource URI. For example, the endpoint to send device-to-cloud messages from a device is **/devices/{deviceId}/messages/events**. You can also use a hub-level shared access policy with **DeviceConnect** permissions to sign a token whose resourceURI is **/devices/{deviceId}**. This approach creates a token that is only usable to send messages on behalf of device **deviceId**.
+## Scope IoT hub-level credentials
+You can scope IoT hub-level security policies by creating tokens with a restricted resource URI. For example, the endpoint to send device-to-cloud messages from a device is **/devices/{deviceId}/messages/events**. You can also use an IoT hub-level shared access policy with **DeviceConnect** permissions to sign a token whose resourceURI is **/devices/{deviceId}**. This approach creates a token that is only usable to send messages on behalf of device **deviceId**.
 
 This mechanism is similar to the [Event Hubs publisher policy][lnk-event-hubs-publisher-policy], and enables you to implement custom authentication methods.
 
@@ -381,7 +381,7 @@ Other reference topics in the Developer Guide include:
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
 * [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
