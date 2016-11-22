@@ -21,48 +21,45 @@
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
 ### [Manage accounts with PowerShell](media-services-manage-with-powershell.md)
-### [Crop videos with Media Encoder Standard](media-services-crop-video.md)
 ### [How To: Update Media Services after Rolling Storage Access Keys](media-services-roll-storage-access-keys.md)
 ### [Quotas and limitations](media-services-quotas-and-limitations.md)
-### Filters
-#### [Creating Filters with Azure Media Services .NET SDK](media-services-dotnet-dynamic-manifest.md)
-#### [How to encode an asset using Media Encoder Standard](media-services-rest-encode-asset.md)
 ### Connect programmatically
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
 
 ## Upload content
 ### Upload files into an account
-#### [Portal ](media-services-portal-upload-files.md)
+#### [Portal](media-services-portal-upload-files.md)
 #### [.NET](media-services-dotnet-upload-files.md)
 #### [REST](media-services-rest-upload-files.md)
 ### [Copy existing blobs](media-services-copying-existing-blob.md)
 
-## Encode
-### [Content](media-services-encode-asset.md)
-#### Encode an asset using Media Encoder Standard
-##### [Portal](media-services-portal-encode.md)
-##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-#### [How to generate thumbnails using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-#### [Advanced encoding](media-services-advanced-encoding-with-mes.md)
-##### [Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md)
-##### [Media Encoder Premium Workflow tutorials](media-services-media-encoder-premium-workflow-tutorials.md)
-##### [Create Advanced Encoding Workflows with Workflow Designer](media-services-workflow-designer.md)
-##### [Premium workflow with multiple input](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
-
-#### Schemas 
+## Encode content
+### [Overview](media-services-encode-asset.md)
+### Encode with Media Encoder Standard
+#### [Portal](media-services-portal-encode.md)
+#### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+#### [REST](media-services-rest-encode-asset.md)
+#### Schemas
 #####[Media Encoder Standard](media-services-mes-schema.md)
 #####[Input metadata](media-services-input-metadata-schema.md)
 #####[Output metadata](media-services-output-metadata-schema.md)
-
-#### Legacy encoders
+##### [Advanced encoding](media-services-advanced-encoding-with-mes.md)
+###### [How to generate thumbnails using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+###### [Crop videos with Media Encoder Standard](media-services-crop-video.md)
+### Encode with Media Encoder Premium Workflow
+#### [Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md)
+#### [Media Encoder Premium Workflow tutorials](media-services-media-encoder-premium-workflow-tutorials.md)
+#### [Create Advanced Encoding Workflows with Workflow Designer](media-services-workflow-designer.md)
+#### [Premium workflow with multiple input](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+### Media Processors
+#### [.NET](media-services-get-media-processor.md)
+#### [REST](media-services-rest-get-media-processor.md)
+### Legacy encoders
 ##### [Using the Azure Media Packager](media-services-static-packaging.md)
 
-### [Live streams](media-services-manage-channels-overview.md)
+## [Live streaming](media-services-manage-channels-overview.md)
 #### [On-premise encoders](media-services-live-streaming-with-onprem-encoders.md)
-#### On-premise encoder tutorials
-##### [Portal](media-services-portal-live-passthrough-get-started.md)
-##### [.NET](media-services-dotnet-live-encode-with-onpremises-encoders.md)
 #### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
 #### Cloud encoder tutorials
 ##### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
@@ -71,11 +68,6 @@
 #### [Handle long-running operations](media-services-dotnet-long-operations.md)
 #### [Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
 #### [Dynamic packaging](media-services-dynamic-packaging-overview.md)
-
-### Media Processing
-#### [.NET](media-services-get-media-processor.md)
-#### [REST](media-services-rest-get-media-processor.md)
-
 ### Configure encoders for a single bitrate live stream
 #### [Elemental Live encoder](media-services-configure-elemental-live-encoder.md)
 #### [FMLE encoder ](media-services-configure-fmle-live-encoder.md)
@@ -112,8 +104,13 @@
 ### [Process with Face Detector](media-services-face-and-emotion-detection.md)
 ### [Process with Motion Detector](media-services-motion-detection.md)
 ### [Process with Face redaction](media-services-face-redaction.md)
+#### [Face redaction walkthrough](media-services-redactor-walkthrough.md)
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
+
+## Telemetry
+###[.NET](media-services-dotnet-telemetry.md)
+###[REST](media-services-rest-telemetry.md)
 
 ## Scale
 ### [Media Processing](media-services-scale-media-processing-overview.md)
@@ -175,12 +172,4 @@
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services Community](media-services-community.md)
-
-
-
-
-
-
-
-
-
+## [Videos](https://azure.microsoft.com/resources/videos/index/?services=media-services)
