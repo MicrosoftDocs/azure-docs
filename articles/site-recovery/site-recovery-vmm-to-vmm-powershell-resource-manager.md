@@ -151,7 +151,8 @@ To learn about tips that can help you use the cmdlets, such as how parameter val
 
         $policyresult = New-AzureRmSiteRecoveryPolicy -Name $policyname -ReplicationProvider $RepProvider -ReplicationFrequencyInSeconds $Replicationfrequencyinseconds -RecoveryPoints $recoverypoints -ApplicationConsistentSnapshotFrequencyInHours $AppConsistentSnapshotFrequency -Authentication $AuthMode -ReplicationPort $AuthPort -ReplicationMethod $InitialRepMethod 
 
-    > [!NOTE] The VMM cloud can contain Hyper-V hosts running different versions of Windows Server (as mentioned in the Hyper-V prerequisites), but the replication policy is OS version specific. If you have different hosts running on different operating system versions, then create separate replication policies for each type of OS version. For eg: If you have five hosts running on Windows Servers 2012 and three on Windows Server 2012 R2, create two replication polices – one for each type of operating system versions.
+    > [!NOTE] 
+    > The VMM cloud can contain Hyper-V hosts running different versions of Windows Server (as mentioned in the Hyper-V prerequisites), but the replication policy is OS version specific. If you have different hosts running on different operating system versions, then create separate replication policies for each type of OS version. For eg: If you have five hosts running on Windows Servers 2012 and three on Windows Server 2012 R2, create two replication polices – one for each type of operating system versions.
 
 1. Get the primary protection container (primary VMM Cloud) and recovery protection container (recovery VMM Cloud) by running the following commands:
    
@@ -195,7 +196,8 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
    
         $RecoveryNetworks = Get-AzureRmSiteRecoveryNetwork -Server $Servers[1]
 
-    > [!NOTE] The source VMM server can be the first one or the second one in the servers array. Check the names of the VMM servers and get the networks appropriately
+    > [!NOTE] 
+    > The source VMM server can be the first one or the second one in the servers array. Check the names of the VMM servers and get the networks appropriately
 
 
 1. The final cmdlet creates a mapping between the primary network and the recovery network. The cmdlet specifies the primary network as the first element of $PrimaryNetworks and the recovery network as the first element of $RecoveryNetworks.
@@ -212,7 +214,8 @@ To check the completion of the operation, follow the steps in [Monitor Activity]
    
         $TargetClassification = $storageclassifications[1]
 
-    > [!NOTE] The source and target classifications can be any element in the array. Refer to the output of the below command to figure the index of source and target classifications in $storageclassifications array. 
+    > [!NOTE] 
+    > The source and target classifications can be any element in the array. Refer to the output of the below command to figure the index of source and target classifications in $storageclassifications array. 
 
     > Get-AzureRmSiteRecoveryStorageClassification | Select-Object -Property FriendlyName, Id | Format-Table
 
