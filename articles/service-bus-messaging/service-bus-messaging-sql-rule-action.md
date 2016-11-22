@@ -20,7 +20,7 @@ ms.author: sethm
 
 # SQLRuleAction syntax
 
-A *SqlRuleAction* represents set of actions written in SQL-language based syntax that is performed against a [BrokeredMessage](dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+A *SqlRuleAction* represents set of actions written in SQL-language based syntax that is performed against a [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   
 This topic lists details about the SQL rule action grammar.  
   
@@ -62,7 +62,7 @@ This topic lists details about the SQL rule action grammar.
   
 ## Arguments  
   
--   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
+-   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
   
 ### Remarks  
  An attempt to access a non-existing system property is an error, while an attempt to access a non-existing user property is not an error. Instead, a non-existing user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
@@ -213,5 +213,5 @@ This topic lists details about the SQL rule action grammar.
 
 ## Next steps
 
-- [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
-- [SQLFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLRuleAction class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SQLFilter class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)

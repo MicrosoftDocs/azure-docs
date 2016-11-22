@@ -20,7 +20,7 @@ ms.author: sethm
 
 # SQLFilter syntax
 
-A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), and represents a SQL language-based filter expression that is evaluated against a [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). A SqlFilter supports a subset of the SQL-92 standard.  
+A *SqlFilter* is an instance of the [SqlFilter Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter), and represents a SQL language-based filter expression that is evaluated against a [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). A SqlFilter supports a subset of the SQL-92 standard.  
   
  This topic lists details about SqlFilter grammar.  
   
@@ -57,7 +57,7 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
   
 ## Arguments  
   
--   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
+-   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
   
 ## Remarks  
  An attempt to access a non-existing system property is an error, while an attempt to access a non-existing user property is not an error. Instead, a non-existing user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
@@ -198,13 +198,13 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
  The `property(name)` function returns the value of the property referenced by `name`. The `name` value can be any valid expression that returns a string value.  
   
 ## Considerations  
- Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) semantics:  
+ Consider the following [SqlFilter](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter) semantics:  
   
 -   Property names are case-insensitive.  
   
 -   Operators follow C# implicit conversion semantics whenever possible.  
   
--   System properties are public properties exposed in [BrokeredMessage](dotnet/api/microsoft.servicebus.messaging.brokeredmessage).  
+-   System properties are public properties exposed in [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).  
   
  Consider the following `IS [NOT] NULL` semantics:  
   
@@ -270,5 +270,5 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
 
 ## Next steps
 
-- [SQLFilter class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
-- [SQLRuleAction class](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
+- [SQLFilter class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlfilter)
+- [SQLRuleAction class](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction)
