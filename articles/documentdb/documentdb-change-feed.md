@@ -23,12 +23,10 @@ ms.author: b-hoedid
 
 With ChangeFeed support, DocumentDB provides a real-time sorted list of changes made to documents within a DocumentDB collection in the order in which it was applied. These changes can be read and processed by a single consumer, or distributed across a number of consumers. Let's take a look at the APIs for ChangeFeed and how you can use this to scale your applications.
 
-# How ChangeFeed works in Azure DocumentDB
-DocumentDB provides the ability to incrementally read updates made to a DocumentDB collection. The change log can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API. 
-
 ![Using DocumentDB Change Feed to power real-time analytics and event-driven computing scenarios](./media/documentdb-change-feed/changefeed.png)
 
-This change log has the following properties:
+# How ChangeFeed works in Azure DocumentDB
+DocumentDB provides the ability to incrementally read updates made to a DocumentDB collection. The change log can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API. This change log has the following properties:
 
 * Changes to documents within a collection will be available immediately in real-time in the change log with no lag.
 * Changes to documents will appear only once in the change log.
