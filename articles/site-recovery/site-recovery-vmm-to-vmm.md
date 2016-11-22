@@ -317,7 +317,7 @@ Here's what happens when network mapping begins:
 ### Configure storage mapping
 By default when you replicate a Hyper-V VM to a target Hyper-V server, replicated data is stored in the default location for the target Hyper-V host in Hyper-V Manager. To control where replicated data is stored, you can configure storage mapping.<br/><br/> To do this, you set up storage classifications on the source and target VMM servers, before you begin deployment.
 
-Storage mapping isn't currently supported in the new Azure portal. However, it can be enabled using Powershell.[Learn more](site-recovery-vmm-to-vmm-powershell-resource-manager.md#step-6-configure-storage-mapping).
+Storage mapping isn't currently supported in the new Azure portal. However, it can be enabled using Powershell.[Learn more](site-recovery-vmm-to-vmm-powershell-resource-manager.md#step-7-configure-storage-mapping).
 
 ## Step 5: Capacity planning
 
