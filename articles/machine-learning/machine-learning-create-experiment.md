@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 11/10/2016
+ms.date: 11/21/2016
 ms.author: garye
 
 ---
@@ -349,14 +349,19 @@ Want to learn more? For a more extensive and detailed walkthrough of the process
 [evaluation-results]:./media/machine-learning-create-experiment/evaluation-results.png
 [complete-linear-regression-experiment]:./media/machine-learning-create-experiment/complete-linear-regression-experiment.png
 
-[type-automobile]:./media/machine-learning-create-experiment/type-automobile.gif
-[type-select-columns]:./media/machine-learning-create-experiment/type-select-columns.gif
-[launch-column-selector]:./media/machine-learning-create-experiment/launch-column-selector.gif
-[add-comment]:./media/machine-learning-create-experiment/add-comment.gif
-[connect-clean-to-select]:./media/machine-learning-create-experiment/connect-clean-to-select.gif
+<!-- temporarily switching GIFs to PNGs to remove animation --> 
+[type-automobile]:./media/machine-learning-create-experiment/type-automobile.png
+[type-select-columns]:./media/machine-learning-create-experiment/type-select-columns.png
+[launch-column-selector]:./media/machine-learning-create-experiment/launch-column-selector.png
+[add-comment]:./media/machine-learning-create-experiment/add-comment.png
+[connect-clean-to-select]:./media/machine-learning-create-experiment/connect-clean-to-select.png
+
 [set-split-data-percentage]:./media/machine-learning-create-experiment/set-split-data-percentage.png
-[connect-train-model]:./media/machine-learning-create-experiment/connect-train-model.gif
-[select-price-column]:./media/machine-learning-create-experiment/select-price-column.gif
+
+<!-- temporarily switching GIFs to PNGs to remove animation --> 
+[connect-train-model]:./media/machine-learning-create-experiment/connect-train-model.png
+[select-price-column]:./media/machine-learning-create-experiment/select-price-column.png
+
 [score-model-output]:./media/machine-learning-create-experiment/score-model-output.png
 
 <!-- Module References -->
