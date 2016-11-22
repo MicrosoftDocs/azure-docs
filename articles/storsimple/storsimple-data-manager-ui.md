@@ -24,21 +24,21 @@ This article explains how you can use the StorSimple Data Manager UI to perform 
 
 ## Use StorSimple Data Transformation
 
-The StorSimple Data Manager is the resource within which Data Transformation can be instantiated. The Data Transformation service lets you move data from your StorSimple on-premises device to blobs in Azure storage. Hence, in the flow that we will see, you will need to specify details about your StorSimple device and the data of interest that you want to move to the storage account.
+The StorSimple Data Manager is the resource within which Data Transformation can be instantiated. The Data Transformation service lets you move data from your StorSimple on-premises device to blobs in Azure storage. Hence, in workflow you need to specify the details about your StorSimple device and the data of interest that you want to move to the storage account.
 
 ### Create a StorSimple Data Manager service
 
-Perform the following steps to create new StorSimple Data Manager service.
+Perform the following steps to create a StorSimple Data Manager service.
 
 1. To create a StorSimple Data Manager service, go to [https://aka.ms/HybridDataManager](https://aka.ms/HybridDataManager)
 
 2. Click the **+** icon and search for StorSimple Data Manager. Click your StorSimple Data Manager service and then click **Create**.
 
-3. If your subscription is enabled for creating this service, you will see the following blade.
+3. If your subscription is enabled for creating this service, you see the following blade.
 
-    ![Create new StorSimple Data Managers resource](./media/storsimple-data-manager-ui/create-new-data-manager-service.png)
+    ![Create a StorSimple Data Managers resource](./media/storsimple-data-manager-ui/create-new-data-manager-service.png)
 
-4. Enter the inputs and click **Create**. Note that the specified location should be the one that houses your storage accounts and your StorSimple Manager service. Currently, only West US and West Europe regions are supported. This means that your StorSimple Manager service, Data Manager and the associated storage account should all be in these regions. It takes about a minute to create the service.
+4. Enter the inputs and click **Create**. The specified location should be the one that houses your storage accounts and your StorSimple Manager service. Currently, only West US and West Europe regions are supported. Hence, your StorSimple Manager service, Data Manager service, and the associated storage account should all be in the preceding supported regions. It takes about a minute to create the service.
 
 ### Create a data transformation job definition
 
@@ -46,19 +46,19 @@ Within a StorSimple Data Manager service, you need to create a data transformati
 
 Perform the following steps to create a new data transformation job definition.
 
-1.	Navigate to the service that you just created. Click **+ Job Definition**.
+1.	Navigate to the service that you created. Click **+ Job Definition**.
 
     ![Click +Job Definition](./media/storsimple-data-manager-ui/click-add-job-definition.png)
 
 2. The new job definition blade opens up. Give your job definition a name and click **Source**. In the **Configure data source** blade, specify the details of your StorSimple device and the data of interest.
 
-    ![Create new job definition](./media/storsimple-data-manager-ui//create-new-job-deifnition.png)
+    ![Create job definition](./media/storsimple-data-manager-ui//create-new-job-deifnition.png)
 
 3. Since this is a new Data Manager service, no data repositories are configured. To add your StorSimple Manager as a data repository, click **Add new** in the data repository dropdown and then click **Add Data Repository**.
 
 4. Choose **StorSimple 8000 series Manager** as the repository type and enter the properties of your **StorSimple Manager**. For the **Resource Id** field, you need to enter the number before the **:** in the registration key of your StorSimple manager.
 
-    ![Create new data source](./media/storsimple-data-manager-ui/create-new-data-source.png)
+    ![Create data source](./media/storsimple-data-manager-ui/create-new-data-source.png)
 
 5.	Click **OK** when done. This saves your data repository and this StorSimple Manager can be reused in other job definitions without entering these parameters again. It takes a few seconds after you click **OK** for the StorSimple Manager to show up in the dropdown.
 
@@ -66,15 +66,15 @@ Perform the following steps to create a new data transformation job definition.
 
 7.	In the **Filter** subsection, enter the root directory that contains your data of interest (this field should start with a `\`). You can also add any file filters here.
 
-8.	The data transformation service works on the data that is pushed up to the Azure via snapshots. While running this job, you have an option to choose if you want the backup to be taken every time this job is run (to work on latest data) or to use the last existing backup in the cloud (if you are working on some archived data).
+8.	The data transformation service works on the data that is pushed up to the Azure via snapshots. When running this job, you can choose to take a backup every time this job is run (to work on latest data) or to use the last existing backup in the cloud (if you are working on some archived data).
 
     ![New data source details](./media/storsimple-data-manager-ui/new-data-source-details.png)
 
-9. Next, the Target settings need to be configured. There are 2 types of supported targets – Azure Storage accounts and Azure Media Services accounts. Choosing storage accounts puts files into blobs in that account. Choosing media services account puts files into assets in that account. Again, we need to add a repository. In the dropdown, select **Add new** and then **Configure settings**.
+9. Next, the Target settings need to be configured. There are 2 types of supported targets – Azure Storage accounts and Azure Media Services accounts. Choose storage accounts to put files into blobs in that account. Choose media services account to put files into assets in that account. Again, we need to add a repository. In the dropdown, select **Add new** and then **Configure settings**.
 
-    ![Create new data sink](./media/storsimple-data-manager-ui/create-new-data-sink.png)
+    ![Create data sink](./media/storsimple-data-manager-ui/create-new-data-sink.png)
 
-10. Here, you can select the type of repository you want to add and the other parameters associated with the repository. In both cases, a storage queue is created when the job runs. This queue is populated with messages about transformed blobs as they are ready. The name of this queue is the same as the name of the job definition. If you select **Media Services** as the repo type, then you can also enter storage account credentials where the queue will be created.
+10. Here, you can select the type of repository you want to add and the other parameters associated with the repository. In both cases, a storage queue is created when the job runs. This queue is populated with messages about transformed blobs as they are ready. The name of this queue is the same as the name of the job definition. If you select **Media Services** as the repo type, then you can also enter storage account credentials where the queue is created.
 
     ![New data sink details](./media/storsimple-data-manager-ui/new-data-sink-details.png)
 
@@ -96,7 +96,7 @@ Whenever you need to move data from StorSimple to the storage account that you h
 
     ![Run job settings](./media/storsimple-data-manager-ui/run-settings.png)
 
-3. Click **OK** and then click **Run**. This will launch your job. To monitor this job, go to **Jobs** page in your StorSimple Data Manager.
+3. Click **OK** and then click **Run** to launch your job. To monitor this job, go to the **Jobs** page in your StorSimple Data Manager.
 
     ![Jobs list and status](./media/storsimple-data-manager-ui/jobs-list-and-status.png)
 
