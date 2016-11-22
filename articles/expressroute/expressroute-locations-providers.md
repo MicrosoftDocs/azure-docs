@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/02/2016
+ms.date: 11/22/2016
 ms.author: cherylmc
 
 ---
@@ -117,13 +117,13 @@ To learn more, see [ExpressRoute in China](http://www.windowsazure.cn/home/featu
 If your connectivity provider is not listed in previous sections, you can still create a connection.
 
 * Check with your connectivity provider to see if they are connected to any of the exchanges in the table above. You can check the following links to gather more information about services offered by exchange providers. Several connectivity providers are already connected to Ethernet exchanges.
-  
+  * [Cologix](http://www.cologix.com/)
+  * [CoreSite](http://www.coresite.com/)
   * [Equinix Cloud Exchange](http://www.equinix.com/services/interconnection-connectivity/cloud-exchange/)
-  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
   * [InterXion](http://www.interxion.com/)
   * [NextDC](http://www.nextdc.com/)
-  * [CoreSite](http://www.coresite.com/)
-  * [Cologix](http://www.cologix.com/)
+  * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
+  * [TeleCity CloudIX](http://www.telecitygroup.com/colocation-services/cloud-ix.htm)
 * Have your connectivity provider extend your network to the peering location of choice.
   * Ensure that your connectivity provider extends your connectivity in a highly available manner so that there are no single points of failure.
 * Order an ExpressRoute circuit with the exchange as your connectivity provider to connect to Microsoft.
