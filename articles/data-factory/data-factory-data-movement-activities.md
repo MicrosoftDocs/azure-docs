@@ -66,7 +66,7 @@ You can use Copy Activity to **copy files as-is** between two file-based data st
 Copy Activity also reads from and writes to files in specified formats: **text, Avro, ORC, Parquet, and JSON**. You can do the following copy activities, for example:
 
 * Copy data in text (CSV) format from Azure Blob and write to Azure SQL Database.
-* Copy file in text (CSV) format from File System on-premises and write to Azure Blob in Avro format.
+* Copy files in text (CSV) format from File System on-premises and write to Azure Blob in Avro format.
 * Copy data in Azure SQL Database and write to HDFS on-premises in ORC format.
 
 ## <a name="global"></a>Globally available data movement
