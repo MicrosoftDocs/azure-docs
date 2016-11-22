@@ -1,4 +1,4 @@
-﻿---
+---
 title: Detect Face and Emotion with Azure Media Analytics | Microsoft Docs
 description: This topic demonstrates how to detect faces and emotions with Azure Media Analytics.
 services: media-services
@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/17/2016
 ms.author: milanga;juliako;
 
 ---
@@ -69,14 +69,7 @@ The face detection and tracking JSON includes the following attributes:
 Face Detector uses techniques of fragmentation (where the metadata can be broken up in time-based chunks and you can download only what you need), and segmentation (where the events are broken up in case they get too large). Some simple calculations can help you transform the data. For example, if an event started at 6300 (ticks), with a timescale of 2997 (ticks/sec) and framerate of 29.97 (frames/sec), then:
 
 * Start/Timescale = 2.1 seconds
-* Seconds x (Framerate/Timescale) = 63 frames
-
-Below is a simple example of extracting the JSON into a per frame format for face detection and tracking:
-
-    var faceDetectionResultJsonString = operationResult.ProcessingResult;
-    var faceDetecionTracking = 
-         JsonConvert.DeserializeObject<FaceDetectionResult>(faceDetectionResultJsonString, settings);
-
+* Seconds x Framerate = 63 frames
 
 ## Face detection input and output example
 ### Input video

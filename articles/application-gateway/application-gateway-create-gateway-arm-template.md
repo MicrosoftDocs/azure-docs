@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 11/16/2016
 ms.author: gwallace
 
 ---
 # Create an application gateway by using the Azure Resource Manager template
+
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
@@ -37,6 +38,7 @@ You learn how to download and modify an existing Azure Resource Manager template
 If you are simply deploying the Azure Resource Manager template directly from GitHub without any changes, skip to deploy a template from GitHub.
 
 ## Scenario
+
 In this scenario you will:
 
 * Create an application gateway with two instances.
@@ -52,6 +54,7 @@ In this scenario you will:
 ![Scenario](./media/application-gateway-create-gateway-arm-template/scenario.png)
 
 ## Download and understand the Azure Resource Manager template
+
 You can download the existing Azure Resource Manager template to create a virtual network and two subnets from GitHub, make any changes you might want, and reuse it. To do so, use the following steps:
 
 1. Navigate to [Create Application Gateway](https://github.com/Azure/azure-quickstart-templates/tree/master/101-application-gateway-create).
@@ -118,6 +121,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 6. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
 
 ## Deploy the Azure Resource Manager template by using PowerShell
+
 If you have never used Azure PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions to sign into Azure and select your subscription.
 
 ### Step 1
@@ -127,6 +131,7 @@ Login-AzureRmAccount
 ```
 
 ### Step 2
+
 Check the subscriptions for the account.
 
 ```powershell
@@ -136,6 +141,7 @@ Get-AzureRmSubscription
 You are prompted to authenticate with your credentials.
 
 ### Step 3
+
 Choose which of your Azure subscriptions to use.
 
 ```powershell
@@ -143,6 +149,7 @@ Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### Step 4
+
 If needed, create a resource group by using the **New-AzureResourceGroup** cmdlet. In the following example, you create a resource group called AppgatewayRG in East US location.
 
 ```powershell
@@ -157,12 +164,15 @@ New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroup
 ```
 
 ## Deploy the Azure Resource Manager template by using the Azure CLI
+
 To deploy the Azure Resource Manager template you downloaded by using Azure CLI, follow the steps below:
 
 ### Step 1
+
 If you have never used Azure CLI, see [Install and configure the Azure CLI](../xplat-cli-install.md) and follow the instructions up to the point where you select your Azure account and subscription.
 
 ### Step 2
+
 Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
 ```azurecli
@@ -176,6 +186,7 @@ info:    New mode is arm
 ```
 
 ### Step 3
+
 If necessary, run the **azure group create** command to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ```azurecli
@@ -187,6 +198,7 @@ azure group create -n appgatewayRG -l eastus
 **-l (or --location)**. Azure region where the new resource group is created. For our scenario, it's *eastus*.
 
 ### Step 4
+
 Run the **azure group deployment create** cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
 ```azurecli
@@ -194,28 +206,35 @@ azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\
 ```
 
 ## Deploy the Azure Resource Manager template by using click-to-deploy
+
 Click-to-deploy is another way to use Azure Resource Manager templates. It's an easy way to use templates with the Azure portal.
 
 ### Step 1
+
 Go to [Create an application gateway with public IP](https://azure.microsoft.com/documentation/templates/101-application-gateway-public-ip/).
 
 ### Step 2
+
 Click **Deploy to Azure**.
 
 ![Deploy to Azure](./media/application-gateway-create-gateway-arm-template/deploytoazure.png)
 
 ### Step 3
+
 Fill out the parameters for the deployment template on the portal and click **OK**.
 
 ![Parameters](./media/application-gateway-create-gateway-arm-template/ibiza1.png)
 
 ### Step 4
+
 Select **Legal terms** and click **Buy**.
 
 ### Step 5
+
 On the Custom deployment blade, click **Create**.
 
 ## Next steps
+
 If you want to configure SSL offload, see [Configure an application gateway for SSL offload](application-gateway-ssl.md).
 
 If you want to configure an application gateway to use with an internal load balancer, see [Create an application gateway with an internal load balancer (ILB)](application-gateway-ilb.md).

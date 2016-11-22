@@ -1,14 +1,14 @@
-﻿---
+---
 title: Azure Queues and Service Bus queues - compared and contrasted | Microsoft Docs
 description: Analyzes differences and similarities between two types of queues offered by Azure.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: tysonn
 
 ms.assetid: f07301dc-ca9b-465c-bd5b-a0f99bab606b
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

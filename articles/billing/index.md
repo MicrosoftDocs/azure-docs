@@ -7,7 +7,7 @@ Customers and partners require the ability to accurately predict and manage thei
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/billing-usage-rate-card-overview">
+        <a href="/azure/billing/billing-understand-your-bill">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -25,7 +25,7 @@ Customers and partners require the ability to accurately predict and manage thei
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/free/">
+        <a href="https://azure.microsoft.com/free">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -66,8 +66,22 @@ Customers and partners require the ability to accurately predict and manage thei
 
 ## Reference
 
-### REST
-[Billing REST API Reference](https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Billing REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+</ul>
 
 ---
 

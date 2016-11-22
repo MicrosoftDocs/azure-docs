@@ -5,7 +5,6 @@ services: dns
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 
 ms.assetid: 257da6ec-d6e2-4b6f-ad76-ee2dde4efbcc
 ms.service: dns
@@ -158,8 +157,8 @@ The following PowerShell example demonstrates how this works. The same steps can
 First, we create the parent and child zones. These can be in same resource group or different resource groups.
 
 ```powershell
-    $parent = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName RG1
-    $child = New-AzureRmDnsZone -Name partners.contoso.com -ResourceGroupName RG1
+$parent = New-AzureRmDnsZone -Name contoso.com -ResourceGroupName RG1
+$child = New-AzureRmDnsZone -Name partners.contoso.com -ResourceGroupName RG1
 ```
 
 #### Step 2. Retrieve NS records
@@ -167,7 +166,7 @@ First, we create the parent and child zones. These can be in same resource group
 Next, we retrieve the authoritative NS records from child zone as shown in the next example.  This contains the name servers assigned to the child zone.
 
 ```powershell
-    $child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
+$child_ns_recordset = Get-AzureRmDnsRecordSet -Zone $child -Name "@" -RecordType NS
 ```
 
 #### Step 3. Delegate the child zone
@@ -175,9 +174,9 @@ Next, we retrieve the authoritative NS records from child zone as shown in the n
 Create corresponding NS record set in the parent zone to complete the delegation. Note that the record set name in the parent zone matches the child zone name, in this case "partners".
 
 ```powershell
-    $parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
-    $parent_ns_recordset.Records = $child_ns_recordset.Records
-    Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
+$parent_ns_recordset = New-AzureRmDnsRecordSet -Zone $parent -Name "partners" -RecordType NS -Ttl 3600
+$parent_ns_recordset.Records = $child_ns_recordset.Records
+Set-AzureRmDnsRecordSet -RecordSet $parent_ns_recordset
 ```
 
 ### To verify name resolution is working
