@@ -1,7 +1,8 @@
 ---
 layout: HubPage
 hide_bc: true
-title: Microsoft Azure Documentation
+title: Microsoft Azure Documentation | Microsoft Docs
+description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -338,7 +339,7 @@ title: Microsoft Azure Documentation
                                         <li>
                                             <a href="https://docs.botframework.com/en-us/azure-bot-service/">
                                                 <img src="media/index/bot-service.svg" alt="" />
-                                                <p>Bot Service</p>
+                                                <p>Azure Bot Service</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1614,7 +1615,7 @@ title: Microsoft Azure Documentation
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Bot Service</h3>
+                                                    <h3>Azure Bot Service</h3>
                                                     <p>Intelligent, serverless bot service that scales on demand</p>
                                                 </div>
                                             </div>
