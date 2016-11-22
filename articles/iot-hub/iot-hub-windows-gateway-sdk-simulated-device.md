@@ -17,7 +17,7 @@ ms.date: 08/29/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK (beta) – send device-to-cloud messages with a simulated device using Windows
+# Azure IoT Gateway SDK – send device-to-cloud messages with a simulated device using Windows
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## Build and run the sample
@@ -47,74 +47,84 @@ In a text editor, open the file **samples\\simulated_device_cloud_upload\\src\\s
 ```
 {
     "modules" :
-    [ 
-        {
-            "module name" : "IoTHub",
-            "loading args": {
-              "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\iothub\\Debug\\iothub_hl.dll"
-            },
-            "args" : 
-            {
-                "IoTHubName" : "{Your IoT hub name}",
-                "IoTHubSuffix" : "azure-devices.net",
-                "Transport": "HTTP"
-            }
+    [
+      {
+        "name": "IotHub",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\iothub\\Debug\\iothub.dll"
+          }
+          },
+          "args": {
+            "IoTHubName": "<<insert here IoTHubName>>",
+            "IoTHubSuffix": "<<insert here IoTHubSuffix>>",
+            "Transport": "HTTP"
+          }
         },
-        {
-            "module name" : "mapping",
-            "loading args": {
-              "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\identitymap\\Debug\\identity_map_hl.dll"
-            },
-            "args" : 
-            [
-                {
-                    "macAddress" : "01-01-01-01-01-01",
-                    "deviceId"   : "{Device ID 1}",
-                    "deviceKey"  : "{Device key 1}"
-                },
-                {
-                    "macAddress" : "02-02-02-02-02-02",
-                    "deviceId"   : "{Device ID 2}",
-                    "deviceKey"  : "{Device key 2}"
-                }
-            ]
-        },
-        {
-            "module name":"BLE1",
-            "loading args": {
-              "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\simulated_device\\Debug\\simulated_device_hl.dll"
-            },
-            "args":
+      {
+        "name": "mapping",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\identitymap\\Debug\\identity_map.dll"
+          }
+          },
+          "args": [
             {
-                "macAddress" : "01-01-01-01-01-01"
-            }
-        },
-        {
-            "module name":"BLE2",
-            "loading args": {
-              "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\simulated_device\\Debug\\simulated_device_hl.dll"
+              "macAddress": "01:01:01:01:01:01",
+              "deviceId": "<<insert here deviceId>>",
+              "deviceKey": "<<insert here deviceKey>>"
             },
-            "args":
             {
-                "macAddress" : "02-02-02-02-02-02"
+              "macAddress": "02:02:02:02:02:02",
+              "deviceId": "<<insert here deviceId>>",
+              "deviceKey": "<<insert here deviceKey>>"
             }
+          ]
         },
-        {
-            "module name":"Logger",
-            "loading args": {
-              "module path" : "C:\\azure-iot-gateway-sdk\\build\\modules\\logger\\Debug\\logger_hl.dll"
-            },
-            "args":
-            {
-                "filename":"C:\\azure-iot-gateway-sdk\\deviceCloudUploadGatewaylog.log"
-            }
+      {
+        "name": "BLE1",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\simulated_device\\Debug\\simulated_device.dll"
+          }
+          },
+          "args": {
+            "macAddress": "01:01:01:01:01:01"
+          }
+        },
+      {
+        "name": "BLE2",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\simulated_device\\Debug\\simulated_device.dll"
+          }
+          },
+          "args": {
+            "macAddress": "02:02:02:02:02:02"
+          }
+        },
+      {
+        "name": "Logger",
+        "loader": {
+          "name": "native",
+          "entrypoint": {
+            "module.path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
+          }
+        },
+        "args": {
+          "filename": "deviceCloudUploadGatewaylog.log"
         }
+      }
     ],
     "links" : [
         { "source" : "*", "sink" : "Logger" },
         { "source" : "BLE1", "sink" : "mapping" },
         { "source" : "BLE2", "sink" : "mapping" },
-        { "source" : "mapping", "sink" : "IoTHub" }
+        { "source" : "mapping", "sink" : "IotHub" }
     ]
 }
 ```

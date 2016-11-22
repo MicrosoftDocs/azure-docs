@@ -37,6 +37,7 @@ Check the FWLink tool for any FWLinks that might point to the article. Point any
 
 ## Step 5: File a work item with the ACOM team to remove any crosslinks to the article from other pages on azure.microsoft.com.
 ## Step 6: Create a redirect for the retired page, if it has been replaced by new content.
+The redirect process is documented [here](https://opsdocs.azurewebsites.net/opsdocs/partnerdocs/opredirection?branch=master).
 ## Step 7: Retire the article
 After you've completed the prior steps and those changes are live, you can delete the article from the repository.
 

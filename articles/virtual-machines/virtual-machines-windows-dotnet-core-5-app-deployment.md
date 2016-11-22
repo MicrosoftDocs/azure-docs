@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
 
 ---
@@ -29,10 +29,8 @@ Virtual Machine extensions are specialized programs that execute against virtual
 Before detailing how virtual machine extensions are declared in an Azure Resource Manager template, examine the script that is run. This script configures the Windows virtual machine to host the Music Store application. When run, the script installs all needed software, install the Music store application from source control, and prepare the database. 
 
 > This sample is for demonstration purposes.
-> 
-> 
 
-```none
+```PowerShell
 <#
     .SYNOPSIS
         Downloads and configures .Net Core Music Store application sample across IIS and Azure SQL DB.
@@ -87,7 +85,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 Notice in the below JSON that the script is stored in GitHub. This script could also be stored in Azure Blob storage. Also, Azure Resource Manager templates allow the script execution string to be constructed such that template parameters values can be used as parameters for script execution. In this case data is provided when deploying the templates, and these values can then be used when executing the script.
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "extensions",

@@ -17,7 +17,7 @@ ms.date: 08/25/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK (beta) - Get started using Windows
+# Azure IoT Gateway SDK - Get started using Windows
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## How to build the sample
@@ -40,18 +40,24 @@ Before you get started, you must [set up your development environment][lnk-setup
     {
       "modules": [
         {
-          "module name": "logger",
-          "loading args": {
-            "module path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
+          "name": "logger",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "..\\..\\..\\modules\\logger\\Debug\\logger.dll"
+            }
           },
           "args": { "filename": "log.txt" }
         },
         {
-          "module name": "hello_world",
-          "loading args": {
-            "module path": "..\\..\\..\\modules\\hello_world\\Debug\\hello_world.dll"
+          "name": "hello_world",
+          "loader": {
+            "name": "native",
+            "entrypoint": {
+              "module.path": "..\\..\\..\\modules\\hello_world\\Debug\\hello_world.dll"
+            }
           },
-            "args": null
+          "args": null
           }
       ],
       "links": [

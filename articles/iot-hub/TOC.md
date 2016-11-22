@@ -39,13 +39,18 @@
 ## [Send cloud-to-device messages (.NET)](iot-hub-csharp-csharp-c2d.md)
 ## [Send cloud-to-device messages (Java)](iot-hub-java-java-c2d.md)
 ## [Send cloud-to-device messages (Node)](iot-hub-node-node-c2d.md)
-## [Get started with device twins](iot-hub-node-node-twin-getstarted.md)
-## [How to use twin properties](iot-hub-node-node-twin-how-to-configure.md)
-## [Use direct methods](iot-hub-c2d-methods.md)
-## [Get started with device management](iot-hub-device-management-get-started.md)
-## [Use device jobs to update device firmware](iot-hub-firmware-update.md)
-## [Schedule and broadcast jobs](iot-hub-schedule-jobs.md)
-
+## [Get started with device twins (Node)](iot-hub-node-node-twin-getstarted.md)
+## [Get started with device twins (.NET/Node)](iot-hub-csharp-node-twin-getstarted.md)
+## [Use direct methods for Node.js](iot-hub-node-node-direct-methods.md)
+## [Use direct methods for .NET/Node](iot-hub-csharp-node-direct-methods.md)
+## [Get started with device management for Node.js](iot-hub-node-node-device-management-get-started.md)
+## [Get started with device management for .NET/Node](iot-hub-csharp-node-device-management-get-started.md)
+## [How to use twin properties (Node)](iot-hub-node-node-twin-how-to-configure.md)
+## [How to use twin properties (.NET/Node)](iot-hub-csharp-node-twin-how-to-configure.md)
+## [Use device jobs to update device firmware for Node.js](iot-hub-node-node-firmware-update.md)
+## [Use device jobs to update device firmware for .NET/Node](iot-hub-csharp-node-firmware-update.md)
+## [Schedule and broadcast jobs for Node.js](iot-hub-node-node-schedule-jobs.md)
+## [Schedule and broadcast jobs for .NET/Node](iot-hub-csharp-node-schedule-jobs.md)
 ## Plan your deployment
 ### [Comparison of IoT Hub to Event Hubs](iot-hub-compare-event-hubs.md)
 ### [Scale your solution](iot-hub-scaling.md)
@@ -54,6 +59,8 @@
 ## Develop
 ### [Introduction](iot-hub-devguide.md)
 ### [Send and receive messages](iot-hub-devguide-messaging.md)
+### [Device-to-cloud feature guide](iot-hub-devguide-d2c-guidance.md)
+### [Cloud-to-device feature guide](iot-hub-devguide-c2d-guidance.md)
 ### [Upload files from a device](iot-hub-devguide-file-upload.md)
 ### [Manage device identities](iot-hub-devguide-identity-registry.md)
 ### [Control access to IoT Hub](iot-hub-devguide-security.md)
@@ -63,6 +70,7 @@
 ### [IoT Hub endpoints](iot-hub-devguide-endpoints.md)
 ### [Query language](iot-hub-devguide-query-language.md)
 ### [Quotas and throttling](iot-hub-devguide-quotas-throttling.md)
+### [Pricing examples](iot-hub-devguide-pricing.md)
 ### [Device and service SDKs](iot-hub-devguide-sdks.md)
 ### [MQTT support](iot-hub-mqtt-support.md)
 ### [Glossary](iot-hub-devguide-glossary.md)
@@ -76,17 +84,16 @@
 ### [Bulk manage IoT devices](iot-hub-bulk-identity-mgmt.md)
 ### [Usage metrics](iot-hub-metrics.md)
 ### [Operations monitoring](iot-hub-operations-monitoring.md)
+### [Configure IP filtering](iot-hub-ip-filtering.md)
 ## Gateway SDK
 ### [Simulate a device with the Gateway SDK tutorial (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
 ### [Simulate a device with the Gateway SDK tutorial (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
 ### [Send messages from a real device with the Gateway SDK tutorial](iot-hub-gateway-sdk-physical-device.md)
-
 ## Secure
 ### [Security from the ground up](iot-hub-security-ground-up.md)
 ### [Security best practices](iot-hub-security-best-practices.md)
 ### [Security architecture](iot-hub-security-architecture.md)
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
-
 
 # Reference
 ## [Azure CLI](https://docs.microsoft.com/cli/azure)
