@@ -71,20 +71,103 @@ Let's take a brief look at how ReadFeed works. DocumentDB supports reading a fee
 Results can be limited by using the `x-ms-max-item-count` header, and reads can be resumed by resubmitting the request with a `x-ms-continuation` header returned in the previous response. When performed from a single client, `ReadDocumentFeed` iterates through results across partitions serially.
 
 **ReadDocumentFeed**
+
 ![DocumentDB ReadFeed serial execution](./media/documentdb-change-feed/readfeedserial.png)
 
 ### Distributed Execution of ReadFeed
 For collections that contain terabytes of data or more, or ingest a large volume of updates, serial execution of read feed from a single client machine might not be a practical solution. In order to support these big data scenarios, DocumentDB provides APIs to distribute `ReadDocumentFeed` calls transparently across a number of client readers/consumers. 
 
 **Distributed ReadDocumentFeed**
-![DocumentDB ReadFeed serial execution](./media/documentdb-change-feed/readfeedparallel.png)
+
+![DocumentDB ReadFeed distributed execution](./media/documentdb-change-feed/readfeedparallel.png)
+
+In order to provides scalable processing of incremental changes, DocumentDB supports a scale-out model for the ReadFeed API based on ranges of partition keys.
+
+* By performing a `ReadPartitionKeyRanges` call on the collection, you can obtain a list of partition key ranges for a collection. 
+* For each `ReadDocumentFeed` 
+
+### Retrieving Partition Key Ranges for a Collection
+You can retrive the Partition Key Ranges by requesting the `pkranges` resource within a collection. For example the following request retrieves the list of partition key ranges for the `serverlogs` collection:
+
+	GET https://querydemo.documents.azure.com/dbs/bigdb/colls/serverlogs/pkranges HTTP/1.1
+	x-ms-date: Tue, 15 Nov 2016 07:26:51 GMT
+	authorization: type%3dmaster%26ver%3d1.0%26sig%3dEConYmRgDExu6q%2bZ8GjfUGOH0AcOx%2behkancw3LsGQ8%3d
+	x-ms-consistency-level: Session
+	x-ms-version: 2016-07-11
+	Accept: application/json
+	Host: querydemo.documents.azure.com
+
+This request returns the following response containing metadata about the partition key ranges:
+
+	HTTP/1.1 200 Ok
+	Content-Type: application/json
+	x-ms-item-count: 25
+	x-ms-schemaversion: 1.1
+	Date: Tue, 15 Nov 2016 07:26:51 GMT
+
+	{
+	   "_rid":"qYcAAPEvJBQ=",
+	   "PartitionKeyRanges":[
+	      {
+	         "_rid":"qYcAAPEvJBQCAAAAAAAAUA==",
+	         "id":"0",
+	         "_etag":"\"00002800-0000-0000-0000-580ac4ea0000\"",
+	         "minInclusive":"",
+	         "maxExclusive":"05C1CFFFFFFFF8",
+	         "_self":"dbs\/qYcAAA==\/colls\/qYcAAPEvJBQ=\/pkranges\/qYcAAPEvJBQCAAAAAAAAUA==\/",
+	         "throughputFraction":0.04,
+	         "_ts":1477100776
+	      },
+	      ...
+	   ],
+	   "_count": 25
+	}
+
+
+**Partition Key Range Properties**:
+Each partition key range inherits properties of its source collection including ETag (`_etag`), ResourceId (`_rid`), and Timestamp (`_ts`). It also includes these metadata properties. The key property retured in `pkranges` is the id property, which is used within ReadFeed calls to parallelize reads across partitions. 
+
+<table>
+	<tr>
+		<th>Header name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>id</td>
+		<td>The ID for the partition key range. This is a stable and unique ID within each collection.</td>
+	</tr>
+	<tr>
+		<td>maxExclusive</td>
+		<td>The maximum partition key hash value for the partition key range. For internal use.</td>
+	</tr>
+	<tr>
+		<td>minInclusive</td>
+		<td>The minimum partition key hash value for the partition key range. For internal use.</td>
+	</tr>	
+</table>
+
+You can retrieve this information using one of the supported [DocumentDB SDKs](documentdb-sdk-dotnet.md). For example, the following snippet shows how to retrive partition key ranges in .NET.
+
+            List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
+            FeedResponse<PartitionKeyRange> response;
+
+            do
+            {
+                response = await client.ReadPartitionKeyRangeFeedAsync(collection);
+                partitionKeyRanges.AddRange(response);
+            }
+            while (response.ResponseContinuation != null);
+
+
+### Performing ReadDocumentFeed by Partition Key Range
+
+DocumentDB supports 
 
 ### Performing an Incremental ReadFeed
 With the new REST API version `2016-07-11` we introduce the following headers for performing incremental reads using ReadFeed. 
 
-Recall that DocumentDB collections use partitioning to scale-out data for higher storage and throughput. You can specify a partition key property for your collection, and data is organized within the physical partitions based on the values set for the partition key. In order to provides scalable processing of incremental changes, DocumentDB supports a scale-out model for the ReadFeed API based on ranges of partition keys.
+Recall that DocumentDB collections use partitioning to scale-out data for higher storage and throughput. You can specify a partition key property for your collection, and data is organized within the physical partitions based on the values set for the partition key. 
 
-By performing a `ReadPartitionKeyRanges` call on the collection, you can obtain a list of Partition Key Ranges for a collection. Updates to the documents within the collection are grouped into these partition key ranges, and you can read updates on a per-Partition Key Range basis.
 
 **Headers for incremental ReadFeed**:
 <table>
@@ -105,42 +188,5 @@ By performing a `ReadPartitionKeyRanges` call on the collection, you can obtain 
 		<td>The partition key range ID for reading data.</td>
 	</tr>
 </table>
-
-### Retrieving Partition Key Ranges for a Collection
-You can retrive the Partition Key Ranges by requesting the `pkranges` resource. For example the following request:
-
-	GET https://querydemo.documents.azure.com/dbs/bigdb/colls/serverlogs/pkranges HTTP/1.1
-	x-ms-date: Tue, 15 Nov 2016 07:26:51 GMT
-	authorization: type%3dmaster%26ver%3d1.0%26sig%3dEConYmRgDExu6q%2bZ8GjfUGOH0AcOx%2behkancw3LsGQ8%3d
-	x-ms-consistency-level: Session
-	x-ms-version: 2016-07-11
-	Accept: application/json
-	Host: querydemo.documents.azure.com
-
-Returns the following response containing metadata about the partition key ranges:
-
-	HTTP/1.1 200 Ok
-	Content-Type: application/json
-	x-ms-item-count: 4
-	x-ms-schemaversion: 1.1
-	Date: Tue, 15 Nov 2016 07:26:51 GMT
-
-	{
-	   "_rid":"qYcAAPEvJBQ=",
-	   "PartitionKeyRanges":[
-	      {
-	         "_rid":"qYcAAPEvJBQCAAAAAAAAUA==",
-	         "id":"0",
-	         "_etag":"\"00002800-0000-0000-0000-580ac4ea0000\"",
-	         "minInclusive":"",
-	         "maxExclusive":"05C1CFFFFFFFF8",
-	         "_self":"dbs\/qYcAAA==\/colls\/qYcAAPEvJBQ=\/pkranges\/qYcAAPEvJBQCAAAAAAAAUA==\/",
-	         "throughputFraction":0.25,
-	         "_ts":1477100776
-	      },
-	      ...
-	   ],
-	   "_count":4
-	}
 
 ChangeFeed support offers a scalable and efficient way of integrating DocumentDB with stream processing solutions like [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) and [Apache Spark](http://spark.apache.org/), batch analytics like [Apache Hadoop](https://azure.microsoft.com/services/hdinsight/) and [Azure Data Lake](https://azure.microsoft.com/services/data-lake-analytics/), and compute services like [Azure Functions](https://azure.microsoft.com/services/functions/). This makes it easy to implement Lambda architectures with DocumentDB as the write-optimized store. 
