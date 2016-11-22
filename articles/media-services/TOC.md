@@ -58,7 +58,7 @@
 ### Legacy encoders
 #### [Using the Azure Media Packager](media-services-static-packaging.md)
 
-## [Live streaming](media-services-manage-channels-overview.md)
+## [Stream live](media-services-manage-channels-overview.md)
 ### [On-premise encoders](media-services-live-streaming-with-onprem-encoders.md)
 ### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
 ### Cloud encoder tutorials
@@ -68,7 +68,8 @@
 ### [Handle long-running operations](media-services-dotnet-long-operations.md)
 ### [Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
 ### [Dynamic packaging](media-services-dynamic-packaging-overview.md)
-## Configure encoders for a single bitrate live stream
+
+## Configure encoders
 ### [Elemental Live encoder](media-services-configure-elemental-live-encoder.md)
 ### [FMLE encoder ](media-services-configure-fmle-live-encoder.md)
 ### [NewTek TriCaster encoder](media-services-configure-tricaster-live-encoder.md)
@@ -108,7 +109,7 @@
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
 
-## Telemetry
+## Configure telemetry
 ###[.NET](media-services-dotnet-telemetry.md)
 ###[REST](media-services-rest-telemetry.md)
 
