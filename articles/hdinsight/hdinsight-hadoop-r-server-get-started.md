@@ -371,7 +371,7 @@ With R Server you can easily take existing R code and run it across multiple nod
 
     rxExec( function() {Sys.info()["nodename"]}, timesToRun = 4 )
 
-If you are still using the Spark or MapReduce context, this will return the nodename value for the worker nodes that the code (`Sys.info()["nodename"]`) is ran on. For example, on a four node cluster, you may receive output similar to the following.
+If you are still using the Spark or MapReduce context, this will return the nodename value for the worker nodes that the code `(Sys.info()["nodename"])` is ran on. For example, on a four node cluster, you may receive output similar to the following.
 
     $rxElem1
         nodename
