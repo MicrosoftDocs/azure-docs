@@ -125,7 +125,7 @@ A *SqlFilter* is an instance of the [SqlFilter Class](../Topic/SqlFilter%20Class
 ```  
   
 ### Remarks  
- `<escape_char>` must be an expression that is evaluated as a string of length 1. It is used as a escape character for the LIKE operator.  
+ `<escape_char>` must be an expression that is evaluated as a string of length 1. It is used as an escape character for the LIKE operator.  
   
  For example, `property LIKE 'ABC\%' ESCAPE '\'` matches `ABC%` rather than a string that starts with `ABC`.  
   
