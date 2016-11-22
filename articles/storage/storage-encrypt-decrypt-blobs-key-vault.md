@@ -3,8 +3,8 @@ title: 'Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azu
 description: This tutorial walks you through how to encrypt and decrypt a blob using client-side encryption for Microsoft Azure Storage with Azure Key Vault.
 services: storage
 documentationcenter: ''
-author: robinsh
-manager: carmonm
+author: adhurwit
+manager: jasonsav
 editor: tysonn
 
 ms.assetid: 027e8631-c1bf-48c1-9d9b-f6843e88b583
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/18/2016
-ms.author: lakasa;robinsh
+ms.author: adhurwit
 
 ---
 # Tutorial: Encrypt and decrypt blobs in Microsoft Azure Storage using Azure Key Vault
@@ -204,7 +204,7 @@ The way to use a secret with client-side encryption is via the SymmetricKey clas
 * A Key Vault secret that will be used as a SymmetricKey needs to have a Content Type of "application/octet-stream" in Key Vault.
 
 Here is an example in PowerShell of creating a secret in Key Vault that can be used as a SymmetricKey.
-NOTE: The hard coded value, $key, is for demonstration purpose only. In your own code you'll want to generate this key.
+Please note that the hard coded value, $key, is for demonstration purpose only. In your own code you'll want to generate this key.
 
 ```csharp
 // Here we are making a 128-bit key so we have 16 characters.
