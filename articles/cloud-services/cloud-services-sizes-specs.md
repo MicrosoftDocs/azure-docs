@@ -166,7 +166,7 @@ You can specify the Virtual Machine size of a role instance as part of the servi
 Here is an example for setting the role size to be [Standard_D2](#general-purpose-d) for a Web Role instance:
 
 ```xml
-<WorkerRole name="Worker1" vmsize="<mark>Standard_D2</mark>">
+<WorkerRole name="Worker1" vmsize="Standard_D2">
 ...
 </WorkerRole>
 ```
