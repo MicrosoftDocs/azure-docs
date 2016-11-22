@@ -161,7 +161,7 @@ To manage Azure Storage using Azure PowerShell, you need to authenticate your cl
 
 	```powershell
 	Get-AzureSubscription | Format-Table SubscriptionName, IsDefault, IsCurrent, CurrentStorageAccountName`
-	````
+	```
 5. To set a default Azure subscription, run the Select-AzureSubscription cmdlet:
 
 	```powershell

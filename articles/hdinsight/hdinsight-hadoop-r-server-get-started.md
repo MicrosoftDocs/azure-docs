@@ -13,7 +13,7 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/17/2016
+ms.date: 11/21/2016
 ms.author: jeffstok
 
 ---
