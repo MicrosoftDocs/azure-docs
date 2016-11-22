@@ -43,6 +43,8 @@ You can access Advisor through the [Azure portal](https://aka.ms/azureadvisordas
 
 > [!NOTE]
 > Azure Advisor generates recommendations for subscriptions where you are assigned the role of **Owner**, **Contributor**, or **Reader**.
+Please note: Azure Advisor would not work if your account has been suspended or if you're using a free account.
+It's also not available for the DreamSpark account as this service is still in preview.
 
 You can click a recommendation to learn additional information about it. You can also learn about actions you can perform to take advantage of an opportunity or resolve an issue. 
 Advisor offers recommendations with inline actions or documentation links. Clicking an inline action takes you through a “guided user journey” to implement it. Clicking a documentation link points you to the documentation that describes how you can manually implement the action. 
@@ -57,6 +59,7 @@ You can access Advisor through the Azure portal. Sign into the portal, select **
 ### What permissions do I need to access Advisor?
 
 To view Advisor recommendations, you must have access to at least one subscription. Your role must be either **Owner**, **Contributor**, or **Reader** for the subscription. Subscription owners and contributors can compute/generate recommendations. However, with a **Reader** role, you can only view Advisor recommendations. 
+You would need to enable Azure Security Center to recieve security recommendations when you're using Azure Advisor for the first time.
 
 ### How often are Advisor recommendations updated?
 
