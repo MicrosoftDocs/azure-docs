@@ -14,11 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 11/16/2016
 ms.author: gwallace
 
 ---
 # Create an application gateway by using the Azure CLI
+
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-create-gateway-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-gateway-arm.md)
@@ -31,6 +32,7 @@ ms.author: gwallace
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. Application gateway has the following application delivery features: HTTP load balancing, cookie-based session affinity, and Secure Sockets Layer (SSL) offload, custom health probes, and support for multi-site.
 
 ## Prerequisite: Install the Azure CLI
+
 To perform the steps in this article, you need to [install the Azure Command-Line Interface for Mac, Linux, and Windows (Azure CLI)](../xplat-cli-install.md) and you need to [log on to Azure](../xplat-cli-connect.md). 
 
 > [!NOTE]
@@ -39,6 +41,7 @@ To perform the steps in this article, you need to [install the Azure Command-Lin
 > 
 
 ## Scenario
+
 In this scenario, you learn how to create an application gateway using the Azure portal.
 
 This scenario will:
@@ -56,10 +59,12 @@ This scenario will:
 > 
 
 ## Before you begin
+
 Azure Application Gateway requires its own subnet. When creating a virtual network, ensure that you leave enough address space to have multiple subnets. Once you deploy an application gateway to a subnet,
 only additional application gateways are able to be added to the subnet.
 
 ## Log in to Azure
+
 Open the **Microsoft Azure Command Prompt**, and log in. 
 
 ```azurecli
@@ -85,6 +90,7 @@ azure config mode arm
 ```
 
 ## Create the resource group
+
 Before creating the application gateway, a resource group is created to contain the application gateway. The following shows the command.
 
 ```azurecli
@@ -92,6 +98,7 @@ azure group create -n AdatumAppGatewayRG -l eastus
 ```
 
 ## Create a virtual network
+
 Once the resource group is created, a virtual network is created for the application gateway.  In the following example, the address space was as 10.0.0.0/16 as defined in the preceding scenario notes.
 
 ```azurecli
@@ -99,6 +106,7 @@ azure network vnet create -n AdatumAppGatewayVNET -a 10.0.0.0/16 -g AdatumAppGat
 ```
 
 ## Create a subnet
+
 After the virtual network is created, a subnet is added for the application gateway.  If you plan to use application gateway with a web app hosted in the same virtual network as the application gateway, be sure to leave enough room for another subnet.
 
 ```azurecli
@@ -106,6 +114,7 @@ azure network vnet subnet create -g AdatumAppGatewayRG -n Appgatewaysubnet -v Ad
 ```
 
 ## Create the application gateway
+
 Once the virtual network and subnet are created, the pre-requisites for the application gateway are complete. Additionally a previously exported .pfx certificate and the password for the certificate are required for the following step:
 The IP addresses used for the backend are the IP addresses for your backend server. These values can be either private IPs in the virtual network, public ips, or fully qualified domain names for your backend servers.
 
@@ -122,6 +131,7 @@ This example creates a basic application gateway with default settings for the l
 If you already have your web application defined with the the backend pool in the preceding steps, once created, load balancing begins.
 
 ## Next steps
+
 Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
 
 Learn how to configure SSL Offloading and take the costly SSL decryption off your web servers by visiting [Configure SSL Offload](application-gateway-ssl-arm.md)

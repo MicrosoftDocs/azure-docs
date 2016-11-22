@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 11/17/2016
 ms.author: tamram
 
 ---
@@ -243,3 +243,7 @@ To learn more about Azure Storage, explore these resources:
 * [How to use Queue storage from Python](storage-python-how-to-use-queue-storage.md)
 * [How to use File storage from Python](storage-python-how-to-use-file-storage.md)
 
+## Next steps
+
+* [Create a storage account](storage-create-storage-account.md)
+* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)

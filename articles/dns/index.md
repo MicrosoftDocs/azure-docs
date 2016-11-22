@@ -25,7 +25,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
         </a>
     </li>
     <li>
-        <a href="/azure/dns-dns-getstarted-create-dnszone-portal">
+        <a href="/azure/dns/dns-getstarted-create-dnszone-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
         </a>
     </li>
     <li>
-        <a href="/azure/dns-dns-getstarted-create-dnszone">
+        <a href="/azure/dns/dns-getstarted-create-dnszone">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
         </a>
     </li>
      <li>
-        <a href="/azure/dns-dns-getstarted-create-recordset">
+        <a href="/azure/dns/dns-getstarted-create-recordset">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

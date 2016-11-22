@@ -166,9 +166,50 @@ With Power BI, you can create dashboards that bring together data from a wide va
 
 [Learn more about export to Power BI](app-insights-export-power-bi.md)
 
-## REST API
 
-You can run Analytics queries through a [REST API](https://dev.applicationinsights.io), for example using PowerShell. The query API is in preview.
+## Automation
+
+You can run Analytics queries through the  [Data Access REST API](https://dev.applicationinsights.io/), for example using PowerShell.
+
+
+
+## Import data
+
+You can import data from a CSV file. A typical usage is to import static data that you can join with tables from your telemetry. 
+
+For example, if authenticated users are identified in your telemetry by an alias or obfuscated id, you could import a table that maps aliases to real names. By performing a join on the request telemetry, you can identify users by their real names in the Analytics reports.
+
+### Define your data schema
+
+1. Click **Settings** (at top left) and then **Data Sources**. 
+2. Add a data source, following the instructions. You are asked to supply a sample of the data, which should include at least ten rows. You then correct the schema.
+
+This defines a data source, which you can then use to import individual tables.
+
+### Import a table
+
+1. Open your data source definition from the list.
+2. Click "Upload" and follow the instructions to upload the table. This involves a call to a REST API, and so it is easy to automate. 
+
+Your table is now available for use in Analytics queries. It will appear in Analytics 
+
+### Use the table
+
+Let's suppose your data source definition is called `usermap`, and that it has two fields, `realName` and `user_AuthenticatedId`. The `requests` table also has a field named `user_AuthenticatedId`, so it's easy to join them:
+
+```AIQL
+
+    requests
+    | where notempty(user_AuthenticatedId) | take 10
+    | join kind=leftouter ( usermap ) on user_AuthenticatedId 
+```
+The resulting table of requests has an additional column, `realName`.
+
+### Import from LogStash
+
+If you use [LogStash](https://www.elastic.co/guide/en/logstash/current/getting-started-with-logstash.html), you can use Analytics to query your logs. Use the [plugin that pipes data into Analytics](https://github.com/Microsoft/logstash-output-application-insights). 
+
+
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
 
