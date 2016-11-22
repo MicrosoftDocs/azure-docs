@@ -21,9 +21,9 @@ ms.author: limichel
 
 ## Introduction
 
-Microsoft Azure provides multiple services for managing how network traffic is distributed and load balanced. You may use these services individually or combine their methods based on your specific needs and build the optimal solution.
+Microsoft Azure provides multiple services for managing how network traffic is distributed and load-balanced. You may use these services individually or combine their methods based on your specific needs and build the optimal solution.
 
-In this tutorial, we first define a customer use case and see how it can be made more robust and performant using the following Azure load-balancing portfolio:  Traffic Manager, Application Gateway, and Load Balancer. We then provide step-by-step instructions for creating a deployment that is geographically redundant, distributes traffic to VMs, and provides abilities for managing different types of requests.
+In this tutorial, we first define a customer use case and see how it can be made more robust and performant by using the following Azure load-balancing portfolio:  Traffic Manager, Application Gateway, and Load Balancer. We then provide step-by-step instructions for creating a deployment that is geographically redundant, distributes traffic to VMs, and provides abilities for managing different types of requests.
 
 At a conceptual level, each of these services plays a distinct role in load balancing hierarchy.
 
