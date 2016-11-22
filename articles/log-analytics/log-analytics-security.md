@@ -92,7 +92,7 @@ If loss of any customer data occurs, we notify each customer within one day. How
 For more information about how Microsoft responds to security incidents, see [Microsoft Azure Security Response in the Cloud](https://gallery.technet.microsoft.com/Azure-Security-Response-in-dd18c678/file/150826/1/Microsoft Azure Security Response in the cloud.pdf).
 
 ## Compliance
-The OMS software development and service team's information security and governance program supports its business requirements and adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx). How OMS establishes security requirements, identifies security controls, manages, and monitors risks are also described there. Annually, we conduct a review of polices, standards, procedures, and guidelines.
+The OMS software development and service team's information security and governance program supports its business requirements and adheres to laws and regulations as described at [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/) and [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx). How OMS establishes security requirements, identifies security controls, manages, and monitors risks are also described there. Annually, we review polices, standards, procedures, and guidelines.
 
 Each OMS development team member receives formal application security training. Internally, we use a version control system for software development. Each software project is protected by the version control system.
 
@@ -103,7 +103,7 @@ Microsoft's board of directors is notified by an annual report about all informa
 The OMS software development and service team is actively working with the Microsoft Legal and Compliance teams and other industry partners to acquire various certifications.
 
 ## Certifications and attestations
-OMS Log Analytics meets the requirements of the following:
+OMS Log Analytics meets the following requirements:
 
 * [ISO/IEC 27001](http://www.iso.org/iso/home/standards/management-standards/iso27001.htm) and [ISO/IEC 27018:2014](http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=61498) compliant
 * [Payment Card Industry (PCI Compliant) Data Security Standard (PCI DSS)](https://www.microsoft.com/en-us/TrustCenter/Compliance/PCI) by the PCI Security Standards Council.
@@ -114,7 +114,7 @@ OMS Log Analytics meets the requirements of the following:
 * As an Azure service, the components that OMS uses adhere to Azure compliance requirements. You can read more at [Microsoft Trust Center Compliance](https://www.microsoft.com/en-us/TrustCenter/Compliance/default.aspx).
 
 > [!NOTE] 
-> In some certifications/attestations Log Analytics is listed under its former name of *Operational Insights*.
+> In some certifications/attestations, Log Analytics is listed under its former name of *Operational Insights*.
 >
 >
 
