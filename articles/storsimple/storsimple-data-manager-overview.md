@@ -17,7 +17,7 @@ ms.date: 11/22/2016
 ms.author: vidar
 ---
 
-# StorSimple Data Manager overview (Preview)
+# StorSimple Data Manager overview (Private Preview)
 
 ## Overview
 
@@ -49,18 +49,23 @@ The StorSimple Data Manager is in private preview. Perform the following steps t
 
 2.	Click the **+** icon to create a new service. Click **Storage** and then click **See All** in the following blade.
 
-    ![Search StorSimple Data Manager Icon](./media/search-data-manager-icon.png)
+    ![Search StorSimple Data Manager Icon](./media/storsimple-data-manager-overview/search-data-manager-icon.png)
 
 3. You will see the StorSimple Data Manager icon.
 
-    ![Select StorSimple Data Manager Icon](./media/3. Select-SS-Data-Manager-Icon.png)
+    ![Select StorSimple Data Manager Icon](./media/storsimple-data-manager-overview/select-data-manager-icon.png)
 
 4. Click StorSimple Data Manager icon and then click **Create**. Pick the subscription that you want to enable for the private preview and then click **Sign me up!**
 
-    ![Sign me up](./images/4. Sign-me-up.png)
+    ![Sign me up](./media/storsimple-data-manager-overview/sign-me-up.png)
 
 5. This sends us a request to onboard you. We will onboard you as soon as possible. After your subscription is enabled, you can create a StorSimple Data Manager service.
 
 6. To easily access the StorSimple Data Manager service, you can pin it to your favorites by clicking the star icon as below.
 
-    ![Access StorSimple Data Managers](./images/5. Access-SS-Data-Managers.png)
+    ![Access StorSimple Data Managers](./media/storsimple-data-manager-overview/access-data-managers.png)
+
+
+## Next steps
+
+[Use StorSimple Data Manager UI to transform your data](storsimple-data-manager-ui.md).
