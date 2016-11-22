@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2016
+ms.date: 11/22/2016
 ms.author: tomfitz
 
 ---
@@ -36,7 +36,7 @@ Resource Manager provides the following functions for working with integers:
 <a id="add" />
 
 ### add
-**add(operand1, operand2)**
+`add(operand1, operand2)`
 
 Returns the sum of the two provided integers.
 
@@ -72,7 +72,7 @@ The following example adds two parameters.
 <a id="copyindex" />
 
 ### copyIndex
-**copyIndex(offset)**
+`copyIndex(offset)`
 
 Returns the current index of an iteration loop. 
 
@@ -100,7 +100,7 @@ The following example shows a copy loop and the index value included in the name
 <a id="div" />
 
 ### div
-**div(operand1, operand2)**
+`div(operand1, operand2)`
 
 Returns the integer division of the two provided integers.
 
@@ -136,7 +136,7 @@ The following example divides one parameter by another parameter.
 <a id="int" />
 
 ### int
-**int(valueToConvert)**
+`int(valueToConvert)`
 
 Converts the specified value to Integer.
 
@@ -157,7 +157,7 @@ The following example converts the user-provided parameter value to Integer.
 <a id="mod" />
 
 ### mod
-**mod(operand1, operand2)**
+`mod(operand1, operand2)`
 
 Returns the remainder of the integer division using the two provided integers.
 
@@ -193,7 +193,7 @@ The following example returns the remainder of dividing one parameter by another
 <a id="mul" />
 
 ### mul
-**mul(operand1, operand2)**
+`mul(operand1, operand2)`
 
 Returns the multiplication of the two provided integers.
 
@@ -229,7 +229,7 @@ The following example multiplies one parameter by another parameter.
 <a id="sub" />
 
 ### sub
-**sub(operand1, operand2)**
+`sub(operand1, operand2)`
 
 Returns the subtraction of the two provided integers.
 
@@ -284,7 +284,7 @@ Resource Manager provides the following functions for working with strings:
 <a id="base64" />
 
 ### base64
-**base64 (inputString)**
+`base64 (inputString)`
 
 Returns the base64 representation of the input string.
 
@@ -302,7 +302,7 @@ The following example shows how to use the base64 function.
 <a id="concat" />
 
 ### concat - string
-**concat (string1, string2, string3, ...)**
+`concat (string1, string2, string3, ...)`
 
 Combines multiple string values and returns the concatenated string. 
 
@@ -326,7 +326,7 @@ The following example shows how to combine multiple string values to return a co
 <a id="lengthstring" />
 
 ### length - string
-**length(string)**
+`length(string)`
 
 Returns the number of characters in a string.
 
@@ -349,7 +349,7 @@ The following example returns the number of characters in a string.
 <a id="padleft" />
 
 ### padLeft
-**padLeft(valueToPad, totalLength, paddingCharacter)**
+`padLeft(valueToPad, totalLength, paddingCharacter)`
 
 Returns a right-aligned string by adding characters to the left until reaching the total specified length.
 
@@ -371,7 +371,7 @@ The following example shows how to pad the user-provided parameter value by addi
 <a id="replace" />
 
 ### replace
-**replace(originalString, oldCharacter, newCharacter)**
+`replace(originalString, oldCharacter, newCharacter)`
 
 Returns a new string with all instances of one character in the specified string replaced by another character.
 
@@ -393,7 +393,7 @@ The following example shows how to remove all dashes from the user-provided stri
 <a id="skipstring" />
 
 ### skip - string
-**skip(originalValue, numberToSkip)**
+`skip(originalValue, numberToSkip)`
 
 Returns a string with all the characters after the specified number in the string.
 
@@ -433,9 +433,9 @@ The following example skips the specified number of characters in the string.
 <a id="split" />
 
 ### split
-**split(inputString, delimiterString)**
+`split(inputString, delimiterString)`
 
-**split(inputString, delimiterArray)**
+`split(inputString, delimiterArray)`
 
 Returns an array of strings that contains the substrings of the input string that are delimited by the specified delimiters.
 
@@ -470,7 +470,7 @@ The next example splits the input string with either a comma or a semi-colon.
 <a id="string" />
 
 ### string
-**string(valueToConvert)**
+`string(valueToConvert)`
 
 Converts the specified value to a string.
 
@@ -506,7 +506,7 @@ The following example converts the user-provided parameter values to strings.
 <a id="substring" />
 
 ### substring
-**substring(stringToParse, startIndex, length)**
+`substring(stringToParse, startIndex, length)`
 
 Returns a substring that starts at the specified character position and contains the specified number of characters.
 
@@ -528,7 +528,7 @@ The following example extracts the first three characters from a parameter.
 <a id="takestring" />
 
 ### take - string
-**take(originalValue, numberToTake)**
+`take(originalValue, numberToTake)`
 
 Returns a string with the specified number of characters from the start of the string.
 
@@ -567,7 +567,7 @@ The following example takes the specified number of characters from the string.
 <a id="tolower" />
 
 ### toLower
-**toLower(stringToChange)**
+`toLower(stringToChange)`
 
 Converts the specified string to lower case.
 
@@ -587,7 +587,7 @@ The following example converts the user-provided parameter value to lower case.
 <a id="toupper" />
 
 ### toUpper
-**toUpper(stringToChange)**
+`toUpper(stringToChange)`
 
 Converts the specified string to upper case.
 
@@ -607,7 +607,7 @@ The following example converts the user-provided parameter value to upper case.
 <a id="trim" />
 
 ### trim
-**trim (stringToTrim)**
+`trim (stringToTrim)`
 
 Removes all leading and trailing white-space characters from the specified string.
 
@@ -627,7 +627,7 @@ The following example trims the white-space characters from the user-provided pa
 <a id="uniquestring" />
 
 ### uniqueString
-**uniqueString (baseString, ...)**
+`uniqueString (baseString, ...)`
 
 Creates a deterministic hash string based on the values provided as parameters. 
 
@@ -668,7 +668,7 @@ The following example shows how to create a unique name for a storage account ba
 <a id="uri" />
 
 ### uri
-**uri (baseUri, relativeUri)**
+`uri (baseUri, relativeUri)`
 
 Creates an absolute URI by combining the baseUri and the relativeUri string.
 
@@ -696,7 +696,7 @@ To get an array of string values delimited by a value, see [split](#split).
 <a id="concatarray" />
 
 ### concat - array
-**concat (array1, array2, array3, ...)**
+`concat (array1, array2, array3, ...)`
 
 Combines multiple arrays and returns the concatenated array. 
 
@@ -725,7 +725,7 @@ The following example shows how to combine two arrays.
 <a id="length" />
 
 ### length - array
-**length(array)**
+`length(array)`
 
 Returns the number of elements in an array.
 
@@ -747,7 +747,7 @@ For an example of using length with a string value, see [length - string](#lengt
 <a id="skip" />
 
 ### skip - array
-**skip(originalValue, numberToSkip)**
+`skip(originalValue, numberToSkip)`
 
 Returns an array with all the elements after the specified number in the array.
 
@@ -787,7 +787,7 @@ The following example skips the specified number of elements in the array.
 <a id="take" />
 
 ### take - array
-**take(originalValue, numberToTake)**
+`take(originalValue, numberToTake)`
 
 Returns an array with the specified number of elements from the start of the array.
 
@@ -836,7 +836,7 @@ To get values from resources, resource groups, or subscriptions, see [Resource f
 <a id="deployment" />
 
 ### deployment
-**deployment()**
+`deployment()`
 
 Returns information about the current deployment operation.
 
@@ -893,7 +893,7 @@ The following example shows how to use deployment() to link to another template 
 <a id="parameters" />
 
 ### parameters
-**parameters (parameterName)**
+`parameters (parameterName)`
 
 Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
 
@@ -920,7 +920,7 @@ The following example shows a simplified use of the parameters function.
 <a id="variables" />
 
 ### variables
-**variables (variableName)**
+`variables (variableName)`
 
 Returns the value of variable. The specified variable name must be defined in the variables section of the template.
 
@@ -957,9 +957,9 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 <a id="list" />
 
 ### listKeys and list{Value}
-**listKeys (resourceName or resourceIdentifier, apiVersion)**
+`listKeys (resourceName or resourceIdentifier, apiVersion)`
 
-**list{Value} (resourceName or resourceIdentifier, apiVersion)**
+`list{Value} (resourceName or resourceIdentifier, apiVersion)`
 
 Returns the values for any resource type that supports the list operation. The most common usage is **listKeys**. 
 
@@ -1007,7 +1007,7 @@ The returned object from listKeys has the following format:
 <a id="providers" />
 
 ### providers
-**providers (providerNamespace, [resourceType])**
+`providers (providerNamespace, [resourceType])`
 
 Returns information about a resource provider and its supported resource types. If you do not provide a resource type, the function returns all the supported types for the resource provider.
 
@@ -1036,7 +1036,7 @@ The following example shows how to use the provider function:
 <a id="reference" />
 
 ### reference
-**reference (resourceName or resourceIdentifier, [apiVersion])**
+`reference (resourceName or resourceIdentifier, [apiVersion])`
 
 Returns an object representing another resource's runtime state.
 
@@ -1091,7 +1091,7 @@ The properties on the object returned from the **reference** function vary by re
 <a id="resourcegroup" />
 
 ### resourceGroup
-**resourceGroup()**
+`resourceGroup()`
 
 Returns an object that represents the current resource group. 
 
@@ -1123,7 +1123,7 @@ The following example uses the resource group location to assign the location fo
 <a id="resourceid" />
 
 ### resourceId
-**resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)**
+`resourceId ([subscriptionId], [resourceGroupName], resourceType, resourceName1, [resourceName2]...)`
 
 Returns the unique identifier of a resource. 
 
@@ -1190,7 +1190,7 @@ Often, you need to use this function when using a storage account or virtual net
 <a id="subscription" />
 
 ### subscription
-**subscription()**
+`subscription()`
 
 Returns details about the subscription in the following format.
 
