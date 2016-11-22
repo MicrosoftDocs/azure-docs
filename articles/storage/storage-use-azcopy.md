@@ -339,7 +339,7 @@ The `/XO` and `/XN` parameters allow you to exclude older or newer source resour
 
     /Source:http://myaccount.blob.core.windows.net/mycontainer /Dest:http://myaccount.blob.core.windows.net/mycontainer1 /SourceKey:<sourcekey> /DestKey:<destkey> /S /XO /XN
 
-Note: This is not supported when either the source or destination is a table.
+Note that this is not supported when either the source or destination is a table.
 
 ### Use a response file to specify command-line parameters
     AzCopy /@:"C:\responsefiles\copyoperation.txt"
