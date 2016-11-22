@@ -26,11 +26,11 @@ This article explains how you can use the StorSimple Data Transformation service
 ## Prerequisites
 
 Before you begin, ensure that you have:
-*	Visual Studio 2012, 2013, or 2015
-*	[Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/)
-*	Configuration settings to initialize the Data Transformation Job (instructions to obtain them are in the walkthrough)
-*	A job definition which has been correctly configured in a Hybrid Data Resource within a Resource Group.
-*	All DLLs present in [this](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) folder on the github repository.
+*	A system with Visual Studio 2012, 2013, or 2015 installed.
+*	[Azure Powershell] is also installed. [Download Azure Powershell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+*	Configuration settings to initialize the Data Transformation job (instructions to obtain these settings are included here).
+*	A job definition that has been correctly configured in a Hybrid Data Resource within a Resource Group.
+*	All the required dlls. Download these from the [GitHub repository](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls). folder on the github repository.
 *	Get-ConfigurationParams.ps1 [script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) from the github repository.
 
 ## Step-by-Step

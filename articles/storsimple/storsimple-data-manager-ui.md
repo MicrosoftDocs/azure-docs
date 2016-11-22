@@ -22,7 +22,7 @@ ms.author: vidarmsft
 This article explains how you can use the StorSimple Data Manager UI to perform data transformation on data residing on the StorSimple 8000 series devices. The transformed data can then be consumed by other Azure services such as Azure Media Services, Azure HDInsight, Azure Machine Learning, and Azure Search. 
 
 
-## Using StorSimple Data Transformation
+## Use StorSimple Data Transformation
 
 The StorSimple Data Manager is the resource within which Data Transformation can be instantiated. The Data Transformation service lets you move data from your StorSimple on-premises device to blobs in Azure storage. Hence, in the flow that we will see, you will need to specify details about your StorSimple device and the data of interest that you want to move to the storage account.
 
@@ -40,7 +40,7 @@ Perform the following steps to create new StorSimple Data Manager service.
 
 4. Enter the inputs and click **Create**. Note that the specified location should be the one that houses your storage accounts and your StorSimple Manager service. Currently, only West US and West Europe regions are supported. This means that your StorSimple Manager service, Data Manager and the associated storage account should all be in these regions. It takes about a minute to create the service.
 
-### Creating a data transformation job definition
+### Create a data transformation job definition
 
 Within a StorSimple Data Manager service, you need to create a data transformation job definition. A job definition specifies details of the data that you are interested in moving into a storage account in the native format. 
 
@@ -56,7 +56,7 @@ Perform the following steps to create a new data transformation job definition.
 
 3. Since this is a new Data Manager service, no data repositories are configured. To add your StorSimple Manager as a data repository, click **Add new** in the data repository dropdown and then click **Add Data Repository**.
 
-4. Choose **StorSimple 8000 series Manager** as the repository type and enter the properties of your **StorSimple Manager**. For the `Resource Id` field, you need to enter the number before the `:` in the registration key of your StorSimple manager.
+4. Choose **StorSimple 8000 series Manager** as the repository type and enter the properties of your **StorSimple Manager**. For the **Resource Id** field, you need to enter the number before the **:** in the registration key of your StorSimple manager.
 
     ![Create new data source](./media/storsimple-data-manager-ui/create-new-data-source.png)
 
@@ -84,11 +84,11 @@ Perform the following steps to create a new data transformation job definition.
 
     ![Add new job definition](./media/storsimple-data-manager-ui/add-new-job-definition.png)
 
-### Running the job definition
+### Run the job definition
 
 Whenever you need to move data from StorSimple to the storage account that you have specified in the job definition, you will need to invoke it. There is some flexibility in changing the parameters every time you invoke the job. The steps are as follows:
 
-1. Select your StorSimple Data Manager service and go the Monitoring. Click **Run Now**.
+1. Select your StorSimple Data Manager service and go to **Monitoring**. Click **Run Now**.
 
     ![Trigger job definition](./media/storsimple-data-manager-ui/run-now.png)
 
@@ -96,11 +96,11 @@ Whenever you need to move data from StorSimple to the storage account that you h
 
     ![Run job settings](./media/storsimple-data-manager-ui/run-settings.png)
 
-3. Click **OK** and then click **Run**. This will launch your job. To monitor this job, go to Jobs page in your StorSimple Data Manager.
+3. Click **OK** and then click **Run**. This will launch your job. To monitor this job, go to **Jobs** page in your StorSimple Data Manager.
 
     ![Jobs list and status](./media/storsimple-data-manager-ui/jobs-list-and-status.png)
 
-4. In addition to monitoring in the jobs page, you can also listen on the storage queue where a message is added every time a file is moved from StorSimple to the storage account.
+4. In addition to monitoring in the **Jobs** blade, you can also listen on the storage queue where a message is added every time a file is moved from StorSimple to the storage account.
 
 
 ## Next steps

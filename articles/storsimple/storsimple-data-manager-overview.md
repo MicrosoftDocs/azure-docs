@@ -39,7 +39,7 @@ Before you sign up for the Data Manager service, review the following prerequisi
 This exercise assumes that you have
 * an active Azure subscription.
 * access to a registered StorSimple 8000 series device
-* all keys associated with the device.
+* all the keys associated with the StorSimple 8000 series device.
 
 ### Sign up
 
