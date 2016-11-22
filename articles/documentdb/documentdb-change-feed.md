@@ -36,12 +36,12 @@ DocumentDB provides the ability to incrementally read updates made to a Document
 * Changes are available in chunks of partition key ranges. This allows change logs from large collections to be processed in parallel by multiple consumers/servers.
 * Changes include inserts and updates to documents. To capture deletes, you must use [TTL expiration for documents](documentb-expire-data.md).
 
-DocumentDB's change log is enabled by default for all accounts, and does not incure any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change log, just like any other operation from DocumentDB.
+DocumentDB's change log is enabled by default for all accounts, and does not incure any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change log, just like any other operation from DocumentDB. In the following section, we describe how to acess the change log using the DocumentDB REST API and SDKs.
 
 ## Working with the REST API
 
 ### ReadFeed
-Let's first take a look at the typical way to read documents from a DocumentDB collection. DocumentDB supports reading a feed of documents within a collection via the `ReadFeed` API. For example, the following API request returns a page of documents inside the `serverlogs` collection. Results can be paginated by echoing the `x-ms-continuation` header returned in the previous response.
+Let's first take a look at the typical way to read documents from a DocumentDB collection. DocumentDB supports reading a feed of documents within a collection via the `ReadDocumentFeed` API. For example, the following API request returns a page of documents inside the `serverlogs` collection. Results can be paginated by echoing the `x-ms-continuation` header returned in the previous response.
 
 	GET https://querydemo.documents.azure.com/dbs/bigdb/colls/serverlogs/docs
 	x-ms-max-item-count: -1
