@@ -40,10 +40,10 @@ Resource Manager provides the following functions for working with integers:
 
 Returns the sum of the two provided integers.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| operand1 |Yes |First integer to add. |
-| operand2 |Yes |Second integer to add. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- | 
+|operand1 |Yes |Integer |First number to add. |
+|operand2 |Yes |Integer |Second number to add. |
 
 The following example adds two parameters.
 
@@ -74,13 +74,13 @@ The following example adds two parameters.
 ### copyIndex
 `copyIndex(offset)`
 
-Returns the current index of an iteration loop. 
+Returns the index of an iteration loop. 
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| offset |No |The amount to add to current iteration value. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| offset |No |Integer |The number to add to the zero-based iteration value. |
 
-This function is always used with a **copy** object. For a complete description of how you use **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+This function is always used with a **copy** object. If no value is provided for **offset**, the current iteration value is returned. The iteration value starts at zero. For a complete description of how you use **copyIndex**, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
 
 The following example shows a copy loop and the index value included in the name. 
 
@@ -104,10 +104,10 @@ The following example shows a copy loop and the index value included in the name
 
 Returns the integer division of the two provided integers.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| operand1 |Yes |Integer being divided. |
-| operand2 |Yes |Integer that is used to divide. Cannot be 0. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| operand1 |Yes |Integer |The number being divided. |
+| operand2 |Yes |Integer |The number that is used to divide. Cannot be 0. |
 
 The following example divides one parameter by another parameter.
 
@@ -138,11 +138,11 @@ The following example divides one parameter by another parameter.
 ### int
 `int(valueToConvert)`
 
-Converts the specified value to Integer.
+Converts the specified value to an integer.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| valueToConvert |Yes |The value to convert to Integer. The type of value can only be String or Integer. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| valueToConvert |Yes |String or Integer |The value to convert to an integer. |
 
 The following example converts the user-provided parameter value to Integer.
 
@@ -161,10 +161,10 @@ The following example converts the user-provided parameter value to Integer.
 
 Returns the remainder of the integer division using the two provided integers.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| operand1 |Yes |Integer being divided. |
-| operand2 |Yes |Integer that is used to divide, has to be different from 0. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| operand1 |Yes |Integer |The number being divided. |
+| operand2 |Yes |Integer |The number that is used to divide, Cannot be 0. |
 
 The following example returns the remainder of dividing one parameter by another parameter.
 
@@ -197,10 +197,10 @@ The following example returns the remainder of dividing one parameter by another
 
 Returns the multiplication of the two provided integers.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| operand1 |Yes |First integer to multiply. |
-| operand2 |Yes |Second integer to multiply. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| operand1 |Yes |Integer |First number to multiply. |
+| operand2 |Yes |Integer |Second number to multiply. |
 
 The following example multiplies one parameter by another parameter.
 
@@ -233,10 +233,10 @@ The following example multiplies one parameter by another parameter.
 
 Returns the subtraction of the two provided integers.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| operand1 |Yes |Integer that is subtracted from. |
-| operand2 |Yes |Integer that is subtracted. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| operand1 |Yes |Integer |The number that is subtracted from. |
+| operand2 |Yes |Integer |The number that is subtracted. |
 
 The following example subtracts one parameter from another parameter.
 
@@ -288,9 +288,9 @@ Resource Manager provides the following functions for working with strings:
 
 Returns the base64 representation of the input string.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| inputString |Yes |The string value to return as a base64 representation. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputString |Yes |String |The value to return as a base64 representation. |
 
 The following example shows how to use the base64 function.
 
@@ -306,10 +306,10 @@ The following example shows how to use the base64 function.
 
 Combines multiple string values and returns the concatenated string. 
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| string1 |Yes |A string value to concatenate. |
-| additional strings |No |String values to concatenate. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| string1 |Yes |String |The first value for concatenation. |
+| additional strings |No |String |Additional values in sequential order for concatenation. |
 
 This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating arrays, see [concat - array](#concatarray).
 
@@ -330,9 +330,9 @@ The following example shows how to combine multiple string values to return a co
 
 Returns the number of characters in a string.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| string |Yes |The string value to use for getting the number of characters. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| string |Yes |String |The value to use for getting the number of characters. |
 
 For an example of using length with an array, see [length - array](#length).
 
@@ -353,11 +353,11 @@ The following example returns the number of characters in a string.
 
 Returns a right-aligned string by adding characters to the left until reaching the total specified length.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| valueToPad |Yes |The string or int to right-align. |
-| totalLength |Yes |The total number of characters in the returned string. |
-| paddingCharacter |No |The character to use for left-padding until the total length is reached. The default value is a space. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| valueToPad |Yes |String or Integer |The value to right-align. |
+| totalLength |Yes |Integer |The total number of characters in the returned string. |
+| paddingCharacter |No |Single character |The character to use for left-padding until the total length is reached. The default value is a space. |
 
 The following example shows how to pad the user-provided parameter value by adding the zero character until the string reaches 10 characters. If the original parameter value is longer than 10 characters, no characters are added.
 
@@ -375,11 +375,11 @@ The following example shows how to pad the user-provided parameter value by addi
 
 Returns a new string with all instances of one character in the specified string replaced by another character.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| originalString |Yes |The string that has all instances of one character replaced by another character. |
-| oldCharacter |Yes |The character to be removed from the original string. |
-| newCharacter |Yes |The character to add in place of the removed character. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| originalString |Yes |String |The value that has all instances of one character replaced by another character. |
+| oldCharacter |Yes |String |The character to be removed from the original string. |
+| newCharacter |Yes |String |The character to add in place of the removed character. |
 
 The following example shows how to remove all dashes from the user-provided string.
 
@@ -397,10 +397,10 @@ The following example shows how to remove all dashes from the user-provided stri
 
 Returns a string with all the characters after the specified number in the string.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| originalValue |Yes |The string to use for skipping. |
-| numberToSkip |Yes |The number of characters to skip. If this value is 0 or less, all the characters in the string are returned. If it is larger than the length of the string, an empty string is returned. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| originalValue |Yes |String |The string to use for skipping. |
+| numberToSkip |Yes |Integer |The number of characters to skip. If this value is 0 or less, all the characters in the string are returned. If it is larger than the length of the string, an empty string is returned. |
 
 For an example of using skip with an array, see [skip - array](#skip).
 
@@ -439,10 +439,10 @@ The following example skips the specified number of characters in the string.
 
 Returns an array of strings that contains the substrings of the input string that are delimited by the specified delimiters.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| inputString |Yes |The string to split. |
-| delimiter |Yes |The delimiter to use, can be a single string or an array of strings. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| inputString |Yes |String |The string to split. |
+| delimiter |Yes |String or Array of strings |The delimiter to use for splitting the string. |
 
 The following example splits the input string with a comma.
 
@@ -474,9 +474,9 @@ The next example splits the input string with either a comma or a semi-colon.
 
 Converts the specified value to a string.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| valueToConvert |Yes |The value to convert to string. Any type of value can be converted, including objects and arrays. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| valueToConvert |Yes | Any |The value to convert to string. Any type of value can be converted, including objects and arrays. |
 
 The following example converts the user-provided parameter values to strings.
 
@@ -510,11 +510,11 @@ The following example converts the user-provided parameter values to strings.
 
 Returns a substring that starts at the specified character position and contains the specified number of characters.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| stringToParse |Yes |The original string from which the substring is extracted. |
-| startIndex |No |The zero-based starting character position for the substring. |
-| length |No |The number of characters for the substring. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| stringToParse |Yes |String |The original string from which the substring is extracted. |
+| startIndex |No |Integer |The zero-based starting character position for the substring. |
+| length |No |Integer |The number of characters for the substring. |
 
 The following example extracts the first three characters from a parameter.
 
@@ -532,10 +532,10 @@ The following example extracts the first three characters from a parameter.
 
 Returns a string with the specified number of characters from the start of the string.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| originalValue |Yes |The string to take the characters from. |
-| numberToTake |Yes |The number of characters to take. If this value is 0 or less, an empty string is returned. If it is larger than the length of the given string, all the characters in the string are returned. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| originalValue |Yes |String |The value to take the characters from. |
+| numberToTake |Yes |Integer |The number of characters to take. If this value is 0 or less, an empty string is returned. If it is larger than the length of the given string, all the characters in the string are returned. |
 
 For an example of using take with an array, see [take - array](#take).
 
@@ -571,9 +571,9 @@ The following example takes the specified number of characters from the string.
 
 Converts the specified string to lower case.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| stringToChange |Yes |The string to convert to lower case. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| stringToChange |Yes |String |The value to convert to lower case. |
 
 The following example converts the user-provided parameter value to lower case.
 
@@ -591,9 +591,9 @@ The following example converts the user-provided parameter value to lower case.
 
 Converts the specified string to upper case.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| stringToChange |Yes |The string to convert to upper case. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| stringToChange |Yes |String |The value to convert to upper case. |
 
 The following example converts the user-provided parameter value to upper case.
 
@@ -611,9 +611,9 @@ The following example converts the user-provided parameter value to upper case.
 
 Removes all leading and trailing white-space characters from the specified string.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| stringToTrim |Yes |The string to trim. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| stringToTrim |Yes |String |The value to trim. |
 
 The following example trims the white-space characters from the user-provided parameter value.
 
@@ -631,14 +631,14 @@ The following example trims the white-space characters from the user-provided pa
 
 Creates a deterministic hash string based on the values provided as parameters. 
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| baseString |Yes |The string used in the hash function to create a unique string. |
-| additional parameters as needed |No |You can add as many strings as needed to create the value that specifies the level of uniqueness. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| baseString |Yes |String |The value used in the hash function to create a unique string. |
+| additional parameters as needed |No |String |You can add as many strings as needed to create the value that specifies the level of uniqueness. |
 
 This function is helpful when you need to create a unique name for a resource. You provide parameter values that limit the scope of uniqueness for the result. You can specify whether the name is unique down to subscription, resource group, or deployment. 
 
-The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is meaningful. The following example shows the format of the returned value. Of course, the actual value will vary by the provided parameters.
+The returned value is not a random string, but rather the result of a hash function. The returned value is 13 characters long. It is not globally unique. You may want to combine the value with a prefix from your naming convention to create a name that is meaningful. The following example shows the format of the returned value. The actual value varies by the provided parameters.
 
     tcvhiyu5h2o5o
 
@@ -656,7 +656,7 @@ Unique scoped to deployment for a resource group
 
     "[uniqueString(resourceGroup().id, deployment().name)]"
 
-The following example shows how to create a unique name for a storage account based on your resource group (inside this resource group the name is not unique if constructed the same way).
+The following example shows how to create a unique name for a storage account based on your resource group. Inside the resource group, the name is not unique if constructed the same way.
 
     "resources": [{ 
         "name": "[concat('storage', uniqueString(resourceGroup().id))]", 
@@ -672,10 +672,10 @@ The following example shows how to create a unique name for a storage account ba
 
 Creates an absolute URI by combining the baseUri and the relativeUri string.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| baseUri |Yes |The base uri string. |
-| relativeUri |Yes |The relative uri string to add to the base uri string. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| baseUri |Yes |String |The base uri string. |
+| relativeUri |Yes |String |The relative uri string to add to the base uri string. |
 
 The value for the **baseUri** parameter can include a specific file, but only the base path is used when constructing the URI. For example, passing **http://contoso.com/resources/azuredeploy.json** as the baseUri parameter results in a base URI of **http://contoso.com/resources/**.
 
@@ -700,10 +700,10 @@ To get an array of string values delimited by a value, see [split](#split).
 
 Combines multiple arrays and returns the concatenated array. 
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| array1 |Yes |An array to concatenate. |
-| additional arrays |No |Arrays to concatenate. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| array1 |Yes |Array |The first array for concatenation. |
+| additional arrays |No |Array |Additional arrays in sequential order for concatenation. |
 
 This function can take any number of arguments, and can accept either strings or arrays for the parameters. For an example of concatenating string values, see [concat - string](#concat).
 
@@ -729,9 +729,9 @@ The following example shows how to combine two arrays.
 
 Returns the number of elements in an array.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| array |Yes |The array to use for getting the number of elements. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| array |Yes |Array |The array to use for getting the number of elements. |
 
 You can use this function with an array to specify the number of iterations when creating resources. In the following example, the parameter **siteNames** would refer to an array of names to use when creating the web sites.
 
@@ -751,10 +751,10 @@ For an example of using length with a string value, see [length - string](#lengt
 
 Returns an array with all the elements after the specified number in the array.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| originalValue |Yes |The array to use for skipping. |
-| numberToSkip |Yes |The number of elements to skip. If this value is 0 or less, all the elements in the array are returned. If it is larger than the length of the array, an empty array is returned. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| originalValue |Yes |Array |The array to use for skipping. |
+| numberToSkip |Yes |Integer |The number of elements to skip. If this value is 0 or less, all the elements in the array are returned. If it is larger than the length of the array, an empty array is returned. |
 
 For an example of using skip with a string, see [skip - string](#skipstring).
 
@@ -791,10 +791,10 @@ The following example skips the specified number of elements in the array.
 
 Returns an array with the specified number of elements from the start of the array.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| originalValue |Yes |The array to take the elements from. |
-| numberToTake |Yes |The number of elements to take. If this value is 0 or less, an empty array is returned. If it is larger than the length of the given array, all the elements in the array are returned. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| originalValue |Yes |Array |The array to take the elements from. |
+| numberToTake |Yes |Integer |The number of elements to take. If this value is 0 or less, an empty array is returned. If it is larger than the length of the given array, all the elements in the array are returned. |
 
 For an example of using take with a string, see [take - string](#takestring).
 
@@ -862,7 +862,7 @@ When the deployment object is passed in-line, such as when using the **-Template
         }
     }
 
-When the object is passed as a link, such as when using the **-TemplateUri** parameter to point to a remote object, the object is returned in the following format. 
+When the object is passed as a link, such as when using the **-TemplateUri** parameter to point to a remote object, the object is returned in the following format: 
 
     {
         "name": "",
@@ -897,9 +897,9 @@ The following example shows how to use deployment() to link to another template 
 
 Returns a parameter value. The specified parameter name must be defined in the parameters section of the template.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| parameterName |Yes |The name of the parameter to return. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| parameterName |Yes |String |The name of the parameter to return. |
 
 The following example shows a simplified use of the parameters function.
 
@@ -924,9 +924,9 @@ The following example shows a simplified use of the parameters function.
 
 Returns the value of variable. The specified variable name must be defined in the variables section of the template.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| variable Name |Yes |The name of the variable to return. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| variableName |Yes |String |The name of the variable to return. |
 
 The following example uses a variable value.
 
@@ -963,12 +963,12 @@ To get values from parameters, variables, or the current deployment, see [Deploy
 
 Returns the values for any resource type that supports the list operation. The most common usage is **listKeys**. 
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| resourceName or resourceIdentifier |Yes |Unique identifier for the resource. |
-| apiVersion |Yes |API version of resource runtime state. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| resourceName or resourceIdentifier |Yes |String |Unique identifier for the resource. |
+| apiVersion |Yes |String |API version of resource runtime state. Typically, in the format, **yyyy-mm-dd**. |
 
-Any operation that starts with **list** can be used a function in your template. The available operations include not only **listKeys**, but also operations like **list**, **listAdminKeys**, and **listStatus**. To determine which resource types have a list operation, use the following PowerShell command.
+Any operation that starts with **list** can be used a function in your template. The available operations include not only **listKeys**, but also operations like **list**, **listAdminKeys**, and **listStatus**. To determine which resource types have a list operation, use the following PowerShell command:
 
     Get-AzureRmProviderOperation -OperationSearchString *  | where {$_.Operation -like "*list*"} | FT Operation
 
@@ -1011,10 +1011,10 @@ The returned object from listKeys has the following format:
 
 Returns information about a resource provider and its supported resource types. If you do not provide a resource type, the function returns all the supported types for the resource provider.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| providerNamespace |Yes |Namespace of the provider |
-| resourceType |No |The type of resource within the specified namespace. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| providerNamespace |Yes |String |Namespace of the provider |
+| resourceType |No |String |The type of resource within the specified namespace. |
 
 Each supported type is returned in the following format. Array ordering is not guaranteed.
 
@@ -1040,10 +1040,10 @@ The following example shows how to use the provider function:
 
 Returns an object representing another resource's runtime state.
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| resourceName or resourceIdentifier |Yes |Name or unique identifier of a resource. |
-| apiVersion |No |API version of the specified resource. Include this parameter when the resource is not provisioned within same template. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| resourceName or resourceIdentifier |Yes |String |Name or unique identifier of a resource. |
+| apiVersion |No |String |API version of the specified resource. Include this parameter when the resource is not provisioned within same template. Typically, in the format, **yyyy-mm-dd**. |
 
 The **reference** function derives its value from a runtime state, and therefore cannot be used in the variables section. It can be used in outputs section of a template.
 
@@ -1068,7 +1068,7 @@ The following example references a storage account that is not deployed in this 
         }
     }
 
-You can retrieve a particular value from the returned object, such as the blob endpoint URI, as shown in the following example.
+You can retrieve a particular value from the returned object, such as the blob endpoint URI, as shown in the following example:
 
     "outputs": {
         "BlobUri": {
@@ -1127,13 +1127,13 @@ The following example uses the resource group location to assign the location fo
 
 Returns the unique identifier of a resource. 
 
-| Parameter | Required | Description |
-|:---:|:---:|:--- |
-| subscriptionId |No |Default value is the current subscription. Specify this value when you need to retrieve a resource in another subscription. |
-| resourceGroupName |No |Default value is current resource group. Specify this value when you need to retrieve a resource in another resource group. |
-| resourceType |Yes |Type of resource including resource provider namespace. |
-| resourceName1 |Yes |Name of resource. |
-| resourceName2 |No |Next resource name segment if resource is nested. |
+| Parameter | Required | Type | Description |
+|:--- |:--- |:--- |:--- |
+| subscriptionId |No |String (In GUID format) |Default value is the current subscription. Specify this value when you need to retrieve a resource in another subscription. |
+| resourceGroupName |No |String |Default value is current resource group. Specify this value when you need to retrieve a resource in another resource group. |
+| resourceType |Yes |String |Type of resource including resource provider namespace. |
+| resourceName1 |Yes |String |Name of resource. |
+| resourceName2 |No |String |Next resource name segment if resource is nested. |
 
 You use this function when the resource name is ambiguous or not provisioned within the same template. The identifier is returned in the following format:
 
@@ -1192,7 +1192,7 @@ Often, you need to use this function when using a storage account or virtual net
 ### subscription
 `subscription()`
 
-Returns details about the subscription in the following format.
+Returns details about the subscription in the following format:
 
     {
         "id": "/subscriptions/#####",
