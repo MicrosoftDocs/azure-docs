@@ -73,7 +73,7 @@ The following tables lists the major features of SQL Database and SQL Server, sp
 | AlwaysOn Availability Groups | [Supported](https://msdn.microsoft.com/library/hh510230.aspx) | Not supported - See [Active Geo-Replication](sql-database-geo-replication-overview.md) |
 | Attach a database | [Supported](https://msdn.microsoft.com/library/ms190209.aspx) | Not supported |
 | Application roles | [Supported](https://msdn.microsoft.com/library/ms190998.aspx) | [Supported](https://msdn.microsoft.com/library/ms190998.aspx) |
-| Auto scale | Not supported | [Supported](sql-database-scale-up) |
+| Auto scale | Not supported | [Supported](sql-database-scale-up.md) |
 | Azure Active Directory | Not supported | [Supported](sql-database-aad-authentication.md) |
 | Azure Data Factory | Not supported - see [SQL Server Integration Services (SSIS)](https://msdn.microsoft.com/library/ms141026.aspx) | [Supported](https://azure.microsoft.com/services/data-factory/) |
 | Auditing | [Supported](https://msdn.microsoft.com/library/cc280386.aspx) | [Supported](sql-database-auditing-get-started.md) |
@@ -87,7 +87,7 @@ The following tables lists the major features of SQL Database and SQL Server, sp
 | Columnstore indexes | [Supported](https://msdn.microsoft.com/library/gg492088.aspx) | [Premium edition only](https://msdn.microsoft.com/library/gg492088.aspx) |
 | Common language runtime (CLR) | [Supported](https://msdn.microsoft.com/library/ms131102.aspx) | [Supported](https://msdn.microsoft.com/library/ms131102.aspx) |
 | Contained databases | [Supported](https://msdn.microsoft.com/library/ff929071.aspx) | Built-in |
-| Contained users | [Supported](https://msdn.microsoft.com/library/ff929188.aspx) | [Supported](sql-database-manage-logins.md#Non-administrator-users) |
+| Contained users | [Supported](https://msdn.microsoft.com/library/ff929188.aspx) | [Supported](sql-database-manage-logins.md#non-administrator-users) |
 | Control of flow language keywords | [Supported](https://msdn.microsoft.com/library/ms174290.aspx) | [Supported](https://msdn.microsoft.com/library/ms174290.aspx) |
 | Cross-database queries | [Supported](https://msdn.microsoft.com/library/dn584627.aspx) | [Elastic queries](sql-database-elastic-query-overview.md) |
 | Cursors | [Supported](https://msdn.microsoft.com/library/ms181441.aspx) | [Supported](https://msdn.microsoft.com/library/ms181441.aspx) | 
