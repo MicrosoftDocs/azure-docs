@@ -28,7 +28,7 @@ If you experience issues while deploying or working with Web Apps on Azure Stack
 ## Azure Stack Web Apps Not Available in the portal
 ![Azure Stack Web Apps Create New Web App][1]
 
-After you have completed the [registration of the Azure Stack Web Apps Provider](azure-stack-app-service-deploy#register-the-newly-deployed-app-service-provider-with-azure-resource-manager) if you cannot find the Web + Mobile blade then please try the following:
+After you have completed the [registration of the Azure Stack Web Apps Provider](azure-stack-app-service-deploy.md#register-the-newly-deployed-app-service-provider-with-azure-resource-manager) if you cannot find the Web + Mobile blade then please try the following:
 
 * **Logout of the portal** and **close your browser** and then in a **new browser window login to the portal** and try again.
 
