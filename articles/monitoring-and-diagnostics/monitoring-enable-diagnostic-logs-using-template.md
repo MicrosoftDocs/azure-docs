@@ -85,15 +85,15 @@ For non-Compute resources, you will need to do two things:
             }
           ],
           "metrics": [
-        {
-            "timeGrain": "PT1M",
-            "enabled": true,
-            "retentionPolicy": {
+            {
+              "timeGrain": "PT1M",
+              "enabled": true,
+              "retentionPolicy": {
                 "enabled": false,
                 "days": 0
+              }
             }
-        }
-    ]
+          ]
         }
       }
     ]
@@ -175,15 +175,15 @@ Here is a full example that creates a Network Security Group and turns on stream
               }
             ],
             "metrics": [
-        {
-            "timeGrain": "PT1M",
-            "enabled": true,
-            "retentionPolicy": {
-                "enabled": false,
-                "days": 0
-            }
-        }
-    ]
+              {
+                "timeGrain": "PT1M",
+                "enabled": true,
+                "retentionPolicy": {
+                  "enabled": false,
+                  "days": 0
+                }
+              }
+            ]
           }
         }
       ],
