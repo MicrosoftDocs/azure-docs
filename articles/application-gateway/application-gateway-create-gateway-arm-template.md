@@ -80,15 +80,15 @@ You can download the existing Azure Resource Manager template to create a virtua
 >
 >
 
-1. Check the content under **resources** and notice the following:
+6. Check the content under **resources** and notice the following:
    
    * **type**. Type of resource being created by the template. In this case, the type is **Microsoft.Network/applicationGateways**, which represents an application gateway.
    * **name**. Name for the resource. Notice the use of **[parameters('applicationGatewayName')]**, which means that the name is provided as input by you or by a parameter file during deployment.
    * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
-2. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
-3. Click **azuredeploy-paremeters.json**, and then click **RAW**.
-4. Save the file to a local folder on your computer.
-5. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
+7. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
+8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
+9. Save the file to a local folder on your computer.
+10. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
    
     ```json
         {
@@ -118,7 +118,7 @@ You can download the existing Azure Resource Manager template to create a virtua
         }
     ```
 
-6. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
+11. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
 
 ## Deploy the Azure Resource Manager template by using PowerShell
 
