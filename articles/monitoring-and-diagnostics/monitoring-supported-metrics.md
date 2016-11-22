@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 12/12/2016
 ms.author: johnkem
 
 ---
@@ -263,6 +263,13 @@ Azure Monitor provides several ways to interact with metrics, including charting
 | --- | --- | --- | --- | --- |
 | d2c.telemetry.ingress.allProtocol |Telemetry Message Send Attempts |Count |Total |Number of Device to Cloud telemetry messages attempted to be sent to your IoT hub |
 | d2c.telemetry.ingress.success |Telemetry Messages Sent |Count |Total |Number of Device to Cloud telemetry messages sent successfully to your IoT hub |
+| d2c.telemetry.egress.success | Telemetry messages delivered | Count | Total | The count of all successful writes to an endpoint |
+| d2c.telemetry.egress.failure | Telemetry message delivery failures | Count | Total | The number of times messages failed to be written to an endpoint |
+| d2c.telemetry.egress.dropped | Dropped telemetry messages | Count | Total | The count of messages dropped by not matching any routes and also having the fallback route disabled |
+| d2c.telemetry.egress.fallback | Telemetry messages matching fallback condition | Count | Total | The count of messages matching the fallback route |
+| d2c.endpoints.latency.eventHubs | Message latency for Event Hub endpoints | Milliseconds | Average | The average, min, and max latency between message ingress to the IoT hub and message ingress into an Event Hub endpoint, in milliseconds |
+| d2c.endpoints.latency.serviceBusQueues | Message latency for Service Bus Queue endpoints | Milliseconds | Average | The average, min, and max latency between message ingress to the IoT hub and message ingress into a Service Bus Queue endpoint, in milliseconds |
+| d2c.endpoints.latency.serviceBusTopic | Message latency for Service Bus Topic endpoints | Milliseconds | Average | The average, min, and max latency between message ingress to the IoT hub and message ingress into a Service Bus Topic endpoint, in milliseconds |
 | c2d.commands.egress.complete.success |Commands Completed |Count |Total |Number of Cloud to Device commands completed successfully by the device |
 | c2d.commands.egress.abandon.success |Commands Abandoned |Count |Total |Number of Cloud to Device commands abandoned by the device |
 | c2d.commands.egress.reject.success |Commands Rejected |Count |Total |Number of Cloud to Device commands rejected by the device |
