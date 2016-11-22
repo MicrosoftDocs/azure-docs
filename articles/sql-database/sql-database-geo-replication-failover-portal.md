@@ -3,7 +3,7 @@ title: Initiate a planned or unplanned failover for Azure SQL Database with the 
 description: Initiate a planned or unplanned failover for Azure SQL Database using the Azure portal
 services: sql-database
 documentationcenter: ''
-author: stevestein
+author: anosov1960
 manager: jhubbard
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 08/29/2016
-ms.author: sstein
+ms.author: sashan;carlrab
 
 ---
 # Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal
