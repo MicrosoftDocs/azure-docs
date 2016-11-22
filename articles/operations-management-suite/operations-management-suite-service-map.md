@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 11/22/2016
 ms.author: daseidma;bwren;dairwin
 
 ---
@@ -24,25 +24,25 @@ ms.author: daseidma;bwren;dairwin
 This article describes the details of using Service Map.  For information on configuring Service Map and onboarding agents, see [Configuring Service Map solution in Operations Management Suite (OMS)](operations-management-suite-service-map-configure.md)
 
 
-## Use Cases: Make Your IT Processes Dependency Aware
+## Use Cases: Make your IT processes dependency aware
 
 ### Discovery
 Service Map automatically builds a common reference map of dependencies across your servers, processes, and third-party services.  It discovers and maps all TCP dependencies, identifying surprise connections, remote third-party systems you depend on, and dependencies to traditional dark areas of your network such as DNS and AD.  Service Map discovers failed network connections that your managed systems are attempting to make, helping you identify potential server misconfiguration, service outages, and network issues.
 
-### Incident Management
+### Incident management
 Service Map helps eliminate the guesswork of problem isolation by showing you how systems are connected and affecting each other.  In addition to failed connections, information about connected clients helps identify misconfigured load balancers, surprising or excessive load on critical services, and rogue clients such as developer machines talking to production systems.  Integrated workflows with OMS Change Tracking also allow you to see whether a change event on a back-end machine or service explains the root cause of an incident.
 
-### Migration Assurance
+### Migration assurance
 Service Map allows you to effectively plan, accelerate, and validate Azure migrations, ensuring that nothing is left behind and there are no surprise outages.  You can discover all interdependent systems that need to migrate together, assess system configuration and capacity, and identify whether a running system is still serving users or is a candidate for decommissioning instead of migration.  After the move is done, you can check on client load and identity to verify that test systems and customers are connecting.  If your subnet planning and firewall definitions have issues, failed connections in Service Map maps will point you to the systems that need connectivity.
 
-### Business Continuity
+### Business continuity
 If you are using Azure Site Recovery and need help defining the recovery sequence for your application environment, Service Map can automatically show you how systems rely on each other to ensure that your recovery plan is reliable.  By choosing a critical server and viewing its clients, you can identify the front-end systems that should be recovered only after that critical server is restored and available.  Conversely, by looking at a critical server’s back-end dependencies, you can identify those systems that must be recovered before your focus system is restored.
 
-### Patch Management
+### Patch management
 Service Map enhances your use of OMS System Update Assessment by showing you which other teams and servers depend on your service, so you can notify them in advance before you take your systems down for patching.  Service Map also enhances patch management in OMS by showing you whether your services are available and properly connected after they are patched and restarted.
 
 
-## Mapping Overview
+## Mapping overview
 Service Map agents gather information about all TCP-connected processes on the server where they’re installed, as well as details about the inbound and outbound connections for each process.  Using the Machine List on the left side of the Service Map solution, machines with Service Map agents can be selected to visualize their dependencies over a selected time range.  Machine dependency maps focus on a specific machine, and show all the machines that are direct TCP clients or servers of that machine.
 
 ![Service Map overview](media/oms-service-map/service-map-overview.png)
@@ -53,14 +53,14 @@ By default, Service Map maps show the last 10 minutes of dependency information.
 
 ![Machine map with selected machine properties](media/oms-service-map/machine-map.png)
 
-## Failed Connections
+## Failed connections
 Failed Connections are shown in Service Map maps for processes and computers, with a dashed red line showing if a client system is failing to reach a process or port.  Failed connections are reported from any system with a deployed Service Map agent if that system is the one attempting the failed connection.  Service Map measures this by observing TCP sockets that fail to establish a connection.  This could be due to a firewall, a misconfiguration in the client or server, or a remote service being unavailable.
 
 ![Failed connections](media/oms-service-map/failed-connections.png)
 
 Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding.  Sometimes failed connections are harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, …or two application tiers not being able to talk after a cloud migration.
 
-## Computer and Process Properties
+## Computer and process properties
 When navigating a Service Map map, you can select machines and processes to gain additional context about their properties.  Machines provide information about DNS name, IPv4 addresses, CPU and Memory capacity, VM Type, Operating System version, Last Reboot time, and the IDs of their OMS and Service Map agents.
 
 ![Machine properties](media/oms-service-map/machine-properties.png)
@@ -73,12 +73,12 @@ The Process Summary panel provides additional information about that process’s
 
 ![Process summary](media/oms-service-map/process-summary.png)
 
-## Computer Summary
+## Computer summary
 The Machine Summary panel includes an overview of a server's Operating System and dependency counts along with a variety of data from other OMS solutions, including Performance Metrics, Change Tracking, Security, Updates, etc.
 
 ![Machine summary](media/oms-service-map/machine-summary.png)
 
-## OMS Change Tracking Integration
+## OMS Change Tracking integration
 Service Map's integration with Change Tracking is automatic when both solutions are enabled and configured in your OMS workspace.
 
 The Machine Change Tracking Panel shows a list of all changes, with the most recent first, along with a link to drill into Log Search for additional details.
@@ -88,26 +88,26 @@ Following is a drill-down view of Configuration Change event after selecting **S
 ![Configuration Change Event](media/oms-service-map/configuration-change-event.png)
 
 
-## OMS Performance Integration
+## OMS Performance integration
 The Machine Performance Panel shows standard performance metrics for the selected server.  The metrics include CPU Utilization, Memory Utilization, Network Bytes Sent and Received, and a list of the top processes by Network Bytes sent and received.
 ![Machine Change Tracking Panel](media/oms-service-map/machine-performance.png)
 
 
-## OMS Security Integration
+## OMS Security integration
 Service Map's integration with Security and Audit is automatic when both solutions are enabled and configured in your OMS workspace.
 
 The Machine Security Panel shows data from the OMS Security and Audit solution for the selected server.  The panel will list a summary of any outstanding security issues for the server during the selected time range.  Clicking on any of the security issues will drill down into a Log Search for details about the security issues.
 ![Machine Change Tracking Panel](media/oms-service-map/machine-security.png)
 
 
-## OMS Updates Integration
+## OMS Updates integration
 Service Map's integration with Update Management is automatic when both solutions are enabled and configured in your OMS workspace.
 
 The Machine Updates Panel shows data from the OMS Update Management solution for the selected server.  The panel will list a summary of any missing updates for the server during the selected time range.
 ![Machine Change Tracking Panel](media/oms-service-map/machine-updates.png)
 
 
-## OMS Alert Integration
+## OMS Alerts integration
 Service Map's integrates with OMS Alerts to show fired alerts for the selected server in the selected time range.  The server will show an icon if there are current alerts and the Machine Alerts Panel will list the alerts
 
 ![Machine Alerts Panel](media/oms-service-map/machine-alerts.png)
@@ -138,22 +138,23 @@ Records with a type of **ServiceMapComputer_CL** have inventory data for servers
 |:--|:--|
 | Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ComputerName_s | Windows or Linux computer name |
-| CPUSpeed_d | CPU Speed in MHz |
-| DnsNames_s | List of all DNS names for this computer |
-| IPv4s_s | List of all IPv4 addresses in use by this computer |
-| IPv6s_s | List of all IPv6 addresses in use by this computer.  (Service Map identifies IPv6  addresses but does not discover IPv6 dependencies.) |
-| Is64Bit_b | true or false based on OS type |
-| MachineId_s | An internal GUID, unique across an OMS workspace  |
+| ResourceName_s | machine resource name |
+| ComputerName_s | computer FQDN |
+| Ipv4Addresses _s | a list of the server's IPv4s |
+| Ipv6Addresses_s | a list of the server's IPv6s |
+| DnsNames_s | array of DNS names |
 | OperatingSystemFamily_s | Windows or Linux |
-| OperatingSystemVersion_s | Long OS version string |
-| TimeGenerated | Date and time that the record was created. |
-| TotalCPUs_d | Number of CPU cores |
-| TotalPhysicalMemory_d | Memory capacity in MB |
-| VirtualMachine_b | true or false based on whether OS is a VM guest |
-| VirtualMachineID_g | Hyper-V VM ID |
-| VirtualMachineName_g | Hyper-V VM Name |
-| VirtualMachineType_s | Hyperv, Vmware, Xen, Kvm, Ldom, Lpar, Virtualpc |
+| OperatingSystemFullName_s | operating system version string  |
+| Bitness_d | bitness of machine (32) or (64) |
+| PhysicalMemory_d | physical memory |
+| Cpus_d | number of cpus |
+| CpuSpeed_d | cpu speed |
+| VirtualizationState_s | "unknown", "physical", "virtual", "hypervisor" |
+| VirtualMachineType_s | "hyperv", "vmware", etc. |
+| VirtualMachineNativeMachineId_s | VM ID as assigned by its hypervisor |
+| VirtualMachineName_s | VM name |
+| BootTime_t | boot time |
+
 
 
 ### ServiceMapProcess_CL Type records
@@ -163,25 +164,24 @@ Records with a type of **ServiceMapProcess_CL** have inventory data for TCP-conn
 |:--|:--|
 | Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| CommandLine_s | Full command line of the process |
-| CompanyName_s | Company name (from Windows PE or Linux RPM) |
-| Description_s | Long process description (from Windows PE or Linux RPM) |
-| FileVersion_s | Executable file version (from Windows PE, Windows only) |
-| FirstPid_d | OS Process ID |
-| InternalName_s | Executable file’s internal name (from Windows PE, Windows only) |
-| MachineId_s | Internal GUID unique across an OMS workspace  |
-| Name_s | The process executable name |
-| Path_s | File system path of the process executable |
-| PersistentKey_s | Internal GUID unique within this computer |
-| PoolId_d | Internal ID for aggregating processes based on similar command lines. |
-| ProcessId_s | Internal GUID unique across an OMS workspace  |
-| ProductName_s | Product name string (from Windows PE or Linux RPM) |
-| ProductVersion_s | Product version string (from Windows PE or Linux RPM) |
-| StartTime_t | Process start time on local computer clock |
-| TimeGenerated | Date and time that the record was created. |
-| UserDomain_s | Domain of process owner (Windows only) |
-| UserName_s | Name of process owner (Windows only) |
-| WorkingDirectory_s | Process working directory |
+| ResourceName_s | process resource name |
+| MachineResourceName_s | machine resource name |
+| ExecutableName_s | process executable name |
+| StartTime_t | process pool start time |
+| PersistentKey_s | process pool persistent key |
+| PoolId_d | process pool ID |
+| FirstPid_d | first pid in process pool |
+| Description_s | process description |
+| CompanyName_s | company name |
+| InternalName_s | internal name |
+| ProductName_s | product name |
+| ProductVersion_s | product version |
+| FileVersion_s | file version |
+| CommandLine_s | command line |
+| ExecutablePath _s | path to executable file |
+| WorkingDirectory_s | working directory |
+| UserName | user under which the process is executing |
+| UserDomain | domain user which the process is executing |
 
 
 ## Sample log searches
