@@ -22,7 +22,7 @@ ms.author: kathm
 This document provides instructions about how to scale App Service on Azure Stack worker roles. It contains steps for creating additional worker roles to support applications of any size.
 
 > [!NOTE]
-> If your Azure Stack POC Environment does not have more than 96 GB RAM you may have difficulties adding additional capacity.
+> If your Azure Stack POC Environment does not have more than 96-GB RAM you may have difficulties adding additional capacity.
 
 App Service on Azure Stack, by default, supports free and shared worker tiers. To add other worker tiers, you need to add more worker roles.
 
@@ -47,7 +47,7 @@ There are two ways to add additional capacity to App Service on Azure Stack:
 7.  You can monitor the progress of the readiness of the new workers by viewing the workers in the **roles** blade.
 
 >[!NOTE]
->  In this preview, the integrated New Role Instance flow is limited to Worker Roles and will deploy VMs of size A1 only.  We will be expanding this capability in a future release.
+>  In this preview, the integrated New Role Instance flow is limited to Worker Roles and deploy VMs of size A1 only.  We will be expanding this capability in a future release.
 
 ## Manually adding additional capacity to App Service on Azure Stack.
 
