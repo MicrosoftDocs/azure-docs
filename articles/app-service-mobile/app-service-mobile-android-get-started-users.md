@@ -1,6 +1,6 @@
 ---
 title: Add authentication on Android with Mobile Apps | Microsoft Docs
-description: Learn how to use Mobile Apps in Azure App Service to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft.
+description: Learn how to use the Mobile Apps feature of Azure App Service to authenticate users of your Android app through a variety of identity providers, including Google, Facebook, Twitter, and Microsoft.
 services: app-service\mobile
 documentationcenter: android
 author: ysxu
@@ -21,7 +21,7 @@ ms.author: yuaxu
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 ## Summary
-In this tutorial, you add authentication to the todolist quickstart project on Android using a supported identity provider. This tutorial is based on the [Get started with Mobile Apps] tutorial, which you must complete first.
+In this tutorial, you add authentication to the todolist quickstart project on Android by using a supported identity provider. This tutorial is based on the [Get started with Mobile Apps] tutorial, which you must complete first.
 
 ## <a name="register"></a>Register your app for authentication and configure the App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
@@ -29,11 +29,11 @@ In this tutorial, you add authentication to the todolist quickstart project on A
 ## <a name="permissions"></a>Restrict permissions to authenticated users
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* In Android Studio, open the project the projected you completed with the tutorial [Get started with Mobile Apps]. From the **Run** menu click **Run app** and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
-  
-     This exception happens because the app attempts to access the backend as an unauthenticated user, but the *TodoItem* table now requires authentication.
+* In Android Studio, open the project you completed with the tutorial [Get started with Mobile Apps]. From the **Run** menu, click **Run app**, and verify that an unhandled exception with a status code of 401 (Unauthorized) is raised after the app starts.
 
-Next, you update the app to authenticate users before requesting resources from the Mobile App backend.
+     This exception happens because the app attempts to access the back end as an unauthenticated user, but the *TodoItem* table now requires authentication.
+
+Next, you update the app to authenticate users before requesting resources from the Mobile App back end.
 
 ## Add authentication to the app
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
@@ -45,9 +45,9 @@ Next, you update the app to authenticate users before requesting resources from 
 Now that you completed this basic authentication tutorial, consider continuing on to one of the following tutorials:
 
 * [Add push notifications to your Android app](app-service-mobile-android-get-started-push.md)
-  Learn how to configure your Mobile App backend to use Azure Notification Hubs to send push notifications.
+  Learn how to configure your Mobile App back end to use Azure notification hubs to send push notifications.
 * [Enable offline sync for your Android app](app-service-mobile-android-get-started-offline-data.md)
-  Learn how to add offline support your app using a Mobile App backend. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
+  Learn how to add offline support your app using a Mobile App back end. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register
