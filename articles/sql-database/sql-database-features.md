@@ -66,6 +66,14 @@ Additionally, login and user names cannot contain the \ character (Windows Authe
 ## Database supported features matrix
 The following tables lists the major features of SQL Database and SQL Server, specifies its supportability, and provides a link to more information about the feature on each platform. For Transact-SQL features, follow the link in the table for the category of the feature. See also [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md) for more background on the reasons for lack of support for certain types of features.
 
+We continue to add features to V12. So we encourage you to visit our Service Updates webpage for Azure, and to use its filters:
+
+* Filtered to the [SQL Database service](https://azure.microsoft.com/updates/?service=sql-database).
+* Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
+
+[!TIP]
+To test an existing database for compatibility with Azure SQL Database, see [Validate Azure SQL Database compatibility](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+
 | **Feature** | **SQL Server** | **Azure SQL Database** | 
 | --- | :---: | :---: | 
 | Active Geo-Replication | Not supported - see [AlwaysOn Availability Groups](https://msdn.microsoft.com/library/hh510230.aspx) | [Supported](sql-database-geo-replication-overview.md)
@@ -80,7 +88,7 @@ The following tables lists the major features of SQL Database and SQL Server, sp
 | BACPAC file (export) | [Supported](https://msdn.microsoft.com/library/hh213241.aspx) | [Supported](sql-database-export.md) |
 | BACPAC file (import) | [Supported](https://msdn.microsoft.com/library/hh710052.aspx) | [Supported](sql-database-import.md) |
 | BACKUP and RESTORE statements | [Supported](https://msdn.microsoft.com/library/ff848768.aspx) | Not supported |
-| Built-in functions | [Supported](https://msdn.microsoft.com/library/ms174318.aspx) | [Most](https://msdn.microsoft.comlibrary/ms174318.aspx) |
+| Built-in functions | [Supported](https://msdn.microsoft.com/library/ms174318.aspx) | [Most](https://msdn.microsoft.com/library/ms174318.aspx) |
 | Change data capture | [Supported](https://msdn.microsoft.com/library/cc645937.aspx) | Not supported |
 | Change tracking | [Supported](https://msdn.microsoft.com/library/bb933875.aspx) | [Supported](https://msdn.microsoft.com/library/bb933875.aspx) |
 | Collation statements | [Supported](https://msdn.microsoft.com/library/ff848763.aspx) | [Supported](https://msdn.microsoft.com/library/ff848763.aspx) |
