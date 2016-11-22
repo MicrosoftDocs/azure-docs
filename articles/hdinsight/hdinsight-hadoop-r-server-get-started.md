@@ -137,8 +137,6 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
    ​
 
-    Use the **Select** button to save the resource group.
-
 9. After reviewing your selections, it is now time to create the cluster. To do so select **Pin to Startboard** and then **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal.
 
    You will note that there is also a link for **Automation options**. Clicking on this link will display scripts that can be used to automate the creation of a cluster with the selected configuration. These scripts are also available from the Azure Portal entry for your cluster once it has been created.
