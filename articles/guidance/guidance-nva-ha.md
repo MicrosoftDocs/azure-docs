@@ -31,7 +31,7 @@ An NVA can be deployed to a DMZ in many different architectures. For example, th
 
 This architecture includes the following resources:
 
-- A VPN gateway providing connectivity between the an on-premises network and the Azure virtual network.
+- A VPN gateway providing connectivity between the on-premises network and the Azure virtual network.
 - A gateway subnet in Azure that includes the inbound virtual network gateway.
 - An inbound public DMZ subnet that includes a network security group (NSG).
 - A UDR to route inbound traffic from the virtual network gateway to the NVA. 
@@ -54,7 +54,7 @@ The following architectures provide highly available NVAs:
 
 ### Ingress with layer 7 NVAs
 
-The following figure shows a high availability architecture that implements an ingress DMZ behind a internet-facing load balancer. This architecture is designed to provide connectivity to Azure workloads for layer 7 traffic, such as HTTP or HTTPS:
+The following figure shows a high availability architecture that implements an ingress DMZ behind an internet-facing load balancer. This architecture is designed to provide connectivity to Azure workloads for layer 7 traffic, such as HTTP or HTTPS:
 
 ![[1]][1]
 
