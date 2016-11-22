@@ -182,7 +182,6 @@
 #### [Workload insights in the Azure portal](sql-database-performance.md)
 #### [Use batching](sql-database-use-batching-to-improve-performance.md)
 ## SQL Database V11
-### [New in V12](sql-database-v12-whats-new.md)
 ### [Web and business edition sunset](sql-database-web-business-sunset-faq.md)
 ### [Service tier advisor](sql-database-service-tier-advisor.md)
 ### [Elastic pool assessement tool](sql-database-elastic-pool-database-assessment-powershell.md)
