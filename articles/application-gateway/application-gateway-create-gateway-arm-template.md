@@ -90,33 +90,33 @@ You can download the existing Azure Resource Manager template to create a virtua
 4. Save the file to a local folder on your computer.
 5. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
    
-```json
-       {
-       "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-       {
-       "location" : {
-       "value" : "West US"
-       },
-       "addressPrefix": {
-       "value": "10.0.0.0/16"
-       },
-       "subnetPrefix": {
-       "value": "10.0.0.0/24"
-       },
-       "skuName": {
-       "value": "Standard_Small"
-       },
-       "capacity": {
-       "value": 2
-       },
-       "backendIpAddress1": {
-       "value": "10.0.1.10"
-       },
-       "backendIpAddress2": {
-       "value": "10.0.1.11"
-       }
-       }
-```
+    ```json
+        {
+        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+        {
+        "location" : {
+        "value" : "West US"
+        },
+        "addressPrefix": {
+        "value": "10.0.0.0/16"
+        },
+        "subnetPrefix": {
+        "value": "10.0.0.0/24"
+        },
+        "skuName": {
+        "value": "Standard_Small"
+        },
+        "capacity": {
+        "value": 2
+        },
+        "backendIpAddress1": {
+        "value": "10.0.1.10"
+        },
+        "backendIpAddress2": {
+        "value": "10.0.1.11"
+        }
+        }
+    ```
 
 6. Save the file. You can test the JSON template and parameter template by using online JSON validation tools like [JSlint.com](http://www.jslint.com/).
 
