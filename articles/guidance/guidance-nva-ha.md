@@ -129,7 +129,7 @@ This architecture is similar to the first architecture discussed in this article
 
 These changes to the UDR and PIP can be done either manually or using an automated process. The automated process can be a daemon or other monitoring service running in Azure that queries a health probe on the active NVA and performs the UDR and PIP switch when necessary. The figure shows an example [ZooKeeper][zookeeper] daemon on the NVAs to determine which NVA is active, also known as leader election. Once a leader is elected, it calls the Azure REST API to remove the PIP from the failed node and attach it to the leader. The leader then modifies the UDR to point to the new leader's IP internal address.
 
-### Solution Deployment
+<!--### Solution Deployment-->
 
 <!-- instructions for deploying this solution here --> 
 
