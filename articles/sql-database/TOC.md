@@ -4,7 +4,7 @@
 ### [Database Transaction Units](sql-database-what-is-a-dtu.md)
 ### [DTU benchmark overview](sql-database-benchmark-overview.md)
 ### [Resource limits](sql-database-resource-limits.md)
-### [General limitations](sql-database-general-limitations.md)
+### [Features](sql-database-features.md)
 ### [SQL Database FAQ](sql-database-faq.md)
 ## Benefits
 ### [Learns and adapts](sql-database-learn-and-adapt.md)
