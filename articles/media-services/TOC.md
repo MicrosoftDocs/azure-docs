@@ -56,23 +56,23 @@
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
 ### Legacy encoders
-##### [Using the Azure Media Packager](media-services-static-packaging.md)
+#### [Using the Azure Media Packager](media-services-static-packaging.md)
 
 ## [Live streaming](media-services-manage-channels-overview.md)
-#### [On-premise encoders](media-services-live-streaming-with-onprem-encoders.md)
-#### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
-#### Cloud encoder tutorials
-##### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
-##### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-#### [Configure on-premise encoders for use with cloud encoder](media-services-live-encoders-overview.md)
-#### [Handle long-running operations](media-services-dotnet-long-operations.md)
-#### [Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
-#### [Dynamic packaging](media-services-dynamic-packaging-overview.md)
-### Configure encoders for a single bitrate live stream
-#### [Elemental Live encoder](media-services-configure-elemental-live-encoder.md)
-#### [FMLE encoder ](media-services-configure-fmle-live-encoder.md)
-#### [NewTek TriCaster encoder](media-services-configure-tricaster-live-encoder.md)
-#### [Wirecast encoder](media-services-configure-wirecast-live-encoder.md)
+### [On-premise encoders](media-services-live-streaming-with-onprem-encoders.md)
+### [Live streaming with cloud encoder](media-services-manage-live-encoder-enabled-channels.md)
+### Cloud encoder tutorials
+#### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
+#### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
+### [Configure on-premise encoders for use with cloud encoder](media-services-live-encoders-overview.md)
+### [Handle long-running operations](media-services-dotnet-long-operations.md)
+### [Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
+### [Dynamic packaging](media-services-dynamic-packaging-overview.md)
+## Configure encoders for a single bitrate live stream
+### [Elemental Live encoder](media-services-configure-elemental-live-encoder.md)
+### [FMLE encoder ](media-services-configure-fmle-live-encoder.md)
+### [NewTek TriCaster encoder](media-services-configure-tricaster-live-encoder.md)
+### [Wirecast encoder](media-services-configure-wirecast-live-encoder.md)
 
 ## [Protect](media-services-content-protection-overview.md)
 ### [Configure content protection in the portal](media-services-portal-protect-content.md)
