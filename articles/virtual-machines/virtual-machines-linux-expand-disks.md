@@ -34,14 +34,14 @@ In the following examples, replace example parameter names with your own values.
 
 ## Expand OS disk
 
-1. Operations on virtual hard disks cannot be performed with the VM running. The following example stop and deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
+1. Operations on virtual hard disks cannot be performed with the VM running. The following example stops and deallocates the VM named `myVM` in the resource group named `myResourceGroup`:
 
     ```azurecli
     azure vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
     > [!NOTE]
-    > `azure vm stop` does not release the compute resources. To release compute resources, use `azure vm deallocate`. For the purposes of resizing the virtual hard disk, the VM must be deallocated to expand the virtual hard disk.
+    > `azure vm stop` does not release the compute resources. To release compute resources, use `azure vm deallocate`. The VM must be deallocated to expand the virtual hard disk.
 
 2. Update the size of the OS disk using the `azure vm set` command. The following example updates the VM named `myVM` in the resource group named `myResourceGroup` to be `50` GB:
 
