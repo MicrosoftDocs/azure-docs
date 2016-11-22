@@ -37,7 +37,8 @@ ms.author: elioda
 | Jobs operations <br/> (create, update, list, delete) | Not charged. |
 | Jobs per-device operations | Jobs operations (i.e. twin updates, and methods) are charged as normal. For instance, a job resulting in 1000 method calls with 1KB requests and empty-body responses will be charged 1000 messages. |
 
-> AZURE.NOTE All sizes are computed considering the payload size in bytes (protocol framing is ignored). In case of messages (which have properties and body) the size is computed in a protocol-agnostic way, as described in the [IoT Hub messaging developer's guide][lnk-message-size].
+> [!NOTE]
+> All sizes are computed considering the payload size in bytes (protocol framing is ignored). In case of messages (which have properties and body) the size is computed in a protocol-agnostic way, as described in the [IoT Hub messaging developer's guide][lnk-message-size].
 
 ## Example #1 - 
 
