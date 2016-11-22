@@ -132,17 +132,15 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
      ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_11.png)
 11. On the **SAML Settings** dialog, perform the following steps:
     
-     ![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)
+	![Configure Single Sign-On](./media/active-directory-saas-imagerelay-tutorial/tutorial_imagerelay_12.png)
     
-     a. In the Azure classic portal, copy the **Single Sign-On Service URL**, and then paste it into the **Login URL** textbox.
+    a. In the Azure classic portal, copy the **Single Sign-On Service URL**, and then paste it into the **Login URL** textbox.
 
     b. In the Azure classic portal, copy the **Single Sign-Out Service URL**, and then paste it into the **Logout URL** textbox.
 
     c. As **Name Id Format**, select **urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress**.
 
-
     d. As **Binding Options for Requests from the Service Provider (Image Relay)**, select **POST Binding**.
-
 
     e. Under **x.509 Certificate**, click **Update Certificate**.
 
