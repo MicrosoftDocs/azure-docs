@@ -268,7 +268,7 @@ This section shows how to create a Premium Storage account using the Azure porta
    > Your storage account name must be unique within Azure. The Azure portal will indicate if the storage account name you select is already in use.
    > 
    > 
-4. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
+4. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
 5. Specify the performance tier for the storage account as **Premium**.
 6. **Locally-redundant storage (LRS)** is the only available replication option with Premium Storage. For more details on Azure Storage replication options, see [Azure Storage replication](storage-redundancy.md).
 7. Select the subscription in which you want to create the new storage account.

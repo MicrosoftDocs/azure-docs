@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/27/2016
+ms.date: 11/21/2016
 ms.author: terrylan
 
 ---
@@ -145,7 +145,7 @@ Supported Windows VMs:
 
 Supported Linux VMs:
 
-* Ubuntu versions 12.04, 14.04, 16.04
+* Ubuntu versions 12.04, 14.04, 16.04, 16.10
 * Debian versions 7, 8
 * CentOS versions 6.\*, 7.*
 * Red Hat Enterprise Linux (RHEL) versions 6.\*, 7.*
