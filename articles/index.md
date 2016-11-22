@@ -1,7 +1,8 @@
 ---
 layout: HubPage
 hide_bc: true
-title: Microsoft Azure Documentation
+title: Microsoft Azure Documentation | Microsoft Docs
+description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
 ---
 <div id="main" class="v2">
     <div class="container">
