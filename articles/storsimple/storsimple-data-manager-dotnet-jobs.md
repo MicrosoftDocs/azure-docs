@@ -3,7 +3,7 @@ title: Use .NET SDK for Microsoft Azure StorSimple Data Manager jobs | Microsoft
 description: Learn how to use .NET SDK to launch StorSimple Data Manager jobs (private preview)
 services: storsimple
 documentationcenter: NA
-author: vidar
+author: vidarmsft
 manager: syadav
 editor: ''
 
@@ -14,16 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
-ms.author: vidar
+ms.author: vidarmsft
 ---
 
-# Using the .Net SDK to trigger data transformation
+# Use the .Net SDK to initiate data transformation (Private Preview)
 
 ## Overview
 
 This article explains how you can use the StorSimple Data Transformation service within the StorSimple Data Manager to use data that you have on your device with other Azure services in the cloud. The article also includes a walkthrough that you can follow to create a sample .NET console application that allows you to trigger a data transformation job and track it for completion.
 
-### Prerequisites
+## Prerequisites
 
 Before you begin, ensure that you have:
 *	Visual Studio 2012, 2013, or 2015
@@ -33,7 +33,7 @@ Before you begin, ensure that you have:
 *	All DLLs present in [this](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/tree/master/Data_Manager_Job_Run/dlls) folder on the github repository.
 *	Get-ConfigurationParams.ps1 [script](https://github.com/Azure-Samples/storsimple-dotnet-data-manager-get-started/blob/master/Data_Manager_Job_Run/Get-ConfigurationParams.ps1) from the github repository.
 
-### Step-by-Step
+## Step-by-Step
 
 Perform the following steps to use .NET to launch a data transformation job.
 

@@ -3,7 +3,7 @@ title: Microsoft Azure StorSimple Data Manager overview | Microsoft Docs
 description: Provides an overview of the StorSimple Data Manager serivce (private preview)
 services: storsimple
 documentationcenter: NA
-author: vidar
+author: vidarmsft
 manager: syadav
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
-ms.author: vidar
+ms.author: vidarmsft
 ---
 
 # StorSimple Data Manager overview (Private Preview)
@@ -27,7 +27,7 @@ The data transformation service that we are introducing in this document, allows
 
 A high level block diagram illustrating this is shown below.
 
-![High level diagram](./media/high-level-diagram.png)
+![High level diagram](./media//storsimple-data-manager-overview/high-level-diagram.png)
 
 This document explains how you can sign up for a private preview of this service, and how you can use this service to write applications that use StorSimple data and other Azure services in the cloud.
 

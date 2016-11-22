@@ -3,7 +3,7 @@ title: Microsoft Azure StorSimple Data Manager UI | Microsoft Docs
 description: Describes how to use StorSimple Data Manager serivce UI (private preview)
 services: storsimple
 documentationcenter: NA
-author: vidar
+author: vidarmsft
 manager: syadav
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 11/22/2016
-ms.author: vidar
+ms.author: vidarmsft
 ---
 
 # Manage using the StorSimple Data Manager service UI (Private Preview)
