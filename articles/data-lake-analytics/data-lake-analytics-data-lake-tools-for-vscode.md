@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/14/2016
+ms.date: 11/22/2016
 ms.author: jgao
 ---
 
@@ -21,29 +21,6 @@ ms.author: jgao
 
 Learn how to use the Azure Data Lake Tools for Visual Studio Code (VSCode) to create, test, and run U-SQL scripts.
 
-The Data Lake Tools for VSCode supports the following features:
-
--	IntelliSense auto-complete. Suggestions are popped up around keyword, method, variables, etc. Different icons represent different types of the objects:
-
-    - Scala Data Type
-    - Complex Data Type
-    - Built-in UDTs
-    - .Net Collection & Classes
-    - C# Expressions
-    - Built-in C# UDFs, UDOs, and UDAAGs 
-    - U-SQL Functions
-    - U-SQL Windowing Function
- 
-    ![Data Lake Tools for Visual Studio Code IntelliSense object types](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-objects.png)
- 
--	IntelliSense auto-complete on the Data Lake Analytics Metadata. The Data Lake Tools download Data Lake Analytics metadata information locally.  The IntelliSense feature automatically populates objects, including Database, Schema, Table, View, TVF, Procedures, C# Assemblies, from the Data Lake Analytics metadata.
- 
-    ![Data Lake Tools for Visual Studio Code IntelliSense metadata](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-metastore.png)
-
--	IntelliSense error marker. The Data Lake Tools underline the editing errors for U-SQL and C#. 
--	Syntax highlights. The Data Lake Tools use different color to differentiate variables, keywords, data type, functions, etc. 
-
-    ![Data Lake Tools for Visual Studio Code syntax highlights](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
 ## Prerequisites
 
@@ -110,7 +87,7 @@ Before you can compile and run U-SQL scripts, you must connect to your Azure.
 **To connect to Azure**
 
 1.	Open the command palette by pressing **CTRL+SHIFT+P**. 
-2.  Enter **USQL:Login**.
+2.  Enter **ADL:Login**.
 
     ![Data Lake Tools for Visual Studio Code command palette](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
 
@@ -119,14 +96,14 @@ Before you can compile and run U-SQL scripts, you must connect to your Azure.
 > [!NOTE] 
 > If your account has two factors enabled, it is recommended to use phone authentication instead of Pin.
 
-To sign off, use the command **USQL:Logout**
+To sign off, use the command **ADL:Logout**
 
 ## List Data Lake Analytics accounts
 
 **To list the Data Lake Analytics accounts under your Azure subscription**
 
 1. Open the command palette by pressing **CTRL+SHIFT+P**.
-2. Type **USQL:List Accounts**.  The accounts appear in the **Output** pane.
+2. Type **ADL:List Accounts**.  The accounts appear in the **Output** pane.
 
 ## Work with U-SQL
 
@@ -142,7 +119,7 @@ A compute Data Lake Analytics account is needed for compiling and running U-SQL 
 **To configure the compute account**
 
 1.	Open the command palette by pressing **CTRL+SHIFT+P**.
-2.	Enter **USQL:Set Script Parameters**. By doing so, you create a configuration file called *usqlscript_settings.json* in the working folder.  
+2.	Enter **ADL:Set Script Parameters**. By doing so, you create a configuration file called *usqlscript_settings.json* in the working folder.  
 3.	From **Explorer**, double-click **vscode for u-sql_settings.json** to open it.
 4.	Configure the following properties:
 
@@ -169,9 +146,9 @@ To support code-behind, a working folder must be opened.
 
 1. Open a soucre file. 
 2. Open the command palette by pressing **CTRL+SHIFT+P**.
-3. Enter **USQL: Generate Code Behind**.  A code-behind file is created in the same folder. 
+3. Enter **ADL: Generate Code Behind**.  A code-behind file is created in the same folder. 
 
-You can also right-click a script file, and then click **USQL: Generate Code Behind** to submit a U-SQL job. 
+You can also right-click a script file, and then click **ADL: Generate Code Behind** to submit a U-SQL job. 
 
 Compile and submit a U-SQL script with code-behind is the same as the standalone U-SQL script.
 
@@ -188,9 +165,9 @@ The U-SQL script compilation is done remotely by the Data Lake Analytics service
 **To compile a U-SQL script**
 
 1. Open the command palette by pressing **CTRL+SHIFT+P**. 
-2. Enter **USQL: Compile Script**. Compile results show in output window.
+2. Enter **ADL: Compile Script**. Compile results show in output window.
  
-You can also right-click a script file, and then click **USQL: Compile Script** to compile a U-SQL job. 
+You can also right-click a script file, and then click **ADL: Compile Script** to compile a U-SQL job. 
  
 
 ### Submit U-SQL jobs
@@ -199,9 +176,9 @@ You can also right-click a script file, and then click **USQL: Compile Script** 
 **To submit a U-SQL script**
 
 1. Open the command palette by pressing **CTRL+SHIFT+P**. 
-2. Enter **USQL: Submit Job**. 
+2. Enter **ADL: Submit Job**. 
 
-You can also right-click a script file, and then click **USQL: Submit Job** to submit a U-SQL job. 
+You can also right-click a script file, and then click **ADL: Submit Job** to submit a U-SQL job. 
 
 After submitting a U-SQL job, submission logs is shown in output window in VSCode. If the submission is successful, the job URL is shown as well. You can open the job URL in a web browser to track real-time job status.
 
@@ -218,7 +195,7 @@ Using the Data Lake Tools, you can register custom code assemblies to the Data L
 **To register an assembly**
 
 1.	Press **CTRL+SHIFT+P** to open Command Palette.
-2.	Enter **USQL:Register Assembly**.
+2.	Enter **ADL:Register Assembly**.
 3.	Select a Data Lake Analytics account.
 4.	Select a database.
 5.	Specify the local assembly path.
@@ -233,10 +210,36 @@ After you have connected to Azure, you can use the following steps to access the
 
 **To access U-SQL metadata**
 
-1.	Press **CTRL+SHIFT+P**, and then type **USQL:List Tables**.
+1.	Press **CTRL+SHIFT+P**, and then type **ADL:List Tables**.
 2.	Click one of the Data Lake Analytics accounts.
 3.	Click one of the Data Lake Analytics databases.
 4.	Click one of the schemas. You shall see the tables.
+
+## Additional features
+
+The Data Lake Tools for VSCode supports the following features:
+
+-	IntelliSense auto-complete. Suggestions are popped up around keyword, method, variables, etc. Different icons represent different types of the objects:
+
+    - Scala Data Type
+    - Complex Data Type
+    - Built-in UDTs
+    - .Net Collection & Classes
+    - C# Expressions
+    - Built-in C# UDFs, UDOs, and UDAAGs 
+    - U-SQL Functions
+    - U-SQL Windowing Function
+ 
+    ![Data Lake Tools for Visual Studio Code IntelliSense object types](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-objects.png)
+ 
+-	IntelliSense auto-complete on the Data Lake Analytics Metadata. The Data Lake Tools download Data Lake Analytics metadata information locally.  The IntelliSense feature automatically populates objects, including Database, Schema, Table, View, TVF, Procedures, C# Assemblies, from the Data Lake Analytics metadata.
+ 
+    ![Data Lake Tools for Visual Studio Code IntelliSense metadata](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-auto-complete-metastore.png)
+
+-	IntelliSense error marker. The Data Lake Tools underline the editing errors for U-SQL and C#. 
+-	Syntax highlights. The Data Lake Tools use different color to differentiate variables, keywords, data type, functions, etc. 
+
+    ![Data Lake Tools for Visual Studio Code syntax highlights](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-syntax-highlights.png)
 
 ##Next steps:
 
