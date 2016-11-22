@@ -152,7 +152,7 @@ By default, Data Factory uses a single cloud DMU to perform a single Copy Activi
 The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, and 8. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern.
 
 > [!NOTE]
-> If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you copy multiple files from Blob storage/Data lake Store/Amazon S3 to Blob storage/Data Lake Store/Azure SQL Database, and the file size is greater than or equal to 16 MB individually.
+> If you need more cloud DMUs for a higher throughput, contact [Azure support](https://azure.microsoft.com/support/). Setting of 8 and above currently works only when you **copy multiple files from Blob storage/Data Lake Store/Amazon S3 to Blob storage/Data Lake Store/Azure SQL Database**, and the file size is greater than or equal to 16 MB individually.
 >
 >
 
