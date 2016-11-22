@@ -25,7 +25,7 @@ When considering the ability to resize a VM, there are two concepts which contro
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-You can also [resize a VM created in the Resource Manager deployment model](virtual-machines-windows-resize-vm.md).
+You can also [resize a VM created in the Resource Manager deployment model](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Add your account
 You must configure Azure PowerShell to work with classic Azure resources. Follow the steps below to configure Azure PowerShell to manage classic resources.
@@ -65,5 +65,5 @@ To resize a VM to a size not available in the hardware cluster hosting the VM, t
 A sample script for deleting and recreating a cloud service using a new VM size can be found [here](https://github.com/Azure/azure-vm-scripts). 
 
 ## Next steps
-* [Resize a VM created in the Resource Manager deployment model](virtual-machines-windows-resize-vm.md).
+* [Resize a VM created in the Resource Manager deployment model](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -59,15 +59,17 @@ When you add a PHP web or worker role to a project, the project's configuration 
 
 The output from the command above will look similar to what is shown below. In this example, the `IsDefault` flag is set to `true` for PHP 5.3.17, indicating that it will be the default PHP version installed.
 
-    Runtime Version        PackageUri                        IsDefault
-    ------- -------     ----------                      ---------
-       Node 0.6.17          http://nodertncu.blob.core...   False
-       Node 0.6.20         http://nodertncu.blob.core...   True
-       Node 0.8.4          http://nodertncu.blob.core...   False
-    IISNode 0.1.21      http://nodertncu.blob.core...   True
-      Cache 1.8.0         http://nodertncu.blob.core...   True
-    PHP 5.3.17          http://nodertncu.blob.core...   True
-    PHP 5.4.0           http://nodertncu.blob.core...   False
+```
+Runtime Version     PackageUri                      IsDefault
+------- -------     ----------                      ---------
+Node 0.6.17         http://nodertncu.blob.core...   False
+Node 0.6.20         http://nodertncu.blob.core...   True
+Node 0.8.4          http://nodertncu.blob.core...   False
+IISNode 0.1.21      http://nodertncu.blob.core...   True
+Cache 1.8.0         http://nodertncu.blob.core...   True
+PHP 5.3.17          http://nodertncu.blob.core...   True
+PHP 5.4.0           http://nodertncu.blob.core...   False
+```
 
 You can set the PHP runtime version to any of the PHP versions that are listed. For example, to set the PHP version (for a role with the name `roleName`) to 5.4.0, use the following command:
 
@@ -108,21 +110,23 @@ To configure a web role to use a PHP runtime that you provide, follow these step
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 4. Define a startup task that configures [Internet Information Services (IIS)][iis.net] to use your PHP runtime to handle requests for `.php` pages. To do this, open the `setup_web.cmd` file (in the `bin` file of your web role's root directory) in a text editor and replace its contents with the following script:
 
-        @ECHO ON
-        cd "%~dp0"
+    ```cmd
+    @ECHO ON
+    cd "%~dp0"
 
-        if "%EMULATED%"=="true" exit /b 0
+    if "%EMULATED%"=="true" exit /b 0
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+    msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
-        SET PHP_FULL_PATH=%~dp0php\php-cgi.exe
-        SET NEW_PATH=%PATH%;%RoleRoot%\base\x86
+    SET PHP_FULL_PATH=%~dp0php\php-cgi.exe
+    SET NEW_PATH=%PATH%;%RoleRoot%\base\x86
 
-        %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%',maxInstances='12',idleTimeout='60000',activityTimeout='3600',requestTimeout='60000',instanceMaxRequests='10000',protocol='NamedPipe',flushNamedPipe='False']" /commit:apphost
-        %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%'].environmentVariables.[name='PATH',value='%NEW_PATH%']" /commit:apphost
-        %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%'].environmentVariables.[name='PHP_FCGI_MAX_REQUESTS',value='10000']" /commit:apphost
-        %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/handlers /+"[name='PHP',path='*.php',verb='GET,HEAD,POST',modules='FastCgiModule',scriptProcessor='%PHP_FULL_PATH%',resourceType='Either',requireAccess='Script']" /commit:apphost
-        %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /"[fullPath='%PHP_FULL_PATH%'].queueLength:50000"
+    %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%',maxInstances='12',idleTimeout='60000',activityTimeout='3600',requestTimeout='60000',instanceMaxRequests='10000',protocol='NamedPipe',flushNamedPipe='False']" /commit:apphost
+    %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%'].environmentVariables.[name='PATH',value='%NEW_PATH%']" /commit:apphost
+    %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /+"[fullPath='%PHP_FULL_PATH%'].environmentVariables.[name='PHP_FCGI_MAX_REQUESTS',value='10000']" /commit:apphost
+    %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/handlers /+"[name='PHP',path='*.php',verb='GET,HEAD,POST',modules='FastCgiModule',scriptProcessor='%PHP_FULL_PATH%',resourceType='Either',requireAccess='Script']" /commit:apphost
+    %WINDIR%\system32\inetsrv\appcmd.exe set config -section:system.webServer/fastCgi /"[fullPath='%PHP_FULL_PATH%'].queueLength:50000"
+    ```
 5. Add your application files to your web role's root directory. This will be the web server's root directory.
 6. Publish your application as described in the [Publish your application](#publish-your-application) section below.
 
@@ -141,30 +145,32 @@ To configure a worker role to use a PHP runtime that you provide, follow these s
         msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 4. Define a startup task that adds your `php.exe` executable to the worker role's PATH environment variable when the role is provisioned. To do this, open the `setup_worker.cmd` file (in the worker role's root directory) in a text editor and replace its contents with the following script:
 
-        @echo on
+    ```cmd
+    @echo on
 
-        cd "%~dp0"
+    cd "%~dp0"
 
-        echo Granting permissions for Network Service to the web root directory...
-        icacls ..\ /grant "Network Service":(OI)(CI)W
-        if %ERRORLEVEL% neq 0 goto error
-        echo OK
+    echo Granting permissions for Network Service to the web root directory...
+    icacls ..\ /grant "Network Service":(OI)(CI)W
+    if %ERRORLEVEL% neq 0 goto error
+    echo OK
 
-        if "%EMULATED%"=="true" exit /b 0
+    if "%EMULATED%"=="true" exit /b 0
 
-        msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
+    msiexec /i sqlncli.msi /qn IACCEPTSQLNCLILICENSETERMS=YES
 
-        setx Path "%PATH%;%~dp0php" /M
+    setx Path "%PATH%;%~dp0php" /M
 
-        if %ERRORLEVEL% neq 0 goto error
+    if %ERRORLEVEL% neq 0 goto error
 
-        echo SUCCESS
-        exit /b 0
+    echo SUCCESS
+    exit /b 0
 
-        :error
+    :error
 
-        echo FAILED
-        exit /b -1
+    echo FAILED
+    exit /b -1
+    ```
 5. Add your application files to your worker role's root directory.
 6. Publish your application as described in the [Publish your application](#publish-your-application) section below.
 

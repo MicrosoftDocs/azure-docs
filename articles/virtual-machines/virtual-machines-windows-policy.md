@@ -34,7 +34,7 @@ For getting started with Azure Resource Manager policies, we recommend reading t
 * [Use Policy to manage resources and control access](../resource-manager-policy.md)
 
 ## Define a policy for your Virtual Machine
-One of the common scenarios for an enterprise might be to only allow their users to create Virtual Machines from specific operating systems that have been tested to be compatible with a LOB application. Using an Azure Resource Manager policy this task can be accomplished in a few steps. 
+One of the common scenarios for an enterprise might be to only allow their users to create Virtual Machines from specific operating systems that have been tested to be compatible with a LOB application. Using an Azure Resource Manager policy this task can be accomplished in a few steps.
 In this policy example, we are going to allow only Windows Server 2012 R2 Datacenter Virtual Machines to be created. The policy definition looks like below
 
 ```
@@ -81,7 +81,7 @@ The above policy can easily be modified to a scenario where you might want to al
 #### Virtual Machine Property Fields
 The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more on policy fields, see the article below:
 
-* [Fields and Sources](../resource-manager-policy.md#fields-and-sources)
+* [Fields and Sources](../resource-manager-policy.md#conditions)
 
 | Field Name | Description |
 | --- | --- |
@@ -93,10 +93,9 @@ The table below describes the Virtual Machine properties that can be used as fie
 ## Create the Policy
 A policy can easily be created using the REST API directly or the PowerShell cmdlets. For creating the policy, see the article below:
 
-* [Creating a Policy](../resource-manager-policy.md#creating-a-policy)
+* [Creating a Policy](../resource-manager-policy.md#create-and-assign-a-policy)
 
 ## Apply the Policy
 After creating the policy you’ll need to apply it on a defined scope. The scope can be a subscription, resource group or even the resource. For applying the policy, see the article below:
 
-* [Creating a Policy](../resource-manager-policy.md#applying-a-policy)
-
+* [Creating a Policy](../resource-manager-policy.md#create-and-assign-a-policy)

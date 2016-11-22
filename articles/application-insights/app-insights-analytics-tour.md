@@ -1,4 +1,4 @@
-﻿---
+---
 title: A tour through Analytics in Application Insights | Microsoft Docs
 description: Short samples of all the main queries in Analytics, the powerful search tool of Application Insights.
 services: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
@@ -82,6 +82,83 @@ The result would be the same, but it would run a bit more slowly. (You could als
 
 The column headers in the table view can also be used to sort the results on the screen. But of course, if you've used `take` or `top` to retrieve just part of a table, you'll only re-order the records you've retrieved.
 
+## [Where](app-insights-analytics-reference.md#where-operator): filtering on a condition
+
+Let's see just requests that returned a particular result code:
+
+```AIQL
+
+    requests
+    | where resultCode  == "404" 
+    | take 10
+```
+
+![](./media/app-insights-analytics-tour/250.png)
+
+The `where` operator takes a Boolean expression. Here are some key points about them:
+
+* `and`, `or`: Boolean operators
+* `==`, `<>` : equal and not equal
+* `=~`, `!=` : case-insensitive string equal and not equal. There are lots more string comparison operators.
+
+Read all about [scalar expressions](app-insights-analytics-reference.md#scalars).
+
+### Getting the right type
+Find unsuccessful requests:
+
+```AIQL
+
+    requests
+    | where isnotempty(resultCode) and toint(resultCode) >= 400
+```
+
+`responseCode` has type string, so we must [cast it](app-insights-analytics-reference.md#casts) for a numeric comparison.
+
+## Time range
+
+By default, your queries are restricted to the last 24 hours. But you can change this range:
+
+![](./media/app-insights-analytics-tour/change-time-range.png)
+
+Override the time range by writing any query that mentions `timestamp` in a where-clause. For example:
+
+```AIQL
+
+    // What were the slowest requests over the past 3 days?
+    requests
+    | where timestamp > ago(3d)  // Override the time range 
+    | top 5 by duration
+```
+
+The time range feature is equivalent to a 'where' clause inserted after each mention of one of the source tables. 
+
+`ago(3d)` means 'three days ago'. Other units of time include hours (`2h`, `2.5h`), minutes (`25m`) and seconds (`10s`). 
+
+Other examples:
+
+```AIQL
+
+    // Last calendar week:
+    requests 
+    | where timestamp > startofweek(now()-7d) 
+        and timestamp < startofweek(now()) 
+    | top 5 by duration
+
+    // First hour of every day in past seven days:
+    requests 
+    | where timestamp > ago(7d) and timestamp % 1d < 1h
+    | top 5 by duration
+
+    // Specific dates:
+    requests
+    | where timestamp > datetime(2016-11-19) and timestamp < datetime(2016-11-21)
+    | top 5 by duration
+
+```
+
+[Dates and times reference](app-insights-analytics-reference.md#date-and-time).
+
+
 ## [Project](app-insights-analytics-reference.md#project-operator): select, rename and compute columns
 Use [`project`](app-insights-analytics-reference.md#project-operator) to pick out just the columns you want:
 
@@ -127,6 +204,18 @@ If you just want to add columns to the existing ones, use [`extend`](app-insight
 
 Using [`extend`](app-insights-analytics-reference.md#extend-operator) is less verbose than [`project`](app-insights-analytics-reference.md#project-operator) if you want to keep all the existing columns.
 
+### Convert to local time
+
+Timestamps are always in UTC. So if you're on the US Pacific coast and it's winter, you might like this:
+
+```AIQL
+
+    requests 
+    | top 10 by timestamp desc
+    | extend localTime = timestamp - 8h
+```
+
+
 ## [Summarize](app-insights-analytics-reference.md#summarize-operator): aggregate groups of rows
 `Summarize` applies a specified *aggregation function* over groups of rows.
 
@@ -171,8 +260,8 @@ There's a range of [aggregation functions](app-insights-analytics-reference.md#a
 ```AIQL
 
     exceptions
-       | summarize count()  
-         by bin(timestamp, 1d)
+       | summarize count=sum(itemCount)  
+         by bin(timestamp, 1h)
 ```
 
 By default, results display as a table:
@@ -185,58 +274,15 @@ We can do better than the table view. Let's look at the results in the chart vie
 
 Notice that although we didn't sort the results by time (as you can see in the table display), the chart display always shows datetimes in correct order.
 
-## [Where](app-insights-analytics-reference.md#where-operator): filtering on a condition
-If you've set up Application Insights monitoring for both the [client](app-insights-javascript.md) and server sides of your app, some of the telemetry in the database comes from browsers.
-
-Let's see just exceptions reported from browsers:
-
-```AIQL
-
-    exceptions
-    | where client_Type == "Browser"
-    |  summarize count()
-       by client_Browser, outerMessage
-```
-
-![](./media/app-insights-analytics-tour/250.png)
-
-The `where` operator takes a Boolean expression. Here are some key points about them:
-
-* `and`, `or`: Boolean operators
-* `==`, `<>` : equal and not equal
-* `=~`, `!=` : case-insensitive string equal and not equal. There are lots more string comparison operators.
-
-Read all about [scalar expressions](app-insights-analytics-reference.md#scalars).
-
-### Filtering events
-Find unsuccessful requests:
-
-```AIQL
-
-    requests
-    | where isnotempty(resultCode) and toint(resultCode) >= 400
-```
-
-`responseCode` has type string, so we must [cast it](app-insights-analytics-reference.md#casts) for a numeric comparison.
-
-Summarize the different responses:
-
-```AIQL
-
-    requests
-    | where isnotempty(resultCode) and toint(resultCode) >= 400
-    | summarize count()
-      by resultCode
-```
 
 ## Timecharts
-Show how many events there are each day:
+Show how many events there are each hour:
 
 ```AIQL
 
     requests
-      | summarize event_count=count()
-        by bin(timestamp, 1d)
+      | summarize event_count=sum(itemCount)
+        by bin(timestamp, 1h)
 ```
 
 Select the Chart display option:
@@ -251,20 +297,38 @@ Multiple expressions in the `by` clause creates multiple rows, one for each comb
 ```AIQL
 
     requests
-    | summarize count(), avg(duration)
-      by bin(timestamp, 1d), client_StateOrProvince, client_City
+    | summarize count_=sum(itemCount), avg(duration)
+      by bin(timestamp, 1h), client_StateOrProvince, client_City
     | order by timestamp asc, client_StateOrProvince, client_City
 ```
 
-![](./media/app-insights-analytics-tour/090.png)
+![Table of requests by hour and location](./media/app-insights-analytics-tour/090.png)
 
 ### Segment a chart by dimensions
 If you chart a table that has a string column and a numeric column, the string can be used to split the numeric data into separate series of points. If there's more than one string column, you can choose which column to use as the discriminator.
 
 ![Segment an analytics chart](./media/app-insights-analytics-tour/100.png)
 
+#### Bounce rate
+
+Convert a boolean to a string to use it as a discriminator:
+
+```AIQL
+
+    // Bounce rate: sessions with only one page view
+    requests 
+    | where notempty(session_Id) 
+    | where tostring(operation_SyntheticSource) == "" // real users
+    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp) 
+               by session_Id 
+    | extend isbounce= pagesInSession == 1 
+    | summarize count() 
+               by tostring(isbounce), bin (sessionEnd, 1h) 
+    | render timechart
+```
+
 ### Display multiple metrics
-If you chart a table that more than one numeric column, in addition to the timestamp, you can display any combination of them.
+If you chart a table that has more than one numeric column, in addition to the timestamp, you can display any combination of them.
 
 ![Segment an analytics chart](./media/app-insights-analytics-tour/110.png)
 
@@ -277,16 +341,18 @@ Count requests by the time modulo one day, binned into hours:
 
 ```AIQL
 
-    requests
-    | extend hour = floor(timestamp % 1d , 1h)
-          + datetime("2016-01-01")
-    | summarize event_count=count() by hour
+    requests 
+    | where timestamp > ago(30d)  // Override "Last 24h"
+    | where tostring(operation_SyntheticSource) == "" // real users
+    | extend hour = bin(timestamp % 1d , 1h)
+          + datetime("2016-01-01") // Allow render on line chart
+    | summarize event_count=sum(itemCount) by hour
 ```
 
 ![Line chart of hours in an average day](./media/app-insights-analytics-tour/120.png)
 
 > [!NOTE]
-> Notice we currently have to convert time durations to datetimes in order to display on the a chart.
+> Notice that we currently have to convert time durations to datetimes in order to display on a line chart.
 >
 >
 
@@ -295,10 +361,12 @@ How does usage vary over the time of day in different countries?
 
 ```AIQL
 
- requests  | where tostring(operation_SyntheticSource)
+     requests  
+     | where timestamp > ago(30d)  // Override "Last 24h"
+     | where tostring(operation_SyntheticSource) == "" // real users
      | extend hour= floor( timestamp % 1d , 1h)
            + datetime("2001-01-01")
-     | summarize event_count=count()
+     | summarize event_count=sum(itemCount)
        by hour, client_CountryOrRegion
      | render timechart
 ```
@@ -311,6 +379,7 @@ How many sessions are there of different lengths?
 ```AIQL
 
     requests
+    | where timestamp > ago(30d) // override "Last 24h"
     | where isnotnull(session_Id) and isnotempty(session_Id)
     | summarize min(timestamp), max(timestamp)
       by session_Id
@@ -404,6 +473,21 @@ Use *let* to separate out the parts of the previous expression. The results are 
 >
 >
 
+### Functions 
+
+Use *Let* to define a function:
+
+```AIQL
+
+    let usdate = (t:datetime) 
+    {
+      strcat(getmonth(t), "/", dayofmonth(t),"/", getyear(t), " ", 
+      bin((t-1h)%12h+1h,1s), iff(t%24h<12h, "AM", "PM"))
+    };
+    requests  
+    | extend PST = usdate(timestamp-8h) 
+```
+
 ## Accessing nested objects
 Nested objects can be accessed easily. For example, in the exceptions stream you'll see structured objects like this:
 
@@ -418,6 +502,7 @@ You can flatten it by choosing the properties you're interested in:
 ```
 
 Note that you need to use a [cast](app-insights-analytics-reference.md#casts) to the appropriate type.
+
 
 ## Custom properties and measurements
 If your application attaches [custom dimensions (properties) and custom measurements](app-insights-api-custom-events-metrics.md#properties) to events, then you will see them in the `customDimensions` and `customMeasurements` objects.
@@ -442,6 +527,41 @@ To extract these values in Analytics:
       m1 = todouble(customMeasurements.m1) // cast to expected type
 
 ```
+
+To verify whether a custom dimension is of a particular type:
+
+```AIQL
+
+    customEvents
+    | extend p1 = customDimensions.p1,
+      iff(notnull(todouble(customMeasurements.m1)), ...
+```
+
+## Dashboards
+You can pin your results to a dashboard in order to bring together all your most important charts and tables.
+
+* [Azure shared dashboard](app-insights-dashboards.md#share-dashboards): Click the pin icon. Before you do this, you must have a shared dashboard. In the Azure portal, open or create a dashboard and click Share.
+* [Power BI dashboard](app-insights-export-power-bi.md): Click Export, Power BI Query. An advantage of this alternative is that you can display your query alongside a other results from a very wide range of sources.
+
+## Combine with imported data
+
+Analytics reports look great on the dashboard, but sometimes you want to translate the data to a more digestible form. For example, suppose your authenticated users are identified in the telemetry by an alias. You'd like to show their real names in your results. To do this, you just need a CSV file that maps from the aliases to the real names. 
+
+You can import a data file and use it just like any of the standard tables (requests, exceptions, and so on). Either query it on its own, or join it with other tables. For example, if you have a table named usermap, and it has columns `realName` and `userId`, then you can use it to translate the `user_AuthenticatedId` field in the request telemetry:
+
+```AIQL
+
+    requests
+    | where notempty(user_AuthenticatedId) 
+    | project userId = user_AuthenticatedId
+      // get the realName field from the usermap table:
+    | join kind=leftouter ( usermap ) on userId 
+      // count transactions by name:
+    | summarize count() by realName
+```
+
+To import a table, open **Settings**, **Data sources** and follow the instructions to add a source. Use this definition to upload tables.
+
 
 ## Tables
 The stream of telemetry received from your app is accessible through several tables. The schema of properties available for each table is visible at the left of the window.
@@ -494,7 +614,7 @@ The **performanceCounters** schema exposes the `category`, `counter` name, and `
 
 ![Performance counters in Application Insights analytics](./media/app-insights-analytics-tour/analytics-performance-counters.png)
 
-To get a chart of available memory over the recent period:
+To get a chart of available memory over the selected period:
 
 ![Memory timechart in Application Insights analytics](./media/app-insights-analytics-tour/analytics-available-memory.png)
 
@@ -520,22 +640,36 @@ Show the popularities of different pages, and load times for each page:
 
 ![Page load times in Analytics](./media/app-insights-analytics-tour/analytics-page-load.png)
 
-### Availbility results table
+### Availability results table
 `availabilityResults` shows the results of your [web tests](app-insights-monitor-web-app-availability.md). Each run of your tests from each test location is reported separately.
 
 ![Page load times in Analytics](./media/app-insights-analytics-tour/analytics-availability.png)
 
 ### Dependencies table
-Contains results of calls that your app makes to databases and REST APIs, and other calls to TrackDependency().
+Contains results of calls that your app makes to databases and REST APIs, and other calls to TrackDependency(). Also includes AJAX calls made from the browser.
+
+AJAX calls from the browser:
+
+```AIQL
+    
+    dependencies | where client_Type == "Browser" 
+    | take 10
+```
+
+Dependency calls from the server:
+
+```AIQL
+    
+    dependencies | where client_Type == "PC" 
+    | take 10
+```
+
+Server-side dependency results always show `success==False` if the Application Insights Agent is not installed. However, the other data are correct.
 
 ### Traces table
 Contains the telemetry sent by your app using TrackTrace(), or [other logging frameworks](app-insights-asp-net-trace-logs.md).
 
-## Dashboards
-You can pin your results to a dashboard in order to bring together all your most important charts and tables.
 
-* [Azure shared dashboard](app-insights-dashboards.md#share-dashboards): Click the pin icon. Before you do this, you must have a shared dashboard. In the Azure portal, open or create a dashboard and click Share.
-* [Power BI dashboard](app-insights-export-power-bi.md): Click Export, Power BI Query. An advantage of this alternative is that you can display your query alongside a other results from a very wide range of sources.
 
 ## Next steps
 * [Analytics language reference](app-insights-analytics-reference.md)

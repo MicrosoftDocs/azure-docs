@@ -5,7 +5,6 @@ services: load-balancer
 documentationcenter: na
 author: sdwheeler
 manager: carmonm
-editor: ''
 tags: azure-resource-manager
 
 ms.assetid: 64150862-6ced-42de-85dc-89d323257d7c
@@ -20,7 +19,11 @@ ms.author: sewhee
 
 # Create an internal load balancer using a template
 
-[!INCLUDE [load-balancer-get-started-ilb-arm-selectors-include.md](../../includes/load-balancer-get-started-ilb-arm-selectors-include.md)]
+> [!div class="op_single_selector"]
+> * [Azure Portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md)
+> * [PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)
+> * [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)
+> * [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md)
 
 [!INCLUDE [load-balancer-get-started-ilb-intro-include.md](../../includes/load-balancer-get-started-ilb-intro-include.md)]
 
@@ -43,9 +46,9 @@ To deploy the template you downloaded by using PowerShell, follow the steps belo
 4. Run the **New-AzureRmResourceGroupDeployment** cmdlet to create a resource group using the template.
 
     ```azurecli
-        New-AzureRmResourceGroupDeployment -Name TestRG -Location westus `
-            -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
-            -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
+    New-AzureRmResourceGroupDeployment -Name TestRG -Location westus `
+        -TemplateFile 'https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json' `
+        -TemplateParameterFile 'C:\temp\azuredeploy.parameters.json'
     ```
 
 ## Deploy the template by using the Azure CLI
@@ -56,7 +59,7 @@ To deploy the template by using the Azure CLI, follow the steps below.
 2. Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
 
     ```azurecli
-        azure config mode arm
+    azure config mode arm
     ```
 
     Here is the expected output for the command above:
@@ -67,7 +70,7 @@ To deploy the template by using the Azure CLI, follow the steps below.
 4. Run the **azure group deployment create** command to deploy the new internal load balancer by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
 
     ```azurecli
-        azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json
+    azure group create --name TestRG --location westus --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-2-vms-internal-load-balancer/azuredeploy.json --parameters-file parameters.json
     ```
 
 ## Next steps

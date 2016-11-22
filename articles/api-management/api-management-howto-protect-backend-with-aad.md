@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 11/17/2016
 ms.author: sdanie
 
 ---
@@ -184,20 +184,21 @@ Operations can be [added to APIs manually](api-management-howto-add-operations.m
 
 Create a file named `calcapi.json` with following contents and save it to your computer. Ensure that the `host` attribute points to your Web API backend. In this example `"host": "apimaaddemo.azurewebsites.net"` is used.
 
-{
-"swagger": "2.0",
-"info": {
-"title": "Calculator",
-"description": "Arithmetics over HTTP!",
-"version": "1.0"
-},
-"host": "apimaaddemo.azurewebsites.net",
-"basePath": "/api",
-"schemes": [
-"http"
-],
-"paths": {
-"/add?a={a}&b={b}": {
+
+    {
+      "swagger": "2.0",
+      "info": {
+        "title": "Calculator",
+        "description": "Arithmetics over HTTP!",
+        "version": "1.0"
+      },
+      "host": "apimaaddemo.azurewebsites.net",
+      "basePath": "/api",
+      "schemes": [
+        "http"
+      ],
+      "paths": {
+        "/add?a={a}&b={b}": {
           "get": {
             "description": "Responds with a sum of two numbers.",
             "operationId": "Add two integers",
@@ -207,6 +208,7 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "First operand. Default value is <code>51</code>.",
                 "required": true,
+                "type": "string",
                 "default": "51",
                 "enum": [
                   "51"
@@ -217,13 +219,14 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "Second operand. Default value is <code>49</code>.",
                 "required": true,
+                "type": "string",
                 "default": "49",
                 "enum": [
                   "49"
                 ]
               }
             ],
-            "responses": {}
+            "responses": { }
           }
         },
         "/sub?a={a}&b={b}": {
@@ -236,6 +239,7 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "First operand. Default value is <code>100</code>.",
                 "required": true,
+                "type": "string",
                 "default": "100",
                 "enum": [
                   "100"
@@ -246,13 +250,14 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "Second operand. Default value is <code>50</code>.",
                 "required": true,
+                "type": "string",
                 "default": "50",
                 "enum": [
                   "50"
                 ]
               }
             ],
-            "responses": {}
+            "responses": { }
           }
         },
         "/div?a={a}&b={b}": {
@@ -265,6 +270,7 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "First operand. Default value is <code>100</code>.",
                 "required": true,
+                "type": "string",
                 "default": "100",
                 "enum": [
                   "100"
@@ -275,13 +281,14 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "Second operand. Default value is <code>20</code>.",
                 "required": true,
+                "type": "string",
                 "default": "20",
                 "enum": [
                   "20"
                 ]
               }
             ],
-            "responses": {}
+            "responses": { }
           }
         },
         "/mul?a={a}&b={b}": {
@@ -294,6 +301,7 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "First operand. Default value is <code>20</code>.",
                 "required": true,
+                "type": "string",
                 "default": "20",
                 "enum": [
                   "20"
@@ -304,17 +312,19 @@ Create a file named `calcapi.json` with following contents and save it to your c
                 "in": "query",
                 "description": "Second operand. Default value is <code>5</code>.",
                 "required": true,
+                "type": "string",
                 "default": "5",
                 "enum": [
                   "5"
                 ]
               }
             ],
-            "responses": {}
+            "responses": { }
           }
         }
       }
     }
+
 
 To import the calculator API, click **APIs** from the **API Management** menu on the left, and then click **Import API**.
 
@@ -408,11 +418,11 @@ In addition to pasting in the token endpoint, add an additional body parameter n
 
 ![App Id URI][api-management-aad-sso-uri]
 
-Next, specify the client credentials. These are the credentials for the resource you want to access, in this case the backend service.
+Next, specify the client credentials. These are the credentials for the resource you want to access, in this case the developer portal.
 
 ![Client credentials][api-management-client-credentials]
 
-To get the **Client Id**, navigate to the **Configure** tab of the AAD application for the backend service and copy the **Client Id**.
+To get the **Client Id**, navigate to the **Configure** tab of the AAD application for the developer portal and copy the **Client Id**.
 
 To get the **Client Secret** click the **Select duration** drop-down in the **Keys** section and specify an interval. In this example 1 year is used.
 

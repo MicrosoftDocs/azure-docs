@@ -1,14 +1,14 @@
 ---
 title: Shared Access Signature Authentication with Service Bus | Microsoft Docs
 description: Details about SAS authentication with Service Bus.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 1690eb8e-28ae-49bb-aeaa-022cda34c5a4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

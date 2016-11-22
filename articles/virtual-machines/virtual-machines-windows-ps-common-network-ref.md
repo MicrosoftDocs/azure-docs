@@ -61,6 +61,6 @@ See [How to install and configure Azure PowerShell](../powershell-install-config
 | Delete a public IP address |[Remove-AzureRmPublicIpAddress](https://msdn.microsoft.com/library/mt619352.aspx)-Name "ip_address_name" -ResourceGroupName "resource_group_name"<BR><BR>Removes the specified public IP address from the resource group. |
 
 ## Next Steps
-* Use the network interface that you just created when you [create a VM](virtual-machines-windows-ps-create.md).
+* Use the network interface that you just created when you [create a VM](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Learn about how you can [create a VM with multiple network interfaces](../virtual-network/virtual-networks-multiple-nics.md).
 

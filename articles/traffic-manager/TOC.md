@@ -17,11 +17,12 @@
 ## [Configure a routing method](traffic-manager-configure-routing-method.md)
 ## [Test your settings](traffic-manager-testing-settings.md)
 ## [Troubleshoot a degraded endpoint](traffic-manager-troubleshooting-degraded.md)
-## [Use network resources](../virtual-network/resource-groups-networking.md)
+## [Combining load balancing services](traffic-manager-load-balancing-azure.md)
+## [Use network resources](../virtual-network/resource-groups-networking.md?toc=%2fazure%2ftraffic-manager%2ftoc.json)
 
 # Reference
-## [PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/)
-## [PowerShell (classic)](https://docs.microsoft.com/powershell/servicemanagement/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+## [PowerShell (classic)](/powershell/servicemanagement/)
 ## [REST](https://msdn.microsoft.com/library/mt163667.aspx)
 
 # Related
@@ -30,7 +31,10 @@
 ## [Azure DNS](/azure/dns/)
 
 # Resources
-##[Pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
-##[SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
-##[Service Limits](../azure-subscription-service-limits.md#traffic-manager-limits)
-## [Azure Networking blog](https://azure.microsoft.com/blog/topics/networking/)
+## [Pricing](https://azure.microsoft.com/pricing/details/traffic-manager/)
+## [SLA](https://azure.microsoft.com/support/legal/sla/traffic-manager/)
+## [Service Limits](../azure-subscription-service-limits.md#traffic-manager-limits)
+## [Blog](https://azure.microsoft.com/blog/topics/networking/)
+## [MSDN Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork)
+## [Service updates](https://azure.microsoft.com/updates/?product=traffic-manager)
+## [Videos](https://azure.microsoft.com/resources/videos/index/?services=traffic-manager)
