@@ -26,7 +26,7 @@ With ChangeFeed support, DocumentDB provides a real-time sorted list of changes 
 ![Using DocumentDB Change Feed to power real-time analytics and event-driven computing scenarios](./media/documentdb-change-feed/changefeed.png)
 
 # How ChangeFeed works in Azure DocumentDB
-DocumentDB provides the ability to incrementally read updates made to a DocumentDB collection. The change log can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API. This change log has the following properties:
+DocumentDB provides the ability to incrementally read updates made to a DocumentDB collection. This change log has the following properties:
 
 * Changes to documents within a collection will be available immediately in real-time in the change log with no lag.
 * Changes to documents will appear only once in the change log.
@@ -39,22 +39,48 @@ DocumentDB provides the ability to incrementally read updates made to a Document
 DocumentDB's change log is enabled by default for all accounts, and does not incure any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change log, just like any other operation from DocumentDB. In the following section, we describe how to acess the change log using the DocumentDB REST API and SDKs.
 
 ## Working with the REST API and SDK
-DocumentDB provides elastic containers or storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](documentdb-partition-data.md) for scalability and performance. DocumentDB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). 
+DocumentDB provides elastic containers or storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](documentdb-partition-data.md) for scalability and performance. DocumentDB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). The change log can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API. 
 
 ### ReadFeed
-DocumentDB supports reading a feed of documents within a collection via the `ReadDocumentFeed` API. For example, the following API request returns a page of documents inside the `serverlogs` collection. Results can be limited by using the `x-ms-max-item-count` header, and reads can be resumed by resubmitting the request with a `x-ms-continuation` header returned in the previous response.
+Let's take a brief look at how ReadFeed works. DocumentDB supports reading a feed of documents within a collection via the `ReadDocumentFeed` API. For example, the following request returns a page of documents inside the `serverlogs` collection. 
 
-	GET https://querydemo.documents.azure.com/dbs/bigdb/colls/serverlogs/docs
-	x-ms-max-item-count: -1
-	x-ms-date: Tue, 15 Nov 2016 07:26:52 GMT
-	authorization: type%3dmaster%26ver%3d1.0%26sig%3dpcM7iWGJthlDVY3V1gqi5ku%2bWH5%2fFUkiMPP%2fU0Xl3O0%3d
-	x-ms-consistency-level: Session
+	GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/smallcoll HTTP/1.1
+	x-ms-date: Tue, 22 Nov 2016 17:05:14 GMT
+	authorization: type%3dmaster%26ver%3d1.0%26sig%3dgo7JEogZDn6ritWhwc5hX%2fNTV4wwM1u9V2Is1H4%2bDRg%3d
+	Cache-Control: no-cache
+	x-ms-consistency-level: Strong
+	User-Agent: Microsoft.Azure.Documents.Client/1.10.27.5
 	x-ms-version: 2016-07-11
 	Accept: application/json
-	Host: querydemo.documents.azure.com
+	Host: mydocumentdb.documents.azure.com
+
+Results can be limited by using the `x-ms-max-item-count` header, and reads can be resumed by resubmitting the request with a `x-ms-continuation` header returned in the previous response.
+
+Let's take a brief look at how ReadFeed works. DocumentDB supports reading a feed of documents within a collection via the `ReadDocumentFeed` API. For example, the following request returns a page of documents inside the `serverlogs` collection. 
+
+	GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/smallcoll HTTP/1.1
+	x-ms-date: Tue, 22 Nov 2016 17:05:14 GMT
+	authorization: type%3dmaster%26ver%3d1.0%26sig%3dgo7JEogZDn6ritWhwc5hX%2fNTV4wwM1u9V2Is1H4%2bDRg%3d
+	Cache-Control: no-cache
+	x-ms-consistency-level: Strong
+	User-Agent: Microsoft.Azure.Documents.Client/1.10.27.5
+	x-ms-version: 2016-07-11
+	Accept: application/json
+	Host: mydocumentdb.documents.azure.com
+
+Results can be limited by using the `x-ms-max-item-count` header, and reads can be resumed by resubmitting the request with a `x-ms-continuation` header returned in the previous response. When performed from a single client, `ReadDocumentFeed` iterates through results across partitions serially.
+
+**ReadDocumentFeed**
+![DocumentDB ReadFeed serial execution](./media/documentdb-change-feed/readfeedserial.png)
+
+### Distributed Execution of ReadFeed
+For collections that contain terabytes of data or more, or ingest a large volume of updates, serial execution of read feed from a single client machine might not be a practical solution. In order to support these big data scenarios, DocumentDB provides APIs to distribute `ReadDocumentFeed` calls transparently across a number of client readers/consumers. 
+
+**Distributed ReadDocumentFeed**
+![DocumentDB ReadFeed serial execution](./media/documentdb-change-feed/readfeedparallel.png)
 
 ### Performing an Incremental ReadFeed
-With the new REST API version `2016-07-11` we introduce the following  headers for performing incremental reads using ReadFeed. 
+With the new REST API version `2016-07-11` we introduce the following headers for performing incremental reads using ReadFeed. 
 
 Recall that DocumentDB collections use partitioning to scale-out data for higher storage and throughput. You can specify a partition key property for your collection, and data is organized within the physical partitions based on the values set for the partition key. In order to provides scalable processing of incremental changes, DocumentDB supports a scale-out model for the ReadFeed API based on ranges of partition keys.
 
