@@ -20,7 +20,7 @@ ms.author: sethm
 
 # SQLRuleAction syntax
 
-A *SqlRuleAction* represents set of actions written in SQL-language based syntax that is performed against a [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
+A *SqlRuleAction* is an instance of the [SqlRuleAction](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) class, and represents set of actions written in SQL-language based syntax that is performed against a [BrokeredMessage](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).   
   
 This topic lists details about the SQL rule action grammar.  
   
