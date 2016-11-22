@@ -17,7 +17,7 @@ ms.date: 11/22/2016
 ms.author: jodebrui
 
 ---
-# Use In-Memory OLTP (preview) to improve your application performance in SQL Database
+# Use In-Memory OLTP to improve your application performance in SQL Database
 [In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in  [Premium](sql-database-service-tiers.md) Azure SQL Databases without increasing the pricing tier. 
 
 > [!NOTE] 
