@@ -13,12 +13,15 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/03/2016
+ms.date: 11/22/2016
 ms.author: jodebrui
 
 ---
 # Use In-Memory OLTP (preview) to improve your application performance in SQL Database
-[In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of OLTP workload in  [Premium](sql-database-service-tiers.md) Azure SQL Databases without increasing the performance level.
+[In-Memory OLTP](sql-database-in-memory.md) can be used to improve the performance of transaction processing, data ingestion, and transient data scenarios, in  [Premium](sql-database-service-tiers.md) Azure SQL Databases without increasing the pricing tier. 
+
+  *Note: [Learn how Quorum doubles key database’s workload while lowering DTU by 70% with SQL Database](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)*
+
 
 Follow these steps to adopt In-Memory OLTP in your existing database.
 
