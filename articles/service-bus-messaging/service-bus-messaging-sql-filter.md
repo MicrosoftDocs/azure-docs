@@ -20,9 +20,9 @@ ms.author: sethm
 
 # SQLFilter syntax
 
-A *SqlFilter* is an instance of the [SqlFilter Class](../Topic/SqlFilter%20Class.md), and represents a SQL language-based filter expression that is evaluated against a [BrokeredMessage](assetId:///T:Microsoft.ServiceBus.Messaging.BrokeredMessage?qualifyHint=False&autoUpgrade=True). A [SqlFilter](assetId:///T:Microsoft.ServiceBus.Messaging.SqlFilter?qualifyHint=False&autoUpgrade=True) supports a subset of the SQL-92 standard.  
+A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.servicebus.messaging.sqlfilter), and represents a SQL language-based filter expression that is evaluated against a [BrokeredMessage](dotnet/api/microsoft.servicebus.messaging.brokeredmessage). A SqlFilter supports a subset of the SQL-92 standard.  
   
- This topic lists details about [SqlFilter](assetId:///T:Microsoft.ServiceBus.Messaging.SqlFilter?qualifyHint=False&autoUpgrade=True) grammar.  
+ This topic lists details about SqlFilter grammar.  
   
 ```  
 <predicate ::=  
@@ -198,13 +198,13 @@ A *SqlFilter* is an instance of the [SqlFilter Class](../Topic/SqlFilter%20Class
  The `property(name)` function returns the value of the property referenced by `name`. The `name` value can be any valid expression that returns a string value.  
   
 ## Considerations  
- Consider the following [SqlFilter](assetId:///T:Microsoft.ServiceBus.Messaging.SqlFilter?qualifyHint=False&autoUpgrade=True) semantics:  
+ Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) semantics:  
   
 -   Property names are case-insensitive.  
   
 -   Operators follow C# implicit conversion semantics whenever possible.  
   
--   System properties are public properties exposed in [BrokeredMessage](assetId:///T:Microsoft.ServiceBus.Messaging.BrokeredMessage?qualifyHint=False&autoUpgrade=True).  
+-   System properties are public properties exposed in [BrokeredMessage](dotnet/api/microsoft.servicebus.messaging.brokeredmessage).  
   
  Consider the following `IS [NOT] NULL` semantics:  
   
@@ -212,7 +212,7 @@ A *SqlFilter* is an instance of the [SqlFilter Class](../Topic/SqlFilter%20Class
   
  Property evaluation semantics:  
   
--   An attempt to evaluate a non-existent system property will throw a [FilterException](assetId:///T:Microsoft.ServiceBus.Messaging.FilterException?qualifyHint=False&autoUpgrade=True) exception.  
+-   An attempt to evaluate a non-existent system property will throw a [FilterException](dotnet/api/microsoft.servicebus.messaging.filterexception) exception.  
   
 -   A property that does not exist is internally evaluated as **unknown**.  
   
