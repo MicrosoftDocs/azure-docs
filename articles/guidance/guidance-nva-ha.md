@@ -21,7 +21,7 @@ ms.author: telmos
 # Deploying high availability network virtual appliances
 [!INCLUDE [pnp-header](../../includes/guidance-pnp-header-include.md)]
 
-This article provides best practices to deploy a set of network virtual appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of network traffic from a perimeter network, also known as a DMZ, to other networks or subnets. If you are unfamiliar with the implementation of a DMZ in Azure, see [Microsoft cloud services and network security][cloud-security]. If you are familiar with using a DMZ in Azure and your requirements include an NVA, this article includes several example architectures for ingress only, egress only, and both ingress and egress. These architectures use Azure load balancers and user-defined routes (UDRs) so it's recommended that you familarize yourself with these before proceeding.
+This article provides best practices to deploy a set of network virtual appliances (NVAs) for high availability in Azure. An NVA is typically used to control the flow of network traffic from a perimeter network, also known as a DMZ, to other networks or subnets. If you are unfamiliar with the implementation of a DMZ in Azure, see [Microsoft cloud services and network security][cloud-security]. If you are familiar with using a DMZ in Azure and your requirements include an NVA, this article includes several example architectures for ingress only, egress only, and both ingress and egress. These architectures use Azure load balancers and user-defined routes (UDRs) so it's recommended that you familiarize yourself with these before proceeding.
 
 ## Architecture Diagrams
 
@@ -54,7 +54,7 @@ The following architectures provide highly available NVAs:
 
 ### Ingress with layer 7 NVAs
 
-The following figure shows a high availablity architecture that implements an ingress DMZ behind a internet-facing load balancer. This architecture is designed to provide connectivity to Azure workloads for layer 7 traffic, such as HTTP or HTTPS:
+The following figure shows a high availability architecture that implements an ingress DMZ behind a internet-facing load balancer. This architecture is designed to provide connectivity to Azure workloads for layer 7 traffic, such as HTTP or HTTPS:
 
 ![[1]][1]
 
@@ -71,7 +71,7 @@ The benefit of this architecture is that all NVAs are active, and if one fails t
 
 ### Egress with layer 7 NVAs
 
-The previous achitecture can be expanded to provide an egress DMZ for requests originating in the Azure workload. The following architecture is designed to provide high availability of the NVAs in the DMZ for layer 7 traffic, such as HTTP or HTTPS:
+The previous architecture can be expanded to provide an egress DMZ for requests originating in the Azure workload. The following architecture is designed to provide high availability of the NVAs in the DMZ for layer 7 traffic, such as HTTP or HTTPS:
 
 ![[2]][2]
 
@@ -104,7 +104,7 @@ This architecture includes the following resources:
 - NVA VMs in the DMZ subnet deployed in an availability set. Note that the NVAs are deployed in the back-end pool of the internal load balancer.
 - An internet-facing application gateway with the NVA VMs added to the back-end pool.
 
-In this architecture, the NVAs accept incoming requests from the application gateway as well as outgoing requests from the workload VMs in the web tier subnet. Note that because incoming traffic is routed with an application gateway and outgoing traffic is routed with a load balancer, the NVAs are responsible for maintaining session affinity. That is, the application gateway maintains a mapping of inbound and outbound requests so it can forward the correct response to the original requestor. However, the load balancer does not have access to the application gateway mappings, and will use its own logic to send responses to the NVAs. It's possible the load balancer could send a reponse to an NVA that did not initially receive the request. In this case, the NVAs will have to communicate and transfer the response between them so the correct NVA can forward the response to the application gateway. 
+In this architecture, the NVAs accept incoming requests from the application gateway as well as outgoing requests from the workload VMs in the web tier subnet. Note that because incoming traffic is routed with an application gateway and outgoing traffic is routed with a load balancer, the NVAs are responsible for maintaining session affinity. That is, the application gateway maintains a mapping of inbound and outbound requests so it can forward the correct response to the original requestor. However, the load balancer does not have access to the application gateway mappings, and will use its own logic to send responses to the NVAs. It's possible the load balancer could send a response to an NVA that did not initially receive the request. In this case, the NVAs will have to communicate and transfer the response between them so the correct NVA can forward the response to the application gateway. 
 
 ## PIP-UDR switch with layer 4 NVAs
 
