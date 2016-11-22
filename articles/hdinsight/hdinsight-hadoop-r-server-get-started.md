@@ -93,7 +93,8 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
    1. If you select an Azure Storage account, then select an existing storage account by selecting **Select storage account** and then selecting the account, or create a new account using the **Create New** link in teh **Select storage account** section.
 
-      > [!NOTE]If you select **New**, you must enter a name for the new storage account. A green check will appear if the name is accepted.
+      > [!NOTE]
+      > If you select **New**, you must enter a name for the new storage account. A green check will appear if the name is accepted.
 
       The **Default Container** will default to the name of the cluster. Leave this as the value.
 
