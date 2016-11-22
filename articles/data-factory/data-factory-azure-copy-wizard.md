@@ -17,13 +17,13 @@ ms.date: 10/03/2016
 ms.author: spelluru
 
 ---
-# Azure Data Factory - Copy Wizard
+# Azure Data Factory Copy Wizard
 The Azure Data Factory Copy Wizard eases the process of ingesting data, which is usually a first step in an end-to-end data integration scenario. When going through the Azure Data Factory Copy Wizard, you do not need to understand any JSON definitions for linked services, data sets, and pipelines. The wizard automatically creates a pipeline to copy data from the selected data source to the selected destination. In addition, the Copy Wizard helps you to validate the data being ingested at the time of authoring. This saves time, especially when you are ingesting data for the first time from the data source. To start the Copy Wizard, click the **Copy data** tile on the home page of your data factory.
 
 ![Copy Wizard](./media/data-factory-copy-wizard/copy-data-wizard.png)
 
 ## Designed for big data
-This wizard allows you to easily move data from a wide variety of sources to destinations in minutes. After going through the wizard, a pipeline with a copy activity is automatically created for you, along with dependent Data Factory entities (linked services and data sets). No additional steps are required to create the pipeline.   
+This wizard allows you to easily move data from a wide variety of sources to destinations in minutes. After you go through the wizard, a pipeline with a copy activity is automatically created for you, along with dependent Data Factory entities (linked services and data sets). No additional steps are required to create the pipeline.   
 
 ![Select data source](./media/data-factory-copy-wizard/select-data-source-page.png)
 
