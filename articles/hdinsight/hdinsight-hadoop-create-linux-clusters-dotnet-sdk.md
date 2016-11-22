@@ -130,7 +130,6 @@ The HDInsight .NET SDK provides .NET client libraries that make it easier to wor
                         // Use an Azure storage account as the default storage
                         DefaultStorageInfo = new AzureStorageInfo(ExistingStorageName, ExistingStorageKey, ExistingBlobContainer),
 
-
                         Password = NewClusterPassword,
                         Location = NewClusterLocation,
    
