@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 11/22/2016
 ms.author: helaw
 
 ---
@@ -109,8 +109,9 @@ The following information about Azure Stack installation steps may be useful for
 | 40.43 |(FBI) Set up Azure Stack Certification Authority |Installs Azure Stack Certification Authority. |
 | 40.44 |(FBI) Configure Azure Stack Certification Authority |Configures Azure Stack Certification Authority. |
 | 40.45 |(NET) Set up NC on VMs |Installs NC on the guest VMs |
-| 40.46 |(NET) Configure NC on VMs |Configure NC on the guest VMs |
-| 40.47 |(NET) Configure guest VMs |Configure the management VMs with NC ACLs. |
+| 40.46 | (NET) Configure NC on VMs | Configure NC on the guest VMs |
+| 40.47 | (NET) Validate NC on VMs | Validate NC and SLB Configuration |
+| 40.48 | (NET) Configure guest VMs | Configure the management VMs with NC ACLs |
 | 60.61.81 |(FBI) Deploy Azure Stack Fabric Ring Services - FabricRing PreRequisite |Creates VIPs for FabricRing |
 | 60.61.82 |(FBI) Deploy Azure Stack Fabric Ring Services - Deploy Fabric Ring Cluster |Installs and configures Azure Stack Fabric Ring Cluster. |
 | 60.61.83 |(FBI) Deploy Admin Extensions for Resource providers |Installing Admin Extensions for resource providers |
