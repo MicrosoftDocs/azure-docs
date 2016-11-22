@@ -139,12 +139,12 @@ These changes to the UDR and PIP can be done either manually or using an automat
 [cloud-security]: ../best-practices-network-security.md
 [dmz-on-prem]: guidance-iaas-ra-secure-vnet-hybrid.md
 [dmz-internet]: guidance-iaas-ra-secure-vnet-dmz.md
-[egress-with-layer-7]: #engress-with-layer-7-nvas
+[egress-with-layer-7]: #egress-with-layer-7-nvas
 [ingress-with-layer-7]: #ingress-with-layer-7-nvas
 [ingress-egress-with-layer-7]: #ingress-egress-with-layer-7-nvas
 [lb-overview]: ../load-balancer/load-balancer-overview.md
 [nva-scenario]: ../virtual-network/virtual-network-scenario-udr-gw-nva.md
-[pip-udr-switch]: #pip-udr-switch
+[pip-udr-switch]: #pip-udr-switch-with-layer-4-nvas
 [udr-overview]: ../virtual-network/virtual-networks-udr-overview.md
 [zookeeper]: https://zookeeper.apache.org/
 
