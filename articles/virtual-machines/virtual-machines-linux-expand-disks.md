@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/21/2016
+ms.date: 11/22/2016
 ms.author: iainfou
 
 ---
 
 # Expand OS disk on a Linux VM using the Azure CLI
-The default virtual hard disk for the operating system (OS) is typically 30Gb on a Linux virtual machine (VM) in Azure. You can [add data disks](virtual-machines-linux-add-disk?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to provide for additional storage space, but you may also wish to expand the operating system (OS) disk. This article details how to resize the OS disk for a Linux VM using the Azure CLI.
+The default virtual hard disk for the operating system (OS) is typically 30Gb on a Linux virtual machine (VM) in Azure. You can [add data disks](virtual-machines-linux-add-disk?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to provide for additional storage space, but you may also wish to expand the OS disk. This article details how to expand the OS disk for a Linux VM using the Azure CLI.
 
 
 ## Prerequisites
-This article requires the following:
+You need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in to an [Azure account](https://azure.microsoft.com/pricing/free-trial/) using the Resource Manager mode as follows:
 
-* an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
-* the latest [Azure CLI](../xplat-cli-install.md) logged in with `azure login`
-* the Azure CLI *must be* in Azure Resource Manager mode using `azure config mode arm`
+```azurecli
+azure config mode arm
+```
 
 In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup` and `myVM`.
 
@@ -41,7 +41,7 @@ In the following examples, replace example parameter names with your own values.
     ```
 
     > [!NOTE]
-    > In general, `azure vm stop` does not release the compute resources. You are still billed for compute resources when the VM is stopped. To release compute resources, use `azure vm deallocate`. For the purposes of resizing the virtual hard disk, the VM must be deallocated to adjust the virtual hard disks.
+    > `azure vm stop` does not release the compute resources. To release compute resources, use `azure vm deallocate`. For the purposes of resizing the virtual hard disk, the VM must be deallocated to expand the virtual hard disk.
 
 2. Update the size of the OS disk using the `azure vm set` command. The following example updates the VM named `myVM` in the resource group named `myResourceGroup` to be `50`GB in size:
 
