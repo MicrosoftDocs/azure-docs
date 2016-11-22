@@ -12,6 +12,7 @@
 ## [Using REST API](data-lake-store-get-started-rest-api.md)
 ## [Using Azure CLI](data-lake-store-get-started-cli.md)
 ## [Using Node.js](data-lake-store-manage-use-nodejs.md)
+## [Using Python](data-lake-store-get-started-python.md)
 
 # How to
 ## Copy Data
@@ -37,6 +38,7 @@
 ### [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
 
 ## Integrate with Azure Services
+### [Access from VMs in Azure VNET](data-lake-store-connectivity-from-vnets.md)
 ### [Use with Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
 ### [Create HDInsight cluster with Data Lake Store using Portal](data-lake-store-hdinsight-hadoop-use-portal.md)
 ### [Create HDInsight cluster with Data Lake Store using PowerShell](data-lake-store-hdinsight-hadoop-use-powershell.md)
@@ -49,6 +51,8 @@
 
 ## Manage
 ### [Access diagnostic logs](data-lake-store-diagnostic-logs.md)
+### [Plan for high availability](data-lake-store-troubleshooting-guidance.md)
+
 
 # Reference
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
