@@ -39,11 +39,11 @@ This architecture includes the following resources:
 - A web tier subnet including a NSG, a load balancer, and a set of virtual machines (VMs) hosting web services deployed into an availability set. 
 - A UDR to route outbound requests from the web tier subnet VMs to the NVA.
 
-Note that all inbound and outbound network traffic passes through the NVA, and the NVA determines whether or not to pass the traffic based on its security rules. This provides a very secure network boundary for both the web tier subnet and the on-premises network. However, this also creates a single point of failure for the network because if the NVA fails it will no longer forward inbound and outbound network traffic all the back-end subnets will be completely unavailable.
+All inbound and outbound network traffic passes through the NVA, and the NVA determines whether or not to pass the traffic based on its security rules. This provides a very secure network boundary for both the web tier subnet and the on-premises network. However, this also creates a single point of failure for the network because if the NVA fails it will no longer forward inbound and outbound network traffic and all the back-end subnets will be completely unavailable.
 
 To make an NVA highly available, deploy more than one NVA into an availability set. Deploying the NVAs in an availability set provides a service level agreement (SLA) that guarantees the uptimes for the NVA VMs. While this provides high availability of the NVA VMs, there are some issues particular to the NVA services running on the NVA VMs that require more resources and configuration to ensure high availability.  
 
-The following architectures provide highly available NVAs:
+The following architectures describe the resources and configuration necessary for highly available NVAs:
 
 | Solution | Benefits | Considerations |
 | --- | --- | --- |
@@ -61,13 +61,13 @@ The following figure shows a high availability architecture that implements an i
 This architecture includes the following resources:
 
 - An internet-facing load balancer.
-- A public DMZ subnet with an NSG. Note that this subnet is configured to be the back-end address pool for the internet-facing load balancer.
+- A public DMZ subnet with an NSG. This subnet is configured to be the back-end address pool for the internet-facing load balancer.
 - A pair of NVAs in the public DMZ subnet deployed into an availability set.
 - A web tier subnet with an NSG. 
-- An internal load balancer deployed into the web tier subnet. Note that the NVAs are configured to forward network traffic meeting security rules to this load balancer. Also note that the web tier subnet is configured to be the back-end address pool for the internal load balancer.
+- An internal load balancer deployed into the web tier subnet. The NVAs are configured to forward network traffic meeting security rules to this load balancer. The web tier subnet is configured to be the back-end address pool for the internal load balancer.
 - A set of VMs hosting web services deployed in an availability set in the web tier subnet. 
 
-The benefit of this architecture is that all NVAs are active, and if one fails the load balancer will direct network traffic to the other NVA. Both NVAs route traffic to the internal load balancer so as long as one NVA is active, traffic continues to flow. Note that the NVAs must be able to terminate SSL traffic intended for the web tier VMs. Also note that this architecture cannot be extended to handle on-premises traffic, on-premises traffic requires another dedicated set of NVAs with their own network routes.
+The benefit of this architecture is that all NVAs are active, and if one fails the load balancer will direct network traffic to the other NVA. Both NVAs route traffic to the internal load balancer so as long as one NVA is active, traffic continues to flow. The NVAs are required to terminate SSL traffic intended for the web tier VMs. These NVAs cannot be extended to handle on-premises traffic because on-premises traffic requires another dedicated set of NVAs with their own network routes.
 
 ### Egress with layer 7 NVAs
 
@@ -81,18 +81,16 @@ This architecture includes the following resources:
 - Web tier VMs deployed in an availability set in the web tier subnet. 
 - An egress DMZ subnet.
 - An internal load balancer deployed in the egress DMZ subnet.
-- NVA VMs deployed in the back-end pool of the internal load balancer.
+- NVA VMs deployed in an availability set in the back-end pool of the internal load balancer.
 - A UDR in the web tier subnet to forward requests from the web tier VMs to the internal load balancer in the DMZ subnet.
 
 In this architecture, all traffic originating in Azure is routed to an internal load balancer. The load balancer distributes outgoing requests between a set of NVAs. These NVAs direct traffic to the Internet using their individual public IP addresses. 
 
-<!-- Q: how do the NVAs handle proxying SSL requests from the workload VMs? -->
-
 ## Ingress-egress with layer 7 NVAs
 
-Note that in the two previous architectures, there was a separate DMZ for ingress and egress. The following architecture demonstrates how to create a DMZ that can be used for both ingress and egress for layer 7 traffic, such as HTTP or HTTPS: 
+In the two previous architectures, there was a separate DMZ for ingress and egress. The following architecture demonstrates how to create a DMZ that can be used for both ingress and egress for layer 7 traffic, such as HTTP or HTTPS: 
 
-<!--link to diagram-->
+![[4]][4]
 
 This architecture includes the following resources:
 
@@ -101,10 +99,10 @@ This architecture includes the following resources:
 - A DMZ subnet with an NSG. 
 - An internal load balancer deployed in the DMZ subnet.
 - A UDR to forward outbound network traffic from the web tier VMs to the internal load balancer.
-- NVA VMs in the DMZ subnet deployed in an availability set. Note that the NVAs are deployed in the back-end pool of the internal load balancer.
+- NVA VMs in the DMZ subnet deployed in an availability set. The NVAs are deployed in the back-end pool of the internal load balancer.
 - An internet-facing application gateway with the NVA VMs added to the back-end pool.
 
-In this architecture, the NVAs accept incoming requests from the application gateway and outgoing requests from the workload VMs in the web tier subnet. Note that because incoming traffic is routed with an application gateway and outgoing traffic is routed with a load balancer, the NVAs are responsible for maintaining session affinity. That is, the application gateway maintains a mapping of inbound and outbound requests so it can forward the correct response to the original requestor. However, the load balancer does not have access to the application gateway mappings, and uses its own logic to send responses to the NVAs. It's possible the load balancer could send a response to an NVA that did not initially receive the request. In this case, the NVAs will have to communicate and transfer the response between them so the correct NVA can forward the response to the application gateway. 
+In this architecture, the NVAs accept incoming requests from the application gateway and outgoing requests from the workload VMs in the web tier subnet. Because incoming traffic is routed with an application gateway and outgoing traffic is routed with a load balancer, the NVAs are responsible for maintaining session affinity. That is, the application gateway maintains a mapping of inbound and outbound requests so it can forward the correct response to the original requestor. However, the internal load balancer does not have access to the application gateway mappings, and uses its own logic to send responses to the NVAs. It's possible the load balancer could send a response to an NVA that did not initially receive the request from the application gateway. In this case, the NVAs will have to communicate and transfer the response between them so the correct NVA can forward the response to the application gateway. 
 
 ## PIP-UDR switch with layer 4 NVAs
 
@@ -125,7 +123,7 @@ This architecture includes the following resources:
 - A set of web tier VMS assigned to the back-end pool of the internal load balancer.
 - A UDR to forward outgoing requests from the web tier VMs to the NVA NIC assigned to the internal DMZ subnet.
 
-This architecture is similar to the first architecture discussed in this article. That architecture included a single NVA accepting and filtering incoming requests. This architecture adds a second passive NVA to provide high availability. If the active NVA fails, the passive NVA is made active and the UDR and PIP are changed to point to the NICs on the now active NVA. 
+This architecture is similar to the first architecture discussed in this article. That architecture included a single NVA accepting and filtering incoming layer 4 requests. This architecture adds a second passive NVA to provide high availability. If the active NVA fails, the passive NVA is made active and the UDR and PIP are changed to point to the NICs on the now active NVA. 
 
 These changes to the UDR and PIP can be done either manually or using an automated process. The automated process can be a daemon or other monitoring service running in Azure that queries a health probe on the active NVA and performs the UDR and PIP switch when necessary. The figure shows an example [ZooKeeper][zookeeper] daemon on the NVAs to determine which NVA is active, also known as leader election. Once a leader is elected, it calls the Azure REST API to remove the PIP from the failed node and attach it to the leader. The leader then modifies the UDR to point to the new leader's IP internal address.
 
@@ -153,5 +151,6 @@ These changes to the UDR and PIP can be done either manually or using an automat
 <!-- images -->
 [0]: ./media/guidance-nva-ha/single-nva.png "Single NVA architecture"
 [1]: ./media/guidance-nva-ha/l7-ingress.png "Layer 7 ingress"
-[2]: ./media/guidance-nva-ha/l7-ingress-egress.png "Layer 7 ingress and egress"
+[2]: ./media/guidance-nva-ha/l7-ingress-egress.png "Layer 7 egress"
 [3]: ./media/guidance-nva-ha/active-passive.png "Active-Passive cluster"
+[4]: ./media/guidance-nva-ha/l7-ingress-egress-ag.png
