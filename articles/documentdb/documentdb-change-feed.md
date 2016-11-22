@@ -38,10 +38,11 @@ DocumentDB provides the ability to incrementally read updates made to a Document
 
 DocumentDB's change log is enabled by default for all accounts, and does not incure any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change log, just like any other operation from DocumentDB. In the following section, we describe how to acess the change log using the DocumentDB REST API and SDKs.
 
-## Working with the REST API
+## Working with the REST API and SDK
+DocumentDB provides elastic containers or storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](documentdb-partition-data.md) for scalability and performance. DocumentDB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). 
 
 ### ReadFeed
-Let's first take a look at the typical way to read documents from a DocumentDB collection. DocumentDB supports reading a feed of documents within a collection via the `ReadDocumentFeed` API. For example, the following API request returns a page of documents inside the `serverlogs` collection. Results can be paginated by echoing the `x-ms-continuation` header returned in the previous response.
+DocumentDB supports reading a feed of documents within a collection via the `ReadDocumentFeed` API. For example, the following API request returns a page of documents inside the `serverlogs` collection. Results can be limited by using the `x-ms-max-item-count` header, and reads can be resumed by resubmitting the request with a `x-ms-continuation` header returned in the previous response.
 
 	GET https://querydemo.documents.azure.com/dbs/bigdb/colls/serverlogs/docs
 	x-ms-max-item-count: -1
