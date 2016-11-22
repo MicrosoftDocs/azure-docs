@@ -52,7 +52,7 @@ The following architectures describe the resources and configuration necessary f
 | [Ingress-Egress with layer 7 NVAs][ingress-egress-with-layer-7] |All nodes are active<br/>Able to handle traffic originated in Azure |Requires an NVA that can terminate connections and use SNAT<br/>Requires a separate set of NVAs for traffic coming from the Internet and from Azure |
 | [PIP-UDR switch][pip-udr-switch] |Single set of NVAs for all traffic<br/>Can handle all traffic (no limit on port rules) |Active-passive<br/>Requires a failover process |
 
-### Ingress with layer 7 NVAs
+## Ingress with layer 7 NVAs
 
 The following figure shows a high availability architecture that implements an ingress DMZ behind an internet-facing load balancer. This architecture is designed to provide connectivity to Azure workloads for layer 7 traffic, such as HTTP or HTTPS:
 
@@ -69,7 +69,7 @@ This architecture includes the following resources:
 
 The benefit of this architecture is that all NVAs are active, and if one fails the load balancer will direct network traffic to the other NVA. Both NVAs route traffic to the internal load balancer so as long as one NVA is active, traffic continues to flow. The NVAs are required to terminate SSL traffic intended for the web tier VMs. These NVAs cannot be extended to handle on-premises traffic because on-premises traffic requires another dedicated set of NVAs with their own network routes.
 
-### Egress with layer 7 NVAs
+## Egress with layer 7 NVAs
 
 The previous architecture can be expanded to provide an egress DMZ for requests originating in the Azure workload. The following architecture is designed to provide high availability of the NVAs in the DMZ for layer 7 traffic, such as HTTP or HTTPS:
 
