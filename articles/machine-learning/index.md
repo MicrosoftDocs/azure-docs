@@ -43,7 +43,7 @@ Azure Machine Learning provides tools to model predictive analytics as well as a
         </a>
     </li>
     <li>
-        <a href="/azure/machine-learning/machine-learning-data-science-for-beginnings-the-5-questions-data-science-answers">
+        <a href="/azure/machine-learning/machine-learning-data-science-for-beginners-the-5-questions-data-science-answers">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -114,13 +114,13 @@ Azure Machine Learning provides tools to model predictive analytics as well as a
         </a>
     </li>
 	<li>
-        <a href="/azure/machine-learning/machine-learning-azure-ml-netsharp-reference-guide">
+        <a href="https://msdn.microsoft.com/library/azure/dn905974.aspx">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>Net#</h3>
-                        <p>Net# Neural Networks Language Reference</p>
+                        <h3>Algorithms</h3>
+                        <p>Algorithms and module reference</p>
                     </div>
                 </div>
             </div>

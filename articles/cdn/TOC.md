@@ -24,6 +24,8 @@
 #### [Premium tier](cdn-query-string-premium.md)
 ### [Purge cached assets](cdn-purge-endpoint.md)
 ### [Pre-load cached assets](cdn-preload-endpoint.md)
+### [Token authentication](cdn-token-auth.md)
+### [Monitor resources](cdn-resource-health.md)
 ### [Override behavior with rules](cdn-rules-engine.md)
 ### [Get real-time alerts](cdn-real-time-alerts.md)
 

@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 11/16/2016
 ms.author: adegeo
 
 ---
@@ -243,18 +243,22 @@ To deploy an application as a cloud service in Azure, you must first package the
 ### Example command to package a cloud service
 The following example creates an application package that contains the information for a web role. The command specifies the service definition file to use, the directory where binary files can be found, and the name of the package file.
 
-    cspack [DirectoryName]\[ServiceDefinition]
-           /role:[RoleName];[RoleBinariesDirectory]
-           /sites:[RoleName];[VirtualPath];[PhysicalPath]
-           /out:[OutputFileName]
+```cmd
+cspack [DirectoryName]\[ServiceDefinition]
+       /role:[RoleName];[RoleBinariesDirectory]
+       /sites:[RoleName];[VirtualPath];[PhysicalPath]
+       /out:[OutputFileName]
+```
 
 If the application contains both a web role and a worker role, the following command is used:
 
-    cspack [DirectoryName]\[ServiceDefinition]
-           /out:[OutputFileName]
-           /role:[RoleName];[RoleBinariesDirectory]
-           /sites:[RoleName];[VirtualPath];[PhysicalPath]
-           /role:[RoleName];[RoleBinariesDirectory];[RoleAssemblyName]
+```cmd
+cspack [DirectoryName]\[ServiceDefinition]
+       /out:[OutputFileName]
+       /role:[RoleName];[RoleBinariesDirectory]
+       /sites:[RoleName];[VirtualPath];[PhysicalPath]
+       /role:[RoleName];[RoleBinariesDirectory];[RoleAssemblyName]
+```
 
 Where the variables are defined as follows:
 
