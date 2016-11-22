@@ -53,13 +53,13 @@ To complete this tutorial you need the following:
     azure account list 
    ```
 
-To set the subscription context under which you want to run the rest of the commands use
+   To set the subscription context under which you want to run the rest of the commands use
 
-```
+   ```
     azure account set <subscription name>
-```
+   ```
 
-1. If you do not have a resource group you can create one named **exampleResourceGroup** 
+3. If you do not have a resource group you can create one named **exampleResourceGroup** 
    ```
     azure group create -n exampleResourceGroup -l westus
    ```

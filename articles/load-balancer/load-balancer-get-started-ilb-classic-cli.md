@@ -86,7 +86,7 @@ Here follows an example of the output:
     info:    service internal-load-balancer list command OK
 
 
-## Step 2
+### Step 2
 
 You configure the internal load balancer set when you add the first endpoint. You will associate the endpoint, virtual machine and probe port to the internal load balancer set in this step.
 
@@ -94,7 +94,7 @@ You configure the internal load balancer set when you add the first endpoint. Yo
 azure vm endpoint create db1 1433 --local-port 1433 --protocol tcp --probe-port 1433 --probe-protocol tcp --probe-interval 300 --probe-timeout 600 --internal-load-balancer-name ilbset
 ```
 
-## Step 3
+### Step 3
 
 Verify the load balancer configuration using `azure vm show` *virtual machine name*
 
