@@ -55,19 +55,19 @@ An HTTP trigger is defined by including a JSON object similar to the following i
 ```
 The binding supports the following properties:
 
-* _name_ : Required - the variable name used in function code for the request or request body. See [Working with an HTTP trigger from code](#httptriggerusage).
-* _type_ : Required - must be set to "httpTrigger".
-* _direction_ : Required - must be set to "in".
+* **name** : Required - the variable name used in function code for the request or request body. See [Working with an HTTP trigger from code](#httptriggerusage).
+* **type** : Required - must be set to "httpTrigger".
+* **direction** : Required - must be set to "in".
 * _authLevel_ : This determines what keys, if any, need to be present on the request in order to invoke the function. See [Working with keys](#keys) below. The value can be one of the following:
     * _anonymous_: No API key is required.
     * _function_: A function-specific API key is required. This is the default value if none is provided.
-    * _admin_: The master key is required.
-* _methods_ : This is an array of the HTTP methods to which the function will respond. If not specified, the function will respond to all HTTP methods. See [Customizing the HTTP endpoint](#url).
-* _route_ : This defines the route template, controlling to which request URLs your function will respond. The default value if none is provided is `<functionname>`. See [Customizing the HTTP endpoint](#url).
-* _webHookType_: This configures the HTTP trigger to act as a webhook reciever for the specified provider. The _methods_ property should not be set if this is chosen. See [Responding to webhooks](#hooktrigger). The value can be one of the following:
-    * _genericJson_: A general purpose webhook endpoint without logic for a specific provider.
-    * _github_: The function will respond to GitHub webhooks. The _authLevel_ property should not be set if this is chosen.
-    * _slack_: The function will respond to Slack webhooks. The _authLevel_ property should not be set if this is chosen.
+    * _admin_ : The master key is required.
+* **methods** : This is an array of the HTTP methods to which the function will respond. If not specified, the function will respond to all HTTP methods. See [Customizing the HTTP endpoint](#url).
+* **route** : This defines the route template, controlling to which request URLs your function will respond. The default value if none is provided is `<functionname>`. See [Customizing the HTTP endpoint](#url).
+* **webHookType** : This configures the HTTP trigger to act as a webhook reciever for the specified provider. The _methods_ property should not be set if this is chosen. See [Responding to webhooks](#hooktrigger). The value can be one of the following:
+    * _genericJson_ : A general purpose webhook endpoint without logic for a specific provider.
+    * _github_ : The function will respond to GitHub webhooks. The _authLevel_ property should not be set if this is chosen.
+    * _slack_ : The function will respond to Slack webhooks. The _authLevel_ property should not be set if this is chosen.
 
 <a name="httptriggerusage"></a>
 ### Working with an HTTP trigger from code
@@ -94,9 +94,9 @@ The HTTP output binding is defined by including a JSON object similar to the fol
 ```
 The binding contains the following properties:
 
-* _name_ : Required - the variable name used in function code for the response. See [Working with an HTTP output binding from code](#outputusage).
-* _type_ : Required - must be set to "http".
-* _direction_ : Required - must be set to "out".
+* **name** : Required - the variable name used in function code for the response. See [Working with an HTTP output binding from code](#outputusage).
+* **type** : Required - must be set to "http".
+* **direction** : Required - must be set to "out".
 
 <a name="outputusage"></a>
 ### Working with an HTTP output binding from code
