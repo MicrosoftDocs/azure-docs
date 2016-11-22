@@ -19,14 +19,28 @@ ms.author: b-hoedid
 
 ---
 # Working with the ChangeFeed support in Azure DocumentDB
-Modern applications need to ingest large volumes of data at rapid rates, and perform actions on changes in the data in real-time. This pattern is common in IoT, gaming, mobile, and social applications. For example, a social media app might need to notify all friends of a person who updates their profile photo. Or consider a multi-player game might need to update its "leaderboard" when a player beats the previous high-score in the game. The traditional pattern for these applications has been to store data within a database, then poll the database by running a query. For many applications, this approach doesn't provide the required scalability to handle the volume and velocity of changes. DocumentDB's **ChangeFeed support** provides a simple and scalable solution to this problem.Using the ChangeFeed API, your applications to get real-time notifications to updates in your documents instead of having to poll for changes.
+[Azure DocumentDB](documentdb-introduction.com) is a fast and flexible NoSQL database service that is used for storing high-volume transactional and operational data with predictable single-digit millsecond latency for reads and writes. This makes it well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to track changes made to DocumentDB data, and update materialized views, perform real-time analytics, archive data to cold storage, and trigger notifications on certain events based on these changes. DocumentDB's **ChangeFeed support** allows you to build efficient and scalable solutions for each of these patterns.
 
-ChangeFeed support offers a scalable and efficient way of integrating DocumentDB with stream processing solutions like [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) and [Apache Spark](http://spark.apache.org/), batch analytics like [Apache Hadoop](https://azure.microsoft.com/services/hdinsight/) and [Azure Data Lake](https://azure.microsoft.com/services/data-lake-analytics/), and compute services like [Azure Functions](https://azure.microsoft.com/services/functions/). This makes it easy to implement Lambda architectures with DocumentDB as the write-optimized store. 
-''
+With ChangeFeed support, DocumentDB provides a real-time sorted list of changes made to documents within a DocumentDB collection in the order in which it was applied. These changes can be read and processed by a single consumer, or distributed across a number of consumers. Let's take a look at the APIs for ChangeFeed and how you can use this to scale your applications.
+
+# How ChangeFeed works in Azure DocumentDB
+DocumentDB provides the ability to incrementally read updates made to a DocumentDB collection. The change log can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API. 
+
+![Using DocumentDB Change Feed to power real-time analytics and event-driven computing scenarios](./media/documentdb-change-feed/changefeed.png)
+
+This change log has the following properties:
+
+* Changes to documents within a collection will be available immediately in real-time in the change log with no lag.
+* Changes to documents will appear only once in the change log.
+* Changes will be ordered by time within each partition key value. There is no guaranteed order across partition-key values.
+* Changes can be synchronized from any point-in-time, i.e. there is no time limit/window for which changes are available.
+* Only the most recent change for a given document is guaranteed to be included in the change log. Intermediate changes may not be available.
+* Changes are available in chunks of partition key ranges. This allows change logs from large collections to be processed in parallel by multiple consumers/servers.
+* Changes include inserts and updates to documents. To capture deletes, you must use [TTL expiration for documents](documentb-expire-data.md).
+
+DocumentDB's change log is enabled by default for all accounts, and does not incure any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change log, just like any other operation from DocumentDB.
+
 ## Working with the REST API
-
-> [!NOTE]
-> DocumentDB ChangeFeed Support is in preview. Please email askdocdb@microsoft.com for access to the preview REST API version and corresponding SDKs.
 
 ### ReadFeed
 Let's first take a look at the typical way to read documents from a DocumentDB collection. DocumentDB supports reading a feed of documents within a collection via the `ReadFeed` API. For example, the following API request returns a page of documents inside the `serverlogs` collection. Results can be paginated by echoing the `x-ms-continuation` header returned in the previous response.
@@ -104,3 +118,4 @@ Returns the following response containing metadata about the partition key range
 	   "_count":4
 	}
 
+ChangeFeed support offers a scalable and efficient way of integrating DocumentDB with stream processing solutions like [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) and [Apache Spark](http://spark.apache.org/), batch analytics like [Apache Hadoop](https://azure.microsoft.com/services/hdinsight/) and [Azure Data Lake](https://azure.microsoft.com/services/data-lake-analytics/), and compute services like [Azure Functions](https://azure.microsoft.com/services/functions/). This makes it easy to implement Lambda architectures with DocumentDB as the write-optimized store. 
