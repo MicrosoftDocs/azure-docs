@@ -115,7 +115,7 @@ Use this with an existing Azure AD "Native Client" Application; one is provided 
 Couple of things to know about this snippet above.
 
 * To help you complete the tutorial faster, this snippet uses an an Azure AD domain and client ID that is available by default for all Azure subscriptions. So, you can **use this snippet as-is in your application**.
-* However, if you do want to use your own Azure AD domain and application client ID, you must create an Azure AD native application and then use the Azure AD domain, client ID, and redirect URI for the application you created. See [Create an Active Directory Application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application) for instructions.
+* However, if you do want to use your own Azure AD domain and application client ID, you must create an Azure AD native application and then use the Azure AD domain, client ID, and redirect URI for the application you created. See [Create an Active Directory Application](data-lake-store-end-user-authenticate-using-active-directory.md) for instructions.
 
 > [!NOTE]
 > The instructions in the above links are for an Azure AD web application. However, the steps are exactly the same even if you chose to create a native client application instead. 
