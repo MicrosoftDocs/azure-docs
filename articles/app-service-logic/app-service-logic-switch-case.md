@@ -17,9 +17,9 @@ ms.author: deli
 
 ---
 # Use switch statement in Logic Apps
-When creating a workflow, you will often need to take different actions based on the value of an object or expression, this can be done by using the switch statement.
+When creating a workflow, you often need to take different actions based on the value of an object or expression, this can be achieved by using a switch statement.
 
-With switch statement, Logic App will evluate a token or expression, and choose the case with the same value to execute actions winthin. Cases must be a static and unique value.
+With switch statement, Logic App evaluates a token or expression, and choose the case with the same value to execute actions within. Cases must be a static and unique value.
 
 ## Prerequisites
 
@@ -28,16 +28,16 @@ With switch statement, Logic App will evluate a token or expression, and choose 
 - [Basic knowledge of Logic Apps](./app-service-logic-what-are-logic-apps?toc=%2fazure%2flogic-apps%2ftoc.json).
 
 ## Working with switch statement in designer
-To demonstrate the usage of switch statement, we will create a Logic App that monitors file uploaded to Dropbox and send out an approval email to have it transferred to SharePoint. We will use switch statement to take different actions depending on the value approver selected.
+To demonstrate the usage of switch statement, let's create a Logic App that monitors file uploaded to Dropbox and send out an approval email to have it transferred to SharePoint. We will use switch statement to take different actions depending on the value approver selected.
 
-1. Let’s start by create a new Logic App, and select **Dropbox - When a file is created** trigger.
+1. Start by create a Logic App, and select **Dropbox - When a file is created** trigger.
 
  ![Use Dropbox - When a file is created trigger](./media/app-service-logic-switch-case/dropbox-trigger.jpg)
 
 2. Follow up the trigger with an **Outlook.com - Send approval email** action.
 
  > [!TIP]
- > Logic Apps also supports approval email scenario from an Office 365 Outlook accout.
+ > Logic Apps also supports approval email scenario from an Office 365 Outlook account.
 
  - If you don't have an existing connection, you will be prompted to create one.
  - Fill in required fields, we will send email to approvers@contoso.com.
@@ -48,9 +48,9 @@ To demonstrate the usage of switch statement, we will create a Logic App that mo
 
 3. Add a switch statement.
  - Select **+ New step**, **... More**, **Add a switch statement**.
- - We want to make a decision on what to execute based on `SelectedOptions` output of the *Send approval email* action, you can find it in the **Add dynamic content** selector.
+ - We want to select what to execute based on `SelectedOptions` output of the *Send approval email* action, you can find it in the **Add dynamic content** selector.
  - Use *Case 1* to handle when user selected `Approve`.
-  - If approved, copy the orginal file to SharePoint Online with **SharePoint Online - Create file** action.
+  - If approved, copy the original file to SharePoint Online with **SharePoint Online - Create file** action.
   - also send an email notify 
  - Add another case to handle when user selected `Rejected`.
   - When rejected, we will 
@@ -66,7 +66,7 @@ To demonstrate the usage of switch statement, we will create a Logic App that mo
  > Check out how to [monitor your Logic Apps](app-service-logic-monitor-your-logic-apps.md).
 
 ## Understand code behind
-Now you have successfully created a Logic App using switch statement, let's take a look at the code behind as follows.
+Now you have successfully created a Logic App using switch statement. Let's look at the code behind as follows.
 
 ```json
 "Switch": {
@@ -85,9 +85,9 @@ Now you have successfully created a Logic App using switch statement, let's take
 }
 ```
 
-`"Switch"` is the name of the switch statement, it can be renamed for readability. `"type": "Switch"` indicates the action is a switch statement. `"expression"` is evluated against each case label declared later in the definition. `"cases"` can contain any number of cases, and actions within `"default"` will be executed if none of the cases match the switch expression.
+`"Switch"` is the name of the switch statement, it can be renamed for readability. `"type": "Switch"` indicates the action is a switch statement. `"expression"` is evaluated against each case label declared later in the definition. `"cases"` can contain any number of cases, and if none of the cases match the switch expression, actions within `"default"` is executed.
 
-There can be any number of cases inside `"cases"`. For each case, `"Case 1"` is the name of the case, it can be renamed for readbility. `"case"` specify the case label, which the switch expression compares with, it must be a constant and unique value.  
+There can be any number of cases inside `"cases"`. For each case, `"Case 1"` is the name of the case, it can be renamed for readability. `"case"` specify the case label, which the switch expression compares with, it must be a constant and unique value.  
 
 ## Next steps
 - Try other [Logic Apps features](app-service-logic-use-logic-app-features.md).
