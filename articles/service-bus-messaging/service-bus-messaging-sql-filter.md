@@ -57,7 +57,7 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
   
 ## Arguments  
   
--   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](../Topic/BrokeredMessage%20Class.md). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](assetId:///T:Microsoft.ServiceBus.Messaging.BrokeredMessage?qualifyHint=True&autoUpgrade=True) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
+-   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
   
 ## Remarks  
  An attempt to access a non-existing system property is an error, while an attempt to access a non-existing user property is not an error. Instead, a non-existing user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
