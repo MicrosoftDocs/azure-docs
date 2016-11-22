@@ -13,7 +13,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 12/12/2016
 ms.author: elioda
 
 ---
@@ -27,7 +27,7 @@ ms.author: elioda
 | Operation | Billing information | 
 | --------- | ------------------- |
 | Identity registry operations <br/> (create, retrieve, list, update, delete) | Not charged. |
-| Device-to-cloud messages | Successfully sent messages are charged in 4KB chunks, e.g. a 6KB message is charged 2 messages. |
+| Device-to-cloud messages | Successfully sent messages are charged in 4KB chunks on ingress into IoT Hub, e.g. a 6KB message is charged 2 messages. |
 | Cloud-to-device messages | Successfully sent messages are charged in 4KB chunks, e.g. a 6KB message is charged 2 messages. |
 | File uploads | File transfer to Azure Storage is not metered by IoT Hub. File transfer initiation and completion messages are charged as messaged metered in 4KB increments. For instance, transferring a 10MB file is charged two messages in addition to the Azure Storage cost. |
 | Direct methods | Successfull method requests are charged in 4KB chunks, responses with non-empty bodies are charged in 4KB as additional messages. Requests to disconnected devices are charged as messages in 4KB chunks. For instance, a method with a 6KB body which results in a response with no body from the device, is charged as two messahes; a method with a 6KB body which results in a 1KB response from the device is charged as two messages for the request plus another message for the response. |
