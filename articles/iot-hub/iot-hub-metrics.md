@@ -39,13 +39,21 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 
 | Metric | Metric description | What the metric is used for |
 | --- | --- | --- |
-| d2c.telemetry.ingress.allProtocol |The count of messages sent across all devices |Overview data on message sends |
-| d2c.telemetry.ingress.success |The count of all successful messages into the hub |Overview of successful message ingress into the hub |
-| c2d.commands.egress.complete.success |The count of all command messages completed by the receiving device across all devices |Together with the metrics on abandon and reject, gives an overview of overall cloud-to-device command success rate |
-| c2d.commands.egress.abandon.success |The count of all messages successfully abandoned by the receiving device across all devices |Highlights potential issues if messages are getting abandoned more often than expected |
-| c2d.commands.egress.reject.success |The count of all messages successfully rejected by the receiving device across all devices |Highlights potential issues if messages are getting rejected more often than expected |
-| devices.totalDevices |The average, min, and max of the number of devices registered to the IoT hub |The number of devices registered to the hub |
-| devices.connectedDevices.allProtocol |The average, min, and max of the number of simultaneous connected devices |Overview of the number of devices connected to the hub |
+| d2c.telemetry.ingress.allProtocol | The count of messages sent across all devices | Overview data on message sends |
+| d2c.telemetry.ingress.success | The count of all successful messages into the hub | Overview of successful message ingress into the hub |
+| d2c.telemetry.egress.success | The count of all successful writes to an endpoint | Overview of message fan-out based on a user's routes |
+| d2c.telemetry.egress.failure | The number of times messages failed to be written to an endpoint | Overview of how many failures there are writing to the user's set of endpoints. High values may indicate improperly configured endpoints. |
+| d2c.telemetry.egress.dropped | The count of messages dropped by not matching any routes and also having the fallback route disabled | Overview of how many messages have been dropped given the current configuration of the IoT hub |
+| d2c.telemetry.egress.fallback | The count of messages matching the fallback route | For users who pipe all messages to other endpoints than the built-in endpoint, this metric shows gaps in the routing setup |
+| d2c.endpoints.latency.eventHubs | The average, min, and max latency between message ingress to the IoT hub and message ingress into an Event Hub endpoint, in milliseconds | The average/min/max spread helps users identify poor endpoint configuration |
+| d2c.endpoints.latency.serviceBusQueues | The average, min, and max latency between message ingress to the IoT hub and message ingress into a Service Bus Queue endpoint, in milliseconds | The average/min/max spread helps users identify poor endpoint configuration |
+| d2c.endpoints.latency.serviceBusTopic | The average, min, and max latency between message ingress to the IoT hub and message ingress into a Service Bus Topic endpoint, in milliseconds | The average/min/max spread helps users identify poor endpoint configuration |
+| d2c.endpoints.latency.$builtIn.events | The average, min, and max latency between message ingress to the IoT hub and message ingress into the built-in endpoint (messages/events), in milliseconds | The average/min/max spread helps users identify poor endpoint configuration |
+| c2d.commands.egress.complete.success | The count of all command messages completed by the receiving device across all devices |Together with the metrics on abandon and reject, gives an overview of overall cloud-to-device command success rate |
+| c2d.commands.egress.abandon.success | The count of all messages successfully abandoned by the receiving device across all devices |Highlights potential issues if messages are getting abandoned more often than expected |
+| c2d.commands.egress.reject.success | The count of all messages successfully rejected by the receiving device across all devices |Highlights potential issues if messages are getting rejected more often than expected |
+| devices.totalDevices | The average, min, and max of the number of devices registered to the IoT hub |The number of devices registered to the hub |
+| devices.connectedDevices.allProtocol | The average, min, and max of the number of simultaneous connected devices |Overview of the number of devices connected to the hub |
 
 ## Next steps
 Now that you’ve seen an overview of diagnostic metrics, follow this link to learn more about managing Azure IoT Hub:
