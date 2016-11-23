@@ -5,8 +5,6 @@
 ## Scenarios
 ### [Common use cases](documentdb-use-cases.md)
 ### [Going social with DocumentDB](documentdb-social-media-apps.md)
-### [Multi-tenancy](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
-
 
 # Get Started
 ## Write your first app
