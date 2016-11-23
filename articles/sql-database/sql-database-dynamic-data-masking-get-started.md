@@ -5,7 +5,7 @@ services: sql-database
 documentationcenter: ''
 author: ronitr
 manager: jhubbard
-editor: v-romcal
+editor: ''
 
 ms.assetid: 4b36d78e-7749-4f26-9774-eed1120a9182
 ms.service: sql-database
@@ -13,8 +13,8 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 07/10/2016
-ms.author: ronitr; ronmat; v-romcal; sstein
+ms.date: 11/22/2016
+ms.author: ronitr; ronmat; carlrab
 
 ---
 # Get started with SQL Database Dynamic Data Masking (Azure Portal)
