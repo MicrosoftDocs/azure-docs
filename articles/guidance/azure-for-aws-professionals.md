@@ -58,7 +58,7 @@ permissions management. Unlike AWS, where any resources created under the AWS
 account are tied to that account, subscriptions exist independently of their
 owner accounts, and can be reassigned to new owners as needed.
 
-![Comparison of structure and ownership of AWS accounts and Azure subscriptions](./media/azure-for-aws-professionals/azure_aws_account_compare.png "Comparison of structure and ownership of AWS accounts and Azure subscriptions")
+![Comparison of structure and ownership of AWS accounts and Azure subscriptions](./media/azure-for-aws-professionals/azure-aws-account-compare.png "Comparison of structure and ownership of AWS accounts and Azure subscriptions")
 <br/>*Comparison of structure and ownership of AWS accounts and Azure subscriptions*
 <br/><br/>
 
@@ -201,7 +201,7 @@ domains. If a power failure or network outage occurs in one fault domain, at
 least some of the set's VMs are in another fault domain and unaffected by the
 outage.
 
-![AWS Availability Zones compared with Azure fault domains and availability sets](./media/azure-for-aws-professionals/zone_fault_domains.png "AWS Availability Zones compared with Azure fault domains and availability sets")
+![AWS Availability Zones compared with Azure fault domains and availability sets](./media/azure-for-aws-professionals/zone-fault=domains.png "AWS Availability Zones compared with Azure fault domains and availability sets")
 <br/>*AWS Availability Zones compared with Azure fault domains and availability sets*
 <br/><br/>
 
@@ -210,7 +210,7 @@ to ensure one instance in each role is operational. For example, in a standard
 three-tier web application, you would want to create a separate availability set
 for front-end, application, and data instances.
 
-![Availability sets for each application role](./media/azure-for-aws-professionals/three_tier_example.png "Availability sets for each application role")
+![Availability sets for each application role](./media/azure-for-aws-professionals/three-tier-example.png "Availability sets for each application role")
 <br/>*Availability sets for each application role*
 <br/><br/>
 
