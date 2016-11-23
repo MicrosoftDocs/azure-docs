@@ -20,9 +20,9 @@ ms.author: dimakwan
 ---
 # Automate DocumentDB account region management using Azure CLI and Azure Resource Manager templates
 
-This article shows you how to add/remove a region in your Azure DocumentDB account by using Azure CLI commands and Azure Resource Manager templates. Region management can also be accomplished through the [Azure Portal](https://portal.azure.com/). Note that the commands in the following tutorial do not allow you to change failover priorities of the various regions. Only read regions can  be added or removed. The write region of a database account (failover priority of 0) cannot be added/removed.
+This article shows you how to add/remove a region in your Azure DocumentDB account by using Azure CLI commands and Azure Resource Manager templates. Region management can also be accomplished through the [Azure Portal](documentdb-portal-global-replication.md). Note that the commands in the following tutorial do not allow you to change failover priorities of the various regions. Only read regions can  be added or removed. The write region of a database account (failover priority of 0) cannot be added/removed.
 
-DocumentDB database accounts are currently the only DocumentDB resource that can be created/modified using ARM templates and the Azure CLI.
+DocumentDB database accounts are currently the only DocumentDB resource that can be created/modified using [ARM templates and the Azure CLI](documentdb-automation-resource-manager-cli.md).
 
 ## Getting ready
 
