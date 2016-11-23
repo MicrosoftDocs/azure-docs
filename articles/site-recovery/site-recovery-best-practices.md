@@ -83,7 +83,7 @@ These URLs should be available from VMware, VMM, and Hyper-V host servers.
 
 
 
-## Azure VM requirements
+## Azure virtual machine requirements
 
 You can deploy Site Recovery to replicate virtual machines and physical servers, running any operating system supported by Azure. This includes most versions of Windows and Linux. On-premises virtual machines that you want to replicate must conform with Azure requirements.
 
