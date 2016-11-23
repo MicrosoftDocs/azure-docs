@@ -39,7 +39,7 @@ After reading this article, post any comments at the bottom, or ask technical qu
 
 ## Site Recovery in the Azure portal
 
-Azure has two different [deployment models](../resource-manager-deployment-model,md)
+Azure has two different [deployment models](../resource-manager-deployment-model.md)
 for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal, and the Azure portal.
 
 This article describes how to deploy in the classic portal. The classic portal can be used to maintain existing vaults. You can't create new vaults using the classic portal.
