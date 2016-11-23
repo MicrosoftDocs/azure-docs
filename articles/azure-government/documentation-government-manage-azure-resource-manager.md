@@ -19,7 +19,7 @@ ms.author: brendalee
 
 ---
 # Azure Resource Manager
-For detailed information on Resource Manager providers, API versions, and schemas, please refer [here](../resource-manager-supported-services.md). The following tables list which services are supported through Resource Manager in Azure Government.
+For detailed information on Resource Manager providers, API versions, and schemas, please refer [here](../azure-resource-manager/resource-manager-supported-services.md). The following tables list which services are supported through Resource Manager in Azure Government.
 
 ## Compute
 | Service | Resource Manager Enabled |

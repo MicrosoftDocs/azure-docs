@@ -1,4 +1,4 @@
-﻿---
+---
 title: Replicate Hyper-V virtual machines (without VMM) to Azure using Azure Site Recovery with the Azure portal | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of on-premises Hyper-V VMs that aren't managed by VMM to Azure using the Azure portal
 services: site-recovery
@@ -28,7 +28,7 @@ ms.author: raynew
 Welcome to Azure Site Recovery! Use this article if you want to replicate on-premises Hyper-V  virtual machines that **aren't** managed in System Center Virtual Machines Manager (VMM) clouds to Azure. This article describes how to set up replication using Azure Site Recovery in the Azure portal.
 
 > [!NOTE]
-> Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models.
+> Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models.
 >
 > Azure Site Recovery supports the recovery and migration of Hyper-V virtual machines to Azure. The steps in this article apply identically while configuring replication to Azure for disaster recovery or for migrating VMs to Azure
 >
@@ -102,7 +102,7 @@ Set up an Azure network. You’ll need this so that the Azure VMs created after 
 * We recommend you set up a network before you begin. If you don't you'll need to do it during Site Recovery deployment.
 
 > [!NOTE]
-> [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
+> [Migration of networks](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
 >
 >
 
@@ -112,7 +112,7 @@ Set up an Azure network. You’ll need this so that the Azure VMs created after 
 * We recommend that you set up a storage account before you begin. If you don't you'll need to do it during Site Recovery deployment. The accounts need to be in the same region as the Recovery Services vault.
 
 > [!NOTE]
-> [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
+> [Migration of storage accounts](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 >
 >
 
@@ -125,7 +125,7 @@ Set up an Azure network. You’ll need this so that the Azure VMs created after 
 
     ![New vault](./media/site-recovery-hyper-v-site-to-azure/new-vault3.png)
 3. In **Name** specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
-4. [Create a new resource group](../resource-group-template-deploy-portal.md) or select an existing one, and specify an Azure region. Machines will be replicated to this region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Create a new resource group](../azure-resource-manager/resource-group-template-deploy-portal.md) or select an existing one, and specify an Azure region. Machines will be replicated to this region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. If you want to quickly access the vault from the Dashboard click **Pin to dashboard** and then click **Create vault**.
 
     ![New vault](./media/site-recovery-hyper-v-site-to-azure/new-vault-settings.png)
@@ -332,8 +332,10 @@ We recommend that you verify the properties of the source machine.
      * If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.
      * For example if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.     
      * If the VM has multiple network adapters they will all connect to the same network.
+     * If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
 
      ![Enable replication](./media/site-recovery-hyper-v-site-to-azure/test-failover4.png)
+
 4. In **Disks** you can see the operating system and data disks on the VM that will be replicated.
 
 ## Step 7: Test the deployment

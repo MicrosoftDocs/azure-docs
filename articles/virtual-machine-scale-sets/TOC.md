@@ -20,14 +20,14 @@
 ### [Autoscale and scale sets](virtual-machine-scale-sets-autoscale-overview.md)
 ### [Vertical scaling in a scale set](virtual-machine-scale-sets-vertical-scale-reprovision.md)
 ### [Upgrades for scale sets](virtual-machine-scale-sets-upgrade-scale-set.md)
-### [Advanced autoscale](virtual-machine-scale-sets-advanced-autoscale.md)
+### [Advanced autoscale](../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md)
 ### [Using DSC and scale sets](virtual-machine-scale-sets-dsc.md)
 
 ## Troubleshoot
 ### [Autoscale](virtual-machine-scale-sets-troubleshoot.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Azure CLI](../virtual-machines/azure-cli-arm-commands.md)
 ## [REST](/rest/api/compute/)
 

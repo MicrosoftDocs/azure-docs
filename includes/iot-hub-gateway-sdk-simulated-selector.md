@@ -34,9 +34,7 @@ The following diagram shows the main components of the sample, including the gat
 ### Protocol ingestion module
 This module is the starting point for getting data from devices, through the gateway, and into the cloud. In the sample, the module performs four tasks:
 
-1. It creates simulated temperature data.
-   
-   Note: if you were using real devices, the module would read data from those physical devices.
+1. It creates simulated temperature data. Note that if you were using real devices, the module would read data from those physical devices.
 2. It places the simulated temperature data into the contents of a message.
 3. It adds a property with a fake MAC address to the message that contains the simulated temperature data.
 4. It makes the message available to the next module in the chain.

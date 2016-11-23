@@ -24,12 +24,7 @@ ms.author: sstein
 > 
 > 
 
-SQL Database V12 is the latest version so upgrading to SQL Database V12 is recommended.
-SQL Database V12 has many [advantages over the previous version](sql-database-v12-whats-new.md) including:
-
-* Increased compatibility with SQL Server.
-* Improved premium performance and new performance levels.
-* [Elastic database pools](sql-database-elastic-pool.md).
+SQL Database V12 is the latest version so upgrading to SQL Database V12 is recommended. See [Azure SQL Database features](sql-database-features.md) for a feature matrix comparing Azure SQL Database with SQL Server.
 
 This article provides directions for upgrading existing SQL Database V11 servers and databases to SQL Database V12.
 

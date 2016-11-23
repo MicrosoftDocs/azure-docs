@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 11/23/2016
 ms.author: jingwang
 
 ---
@@ -542,8 +542,8 @@ If the requirements are not met, Azure Data Factory checks the settings and auto
 ### Staged Copy using PolyBase
 When your source data doesn’t meet the criteria introduced in the previous section, you can enable copying data via an interim staging Azure blob storage. In this case, Azure Data Factory performs transformations on the data to meet data format requirements of PolyBase, and then use PolyBase to load data into SQL Data Warehouse. See [Staged Copy](data-factory-copy-activity-performance.md#staged-copy) for details on how copying data via a staging Azure Blob works in general.
 
-> [!IMPORTANT]
-> If you are copying data from an on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, install the JRE 8 (Java Runtime Environment) on your gateway machine, which is used to transform your source data into proper format. A 64-bit gateway requires 64-bit JRE and a 32-bit gateway requires 32-bit JRE. Download the appropriate version from [Java Downloads location](http://go.microsoft.com/fwlink/?LinkId=808605).
+> [!NOTE]
+> When copying data from an on-prem data store into Azure SQL Data Warehouse using PolyBase and staging, if your Data Management Gateway version is below 2.4, JRE (Java Runtime Environment) is required on your gateway machine which is used to transform your source data into proper format. Suggest you upgrade your gateway to the latest to avoid such dependency.
 >
 >
 

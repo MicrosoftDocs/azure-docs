@@ -24,13 +24,14 @@ However, the services have many differences, which are detailed in the following
 
 | Area | IoT Hub | Event Hubs |
 | --- | --- | --- |
-| Communication patterns |Enables device-to-cloud and cloud-to-device messaging. |Only enables event ingress (usually considered for device-to-cloud scenarios). |
-| Device protocol support |Supports MQTT, AMQP, AMQP over WebSockets, and HTTP. Additionally, IoT Hub works with the [Azure IoT protocol gateway][lnk-azure-protocol-gateway], a customizable protocol gateway implementation to support custom protocols. |Supports AMQP, AMQP over WebSockets, and HTTP. |
+| Communication patterns | Enables [device-to-cloud communications][lnk-d2c-guidance] (messaging, file uploads, and device twin reported properties) and [cloud-to-device communications][lnk-c2d-guidance] (direct methods, device twin desired properties, messaging). |Only enables event ingress (usually considered for device-to-cloud scenarios). |
+| Device state information | [Device twins][lnk-twins] can store and query device state information. | No device state information can be stored. |
+| Device protocol support |Supports MQTT, MQTT over WebSockets, AMQP, AMQP over WebSockets, and HTTP. Additionally, IoT Hub works with the [Azure IoT protocol gateway][lnk-azure-protocol-gateway], a customizable protocol gateway implementation to support custom protocols. |Supports AMQP, AMQP over WebSockets, and HTTP. |
 | Security |Provides per-device identity and revocable access control. See the [Security section of the IoT Hub developer guide]. |Provides Event Hubs-wide [shared access policies][Event Hubs - security], with limited revocation support through [publisher's policies][Event Hubs publisher policies]. IoT solutions are often required to implement a custom solution to support per-device credentials and anti-spoofing measures. |
 | Operations monitoring |Enables IoT solutions to subscribe to a rich set of device identity management and connectivity events such as individual device authentication errors, throttling, and bad format exceptions. These events enable you to quickly identify connectivity problems at the individual device level. |Exposes only aggregate metrics. |
 | Scale |Is optimized to support millions of simultaneously connected devices. |Can support a more limited number of simultaneous connections--up to 5,000 AMQP connections, as per [Azure Service Bus quotas][Azure Service Bus quotas]. On the other hand, Event Hubs enables you to specify the partition for each message sent. |
-| Device SDKs |Provides [device SDKs][Azure IoT Hub SDKs] for a large variety of platforms and languages. |Is supported on .NET, and C. Also provides AMQP and HTTP send interfaces. |
-| File upload |Enables IoT solutions to upload files from devices to the cloud. Includes a file notification endpoint for workflow integration and an operations monitoring category for debugging support. |Uses a claim check pattern to manually request files from devices and provide devices with a storage key for the transaction. |
+| Device SDKs |Provides [device SDKs][Azure IoT Hub SDKs] for a large variety of platforms and languages, in addition to direct MQTT, AMQP, and HTTP APIs. |Is supported on .NET, Java, and C, in addition to AMQP and HTTP send interfaces. |
+| File upload |Enables IoT solutions to upload files from devices to the cloud. Includes a file notification endpoint for workflow integration and an operations monitoring category for debugging support. | Not supported. |
 
 In summary, even if the only use case is device-to-cloud telemetry ingress, IoT Hub provides a service that is specifically designed for IoT device connectivity. It will continue to expand the value propositions for these scenarios with IoT-specific features. Event Hubs is designed for event ingress at a massive scale, both in the context of inter-datacenter and intra-datacenter scenarios.
 
@@ -43,6 +44,10 @@ To further explore the capabilities of IoT Hub, see:
 
 * [Developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
+
+[lnk-twins]: iot-hub-devguide-device-twins.md
+[lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
+[lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 
 [Azure Event Hubs]: ../event-hubs/event-hubs-what-is-event-hubs.md
 [Security section of the IoT Hub developer guide]: iot-hub-devguide-security.md

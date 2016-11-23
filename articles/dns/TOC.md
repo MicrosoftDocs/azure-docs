@@ -13,12 +13,13 @@
 ### [CLI](dns-getstarted-create-recordset-cli.md)
 
 ## [Delegate your domain to Azure DNS](dns-domain-delegation.md)
+## [Create custom DNS records for a web app](dns-web-sites-custom-domain.md)
 
 # How to
 
 ## Manage DNS zones
 ### [PowerShell](dns-operations-dnszones.md)
-### [CLI](dns-operations-dnszones.md)
+### [CLI](dns-operations-dnszones-cli.md)
 
 ## [Manage DNS records](dns-operations-recordsets-portal.md)
 ### [PowerShell](dns-operations-recordsets.md)
@@ -34,7 +35,7 @@
 ## [Automate DNS operations with the .NET SDK](dns-sdk.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
+## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [REST APIs](/rest/api/dns/)
 
 # Related
