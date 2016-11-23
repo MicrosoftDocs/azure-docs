@@ -5,7 +5,6 @@ services: remoteapp
 documentationcenter: ''
 author: msmbaldwin
 manager: mbaldwin
-
 ms.assetid: 191d98af-2f5a-4307-9042-aae0e4049f9f
 ms.service: remoteapp
 ms.workload: compute
@@ -70,7 +69,7 @@ The hardest part of this method is finding the USB device instance ID. You'll ne
 2. Open a Remote Desktop Connection and click **Show Options**.
 3. Click **Save as** to save the current connection settings to an RDP file.  
     ![Save the settings as an RDP file](./media/remoteapp-usbredir/ra-saveasrdp.png)
-4. Choose a file name and a location, for example â€œMyConnection.rdpâ€? and â€œThis PC\Documentsâ€?, and save the file.
+4. Choose a file name and a location, for example MyConnection.rdp and This PC\Documents, and save the file.
 5. Open the MyConnection.rdp file using a text editor and find the instance ID of the device you want to redirect.
 
 Now, use the instance ID in the following cmdlet:
