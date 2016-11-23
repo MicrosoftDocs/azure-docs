@@ -6,7 +6,7 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: curtland
+editor: pblachar
 
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.service: multi-factor-authentication
@@ -14,15 +14,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 11/23/2016
 ms.author: kgremban
 
 ---
 # The sign in experience with Azure Multi-Factor Authentication
 > [!NOTE]
 > The following documentation provided on this page shows a typical sign-in experience.  For help with signing in see [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
-> 
-> 
+>
+>
 
 ## What will your sign in experience be?
 Depending on how you sign in and use multi-factor authentication, your experience will differ.  In this section we will provide information on what to expect when you sign in.  Choose the one that best describes what you are doing:
@@ -56,13 +56,13 @@ The following information will describe the experience of using multi-factor aut
 * Sign in to an application or service such as Office 365 using your user name and password.
 * Microsoft will send a notification.
 
-![Microsoft sends notification](./media/multi-factor-authentication-end-user-signin-app-notify/notify.png)
+![Microsoft sends notification](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 * Answer the phone and hit the verify key.  If your company requires a PIN you will be asked for it here.
 
-![Verify](./media/multi-factor-authentication-end-user-signin-app-notify/phone.png)
+![Verify](./media/multi-factor-authentication-end-user-signin/phone2.png)
 
-![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
+![Setup](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 
 * You should now be signed in.
 
@@ -73,11 +73,11 @@ The following information will describe the experience of using multi-factor aut
 * Sign in to an application or service such as Office 365 using your user name and password.
 * Microsoft will prompt you for a verification code.
 
-![Enter verification code](./media/multi-factor-authentication-end-user-signin-app-verify/verify.png)
+![Enter verification code](./media/multi-factor-authentication-end-user-signin/verify3.png)
 
 * Open the Microsoft Authenticator app on your phone and enter the code in the box where you are signing in.
 
-![Get code](./media/multi-factor-authentication-end-user-signin-app-verify/phone.png)
+![Get code](./media/multi-factor-authentication-end-user-signin/phone3.png)
 
 * You should now be signed in.
 
@@ -88,7 +88,6 @@ The following section will show you how to sign in with an alternate method when
 * Sign in to an application or service such as Office 365 using your user name and password.
 * Select use a different verification option.  You will be present with a choice of different options. The number you see will be based on how many you have setup.
 
-![Use alternate method](./media/multi-factor-authentication-end-user-signin-alt/alt.png)
+![Use alternate method](./media/multi-factor-authentication-end-user-signin/alt.png)
 
 * Choose an alternate method and sign in.
-
