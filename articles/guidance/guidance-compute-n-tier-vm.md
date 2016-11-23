@@ -83,7 +83,7 @@ Use NSG rules to restrict traffic between tiers. For example, in the 3-tier arch
 5. Add a rule that allows RDP traffic from the jumpbox subnet. This rule lets administrators connect to the database tier from the jumpbox.
    
    > [!NOTE]
-   > An NSG has [default rules][nsg-rules] that allow any inbound traffic from within the VNet. These rules can't be deleted, but you can override them by creating higher priority rules.
+   > An NSG has default rules that allow any inbound traffic from within the VNet. These rules can't be deleted, but you can override them by creating higher priority rules.
    > 
    > 
 
@@ -214,7 +214,6 @@ To achieve high availability for this reference architecture, deploy to multiple
 [n-tier]: guidance-compute-n-tier-vm.md
 [naming conventions]: guidance-naming-conventions.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
-[nsg-rules]: ../best-practices-resource-manager-security.md#network-security-groups
 [operations-management-suite]: https://www.microsoft.com/en-us/server-cloud/operations-management-suite/overview.aspx
 [plan-network]: ../virtual-network/virtual-network-vnet-plan-design-arm.md
 [private-ip-space]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces
