@@ -1,5 +1,5 @@
-﻿---
-title: 'Tutorial: Azure Active Directory integration with ServiceNow and ServiceNow Express | Microsoft Docs'
+---
+title: 'Tutorial: Azure Active Directory integration with ServiceNow | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and ServiceNow and ServiceNow Express.
 services: active-directory
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 11/23/2016
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with ServiceNow and ServiceNow Express.
+# Tutorial: Azure Active Directory integration with ServiceNow
 In this tutorial, you learn how to integrate ServiceNow and ServiceNow Express with Azure Active Directory (Azure AD).
 
 Integrating ServiceNow and ServiceNow Express with Azure AD provides you with the following benefits:
