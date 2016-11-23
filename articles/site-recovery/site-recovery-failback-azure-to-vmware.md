@@ -76,6 +76,7 @@ If you failed over a VMware VM you can fail back to the same source VM if it sti
 * Configuration server is required on-premises when you do a failback. During failback, the virtual machine must exist in the Configuration server database, failing which failback won't be successful. Hence ensure that you take regular scheduled backup of your server. In case of a disaster, you will need to restore it with the same IP address so that failback will work.
 * Ensure that you set the disk.enableUUID=true setting in Configuration Parameters of the Master target VM in VMware. If this row does not exist, add it. This is required to provide a consistent UUID to the VMDK so that it mounts correctly.
 * **Master target server cannot be storage vMotioned**. This can cause the failback to fail. The VM will not come up since the disks will not be made available to it.
+* You need a new drive added onto the Master target server. This drive is called a retention drive. Add a new disk and format the drive.
 
 ## Failback policy
 To replicate back to on-premises, you will need a failback policy. This policy gets automatically created when you create a forward direction policy. Note that
