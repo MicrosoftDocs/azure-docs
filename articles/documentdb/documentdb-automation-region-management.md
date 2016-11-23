@@ -2,7 +2,7 @@
 title: DocumentDB Automation - Managing Regions | Microsoft Docs
 description: Use Azure CLI and Azure Resource Manager to manage regions in a DocumentDB database account. DocumentDB is a cloud-based NoSQL database for JSON data.
 services: documentdb
-author: dimakwan
+author: dmakwana
 manager: atulk
 editor: ''
 tags: azure-resource-manager
@@ -315,7 +315,7 @@ After the command returns, the account will be in the **Creating** state for a f
 
 ## <a id="remove-region-documentdb-account"></a>Task: Remove Region from a DocumentDB account
 
-DocumentDB has the capability to [distribute your data globally](documentdb-distribute-data-globally) across various [Azure regions](https://azure.microsoft.com/regions/#services). The instructions in this section describe how to remove a region from an existing DocumentDB account with Azure CLI and ARM Templates. This can be accomplished using Azure CLI with or without ARM templates.
+DocumentDB has the capability to [distribute your data globally][distribute-globally] across various [Azure regions](https://azure.microsoft.com/regions/#services). The instructions in this section describe how to remove a region from an existing DocumentDB account with Azure CLI and ARM Templates. This can be accomplished using Azure CLI with or without ARM templates.
 
 ### <a id="remove-region-documentdb-account-cli"></a> Remove Region to a DocumentDB account using Azure CLI without ARM templates
 
