@@ -169,6 +169,13 @@ azure vm reset-access \
 It is strongly recommended to install and setup the open source app Fail2ban which blocks repeated attempts to login to your Linux VM over SSH using brute force.  Fail2ban logs repeated failed attempts to login over SSH and then creates firewall rules to block the IP address that the attempts are originating from.
 
 * [Fail2ban homepage](http://www.fail2ban.org/wiki/index.php/Main_Page)
+
 ## Next Steps
 
 Now that you have configured and locked down the SSH server on your Linux VM there are additional security best practices you can follow.  
+
+* [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+* [Encrypt disks on a Linux VM using the Azure CLI](virtual-machines-linux-encrypt-disks?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+* [Access and security in Azure Resource Manager templates](virtual-machines-linux-dotnet-core-3-access-security?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
