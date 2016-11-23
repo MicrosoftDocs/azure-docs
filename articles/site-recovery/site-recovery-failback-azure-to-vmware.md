@@ -118,7 +118,8 @@ If you have protected your machines as classic resources (that is the VM recover
 7. At the end, the process sever should be listed in the configuration servers page, under the associated servers section, in Process Servers tab.
     ![](./media/site-recovery-failback-azure-to-vmware-new/pslistingincs.png)
 
-    >[AZURE.NOTE] The server won't be visible under **VM properties**. It's only visible under the **Servers** tab in the management server to which it's been registered. It can take about 10-15 mins for the process server to appear.
+    > [!NOTE] 
+    > The server won't be visible under **VM properties**. It's only visible under the **Servers** tab in the management server to which it's been registered. It can take about 10-15 mins for the process server to appear.
 
 
 ## Set up the master target server on-premises
@@ -178,6 +179,7 @@ Do the following to apply custom changes after you’ve complete the post-instal
 3. In **Master Target Server** and **Process Server** select the on-premises master target server, and the Azure VM process server.
 4. Select the **Datastore** to which you want to recover the disks on-premises. This option is used when the on-premises VM is deleted and new disks needs to be created. This option is ignored if the disks already exists, but you still need to specify a value.
 5. Retention Drive is used for stopping the points in time when the VM replicated back to on-premises. Some of the criteria of a retention drive are as below, without which the drive will not be listed for the master target server.
+   
    a. Volume shouldn't be in use for any other purpose (target of replication etc.)
    b. Volume shouldn't be in lock mode.
    c. Volume shouldn't be cache volume. (MT installation shouldn't exist on that volume. PS+MT custom installation volume is not eligible for retention volume. Here installed PS+MT volume is cache volume of MT.)
@@ -185,6 +187,7 @@ Do the following to apply custom changes after you’ve complete the post-instal
    e. The volume capacity should be non-zero.
    e. Default retention volume for Windows is R volume.
    f. Default retention volume for Linux is /mnt/retention.
+
 6. The failback policy will be auto selected.
 7. After you click **OK** to begin reprotection a job begins to replicate the VM from Azure to the on-premises site. You can track the progress on the **Jobs** tab.
 
