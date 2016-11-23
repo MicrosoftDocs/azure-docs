@@ -14,13 +14,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 11/23/2016
 ms.author: anhoh
 
 ---
 # What is DocumentDB protocol support for MongoDB?
 
-DocumentDB databases can now be used as the data store for apps written for MongoDB. Using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/) for MongoDB databases, applications can easily and transparently communicate with DocumentDB, in many cases by simply changing a connection string. Using this preview functionality, customers can easily build and run MongoDB database applications in the Azure cloud - leveraging DocumentDB's fully managed and scalable NoSQL databases - while continuing to use familiar skills and tools for MongoDB.
+DocumentDB databases can now be used as the data store for apps written for MongoDB. This means that by using existing [drivers](https://docs.mongodb.org/ecosystem/drivers/) for MongoDB databases, your application written for MongoDB can now communicate with DocumentDB and use DocumentDB databases instead of MongoDB databases. In many cases, you can switch from using MongoDB to DocumentDB by simply changing a connection string. Using this preview functionality, customers can easily build and run MongoDB database applications in the Azure cloud - leveraging DocumentDB's fully managed and scalable NoSQL databases - while continuing to use familiar skills and tools for MongoDB.
 
 ## What is the benefit of using DocumentDB protocol support for MongoDB?
 **No Server Management** - DocumentDB is a fully managed service, which means you do not have to manage any infrastructure or Virtual Machines yourself. DocumentDB is available in 20+ [Azure Regions](https://azure.microsoft.com/regions/services/).
