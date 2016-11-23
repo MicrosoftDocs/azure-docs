@@ -3,7 +3,7 @@ title: How to create a cloud collection of Azure RemoteApp | Microsoft Docs
 description: Learn how to create a deployment of Azure RemoteApp that saves data in the Azure cloud.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msbaldwin
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
-ms.author: elizapo
+ms.author: mbaldwin
 
 ---
 # How to create a cloud collection of Azure RemoteApp
@@ -91,7 +91,7 @@ Now that you have created your collection, you need to add the users that you wa
    
    **Notes:** 
    
-   Make sure that you use the “user@domain.com” format.
+   Make sure that you use the “user@domain.com�? format.
    
    If you are using Office 365 ProPlus in your collection, you must use the Active Directory identities for your users. This helps validate licensing. 
 3. After the users are validated, click **Save**.

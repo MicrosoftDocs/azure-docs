@@ -3,7 +3,7 @@ title: Azure RemoteApp - how do network bandwidth and quality of experience work
 description: Learn how network bandwidth in Azure RemoteApp can impact your user's quality of experience.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msbaldwin
 manager: mbaldwin
 
 ms.assetid: 74ebc1fb-5187-4056-b08c-0e03b5ecaca6
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
-ms.author: elizapo
+ms.author: mbaldwin
 
 ---
 # Azure RemoteApp - how do network bandwidth and quality of experience work together?

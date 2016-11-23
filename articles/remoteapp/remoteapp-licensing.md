@@ -3,7 +3,7 @@ title: Azure RemoteApp licensing | Microsoft Docs
 description: Learn how licensing works in Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msbaldwin
 manager: mbaldwin
 
 ms.assetid: ff8ebd20-61a1-4f10-87a6-234a170534c9
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/15/2016
-ms.author: elizapo
+ms.author: mbaldwin
 
 ---
 # How does licensing work in Azure RemoteApp?

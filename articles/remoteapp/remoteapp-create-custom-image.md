@@ -3,7 +3,7 @@ title: How to create a custom template image for Azure RemoteApp | Microsoft Doc
 description: Learn how to create a custom template image for Azure RemoteApp. You can use this template with either a hybrid or cloud collection.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msbaldwin
 manager: mbaldwin
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
-ms.author: elizapo
+ms.author: mbaldwin
 
 ---
 # How to create a custom template image for Azure RemoteApp

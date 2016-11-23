@@ -14,7 +14,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
 ms.date: 08/15/2016
-ms.author: elizapo
+ms.author: mbaldwin
 
 ---
 # OneDrive for Business and Azure RemoteApp

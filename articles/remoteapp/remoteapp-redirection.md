@@ -3,7 +3,7 @@ title: Using redirection in Azure RemoteApp | Microsoft Docs
 description: Learn how to configure and use redirection in RemoteApp
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msbaldwin
 manager: mbaldwin
 
 ms.assetid: 2c8c867f-4907-4f2e-9ccd-2eb82bb5b837
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2016
-ms.author: elizapo
+ms.author: mbaldwin
 
 ---
 # Using redirection in Azure RemoteApp
@@ -62,7 +62,7 @@ When you set custom properties you must specify all custom properties each time;
 ### Common examples
 Use the following cmdlet to enable drive redirection:  
 
-    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*‚Äù
+    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "drivestoredirect:s:*‚Ä?
 
 Use this cmdlet to enable both USB and Drive redirection:
 
@@ -70,7 +70,7 @@ Use this cmdlet to enable both USB and Drive redirection:
 
 Use this cmdlet to disable clipboard sharing:  
 
-    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0‚Äù
+    Set-AzureRemoteAppCollection -CollectionName <collection name>  -CustomRdpProperty "redirectclipboard:i:0‚Ä?
 
 > [!IMPORTANT]
 > Be sure to completely log off all users in the collection (and not just disconnect them) before you test the change. To ensure users are completely logged off, go to the **Sessions** tab in the collection in the Azure portal and log off any users who are disconnected or signed in. Sometimes it can take several seconds for the local drives to show in Explorer within the session.
