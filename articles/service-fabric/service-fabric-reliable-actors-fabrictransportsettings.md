@@ -19,15 +19,15 @@ ms.author: suchia
 ---
 # Configuring FabricTransport settings for Reliable Actors
 
-Here are the list of settings you can configured for
+Here are the list of settings that user can configure
 [FabrictTansportSettings](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.services.communication.fabrictransport.common.fabrictransportsettings)
 
 You can modify the default configuration of FabricTransport in following ways.
 
 1.  Using Assembly Attribute - [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute).
 
-  This attribute needs to be added on client and on actor service assembly.
-  Below example shows how to change default Value of FabricTransport OperationTimeout Settings .
+  This attribute needs to be applied on Actor client and  Actor service assembly.
+  Following example shows how to change default Value of FabricTransport OperationTimeout Settings.
 
   ```csharp
      using Microsoft.ServiceFabric.Actors.Remoting.FabricTransport;
@@ -41,14 +41,14 @@ You can modify the default configuration of FabricTransport in following ways.
     [assembly:FabricTransportActorRemotingProvider(OperationTimeoutInSeconds = 600,MaxMessageSize = 134217728)]
     ```
 
-2. Using a [config package](service-fabric-application-model.md) :
+2. Using a [config package](service-fabric-application-model.md):
 
   * Configuring FabricTransport Settings for Actor Service
 
     Add a TransportSettings section in the settings.xml file.
 
-    * SectionName :
-    By default , Actor code looks for SectionName as "&lt;ActorName&gt;TransportSettings". If not found , it will check for sectionName  as "TransportSettings".
+    * SectionName:
+    By default , Actor code looks for SectionName as "&lt;ActorName&gt;TransportSettings." If not found , it checks for sectionName  as "TransportSettings."
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
@@ -66,7 +66,7 @@ You can modify the default configuration of FabricTransport in following ways.
 
   * Configuring FabricTransport Settings for Actor Client Assembly
 
-    If the client is not running as part of a service, you can create a "&lt;Client Exe Name&gt;.settings.xml" xml file in the same location where the client exe is present. Then add a TransportSettings section in that file. SectionName should be "TransportSettings".
+    If the client is not running as part of a service, you can create a "&lt;Client Exe Name&gt;.settings.xml" xml file in the same location where the client exe is present. Then add a TransportSettings section in that file. SectionName should be "TransportSettings."
 
   ```xml
   <<?xml version="1.0" encoding="utf-8"?>
