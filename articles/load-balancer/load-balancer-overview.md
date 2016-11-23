@@ -31,7 +31,7 @@ All resources in the cloud need a public IP address to be reachable from the Int
 
 ## Azure deployment models
 
-It's important to understand the differences between the Azure classic and Resource Manager [deployment models](../resource-manager-deployment-model.md). Azure Load Balancer is configured differently in each model.
+It's important to understand the differences between the Azure classic and Resource Manager [deployment models](../azure-resource-manager/resource-manager-deployment-model.md). Azure Load Balancer is configured differently in each model.
 
 ### Azure classic deployment model
 

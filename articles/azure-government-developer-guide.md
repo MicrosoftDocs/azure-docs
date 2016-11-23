@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Government Developers Guide
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: ''
@@ -52,22 +52,41 @@ Because most of the technical content that is available currently assumes that a
 Azure Government currently has the following services available in both US GOV IOWA and US GOV VIRGINIA regions:
 
 * Virtual Machines
-* Cloud Services
-* Storage
-* Active Directory
-* Scheduler
-* Virtual Networking
-* SQL Database
-* Azure Files
+* Virtual Machine Scale Sets
+* Container services
+* Batch Accounts
+* Remote App collections
+* Availability Sets
+* Virtual Networks
+* Load Balancers
+* Application gateways
+* Virtual Network gateways
+* Local Network gateways
+* Route tables
+* Traffic Manager profiles
+* ExpressRoute circuits
+* Network security group
+* Network interfaces
+* Public IP addresses
+* Connections
+* Storage Accounts
+* StorSimple managers
+* App Services
 * Media Services
-* Traffic Manager
-* Service Bus
-* StorSimple
-* Redis Cache
-* Azure Backup
-* Automation
-* ExpressRoute
-* etc.
+* SQL Databases
+* SQL data warehouses
+* SQL Server stretch databases
+* Redis Caches
+* SQL elastic pools
+* SQL servers
+* Log Analytics
+* Event hubs
+* Service bus namespaces
+* Azure Active Directory
+* Multi-factor authentication
+* Rights management
+* Automation accounts
+* Marketplace
 
 Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](https://azure.microsoft.com/regions/#services) which will highlight each available region and their services.  
 
@@ -76,18 +95,22 @@ Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure
 ## <a name="Endpoint"></a>Endpoint Mapping
 Use the following table to guide you when mapping public Microsoft Azure and SQL Database endpoints to Azure Government specific endpoints.
 
-| Service Type | Azure Public | Azure Government |
-| --- | --- | --- |
-| Management Portal |manage.windowsazure.com |manage.windowsazure.us |
-| General |*.windows.net |*.usgovcloudapi.net |
-| Core |*.core.windows.net |*.core.usgovcloudapi.net |
-| Compute |*.cloudapp.net |*.usgovcloudapp.net |
-| Blob Storage |*.blob.core.windows.net |*.blob.core.usgovcloudapi.net |
-| Queue Storage |*.queue.core.windows.net |*.queue.core.usgovcloudapi.net |
-| Table Storage |*.table.core.windows.net |*.table.core.usgovcloudapi.net |
-| Service Management |management.core.windows.net |management.core.usgovcloudapi.net |
-| SQL Database |*.database.windows.net |*.database.usgovcloudapi.net |
-| ARM Load balanced Endpoint |https://management.windows.net |https://management.usgovcloudapi.net |
+| Name | Azure Government Endpoint |
+| --- | --- |
+| ActiveDirectoryServiceEndpointResourceId  | https://management.core.usgovcloudapi.net/ | 
+| GalleryUrl | https://gallery.usgovcloudapi.net/ |
+| ManagementPortalUrl | https://manage.windowsazure.us |
+| ServiceManagementUrl | https://management.core.usgovcloudapi.net/ |
+| PublishSettingsFileUrl | https://manage.windowsazure.us/publishsettings/index |
+| ResourceManagerUrl | https://management.usgovcloudapi.net/ |
+| SqlDatabaseDnsSuffix | .database.usgovcloudapi.net |
+| StorageEndpointSuffix | core.usgovcloudapi.net |
+| ActiveDirectoryAuthority | https://login-us.microsoftonline.com/ |
+| GraphUrl | https://graph.windows.net/ 
+| GraphEndpointResourceId | https://graph.windows.net/ |
+| TrafficManagerDnsSuffix | usgovtrafficmanager.net |
+| AzureKeyVaultDnsSuffix | vault.usgovcloudapi.net |
+| AzureKeyVaultServiceEndpointResourceId | https://vault.usgovcloudapi.net |
 
 * For ARM authentication via Azure AD, please reference [Authenticating Azure Resource Manager Requests](https://msdn.microsoft.com/library/azure/dn790557.aspx)
 
