@@ -553,7 +553,8 @@ The mobility service can be uninstalled using Add Remove Programs in the Control
 
 **You can also install from the command-line**:
 
-1. Copy the passphrase from C:\Program Files (x86)\InMage Systems\private\connection on the configuration server, and save it as "passphrase.txt" on the configuration server. Then run these commands. In our example, the configuration server IP address is 104.40.75.37 and the HTTPS port should be 443:
+Copy the passphrase from C:\Program Files (x86)\InMage Systems\private\connection on the configuration server, and save it as "passphrase.txt" on the configuration server. Then run these commands. In our example, the configuration server IP address is 104.40.75.37 and the HTTPS port should be 443:
+
 
 To install on a production server:
 

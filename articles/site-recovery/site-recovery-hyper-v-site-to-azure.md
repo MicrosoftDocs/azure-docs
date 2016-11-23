@@ -231,14 +231,15 @@ Specify the Azure storage account to be used for replication, and the Azure netw
 
   	![Storage](./media/site-recovery-hyper-v-site-to-azure/gs-createstorage.png)
 
-	If you want to create a storage account using the classic model you'll do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md).
+
+If you want to create a storage account using the classic model you'll do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md).
 
 
-	If you haven’t created an Azure network and you want to create one using Resource Manager click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
+If you haven’t created an Azure network and you want to create one using Resource Manager click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
 
-   	![Network](./media/site-recovery-hyper-v-site-to-azure/gs-createnetwork.png)
+   ![Network](./media/site-recovery-hyper-v-site-to-azure/gs-createnetwork.png)
 
-   	If you want to create a network using the classic model you’ll do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+If you want to create a network using the classic model you’ll do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 ## Step 4: Set up replication settings
 1. To create a new replication policy click **Prepare infrastructure** > **Replication Settings** > **+Create and associate**.
