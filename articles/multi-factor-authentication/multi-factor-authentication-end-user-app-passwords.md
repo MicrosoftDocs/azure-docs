@@ -5,7 +5,7 @@ services: multi-factor-authentication
 documentationcenter: ''
 author: kgremban
 manager: femila
-editor: curtland
+editor: pblachar
 
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
 ms.service: multi-factor-authentication
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/04/2016
+ms.date: 11/23/2016
 ms.author: kgremban
 
 ---
@@ -22,10 +22,10 @@ Certain non-browser apps, such as the Apple native email client that uses Exchan
 
 > [!NOTE]
 > Modern Authentication for the Office 2013 Clients
-> 
+>
 > Office 2013 clients (including Outlook) now support new Authentication Protocols and can be enabled to support Multi-Factor Authentication.  This means that once enabled, app passwords are not required for use with Office 2013 clients.  For more information see [Office 2013 modern authentication public preview announced](https://blogs.office.com/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
-> 
-> 
+>
+>
 
 ## How to use app passwords
 The following are some things to remember on how to use app passwords.
@@ -62,7 +62,7 @@ If you use multi-factor authentication with Office 365 you will want to create a
    ![Cloud](./media/multi-factor-authentication-end-user-manage/o365b.png)
 6. At the top, next to additional security verification, click on **app passwords.**
 7. Click **Create**.
-   ![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-o365/apppass.png)
+   ![Cloud](./media/multi-factor-authentication-end-user-app-passwords/apppass.png)
 8. Enter a name for the app password and click **Next**.
    ![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create1.png)
 9. Copy the app password to the clipboard and paste it into your app.
@@ -94,7 +94,7 @@ If you are not sure how you use multi-factor authentication, then you can always
 3. Select Additional Security Verification.
    ![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. This will take you to the page that will allow you to change your settings.
-   ![Setup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
+   ![Setup](./media/multi-factor-authentication-end-user-manage/proofup.png)
 5. At the top, next to additional security verification, click on **app passwords.**
 6. Click **Create**.
    ![Create an app password](./media/multi-factor-authentication-end-user-app-passwords/create3.png)
@@ -109,7 +109,7 @@ If you are not sure how you use multi-factor authentication, then you can always
 3. Select Additional Security Verification.
    ![Cloud](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. This will take you to the page that will allow you to change your settings.
-   ![Setup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
+   ![Setup](./media/multi-factor-authentication-end-user-manage/proofup.png)
 5. At the top, next to additional security verification, click on **app passwords.**
 6. Next to the app password you want to delete, click **Delete**.
    ![Delete an app password](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
@@ -128,7 +128,7 @@ If you use multi-factor authentication with Azure you will want to create app pa
 4. Click **Create**.
 5. Enter a name for the app password and click **Next**
 6. Copy the app password to the clipboard and paste it into your app.
-   ![Cloud](./media/multi-factor-authentication-end-user-app-passwords-create-azure/app2.png)
+   ![Cloud](./media/multi-factor-authentication-end-user-app-passwords/app2.png)
 
 ### To delete app passwords in the Azure portal
 1. Sign-in to the Azure Management portal.
@@ -138,4 +138,3 @@ If you use multi-factor authentication with Azure you will want to create app pa
 5. Confirm the deletion by clicking **yes**.
 6. Once the app password is deleted you can click **close**.
    ![Close](./media/multi-factor-authentication-end-user-app-passwords/delete3.png)
-

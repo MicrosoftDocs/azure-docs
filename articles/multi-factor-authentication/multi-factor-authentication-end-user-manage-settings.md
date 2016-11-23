@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/23/2016
 ms.author: kgremban
 
 ---
@@ -33,7 +33,7 @@ If your IT admin sent out a specific URL or steps to manage two-step verificatio
     ![Myapps](./media/multi-factor-authentication-end-user-manage/myapps1.png)
 4. The Additional security verification page loads with your settings.
 
-    ![Proofup](./media/multi-factor-authentication-end-user-manage-myapps/proofup.png)
+    ![Proofup](./media/multi-factor-authentication-end-user-manage/proofup.png)
 
 ## I want to change my phone number, or add a secondary number
 It is important to configure a secondary authentication phone number.  Because your primary phone number and your mobile app are probably on the same phone, the secondary phone number is the only way you will be able to get back into your account if your phone is lost or stolen.
