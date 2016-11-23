@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use the Vertex Execution View in Data Lake Tools for Visual Studio | Microsoft Docs
 description: Learn how to use the Vertex Execution View to exam Data Lake Analytics jobs.
 services: data-lake-analytics
@@ -46,7 +46,7 @@ After entering the Vertex Execution View, there are three parts:
     ![Data Lake Analytics Tools Vertex Execution View](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
   
   * Process Name: The name of the vertex instance. It is composed of different parts in StageName|VertexName|VertexRunInstance. For example, the SV7_Split[62].v1 vertex stands for the second running instance (.v1, index starting from 0) of Vertex number 62 in Stage SV7_Split.
-  * Total Data Read/Write: The data was read/written by this vertex.
+  * Total Data Read/Written: The data was read/written by this vertex.
   * State/Exit Status: The final status when the vertex is ended.
   * Exit Code/Failure Type: The error when the vertex failed.
   * Creation Reason: Why the vertex was created.

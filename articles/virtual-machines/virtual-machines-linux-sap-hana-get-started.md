@@ -515,7 +515,7 @@ the HANA DB instance with transaction "dbacockpit".
 * Information about deploying Linux VMs via templates :
   [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Comparison of deployment models between Azure Resource Manager and classic :
-  [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md)
+  [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md)
 * Download NetWeaver 7.5 for Linux/HANA from the SAP Service Marketplace :
   ![](./media/virtual-machines-linux-sap-hana-get-started/image001.jpg)
 * Download HANA SP12 Platform Edition from the SAP Service Marketplace :

@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 11/23/2016
 ms.author: jingwang
 
 ---
@@ -61,9 +61,9 @@ You can also move data from/to supported data stores that are hosted on Azure Ia
 If you need to move data to/from a data store that Copy Activity doesn't support, use a **custom activity** in Data Factory with your own logic for copying/moving data. For details on creating and using a custom activity, see [Use custom activities in an Azure Data Factory pipeline](data-factory-use-custom-activities.md).
 
 ### Supported file formats
-You can use Copy Activity to copy files as-is between two file-based data stores, such as Azure Blob, File System, and HDFS. To do so, you can skip the [format section](data-factory-create-datasets.md) in both the input and output dataset definitions. The data is copied efficiently without any serialization/deserialization.
+You can use Copy Activity to **copy files as-is** between two file-based data stores, such as Azure Blob, Azure Data Lake Store, Amazon S3, FTP, File System, and HDFS. To do so, you can skip the [format section](data-factory-create-datasets.md) in both the input and output dataset definitions. The data is copied efficiently without any serialization/deserialization.
 
-Copy Activity also reads from and writes to files in specified formats: text, Avro, ORC, Parquet, and JSON. You can do the following copy activities, for example:
+Copy Activity also reads from and writes to files in specified formats: **text, Avro, ORC, Parquet, and JSON**. You can do the following copy activities, for example:
 
 * Copy data in text (CSV) format from Azure Blob and write to Azure SQL Database.
 * Copy files in text (CSV) format from File System on-premises and write to Azure Blob in Avro format.
@@ -75,30 +75,31 @@ Azure Data Factory is available only in the West US, East US, and North Europe r
 ### Copy data between cloud data stores
 When both source and sink data stores are in the cloud, Data Factory uses a service deployment in the region that is closest to the sink in the same geography to move the data. Refer to the following table for mapping:
 
-| Region of the destination data store | Region used for data movement |
-|:--- |:--- |
-| East US |East US |
-| East US 2 |East US 2 |
-| West US |West US |
-| West US 2 |West US |
-| Central US |Central US |
-| West Central US |Central US |
-| North Central US |North Central US |
-| South Central US |South Central US |
-| North Europe |North Europe |
-| West Europe |West Europe |
-| Southeast Asia |Southeast Asia |
-| East Asia |Southeast Asia |
-| Japan East |Japan East |
-| Japan West |Japan East |
-| Brazil South |Brazil South |
-| Australia East |Australia East |
-| Australia Southeast |Australia Southeast |
-| Central India |Central India |
-| South India |Central India |
-| West India |Central India |
-| Canada Central | Canada Central |
-| Canada East | Canada Central |
+| Geography of the destination data store | Region of the destination data store | Region used for data movement |
+|:--- |:--- |:--- |
+| United States | East US |East US |
+| . | East US 2 |East US 2 |
+| . | Central US |Central US |
+| . | North Central US |North Central US |
+| . | South Central US |South Central US |
+| . | West Central US |Central US |
+| . | West US |West US |
+| . | West US 2 |West US |
+| Canada | Canada East | Canada Central |
+| . | Canada Central | Canada Central |
+| Brazil | Brazil South |Brazil South |
+| Europe | North Europe |North Europe |
+| . | West Europe |West Europe |
+| Asia Pacific | Southeast Asia |Southeast Asia |
+| . | East Asia |Southeast Asia |
+| Australia | Australia East |Australia East |
+| . | Australia Southeast |Australia Southeast |
+| Japan | Japan East |Japan East |
+| . | Japan West |Japan East |
+| India | Central India |Central India |
+| . | West India |Central India |
+| . | South India |Central India |
+
 
 > [!NOTE]
 > If the region of the destination data store is not in the preceding list, Copy Activity fails instead of going through an alternative region.
