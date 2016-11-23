@@ -53,12 +53,6 @@ To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com
 
 ![NVIDIA device status](./media/virtual-machines-windows-n-series-driver-setup/smi.png)  
 
-### Supported drivers
-
- Operating system | Driver download |
-| --- | --- | 
-| Windows Server 2016 | [Version 369.73](http://www.nvidia.com/download/driverResults.aspx/111404/) |
-Windows Server 2012 R2 | [Version 369.73](http://www.nvidia.com/download/driverResults.aspx/111404/) |
 
 ## RDMA network setup for NC24r VMs
 
