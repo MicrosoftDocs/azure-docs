@@ -163,25 +163,41 @@ Offer session-based RemoteApp and Desktop solutions: Yes, both
 **Contact:**
 
 - EMEA:
+
    Prins Mauritslaan 29-35
+
    71 LP Badhoevedorp
+
    The Netherlands
+
    Phone: +31 20 547 8060 
 
 - Americas:
+
    171 Saxony Road, Suite 105
+
    Encinitas, CA 92024
+
    San Diego
+
    United States
+
    Phone: +1 858 385 8900 
 
 - APAC:
+
    105 Cecil Street
-   #11-08, The Octagon
+   
+   \#11-08, The Octagon
+
    Singapore 069534
+
    Singapore
+   
    Phone - Singapore: +65 6222 6591
+
    Phone - Australia: +61 2 8310 5568 
+   
    Phone - New Zealand: +64 4 488 0321
 
 ## Need more help?
