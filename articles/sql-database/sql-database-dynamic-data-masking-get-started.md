@@ -18,10 +18,6 @@ ms.author: ronitr; ronmat; v-romcal; sstein
 
 ---
 # Get started with SQL Database Dynamic Data Masking (Azure Portal)
-> [!div class="op_single_selector"]
-> * [Dynamic Data Masking - Azure Classic Portal](sql-database-dynamic-data-masking-get-started-portal.md)
-> 
-> 
 
 ## Overview
 SQL Database Dynamic Data Masking limits sensitive data exposure by masking it to non-privileged users. Dynamic data masking is supported for the V12 version of Azure SQL Database.
