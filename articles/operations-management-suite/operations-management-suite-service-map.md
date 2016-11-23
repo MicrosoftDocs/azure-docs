@@ -122,12 +122,12 @@ Note that for Service Map to be able to display relevant alerts, the alert rule 
 ## Log Analytics records
 Service Map's computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics.  This can be applied to scenarios including migration planning, capacity analysis, discovery, and ad hoc performance troubleshooting.
 
-One record is generated per hour for each unique computer and process in addition to records generated when that process or computer starts or is on-boarded to Service Map.  These records have the properties in the following tables.
+One record is generated per hour for each unique computer and process in addition to records generated when a process or computer starts or is on-boarded to Service Map.  These records have the properties in the following tables.  The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap ARM API.  The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap ARM API.  Note - as Service Map features grow, these fields are subject to change.
 
 There are internally generated properties you can use to identify unique processes and computers:
 
-- PersistentKey_s is uniquely defined by the process configuration, e.g. command line and user ID.  It is unique for a given computer, but can be repeated across computers.
-- ProcessId_s and ComputerId_s are globally unique in the Service Map model.
+- Computer - Use ResourceName_s to globally identify a computer within an OMS Workspace.
+- Process - Use a ResourceName_s to identify a process on a machine.  Use in conjunction with MachineResourceName_s to globally identify a process with an OMS Workspace.
 
 
 
@@ -138,7 +138,7 @@ Records with a type of **ServiceMapComputer_CL** have inventory data for servers
 |:--|:--|
 | Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceName_s | machine resource name |
+| ResourceName_s | unique identifier for machine |
 | ComputerName_s | computer FQDN |
 | Ipv4Addresses _s | a list of the server's IPv4s |
 | Ipv6Addresses_s | a list of the server's IPv6s |
@@ -164,12 +164,10 @@ Records with a type of **ServiceMapProcess_CL** have inventory data for TCP-conn
 |:--|:--|
 | Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceName_s | process resource name |
+| ResourceName_s | unique identifier for process |
 | MachineResourceName_s | machine resource name |
 | ExecutableName_s | process executable name |
 | StartTime_t | process pool start time |
-| PersistentKey_s | process pool persistent key |
-| PoolId_d | process pool ID |
 | FirstPid_d | first pid in process pool |
 | Description_s | process description |
 | CompanyName_s | company name |
