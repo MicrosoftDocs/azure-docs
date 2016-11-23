@@ -59,8 +59,9 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
   
 -   `<scope>` is an optional string indicating the scope of the `<property_name>`. Valid values are `sys` or `user`. The `sys` value indicates system scope where `<property_name>` is a public property name of the [BrokeredMessage Class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage). `user` indicates user scope where `<property_name>` is a key of the [BrokeredMessage Class](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) dictionary. `user` scope is the default scope if `<scope>` is not specified.  
   
-## Remarks  
- An attempt to access a non-existing system property is an error, while an attempt to access a non-existing user property is not an error. Instead, a non-existing user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
+## Remarks
+
+An attempt to access a non-existent system property is an error, while an attempt to access a non-existent user property is not an error. Instead, a non-existent user property is internally evaluated as an unknown value. An unknown value is treated specially during operator evaluation.  
   
 ## property_name  
   
@@ -75,21 +76,22 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
 ```  
   
 ### Arguments  
+
  `<regular_identifier>` is a string represented by the following regular expression:  
   
 ```  
 [[:IsLetter:]][_[:IsLetter:][:IsDigit:]]*  
 ```  
   
- This means any string that starts with a letter and is followed by one or more underscore/letter/digit.  
+This means any string that starts with a letter and is followed by one or more underscore/letter/digit.  
   
- `[:IsLetter:]` means any Unicode character that is categorized as a Unicode letter. `System.Char.IsLetter(c)` returns `true` if `c` is a Unicode letter.  
+`[:IsLetter:]` means any Unicode character that is categorized as a Unicode letter. `System.Char.IsLetter(c)` returns `true` if `c` is a Unicode letter.  
   
- `[:IsDigit:]` means any Unicode character that is categorized as a decimal digit. `System.Char.IsDigit(c)` returns `true` if `c` is a Unicode digit.  
+`[:IsDigit:]` means any Unicode character that is categorized as a decimal digit. `System.Char.IsDigit(c)` returns `true` if `c` is a Unicode digit.  
   
- A `<regular_identifier>` cannot be a reserved keyword.  
+A `<regular_identifier>` cannot be a reserved keyword.  
   
- `<delimited_identifier>` is any string that is enclosed with left/right square brackets ([]). A right square bracket is represented as two right square brackets. The following are examples of `<delimited_identifier>`:  
+`<delimited_identifier>` is any string that is enclosed with left/right square brackets ([]). A right square bracket is represented as two right square brackets. The following are examples of `<delimited_identifier>`:  
   
 ```  
 [Property With Space]  
@@ -97,7 +99,7 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
   
 ```  
   
- `<quoted_identifier>` is any string that is enclosed with double quotation marks. A double quotation mark in identifier is represented as two double quotation marks. It is not recommended to use quoted identifiers because it can easily be confused with a string constant. Use a delimited identifier if possible. The following is an example of `<quoted_identifier>`:  
+`<quoted_identifier>` is any string that is enclosed with double quotation marks. A double quotation mark in identifier is represented as two double quotation marks. It is not recommended to use quoted identifiers because it can easily be confused with a string constant. Use a delimited identifier if possible. The following is an example of `<quoted_identifier>`:  
   
 ```  
 "Contoso & Northwind"  
@@ -110,8 +112,9 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
       <expression>  
 ```  
   
-### Remarks  
- `<pattern>` must be an expression that is evaluated as a string. It is used as a pattern for the LIKE operator.      It can contain the following wildcard characters:  
+### Remarks
+  
+`<pattern>` must be an expression that is evaluated as a string. It is used as a pattern for the LIKE operator.      It can contain the following wildcard characters:  
   
 -   `%`:  Any string of zero or more characters.  
   
@@ -125,7 +128,8 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
 ```  
   
 ### Remarks  
- `<escape_char>` must be an expression that is evaluated as a string of length 1. It is used as an escape character for the LIKE operator.  
+
+`<escape_char>` must be an expression that is evaluated as a string of length 1. It is used as an escape character for the LIKE operator.  
   
  For example, `property LIKE 'ABC\%' ESCAPE '\'` matches `ABC%` rather than a string that starts with `ABC`.  
   
@@ -173,7 +177,8 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
 ```  
   
 ### Remarks  
- Boolean constants are represented by the keywords `TRUE` or `FALSE`. The values are stored as `System.Boolean`.  
+
+Boolean constants are represented by the keywords **TRUE** or **FALSE**. The values are stored as `System.Boolean`.  
   
 ## string_constant  
   
@@ -182,7 +187,8 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
 ```  
   
 ### Remarks  
- String constants are enclosed in single quotation marks and include any valid Unicode characters. A single quotation mark embedded in a string constant is represented as two single quotation marks.  
+
+String constants are enclosed in single quotation marks and include any valid Unicode characters. A single quotation mark embedded in a string constant is represented as two single quotation marks.  
   
 ## function  
   
@@ -192,25 +198,27 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
       property(name) | p(name)  
 ```  
   
-### Remarks  
- The `newid()` function returns a **System.Guid** generated by the `System.Guid.NewGuid()` method.  
+### Remarks
   
- The `property(name)` function returns the value of the property referenced by `name`. The `name` value can be any valid expression that returns a string value.  
+The `newid()` function returns a **System.Guid** generated by the `System.Guid.NewGuid()` method.  
   
-## Considerations  
- Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) semantics:  
+The `property(name)` function returns the value of the property referenced by `name`. The `name` value can be any valid expression that returns a string value.  
+  
+## Considerations
+  
+Consider the following [SqlFilter](/dotnet/api/microsoft.servicebus.messaging.sqlfilter) semantics:  
   
 -   Property names are case-insensitive.  
   
 -   Operators follow C# implicit conversion semantics whenever possible.  
   
--   System properties are public properties exposed in [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage).  
+-   System properties are public properties exposed in [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) instances.  
   
- Consider the following `IS [NOT] NULL` semantics:  
+	Consider the following `IS [NOT] NULL` semantics:  
   
--   `property IS NULL` is evaluated as `true` if either the property doesn't exist or the property's value is `null`.  
+	-   `property IS NULL` is evaluated as `true` if either the property doesn't exist or the property's value is `null`.  
   
- Property evaluation semantics:  
+Property evaluation semantics:  
   
 -   An attempt to evaluate a non-existent system property will throw a [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) exception.  
   
@@ -262,7 +270,7 @@ A *SqlFilter* is an instance of the [SqlFilter Class](/dotnet/api/microsoft.serv
 +---+---+---+---+  
 ```  
   
- Operator binding semantics:  
+Operator binding semantics:  
   
 -   Comparison operators such as `>`, `>=`, `<`, `<=`, `!=`, and `=` follow the same semantics as the C# operator binding in data type promotions and implicit conversions.  
   
