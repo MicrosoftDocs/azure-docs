@@ -51,7 +51,6 @@ Now that you have created a data factory, the next step is to configure the data
 
 1. Select **Properties** and fill in the requested information.
 2. For **Task name**, enter **DWLoadData-fromSQLServer**.
-2. Keep the **Run once now** option.
 3. Click **Next**.
 
 	![Configure load schedule](media/sql-data-warehouse-load-with-data-factory/configure-load-schedule.png)
@@ -146,8 +145,7 @@ After the deployment is complete, a **Deployment** option appears on the left-ha
 
 	![View table activity details](media/sql-data-warehouse-load-with-data-factory/view-table-activity-details.png)
 
-7. To re
-8. launch this monitoring view later, go to your SQL Data Warehouse, click **Load Data > Azure Data Factory**, select your factory, and choose **Monitor existing loading tasks**.
+7. To launch this monitoring view later, go to your SQL Data Warehouse, click **Load Data > Azure Data Factory**, select your factory, and choose **Monitor existing loading tasks**.
 
 ## Next steps
 
