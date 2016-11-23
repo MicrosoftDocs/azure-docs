@@ -26,11 +26,15 @@ With ChangeFeed support, DocumentDB provides a real-time sorted list of changes 
 ![Using DocumentDB Change Feed to power real-time analytics and event-driven computing scenarios](./media/documentdb-change-feed/changefeed.png)
 
 # Use Cases and Scenarios
-ChangeFeed enables a number of scenarios for applications:
+ChangeFeed enables a number of scenarios for application patterns such as:
 
-* IoT: You can use DocumentDB to receive and store event data from devices, sensors, infrastructure, and applications, and process these in real-time with [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/), [Apache Storm](https://azure.microsoft.com/services/hdinsight/apache-storm/), or [Apache Spark](https://azure.microsoft.com/services/hdinsight/apache-spark/). 
-* Gaming: You can use ChangeFeed to implement real-time leaderboards based on scores from completed games. This approach is more scalable and efficient than querying massive collections with rapidly evolving data.
-* Mobile apps: You can track events such as changes to your user's profile, preferences, or location to trigger certain actions like sending push notifications to their mobile devices using [Azure Functions](https://azure.microsoft.com/services/functions/) or [App Services](https://azure.microsoft.com/services/app-service/).
+* Update a cache, search index, or a data warehouse with data in Azure DocumentDB.
+* Implement application-level data tiering and archival, i.e. store "hot data" in DocumentDB, and age out "cold data" to [Azure Blob Storage](../storage/storage-introduction.md) or [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
+* Implement batch analytics on data using [Apache Hadoop](documentdb-run-hadoop-with-hdinsight.md).
+* Implement [lambda architectures on Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) with DocumentDB at the ingestion point. 
+* Perform no down-time migrations to another Azure DocumentDB account with different partitioning schemes, and indexing policies.
+
+If you have an IoT application, you can use DocumentDB to receive and store event data from devices, sensors, infrastructure, and applications, and process these in real-time with [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-spark-overview.md). Within mobile apps, you can track events such as changes to your user's profile, preferences, or location to trigger certain actions like sending push notifications to their mobile devices using [Azure Functions](../azure-functions/functions-bindings-documentdb.md) or [App Services](https://azure.microsoft.com/services/app-service/). If you're using DocumentDB to build a game, you can use ChangeFeed to implement real-time leaderboards based on scores from completed games. This approach is more scalable and efficient than querying massive collections with rapidly evolving data.
 
 # How ChangeFeed works in Azure DocumentDB
 DocumentDB provides the ability to incrementally read updates made to a DocumentDB collection. This change log has the following properties:
@@ -38,7 +42,7 @@ DocumentDB provides the ability to incrementally read updates made to a Document
 * Changes to documents within a collection will be available immediately in real-time in the change log with no lag.
 * Changes to documents will appear only once in the change log.
 * Changes will be ordered by time within each partition key value. There is no guaranteed order across partition-key values.
-* Changes can be synchronized from any point-in-time, i.e. there is no limited data retention period for which changes are available.
+* Changes can be synchronized from any point-in-time, i.e. there is no fixed data retention period for which changes are available.
 * Only the most recent change for a given document is guaranteed to be included in the change log. Intermediate changes may not be available.
 * Changes are available in chunks of partition key ranges. This allows change logs from large collections to be processed in parallel by multiple consumers/servers.
 
@@ -229,6 +233,8 @@ Here's a sample request to return all incremental changes in collection from the
 	x-ms-version: 2016-07-11
 	Accept: application/json
 	Host: mydocumentdb.documents.azure.com
+
+Changes will be ordered by time within each partition key value within the partition key range. There is no guaranteed order across partition-key values. Just like read-feed calls, if there are more results than can fit in a single page, you can read the next page of results by resubmitting the request with the `x-ms-continuation` header. If multiple documents were updated transactionally within a stored procedure or trigger, they will all be returned within the same response page.
 
 The .NET SDK provides the `CreateChangeFeedQuery` and `ChangeFeedOptions` helper classes to access changes made to a collection. The following snippet shows how to retrieve all changes from the beginning using the .NET SDK from a single client.
 
