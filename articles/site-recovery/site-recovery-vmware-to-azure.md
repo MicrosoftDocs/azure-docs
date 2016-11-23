@@ -39,7 +39,7 @@ For a full deployment, we strongly recommend you follow the steps in the article
 | **Area** | **Details** |
 | --- | --- |
 | **Deployment scenario** |Replicate VMware VMs or physical servers (Windows/Linux) to Azure, using the Azure portal |
-| **On-premises requirements** |On-premises machine running configuration server, process server, master target server.<br/><br/> Configuration server needs an internet connection, and access (directly or via proxy) to specific URLs. [Full details](#configuration-server-prerequisites). |
+| **On-premises requirements** |On-premises machine running configuration server, process server, master target server.<br/><br/> Configuration server needs an internet connection, and access (directly or via proxy) to specific URLs. [Full details](#configuration-server-or-additional-process-server-prerequisites). |
 | **Azure requirements** |Azure account<br/><br/> Recovery Services vault <br/><br/> LRS or GRS storage account in vault region<br/><br/> Premium or standard storage account<br/><br/> Azure virtual network in vault region. [Full details](#azure-prerequisites). |
 | **Azure limitations** |If you use GRS, you need another LRS account for logging<br/><br/> Storage accounts created in the Azure portal can't be moved across resource groups.<br/><br/> Replication to premium storage accounts in Central India and South India isn't currently supported. |
 | **Windows replication** |Windows 64-bit on VMware VMs or physical servers:<br/><br/> Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 with at least SP1. [Full details](#replicated-machine-prerequisites). |
@@ -95,7 +95,7 @@ Here's what you need in Azure.
 | **Azure network** |You need an Azure virtual network, to which Azure VMs connect when failover occurs. The Azure virtual network must be in the same region as the Recovery Services vault. |
 | **Failback from Azure** |You’ll need a temporary process server set up as an Azure VM. You can create this when you’re ready to fail back, and delete it after fail back is complete.<br/><br/> To fail back you need a VPN connection (or Azure ExpressRoute), from the Azure network to the on-premises site. |
 
-## Configuration server prerequisites
+## Configuration server or additional process server prerequisites
 You set up an on-premises machine as the configuration server.
 
 > [!NOTE]
