@@ -19,7 +19,7 @@ ms.author: b-hoedid
 
 ---
 # Working with the ChangeFeed support in Azure DocumentDB
-[Azure DocumentDB](documentdb-introduction.com) is a fast and flexible NoSQL database service that is used for storing high-volume transactional and operational data with predictable single-digit millisecond latency for reads and writes. This makes it well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to track changes made to DocumentDB data, and update materialized views, perform real-time analytics, archive data to cold storage, and trigger notifications on certain events based on these changes. DocumentDB's **ChangeFeed support** allows you to build efficient and scalable solutions for each of these patterns.
+[Azure DocumentDB](documentdb-introduction.md) is a fast and flexible NoSQL database service that is used for storing high-volume transactional and operational data with predictable single-digit millisecond latency for reads and writes. This makes it well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to track changes made to DocumentDB data, and update materialized views, perform real-time analytics, archive data to cold storage, and trigger notifications on certain events based on these changes. DocumentDB's **ChangeFeed support** allows you to build efficient and scalable solutions for each of these patterns.
 
 With ChangeFeed support, DocumentDB provides a real-time sorted list of changes made to documents within a DocumentDB collection in the order in which it was applied. These changes can be read and processed by a single consumer that performs real-time analysis or triggers certain actions, or distributed across a number of consumers for distributed processing. Let's look at the APIs for ChangeFeed and how you can use them to build scalable real-time applications.
 
@@ -34,7 +34,7 @@ ChangeFeed allows for efficient processing of large datasets with a high volume 
 * Implement [lambda architectures on Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) with DocumentDB at the ingestion point. 
 * Perform no down-time migrations to another Azure DocumentDB account with different partitioning schemes, and indexing policies.
 
-You can use DocumentDB to receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real-time with [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-spark-overview.md). 
+You can use DocumentDB to receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real-time with [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
 
 Within web and mobile apps, you can track events such as changes to your customer's profile, preferences, or location to trigger certain actions like sending push notifications to their devices using [Azure Functions](../azure-functions/functions-bindings-documentdb.md) or [App Services](https://azure.microsoft.com/services/app-service/). If you're using DocumentDB to build a game, you can use ChangeFeed to implement real-time leaderboards based on scores from completed games.
 
@@ -50,7 +50,7 @@ DocumentDB provides the ability to incrementally read updates made to a Document
 
 DocumentDB's change log is enabled by default for all accounts, and does not incur any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change log, just like any other operation from DocumentDB. In the following section, we describe how to access the change log using the DocumentDB REST API and SDKs.
 
-The change log includes inserts and update operations made to documents within the collection. You can capture deletes by either setting a "soft-delete" flag within your documents in place of deletes. Alternatively, you can set a finite expiration period for your documents via the [TTL capability](documentdb-expire-data.md), for example, 24 hours and use the value of that property to capture deletes.
+The change log includes inserts and update operations made to documents within the collection. You can capture deletes by either setting a "soft-delete" flag within your documents in place of deletes. Alternatively, you can set a finite expiration period for your documents via the [TTL capability](documentdb-time-to-live.md), for example, 24 hours and use the value of that property to capture deletes.
 
 ## Working with the REST API and SDK
 DocumentDB provides elastic containers or storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](documentdb-partition-data.md) for scalability and performance. DocumentDB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). The change log can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API, and can be processed in parallel across ranges of partition keys.
@@ -183,7 +183,7 @@ ReadDocumentFeed supports the following scenarios/tasks for incremental processi
 * Read all changes to future updates to documents from current time.
 * Read all changes to documents from a logical version of the collection (ETag). You can checkpoint your consumers based on the returned ETag from incremental read-feed requests.
 
-The changes include inserts and updates to documents. To capture deletes, you must use a set a property [TTL expiration for documents](documentb-expire-data.md).
+The changes include inserts and updates to documents. To capture deletes, you must use a set a property [TTL expiration for documents](documentdb-time-to-live.md).
 
 The following table lists the request and response headers for ReadDocumentFeed operations.
 
