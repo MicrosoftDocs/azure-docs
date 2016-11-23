@@ -22,7 +22,7 @@ ms.author: nepeters
 
 Azure Virtual Machine extensions are small applications that provide post deployment configuration and automation task on Azure Virtual Machines. For example, if a Virtual Machine requires software to be installed, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Resource Manage templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment, or run against any existing system.
 
-This document provides an overview of virtual machine extensions, prerequisites for using Azure Virtual Machine extensions, and guidance on how to detect, manage, and remove virtual machine extensions. Because many VM extensions are available, each with a potentially unique configuration, this document provides generalized information. Extensions specific details can be found in each document specific the individual extension. 
+This document provides an overview of virtual machine extensions, prerequisites for using Azure Virtual Machine extensions, and guidance on how to detect, manage, and remove virtual machine extensions. Because many VM extensions are available, each with a potentially unique configuration, this document provides generalized information. Extensions-specific details can be found in each document specific the individual extension. 
 
 ## Use cases and samples
 
@@ -153,6 +153,72 @@ The full Resource Manager template can be found [here](https://github.com/Micros
 ```
 
 For more information, see [Authoring Azure Resource Manager templates with Windows VM extensions](virtual-machines-windows-extensions-authoring-templates.md).
+
+## Securing VM extension data
+
+When running VM extension, it may be necessary to include sensitive information such as execution commands, which include credentials, storage account names, and storage account access keys. Many VM extensions include a protected configuration that encrypts this data and only decrypt the data inside the target virtual machine. When a protected setting configuration is available, it can be used with any extension deployment method. Each individual extension has a specific protected configuration schema, whichis detailed in extension-specific documentation.
+
+The following example depicts an instance of the Custom Script extension for Windows. In this example encryption is not used.
+
+```json
+{
+    "apiVersion": "2015-06-15",
+    "type": "extensions",
+    "name": "config-app",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+    "[variables('musicstoresqlName')]"
+    ],
+    "tags": {
+    "displayName": "config-app"
+    },
+    "properties": {
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "1.4",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+        "fileUris": [
+        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1"
+        ],
+        "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.windows.net')]"
+    }
+    }
+}
+```
+
+Moving the command to `commandToExecute` property to the protected setting secures the execution string. 
+
+```json
+{
+    "apiVersion": "2015-06-15",
+    "type": "extensions",
+    "name": "config-app",
+    "location": "[resourceGroup().location]",
+    "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', variables('vmName'),copyindex())]",
+    "[variables('musicstoresqlName')]"
+    ],
+    "tags": {
+    "displayName": "config-app"
+    },
+    "properties": {
+    "publisher": "Microsoft.Compute",
+    "type": "CustomScriptExtension",
+    "typeHandlerVersion": "1.4",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+        "fileUris": [
+        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1"
+        ]
+    },
+    "protectedSettings": {
+        "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 -user ',parameters('adminUsername'),' -password ',parameters('adminPassword'),' -sqlserver ',variables('musicstoresqlName'),'.database.windows.net')]"
+    }
+    }
+}
+```
 
 ## Troubleshoot VM extensions
 
