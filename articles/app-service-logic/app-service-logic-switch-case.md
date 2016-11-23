@@ -23,7 +23,7 @@ With switch statement, Logic App evaluates a token or expression, and choose the
 
 ## Prerequisites
 
-- Active Azure subscriptions
+- Active Azure subscriptions.
 	- If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/en-us/free/), or try [Logic Apps for free](https://tryappservice.azure.com/).
 - [Basic knowledge of Logic Apps](./app-service-logic-what-are-logic-apps?toc=%2fazure%2flogic-apps%2ftoc.json).
 
@@ -41,7 +41,7 @@ To demonstrate the usage of switch statement, let's create a Logic App that moni
 
  - If you don't have an existing connection, you will be prompted to create one.
  - Fill in required fields, we will send email to approvers@contoso.com.
- - Under *User Options*, enter *Approve, Reject*.
+ - Under *User Options*, enter `Approve, Reject`.
  - Feel free to explore other available inputs under *Advanced options*.
 
  ![Configure connection](./media/app-service-logic-switch-case/send-approval-email-action.jpg)
@@ -50,10 +50,11 @@ To demonstrate the usage of switch statement, let's create a Logic App that moni
  - Select **+ New step**, **... More**, **Add a switch statement**.
  - We want to select what to execute based on `SelectedOptions` output of the *Send approval email* action, you can find it in the **Add dynamic content** selector.
  - Use *Case 1* to handle when user selected `Approve`.
-  - If approved, copy the original file to SharePoint Online with **SharePoint Online - Create file** action.
-  - also send an email notify 
+	- If approved, copy the original file to SharePoint Online with **SharePoint Online - Create file** action.
+	- Add another action within the case, to notify users that a new file is available on SharePoint.
  - Add another case to handle when user selected `Rejected`.
-  - When rejected, we will 
+	- If rejected, send a notification email informing other approvers that the file is rejected and no futher action is required.
+ - We know `SelectedOptions` can only have two provided options, *default* case can be left empty.
  - If you added any additional options in previous steps, feel free to add additional cases to handle them.
 
  > [!NOTE]
@@ -71,21 +72,29 @@ Now you have successfully created a Logic App using switch statement. Let's look
 ```json
 "Switch": {
 	"type": "Switch",
-	"expression": "",
+	"expression": "@body('Send_approval_email')?['SelectedOption']",
 	"cases": {
 		"Case 1" : {
-			"case" : "",
+			"case" : "Approved",
+			"actions" : {}
+		},
+		"Case 2" : {
+			"case" : "Rejected",
 			"actions" : {}
 		}
 	},
 	"default": {
 		"actions": {}
 	},
-	"runAfter": {}
+	"runAfter": {
+		"Send_approval_email": [
+			"Succeeded"
+		]
+	}
 }
 ```
 
-`"Switch"` is the name of the switch statement, it can be renamed for readability. `"type": "Switch"` indicates the action is a switch statement. `"expression"` is evaluated against each case label declared later in the definition. `"cases"` can contain any number of cases, and if none of the cases match the switch expression, actions within `"default"` is executed.
+`"Switch"` is the name of the switch statement, it can be renamed for readability. `"type": "Switch"` indicates the action is a switch statement. `"expression"`, in this case, user's selected option, is evaluated against each case declared later in the definition. `"cases"` can contain any number of cases, and if none of the cases match the switch expression, actions within `"default"` is executed.
 
 There can be any number of cases inside `"cases"`. For each case, `"Case 1"` is the name of the case, it can be renamed for readability. `"case"` specify the case label, which the switch expression compares with, it must be a constant and unique value.  
 
@@ -93,3 +102,4 @@ There can be any number of cases inside `"cases"`. For each case, `"Case 1"` is 
 - Try other [Logic Apps features](app-service-logic-use-logic-app-features.md).
 - Learn about [error and exception handling](app-service-logic-exception-handling.md).
 - Explore more [workflow language capabilities](app-service-logic-author-definitions.md).
+- Leave a comment with your questions or feedback, or [tell us how can we improve Logic Apps](https://feedback.azure.com/forums/287593-logic-apps).
