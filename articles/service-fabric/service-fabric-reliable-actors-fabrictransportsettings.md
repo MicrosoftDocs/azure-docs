@@ -26,7 +26,7 @@ You can modify the default configuration of FabricTransport in following ways.
 
 1.  Using Assembly Attribute - [FabricTransportActorRemotingProvider](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicefabric.actors.remoting.fabrictransport.fabrictransportactorremotingproviderattribute?redirectedfrom=MSDN#microsoft_servicefabric_actors_remoting_fabrictransport_fabrictransportactorremotingproviderattribute).
 
-  This attribute needs to be applied on Actor client and  Actor service assembly.
+  This attribute needs to be applied on Actor client and Actor service assembly.
   Following example shows how to change default Value of FabricTransport OperationTimeout Settings.
 
   ```csharp
@@ -48,7 +48,7 @@ You can modify the default configuration of FabricTransport in following ways.
     Add a TransportSettings section in the settings.xml file.
 
     * SectionName:
-    By default , Actor code looks for SectionName as "&lt;ActorName&gt;TransportSettings." If not found , it checks for sectionName  as "TransportSettings."
+    By default, Actor code looks for SectionName as "&lt;ActorName&gt;TransportSettings." If not found, it checks for sectionName as "TransportSettings."
 
   ```xml
   <Section Name="MyActorServiceTransportSettings">
