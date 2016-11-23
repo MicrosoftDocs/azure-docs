@@ -125,6 +125,70 @@ The full Resource Manager template can be found [here](https://github.com/Micros
 
 For more information, see [Authoring Azure Resource Manager templates with linux VM extensions](virtual-machines-linux-extensions-authoring-templates.md).
 
+## Securing VM extension data
+
+When running VM extension, it may be necessary to include sensitive information such as execution commands which include credentials, storage account names, and storage account access keys. Many VM extension include a protected configuration that will encrypt this data and only decrypt the data inside of the target virtual machine. When a protected setting configuration is available, it can be used with any extension deployment method. Each individual extension will have a specific protected configuration schema, which will be detailed in extension specific documentation.
+
+The following example depicts an instance of the Custom Script extension for Linux. In this example encryption is not used.
+
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "extensions",
+  "name": "config-app",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
+  ],
+  "tags": {
+    "displayName": "config-app"
+  },
+  "properties": {
+    "publisher": "Microsoft.Azure.Extensions",
+    "type": "CustomScript",
+    "typeHandlerVersion": "2.0",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"
+      ],
+      "commandToExecute": "[concat('sudo sh config-music.sh ',variables('musicStoreSqlName'), ' ', parameters('adminUsername'), ' ', parameters('sqlAdminPassword'))]"
+    }
+  }
+}
+```
+
+Moving the command to `commandToExecute` property to the protected setting will secure the execution string. 
+
+```json
+{
+  "apiVersion": "2015-06-15",
+  "type": "extensions",
+  "name": "config-app",
+  "location": "[resourceGroup().location]",
+  "dependsOn": [
+    "[concat('Microsoft.Compute/virtualMachines/', concat(variables('vmName'),copyindex()))]"
+  ],
+  "tags": {
+    "displayName": "config-app"
+  },
+  "properties": {
+    "publisher": "Microsoft.Azure.Extensions",
+    "type": "CustomScript",
+    "typeHandlerVersion": "2.0",
+    "autoUpgradeMinorVersion": true,
+    "settings": {
+      "fileUris": [
+        "https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-linux/scripts/config-music.sh"
+      ]
+    },
+    "protectedSettings": {
+      "commandToExecute": "[concat('sudo sh config-music.sh ',variables('musicStoreSqlName'), ' ', parameters('adminUsername'), ' ', parameters('sqlAdminPassword'))]"
+    }
+  }
+}
+```
+
 ## Troubleshoot VM extensions
 
 Each VM extension may have troubleshooting steps specific to the extensions. For instance, when using the Custom Script Extension, script execution details can be found locally on the virtual machine on which the extension was run. Any extension-specific troubleshooting steps are detailed in extension-specific documentation. 
