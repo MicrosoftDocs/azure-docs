@@ -31,16 +31,8 @@ Post any comments at the bottom of the article, or ask technical questions on th
 
 Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources: the Azure Resource Manager mode, and the classic model. Azure also has two portals – the [Azure classic portal](https://manage.windowsazure.com/) that supports the classic deployment model, and the [Azure portal](https://ms.portal.azure.com/) with support for both deployment models.
 
-Site Recovery is available in both the classic portal and the Azure portal. In the Azure classic portal, you can support Site Recovery with the classic services management model. In the Azure portal, you can support the classic model or Resource Manager deployments. [Read more](site-recovery-overview.md#site-recovery-in-the-azure-portal) about deploying with the Azure portal.
+New Site Recovery scenarios should be deployed in the [Azure portal](https://portal.azure.com). This portal provides new features and an improved deployment experience. Vaults can be maintained in the classic portal, but new vaults can't be created. 
 
-When you're choosing a deployment model note that:
-
-* We recommend you use the [Azure portal](https://portal.azure.com), and the Resource Manager model where possible.
-* Site Recovery provides a simpler and more intuitive getting started experience in the Azure portal.
-* Using the Azure portal, you can replicate machines to both classic and Resource Manager storage in Azure. In addition, in the Azure portal you can use LRS or GRS storage accounts.
-* The Azure portal combines the Site Recovery and Backup services into a single Recovery Services vault, so that you can set up and manage BCDR services from a single location.
-* Users with Azure subscriptions provisioned with the Cloud Solution Provider (CSP) program can now manage Site Recovery operations in the Azure portal.
-* Replicating VMware VMs or physical machines to Azure in the Azure portal provides a number of new features including support for premium storage, and the ability to excluding specific disks from replication.
 
 ## Deployment scenarios
 
@@ -48,11 +40,11 @@ Here's what you can replicate with Site Recovery.
 
 | **Deployment** | **Details** | **Azure portal** | **Classic portal** | **PowerShell deployment** |
 | --- | --- | --- | --- | --- |
-| [VMware to Azure](site-recovery-vmware-to-azure.md) | Replicate on-premises VMware VMs to Azure storage | Provides a simpler, streamlined experience, and some feature benefits. | Maintenance mode only. New vaults can't be created. | Not currently supported. |
-| [Physical servers to Azure](site-recovery-vmware-to-vmware.md) | Replicate physical Windows/Linux servers to Azure storage | Provides a simpler, streamlined experience, and some feature benefits. | Maintenance mode only. New vaults can't be created.  |
-| [Hyper-V VMs in VMM clouds to Azure](site-recovery-vmm-to-azure.md) | Replicate on-premises Hyper-V VMs in VMM clouds to Azure storage.<br/><br/> | Provides a streamlined deployment experience.   | Maintenance mode only. New vaults can't be created. | Supported |
-| [Hyper-V VMs to Azure (no VMM)](site-recovery-hyper-v-site-to-azure.md) | Replicate on-premises Hyper-V VMs to Azure storage. | Provides a streamlined deployment experience. | Maintenance mode only. New vaults can't be created. | Supported |
-| VMware VMs/physical servers to secondary site(site-recovery-vmware-to-vmware.md) | Replicate VMware VMs or physical Windows/Linux servers to a secondary site.<br/><br/> [Download the help guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) the InMage Scout user guide. | Not available in the Azure portal | In the classic portal, you download InMage Scout from a Site Recovery vault. | Not supported |
+| [VMware to Azure](site-recovery-vmware-to-azure.md) | Replicate on-premises VMware VMs to Azure storage | Use Resource Manager or classic storage and networks. Fail over to Resource Manager-based or classic VMs. | Maintenance mode only. New vaults can't be created. | Not currently supported. |
+| [Physical servers to Azure](site-recovery-vmware-to-vmware.md) | Replicate physical Windows/Linux servers to Azure storage | Use Resource Manager or classic storage and networks. Fail over to Resource Manager-based or classic VMs. | Maintenance mode only. New vaults can't be created.  |
+| [Hyper-V VMs in VMM clouds to Azure](site-recovery-vmm-to-azure.md) | Replicate on-premises Hyper-V VMs in VMM clouds to Azure storage.<br/><br/> | Use Resource Manager or classic storage and networks. Fail over to Resource Manager-based or classic VMs.   | Maintenance mode only. New vaults can't be created. | Supported |
+| [Hyper-V VMs to Azure (no VMM)](site-recovery-hyper-v-site-to-azure.md) | Replicate on-premises Hyper-V VMs to Azure storage. | Use Resource Manager or classic storage and networks. Fail over to Resource Manager-based or classic VMs. | Maintenance mode only. New vaults can't be created. | Supported |
+| VMware VMs/physical servers to secondary site(site-recovery-vmware-to-vmware.md) | Replicate VMware VMs or physical Windows/Linux servers to a secondary site.<br/><br/> [Download the help guide](http://download.microsoft.com/download/E/0/8/E08B3BCE-3631-4CED-8E65-E3E7D252D06D/InMage_Scout_Standard_User_Guide_8.0.1.pdf) the InMage Scout user guide. | Not available in the Azure portal | Download InMage Scout from a Site Recovery vault. | Not supported |
 | [Hyper-V VMs to a secondary site](site-recovery-vmm-to-vmm.md) | Replicate Hyper-V VMs in VMM clouds to a secondary cloud  | Replication uses standard Hyper-V Replica. SAN isn't supported. | Replicate using Hyper-V Replica or [SAN replication](site-recovery-vmm-san.md) | Supported |
 
 ## Requirements for replication to Azure
@@ -69,7 +61,7 @@ Here's what you can replicate with Site Recovery.
 
 | **Requirement** | **Details** |
 | --- | --- |
-| **Azure ** | A [Microsoft Azure](http://azure.microsoft.com/) account.<br/><br/> You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. |
+| **Azure** | A [Microsoft Azure](http://azure.microsoft.com/) account.<br/><br/> You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. |
 | **On-premises** |**VMware VMs**: In the primary site you need a process server for caching, compressing and encrypting replication data. In the secondary site you need a configuration server to manage and monitor the deployment, and a master target server. We also recommend a vContinuum server, for easier management. In addition, you need one or more VMware vSphere hosts, and optionally a vCenter server. [Learn more](site-recovery-vmware-to-vmware.md)<br/><br/> **Hyper-V VMs in VMM clouds**: VMM servers, and Hyper-V hosts containing VMs you want to replicate. [Learn more](site-recovery-vmm-to-vmm.md#on-premises-prerequisites). |
 | **Network (VMM to VMM)** | If you replicating from VMM to VMM, you set up [network mapping](site-recovery-network-mapping.md) to ensures that replica VMs are connected to appropriate networks after failover, and are optimally placed on Hyper-V hosts. |
 
@@ -120,7 +112,7 @@ You can deploy Site Recovery to replicate virtual machines and physical servers,
 Use the following tips to optimize and scale your deployment.
 
 - **Operating system volume size**: When you replicate a virtual machine to Azure the operating system volume must be less than 1TB. If you have more volumes than this you can manually move them to a different disk before you start deployment.
-- **Data disk size**: If you're replicating to Azure you can have up to 32 data disks on a virtual machine, each with a maximum of 1 TB. You can effectively replicate and fail over a ~32 TB virtual machine.
+- **Data disk size**: If you're replicating to Azure you can have up to 64 data disks on a virtual machine, each with a maximum of 1 TB. You can effectively replicate and fail over a ~64 TB virtual machine.
 - **Recovery plan limits**: Site Recovery can scale to thousands of virtual machines. Recovery plans are designed as a model for applications that should fail over together so we limit the number of machines in a recovery plan to 50.
 - **Azure service limits**: Every Azure subscription comes with a set of default limits on cores, cloud services etc. We recommend that you run a test failover to validate the availability of resources in your subscription. You can modify these limits via Azure support.
 - **Capacity planning**: Read about [capacity planning](site-recovery-capacity-planner.md) for Site Recovery.
