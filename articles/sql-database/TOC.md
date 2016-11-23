@@ -111,7 +111,7 @@
 ### Learn
 #### [Overview](sql-database-business-continuity.md)
 #### [Database backups](sql-database-automated-backups.md)
-#### [Long term retention](sql-database-long-term-retention.md)
+#### [Long-term retention](sql-database-long-term-retention.md)
 #### [Database recovery using backups](sql-database-recovery-using-backups.md)
 #### [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md)
 #### [Business continuity design scenarios](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -210,7 +210,7 @@
 #### [Split merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
 #### [Working with Dapper](sql-database-elastic-scale-working-with-dapper.md)
 #### [Use entity framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-#### [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
+#### [Data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 #### [Multitenant row level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 #### [Manage credentials](sql-database-elastic-scale-manage-credentials.md)
 #### [Deploy a split-merge service](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
