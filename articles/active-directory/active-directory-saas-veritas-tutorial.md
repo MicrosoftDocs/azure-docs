@@ -80,7 +80,6 @@ To configure the integration of Veritas Enterprise Vault.cloud SSO into Azure AD
 6. In the search box, type **Veritas Enterprise Vault.cloud SSO**.
 
 	![Creating an Azure AD test user](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_veritas-enterprise-vault-cloud-sso_01.png)
-
 7. In the results pane, select **Veritas Enterprise Vault.cloud SSO**, and then click **Complete** to add the application.
 
 
@@ -119,7 +118,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_veritas-enterprise-vault-cloud-sso_04.png) 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Veritas Enterprise Vault.cloud SSO application using the following pattern:`https://personal.ap.archive.veritas.com/`
+    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Veritas Enterprise Vault.cloud SSO application using the following pattern: `https://personal.ap.archive.veritas.com/CID=<CUSTOMERID>`
 	
 	 
 4. On the **Configure single sign-on at Veritas Enterprise Vault.cloud SSO** page, perform the following steps:
