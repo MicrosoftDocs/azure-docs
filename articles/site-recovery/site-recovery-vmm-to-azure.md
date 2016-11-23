@@ -51,7 +51,7 @@ For a full deployment, we strongly recommend you follow all the steps in the art
 
 ## Site Recovery in the Azure portal
 
-Azure has two different [deployment models](../resource-manager-deployment-model,md)
+Azure has two different [deployment models](../resource-manager-deployment-model.md)
 for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal, and the Azure portal.
 
 
