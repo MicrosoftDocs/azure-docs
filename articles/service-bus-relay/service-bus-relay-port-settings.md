@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus Relay port settings | Microsoft Docs
-description: Details about Service Bus Relay port values.
+title: Azure Service Bus WCF Relay port settings | Microsoft Docs
+description: Details about Service Bus WCF Relay port values.
 services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
@@ -20,7 +20,9 @@ ms.author: sethm
 
 # Azure Relay port settings
 
-The following table describes the required configuration for port values for a Service Bus binding:  
+The following table describes the required configuration for port values for a Service Bus WCF Relay binding.
+
+## Ports
   
 |Binding|Transport Security|Port|  
 |-------------|------------------------|----------|  
@@ -40,3 +42,11 @@ The following table describes the required configuration for port values for a S
 |[WS2007HttpRelayBinding Class](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (client)|Yes|HTTPS|  
 ||" |No|HTTP|  
 |[WS2007HttpRelayBinding Class](/dotnet/api/microsoft.servicebus.ws2007httprelaybinding) (service)|Either|9351/HTTP|
+
+## Next steps
+To learn more about Service Bus messaging, see the following topics.
+
+* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
+* [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
+* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)

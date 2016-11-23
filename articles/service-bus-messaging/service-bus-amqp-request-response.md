@@ -1,6 +1,5 @@
 ---
-title: AMQP 1.0 in Service Bus request-response-based operations
- | Microsoft Docs
+title: AMQP 1.0 in Service Bus request-response-based operations | Microsoft Docs
 description: List of Microsoft Azure Service Bus request/response-based operations.
 services: service-bus-messaging
 documentationcenter: na
@@ -19,7 +18,7 @@ ms.author: sethm
 
 ---
 
-# AMQP 1.0 in Service Bus: request-response-based operations
+# AMQP 1.0 in Microsoft Azure Service Bus: request-response-based operations
 
 This topic defines the list of Microsoft Azure Service Bus request/response-based operations. This information is based on the AMQP Management Version 1.0 working draft.  
   
@@ -611,3 +610,14 @@ The response message must include the following application properties.
 |---------|----------------|--------------|--------------------|  
 |statusCode|int|Yes|HTTP response code [RFC2616]<br /><br /> 200: OK – success, otherwise failed|  
 |statusDescription|string|No|Description of the status.|
+
+## Next steps
+to learn more about AMQP and Service bus, visit the following links:
+
+* [Service Bus AMQP overview]
+* [AMQP 1.0 support for Service Bus partitioned queues and topics]
+* [AMQP in Service Bus for Windows Server]
+
+[Service Bus AMQP overview]: service-bus-amqp-overview.md
+[AMQP 1.0 support for Service Bus partitioned queues and topics]: service-bus-partitioned-queues-and-topics-amqp-overview.md
+[AMQP in Service Bus for Windows Server]: https://msdn.microsoft.com/library/dn574799.asp
