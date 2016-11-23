@@ -30,11 +30,11 @@ For more information about the NVIDA GPUs on the N-series VMs, see:
 
 ## Supported GPU drivers
 
-Download and install the latest Tesla driver for your Windows operating system on each VM. 
+Connect to each N-series VM by RDP. Download and install the latest Tesla driver for your Windows operating system on each VM. 
 
 | Operating system | Driver download |
 | --- | --- | 
-| Windows Server 2016 | [Version XXXXX](http://www.nvidia.com/download/driverResults.aspx/XXXXX/) |
+| Windows Server 2016 | [Version 369.73](http://www.nvidia.com/download/driverResults.aspx/111404/) |
 | Windows Server 2012 R2 | [Version 369.73](http://www.nvidia.com/download/driverResults.aspx/111404/) |
 
 
@@ -43,7 +43,15 @@ Browse additional drivers at [NVIDIA driver downloads](http://www.nvidia.com/Dow
 > [!NOTE]
 > Developers building GPU-accelerated applications for the NVIDIA K80 can download and install the [CUDA Toolkit 8](https://developer.nvidia.com/cuda-downloads).
 >
-## GPU setup for NV VMs running Windows Server
+## Verify driver installation
+
+In Device Manager:
+
+![GPU driver properties](./media/virtual-machines-windows-n-series-driver-setup/GPU_driver_properties.png)
+
+To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
+
+![NVIDIA device status](./media/virtual-machines-windows-n-series-driver-setup/smi.png)  
 
 ### Supported drivers
 
