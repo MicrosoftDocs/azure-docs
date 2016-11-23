@@ -38,16 +38,10 @@ Depending on how you sign in and use multi-factor authentication, your experienc
 The following information will describe the experience of using multi-factor authentication with your mobile or office phone.
 
 ### To sign in with a call to your office or mobile phone
-* Sign in to an application or service such as Office 365 using your user name and password.
-* Microsoft will call you.
-
-![Microsoft calls](./media/multi-factor-authentication-end-user-signin-phone/call.png)
-
-* Answer the phone and hit the # key.
-
-![Answer](./media/multi-factor-authentication-end-user-signin-phone/phone.png)
-
-* You should now be signed in.</li>
+* Sign in to an application or service such as Office 365 using your user name and password.  
+* Microsoft will call you.  
+* Answer the phone and hit the # key.  
+* You should now be signed in.  
 
 ## Signing in with the Microsoft Authenticator app using notification
 The following information will describe the experience of using multi-factor authentication with the Microsoft Authenticator app when you are sent a notification.
