@@ -6,7 +6,6 @@
 ### [Common use cases](documentdb-use-cases.md)
 ### [Going social with DocumentDB](documentdb-social-media-apps.md)
 
-
 # Get Started
 ## Write your first app
 ### [.NET console app](documentdb-get-started.md)

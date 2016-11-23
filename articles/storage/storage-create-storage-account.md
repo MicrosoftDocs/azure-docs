@@ -65,7 +65,7 @@ You can also configure a custom domain name to use with your storage account. Fo
    > Your storage account name must be unique within Azure. The Azure portal will indicate if the storage account name you select is already in use.
    > 
    > 
-4. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md).
+4. Specify the deployment model to be used: **Resource Manager** or **Classic**. **Resource Manager** is the recommended deployment model. For more information, see [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
    
    > [!NOTE]
    > Blob storage accounts can only be created using the Resource Manager deployment model.
