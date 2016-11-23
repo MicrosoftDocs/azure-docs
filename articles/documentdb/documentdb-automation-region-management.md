@@ -1,24 +1,22 @@
-<properties
-	pageTitle="DocumentDB Automation - Account Region Management | Microsoft Azure"
-	description="Use Azure CLI and Azure Resource Manager to manage regions in a DocumentDB database account. DocumentDB is a cloud-based NoSQL database for JSON data."
-	services="documentdb"
-	authors="dimakwan"
-	manager="atulk"
-	editor=""
-    tags="azure-resource-manager"
-	documentationCenter=""/>
+---
+title: DocumentDB Automation - Managing Regions | Microsoft Docs
+description: Use Azure CLI and Azure Resource Manager to manage regions in a DocumentDB database account. DocumentDB is a cloud-based NoSQL database for JSON data.
+services: documentdb
+author: dimakwan
+manager: atulk
+editor: ''
+tags: azure-resource-manager
+documentationcenter: ''
 
+ms.service: documentdb
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 11/22/2016
+ms.author: dimakwan
 
-<tags 
-	ms.service="documentdb" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="11/22/2016" 
-	ms.author="dimakwan"/>
-
-
+---
 # Automate DocumentDB account region management using Azure CLI and Azure Resource Manager templates
 
 This article shows you how to add/remove a region in your Azure DocumentDB account by using Azure CLI commands and Azure Resource Manager templates. Region management can also be accomplished through the [Azure Portal](https://portal.azure.com/). Note that the commands in the following tutorial do not allow you to change failover priorities of the various regions. Only read regions can  be added or removed. The write region of a database account (failover priority of 0) cannot be added/removed.
