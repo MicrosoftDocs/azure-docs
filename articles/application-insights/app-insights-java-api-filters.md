@@ -236,6 +236,11 @@ In ApplicationInsights.xml:
 
 ```
 
+## Troubleshooting
+
+*My filter isn't working.*
+
+* Check that you have provided valid parameter values. For example, durations should be integers. Invalid values will cause the filter to be ignored. If your custom filter throws an exception from a constructor or set method, it will be ignored.
 
 ## Next steps
 
