@@ -1,6 +1,6 @@
 <properties
 	pageTitle="DocumentDB Automation - Account Region Management | Microsoft Azure"
-	description="Use Azure CLI and Azure Resource Manager to manage regions and perform failover in a DocumentDB database account. DocumentDB is a cloud-based NoSQL database for JSON data."
+	description="Use Azure CLI and Azure Resource Manager to manage regions in a DocumentDB database account. DocumentDB is a cloud-based NoSQL database for JSON data."
 	services="documentdb"
 	authors="dimakwan"
 	manager="atulk"
@@ -21,7 +21,7 @@
 
 # Automate DocumentDB account region management using Azure CLI and Azure Resource Manager templates
 
-This article shows you how to add/remove a region in your Azure DocumentDB account by using Azure CLI commands and Azure Resource Manager (ARM) templates. Region management can also be accomplished through the [Azure Portal](https://portal.azure.com/). Note that the commands in the following tutorial do not allow you to change failover priorities of the various regions. Only read regions can  be added or removed. The write region of a database account (failover priority of 0) cannot be added/removed.
+This article shows you how to add/remove a region in your Azure DocumentDB account by using Azure CLI commands and Azure Resource Manager templates. Region management can also be accomplished through the [Azure Portal](https://portal.azure.com/). Note that the commands in the following tutorial do not allow you to change failover priorities of the various regions. Only read regions can  be added or removed. The write region of a database account (failover priority of 0) cannot be added/removed.
 
 DocumentDB database accounts are currently the only DocumentDB resource that can be created/modified using ARM templates and the Azure CLI.
 
@@ -124,7 +124,7 @@ Which produces the following output:
 
 If you encounter errors, see [Troubleshooting](#troubleshooting). 
 
-## Understanding ARM templates and resource groups
+## Understanding Azure Resource Manager templates and resource groups
 
 Most applications are built from a combination of different resource types (such as one or more DocumentDB account, storage accounts, a virtual network, or a content delivery network). The default Azure service management API and the Azure portal represented these items by using a service-by-service approach. This approach requires you to deploy and manage the individual services individually (or find other tools that do so), and not as a single logical unit of deployment.
 
@@ -135,11 +135,13 @@ You can learn lots more about Azure resource groups and what they can do for you
 
 ## <a id="add-region-documentdb-account"></a>Task: Add Region to a DocumentDB account
 
-DocumentDB has the capability to [distribute your data globally](documentdb-distribute-data-globally) across various [Azure regions](https://azure.microsoft.com/regions/#services). The instructions in this section describe how to add a read region to an existing DocumentDB account with Azure CLI and ARM Templates. This can be accomplished using Azure CLI with or without ARM templates.
+DocumentDB has the capability to [distribute your data globally](documentdb-distribute-data-globally) across various [Azure regions](https://azure.microsoft.com/regions/#services). The instructions in this section describe how to add a read region to an existing DocumentDB account with Azure CLI and Resource Manager templates. This can be accomplished using Azure CLI with or without Resource Manager templates.
 
-### <a id="add-region-documentdb-account-cli"></a> Add Region to a DocumentDB account using Azure CLI without ARM templates
+### <a id="add-region-documentdb-account-cli"></a> Add Region to a DocumentDB account using Azure CLI without Resource Manager templates
 
 Add a region to an existing DocumentDB account in the new or existing resource group by entering the command below at the command prompt. Note that the "locations" array should reflect the current region configuration within the DocumentDB account with the exception of the new region to be added. The example below shows a command to add a second region to the account.
+
+Match the failover priority values to the existing configuration. One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account](documentdb-distribute-data-globally/#scaling-across-the-planet). The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. The new region will be a "Read" region and must have a failover priority value greater than 0.
 
 > [AZURE.TIP] If you run this command in Azure PowerShell or Windows PowerShell you will receive an error about an unexpected token. Instead, run this command at the Windows Command Prompt. 
 
@@ -151,7 +153,6 @@ Add a region to an existing DocumentDB account in the new or existing resource g
  - `<databaseaccountlocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
  - `<newdatabaseaccountlocation>` is the new region to be added and must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
- Match the failover priority values to the existing configuration. One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account](documentdb-distribute-data-globally/#scaling-across-the-planet). The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions.
 
 Example input for adding the "East US" region as a read region in the DocumentDB account: 
 
@@ -179,7 +180,9 @@ After the command returns, the account will be in the **Creating** state for a f
 
 ### <a id="add-region-documentdb-account-cli-arm"></a> Add Region to a DocumentDB account using Azure CLI with ARM templates
 
-The instructions in this section describe how to add a region to an existing DocumentDB account with an Azure Resource Manager (ARM) template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
+The instructions in this section describe how to add a region to an existing DocumentDB account with an Azure Resource Manager template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
+
+Match the failover priority values to the existing configuration. One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account](documentdb-distribute-data-globally/#scaling-across-the-planet). The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. The new region will be a "Read" region and must have a failover priority value greater than 0.
 
 Create a local template file similar to the one below that matches your current DocumentDB region configuration. The "locations" array should contain all of the existing regions in the database account alongside the new region to be added. Name the file azuredeploy.json.
 
@@ -229,8 +232,6 @@ Create a local template file similar to the one below that matches your current 
     }
 
 The above template file demonstrates an example where a new region is being added to a DocumentDB account which already has 2 regions.
-
-Match the failover priority values to the existing configuration. One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account](documentdb-distribute-data-globally/#scaling-across-the-planet). The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. 
 
 You can either enter the parameter values at the command line, or create a parameter file to specify the value.
 
@@ -320,7 +321,9 @@ DocumentDB has the capability to [distribute your data globally](documentdb-dist
 
 ### <a id="remove-region-documentdb-account-cli"></a> Remove Region to a DocumentDB account using Azure CLI without ARM templates
 
-To remove a region from an existing DocumentDB, the command below can be executed with Azure CLI. The "locations" array should contain only the regions that are to remain after the removal of the region. **The omitted location will be removed from the DocumentDB account**. Enter the following command in the command prompt.
+To remove a region from an existing DocumentDB account, the command below can be executed with Azure CLI. The "locations" array should contain only the regions that are to remain after the removal of the region. **The omitted location will be removed from the DocumentDB account**. Enter the following command in the command prompt.
+
+One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account](documentdb-distribute-data-globally/#scaling-across-the-planet). The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. 
 
 > [AZURE.TIP] If you run this command in Azure PowerShell or Windows PowerShell you will receive an error about an unexpected token. Instead, run this command at the Windows Command Prompt. 
 
@@ -330,8 +333,6 @@ To remove a region from an existing DocumentDB, the command below can be execute
  - `<resourcegrouplocation>` is the region of the current resource group.
  - `<databaseaccountname>` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters.
  - `<databaseaccountlocation>` must be one of the regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
-
-One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account](documentdb-distribute-data-globally/#scaling-across-the-planet). The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. 
 
 Example input: 
 
@@ -357,9 +358,11 @@ If you encounter errors, see [Troubleshooting](#troubleshooting).
 
 After the command returns, the account will be in the **Updating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
 
-### <a id="remove-region-documentdb-account-cli-arm"></a> Remove Region from a DocumentDB account using Azure CLI with ARM templates
+### <a id="remove-region-documentdb-account-cli-arm"></a> Remove Region from a DocumentDB account using Azure CLI with Resource Manager templates
 
-The instructions in this section describe how to remove a region from an existing DocumentDB account with an Azure Resource Manager (ARM) template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
+The instructions in this section describe how to remove a region from an existing DocumentDB account with an Azure Resource Manager template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
+
+One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account](documentdb-distribute-data-globally/#scaling-across-the-planet). The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. 
 
 Create a local template file similar to the one below that matches your current DocumentDB region configuration. The "locations" array should contain only the regions that are to remain after the removal of the region. **The omitted location will be removed from the DocumentDB account**. Name the file azuredeploy.json.
 
@@ -393,8 +396,6 @@ Create a local template file similar to the one below that matches your current 
             }
         ]
     }
-
-One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account](documentdb-distribute-data-globally/#scaling-across-the-planet). The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. 
 
 You can either enter the parameter values at the command line, or create a parameter file to specify the value.
 
