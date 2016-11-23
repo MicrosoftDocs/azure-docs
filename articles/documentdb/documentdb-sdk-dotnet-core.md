@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 11/23/2016
 ms.author: rnagpal
 
 ---
@@ -50,7 +50,7 @@ ms.author: rnagpal
 
 ### <a name="0.1.0-preview"/>[0.1.0-preview](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB.Core/0.1.0-preview)
 
-The DocumentDB .NET Core Preview SDK enables you to build fast, cross-platform [ASP.NET Core](https://www.asp.net/core) and [.NET Core](https://www.microsoft.com/net/core#windows) apps to run on Windows, Mac, and Linux, as well as create [Universal Windows Platform (UWP)](https://www.visualstudio.com/vs/universal-windows-platform/) apps.
+The DocumentDB .NET Core Preview SDK enables you to build fast, cross-platform [ASP.NET Core](https://www.asp.net/core) and [.NET Core](https://www.microsoft.com/net/core#windows) apps to run on Windows, Mac, and Linux.
 
 The DocumentDB .NET Core Preview SDK has feature parity with the latest version of the [DocumentDB .NET SDK](documentdb-sdk-dotnet.md) and supports the following:
 * All [connection modes](documentdb-performance-tips.md#networking): Gateway mode, Direct TCP, and Direct HTTPs. 
