@@ -25,22 +25,52 @@ ms.author: raynew
 >
 >
 
-Read this article to learn about deploying Site Recovery to replicate Hyper-V virtual machines to Azure when Hyper-V hosts aren't managed in System Center Virtual Machine Manager (VMM) clouds.
+Welcome to the Azure Site Recovery service!
 
-The article summarizes the deployment prerequisites, helps you to configure replication settings, and enable protection for virtual machines. It finishes up by testing failover to make sure everything's working as expected.
+Site Recovery is an Azure service that contributes to your business continuity and disaster recovery (BCDR) strategy. Site Recovery orchestrates replication of on-premises physical servers and virtual machines to the cloud (Azure), or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary location to keep apps and workloads available. You fail back to your primary location when it returns to normal operations. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md)
 
-After reading this article any comments or questions at the bottom, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
+This article describes how to replicate on-premises Hyper-V virtual machines to Azure, using Azure Site Recovery in the Azure portal. In this scenario, Hyper-V servers are not managed in VMM clouds.
 
-## Overview
-Organizations need a business continuity and disaster recovery (BCDR) strategy that a determines how apps, workloads, and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Your BCDR strategy center's around solutions that keep business data safe and recoverable, and workloads continuously available, when disaster occurs.
+After reading this article, post any comments at the bottom, or ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
-Site Recovery is an Azure service that contributes to your BCDR strategy by orchestrating replication of on-premises physical servers and virtual machines to the cloud (Azure) or to a secondary datacenter. When outages occur in your primary location, you fail over to the secondary site to keep apps and workloads available. You fail back to your primary location when it returns to normal operations.
 
-Site Recovery can be used in a number of scenarios and can protect a number of workloads. Learn more in [What is Azure Site Recovery?](site-recovery-overview.md).
+## Quick reference
+
+For a full deployment, we strongly recommend you follow all the steps in the article. But if you're short of time, here's a quick summary with links to further information.
+
+| **Area** | **Details** |
+| --- | --- |
+| **Deployment scenario** | Replicate Hyper-V VMs to Azure, using the Azure portal |
+| **On-premises requirements** | One or more Hyper-V server, running at least Windows Server 2012 R2 with the latest updates and the Hyper-V role enabled, or running Microsoft Hyper-V Server 2012 R2, with the latest updates.<br/><br/> Hyper-V hosts need internet access, and need to be able to access specific URLs directly, or via a proxy. [Full details](#on-premises-prerequisites). |
+| **On-premises limitations** |HTTPS-based proxy isn't supported |
+| **Provider/agent** | The Azure Site Recovery Provider and the Recovery Services agent are install on Hyper-V hosts during deployment. |
+|  **Azure requirements** | Azure account<br/><br/> Recovery services vault<br/><br/> LRS or GRS storage account in vault region<br/><br/> Standard storage account<br/><br/> Azure virtual network in vault region. [Full details](#azure-prerequisites). |
+|  **Azure limitations** |If you use GRS, you need another LRS account for logging<br/><br/> Storage accounts created in the Azure portal can't be moved across resource groups in the same, or different, subscriptions. <br/><br/> Premium storage isn't supported.<br/><br/> Azure networks used for Site Recovery can't be moved across resource groups in the same, or different, subscriptions. |
+|  **VM replication** |VMs must comply with Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> |
+|  **Replication limitations** |You can't replicate VMs running Linux with a static IP address.<br/><br/> You can't exclude specific disks from replication. |
+| **Deployment steps** |1) Prepare Azure (subscription, storage, network) -> 2) Prepare on-premises (VMM and network mapping) -> 3) Create Recovery Services vault -> 4) Set up VMM and Hyper-V hosts -> 5) Configure replication settings -> 6) Enable replication -> 7) Test replication and failover. |
+
+
+
+## Site Recovery in the Azure portal
+
+Azure has two different [deployment models](../resource-manager-deployment-model,md)
+for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal, and the Azure portal.
+
+This article describes how to deploy in the Azure portal. The classic portal can be used to maintain existing vaults. You can't create new vaults using the classic portal.
+
+## Site Recovery in your business
+
+Organizations need a BCDR strategy that determines how apps and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Here's what Site Recovery can do:
+
+* Offsite protection for business apps running on Hyper-V VMs.
+* A single location to set up, manage, and monitor replication, failover, and recovery.
+* Simple failover to Azure, and failback (restore) from Azure to Hyper-V host servers in your on-premises site.
+* Recovery plans that include multiple VMs, so that tiered application workloads fail over together.
 
 ## Azure prerequisites
-* You'll need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-* You'll need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/storage-introduction.md). Note that we don't support moving storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
+* You need a [Microsoft Azure](https://azure.microsoft.com/) account. You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/).
+* You need an Azure storage account to store replicated data. The account needs geo-replication enabled. It should be in the same region as the Azure Site Recovery vault and be associated with the same subscription. [Learn more about Azure storage](../storage/storage-introduction.md). Note that we don't support moving storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.
 * You'll need an Azure virtual network so that Azure virtual machines will be connected to a network when you fail over from your primary site.
 
 ## Hyper-V prerequisites
@@ -59,12 +89,15 @@ As part of Azure Site Recovery deployment you’ll install the Azure Site Recove
 * All Hyper-V servers in a vault should have the same versions of the Provider and agent.
 * The Provider running on the server connects to Site Recovery over the internet. You can do this without a proxy, with the proxy settings currently configured on the Hyper-V server, or with custom proxy settings that you configure during Provider installation. You'll need to make sure that the proxy server you want to use can access these the URLs for connecting to Azure:
 
-  * *.hypervrecoverymanager.windowsazure.com
   * *.accesscontrol.windows.net
-  * *.backup.windowsazure.com        
+  * *.backup.windowsazure.com
+  * *.hypervrecoverymanager.windowsazure.com
+  * *.store.core.windows.net      
   * *.blob.core.windows.net
-  * *.store.core.windows.net
-* In addition allow the IP addresses described in [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) and HTTPS (443) protocol. You would have to white-list IP ranges of the Azure region that you plan to use and that of West US.
+  - https://www.msftncsi.com/ncsi.txt
+  - time.windows.com
+  - time.nist.gov
+* In addition allow the IP addresses described in [Azure Datacenter IP Ranges](https://www.microsoft.com/download/details.aspx?id=41653) and HTTPS (443) protocol. You have to allow the IP ranges of the Azure region that you plan to use and that of West US.
 
 This graphic shows the different communication channels and ports used by Site Recovery for orchestration and replication
 
