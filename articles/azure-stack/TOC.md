@@ -79,7 +79,6 @@
 
 # Troubleshoot
 ## [Troubleshoot Azure Stack](azure-stack-troubleshooting.md)
-## [Rerun a deployment from a failed step](azure-stack-rerun-deploy.md)
 ## [Web Apps Resource Provider](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # Resources

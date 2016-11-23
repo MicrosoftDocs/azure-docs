@@ -55,7 +55,7 @@ You must have the following:
         { "packages":["com.databricks:spark-csv_2.10:1.4.0"] }
 
 
-    **For HDInsight 3.5**
+    **For HDInsight 3.5** 
 
         %%configure
         { "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}
