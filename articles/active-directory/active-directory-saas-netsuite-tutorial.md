@@ -17,7 +17,7 @@ ms.date: 05/16/2016
 ms.author: asmalser-msft
 
 ---
-# Tutorial: How to integrate NetSuite with Azure Active Directory
+# Tutorial: Azure Active Directory integration with NetSuite
 This tutorial will show you how to connect your NetSuite environment to your Azure Active Directory (Azure AD). You will learn how to configure single sign-on to NetSuite, how to enable automated user provisioning, and how to assign users to have access to NetSuite. 
 
 ## Prerequisites
