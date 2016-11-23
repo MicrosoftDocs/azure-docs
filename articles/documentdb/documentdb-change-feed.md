@@ -26,7 +26,7 @@ With ChangeFeed support, DocumentDB provides a real-time sorted list of changes 
 ![Using DocumentDB Change Feed to power real-time analytics and event-driven computing scenarios](./media/documentdb-change-feed/changefeed.png)
 
 # Use Cases and Scenarios
-ChangeFeed allows is more scalable and efficient solution when working with large datasets, and offers an efficient alternative to polling/querying collections for changes. For example, you can perform the following tasks efficiently:
+ChangeFeed allows for efficient processing of large datasets with a high volume of writes, and offers an alternative to polling/querying collections for changes. For example, you can perform the following tasks efficiently:
 
 * Update a cache, search index, or a data warehouse with data stored in Azure DocumentDB.
 * Implement application-level data tiering and archival, i.e., store "hot data" in DocumentDB, and age out "cold data" to [Azure Blob Storage](../storage/storage-introduction.md) or [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
@@ -53,7 +53,7 @@ DocumentDB's change log is enabled by default for all accounts, and does not inc
 The change log includes inserts and update operations made to documents within the collection. You can capture deletes by either setting a "soft-delete" flag within your documents in place of deletes. Alternatively, you can set an finite expiration period for your documents via the [TTL capability](documentdb-expire-data.md), e.g. 24 hours and use the value of that property to capture deletes.
 
 ## Working with the REST API and SDK
-DocumentDB provides elastic containers or storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](documentdb-partition-data.md) for scalability and performance. DocumentDB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). The change log can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API. 
+DocumentDB provides elastic containers or storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](documentdb-partition-data.md) for scalability and performance. DocumentDB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). The change log can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API, and can be processed in parallel across ranges of partition keys.
 
 ### ReadDocumentFeed API
 Let's take a brief look at how ReadDocumentFeed works. DocumentDB supports reading a feed of documents within a collection via the `ReadDocumentFeed` API. For example, the following request returns a page of documents inside the `serverlogs` collection. 
@@ -83,17 +83,19 @@ You can retrieve this information using one of the supported [DocumentDB SDKs](d
 > ChangeFeed requires SDK versions 1.11.0 and above (currently available in private preview)
 
 **Serial Read Document Feed**
+
 ![DocumentDB ReadDocumentFeed serial execution](./media/documentdb-change-feed/ReadDocumentFeedserial.png)
 
 ### Distributed Execution of ReadDocumentFeed
 For collections that contain terabytes of data or more, or ingest a large volume of updates, serial execution of read feed from a single client machine might not be a practical solution. In order to support these big data scenarios, DocumentDB provides APIs to distribute `ReadDocumentFeed` calls transparently across a number of client readers/consumers. 
 
 **Distributed Read Document Feed**
+
 ![DocumentDB ReadDocumentFeed distributed execution](./media/documentdb-change-feed/ReadDocumentFeedparallel.png)
 
 In order to provides scalable processing of incremental changes, DocumentDB supports a scale-out model for the ReadDocumentFeed API based on ranges of partition keys.
 
-* By performing a `ReadPartitionKeyRanges` call on the collection, you can obtain a list of partition key ranges for a collection. 
+* You can obtain a list of partition key ranges for a collection performing a `ReadPartitionKeyRanges` call. 
 * For each partition key range, you can perform a `ReadDocumentFeed` to read documents with partition keys within that range.
 
 ### Retrieving Partition Key Ranges for a Collection
@@ -135,7 +137,7 @@ This request returns the following response containing metadata about the partit
 
 
 **Partition Key Range Properties**:
-Each partition key range inherits properties of its source collection including ETag (`_etag`), ResourceId (`_rid`), and Timestamp (`_ts`). It also includes these metadata properties. The key property retured in `pkranges` is the id property, which is used within ReadDocumentFeed calls to parallelize reads across partitions. 
+Each partition key range includes the metadata properties in the following table. The id property must be used in the following call to retrieve changes for the partition key range.
 
 <table>
 	<tr>
@@ -160,7 +162,7 @@ Each partition key range inherits properties of its source collection including 
 	</tr>		
 </table>
 
-You can retrieve this information using one of the supported [DocumentDB SDKs](documentdb-sdk-dotnet.md). For example, the following snippet shows how to retrive partition key ranges in .NET.
+You can do this using one of the supported [DocumentDB SDKs](documentdb-sdk-dotnet.md). For example, the following snippet shows how to retrive partition key ranges in .NET.
 
     List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
     FeedResponse<PartitionKeyRange> response;
@@ -177,8 +179,8 @@ DocumentDB supports retrieval of documents per partition key range by setting th
 ### Performing an Incremental ReadDocumentFeed
 ReadDocumentFeed supports the following scenarios/tasks for incremental processing of changes in DocumentDB collections:
 
-* Read all changes to documents from the beginning, i.e. collection creation
-* Read all changes to future updates to documents from current time
+* Read all changes to documents from the beginning, i.e. collection creation.
+* Read all changes to future updates to documents from current time.
 * Read all changes to documents from a logical version of the collection (ETag). You can checkpoint your consumers based on the returned ETag from incremental read-feed requests.
 
 The changes include inserts and updates to documents. To capture deletes, you must use a set a property [TTL expiration for documents](documentb-expire-data.md).
