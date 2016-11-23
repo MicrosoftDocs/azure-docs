@@ -37,18 +37,18 @@ After reading this article, post any comments at the bottom, or ask technical qu
 ## Quick reference
  +
  +For a full deployment, we strongly recommend you follow all the steps in the article. But if you're short of time, here's a quick summary.
- +
- +| **Area** | **Details** |
- +| --- | --- |
- +| **Deployment scenario** | Replicate Hyper-V VMs (not in VMM clouds) to Azure, using the Azure portal |
- +| **On-premises requirements** | One or more Hyper-V server, running at least Windows Server 2012 R2 with the latest updates and the Hyper-V role enabled, or running Microsoft Hyper-V Server 2012 R2, with the latest updates.<br/><br/> Hyper-V hosts need internet access, and need to be able to access specific URLs directly, or via a proxy. [Full details](#on-premises-prerequisites). |
- +| **On-premises limitations** |HTTPS-based proxy isn't supported |
- +| **Provider/agent** | The Azure Site Recovery Provider and the Recovery Services agent are install on Hyper-V hosts during deployment. |
- +|  **Azure requirements** | Azure account<br/><br/> Recovery services vault<br/><br/> LRS or GRS storage account in vault region<br/><br/> Standard storage account<br/><br/> Azure virtual network in vault region. [Full details](#azure-prerequisites). |
- +|  **Azure limitations** |If you use GRS, you need another LRS account for logging<br/><br/> Storage accounts created in the Azure portal can't be moved across resource groups in the same, or different, subscriptions. <br/><br/> Premium storage isn't supported.<br/><br/> Azure networks used for Site Recovery can't be moved across resource groups in the same, or different, subscriptions. |
- +|  **VM replication** | VMs must comply with [Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> |
- +|  **Replication limitations** | You can't replicate Hyper-V VMs running Linux with a static IP address.<br/><br/> You can't exclude specific disks from replication. |
- +| **Deployment steps** | **1)** Create a Recovery Services vault -> **2)** Create a Hyper-V site that includes all Hyper-V hosts -> **3)** Set up Hyper-V hosts -> **4**) Prepare Azure (subscription, storage, network) -> **5)** Configure replication settings -> **6)** Enable replication -> **7)** Test replication and failover. **8)** If you're doing a migration, run a planned failover. |
+ 
+ **Area** | **Details**
+ --- | --- 
+ **Deployment scenario** | Replicate Hyper-V VMs (not in VMM clouds) to Azure, using the Azure portal 
+ **On-premises requirements** | One or more Hyper-V server, running at least Windows Server 2012 R2 with the latest updates and the Hyper-V role enabled, or running Microsoft Hyper-V Server 2012 R2, with the latest updates.<br/><br/> Hyper-V hosts need internet access, and need to be able to access specific URLs directly, or via a proxy. [Full details](#on-premises-prerequisites). 
+ **On-premises limitations** | HTTPS-based proxy isn't supported
+ **Provider/agent** | The Azure Site Recovery Provider and the Recovery Services agent are install on Hyper-V hosts during deployment. 
+ **Azure requirements** | Azure account<br/><br/> Recovery services vault<br/><br/> LRS or GRS storage account in vault region<br/><br/> Standard storage account<br/><br/> Azure virtual network in vault region. [Full details](#azure-prerequisites). 
+ **Azure limitations** | If you use GRS, you need another LRS account for logging<br/><br/> Storage accounts created in the Azure portal can't be moved across resource groups in the same, or different, subscriptions. <br/><br/> Premium storage isn't supported.<br/><br/> Azure networks used for Site Recovery can't be moved across resource groups in the same, or different, subscriptions. 
+ **VM replication** | VMs must comply with [Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> 
+ **Replication limitations** | You can't replicate Hyper-V VMs running Linux with a static IP address.<br/><br/> You can't exclude specific disks from replication. 
+ **Deployment steps** | **1)** Create a Recovery Services vault -> **2)** Create a Hyper-V site that includes all Hyper-V hosts -> **3)** Set up Hyper-V hosts -> **4**) Prepare Azure (subscription, storage, network) -> **5)** Configure replication settings -> **6)** Enable replication -> **7)** Test replication and failover. **8)** If you're doing a migration, run a planned failover. 
 
 ## Azure deployment models
 
@@ -59,11 +59,11 @@ Azure has two different [deployment models](../azure-resource-manager/resource-m
 ## Site Recovery in your business
 
 Organizations need a BCDR strategy that determines how apps and data stay running and available during planned and unplanned downtime, and recover to normal working conditions as soon as possible. Here's what Site Recovery can do:
- +
- +* Offsite protection for business apps running on Hyper-V VMs.
- +* A single location to set up, manage, and monitor replication, failover, and recovery.
- +* Simple failover to Azure, and failback (restore) from Azure to Hyper-V host servers in your on-premises site.
- +* Recovery plans that include multiple VMs, so that tiered application workloads fail over together.
+ 
+ - Offsite protection for business apps running on Hyper-V VMs.
+ - A single location to set up, manage, and monitor replication, failover, and recovery.
+ - Simple failover to Azure, and failback (restore) from Azure to Hyper-V host servers in your on-premises site.
+ - Recovery plans that include multiple VMs, so that tiered application workloads fail over together.
 
 
 
