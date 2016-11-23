@@ -1,5 +1,5 @@
 ---
-title: Azure App Service Deployment Credentials | Microsoft Azure
+title: Azure App Service Deployment Credentials | Microsoft Docs
 description: Learn how to use the Azure App Service deployment credentials.
 services: app-service
 documentationcenter: ''
