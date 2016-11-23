@@ -165,9 +165,6 @@ The U-SQL script compilation is done remotely by the Data Lake Analytics service
 You can also right-click a script file, and then click **ADL: Compile Script** to compile a U-SQL job. 
  
 
-### Submit U-SQL jobs
-
-
 **To submit a U-SQL script**
 
 1. Open the command palette by pressing **CTRL+SHIFT+P**. 
@@ -178,7 +175,6 @@ You can also right-click a script file, and then click **ADL: Submit Job** to su
 After submitting a U-SQL job, submission logs is shown in output window in VSCode. If the submission is successful, the job URL is shown as well. You can open the job URL in a web browser to track real-time job status.
 
 To enable output job details: set ‘jobInformationOutputPath’ in the **vscode for u-sql_settings.json** file.
-
  
 ## Use code-behind file
 
