@@ -21,14 +21,14 @@ ms.author: georgem
 For customers using Windows Server with Software Assurance, you can bring your on-premises Windows Server licenses to Azure and run Windows Server VMs in Azure at a reduced cost. The Azure Hybrid Use Benefit allows you to run Windows Server virtual machines (VMs) in Azure and only get billed for the base compute rate. For more information, please see the [Azure Hybrid Use Benefit licensing page](https://azure.microsoft.com/pricing/hybrid-use-benefit/). This article explains how to deploy Windows Server VMs in Azure to use this licensing benefit.
 
 
-## Ways to use Hybrid Use Benefit for Azure VMs
-There are a couple of different ways to deploy Windows VMs in Azure with the Hybrid Use Benefit:
+## Ways to use Azure Hybrid Use Benefit
+There are a couple of different ways to deploy Windows VMs with the Azure Hybrid Use Benefit:
 
-1. If you have an Enterprise Agreement subscription, you can [deploy VMs from specific Azure Marketplace images](#deploy-a-vm-using-the-azure-marketplace) that are pre-configured with Hybrid Use Benefit
-2. Without an Enterprise Agreement, you [upload a custom VM](#upload-a-windows-server-vhd) and [deploy using a Resource Manager template](#deploy-a-vm-via-resource-manager) or [Azure PowerShell](#detailed-powershell-deployment-walkthrough)
+1. If you have an Enterprise Agreement subscription, you can [deploy VMs from specific Marketplace images](#deploy-a-vm-using-the-azure-marketplace) that are pre-configured with Azure Hybrid Use Benefit.
+2. Without an Enterprise Agreement, you [upload a custom VM](#upload-a-windows-server-vhd) and [deploy using a Resource Manager template](#deploy-a-vm-via-resource-manager) or [Azure PowerShell](#detailed-powershell-deployment-walkthrough).
 
 ## Deploy a VM using the Azure Marketplace
-For customers with [Enterprise Agreement subscriptions](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx), images are available in the Azure Marketplace pre-configured with Hybrid Use Benefit. These images can be deployed directly from the Azure portal, Resource Manager templates, or Azure PowerShell, for example. Images in the Marketplace and noted by the `[HUB]` name as follows:
+For customers with [Enterprise Agreement subscriptions](https://www.microsoft.com/Licensing/licensing-programs/enterprise.aspx), images are available in the Marketplace pre-configured with Azure Hybrid Use Benefit. These images can be deployed directly from the Azure portal, Resource Manager templates, or Azure PowerShell, for example. Images in the Marketplace and noted by the `[HUB]` name as follows:
 
 ![Azure Hybrid Use Benefit images in Azure Marketplace](./media/virtual-machines-windows-hybrid-use-benefit/ahub-images-portal.png)
 
@@ -39,7 +39,7 @@ Get-AzureRMVMImageSku -Location "West US" -Publisher "MicrosoftWindowsServer" `
     -Offer "WindowsServer-HUB"
 ```
 
-If you don't have an Enterprise Agreement subscription, continue reading for instructions on how to upload a custom VM and deploy with Hybrid Use Benefit.
+If you don't have an Enterprise Agreement subscription, continue reading for instructions on how to upload a custom VM and deploy with Azure Hybrid Use Benefit.
 
 
 ## Upload a Windows Server VHD
