@@ -65,12 +65,12 @@ Now you tell Data Factory about the on-premises SQL Server database from which y
 
 3. A **Specify the on-premises SQL Server database** dialog appears. Fill in the required fields as follows:
 
-- **Connection name**: Specify a new name for your connection.
-- **Server name**: Name of the on-premises SQL Server.
-- **Database name**: SQL Server database.
-- **Credential encryption**: None. 
-- **Authentication type**: Choose the type of authentication you are using.
-- **User name** and **password**: Enter the user name and password for a user who has permission to copy the data.
+	- **Connection name**: Specify a new name for your connection.
+	- **Server name**: Name of the on-premises SQL Server.
+	- **Database name**: SQL Server database.
+	- **Credential encryption**: None. 
+	- **Authentication type**: Choose the type of authentication you are using.
+	- **User name** and **password**: Enter the user name and password for a user who has permission to copy the data.
 
 4. The last field asks for the name of the Gateway. Click the **Create Gateway** link to create a Data Management Gateway. The gateway is a client agent that you must install in your on-premises environment to copy data between on-premises and cloud data stores. 
 
