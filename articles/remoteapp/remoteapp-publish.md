@@ -3,7 +3,7 @@ title: Publish an app in Azure RemoteApp | Microsoft Docs
 description: Learn how to publish applications and resources in Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: c7e1a2cd-8e1f-4a33-bd43-8032ec9ac952

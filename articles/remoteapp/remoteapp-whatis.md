@@ -3,7 +3,7 @@ title: What is Azure RemoteApp? | Microsoft Docs
 description: Learn how to share apps and resources to any device through Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 editor: ''
 

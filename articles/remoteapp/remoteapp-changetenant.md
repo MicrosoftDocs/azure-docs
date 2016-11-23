@@ -4,7 +4,7 @@ title: Change the Azure Active Directory tenant in Azure RemoteApp | Microsoft D
 description: Learn how to change the Azure Active Directory tenant associated with Azure RemoteApp
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: 20faf169-6e48-428a-8bdd-f231daff19fa

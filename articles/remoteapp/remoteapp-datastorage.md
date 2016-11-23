@@ -4,7 +4,7 @@ title: Never store sensitive data on custom images for Azure RemoteApp | Microso
 description: Learn about the guidelines for storing data in custom images in Azure RemoteApp
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: 5a19903b-15f9-49d9-9bc1-ae80f2671aa1

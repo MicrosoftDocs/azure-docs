@@ -4,7 +4,7 @@ title: What's new in Azure RemoteApp? | Microsoft Docs
 description: Learn about changes and improvements made to Azure RemoteApp
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: 40f1ba79-80f1-47bd-bf39-f86c03e2306a

@@ -3,7 +3,7 @@ title: How to create a hybrid collection for Azure RemoteApp | Microsoft Docs
 description: Learn how to create a deployment of RemoteApp that connects to your internal network.
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 editor: ''
 

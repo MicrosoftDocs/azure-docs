@@ -4,7 +4,7 @@ title: Using Office with Azure RemoteApp | Microsoft Docs
 description: Learn how Office and Azure RemoteApp work together
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: f1773baf-8aa1-423c-a2f9-e4679e0463d3

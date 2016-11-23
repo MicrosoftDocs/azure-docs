@@ -4,7 +4,7 @@ title: Migrate user data from Azure RemoteApp | Microsoft Docs
 description: Learn how to migrate your user data in and out of Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: d7e4fbf1-cb42-4430-94a0-ed6d4676fc86

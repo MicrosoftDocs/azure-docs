@@ -3,7 +3,7 @@ title: How to migrate from a RemoteApp VNET to an Azure VNET | Microsoft Docs
 description: Learn how to migrate from a RemoteApp VNET to an Azure VNET
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: baea5d29-353b-48f8-b47f-806f2163e067

@@ -3,7 +3,7 @@ title: Create an Azure RemoteApp image based on an Azure VM | Microsoft Docs
 description: Learn how to create an image for Azure RemoteApp by starting with an Azure virtual machine.
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: d41583ef-6cd8-4115-8dcb-b2cd5b3d301a

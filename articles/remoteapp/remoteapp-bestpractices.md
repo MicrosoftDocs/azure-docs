@@ -3,7 +3,7 @@ title: Azure RemoteApp best practices | Microsoft Docs
 description: Best practices for configuring and using Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: b851865b-bec4-4f29-82c0-7b9770c1a520

@@ -3,7 +3,7 @@ title: What is in the Azure RemoteApp template images? | Microsoft Docs
 description: Learn about the template images included with Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: 7f8442b2-81da-421e-a453-aa53ba2066b7

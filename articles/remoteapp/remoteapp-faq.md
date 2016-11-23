@@ -3,7 +3,7 @@ title: Azure RemoteApp FAQ | Microsoft Docs
 description: Learn answers to the most frequently asked questions about Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: swadhwa
 editor: ''
 

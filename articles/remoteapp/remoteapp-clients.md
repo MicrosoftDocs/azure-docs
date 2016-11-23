@@ -4,7 +4,7 @@ title: Accessing your apps from any device | Microsoft Docs
 description: Learn what clients are supported for Azure RemoteApp and how to access your apps.
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: fb7bd17d-7aa8-43fd-9278-f96e0e9308e4

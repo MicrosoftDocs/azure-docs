@@ -3,7 +3,7 @@ title: Azure RemoteApp network bandwidth - general guidelines | Microsoft Docs
 description: Understand some basic network bandwidth guidelines for your Azure RemoteApp collections and apps.
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: 529bf318-ae37-4c14-a11c-43fa703d68a3

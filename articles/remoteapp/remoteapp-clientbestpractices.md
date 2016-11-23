@@ -4,7 +4,7 @@ title: Best practices for Azure RemoteApp clients | Microsoft Docs
 description: Learn about best practices for using the RemoteApp clients
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: 8c2e6068-8733-42f6-a05c-a2088634991b

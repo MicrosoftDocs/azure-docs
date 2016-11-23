@@ -4,7 +4,7 @@ title: App requirements for Azure RemoteApp | Microsoft Docs
 description: Learn about the requirements for apps that you want to use in Azure RemoteApp
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: 4427eef6-288a-49e1-97eb-fee67d99f26a

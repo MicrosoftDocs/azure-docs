@@ -3,7 +3,7 @@ title: Create an Azure RemoteApp image | Microsoft Docs
 description: Learn about the options available for creating images for Azure RemoteApp
 services: remoteapp
 documentationcenter: ''
-author: msbaldwin
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: cb0f9424-6185-45a1-abe9-c23f1edf34f2
