@@ -32,9 +32,9 @@ The following image shows the activity log for a subscription. There are three o
 
 ![show error code](./media/resource-manager-common-deployment-errors/show-activity-log.png)
 
-Validation errors arise from scenarios that can be pre-determined to cause a problem; such as, syntax errors in your template, or trying to deploy resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process; such as, trying to access a resource that is being deployed in parallel.
+Validation errors arise from scenarios that can be pre-determined to cause a problem. Validation errors include syntax errors in your template, or trying to deploy resources that would exceed your subscription quotas. Deployment errors arise from conditions that occur during the deployment process. For example, a deployment error might arise from trying to access a resource that is being deployed in parallel.
 
-Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the activity log. However, validation errors do not appear in your deployment history because the deployment never actually started.
+Both types of errors return an error code that you use to troubleshoot the deployment. Both types of errors appear in the activity log. However, validation errors do not appear in your deployment history because the deployment never started.
 
 
 ## Error codes
@@ -133,9 +133,9 @@ This error can result from several different types of errors.
    If the template specifies permitted values for a parameter, and you provide a value that is not one of those values, you receive a message similar to the following error:
 
        Code=InvalidTemplate;
-       Message=Deployment template validation failed: 'The provided value {parameter vaule}
+       Message=Deployment template validation failed: 'The provided value {parameter value}
        for the template parameter {parameter name} is not valid. The parameter value is not
-       part of the allowed value(s)
+       part of the allowed values
 
    Double check the allowed values in the template, and provide one during deployment.
 
@@ -174,7 +174,7 @@ Look for an expression that includes the **reference** function. Double check th
 
 ### ParentResourceNotFound
 
-When one resource is a parent to another resource, the parent resource must exist before creating the child resource. It is does not yet exist, you receive the following error:
+When one resource is a parent to another resource, the parent resource must exist before creating the child resource. If it does not yet exist, you receive the following error:
 
      Code=ParentResourceNotFound;
      Message=Can not perform requested operation on nested resource. Parent resource 'exampleserver' not found."
@@ -345,11 +345,11 @@ Message: The requested tier for resource '<resource>' is currently not available
 
 You receive this error when the resource SKU you have selected (such as VM size) is not available for the location you have selected. You have two options to resolve this issue:
 
-- Log into portal and begin adding a new resource through the UI. As you set the values, you will see the available SKUs for that resource.
+- Log in to the portal and add a new resource through the UI. As you set the values, you see the available SKUs for that resource. You do not need to complete the deployment.
 
     ![available skus](./media/resource-manager-common-deployment-errors/view-sku.png)
 
-- If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, please reach out to [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
+- If you are unable to find a suitable SKU in that region or an alternative region that meets your business needs, contact [Azure Support](https://portal.azure.com/#create/Microsoft.Support).
 
 ## Troubleshooting tricks and tips
 
@@ -362,7 +362,7 @@ You can discover valuable information about how your deployment is processed by 
 
        New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
 
-   Examine the request content with the following:
+   Examine the request content with the following cmdlet:
 
        (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
 
@@ -406,7 +406,7 @@ You can discover valuable information about how your deployment is processed by 
 
 
 ### Create a troubleshooting template
-In some cases, the easiest way to troubleshoot your template is to test parts of it. You can create a simplified template that enables you to focus on the part that you believe is causing the error. For example, suppose you are receiving an error when referencing a resource. Rather than dealing with an entire template, simply return the part that may be causing your problem. It can help you determine whether you are passing in the right parameters, using template functions correctly, and getting the resource you expect.
+In some cases, the easiest way to troubleshoot your template is to test parts of it. You can create a simplified template that enables you to focus on the part that you believe is causing the error. For example, suppose you are receiving an error when referencing a resource. Rather than dealing with an entire template, create a template that returns the part that may be causing your problem. It can help you determine whether you are passing in the right parameters, using template functions correctly, and getting the resource you expect.
 
     {
       "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
