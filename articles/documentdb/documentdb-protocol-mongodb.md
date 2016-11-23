@@ -30,7 +30,7 @@ DocumentDB databases can now be used as the data store for apps written for Mong
 **Enterprise grade** - DocumentDB supports multiple local replicas to deliver 99.99% availability and data protection in the face of local and regional failures. DocumentDB has enterprise grade [compliance certifications](https://www.microsoft.com/trustcenter) and security features. 
 
 ## How to get started?
-Create a DocumentDB account with protocol support for MongoDB in the (Azure Portal)[https://portal.azure.com] and swap the connection to your new account. 
+Create a DocumentDB account with protocol support for MongoDB in the [Azure Portal](https://portal.azure.com) and swap the connection to your new account. 
 
 *And, that's it!*
 
