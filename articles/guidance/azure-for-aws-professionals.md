@@ -201,7 +201,7 @@ domains. If a power failure or network outage occurs in one fault domain, at
 least some of the set's VMs are in another fault domain and unaffected by the
 outage.
 
-![AWS Availability Zones compared with Azure fault domains and availability sets](./media/azure-for-aws-professionals/zone-fault=domains.png "AWS Availability Zones compared with Azure fault domains and availability sets")
+![AWS Availability Zones compared with Azure fault domains and availability sets](./media/azure-for-aws-professionals/zone-fault-domains.png "AWS Availability Zones compared with Azure fault domains and availability sets")
 <br/>*AWS Availability Zones compared with Azure fault domains and availability sets*
 <br/><br/>
 
