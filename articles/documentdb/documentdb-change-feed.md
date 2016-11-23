@@ -41,8 +41,8 @@ DocumentDB's change log is enabled by default for all accounts, and does not inc
 ## Working with the REST API and SDK
 DocumentDB provides elastic containers or storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](documentdb-partition-data.md) for scalability and performance. DocumentDB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). The change log can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API. 
 
-### ReadFeed API
-Let's take a brief look at how ReadFeed works. DocumentDB supports reading a feed of documents within a collection via the `ReadDocumentFeed` API. For example, the following request returns a page of documents inside the `serverlogs` collection. 
+### ReadDocumentFeed API
+Let's take a brief look at how ReadDocumentFeed works. DocumentDB supports reading a feed of documents within a collection via the `ReadDocumentFeed` API. For example, the following request returns a page of documents inside the `serverlogs` collection. 
 
 	GET https://mydocumentdb.documents.azure.com/dbs/smalldb/colls/smallcoll HTTP/1.1
 	x-ms-date: Tue, 22 Nov 2016 17:05:14 GMT
@@ -68,16 +68,16 @@ You can retrieve this information using one of the supported [DocumentDB SDKs](d
 
 **Serial Read Document Feed**
 
-![DocumentDB ReadFeed serial execution](./media/documentdb-change-feed/readfeedserial.png)
+![DocumentDB ReadDocumentFeed serial execution](./media/documentdb-change-feed/ReadDocumentFeedserial.png)
 
-### Distributed Execution of ReadFeed
+### Distributed Execution of ReadDocumentFeed
 For collections that contain terabytes of data or more, or ingest a large volume of updates, serial execution of read feed from a single client machine might not be a practical solution. In order to support these big data scenarios, DocumentDB provides APIs to distribute `ReadDocumentFeed` calls transparently across a number of client readers/consumers. 
 
 **Distributed Read Document Feed**
 
-![DocumentDB ReadFeed distributed execution](./media/documentdb-change-feed/readfeedparallel.png)
+![DocumentDB ReadDocumentFeed distributed execution](./media/documentdb-change-feed/ReadDocumentFeedparallel.png)
 
-In order to provides scalable processing of incremental changes, DocumentDB supports a scale-out model for the ReadFeed API based on ranges of partition keys.
+In order to provides scalable processing of incremental changes, DocumentDB supports a scale-out model for the ReadDocumentFeed API based on ranges of partition keys.
 
 * By performing a `ReadPartitionKeyRanges` call on the collection, you can obtain a list of partition key ranges for a collection. 
 * For each partition key range, you can perform a `ReadDocumentFeed` to read documents with partition keys within that range.
@@ -121,7 +121,7 @@ This request returns the following response containing metadata about the partit
 
 
 **Partition Key Range Properties**:
-Each partition key range inherits properties of its source collection including ETag (`_etag`), ResourceId (`_rid`), and Timestamp (`_ts`). It also includes these metadata properties. The key property retured in `pkranges` is the id property, which is used within ReadFeed calls to parallelize reads across partitions. 
+Each partition key range inherits properties of its source collection including ETag (`_etag`), ResourceId (`_rid`), and Timestamp (`_ts`). It also includes these metadata properties. The key property retured in `pkranges` is the id property, which is used within ReadDocumentFeed calls to parallelize reads across partitions. 
 
 <table>
 	<tr>
@@ -162,10 +162,16 @@ You can retrieve this information using one of the supported [DocumentDB SDKs](d
 
 DocumentDB supports retrieval of documents per partition key range by setting the optional `x-ms-documentdb-partitionkeyrangeid` header. 
 
-### Performing an Incremental ReadFeed
-REST API versions `2016-07-11` and above support reading a change log via ReadFeed. ReadDocumentFeed supports the following headers for performing reads.
+### Performing an Incremental ReadDocumentFeed
+REST API versions `2016-07-11` and above support reading a change log. ReadDocumentFeed supports the following headers for performing incremental reads, that allow you to perform the following tasks:
 
-**Headers for incremental ReadFeed**:
+* Read all changes to documents from the beginning, i.e. collection creation
+* Read all changes to future updates to documents from current time
+* Read all changes to documents from a logical version of the collection (ETag). You can checkpoint your consumers based on the returned ETag from incremental read-feed requests.
+
+The following table lists the request and response headers for ReadDocumentFeed operations.
+
+**Request Headers for incremental ReadDocumentFeed**:
 
 <table>
 	<tr>
@@ -178,7 +184,11 @@ REST API versions `2016-07-11` and above support reading a change log via ReadFe
 	</tr>
 	<tr>
 		<td>If-None-Match</td>
-		<td>Must be set to "*" to subscribe to new changes, or set to the ETag</td>
+		<td>
+			No header: returns all changes from the beginning (collection creation)
+			"*": returns all new changes to data within the collection
+			&lt;etag&gt;: If set to a collection ETag, returns all changes made since that logical timestamp
+		</td>
 	</tr>
 	<tr>
 		<td>x-ms-documentdb-partitionkeyrangeid</td>
@@ -186,29 +196,76 @@ REST API versions `2016-07-11` and above support reading a change log via ReadFe
 	</tr>
 </table>
 
-### Performing ReadDocumentFeed by Partition Key Range
+**Response Headers for incremental ReadDocumentFeed**:
 
-For example, the following snippet shows how to retrieve changes for a partition key range in .NET.
+<table>
+	<tr>
+		<th>Header name</th>
+		<th>Description</th>
+	</tr>
+	<tr>
+		<td>etag</td>
+		<td>The logical version of data within the collection.</td>
+	</tr>
+</table>
 
-    IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
-        collection,
-        new ChangeFeedOptions
-        {
-            PartitionKeyRangeId = pkRange.Id,
-            StartFromBeginning = true,
-            RequestContinuation = continuation,
-            MaxItemCount = 1
-        });
+For example, the following snippet shows how to retrieve all changes from the beginning using the .NET SDK from a single client.
 
-    // Iterate through changes from the last checkpoint 
-    while (query.HasMoreResults)
+    private async Task<Dictionary<string, string>> GetChanges(
+        DocumentClient client,
+        string collection,
+        Dictionary<string, string> checkpoints)
     {
-        FeedResponse<Document> readChangesResponse = query.ExecuteNextAsync<Document>().Result;
-        foreach (Document changedDocument in readChangesResponse)
+        Dictionary<string, string> nextCheckpoints = new Dictionary<string, string>();
+
+        List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
+        FeedResponse<PartitionKeyRange> response;
+
+        do
         {
-            Console.WriteLine(changedDocument.Id);
+            response = await client.ReadPartitionKeyRangeFeedAsync(collection);
+            partitionKeyRanges.AddRange(response);
+        }
+        while (response.ResponseContinuation != null);
+
+        foreach (PartitionKeyRange pkRange in partitionKeyRanges)
+        {
+            string continuation = (checkpoints == null) ? null : checkpoints[pkRange.Id];
+            IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
+                collection,
+                new ChangeFeedOptions
+                {
+                    PartitionKeyRangeId = pkRange.Id,
+                    StartFromBeginning = true,
+                    RequestContinuation = continuation,
+                    MaxItemCount = 1
+                });
+
+            while (query.HasMoreResults)
+            {
+                FeedResponse<Document> readChangesResponse = query.ExecuteNextAsync<Document>().Result;
+                foreach (Document changedDocument in readChangesResponse)
+                {
+                    Console.WriteLine(changedDocument.Id);
+                }
+
+                nextCheckpoints[pkRange.Id] = response.ResponseContinuation;
+            }
         }
 
-        nextCheckpoints[pkRange.Id] = response.ResponseContinuation;
+        return nextCheckpoints;
     }
+
+
+And the following snippet shows how to process changes in real-time with DocumentDB by using the ChangeFeed support. 
+
+    // Returns all documents in the collection.
+    Dictionary<string, string> checkpoints = await GetChanges(client, collection, null);
+
+    client.CreateDocumentAsync(collection, new { id = Guid.NewGuid().ToString() }).Wait();
+    client.CreateDocumentAsync(collection, new { id = Guid.NewGuid().ToString() }).Wait();
+
+    // Returns only the two documents created above.
+    checkpoints = await GetChanges(client, collection, checkpoints);
+
 
