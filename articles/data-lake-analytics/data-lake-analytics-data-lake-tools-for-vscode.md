@@ -72,17 +72,17 @@ After you have installed the prerequisites, you can install the Data Lake Tools 
 2. Press **CTRL+P**, and then enter:
 
         ext install usql-vscode-ext
-    You shall see a list of Visual Studio code extensions. One of them is **Azure Data Lake Tool (Preview)**.
+    You can see a list of Visual Studio code extensions. One of them is **Azure Data Lake Tool (Preview)**.
 3. Click **Install** next to **Azure Data Lake Tool (Preview)**. After a few seconds, the Install button will be changed to Reload.
 4. Click **Reload** to activate the extension.
-5. Click **OK** to confirm. You shall see Azure Data Lake Tools in the Extensions pane.
+5. Click **OK** to confirm. You can see Azure Data Lake Tools in the Extensions pane.
 
     ![Data Lake Tools for Visual Studio Code install](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extensions.png)
 
 
 ## Connect to Azure
 
-Before you can compile and run U-SQL scripts, you must connect to your Azure.
+Before you can compile and run U-SQL scripts, you must connect to your Azure account.
 
 **To connect to Azure**
 
@@ -91,7 +91,7 @@ Before you can compile and run U-SQL scripts, you must connect to your Azure.
 
     ![Data Lake Tools for Visual Studio Code command palette](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-extension-login.png)
 
-2.	Follow the instructions to sign in from the web page. Once connected, your account name is shown on the Status bar on the bottom of the window.
+2.	Follow the instructions to sign in from the web page. Once connected, your account name is shown on the status bar on the bottom of the window.
 
 > [!NOTE] 
 > If your account has two factors enabled, it is recommended to use phone authentication instead of Pin.
@@ -111,7 +111,7 @@ To test the connection, you can list your Data Lake Analytics accounts:
 
 You need open either a U-SQL file or a folder to work with U-SQL.
 
-**To open a folder for your U-SQL project
+**To open a folder for your U-SQL project**
 
 1. From Visual Studio Code, Click the **File** menu, and then click **Open Folder**.
 2. Specify a folder, and then click **Select Folder**.
@@ -131,7 +131,7 @@ You need open either a U-SQL file or a folder to work with U-SQL.
         OUTPUT @departments
             TO “/Output/departments.csv”
 
-    The script creates a departments.csv file in the /output folder.
+    The script creates a departments.csv file with some data in the /output folder.
 
 5. Save the file as **myUSQL.usql** in the openned folder. Notice an **adltools_settings.json** configuration file is also added to the project.
 4. Open and configure **adltools_settings.json** with the following properties:
@@ -160,17 +160,13 @@ The U-SQL script compilation is done remotely by the Data Lake Analytics service
 **To compile a U-SQL script**
 
 1. Open the command palette by pressing **CTRL+SHIFT+P**. 
-2. Enter **ADL: Compile Script**. Compile results show in output window.
- 
-You can also right-click a script file, and then click **ADL: Compile Script** to compile a U-SQL job. 
+2. Enter **ADL: Compile Script**. Compile results show in output window. You can also right-click a script file, and then click **ADL: Compile Script** to compile a U-SQL job. The compilation result is shown in the output pane.
  
 
 **To submit a U-SQL script**
 
 1. Open the command palette by pressing **CTRL+SHIFT+P**. 
-2. Enter **ADL: Submit Job**. 
-
-You can also right-click a script file, and then click **ADL: Submit Job** to submit a U-SQL job. 
+2. Enter **ADL: Submit Job**.  You can also right-click a script file, and then click **ADL: Submit Job** to submit a U-SQL job. 
 
 After submitting a U-SQL job, submission logs is shown in output window in VSCode. If the submission is successful, the job URL is shown as well. You can open the job URL in a web browser to track real-time job status.
 
@@ -197,7 +193,6 @@ The following two screenshots show a code-behind file and its associated U-SQL s
 ![Data Lake Tools for Visual Studio Code code behind](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind.png)
 
 ![Data Lake Tools for Visual Studio Code code behind](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind-call.png) 
- 
 
 ## Register assemblies
 
@@ -211,10 +206,6 @@ Using the Data Lake Tools, you can register custom code assemblies to the Data L
 4.	Select a database.
 5.	Specify the local assembly path.
 
-
-
-
-
 ## Access Data Lake Analytics Metadata
 
 After you have connected to Azure, you can use the following steps to access the U-SQL metadata:
@@ -224,7 +215,7 @@ After you have connected to Azure, you can use the following steps to access the
 1.	Press **CTRL+SHIFT+P**, and then type **ADL:List Tables**.
 2.	Click one of the Data Lake Analytics accounts.
 3.	Click one of the Data Lake Analytics databases.
-4.	Click one of the schemas. You shall see the tables.
+4.	Click one of the schemas. You can see the tables.
 
 ## Additional features
 
