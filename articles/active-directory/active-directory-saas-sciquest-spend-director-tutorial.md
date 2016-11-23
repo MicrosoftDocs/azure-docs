@@ -231,29 +231,29 @@ When you click the SciQuest Spend Director tile in the Access Panel, you should 
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_01.png
-[2]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_02.png
-[3]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_03.png
-[4]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_04.png
-[5]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_01.png
-[6]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_05.png
-[8]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_06.png
-[9]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_07.png
-[10]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_08.png
-[11]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_03.png
-[15]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_04.png
+[1]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_04.png
+[5]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_01.png
+[6]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_05.png
+[8]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_06.png
+[9]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_07.png
+[10]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_08.png
+[11]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_03.png
+[15]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_04.png
 
-[100]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_09.png 
-[101]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_10.png 
-[102]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_11.png 
-[103]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_12.png 
-[104]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_13.png 
-[105]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_14.png 
-[106]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_15.png 
-[200]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_16.png 
-[201]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_17.png 
-[202]: ./media/active-directory-saas-sciquest-spend-director/tutorial_sciquest_spend_director_06.png
-[203]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_18.png
-[204]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_19.png
-[205]: ./media/active-directory-saas-sciquest-spend-director/tutorial_general_20.png
+[100]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_09.png 
+[101]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_10.png 
+[102]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_11.png 
+[103]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_12.png 
+[104]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_13.png 
+[105]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_14.png 
+[106]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_15.png 
+[200]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_16.png 
+[201]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_17.png 
+[202]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_sciquest_spend_director_06.png
+[203]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_18.png
+[204]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_19.png
+[205]: ./media/active-directory-saas-sciquest-spend-director-tutorial/tutorial_general_20.png
 
