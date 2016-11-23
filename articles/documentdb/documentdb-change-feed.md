@@ -14,27 +14,29 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 11/13/2016
+ms.date: 11/23/2016
 ms.author: b-hoedid
 
 ---
 # Working with the ChangeFeed support in Azure DocumentDB
 [Azure DocumentDB](documentdb-introduction.com) is a fast and flexible NoSQL database service that is used for storing high-volume transactional and operational data with predictable single-digit millsecond latency for reads and writes. This makes it well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to track changes made to DocumentDB data, and update materialized views, perform real-time analytics, archive data to cold storage, and trigger notifications on certain events based on these changes. DocumentDB's **ChangeFeed support** allows you to build efficient and scalable solutions for each of these patterns.
 
-With ChangeFeed support, DocumentDB provides a real-time sorted list of changes made to documents within a DocumentDB collection in the order in which it was applied. These changes can be read and processed by a single consumer, or distributed across a number of consumers. Let's take a look at the APIs for ChangeFeed and how you can use this to scale your applications.
+With ChangeFeed support, DocumentDB provides a real-time sorted list of changes made to documents within a DocumentDB collection in the order in which it was applied. These changes can be read and processed by a single consumer that performs real-time analysis or triggers certain actions, or distributed across a number of consumers for distributed processing. Let's take a look at the APIs for ChangeFeed and how you can use them to build scalable real-time applications.
 
 ![Using DocumentDB Change Feed to power real-time analytics and event-driven computing scenarios](./media/documentdb-change-feed/changefeed.png)
 
 # Use Cases and Scenarios
-ChangeFeed enables a number of scenarios for application patterns such as:
+ChangeFeed allows is more scalable and efficient solution when working with large datasets, and offers an efficient alternative to polling/querying collections for changes. For example, you can perform the following tasks efficiently:
 
-* Update a cache, search index, or a data warehouse with data in Azure DocumentDB.
-* Implement application-level data tiering and archival, i.e. store "hot data" in DocumentDB, and age out "cold data" to [Azure Blob Storage](../storage/storage-introduction.md) or [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
+* Update a cache, search index, or a data warehouse with data stored in Azure DocumentDB.
+* Implement application-level data tiering and archival, i.e., store "hot data" in DocumentDB, and age out "cold data" to [Azure Blob Storage](../storage/storage-introduction.md) or [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
 * Implement batch analytics on data using [Apache Hadoop](documentdb-run-hadoop-with-hdinsight.md).
 * Implement [lambda architectures on Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) with DocumentDB at the ingestion point. 
 * Perform no down-time migrations to another Azure DocumentDB account with different partitioning schemes, and indexing policies.
 
-If you have an IoT application, you can use DocumentDB to receive and store event data from devices, sensors, infrastructure, and applications, and process these in real-time with [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-spark-overview.md). Within mobile apps, you can track events such as changes to your user's profile, preferences, or location to trigger certain actions like sending push notifications to their mobile devices using [Azure Functions](../azure-functions/functions-bindings-documentdb.md) or [App Services](https://azure.microsoft.com/services/app-service/). If you're using DocumentDB to build a game, you can use ChangeFeed to implement real-time leaderboards based on scores from completed games. This approach is more scalable and efficient than querying massive collections with rapidly evolving data.
+You can use DocumentDB to receive and store event data from devices, sensors, infrastructure, and applications, and process these in real-time with [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-spark-overview.md). 
+
+Within web and mobile apps, you can track events such as changes to your user's profile, preferences, or location to trigger certain actions like sending push notifications to their devices using [Azure Functions](../azure-functions/functions-bindings-documentdb.md) or [App Services](https://azure.microsoft.com/services/app-service/). If you're using DocumentDB to build a game, you can use ChangeFeed to implement real-time leaderboards based on scores from completed games.
 
 # How ChangeFeed works in Azure DocumentDB
 DocumentDB provides the ability to incrementally read updates made to a DocumentDB collection. This change log has the following properties:
