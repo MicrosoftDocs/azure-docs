@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 11/23/2016
 ms.author: JPallavi
 
 ---
@@ -25,7 +25,7 @@ More and more customers are hit with security issues like malware, ransomware, i
 3. **Recovery** - Deleted backup data is retained for additional 14 days from the date of delete. This ensures recoverability of the data within given time period so there is no data loss even if attack happens. Also, more number of minimum recovery points are maintained to guard against corrupt data. 
 
 > [!NOTE]
-> * Security Features should be enabled only if you are using: <br/>
+> Security Features should be enabled only if you are using: <br/>
 > * **MAB agent** - minimum agent version 2.0.9052. Once you have enabled these features, you should upgrade to this agent version to perform critical operations like Change Passphrase, Stop backup with Delete data <br/>
 > * **Azure Backup Server** - minimum MAB agent version 2.0.9052 with Azure Backup Server update 1 <br/>
 > * **DPM** - Do not enable these features for DPM. These features are coming soon in future URs, so enabling them will not have any impact on existing functioanlity. <br/>
