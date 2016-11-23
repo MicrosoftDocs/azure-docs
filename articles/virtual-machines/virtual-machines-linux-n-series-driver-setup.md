@@ -28,7 +28,7 @@ For more information about the NVIDA GPUs on the N-series VMs, see:
 * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (for Azure NV VMs)
 
 > [!NOTE]
-> Currently, Linux GPU support is only available with Ubuntu Server 16.04 LTS running on Azure NC VMs. 
+> Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS. 
 
 
 ## Install GPU drivers for NC VMs on Ubuntu 16.04 LTS
