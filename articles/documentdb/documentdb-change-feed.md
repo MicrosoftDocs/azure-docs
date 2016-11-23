@@ -84,14 +84,14 @@ You can retrieve this information using one of the supported [DocumentDB SDKs](d
 
 **Serial Read Document Feed**
 
-![DocumentDB ReadDocumentFeed serial execution](./media/documentdb-change-feed/ReadDocumentFeedserial.png)
+![DocumentDB ReadDocumentFeed serial execution](./media/documentdb-change-feed/readfeedserial.png)
 
 ### Distributed Execution of ReadDocumentFeed
 For collections that contain terabytes of data or more, or ingest a large volume of updates, serial execution of read feed from a single client machine might not be a practical solution. In order to support these big data scenarios, DocumentDB provides APIs to distribute `ReadDocumentFeed` calls transparently across a number of client readers/consumers. 
 
 **Distributed Read Document Feed**
 
-![DocumentDB ReadDocumentFeed distributed execution](./media/documentdb-change-feed/ReadDocumentFeedparallel.png)
+![DocumentDB ReadDocumentFeed distributed execution](./media/documentdb-change-feed/readfeedparallel.png)
 
 In order to provides scalable processing of incremental changes, DocumentDB supports a scale-out model for the ReadDocumentFeed API based on ranges of partition keys.
 
