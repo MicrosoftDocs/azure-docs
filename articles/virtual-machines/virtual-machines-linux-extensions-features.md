@@ -22,7 +22,7 @@ ms.author: nepeters
 
 Azure Virtual Machine extensions are small applications that provide post deployment configuration and automation task on Azure Virtual Machines. For example, if a Virtual Machine requires software to be installed, anti-virus protection, or Docker configuration, a VM extension can be used to complete these tasks. Azure VM extensions can be run using the Azure CLI, PowerShell, Resource Manage templates, and the Azure portal. Extensions can be bundled with a new virtual machine deployment, or run against any existing system.
 
-This document provides an overview of virtual machine extensions, prerequisites for using Azure Virtual Machine extensions, and guidance on how to detect, manage, and remove virtual machine extensions. Because many VM extensions are available, each with a potentially unique configuration, this document provides generalized information. Extensions specific details can be found in each document specific the individual extension. 
+This document provides an overview of virtual machine extensions, prerequisites for using Azure Virtual Machine extensions, and guidance on how to detect, manage, and remove virtual machine extensions. Because many VM extensions are available, each with a potentially unique configuration, this document provides generalized information. Extensions-specific details can be found in each document specific the individual extension. 
 
 ## Use cases and samples
 
@@ -127,7 +127,7 @@ For more information, see [Authoring Azure Resource Manager templates with linux
 
 ## Securing VM extension data
 
-When running VM extension, it may be necessary to include sensitive information such as execution commands which include credentials, storage account names, and storage account access keys. Many VM extension include a protected configuration that will encrypt this data and only decrypt the data inside of the target virtual machine. When a protected setting configuration is available, it can be used with any extension deployment method. Each individual extension will have a specific protected configuration schema, which will be detailed in extension specific documentation.
+When running VM extension, it may be necessary to include sensitive information such as execution commands, which include credentials, storage account names, and storage account access keys. Many VM extensions include a protected configuration that encrypts this data and only decrypt the data inside the target virtual machine. When a protected setting configuration is available, it can be used with any extension deployment method. Each individual extension has a specific protected configuration schema, which is detailed in extension-specific documentation.
 
 The following example depicts an instance of the Custom Script extension for Linux. In this example encryption is not used.
 
@@ -158,7 +158,7 @@ The following example depicts an instance of the Custom Script extension for Lin
 }
 ```
 
-Moving the command to `commandToExecute` property to the protected setting will secure the execution string. 
+Moving the command to `commandToExecute` property to the protected setting secures the execution string. 
 
 ```json
 {
