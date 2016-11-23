@@ -212,7 +212,7 @@ A *SqlFilter* is an instance of the [SqlFilter Class](https://docs.microsoft.com
   
  Property evaluation semantics:  
   
--   An attempt to evaluate a non-existent system property will throw a [FilterException](dotnet/api/microsoft.servicebus.messaging.filterexception) exception.  
+-   An attempt to evaluate a non-existent system property will throw a [FilterException](/dotnet/api/microsoft.servicebus.messaging.filterexception) exception.  
   
 -   A property that does not exist is internally evaluated as **unknown**.  
   
