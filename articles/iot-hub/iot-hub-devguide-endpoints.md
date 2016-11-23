@@ -18,7 +18,7 @@ ms.author: dobett
 
 ---
 # Reference - IoT Hub endpoints
-## List of IoT Hub endpoints
+## List of built-in IoT Hub endpoints
 Azure IoT Hub is a multi-tenant service that exposes its functionality to various actors. The following diagram shows the various endpoints that IoT Hub exposes.
 
 ![IoT Hub endpoints][img-endpoints]
@@ -42,7 +42,7 @@ The following is a description of the endpoints:
     The device twins and methods endpoints are available only using [MQTT v3.1.1][lnk-mqtt].
 * **Service endpoints**. Each IoT hub exposes a set of endpoints your application back end can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol, except for the method invocation endpoint that is exposed via HTTP 1.1.
   
-  * *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs]. A back-end service can use it to read all the [device-to-cloud messages][lnk-d2c] sent by your devices.
+  * *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs]. A back-end service can use it to read all the [device-to-cloud messages][lnk-d2c] sent by your devices. You may add additional endpoints to your IoT hub in addition to this endpoint.
   * *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your application back end to send reliable [cloud-to-device messages][lnk-c2d], and to receive the corresponding delivery or expiration acknowledgments.
   * *Receive file notifications*. This messaging endpoint allows you to receive notifications of when your devices successfully upload a file. 
   * *Direct method invocation*. This endpoint allows a back-end service to invoke a [direct method][lnk-methods] on a device.
@@ -50,6 +50,21 @@ The following is a description of the endpoints:
 The [IoT Hub APIs and SDKs][lnk-sdks] article describes the various ways to access these endpoints.
 
 Finally, it is important to note that all IoT Hub endpoints use the [TLS][lnk-tls] protocol, and no endpoint is ever exposed on unencrypted/unsecured channels.
+
+## Additional endpoints
+You can link existing Azure services in your subscription to your IoT Hub to be used as endpoints for message routing. These act as service endpoints and are used as the "sink" for message routes. Devices cannot directly write to the additional endpoints. To learn more about message routes, please see the developer guide entry on [sending and receiving messages with IoT hub][lnk-devguide-messaging].
+
+IoT Hub currently supports the following Azure services as additional endpoints:
+
+* Event Hubs
+* Service Bus Queues
+* Service Bus Topics
+
+IoT Hub needs write access to these endpoints for proper message routing. This is taken care of for you automatically if you configure your endpoints through the Azure portal. Please make sure you configure your services to support the throughput that will go through them. You may need to monitor your additional endpoints when first configuring your IoT solution and make adjustments as necessary to adjust to the load.
+
+IoT Hub will deliver each message at most once to an endpoint, and there is no need to configure dedupe on your Service Bus Queue or Topic. Sessions are ignored in queues. In partitioned queues, messages are affinitized to a partition to guarantee ordering.
+
+For the limits on the number of endpoints you may add, please see [Quoatas and throttling][lnk-devguide-quotas].
 
 ## Field gateways
 In an IoT solution, a *field gateway* sits between your devices and your IoT Hub endpoints. It is typically located close to your devices. Your devices communicate directly with the field gateway by using a protocol supported by the devices. The field gateway connects to an IoT Hub endpoint using a protocol that is supported by IoT Hub. A field gateway can be highly specialized hardware or a low power computer running software that accomplishes the end-to-end scenario for which the gateway is intended.
@@ -90,3 +105,4 @@ Other reference topics in this IoT Hub developer guide include:
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-query]: iot-hub-devguide-query-language.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
