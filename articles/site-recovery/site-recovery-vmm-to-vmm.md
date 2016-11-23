@@ -28,7 +28,7 @@ ms.author: raynew
 Welcome to Azure Site Recovery! Use this article if you want to replicate on-premises Hyper-V virtual machines managed in System Center Virtual Machine Manager (VMM) clouds to a secondary site. This article describes how to set up replication using Azure Site Recovery in the Azure portal.
 
 > [!NOTE]
-> Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models.
+> Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources: Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal that supports the classic deployment model, and the Azure portal with support for both deployment models.
 >
 >
 
@@ -134,7 +134,7 @@ If you only have a single VMM server, you can replicate VMs in Hyper-V hosts in 
 
     ![New vault](./media/site-recovery-vmm-to-vmm/new-vault3.png)
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
-4. [Create a new resource group](../resource-group-template-deploy-portal.md) or select an existing one, and specify an Azure region. Machines will be replicated to this region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Create a new resource group](../azure-resource-manager/resource-group-template-deploy-portal.md) or select an existing one, and specify an Azure region. Machines will be replicated to this region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. If you want to quickly access the vault from the Dashboard, click **Pin to dashboard** > **Create vault**.
 
     ![New vault](./media/site-recovery-vmm-to-vmm/new-vault-settings.png)
@@ -317,7 +317,7 @@ Here's what happens when network mapping begins:
 ### Configure storage mapping
 By default when you replicate a Hyper-V VM to a target Hyper-V server, replicated data is stored in the default location for the target Hyper-V host in Hyper-V Manager. To control where replicated data is stored, you can configure storage mapping.<br/><br/> To do this, you set up storage classifications on the source and target VMM servers, before you begin deployment.
 
-Storage mapping isn't currently supported in the new Azure portal. However, it can be enabled using Powershell.[Learn more](site-recovery-vmm-to-vmm-powershell-resource-manager.md#step-6-configure-storage-mapping).
+Storage mapping isn't currently supported in the new Azure portal. However, it can be enabled using Powershell.[Learn more](site-recovery-vmm-to-vmm-powershell-resource-manager.md#step-7-configure-storage-mapping).
 
 ## Step 5: Capacity planning
 
