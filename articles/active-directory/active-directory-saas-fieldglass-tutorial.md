@@ -105,14 +105,14 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     ![Configure Single Sign-On](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_03.png) 
 3. On the **Configure App Settings** dialog page, perform the following steps and click **Next**:
    
-    ![Configure Single Sign-On](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_04.png)
+	![Configure Single Sign-On](./media/active-directory-saas-fieldglass-tutorial/tutorial_fieldglass_04.png)
    
     a. In the **Identifier** textbox, type URL `https://www.fieldglass.com` or follow the pattern: `https://<company name>.fgvms.com`
    
     b. In the **Reply URL** textbox, type a URL using the following patterns: 
    
-   * `https://<company name>.fgvms.com/<company name>`
-   * `https://www.fieldglass.net/<company name>`
+   	- `https://<company name>.fgvms.com/<company name>`
+    - `https://www.fieldglass.net/<company name>`
      
     c. Click **Next**
      
