@@ -181,11 +181,17 @@ Do the following to apply custom changes after you’ve complete the post-instal
 5. Retention Drive is used for stopping the points in time when the VM replicated back to on-premises. Some of the criteria of a retention drive are as below, without which the drive will not be listed for the master target server.
    
    a. Volume shouldn't be in use for any other purpose (target of replication etc.)
+
    b. Volume shouldn't be in lock mode.
+
    c. Volume shouldn't be cache volume. (MT installation shouldn't exist on that volume. PS+MT custom installation volume is not eligible for retention volume. Here installed PS+MT volume is cache volume of MT.)
+
    d. The Volume File system type shouldn't be FAT and FAT32.
+
    e. The volume capacity should be non-zero.
+
    e. Default retention volume for Windows is R volume.
+
    f. Default retention volume for Linux is /mnt/retention.
 
 6. The failback policy will be auto selected.
