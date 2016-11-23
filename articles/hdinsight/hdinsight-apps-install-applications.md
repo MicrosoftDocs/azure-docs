@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/14/2016
+ms.date: 11/23/2016
 ms.author: jgao
 
 ---
@@ -43,7 +43,7 @@ The following procedure shows you how to install HDInsight applications to an ex
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Click **HDInsight Clusters** in the left menu.  If you don't see it, click **Browse**, and then click **HDInsight Clusters**.
 3. Click an HDInsight cluster.  If you don't have one, you must create one first.  see [Create clusters](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
-4. From the **Settings** blade, click **Applications** under the **General** category. The **Installed Apps** blade lists all the installed applications. 
+4. Click **Applications** under the **Configurations** category. You shall see a list of installed applications if there is any.
    
     ![hdinsight applications portal menu](./media/hdinsight-apps-install-applications/hdinsight-apps-portal-menu.png)
 5. Click **Add** from the blade menu. 
