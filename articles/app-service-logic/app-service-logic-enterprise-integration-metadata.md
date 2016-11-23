@@ -1,5 +1,5 @@
 ---
-title: Overview of integration account metadata | Microsoft Docs
+title: Azure Logic Apps Integration Account Metadata | Microsoft Docs
 description: Overview of integration account metadata 
 author: padmavc
 manager: anneta
@@ -17,7 +17,7 @@ ms.date: 11/21/2016
 ms.author: padmavc
 
 ---
-# Metadata in Integration account
+# Azure Logic Apps Integration Account Metadata 
 
 ## Overview
 
@@ -38,7 +38,7 @@ Partners, agreements, schemas, maps added to an integration account, store metad
 
 2. [Link](app-service-logic-enterprise-integration-create-integration-account.md#how-to-link-an-integration-account-to-a-logic-app) Logic App with an Integration Account    
 
-3. Create a trigger using *Request* or *HTTP* before searching for **Integration Account Artifact LookUp**.  Search **integration** to look for **Integration Account Artifact LookUp** 
+3. Create a trigger, for example using *Request* or *HTTP* before searching for **Integration Account Artifact LookUp**.  Search **integration** to look for **Integration Account Artifact LookUp** 
 ![Search lookup](./media/app-service-logic-enterprise-integration-metadata/image2.png) 
 
 3. Select **Integration Account Artifact LookUp**  
