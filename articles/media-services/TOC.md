@@ -52,11 +52,11 @@
 #### [Media Encoder Premium Workflow tutorials](media-services-media-encoder-premium-workflow-tutorials.md)
 #### [Create Advanced Encoding Workflows with Workflow Designer](media-services-workflow-designer.md)
 #### [Premium workflow with multiple input](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
-### Media Processors
+### Media processors
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
-### Legacy encoders
-#### [Using the Azure Media Packager](media-services-static-packaging.md)
+### Deprecated
+#### [Static packaging and encryption](media-services-static-packaging.md)
 
 ## [Stream live](media-services-manage-channels-overview.md)
 ### [On-premise encoders](media-services-live-streaming-with-onprem-encoders.md)
@@ -64,16 +64,13 @@
 ### Cloud encoder tutorials
 #### [Portal](media-services-portal-creating-live-encoder-enabled-channel.md)
 #### [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
-### [Configure on-premise encoders for use with cloud encoder](media-services-live-encoders-overview.md)
+### [Configure on-premises encoders for use with cloud encoder](media-services-live-encoders-overview.md)
+#### [Elemental Live encoder](media-services-configure-elemental-live-encoder.md)
+#### [FMLE encoder ](media-services-configure-fmle-live-encoder.md)
+#### [NewTek TriCaster encoder](media-services-configure-tricaster-live-encoder.md)
+#### [Wirecast encoder](media-services-configure-wirecast-live-encoder.md)
 ### [Handle long-running operations](media-services-dotnet-long-operations.md)
 ### [Fragmented MP4 live ingest specification](media-services-fmp4-live-ingest-overview.md)
-### [Dynamic packaging](media-services-dynamic-packaging-overview.md)
-
-## Configure encoders
-### [Elemental Live encoder](media-services-configure-elemental-live-encoder.md)
-### [FMLE encoder ](media-services-configure-fmle-live-encoder.md)
-### [NewTek TriCaster encoder](media-services-configure-tricaster-live-encoder.md)
-### [Wirecast encoder](media-services-configure-wirecast-live-encoder.md)
 
 ## [Protect](media-services-content-protection-overview.md)
 ### [Configure content protection in the portal](media-services-portal-protect-content.md)
@@ -99,6 +96,7 @@
 #### [REST](media-services-rest-configure-content-key-auth-policy.md)
 
 ## [Analyze](media-services-analytics-overview.md)
+### [Analyze media using the portal](media-services-portal-analyze.md)
 ### [Process with Indexer 2](media-services-process-content-with-indexer2.md)
 ### [Process with Indexer](media-services-index-content.md)
 ### [Process with Hyperlapse](media-services-hyperlapse-content.md)
@@ -109,7 +107,7 @@
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
 
-## Configure telemetry
+## [Configure telemetry](media-services-telemetry-overview.md)
 ###[.NET](media-services-dotnet-telemetry.md)
 ###[REST](media-services-rest-telemetry.md)
 
@@ -122,6 +120,7 @@
 #### [Portal](media-services-portal-scale-streaming-endpoints.md)
 
 ## [Deliver content](media-services-deliver-content-overview.md)
+### [Dynamic packaging](media-services-dynamic-packaging-overview.md)
 ### [Filters and dynamic manifests overview](media-services-dynamic-manifest-overview.md)
 ### Create filters
 #### [.NET](media-services-dotnet-dynamic-manifest.md)
