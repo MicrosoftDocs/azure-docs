@@ -1,4 +1,5 @@
-﻿---
+
+---
 title: 'Azure AD Connect: Version Release History | Microsoft Docs'
 description: This topic lists all releases of Azure AD Connect and Azure AD Sync
 services: active-directory
@@ -29,6 +30,21 @@ This is list of related topics:
 | Steps to upgrade from Azure AD Connect |
 | Required permissions |
 | Download |
+
+## 1.1.343.0
+Released: 2016 November
+
+**Fixed issues:**
+
+* Sometimes, installing Azure AD Connect fails because it is unable to create a local service account whose password meets the level of complexity specified by the organization's password policy.
+* Fixed an issue where join rules are not re-evaluated when an object in the connector space simultaneously becomes out-of-scope for one join rule and become in-scope for another. This can happen if you have two or more join rules whose join conditions are mutually exclusive.
+* Fixed an issue where inbound synchronization rules (from Azure AD) which do not contain join rules are not processed if they have lower precedence values than those containing join rules.
+
+**Improvements:**
+
+* Added support for installing Azure AD Connect on Windows Server 2016 standard or better.
+* Added support for using SQL Server 2016 as the remote database for Azure AD Connect.
+* Added support for managing AD FS 2016 using Azure AD Connect.
 
 ## 1.1.281.0
 Released: 2016 August

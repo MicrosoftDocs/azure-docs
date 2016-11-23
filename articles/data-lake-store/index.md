@@ -7,7 +7,7 @@ Azure Data Lake Store is a hyper-scale repository for big data analytic workload
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/data-lake-store/data-lake-store-overview/">
+        <a href="/azure/data-lake-store/data-lake-store-overview">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -43,7 +43,7 @@ Azure Data Lake Store is a hyper-scale repository for big data analytic workload
         </a>
     </li>
     <li>
-        <a href="/azure/data-lake-store/data-lake-store-get-started-portal/">
+        <a href="/azure/data-lake-store/data-lake-store-get-started-portal">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -61,7 +61,7 @@ Azure Data Lake Store is a hyper-scale repository for big data analytic workload
         </a>
     </li>
      <li>
-        <a href="/azure/data-lake-store/data-lake-store-get-started-powershell/">
+        <a href="/azure/data-lake-store/data-lake-store-get-started-powershell">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -79,7 +79,7 @@ Azure Data Lake Store is a hyper-scale repository for big data analytic workload
         </a>
     </li>
      <li>
-        <a href="/azure/data-lake-store/data-lake-store-get-started-cli/">
+        <a href="/azure/data-lake-store/data-lake-store-get-started-cli">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -97,7 +97,7 @@ Azure Data Lake Store is a hyper-scale repository for big data analytic workload
         </a>
     </li>
     <li>
-        <a href="/azure/data-lake-store/data-lake-store-get-started-net-sdk/">
+        <a href="/azure/data-lake-store/data-lake-store-get-started-net-sdk">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -115,7 +115,7 @@ Azure Data Lake Store is a hyper-scale repository for big data analytic workload
         </a>
     </li>
     <li>
-        <a href="/azure/data-lake-store/data-lake-store-get-started-java-sdk/">
+        <a href="/azure/data-lake-store/data-lake-store-get-started-java-sdk">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -133,7 +133,7 @@ Azure Data Lake Store is a hyper-scale repository for big data analytic workload
         </a>
     </li>
      <li>
-        <a href="/azure/data-lake-store/data-lake-store-manage-use-nodejs/">
+        <a href="/azure/data-lake-store/data-lake-store-manage-use-nodejs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

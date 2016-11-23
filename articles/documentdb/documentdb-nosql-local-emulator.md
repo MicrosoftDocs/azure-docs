@@ -14,7 +14,7 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 11/17/2016
 ms.author: arramac
 
 ---
@@ -23,6 +23,12 @@ ms.author: arramac
 [**Download the Emulator**](https://aka.ms/documentdb-emulator)
 
 The Azure DocumentDB Emulator provides a local environment that emulates the Azure DocumentDB service for development purposes. Using the DocumentDB Emulator, you can develop and test your application locally, without creating an Azure subscription or incurring any costs. When you're satisfied with how your application is working in the DocumentDB Emulator, you can switch to using an Azure DocumentDB account in the cloud.
+
+We recommend getting started by watching the following video, where Kirill Gavrylyuk shows how to get started with the DocumentDB Emulator.
+
+> [!VIDEO https://channel9.msdn.com/Events/Connect/2016/192/player]
+> 
+> 
 
 ## DocumentDB Emulator system requirements
 The DocumentDB Emulator has the following hardware and software requirements:
@@ -34,7 +40,7 @@ The DocumentDB Emulator has the following hardware and software requirements:
   *	10 GB available hard disk space
 
 ## Installing the DocumentDB Emulator
-You can download and install the DocumentDB Emulator from the [Microsoft Download Center](https://aka.ms/documentdb-emulator). To install, configure, and run the DocumentDB Emulator, you must have administrative privileges on the computer.
+You can download and install the DocumentDB Emulator from the [Microsoft Download Center](https://aka.ms/documentdb-emulator). 
 
 > [!NOTE]
 > To install, configure, and run the DocumentDB Emulator, you must have administrative privileges on the computer.
@@ -50,6 +56,7 @@ The DocumentDB Emulator provides a high-fidelity emulation of the DocumentDB ser
 
 While we created a high-fidelity local emulation of the actual DocumentDB service, the implementation of the DocumentDB Emulator is different than that of the service. For example, the DocumentDB Emulator uses standard OS components such as the local file system for persistence, and HTTPS protocol stack for connectivity. This means that some functionality that relies on Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are not available via the DocumentDB Emulator.
 
+
 ## Authenticating requests against the DocumentDB Emulator
 Just as with Azure Document in the cloud, every request that you make against the DocumentDB Emulator must be authenticated. The DocumentDB Emulator supports a single fixed account and a well-known authentication key for master key authentication. This account and key are the only credentials permitted for use with the DocumentDB Emulator. They are:
 
@@ -62,11 +69,12 @@ Just as with Azure Document in the cloud, every request that you make against th
 Additionally, just as the Azure DocumentDB service, the DocumentDB Emulator supports only secure communication via SSL.
 
 ## Start and initialize the DocumentDB Emulator
+
 To start the Azure DocumentDB Emulator, select the Start button or press the Windows key. Begin typing **DocumentDB Emulator**, and select the emulator from the list of applications. 
 
 ![Select the Start button or press the Windows key, begin typing **DocumentDB Emulator**, and select the emulator from the list of applications](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-start.png)
 
-When the emulator is running, you'll see an icon in the Windows taskbar notification area.
+When the emulator is running, you'll see an icon in the Windows taskbar notification area. The DocumentDB Emulator by default runs on the local machine ("localhost") listening on port 8081.
 
 ![DocumentDB local emulator taskbar notification](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-taskbar.png)
 
@@ -77,8 +85,16 @@ Once you have the DocumentDB Emulator running on your desktop, you can use any s
 
     // Connect to the DocumentDB Emulator running locally
     DocumentClient client = new DocumentClient(
-        new Uri("https://localhost:443"), 
-        "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
+        new Uri("https://localhost:8081"), 
+        "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
+        new ConnectionPolicy { EnableEndpointDiscovery = false });
+
+> [!NOTE]
+> When connecting to the emulator, you must set EnableEndpointDiscovery = false in the connection configuration.
+
+If you're using [DocumentDB protocol support for MongoDB](documentdb-protocol-mongodb.md), please use the following connection string:
+
+    mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10250/admin?ssl=true&3t.sslSelfSignedCerts=true
 
 You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the DocumentDB Emulator. You can also migrate data between the DocumentDB Emulator and the Azure DocumentDB service using the [DocumentDB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
 
@@ -112,7 +128,7 @@ To view the list of options, type `DocumentDB.LocalEmulator.exe /?` at the comma
 </tr>
 <tr>
   <td>Help</td>
-  <td>Displays the list of command-line arguments</td>
+  <td>Displays the list of command line arguments</td>
   <td>DocumentDB.LocalEmulator.exe /?</td>
   <td></td>
 </tr>
@@ -124,21 +140,21 @@ To view the list of options, type `DocumentDB.LocalEmulator.exe /?` at the comma
 </tr>
 <tr>
   <td>Port</td>
-  <td>Specifies the port number to use for the emulator.  Default is 443</td>
+  <td>Specifies the port number to use for the emulator.  Default is 8081</td>
   <td>DocumentDB.LocalEmulator.exe /port=&lt;port&gt;</td>
   <td>&lt;port&gt;: Single port number</td>
 </tr>
 <tr>
-  <td>Mongoport</td>
-  <td>Specifies the port number to use for MongoDB comptability API. Default is 10250</td>
+  <td>MongoPort</td>
+  <td>Specifies the port number to use for MongoDB compatibility API. Default is 10250</td>
   <td>DocumentDB.LocalEmulator.exe /mongoport=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: Single port number</td>
 </tr>
 <tr>
-  <td>Directports</td>
-  <td>Specifies the ports to use for direct connectivity.  Defaults are 10251,10252,10253,10254</td>
+  <td>DirectPorts</td>
+  <td>Specifies the ports to use for direct connectivity. Defaults are 10251,10252,10253,10254</td>
   <td>DocumentDB.LocalEmulator.exe /directports:&lt;directports&gt;</td>
-  <td>&lt;directports&gt;:Comma delimited list of 4 ports</td>
+  <td>&lt;directports&gt;: Comma delimited list of 4 ports</td>
 </tr>
 <tr>
   <td>Key</td>
@@ -168,9 +184,7 @@ Because the DocumentDB Emulator provides an emulated environment running on a lo
 * The DocumentDB Emulator does not simulate different [DocumentDB consistency levels](documentdb-consistency-levels.md).
 * The DocumentDB Emulator does not simulate [multi-region replication](documentdb-distribute-data-globally.md).
 * The DocumentDB Emulator does not support the service quota overrides that are available in the Azure DocumentDB service (e.g. document size limits, increased partitioned collection storage).
-* While the DocumentDB Emulator returns request charges similar to the Azure DocumentDB service, the emulator cannot be used to estimate provisioned throughput requirements for applications leveraging the Azure DocumentDB service. To accurately estimate production throughput needs, use the [DocumentDB capacity planner](https://www.documentdb.com/capacityplanner).
-* While the DocumentDB Emulator persists data, the emulator cannot be used to estimate data and index storage requirements for applications leveraging the Azure DocumentDB service. To accurately estimate production storage needs, use the [DocumentDB capacity planner](https://www.documentdb.com/capacityplanner).
-
+* As your copy of the DocumentDB Emulator might not be up to date with the most recent changes with the Azure DocumentDB service, please [DocumentDB capacity planner](https://www.documentdb.com/capacityplanner) to accurately estimate production throughput (RUs) needs of your application.
 
 ## Next steps
 * To learn more about DocumentDB, see [Introduction to Azure DocumentDB](documentdb-introduction.md)

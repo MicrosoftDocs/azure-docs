@@ -1,4 +1,4 @@
-﻿---
+---
 title: Before you deploy Azure Stack POC | Microsoft Docs
 description: View the environment and hardware requirements for Azure Stack POC (service administrator).
 services: azure-stack
@@ -58,7 +58,7 @@ Sample OEM configurations are available.
 ## Operating system
 |  | **Requirements** |
 | --- | --- |
-| **OS Version** |Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in Azure Stack installation zip. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the POC. |
+| **OS Version** |Windows Server 2012 R2 or later. The operating system version isn’t critical before the deployment starts, as you'll boot the host computer into the VHD that's included in the Azure Stack installation. The OS and all required patches are already integrated into the image. Don’t use any keys to activate any Windows Server instances used in the POC. |
 
 ## Deployment requirements check tool
 After installing the operating system, you can use the [Deployment Checker for Azure Stack Technical Preview 2](https://gallery.technet.microsoft.com/Deployment-Checker-for-50e0f51b) to confirm that your hardware meets all the requirements.

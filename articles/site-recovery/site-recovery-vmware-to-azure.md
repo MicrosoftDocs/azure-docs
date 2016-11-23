@@ -1,4 +1,4 @@
-﻿---
+---
 title: Replicate VMware virtual machines and physical servers to Azure with Azure Site Recovery in the Azure portal | Microsoft Docs
 description: Describes how to deploy Azure Site Recovery to orchestrate replication, failover and recovery of on-premises VMware virtual machines and Windows/Linux physical servers to Azure using the Azure portal
 services: site-recovery
@@ -52,7 +52,7 @@ For a full deployment, we strongly recommend you follow the steps in the article
 | **Failback** |Fail back is to VMware only, even if you replicate physical servers.<br/><br/> You need a VPN or Azure Express Route between Azure and the primary site.<br/><br/> You need a temporary process server set up as an Azure VM. You can create this when you’re ready to fail back, and delete it after fail back is complete. |
 
 ## Site recovery in the Azure portal
-Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal and Azure portal. This article describes how to deploy in the Azure portal.
+Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal and Azure portal. This article describes how to deploy in the Azure portal.
 
 Site Recovery in the Azure portal provides some new features:
 
@@ -142,7 +142,7 @@ To prepare for deployment you need to:
 * Alternatively you can set up [Azure ExpressRoute](../expressroute/expressroute-introduction.md). [Learn more](../expressroute/expressroute-howto-vnet-portal-classic.md) about setting up an Azure network with ExpressRoute.
 
 > [!NOTE]
-> [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
+> [Migration of networks](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
 >
 >
 
@@ -151,7 +151,7 @@ To prepare for deployment you need to:
 * If you're using a premium account for replicated data you need to create an additional standard account to store replication logs that capture ongoing changes to on-premises data.  
 
 > [!NOTE]
-> [Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
+> [Migration of storage accounts](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
 >
 >
 
@@ -180,7 +180,7 @@ The Site Recovery process server can automatically discover VMware VMs on vSpher
 
     ![New vault](./media/site-recovery-vmware-to-azure/new-vault3.png)
 3. In **Name**, specify a friendly name to identify the vault. If you have more than one subscription, select one of them.
-4. [Create a new resource group](../resource-group-template-deploy-portal.md) or select an existing one. Specify an Azure region. Machines will be replicated to this region. Note that Azure storage and networks used for Site Recovery will need to be in the same region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
+4. [Create a new resource group](../azure-resource-manager/resource-group-template-deploy-portal.md) or select an existing one. Specify an Azure region. Machines will be replicated to this region. Note that Azure storage and networks used for Site Recovery will need to be in the same region. To check supported regions see Geographic Availability in [Azure Site Recovery Pricing Details](https://azure.microsoft.com/pricing/details/site-recovery/)
 5. If you want to quickly access the vault from the Dashboard, click **Pin to dashboard** and then click **Create**.
 
     ![New vault](./media/site-recovery-vmware-to-azure/new-vault-settings.png)
@@ -636,7 +636,8 @@ We recommend that you verify the properties of the source machine. Remember that
      * If the number of network adapters on the source machine is less than or equal to the number of adapters allowed for the target machine size, then the target will have the same number of adapters as the source.
      * If the number of adapters for the source virtual machine exceeds the number allowed for the target size then the target size maximum will be used.
      * For example if a source machine has two network adapters and the target machine size supports four, the target machine will have two adapters. If the source machine has two adapters but the supported target size only supports one then the target machine will have only one adapter.     
-   * If the VM has multiple network adapters they will all connect to the same network.
+   * If the virtual machine has multiple network adapters they will all connect to the same network.
+   * If the virtual machine has multiple network adapters then the first one shown in the list becomes the *Default* network adapter in the Azure virtual machine.
 
      ![Enable replication](./media/site-recovery-vmware-to-azure/test-failover4.png)
 4. In **Disks**, you can see the operating system and data disks on the VM that will be replicated.
