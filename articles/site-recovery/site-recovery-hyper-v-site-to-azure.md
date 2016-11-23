@@ -15,8 +15,8 @@ ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/23/2016
 ms.author: raynew
-
 ---
+
 # Replicate Hyper-V virtual machines (without VMM) to Azure using Azure Site Recovery with the Azure portal
 > [!div class="op_single_selector"]
 > * [Azure Portal](site-recovery-hyper-v-site-to-azure.md)
@@ -35,8 +35,8 @@ This article describes how to replicate, or migrate, on-premises Hyper-V virtual
 After reading this article, post any comments at the bottom, or ask technical questions on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Quick reference
- +
- +For a full deployment, we strongly recommend you follow all the steps in the article. But if you're short of time, here's a quick summary.
+
+For a full deployment, we strongly recommend you follow all the steps in the article. But if you're short of time, here's a quick summary.
  
  **Area** | **Details**
  --- | --- 
@@ -88,7 +88,7 @@ These are the scenario components:
 | **Azure network** |You'll need an Azure virtual network that Azure VMs will connect to when failover occurs. The Azure virtual network must be in the same region as the Recovery Services vault. |
 
 ## On-premises prerequisites
-Here's what you'll need on-premises.
+Here's what you need on-premises.
 
 | **Prerequisite** | **Details** |
 | --- | --- |
@@ -101,7 +101,7 @@ Here's what you'll need on-premises.
 | **Protected VMs** |Before you fail over a VM you'll need to make sure that the name that will be assigned to the Azure VM complies with [Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements). You can modify the name after you've enabled replication for the VM.<br/><br/> Individual disk capacity on protected machines shouldn’t be more than 1023 GB. A VM can have up to 16 disks (thus up to 16 TB).<br/><br/> Shared disk guest clusters aren't supported.<br/><br/> If the source VM has NIC teaming it’s converted to a single NIC after failover to Azure.<br/><br/>Protecting VMs running Linux with a static IP address isn't supported. |
 
 ## Prepare for deployment
-To prepare for deployment you'll need to:
+To prepare for deployment you need to:
 
 1. [Set up an Azure network](#set-up-an-azure-network) in which Azure VMs will be located when they're created after failover.
 2. [Set up an Azure storage account](#set-up-an-azure-storage-account) for replicated data.
@@ -122,9 +122,9 @@ Set up an Azure network. You’ll need this so that the Azure VMs created after 
 
 ### Set up an Azure storage account
 
-* You need a standard Azure storage account to hold data replicated to Azure.
-* Depending on the resource model you want to use for failed over Azure VMs, you'll set an account in [Resource Manager mode](../storage/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
-* We recommend that you set up a storage account before you begin. If you don't you'll need to do it during Site Recovery deployment. The accounts need to be in the same region as the Recovery Services vault.
+- You need a standard Azure storage account to hold data replicated to Azure.
+- Depending on the resource model you want to use for failed over Azure VMs, you'll set an account in [Resource Manager mode](../storage/storage-create-storage-account.md) or [classic mode](../storage/storage-create-storage-account-classic-portal.md).
+- We recommend that you set up a storage account before you begin. If you don't you'll need to do it during Site Recovery deployment. The accounts need to be in the same region as the Recovery Services vault.
 - You can't move storage accounts used by Site Recovery across resource groups within the same subscription, or across different subscriptions.
 
 
