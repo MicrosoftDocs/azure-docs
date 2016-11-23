@@ -3,17 +3,18 @@ title: DocumentDB Automation - Managing Regions | Microsoft Docs
 description: Use Azure CLI and Azure Resource Manager to manage regions in a DocumentDB database account. DocumentDB is a cloud-based NoSQL database for JSON data.
 services: documentdb
 author: dmakwana
-manager: atulk
+manager: jhubbard
 editor: ''
 tags: azure-resource-manager
 documentationcenter: ''
 
+ms.assetid: 7f765c17-8549-4108-9475-46394fc3a218
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 11/23/2016
 ms.author: dimakwan
 
 ---
