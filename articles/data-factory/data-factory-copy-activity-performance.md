@@ -116,7 +116,7 @@ Usually, the default behavior should give you the best throughput. However, to c
 
 Points to note:
 
-* When you copy data between file-based stores, parallelism happens at the file level. There's no chunking within a single file. The actual number of parallel copies the data movement service uses for the copy operation at run time is not more than the number of files you have. If the copy behavior is **mergeFile**, Copy Activity cannot take advantage of parallelism.
+* When you copy data between file-based stores, the **parallelCopies** determine the parallelism at the file level. The chunking within a single file would happen underneath automatically and transparently, and it's designed to use the best suitable chunk size for a given source data store type to load data in parallel and orthogonal to parallelCopies. The actual number of parallel copies the data movement service uses for the copy operation at run time is no more than the number of files you have. If the copy behavior is **mergeFile**, Copy Activity cannot take advantage of file-level parallelism.
 * When you specify a value for the **parallelCopies** property, consider the load increase on your source and sink data stores, and to gateway if it is a hybrid copy. This happens especially when you have multiple activities or concurrent runs of the same activities that run against the same data store. If you notice that either the data store or Gateway is overwhelmed with the load, decrease the **parallelCopies** value to relieve the load.
 * When you copy data from stores that are not file-based to stores that are file-based, the data movement service ignores the **parallelCopies** property. Even if parallelism is specified, it's not applied in this case.
 
