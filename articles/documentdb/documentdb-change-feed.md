@@ -19,7 +19,7 @@ ms.author: b-hoedid
 
 ---
 # Working with the ChangeFeed support in Azure DocumentDB
-[Azure DocumentDB](documentdb-introduction.com) is a fast and flexible NoSQL database service that is used for storing high-volume transactional and operational data with predictable single-digit millsecond latency for reads and writes. This makes it well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to track changes made to DocumentDB data, and update materialized views, perform real-time analytics, archive data to cold storage, and trigger notifications on certain events based on these changes. DocumentDB's **ChangeFeed support** allows you to build efficient and scalable solutions for each of these patterns.
+[Azure DocumentDB](documentdb-introduction.com) is a fast and flexible NoSQL database service that is used for storing high-volume transactional and operational data with predictable single-digit millisecond latency for reads and writes. This makes it well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to track changes made to DocumentDB data, and update materialized views, perform real-time analytics, archive data to cold storage, and trigger notifications on certain events based on these changes. DocumentDB's **ChangeFeed support** allows you to build efficient and scalable solutions for each of these patterns.
 
 With ChangeFeed support, DocumentDB provides a real-time sorted list of changes made to documents within a DocumentDB collection in the order in which it was applied. These changes can be read and processed by a single consumer that performs real-time analysis or triggers certain actions, or distributed across a number of consumers for distributed processing. Let's take a look at the APIs for ChangeFeed and how you can use them to build scalable real-time applications.
 
@@ -48,9 +48,9 @@ DocumentDB provides the ability to incrementally read updates made to a Document
 * Only the most recent change for a given document is guaranteed to be included in the change log. Intermediate changes may not be available.
 * Changes are available in chunks of partition key ranges. This allows change logs from large collections to be processed in parallel by multiple consumers/servers.
 
-DocumentDB's change log is enabled by default for all accounts, and does not incure any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change log, just like any other operation from DocumentDB. In the following section, we describe how to acess the change log using the DocumentDB REST API and SDKs.
+DocumentDB's change log is enabled by default for all accounts, and does not incur any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change log, just like any other operation from DocumentDB. In the following section, we describe how to access the change log using the DocumentDB REST API and SDKs.
 
-The change log includes inserts and update operations made to documents within the collection. You can capture deletes by either setting a "soft-delete" flag within your documents in place of deletes. Alternatively, you can set an finite expiration period for your documents via the [TTL capability](documentdb-expire-data.md), e.g. 24 hours and use the value of that property to capture deletes.
+The change log includes inserts and update operations made to documents within the collection. You can capture deletes by either setting a "soft-delete" flag within your documents in place of deletes. Alternatively, you can set a finite expiration period for your documents via the [TTL capability](documentdb-expire-data.md), e.g. 24 hours and use the value of that property to capture deletes.
 
 ## Working with the REST API and SDK
 DocumentDB provides elastic containers or storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](documentdb-partition-data.md) for scalability and performance. DocumentDB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). The change log can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API, and can be processed in parallel across ranges of partition keys.
@@ -99,7 +99,7 @@ In order to provides scalable processing of incremental changes, DocumentDB supp
 * For each partition key range, you can perform a `ReadDocumentFeed` to read documents with partition keys within that range.
 
 ### Retrieving Partition Key Ranges for a Collection
-You can retrive the Partition Key Ranges by requesting the `pkranges` resource within a collection. For example the following request retrieves the list of partition key ranges for the `serverlogs` collection:
+You can retrieve the Partition Key Ranges by requesting the `pkranges` resource within a collection. For example, the following request retrieves the list of partition key ranges for the `serverlogs` collection:
 
 	GET https://querydemo.documents.azure.com/dbs/bigdb/colls/serverlogs/pkranges HTTP/1.1
 	x-ms-date: Tue, 15 Nov 2016 07:26:51 GMT
@@ -158,11 +158,11 @@ Each partition key range includes the metadata properties in the following table
 	</tr>
 	<tr>
 		<td>throughputFraction</td>
-		<td>The throughput fraction for the partition . For internal use.</td>
+		<td>The throughput fraction for the partition. For internal use.</td>
 	</tr>		
 </table>
 
-You can do this using one of the supported [DocumentDB SDKs](documentdb-sdk-dotnet.md). For example, the following snippet shows how to retrive partition key ranges in .NET.
+You can do this using one of the supported [DocumentDB SDKs](documentdb-sdk-dotnet.md). For example, the following snippet shows how to retrieve partition key ranges in .NET.
 
     List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
     FeedResponse<PartitionKeyRange> response;
