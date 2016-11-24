@@ -52,6 +52,8 @@ You can set up an Azure Blob Storage indexer using:
 
 In this article, we'll set up an indexer using the REST API. First, we'll create a data source, then create an index, and finally configure the indexer.
 
+After that, we'll cover the details on how the blob indexer parses blobs, how to pick which blobs to index, how to deal with blobs of unsupported content types, and the available configuration settings. 
+
 ### Step 1: Create a data source
 A data source specifies which data to index, credentials needed to access the data, and policies to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same search service.
 
@@ -142,7 +144,7 @@ You don't need to define fields for all of the above properties in your search i
 >
 >
 
-## Picking the document key field and dealing with different field names
+### Picking the document key field and dealing with different field names
 In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type Edm.String. The key field is required for each document that is being added to the index (it is actually the only required field).  
 
 You should carefully consider which extracted field should map to the key field for your index. The candidates are:
@@ -227,6 +229,15 @@ By default, the blob indexer stops as soon as it encounters a blob with an unsup
       "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
     } 
 
+### Ignoring parsing errors
+
+Azure Search document extraction logic isn't perfect and will sometimes fail to parse documents of a supported content type, such as .DOCX or .PDF. If you do not want to interrupt the indexing in such cases, set the `maxFailedItems` and `maxFailedItemsPerBatch` configuration parameters to some reasonable values. For example: 
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+	} 
+
 <a name="PartsOfBlobToIndex"></a>
 ## Controlling which parts of the blob are indexed
 
@@ -286,6 +297,24 @@ For example, the following policy considers a blob to be deleted if it has a met
         }
     }   
 
+## Indexing large datasets
+
+Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to process the data in parallel. Here's how you can set this up: 
+
+- Partition your data into multiple blob containers or virtual folders 
+- Set up several Azure Search data sources, one per container or folder. To point to a blob folder, use the `query` parameter: 
+
+	```
+	{
+	    "name" : "blob-datasource",
+	    "type" : "azureblob",
+	    "credentials" : { "connectionString" : "<your storage connection string>" },
+		"container" : { "name" : "my-container", "query" : "my-folder" }
+	}
+	```
+
+- Create a corresponding indexer for each data source. All the indexers can point to the same target search index.  
+
 <a name="ContentSpecificMetadata"></a>
 ## Content type-specific metadata properties
 The following table summarizes processing done for each document format, and describes the metadata properties extracted by Azure Search.
@@ -306,6 +335,8 @@ The following table summarizes processing done for each document format, and des
 | JSON (application/json) |`metadata_content_type`</br>`metadata_content_encoding` |Extract text<br/>NOTE: If you need to extract multiple document fields from a JSON blob, see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details |
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extract text, including attachments |
 | Plain text (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | |
+
+
 
 ## Help us make Azure Search better
 If you have feature requests or ideas for improvements, let us know on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
