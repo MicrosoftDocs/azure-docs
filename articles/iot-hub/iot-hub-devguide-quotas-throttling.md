@@ -71,7 +71,7 @@ IoT Hub enforces other limits on its different functionalities.
 Other reference topics in this IoT Hub developer guide include:
 
 * [IoT Hub endpoints][lnk-devguide-endpoints]
-* [IoT Hub query language for device twins, methods, and jobs][lnk-devguide-query]
+* [IoT Hub query language for device twins and jobs][lnk-devguide-query]
 * [IoT Hub MQTT support][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub
