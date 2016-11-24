@@ -233,7 +233,7 @@ By default, the blob indexer stops as soon as it encounters a blob with an unsup
 
 You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values: 
 
-* `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/storage-properties-metadata) are indexed.
+* `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/storage-properties-metadata.md) are indexed.
 * `allMetadata` - specifies that storage metadata and the [content-type specific metadata](#ContentSpecificMetadata) extracted from the blob content are indexed.
 * `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
 
