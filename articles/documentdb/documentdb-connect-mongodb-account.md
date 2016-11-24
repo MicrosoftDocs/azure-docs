@@ -7,9 +7,10 @@ author: AndrewHoh
 manager: jhubbard
 editor: ''
 documentationcenter: ''
+
 ms.assetid: e36f7375-9329-403b-afd1-4ab49894f75e
 ms.service: documentdb
- ms.workload: data-services
+ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
@@ -22,15 +23,16 @@ ms.author: anhoh
 Learn how to connect your MongoDB app to an Azure DocumentDB account using a MongoDB connection string. By connecting your MongoDB app to an Azure DocumentDB database, you can use a DocumentDB database as the data store for your MongoDB app. 
 
 This tutorial provides two ways to retrieve connection string information:
--[The Quick start method](#QuickStartConnection), for use with .NET, Node.js, MongoDB Shell, Java, and Python drivers.
--[The custom connection string method](#GetCustomConnection), for use with other drivers.
+
+- [The Quick start method](#QuickStartConnection), for use with .NET, Node.js, MongoDB Shell, Java, and Python drivers.
+- [The custom connection string method](#GetCustomConnection), for use with other drivers.
 
 ## Prerequisites
 
 - An Azure account. If you don't have an Azure account, create a [free Azure account](https://azure.microsoft.com/free/) now. 
 - A DocumentDB account. For instructions, see [Create a DocumentDB account for use with MongoDB apps](documentdb-create-mongodb-account.md).
 
-## <a id="QuickStartConnection"></a>Quick start MongoDB connection string
+## <a id="QuickStartConnection"></a>Get the MongoDB connection string using the Quick start
 1. In an internet browser, sign in to the [Azure Portal](https://portal.azure.com).
 2. In the **NoSQL (DocumentDB)** blade, select the DocumentDB account with protocol support for MongoDB. 
 3. In the **Left Navigation** bar of the account blade, click **Quick start**. 
@@ -39,7 +41,7 @@ This tutorial provides two ways to retrieve connection string information:
 
     ![Screen shot of the quick start blade](./media/documentdb-connect-mongodb-account/QuickStartBlade.png)
 
-## <a id="GetCustomConnection"></a> Custom MongoDB connection string
+## <a id="GetCustomConnection"></a> Get the MongoDB connection string to customize
 1. In an internet browser, sign in to the [Azure Portal](https://portal.azure.com).
 2. In the **NoSQL (DocumentDB)** blade, select the DocumentDB account with protocol support for MongoDB. 
 3. In the **Left Navigation** bar of the account blade, click **Connection String**. 
@@ -49,7 +51,7 @@ This tutorial provides two ways to retrieve connection string information:
 
 ## Connection string requirements
 > [!Important]
-> DocumentDB has strict security requirements and standards. DocumentDB accounts require authentication and secure communication via **SSL**
+> DocumentDB has strict security requirements and standards. DocumentDB accounts require authentication and secure communication via **SSL**.
 >
 >
 
