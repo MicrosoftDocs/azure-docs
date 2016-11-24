@@ -16,8 +16,7 @@ ms.date: 11/23/2016
 ms.author: awills
 
 ---
-# Filter telemetry from your Java web app to Application Insights
-
+# Filter telemetry in your Java web app
 
 Filters provide a way to select the telemetry that your [Java web app sends to Application Insights](app-insights-java-get-started.md). There are some out-of-the-box filters that you can use, and you can also write your own custom filters.
 
@@ -28,12 +27,14 @@ The out-of-the-box filters include:
 * Fast responses - that is, requests to which your app responded to quickly
 * Specific event names
 
-> [!NOTE] Filters skew the metrics of your app. For example, you might decide that, in order to diagnose slow responses, you will set a filter to discard fast response times. But you must be aware that the average response times reported by Application Insights will then be slower than the true speed, and the count of requests will be smaller than the real count.
-
+> [!NOTE] 
+> Filters skew the metrics of your app. For example, you might decide that, in order to diagnose slow responses, you will set a filter to discard fast response times. But you must be aware that the average response times reported by Application Insights will then be slower than the true speed, and the count of requests will be smaller than the real count.
+> If this is a concern, use [Sampling](app-insights-sampling.md) instead.
 
 ## Setting filters
 
 In ApplicationInsights.xml, add a `TelemetryProcessors` section like this example:
+
 
 ```XML
 
@@ -52,15 +53,28 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
 
            <Processor type="PageViewTelemetryFilter">
                   <Add name="DurationThresholdInMS" value="100"/>
+                  <Add name="NotNeededNames" value="home,index"/>
+                  <Add name="NotNeededUrls" value=".jpg,.css"/>
            </Processor>
 
-          <Processor type="SyntheticSourceFilter"/>
+           <Processor type="TelemetryEventFilter">
+                  <!-- Names of events we don't want to see -->
+                  <Add name="NotNeededNames" value="Start,Stop,Pause"/>
+           </Processor>
+
+           <!-- Exclude telemetry from availability tests and bots -->
+           <Processor type="SyntheticSourceFilter">
+                <!-- Optional: specify which synthetic sources, 
+                     comma-separated
+                     - default is all synthetics -->
+                <Add name="NotNeededSources" value="Application Insights Availability Monitoring,BingPreview"
+           </Processor>
 
         </BuiltInProcessors>
 
         <CustomProcessors>
-          <Processor type="com.microsoft.applicationinsights.sample.SampleFilter">
-            <Add name="Pass" value="false"/>
+          <Processor type="com.fabrikam.MyFilter">
+            <Add name="Successful" value="false"/>
           </Processor>
         </CustomProcessors>
 
@@ -68,6 +82,11 @@ In ApplicationInsights.xml, add a `TelemetryProcessors` section like this exampl
     </ApplicationInsights>
 
 ```
+
+
+
+
+[Inspect the full set of built-in processors](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
 
 ## Built-in filters
 
@@ -173,48 +192,48 @@ Filters log traces (logged using [TrackTrace()](app-insights-api-custom-events-m
  *  CRITICAL        - filter out all but CRITICAL
 
 
+```
+
+
 ## Custom filters
 
 ### 1. Code your filter
 
-Edit a copy of this [sample filter](https://github.com/Microsoft/ApplicationInsights-Java/blob/master/samples/src/main/java/com/microsoft/applicationinsights/sample/SampleFilter.java) to create the code for your filter.
+In your code, create a class that implements `TelemetryProcessor`:
 
 ```Java
 
-package com.fabrikam.MyFilter;
-import com.microsoft.applicationinsights.extensibility.TelemetryProcessor;
-import com.microsoft.applicationinsights.telemetry.Telemetry;
+    package com.fabrikam.MyFilter;
+    import com.microsoft.applicationinsights.extensibility.TelemetryProcessor;
+    import com.microsoft.applicationinsights.telemetry.Telemetry;
 
-public class SuccessFilter implements TelemetryProcessor {
-    private boolean pass = false;
+    public class SuccessFilter implements TelemetryProcessor {
 
-    public void setSuccessful(String success) {
-        this.pass = Boolean.valueOf(success);
-    }
+       /* Any parameters that are required to support the filter.*/
+       private final String successful;
 
-    @Override
-    public boolean process(Telemetry telemetry) {
+       /* Initializers for the parameters, named "setParameterName" */
+       public void setNotNeeded(String successful) 
+       {
+	      this.successful = successful;
+       }
+
+       /* This method is called for each item of telemetry to be sent.
+          Return false to discard it.
+		  Return true to allow other processors to inspect it. */
+       @Override
+       public boolean process(Telemetry telemetry) {
         if (telemetry == null) { return true; }
         if (telemetry instanceof RequestTelemetry)
         {
             RequestTelemetry requestTelemetry = (RequestTelemetry)telemetry;
-            return request.getSuccess() == pass;
+            return request.getSuccess() == successful;
         }
         return true;
+       }
     }
-}
 
 ```
-
-* Implement `com.microsoft.applicationinsights.extensibility.TelemetryProcessor`
-* For each parameter named 'XXX' that you want to use in your XML, implement a public method called 'setXXX(String)'.
-* Override the method `public boolean process (Telemetry)`.
-
-Your process method should return:
-
-* `false` to disapprove the telemetry item. It will not be transmitted.
-* `true` to approve the telemetry item. It will be transmitted unless another filter disapproves it.
-
 
 
 ### 2. Invoke your filter in the configuration file
