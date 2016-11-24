@@ -20,25 +20,21 @@ ms.author: nepeters
 ---
 # Azure Virtual Machine Agent overview
 
-The Microsoft Azure Virtual Machine Agent (AM Agent) is a secured, light weight process that manages VM interaction with the Azure Fabric Controller. The VM Agent performs many deployment and management activities such as initial credential management, enabling configuration automation, and bootstrapping virtual machine monitoring. In most cases the VM agent is preinstalled on Azure virtual machines, however there may be cases where manual or scripted installation is necessary.
+The Microsoft Azure Virtual Machine Agent (AM Agent) is a secured, light weight process that manages VM interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions. VM Extensions enabling post deployment configuration of virtual machines such as installing and configuring software. Virtual machine extensions also enable recovery features such as resetting the administrative password of a virtual machine. Without the Azure VM Agent, virtual machine extensions cannot be run.
 
-This document will detail core functionality, installation, and configuration of the Azure Virtual Machine Agent.
-
-## VM Agent functionality
+This document details installation, detection, and removal of the Azure Virtual Machine Agent.
 
 ## Install the VM Agent
 
 ### Azure gallery image
 
-The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Gallery image. 
+The Azure VM Agent is installed by default on any Windows VM deployed from an Azure Gallery image. When deploying an Azure gallery image from the Portal, PowerShell, Command Line Interface, or an Azure Resource Manager template, the Azure VM Agent is also be installed. 
 
 ### Manual installation
 
-The Windows VM agent can be manually installed using a Windows installer package. This is useful when creating a custom virtual machine image that will be deployed in Azure. To manually install the Windows VM Agent, download the VM Agent installer from this location [Windows Azure VM Agent Download](http://go.microsoft.com/fwlink/?LinkID=394789). 
+The Windows VM agent can be manually installed using a Windows installer package. This is necessary when creating a custom virtual machine image that will be deployed in Azure. To manually install the Windows VM Agent, download the VM Agent installer from this location [Windows Azure VM Agent Download](http://go.microsoft.com/fwlink/?LinkID=394789). 
 
-Once downloaded this can be installed by manually running this Windows installer file.
-
-The VM Agent installation can also be automated by running the following command. This will provide an unattended installation of the agent.
+The VM Agent installation can be installed by double clicking on the windows installer file or by running the following command. This command provides an unattended installation of the agent.
 
 ```cmd
 msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
@@ -49,6 +45,75 @@ msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /q
 The Azure VM Agent for Windows is automatically upgraded.
 
 ## Detect the VM Agent
+
+### PowerShell
+
+The Azure Resource Manager PowerShell module can be used to retrieve information about Azure Virtual Machines. Running `Get-AzureRmVM` returns quite a bit of information including the provisioning state for the Azure VM Agent.
+
+```PowerShell
+Get-AzureRmVM
+```
+
+The output looks similar to the following. Notice the `ProvisionVMAgent` property nested inside `OSProfile`.
+
+```PowerShell
+RequestId                  : 04b7bf64-91d4-4de9-928d-fe18f6cc2f7c
+StatusCode                 : OK
+ResourceGroupName          : myResourceGroup
+Id                         :
+Name                       : myVM
+Type                       : Microsoft.Rest.Azure.AzureOperationResponse`1[Microsoft.Rest.Azure.IPage`1[Microsoft.Azure
+.Management.Compute.Models.VirtualMachine]]
+Location                   : eastus
+Tags                       : {}
+DiagnosticsProfile         :
+  BootDiagnostics          :
+    Enabled                : True
+    StorageUri             : 
+Extensions[0]              :
+  Id                       : 
+HardwareProfile            :
+  VmSize                   : Standard_DS1_v2
+NetworkProfile             :
+  NetworkInterfaces[0]     :
+    Id                     : 
+OSProfile                  :
+  ComputerName             : myVM
+  AdminUsername            : muUserName
+  WindowsConfiguration     :
+    ProvisionVMAgent       : True
+    EnableAutomaticUpdates : True
+ProvisioningState          : Succeeded
+StorageProfile             :
+  ImageReference           :
+    Publisher              : MicrosoftWindowsServer
+    Offer                  : WindowsServer
+    Sku                    : 2016-Datacenter
+    Version                : latest
+  OsDisk                   :
+    OsType                 : Windows
+    Name                   : myOsDisk1
+    Vhd                    :
+      Uri                  : 
+    Caching                : ReadWrite
+    CreateOption           : FromImage
+NetworkInterfaceIDs[0]     : 
+```
+
+The following script can be used to return a concise list of virtual machine names and the state of the VM Agent.
+
+```PowerShell
+$vms = Get-AzureRmVM
+
+foreach ($vm in $vms) {
+    $agent = $vm | Select -ExpandProperty OSProfile | Select -ExpandProperty Windowsconfiguration | Select ProvisionVMAgent
+    Write-Host $vm.Name $agent.ProvisionVMAgent
+}
+```
+
+### Manual Detection
+
+When logged into an Azure VM, task manager can be used to examine running processes. To check for the Azure VM Agent, open Task Manager > click on the details tab, and look for a process name `WindowsAzureGuestAgent.exe`. The presence of this process indicates that the VM agent is installed.
 
 ## Remove the VM Agent
 
@@ -71,7 +136,7 @@ When using a Resource Manager template, the VM Agent can be disabled in the VM r
 
 ### PowerShell
 
-When using PowerShell to deploy a new Azure virtual machine, the `Set-AzureRmVMOperatingSystem` command includes a `-ProvisionVMAgnet` switch parameter. This means that if the parameter is present the VM Agent will be installed, if not, the VM Agent is not installed. The following command will configure the VM deployment operation so that the VM Agent is not installed. For a complete walkthrough on deploying Azure virtual machines with PowerShell, see [Create a Windows VM using PowerShell](./virtual-machines-windows-ps-create/md).
+When using PowerShell to deploy a new Azure virtual machine, the `Set-AzureRmVMOperatingSystem` command includes a `-ProvisionVMAgnet` switch parameter. This means that if the parameter is present the VM Agent is installed, if not, the VM Agent is not installed. The following command configures the VM deployment operation so that the VM Agent is not installed. For a complete walkthrough on deploying Azure virtual machines with PowerShell, see [Create a Windows VM using PowerShell](./virtual-machines-windows-ps-create.md).
 
 ```PowerShell
 Set-AzureRmVMOperatingSystem -VM $myVM -Windows -ComputerName "myVM" -Credential $cred -EnableAutoUpdate
@@ -80,12 +145,3 @@ Set-AzureRmVMOperatingSystem -VM $myVM -Windows -ComputerName "myVM" -Credential
 ### Custom VM image
 
 If using a custom VM image in Azure, the VM Agent can be excluded from the image.
-
-
-## Troubleshoot the VM Agent
-
-<Notes>
-
-- Classic Doc - https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-classic-agents-and-extensions
-- Linux Reference - https://github.com/Azure/WALinuxAgent / https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-agent-user-guide
-- Linux Update Agent - https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-update-agent
