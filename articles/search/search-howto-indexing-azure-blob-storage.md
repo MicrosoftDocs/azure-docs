@@ -121,8 +121,7 @@ Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer 
 > [!NOTE]
 > By default, blobs with structured content such as JSON, CSV, or XML are indexed as a single chunk of text. If you want to index JSON and CSV blobs in a structured way, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview features. We currently don't support parsing XML content; if you have this need, add a suggestion on our [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 > 
-> A compound or embedded document (such as a ZIP arch
-> ive or a Word document with embedded Outlook email containing attachments) is also indexed as a single document.
+> A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email containing attachments) is also indexed as a single document.
 
 * The entire textual content of the document is extracted into a string field named `content`.
 * User-specified metadata properties present on the blob, if any, are extracted verbatim.
@@ -217,7 +216,7 @@ If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters 
 
 ### Dealing with unsupported content types
 
-By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`: 
+By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`: 
 
 	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
