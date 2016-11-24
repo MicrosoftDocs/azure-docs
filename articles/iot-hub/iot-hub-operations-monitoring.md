@@ -1,6 +1,6 @@
-﻿---
+---
 title: IoT Hub operations monitoring
-description: An overview of Azure IoT Hub operations monitoring, enabling you to monitor the status of operations on your IoT hub in real time
+description: An overview of Azure IoT Hub operations monitoring, enabling you to monitor the status of operations on your IoT hub in real time.
 services: iot-hub
 documentationcenter: ''
 author: nberdy
@@ -18,7 +18,7 @@ ms.author: nberdy
 
 ---
 # Introduction to operations monitoring
-IoT Hub operations monitoring enables you to monitor the status of operations on your IoT hub in real time. IoT Hub tracks events across several categories of operations, and you can opt into sending events from one or more categories to an endpoint of your IoT hub for processing. You can monitor the data for errors or set up more complex processing based on data patterns.
+IoT Hub operations monitoring enables you to monitor the status of operations on your IoT hub in real time. IoT Hub tracks events across several categories of operations. You can opt into sending events from one or more categories to an endpoint of your IoT hub for processing. You can monitor the data for errors or set up more complex processing based on data patterns.
 
 IoT Hub monitors five categories of events:
 
@@ -116,7 +116,13 @@ The connections category tracks errors that occur when devices connect or discon
     }
 
 ### File uploads
-The file upload category tracks errors that occur at the IoT hub and are related to file upload functionality. This category includes errors that occur with the SAS URI (such as when it expires before a device notifies the hub of a completed upload), failed uploads reported by the device, and when a file is not found in storage during IoT Hub notification message creation. Note that this category cannot catch errors that directly occur while the device is uploading a file to storage.
+The file upload category tracks errors that occur at the IoT hub and are related to file upload functionality. This category includes:
+
+- Errors that occur with the SAS URI, such as when it expires before a device notifies the hub of a completed upload.
+- Failed uploads reported by the device.
+- Errors that occur when a file is not found in storage during IoT Hub notification message creation.
+
+Note that this category cannot catch errors that directly occur while the device is uploading a file to storage.
 
     {
          "authType": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\"}",

@@ -1,6 +1,6 @@
-﻿---
+---
 title: IoT Hub diagnostic metrics
-description: An overview of Azure IoT Hub metrics, enabling users to assess the overall health of their resource
+description: An overview of Azure IoT Hub metrics, enabling you to assess the overall health of their resource
 services: iot-hub
 documentationcenter: ''
 author: nberdy
@@ -30,12 +30,12 @@ You can enable diagnostic metrics from the Azure portal.
 3. Configure your diagnostics by setting the status to **On** and selecting an Azure Storage account to store the diagnostics data. Check **Metrics**, and then press **Save**. Note that the Azure Storage account must be created ahead of time and that you are charged separately for storage. You can also choose to send your diagnostics data to an Event Hubs endpoint.
    
     ![][2]
-4. After you have set up the diagnostics, return to the **Overview** IoT hub blade. Metrics information is populated in the **Monitoring** section of the blade. Clicking the chart opens the metrics pane where you can view a summary of the metrics information for your IoT hub and edit the selection of metrics shown in the chart. You can also configure alerts based on metric values.
+4. After you have set up the diagnostics, return to the **Overview** IoT hub blade. Metrics information is populated in the **Monitoring** section of the blade. Clicking the chart opens the metrics pane where you can view a summary of the metrics information for your IoT hub. You can edit the selection of metrics shown in the chart and configure alerts based on metric values.
    
     ![][3]
 
 ## Metrics and how to use them
-IoT Hub provides several metrics to give you an overview of the health of your hub and the total number of devices connected to it. You can combine information from multiple metrics to paint a bigger picture of the state of the IoT hub. The following table describes the metrics each IoT hub tracks, and how each metric relates to the overall status of the IoT hub.
+IoT Hub provides several metrics to give you an overview of the health of your hub and the total number of connected devices. You can combine information from multiple metrics to paint a bigger picture of the state of the IoT hub. The following table describes the metrics each IoT hub tracks, and how each metric relates to the overall status of the IoT hub.
 
 | Metric | Metric description | What the metric is used for |
 | --- | --- | --- |
