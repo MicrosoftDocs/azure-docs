@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/23/2016
+ms.date: 11/24/2016
 ms.author: eugenesh
 ---
 
@@ -50,7 +50,7 @@ You can set up an Azure Blob Storage indexer using:
 >
 >
 
-In this article, we'll set up an indexer using the REST API by following three steps: create a data source, create an index, configure the indexer.
+In this article, we'll set up an indexer using the REST API. First, we'll create a data source, then create an index, and finally configure the indexer.
 
 ### Step 1: Create a data source
 A data source specifies which data to index, credentials needed to access the data, and policies to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same search service.
@@ -119,9 +119,10 @@ For more details on the Create Indexer API, check out [Create Indexer](https://m
 Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer can index storage metadata only (useful when you only care about the metadata and don't need to index the content of blobs), storage and content metadata, or both metadata and textual content. By default, the indexer extracts both metadata and content. 
 
 > [!NOTE]
-> By default, blobs with structured content such as JSON, CSV or XML are indexed as a single chunk of text. If you want to index JSON and CSV blobs in a structured way, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview features. We currently don't support parsing XML content; if you have this need, please add a suggestion on our [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> By default, blobs with structured content such as JSON, CSV, or XML are indexed as a single chunk of text. If you want to index JSON and CSV blobs in a structured way, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview features. We currently don't support parsing XML content; if you have this need, add a suggestion on our [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
 > 
-> A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email containing attachments) is also indexed as a single document.
+> A compound or embedded document (such as a ZIP arch
+> ive or a Word document with embedded Outlook email containing attachments) is also indexed as a single document.
 
 * The entire textual content of the document is extracted into a string field named `content`.
 * User-specified metadata properties present on the blob, if any, are extracted verbatim.
@@ -130,7 +131,7 @@ Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer 
   * **metadata\_storage\_name** (Edm.String) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
   * **metadata\_storage\_path** (Edm.String) - the full URI of the blob, including the storage account. For example, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
   * **metadata\_storage\_content\_type** (Edm.String) - content type as specified by the code you used to upload the blob. For example, `application/octet-stream`.
-  * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob. Azure Search uses this timestamp to identify changed blobs, to avoid re-indexing everything after the initial indexing.
+  * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob. Azure Search uses this timestamp to identify changed blobs, to avoid reindexing everything after the initial indexing.
   * **metadata\_storage\_size** (Edm.Int64) - blob size in bytes.
   * **metadata\_storage\_content\_md5** (Edm.String) - MD5 hash of the blob content, if available.
 * Metadata properties specific to each document format are extracted into the fields listed [here](#ContentSpecificMetadata).
@@ -232,11 +233,11 @@ By default, the blob indexer stops as soon as it encounters a blob with an unsup
 
 You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values: 
 
-* `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/storage-properties-metadata) will be indexed.
-* `allMetadata` - specifies that storage metadata and the [content-type specific metadata](#ContentSpecificMetadata) extracted from the blob content will be indexed.
-* `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob will be indexed. This is the default value.
+* `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/storage-properties-metadata) are indexed.
+* `allMetadata` - specifies that storage metadata and the [content-type specific metadata](#ContentSpecificMetadata) extracted from the blob content are indexed.
+* `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
 
-For example, this is how you can index only the storage metadata: 
+For example, to index only the storage metadata, use: 
 
     PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
     Content-Type: application/json
@@ -253,7 +254,7 @@ The configuration parameters described above apply to all blobs. Sometimes, you 
 
 | Property name | Property value | Explanation |
 | --- | --- | --- |
-| AzureSearch_Skip |"true" |Instructs the blob indexer to completely skip the blob; neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
+| AzureSearch_Skip |"true" |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
 | AzureSearch_SkipContent |"true" |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
 
 ## Incremental indexing and deletion detection
@@ -308,4 +309,4 @@ The following table summarizes processing done for each document format, and des
 | Plain text (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | |
 
 ## Help us make Azure Search better
-If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+If you have feature requests or ideas for improvements, let us know on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
