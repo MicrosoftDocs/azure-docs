@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 11/23/2016
 ms.author: JPallavi
 
 ---
@@ -23,6 +23,18 @@ More and more customers are hit with security issues like malware, ransomware, i
 1. **Prevention** - An additional layer of authentication is added whenever a critical operation like Change Passphrase is performed. This validation is to ensure that such operations can be performed only by users having valid Azure credentials. 
 2. **Alerting** - Email notification is sent to subscription admin whenever a critical operation like Delete Backup data is performed. This email ensures that user is timely notified about such actions.
 3. **Recovery** - Deleted backup data is retained for additional 14 days from the date of delete. This ensures recoverability of the data within given time period so there is no data loss even if attack happens. Also, more number of minimum recovery points are maintained to guard against corrupt data. 
+
+> [!NOTE]
+> Security Features should be enabled only if you are using: <br/>
+> * **MAB agent** - minimum agent version 2.0.9052. Once you have enabled these features, you should upgrade to this agent version to perform critical operations like Change Passphrase, Stop backup with Delete data <br/>
+> * **Azure Backup Server** - minimum MAB agent version 2.0.9052 with Azure Backup Server update 1 <br/>
+> * **DPM** - Do not enable these features for DPM. These features are coming soon in future URs, so enabling them will not have any impact on existing functioanlity. <br/>
+> * **IaaS VM Backup** - Do not enable these features for IaaS VM Backup. These features are not yet available for IaaS VM backup, so enabling them will not have any impact on IaaS VM backup.
+> * Once enabled, you get Security Features for all the Azure Recovery Services Agent (MARS) machines and Azure Backup Servers registered with the vault. <br/>
+> * Enabling this setting is a one-time action and you cannot disable these features after enabling them. <br/>
+> * This feature is available only for Recovery Services vault.
+> 
+> 
 
 ## Enabling Security features
 Users creating recovery services vault would be able to avail all the Security Features. For existing recovery services vault, following steps should be used to enable these features:
@@ -47,30 +59,18 @@ Users creating recovery services vault would be able to avail all the Security F
    
     ![Enable security settings](./media/backup-azure-security-feature/enable-security-settings.png)
 
-> [!NOTE]
-> * Security Features should be enabled only if you are using: <br/>
-> * **MAB agent** - minimum agent version 2.0.9052. Once you have enabled these features, you should upgrade to this agent version to perform critical operations like Change Passphrase, Stop backup with Delete data <br/>
-> * **Azure Backup Server** - minimum MAB agent version 2.0.9052 with Azure Backup Server upgrade 1 <br/>
-> * **DPM** - Do not enable this Setting for DPM. These feature are coming soon in future URs, so enabling them will not have any impact on existing functioanlity. <br/>
-> * **IaaS VM Backup** - These features are not yet available for IaaS VM backup, so enabling them will not have any impact on IaaS VM backup.
-> * Once enabled, you get Security Features for all the Azure Recovery Services Agent (MARS) machines and Azure Backup Servers registered with the vault. <br/>
-> * Enabling this setting is a one-time action and you cannot disable these features after enabling them. <br/>
-> * This feature is available only for Recovery Services vault.
-> 
-> 
-
 ## Recovering deleted backup data
 As a security measure, Azure Backup retains deleted backup data for additional 14 days and does not delete it immediately if Stop backup with delete backup data operation is performed. To restore this data in the 14-day period, use the following steps:
 
 For **Microsoft Recovery Services Agent (MARS)** users:
 
-1. If the machine where backups were happening is still available, use [Recover Data to the same machine](backup-azure-restore-windows-server.md#recover-data-to-the-same-machine) in MARS to recover from all the old recovery points.
+1. If the machine where backups were happening is still available, use [Recover data to the same machine](backup-azure-restore-windows-server.md#recover-data-to-the-same-machine) in MARS to recover from all the old recovery points.
 2. If the machine mentioned above is not available, use [Recover to an alternate machine](backup-azure-restore-windows-server.md#recover-to-an-alternate-machine) to use another MARS machine to get this data.
 
 For **Azure Backup Server** users:
 
 1. If the server where backups were happening is still available, re-protect the deleted data sources and use Recover Data feature to recover from all the old recovery points.
-2. If the machine mentioned above is not available, use [Recover data from another server](backup-azure-alternate-dpm-server.md#recover-data-from-another-dpm-server) to use another Azure Backup Server to get this data.
+2. If the machine mentioned above is not available, use [Recover data from another Azure Backup Server](backup-azure-alternate-dpm-server.md#recover-data-from-another-azure-backup-server) to use another Azure Backup Server to get this data.
 
 ## Preventing attacks
 As part of this feature, checks have been added to make sure only valid users can perform various operations.
@@ -100,5 +100,5 @@ The Security features mentioned in this article, provide defense mechanisms agai
 
 ## Next Steps
 * [Get started with Azure Recovery Services vault](backup-azure-vms-first-look-arm.md) to enable these features
-* [Download latest Azure Recovery Services agent](backup-configure-vault.md) to protect Windows machines and guard your backup data against attacks
-* [Download latest Azure Backup Server](backup-azure-microsoft-azure-backup.md) to protect workloads and guard your backup data against attacks
+* [Download latest Azure Recovery Services agent](http://aka.ms/azurebackup_agent) to protect Windows machines and guard your backup data against attacks
+* [Download latest Azure Backup Server](https://aka.ms/latest_azurebackupserver) to protect workloads and guard your backup data against attacks

@@ -93,7 +93,7 @@ Follow the steps below to achieve the scenario outlined in this article:
     $frontendIP2 = New-AzureRmLoadBalancerFrontendIpConfig -Name fabrikamfe -PublicIpAddress $publicIP2
     ```
 
-9. Create your backend address pools, a probe, and your load balacning rules:
+9. Create your backend address pools, a probe, and your load balancing rules:
 
     ```powershell
     $beaddresspool1 = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name contosopool

@@ -27,6 +27,7 @@
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
 ## Develop
 ### [Upgrade the SDK](search-dotnet-sdk-migration.md)
+### [Upgrade the REST API](search-api-migration.md)
 ### [Model complex data types](search-howto-complex-data-types.md)
 ## Manage
 ### Administer Azure Search
@@ -37,12 +38,14 @@
 ### [Search traffic analytics](search-traffic-analytics.md)
 ### [Performance and optimization](search-performance-optimization.md)
 ## Load data
-### [Index data sources](search-indexer-overview.md)
-#### [Blob Storage](search-howto-indexing-azure-blob-storage.md)
-#### [Azure Tables](search-howto-indexing-azure-tables.md)
-#### [SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-#### [CSV blobs](search-howto-index-csv-blobs.md)
-### [SQL Server Azure VM Connection configuration](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+### [Indexer overview](search-indexer-overview.md)
+### [Azure Blob Storage indexer](search-howto-indexing-azure-blob-storage.md)
+### [Azure Table Storage indexer](search-howto-indexing-azure-tables.md)
+### [Azure SQL indexer](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+### [Azure DocumentDB indexer](../documentdb/documentdb-search-indexer.md?toc=%2fazure%2fsearch%2ftoc.json)
+### [Index CSV blobs](search-howto-index-csv-blobs.md)
+### [Index JSON blobs](search-howto-index-json-blobs.md)
+### [Configure indexer connections to SQL Server on Azure VM](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 ### [Field mappings in indexers](search-indexer-field-mappings.md)
 ##  Design search experience
 ### [Lucene syntax query examples](search-query-lucene-examples.md)
@@ -56,16 +59,13 @@
 
 # Reference
 ## [API versions](search-api-versions.md)
+## [Service .NET](/dotnet/api/microsoft.azure.search)
+## [Management .NET](/dotnet/api/microsoft.azure.management.search)
+## [Service REST](/rest/api/searchservice/)
+## [Service REST (Preview)](search-api-2015-02-28-preview.md)
+## [Management REST](/rest/api/searchmanagement/)
 ## [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323)
 ## [Simple query syntax](https://msdn.microsoft.com/library/azure/dn798920)
-## [Java](/java/api/)
-## .NET
-### [Service .NET](/dotnet/api/microsoft.azure.search)
-### [Management .NET](/dotnet/api/microsoft.azure.management.search)
-## REST
-### [Service REST](/rest/api/searchservice/)
-### [Service REST (Preview)](search-api-2015-02-28-preview.md)
-### [Management REST](/rest/api/searchmanagement/)
 
 # Resources
 ## [Service updates](https://azure.microsoft.com/updates/?product=search)
