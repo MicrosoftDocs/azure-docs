@@ -336,7 +336,5 @@ The following table summarizes processing done for each document format, and des
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extract text, including attachments |
 | Plain text (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | |
 
-
-
 ## Help us make Azure Search better
 If you have feature requests or ideas for improvements, let us know on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
