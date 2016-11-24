@@ -58,7 +58,7 @@ Click **OK** when you're ready to proceed.
 If **Kubernetes** is selected in the dropdown, you will need to enter the Service principal client id and service principal client secret.
 To learn more about how to create a service principal visit [this](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md) page 
 
-![Create deployment 4.5](media/acs-portal10.png)  <br />
+![Create deployment 4.5](media/acs-portal10.PNG)  <br />
 
 Enter the following information:
 
