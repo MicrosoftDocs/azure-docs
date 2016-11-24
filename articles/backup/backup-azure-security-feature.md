@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 11/24/2016
 ms.author: JPallavi
 
 ---
@@ -55,7 +55,8 @@ Users creating recovery services vault would be able to avail all the Security F
     ![Open security settings](./media/backup-azure-security-feature/security-settings-update.png)
    
     Update link opens Security Settings blade, which lets you Enable these features and gives summary of the feature.
-5. Use the toggle button to **Enable** and click **Save** button on top to save Security Settings as shown in the figure.
+5. Use the drop down to confirm if you have enabled [Azure Multi-Factor Authentication](../multi-factor-authentication/multi-factor-authentication.md). If it is enabled, you are asked to authenticate from another device while logging in to Azure portal. Also, when critical operations are performed in Azure Backup, you have to enter Security PIN available on Azure portal. Enabling multi- factor authentication adds a layer of security, ensuring only authorized users with valid Azure credentials and authenticated from second device can access Azure portal and perform such critical operations.
+6. Use the toggle button to **Enable** and click **Save** button on top to save Security Settings as shown in the figure.
    
     ![Enable security settings](./media/backup-azure-security-feature/enable-security-settings.png)
 
