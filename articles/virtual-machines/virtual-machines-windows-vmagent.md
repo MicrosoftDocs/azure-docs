@@ -40,10 +40,6 @@ The VM Agent installation can be installed by double clicking on the windows ins
 msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
 ```
 
-## Upgrade the VM Agent
-
-The Azure VM Agent for Windows is automatically upgraded.
-
 ## Detect the VM Agent
 
 ### PowerShell
@@ -57,47 +53,12 @@ Get-AzureRmVM
 The output looks similar to the following. Notice the `ProvisionVMAgent` property nested inside `OSProfile`.
 
 ```PowerShell
-RequestId                  : 04b7bf64-91d4-4de9-928d-fe18f6cc2f7c
-StatusCode                 : OK
-ResourceGroupName          : myResourceGroup
-Id                         :
-Name                       : myVM
-Type                       : Microsoft.Rest.Azure.AzureOperationResponse`1[Microsoft.Rest.Azure.IPage`1[Microsoft.Azure
-.Management.Compute.Models.VirtualMachine]]
-Location                   : eastus
-Tags                       : {}
-DiagnosticsProfile         :
-  BootDiagnostics          :
-    Enabled                : True
-    StorageUri             : 
-Extensions[0]              :
-  Id                       : 
-HardwareProfile            :
-  VmSize                   : Standard_DS1_v2
-NetworkProfile             :
-  NetworkInterfaces[0]     :
-    Id                     : 
 OSProfile                  :
   ComputerName             : myVM
   AdminUsername            : muUserName
   WindowsConfiguration     :
     ProvisionVMAgent       : True
     EnableAutomaticUpdates : True
-ProvisioningState          : Succeeded
-StorageProfile             :
-  ImageReference           :
-    Publisher              : MicrosoftWindowsServer
-    Offer                  : WindowsServer
-    Sku                    : 2016-Datacenter
-    Version                : latest
-  OsDisk                   :
-    OsType                 : Windows
-    Name                   : myOsDisk1
-    Vhd                    :
-      Uri                  : 
-    Caching                : ReadWrite
-    CreateOption           : FromImage
-NetworkInterfaceIDs[0]     : 
 ```
 
 The following script can be used to return a concise list of virtual machine names and the state of the VM Agent.
@@ -114,6 +75,10 @@ foreach ($vm in $vms) {
 ### Manual Detection
 
 When logged into an Azure VM, task manager can be used to examine running processes. To check for the Azure VM Agent, open Task Manager > click on the details tab, and look for a process name `WindowsAzureGuestAgent.exe`. The presence of this process indicates that the VM agent is installed.
+
+## Upgrade the VM Agent
+
+The Azure VM Agent for Windows is automatically upgraded.
 
 ## Remove the VM Agent
 
