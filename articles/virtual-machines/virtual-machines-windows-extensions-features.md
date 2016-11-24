@@ -156,9 +156,10 @@ For more information, see [Authoring Azure Resource Manager templates with Windo
 
 ## Securing VM extension data
 
-When running VM extension, it may be necessary to include sensitive information such as execution commands, which include credentials, storage account names, and storage account access keys. Many VM extensions include a protected configuration that encrypts this data and only decrypt the data inside the target virtual machine. When a protected setting configuration is available, it can be used with any extension deployment method. Each individual extension has a specific protected configuration schema, whichis detailed in extension-specific documentation.
+When running a VM extension, it may be necessary to include sensitive information such as credentials, storage account names, and storage account access keys. Many VM extensions include a protected configuration that encrypts data and only decrypt this data inside the target virtual machine. Each individual extension has a specific protected configuration schema, each will be detailed in extension-specific documentation.
 
-The following example depicts an instance of the Custom Script extension for Windows. In this example encryption is not used.
+The following example depicts an instance of the Custom Script extension for Windows. Notice that the command to execute includes a set of credentials. In this example, the command to execute will not be encrypted.
+
 
 ```json
 {
@@ -188,7 +189,7 @@ The following example depicts an instance of the Custom Script extension for Win
 }
 ```
 
-Moving the command to `commandToExecute` property to the protected setting secures the execution string. 
+Moving the command to execute property to the protected configuration secures the execution string.
 
 ```json
 {
