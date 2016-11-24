@@ -40,7 +40,7 @@ For a full deployment, we strongly recommend you follow all the steps in the art
 | **Area** | **Details** |
 | --- | --- |
 | **Deployment scenario** |Replicate Hyper-V VMs in VMM clouds to Azure, using the Azure portal |
-| **On-premises requirements** |On or more VMM servers running on System Center 2012 R2, with one or more clouds.<br/><br/> Clouds should contain one or more VMM host groups.<br/><br/> At least one Hyper-V server in cloud, running at least Windows Server 2012 R2 with Hyper-V role or Microsoft Hyper-V Server 2012 R2 with the latest updates.<br/><br/> VMM servers and Hyper-V hosts need internet access, and need to be able to access specific URLs directly, or via a proxy. [Full details](#on-premises-prerequisites). |
+| **On-premises requirements** |One or more VMM servers running on System Center 2012 R2, with one or more clouds.<br/><br/> Clouds should contain one or more VMM host groups.<br/><br/> At least one Hyper-V server in cloud, running at least Windows Server 2012 R2 with Hyper-V role or Microsoft Hyper-V Server 2012 R2 with the latest updates.<br/><br/> VMM servers and Hyper-V hosts need internet access, and need to be able to access specific URLs directly, or via a proxy. [Full details](#on-premises-prerequisites). |
 | **On-premises limitations** |HTTPS-based proxy isn't supported |
 | **Provider/agent** |Replicated VMs need the Azure Site Recovery Provider.<br/><br/> Hyper-V hosts need the Recovery Services agent.<br/><br/> You install these during deployment. |
 |  **Azure requirements** |Azure account<br/><br/> Recovery services vault<br/><br/> LRS or GRS storage account in vault region<br/><br/> Standard storage account<br/><br/> Azure virtual network in vault region. [Full details](#azure-prerequisites). |
