@@ -193,7 +193,7 @@ Now you have deployed an IoT hub using an Azure Resource Manager template with a
 To learn more about developing for IoT Hub, see the following:
 
 * [Introduction to C SDK][lnk-c-sdk]
-* [IoT Hub SDKs][lnk-sdks]
+* [Azure IoT SDKs][lnk-sdks]
 
 To further explore the capabilities of IoT Hub, see:
 

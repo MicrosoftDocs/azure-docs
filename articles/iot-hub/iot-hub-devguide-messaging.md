@@ -62,7 +62,7 @@ There are, however, a few important distinctions between IoT Hub device-to-cloud
 > 
 > 
 
-For details about how to use device-to-cloud messaging, see [IoT Hub APIs and SDKs][lnk-sdks].
+For details about how to use device-to-cloud messaging, see [Azure IoT SDKs][lnk-sdks].
 
 > [!NOTE]
 > When using HTTP to send device-to-cloud messages, property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
@@ -134,7 +134,7 @@ A thread could fail to process a message without notifying IoT Hub. In this case
 
 A message can transition between the **Enqueued** and **Invisible** states for, at most, the number of times specified in the **max delivery count** property on IoT Hub. After that number of transitions, IoT Hub sets the state of the message to **Deadlettered**. Similarly, IoT Hub sets the state of a message to **Deadlettered** after its expiration time (see [Time to live][lnk-ttl]).
 
-For a tutorial on cloud-to-device messages, see [Tutorial: How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial]. For reference topics on how different APIs and SDKs expose the cloud-to-device functionality, see [IoT Hub APIs and SDKs][lnk-sdks].
+For a tutorial on cloud-to-device messages, see [Tutorial: How to send cloud-to-device messages with IoT Hub][lnk-c2d-tutorial]. For reference topics on how the different Azure IoT SDKs expose the cloud-to-device functionality, see [Azure IoT SDKs][lnk-sdks].
 
 > [!NOTE]
 > Typically, cloud-to-device messages complete whenever the loss of the message would not affect the application logic. For example, the message content has been successfully persisted in local storage, or an operation has been successfully executed. The message could also be carrying transient information, whose loss would not impact the functionality of the application. Sometimes, for long-running tasks, you can complete the cloud-to-device message after persisting the task description in local storage. Then you can notify the application back end with one or more device-to-cloud messages at various stages of progress of the task.
@@ -257,7 +257,7 @@ IoT Hub messages comprise:
 * A set of *application properties*. A dictionary of string properties that the application can define and access, without needing to deserialize the message body. IoT Hub never modifies these properties.
 * An opaque binary body.
 
-For more information about how the message is encoded in different protocols, see [IoT Hub APIs and SDKs][lnk-sdks].
+For more information about how the message is encoded in different protocols, see [Azure IoT SDKs][lnk-sdks].
 
 The following table lists the set of system properties in IoT Hub messages.
 
@@ -336,7 +336,7 @@ Other reference topics in the Developer Guide include:
 
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
+* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
 * [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 

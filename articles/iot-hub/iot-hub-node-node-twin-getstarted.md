@@ -26,7 +26,7 @@ At the end of this tutorial, you will have two Node.js console applications:
 * **TwinSimulatedDevice.js**, a Node.js app which simulates a device that connects to your IoT hub with the device identity created earlier, and reports its connectivity condition.
 
 > [!NOTE]
-> The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both device and back-end applications.
+> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both device and back-end applications.
 > 
 > 
 

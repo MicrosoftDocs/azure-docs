@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub for Node.js getting started | Microsoft Docs
-description: Azure IoT Hub with Node.js getting started tutorial. Use Azure IoT Hub and Node.js with the Microsoft Azure IoT SDKs to implement an Internet of Things solution.
+description: Azure IoT Hub with Node.js getting started tutorial. Use Azure IoT Hub and Node.js with the Azure IoT SDKs to implement an Internet of Things solution.
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -22,12 +22,12 @@ ms.author: dobett
 
 At the end of this tutorial, you have three Node.js console applications:
 
-* **CreateDeviceIdentity.js**, which creates a device identity and associated security key to connect your simulated device.
-* **ReadDeviceToCloudMessages.js**, which displays the telemetry sent by your simulated device.
+* **CreateDeviceIdentity.js**, which creates a device identity and associated security key to connect your simulated device app.
+* **ReadDeviceToCloudMessages.js**, which displays the telemetry sent by your simulated device app.
 * **SimulatedDevice.js**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second using the AMQP protocol.
 
 > [!NOTE]
-> The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution back end.
+> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.
 > 
 > 
 
@@ -41,7 +41,7 @@ To complete this tutorial, you need the following:
 You have now created your IoT hub. You have the IoT Hub hostname and the IoT Hub connection string that you need to complete the rest of this tutorial.
 
 ## Create a device identity
-In this section, you create a Node.js console app that creates a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the device identity registry. Refer to the **Device Identity Registry** section of the [IoT Hub Developer Guide][lnk-devguide-identity] for more information. When you run this console application, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
+In this section, you create a Node.js console app that creates a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. Refer to the **Identity Registry** section of the [IoT Hub Developer Guide][lnk-devguide-identity] for more information. When you run this console application, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
 
 1. Create a new empty folder called **createdeviceidentity**. In the **createdeviceidentity** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
    
@@ -68,7 +68,7 @@ In this section, you create a Node.js console app that creates a device identity
    
     var registry = iothub.Registry.fromConnectionString(connectionString);
     ```
-6. Add the following code to create a device definition in the device identity registry in your IoT hub. This code creates a device if the device id does not exist in the registry, otherwise it returns the key of the existing device:
+6. Add the following code to create a device definition in the identity registry in your IoT hub. This code creates a device if the device id does not exist in the registry, otherwise it returns the key of the existing device:
    
     ```
     var device = new iothub.Device(null);

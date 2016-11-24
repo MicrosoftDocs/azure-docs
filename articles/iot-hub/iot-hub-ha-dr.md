@@ -26,7 +26,7 @@ In addition to intra-region HA, IoT Hub implements failover mechanisms for disas
 | Functionality | RPO |
 | --- | --- |
 | Service availability for registry and communication operations |Possible CName loss |
-| Identity data in device identity registry |0-5 mins data loss |
+| Identity data in identity registry |0-5 mins data loss |
 | Device-to-cloud messages |All unread messages are lost |
 | Operations monitoring messages |All unread messages are lost |
 | Cloud-to-device messages |0-5 mins data loss |

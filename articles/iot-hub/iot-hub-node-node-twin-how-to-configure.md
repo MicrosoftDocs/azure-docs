@@ -26,7 +26,7 @@ At the end of this tutorial, you will have two Node.js console applications:
 * **SetDesiredConfigurationAndQuery.js**, a Node.js app meant to be run from the back end, which sets the desired configuration on a device and queries the configuration update process.
 
 > [!NOTE]
-> The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both device and back-end applications.
+> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both device and back-end applications.
 > 
 > 
 

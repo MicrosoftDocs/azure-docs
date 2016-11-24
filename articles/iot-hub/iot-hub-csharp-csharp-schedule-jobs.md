@@ -36,14 +36,14 @@ Learn more about each of these capabilities in these articles:
 
 This tutorial shows you how to:
 
-* Create a simulated device that has a direct method which enables **lockDoor** which can be called by the back-end app.
-* Create a console application that calls the **lockDoor** direct method on the simulated device using a job and updates the desired properties using a device job.
+* Create a simulated device app that has a direct method which enables **lockDoor** which can be called by the back-end app.
+* Create a console application that calls the **lockDoor** direct method in the simulated device app using a job and updates the desired properties using a device job.
 
 At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
 
 **simDevice.js**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
 
-**ScheduleJob**, which calls a direct method on the simulated device and updates the device twin's desired properties using a job.
+**ScheduleJob**, which calls a direct method in the simulated device app and updates the device twin's desired properties using a job.
 
 To complete this tutorial, you need the following:
 

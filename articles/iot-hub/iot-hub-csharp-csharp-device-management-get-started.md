@@ -36,14 +36,14 @@ You can use a back-end app in the cloud to run device twin queries to report on 
 This tutorial shows you how to:
 
 * Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
-* Create a simulated device that has a direct method which enables reboot which can be called by the cloud.
-* Create a console application that calls the reboot direct method on the simulated device through your IoT hub.
+* Create a simulated device app that has a direct method which enables reboot which can be called by the cloud.
+* Create a console application that calls the reboot direct method in the simulated device app through your IoT hub.
 
 At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
 
 **dmpatterns_getstarted_device.js**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
 
-**TriggerReboot**, which calls a direct method on the simulated device, displays the response, and displays the updated reported properties.
+**TriggerReboot**, which calls a direct method in the simulated device app, displays the response, and displays the updated reported properties.
 
 To complete this tutorial, you need the following:
 

@@ -92,8 +92,8 @@ Device data refers to the per-device data stored in the IoT Hub [identity regist
 ## Device explorer
 The [device explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/DeviceExplorer/readme.md) is a tool that runs on Windows and enables you to manage your devices in the [identity registry](#identity-registry), and send and receive messages to your devices.
 
-## Device Identities REST API
-The [Device Identities REST API](https://docs.microsoft.com/rest/api/iothub/device-identities-rest) enables you to manage your devices registered in the [identity registry](#identity-registry) using a REST API. Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
+## Device identities REST API
+The [Device identities REST API](https://docs.microsoft.com/rest/api/iothub/device-identities-rest) enables you to manage your devices registered in the [identity registry](#identity-registry) using a REST API. Typically, you should use one of the higher-level [service SDKs](#azure-iot-service-sdks) as shown in the IoT Hub tutorials.
 
 ## Device identity
 The device identity is the unique identifier assigned to every device registered in the [identity registry](#identity-registry).
@@ -104,8 +104,8 @@ Device management encompasses the full lifecycle associated with managing the de
 ## Device management patterns
 [IoT hub](#iot-hub) enables common device management patterns including rebooting, performing factory resets, and performing firmware updates on your devices.
 
-## Device Messaging REST API
-You can use the [Device Messaging REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis) from a device to send device-to-cloud messages to an IoT hub, and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [device SDKs](#azure-iot-device-sdks) as shown in the IoT Hub tutorials.
+## Device messaging REST API
+You can use the [Device messaging REST API](https://docs.microsoft.com/rest/api/iothub/device-messaging-rest-apis) from a device to send device-to-cloud messages to an IoT hub, and receive [cloud-to-device](#cloud-to-device) messages from an IoT hub. Typically, you should use one of the higher-level [device SDKs](#azure-iot-device-sdks) as shown in the IoT Hub tutorials.
 
 ## Device provisioning
 Device provisioning is the process of adding the initial [device data](#device-data) to the stores in your solution. To enable a new device to connect to your hub, you must add a device ID and keys to the IoT Hub [identity registry](#identity-registry). As part of the provisioning process, you might need to initialize device-specific data in other solution stores.
@@ -147,7 +147,7 @@ The [identity registry](iot-hub-devguide-identity-registry.md) is the built-in c
 An interactive message is a [cloud-to-device](#cloud-to-device) message that triggers an immediate action in the application back end. For example, a device might send an alarm about a failure that should be automatically logged into a CRM system.
 
 ## IoT Hub
-IoT Hub is a fully managed Azure service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end. For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Using your [Azure subscription](#subscription), you can create IoT hubs to handle your IoT messaging workloads.
+IoT Hub is a fully managed Azure service that enables reliable and secure bidirectional communications between millions of devices and a solution back end. For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Using your [Azure subscription](#subscription), you can create IoT hubs to handle your IoT messaging workloads.
 
 ## IoT Hub metrics
 [IoT Hub metrics](iot-hub-metrics.md) give you data about the state of the IoT hubs in your [Azure subscription](#subscription). Metrics enable you to assess the overall health of the service and the devices connected to it. Metrics can help you see what is going on with your IoT hub and investigate root-cause issues without needing to contact Azure support.
@@ -155,8 +155,8 @@ IoT Hub is a fully managed Azure service that enables reliable and secure bidire
 ## IoT Hub query language
 The [IoT Hub query language](iot-hub-devguide-query-language.md) is a SQL-like language that enables you to query your [jobs](#job) and device twins.
 
-## IoT Hub Resource Provider REST API
-You can use the [IoT Hub Resource Provider REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) to manage the IoT hubs in your [Azure subscription](#subscription) performing operations such as creating, updating, and deleting hubs.
+## IoT Hub resource provider REST API
+You can use the [IoT Hub resource provider REST API](https://docs.microsoft.com/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest) to manage the IoT hubs in your [Azure subscription](#subscription) performing operations such as creating, updating, and deleting hubs.
 
 ## IoT Suite
 Azure IoT Suite packages together multiple Azure services with preconfigured solutions. These preconfigured solutions enable you to get started quickly with end-to-end implementations of common IoT scenarios. For more information, see [What is Azure IoT Suite?](../iot-suite/iot-suite-overview.md)

@@ -19,7 +19,7 @@ ms.author: elioda
 ---
 # Tutorial: How to upload files from devices to the cloud with IoT Hub
 ## Introduction
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub, and the [Process Device-to-Cloud messages] tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. Examples include large files that contain images, videos, vibration data sampled at high frequency, or that contain some form of preprocessed data. These files are typically batch processed in the cloud using tools such as [Azure Data Factory] or the [Hadoop] stack. When file uploads from a device are preferred to sending events, you can still use IoT Hub security and reliability functionality.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and an application back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub, and the [Process Device-to-Cloud messages] tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. Examples include large files that contain images, videos, vibration data sampled at high frequency, or that contain some form of preprocessed data. These files are typically batch processed in the cloud using tools such as [Azure Data Factory] or the [Hadoop] stack. When file uploads from a device are preferred to sending events, you can still use IoT Hub security and reliability functionality.
 
 This tutorial builds on the code in the [Send Cloud-to-Device messages with IoT Hub] tutorial to show you how to use the file upload capabilities of IoT Hub. It shows you how to securely provide a device with an Azure blob URI for uploading a file, and how to use the IoT Hub file upload notifications to trigger processing the file in your app back end.
 
@@ -39,12 +39,12 @@ In order to complete this tutorial, you need the following:
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
 ## Associate an Azure Storage account to IoT Hub
-Because the simulated device uploads a file to a blob, you must have an [Azure Storage] account associated to IoT Hub. When you associate an Azure Storage account with an IoT hub, the IoT hub can generate a SAS URI that a device can use to securely upload a file to a blob container. The IoT Hub service and the device SDKs coordinate the process that generates the SAS URI and makes it available to a device to use to upload a file.
+Because the simulated device app uploads a file to a blob, you must have an [Azure Storage] account associated to IoT Hub. When you associate an Azure Storage account with an IoT hub, the IoT hub can generate a SAS URI that a device can use to securely upload a file to a blob container. The IoT Hub service and the device SDKs coordinate the process that generates the SAS URI and makes it available to a device to use to upload a file.
 
 Follow the instructions in [Configure file uploads using the Azure portal][lnk-configure-upload] to associate an Azure Storage account to your IoT hub.
 
-## Upload a file from a simulated device
-In this section, you modify the simulated device application you created in [Send Cloud-to-Device messages with IoT Hub] to receive cloud-to-device messages from the IoT hub.
+## Upload a file from a simulated device app
+In this section, you modify the simulated device app you created in [Send Cloud-to-Device messages with IoT Hub] to receive cloud-to-device messages from the IoT hub.
 
 1. In Visual Studio, right-click the **SimulatedDevice** project, click **Add**, and then click **Existing Item**. Navigate to an image file and include it in your project. This tutorial assumes the image is named `image.jpg`.
 2. Right-click on the image, and then click **Properties**. Make sure that **Copy to Output Directory** is set to **Copy always**.
@@ -140,7 +140,7 @@ In this tutorial, you learned how to leverage the file upload capabilities of Io
 
 * [Create an IoT hub programmatically][lnk-create-hub]
 * [Introduction to C SDK][lnk-c-sdk]
-* [IoT Hub SDKs][lnk-sdks]
+* [Azure IoT SDKs][lnk-sdks]
 
 To further explore the capabilities of IoT Hub, see:
 

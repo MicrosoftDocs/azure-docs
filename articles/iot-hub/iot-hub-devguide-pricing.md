@@ -1,6 +1,6 @@
 ---
 title: Developer guide - Pricing example | Microsoft Docs
-description: Azure IoT Hub developer guide - Information about and links to the various Azure IoT Hub device and service SDKs.
+description: Azure IoT Hub developer guide - Information about and links to the various Azure IoT device and service SDKs.
 services: iot-hub
 documentationcenter: ''
 author: dominicbetts

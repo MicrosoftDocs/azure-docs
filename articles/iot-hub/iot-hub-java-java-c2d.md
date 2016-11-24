@@ -21,7 +21,7 @@ ms.author: dobett
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## Introduction
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of IoT devices and an application back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device that sends device-to-cloud messages.
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and an application back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
 
 This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
@@ -34,7 +34,7 @@ You can find more information on cloud-to-device messages in the [IoT Hub Develo
 At the end of this tutorial, you run two Java console applications:
 
 * **simulated-device**, a modified version of the app created in [Get started with IoT Hub], which connects to your IoT hub and receives cloud-to-device messages.
-* **send-c2d-messages**, which sends a cloud-to-device message to the simulated device through IoT Hub, and then receives its delivery acknowledgement.
+* **send-c2d-messages**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgement.
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center].
@@ -47,8 +47,8 @@ To complete this tutorial, you need the following:
 * Maven 3.  <br/> [Prepare your development environment][lnk-dev-setup] describes how to install Maven for this tutorial on either Windows or Linux.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-## Receive messages on the simulated device
-In this section, you modify the simulated device application you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
+## Receive messages in the simulated device app
+In this section, you modify the simulated device app you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
 
 1. Using a text editor, open the simulated-device\src\main\java\com\mycompany\app\App.java file.
 2. Add the following **MessageCallback** class as a nested class inside the **App** class. The **execute** method is invoked when the device receives a message from IoT Hub. In this example, the device always notifies the IoT hub that it has completed the message:

@@ -22,11 +22,11 @@ ms.author: nberdy
 
 At the end of this tutorial, you have two Node.js console applications:
 
-* **CallMethodOnDevice.js**, which calls a method on the simulated device and displays the response.
+* **CallMethodOnDevice.js**, which calls a method in the simulated device app and displays the response.
 * **SimulatedDevice.js**, which connects to your IoT hub with the device identity created earlier, and responds to the method called by the cloud.
 
 > [!NOTE]
-> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution back end.
+> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.
 > 
 > 
 
@@ -102,7 +102,7 @@ In this section, you create a Node.js console app that responds to a method call
 > 
 
 ## Call a method on a device
-In this section, you create a Node.js console app that calls a method on the simulated device and then displays the response.
+In this section, you create a Node.js console app that calls a method in the simulated device app and then displays the response.
 
 1. Create a new empty folder called **callmethodondevice**. In the **callmethodondevice** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
    

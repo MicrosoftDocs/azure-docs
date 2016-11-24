@@ -22,11 +22,11 @@ ms.author: nberdy
 
 At the end of this tutorial, you will have a .NET and a Node.js console application:
 
-* **CallMethodOnDevice.sln**, a .NET app meant to be run from the back end, which calls a method on the simulated device and displays the response.
+* **CallMethodOnDevice.sln**, a .NET app meant to be run from the back end, which calls a method in the simulated device app and displays the response.
 * **SimulatedDevice.js**, a Node.js app which simulates a device that connects to your IoT hub with the device identity created earlier, and responds to the method called by the cloud.
 
 > [!NOTE]
-> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution back end.
+> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.
 > 
 > 
 
@@ -103,7 +103,7 @@ In this section, you create a Node.js console app that responds to a method call
 > 
 
 ## Call a direct method on a device
-In this section, you create a .NET console app that calls a method on the simulated device and then displays the response.
+In this section, you create a .NET console app that calls a method in the simulated device app and then displays the response.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **CallMethodOnDevice**.
    
@@ -152,7 +152,7 @@ You are now ready to run the applications.
     ```
    
     ![][7]
-2. Now that the device is connected and waiting for method invocations, run the .NET **CallMethodOnDevice** app to invoke the method on the simulated device. You should see the device response written in the console.
+2. Now that the device is connected and waiting for method invocations, run the .NET **CallMethodOnDevice** app to invoke the method in the simulated device app. You should see the device response written in the console.
    
     ![][8]
 3. You will see the device react to the method by printing out the message and the application which called the method display the response from the device:

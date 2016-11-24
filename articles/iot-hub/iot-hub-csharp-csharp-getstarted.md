@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub for C# getting started | Microsoft Docs
-description: Azure IoT Hub with C# getting started tutorial. Use Azure IoT Hub and C# with the Microsoft Azure IoT SDKs to implement an Internet of Things solution.
+description: Azure IoT Hub with C# getting started tutorial. Use Azure IoT Hub and C# with the Azure IoT SDKs to implement an Internet of Things solution.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -22,12 +22,12 @@ ms.author: dobett
 
 At the end of this tutorial, you have three Windows console applications:
 
-* **CreateDeviceIdentity**, which creates a device identity and associated security key to connect your simulated device.
-* **ReadDeviceToCloudMessages**, which displays the telemetry sent by your simulated device.
+* **CreateDeviceIdentity**, which creates a device identity and associated security key to connect your simulated device app.
+* **ReadDeviceToCloudMessages**, which displays the telemetry sent by your simulated device app.
 * **SimulatedDevice**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second by using the AMQP protocol.
 
 > [!NOTE]
-> For information about the various SDKs that you can use to build both applications to run on devices, and your solution back end, see [IoT Hub SDKs][lnk-hub-sdks].
+> For information about the Azure IoT SDKs that you can use to build both applications to run on devices, and your solution back end, see [Azure IoT SDKs][lnk-hub-sdks].
 > 
 > 
 
@@ -41,7 +41,7 @@ To complete this tutorial, you need the following:
 You have now created your IoT hub, and you have the hostname and connection string that you need to complete the rest of this tutorial.
 
 ## Create a device identity
-In this section, you create a Windows console app that creates a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the device identity registry. For more information, see the "Device identity registry" section of the [IoT Hub Developer Guide][lnk-devguide-identity]. When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
+In this section, you create a Windows console app that creates a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the "Identity registry" section of the [IoT Hub Developer Guide][lnk-devguide-identity]. When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
 
 1. In Visual Studio, add a Visual C# Windows Classic Desktop project to the current solution by using the **Console Application** project template. Make sure the .NET Framework version is 4.5.1 or later. Name the project **CreateDeviceIdentity**.
    
@@ -75,7 +75,7 @@ In this section, you create a Windows console app that creates a device identity
             Console.WriteLine("Generated device key: {0}", device.Authentication.SymmetricKey.PrimaryKey);
         }
    
-    This method creates a device identity with ID **myFirstDevice**. (If that device ID already exists in the registry, the code simply retrieves the existing device information.) The app then displays the primary key for that identity. You use this key in the simulated device to connect to your IoT hub.
+    This method creates a device identity with ID **myFirstDevice**. (If that device ID already exists in the registry, the code simply retrieves the existing device information.) The app then displays the primary key for that identity. You use this key in the simulated device app to connect to your IoT hub.
 7. Finally, add the following lines to the **Main** method:
    
         registryManager = RegistryManager.CreateFromConnectionString(connectionString);
@@ -219,7 +219,7 @@ You are now ready to run the applications.
 1. In Visual Studio, in Solution Explorer, right-click your solution, and then click **Set StartUp projects**. Select **Multiple startup projects**, and then select **Start** as the action for both the **ReadDeviceToCloudMessages** and **SimulatedDevice** projects.
    
     ![Startup project properties][41]
-2. Press **F5** to start both apps running. The console output from the **SimulatedDevice** app shows the messages your simulated device sends to your IoT hub. The console output from the **ReadDeviceToCloudMessages** app shows the messages that your IoT hub receives.
+2. Press **F5** to start both apps running. The console output from the **SimulatedDevice** app shows the messages your simulated device app sends to your IoT hub. The console output from the **ReadDeviceToCloudMessages** app shows the messages that your IoT hub receives.
    
     ![Console output from apps][42]
 3. The **Usage** tile in the [Azure portal][lnk-portal] shows the number of messages sent to the IoT hub:

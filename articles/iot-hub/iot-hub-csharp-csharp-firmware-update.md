@@ -25,12 +25,12 @@ In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw
 
 This tutorial shows you how to:
 
-* Create a console app that calls the firmwareUpdate direct method on the simulated device through your IoT hub.
-* Create a simulated device that implements a firmwareUpdate direct method which goes through a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image.  Throughout executing each stage the device uses the reported properties to update progress.
+* Create a console app that calls the firmwareUpdate direct method in the simulated device app through your IoT hub.
+* Create a simulated device app that implements a firmwareUpdate direct method which goes through a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image.  Throughout executing each stage the device uses the reported properties to update progress.
 
 At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
 
-**dmpatterns_fwupdate_service.js**, which calls a direct method on the simulated device, displays the response, and periodically (every 500ms) displays the updated reported properties.
+**dmpatterns_fwupdate_service.js**, which calls a direct method in the simulated device app, displays the response, and periodically (every 500ms) displays the updated reported properties.
 
 **TriggerFWUpdate**, which connects to your IoT hub with the device identity created earlier, receives a firmwareUpdate direct method, runs through a multi-state process to simulate a firmware update including: waiting for the image download, downloading the new image, and finally applying the image.
 

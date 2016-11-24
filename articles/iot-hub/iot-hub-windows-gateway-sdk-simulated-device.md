@@ -17,7 +17,7 @@ ms.date: 08/29/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK – send device-to-cloud messages with a simulated device using Windows
+# Azure IoT Gateway SDK – send device-to-cloud messages with a simulated device app using Windows
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## Build and run the sample
@@ -134,7 +134,7 @@ To run the sample:
 ## Next steps
 If you want to gain a more advanced understanding of the IoT Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
 
-* [Send device-to-cloud messages from a real device with the IoT Gateway SDK][lnk-physical-device]
+* [Send device-to-cloud messages from a physical device with the IoT Gateway SDK][lnk-physical-device]
 * [Azure IoT Gateway SDK][lnk-gateway-sdk]
 
 To further explore the capabilities of IoT Hub, see:

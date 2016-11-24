@@ -29,7 +29,7 @@ The following is a description of the endpoints:
 * **Device identity management**. Each IoT hub exposes a set of HTTP REST endpoints to manage device identities (create, retrieve, update, and delete). [Device identities][lnk-device-identities] are used for device authentication and access control.
 * **Device twin management**. Each IoT hub exposes a set of service-facing HTTP REST endpoint to query and update [device twins][lnk-twins] (update tags and properties).
 * **Jobs management**. Each IoT hub exposes a set of service-facing HTTP REST endpoint to query and manage [jobs][lnk-jobs].
-* **Device endpoints**. For each device provisioned in the device identity registry, IoT Hub exposes a set of endpoints that a device can use to send and receive messages:
+* **Device endpoints**. For each device provisioned in the identity registry, IoT Hub exposes a set of endpoints that a device can use to send and receive messages:
   
   * *Send device-to-cloud messages*. Use this endpoint to [send device-to-cloud messages][lnk-d2c].
   * *Receive cloud-to-device messages*. A device uses this endpoint to receive targeted [cloud-to-device messages][lnk-c2d].
@@ -47,7 +47,7 @@ The following is a description of the endpoints:
   * *Receive file notifications*. This messaging endpoint allows you to receive notifications of when your devices successfully upload a file. 
   * *Direct method invocation*. This endpoint allows a back-end service to invoke a [direct method][lnk-methods] on a device.
 
-The [IoT Hub APIs and SDKs][lnk-sdks] article describes the various ways to access these endpoints.
+The [Azure IoT SDKs][lnk-sdks] article describes the various ways to access these endpoints.
 
 Finally, it is important to note that all IoT Hub endpoints use the [TLS][lnk-tls] protocol, and no endpoint is ever exposed on unencrypted/unsecured channels.
 
