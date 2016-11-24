@@ -71,10 +71,10 @@ When using a Resource Manager template, the VM Agent can be disabled in the VM r
 
 ### PowerShell
 
-If using PowerShell to deploy a new Azure virtual machine, the VM agent can be disabled. The following PowerShell command gives an example of doing so.
+When using PowerShell to deploy a new Azure virtual machine, the `Set-AzureRmVMOperatingSystem` command includes a `-ProvisionVMAgnet` switch parameter. This means that if the parameter is present the VM Agent will be installed, if not, the VM Agent is not installed. The following command will configure the VM deployment operation so that the VM Agent is not installed. For a complete walkthrough on deploying Azure virtual machines with PowerShell, see [Create a Windows VM using PowerShell](./virtual-machines-windows-ps-create/md).
 
 ```PowerShell
-Add Example
+Set-AzureRmVMOperatingSystem -VM $myVM -Windows -ComputerName "myVM" -Credential $cred -EnableAutoUpdate
 ```
 
 ### Custom VM image
