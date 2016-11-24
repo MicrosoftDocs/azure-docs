@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
 ms.date: 11/14/2016
-ms.author: raynew
+ms.author: raynew 
 ---
 
 # Prepare for Azure Site Recovery deployment
