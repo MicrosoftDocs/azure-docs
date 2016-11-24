@@ -20,6 +20,51 @@ ms.author: rogardle
 
 ---
 # Connect to an Azure Container Service cluster
+The DC/OS, Kubernetes and Docker Swarm clusters that are deployed Azure Container Service all expose REST endpoints.  For Kubernetes,
+this endpoint is securely exposed on the internet and you can access it directly from any machine connected to the internet. For DC/OS 
+and Docker Swarm you must create an SSH tunnel in order to securely connect to the REST endpoint. Each of these connections is
+described below.
+
+## Connecting to a Kubernetes cluster.
+To connect to a Kubernetes cluster, you need to have the `kubectl` command line tool installed.  The easiest way to install this
+tool is to use the Azure 2.0 `az` command line tool.
+
+```console
+az acs kubernetes install cli [--install-location=/some/directory]
+```
+
+Alternately, you can download the client directly from the [releases page](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146)
+
+Once you have `kubectl` installed, you need to copy the cluster credentials to your machine.  The easiest way to do
+this is again the `az` command line tool:
+
+```console
+az acs kubernetes get-credentials --dns-prefix=<some-prefix> --location=<some-location>
+```
+
+This will download the cluster credentials into `$HOME/.kube/config` where `kubectl` expects it to be located.
+
+Alternately, you can use `scp` to securely copy the file from `$HOME/.kube/config` on the master VM to your local machine.
+
+```console
+mkdir $HOME/.kube/config
+scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
+```
+
+If you are on Windows you will need to use Bash on Ubuntu on Windows or the Putty 'pscp' tool.
+
+Once you have `kubectl` configured, you can test this with:
+
+```console
+kubectl get nodes
+```
+
+which should show you the nodes in your cluster.
+
+For further instructions you can see the [Kubernetes quick start](http://kubernetes.io/docs/user-guide/quick-start/)
+
+## Connecting to a DC/OS or Swarm cluster
+
 The DC/OS and Docker Swarm clusters that are deployed by Azure Container Service expose REST endpoints. However, these endpoints are not open to the outside world. In order to manage these endpoints, you must create a Secure Shell (SSH) tunnel. After an SSH tunnel has been established, you can run commands against the cluster endpoints and view the cluster UI through a browser on your own system. This document walks you through creating an SSH tunnel from Linux, OS X, and Windows.
 
 > [!NOTE]

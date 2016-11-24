@@ -45,6 +45,8 @@ When designing your application infrastructure, you should also plan the applica
 
 Load balancers can be utilized in front of each application tier to work alongside an availability set and ensure traffic can always be routed to a running instance. Without a load balancer, your VMs may continue running throughout planned and unplanned maintenance events, but your end users may not be able to resolve them if the primary VM is unavailable.
 
+You should also design your application for high availability at storage layer. The best practice is to use separate storage account for each VM in an Availability Set. You should keep all disks (OS and data) associated with a VM in the same storage account. Storage account [limits](../storage/storage-scalability-targets.md) should also be considered when adding more VHDs to a storage account.
+
 ## Next steps
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-next-steps](../../includes/virtual-machines-windows-infrastructure-guidelines-next-steps.md)]
 

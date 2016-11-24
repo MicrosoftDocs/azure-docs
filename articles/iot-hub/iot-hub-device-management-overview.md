@@ -17,7 +17,7 @@ ms.date: 10/03/2016
 ms.author: bzurcher
 
 ---
-# Overview of device management with IoT Hub (preview)
+# Overview of device management with IoT Hub
 ## Introduction
 Azure IoT Hub provides the features and an extensibility model that enable device and back-end developers to build robust device management solutions. Devices range from constrained sensors and single purpose microcontrollers, to powerful gateways that route communications for groups of devices.  In addition, the use cases and requirements for IoT operators vary significantly across industries.  Despite this variation, device management with IoT Hub provides the capabilities, patterns, and code libraries to cater to a diverse set of devices and end users.
 
