@@ -46,7 +46,7 @@ The following table describes the required configuration for port values for a S
 ## Next steps
 To learn more about Service Bus messaging, see the following topics.
 
-* [Service Bus fundamentals](service-bus-fundamentals-hybrid-solutions.md)
-* [Service Bus queues, topics, and subscriptions](service-bus-queues-topics-subscriptions.md)
-* [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
-* [How to use Service Bus topics and subscriptions](service-bus-dotnet-how-to-use-topics-subscriptions.md)
+* [Service Bus fundamentals](../service-bus-messaging/service-bus-fundamentals-hybrid-solutions.md)
+* [Service Bus queues, topics, and subscriptions](../service-bus-messaging/service-bus-queues-topics-subscriptions.md)
+* [How to use Service Bus queues](../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md)
+* [How to use Service Bus topics and subscriptions](../service-bus-messaging/service-bus-dotnet-how-to-use-topics-subscriptions.md)
