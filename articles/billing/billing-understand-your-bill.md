@@ -129,7 +129,7 @@ As part of our ongoing commitment to help customers easily manage their Azure us
 * **Version 1** uses the pre-existing format
 * **Version 2** includes additional information and updated column names in the Daily Usage section.  
 
-Usage charges are total **monthly** charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  The top section of the file displays the details on the services you are being billed for during the previous month's billing cycle.  The preceding table lists the names of the columns for each of the .csv version files.
+Usage charges are total **monthly** charges on a subscription less any credit or discount. You are billed in arrears for your past month’s usage.  The top section of the file displays the details on the services you are being billed for during the previous month's billing cycle.  The following table lists the names of the columns for each of the .csv version files.
 
 | Version 1 | Version 2 | Description |
 |:--- |:--- | --- |
