@@ -39,12 +39,12 @@ Service Fabric reverse proxy runs on all the nodes in the cluster. It performs t
 The default external communication model for microservices is **opt-in**  where each service by default cannot be accessed directly from external clients. The [Azure Load Balancer](../load-balancer/load-balancer-overview.md) is a network boundary between microservices and external clients, that performs network address translation and forwards external requests to internal **IP:port** endpoints. In order to make a microservice's endpoint directly accessible to external clients, the Azure Load Balancer must first be configured to forward traffic to each port used by the service in the cluster. Furthermore, most microservices(esp. stateful microservices) dont live on all the nodes of the cluster and they can move between nodes on failover, so in such cases, the Azure Load Balancer cannot effectively determine the target node of the replicas are located to forward the traffic to.
 
 ### Reaching Microservices via the SF reverse proxy from outside the cluster
-Instead of configuring individual service's ports in the azure load balancer, just the SF Reverse proxy port can be configured in the Azure Load Balancer. This allows clients outside the cluster to reach services inside the cluster via the reverse proxy without an additional configurations.
+Instead of configuring individual service's ports in the azure load balancer, just the SF Reverse proxy port can be configured in the Azure Load Balancer. This allows clients outside the cluster to reach services inside the cluster via the reverse proxy without additional configuration.
 
 ![External communication][0]
 
 > [!WARNING]
-> Configuring the reverse proxy's port on the load balancer, makes all the micro services in the cluster that expose a http endpoint, to be addressible from outside the cluster.
+> Configuring the reverse proxy's port on the load balancer makes all micro services in the cluster that expose a http endpoint addressable from outside the cluster.
 > 
 > 
 
@@ -55,7 +55,7 @@ The Reverse proxy uses a specific URI format to identify which service partition
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&Timeout=<timeout_in_seconds>
 ```
 
-* **http(s):** The reverse proxy can be configured to accept HTTP or HTTPS traffic. In case of HTTPS traffic, SSL termination occurs at the reverse proxy. Requests that are forwarded by the reverse proxy to services in the cluster are over http.
+* **http(s):** The reverse proxy can be configured to accept HTTP or HTTPS traffic. In the case of HTTPS traffic, SSL termination occurs at the reverse proxy. Requests that are forwarded by the reverse proxy to services in the cluster are over http.
 * **Cluster FQDN | internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
 * **Port:** The port that has been specified for the reverse proxy. Eg: 19008.
 * **ServiceInstanceName:** This is the fully-qualified deployed service instance name of the service you are trying to reach sans the "fabric:/" scheme. For example, to reach service *fabric:/myapp/myservice/*, you would use *myapp/myservice*.
@@ -126,7 +126,7 @@ This HTTP response header indicates a normal HTTP 404 situation in which the req
 ## Setup and configuration
 The service fabric Reverse proxy can be enabled for the cluster via the [Azure Resource Manager template](service-fabric-cluster-creation-via-arm.md).
 
-Once you have the template for the cluster that you want to deploy(either from the sample templates or by creating a custom resource manager template) the Reverse proxy can be enabled in the template by the following steps.
+Once you have the template for the cluster that you want to deploy (either from the sample templates or by creating a custom resource manager template) the Reverse proxy can be enabled in the template by the following steps.
 
 1. Define a port for the reverse proxy in the [Parameters section](../resource-group-authoring-templates.md) of the template.
    
