@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/27/2016
+ms.date: 11/23/2016
 ms.author: terrylan
 
 ---
@@ -58,7 +58,7 @@ You can enable data collection for your Azure subscription(s) in the Security po
 Data collection is enabled via the Azure Monitoring Agent and the Azure Security Monitoring extension. The Azure Security Monitoring extension scans for various security relevant configuration and sends it into [Event Tracing for Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) traces. In addition, the operating system creates event log entries.  The Azure Monitoring Agent reads event log entries and ETW traces and copies them to your storage account for analysis.  This is the storage account you configured in the security policy. For more information about the storage account, see question “[Where is my data stored?](#where-is-my-data-stored)”
 
 ### Does the Monitoring Agent or Security Monitoring extension impact the performance of my server(s)?
-The agent and extension consumes a nominal amount of system resources and should have little impact on the performance.
+The agent and extension consumes a nominal amount of system resources and should have little impact on the performance. For more information on performance impact and the agent and extension, see the [planning and operations guide](security-center-planning-and-operations-guide.md#data-collection-and-storage).
 
 ### Where is my data stored?
 For each region in which you have virtual machines running, you choose the storage account where data collected from those virtual machines is stored. This makes it easy for you to keep data in the same geographic area for privacy and data sovereignty purposes. You choose the storage account for a subscription in the Security policy. ([Sign in to the Azure portal](https://portal.azure.com), select **Browse**, select **Security Center**, and select **Policy**.) When you click on a subscription, a new blade opens. Select **Choose storage accounts** to select a region.
@@ -145,7 +145,7 @@ Supported Windows VMs:
 
 Supported Linux VMs:
 
-* Ubuntu versions 12.04, 14.04, 16.04
+* Ubuntu versions 12.04, 14.04, 16.04, 16.10
 * Debian versions 7, 8
 * CentOS versions 6.\*, 7.*
 * Red Hat Enterprise Linux (RHEL) versions 6.\*, 7.*
