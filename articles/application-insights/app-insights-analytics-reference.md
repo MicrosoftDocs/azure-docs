@@ -404,11 +404,15 @@ If there are several rows with the same values for those fields, you'll get rows
 
 **Tips**
 
+There is a limit of 64MB on the result table.
+
 For best performance:
 
 * Use `where` and `project` to reduce the numbers of rows and columns in the input tables, before the `join`. 
 * If one table is always smaller than the other, use it as the left (piped) side of the join.
 * The columns for the join match must have the same name. Use the project operator if necessary to rename a column in one of the tables.
+
+
 
 **Example**
 
