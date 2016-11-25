@@ -80,6 +80,12 @@ When the emulator is running, you'll see an icon in the Windows taskbar notifica
 
 The DocumentDB Emulator is installed by default to the `C:\Program Files\Azure DocumentDB Emulator` directory. You can also start and stop the emulator from the command-line. See [command-line tool reference](#command-line) for more information.
 
+## Start the local emulator Data Explorer
+
+When the local emulator lauches it will automatically open the DocumentDB Data Explorer in your local browser.  The address will appear as [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). If you close the explorer and would like to re-open it later you can either go direct to the URL or launch it from the DocumentDB Emulator in the the Windows Tray Icon as shown below;
+
+![DocumentDB local emulator data explorer launcher](./media/documentdb-nosql-local-emulator/DocumentDB_local_emulator_data_explorer_launcher.png)
+
 ## Developing with the DocumentDB Emulator
 Once you have the DocumentDB Emulator running on your desktop, you can use any supported [DocumentDB SDK](documentdb-sdk-dotnet.md) or the [DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) to interact with the Emulator. The DocumentDB Emulator also includes a built-in Data Explorer that lets you create collections, view and edit documents without writing any code. 
 
