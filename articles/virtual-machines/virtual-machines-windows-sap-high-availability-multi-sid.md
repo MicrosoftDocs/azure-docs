@@ -20,50 +20,50 @@ ms.author: goraco
 
 ---
 # Configure Additional SAP ASCS/SCS Instance in the Existing Cluster (SAP Multi-SID) - Azure Resource Manager
-[767598]:https://service.sap.com/sap/support/notes/767598
-[773830]:https://service.sap.com/sap/support/notes/773830
-[826037]:https://service.sap.com/sap/support/notes/826037
-[965908]:https://service.sap.com/sap/support/notes/965908
-[1031096]:https://service.sap.com/sap/support/notes/1031096
-[1139904]:https://service.sap.com/sap/support/notes/1139904
-[1173395]:https://service.sap.com/sap/support/notes/1173395
-[1245200]:https://service.sap.com/sap/support/notes/1245200
-[1409604]:https://service.sap.com/sap/support/notes/1409604
-[1558958]:https://service.sap.com/sap/support/notes/1558958
-[1585981]:https://service.sap.com/sap/support/notes/1585981
-[1588316]:https://service.sap.com/sap/support/notes/1588316
-[1590719]:https://service.sap.com/sap/support/notes/1590719
-[1597355]:https://service.sap.com/sap/support/notes/1597355
-[1605680]:https://service.sap.com/sap/support/notes/1605680
-[1619720]:https://service.sap.com/sap/support/notes/1619720
-[1619726]:https://service.sap.com/sap/support/notes/1619726
-[1619967]:https://service.sap.com/sap/support/notes/1619967
-[1750510]:https://service.sap.com/sap/support/notes/1750510
-[1752266]:https://service.sap.com/sap/support/notes/1752266
-[1757924]:https://service.sap.com/sap/support/notes/1757924
-[1757928]:https://service.sap.com/sap/support/notes/1757928
-[1758182]:https://service.sap.com/sap/support/notes/1758182
-[1758496]:https://service.sap.com/sap/support/notes/1758496
-[1772688]:https://service.sap.com/sap/support/notes/1772688
-[1814258]:https://service.sap.com/sap/support/notes/1814258
-[1882376]:https://service.sap.com/sap/support/notes/1882376
-[1909114]:https://service.sap.com/sap/support/notes/1909114
-[1922555]:https://service.sap.com/sap/support/notes/1922555
-[1928533]:https://service.sap.com/sap/support/notes/1928533
-[1941500]:https://service.sap.com/sap/support/notes/1941500
-[1956005]:https://service.sap.com/sap/support/notes/1956005
-[1973241]:https://service.sap.com/sap/support/notes/1973241
-[1984787]:https://service.sap.com/sap/support/notes/1984787
-[1999351]:https://service.sap.com/sap/support/notes/1999351
-[2002167]:https://service.sap.com/sap/support/notes/2002167
-[2015553]:https://service.sap.com/sap/support/notes/2015553
-[2039619]:https://service.sap.com/sap/support/notes/2039619
-[2121797]:https://service.sap.com/sap/support/notes/2121797
-[2134316]:https://service.sap.com/sap/support/notes/2134316
-[2178632]:https://service.sap.com/sap/support/notes/2178632
-[2191498]:https://service.sap.com/sap/support/notes/2191498
-[2233094]:https://service.sap.com/sap/support/notes/2233094
-[2243692]:https://service.sap.com/sap/support/notes/2243692
+[767598]:https://launchpad.support.sap.com/#/notes/767598
+[773830]:https://launchpad.support.sap.com/#/notes/773830
+[826037]:https://launchpad.support.sap.com/#/notes/826037
+[965908]:https://launchpad.support.sap.com/#/notes/965908
+[1031096]:https://launchpad.support.sap.com/#/notes/1031096
+[1139904]:https://launchpad.support.sap.com/#/notes/1139904
+[1173395]:https://launchpad.support.sap.com/#/notes/1173395
+[1245200]:https://launchpad.support.sap.com/#/notes/1245200
+[1409604]:https://launchpad.support.sap.com/#/notes/1409604
+[1558958]:https://launchpad.support.sap.com/#/notes/1558958
+[1585981]:https://launchpad.support.sap.com/#/notes/1585981
+[1588316]:https://launchpad.support.sap.com/#/notes/1588316
+[1590719]:https://launchpad.support.sap.com/#/notes/1590719
+[1597355]:https://launchpad.support.sap.com/#/notes/1597355
+[1605680]:https://launchpad.support.sap.com/#/notes/1605680
+[1619720]:https://launchpad.support.sap.com/#/notes/1619720
+[1619726]:https://launchpad.support.sap.com/#/notes/1619726
+[1619967]:https://launchpad.support.sap.com/#/notes/1619967
+[1750510]:https://launchpad.support.sap.com/#/notes/1750510
+[1752266]:https://launchpad.support.sap.com/#/notes/1752266
+[1757924]:https://launchpad.support.sap.com/#/notes/1757924
+[1757928]:https://launchpad.support.sap.com/#/notes/1757928
+[1758182]:https://launchpad.support.sap.com/#/notes/1758182
+[1758496]:https://launchpad.support.sap.com/#/notes/1758496
+[1772688]:https://launchpad.support.sap.com/#/notes/1772688
+[1814258]:https://launchpad.support.sap.com/#/notes/1814258
+[1882376]:https://launchpad.support.sap.com/#/notes/1882376
+[1909114]:https://launchpad.support.sap.com/#/notes/1909114
+[1922555]:https://launchpad.support.sap.com/#/notes/1922555
+[1928533]:https://launchpad.support.sap.com/#/notes/1928533
+[1941500]:https://launchpad.support.sap.com/#/notes/1941500
+[1956005]:https://launchpad.support.sap.com/#/notes/1956005
+[1973241]:https://launchpad.support.sap.com/#/notes/1973241
+[1984787]:https://launchpad.support.sap.com/#/notes/1984787
+[1999351]:https://launchpad.support.sap.com/#/notes/1999351
+[2002167]:https://launchpad.support.sap.com/#/notes/2002167
+[2015553]:https://launchpad.support.sap.com/#/notes/2015553
+[2039619]:https://launchpad.support.sap.com/#/notes/2039619
+[2121797]:https://launchpad.support.sap.com/#/notes/2121797
+[2134316]:https://launchpad.support.sap.com/#/notes/2134316
+[2178632]:https://launchpad.support.sap.com/#/notes/2178632
+[2191498]:https://launchpad.support.sap.com/#/notes/2191498
+[2233094]:https://launchpad.support.sap.com/#/notes/2233094
+[2243692]:https://launchpad.support.sap.com/#/notes/2243692
 
 [sap-installation-guides]:http://service.sap.com/instguides
 
@@ -439,7 +439,7 @@ ms.author: goraco
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 
-In this article, we will explain how to install additional SAP ASCS / SCS clustered instances in existing Windows Failover Sever Cluster (WSFC). In this way, you will have configured so called SAP Multi-SID cluster.
+In this article, we will explain how to install additional SAP ASCS / SCS clustered instances in an existing Windows Failover Sever Cluster (WSFC). In this way, you will have configured a so called SAP Multi-SID cluster.
 
 > [!NOTE]
 > This feature is available only in the Azure Resource Manager deployment model.
@@ -491,12 +491,12 @@ Let’s say you want to install **additional** SAP ASCS/SCS instance with follow
 | SAP Virtual Host Name | pr5-sap-cl |
 | SAP  ASCS/SCS Virtual Host IP Address (Additional Azure Load Balancing IP Address) | 10.0.0.50 |
 | SAP ASCS/SCS Instance Number | 50 |
-| ILB Probe Port for additional SAP ASCS/SCS Instance | 62305 |
+| ILB Probe Port for additional SAP ASCS/SCS Instance | 62350 |
 
 > [!NOTE]
 > For SAP ASCS/SCS clustered instance, each IP address requires a specific probe port. For example, if one IP address on an Azure internal load balancer uses probe port 62300, no other IP addresses on that load balancer can use probe port 62300.
 >
->In our concrete case, as the probe port 62300 is already in reserved, we’ll use another probe port 62305.
+>In our concrete case, as the probe port 62300 is already in reserved, we’ll use another probe port 62350.
 >
 
 You are installing additional SAP ASCS/SCS instance in the **existing** WSFC cluster with two nodes:
@@ -542,8 +542,8 @@ $SubnetName = "Subnet"                        # Existing Subnet name
 $ILBName = "pr2-lb-ascs"                      # Existing ILB name                      
 $ILBIP = "10.0.0.50"                          # New IP address
 $VMNames = "pr2-ascs-0","pr2-ascs-1"          # Existing cluster Virtual machine names
-[int]$ProbePort = "62305"                     # Probe port - MUST be unique value per IP and load balancer
 $SAPInstanceNumber = 50                       # SAP ASCS/SCS Instance Number - must be unique value per cluster
+[int]$ProbePort = "623$SAPInstanceNumber"     # Probe port - MUST be unique value per IP and load balancer
 
 $ILB = Get-AzureRmLoadBalancer -Name $ILBName -ResourceGroupName $ResourceGroupName
 
@@ -673,7 +673,7 @@ High-level procedure description is following:
 
     On both cluster nodes used for SAP ASCS/SCS instance, open all the Windows firewall ports used by SAP ASCS/SCS ports. These ports are listed [here][sap-ha-guide-8.8].
 
-    Also, open the Azure internal load balancer probe port, which is in our case 62305.
+    Also, open the Azure internal load balancer probe port, which is in our case 62350.
 
 - [Change the start type of the SAP ERS Windows service instance][sap-ha-guide-9.4]
 
