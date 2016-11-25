@@ -82,7 +82,7 @@ The DocumentDB Emulator is installed by default to the `C:\Program Files\Azure D
 
 ## Start the local emulator Data Explorer
 
-When the local emulator lauches it will automatically open the DocumentDB Data Explorer in your local browser.  The address will appear as [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). If you close the explorer and would like to re-open it later you can either go direct to the URL or launch it from the DocumentDB Emulator in the the Windows Tray Icon as shown below;
+When the local emulator lauches it will automatically open the DocumentDB Data Explorer in your browser.  The address will appear as [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). If you close the explorer and would like to re-open it later, you can either open the URL in your browser or launch it from the DocumentDB Emulator in the the Windows Tray Icon as shown below.
 
 ![DocumentDB local emulator data explorer launcher](./media/documentdb-nosql-local-emulator/DocumentDB_local_emulator_data_explorer_launcher.png)
 
