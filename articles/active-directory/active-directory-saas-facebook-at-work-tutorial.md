@@ -95,10 +95,10 @@ For provisioned AAD users to be able to see Facebook at Work on their Access Pan
 * [What is application access and single sign-on with Azure Active Directory?](active-directory-appssoaccess-whatis.md)
 
 <!--Image references-->
-[1]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_01.png
-[2]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_02.png
-[3]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_03.png
-[4]: ./media/active-directory-saas-cs-stars-tutorial/tutorial_general_04.png
+[1]: ./media/active-directory-saas-facebook-at-work-tutorial/tutorial_general_01.png
+[2]: ./media/active-directory-saas-facebook-at-work-tutorial/tutorial_general_02.png
+[3]: ./media/active-directory-saas-facebook-at-work-tutorial/tutorial_general_03.png
+[4]: ./media/active-directory-saas-facebook-at-work-tutorial/tutorial_general_04.png
 
 
 
