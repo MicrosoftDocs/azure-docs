@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/25/2016
-ms.author: voellm
+ms.author: arramac
 
 ---
 # Use the Azure DocumentDB Emulator for development and testing
