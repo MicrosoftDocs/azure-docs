@@ -14,7 +14,8 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/12/2016
+ms.date: 11/11/2016
+ms.author: andrl
 
 ---
 # DocumentDB server-side programming: Stored procedures, database triggers, and UDFs
