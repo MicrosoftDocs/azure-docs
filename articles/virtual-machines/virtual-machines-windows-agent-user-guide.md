@@ -20,7 +20,7 @@ ms.author: nepeters
 ---
 # Azure Virtual Machine Agent overview
 
-The Microsoft Azure Virtual Machine Agent (AM Agent) is a secured, light weight process that manages VM interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions. VM Extensions enabling post deployment configuration of virtual machines, such as installing and configuring software. Virtual machine extensions also enable recovery features such as resetting the administrative password of a virtual machine. Without the Azure VM Agent, virtual machine extensions cannot be run.
+The Microsoft Azure Virtual Machine Agent (AM Agent) is a secured, lightweight process that manages VM interaction with the Azure Fabric Controller. The VM Agent has a primary role in enabling and executing Azure virtual machine extensions. VM Extensions enabling post deployment configuration of virtual machines, such as installing and configuring software. Virtual machine extensions also enable recovery features such as resetting the administrative password of a virtual machine. Without the Azure VM Agent, virtual machine extensions cannot be run.
 
 This document details installation, detection, and removal of the Azure Virtual Machine Agent.
 
@@ -32,9 +32,9 @@ The Azure VM Agent is installed by default on any Windows virtual machine deploy
 
 ### Manual installation
 
-The Windows VM agent can be manually installed using a Windows installer package. This may be necessary when creating a custom virtual machine image that will be deployed in Azure. To manually install the Windows VM Agent, download the VM Agent installer from this location [Windows Azure VM Agent Download](http://go.microsoft.com/fwlink/?LinkID=394789). 
+The Windows VM agent can be manually installed using a Windows installer package. Manual installation may be necessary when creating a custom virtual machine image that will be deployed in Azure. To manually install the Windows VM Agent, download the VM Agent installer from this location [Windows Azure VM Agent Download](http://go.microsoft.com/fwlink/?LinkID=394789). 
 
-The VM Agent can be installed by double clicking on the windows installer file. For an automated or unattended installation of the VM agent, run the following command.
+The VM Agent can be installed by double-clicking the windows installer file. For an automated or unattended installation of the VM agent, run the following command.
 
 ```cmd
 msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
@@ -50,7 +50,7 @@ The Azure Resource Manager PowerShell module can be used to retrieve information
 Get-AzureRmVM
 ```
 
-The following is just a subset of the `Get-AzureRmVM` output. Notice the `ProvisionVMAgent` property nested inside `OSProfile`, this can be used to determine if the VM agent has been deployed to the virtual machine.
+The following is just a subset of the `Get-AzureRmVM` output. Notice the `ProvisionVMAgent` property nested inside `OSProfile`, this property can be used to determine if the VM agent has been deployed to the virtual machine.
 
 ```PowerShell
 OSProfile                  :
@@ -74,11 +74,11 @@ foreach ($vm in $vms) {
 
 ### Manual Detection
 
-When logged into a Windows Azure VM, task manager can be used to examine running processes. To check for the Azure VM Agent, open Task Manager > click on the details tab, and look for a process name `WindowsAzureGuestAgent.exe`. The presence of this process indicates that the VM agent is installed.
+When logged in to a Windows Azure VM, task manager can be used to examine running processes. To check for the Azure VM Agent, open Task Manager > click the details tab, and look for a process name `WindowsAzureGuestAgent.exe`. The presence of this process indicates that the VM agent is installed.
 
 ## Upgrade the VM Agent
 
-The Azure VM Agent for Windows is automatically upgraded. As new virtual machines are deployed to Azure, they will receive the latest VM agent. Custom VM images should be manually updated to include the new VM agent.
+The Azure VM Agent for Windows is automatically upgraded. As new virtual machines are deployed to Azure, they receive the latest VM agent. Custom VM images should be manually updated to include the new VM agent.
 
 ## Remove the VM Agent
 
