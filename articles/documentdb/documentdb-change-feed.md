@@ -31,9 +31,8 @@ ChangeFeed allows for efficient processing of large datasets with a high volume 
 * Update a cache, search index, or a data warehouse with data stored in Azure DocumentDB.
 * Implement application-level data tiering and archival, that is, store "hot data" in DocumentDB, and age out "cold data" to [Azure Blob Storage](../storage/storage-introduction.md) or [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
 * Implement batch analytics on data using [Apache Hadoop](documentdb-run-hadoop-with-hdinsight.md).
-* Implement [lambda architectures on Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) with DocumentDB at the ingestion point. 
 * Implement [lambda pipelines on Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) with DocumentDB. DocumentDB provides a scalable database solution that can handle both ingestion and query, and implement lambda architectures with low TCO. 
-* Perform no down-time migrations to another Azure DocumentDB account with different partitioning schemes, and indexing policies.
+* Perform zero down-time migrations to another Azure DocumentDB account with a different partitioning scheme.
 
 **Lambda Pipelines with Azure DocumentDB for ingestion and query:**
 
@@ -41,7 +40,7 @@ ChangeFeed allows for efficient processing of large datasets with a high volume 
 
 You can use DocumentDB to receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real-time with [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
 
-Within web and mobile apps, you can track events such as changes to your customer's profile, preferences, or location to trigger certain actions like sending push notifications to their devices using [Azure Functions](../azure-functions/functions-bindings-documentdb.md) or [App Services](https://azure.microsoft.com/services/app-service/). If you're using DocumentDB to build a game, you can use ChangeFeed to implement real-time leaderboards based on scores from completed games.
+Within web and mobile apps, you can track events such as changes to your customer's profile, preferences, or location to trigger certain actions like sending push notifications to their devices using [Azure Functions](../azure-functions/functions-bindings-documentdb.md) or [App Services](https://azure.microsoft.com/services/app-service/). If you're using DocumentDB to build a game, you can, for example, use ChangeFeed to implement real-time leaderboards based on scores from completed games.
 
 # How ChangeFeed works in Azure DocumentDB
 DocumentDB provides the ability to incrementally read updates made to a DocumentDB collection. This change feed has the following properties:
@@ -53,9 +52,9 @@ DocumentDB provides the ability to incrementally read updates made to a Document
 * Only the most recent change for a given document will be included in the change log. Intermediate changes may not be available.
 * Changes are available in chunks of partition key ranges. This capability allows changes from large collections to be processed in parallel by multiple consumers/servers.
 
-DocumentDB's Change Feed is enabled by default for all accounts, and does not incur any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change feed, just like any other operation from DocumentDB. In the following section, we describe how to access the change feed using the DocumentDB REST API and SDKs.
+DocumentDB's Change Feed is enabled by default for all accounts, and does not incur any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change feed, just like any other operation from DocumentDB. The change feed includes inserts and update operations made to documents within the collection. You can capture deletes by either setting a "soft-delete" flag within your documents in place of deletes. Alternatively, you can set a finite expiration period for your documents via the [TTL capability](documentdb-time-to-live.md), for example, 24 hours and use the value of that property to capture deletes.
 
-The change feed includes inserts and update operations made to documents within the collection. You can capture deletes by either setting a "soft-delete" flag within your documents in place of deletes. Alternatively, you can set a finite expiration period for your documents via the [TTL capability](documentdb-time-to-live.md), for example, 24 hours and use the value of that property to capture deletes.
+In the following section, we describe how to access the change feed using the DocumentDB REST API and SDKs.
 
 ## Working with the REST API and SDK
 DocumentDB provides elastic containers or storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](documentdb-partition-data.md) for scalability and performance. DocumentDB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). The change feed can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API, and can be processed in parallel across ranges of partition keys.
@@ -162,7 +161,7 @@ Each partition key range includes the metadata properties in the following table
 	</tr>		
 </table>
 
-You can do this using one of the supported [DocumentDB SDKs](documentdb-sdk-dotnet.md). For example, the following snippet shows how to retrive partition key ranges in .NET.
+You can do this using one of the supported [DocumentDB SDKs](documentdb-sdk-dotnet.md). For example, the following snippet shows how to retrieve partition key ranges in .NET.
 
     List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
     FeedResponse<PartitionKeyRange> response;
@@ -183,7 +182,7 @@ ReadDocumentFeed supports the following scenarios/tasks for incremental processi
 * Read all changes to future updates to documents from current time.
 * Read all changes to documents from a logical version of the collection (ETag). You can checkpoint your consumers based on the returned ETag from incremental read-feed requests.
 
-The changes include inserts and updates to documents. To capture deletes, you must use a set a property [TTL expiration for documents](documentdb-time-to-live.md).
+The changes include inserts and updates to documents. To capture deletes, you must use a "soft delete" property within your documents, or use the [built-in TTL property](documentdb-time-to-live.md) to signal a pending deletion in the change feed.
 
 The following table lists the request and response headers for ReadDocumentFeed operations.
 
