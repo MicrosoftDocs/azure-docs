@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 11/26/2016
 ms.author: b-hoedid
 
 ---
@@ -32,7 +32,12 @@ ChangeFeed allows for efficient processing of large datasets with a high volume 
 * Implement application-level data tiering and archival, that is, store "hot data" in DocumentDB, and age out "cold data" to [Azure Blob Storage](../storage/storage-introduction.md) or [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md).
 * Implement batch analytics on data using [Apache Hadoop](documentdb-run-hadoop-with-hdinsight.md).
 * Implement [lambda architectures on Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) with DocumentDB at the ingestion point. 
+* Implement [lambda pipelines on Azure](https://blogs.technet.microsoft.com/msuspartner/2016/01/27/azure-partner-community-big-data-advanced-analytics-and-lambda-architecture/) with DocumentDB. DocumentDB provides a scalable database solution that can handle both ingestion and query, and implement lambda architectures with low TCO. 
 * Perform no down-time migrations to another Azure DocumentDB account with different partitioning schemes, and indexing policies.
+
+**Lambda Pipelines with Azure DocumentDB for ingestion and query:**
+
+![Using DocumentDB Change Feed to power real-time analytics and event-driven computing scenarios](./media/documentdb-change-feed/changefeed.png)
 
 You can use DocumentDB to receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real-time with [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
 
@@ -43,10 +48,10 @@ DocumentDB provides the ability to incrementally read updates made to a Document
 
 * Changes to documents within a collection are available immediately in real-time in the change feed with no lag.
 * Each change to a document will appear only once in the change feed.
-* Changes are ordered by time within each partition key value. There is no guaranteed order across partition-key values.
+* The change feed is sorted by time of modification within each partition key value. There is no guaranteed order across partition-key values.
 * Changes can be synchronized from any point-in-time, i.e. there is no fixed data retention period for which changes are available.
 * Only the most recent change for a given document will be included in the change log. Intermediate changes may not be available.
-* Changes are available in chunks of partition key ranges. This capability allows change logs from large collections to be processed in parallel by multiple consumers/servers.
+* Changes are available in chunks of partition key ranges. This capability allows changes from large collections to be processed in parallel by multiple consumers/servers.
 
 DocumentDB's Change Feed is enabled by default for all accounts, and does not incur any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change feed, just like any other operation from DocumentDB. In the following section, we describe how to access the change feed using the DocumentDB REST API and SDKs.
 
