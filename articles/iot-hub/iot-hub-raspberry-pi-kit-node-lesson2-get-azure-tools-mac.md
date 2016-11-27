@@ -10,11 +10,11 @@ keywords: ''
 
 ms.assetid: 1814b703-2d81-45db-aff0-eb338c97f120
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 11/28/2016
 ms.author: xshi
 
 ---
