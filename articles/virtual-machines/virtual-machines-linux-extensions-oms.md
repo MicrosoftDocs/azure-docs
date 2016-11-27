@@ -22,10 +22,13 @@ ms.author: nepeters
 
 ## Overview
 
-- Install the omsagent
-- Onboard to a OMS workspace
+The OMS Agent virtual machine Linux extension installs the OMS agent and enrolls the virtual machine into an existing OMS workspace.
 
-### Supported Linux Distributions
+For general information on Azure virtual machine extensions see, [Virtual Machine extensions overview](./virtual-machines-linux-extensions-features.md).
+
+## Supported Linux Distributions
+
+The OMS Agent extension can be run against these Linux distributions.
 
 - CentOS Linux 5,6, and 7 (x86/x64)
 - Oracle Linux 5,6, and 7 (x86/x64)
@@ -36,6 +39,7 @@ ms.author: nepeters
 
 ## Resource Manager Template and Schema
 
+The following schema demonstrates the available properties and configuration of the OMS Agent VM extension. This JSON can be used in an Azure Resource Manager template to deploy the OMS extensions.
 
 ```json
 {
@@ -59,6 +63,12 @@ ms.author: nepeters
   }
 }
 ```
+
+A sample template can be deployed by clicking this button.
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-oms-extension-ubuntu-vm%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
 
 ### Public configuration
 
