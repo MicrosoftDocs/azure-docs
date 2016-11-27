@@ -22,6 +22,8 @@ ms.author: xshi
 Clone the sample C application from GitHub, and use the gulp tool to deploy the sample application to Raspberry Pi 3. The sample application blinks the LED connected to the board every two seconds. If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-c-troubleshooting.md).
 
 ## What you will learn
+In this article, you will learn:
+
 * How to use the `device-discover-cli` tool to retrieve networking information about Pi.
 * How to deploy and run the sample application on Pi.
 * How to deploy and debug applications running remotely on Pi.
@@ -85,6 +87,7 @@ To configure the device connection, follow these steps:
    ```
    
    The configuration file `config-raspberrypi.json` contains the user credentials you use to log in to Pi. To avoid the leak of user credentials, the configuration file is generated in the subfolder `.iot-hub-getting-started` of the home folder on your computer.
+
 2. Open the device configuration file in Visual Studio Code by running the following command:
    
    ```bash
@@ -115,10 +118,7 @@ To configure the device connection, follow these steps:
 > "device_key_path": "id_rsa",
 > ```
 
-
 Congratulations! You've successfully created the first sample application for Pi.
-
-
 
 ## Deploy and run the sample application
 ### Install the Azure IoT Hub SDK on Pi

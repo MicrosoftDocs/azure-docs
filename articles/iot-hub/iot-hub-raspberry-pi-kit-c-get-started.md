@@ -18,9 +18,6 @@ ms.author: xshi
 
 ---
 # Get started with Raspberry Pi 3 (C)
-> [!div class="op_single_selector"]
-> * [Node.JS](https://azure.microsoft.com/en-us/documentation/articles/iot-hub-raspberry-pi-kit-node-get-started/)
-> * [C](iot-hub-raspberry-pi-kit-c-get-started.md)
 
 In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](http://www.windowsondevices.com/).
 

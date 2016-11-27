@@ -18,6 +18,7 @@ ms.author: xshi
 
 ---
 # Get the tools (Windows 7 or later)
+
 > [!div class="op_single_selector"]
 > * [Windows 7 or later](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-win32.md)
 > * [Ubuntu 16.04](iot-hub-raspberry-pi-kit-c-lesson1-get-the-tools-ubuntu.md)

@@ -41,6 +41,7 @@ In this article, you will learn:
 
 ## What you need
 To complete this operation, you will need:
+
 * An Internet connection to download the development tools and the software.
 * A Mac that is running macOS Yosemite (10.10) or later.
 

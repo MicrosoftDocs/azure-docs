@@ -94,7 +94,7 @@ gulp deploy && gulp run
 
 You should see the LED turn on for two seconds, and then turn off for another two seconds. The last "stop" message stops the sample application from running.
 
-![on and off](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_on_and_off_c.png)
+![Sample application with on and off messages](media/iot-hub-raspberry-pi-lessons/lesson4/gulp_on_and_off_c.png)
 
 Congratulations! You’ve successfully customized the messages that are sent to Pi from your IoT hub.
 

@@ -32,7 +32,7 @@ In this article, you will learn:
 
 ## What you need
 * Raspberry Pi 3, set up for use. To learn how to set up Pi, see [Configure your device](iot-hub-raspberry-pi-kit-c-lesson1-configure-your-device.md).
-* An IoT hub that is created in your Azure subscription. To learn how to create your IoT hub, see [Create your Azure IoT Hub](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md).
+* An IoT hub that is created in your Azure subscription. To learn how to create your IoT hub, see [Create your IoT hub and register Raspberry Pi 3](iot-hub-raspberry-pi-kit-c-lesson2-prepare-azure-iot-hub.md).
 
 ## Connect the sample application to your IoT hub
 1. Make sure that you're in the repo folder `iot-hub-c-raspberrypi-getting-started`. Open the sample application in Visual Studio Code by running the following commands:
