@@ -37,24 +37,24 @@ In this article, you will learn:
 ## Connect the sample application to your IoT hub
 1. Make sure that you're in the repo folder `iot-hub-c-raspberrypi-getting-started`. Open the sample application in Visual Studio Code by running the following commands:
 
-    ```bash
-    cd Lesson4
-    code .
-    ```
+   ```bash
+   cd Lesson4
+   code .
+   ```
 
-    Notice the `app.c` file in the `app` subfolder. The `app.c` file is the key source file that contains the code to monitor incoming messages from the IoT hub. The `blinkLED` function blinks the LED.
+   Notice the `app.c` file in the `app` subfolder. The `app.c` file is the key source file that contains the code to monitor incoming messages from the IoT hub. The `blinkLED` function blinks the LED.
 
-    ![Repo structure in the sample application](media/iot-hub-raspberry-pi-lessons/lesson4/repo_structure_c.png)
+   ![Repo structure in the sample application](media/iot-hub-raspberry-pi-lessons/lesson4/repo_structure_c.png)
 2. Initialize the configuration file by running the following commands:
 
-    ```bash
-    npm install
-    gulp init
-    ```
+   ```bash
+   npm install
+   gulp init
+   ```
 
-    If you completed the steps in [Create an Azure function app and storage account](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md) on this computer, all the configurations are inherited, so you can skip to step to the task of deploying and running the sample application. If you completed the steps in [Create an Azure function app and storage account](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md) on a different computer, you need to replace the placeholders in the `config-raspberrypi.json` file. The `config-raspberrypi.json` file is in the subfolder of your home folder.
+   If you completed the steps in [Create an Azure function app and storage account](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md) on this computer, all the configurations are inherited, so you can skip to step to the task of deploying and running the sample application. If you completed the steps in [Create an Azure function app and storage account](iot-hub-raspberry-pi-kit-c-lesson3-deploy-resource-manager-template.md) on a different computer, you need to replace the placeholders in the `config-raspberrypi.json` file. The `config-raspberrypi.json` file is in the subfolder of your home folder.
 
-    ![Contents of the config-raspberrypi.json file](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
+   ![Contents of the config-raspberrypi.json file](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
 
 * Replace **[device hostname or IP address]** with Pi’s IP address or host name that you get by running the `devdisco list --eth` command.
 * Replace **[IoT device connection string]** with the device connection string that you get by running the `az iot device show-connection-string --hub-name {my hub name} --device-id {device id} --resource-group {resource group name}` command.

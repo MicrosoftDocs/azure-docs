@@ -80,23 +80,24 @@ To configure the device connection, follow these steps:
 
 1. Generate the device configuration file by running the following command:
    
-    ```bash
-    gulp init
-    ```
+   ```bash
+   gulp init
+   ```
    
-    The configuration file `config-raspberrypi.json` contains the user credentials you use to log in to Pi. To avoid the leak of user credentials, the configuration file is generated in the subfolder `.iot-hub-getting-started` of the home folder on your computer.
+   The configuration file `config-raspberrypi.json` contains the user credentials you use to log in to Pi. To avoid the leak of user credentials, the configuration file is generated in the subfolder `.iot-hub-getting-started` of the home folder on your computer.
 2. Open the device configuration file in Visual Studio Code by running the following command:
    
-    ```bash
-    # For Windows command prompt
-    code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
+   ```bash
+   # For Windows command prompt
+   code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
    
-    # For MacOS or Ubuntu
-    code ~/.iot-hub-getting-started/config-raspberrypi.json
-    ```
+   # For MacOS or Ubuntu
+   code ~/.iot-hub-getting-started/config-raspberrypi.json
+   ```
+   
 3. Replace the placeholder `[device hostname or IP address]` with the IP address or the host name that you got previously in "Obtain the IP address and host name of Pi."
    
-    ![Config.json](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-config-mac.png)
+   ![Config.json](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-config-mac.png)
 
 > [!NOTE]
 > You can use SSH key instead of user name and password when connecting to Raspberry Pi. 

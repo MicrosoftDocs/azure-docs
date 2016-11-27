@@ -42,20 +42,20 @@ To install the latest Azure CLI, follow these steps:
 
 1. Run the following commands in a terminal window. It might take five minutes to install the Azure CLI.
 
-    ```bash
-    sudo apt-get update
-    sudo apt-get install -y libssl-dev libffi-dev
-    sudo apt-get install -y python-dev
-    sudo apt-get install -y build-essential
-    sudo apt-get install -y python-pip
-    sudo pip install --upgrade azure-cli
-    sudo pip install --upgrade azure-cli-iot
-    ```
+   ```bash
+   sudo apt-get update
+   sudo apt-get install -y libssl-dev libffi-dev
+   sudo apt-get install -y python-dev
+   sudo apt-get install -y build-essential
+   sudo apt-get install -y python-pip
+   sudo pip install --upgrade azure-cli
+   sudo pip install --upgrade azure-cli-iot
+   ```
 2. Verify the installation by running the following command:
 
-    ```bash
-    az iot -h
-    ```
+   ```bash
+   az iot -h
+   ```
 
 You should see the following output if the installation is successful.
 

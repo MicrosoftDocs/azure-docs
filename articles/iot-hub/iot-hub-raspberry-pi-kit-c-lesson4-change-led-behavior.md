@@ -30,59 +30,59 @@ You must have successfully completed [Run a sample application on Raspberry Pi t
 ## Add functions to main.c and gulpfile.js
 1. Open the sample application in Visual Studio code by running the following commands:
 
-    ```bash
-    cd Lesson4
-    code .
-    ```
+   ```bash
+   cd Lesson4
+   code .
+   ```
 2. Open the `main.c` file, and then add the following functions after blinkLED() function:
 
-    ```c
-    static void turnOnLED()
-    {
-      digitalWrite(LED_PIN, HIGH);
-    }
+   ```c
+   static void turnOnLED()
+   {
+     digitalWrite(LED_PIN, HIGH);
+   }
 
-    static void turnOffLED()
-    {
-      digitalWrite(LED_PIN, LOW);
-    }
-    ```
+   static void turnOffLED()
+   {
+     digitalWrite(LED_PIN, LOW);
+   }
+   ```
 
-    ![main.c file with added functions](media/iot-hub-raspberry-pi-lessons/lesson4/updated_app_c.png)
+   ![main.c file with added functions](media/iot-hub-raspberry-pi-lessons/lesson4/updated_app_c.png)
 3. Add the following conditions before the default one in the `if` block of the `receiveMessageCallback` function:
 
-    ```c
-    else if (0 == strcmp((const char*)value, "\"on\""))
-    {
-        turnOnLED();
-    }
-    else if (0 == strcmp((const char*)value, "\"off\""))
-    {
-        turnOffLED();
-    }
-    ```
+   ```c
+   else if (0 == strcmp((const char*)value, "\"on\""))
+   {
+       turnOnLED();
+   }
+   else if (0 == strcmp((const char*)value, "\"off\""))
+   {
+       turnOffLED();
+   }
+   ```
 
    Now you’ve configured the sample application to respond to more instructions through messages. The "on" instruction turns on the LED, and the "off" instruction turns off the LED.
 4. Open the gulpfile.js file, and then add a new function before the function `sendMessage`:
 
-    ```javascript
-    var buildCustomMessage = function (messageId) {
-      if ((messageId & 1) && (messageId < MAX_MESSAGE_COUNT)) {
-        return new Message(JSON.stringify({ command: 'on', messageId: messageId }));
-      } else if (messageId < MAX_MESSAGE_COUNT) {
-        return new Message(JSON.stringify({ command: 'off', messageId: messageId }));
-      } else {
-        return new Message(JSON.stringify({ command: 'stop', messageId: messageId }));
-      }
-    }
-    ```
+   ```javascript
+   var buildCustomMessage = function (messageId) {
+     if ((messageId & 1) && (messageId < MAX_MESSAGE_COUNT)) {
+       return new Message(JSON.stringify({ command: 'on', messageId: messageId }));
+     } else if (messageId < MAX_MESSAGE_COUNT) {
+       return new Message(JSON.stringify({ command: 'off', messageId: messageId }));
+     } else {
+       return new Message(JSON.stringify({ command: 'stop', messageId: messageId }));
+     }
+   }
+   ```
 
-    ![Gulpfile.js file with added function](media/iot-hub-raspberry-pi-lessons/lesson4/updated_gulpfile_c.png)
+   ![Gulpfile.js file with added function](media/iot-hub-raspberry-pi-lessons/lesson4/updated_gulpfile_c.png)
 5. In the `sendMessage` function, replace the line `var message = buildMessage(sentMessageCount);` with the new line shown in the following snippet:
 
-    ```javascript
-    var message = buildCustomMessage(sentMessageCount);
-    ```
+   ```javascript
+   var message = buildCustomMessage(sentMessageCount);
+   ```
 6. Save all the changes.
 
 ### Deploy and run the sample application
