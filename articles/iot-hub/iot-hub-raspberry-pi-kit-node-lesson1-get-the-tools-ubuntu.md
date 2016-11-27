@@ -19,12 +19,12 @@ ms.author: xshi
 
 ---
 # Get the tools (Ubuntu 16.04)
+
 > [!div class="op_single_selector"]
 > * [Windows 7 or later](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-win32.md)
 > * [Ubuntu 16.04](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-ubuntu.md)
 > * [macOS 10.10](iot-hub-raspberry-pi-kit-node-lesson1-get-the-tools-mac.md)
-> 
-> 
+
 
 ## What you will do
 Download the development tools and the software for the first sample application for Raspberry Pi 3. If you have any problems, look for solutions on the [troubleshooting page](iot-hub-raspberry-pi-kit-node-troubleshooting.md).

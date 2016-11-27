@@ -32,7 +32,6 @@ In this article, you will learn:
 
 ## What you need
 You must have successfully completed:
-
 * [Get started with Raspberry Pi 3](iot-hub-raspberry-pi-kit-node-get-started.md)
 * [Create your Azure IoT hub](iot-hub-raspberry-pi-kit-node-get-started.md)
 
@@ -62,7 +61,7 @@ Update the `arm-template-param.json` file in Visual Studio Code.
 After you update the `arm-template-param.json` file, deploy the resources to Azure by running the following command:
 
 ```bash
-az resource group deployment create --template-file-path arm-template.json --parameters-file-path arm-template-param.json -g iot-sample -n mydeployment
+az resource group deployment create --template-file arm-template.json --parameters @arm-template-param.json -g iot-sample
 ```
 
 It takes about five minutes to create these resources. While the resource creation is in progress, you can move on to the next article.

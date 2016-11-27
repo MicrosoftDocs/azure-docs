@@ -76,8 +76,6 @@ Turn on Pi by using the micro USB cable and the power supply.
 
 > [!NOTE]
 > It is important to use the power supply in the kit that is at least 2A to make sure that your Raspberry has enough power to work correctly.
-> 
-> 
 
 ## Connect Raspberry Pi 3 to the network
 You can connect Pi to a wired network or to a wireless network. Make sure that Pi is connected to the same network as your computer. For example, you can connect Pi to the same switch that your computer is connected to.
