@@ -13,7 +13,7 @@ ms.devlang: c
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 11/28/2016
 ms.author: xshi
 
 ---
@@ -94,7 +94,7 @@ To configure the device connection, follow these steps:
    # For MacOS or Ubuntu
    code ~/.iot-hub-getting-started/config-raspberrypi.json
    ```
-   
+
 3. Replace the placeholder `[device hostname or IP address]` with the IP address or the host name that you got previously in "Obtain the IP address and host name of Pi."
    
    ![Config.json](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-config-mac.png)
