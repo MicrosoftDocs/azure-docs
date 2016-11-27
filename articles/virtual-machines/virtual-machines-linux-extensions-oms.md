@@ -89,6 +89,7 @@ azure vm extension set <resource-group> <vm-name> \
   OmsAgentForLinux Microsoft.EnterpriseCloud.Monitoring <version> \
   --public-config-path public.json  \
   --private-config-path protected.json
+```
 
 ## Deploy with PowerShell
 
