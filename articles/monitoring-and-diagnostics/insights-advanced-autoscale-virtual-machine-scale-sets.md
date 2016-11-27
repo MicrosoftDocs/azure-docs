@@ -57,7 +57,7 @@ In this walkthrough, we use [Azure Resource Explorer](https://resources.azure.co
    * **Special Dates** - I added a 'Product Launch Day' profile. I plan ahead for specific dates so my application is ready to handle the load due marketing announcements and when we put a new product in the application.*
    * *The last two profiles can also have other performance metric based rules within them. In this case, I decided not to have one and instead to rely on the default performance metric based rules. Rules are optional for the recurring and date-based profiles.*
      
-     Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](monitoring-and-diagnostics/insights-autoscale-best-practices.md) article.
+     Autoscale engine's prioritization of the profiles and rules is also captured in the [autoscaling best practices](insights-autoscale-best-practices.md) article.
      For a list of common metrics for autoscale, refer [Common metrics for Autoscale](insights-autoscale-common-metrics.md)
 5. Make sure you are on the **Read/Write** mode in Resource Explorer
    
