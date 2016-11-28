@@ -1,5 +1,5 @@
 ---
-title: Azure SQL Database Database Overview | Microsoft Docs
+title: Azure SQL database overview | Microsoft Docs
 description: This page provides an overview of Azure SQL databases.
 services: sql-database
 documentationcenter: na
@@ -28,7 +28,7 @@ Each database in Azure SQL Database is associated with a logical server. The dat
 - Part of a [scaled-out set of sharded databases](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), which can be either single or pooled databases
 - Part of a set of databases participating in a [multitenant SaaS design pattern](sql-database-design-patterns-multi-tenancy-saas-applications.md), and whose databases can either be single or pooled databases (or both) 
 
-## How do I connect and authenticate to an Azure SQL database
+## How do I connect and authenticate to an Azure SQL database?
 
 - **Authentication and authorization**: Azure SQL Database supports SQL authentication and Azure Active Directory Authentication (with certain limitations - see [Connect to SQL Database with Azure Active Directory Authentication](sql-database-aad-authentication.md) for authentication. You can connect and authenticate to Azure SQL databases through the server's master database or directly to a user database. 
 For more information, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md). Windows Authentication is not supported. 
@@ -55,7 +55,7 @@ You can manage Azure SQL Database logical servers using several methods:
 - [Transact-SQL](sql-database-manage-azure-ssms.md)
 - [REST](/rest/api/sql/)
 
-## Additional information
+## Next steps
 
 - For information about the Azure SQL Database service, see [What is SQL Database?](sql-database-technical-overview.md)
 - For information about supported features, see [Features](sql-database-features.md)
