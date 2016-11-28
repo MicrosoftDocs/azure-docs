@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Amazon Web Service (AWS) | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Amazon Web Services (AWS) | Microsoft Docs'
 description: Learn how to use Amazon Web Services (AWS) with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
 documentationcenter: ''
@@ -17,21 +17,21 @@ ms.date: 11/21/2016
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Amazon Web Service (AWS)
-The objective of this tutorial is to show you how to integrate Amazon Web Service (AWS) with Azure Active Directory (Azure AD).  
-Integrating Amazon Web Service (AWS) with Azure AD provides you with the following benefits: 
+# Tutorial: Azure Active Directory integration with Amazon Web Services (AWS)
+The objective of this tutorial is to show you how to integrate Amazon Web Services (AWS) with Azure Active Directory (Azure AD).  
+Integrating Amazon Web Services (AWS) with Azure AD provides you with the following benefits: 
 
-* You can control in Azure AD who has access to Amazon Web Service (AWS) 
-* You can enable your users to automatically get signed-on to Amazon Web Service (AWS) (Single Sign-On) with their Azure AD accounts
+* You can control in Azure AD who has access to Amazon Web Services (AWS) 
+* You can enable your users to automatically get signed-on to Amazon Web Services (AWS) (Single Sign-On) with their Azure AD accounts
 * You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
 
 ## Prerequisites
-To configure Azure AD integration with Amazon Web Service (AWS), you need the following items:
+To configure Azure AD integration with Amazon Web Services (AWS), you need the following items:
 
 * An Azure AD subscription
-* An Amazon Web Service (AWS) single-sign on enabled subscription
+* An Amazon Web Services (AWS) single-sign on enabled subscription
 
 > [!NOTE]
 > To test the steps in this tutorial, we do not recommend using a production environment.
@@ -47,13 +47,13 @@ To test the steps in this tutorial, you should follow these recommendations:
 The objective of this tutorial is to enable you to test Azure AD single sign-on in a test environment.  
 The scenario outlined in this tutorial consists of three main building blocks:
 
-1. Adding Amazon Web Service (AWS) from the gallery 
+1. Adding Amazon Web Services (AWS) from the gallery 
 2. Configuring and testing Azure AD single sign-on
 
-## Adding Amazon Web Service (AWS) from the gallery
-To configure the integration of Amazon Web Service (AWS) into Azure AD, you need to add Amazon Web Service (AWS) from the gallery to your list of managed SaaS apps.
+## Adding Amazon Web Services (AWS) from the gallery
+To configure the integration of Amazon Web Services (AWS) into Azure AD, you need to add Amazon Web Services (AWS) from the gallery to your list of managed SaaS apps.
 
-### To add Amazon Web Service (AWS) from the gallery, perform the following steps:
+### To add Amazon Web Services (AWS) from the gallery, perform the following steps:
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
    
     ![Active Directory][1] 
@@ -67,49 +67,49 @@ To configure the integration of Amazon Web Service (AWS) into Azure AD, you need
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**. 
    
     ![Applications][4]
-6. In the search box, type **Amazon Web Service (AWS)**.
+6. In the search box, type **Amazon Web Services (AWS)**.
    
     ![Applications][5]
-7. In the results pane, select **Amazon Web Service (AWS)**, and then click **Complete** to add the application.
+7. In the results pane, select **Amazon Web Services (AWS)**, and then click **Complete** to add the application.
    
     ![Applications][6]
 
 ## Configuring and testing Azure AD single sign-on
-The objective of this section is to show you how to configure and test Azure AD single sign-on with Amazon Web Service (AWS) based on a test user called "Britta Simon".
+The objective of this section is to show you how to configure and test Azure AD single sign-on with Amazon Web Services (AWS) based on a test user called "Britta Simon".
 
-For single sign-on to work, Azure AD needs to know what the counterpart user in Amazon Web Service (AWS) to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Amazon Web Service (AWS) needs to be established.  
-This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Amazon Web Service (AWS).
+For single sign-on to work, Azure AD needs to know what the counterpart user in Amazon Web Services (AWS) to an user in Azure AD is. In other words, a link relationship between an Azure AD user and the related user in Amazon Web Services (AWS) needs to be established.  
+This link relationship is established by assigning the value of the **user name** in Azure AD as the value of the **Username** in Amazon Web Services (AWS).
 
-To configure and test Azure AD single sign-on with Amazon Web Service (AWS), you need to complete the following building blocks:
+To configure and test Azure AD single sign-on with Amazon Web Services (AWS), you need to complete the following building blocks:
 
 1. **[Configuring Azure AD Single Single Sign-On](#configuring-azure-ad-single-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Amazon Web Service (AWS) test user](#creating-a-halogen-software-test-user)** - to have a counterpart of Britta Simon in Amazon Web Service (AWS) that is linked to the Azure AD representation of her.
+3. **[Creating a Amazon Web Services (AWS) test user](#creating-a-halogen-software-test-user)** - to have a counterpart of Britta Simon in Amazon Web Services (AWS) that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD Single Single Sign-On
-The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Amazon Web Service (AWS) application.  
-Your Amazon Web Service (AWS) application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration. 
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Amazon Web Services (AWS) application.  
+Your Amazon Web Services (AWS) application expects the SAML assertions in a specific format, which requires you to add custom attribute mappings to your **saml token attributes** configuration. 
 The following screenshot shows an example for this.
 
 ![Configure Single Sign-On][27]
 
-**To configure Azure AD single sign-on with Amazon Web Service (AWS), perform the following steps:**
+**To configure Azure AD single sign-on with Amazon Web Services (AWS), perform the following steps:**
 
-1. In the Azure classic portal, on the **Amazon Web Service (AWS)** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+1. In the Azure classic portal, on the **Amazon Web Services (AWS)** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
    
     ![Configure Single Sign-On][7]
-2. On the **How would you like users to sign on to Amazon Web Service (AWS)** page, select **Azure AD Single Sign-On**, and then click **Next**.
+2. On the **How would you like users to sign on to Amazon Web Services (AWS)** page, select **Azure AD Single Sign-On**, and then click **Next**.
    
     ![Configure Single Sign-On][8]
 3. On the **Configure App Settings** dialog page, click Next. 
    
     ![Configure App Settings][9]
-4. On the **Configure single sign-on at Amazon Web Service (AWS)** page, click **Download metadata**, and then save the metadata file locally on your computer.
+4. On the **Configure single sign-on at Amazon Web Services (AWS)** page, click **Download metadata**, and then save the metadata file locally on your computer.
    
     ![Configure Single Sign-On][10]
-5. In a different browser window, sign-on to your Amazon Web Service (AWS) company site as administrator.
+5. In a different browser window, sign-on to your Amazon Web Services (AWS) company site as administrator.
 6. Click **Console Home**.
    
     ![Configure Single Sign-On][11]
@@ -265,11 +265,11 @@ The objective of this section is to create a test user in the Azure classic port
    
     b. Click **Complete**.   
 
-### Creating a Amazon Web Service (AWS) test user
-The objective of this section is to create a user called Britta Simon in Amazon Web Service (AWS).
+### Creating a Amazon Web Services (AWS) test user
+The objective of this section is to create a user called Britta Simon in Amazon Web Services (AWS).
 
-### To create a user called Britta Simon in Amazon Web Service (AWS), perform the following steps:
-1. Log in to your **Amazon Web Service (AWS)** company site as administrator.
+### To create a user called Britta Simon in Amazon Web Services (AWS), perform the following steps:
+1. Log in to your **Amazon Web Services (AWS)** company site as administrator.
 2. Click the **Console Home** icon. 
    
     ![Configure Single Sign-On][11]
@@ -288,7 +288,7 @@ The objective of this section is to create a user called Britta Simon in Amazon 
      b. Click **Create**.
 
 ### Assigning the Azure AD test user
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Amazon Web Service (AWS).
+The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to Amazon Web Services (AWS).
 
 ![Assign User][31]
 
@@ -297,7 +297,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Assign User][26]
-2. In the applications list, select **Amazon Web Service (AWS)**.
+2. In the applications list, select **Amazon Web Services (AWS)**.
    
     ![Assign User][27]
 3. In the menu on the top, click **Users**.
@@ -310,7 +310,7 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 
 ### Testing Single Sign-On
 The objective of this section is to test your Azure AD single sign-on configuration using the Access Panel.  
-When you click the Amazon Web Service (AWS) tile in the Access Panel, you should get automatically signed-on to your Amazon Web Service (AWS) application.
+When you click the Amazon Web Services (AWS) tile in the Access Panel, you should get automatically signed-on to your Amazon Web Services (AWS) application.
 
 ## Additional Resources
 * [List of Tutorials on How to Integrate SaaS Apps with Azure Active Directory](active-directory-saas-tutorial-list.md)

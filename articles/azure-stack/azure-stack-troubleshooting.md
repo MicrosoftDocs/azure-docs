@@ -49,6 +49,7 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 * You cannot deploy a VM from a saved VM image.
 * Tenants may see services which are not included in their subscription.  When tenants attempt to deploy these resources, they receive an error.  Example:  Tenant subscription only includes storage resources.  Tenant will see option to create other resources like VMs.  In this scenario, when a tenant attempts to deploy a VM, they receive a message indicating the VM can’t be created. 
 * When installing TP2, you should not activate the host OS in the VHD provided where you run the Azure Stack setup script, or you may receive an error messaging stating Windows will expire soon.
+* For STATIC network configurations, make sure to activate the BGPNAT VM before it is out of license, otherwise your environment may stop working. For more information, see [this announcement](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack&announcementId=f35560ea-b0d2-4be0-b407-e20fe631d9fe).
 
 ## Deployment
 ### Deployment failure
