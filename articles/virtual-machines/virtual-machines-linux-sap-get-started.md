@@ -320,8 +320,6 @@ Microsoft Azure is certified for the following SAP products, with full support f
 | SAP BusinessObjects BI |Windows |N/A |A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 |
 | SAP NetWeaver |Windows, SUSE Linux Enterprise, Red Hat Enterprise Linux |SQL Server, Oracle (Windows only), DB2, SAP ASE |A5 to A11, D11 to D14, DS11 to DS14, GS1 to GS5 |
 
-[!INCLUDE [windows-warning](../../includes/virtual-machines-linux-sap-warning.md)]
-
 ## Getting Started with SAP HANA on Azure
 Title: Quickstart guide for manual installation of SAP HANA on Azure VMs
 
