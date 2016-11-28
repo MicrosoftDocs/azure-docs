@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 
 ---
@@ -40,7 +40,7 @@ Next, you will update the app to authenticate users before requesting resources 
 ## <a name="add-authentication"></a>Add authentication to the app
 1. Open your project in **Visual Studio**, then open the `www/index.html` file for editing.
 2. Locate the `Content-Security-Policy` meta tag in the head section.  You will need to add the OAuth host to the list of allowed sources.
-   
+
    | Provider | SDK Provider Name | OAuth Host |
    |:--- |:--- |:--- |
    | Azure Active Directory |aad |https://login.windows.net |
@@ -48,41 +48,41 @@ Next, you will update the app to authenticate users before requesting resources 
    | Google |google |https://accounts.google.com |
    | Microsoft |microsoftaccount |https://login.live.com |
    | Twitter |twitter |https://api.twitter.com |
-   
+
     An example Content-Security-Policy (implemented for Azure Active Directory) is as follows:
-   
+
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
             data: gap: https://login.windows.net https://yourapp.azurewebsites.net; style-src 'self'">
-   
+
     You should replace `https://login.windows.net` with the OAuth host from the table above.  Consult the [Content-Security-Policy documentation] for more information about this meta tag.
-   
+
     Note that some authentication providers do not require Content-Security-Policy changes when used on appropriate
     mobile devices.  For example, no Content-Security-Policy changes are required when using Google authentication
     on an Android device.
 3. Open the `www/js/index.js` file for editing, locate the `onDeviceReady()` method, and under the client creation code add the following:
-   
+
         // Login to the service
         client.login('SDK_Provider_Name')
             .then(function () {
-   
+
                 // BEGINNING OF ORIGINAL CODE
-   
+
                 // Create a table reference
                 todoItemTable = client.getTable('todoitem');
-   
+
                 // Refresh the todoItems
                 refreshDisplay();
-   
+
                 // Wire up the UI Event Handler for the Add Item
                 $('#add-item').submit(addItemHandler);
                 $('#refresh').on('click', refreshDisplay);
-   
+
                 // END OF ORIGINAL CODE
-   
+
             }, handleError);
-   
+
     Note that this code replace the existing code that creates the table reference and refreshes the UI.
-   
+
     The login() method starts authentication with the provider. The login() method is an async function that returns a JavaScript Promise.  The rest of the initialization is placed inside the promise response so that it is not executed until the login() method completes.
 4. In the code that you just added, replace `SDK_Provider_Name` with the name of your login provider. For example, for Azure Active Directory, use `client.login('aad')`.
 5. Run your project.  When the project has finished initializing, your application will show the OAuth login page for the
@@ -103,6 +103,6 @@ Learn how to use the SDKs.
 [Content-Security-Policy documentation]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [Push Notifications]: app-service-mobile-cordova-get-started-push.md
 [About Authentication]: app-service-mobile-auth.md
-[Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md 
+[Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md
 [ASP.NET Server SDK]: app-service-mobile-dotnet-backend-how-to-use-server-sdk.md
 [Node.js Server SDK]: app-service-mobile-node-backend-how-to-use-server-sdk.md

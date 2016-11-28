@@ -15,7 +15,7 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 
 ---
@@ -23,7 +23,8 @@ ms.author: adrianha
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## Overview
-This tutorial shows you how to add a cloud-based backend service to an Apache Cordova mobile app by using an Azure mobile app backend.  You will create both a new mobile app backend and a simple *Todo list* Apache Cordova app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to an Apache Cordova mobile app by using an Azure mobile app backend.  You will create both a new
+mobile app backend and a simple *Todo list* Apache Cordova app that stores app data in Azure.
 
 Completing this tutorial is a prerequisite for all other Apache Cordova tutorials about using the Mobile Apps feature in Azure App Service.
 

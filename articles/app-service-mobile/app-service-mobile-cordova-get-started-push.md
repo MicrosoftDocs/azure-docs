@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-html
 ms.devlang: javascript
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: yuaxu
 
 ---
@@ -69,43 +69,46 @@ Execute the following command:
 **From within Visual Studio:**
 
 1. In Solution Explorer, open the `config.xml` file click **Plugins** > **Custom**, select **Git** as the installation source, then enter `https://github.com/phonegap/phonegap-plugin-push` as the source.
-   
+
    ![](./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png)
 2. Click on the arrow next to the installation source.
-3. In **SENDER_ID**, if you already have a numeric project ID for the Google Developer Console project, you can add it here. Otherwise, enter a placeholder value, like 777777, and if you are targeting Android you can update this value in config.xml later.
+3. In **SENDER_ID**, if you already have a numeric project ID for the Google Developer Console project, you can add it here. Otherwise, enter a placeholder value, like 777777.
+    If you are targeting Android you can update this value in config.xml later.
 4. Click **Add**.
 
 The push plugin is now installed.
 
 #### Install the device plugin
-Follow the same procedure you used to install the push plugin, but you will find the Device plugin in the Core plugins list (click **Plugins** > **Core** to find it). You need this plugin to obtain the platform name (`device.platform`).
+Follow the same procedure you used to install the push plugin, but you will find the Device plugin in the Core plugins list (click **Plugins** > **Core** to find it). You need
+this plugin to obtain the platform name (`device.platform`).
 
 #### Register your device for push on start-up
 Initially, we will include some minimal code for Android. Later, we will make some small modifications to run on iOS or Windows 10.
 
 1. Add a call to **registerForPushNotifications** during the callback for the login process, or at the bottom of the **onDeviceReady** method:
-   
+
         // Login to the service.
         client.login('google')
             .then(function () {
                 // Create a table reference
                 todoItemTable = client.getTable('todoitem');
-   
+
                 // Refresh the todoItems
                 refreshDisplay();
-   
+
                 // Wire up the UI Event Handler for the Add Item
                 $('#add-item').submit(addItemHandler);
                 $('#refresh').on('click', refreshDisplay);
-   
+
                     // Added to register for push notifications.
                 registerForPushNotifications();
-   
+
             }, handleError);
-   
+
     This example shows calling **registerForPushNotifications** after authentication succeeds, which is recommended when using both push notifications and authentication in your app.
+
 2. Add the new **registerForPushNotifications** method as follows:
-   
+
         // Register for Push Notifications. Requires that phonegap-plugin-push be installed.
         var pushRegistration = null;
         function registerForPushNotifications() {
@@ -114,7 +117,7 @@ Initially, we will include some minimal code for Android. Later, we will make so
               ios: { alert: 'true', badge: 'true', sound: 'true' },
               wns: {}
           });
-   
+
         // Handle the registration event.
         pushRegistration.on('registration', function (data) {
           // Get the native platform of the device.
@@ -128,7 +131,7 @@ Initially, we will include some minimal code for Android. Later, we will make so
                   mytemplate: { body: { data: { message: "{$(messageParam)}" } } }
               });
           } else if (device.platform === 'iOS') {
-              // Register for notifications.            
+              // Register for notifications.
               client.push.register('apns', handle, {
                   mytemplate: { body: { aps: { alert: "{$(messageParam)}" } } }
               });
@@ -141,11 +144,11 @@ Initially, we will include some minimal code for Android. Later, we will make so
               });
           }
         });
-   
+
         pushRegistration.on('notification', function (data, d2) {
           alert('Push Received: ' + data.message);
         });
-   
+
         pushRegistration.on('error', handleError);
         }
 3. (Android) In the above code, replace `Your_Project_ID` with the numeric project ID for your app from the [Google Developer Console].
@@ -154,7 +157,8 @@ Initially, we will include some minimal code for Android. Later, we will make so
 Complete this section to enable push notifications for Android.
 
 #### <a name="enable-gcm"></a>Enable Firebase Cloud Messaging
-Since we are targeting the Google Android platform initially, you must enable Firebase Cloud Messaging. Similarly, if you were targeting Microsoft Windows devices, you would enable WNS support.
+Since we are targeting the Google Android platform initially, you must enable Firebase Cloud Messaging. Similarly, if you were targeting Microsoft
+Windows devices, you would enable WNS support.
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
@@ -185,10 +189,10 @@ Before you can deploy your application to your Android Device, you need to enabl
 We tested this using a Google Nexus 5X device running Android 6.0 (Marshmallow).  However, the techniques are common across any modern Android release.
 
 #### Install Google Play Services
-The push plugin relies on Android Google Play Services for push notifications.  
+The push plugin relies on Android Google Play Services for push notifications.
 
 1. In **Visual Studio**,  click **Tools** > **Android** > **Android SDK Manager**, expand the **Extras** folder and check the box to make sure that each of the following SDKs is installed.
-   
+
    * Android 2.3 or higher
    * Google Repository revision 27 or higher
    * Google Play Services 9.0.2 or higher
@@ -199,24 +203,24 @@ The current required libraries are listed in the [phonegap-plugin-push installat
 #### Test push notifications in the app on Android
 You can now test push notifications by running the app and inserting items in the TodoItem table. You can do this from the same device or from a second device, as long as you are using the same backend. Test your Cordova app on the Android platform in one of the following ways:
 
-* **On a physical device:**  
-  Attach your Android device to your development computer with a USB cable.  Instead of **Google Android Emulator**, select **Device**. Visual Studio will deploy the application to the device and run it.  You can then interact with the application on the device.  
+* **On a physical device:**
+  Attach your Android device to your development computer with a USB cable.  Instead of **Google Android Emulator**, select **Device**. Visual Studio will deploy the application to the device and run it.  You can then interact with the application on the device.
   Improve your development experience.  Screen sharing applications such as [Mobizen] can assist you in developing an Android application by projecting your Android screen on to a web browser on your PC.
-* **On an Android emulator:**  
+* **On an Android emulator:**
   There are additional configuration steps required when running on an emulator.
-  
+
     Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown below in the Android Virtual Device (AVD) manager.
-  
+
     ![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
-  
+
     If you want to use a faster x86 emulator, you [install the HAXM driver](https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM) and configure the emulator use it.
-  
+
     Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**, then follow the prompts to add an existing Google account to the device (we recommend using an existing account rather than creating a new one).
-  
+
     ![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
-  
+
     Run the todolist app as before and insert a new todo item. This time, a notification icon is displayed in the notification area. You can open the notification drawer to view the full text of the notification.
-  
+
     ![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
 
 ## (Optional) Configure and run on iOS
@@ -229,8 +233,6 @@ Make sure you can build the app for iOS. The steps in the setup guide are requir
 
 > [!NOTE]
 > XCode 7 or greater is required to use the push plugin on iOS.
-> 
-> 
 
 #### Find the ID to use as your App ID
 Before you register your app for push notifications, open config.xml in your Cordova app, find the `id` attribute value in the widget element, and copy it for later use. In the following XML, the ID is `io.cordova.myapp7777777`.
@@ -260,14 +262,13 @@ If the App ID you created in your Apple Developer Account already matches the ID
 
 ##### Test push notifications in your iOS app
 1. In Visual Studio, make sure that **iOS** is selected as the deployment target, and then choose **Device** to run on your connected iOS device.
-   
+
     You can run on an iOS device connected to your PC using iTunes. The iOS Simulator does not support push notifications.
 2. Press the **Run** button or **F5** in Visual Studio to build the project and start the app in an iOS device, then click **OK** to accept push notifications.
-   
+
    > [!NOTE]
    > You must explicitly accept push notifications from your app. This request only occurs the first time that the app runs.
-   > 
-   > 
+
 3. In the app, type a task, and then click the plus (+) icon.
 4. Verify that a notification is received, then click OK to dismiss the notification.
 
@@ -289,8 +290,6 @@ Open the configuration designer (right-click on config.xml and select **View Des
 
 > [!NOTE]
 > If you are using a Cordova version prior to Cordova 5.1.1 (6.1.1 recommended), you must also set the Toast Capable flag to true in config.xml.
-> 
-> 
 
 To support push notifications in your default (debug) builds, open build.json file. Copy the "release" configuration to your debug configuration.
 
