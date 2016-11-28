@@ -21,14 +21,16 @@ ms.author: rick.byham@microsoft.com
 # Azure SQL Database Transact-SQL differences   
 Most of the Transact-SQL features that applications depend on are supported in both Microsoft SQL Server and Azure SQL Database. For example, the core SQL components such as data types, operators, string, arithmetic, logical, and cursor functions, etc., work without differences from SQL Server.
 
-However, Azure SQL Database is designed to isolate features from any dependency on the master database and from the operating system. As a consequence many server-level activities are inappropriate for SQL Database. When server-level features are necessary, an appropriate SQL Database version is often available instead. For example, Always On is replaced with Active Geo-replication. For that reason, any Transact-SQL statements related to the unsupported feature (such as Always On) are not supported by SQL Database. The dynamic management views are only available for the features that are supported. For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database considerations, guidelines and features](sql-database-features.md).
+## Why some Transact-SQL is not supported
+Azure SQL Database is designed to isolate features from dependencies on the master database and the operating system. As a consequence many server-level activities are inappropriate for SQL Database. Transact-SQL statements are usually not available if they configure server-level options, operating system components, or specify file system configuration. When features that are outside of the user database are necessary, an appropriate alternative is often available in some other way from SQL Database or from another Azure feature or service. 
 
-Features that are deprecated in SQL Server are generally not supported in SQL Database.
+For example, Always On is replaced with Active Geo-replication. For that reason, any Transact-SQL statements related to availability groups are not supported by SQL Database, and the dynamic management views related to Always On are not supported.  
+For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database considerations, guidelines and features](sql-database-features.md).
 
-The following sections list Transact-SQL statements that are partially supported, and groups of Transact-SQL statements that are completely unsupported.
+Syntax that is deprecated in SQL Server are generally not supported in SQL Database.
 
-## Features partially supported in SQL Database V12
-SQL Database V12 supports some but not all the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the `CREATE PROCEDURE` statement is available however all the options of `CREATE PROCEDURE` are not available. Describing the full syntax here would be confusing and redundant. Refer to the linked syntax topics for details about the supported areas of each statement.
+## Transact-SQL syntax partially supported in SQL Database
+SQL Database supports some but not all the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the `CREATE PROCEDURE` statement is available however all the options of `CREATE PROCEDURE` are not available. Describing the full syntax here would be confusing and redundant. Refer to the linked syntax topics for details about the supported areas of each statement.
 
 - Databases: [CREATE](https://msdn.microsoft.com/library/dn268335.aspx)/[ALTER DATABASE](https://msdn.microsoft.com/library/ms174269.aspx)
 - Functions: [CREATE](https://msdn.microsoft.com/library/ms186755.aspx)/[ALTER FUNCTION](https://msdn.microsoft.com/library/ms186967.aspx)
@@ -39,34 +41,30 @@ SQL Database V12 supports some but not all the arguments that exist in the corre
 - Users: [CREATE](https://msdn.microsoft.com/library/ms173463.aspx)/[ALTER USER](https://msdn.microsoft.com/library/ms176060.aspx)
 - Views: [CREATE](https://msdn.microsoft.com/library/ms187956.aspx)/[ALTER VIEW](https://msdn.microsoft.com/library/ms173846.aspx)
 
-## Features not supported in SQL Database   
+## Transact-SQL syntax not supported in SQL Database   
 In addition to Transact-SQL statements related to the unsupported features described in [Azure SQL Database considerations, guidelines and features](sql-database-features.md), the following statements and groups of statements, are not supported.
 - Collation of system objects
 - Connection related: Endpoint statements, `ORIGINAL_DB_NAME`. SQL Database does not support Windows authentication, but does support the similar Azure Active Directory authentication. Some authentication types require the latest version of SSMS. For more information, see [Connecting to SQL Database or SQL Data Warehouse By Using Azure Active Directory Authentication](sql-database-aad-authentication.md).
 - Cross database queries using three or four part names. (Read-only cross-database queries are supported by using [elastic database query](sql-database-elastic-query-overview.md).)
 - Cross database ownership chaining, `TRUSTWORTHY` setting
-- Data Collector
-- Database Diagrams
 - `DATABASEPROPERTY` Use `DATABASEPROPERTYEX` instead.
 - `EXECUTE AS LOGIN` Use 'EXECUTE AS USER' instead.
-- Encryption: extensible key management
+- Encryption is supported except for extensible key management
 - Eventing: events, event notifications, query notifications
-- Features related to database file placement, size, and database files that are automatically managed by Microsoft Azure.
-- Features that relate to high availability, which is managed through your Microsoft Azure account: backup, restore, AlwaysOn, database mirroring, log shipping, recovery modes. For more information, see Azure SQL Database Backup and Restore.
-- Features that rely upon the log reader running on SQL Database: Push Replication, Change Data Capture. SQL Database can be a subscriber of a push replication article.
-- Features that rely upon the SQL Server Agent or the MSDB database: alerts, operators, central management servers.
+- Syntax related to database file placement, size, and database files that are automatically managed by Microsoft Azure.
+- Syntax related to high availability, which is managed through your Microsoft Azure account. This includes syntax for backup, restore, Always On, database mirroring, log shipping, recovery modes.
+- Syntax that rely upon the log reader which is not available on SQL Database: Push Replication, Change Data Capture. SQL Database can be a subscriber of a push replication article.
+- Syntax that rely upon the SQL Server Agent or the MSDB database: alerts, operators, central management servers. Use scripting, such as Azure PowerShell instead.
 - Functions: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
 - Global temporary tables
-- Hardware-related server settings: memory, worker threads, CPU affinity, trace flags, etc. Use service levels instead.
+- Syntax related to hardware-related server settings: memory, worker threads, CPU affinity, trace flags, etc. Use service levels instead.
 - `HAS_DBACCESS`
 - `KILL STATS JOB`
 - `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE`, `BULK INSERT`, and four-part names
-- Master/target servers
 - .NET Framework [CLR integration with SQL Server](http://msdn.microsoft.com/library/ms254963.aspx)
 - Semantic search
 - Server credentials. Use database scoped credentials instead.
-- Sever-level items: Server roles, `IS_SRVROLEMEMBER`, `sys.login_token`. Server level permissions are not available though some are replaced by database-level permissions. Some server-level DMVs are not available though some are replaced by database-level DMVs.
-- Serverless express: localdb, user instances
+- Server-level items: Server roles, `IS_SRVROLEMEMBER`, `sys.login_token`. `GRANT`, `REVOKE`, and `DENY` of server level permissions are not available though some are replaced by database-level permissions. Some useful server-level DMVs have equivalent database-level DMVs.
 - `SET REMOTE_PROC_TRANSACTIONS`
 - `SHUTDOWN`
 - `sp_addmessage`
@@ -74,7 +72,6 @@ In addition to Transact-SQL statements related to the unsupported features descr
 - `sp_helpuser`
 - `sp_migrate_user_to_contained`
 - SQL Server audit. Use SQL Database auditing instead.
-- SQL Server Profiler
 - SQL Server trace
 - Trace flags. Some trace flag items have been moved to compatibility modes.
 - Transact-SQL debugging
