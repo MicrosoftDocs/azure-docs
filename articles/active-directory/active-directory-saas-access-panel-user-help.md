@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/21/2016
+ms.date: 11/28/2016
 ms.author: markvi
 
 ---
@@ -31,8 +31,7 @@ This topic provides you with instructions for performing common tasks and troubl
 
 
 
-
-## Having trouble accessing an app
+## How to troubleshoot accessing an app
 
 1.	Check if you have the Access Panel extension installed properly in your browser.  
 Follow [these steps](active-directory-saas-ie-troubleshooting.md) for troubleshooting your IE extension.
