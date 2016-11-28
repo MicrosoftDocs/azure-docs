@@ -19,13 +19,13 @@ ms.author: rick.byham@microsoft.com
 
 ---
 # Azure SQL Database Transact-SQL differences   
-Most of the Transact-SQL features that applications depend on are supported in both Microsoft SQL Server and Azure SQL Database. For example the core SQL components such as data types, operators, string, arithmetic, logical, and cursor functions, etc, work without differences from SQL Server.
+Most of the Transact-SQL features that applications depend on are supported in both Microsoft SQL Server and Azure SQL Database. For example, the core SQL components such as data types, operators, string, arithmetic, logical, and cursor functions, etc., work without differences from SQL Server.
 
 However, Azure SQL Database is designed to isolate features from any dependency on the master database and from the operating system. As a consequence many server-level activities are inappropriate for SQL Database. When server-level features are necessary, an appropriate SQL Database version is often available instead. For example, Always On is replaced with Active Geo-replication. For that reason, any Transact-SQL statements related to the unsupported feature (such as Always On) are not supported by SQL Database. The dynamic management views are only available for the features that are supported. For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database considerations, guidelines and features](sql-database-features.md).
 
 Features that are deprecated in SQL Server are generally not supported in SQL Database.
 
-The following sections list Transact-SQL statments that are partially supported, and groups of Transact-SQL statements that are completely unsupported.
+The following sections list Transact-SQL statements that are partially supported, and groups of Transact-SQL statements that are completely unsupported.
 
 ## Features partially supported in SQL Database V12
 SQL Database V12 supports some but not all the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the `CREATE PROCEDURE` statement is available however all the options of `CREATE PROCEDURE` are not available. Describing the full syntax here would be confusing and redundant. Refer to the linked syntax topics for details about the supported areas of each statement.
@@ -85,6 +85,6 @@ In addition to Transact-SQL statements related to the unsupported features descr
 For more information about Transact-SQL grammar, usage, and examples, see [Transact-SQL Reference (Database Engine)](https://msdn.microsoft.com/library/bb510741.aspx) in SQL Server Books Online. 
 
 ### About the "Applies to" tags
-The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Below the topic title there is an icon bar, listing the four SQL Server platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) topic indicates that the statement applies to **SQL Server (starting with 2012). The statement does not apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse, or Parallel Data Warehouse.
+The Transact-SQL reference includes topics related to SQL Server versions 2008 to the present. Below the topic title there is an icon bar, listing the four SQL Server platforms, and indicating applicability. For example, availability groups were introduced in SQL Server 2012. The [CREATE AVAILABILTY GROUP](https://msdn.microsoft.com/library/ff878399.aspx) topic indicates that the statement applies to **SQL Server (starting with 2012)**. The statement does not apply to SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse, or Parallel Data Warehouse.
 
 In some cases, the general subject of a topic can be used in a product, but there are minor differences between products. The differences are indicated at midpoints in the topic as appropriate.
