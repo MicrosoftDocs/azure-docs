@@ -28,7 +28,7 @@ For general information on Azure virtual machine extensions see, [Virtual Machin
 
 For more information on Operations Management Suite, see [Operations Management Suite overview](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite).
 
-## Supported Linux Distributions
+## Prerequisites
 
 The OMS Agent extension can be run against these Linux distributions.
 
@@ -39,7 +39,7 @@ The OMS Agent extension can be run against these Linux distributions.
 - Ubuntu 12.04 LTS, 14.04 LTS, 15.04 (x86/x64)
 - SUSE Linux Enterprise Server 11 and 12 (x86/x64)
 
-## Extension Configuration
+## Extension configuration
 
 The OMS Agent virtual machine extension for Linux requires the workspace Id and workspace key from the target OMS workspace. Because the workspace key should be treated as sensitive data, it is stored in a protected configuration. Azure VM extension protected configuration data is encrypted, and only decrypted on the target virtual machine. The public and private configurations are specified at deployment time, which is detailed in subsequent sections of this document.
 
@@ -69,7 +69,7 @@ Schema for the public configuration:
 
 ## Template deployment
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that will require post deployment configuration such as onboarding to OMS. A sample Resource Manager template that includes the OMS Agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration such as onboarding to OMS. A sample Resource Manager template that includes the OMS Agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
 This sample can be deployed from this document using this button:
 
@@ -121,7 +121,7 @@ Data about the state of extension deployments can be retrieved from the Azure po
 azure vm extension get myResourceGroup myVM
 ```
 
-Specific to the OMS Agent extension, output and errors can be found in these files:
+Output and errors specific to the OMS Agent extension can be found in these files:
 
 - /var/lib/waagent/<extension-name-and-version>/packages/
 - /opt/microsoft/omsagent/bin
