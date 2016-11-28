@@ -57,6 +57,10 @@
 ## [Quotas](service-bus-quotas.md)
 ## [.NET](/dotnet/api/)
 ## [REST](/rest/api/servicebus/)
+## [SQLFilter syntax](service-bus-messaging-sql-filter.md)
+## [SQLRuleAction syntax](service-bus-messaging-sql-rule-action.md)
+## [AMQP1.0 protocol guide](service-bus-amqp-protocol-guide.md)
+### [AMQP 1.0 request-response-based operations](service-bus-amqp-request-response.md)
 
 # Resources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
