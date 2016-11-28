@@ -47,7 +47,7 @@
 ### [Paired namespaces](service-bus-paired-namespaces.md)
 ### [Chain entities with auto-forwarding](service-bus-auto-forwarding.md)
 ## Manage
-### [Using ARM templates](service-bus-resource-manager-overview.md)
+### [Using Azure Resource Manager templates](service-bus-resource-manager-overview.md)
 ### [Using PowerShell to provision entities](service-bus-powershell-how-to-provision.md)
 
 # Reference
