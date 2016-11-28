@@ -1,4 +1,4 @@
-﻿---
+---
 title: Logic Apps pricing model | Microsoft Docs
 description: Details about how pricing works in Logic Apps
 author: kevinlam1
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2016
+ms.date: 11/28/2016
 ms.author: klam
 
 ---
@@ -41,44 +41,13 @@ Actions executed within loops are counted per iteration of the loop.  For exampl
 Logic Apps that are disabled cannot have new instances instantiated and therefore during the time that they are disabled will not get charged.  Be mindful that after disabling a logic app it may take a little time for the instances to quiesce before being completely disabled.
 
 ## App Service plans
-App Service Plans are no longer required to create a Logic App.  You can also reference an App Service Plan with an existing logic app.  Logic apps previously created with an App Service Plan will continue to behave as before where, depending on the plan chosen, will get throttled after a number of daily executions are exceeded and will not be billed using the action execution meter.
-
+Logic apps previously created referencing an App Service Plan will continue to behave as before where, depending on the plan chosen, will get throttled after a number of daily executions are exceeded but will be billed using the action execution meter.
+EA customers that have an App Service Plan in their subscription, which does not have to be explicitly associated with the Logic App, will get the included quantities benefit.  For example, if you have a Standard App Service Plan in your EA subscription and a Logic App in the same subscription then you won't get charged for 10,000 action executions per day (see table below). 
 App Service Plans and their daily allowed action executions:
 
 |  | Free/Shared/Basic | Standard | Premium |
 | --- | --- | --- | --- |
 | Action executions per day |200 |10,000 |50,000 |
-
-### Convert from Consumption to App Service Plan pricing
-To reference an App Service Plan for a consumption Logic App, you can simply [run the below PowerShell script](https://github.com/logicappsio/ConsumptionToAppServicePlan).  Make sure you first have the [Azure PowerShell tools](https://github.com/Azure/azure-powershell) installed.
-
-``` powershell
-Param(
-    [string] $AppService_RG = '<app-service-resource-group>',
-    [string] $AppService_Name = '<app-service-name>',
-    [string] $LogicApp_RG = '<logic-app-resource-group>',
-    [string] $LogicApp_Name = '<logic-app-name>',
-    [string] $subscriptionId = '<azure-subscription-id>'
-)
-
-Login-AzureRmAccount 
-$subscription = Get-AzureRmSubscription -SubscriptionId $subscriptionId
-$appserviceplan = Get-AzureRmResource -ResourceType "Microsoft.Web/serverFarms" -ResourceGroupName $AppService_RG -ResourceName $AppService_Name
-$logicapp = Get-AzureRmResource -ResourceType "Microsoft.Logic/workflows" -ResourceGroupName $LogicApp_RG -ResourceName $LogicApp_Name
-
-$sku = @{
-    "name" = $appservicePlan.Sku.tier;
-    "plan" = @{
-      "id" = $appserviceplan.ResourceId;
-      "type" = "Microsoft.Web/ServerFarms";
-      "name" = $appserviceplan.Name  
-    }
-}
-
-$updatedProperties = $logicapp.Properties | Add-Member @{sku = $sku;} -PassThru
-
-$updatedLA = Set-AzureRmResource -ResourceId $logicapp.ResourceId -Properties $updatedProperties -ApiVersion 2015-08-01-preview
-```
 
 ### Convert from App Service Plan pricing to Consumption
 To change a Logic App that has an App Service Plan associated with it to a consumption model remove the reference to the App Service Plan in the Logic App definition.  This can be done with a call to a PowerShell cmdlet:
