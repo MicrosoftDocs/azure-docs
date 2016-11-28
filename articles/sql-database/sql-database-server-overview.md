@@ -19,7 +19,7 @@ ms.author: carlrab
 ---
 # Azure SQL Database logical servers
 
-This topic provides considerations and guidelines for working with Azure SQL logical servers. For information about Azure SQL databases, see [SQL databases](sql-database-database-overview.md).
+This topic provides considerations and guidelines for working with Azure SQL logical servers. For information about Azure SQL databases, see [SQL databases](sql-database-overview.md).
 
 ## What is an Azure SQL Database logical server
 An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. For more information about Azure SQL logical servers, see [Logical servers](sql-database-server-overview.md). 
@@ -73,7 +73,7 @@ You can manage Azure SQL Database logical servers using several methods:
 
 - For information about the Azure SQL Database service, see [What is SQL Database?](sql-database-technical-overview.md)
 - For information about supported features, see [Features](sql-database-features.md)
-- For an overview of Azure SQL databases, see [SQL database overview](sql-databases-overview.md)
+- For an overview of Azure SQL databases, see [SQL database overview](sql-database-overview.md)
 - For information about Transact-SQL support and differences, see [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md).
 - For information about specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](sql-database-service-tiers.md).
 - For security-related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).

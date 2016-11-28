@@ -31,7 +31,7 @@ Each database in Azure SQL Database is associated with a logical server. The dat
 - Part of a [scaled-out set of sharded databases](sql-database-elastic-scale-introduction.md#horizontal-and-vertical-scaling), which can be either single or pooled databases
 - Part of a set of databases participating in a [multitenant SaaS design pattern](sql-database-design-patterns-multi-tenancy-saas-applications.md), and whose databases can either be single or pooled databases (or both) 
 
-For more information about Azure SQL databases, see [SQL databases](sql-database-database-overview.md).
+For more information about Azure SQL databases, see [SQL databases](sql-database-overview.md).
 
 ## What features are supported?
 
@@ -139,7 +139,7 @@ To test an existing database for compatibility with Azure SQL Database, see [Val
 | Temporal tables | [Supported](https://msdn.microsoft.com/library/dn935015.aspx) | [Supported](sql-database-temporal-tables.md) |
 | Transaction statements | [Supported](https://msdn.microsoft.com/library/ms174377.aspx) | [Supported](https://msdn.microsoft.com/library/ms174377.aspx) |
 | Variables | [Supported](https://msdn.microsoft.com/library/ff848809.aspx) | | [Supported](https://msdn.microsoft.com/library/ff848809.aspx) | 
-| Transparent data encryption (TDE)  | [Supported](https://msdn.microsoft.com/bb934049.aspx) | [Supported](https://msdn.microsoft.com/dn948096.aspx) |
+| Transparent data encryption (TDE)  | [Supported](https://msdn.microsoft.com/library/bb934049.aspx) | [Supported](https://msdn.microsoft.com/dn948096.aspx) |
 | Windows Server Failover clustering | [Supported](https://msdn.microsoft.com/library/hh270278.aspx) | Not supported - See [Active Geo-Replication](sql-database-geo-replication-overview.md) |
 | XML indexes | [Supported](http://msdn.microsoft.com/library/bb934097.aspx) | [Supported](http://msdn.microsoft.com/library/bb934097.aspx) |
 | XML statements | [Supported](https://msdn.microsoft.com/library/ff848798.aspx) | [Supported](https://msdn.microsoft.com/library/ff848798.aspx) |
@@ -147,8 +147,8 @@ To test an existing database for compatibility with Azure SQL Database, see [Val
 ## Additional information
 
 - For information about the Azure SQL Database service, see [What is SQL Database?](sql-database-technical-overview.md)
-- For an overview of Azure SQL logical servers, see [SQL Database logical server overview](sql-databases-server-overview.md)
-- For an overview of Azure SQL databases, see [SQL Database overview](sql-databases-overview.md)
+- For an overview of Azure SQL logical servers, see [SQL Database logical server overview](sql-database-server-overview.md)
+- For an overview of Azure SQL databases, see [SQL Database overview](sql-database-overview.md)
 - For information about Transact-SQL support and differences, see [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md).
 - For information about specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](sql-database-service-tiers.md).
 - For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).

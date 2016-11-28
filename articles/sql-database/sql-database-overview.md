@@ -59,7 +59,7 @@ You can manage Azure SQL Database logical servers using several methods:
 
 - For information about the Azure SQL Database service, see [What is SQL Database?](sql-database-technical-overview.md)
 - For information about supported features, see [Features](sql-database-features.md)
-- For an overview of Azure SQL logical servers, see [SQL Database logical server overview](sql-databases-server-overview.md)
+- For an overview of Azure SQL logical servers, see [SQL Database logical server overview](sql-database-server-overview.md)
 - For information about Transact-SQL support and differences, see [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md).
 - For information about specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](sql-database-service-tiers.md).
 - For security-related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
