@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/02/2016
+ms.date: 11/28/2016
 ms.author: tomfitz
 
 ---
@@ -42,6 +42,11 @@ You create a link between two templates by adding a deployment resource within t
          } 
       } 
     ] 
+
+Like other resource types, you can set dependencies between the linked template and other resources. Therefore, when other resources require an output value from the linked template, you can make sure the linked template is deployed before them. Or, when the linked template relies on other resources, you can make sure other resources are deployed before the linked template. You can retrieve a value from a linked template with the following syntax:
+
+    "[reference('linkedTemplate').outputs.exampleProperty]"
+
 
 The Resource Manager service must be able to access the linked template. You cannot specify a local file or a file that is only available on your local network for the linked template. You can only provide a URI value that includes either **http** or **https**. One option is to place your linked template in a storage account, and use the URI for that item, such as shown in the following example.
 
@@ -73,6 +78,10 @@ The following example shows a parent template that links to another template. Th
     ],
 
 Even though the token is passed in as a secure string, the URI of the linked template, including the SAS token, is logged in the deployment operations for that resource group. To limit exposure, set an expiration for the token.
+
+Resource Manager handles each linked template as a separate deployment. In the deployment history for the resource group, you see seperate deployments for the parent and nested templates.
+
+![deployment history](./media/resource-group-linked-templates/linked-deployment-history.png)
 
 ## Linking to a parameter file
 The next example uses the **parametersLink** property to link to a parameter file.
