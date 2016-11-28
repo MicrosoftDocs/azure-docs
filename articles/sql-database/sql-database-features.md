@@ -21,7 +21,7 @@ ms.author: carlrab
 This topic provides an overview of the Azure SQL Database logical servers and databases, and includes a feature support matrix with links each listed feature. 
 
 ## What is an Azure SQL Database logical server?
-An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases with respect to SQL Server instance(s) on which they are hosted, and exposes no instance-level access or features. For more information about Azure SQL logical servers, see [Logical servers](sql-database-server-overview.md). 
+An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. For more information about Azure SQL logical servers, see [Logical servers](sql-database-server-overview.md). 
 
 ## What is Azure SQL database?
 Each database in Azure SQL Database is associated with a logical server. The database can be:
@@ -83,7 +83,7 @@ To test an existing database for compatibility with Azure SQL Database, see [Val
 | DDL triggers | [Supported](https://msdn.microsoft.com/library/ms175941.aspx) | [Database only](https://msdn.microsoft.com/library/ms175941.aspx) |
 | Distributed transactions | [MS DTC](https://msdn.microsoft.com/library/ms131665.aspx) | Limited intra-SQL Database scenarios only |
 | DML statements | [Supported](https://msdn.microsoft.com/library/ff848766.aspx) | [Most](https://msdn.microsoft.com/library/ff848766.aspx) |
-| DML tirggers | [Supported](https://msdn.microsoft.com/library/ms178110.aspx) | [Supported](https://msdn.microsoft.com/library/ms178110.aspx) |
+| DML triggers | [Supported](https://msdn.microsoft.com/library/ms178110.aspx) | [Supported](https://msdn.microsoft.com/library/ms178110.aspx) |
 | DMVs | [All](https://msdn.microsoft.com/library/ms188754.aspx) | [Some](https://msdn.microsoft.com/library/ms188754.aspx) |
 | Elastic database pools | Not supported | [Supported](sql-database-elastic-pool.md) |
 | Elastic jobs | Not supported - see [SQL Server Agent](https://msdn.microsoft.com/library/ms189237.aspx) | [Supported](sql-database-elastic-jobs-getting-started.md) | 

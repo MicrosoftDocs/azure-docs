@@ -17,7 +17,7 @@ ms.date: 11/28/2016
 ms.author: carlrab
 
 ---
-# Azure SQL database  overview
+# Azure SQL database overview
 This topic provides an overview of Azure SQL databases. For information about Azure SQL logical servers, see [Logical servers](sql-database-server-overview.md).
 
 ## What is Azure SQL database?
@@ -62,6 +62,6 @@ You can manage Azure SQL Database logical servers using several methods:
 - For an overview of Azure SQL logical servers, see [SQL Database logical server overview](sql-databases-server-overview.md)
 - For information about Transact-SQL support and differences, see [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md).
 - For information about specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](sql-database-service-tiers.md).
-- For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
+- For security-related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
 - For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md).
 

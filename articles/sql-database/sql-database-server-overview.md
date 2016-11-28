@@ -22,22 +22,22 @@ ms.author: carlrab
 This topic provides considerations and guidelines for working with Azure SQL logical servers. For information about Azure SQL databases, see [SQL databases](sql-database-database-overview.md).
 
 ## What is an Azure SQL Database logical server
-Each database in Azure SQL Database is associated with a logical server. The server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases with respect to SQL Server instance(s) on which they are hosted, and exposes no instance-level access or features. 
+An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. For more information about Azure SQL logical servers, see [Logical servers](sql-database-server-overview.md). 
 
 An Azure Database logical server:
 
 - Is created within an Azure subscription, but can be moved with its contained resources to another subscription
-- Is the parent resource for databases, elastic pools and data warehouses in Azure Resource Management (ARM)
+- Is the parent resource for databases, elastic pools, and data warehouses
 - Provides a namespace for databases, elastic pools, data warehouses
 - Is a logical container with strong lifetime semantics - delete a server and it deletes the contained databases, elastic pools, data warehouses
-- Participates in Azure role based access control (RBAC); databases, elastic pools within a server inherit access rights from the server
+- Participates in Azure role-based access control (RBAC); databases, elastic pools within a server inherit access rights from the server
 - Is a high-order element of the identity of databases and elastic pools for Azure resource management purposes (see the URL scheme for databases and pools)
 - Collocates resources in a region
 - Provides a connection endpoint for database access (<serverName>.database.windows.net)
 - Provides access to metadata regarding contained resources via DMVs by connecting to a master database 
 - Provides the scope for management policies that apply to its databases: logins, firewall, audit, threat detection, etc. 
-- Is restricted by a quota within the parent subscription (6 servers per subscription - [see Subscription limits here](../azure-subscription-service-limits.md))
-- Provides the scope for database quota and DTU quota for the resources it contains (e.g. 45000 DTU in V12)
+- Is restricted by a quota within the parent subscription (six servers per subscription - [see Subscription limits here](../azure-subscription-service-limits.md))
+- Provides the scope for database quota and DTU quota for the resources it contains (such as 45000 DTU in V12)
 - Is the versioning scope for capabilities enabled on contained resources (latest version is V12)
 - Server-level principal logins can manage all databases on a server
 - Can contain logins similar to those in instances of SQL Server on your premises that are granted access to one or more databases on the server, and can be granted limited administrative rights. For more information, see [Logins](sql-database-manage-logins.md).
@@ -76,6 +76,6 @@ You can manage Azure SQL Database logical servers using several methods:
 - For an overview of Azure SQL databases, see [SQL database overview](sql-databases-overview.md)
 - For information about Transact-SQL support and differences, see [Azure SQL Database Transact-SQL differences](sql-database-transact-sql-information.md).
 - For information about specific resource quotas and limitations based on your **service tier**. For an overview of service tiers, see [SQL Database service tiers](sql-database-service-tiers.md).
-- For security related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
+- For security-related guidelines, see [Azure SQL Database Security Guidelines and Limitations](sql-database-security-guidelines.md).
 - For information on driver availability and support for SQL Database, see [Connection Libraries for SQL Database and SQL Server](sql-database-libraries.md).
 
