@@ -71,31 +71,108 @@ Perform the following steps to use .NET to launch a data transformation job.
 
 4. Add the following **using** statements to the source file (Program.cs) in the project.
 
-    ![DmsJob-Using-Statements](./media/storsimple-data-manager-dotnet-jobs/add-dms-job-using-statements.png)
+    ````
+    using System;
+    using System.Collections.Generic;
+    using System.Threading;
+    using Microsoft.Azure.Management.HybridData.Models;
+    using Microsoft.Internal.Dms.DmsWebJob;
+    using Microsoft.Internal.Dms.DmsWebJob.Contracts;
+    ````
+
 
 5. The following code initializes the data transformation job instance. Add this in the **Main method**. Replace the values of configuration parameters as obtained earlier. Plug in the values of **Resource Group Name** and **Hybrid Data Resource name**. The **Resource Group Name** is the one that hosts the Hybrid Data Resource on which the job definition was configured.
 
-    ![Set-DMSJob-ConfigurationParams](./media/storsimple-data-manager-dotnet-jobs/set-job-config-parameters.png)
+    ````
+    // Setup the configuration parameters.
+    var configParams = new ConfigurationParams
+    {
+        ClientId = "client-id",
+        TenantId = "tenant-id",
+        ActiveDirectoryKey = "active-directory-key",
+        SubscriptionId = "subscription-id",
+        ResourceGroupName = "resource-group-name",
+        ResourceName = "resource-name"
+    };
+
+    // Initialize the Data Transformation Job instance.
+    DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
+
+    ````
 
 6. Specify the parameters with which the job definition needs to be run
 
-    ![Get-DMSJob-InputParams](./media/storsimple-data-manager-dotnet-jobs/get-job-input-parameters.png)
+    ````
+    string jobDefinitionName = "job-definition-name";
+
+    DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
+
+    ````
 
     (OR)
 
     If you want to change the job definition parameters during run time, then add the following code:
 
-    ![Set-DMSJob-InputParams](./media/storsimple-data-manager-dotnet-jobs/set-job-input-parameters.png)
+    string jobDefinitionName = "job-definition-name";
+
+    ````
+    // Must start with a '\'
+    var rootDirectories = new List<string> {@"\root"};
+
+    // Name of the volume on the StorSimple device.
+    var volumeNames = new List<string> {"volume-name"};
+
+    var dataTransformationInput = new DataTransformationInput
+    {
+        // If you require the latest existing backup to be picked else use TakeNow to trigger a new backup.
+        BackupChoice = BackupChoice.UseExistingLatest.ToString(),
+        // Name of the StorSimple device.
+        DeviceName = "device-name",
+        // Name of the container in Azure storage where the files will be placed after execution.
+        ContainerName = "container-name",
+        // File name filter (search pattern) to be applied on files under the root directory. * - Match all files.
+        FileNameFilter = "*",
+        // List of root directories.
+        RootDirectories = rootDirectories,
+        // Name of the volume on StorSimple device on which the relevant data is present. 
+        VolumeNames = volumeNames
+    };
+    ````
 
 7. After the initialization, add the following code to trigger a data transformation job on the job definition. Plug in the appropriate **Job Definition Name**.
 
-    ![Trigger-DMSJob](./media/storsimple-data-manager-dotnet-jobs/trigger-job.png)
+    ````
+    // Trigger a job, retrieve the jobId and the retry interval for polling.
+    int retryAfter;
+    string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
+    dataTransformationInput, out retryAfter);
+
+    ````
 
 8. This job uploads the matched files present under the root directory on the StorSimple volume to the specified container. When a file is uploaded, a message is dropped in the queue (in the same storage account as the container) with the same name as the job definition. This message can be used as a trigger to initiate any further processing of the file.
 
 9. Once the job has been triggered, add the following code to track the job for completion.
 
-    ![Read-DMSJob-Status](./media/storsimple-data-manager-dotnet-jobs/read-job-status.png)
+    ````
+    Job jobDetails = null;
+
+    // Poll the job.
+    do
+    {
+        jobDetails = dataTransformationJob.GetJob(jobDefinitionName, jobId);
+
+        // Wait before polling for the status again.
+        Thread.Sleep(TimeSpan.FromSeconds(retryAfter));
+
+    } while (jobDetails.Status == JobStatus.InProgress);
+
+    // Completion status of the job.
+    Console.WriteLine("JobStatus: {0}", jobDetails.Status);
+    
+    // To hold the console before exiting.
+    Console.Read();
+
+    ````
 
 
 ## Next steps
