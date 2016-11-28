@@ -13,7 +13,7 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/22/2016
+ms.date: 11/23/2016
 ms.author: jeffstok
 
 ---
@@ -230,10 +230,6 @@ Once connected, you will arrive at a prompt similar to the following.
 ## Using R Server on HDI from a remote instance of Microsoft R Server or Microsoft R Client
 Per the section above regarding use of public/private key pairs to access the cluster, it is possible to setup access to the HDI Hadoop Spark compute context from a remote instance of Microsoft R Server or Microsoft R Client running on a desktop or laptop (see Using Microsoft R Server as a Hadoop Client in the [Creating a Compute Context for Spark](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started#creating-a-compute-context-for-spark) section of the online [RevoScaleR Hadoop Spark Getting Started guide](https://msdn.microsoft.com/microsoft-r/scaler-spark-getting-started)).  To do so you will need to specify the following options when defining the RxSpark compute context on your laptop: hdfsShareDir, shareDir, sshUsername, sshHostname, sshSwitches, and sshProfileScript. For example:
 
-
-
-e.path(03.�!
-
     myNameNode <- "default"
     myPort <- 0 
     
@@ -288,6 +284,7 @@ A compute context allows you to control whether computation will be performed lo
         rxHadoopMakeDir(inputDir)
         # Copy the data from source to input
         rxHadoopCopyFromLocal(source, bigDataDirRoot)
+
 2. Next, let's create some data info and define two data sources so that we can work with the data.
 
         # Define the HDFS (WASB) file system
@@ -310,6 +307,7 @@ A compute context allows you to control whether computation will be performed lo
        
         # formula to use
         formula = "ARR_DEL15 ~ ORIGIN + DAY_OF_WEEK + DEP_TIME + DEST"
+
 3. Let's run a logistic regression over the data using the local compute context.
 
         # Set a local compute context
@@ -346,6 +344,7 @@ A compute context allows you to control whether computation will be performed lo
        
         Condition number of final variance-covariance matrix: 11904202
         Number of iterations: 7
+
 4. Next, let's run the same logistic regression using the Spark context. The Spark context will distribute the processing over all the worker nodes in the HDInsight cluster.
 
         # Define the Spark compute context 
@@ -482,6 +481,7 @@ Script Actions are Bash scripts that are used to make configuration changes to t
      >
 
      ![Adding a script action](./media/hdinsight-getting-started-with-r/scriptaction.png)
+     
 4. Select **Create** to run the script. Once the script completes, the R packages will be available on all worker nodes.
 
 ## Next steps
