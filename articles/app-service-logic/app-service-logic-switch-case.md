@@ -17,13 +17,18 @@ ms.author: deli
 
 ---
 # Use switch statement in Logic Apps
-When creating a workflow, you often need to take different actions based on the value of an object or expression, this can be achieved by using a switch statement.
+When authoring a workflow, you often need to take different actions based on the value of an object or expression. For example, you may want your Logic App to behave differently based on the status code of an HTTP request, or the selected option of an approval email.
 
-With switch statement, Logic App evaluates a token or expression, and choose the case with the same value to execute actions within. Cases must be a static and unique value.
+Scenarios like these can be achieved by using a switch statement: Logic App evaluates a token or expression, and chooses the case with the same value to execute actions within. Only one case should match the switch statement.
+
+ > [!TIP]
+ > Like all programming language, switch statement only supports equality operators. Use a condition statement if you need other relational operators (e.g. greater than).
+ >
+ > To ensure determinstic execution behavior, cases must contain a unique and static value instead of dynamic tokens or expression.
 
 ## Prerequisites
 
-- Active Azure subscriptions.
+- Active Azure subscription.
 	- If you don't have an active Azure subscription, [create a free account](https://azure.microsoft.com/en-us/free/), or try [Logic Apps for free](https://tryappservice.azure.com/).
 - [Basic knowledge of Logic Apps](./app-service-logic-what-are-logic-apps?toc=%2fazure%2flogic-apps%2ftoc.json).
 
