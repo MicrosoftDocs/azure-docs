@@ -100,7 +100,7 @@ This table shows the search units required to support combinations of replicas a
 | **1 Replica** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **2 Replicas** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **3 Replicas** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **4 Replicas** |4 SU |8 SU< |12 SU |16 SU |24 SU |N/ |
+| **4 Replicas** |4 SU |8 SU |12 SU |16 SU |24 SU |N/A |
 | **5 Replicas** |5 SU |10 SU |15 SU |20 SU |30 SU |N/A |
 | **6 Replicas** |6 SU |12 SU |18 SU |24 SU |36 SU |N/A |
 | **12 Replicas** |12 SU |24 SU |36 SU |N/A |N/A |N/A |
