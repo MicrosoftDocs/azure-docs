@@ -55,7 +55,7 @@ The Reverse proxy uses a specific URI format to identify which service partition
 http(s)://<Cluster FQDN | internal IP>:Port/<ServiceInstanceName>/<Suffix path>?PartitionKey=<key>&PartitionKind=<partitionkind>&Timeout=<timeout_in_seconds>
 ```
 
-* **http(s):** The reverse proxy can be configured to accept HTTP or HTTPS traffic. In the case of HTTPS traffic, SSL termination occurs at the reverse proxy. Requests that are forwarded by the reverse proxy to services in the cluster are over http.
+* **http(s):** The reverse proxy can be configured to accept HTTP or HTTPS traffic. In the case of HTTPS traffic, SSL termination occurs at the reverse proxy. Requests that are forwarded by the reverse proxy to services in the cluster are over http. **Note that HTTPS services are not currently supported.**
 * **Cluster FQDN | internal IP:** For external clients, the reverse proxy can be configured so that it is reachable through the cluster domain (e.g., mycluster.eastus.cloudapp.azure.com). By default the reverse proxy runs on every node, so for internal traffic it can be reached on localhost or on any internal node IP (e.g., 10.0.0.1).
 * **Port:** The port that has been specified for the reverse proxy. Eg: 19008.
 * **ServiceInstanceName:** This is the fully-qualified deployed service instance name of the service you are trying to reach sans the "fabric:/" scheme. For example, to reach service *fabric:/myapp/myservice/*, you would use *myapp/myservice*.
