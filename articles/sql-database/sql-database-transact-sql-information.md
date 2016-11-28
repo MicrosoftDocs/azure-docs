@@ -28,7 +28,8 @@ Most of the Transact-SQL features that applications depend on are supported in b
 However, Azure SQL Database is designed to isolate features from any dependency on the **master** database. As a consequence many server-level activities are inappropriate for SQL Database and are unsupported. Features that are deprecated in SQL Server are generally not supported in SQL Database.
 
 > [!NOTE]
-> This topic discusses the features that are available with SQL Database when upgraded to the current version; SQL Database V12. For more information about V12, see [SQL Database V12 What's New](sql-database-v12-whats-new.md).
+> This topic discusses the features that are available with SQL Database when upgraded to the current version: SQL Database V12. See [Azure SQL Database features](sql-database-features.md) for a feature matrix comparing Azure SQL Database with SQL Server.
+
 > 
 > 
 

@@ -1,14 +1,14 @@
-﻿---
+---
 title: Service Bus brokered messaging .NET tutorial | Microsoft Docs
 description: Brokered messaging .NET tutorial.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 964e019a-8abe-42f3-8314-867010cb2608
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na

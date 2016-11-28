@@ -23,19 +23,11 @@ You can deploy [Platform as a Service](https://azure.microsoft.com/overview/what
 
 ## PaaS services
 
-[Add an App Service resource provider to Azure Stack](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-app-service-overview)
-[Add a SQL Server resource provider to Azure Stack](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-sql-rp-deploy)
-[Add a MySQL Server resource provider to Azure Stack](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-mysql-rp-deploy)
+[Add an App Service resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-app-service-overview)
 
+[Add a SQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-sql-resource-provider-deploy)
 
-## Additional PaaS services
-In Technical Preview 1, three PaaS resource providers are now available.
-
-[Add a SQL Server resource provider to Azure Stack](azure-stack-sql-rp-deploy-short.md)
-
-[Add a MySQL resource provider to Azure Stack](azure-stack-mysql-rp-deploy-short.md)
-
-[Add a Web Apps resource provider to Azure Stack](azure-stack-webapps-deploy.md)
+[Add a MySQL Server resource provider to Azure Stack](https://docs.microsoft.com/azure/azure-stack/azure-stack-mysql-resource-provider-deploy)
 
 
 ## Template tools
@@ -73,7 +65,7 @@ Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of ope
 [Download the Linux CLI](http://aka.ms/azstack-mac-cli)
 
 > [!NOTE]
-> * If you’re on a Mac or Linux machine, you can also get the CLI by using the command `npm install -g azure-cli@0.9.11`</br>
+> * If you’re on a Mac or Linux machine, you can also get the CLI by using the command `npm install -g azure-cli@0.10.4`</br>
 > * If you're getting certificate validation issues, run the command `set NODE_TLS_REJECT_UNAUTHORIZED=0`
 > 
 > 

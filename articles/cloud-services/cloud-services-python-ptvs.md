@@ -19,11 +19,6 @@ ms.author: adegeo
 ---
 # Python web and worker roles with Python Tools for Visual Studio
 
-> [!div class="op_single_selector"]
-> * [.NET](cloud-services-dotnet-get-started.md)
-> * [Node.js](cloud-services-nodejs-develop-deploy-app.md)
-> * [Python](cloud-services-python-ptvs.md)
-
 This article provides an overview of using Python web and worker roles using [Python Tools for Visual Studio][Python Tools for Visual Studio]. You will learn how to use Visual Studio to create and deploy a basic Cloud Service that uses Python.
 
 ## Prerequisites

@@ -1,14 +1,14 @@
 ---
 title: Service Bus relay samples overview | Microsoft Docs
 description: Categorizes and describes Service Bus relay samples with links to each.
-services: service-bus
+services: service-bus-relay
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 9237a9a2-f126-4d3f-9f9b-604ee6b32153
-ms.service: service-bus
+ms.service: service-bus-relay
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
