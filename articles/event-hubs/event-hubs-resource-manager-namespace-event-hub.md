@@ -87,7 +87,7 @@ Creates a namespace of type **EventHubs**, with an Event Hub and a consumer grou
       {  
          "apiVersion":"[variables('ehVersion')]",
          "name":"[parameters('namespaceName')]",
-         "type":"Microsoft.EventHub/Namespaces",
+         "type":"Microsoft.EventHub/namespaces",
          "location":"[variables('location')]",
          "sku":{  
             "name":"Standard",
