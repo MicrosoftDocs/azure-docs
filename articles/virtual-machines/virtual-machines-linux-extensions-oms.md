@@ -123,11 +123,4 @@ Data about the state of extension deployments can be retrieved from the Azure po
 azure vm extension get myResourceGroup myVM
 ```
 
-Output and errors specific to the OMS Agent extension can be found in these files:
-
-- /var/lib/waagent/<extension-name-and-version>/packages/
-- /opt/microsoft/omsagent/bin
-
-The operation log of the extension is located here:
-
--  /var/log/azure/<extension-name>/<version>/extension.log
+Output and errors specific to the OMS Agent extension can be found in `/var/log/azure/<extension-name>/<version>/extension.log`.
