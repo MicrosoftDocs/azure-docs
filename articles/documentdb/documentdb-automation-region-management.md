@@ -22,7 +22,7 @@ ms.author: dimakwan
 
 This article shows you how to add/remove a region in your Azure DocumentDB account by using Azure CLI commands and Azure Resource Manager templates. Region management can also be accomplished through the [Azure Portal](documentdb-portal-global-replication.md). Note that the commands in the following tutorial do not allow you to change failover priorities of the various regions. Only read regions can  be added or removed. The write region of a database account (failover priority of 0) cannot be added/removed.
 
-DocumentDB database accounts are currently the only DocumentDB resource that can be created/modified using [ARM templates and the Azure CLI](documentdb-automation-resource-manager-cli.md).
+DocumentDB database accounts are currently the only DocumentDB resource that can be created/modified using [Azure Resource Manager templates and the Azure CLI](documentdb-automation-resource-manager-cli.md).
 
 ## Getting ready
 
@@ -51,7 +51,8 @@ Which produces the following output:
     |info:    To sign in, use a web browser to open the page https://aka.ms/devicelogin. 
     Enter the code E1A2B3C4D to authenticate.
 
-> [AZURE.NOTE] If you don't have an Azure account, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md).
+> [!NOTE]
+> If you don't have an Azure account, you'll see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md).
 
 Open [https://aka.ms/devicelogin](https://aka.ms/devicelogin) in a browser and enter the code provided in the command output.
 
@@ -142,7 +143,8 @@ Add a region to an existing DocumentDB account in the new or existing resource g
 
 Match the failover priority values to the existing configuration. One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account][scaling-globally]. The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. The new region will be a "Read" region and must have a failover priority value greater than 0.
 
-> [AZURE.TIP] If you run this command in Azure PowerShell or Windows PowerShell you will receive an error about an unexpected token. Instead, run this command at the Windows Command Prompt. 
+> [!TIP]
+> If you run this command in Azure PowerShell or Windows PowerShell you will receive an error about an unexpected token. Instead, run this command at the Windows Command Prompt.
 
     azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"<databaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority1>\"},{\"locationName\":\"<newdatabaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority2>\"}"]}"
 
@@ -177,7 +179,7 @@ If you encounter errors, see [Troubleshooting](#troubleshooting).
 
 After the command returns, the account will be in the **Creating** state for a few minutes, before it changes to the **Online** state in which it is ready for use. You can check on the status of the account in the [Azure portal](https://portal.azure.com), on the **DocumentDB Accounts** blade.
 
-### <a id="add-region-documentdb-account-cli-arm"></a> Add Region to a DocumentDB account using Azure CLI with ARM templates
+### <a id="add-region-documentdb-account-cli-arm"></a> Add Region to a DocumentDB account using Azure CLI with Resource Manager templates
 
 The instructions in this section describe how to add a region to an existing DocumentDB account with an Azure Resource Manager template and an optional parameters file, both of which are JSON files. Using a template enables you to describe exactly what you want and repeat it without errors.
 
@@ -316,15 +318,16 @@ After the command returns, the account will be in the **Creating** state for a f
 
 ## <a id="remove-region-documentdb-account"></a>Task: Remove Region from a DocumentDB account
 
-DocumentDB has the capability to [distribute your data globally][distribute-globally] across various [Azure regions](https://azure.microsoft.com/regions/#services). The instructions in this section describe how to remove a region from an existing DocumentDB account with Azure CLI and ARM Templates. This can be accomplished using Azure CLI with or without ARM templates.
+DocumentDB has the capability to [distribute your data globally][distribute-globally] across various [Azure regions](https://azure.microsoft.com/regions/#services). The instructions in this section describe how to remove a region from an existing DocumentDB account with Azure CLI and Resource Manager Templates. This can be accomplished using Azure CLI with or without Resource Manager templates.
 
-### <a id="remove-region-documentdb-account-cli"></a> Remove Region to a DocumentDB account using Azure CLI without ARM templates
+### <a id="remove-region-documentdb-account-cli"></a> Remove Region to a DocumentDB account using Azure CLI without Resource Manager templates
 
 To remove a region from an existing DocumentDB account, the command below can be executed with Azure CLI. The "locations" array should contain only the regions that are to remain after the removal of the region. **The omitted location will be removed from the DocumentDB account**. Enter the following command in the command prompt.
 
 One of the regions must have a failoverPriority value of 0 to indicate that this region be kept as the [write region for the DocumentDB account][scaling-globally]. The failover priority values must be unique amongst the locations and the highest failover priority value must be less than the total number of regions. 
 
-> [AZURE.TIP] If you run this command in Azure PowerShell or Windows PowerShell you will receive an error about an unexpected token. Instead, run this command at the Windows Command Prompt. 
+> [!TIP]
+> If you run this command in Azure PowerShell or Windows PowerShell you will receive an error about an unexpected token. Instead, run this command at the Windows Command Prompt.
 
     azure resource create -g <resourcegroupname> -n <databaseaccountname> -r "Microsoft.DocumentDB/databaseAccounts" -o 2015-04-08 -l <resourcegrouplocation> -p "{\"databaseAccountOfferType\":\"Standard\",\"locations\":["{\"locationName\":\"<databaseaccountlocation>\",\"failoverPriority\":\"<failoverPriority>\"}"]}"
 
@@ -398,7 +401,7 @@ Create a local template file similar to the one below that matches your current 
 
 You can either enter the parameter values at the command line, or create a parameter file to specify the value.
 
-To create a parameters file, copy the following content into a new file and name the file azuredeploy.parameters.json. If you plan on specifying the database account name at the command prompt, you can continue without creating this file. Be sure to add the necessary parameters that are defined in your ARM template.
+To create a parameters file, copy the following content into a new file and name the file azuredeploy.parameters.json. If you plan on specifying the database account name at the command prompt, you can continue without creating this file. Be sure to add the necessary parameters that are defined in your Azure Resource Manager template.
 
     {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
@@ -474,7 +477,8 @@ After the command returns, the account will be in the **Updating** state for a f
 
 If you receive errors like `Deployment provisioning state was not successful` while creating your resource group or database account, you have a few troubleshooting options. 
 
-> [AZURE.NOTE] Providing incorrect characters in the database account name or providing a location in which DocumentDB is not available will cause deployment errors. Database account names can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. All valid database account locations are listed on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
+> [!NOTE]
+> Providing incorrect characters in the database account name or providing a location in which DocumentDB is not available will cause deployment errors. Database account names can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters. All valid database account locations are listed on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
 - If your output contains the following `Error information has been recorded to C:\Users\wendy\.azure\azure.err`, then review the error info in the azure.err file.
 
