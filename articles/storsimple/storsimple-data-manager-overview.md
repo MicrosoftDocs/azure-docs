@@ -59,7 +59,7 @@ The StorSimple Data Manager is in private preview. Perform the following steps t
 
     ![Sign me up](./media/storsimple-data-manager-overview/sign-me-up.png)
 
-5. This send a request is to onboard you. We will onboard you as soon as possible. After your subscription is enabled, you can create a StorSimple Data Manager service.
+5. This sends a request to onboard you. We will onboard you as soon as possible. After your subscription is enabled, you can create a StorSimple Data Manager service.
 
 6. To easily access the StorSimple Data Manager service, click the star icon to pin it to your favorites.
 
