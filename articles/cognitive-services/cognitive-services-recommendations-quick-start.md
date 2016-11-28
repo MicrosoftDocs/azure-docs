@@ -13,13 +13,13 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2016
+ms.date: 11/28/2016
 ms.author: luisca
 
 ---
 # Quick start guide for the Cognitive Services Recommendations API
 This document describes how to onboard your service or application to use the [Recommendations API](http://go.microsoft.com/fwlink/?LinkId=759710).
-You can find more details on the Recommendations API and other Cognitive Services [here](http://go.microsoft.com/fwlink/?LinkId=759709). Throughout this guide, you may also find the [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348) handy.
+You can find more details on the Recommendations API and other Cognitive Services [here](http://go.microsoft.com/fwlink/?LinkId=759709). Throughout this guide, you may also find the [Recommendations API Reference](http://go.microsoft.com/fwlink/?LinkId=759348) and the [Recommendation UI Quick-Start Guide](cognitive-services-recommendations-ui-intro.md) handy.
 
 <a name="Overview"></a>
 
