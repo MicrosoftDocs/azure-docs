@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 11/28/2016
 ms.author: tomfitz
 
 ---
@@ -37,8 +37,8 @@ The following example shows a virtual machine scale set that depends on a load b
       },
       "dependsOn": [
         "storageLoop",
-        "[concat(variables('loadBalancerName'))]",
-        "[concat(variables('virtualNetworkName'))]"
+        "[variables('loadBalancerName')]",
+        "[variables('virtualNetworkName')]"
       ],
       ...
     }

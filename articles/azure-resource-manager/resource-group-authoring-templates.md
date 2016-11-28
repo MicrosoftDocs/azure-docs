@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 11/28/2016
 ms.author: tomfitz
 
 ---
@@ -24,7 +24,7 @@ To view the template for resources you have already deployed, see [Export an Azu
 
 A good JSON editor can simplify the task of creating templates. For information about using Visual Studio with your templates, see [Creating and deploying Azure resource groups through Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md). For information about using VS Code, see [Working with Azure Resource Manager Templates in Visual Studio Code](resource-manager-vs-code.md).
 
-Limit the size your template to 1 MB, and each parameter file to 64 KB. The 1 MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
+Limit the size your template to 1 MB, and each parameter file to 64 KB. The 1-MB limit applies to the final state of the template after it has been expanded with iterative resource definitions, and values for variables and parameters. 
 
 ## Template format
 In its simplest structure, a template contains the following elements:
@@ -47,7 +47,7 @@ In its simplest structure, a template contains the following elements:
 | resources |Yes |Resource types that are deployed or updated in a resource group. |
 | outputs |No |Values that are returned after deployment. |
 
-We examine the sections of the template in greater detail later in this topic. For now, we will review some of the syntax that makes up the template.
+We examine the sections of the template in greater detail later in this topic.
 
 ## Expressions and functions
 The basic syntax of the template is JSON. However, expressions and functions extend the JSON that is available in the template. With expressions, you create values that are not strict literal values. Expressions are enclosed with brackets [ and ], and are evaluated when the template is deployed. Expressions can appear anywhere in a JSON string value and always return another JSON value. If you need to use a literal string that starts with a bracket [, you must use two brackets [[.
