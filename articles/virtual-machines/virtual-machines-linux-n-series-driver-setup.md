@@ -23,7 +23,7 @@ To take advantage of the GPU capabilities of Azure N-series VMs running a suppor
 
 For N-series VM specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-For more information about the NVIDA GPUs on the N-series VMs, see:
+For more information about the NVIDIA GPUs on the N-series VMs, see:
 * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (for Azure NC VMs)
 * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (for Azure NV VMs)
 
