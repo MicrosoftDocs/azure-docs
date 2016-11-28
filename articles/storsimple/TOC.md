@@ -34,7 +34,7 @@
 #### [Manage shares](storsimple-virtual-array-manage-shares.md)
 #### [Manage volumes](storsimple-virtual-array-manage-volumes.md)
 #### [View service summary](storsimple-virtual-array-service-summary.md)
-#### [View device summary](storsimple-virtual-array-service-summary.md)
+#### [View device summary](storsimple-virtual-array-device-summary.md)
 #### [Manage storage accounts](storsimple-virtual-array-manage-storage-accounts.md)
 #### [Manage ACRs](storsimple-virtual-array-manage-acrs.md)
 #### [Manage jobs](storsimple-virtual-array-manage-jobs.md)
