@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with JobScore' | Microsoft Docs
+title: 'Tutorial: Azure Active Directory integration with JobScore | Microsoft Docs'
 description: Learn how to use JobScore with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
 author: jeevansd
