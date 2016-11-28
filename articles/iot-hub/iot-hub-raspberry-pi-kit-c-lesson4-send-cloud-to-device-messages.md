@@ -57,8 +57,8 @@ In this article, you will learn:
    ![Contents of the config-raspberrypi.json file](media/iot-hub-raspberry-pi-lessons/lesson4/config_raspberrypi.png)
 
 * Replace **[device hostname or IP address]** with Pi’s IP address or host name that you get by running the `devdisco list --eth` command.
-* Replace **[IoT device connection string]** with the device connection string that you get by running the `az iot device show-connection-string --hub-name {my hub name} --device-id {device id} --resource-group {resource group name}` command.
-* Replace **[IoT hub connection string]** with the IoT hub connection string that you get by running the `az iot hub show-connection-string --name {my hub name} --resource-group {resource group name}` command.
+* Replace **[IoT device connection string]** with the device connection string that you get by running the `az iot device show-connection-string --hub-name {my hub name} --device-id {device id} -g iot-sample {resource group name}` command.
+* Replace **[IoT hub connection string]** with the IoT hub connection string that you get by running the `az iot hub show-connection-string --name {my hub name} -g iot-sample {resource group name}` command.
 
 > [!NOTE]
 > Run **gulp install-tools** as well, if you haven't done it in Lesson 1.

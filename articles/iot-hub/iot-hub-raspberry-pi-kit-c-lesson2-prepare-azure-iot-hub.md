@@ -78,16 +78,12 @@ Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To 
 > You can create only one F1 edition of Azure IoT Hub under your Azure subscription.
 
 ## Register Pi in your IoT hub
-Each device that sends messages to your IoT hub and receives messages from your IoT hub must be registered with a unique ID. You will use Azure CLI to register your Pi and create a self-signed X.509 certificate for device authentication.
+Each device that sends messages to your IoT hub and receives messages from your IoT hub must be registered with a unique ID.
 
-Run the following command:
+Register Pi in your hub by running following command:
 
 ```bash
-# For Windows command prompt
-az iot device create --device-id myraspberrypi --hub-name {my hub name} --x509 --output-dir %USERPROFILE%\.iot-hub-getting-started
- 
-# For macOS or Ubuntu
-az iot device create --device-id myraspberrypi --hub-name {my hub name} --x509 --output-dir ~/.iot-hub-getting-started
+az iot device create --device-id myraspberrypi --hub {my hub name} --resource-group iot-sample
 ```
 
 ## Summary
