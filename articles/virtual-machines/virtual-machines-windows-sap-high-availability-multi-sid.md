@@ -439,7 +439,11 @@ ms.author: goraco
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 
-In this article, we will explain how to install additional SAP ASCS / SCS clustered instances in an existing Windows Failover Sever Cluster (WSFC). In this way, you will have configured a so called SAP Multi-SID cluster.
+In September, Microsoft released a functionality that allows to manage multiple Virtual IP addresses with the Azure Internal Load Balancers as well. A functionality that existed with the Azure External Load Balancers already.
+
+In case of SAP deployments, an Azure ILB is used to create a Windows cluster configuration for SAP’s ASCS/SCS as documented in the [Main High-availability SAP NetWeaver on Windows virtual machines guide][sap-ha-guide].
+
+This article, will focus on how to move from such a single ASCS/SCS installation as described in the documentation so far to a SAP Multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Failover Sever Cluster (WSFC). In this way, you will have configured so called SAP Multi-SID cluster.
 
 > [!NOTE]
 > This feature is available only in the Azure Resource Manager deployment model.
@@ -447,7 +451,7 @@ In this article, we will explain how to install additional SAP ASCS / SCS cluste
 >
 
 ## Prerequisites
-You already have configured WSFC that is used for one SAP ASCS/SCS instance.
+You already have configured WSFC that is used for one SAP ASCS/SCS instance according to this documentation: [Main High-availability SAP NetWeaver on Windows virtual machines guide][sap-ha-guide].
 
 ![Figure 1: High-availability SAP ASCS/SCS instance][sap-ha-guide-figure-6001]
 
@@ -456,7 +460,7 @@ _**Figure 1:** One SAP ASCS/SCS clustered instance in Azure_
 
 ## Target Architecture
 
-On the end, you will be able to install multiple **SAP ABAP ASCS** or **SAP Java SCS** clustered instances in the same WSFC cluster.
+The goal is that you will be able to install multiple **SAP ABAP ASCS** or **SAP Java SCS** clustered instances in the same WSAFC cluster.
 
 ![Figure 2: Multiple SAP ASCS/SCS clustered instance in Azure][sap-ha-guide-figure-6002]
 
@@ -663,8 +667,8 @@ High-level procedure description is following:
 
 - [Install the database instance][sap-ha-guide-9.2]
 
-    Install DBMS on a **new dedicated WSFC cluster**.
-
+    Install DBMS on a **dedicated WSFC cluster**.
+    
 - [Install the second cluster node][sap-ha-guide-9.3]
 
     Install SAP with a high-availability ASCS/SCS instance on the **EXISTING WSFC cluster node 2**.
