@@ -1,5 +1,5 @@
 ﻿---
-title: Configure Additional SAP ASCS/SCS Instance in the Existing Cluster (SAP Multi-SID) - Azure Resource Manager | Microsoft Docs
+title: Configure Additional SAP ASCS/SCS Instance into an Existing Cluster configuration to create a SAP Multi-SID configuration - Azure Resource Manager | Microsoft Docs
 description: High-availability guide for SAP NetWeaver Multi-SID on Windows Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -19,7 +19,7 @@ ms.date: 11/24/2016
 ms.author: goraco
 
 ---
-# Configure Additional SAP ASCS/SCS Instance in the Existing Cluster (SAP Multi-SID) - Azure Resource Manager
+# Configure Additional SAP ASCS/SCS Instance into an Existing Cluster configuration to create a SAP Multi-SID configuration - Azure Resource Manager
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -668,7 +668,7 @@ High-level procedure description is following:
 - [Install the database instance][sap-ha-guide-9.2]
 
     Install DBMS on a **dedicated WSFC cluster**.
-    
+
 - [Install the second cluster node][sap-ha-guide-9.3]
 
     Install SAP with a high-availability ASCS/SCS instance on the **EXISTING WSFC cluster node 2**.
