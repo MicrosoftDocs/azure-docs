@@ -82,9 +82,9 @@ The DocumentDB Emulator is installed by default to the `C:\Program Files\Azure D
 
 ## Start the local emulator Data Explorer
 
-When the local emulator lauches it will automatically open the DocumentDB Data Explorer in your browser.  The address will appear as [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). If you close the explorer and would like to re-open it later, you can either open the URL in your browser or launch it from the DocumentDB Emulator in the the Windows Tray Icon as shown below.
+When the local emulator lauches it will automatically open the DocumentDB Data Explorer in your browser. The address will appear as [https://localhost:8081/_explorer/index.html](https://localhost:8081/_explorer/index.html). If you close the explorer and would like to re-open it later, you can either open the URL in your browser or launch it from the DocumentDB Emulator in the the Windows Tray Icon as shown below.
 
-![DocumentDB local emulator data explorer launcher](./media/documentdb-nosql-local-emulator/DocumentDB_local_emulator_data_explorer_launcher.png)
+![DocumentDB local emulator data explorer launcher](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-data-explorer-launcher.png)
 
 ## Developing with the DocumentDB Emulator
 Once you have the DocumentDB Emulator running on your desktop, you can use any supported [DocumentDB SDK](documentdb-sdk-dotnet.md) or the [DocumentDB REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx) to interact with the Emulator. The DocumentDB Emulator also includes a built-in Data Explorer that lets you create collections, view and edit documents without writing any code. 
@@ -106,9 +106,9 @@ You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/
 
 ## Export the DocumentDB Emulator SSL certificate
 
-.Net languages and runtime use the Windows Certificate Store to securly connect to the DocumentDB local emulator.  Other languages have their own way of managing and using certificates.  Java uses it's own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) whereas Python uses uses [socket wrappers](https://docs.python.org/2/library/ssl.html).
+.Net languages and runtime use the Windows Certificate Store to securely connect to the DocumentDB local emulator. Other languages have their own method of managing and using certificates. Java uses it's own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) whereas Python uses uses [socket wrappers](https://docs.python.org/2/library/ssl.html).
 
-In order to obtain a certificate to use with languages and runtimes that do not integrate with the Windows Certificate Store you will need to export it using the Windows Certificate Manager.  You can start it by running "certlm.msc".  Once the certificate manager is running open the Personal Certificates as shown below and export the certificate with the friendly name "DocumentDBEmulatorCertificate" as a BASE-64 encoded X.509 (.cer) file.
+In order to obtain a certificate to use with languages and runtimes that do not integrate with the Windows Certificate Store you will need to export it using the Windows Certificate Manager. You can start it by running "certlm.msc" or follow the step by step instructions in the "[Export the DocumentDB Emulator Certificates](./documentdb-nosql-local-emulator-export-ssl-certificates.md)" post. Once the certificate manager is running, open the Personal Certificates as shown below and export the certificate with the friendly name "DocumentDBEmulatorCertificate" as a BASE-64 encoded X.509 (.cer) file.
 
 ![DocumentDB local emulator SSL certificate](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-ssl_certificate.png)
 
