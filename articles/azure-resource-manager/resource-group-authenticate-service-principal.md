@@ -45,7 +45,6 @@ To complete this topic, you must have sufficient permissions in both your Azure 
 In your Active Directory, your account must be an administrator (such as **Global Admin** or **User Admin**). If your account is assigned to the **User** role, you need to have an administrator elevate your permissions.
 
 In your subscription, your account must have `Microsoft.Authorization/*/Write` access, which is granted through the [Owner](../active-directory/role-based-access-built-in-roles.md#owner) role or [User Access Administrator](../active-directory/role-based-access-built-in-roles.md#user-access-administrator) role. If your account is assigned to the **Contributor** role, you receive an error when attempting to assign the service principal to a role. Again, your subscription administrator must grant you sufficient access.
-
 Now, proceed to a section for either [password](#create-service-principal-with-password) or [certificate](#create-service-principal-with-certificate) authentication.
 
 ## Create service principal with password
@@ -56,10 +55,9 @@ In this section, you perform the steps to:
 * assign the Reader role to the service principal
 
 To quickly perform these steps, see the following three cmdlets. 
-
      $app = New-AzureRmADApplication -DisplayName "{app-name}" -HomePage "https://{your-domain}/{app-name}" -IdentifierUris "https://{your-domain}/{app-name}" -Password "{your-password}"
      New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
-     New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
+     New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId
 
 Let's go through these steps more carefully to make sure you understand the process.
 
@@ -93,7 +91,7 @@ Let's go through these steps more carefully to make sure you understand the proc
         New-AzureRmADServicePrincipal -ApplicationId $app.ApplicationId
 5. Grant the service principal permissions on your subscription. In this example, you add the service principal to the **Reader** role, which grants permission to read all resources in the subscription. For other roles, see [RBAC: Built-in roles](../active-directory/role-based-access-built-in-roles.md). For the **ServicePrincipalName** parameter, provide the **ApplicationId** that you used when creating the application. 
    
-        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId.Guid
+        New-AzureRmRoleAssignment -RoleDefinitionName Reader -ServicePrincipalName $app.ApplicationId
    
     If your account does not have sufficient permissions to assign a role, you see an error message. The message states your account **does not have authorization to perform action 'Microsoft.Authorization/roleAssignments/write' over scope '/subscriptions/{guid}'**. 
 
