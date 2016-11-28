@@ -26,6 +26,17 @@ The OMS Agent virtual machine Linux extension installs the OMS agent and enrolls
 
 For general information on Azure virtual machine extensions see, [Virtual Machine extensions overview](./virtual-machines-linux-extensions-features.md).
 
+## Supported Linux Distributions
+
+The OMS Agent extension can be run against these Linux distributions.
+
+- CentOS Linux 5,6, and 7 (x86/x64)
+- Oracle Linux 5,6, and 7 (x86/x64)
+- Red Hat Enterprise Linux Server 5,6 and 7 (x86/x64)
+- Debian GNU/Linux 6, 7, and 8 (x86/x64)
+- Ubuntu 12.04 LTS, 14.04 LTS, 15.04 (x86/x64)
+- SUSE Linux Enterprise Server 11 and 12 (x86/x64)
+
 ## Extension Configuration
 
 The OMS virtual machine extension will need the workspace IF and workspace key of the target OMS workspace. Because the workspace key should be treated as sensitive data, it will be stored in a protected setting. The public and private configurations are used at deployment time, which is detailed in subsequent sections of this document.
@@ -38,7 +49,7 @@ Schema for the public configuration:
 
 ```json
 {
-  "workspaceId": "<workspace-id (guid)>"
+  "workspaceId": "myWorkspaceId"
 }
 ```
 
@@ -50,7 +61,7 @@ Schema for the public configuration:
 
 ```json
 {
-  "workspaceKey": "<workspace-key>"
+  "workspaceKey": "myWorkSpaceKey"
 }
 ```
 
@@ -78,10 +89,10 @@ This JSON sample can be used in an Azure Resource Manager template to deploy the
     "type": "OmsAgentForLinux",
     "typeHandlerVersion": "1.0",
     "settings": {
-      "workspaceId": "<workspace id>"
+      "workspaceId": "myWorkspaceId"
     },
     "protectedSettings": {
-      "workspaceKey": "<workspace key>"
+      "workspaceKey": "myWorkSpaceKey"
     }
   }
 }
@@ -97,17 +108,6 @@ azure vm extension set <resource-group> <vm-name> \
   --public-config-path public.json  \
   --private-config-path protected.json
 ```
-
-## Supported Linux Distributions
-
-The OMS Agent extension can be run against these Linux distributions.
-
-- CentOS Linux 5,6, and 7 (x86/x64)
-- Oracle Linux 5,6, and 7 (x86/x64)
-- Red Hat Enterprise Linux Server 5,6 and 7 (x86/x64)
-- Debian GNU/Linux 6, 7, and 8 (x86/x64)
-- Ubuntu 12.04 LTS, 14.04 LTS, 15.04 (x86/x64)
-- SUSE Linux Enterprise Server 11 and 12 (x86/x64)
 
 ## Troubleshoot
 
