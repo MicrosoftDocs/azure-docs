@@ -118,19 +118,45 @@ Find unsuccessful requests:
 
 By default, your queries are restricted to the last 24 hours. But you can change this range:
 
-
 ![](./media/app-insights-analytics-tour/change-time-range.png)
 
-Override the time range by writing any query that mentions `timestamp` in a where-clause:
+Override the time range by writing any query that mentions `timestamp` in a where-clause. For example:
 
 ```AIQL
 
+    // What were the slowest requests over the past 3 days?
     requests
-    | where timestamp > ago(12h) and
-    | 
+    | where timestamp > ago(3d)  // Override the time range 
+    | top 5 by duration
 ```
 
 The time range feature is equivalent to a 'where' clause inserted after each mention of one of the source tables. 
+
+`ago(3d)` means 'three days ago'. Other units of time include hours (`2h`, `2.5h`), minutes (`25m`) and seconds (`10s`). 
+
+Other examples:
+
+```AIQL
+
+    // Last calendar week:
+    requests 
+    | where timestamp > startofweek(now()-7d) 
+        and timestamp < startofweek(now()) 
+    | top 5 by duration
+
+    // First hour of every day in past seven days:
+    requests 
+    | where timestamp > ago(7d) and timestamp % 1d < 1h
+    | top 5 by duration
+
+    // Specific dates:
+    requests
+    | where timestamp > datetime(2016-11-19) and timestamp < datetime(2016-11-21)
+    | top 5 by duration
+
+```
+
+[Dates and times reference](app-insights-analytics-reference.md#date-and-time).
 
 
 ## [Project](app-insights-analytics-reference.md#project-operator): select, rename and compute columns
@@ -234,8 +260,8 @@ There's a range of [aggregation functions](app-insights-analytics-reference.md#a
 ```AIQL
 
     exceptions
-       | summarize count()  
-         by bin(timestamp, 1d)
+       | summarize count=sum(itemCount)  
+         by bin(timestamp, 1h)
 ```
 
 By default, results display as a table:
@@ -250,13 +276,13 @@ Notice that although we didn't sort the results by time (as you can see in the t
 
 
 ## Timecharts
-Show how many events there are each day:
+Show how many events there are each hour:
 
 ```AIQL
 
     requests
-      | summarize event_count=count()
-        by bin(timestamp, 1d)
+      | summarize event_count=sum(itemCount)
+        by bin(timestamp, 1h)
 ```
 
 Select the Chart display option:
@@ -271,12 +297,12 @@ Multiple expressions in the `by` clause creates multiple rows, one for each comb
 ```AIQL
 
     requests
-    | summarize count(), avg(duration)
-      by bin(timestamp, 1d), client_StateOrProvince, client_City
+    | summarize count_=sum(itemCount), avg(duration)
+      by bin(timestamp, 1h), client_StateOrProvince, client_City
     | order by timestamp asc, client_StateOrProvince, client_City
 ```
 
-![](./media/app-insights-analytics-tour/090.png)
+![Table of requests by hour and location](./media/app-insights-analytics-tour/090.png)
 
 ### Segment a chart by dimensions
 If you chart a table that has a string column and a numeric column, the string can be used to split the numeric data into separate series of points. If there's more than one string column, you can choose which column to use as the discriminator.
@@ -292,9 +318,12 @@ Convert a boolean to a string to use it as a discriminator:
     // Bounce rate: sessions with only one page view
     requests 
     | where notempty(session_Id) 
-    | summarize pagesInSession=count(), sessionEnd=max(timestamp) by session_Id 
+    | where tostring(operation_SyntheticSource) == "" // real users
+    | summarize pagesInSession=sum(itemCount), sessionEnd=max(timestamp) 
+               by session_Id 
     | extend isbounce= pagesInSession == 1 
-    | summarize count() by tostring(isbounce), bin (sessionEnd, 1h) 
+    | summarize count() 
+               by tostring(isbounce), bin (sessionEnd, 1h) 
     | render timechart
 ```
 
@@ -312,16 +341,18 @@ Count requests by the time modulo one day, binned into hours:
 
 ```AIQL
 
-    requests
-    | extend hour = floor(timestamp % 1d , 1h)
-          + datetime("2016-01-01")
-    | summarize event_count=count() by hour
+    requests 
+    | where timestamp > ago(30d)  // Override "Last 24h"
+    | where tostring(operation_SyntheticSource) == "" // real users
+    | extend hour = bin(timestamp % 1d , 1h)
+          + datetime("2016-01-01") // Allow render on line chart
+    | summarize event_count=sum(itemCount) by hour
 ```
 
 ![Line chart of hours in an average day](./media/app-insights-analytics-tour/120.png)
 
 > [!NOTE]
-> Notice we currently have to convert time durations to datetimes in order to display on the a chart.
+> Notice that we currently have to convert time durations to datetimes in order to display on a line chart.
 >
 >
 
@@ -330,10 +361,12 @@ How does usage vary over the time of day in different countries?
 
 ```AIQL
 
- requests  | where tostring(operation_SyntheticSource)
+     requests  
+     | where timestamp > ago(30d)  // Override "Last 24h"
+     | where tostring(operation_SyntheticSource) == "" // real users
      | extend hour= floor( timestamp % 1d , 1h)
            + datetime("2001-01-01")
-     | summarize event_count=count()
+     | summarize event_count=sum(itemCount)
        by hour, client_CountryOrRegion
      | render timechart
 ```
@@ -346,6 +379,7 @@ How many sessions are there of different lengths?
 ```AIQL
 
     requests
+    | where timestamp > ago(30d) // override "Last 24h"
     | where isnotnull(session_Id) and isnotempty(session_Id)
     | summarize min(timestamp), max(timestamp)
       by session_Id
@@ -580,7 +614,7 @@ The **performanceCounters** schema exposes the `category`, `counter` name, and `
 
 ![Performance counters in Application Insights analytics](./media/app-insights-analytics-tour/analytics-performance-counters.png)
 
-To get a chart of available memory over the recent period:
+To get a chart of available memory over the selected period:
 
 ![Memory timechart in Application Insights analytics](./media/app-insights-analytics-tour/analytics-available-memory.png)
 
@@ -606,13 +640,31 @@ Show the popularities of different pages, and load times for each page:
 
 ![Page load times in Analytics](./media/app-insights-analytics-tour/analytics-page-load.png)
 
-### Availbility results table
+### Availability results table
 `availabilityResults` shows the results of your [web tests](app-insights-monitor-web-app-availability.md). Each run of your tests from each test location is reported separately.
 
 ![Page load times in Analytics](./media/app-insights-analytics-tour/analytics-availability.png)
 
 ### Dependencies table
-Contains results of calls that your app makes to databases and REST APIs, and other calls to TrackDependency().
+Contains results of calls that your app makes to databases and REST APIs, and other calls to TrackDependency(). Also includes AJAX calls made from the browser.
+
+AJAX calls from the browser:
+
+```AIQL
+    
+    dependencies | where client_Type == "Browser" 
+    | take 10
+```
+
+Dependency calls from the server:
+
+```AIQL
+    
+    dependencies | where client_Type == "PC" 
+    | take 10
+```
+
+Server-side dependency results always show `success==False` if the Application Insights Agent is not installed. However, the other data are correct.
 
 ### Traces table
 Contains the telemetry sent by your app using TrackTrace(), or [other logging frameworks](app-insights-asp-net-trace-logs.md).

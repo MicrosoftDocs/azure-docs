@@ -17,7 +17,7 @@ ms.date: 09/13/2016
 ms.author: elioda
 
 ---
-# Tutorial: Use desired properties to configure devices (preview)
+# Tutorial: Use desired properties to configure devices
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 At the end of this tutorial, you will have two Node.js console applications:
@@ -242,7 +242,7 @@ Use the following resources to learn how to:
 <!-- links -->
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
-[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/1.1.0-preview-004
+[lnk-nuget-service-sdk]: https://www.nuget.org/packages/Microsoft.Azure.Devices/1.1.0/
 
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-query]: iot-hub-devguide-query-language.md
