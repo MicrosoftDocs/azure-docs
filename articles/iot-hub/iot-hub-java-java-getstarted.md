@@ -254,7 +254,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
     }
     ```
     
-S    > [!NOTE]
+    > [!NOTE]
     > This code assumes you created your IoT hub in the F1 (free) tier. A free IoT hub has two partitions named "0" and "1".
     > 
     > 
