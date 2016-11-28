@@ -1,5 +1,6 @@
 # Overview
 ## [Introduction to Azure Data Factory](data-factory-introduction.md)
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 ## Concepts
 ### [Datasets](data-factory-create-datasets.md)
 ### [Pipelines and activities](data-factory-create-pipelines.md)
