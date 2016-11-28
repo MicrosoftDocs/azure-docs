@@ -22,11 +22,11 @@ ms.author: nepeters
 
 ## Overview
 
-Operations Management Suite (OMS) provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. The OMS Agent virtual machine extension for Linux installs the OMS agent, and enrolls the virtual machine into an existing OMS workspace. This document details the supported platforms, configurations, and deployment options for the OMS virtual machine extension for Linux.
+Operations Management Suite (OMS) provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. The OMS Agent virtual machine extension for Linux installs the OMS agent on Azure virtual machines, and enrolls virtual machines into an existing OMS workspace. This document details the supported platforms, configurations, and deployment options for the OMS virtual machine extension for Linux.
 
 For general information on Azure virtual machine extensions see, [Virtual Machine extensions overview](./virtual-machines-linux-extensions-features.md).
 
-For more information on Operations Management Suite, see [OMS Overview](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite).
+For more information on Operations Management Suite, see [Operations Management Suite overview](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite).
 
 ## Supported Linux Distributions
 
@@ -41,7 +41,7 @@ The OMS Agent extension can be run against these Linux distributions.
 
 ## Extension Configuration
 
-The OMS Agent virtual machine extension for Linux requires the workspace Id and workspace key of the target OMS workspace. Because the workspace key should be treated as sensitive data, it is stored in a protected configuration. Azure VM extension protected configuration data is encrypted and only decrypted on the target virtual machine. The public and private configurations are specified at deployment time, which is detailed in subsequent sections of this document.
+The OMS Agent virtual machine extension for Linux requires the workspace Id and workspace key from the target OMS workspace. Because the workspace key should be treated as sensitive data, it is stored in a protected configuration. Azure VM extension protected configuration data is encrypted, and only decrypted on the target virtual machine. The public and private configurations are specified at deployment time, which is detailed in subsequent sections of this document.
 
 ### Public configuration
 
@@ -69,9 +69,9 @@ Schema for the public configuration:
 
 ## Template deployment
 
-Azure VM extensions can be deployed through Azure Resource Manager templates. This is ideal when deploying and configuring a solution to Azure as all components and configurations can be deployed at the same time. 
+Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that will require post deployment configuration such as onboarding to OMS. A sample Resource Manager template that includes the OMS Agent VM extension can be found on the [Azure Quick Start Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
-A sample virtual machine deployment that includes using the OMS Agent VM extension can be found in the [Azure Quick Start Gallery]( https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). This sample can be deployed by clicking on this button.
+This sample can be deployed from this document using this button:
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-oms-extension-ubuntu-vm%2Fazuredeploy.json" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
@@ -121,7 +121,7 @@ Data about the state of extension deployments can be retrieved from the Azure po
 azure vm extension get myResourceGroup myVM
 ```
 
-Specific to the OMS Agent extension, any output or generated errors can be found in these files.
+Specific to the OMS Agent extension, output and errors can be found in these files:
 
 - /var/lib/waagent/<extension-name-and-version>/packages/
 - /opt/microsoft/omsagent/bin
