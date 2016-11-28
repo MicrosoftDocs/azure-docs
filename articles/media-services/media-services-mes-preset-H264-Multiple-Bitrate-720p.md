@@ -1,6 +1,6 @@
 ---
 title: H264 Multiple Bitrate 720p | Microsoft Docs
-description: The topic gives and overview of the **H264 Multiple Bitrate 720p** task preset.
+description: The topic gives an overview of the **H264 Multiple Bitrate 720p** task preset.
 author: Juliako
 manager: erikre
 editor: ''

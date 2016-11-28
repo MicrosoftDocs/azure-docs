@@ -1,6 +1,6 @@
 ---
 title: H264 Multiple Bitrate 4K | Microsoft Docs
-description: The topic gives and overview of the **H264 Multiple Bitrate 4K** task preset.
+description: The topic gives an overview of the **H264 Multiple Bitrate 4K** task preset.
 author: Juliako
 manager: erikre
 editor: ''

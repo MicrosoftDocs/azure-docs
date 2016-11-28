@@ -1,6 +1,6 @@
 ---
 title: H264 Single Bitrate High Quality SD for Android | Microsoft Docs
-description: The topic gives and overview of the **H264 Single Bitrate High Quality SD for Android** task preset.
+description: The topic gives an overview of the **H264 Single Bitrate High Quality SD for Android** task preset.
 author: Juliako
 manager: erikre
 editor: ''
