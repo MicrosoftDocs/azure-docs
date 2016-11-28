@@ -107,7 +107,7 @@ Create a front-end IP pool for the load balancer, and associate the public IP. T
 
 ```azurecli
 azure network lb frontend-ip create -g myResourceGroup -l myLoadBalancer \
-  -i myPublicIP -n myFrontEndPool 
+  -i myPublicIP -n myFrontEndPool
 ```
 
 Create the back-end IP pool for the load balancer. The following example creates a back-end IP pool named `myBackEndPool`:
@@ -147,7 +147,7 @@ Verify the load balancer, IP pools, and NAT rules by using the JSON parser:
 azure network lb show -g myResourceGroup -n myLoadBalancer --json | jq '.'
 ```
 
-Create the first network interface card (NIC). Replace the `#####-###-###` sections with your own Azure subscription ID. Your subscription ID is noted in the output of `jq` when examining the resources you are creating. You can also view your subscription ID with `azure account list`. 
+Create the first network interface card (NIC). Replace the `#####-###-###` sections with your own Azure subscription ID. Your subscription ID is noted in the output of **jq** when you examine the resources you are creating. You can also view your subscription ID with `azure account list`.
 
 The following example creates a NIC named `myNic1`:
 
@@ -295,7 +295,7 @@ info:    group create command OK
 ## Create a storage account
 You need storage accounts for your VM disks and for any additional data disks that you want to add. You create storage accounts almost immediately after you create resource groups.
 
-Here we use the `azure storage account create` command, passing the location of the account, the resource group that controls it, and the type of storage support you want. The following example creates a storage account named `mystorageaccount`:
+Here we use the `azure storage account create` command, passing the location of the account, the resource group that controls it, and the type of storage support you want. The following example creates a storage account named `mystorageaccount**:
 
 ```azurecli
 azure storage account create \  
@@ -379,7 +379,7 @@ Next you're going to need to create a virtual network running in Azure and a sub
 
 ```azurecli
 azure network vnet create --resource-group myResourceGroup --location westeurope \
-  --name myVnet --address-prefixes 192.168.0.0/16 
+  --name myVnet --address-prefixes 192.168.0.0/16
 ```
 
 Output:
@@ -399,7 +399,7 @@ data:      192.168.0.0/16
 info:    network vnet create command OK
 ```
 
-Again, let's use the --json option of `azure group show` and **jq** to see how we're building our resources. We now have a `storageAccounts` resource and a `virtualNetworks` resource.  
+Again, let's use the --json option of `azure group show` and `jq` to see how we're building our resources. We now have a `storageAccounts` resource and a `virtualNetworks` resource.  
 
 ```azurecli
 azure group show myResourceGroup --json | jq '.'
@@ -467,7 +467,7 @@ data:
 info:    network vnet subnet create command OK
 ```
 
-Because the subnet is logically inside the virtual network, we look for the subnet information with a slightly different command. The command we use is `azure network vnet show`, but we continue to examine the JSON output by using **jq**.
+Because the subnet is logically inside the virtual network, we look for the subnet information with a slightly different command. The command we use is `azure network vnet show`, but we continue to examine the JSON output by using `jq`.
 
 ```azurecli
 azure network vnet show myResourceGroup myVnet --json | jq '.'
@@ -505,7 +505,7 @@ Output:
 ```
 
 ## Create a public IP address (PIP)
-Now let's create the public IP address (PIP) that we assign to your load balancer. It enables you to connect to your VMs from the Internet by using the `azure network public-ip create` command. Because the default address is dynamic, we create a named DNS entry in the **cloudapp.azure.com** domain by using the `--domain-name-label` option. The following example creates a public IP named `myPublicIP` with the DNS name of `mypublicdns`. As the DNS name must be unique, provide your own unique DNS name:
+Now let's create the public IP address (PIP) that we assign to your load balancer. It enables you to connect to your VMs from the Internet by using the `azure network public-ip create` command. Because the default address is dynamic, we create a named DNS entry in the **cloudapp.azure.com** domain by using the `--domain-name-label` option. The following example creates a public IP named `myPublicIP` with the DNS name of `mypublicdns`. Because the DNS name must be unique, you provide your own unique DNS name:
 
 ```azurecli
 azure network public-ip create --resource-group myResourceGroup \
@@ -583,7 +583,7 @@ Output:
 }
 ```
 
-You can investigate more resource details, including the fully qualified domain name (FQDN) of the subdomain, by using the complete `azure network public-ip show` command. The public IP address resource has been allocated logically, but a specific address has not yet been assigned. To obtain an IP address, you're going to need a load balancer, which we have not yet created.
+You can investigate more resource details, including the fully-qualified domain name (FQDN) of the subdomain, by using the complete `azure network public-ip show` command. The public IP address resource has been allocated logically, but a specific address has not yet been assigned. To obtain an IP address, you're going to need a load balancer, which we have not yet created.
 
 ```azurecli
 azure network public-ip show myResourceGroup myPublicIP --json | jq '.'
@@ -630,14 +630,14 @@ data:    Provisioning state              : Succeeded
 info:    network lb create command OK
 ```
 
-Our load balancer is fairly empty, so let's create some IP pools. We want to create two IP pools for our load balancer - one for the front end and one for the back end. The front-end IP pool is publicly visible. It's also the location to which we assign the PIP that we created earlier. Then we use the back-end pool as a location for our VMs to connect to. That way, the traffic can flow through the load balancer to the VMs.
+Our load balancer is fairly empty, so let's create some IP pools. We want to create two IP pools for our load balancer, one for the front end and one for the back end. The front-end IP pool is publicly visible. It's also the location to which we assign the PIP that we created earlier. Then we use the back-end pool as a location for our VMs to connect to. That way, the traffic can flow through the load balancer to the VMs.
 
 First, let's create our front-end IP pool. The following example creates a front-end pool named `myFrontEndPool`:
 
 ```azurecli
 azure network lb frontend-ip create --resource-group myResourceGroup \
   --lb-name myLoadBalancer --public-ip-name myPublicIP \
-  --name myFrontEndPool 
+  --name myFrontEndPool
 ```
 
 Output:
@@ -756,7 +756,7 @@ azure network lb inbound-nat-rule create --resource-group myResourceGroup \
   --frontend-port 4223 --backend-port 22
 ```
 
-Let's also go ahead and create a NAT rule for TCP port 80 for web traffic, hooking the rule up to our IP pools. If we hook up the rule to IP pool, instead of hooking up the rule to our VMs individually, we can add or remove VMs from the IP pool. The load balancer automatically adjusts the flow of traffic. The following example creates a rule named `myLoadBalancerRuleWeb` to map TCP port 80 to port 80:
+Let's also go ahead and create a NAT rule for TCP port 80 for web traffic, hooking the rule up to our IP pools. If we hook up the rule to an IP pool, instead of hooking up the rule to our VMs individually, we can add or remove VMs from the IP pool. The load balancer automatically adjusts the flow of traffic. The following example creates a rule named `myLoadBalancerRuleWeb` to map TCP port 80 to port 80:
 
 ```azurecli
 azure network lb rule create --resource-group myResourceGroup \
@@ -949,7 +949,7 @@ Output:
 ## Create an NIC to use with the Linux VM
 NICs are programmatically available because you can apply rules to their use. You can also have more than one. In the following `azure network nic create` command, you hook up the NIC to the load back-end IP pool and associate it with the NAT rule to permit SSH traffic.
 
-Replace the `#####-###-###` sections with your own Azure subscription ID. Your subscription ID is noted in the output of `jq` when examining the resources you are creating. You can also view your subscription ID with `azure account list`. 
+Replace the `#####-###-###` sections with your own Azure subscription ID. Your subscription ID is noted in the output of `jq` when you examine the resources you are creating. You can also view your subscription ID with `azure account list`.
 
 The following example creates a NIC named `myNic1`:
 
@@ -1072,8 +1072,8 @@ azure network nsg rule create --resource-group myResourceGroup \
 
 > [!NOTE]
 > The inbound rule is a filter for inbound network connections. In this example, we bind the NSG to the VMs virtual NIC, which means that any request to port 22 is passed through to the NIC on our VM. This inbound rule is about a network connection, and not about an endpoint, which is what it would be about in classic deployments. To open a port, you must leave the `--source-port-range` set to '\*' (the default value) to accept inbound requests from **any** requesting port. Ports are typically dynamic.
-> 
-> 
+>
+>
 
 ## Bind to the NIC
 Bind the NSG to the NICs. We need to connect our NICs with our Network Security Group. Run both commands, to hook up both of our NICs:
@@ -1281,4 +1281,3 @@ You might want to read [more about how to deploy from templates](../resource-gro
 
 ## Next steps
 Now you're ready to begin working with multiple networking components and VMs. You can use this sample environment to build out your application by using the core components introduced here.
-
