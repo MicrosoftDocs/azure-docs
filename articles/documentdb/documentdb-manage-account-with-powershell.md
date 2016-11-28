@@ -20,11 +20,11 @@ ms.author: dimakwan
 ---
 # Automate DocumentDB account management using Azure Powershell
 
-## Install Azure Powershell
+## Getting Started
 
 Follow the instructions in [How to install and configure Azure PowerShell](powershell-install-configure) to install and login to your Azure Resource Manager account.
 
-## Common
+### Notes
 
 * Use the `-Force` flag to execute the commands below without user confirmation 
 
@@ -50,6 +50,15 @@ Example:
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "westus" -Name "docdb-test" -PropertyObject $DocumentDBProperties
 
 ## Delete a DocumentDB Database Account
+
+    Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
+    
+* `<resource-group-name>`
+* `<database-account-name>` can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters.
+
+Example:
+
+    Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test"
 
 ## Get Properties of a DocumentDB Database Account
 
@@ -104,4 +113,3 @@ Example:
 
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [powershell-install-configure]: https://docs.microsoft.com/en-us/azure/powershell-install-configure
-
