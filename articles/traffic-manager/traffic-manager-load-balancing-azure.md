@@ -27,13 +27,18 @@ In this tutorial, we first define a customer use case and see how it can be made
 
 At a conceptual level, each of these services plays a distinct role in the load-balancing hierarchy.
 
-1. **Traffic Manager** provides global DNS load balancing. It looks at incoming DNS requests and responds with a healthy endpoint, in accordance with the routing policy the customer has selected. Options for routing methods are performance routing to send the requestor to the closest endpoint in terms of latency, priority routing to direct all traffic to an endpoint with other endpoints as backup, and weighted round-robin routing, which distributes traffic based on the weighting that is assigned to each endpoint. The client connects directly to that endpoint. Azure Traffic Manager detects when an endpoint is unhealthy and redirects the clients to another healthy instance. Refer to [Azure Traffic Manager documentation](traffic-manager-overview.md) to learn more about the service.
-2. **Application Gateway** provides Application Delivery Controller (ADC) as a service, offering various Layer 7 load-balancing capabilities for your application. It allows customers to optimize web farm productivity by offloading CPU-intensive SSL termination to the Application Gateway. Other Layer 7 routing capabilities include round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. Application Gateway can be configured as an Internet-facing gateway, an internal-only gateway, or a combination of both. Application Gateway is fully Azure managed, scalable, and highly available. It provides rich set of diagnostics and logging capabilities for better manageability.
-3. **Load Balancer** is an integral part of the Azure SDN stack. Load Balancer provides high-performance, low-latency Layer 4 load-balancing services for all UDP and TCP protocols. It manages inbound and outbound connections. You can configure public and internal load-balanced endpoints and define rules to map inbound connections to backend pool destinations by using TCP and HTTP health-probing options to manage service availability.
+1. **Traffic Manager** provides global DNS load balancing. It looks at incoming DNS requests and responds with a healthy endpoint, in accordance with the routing policy the customer has selected. Options for routing methods are:
+  * Performance routing to send the requestor to the closest endpoint in terms of latency.
+  * Priority routing to direct all traffic to an endpoint, with other endpoints as backup.
+  * Weighted round-robin routing, which distributes traffic based on the weighting that is assigned to each endpoint.
+
+  The client connects directly to that endpoint. Azure Traffic Manager detects when an endpoint is unhealthy and then redirects the clients to another healthy instance. Refer to [Azure Traffic Manager documentation](traffic-manager-overview.md) to learn more about the service.
+2. **Application Gateway** provides Application Delivery Controller (ADC) as a service, offering various Layer 7 load-balancing capabilities for your application. It allows customers to optimize web farm productivity by offloading CPU-intensive SSL termination to the Application Gateway. Other Layer 7 routing capabilities include round-robin distribution of incoming traffic, cookie-based session affinity, URL path-based routing, and the ability to host multiple websites behind a single Application Gateway. Application Gateway can be configured as an Internet-facing gateway, an internal-only gateway, or a combination of both. Application Gateway is fully Azure-managed, scalable, and highly available. It provides a rich set of diagnostics and logging capabilities for better manageability.
+3. **Load Balancer** is an integral part of the Azure SDN stack, providing high-performance, low-latency Layer 4 load-balancing services for all UDP and TCP protocols. It manages inbound and outbound connections. You can configure public and internal load-balanced endpoints and define rules to map inbound connections to backend pool destinations by using TCP and HTTP health-probing options to manage service availability.
 
 ## Scenario
 
-In this example scenario, we use a simple website that serves two types of content: images and dynamically rendered webpages. The website needs to be geographically redundant and should serve its users from the closest (lowest latency) location to them. The application developer has decided that any URLs that match the pattern /images/* are served from a dedicated pool of VMs that are different from the rest of the web farm.
+In this example scenario, we use a simple website that serves two types of content: images and dynamically rendered webpages. The website must be geographically redundant, and it should serve its users from the closest (lowest latency) location to them. The application developer has decided that any URLs that match the pattern /images/* are served from a dedicated pool of VMs that are different from the rest of the web farm.
 
 Furthermore, the default VM pool serving the dynamic content needs to talk to a backend database that is hosted on a high-availability cluster. The entire deployment is set up through Azure Resource Manager.
 
@@ -80,13 +85,13 @@ The following diagram shows the architecture of this scenario:
   * **Location**: The region for the application gateway, which is the same location as the resource group. The location is important, because the virtual network and public IP must be in the same location as the gateway.
 3. Click **OK**.
 4. Define the virtual network, subnet, frontend IP, and listener configurations for the application gateway. In this scenario, the frontend IP address is **Public**, which allows it to be added as an endpoint to the Traffic Manager profile later on.
-5. Configure the listener configuration by doing either of the following:
+5. Configure the listener with one of the following options:
     * If you use HTTP, there is nothing to configure. Click **OK**.
     * If you use HTTPS, further configuration is required. Refer to [Create an application gateway](../application-gateway/application-gateway-create-gateway-portal.md), starting at Step 9. When you have completed the configuration, click **OK**.
 
 #### Configure URL routing for application gateways
 
-An application gateway configured with a path-based rule takes a path pattern of the request URL in addition to round-robin distribution when choosing the backend pool. In this scenario, we are adding a path-based rule to direct any URL with "/images/\*" to the image server pool. For more details on configuring URL path-based routing for an application gateway, refer to [Create a path-based rule for an application gateway](../application-gateway/application-gateway-create-url-route-portal.md).
+An application gateway configured with a path-based rule takes a path pattern of the request URL in addition to round-robin distribution when choosing the backend pool. In this scenario, we are adding a path-based rule to direct any URL with "/images/\*" to the image server pool. For more information about configuring URL path-based routing for an application gateway, refer to [Create a path-based rule for an application gateway](../application-gateway/application-gateway-create-url-route-portal.md).
 
 ![web tier diagram](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
@@ -96,7 +101,7 @@ An application gateway configured with a path-based rule takes a path pattern of
 
   ![application gateways add backend pool](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
-4. Under **Settings** of the application gateway, select **Rules**, and then click the **Path based** button to add a new rule.
+4. Under **Settings** of the application gateway, select **Rules**, and then click the **Path based** button to add a rule.
 
   ![application gateways add path rule](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
@@ -125,12 +130,12 @@ An application gateway configured with a path-based rule takes a path pattern of
 
 In this scenario, Traffic Manager is connected to instances of application gateways (as configured in the preceding steps) that reside in different regions. Now that the application gateways are configured, the next step is to connect them to our Traffic Manager profile.
 
-1. Navigate to your instance of the Traffic Manager profile. You can do this by looking in your resource group or searching for the name of the Traffic Manager profile from **All Resources**.
-2. On the blade, select **Endpoints**, and then click **Add** to add a new endpoint.
+1. Navigate to your instance of the Traffic Manager profile. To do so, look in your resource group or search for the name of the Traffic Manager profile from **All Resources**.
+2. On the blade, select **Endpoints**, and then click **Add** to add an endpoint.
 
   ![traffic manager add endpoint](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
-3. On the **Add endpoint blade**, create a new endpoint by entering the following information:
+3. On the **Add endpoint blade**, create an endpoint by entering the following information:
 
   * **Type**: Select the type of endpoint to load-balance. In this scenario, select **Azure endpoint** because we are connecting it to the application gateway instances that were configured previously.
   * **Name**: Enter the name of the endpoint.
@@ -146,7 +151,7 @@ In this scenario, Load Balancer distributes connections from the web tier to the
 
 If your high-availability database cluster is using SQL AlwaysOn, refer to [Configure one or more Always On Availability Group Listeners](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for step-by-step instructions.
 
-For more details on configuring an internal load balancer, see [Create an Internal load balancer in the Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
+For more information about configuring an internal load balancer, see [Create an Internal load balancer in the Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
 1. Navigate to the Azure portal, and, in the left pane, click **New** > **Networking** > **Load balancer**.
 2. On the **Create load balancer** blade, choose a name for your load balancer.
@@ -159,7 +164,7 @@ For more details on configuring an internal load balancer, see [Create an Intern
 #### Connect a backend database tier to the load balancer
 
 1. From your resource group, find the load balancer that was created in the previous steps.
-2. Under **Settings**, click **Backend pools**, and then click **Add** to add a new backend pool.
+2. Under **Settings**, click **Backend pools**, and then click **Add** to add a backend pool.
 3. On the **Add backend pool** blade, enter the name of the backend pool.
 4. Add either individual machines or an availability set to the backend pool.
 
@@ -167,9 +172,9 @@ For more details on configuring an internal load balancer, see [Create an Intern
 
 #### Configure a probe
 
-1. In your load balancer, under **Settings**, select **Probes**, and then click **Add** to add a new probe.
+1. In your load balancer, under **Settings**, select **Probes**, and then click **Add** to add a probe.
 2. On the **Add probe** blade, enter the name for the probe.
-3. Select the **Protocol** for the probe. For a database, you'll likely want a TCP probe rather than an HTTP probe. To learn more about load balancer probes, refer to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
+3. Select the **Protocol** for the probe. For a database, you might want a TCP probe rather than an HTTP probe. To learn more about load balancer probes, refer to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
 4. Enter the **Port** of your database to be used when accessing the probe.
 5. Under **Interval**, specify how frequently to probe the application.
 6. Under **Unhealthy threshold**, specify the number of continuous probe failures that must occur for the backend VM to be considered unhealthy.
@@ -191,7 +196,7 @@ For more details on configuring an internal load balancer, see [Create an Intern
 
 ### Step 5: Connect web-tier VMs to the load balancer
 
-Now we configure the IP address and load-balancer frontend port in the applications that are running on your web-tier VMs for any database connections. This configuration is specific to the applications that run on these VMs. To configure the destination IP address and port, refer to the application documentation for these details. To find the IP address of the frontend, navigate to the Frontend IP pool on the load balancer settings blade in the Azure portal.
+Now we configure the IP address and load-balancer frontend port in the applications that are running on your web-tier VMs for any database connections. This configuration is specific to the applications that run on these VMs. To configure the destination IP address and port, refer to the application documentation. To find the IP address of the frontend, navigate to the frontend IP pool on the **Load balancer settings** blade in the Azure portal.
 
 ![load balancer frontend ip pool](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
