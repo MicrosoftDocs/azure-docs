@@ -36,7 +36,7 @@ This article shows you how to attach both new and existing disks to a Linux virt
    
     ![Open disk settings](./media/virtual-machines-linux-attach-disk-portal/find-disk-settings.png)
 
-Continue by following instructions for attaching either a new disk or an existing disk.
+Continue by following instructions for attaching either a [new disk](#option-1-attach-a-new-disk) or an [existing disk](#option-2-attach-an-existing-disk).
 
 ## Option 1: Attach a new disk
 1. On the **Disks** blade, click **Attach new**.
