@@ -189,6 +189,17 @@
 ### [Azure PowerShell](/powershell/servicemanagement)
 ### [Windows PowerShell for StorSimple cmdlets](https://technet.microsoft.com/library/dn688168.aspx)
 
+# StorSimple Data Manager (Private preview)
+
+## Overview
+### [What is the solution?](storsimple-data-manager-overview.md)
+
+## Get started
+### [Using StorSimple Data Manager](storsimple-data-manager-ui.md)
+
+## How to
+### [Use .NET to transform data](storsimple-data-manager-dotnet-jobs.md)
+
 # Related
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
 
