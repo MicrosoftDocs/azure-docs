@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/25/2016
+ms.date: 11/28/2016
 ms.author: anhoh
 
 ---
@@ -26,7 +26,7 @@ To use these examples, you must:
 
 ## Get started with a sample Node.js Getting Started app
 
-1. Create a *app.js* file and copy & paste the code below
+1. Create a *app.js* file and copy & paste the code below.
 
          var MongoClient = require('mongodb').MongoClient;
          var assert = require('assert');
@@ -107,7 +107,7 @@ To use these examples, you must:
 
 2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](documentdb-connect-mongodb-account.md)):
    
-     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
+         var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
      
 3. Open your favorite terminal, run **npm install mongodb --save**, then run your app with **node app.js**
 
@@ -248,9 +248,9 @@ You can use the [Create a web app in Azure that connects to MongoDB running on a
         }
 2. Modify the following variables in the Dal.cs file per your account settings:
    
-     private string userName = "<your user name>";
-     private string host = "<your host>";
-     private string password = "<your password>";
+         private string userName = "<your user name>";
+         private string host = "<your host>";
+         private string password = "<your password>";
 3. Use the app!
 
 ## Next steps
