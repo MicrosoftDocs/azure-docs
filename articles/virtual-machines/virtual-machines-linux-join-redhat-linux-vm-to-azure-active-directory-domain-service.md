@@ -18,7 +18,7 @@ ms.author: v-livech
 
 ---
 
-# Join a RedHat Linux VM to an Azure Active Directory
+# Join a RedHat Linux VM to an Azure Active Directory Domain Service
 
 This article shows you how to join a Red Hat Enterprise Linux (RHEL) 7 virtual machine to an Azure Active Directory Domain Services (AADDS) managed domain.  The requirements are:
 
