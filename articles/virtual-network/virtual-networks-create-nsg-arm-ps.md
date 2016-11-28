@@ -179,7 +179,7 @@ To create an NSG named *NSG-BackEnd* based on the scenario above, complete the f
 4. Associate the NSG created above to the *BackEnd* subnet.
 
 	```powershell
-	Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd
+	Set-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $vnet -Name BackEnd ` 
 	-AddressPrefix 192.168.2.0/24 -NetworkSecurityGroup $nsg
 	```
 

@@ -1,6 +1,6 @@
 ---
-title: Set a static private IP address using PowerShell| Microsoft Docs
-description: Learn how to set a static private IP address and how to it using PowerShell | Azure Resource Manager.
+title: Set and manage a static private IP address using PowerShell| Microsoft Docs
+description: Learn how to set and manage a static private IP address using PowerShell | Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -18,7 +18,7 @@ ms.date: 02/23/2016
 ms.author: jdial
 
 ---
-# How to set a static private IP address in Resource Manager by using PowerShell
+# Set and manage a static private IP address using PowerShell
 [!INCLUDE [virtual-networks-static-private-ip-selectors-arm-include](../../includes/virtual-networks-static-private-ip-selectors-arm-include.md)]
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
@@ -29,7 +29,7 @@ Azure has two deployment models: Azure Resource Manager and classic. Microsoft r
 
 The sample PowerShell commands below expect a simple environment already created based on the scenario above. If you want to run the commands as they are displayed in this document, first build the test environment described in [create a vnet](virtual-networks-create-vnet-arm-ps.md).
 
-## How to specify a static private IP address when creating a VM
+## Specify a static private IP address when creating a VM
 To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet* with a static private IP of *192.168.1.101*, follow the steps below:
 
 1. Set variables for the storage account, location, resource group, and credentials to be used. You will need to enter a user name and password for the VM. The storage account and resource group must already exist.
@@ -44,7 +44,7 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 2. Retrieve the virtual network and subnet you want to create the VM in.
 
 	```powershell
-	$vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet    
+	$vnet   = Get-AzureRmVirtualNetwork -ResourceGroupName TestRG -Name TestVNet
 	$subnet = $vnet.Subnets[0].Id
 	```
 
@@ -80,16 +80,16 @@ To create a VM named *DNS01* in the *FrontEnd* subnet of a VNet named *TestVNet*
 
 	Expected output:
 	
-        EndTime             : 9/8/2015 2:32:09 PM -07:00
+        EndTime             : [Date and time]
         Error               : 
         Output              : 
-        StartTime           : 9/8/2015 2:27:42 PM -07:00
+        StartTime           : [Date and time]
         Status              : Succeeded
-        TrackingOperationId : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-        RequestId           : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        TrackingOperationId : [Id]
+        RequestId           : [Id]
         StatusCode          : OK 
 
-## How to retrieve static private IP address information for a VM
+## Retrieve static private IP address information for a VM
 To view the static private IP address information for the VM created with the script above, run the following PowerShell command and observe the values for *PrivateIpAddress* and *PrivateIpAllocationMethod*:
 
 ```powershell
@@ -101,30 +101,25 @@ Expected output:
     Name                 : TestNIC
     ResourceGroupName    : TestRG
     Location             : centralus
-    Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/Te
-                           stNIC
-    Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    Id                   : /subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC
+    Etag                 : W/"[Id]"
     ProvisioningState    : Succeeded
     Tags                 : 
     VirtualMachine       : {
-                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMach
-                           ines/DNS01"
+                             "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/DNS01"
                            }
     IpConfigurations     : [
                              {
                                "Name": "ipconfig1",
-                               "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-                               "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkIn
-                           terfaces/TestNIC/ipConfigurations/ipconfig1",
+                               "Etag": "W/\"[Id]\"",
+                               "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC/ipConfigurations/ipconfig1",
                                "PrivateIpAddress": "192.168.1.101",
                                "PrivateIpAllocationMethod": "Static",
                                "Subnet": {
-                                 "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtual
-                           Networks/TestVNet/subnets/FrontEnd"
+                                 "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
                                },
                                "PublicIpAddress": {
-                                 "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/publicI
-                           PAddresses/TestPIP"
+                                 "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP"
                                },
                                "LoadBalancerBackendAddressPools": [],
                                "LoadBalancerInboundNatRules": [],
@@ -141,7 +136,7 @@ Expected output:
     NetworkSecurityGroup : null
     Primary              : True
 
-## How to remove a static private IP address from a VM
+## Remove a static private IP address from a VM
 To remove the static private IP address added to the VM in the script above, run the following PowerShell commands:
 
 ```powershell
@@ -155,30 +150,25 @@ Expected output:
     Name                 : TestNIC
     ResourceGroupName    : TestRG
     Location             : centralus
-    Id                   : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/Te
-                           stNIC
-    Etag                 : W/"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    Id                   : /subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC
+    Etag                 : W/"[Id]"
     ProvisioningState    : Succeeded
     Tags                 : 
     VirtualMachine       : {
-                             "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMach
-                           ines/WindowsVM"
+                             "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Compute/virtualMachines/WindowsVM"
                            }
     IpConfigurations     : [
                              {
                                "Name": "ipconfig1",
-                               "Etag": "W/\"xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx\"",
-                               "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/networkIn
-                           terfaces/TestNIC/ipConfigurations/ipconfig1",
+                               "Etag": "W/\"[Id]\"",
+                               "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/TestNIC/ipConfigurations/ipconfig1",
                                "PrivateIpAddress": "192.168.1.101",
                                "PrivateIpAllocationMethod": "Dynamic",
                                "Subnet": {
-                                 "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/virtual
-                           Networks/TestVNet/subnets/FrontEnd"
+                                 "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/virtualNetworks/TestVNet/subnets/FrontEnd"
                                },
                                "PublicIpAddress": {
-                                 "Id": "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/publicI
-                           PAddresses/TestPIP"
+                                 "Id": "/subscriptions/[Id]/resourceGroups/TestRG/providers/Microsoft.Network/publicIPAddresses/TestPIP"
                                },
                                "LoadBalancerBackendAddressPools": [],
                                "LoadBalancerInboundNatRules": [],
@@ -195,7 +185,7 @@ Expected output:
     NetworkSecurityGroup : null
     Primary              : True
 
-## How to add a static private IP address to an existing VM
+## Add a static private IP address to an existing VM
 To add a static private IP address to the VM created using the script above, run the following commands:
 
 ```powershell
