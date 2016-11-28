@@ -21,7 +21,7 @@ ms.author: mikeray
 This topic shows how to:
 
 * Create an internal load balancer for SQL Server availability groups using PowerShell cmdlets.
-* Add additional IP addresses to a load balancer for more than one availability availability group. 
+* Add additional IP addresses to a load balancer for more than one availability group. 
 
 An availability group listener is a virtual network name clients connect to for database database access. On Azure virtual machines, a load balancer holds the IP address for the listener. The load balancer routes traffic to the instance of SQL Server that is listening on the probe port. In most cases, an availability group uses an internal load balancer. An Azure internal load balancer can host one or many IP addresses. Each IP address uses a specific probe port. This document shows how to use PowerShell to create a new load balancer, or add IP addresses to an existing load balancer for SQL Server availability groups. 
 

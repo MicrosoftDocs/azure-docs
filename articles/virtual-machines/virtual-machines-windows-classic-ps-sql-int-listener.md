@@ -49,7 +49,7 @@ This article focuses on creating a listener that uses an **Internal Load Balance
 For ILB, you must first create the internal load balancer. This is done in the script below.
 
 [!INCLUDE [load-balanced-endpoints](../../includes/virtual-machines-ag-listener-load-balanced-endpoints.md)]
-
+    
 1. For **ILB**, you should assign a static IP address. First, examine the current VNet configuration by running the following command:
    
         (Get-AzureVNetConfig).XMLConfiguration
