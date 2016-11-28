@@ -439,9 +439,9 @@ ms.author: goraco
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 
-In September, Microsoft released a functionality that allows to manage multiple Virtual IP addresses with the Azure Internal Load Balancers as well. A functionality that existed with the Azure External Load Balancers already.
+In September, Microsoft released a functionality that allows to manage [multiple Virtual IP addresses with the Azure Internal Load Balancers][load-balancer-multivip-overview] as well. A functionality that existed with the Azure External Load Balancers already.
 
-In case of SAP deployments, an Azure ILB is used to create a Windows cluster configuration for SAP’s ASCS/SCS as documented in the [Main High-availability SAP NetWeaver on Windows virtual machines guide][sap-ha-guide].
+In case of SAP deployments, an Azure ILB is used to create a Windows cluster configuration for SAP’s ASCS/SCS as documented in the main [High-availability SAP NetWeaver on Windows virtual machines guide][sap-ha-guide].
 
 This article, will focus on how to move from such a single ASCS/SCS installation as described in the documentation so far to a SAP Multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Failover Sever Cluster (WSFC). In this way, you will have configured so called SAP Multi-SID cluster.
 
@@ -451,7 +451,7 @@ This article, will focus on how to move from such a single ASCS/SCS installation
 >
 
 ## Prerequisites
-You already have configured WSFC that is used for one SAP ASCS/SCS instance according to this documentation: [Main High-availability SAP NetWeaver on Windows virtual machines guide][sap-ha-guide].
+You already have configured WSFC that is used for one SAP ASCS/SCS instance according to this documentation: [High-availability SAP NetWeaver on Windows virtual machines guide][sap-ha-guide].
 
 ![Figure 1: High-availability SAP ASCS/SCS instance][sap-ha-guide-figure-6001]
 
