@@ -137,7 +137,7 @@ ClientAliveCountMax 0
 
 ## Restart SSHD
 
-To enable the settings in `/etc/ssh/sshd_config` restart the SSHD process which restarts the SSH server.  The terminal window you use to restart the SSH server will remain open without losing the open SSH session.  To test the new SSH server settings use a second terminal window or tab.  Using a seperate terminal to test the SSH connection allows you to go back and make additional changes to the `/etc/ssh/sshd_config` in the first terminal without being locked out by a breaking SSHD change.  
+To enable the settings in `/etc/ssh/sshd_config` restart the SSHD process which restarts the SSH server.  The terminal window you use to restart the SSH server will remain open without losing the open SSH session.  To test the new SSH server settings use a second terminal window or tab.  Using a separate terminal to test the SSH connection allows you to go back and make additional changes to the `/etc/ssh/sshd_config` in the first terminal without being locked out by a breaking SSHD change.  
 
 ### On Redhat, Centos and Fedora
 
