@@ -47,6 +47,8 @@ You  must install Python before you can install Jupyter notebooks. Both Python a
 
 ## Install the kernels and Spark magic
 For instructions on how to install the Spark magic, the PySpark and Spark kernels, see the [sparkmagic documentation](https://github.com/jupyter-incubator/sparkmagic#installation) on GitHub.
+For clusters v3.4, please install sparkmagic 0.5.0 by executing `pip install sparkmagic==0.2.3`.
+For clusters v3.5, please install sparkmagic 0.8.4 by executing `pip install sparkmagic==0.8.4`.
 
 ## Configure Spark magic to access the HDInsight Spark cluster
 In this section you configure the Spark magic that you installed earlier to connect to an Apache Spark cluster that you must have already created in Azure HDInsight.
@@ -61,6 +63,7 @@ In this section you configure the Spark magic that you installed earlier to conn
    
         import os
         print(os.path.expanduser('~'))
+
 2. Navigate to the home directory and create a folder called **.sparkmagic** if it does not already exist.
 3. Within the folder, create a file called **config.json** and add the following JSON snippet inside it.
    
@@ -76,13 +79,30 @@ In this section you configure the Spark magic that you installed earlier to conn
             "url": "https://{CLUSTERDNSNAME}.azurehdinsight.net/livy"
           }
         }
+
 4. Substitute **{USERNAME}**, **{CLUSTERDNSNAME}**, and **{BASE64ENCODEDPASSWORD}** with appropriate values. You can use a number of utilities in your favorite programming language or online to generate a base64 encoded password for your actualy password. A simple Python snippet to run from your command prompt would be:
    
         python -c "import base64; print(base64.b64encode('{YOURPASSWORD}'))"
-5. Start Jupyter. Use the following command from the command prompt.
+
+5. Configure the right Heartbeat settings in `config.json`:
+
+* For `sparkmagic 0.5.0`, include:
+
+    "should_heartbeat": true,
+    "heartbeat_refresh_seconds": 5,
+    "heartbeat_retry_seconds": 1
+
+* For `sparkmagic 0.8.4`, include:
+
+    "heartbeat_refresh_seconds": 5,
+    "livy_server_heartbeat_timeout_seconds": 60,
+    "heartbeat_retry_seconds": 1
+
+6. Start Jupyter. Use the following command from the command prompt.
    
         jupyter notebook
-6. Verify that you can connect to the cluster using the Jupyter notebook and that you can use the Spark magic available with the kernels. Perform the following steps.
+
+7. Verify that you can connect to the cluster using the Jupyter notebook and that you can use the Spark magic available with the kernels. Perform the following steps.
    
    1. Create a new notebook. From the right hand corner, click **New**. You should see the default kernel **Python2** and the two new kernels that you install, **PySpark** and **Spark**.
       
