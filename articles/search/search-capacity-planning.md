@@ -21,7 +21,7 @@ ms.author: heidist
 # Scale resource levels for query and indexing workloads in Azure Search
 After you [choose a pricing tier](search-sku-tier.md) and [provision a search service](search-create-service-portal.md), the next step is to optionally increase the number of replicas or partitions used by your service. Each tier offers a fixed number of billing units. This article explains how to allocate those units to achieve an optimal configuration that balances your requirements for query execution, indexing, and storage.
 
-Resource configuration is available when you set up a service at the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md). For billable services at these tiers, capacity is purchased in increments of *search units* (SU) where each partition and replica counts as one SU. Using fewer SUs results in a proportionally lower bill. Billing is in effect for as long as the service is set up. If you are temporarily not using a service, the only way to avoid billing is by deleting the service and then recreating it later when you need it.
+Resource configuration is available when you set up a service at the [Basic tier](http://aka.ms/azuresearchbasic) or one of the [Standard tiers](search-limits-quotas-capacity.md). For billable services at these tiers, capacity is purchased in increments of *search units* (SU) where each partition and replica counts as one SU. Using fewer SUs results in a proportionally lower bill. Billing is in effect for as long as the service is set up. If you are temporarily not using a service, the only way to avoid billing is by deleting the service and then recreating it when you need it.
 
 ## Terminology: partitions and replicas
 Partitions and replicas are the primary resources that back a search service.
@@ -36,12 +36,12 @@ Partitions and replicas are the primary resources that back a search service.
 >
 
 ## How to allocate partitions and replicas
-In Azure Search, a service is initially allocated a minimal level of resources consisting of one partition and one replica. For tiers that support it, you can incrementally adjust computational resources by increasing partitions if you need more storage and IO, or replicas for larger query volumes or better performance. A single service must have sufficient resources to handle all workloads (indexing and queries). You cannot subdivide workloads among multiple services.
+In Azure Search, a service is initially allocated a minimal level of resources consisting of one partition and one replica. For tiers that support it, you can incrementally adjust computational resources by increasing partitions if you need more storage and I/O, or replicas for larger query volumes or better performance. A single service must have sufficient resources to handle all workloads (indexing and queries). You cannot subdivide workloads among multiple services.
 
 To increase or change the allocation of replicas and partitions, we recommend using the Azure portal. The portal enforces limits on allowable combinations that stay below maximum limits:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) and select the search service.
-2. In Settings, open the Scale blade and use the sliders to increase or decrease the number of partitions and replicas.
+2. In **Settings**, open the Scale blade and use the sliders to increase or decrease the number of partitions and replicas.
 
 If you require a script- or code-based provisioning approach, the [management REST API](https://msdn.microsoft.com/library/azure/dn832687.aspx) is an alternative to the portal.
 
@@ -68,7 +68,7 @@ Service Level Agreements (SLA) for Azure Search are targeted at query operations
 
 **Index availability during a rebuild**
 
-High availability for Azure Search pertains to queries and index updates that don't involve rebuilding an index. If you add or delete a field, change a data type, or rename a field, you would need to rebuild the index. To rebuild the index, you must delete the index, recreate the index, and reload the data.
+High availability for Azure Search pertains to queries and index updates that don't involve rebuilding an index. If you add or delete a field, change a data type, or rename a field, you will need to rebuild the index. To rebuild the index, you must delete the index, recreate the index, and reload the data.
 
 To maintain index availability during a rebuild, you must have a copy of the index with a different name on the same service, or a copy of the index with the same name on a different service, and then provide redirection or failover logic in your code.
 
@@ -113,6 +113,6 @@ Search units, pricing, and capacity are explained in detail on the Azure web sit
 >
 
 ## Billing formula for replica and partition resources
-The formula for calculating how many SUs are used for specific combinations is the product of replicas and partitions, or (R X P = SU). For example, 3 replicas multiplied by 3 partitions is billed as 9 SUs.
+The formula for calculating how many SUs are used for specific combinations is the product of replicas and partitions, or (R X P = SU). For example, three replicas multiplied by three partitions is billed as nine SUs.
 
 Cost per SU is determined by the tier, with a lower per-unit billing rate for Basic than for Standard. Rates for each tier can be found on [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
