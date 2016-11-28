@@ -66,3 +66,7 @@ When using the information provided in the customization document, replace any e
 
 > [!NOTE]
 > You do not need to mark this script as __Persisted__, as it directly updates the Ambari configuration for the cluster.
+
+## Next steps
+
+In this document you have learned how to add additional storage accounts to an existing HDInsight cluster. For more information on script actions, see [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)
