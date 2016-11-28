@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'control led with raspberry pi, raspberry pi led control, raspberry pi control led'
 
 ms.assetid: 3b42a4ad-0197-42f6-8ca9-04c883e879e8
 ms.service: iot-hub

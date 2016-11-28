@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'raspberry pi cloud, pi cloud connect'
 
 ms.assetid: 736215b6-e7e4-46f9-af30-0ded9ffa5204
 ms.service: iot-hub

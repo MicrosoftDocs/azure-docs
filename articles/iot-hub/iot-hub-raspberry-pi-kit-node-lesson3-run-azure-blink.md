@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'blink led cloud pi, led blink from cloud'
 
 ms.assetid: 427d8e5e-8af8-4249-8607-44edc90a4972
 ms.service: iot-hub

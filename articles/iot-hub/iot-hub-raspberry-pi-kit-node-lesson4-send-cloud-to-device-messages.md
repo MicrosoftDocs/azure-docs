@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'cloud to device, message from cloud'
 
 ms.assetid: 6ae6539e-1163-4490-8d72-fdf7803e3054
 ms.service: iot-hub
