@@ -10,7 +10,7 @@
 
 ### Deploy (Azure portal)
 #### [Prepare to deploy](storsimple-virtual-array-deploy1-portal-prep.md)
-#### [Deploy StorSimple Manager service](storsimple-virtual-array-manage-service.md)
+##### [Deploy StorSimple Manager service](storsimple-virtual-array-manage-service.md)
 #### [Provision in Hyper-V](storsimple-virtual-array-deploy2-provision-hyperv.md)
 #### [Provision in VMware](storsimple-virtual-array-deploy2-provision-vmware.md)
 #### [Set up as file server](storsimple-virtual-array-deploy3-fs-setup.md)
@@ -18,7 +18,7 @@
 
 ### Deploy (Classic portal)
 #### [Prepare to deploy](storsimple-ova-deploy1-portal-prep.md)
-#### [Deploy StorSimple Manager service](storsimple-ova-manage-service.md)
+##### [Deploy StorSimple Manager service](storsimple-ova-manage-service.md)
 #### [Provision in Hyper-V](storsimple-ova-deploy2-provision-hyperv.md)
 #### [Provision in VMware](storsimple-ova-deploy2-provision-vmware.md)
 #### [Set up as file server](storsimple-ova-deploy3-fs-setup.md)
