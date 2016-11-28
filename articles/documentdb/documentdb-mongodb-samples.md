@@ -107,9 +107,9 @@ To use these examples, you must:
 
 2. Modify the following variables in the *app.js* file per your account settings (Learn how to find your [connection string](documentdb-connect-mongodb-account.md)):
    
-     var url = <your connection string>;
+     var url = 'mongodb://<endpoint>:<password>@<endpoint>.documents.azure.com:10250/?ssl=true';
      
-3. Run **npm install mongodb --save**, then run your app with **node app.js**
+3. Open your favorite terminal, run **npm install mongodb --save**, then run your app with **node app.js**
 
 ## Get started with a sample ASP.NET MVC task list application
 You can use the [Create a web app in Azure that connects to MongoDB running on a virtual machine](../app-service-web/web-sites-dotnet-store-data-mongodb-vm.md) tutorial, with minimal modification, to quickly setup a MongoDB application (either locally or published to an Azure web app) that connects to a DocumentDB account with protocol support for MongoDB.  
