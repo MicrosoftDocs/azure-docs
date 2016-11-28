@@ -14,17 +14,21 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 11/27/2016
 ms.author: dimakwan
 
 ---
 # Automate DocumentDB account management using Azure Powershell
+> [!div class="op_single_selector"]
+> * [Azure Portal](documentdb-create-account.md)
+> * [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
+> * [Azure Powershell](documentdb-manage-account-with-powershell.md)
 
-The following guide describes commands based off Azure Powershell to automate management of your DocumentDB database accounts. It also includes commands to manage account keys and failover priorities in multi-region database accounts.
+The following guide describes commands to automate management of your DocumentDB database accounts using Azure Powershell. It also includes commands to manage account keys and failover priorities in [multi-region database accounts][scaling-globally]. Updating your database account allows you to modify consistency policies and add/remove regions. For cross-platform management of your DocumentDB database account, you can use either [Azure CLI](documentdb-automation-resource-manager-cli.md), the [Resource Provider REST API][rp-rest-api] or the [Azure Portal](documentdb-create-account.md).
 
 ## Getting Started
 
-Follow the instructions in [How to install and configure Azure PowerShell](powershell-install-configure) to install and login to your Azure Resource Manager account.
+Follow the instructions in [How to install and configure Azure PowerShell][powershell-install-configure] to install and login to your Azure Resource Manager account in Powershell.
 
 ### Notes
 
@@ -33,7 +37,7 @@ Follow the instructions in [How to install and configure Azure PowerShell](power
 
 ## <a id="create-documentdb-account-powershell"></a> Create a DocumentDB Database Account
 
-This command allows you to create a new DocumentDB database account. Configure your new database account as either single-region or [multi-region](scaling-across-planet) with a certain [consistency policy](documentdb-consistency-levels.md).
+This command allows you to create a new DocumentDB database account. Configure your new database account as either single-region or [multi-region][scaling-globally] with a certain [consistency policy](documentdb-consistency-levels.md).
 
     $locations = $(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
     $consistencyPolicy = @{"defaultConsistencyLevel"="<default-consistency-level>"; "maxIntervalInSeconds"="<max-interval>"; "maxStalenessPrefix"="<max-staleness-prefix>"}
@@ -45,7 +49,7 @@ This command allows you to create a new DocumentDB database account. Configure y
 * `<default-consistency-level>` The default consistency level of the DocumentDB account. See [Consistency Levels in DocumentDB](documentdb-consistency-levels.md) for more information.
 * `<max-interval>` When used with Bounded Staleness consistency, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 1 - 100.
 * `<max-staleness-prefix>` When used with Bounded Staleness consistency, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647.
-* `<resource-group-name>` The name of the [Azure Resource Group](azure-resource-groups) to which the new DocumentDB database account belongs to.
+* `<resource-group-name>` The name of the [Azure Resource Group][azure-resource-groups] to which the new DocumentDB database account belongs to.
 * `<resource-group-location>` The location of the Azure Resource Group to which the new DocumentDB database account belongs to.
 * `<database-account-name>` The name of the DocumentDB database account to be created. It can only use lowercase letters, numbers, the '-' character, and must be between 3 and 50 characters.
 
@@ -57,7 +61,7 @@ Example:
     New-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Location "West US" -Name "docdb-test" -PropertyObject $DocumentDBProperties
 
 ### Notes
-* The example above creates a database account with two regions. It is also possible to create a database account with either one region (which will be the write region and have a failover priority value of 0) or more than two regions. For more information, see [multi-region database accounts](scaling-across-planet).
+* The example above creates a database account with two regions. It is also possible to create a database account with either one region (which will be the write region and have a failover priority value of 0) or more than two regions. For more information, see [multi-region database accounts][scaling-globally].
 * The locations must be regions in which DocumentDB is generally available. The current list of regions is provided on the [Azure Regions page](https://azure.microsoft.com/regions/#services).
 
 ## <a id="update-documentdb-account-powershell"></a> Update a DocumentDB Database Account
@@ -74,7 +78,7 @@ This command allows you to update your DocumentDB database account properties. T
 * `<default-consistency-level>` The default consistency level of the DocumentDB account. See [Consistency Levels in DocumentDB](documentdb-consistency-levels.md) for more information.
 * `<max-interval>` When used with Bounded Staleness consistency, this value represents the time amount of staleness (in seconds) tolerated. Accepted range for this value is 1 - 100.
 * `<max-staleness-prefix>` When used with Bounded Staleness consistency, this value represents the number of stale requests tolerated. Accepted range for this value is 1 – 2,147,483,647.
-* `<resource-group-name>` The name of the [Azure Resource Group](azure-resource-groups) to which the new DocumentDB database account belongs to.
+* `<resource-group-name>` The name of the [Azure Resource Group][azure-resource-groups] to which the new DocumentDB database account belongs to.
 * `<resource-group-location>` The location of the Azure Resource Group to which the new DocumentDB database account belongs to.
 * `<database-account-name>` The name of the DocumentDB database account to be updated.
 
@@ -91,7 +95,7 @@ This command allows you to delete an existing DocumentDB database account.
 
     Remove-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
     
-* `<resource-group-name>` The name of the [Azure Resource Group](azure-resource-groups) to which the new DocumentDB database account belongs to.
+* `<resource-group-name>` The name of the [Azure Resource Group][azure-resource-groups] to which the new DocumentDB database account belongs to.
 * `<database-account-name>` The name of the DocumentDB database account to be deleted.
 
 Example:
@@ -104,7 +108,7 @@ This command allows you to get the properties of an existing DocumentDB database
 
     Get-AzureRmResource -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` The name of the [Azure Resource Group](azure-resource-groups) to which the new DocumentDB database account belongs to.
+* `<resource-group-name>` The name of the [Azure Resource Group][azure-resource-groups] to which the new DocumentDB database account belongs to.
 * `<database-account-name>` The name of the DocumentDB database account.
 
 Example:
@@ -113,7 +117,7 @@ Example:
 
 ## <a id="update-tags-powershell"></a> Update Tags of a DocumentDB Database Account
 
-The following example describes how to set [Azure resource tags](azure-resource-tags) for your DocumentDB database account. Note: this command can be combined with the create or update commands by appending the `-Tags` flag with the corresponding parameter.
+The following example describes how to set [Azure resource tags][azure-resource-tags] for your DocumentDB database account. Note: this command can be combined with the create or update commands by appending the `-Tags` flag with the corresponding parameter.
 
 Example:
 
@@ -126,7 +130,7 @@ When you create a DocumentDB account, the service generates two master access ke
 
     $keys = Invoke-AzureRmResourceAction -Action listKeys -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>"
 
-* `<resource-group-name>` The name of the [Azure Resource Group](azure-resource-groups) to which the new DocumentDB database account belongs to.
+* `<resource-group-name>` The name of the [Azure Resource Group][azure-resource-groups] to which the new DocumentDB database account belongs to.
 * `<database-account-name>` The name of the DocumentDB database account.
 
 Example:
@@ -139,7 +143,7 @@ You should change the access keys to your DocumentDB account periodically to hel
 
     Invoke-AzureRmResourceAction -Action regenerateKey -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"keyKind"="<key-kind>"}
 
-* `<resource-group-name>` The name of the [Azure Resource Group](azure-resource-groups) to which the new DocumentDB database account belongs to.
+* `<resource-group-name>` The name of the [Azure Resource Group][azure-resource-groups] to which the new DocumentDB database account belongs to.
 * `<database-account-name>` The name of the DocumentDB database account.
 * `<key-kind>` One of the four types of keys: ["Primary"|"Secondary"|"PrimaryReadonly"|"SecondaryReadonly"] that you would like to regenerate.
 
@@ -149,14 +153,14 @@ Example:
 
 ## <a id="modify-failover-priority-powershell"></a> Modify Failover Priority of a DocumentDB Database Account
 
-For multi-region database accounts, you can change the failover priority of the various regions which the DocumentDB database account exists in. For more information on failover in your DocumentDB database account, see [Distribute data globally with DocumentDB](distribute-data-globally).
+For multi-region database accounts, you can change the failover priority of the various regions which the DocumentDB database account exists in. For more information on failover in your DocumentDB database account, see [Distribute data globally with DocumentDB][distribute-data-globally].
 
     $failoverPolicies = $(@{"locationName"="<write-region-location>"; "failoverPriority"=0},@{"locationName"="<read-region-location>"; "failoverPriority"=1})
     Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "<resource-group-name>" -Name "<database-account-name>" -Parameters @{"failoverPolicies"=$failoverPolicies}
 
 * `<write-region-location>` The location name of the write region of the database account. This is required to have a failover priority value of 0. There must be exactly one write region per database account.
 * `<read-region-location>` The location name of the read region of the database account. This is required to have a failover priority value of greater than 0. There can be more than one read regions per database account.
-* `<resource-group-name>` The name of the [Azure Resource Group](azure-resource-groups) to which the new DocumentDB database account belongs to.
+* `<resource-group-name>` The name of the [Azure Resource Group][azure-resource-groups] to which the new DocumentDB database account belongs to.
 * `<database-account-name>` The name of the DocumentDB database account.
 
 Example:
@@ -164,11 +168,10 @@ Example:
     $failoverPolicies = $(@{"locationName"="East US"; "failoverPriority"=0},@{"locationName"="West US"; "failoverPriority"=1})
     Invoke-AzureRmResourceAction -Action failoverPriorityChange -ResourceType "Microsoft.DocumentDb/databaseAccounts" -ApiVersion "2015-04-08" -ResourceGroupName "rg-test" -Name "docdb-test" -Parameters @{"failoverPolicies"=$failoverPolicies}
 
-### Notes
-
 <!--Reference style links - using these makes the source content way more readable than using inline links-->
 [powershell-install-configure]: https://docs.microsoft.com/en-us/azure/powershell-install-configure
-[scaling-across-planet]: https://docs.microsoft.com/en-us/azure/documentdb/documentdb-distribute-data-globally#scaling-across-the-planet
+[scaling-globally]: https://azure.microsoft.com/en-us/documentation/articles/documentdb-distribute-data-globally/#scaling-across-the-planet
 [distribute-data-globally]: https://docs.microsoft.com/en-us/azure/documentdb/documentdb-distribute-data-globally
 [azure-resource-groups]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-overview#resource-groups
 [azure-resource-tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-using-tags
+[rp-rest-api]: https://docs.microsoft.com/en-us/rest/api/documentdbresourceprovider/
