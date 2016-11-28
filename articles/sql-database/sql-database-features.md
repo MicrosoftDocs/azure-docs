@@ -42,8 +42,9 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 * Filtered to the [SQL Database service](https://azure.microsoft.com/updates/?service=sql-database).
 * Filtered to General Availability [(GA) announcements](http://azure.microsoft.com/updates/?service=sql-database&update-type=general-availability) for SQL Database features.
 
-[!TIP]
-To test an existing database for compatibility with Azure SQL Database, see [Validate Azure SQL Database compatibility](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+> [!TIP]
+> To test an existing database for compatibility with Azure SQL Database, see [Validate Azure SQL Database compatibility](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md).
+>
 
 | **Feature** | **SQL Server** | **Azure SQL Database** | 
 | --- | :---: | :---: | 
@@ -144,7 +145,7 @@ To test an existing database for compatibility with Azure SQL Database, see [Val
 | XML indexes | [Supported](http://msdn.microsoft.com/library/bb934097.aspx) | [Supported](http://msdn.microsoft.com/library/bb934097.aspx) |
 | XML statements | [Supported](https://msdn.microsoft.com/library/ff848798.aspx) | [Supported](https://msdn.microsoft.com/library/ff848798.aspx) |
 
-## Additional information
+## Next steps
 
 - For information about the Azure SQL Database service, see [What is SQL Database?](sql-database-technical-overview.md)
 - For an overview of Azure SQL logical servers, see [SQL Database logical server overview](sql-database-server-overview.md)

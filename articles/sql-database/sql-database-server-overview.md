@@ -21,7 +21,7 @@ ms.author: carlrab
 
 This topic provides considerations and guidelines for working with Azure SQL logical servers. For information about Azure SQL databases, see [SQL databases](sql-database-overview.md).
 
-## What is an Azure SQL Database logical server
+## What is an Azure SQL Database logical server?
 An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. For more information about Azure SQL logical servers, see [Logical servers](sql-database-server-overview.md). 
 
 An Azure Database logical server:
@@ -42,7 +42,7 @@ An Azure Database logical server:
 - Server-level principal logins can manage all databases on a server
 - Can contain logins similar to those in instances of SQL Server on your premises that are granted access to one or more databases on the server, and can be granted limited administrative rights. For more information, see [Logins](sql-database-manage-logins.md).
 
-## How do I connect and authenticate to an Azure SQL Database logical server
+## How do I connect and authenticate to an Azure SQL Database logical server?
 
 - **Authentication and authorization**: Azure SQL Database supports SQL authentication and Azure Active Directory Authentication (with certain limitations - see [Connect to SQL Database with Azure Active Directory Authentication](sql-database-aad-authentication.md) for authentication. You can connect and authenticate to Azure SQL databases through the server's master database or directly to a user database. 
 For more information, see [Managing Databases and Logins in Azure SQL Database](sql-database-manage-logins.md). Windows Authentication is not supported. 
@@ -69,7 +69,7 @@ You can manage Azure SQL Database logical servers using several methods:
 - [PowerShell](sql-database-manage-powershell.md)
 - [REST](/rest/api/sql/)
 
-## Additional information
+## Next steps
 
 - For information about the Azure SQL Database service, see [What is SQL Database?](sql-database-technical-overview.md)
 - For information about supported features, see [Features](sql-database-features.md)
