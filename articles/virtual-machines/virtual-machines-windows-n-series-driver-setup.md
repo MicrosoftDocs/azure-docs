@@ -19,7 +19,7 @@ ms.author: danlep
 
 ---
 # Set up GPU drivers for N-series VMs
-To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server, you must install NVIDIA drivers on each VM after deployment. This article provides basic setup instructions. This article is also available for [Linux VMs](virtual-machines-linux-n-series-driver-setup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+To take advantage of the GPU capabilities of Azure N-series VMs running Windows Server, you must install NVIDIA graphics drivers on each VM after deployment. This article provides basic setup instructions. This article is also available for [Linux VMs](virtual-machines-linux-n-series-driver-setup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 For basic specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -61,6 +61,11 @@ To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com
 
 ## RDMA network setup for NC24r VMs
 
-## Next steps
+## Remote access to NV instances
 
+After the NVIDIA driver is installed, you can remote into the NV instances using various clients including Remote Desktop Connection, which has made improvements in [Windows Server 2016](https://technet.microsoft.com/library/dn765476(v=ws.11).aspx). You can additionally use non-Microsoft solutions such as [Teradici](http://www.teradici.com/products-and-solutions/pcoip-products/cloud-access-software) or [Citrix](http://www.citrixandmicrosoft.com/Solutions/AzureCloud.aspx).  
+
+
+## Next steps
+ 
 
