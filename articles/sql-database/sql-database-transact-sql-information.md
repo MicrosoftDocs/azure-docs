@@ -28,7 +28,7 @@ For example, Always On is replaced with Active Geo-replication. For that reason,
 
 For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database considerations, guidelines and features](sql-database-features.md).
 
-Syntax that is deprecated in SQL Server are generally not supported in SQL Database.
+Syntax that is deprecated in SQL Server is generally not supported in SQL Database.
 
 ## Transact-SQL syntax partially supported in SQL Database
 SQL Database supports some but not all the arguments that exist in the corresponding SQL Server 2016 Transact-SQL statements. For example, the `CREATE PROCEDURE` statement is available however all the options of `CREATE PROCEDURE` are not available. Describing the full syntax here would be confusing and redundant. Refer to the linked syntax topics for details about the supported areas of each statement.
@@ -54,8 +54,8 @@ In addition to Transact-SQL statements related to the unsupported features descr
 - Eventing: events, event notifications, query notifications
 - Syntax related to database file placement, size, and database files that are automatically managed by Microsoft Azure.
 - Syntax related to high availability, which is managed through your Microsoft Azure account. This includes syntax for backup, restore, Always On, database mirroring, log shipping, recovery modes.
-- Syntax that rely upon the log reader which is not available on SQL Database: Push Replication, Change Data Capture. SQL Database can be a subscriber of a push replication article.
-- Syntax that rely upon the SQL Server Agent or the MSDB database: alerts, operators, central management servers. Use scripting, such as Azure PowerShell instead.
+- Syntax that relies upon the log reader, which is not available on SQL Database: Push Replication, Change Data Capture. SQL Database can be a subscriber of a push replication article.
+- Syntax that relies upon the SQL Server Agent or the MSDB database: alerts, operators, central management servers. Use scripting, such as Azure PowerShell instead.
 - Functions: `fn_get_sql`, `fn_virtualfilestats`, `fn_virtualservernodes`
 - Global temporary tables
 - Syntax related to hardware-related server settings: memory, worker threads, CPU affinity, trace flags, etc. Use service levels instead.
