@@ -29,17 +29,7 @@ An NVA can be deployed to a DMZ in many different architectures. For example, th
 
 ![[0]][0]
 
-This architecture includes the following resources:
-
-- A VPN gateway providing connectivity between the on-premises network and the Azure virtual network.
-- A gateway subnet in Azure that includes the inbound virtual network gateway.
-- An inbound public DMZ subnet that includes a network security group (NSG).
-- A UDR to route inbound traffic from the virtual network gateway to the NVA. 
-- An NVA with a public IP address (PIP) deployed in the inbound public DMZ subnet.
-- A web tier subnet including an NSG, a load balancer, and a set of virtual machines (VMs) hosting web services deployed into an availability set. 
-- A UDR to route outbound requests from the web tier subnet VMs to the NVA.
-
-The NVA provides a secure network boundary by checking all inbound and outbound network traffic and passing only the traffic that meets network security rules. However, the fact that all network traffic must pass through the NVA means that the NVA is a single point of failure in the network. If the NVA fails, there is no other path for network traffic and all the back-end subnets are unavailable.
+In this architecture, the NVA provides a secure network boundary by checking all inbound and outbound network traffic and passing only the traffic that meets network security rules. However, the fact that all network traffic must pass through the NVA means that the NVA is a single point of failure in the network. If the NVA fails, there is no other path for network traffic and all the back-end subnets are unavailable.
 
 To make an NVA highly available, deploy more than one NVA into an availability set. Deploying the NVAs in an availability set provides a service level agreement (SLA) that guarantees the uptimes for the NVA VMs. While an availability set provides high availability of the NVA VMs, there are some issues particular to the NVA services running on the NVA VMs that require more resources and configuration to ensure high availability.  
 
@@ -58,15 +48,6 @@ The following figure shows a high availability architecture that implements an i
 
 ![[1]][1]
 
-This architecture includes the following resources:
-
-- An internet-facing load balancer.
-- A public DMZ subnet with an NSG. This subnet is configured to be the back-end address pool for the internet-facing load balancer.
-- A pair of NVAs in the public DMZ subnet deployed into an availability set.
-- A web tier subnet with an NSG. 
-- An internal load balancer deployed into the web tier subnet. The NVAs are configured to forward network traffic meeting security rules to this load balancer. The web tier subnet is configured to be the back-end address pool for the internal load balancer.
-- A set of VMs hosting web services deployed in an availability set in the web tier subnet. 
-
 The benefit of this architecture is that all NVAs are active, and if one fails the load balancer directs network traffic to the other NVA. Both NVAs route traffic to the internal load balancer so as long as one NVA is active, traffic continues to flow. The NVAs are required to terminate SSL traffic intended for the web tier VMs. These NVAs cannot be extended to handle on-premises traffic because on-premises traffic requires another dedicated set of NVAs with their own network routes.
 
 ## Egress with layer 7 NVAs
@@ -74,15 +55,6 @@ The benefit of this architecture is that all NVAs are active, and if one fails t
 The previous architecture can be expanded to provide an egress DMZ for requests originating in the Azure workload. The following architecture is designed to provide high availability of the NVAs in the DMZ for layer 7 traffic, such as HTTP or HTTPS:
 
 ![[2]][2]
-
-This architecture includes the following resources:
-
-- A web tier subnet.
-- Web tier VMs deployed in an availability set in the web tier subnet. 
-- An egress DMZ subnet.
-- An internal load balancer deployed in the egress DMZ subnet.
-- NVA VMs deployed in an availability set in the back-end pool of the internal load balancer.
-- A UDR in the web tier subnet that forwards requests to the internal load balancer in the DMZ subnet.
 
 In this architecture, all traffic originating in Azure is routed to an internal load balancer. The load balancer distributes outgoing requests between a set of NVAs. These NVAs direct traffic to the Internet using their individual public IP addresses. 
 
@@ -92,16 +64,6 @@ In the two previous architectures, there was a separate DMZ for ingress and egre
 
 ![[4]][4]
 
-This architecture includes the following resources:
-
-- A web tier subnet with an NSG.
-- Web tier VMs in the web tier subnet deployed in an availability set.
-- A DMZ subnet with an NSG. 
-- An internal load balancer deployed in the DMZ subnet.
-- A UDR to forward outbound network traffic from the web tier VMs to the internal load balancer.
-- NVA VMs in the DMZ subnet deployed in an availability set. The NVAs are deployed in the back-end pool of the internal load balancer.
-- An internet-facing application gateway with the NVA VMs added to the back-end pool.
-
 In this architecture, the NVAs process incoming requests from the application gateway. The NVAs also process outgoing requests from the workload VMs in the back-end pool of the load balancer. Because incoming traffic is routed with an application gateway and outgoing traffic is routed with a load balancer, the NVAs are responsible for maintaining session affinity. That is, the application gateway maintains a mapping of inbound and outbound requests so it can forward the correct response to the original requestor. However, the internal load balancer does not have access to the application gateway mappings, and uses its own logic to send responses to the NVAs. It's possible the load balancer could send a response to an NVA that did not initially receive the request from the application gateway. In this case, the NVAs must communicate and transfer the response between them so the correct NVA can forward the response to the application gateway. 
 
 ## PIP-UDR switch with layer 4 NVAs
@@ -109,19 +71,6 @@ In this architecture, the NVAs process incoming requests from the application ga
 The following architecture demonstrates an architecture with one active and one passive NVA. This architecture handles both ingress and egress for layer 4 traffic: 
 
 ![[3]][3]
-
-This architecture includes the following resources:
-
-- A public IP address.
-- An external DMZ subnet with an NSG.
-- An internal DMZ subnet with an NSG. 
-- One active NVA with one NIC assigned to the external DMZ subnet and one NIC assigned to the internal DMZ subnet.
-- One passive NVA with one NIC assigned to the external DMZ subnet and one NIC assigned to the internal DMZ subnet.
-- A ZooKeeper cluster deployed in the internal DMZ subnet, with a health probe monitoring the active NVA.
-- A web tier subnet with an NSG.
-- An internal load balancer assigned to the web tier subnet.
-- A set of web tier VMS assigned to the back-end pool of the internal load balancer.
-- A UDR to forward outgoing requests from the web tier VMs to the NVA NIC assigned to the internal DMZ subnet.
 
 This architecture is similar to the first architecture discussed in this article. That architecture included a single NVA accepting and filtering incoming layer 4 requests. This architecture adds a second passive NVA to provide high availability. If the active NVA fails, the passive NVA is made active and the UDR and PIP are changed to point to the NICs on the now active NVA. 
 
