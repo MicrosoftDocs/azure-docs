@@ -14,11 +14,15 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 11/23/2016
 ms.author: nitinme
 
 ---
 # Release notes for Hadoop components on Azure HDInsight
+
+
+##Notes for 11/18/2016 release of Spark 2.0.1 on HDInsight 3.5
+•	Spark 2.0.1 is now available on Spark clusters (HDInsight version 3.5).
 
 ## Notes for 11/16/2016 release of R Server 9.0 on HDInsight 3.5 (Spark 2.0)
 *	R Server clusters now include the option for two versions: R Server 9.0 on HDI 3.5 (Spark 2.0) and R Server 8.0 on HDI 3.4 (Spark 1.6).
