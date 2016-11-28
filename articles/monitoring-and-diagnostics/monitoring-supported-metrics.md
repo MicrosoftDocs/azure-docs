@@ -267,7 +267,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 | d2c.telemetry.egress.failure | Telemetry message delivery failures | Count | Total | The number of times messages failed to be written to an endpoint |
 | d2c.telemetry.egress.dropped | Dropped telemetry messages | Count | Total | The count of messages dropped by not being able to deliver to the endpoint and also having the fallback route disabled |
 | d2c.telemetry.egress.fallback | Telemetry messages matching fallback condition | Count | Total | The count of messages matching the fallback route |
-| d2c.telemetry.egress.orphaned | Orphaned telemetry messages | Count | Total | The count of messages not matching any routes and also having the fallback route disabled |
+| d2c.telemetry.egress.orphaned | Orphaned telemetry messages | Count | Total | The count of messages not matching any routes including the fallback route |
 | d2c.endpoints.latency.eventHubs | Message latency for Event Hub endpoints | Milliseconds | Average | The average, min, and max latency between message ingress to the IoT hub and message ingress into an Event Hub endpoint, in milliseconds |
 | d2c.endpoints.latency.serviceBusQueues | Message latency for Service Bus Queue endpoints | Milliseconds | Average | The average, min, and max latency between message ingress to the IoT hub and message ingress into a Service Bus Queue endpoint, in milliseconds |
 | d2c.endpoints.latency.serviceBusTopic | Message latency for Service Bus Topic endpoints | Milliseconds | Average | The average, min, and max latency between message ingress to the IoT hub and message ingress into a Service Bus Topic endpoint, in milliseconds |
