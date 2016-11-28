@@ -1,6 +1,6 @@
 ---
-title: How to set a static private IP address in Azure Resource Manager by using PowerShell| Microsoft Docs
-description: Understanding static private IP addresses and how to manage them in Azure Resource Manager by using PowerShell
+title: Set a static private IP address using PowerShell| Microsoft Docs
+description: Learn how to set a static private IP address and how to it using PowerShell | Azure Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -23,9 +23,7 @@ ms.author: jdial
 
 [!INCLUDE [virtual-networks-static-private-ip-intro-include](../../includes/virtual-networks-static-private-ip-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
-
-This article covers the Resource Manager deployment model. You can also [manage static private IP address in the classic deployment model](virtual-networks-static-private-ip-classic-ps.md).
+Azure has two deployment models: Azure Resource Manager and classic. Microsoft recommends creating resources through the Resource Manager deployment model. To learn more about the differences between the two models, read the [Understand Azure deployment models](../azure-resource-manager/resource-manager-deployment-model.md) article. This article covers the Resource Manager deployment model. You can also [manage static private IP address in the classic deployment model](virtual-networks-static-private-ip-classic-ps.md).
 
 [!INCLUDE [virtual-networks-static-ip-scenario-include](../../includes/virtual-networks-static-ip-scenario-include.md)]
 
