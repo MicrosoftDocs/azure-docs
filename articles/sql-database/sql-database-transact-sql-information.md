@@ -25,6 +25,7 @@ Most of the Transact-SQL features that applications depend on are supported in b
 Azure SQL Database is designed to isolate features from dependencies on the master database and the operating system. As a consequence many server-level activities are inappropriate for SQL Database. Transact-SQL statements are usually not available if they configure server-level options, operating system components, or specify file system configuration. When features that are outside of the user database are necessary, an appropriate alternative is often available in some other way from SQL Database or from another Azure feature or service. 
 
 For example, Always On is replaced with Active Geo-replication. For that reason, any Transact-SQL statements related to availability groups are not supported by SQL Database, and the dynamic management views related to Always On are not supported.  
+
 For a list of the features that are supported and unsupported by SQL Database, see [Azure SQL Database considerations, guidelines and features](sql-database-features.md).
 
 Syntax that is deprecated in SQL Server are generally not supported in SQL Database.
