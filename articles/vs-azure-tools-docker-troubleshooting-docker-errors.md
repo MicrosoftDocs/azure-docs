@@ -33,7 +33,8 @@ To test if volume mapping is functioning, once the drive(s) have been shared, ei
 
 *In a Windows command prompt*
 
-*[Note: This assumes your Users folder is located on the "C" drive and that it has been shared.  Update as necessary if you have shared a different drive]*
+> [!Note]
+> This assumes your Users folder is located on the "C" drive and that it has been shared.  Update as necessary if you have shared a different drive.
 
 ```
 docker run -it -v /c/Users/Public:/wormhole busybox
@@ -64,7 +65,8 @@ Documents        Libraries        Pictures
 /wormhole #
 ```
 
-**Note:** *When working with Linux VMs, the container file system is case sensitive.*
+> [!Note]
+> When working with Linux VMs, the container file system is case sensitive.
 
 ## Build : "PrepareForBuild" task failed unexpectedly.
 Microsoft.DotNet.Docker.CommandLine.ClientException: An error occurred trying to connect:
