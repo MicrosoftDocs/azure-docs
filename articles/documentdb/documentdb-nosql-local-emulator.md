@@ -110,7 +110,7 @@ You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/
 
 In order to obtain a certificate to use with languages and runtimes that do not integrate with the Windows Certificate Store you will need to export it using the Windows Certificate Manager.  You can start it by running "certlm.msc".  Once the certificate manager is running open the Personal Certificates as shown below and export the certificate with the friendly name "DocumentDBEmulatorCertificate" as a BASE-64 encoded X.509 (.cer) file.
 
-![DocumentDB local emulator SSL certificate](./media/documentdb-nosql-local-emulator/DocumentDB_local_emulator_ssl+certificate.png)
+![DocumentDB local emulator SSL certificate](./media/documentdb-nosql-local-emulator/DocumentDB_local_emulator_ssl_certificate.png)
 
 The X.509 certificate can be imported into the Java certificate store by following the instructions in the "[Adding a Certificate to the Java CA Certificates Store](https://docs.microsoft.com/en-us/azure/java-add-certificate-ca-store)" post.  Once the certifate is imported in the to cacerts store Java applications and MongoDB applications.
 
