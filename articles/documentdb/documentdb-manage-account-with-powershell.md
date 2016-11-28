@@ -1,5 +1,5 @@
 ---
-title: DocumentDB Automation - Management with Powershell | Microsoft Docs
+title: Azure DocumentDB Automation - Management with Powershell | Microsoft Docs
 description: Use Azure Powershell manage your DocumentDB database accounts. DocumentDB is a cloud-based NoSQL database for JSON data.
 services: documentdb
 author: dmakwana
@@ -8,7 +8,7 @@ editor: ''
 tags: azure-resource-manager
 documentationcenter: ''
 
-ms.assetid: 12ea83f7-6e60-4ac5-ab59-90953c2d63f9
+ms.assetid:
 ms.service: documentdb
 ms.workload: data-services
 ms.tgt_pltfrm: na
@@ -18,7 +18,7 @@ ms.date: 11/27/2016
 ms.author: dimakwan
 
 ---
-# Automate DocumentDB account management using Azure Powershell
+# Automate Azure DocumentDB account management using Azure Powershell
 > [!div class="op_single_selector"]
 > * [Azure portal](documentdb-create-account.md)
 > * [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
@@ -66,7 +66,10 @@ Example:
 
 ## <a id="update-documentdb-account-powershell"></a> Update a DocumentDB Database Account
 
-This command allows you to update your DocumentDB database account properties. This includes the consistency policy and the locations which the database account exists in. Note: This command allows you to add and remove regions but does not allow you to modify failover priorities. To modify failover priorities, see [below](#modify-failover-priority-powershell).
+This command allows you to update your DocumentDB database account properties. This includes the consistency policy and the locations which the database account exists in.
+
+> [!NOTE]
+> This command allows you to add and remove regions but does not allow you to modify failover priorities. To modify failover priorities, see [below](#modify-failover-priority-powershell).
 
     $locations = $(@{"locationName"="<write-region-location>"; "failoverPriority"=0}, @{"locationName"="<read-region-location>"; "failoverPriority"=1})
     $consistencyPolicy = @{"defaultConsistencyLevel"="<default-consistency-level>"; "maxIntervalInSeconds"="<max-interval>"; "maxStalenessPrefix"="<max-staleness-prefix>"}
@@ -117,7 +120,10 @@ Example:
 
 ## <a id="update-tags-powershell"></a> Update Tags of a DocumentDB Database Account
 
-The following example describes how to set [Azure resource tags][azure-resource-tags] for your DocumentDB database account. Note: this command can be combined with the create or update commands by appending the `-Tags` flag with the corresponding parameter.
+The following example describes how to set [Azure resource tags][azure-resource-tags] for your DocumentDB database account.
+
+> [!NOTE]
+> This command can be combined with the create or update commands by appending the `-Tags` flag with the corresponding parameter.
 
 Example:
 
