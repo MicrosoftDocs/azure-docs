@@ -82,7 +82,7 @@ Now that the required packages are installed on the Linux virtual machine, the n
 sudo realm discover mydomain.com
 ```
 
-### Initialize kerberos.
+### Initialize kerberos
 
 Ensure that you specify a user who belongs to the 'AAD DC Administrators' group. Only these users can join computers to the managed domain.
 
@@ -102,7 +102,7 @@ sudo realm join --verbose mydomain.com -U 'ahmet@mydomain.com'
 ssh -l ahmet@mydomain.com mydomain.cloudapp.net
 ```
 
-# Next Steps:
+## Next Steps
 
 * [Red Hat Update Infrastructure (RHUI) for on-demand Red Hat Enterprise Linux VMs in Azure](virtual-machines-linux-update-infrastructure-redhat?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Set up Key Vault for virtual machines in Azure Resource Manager](virtual-machines-linux-key-vault-setup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
