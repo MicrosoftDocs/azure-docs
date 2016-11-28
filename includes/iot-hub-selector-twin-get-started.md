@@ -15,7 +15,7 @@ Use device twins to:
 * Query your device metadata, configuration, or state.
 
 > [!NOTE]
-> Device twins are designed for synchronization and for querying device configurations and conditions. Use [device-to-cloud messages][lnk-d2c] for sequences of timestamped events (such as telemetry streams of time-based sensor data) and [direct methods][lnk-methods] for interactive control of devices, such as turning on a fan from a user-controlled app.
+> Device twins are designed for synchronization and for querying device configurations and conditions. More informations on when to use device twins can be found in [Understand device twins][lnk-twins].
 > 
 > 
 

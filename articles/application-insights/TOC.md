@@ -1,6 +1,6 @@
 # Overview
 ## [What is Application Insights?](app-insights-overview.md)
-## [How it works](app-insights-detect-triage-diagnose.md)
+## [Performance monitoring in a devOps cycle](app-insights-detect-triage-diagnose.md)
 
 # Get started
 ## Monitor Azure
@@ -62,9 +62,9 @@
 #### [Availability](app-insights-monitor-web-app-availability.md)
 #### [Metric Alerts](app-insights-alerts.md)
 
-### [Smart detection](app-insights-proactive-diagnostics.md)
-#### [Failure detection](app-insights-proactive-failure-diagnostics.md)
-#### [Anomaly detection](app-insights-proactive-performance-diagnostics.md)
+### [Smart Detection](app-insights-proactive-diagnostics.md)
+#### [Failure anomalies](app-insights-proactive-failure-diagnostics.md)
+#### [Performance anomalies](app-insights-proactive-performance-diagnostics.md)
 
 ## Analyze
 
@@ -128,14 +128,14 @@
 ### [Java](app-insights-java-troubleshoot.md)
 
 # Reference
-## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
+## [Java API](http://dl.windowsazure.com/applicationinsights/javadoc/)
 ## [.NET API](https://docs.microsoft.com/dotnet/api)
 ## [JavaScript API](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Analytics](app-insights-analytics-reference.md)
+## [Analytics reference](app-insights-analytics-reference.md)
 ## [Sampling](app-insights-sampling.md)
 ## [IP addresses](app-insights-ip-addresses.md)
 ## [ApplicationInsights.config](app-insights-configuration-with-applicationinsights-config.md)
-## [Export Data Model](app-insights-export-data-model.md)
+## [Export data model](app-insights-export-data-model.md)
 ## [Migration from Azure Endpoint Monitoring to Availability tests](app-insights-migrate-azure-endpoint-tests.md)
 ## [Developer analytics: languages, platforms, and integrations](app-insights-platforms.md)
 ### [Samples and walkthroughs](app-insights-code-samples.md)
@@ -145,7 +145,7 @@
 ## [Release notes for Application Insights SDK for Windows Phone and Store](app-insights-release-notes-windows.md)
 ## [Release notes for Developer Analytics Tools](app-insights-release-notes-vsix.md)
 ## [SDK release notes Application Insights](app-insights-release-notes.md)
-## [REST API](https://dev.applicationinsights.io/)
+## [Data access REST API](https://dev.applicationinsights.io/)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/application-insights/)  

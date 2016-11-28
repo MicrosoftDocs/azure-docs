@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
 
 ---
@@ -28,7 +28,7 @@ An Availability Set logically spans Azure Virtual Machines across physical hosts
 
 Follow this link to see the JSON sample within the Resource Manager template – [Availability Set](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L368).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Compute/availabilitySets",
@@ -46,7 +46,7 @@ An Availability Set is declared as a property of a Virtual Machine resource.
 
 Follow this link to see the JSON sample within the Resource Manager template – [Availability Set association with Virtual Machine](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L302).
 
-```none
+```json
 "properties": {
   "availabilitySet": {
     "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
@@ -63,7 +63,7 @@ Whereas an availability set provides application fault tolerance, a load balance
 
 Follow this link to see the JSON sample within the Resource Manager template – [Network Load Balancer](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L198).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/loadBalancers",
@@ -80,7 +80,7 @@ Because the sample application is exposed to the internet with a public IP addre
 
 Follow this link to see the JSON sample within the Resource Manager template – [Network Load Balancer association with Public IP Address](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L211).
 
-```none
+```json
 "frontendIPConfigurations": [
   {
     "properties": {
@@ -102,7 +102,7 @@ When using a load balancer, rules are configured that control how traffic is bal
 
 Follow this link to see the JSON sample within the Resource Manager template – [Load Balancer Rule](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L226).
 
-```none
+```json
 "loadBalancingRules": [
   {
     "name": "[variables('loadBalencerRule')]",
@@ -135,7 +135,7 @@ The load balancer also needs to monitor each virtual machine so that requests ar
 
 Follow this link to see the JSON sample within the Resource Manager template – [Load Balancer Probe](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L247).
 
-```none
+```json
 "probes": [
   {
     "properties": {
@@ -160,7 +160,7 @@ With the Music Store application, a port starting at 5000 is mapped to port 3389
 
 Follow this link to see the JSON sample within the Resource Manager template – [Inbound NAT Rules](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L260). 
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/loadBalancers/inboundNatRules",
@@ -199,7 +199,7 @@ Finally, for an Availability Set or Load Balancer to effectively function, multi
 
 In the Music Store Sample template, a parameter is defined that takes in an instance count. This number is used throughout the template when creating virtual machines and related resources.
 
-```none
+```json
 "numberOfInstances": {
   "type": "int",
   "minValue": 1,
@@ -214,7 +214,7 @@ On the Virtual Machine resource, the copy loop is given a name and the number of
 
 Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine Copy Function](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L290). 
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Compute/virtualMachines",
@@ -230,7 +230,7 @@ The current iteration of the copy function can be accessed with the `copyIndex()
 
 Follow this link to see the JSON sample within the Resource Manager template – [Copy Index Function](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-windows/azuredeploy.json#L309). 
 
-```none
+```json
 "osProfile": {
   "computerName": "[concat(variables('vmName'),copyindex())]",
   "adminUsername": "[parameters('adminUsername')]",
