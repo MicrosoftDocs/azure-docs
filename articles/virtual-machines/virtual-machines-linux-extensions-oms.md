@@ -22,7 +22,7 @@ ms.author: nepeters
 
 ## Overview
 
-The OMS Agent virtual machine Linux extension installs the OMS agent and enrolls the virtual machine into an existing OMS workspace.
+The OMS Agent virtual machine Linux extension installs the OMS agent and enrolls the virtual machine into an existing OMS workspace. Operations Management Suite (OMS) provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. This document details the supported platforms, configurations, and deployment options for the OMS virtual machine extension.
 
 For general information on Azure virtual machine extensions see, [Virtual Machine extensions overview](./virtual-machines-linux-extensions-features.md).
 
@@ -39,7 +39,7 @@ The OMS Agent extension can be run against these Linux distributions.
 
 ## Extension Configuration
 
-The OMS virtual machine extension will need the workspace IF and workspace key of the target OMS workspace. Because the workspace key should be treated as sensitive data, it will be stored in a protected setting.
+The OMS virtual machine extension will need the workspace IF and workspace key of the target OMS workspace. Because the workspace key should be treated as sensitive data, it will be stored in a protected setting. The public and private configurations are used at deployment time, which is detailed in subsequent sections of this document.
 
 ### Public configuration
 
@@ -67,7 +67,13 @@ Schema for the public configuration:
 
 ## Template deployment
 
-This JSON can be used in an Azure Resource Manager template to deploy the OMS extensions.
+A sample template can be deployed by clicking this button.
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-oms-extension-ubuntu-vm%2Fazuredeploy.json" target="_blank">
+    <img src="http://azuredeploy.net/deploybutton.png"/>
+</a>
+
+This JSON sample can be used in an Azure Resource Manager template to deploy the OMS extensions.
 
 ```json
 {
@@ -91,12 +97,6 @@ This JSON can be used in an Azure Resource Manager template to deploy the OMS ex
   }
 }
 ```
-
-A sample template can be deployed by clicking this button.
-
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-oms-extension-ubuntu-vm%2Fazuredeploy.json" target="_blank">
-    <img src="http://azuredeploy.net/deploybutton.png"/>
-</a>
 
 ## Azure CLI deployment
 
