@@ -494,7 +494,7 @@ This solution requires two firewall rules on each SQL Server. The first rule pro
 5. In the **Action** page, keep **Allow the connection** selected and click **Next**.
 6. In the **Profile** page, accept the default settings and click **Next**.
 7. In the **Name** page, specify a rule name, such as **SQL Server (Program Rule)** in the **Name** text box, then click **Finish**.
-8. Create an additional inbound firewall rule for the probe port. This rule is an inbound rule to TCP port 59999, for the purposes of this tutorial. Name the rule **SQL Server Listener**.
+8. Create an additional inbound firewall rule for the probe port. This rule is an inbound rule to TCP port 37000, for the purposes of this tutorial. Name the rule **SQL Server Listener**.
 
 Complete all steps on both SQL Servers.
 
@@ -634,7 +634,7 @@ Make the following settings on the load balancer:
 | **SQLLBBE Used by** |SQLAlwaysOnEndPointListener |
 | **Probe** Name |SQLAlwaysOnEndPointProbe |
 | **Probe Protocol** |TCP |
-| **Probe Port** |59999 - Note that you can use any unused port. |
+| **Probe Port** |37000 - Note that you can use any unused port. |
 | **Probe Interval** |5 |
 | **Probe Unhealthy threshold** |2 |
 | **Probe Used by** |SQLAlwaysOnEndPointListener |
@@ -673,7 +673,7 @@ The next thing to do is to configure an availability group listener on the failo
     $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
     $IPResourceName = "<IPResourceName>" # the IP Address resource name
     $ILBIP = "<X.X.X.X>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-   [int]$ProbePort = <nnnnn> # In this sample we've using 59999 for the probe port. 
+   [int]$ProbePort = <nnnnn> # In this sample we've using 37000 for the probe port. 
    
     Import-Module FailoverClusters
    
