@@ -244,6 +244,23 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 
 <br>
 
+## L-series 
+
+The L-series is optimized for low latency storage optimized workloads, like NoSQL databases (e.g. Cassandra, MongoDB, Cloudera and Redis). This new series offers up to 32 CPU cores, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). This is the same CPU performance as the G-Series with 8 GiB of memory per CPU core.  
+
+ 
+| Size          | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth | 
+|---------------|-----------|-------------|--------------------------|----------------|-------------------------------------------------------------|-------------------------------------------|------------------------------| 
+| Standard_L4s  | 4    | 32   | 678   | 8              | NA / NA (0)          | 10,000 / 250                              | 2 / high       | 
+| Standard_L8s  | 8    | 64   | 1,388 | 16             | NA / NA (0)          | 20,000 / 500                              | 4 / very high  | 
+| Standard_L16s | 16   | 128  | 2,807 | 32             | NA / NA (0)          | 40,000 / 1,000                            | 8 / extremely high | 
+| Standard_L32s | 32   | 256  | 5,630 | 64             | NA / NA (0)          | 80,000 / 2,000                            | 8 / extremely high | 
+ 
+ <br> 
+ 
+MBps = 10^6 bytes per second, and GiB = 1024^3 bytes. 
+
+
 ## N-series (preview)
 The NC and NV sizes are also known as GPU-enabled instances. These are specialized virtual machines that include NVIDIA's GPU cards, optimized for different scenarios and use cases. The NV sizes are optimized and designed for remote visualization, streaming, gaming, encoding and VDI scenarios utilizing frameworks such as OpenGL and DirectX. The NC sizes are more optimized for compute intensive and network intensive applications, algorithms, including CUDA and OpenCL based applications and simulations. 
 
