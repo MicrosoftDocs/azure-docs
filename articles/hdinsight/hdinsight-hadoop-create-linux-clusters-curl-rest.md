@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/16/2016
+ms.date: 11/28/2016
 ms.author: larryfr
 
 ---
@@ -28,17 +28,16 @@ The Azure REST API allows you to perform management operations on services hoste
 > The steps in this document use the default number of worker nodes (4) for an HDInsight cluster. If you plan on more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14GB ram.
 >
 > For more information on node sizes and associated costs, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight/).
->
->
+
 
 ## Prerequisites
 
 [!INCLUDE [delete-cluster-warning](../../includes/hdinsight-delete-cluster-warning.md)]
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
+
 * **Azure CLI**. The Azure CLI is used to create a service principal, which is then used to generate authentication tokens for requests to the Azure REST API.
 
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)]
 * **cURL**. This utility is available through your package management system, or can be downloaded from [http://curl.haxx.se/](http://curl.haxx.se/).
 
   > [!NOTE]
@@ -271,7 +270,7 @@ Follow the steps documented in [Connect to an Azure subscription from the Azure 
 
 ## Create a service principal
 > [!NOTE]
-> These steps are an abridged version of the information provided in the *Create service principal with password* section of the [Use Azure CLI to create a service principal to access resources](../resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) document. These steps create a new service principal that can be used to authenticate the REST API requests used to create Azure resources such as an HDInsight cluster.
+> These steps are an abridged version of the information provided in the *Create service principal with password* section of the [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) document. These steps create a new service principal that can be used to authenticate the REST API requests used to create Azure resources such as an HDInsight cluster.
 >
 >
 

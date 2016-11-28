@@ -139,36 +139,13 @@ You can then use this information with the [Azure CLI 2.0](https://docs.microsof
 
 1. Use the following command to get the unique ID for the Storage Account. In the following command, replace **ACCOUNTNAME** with the Storage Account name retrieved from Ambari:
 
-        az storage account list --query "[?name=='ACCOUNTNAME'].id --out list
+        az storage account list --query "[?name=='ACCOUNTNAME'].id" --out list
 
 2. Use the following to get a key for the storage account. Replace **STORAGEID** with the storage account ID:
 
-        az storage account keys list --ids STORAGEID --out list
+        az storage account keys list --ids STORAGEID --query "keys[?keyName=='key1'].value" --out list
 
     This will return the primary key for the account.
-
-1. Get the resource group for the Storage Account. Replace **ACCOUNTNAME** with the Storage Account name retrieved from Ambari:
-   
-    ```bash
-    azure storage account list --json | jq '.[] | select(.name=="ACCOUNTNAME").resourceGroup'
-    ```
-
-    ```PowerShell
-    azure storage account list --json | jq '.[] | select(.name=="""ACCOUNTNAME""").resourceGroup'
-    ```
-   
-    This returns the resource group name for the account.
-   
-   > [!NOTE]
-   > If nothing is returned from this command, you may need to change the Azure CLI to Azure Resource Manager mode and run the command again. To switch to Azure Resource Manager mode, use the following command:
-   > 
-   > `azure config mode arm`
-
-2. Get the key for the Storage account. Replace **GROUPNAME** with the Resource Group from the previous step. Replace **ACCOUNTNAME** with the Storage Account name:
-   
-        azure storage account keys list -g GROUPNAME ACCOUNTNAME --json | jq '.storageAccountKeys.key1'
-   
-    This example returns the primary key for the account.
 
 3. Use the upload command to store a file in the container:
    

@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/13/2016
+ms.date: 11/28/2016
 ms.author: larryfr
 
 ---
@@ -29,8 +29,6 @@ Many of the steps in this document use the following utilities, which may need t
 * [cURL](https://curl.haxx.se/) - used to communicate with web-based services
 * [jq](https://stedolan.github.io/jq/) - used to parse JSON documents
 * [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) - used to remotely manage Azure services
-
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## Users
 
