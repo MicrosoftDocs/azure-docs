@@ -1,6 +1,6 @@
 ---
-title: Face redaction with Azure media analytics | Microsoft Docs
-description: This topic demonstrates how to redact faces with Azure media analytics.
+title: Face redaction walkthrough | Microsoft Docs
+description: This topic shows step by step instructions on how to run a full redaction workflow using Azure Media Services Explorer (AMSE) and Azure Media Redactor Visualizer (open source tool).
 services: media-services
 documentationcenter: ''
 author: Lichard
@@ -17,7 +17,7 @@ ms.date: 11/17/2016
 ms.author: rli; juliako;
 
 ---
-# Face redaction with Azure media analytics
+# Face redaction walkthrough
 
 ## Overview
 

@@ -63,7 +63,7 @@ A Script Action is simply a Bash script that you provide a URI to, and parameter
 
     * A **blob storage account** that is either the primary or additional storage account for the HDInsight cluster. Since HDInsight is granted access to both of these types of storage accounts during cluster creation, these provide a way to use a non-public script action.
 
-    * A https://review.docs.microsoft.com/en-us/azure/service-bus/?branch=master such as an Azure Blob, GitHub, OneDrive, Dropbox, etc.
+    * A https://docs.microsoft.com/en-us/azure/service-bus/ such as an Azure Blob, GitHub, OneDrive, Dropbox, etc.
 
         For examples of the URI for scripts stored in blob container (publicly readable,) see the [Example script action scripts](#example-script-action-scripts) section.
 

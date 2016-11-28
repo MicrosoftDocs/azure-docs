@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 11/22/2016
 ms.author: helaw
 
 ---
@@ -49,6 +49,7 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 * You cannot deploy a VM from a saved VM image.
 * Tenants may see services which are not included in their subscription.  When tenants attempt to deploy these resources, they receive an error.  Example:  Tenant subscription only includes storage resources.  Tenant will see option to create other resources like VMs.  In this scenario, when a tenant attempts to deploy a VM, they receive a message indicating the VM can’t be created. 
 * When installing TP2, you should not activate the host OS in the VHD provided where you run the Azure Stack setup script, or you may receive an error messaging stating Windows will expire soon.
+* For STATIC network configurations, make sure to activate the BGPNAT VM before it is out of license, otherwise your environment may stop working. For more information, see [this announcement](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack&announcementId=f35560ea-b0d2-4be0-b407-e20fe631d9fe).
 
 ## Deployment
 ### Deployment failure
@@ -109,8 +110,9 @@ The following information about Azure Stack installation steps may be useful for
 | 40.43 |(FBI) Set up Azure Stack Certification Authority |Installs Azure Stack Certification Authority. |
 | 40.44 |(FBI) Configure Azure Stack Certification Authority |Configures Azure Stack Certification Authority. |
 | 40.45 |(NET) Set up NC on VMs |Installs NC on the guest VMs |
-| 40.46 |(NET) Configure NC on VMs |Configure NC on the guest VMs |
-| 40.47 |(NET) Configure guest VMs |Configure the management VMs with NC ACLs. |
+| 40.46 | (NET) Configure NC on VMs | Configure NC on the guest VMs |
+| 40.47 | (NET) Validate NC on VMs | Validate NC and SLB Configuration |
+| 40.48 | (NET) Configure guest VMs | Configure the management VMs with NC ACLs |
 | 60.61.81 |(FBI) Deploy Azure Stack Fabric Ring Services - FabricRing PreRequisite |Creates VIPs for FabricRing |
 | 60.61.82 |(FBI) Deploy Azure Stack Fabric Ring Services - Deploy Fabric Ring Cluster |Installs and configures Azure Stack Fabric Ring Cluster. |
 | 60.61.83 |(FBI) Deploy Admin Extensions for Resource providers |Installing Admin Extensions for resource providers |

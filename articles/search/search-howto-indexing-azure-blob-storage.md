@@ -1,4 +1,4 @@
-﻿---
+---
 title: Indexing Azure Blob Storage with Azure Search
 description: Learn how to index Azure Blob Storage and extract text from documents with Azure Search
 services: search
@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 11/24/2016
 ms.author: eugenesh
 ---
 
@@ -30,8 +30,8 @@ The blob indexer can extract text from the following document formats:
 * ZIP
 * EML
 * Plain text files  
-* JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md) for details)
-* CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) for details)
+* JSON (see [Indexing JSON blobs](search-howto-index-json-blobs.md) preview feature)
+* CSV (see [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview feature)
 
 > [!IMPORTANT]
 > Support for CSV and JSON files is currently in preview. These formats are available only using version **2015-02-28-Preview** of the REST API or version 2.x-preview of the .NET SDK. Please remember, preview APIs are intended for testing and evaluation, and should not be used in production environments.
@@ -50,7 +50,9 @@ You can set up an Azure Blob Storage indexer using:
 >
 >
 
-In this article, we'll set up an indexer using the REST API by following three steps: create a data source, create an index, configure the indexer.
+In this article, we'll set up an indexer using the REST API. First, we'll create a data source, then create an index, and finally configure the indexer.
+
+After that, we'll cover the details on how the blob indexer parses blobs, how to pick which blobs to index, how to deal with blobs of unsupported content types, and the available configuration settings. 
 
 ### Step 1: Create a data source
 A data source specifies which data to index, credentials needed to access the data, and policies to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same search service.
@@ -114,20 +116,23 @@ This indexer will run every two hours (schedule interval is set to "PT2H"). To r
 
 For more details on the Create Indexer API, check out [Create Indexer](https://msdn.microsoft.com/library/azure/dn946899.aspx).
 
-## Document extraction process
-Azure Search indexes each document (blob) as follows:
+## How Azure Search indexes blobs
 
-* The entire text content of the document is extracted into a string field named `content`. We currently don't provide support for extracting multiple documents from a single blob:
+Depending on the [indexer configuration](#PartsOfBlobToIndex), the blob indexer can index storage metadata only (useful when you only care about the metadata and don't need to index the content of blobs), storage and content metadata, or both metadata and textual content. By default, the indexer extracts both metadata and content. 
 
-  * For example, a CSV file is indexed as a single document. If you need to treat each line in a CSV as a separate document, vote for [this UserVoice suggestion](https://feedback.azure.com/forums/263029-azure-search/suggestions/13865325-please-treat-each-line-in-a-csv-file-as-a-separate).
-  * A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email containing attachments) is also indexed as a single document.
-* User-specified metadata properties present on the blob, if any, are extracted verbatim. The metadata properties can also be used to control certain aspects of the document extraction process – see [Using Custom Metadata to Control Document Extraction](#CustomMetadataControl) for more details.
+> [!NOTE]
+> By default, blobs with structured content such as JSON, CSV, or XML are indexed as a single chunk of text. If you want to index JSON and CSV blobs in a structured way, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md) preview features. We currently don't support parsing XML content; if you have this need, add a suggestion on our [UserVoice](https://feedback.azure.com/forums/263029-azure-search).
+> 
+> A compound or embedded document (such as a ZIP archive or a Word document with embedded Outlook email containing attachments) is also indexed as a single document.
+
+* The entire textual content of the document is extracted into a string field named `content`.
+* User-specified metadata properties present on the blob, if any, are extracted verbatim.
 * Standard blob metadata properties are extracted into the following fields:
 
   * **metadata\_storage\_name** (Edm.String) - the file name of the blob. For example, if you have a blob /my-container/my-folder/subfolder/resume.pdf, the value of this field is `resume.pdf`.
   * **metadata\_storage\_path** (Edm.String) - the full URI of the blob, including the storage account. For example, `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
   * **metadata\_storage\_content\_type** (Edm.String) - content type as specified by the code you used to upload the blob. For example, `application/octet-stream`.
-  * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob. Azure Search uses this timestamp to identify changed blobs, to avoid re-indexing everything after the initial indexing.
+  * **metadata\_storage\_last\_modified** (Edm.DateTimeOffset) - last modified timestamp for the blob. Azure Search uses this timestamp to identify changed blobs, to avoid reindexing everything after the initial indexing.
   * **metadata\_storage\_size** (Edm.Int64) - blob size in bytes.
   * **metadata\_storage\_content\_md5** (Edm.String) - MD5 hash of the blob content, if available.
 * Metadata properties specific to each document format are extracted into the fields listed [here](#ContentSpecificMetadata).
@@ -139,7 +144,7 @@ You don't need to define fields for all of the above properties in your search i
 >
 >
 
-## Picking the document key field and dealing with different field names
+### Picking the document key field and dealing with different field names
 In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type Edm.String. The key field is required for each document that is being added to the index (it is actually the only required field).  
 
 You should carefully consider which extracted field should map to the key field for your index. The candidates are:
@@ -181,13 +186,92 @@ To bring this all together, here's how you can add field mappings and enable bas
 >
 >
 
+<a name="WhichBlobsAreIndexed"></a>
+## Controlling which blobs are indexed
+You can control which blobs are indexed, and which are skipped.
+
+### Index only the blobs with specific file extensions
+You can index only the blobs with the file name extensions you specify by using the `indexedFileNameExtensions` indexer configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index only the .PDF and .DOCX blobs, do this:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
+    }
+
+### Exclude blobs with specific file extensions
+You can exclude blobs with specific file name extensions from indexing by using the `excludedFileNameExtensions` configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index all blobs except those with the .PNG and .JPEG extensions, do this:
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
+    }
+
+If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. This means that if the same file extension is present in both lists, it will be excluded from indexing.
+
+### Dealing with unsupported content types
+
+By default, the blob indexer stops as soon as it encounters a blob with an unsupported content type (for example, an image). You can of course use the `excludedFileNameExtensions` parameter to skip certain content types. However, you may need to index blobs without knowing all the possible content types in advance. To continue indexing when an unsupported content type is encountered, set the `failOnUnsupportedContentType` configuration parameter to `false`: 
+
+	PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "failOnUnsupportedContentType" : false } }
+    } 
+
+### Ignoring parsing errors
+
+Azure Search document extraction logic isn't perfect and will sometimes fail to parse documents of a supported content type, such as .DOCX or .PDF. If you do not want to interrupt the indexing in such cases, set the `maxFailedItems` and `maxFailedItemsPerBatch` configuration parameters to some reasonable values. For example: 
+
+	{
+	  ... other parts of indexer definition
+	  "parameters" : { "maxFailedItems" : 10, "maxFailedItemsPerBatch" : 10 }
+	} 
+
+<a name="PartsOfBlobToIndex"></a>
+## Controlling which parts of the blob are indexed
+
+You can control which parts of the blobs are indexed using the `dataToExtract` configuration parameter. It can take the following values: 
+
+* `storageMetadata` - specifies that only the [standard blob properties and user-specified metadata](../storage/storage-properties-metadata.md) are indexed.
+* `allMetadata` - specifies that storage metadata and the [content-type specific metadata](#ContentSpecificMetadata) extracted from the blob content are indexed.
+* `contentAndMetadata` - specifies that all metadata and textual content extracted from the blob are indexed. This is the default value.
+
+For example, to index only the storage metadata, use: 
+
+    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
+    Content-Type: application/json
+    api-key: [admin key]
+
+    {
+      ... other parts of indexer definition
+      "parameters" : { "configuration" : { "dataToExtract" : "storageMetadata" } }
+    }
+
+### Using blob metadata to control how blobs are indexed
+
+The configuration parameters described above apply to all blobs. Sometimes, you may want to control how *individual blobs* are indexed. You can do this by adding the following blob metadata properties and values:
+
+| Property name | Property value | Explanation |
+| --- | --- | --- |
+| AzureSearch_Skip |"true" |Instructs the blob indexer to completely skip the blob. Neither metadata nor content extraction is attempted. This is useful when a particular blob fails repeatedly and interrupts the indexing process. |
+| AzureSearch_SkipContent |"true" |This is equivalent of `"dataToExtract" : "allMetadata"` setting described [above](#PartsOfBlobToIndex) scoped to a particular blob. |
+
 ## Incremental indexing and deletion detection
 When you set up a blob indexer to run on a schedule, it re-indexes only the changed blobs, as determined by the blob's `LastModified` timestamp.
 
 > [!NOTE]
 > You don't have to specify a change detection policy – incremental indexing is enabled for you automatically.
->
->
 
 To support deleting documents, use a "soft delete" approach. If you delete the blobs outright, corresponding documents will not be removed from the search index. Instead, use the following steps:  
 
@@ -213,8 +297,25 @@ For example, the following policy considers a blob to be deleted if it has a met
         }
     }   
 
-<a name="ContentSpecificMetadata"></a>
+## Indexing large datasets
 
+Indexing blobs can be a time-consuming process. In cases where you have millions of blobs to index, you can speed up indexing by partitioning your data and using multiple indexers to process the data in parallel. Here's how you can set this up: 
+
+- Partition your data into multiple blob containers or virtual folders 
+- Set up several Azure Search data sources, one per container or folder. To point to a blob folder, use the `query` parameter: 
+
+	```
+	{
+	    "name" : "blob-datasource",
+	    "type" : "azureblob",
+	    "credentials" : { "connectionString" : "<your storage connection string>" },
+		"container" : { "name" : "my-container", "query" : "my-folder" }
+	}
+	```
+
+- Create a corresponding indexer for each data source. All the indexers can point to the same target search index.  
+
+<a name="ContentSpecificMetadata"></a>
 ## Content type-specific metadata properties
 The following table summarizes processing done for each document format, and describes the metadata properties extracted by Azure Search.
 
@@ -235,70 +336,5 @@ The following table summarizes processing done for each document format, and des
 | EML (message/rfc822) |`metadata_content_type`<br/>`metadata_message_from`<br/>`metadata_message_to`<br/>`metadata_message_cc`<br/>`metadata_creation_date`<br/>`metadata_subject` |Extract text, including attachments |
 | Plain text (text/plain) |`metadata_content_type`</br>`metadata_content_encoding`</br> | |
 
-<a name="CustomMetadataControl"></a>
-
-## Using custom metadata to control document extraction
-You can add metadata properties to a blob to control certain aspects of the blob indexing and document extraction process. Currently the following properties are supported:
-
-| Property name | Property value | Explanation |
-| --- | --- | --- |
-| AzureSearch_Skip |"true" |Instructs the blob indexer to completely skip the blob; neither metadata nor content extraction is attempted. This is useful when you want to skip certain content types, or when a particular blob fails repeatedly and interrupts the indexing process. |
-| AzureSearch_SkipContent |"true" |Instructs the blob indexer to only index the metadata and skip extracting content of the blob. This is useful if the blob content is not interesting, but you still want to index the metadata attached to the blob. |
-
-<a name="IndexerParametersConfigurationControl"></a>
-
-## Using indexer parameters to control document extraction
-Several indexer configuration parameters are available to control which blobs, and which parts of a blob's content and metadata, are indexed.
-
-### Index only the blobs with specific file extensions
-You can index only the blobs with the file name extensions you specify by using the `indexedFileNameExtensions` indexer configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index only the .PDF and .DOCX blobs, do this:
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "indexedFileNameExtensions" : ".pdf,.docx" } }
-    }
-
-### Exclude blobs with specific file extensions from indexing
-You can exclude blobs with specific file name extensions from indexing by using the `excludedFileNameExtensions` configuration parameter. The value is a string containing a comma-separated list of file extensions (with a leading dot). For example, to index all blobs except those with the .PNG and .JPEG extensions, do this:
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "excludedFileNameExtensions" : ".png,.jpeg" } }
-    }
-
-If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters are present, Azure Search first looks at `indexedFileNameExtensions`, then at `excludedFileNameExtensions`. This means that if the same file extension is present in both lists, it will be excluded from indexing.
-
-### Index storage metadata only
-You can index only the storage metadata and completely skip the document extraction process using the `indexStorageMetadataOnly` configuration property. This is useful when you don't need the document content, nor do you need any of the content type-specific metadata properties. To do this, set the `indexStorageMetadataOnly` property to `true`:
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "indexStorageMetadataOnly" : true } }
-    }
-
-### Index both storage and content type metadata, but skip content extraction
-If you need to extract all of the metadata but skip content extraction for all blobs, you can request this behavior using the indexer configuration, instead of having to add `AzureSearch_SkipContent` metadata to each blob individually. To do this, set the `skipContent` indexer configuration property to `true`:
-
-    PUT https://[service name].search.windows.net/indexers/[indexer name]?api-version=2016-09-01
-    Content-Type: application/json
-    api-key: [admin key]
-
-    {
-      ... other parts of indexer definition
-      "parameters" : { "configuration" : { "skipContent" : true } }
-    }
-
 ## Help us make Azure Search better
-If you have feature requests or ideas for improvements, please reach out to us on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
+If you have feature requests or ideas for improvements, let us know on our [UserVoice site](https://feedback.azure.com/forums/263029-azure-search/).
