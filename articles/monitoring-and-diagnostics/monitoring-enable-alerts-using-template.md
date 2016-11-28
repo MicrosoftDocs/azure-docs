@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/28/2016
 ms.author: johnkem
 
 ---
@@ -140,7 +140,7 @@ To create an alert using a Resource Manager template, you create a resource of t
             "type": "Microsoft.Insights/alertRules",
             "name": "[parameters('alertName')]",
             "location": "[resourceGroup().location]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[parameters('alertName')]",
                 "description": "[parameters('alertDescription')]",
@@ -362,7 +362,7 @@ An alert on a Resource Manager template is most often useful when creating an al
                 "[variables('vmID')]"
             ],
             "location": "[variables('location')]",
-            "apiVersion": "2014-04-01",
+            "apiVersion": "2016-03-01",
             "properties": {
                 "name": "[variables('alertName')]",
                 "description": "variables('alertDescription')",
