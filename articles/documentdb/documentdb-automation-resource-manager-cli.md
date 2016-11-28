@@ -20,7 +20,7 @@ ms.author: mimig
 ---
 # Automate DocumentDB account creation using Azure CLI and Azure Resource Manager templates
 > [!div class="op_single_selector"]
-> * [Azure Portal](documentdb-create-account.md)
+> * [Azure portal](documentdb-create-account.md)
 > * [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
 > * [Azure Powershell](documentdb-manage-account-with-powershell.md)
 
