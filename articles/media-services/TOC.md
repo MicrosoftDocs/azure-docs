@@ -17,7 +17,7 @@
 ## Manage
 ### Manage accounts
 #### [PowerShell](media-services-manage-with-powershell.md)
-#### [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
+#### [REST](/rest/api/media/mediaservice)
 ### Manage entities
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
