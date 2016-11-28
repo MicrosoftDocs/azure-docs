@@ -48,7 +48,7 @@ Like other resource types, you can set dependencies between the linked template 
     "[reference('linkedTemplate').outputs.exampleProperty]"
 
 
-The Resource Manager service must be able to access the linked template. You cannot specify a local file or a file that is only available on your local network for the linked template. You can only provide a URI value that includes either **http** or **https**. One option is to place your linked template in a storage account, and use the URI for that item, such as shown in the following example.
+The Resource Manager service must be able to access the linked template. You cannot specify a local file or a file that is only available on your local network for the linked template. You can only provide a URI value that includes either **http** or **https**. One option is to place your linked template in a storage account, and use the URI for that item, such as shown in the following example:
 
     "templateLink": {
         "uri": "http://mystorageaccount.blob.core.windows.net/templates/template.json",
@@ -79,7 +79,7 @@ The following example shows a parent template that links to another template. Th
 
 Even though the token is passed in as a secure string, the URI of the linked template, including the SAS token, is logged in the deployment operations for that resource group. To limit exposure, set an expiration for the token.
 
-Resource Manager handles each linked template as a separate deployment. In the deployment history for the resource group, you see seperate deployments for the parent and nested templates.
+Resource Manager handles each linked template as a separate deployment. In the deployment history for the resource group, you see separate deployments for the parent and nested templates.
 
 ![deployment history](./media/resource-group-linked-templates/linked-deployment-history.png)
 
@@ -138,7 +138,7 @@ You can also use [deployment()](resource-group-template-functions.md#deployment)
     }
 
 ## Conditionally linking to templates
-You can link to different templates by passing in a parameter value that is used to construct the URI of the linked template. This approach works well when you need to specify during deployment which linked template to use. For example, you can specify one template to use for an existing storage account, and another template to use for a new storage account.
+You can link to different templates by passing in a parameter value that is used to construct the URI of the linked template. This approach works well when you need to specify during deployment the linked template to use. For example, you can specify one template to use for an existing storage account, and another template to use for a new storage account.
 
 The following example shows a parameter for a storage account name, and a parameter to specify whether the storage account is new or existing.
 
