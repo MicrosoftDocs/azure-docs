@@ -254,7 +254,7 @@ In this section, you create a Java console app that reads device-to-cloud messag
     }
     ```
     
-    > [!NOTE]
+S    > [!NOTE]
     > This code assumes you created your IoT hub in the F1 (free) tier. A free IoT hub has two partitions named "0" and "1".
     > 
     > 
@@ -310,7 +310,7 @@ In this section, you create a Java console app that simulates a device that send
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQP;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
