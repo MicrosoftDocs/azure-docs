@@ -1,18 +1,18 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Halosys| Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and Halosys.
+title: 'Tutorial: Azure Active Directory Integration with Halosys | Microsoft Docs'
+description: Learn how to use Halosys with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
 
-ms.assetid: 42a0eb7c-5cb7-44a9-b00b-b0e7df4b63e8
+ms.assetid: 31177994-7910-4a72-bd76-5fa6260242fb
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/21/2016
+ms.date: 11/29/2016
 ms.author: jeedes
 
 ---
@@ -27,7 +27,6 @@ Integrating Halosys with Azure AD provides you with the following benefits:
 - You can manage your accounts in one central location - the Azure classic portal
 
 If you want to know more details about SaaS app integration with Azure AD, see [What is application access and single sign-on with Azure Active Directory](active-directory-appssoaccess-whatis.md).
-
 
 ## Prerequisites
 
