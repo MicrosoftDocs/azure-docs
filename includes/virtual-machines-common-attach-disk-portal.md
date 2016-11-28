@@ -1,6 +1,5 @@
 
 
-
 ## Find the virtual machine
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. On the Hub menu, click **Virtual Machines**.
