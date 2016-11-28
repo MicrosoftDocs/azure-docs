@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timtl
 tags: ''
-keywords: ''
+keywords: 'iot issues, internet of things problems'
 
 ms.service: iot-hub
 ms.devlang: c

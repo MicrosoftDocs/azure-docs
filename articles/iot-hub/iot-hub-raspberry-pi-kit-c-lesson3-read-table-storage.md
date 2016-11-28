@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timtl
 tags: ''
-keywords: ''
+keywords: 'retrieve data from cloud, iot cloud service'
 
 ms.service: iot-hub
 ms.devlang: c

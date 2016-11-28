@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timtl
 tags: ''
-keywords: ''
+keywords: 'storing data in the cloud, data stored in cloud, iot cloud service'
 
 ms.service: iot-hub
 ms.devlang: c

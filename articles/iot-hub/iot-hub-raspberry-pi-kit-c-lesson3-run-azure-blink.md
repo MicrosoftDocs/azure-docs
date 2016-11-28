@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timtl
 tags: ''
-keywords: ''
+keywords: 'blink led cloud pi, led blink from cloud'
 
 ms.service: iot-hub
 ms.devlang: c

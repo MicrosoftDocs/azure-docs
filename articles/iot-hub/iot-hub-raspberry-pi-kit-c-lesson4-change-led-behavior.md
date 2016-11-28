@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timtl
 tags: ''
-keywords: ''
+keywords: 'control led with raspberry pi, raspberry pi led control, raspberry pi control led'
 
 ms.service: iot-hub
 ms.devlang: c

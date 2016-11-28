@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timtl
 tags: ''
-keywords: ''
+keywords: 'iot development, iot software, internet of things software, install git on windows, gulp run, install node js windows, install npm on windows, install python on windows'
 
 ms.service: iot-hub
 ms.devlang: c

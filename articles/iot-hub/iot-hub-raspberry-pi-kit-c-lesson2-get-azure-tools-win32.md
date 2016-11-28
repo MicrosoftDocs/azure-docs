@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timtl
 tags: ''
-keywords: ''
+keywords: 'iot cloud service, azure cli'
 
 ms.service: iot-hub
 ms.devlang: c

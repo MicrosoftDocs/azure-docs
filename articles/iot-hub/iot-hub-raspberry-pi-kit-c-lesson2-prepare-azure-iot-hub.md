@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timtl
 tags: ''
-keywords: ''
+keywords: 'raspberry pi cloud, pi cloud connect'
 
 ms.service: iot-hub
 ms.devlang: c

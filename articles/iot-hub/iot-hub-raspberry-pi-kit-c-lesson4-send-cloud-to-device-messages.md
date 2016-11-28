@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timtl
 tags: ''
-keywords: ''
+keywords: 'cloud to device, message from cloud'
 
 ms.service: iot-hub
 ms.devlang: c

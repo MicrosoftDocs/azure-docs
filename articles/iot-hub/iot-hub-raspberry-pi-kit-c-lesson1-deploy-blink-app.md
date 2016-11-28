@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timtl
 tags: ''
-keywords: ''
+keywords: 'raspberry pi led blink, blink led with raspberry pi'
 
 ms.service: iot-hub
 ms.devlang: c

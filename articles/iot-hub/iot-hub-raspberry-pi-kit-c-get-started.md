@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timtl
 tags: ''
-keywords: ''
+keywords: 'azure iot hub, getting started with the internet of things, iot toolkit'
 
 ms.service: iot-hub
 ms.devlang: c

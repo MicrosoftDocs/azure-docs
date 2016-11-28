@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timtl
 tags: ''
-keywords: ''
+keywords: 'iot development, iot software, internet of things software, install python mac, install git on mac, gulp run, install node js mac'
 
 ms.service: iot-hub
 ms.devlang: c
