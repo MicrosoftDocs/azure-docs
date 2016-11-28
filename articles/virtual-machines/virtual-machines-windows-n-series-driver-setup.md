@@ -45,6 +45,7 @@ Browse additional drivers at [NVIDIA driver downloads](http://www.nvidia.com/Dow
 > [!NOTE]
 > Developers building GPU-accelerated applications for the NVIDIA Tesla GPUs can download and install the [CUDA Toolkit 8](https://developer.nvidia.com/cuda-downloads).
 >
+
 ## Verify driver installation
 
 On Azure NV VMs, a restart is required after driver installation. On NC VMs, a restart is not required.
