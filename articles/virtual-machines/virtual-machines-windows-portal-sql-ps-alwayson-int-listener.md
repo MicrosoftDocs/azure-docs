@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+ms.date: 11/28/2016
 ms.author: mikeray
 
 ---
@@ -101,8 +101,7 @@ To use more than one availability group, use PowerShell to add an additional IP 
 The front end port is the port that applications use to connect to the SQL Server instance. IP addresses for different availability groups can use the same front end port.
 
 > [!NOTE]
-> For SQL Server availability groups, each IP address requires a specific probe port. For example, if one IP address on a load balancer uses probe port 59999, no other IP addresses on that load balancer can use probe port 59999.
-
+> For SQL Server availability groups, each IP address requires a specific probe port. For example, if one IP address on a load balancer uses probe port 37000, no other IP addresses on that load balancer can use probe port 37000.
 
 * For information about load balancer limits see **Private front end IP per load balancer** under [Networking Limits - Azure Resource Manager](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 * For information about availability group limits see [Restrictions (Availability Groups)](http://msdn.microsoft.com/library/ff878487.aspx#RestrictionsAG).
