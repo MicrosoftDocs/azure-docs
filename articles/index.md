@@ -1,7 +1,8 @@
 ---
 layout: HubPage
 hide_bc: true
-title: Microsoft Azure Documentation
+title: Microsoft Azure Documentation | Microsoft Docs
+description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -337,8 +338,8 @@ title: Microsoft Azure Documentation
                                         </li>
                                         <li>
                                             <a href="https://docs.botframework.com/en-us/azure-bot-service/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Bot Service</p>
+                                                <img src="media/index/bot-service.svg" alt="" />
+                                                <p>Azure Bot Service</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -1610,11 +1611,11 @@ title: Microsoft Azure Documentation
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/bot-service.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Bot Service</h3>
+                                                    <h3>Azure Bot Service</h3>
                                                     <p>Intelligent, serverless bot service that scales on demand</p>
                                                 </div>
                                             </div>
@@ -2343,7 +2344,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Resource Manager</h3>
-                                                    <p>Work with the resources in as a group for Azure Services</p>
+                                                    <p>Deploy and manage Azure resources</p>
                                                 </div>
                                             </div>
                                         </div>
