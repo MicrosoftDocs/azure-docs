@@ -13,14 +13,14 @@ ms.devlang: R
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/21/2016
+ms.date: 11/22/2016
 ms.author: jeffstok
 
 ---
 # Azure Storage options for R Server on HDInsight
 Microsoft R Server on HDInsight has access to both Azure Blob and [Azure Data Lake Storage](https://azure.microsoft.com/services/data-lake-store/), as a means of persisting data, code, result objects from analysis, and so on.
 
-When you create a Hadoop cluster in HDInsight, you specify either an Azure Storage account or a Data Lake store. A specific Blob storage container from that account holds the file system for the cluster you create (for example, the Hadoop Distributed File System). For performance purposes, the HDInsight cluster is created in the same data center as the primary storage account that you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md "Use Azure Blob storage with HDInsight").   
+When you create a Hadoop cluster in HDInsight, you specify either an Azure Storage account or a Data Lake store. A specific storage container from that account holds the file system for the cluster you create (for example, the Hadoop Distributed File System). For performance purposes, the HDInsight cluster is created in the same data center as the primary storage account that you specify. For more information, see [Use Azure Blob storage with HDInsight](hdinsight-hadoop-use-blob-storage.md "Use Azure Blob storage with HDInsight").   
 
 ## Use multiple Azure Blob storage accounts
 If necessary, you can access multiple Azure storage accounts or containers with your HDI cluster. To do so, you need to specify the additional storage accounts in the UI when you create the cluster, and then follow these steps to use them in R.  
