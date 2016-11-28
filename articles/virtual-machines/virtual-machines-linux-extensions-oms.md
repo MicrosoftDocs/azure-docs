@@ -32,12 +32,14 @@ For more information on Operations Management Suite, see [Operations Management 
 
 The OMS Agent extension can be run against these Linux distributions.
 
-- CentOS Linux 5,6, and 7 (x86/x64)
-- Oracle Linux 5,6, and 7 (x86/x64)
-- Red Hat Enterprise Linux Server 5,6 and 7 (x86/x64)
-- Debian GNU/Linux 6, 7, and 8 (x86/x64)
-- Ubuntu 12.04 LTS, 14.04 LTS, 15.04 (x86/x64)
-- SUSE Linux Enterprise Server 11 and 12 (x86/x64)
+| Distribution | Version |
+|---|---|
+| CentOS Linux | 5,6, and 7 |
+| Oracle Linux | 5,6, and 7 |
+| Red Hat Enterprise Linux Server | 5,6 and 7 |
+| Debian GNU/Linux | 6, 7, and 8 |
+| Ubuntu | 12.04 LTS, 14.04 LTS, 15.04 |
+| SUSE Linux Enterprise Server | 11 and 12 |
 
 ## Extension configuration
 
