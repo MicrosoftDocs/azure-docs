@@ -40,12 +40,12 @@ In Azure Search, a service is initially allocated a minimal level of resources c
 
 To increase or change the allocation of replicas and partitions, we recommend using the Azure portal. The portal enforces limits on allowable combinations that stay below maximum limits:
 
-1. Sign in to the [Azure Portal](https://portal.azure.com/) and select the search service.
+1. Sign in to the [Azure portal](https://portal.azure.com/) and select the search service.
 2. In Settings, open the Scale blade and use the sliders to increase or decrease the number of partitions and replicas.
 
-An alternative to the portal is to use the [management REST API](https://msdn.microsoft.com/library/azure/dn832687.aspx) if you require a script or code-based provisioning approach.
+If you require a script- or code-based provisioning approach, the [management REST API](https://msdn.microsoft.com/library/azure/dn832687.aspx) is an alternative to the portal.
 
-As a general rule, search applications need more replicas than partitions, particularly when the service operations are biased towards query workloads. The section on [high availability](#HA) explains why.
+Generally, search applications need more replicas than partitions, particularly when the service operations are biased towards query workloads. The section on [high availability](#HA) explains why.
 
 > [!NOTE]
 > Once a service is provisioned, it cannot be upgraded to a higher SKU. You will need to create a search service at the new tier and reload your indexes. See [Create an Azure Search service in the portal](search-create-service-portal.md) for help with service provisioning.
@@ -57,7 +57,7 @@ As a general rule, search applications need more replicas than partitions, parti
 ## High availability
 Because it's easy and relatively fast to scale up, we generally recommend that you start with one partition and one or two replicas, and then scale up as query volumes build. For many services at the Basic or S1 tiers, one partition provides sufficient storage and IO (at 15 million documents per partition).
 
-Query workloads run primarily on replicas. You will probably require additional replicas if you need more throughput or high availability.
+Query workloads run primarily on replicas. If you need more throughput or high availability you will probably require additional replicas.
 
 General recommendations for high availability are:
 
@@ -78,7 +78,7 @@ Currently, there is no built-in mechanism for disaster recovery. Adding partitio
 ## Increase query performance with replicas
 Query latency is an indicator that additional replicas are needed. Generally, a first step toward improving query performance is to add more of this resource. As you add replicas, additional copies of the index are brought online to support bigger query workloads and to load balance the requests over the multiple replicas.
 
-We cannot provide hard estimates on queries per second (QPS): query performance depends on the complexity of the query and competing workloads. On average, a replica at Basic or S1 SKUs can service about 15 QPS, but your throughput will be higher or lower depending on query complexity (faceted queries are more complex) and network latency. Also, it's important to recognize that while adding replicas will definitely add scale and performance, the end result is not strictly linear: adding three replicas does not guarantee triple throughput.
+We cannot provide hard estimates on queries per second (QPS): query performance depends on the complexity of the query and competing workloads. On average, a replica at Basic or S1 SKUs can service about 15 QPS, but your throughput will be higher or lower depending on query complexity (faceted queries are more complex) and network latency. Also, it's important to recognize that while adding replicas will definitely add scale and performance, the result is not strictly linear: adding three replicas does not guarantee triple throughput.
 
 To learn about QPS, including approaches for estimating QPS for your workloads, see [Manage your Search service](search-manage.md).
 
@@ -105,10 +105,10 @@ This table shows the search units required to support combinations of replicas a
 | **6 Replicas** |6 SU |12 SU |18 SU |24 SU |36 SU |N/A |
 | **12 Replicas** |12 SU |24 SU |36 SU |N/A |N/A |N/A |
 
-Search units, pricing, and capacity are explained in detail on the Azure web site. See [Pricing Details](https://azure.microsoft.com/pricing/details/search/) for more information.
+Search units, pricing, and capacity are explained in detail on the Azure web site. For more information, see [Pricing Details](https://azure.microsoft.com/pricing/details/search/).
 
 > [!NOTE]
-> The number of replicas and partitions divides evenly into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create a new index, each partition will contain four shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future releases. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
+> The number of replicas and partitions divides evenly into 12 (specifically, 1, 2, 3, 4, 6, 12). This is because Azure Search pre-divides each index into 12 shards so that it can be spread in equal portions across all partitions. For example, if your service has three partitions and you create an index, each partition will contain four shards of the index. How Azure Search shards an index is an implementation detail, subject to change in future releases. Although the number is 12 today, you shouldn't expect that number to always be 12 in the future.
 >
 >
 
