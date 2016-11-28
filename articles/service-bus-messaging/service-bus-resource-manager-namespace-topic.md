@@ -1,14 +1,14 @@
 ---
 title: Create a Service Bus namespace with topic and subscription using an Azure Resource Manager template | Microsoft Docs
 description: Create a Service Bus namespace with topic and subscription using Azure Resource Manager template
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: d3d55200-5c60-4b5f-822d-59974cafff0e
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet

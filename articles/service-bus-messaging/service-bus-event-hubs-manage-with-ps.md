@@ -1,14 +1,14 @@
 ---
 title: Use PowerShell to manage Service Bus and Event Hubs resources | Microsoft Docs
 description: Using PowerShell to create and manage Service Bus and Event Hubs resources
-services: service-bus,event-hubs
+services: service-bus-messaging,event-hubs
 documentationcenter: .NET
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: f6436f6f-2156-41ea-a4ca-08cfaecbb778
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

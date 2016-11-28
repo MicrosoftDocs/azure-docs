@@ -17,7 +17,7 @@ ms.date: 11/14/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK (beta) – send device-to-cloud messages with a real device using Linux
+# Azure IoT Gateway SDK – send device-to-cloud messages with a real device using Linux
 This walkthrough of the [Bluetooth low energy sample][lnk-ble-samplecode] shows you how to use the [Azure IoT Gateway SDK][lnk-sdk] to forward device-to-cloud telemetry to IoT Hub from a physical device and how to route commands from IoT Hub to a physical device.
 
 This walkthrough covers:
@@ -249,14 +249,17 @@ Assuming the gateway repository is located in the folder **/home/pi/azure-iot-ga
 
 ```json
 {
-    "module name": "logger",
-    "loading args": {
-      "module path": "build/modules/logger/liblogger.so"
-    },
-    "args":
-    {
-        "filename":"gw_logger.log"
+  "name": "Logger",
+  "loader": {
+    "name" : "native",
+    "entrypoint" : {
+      "module.path" : "build/modules/logger/liblogger.so"
     }
+  },
+  "args":
+  {
+    "filename": "<</path/to/log-file.log>>"
+  }
 }
 ```
 
@@ -265,9 +268,12 @@ The sample configuration for the BLE device assumes a Texas Instruments SensorTa
 
 ```json
 {
-  "module name": "SensorTag",
-  "loading args": {
-    "module path": "build/modules/ble/libble.so"
+  "name": "SensorTag",
+  "loader": {
+    "name" : "native",
+    "entrypoint" : {
+      "module.path": "build/modules/ble/libble.so"
+    }
   },
   "args": {
     "controller_index": 0,
@@ -322,14 +328,17 @@ Add the name of your IoT Hub. The suffix value is typically **azure-devices.net*
 
 ```json
 {
-  "module name": "IoTHub",
-  "loading args": {
-    "module path": "build/modules/iothub/libiothub.so"
+  "name": "IoTHub",
+  "loader": {
+    "name" : "native",
+    "entrypoint" : {
+      "module.path": "build/modules/iothub/libiothub.so"
+    }
   },
   "args": {
     "IoTHubName": "<<Azure IoT Hub Name>>",
     "IoTHubSuffix": "<<Azure IoT Hub Suffix>>",
-    "Transport": "AMQP"
+    "Transport" : "amqp"
   }
 }
 ```
@@ -339,13 +348,16 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 
 ```json
 {
-  "module name": "mapping",
-  "loading args": {
-    "module path": "build/modules/identitymap/libidentity_map.so"
+  "name": "mapping",
+  "loader": {
+    "name" : "native",
+    "entrypoint" : {
+      "module.path": "build/modules/identitymap/libidentity_map.so"
+    }
   },
   "args": [
     {
-      "macAddress": "<<AA:BB:CC:DD:EE:FF>>",
+      "macAddress": "AA:BB:CC:DD:EE:FF",
       "deviceId": "<<Azure IoT Hub Device ID>>",
       "deviceKey": "<<Azure IoT Hub Device Key>>"
     }
@@ -356,22 +368,28 @@ Add the MAC address of your SensorTag device and the device Id and key of the **
 #### BLE Printer module configuration
 ```json
 {
-    "module name": "BLE Printer",
-    "loading args": {
-      "module path": "build/samples/ble_gateway/ble_printer/libble_printer.so"
-    },
-    "args": null
+  "name": "BLE Printer",
+  "loader": {
+    "name" : "native",
+    "entrypoint" : {
+      "module.path": "build/samples/ble_gateway/ble_printer/libble_printer.so"
+    }
+  },
+  "args": null
 }
 ```
 
 #### BLEC2D Module Configuration
 ```json
 {
-    "module name": "BLEC2D",
-    "loading args": {
-      "module path": "build/modules/ble/libble_c2d.so"
-    },
-    "args": null
+  "name": "BLEC2D",
+  "loader": {
+    "name" : "native",
+    "entrypoint" : {
+      "module.path": "build/modules/ble/libble_c2d.so"
+    }
+  },
+  "args": null
 }
 ```
 
@@ -467,7 +485,7 @@ To further explore the capabilities of IoT Hub, see:
 * [Developer guide][lnk-devguide]
 
 <!-- Links -->
-[lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/samples/ble_gateway_hl
+[lnk-ble-samplecode]: https://github.com/Azure/azure-iot-gateway-sdk/tree/master/samples/ble_gateway
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-explorer-tools]: https://github.com/Azure/azure-iot-sdks/blob/master/doc/manage_iot_hub.md
 [lnk-sdk]: https://github.com/Azure/azure-iot-gateway-sdk/
