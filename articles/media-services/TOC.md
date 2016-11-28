@@ -1,7 +1,6 @@
 # [Overview](media-services-overview.md)
 ## [Concepts ](media-services-concepts.md)
 
-
 # Get started
 ## [Create and manage account](media-services-portal-create-account.md)
 ## [Set up your dev environment](media-services-set-up-computer.md)
@@ -16,16 +15,18 @@
 
 # How To
 ## Manage
-### [Manage streaming endpoints in the portal](media-services-portal-manage-streaming-endpoints.md)
+### Manage accounts
+#### [PowerShell](media-services-manage-with-powershell.md)
+#### [REST](https://docs.microsoft.com/rest/api/media/mediaservice)
 ### Manage entities
 #### [.NET](media-services-dotnet-manage-entities.md)
 #### [REST](media-services-rest-manage-entities.md)
-### [Manage accounts with PowerShell](media-services-manage-with-powershell.md)
-### [How To: Update Media Services after Rolling Storage Access Keys](media-services-roll-storage-access-keys.md)
-### [Quotas and limitations](media-services-quotas-and-limitations.md)
 ### Connect programmatically
 #### [.NET](media-services-dotnet-connect-programmatically.md)
 #### [REST](media-services-rest-connect-programmatically.md)
+### [Manage streaming endpoints in the portal](media-services-portal-manage-streaming-endpoints.md)
+### [How To: Update Media Services after Rolling Storage Access Keys](media-services-roll-storage-access-keys.md)
+### [Quotas and limitations](media-services-quotas-and-limitations.md)
 
 ## Upload content
 ### Upload files into an account
@@ -34,24 +35,55 @@
 #### [REST](media-services-rest-upload-files.md)
 ### [Copy existing blobs](media-services-copying-existing-blob.md)
 
-## Encode content
-### [Overview](media-services-encode-asset.md)
-### Encode with Media Encoder Standard
-#### [Portal](media-services-portal-encode.md)
-#### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
-#### [REST](media-services-rest-encode-asset.md)
-#### Schemas
-#####[Media Encoder Standard](media-services-mes-schema.md)
-#####[Input metadata](media-services-input-metadata-schema.md)
-#####[Output metadata](media-services-output-metadata-schema.md)
-##### [Advanced encoding](media-services-advanced-encoding-with-mes.md)
-###### [How to generate thumbnails using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
-###### [Crop videos with Media Encoder Standard](media-services-crop-video.md)
-### Encode with Media Encoder Premium Workflow
-#### [Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md)
-#### [Media Encoder Premium Workflow tutorials](media-services-media-encoder-premium-workflow-tutorials.md)
-#### [Create Advanced Encoding Workflows with Workflow Designer](media-services-workflow-designer.md)
-#### [Premium workflow with multiple input](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
+## [Encode content](media-services-encode-asset.md)
+### [Compare encoders](media-services-compare-encoders.md)
+### [Error codes](media-services-encoding-error-codes.md)
+### Media Encoder Standard (MES)
+#### [Media Encoder Standard Formats and Codecs](media-services-media-encoder-standard-formats.md)
+#### MES Schemas
+##### [Media Encoder Standard schema](media-services-mes-schema.md)
+##### [Input metadata](media-services-input-metadata-schema.md)
+##### [Output metadata](media-services-output-metadata-schema.md)
+#### MES Presets 
+##### [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
+##### [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
+##### [H264 Multiple Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
+##### [H264 Multiple Bitrate 16x9 SD](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD.md)
+##### [H264 Multiple Bitrate 16x9 for iOS](media-services-mes-preset-H264-Multiple-Bitrate-16x9-for-iOS.md)
+##### [H264 Multiple Bitrate 4K Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4K-Audio-5.1.md)
+##### [H264 Multiple Bitrate 4K](media-services-mes-preset-H264-Multiple-Bitrate-4K.md)
+##### [H264 Multiple Bitrate 4x3 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD-Audio-5.1.md)
+##### [H264 Multiple Bitrate 4x3 SD](media-services-mes-preset-H264-Multiple-Bitrate-4x3-SD.md)
+##### [H264 Multiple Bitrate 4x3 for iOS](media-services-mes-preset-H264-Multiple-Bitrate-4x3-for-iOS.md)
+##### [H264 Multiple Bitrate 720p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-720p-Audio-5.1.md)
+##### [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md)
+##### [H264 Single Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-1080p-Audio-5.1.md)
+##### [H264 Single Bitrate 1080p](media-services-mes-preset-H264-Single-Bitrate-1080p.md)
+##### [H264 Single Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-16x9-SD-Audio-5.1.md)
+##### [H264 Single Bitrate 16x9 SD](media-services-mes-preset-H264-Single-Bitrate-16x9-SD.md)
+##### [H264 Single Bitrate 4K Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-4K-Audio-5.1.md)
+##### [H264 Single Bitrate 4K](media-services-mes-preset-H264-Single-Bitrate-4K.md)
+##### [H264 Single Bitrate 4x3 SD Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-4x3-SD-Audio-5.1.md)
+##### [H264 Single Bitrate 4x3 SD](media-services-mes-preset-H264-Single-Bitrate-4x3-SD.md)
+##### [H264 Single Bitrate 720p Audio 5.1](media-services-mes-preset-H264-Single-Bitrate-720p-Audio-5.1.md)
+##### [H264 Single Bitrate 720p](media-services-mes-preset-H264-Single-Bitrate-720p.md)
+##### [H264 Single Bitrate 720p for Android](media-services-mes-preset-H264-Single-Bitrate-720p-for-Android.md)
+##### [H264 Single Bitrate High Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-High-Quality-SD-for-Android.md)
+##### [H264 Single Bitrate Low Quality SD for Android](media-services-mes-preset-H264-Single-Bitrate-Low-Quality-SD-for-Android.md)
+#### Encode with Media Encoder Standard
+##### [Portal](media-services-portal-encode.md)
+##### [.NET](media-services-dotnet-encode-with-media-encoder-standard.md)
+##### [REST](media-services-rest-encode-asset.md)
+#### [Advanced encoding with MES](media-services-advanced-encoding-with-mes.md)
+##### [How to generate thumbnails using Media Encoder Standard with .NET](media-services-dotnet-generate-thumbnail-with-mes.md)
+##### [Crop videos with Media Encoder Standard](media-services-crop-video.md)
+### Media Encoder Premium Workflow
+#### [Media Encoder Premium Workflow Formats and Codecs](media-services-premium-workflow-encoder-formats.md)
+#### Encode with Media Encoder Premium Workflow
+##### [Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md)
+##### [Media Encoder Premium Workflow tutorials](media-services-media-encoder-premium-workflow-tutorials.md)
+##### [Create Advanced Encoding Workflows with Workflow Designer](media-services-workflow-designer.md)
+##### [Premium workflow with multiple input](media-services-media-encoder-premium-workflow-multiplefilesinput.md)
 ### Media processors
 #### [.NET](media-services-get-media-processor.md)
 #### [REST](media-services-rest-get-media-processor.md)
@@ -159,15 +191,13 @@
 ## Troubleshoot
 ### [Frequently asked questions](media-services-frequently-asked-questions.md)
 ### [Troubleshooting guide for live streaming](media-services-troubleshooting-live-streaming.md)
-###[Error codes](media-services-error-codes.md)
-###[Retry logic](media-services-retry-logic-in-dotnet-sdk.md)
+### [Error codes](media-services-error-codes.md)
+### [Retry logic](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Reference
 ## [Release notes](media-services-release-notes.md)
 ## [.NET](media-services-dotnet-how-to-use.md)
 ## [REST](media-services-rest-how-to-use.md)
-## [Media Encoder Premium Workflow Formats and Codecs](media-services-premium-workflow-encoder-formats.md)
-## [Media Encoder Standard Formats and Codecs](media-services-media-encoder-standard-formats.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
