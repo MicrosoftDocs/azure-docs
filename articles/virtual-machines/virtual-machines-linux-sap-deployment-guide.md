@@ -461,27 +461,27 @@ You can also create a deployment using one of the SAP templates published in the
 After you opened one of the templates above, the Azure Portal navigates to a screen on which you can enter the parameters for the template. Enter the following information:
 
 1. Basics
-   * **Subscription**: The subscription you want to deploy the template to
-   * **Resource group**: The resource group you want to deploy the template to. You can create a new resource group or select an existing resource group in the selected subscription.
-   * **Location**: The location you want to deploy the template to. If you selected an existing resouce group, the location of the resource group is used.
+  * **Subscription**: The subscription you want to deploy the template to
+  * **Resource group**: The resource group you want to deploy the template to. You can create a new resource group or select an existing resource group in the selected subscription.
+  * **Location**: The location you want to deploy the template to. If you selected an existing resouce group, the location of the resource group is used.
 1. Settings
-   * **Sap System Id**: SAP System ID
-   * **Os Type**: Operating system you want to deploy, e.g. Windows Server 2012 R2, SLES 12 or RHEL 7.2
-     * The list does not contain all supported operating systems e.g. the list does not contain Windows Server 2008 R2 although it is supported by SAP. Please read SAP Note [1928533] for a list of all supported operating systems.
-    * **Sap System Size**: the size of the SAP system
-      * The amount of SAPS the new system will provide. If you are not sure how many SAPS the system will require, please ask your SAP Technology Partner or System Integrator
-    * **System Availability**: (3-tier template only) System Availability
-      * Select HA for a configuration that is suitable for a HA installation. Two database servers and two servers for the ASCS will be created.
-    * **Storage Type**: (2-tier template only) Type of storage that should be used
-        * For bigger systems, the usage of Premium Storage is highly recommended. For more information about the different storage types, read
-            * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
-            * [Microsoft Azure Storage][dbms-guide-2.3] of the [DBMS Guide][dbms-guide]
-            * [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads][storage-premium-storage-preview-portal]
-            * [Introduction to Microsoft Azure Storage][storage-introduction]
-    * **Admin Username** and **Admin Password**: Username and password
-      * A new user is created that can be used to log on to the machine.
-    * **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
-    * **Subnet Id**: The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
+  * **Sap System Id**: SAP System ID
+  * **Os Type**: Operating system you want to deploy, e.g. Windows Server 2012 R2, SLES 12 or RHEL 7.2
+    * The list does not contain all supported operating systems e.g. the list does not contain Windows Server 2008 R2 although it is supported by SAP. Please read SAP Note [1928533] for a list of all supported operating systems.
+  * **Sap System Size**: the size of the SAP system
+    * The amount of SAPS the new system will provide. If you are not sure how many SAPS the system will require, please ask your SAP Technology Partner or System Integrator
+  * **System Availability**: (3-tier template only) System Availability
+    * Select HA for a configuration that is suitable for a HA installation. Two database servers and two servers for the ASCS will be created.
+  * **Storage Type**: (2-tier template only) Type of storage that should be used
+    * For bigger systems, the usage of Premium Storage is highly recommended. For more information about the different storage types, read
+      * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
+      * [Microsoft Azure Storage][dbms-guide-2.3] of the [DBMS Guide][dbms-guide]
+      * [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads][storage-premium-storage-preview-portal]
+      * [Introduction to Microsoft Azure Storage][storage-introduction]
+  * **Admin Username** and **Admin Password**: Username and password
+    * A new user is created that can be used to log on to the machine.
+  * **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
+  * **Subnet Id**: The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
 
 1. Terms and Conditions  
     Review the legal terms and accept them.
@@ -527,28 +527,28 @@ You can also create a virtual machine using the [PowerShell][virtual-machines-up
 After you opened one of the templates above, the Azure Portal navigates to a screen on which you can enter the parameters for the template. Enter the following information:
 
 1. Basics
-   * **Subscription**: The subscription you want to deploy the template to
-   * **Resource group**: The resource group you want to deploy the template to. You can create a new resource group or select an existing resource group in the selected subscription.
-   * **Location**: The location you want to deploy the template to. If you selected an existing resouce group, the location of the resource group is used.
+  * **Subscription**: The subscription you want to deploy the template to
+  * **Resource group**: The resource group you want to deploy the template to. You can create a new resource group or select an existing resource group in the selected subscription.
+  * **Location**: The location you want to deploy the template to. If you selected an existing resouce group, the location of the resource group is used.
 1. Settings
-    * **Sap System Id**: SAP System ID
-    * **Os Type**: Operating system type you want to deploy, Windows or Linux
-    * **Sap System Size**: the size of the SAP system
-      * The amount of SAPS the new system will provide. If you are not sure how many SAPS the system will require, please ask your SAP Technology Partner or System Integrator
-    * **System Availability**: (3-tier template only) System Availability 
-      * Select HA for a configuration that is suitable for a HA installation. Two database servers and two servers for the ASCS will be created.
-    * **Storage Type**: (2-tier template only) Type of storage that should be used 
-      * For bigger systems, the usage of Premium Storage is highly recommended. For more information about the different storage types, read 
-        * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
-        * [Microsoft Azure Storage][dbms-guide-2.3] of the [DBMS Guide][dbms-guide]
-        * [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads][storage-premium-storage-preview-portal]
-        * [Introduction to Microsoft Azure Storage][storage-introduction]
-    * **User Image Vhd Uri**: URI of the private OS image vhd e.g. https://`<accountname`>.blob.core.windows.net/vhds/userimage.vhd
-    * **User Image Storage Account**: Name of the storage account where the private OS image is stored e.g. `<accountname`> in the example URI above
-    * **Admin Username** and **Admin Password**: Username and password
-      * A new user is created that can be used to log on to the machine.
-    * **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
-    * **Subnet Id**: The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like
+  * **Sap System Id**: SAP System ID
+  * **Os Type**: Operating system type you want to deploy, Windows or Linux
+  * **Sap System Size**: the size of the SAP system
+    * The amount of SAPS the new system will provide. If you are not sure how many SAPS the system will require, please ask your SAP Technology Partner or System Integrator
+  * **System Availability**: (3-tier template only) System Availability 
+    * Select HA for a configuration that is suitable for a HA installation. Two database servers and two servers for the ASCS will be created.
+  * **Storage Type**: (2-tier template only) Type of storage that should be used 
+    * For bigger systems, the usage of Premium Storage is highly recommended. For more information about the different storage types, read 
+      * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194]
+      * [Microsoft Azure Storage][dbms-guide-2.3] of the [DBMS Guide][dbms-guide]
+      * [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads][storage-premium-storage-preview-portal]
+      * [Introduction to Microsoft Azure Storage][storage-introduction]
+  * **User Image Vhd Uri**: URI of the private OS image vhd e.g. https://`<accountname`>.blob.core.windows.net/vhds/userimage.vhd
+  * **User Image Storage Account**: Name of the storage account where the private OS image is stored e.g. `<accountname`> in the example URI above
+  * **Admin Username** and **Admin Password**: Username and password
+    * A new user is created that can be used to log on to the machine.
+  * **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
+  * **Subnet Id**: The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like
   /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
 
 1. Terms and Conditions  
@@ -607,23 +607,23 @@ To create a deployment using a private OS disk through the Azure Portal, use the
 After you opened one of the templates above, the Azure Portal navigates to a screen on which you can enter the parameters for the template. Enter the following information:
 
 1. Basics
-   * **Subscription**: The subscription you want to deploy the template to
-   * **Resource group**: The resource group you want to deploy the template to. You can create a new resource group or select an existing resource group in the selected subscription.
-   * **Location**: The location you want to deploy the template to. If you selected an existing resouce group, the location of the resource group is used.
+  * **Subscription**: The subscription you want to deploy the template to
+  * **Resource group**: The resource group you want to deploy the template to. You can create a new resource group or select an existing resource group in the selected subscription.
+  * **Location**: The location you want to deploy the template to. If you selected an existing resouce group, the location of the resource group is used.
 1. Settings
-    * **Sap System Id**: SAP System ID
-    * **Os Type**: Operating system type you want to deploy, Windows or Linux
-    * **Sap System Size**: the size of the SAP system
-      * The amount of SAPS the new system will provide. If you are not sure how many SAPS the system will require, please ask your SAP Technology Partner or System Integrator
-    * **Storage Type**: (2-tier template only) Type of storage that should be used 
-      * For bigger systems, the usage of Premium Storage is highly recommended. For more information about the different storage types, read
-        * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194] 
-        * [Microsoft Azure Storage][dbms-guide-2.3] of the [DBMS Guide][dbms-guide]
-        * [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads][storage-premium-storage-preview-portal]
-        * [Introduction to Microsoft Azure Storage][storage-introduction]
-    * **Os Disk Vhd Uri**: URI of the private OS disk e.g. https://`<accountname`>.blob.core.windows.net/vhds/osdisk.vhd
-    * **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
-    * **Subnet Id**: The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like
+  * **Sap System Id**: SAP System ID
+  * **Os Type**: Operating system type you want to deploy, Windows or Linux
+  * **Sap System Size**: the size of the SAP system
+    * The amount of SAPS the new system will provide. If you are not sure how many SAPS the system will require, please ask your SAP Technology Partner or System Integrator
+  * **Storage Type**: (2-tier template only) Type of storage that should be used 
+    * For bigger systems, the usage of Premium Storage is highly recommended. For more information about the different storage types, read
+      * [Use of Azure Premium SSD Storage for SAP DBMS Instance][2367194] 
+      * [Microsoft Azure Storage][dbms-guide-2.3] of the [DBMS Guide][dbms-guide]
+      * [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads][storage-premium-storage-preview-portal]
+      * [Introduction to Microsoft Azure Storage][storage-introduction]
+  * **Os Disk Vhd Uri**: URI of the private OS disk e.g. https://`<accountname`>.blob.core.windows.net/vhds/osdisk.vhd
+  * **New Or Existing Subnet**: Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
+  * **Subnet Id**: The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like
   /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
 
 1. Terms and Conditions  
