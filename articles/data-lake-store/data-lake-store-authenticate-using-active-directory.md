@@ -56,7 +56,7 @@ This is the recommended approach if you want your application to automatically a
 For instructions on how to create an Azure AD web application and configure it for the requirements listed above, see the section [Create an Active Directory application](#create-an-active-directory-application) below.
 
 > [!NOTE]
-> By default the Azure AD application is configured to use the client secret, which you can retrieve from the Azure AD application. However, if you want the Azure AD application to use a certificate instead, you must create the Azure AD web application using Azure PowerShell, as described at [Create a service principal with certificate](../resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+> By default the Azure AD application is configured to use the client secret, which you can retrieve from the Azure AD application. However, if you want the Azure AD application to use a certificate instead, you must create the Azure AD web application using Azure PowerShell, as described at [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 > 
 > 
 
