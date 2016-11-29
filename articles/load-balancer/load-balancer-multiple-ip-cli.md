@@ -33,6 +33,7 @@ For this scenario we have two VMs running Windows, each with a single NIC. Each 
 
 ## Limitations
 
+At this time, configuration of load balancing on secondary IP configurations is only possible using Azure PowerShell and Azure CLI. This limitation is temporary, and may change at any time. Revisit this page to check for updates.
 [AZURE.INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
 To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsPreview@microsoft.com?subject=Request%20to%20enable%20subscription%20%3csubscription%20id%3e) with your subscription ID and intended use.
