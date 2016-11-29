@@ -1,6 +1,5 @@
 # Overview
 ## [Introduction to Azure Data Factory](data-factory-introduction.md)
-## [Learning path](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 ## Concepts
 ### [Datasets](data-factory-create-datasets.md)
 ### [Pipelines and activities](data-factory-create-pipelines.md)
@@ -89,6 +88,7 @@
 ## [REST](/rest/api/datafactory/)
 
 # Resources
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/data-factory/)
 ## [Case Studies](data-factory-customer-case-studies.md)
 ### [Product Recommendations](data-factory-product-reco-usecase.md)
 ### [Customer Profiling](data-factory-customer-profiling-usecase.md)
