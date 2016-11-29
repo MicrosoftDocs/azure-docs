@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/23/2016
+ms.date: 11/16/2016
 ms.author: elioda
 
 ---
@@ -21,7 +21,7 @@ ms.author: elioda
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## Introduction
-Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of IoT devices and an application back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device that sends device-to-cloud messages.
+Azure IoT Hub is a fully managed service that helps enable reliable and secure bi-directional communications between millions of devices and an application back end. The [Get started with IoT Hub] tutorial shows how to create an IoT hub, provision a device identity in it, and code a simulated device app that sends device-to-cloud messages.
 
 This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
@@ -31,23 +31,23 @@ This tutorial builds on [Get started with IoT Hub]. It shows you how to:
 
 You can find more information on cloud-to-device messages in the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
 
-At the end of this tutorial, you will run two Windows console applications:
+At the end of this tutorial, you run two Windows console applications:
 
 * **SimulatedDevice**, a modified version of the app created in [Get started with IoT Hub], which connects to your IoT hub and receives cloud-to-device messages.
-* **SendCloudToDevice**, which sends a cloud-to-device message to the simulated device through IoT Hub, and then receives its delivery acknowledgement.
+* **SendCloudToDevice**, which sends a cloud-to-device message to the simulated device app through IoT Hub, and then receives its delivery acknowledgement.
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages (including C, Java, and Javascript) through Azure IoT device SDKs. For step-by-step instructions on how to connect your device to this tutorial's code, and generally to Azure IoT Hub, see the [Azure IoT Developer Center].
 > 
 > 
 
-To complete this tutorial, you'll need the following:
+To complete this tutorial, you need the following:
 
 * Microsoft Visual Studio 2015
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-## Receive messages on the simulated device
-In this section, you'll modify the simulated device application you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
+## Receive messages in the simulated device app
+In this section, you'll modify the simulated device app you created in [Get started with IoT Hub] to receive cloud-to-device messages from the IoT hub.
 
 1. In Visual Studio, in the **SimulatedDevice** project, add the following method to the **Program** class.
    
@@ -67,9 +67,9 @@ In this section, you'll modify the simulated device application you created in [
             }
         }
    
-    The `ReceiveAsync` method asynchronously returns the received message at the time that it is received by the device. It returns *null* after a specifiable timeout period (in this case, the default of one minute is used). When this happens, the code should continue waiting for new messages. This is the reason for the `if (receivedMessage == null) continue` line.
+    The `ReceiveAsync` method asynchronously returns the received message at the time that it is received by the device. It returns *null* after a specifiable timeout period (in this case, the default of one minute is used). When the app recieves a *null*, it should continue to wait for new messages. This requirement is the reason for the `if (receivedMessage == null) continue` line.
    
-    The call to `CompleteAsync()` notifies IoT Hub that the message has been successfully processed. The message can be safely removed from the device queue. If something happened that prevented the device app from completing the processing of the message, IoT Hub delivers it again. It is then important that message processing logic in the device app be *idempotent*, so that receiving the same message multiple times produces the same result. An application can also temporarily abandon a message, which results in IoT hub retaining the message in the queue for future consumption. Or, the application can reject a message, which permanently removes the message from the queue. For more information about the cloud-to-device message lifecycle, see the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
+    The call to `CompleteAsync()` notifies IoT Hub that the message has been successfully processed. The message can be safely removed from the device queue. If something happened that prevented the device app from completing the processing of the message, IoT Hub delivers it again. It is then important that message processing logic in the device app is *idempotent*, so that receiving the same message multiple times produces the same result. An application can also temporarily abandon a message, which results in IoT hub retaining the message in the queue for future consumption. Or, the application can reject a message, which permanently removes the message from the queue. For more information about the cloud-to-device message lifecycle, see the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
    
    > [!NOTE]
    > When using HTTP instead of MQTT or AMQP as a transport, the `ReceiveAsync` method returns immediately. The supported pattern for cloud-to-device messages with HTTP is intermittently connected devices that check for messages infrequently (less than every 25 minutes). Issuing more HTTP receives results in IoT Hub throttling the requests. For more information about the differences between MQTT, AMQP and HTTP support, and IoT Hub throttling, see the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
@@ -85,17 +85,17 @@ In this section, you'll modify the simulated device application you created in [
 > 
 
 ## Send a cloud-to-device message
-In this section, you'll write a Windows console app that sends cloud-to-device messages to the simulated device app.
+In this section, you write a Windows console app that sends cloud-to-device messages to the simulated device app.
 
-1. In the current Visual Studio solution, create a new Visual C# Desktop App project by using the **Console  Application** project template. Name the project **SendCloudToDevice**.
+1. In the current Visual Studio solution, create a Visual C# Desktop App project by using the **Console Application** project template. Name the project **SendCloudToDevice**.
    
     ![New project in Visual Studio][20]
 2. In Solution Explorer, right-click the solution, and then click **Manage NuGet Packages for Solution...**. 
    
-    This opens the **Manage NuGet Packages** window.
+    This action opens the **Manage NuGet Packages** window.
 3. Search for `Microsoft Azure Devices`, click **Install**, and accept the terms of use. 
    
-    This downloads, installs, and adds a reference to the [Azure IoT - Service SDK NuGet package].
+    This action downloads, installs, and adds a reference to the [Azure IoT - Service SDK NuGet package].
 4. Add the following `using` statement at the top of the **Program.cs** file:
    
         using Microsoft.Azure.Devices;
@@ -122,14 +122,14 @@ In this section, you'll write a Windows console app that sends cloud-to-device m
         SendCloudToDeviceMessageAsync().Wait();
         Console.ReadLine();
 8. From within Visual Studio, right-click your solution, and select **Set StartUp projects...**. Select **Multiple startup projects**, then select the **Start** action for **ProcessDeviceToCloudMessages**, **SimulatedDevice**, and **SendCloudToDevice**.
-9. Press **F5**. All three applications should start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the simulated app.
+9. Press **F5**. All three applications should start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the simulated device app.
    
    ![App receiving message][21]
 
 ## Receive delivery feedback
-It is possible to request delivery (or expiration) acknowledgements from IoT Hub for each cloud-to-device message. This enables the cloud back end to easily inform retry or compensation logic. For more information about cloud-to-device feedback, see the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
+It is possible to request delivery (or expiration) acknowledgements from IoT Hub for each cloud-to-device message. This option enables the cloud back end to easily inform retry or compensation logic. For more information about cloud-to-device feedback, see the [IoT Hub Developer Guide][IoT Hub Developer Guide - C2D].
 
-In this section, you will modify the **SendCloudToDevice** app to request feedback, and receive it from IoT Hub.
+In this section, you modify the **SendCloudToDevice** app to request feedback, and receive it from IoT Hub.
 
 1. In Visual Studio, in the **SendCloudToDevice** project, add the following method to the **Program** class.
    
@@ -158,7 +158,7 @@ In this section, you will modify the **SendCloudToDevice** app to request feedba
 3. To request feedback for the delivery of your cloud-to-device message, you have to specify a property in the **SendCloudToDeviceMessageAsync** method. Add the following line, right after the `var commandMessage = new Message(...);` line:
    
         commandMessage.Ack = DeliveryAcknowledgement.Full;
-4. Run the apps by pressing **F5**. You should see all three applications start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the simulated app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
+4. Run the apps by pressing **F5**. You should see all three applications start. Select the **SendCloudToDevice** windows, and press **Enter**. You should see the message being received by the simulated device app, and after a few seconds, the feedback message being received by your **SendCloudToDevice** application.
    
    ![App receiving message][22]
 

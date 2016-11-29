@@ -1,10 +1,10 @@
 ---
-title: A tour through Analytics in Application Insights | Microsoft Docs
+title: A tour through Analytics in Azure Application Insights | Microsoft Docs
 description: Short samples of all the main queries in Analytics, the powerful search tool of Application Insights.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: bddf4a6d-ea8d-4607-8531-1fe197cc57ad
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 11/23/2016
 ms.author: awills
 
 ---
@@ -23,6 +23,7 @@ ms.author: awills
 
 * **[Watch the introductory video](https://applicationanalytics-media.azureedge.net/home_page_video.mp4)**.
 * **[Test drive Analytics on our simulated data](https://analytics.applicationinsights.io/demo)** if your app isn't sending data to Application Insights yet.
+* **[SQL-users' cheat sheet](https://aka.ms/sql-analytics)** translates the most common idioms.
 
 Let's take a walk through some basic queries to get you started.
 
@@ -673,5 +674,6 @@ Contains the telemetry sent by your app using TrackTrace(), or [other logging fr
 
 ## Next steps
 * [Analytics language reference](app-insights-analytics-reference.md)
+* [SQL-users' cheat sheet](https://aka.ms/sql-analytics) translates the most common idioms.
 
 [!INCLUDE [app-insights-analytics-footer](../../includes/app-insights-analytics-footer.md)]
