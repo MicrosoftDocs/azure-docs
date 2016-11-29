@@ -83,7 +83,8 @@ Complete the following steps to add a new private IP address:
 
 	![Add private IP](./media/virtual-network-multiple-ip-addresses-portal/figure3.png)
 
-	>[!NOTE] When adding a static IP address, you must specify an unused, valid address on the subnet the NIC is connected to. If the address you select is not available, the portal will show an X for the IP address and you'll need to select a different one.
+	> [!NOTE]
+	> When adding a static IP address, you must specify an unused, valid address on the subnet the NIC is connected to. If the address you select is not available, the portal will show an X for the IP address and you'll need to select a different one.
 
 	If you prefer that the private IP address **Allocation method** be *Dynamic*, select it instead and you won't need to specify an IP address.
 3. Once you click OK, the blade will close and you'll see the new IP configuration listed, as shown in the following picture:
