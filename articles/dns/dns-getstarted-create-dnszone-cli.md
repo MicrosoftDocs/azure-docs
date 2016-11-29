@@ -3,8 +3,8 @@ title: Create a DNS zone using CLI| Microsoft Docs
 description: Learn how to create DNS zones for Azure DNS step-by-step to start hosting your DNS domain using CLI
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: georgewallace
+manager: timlt
 
 ms.assetid: 1514426a-133c-491a-aa27-ee0962cea9dc
 ms.service: dns
@@ -13,7 +13,7 @@ ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: sewhee
+ms.author: gwallace
 ---
 
 # Create an Azure DNS zone using CLI
