@@ -60,9 +60,9 @@ IoT Hub currently supports the following Azure services as additional endpoints:
 * Service Bus Queues
 * Service Bus Topics
 
-IoT Hub needs write access to these endpoints for proper message routing. This is taken care of for you automatically if you configure your endpoints through the Azure portal. Please make sure you configure your services to support the throughput that will go through them. You may need to monitor your additional endpoints when first configuring your IoT solution and make adjustments as necessary to adjust to the load.
+IoT Hub needs write access to these endpoints for message routing to work. If you configure your endpoints through the Azure portal, the necessary permissions are added for you. Make sure you configure your services to support the expected throughput. You may need to monitor your additional endpoints when you first configure your IoT solution and then make any necessary adjustments for the actual load.
 
-IoT Hub will deliver each message at most once to an endpoint, and there is no need to configure dedupe on your Service Bus Queue or Topic. Sessions are ignored in queues. In partitioned queues, messages are affinitized to a partition to guarantee ordering.
+IoT Hub delivers each message at most once to an endpoint, therefore you do not need to configure deduplication on your Service Bus queue or topic. Sessions are ignored in queues. In partitioned queues, partition affinity guarantees message ordering.
 
 For the limits on the number of endpoints you may add, please see [Quoatas and throttling][lnk-devguide-quotas].
 
