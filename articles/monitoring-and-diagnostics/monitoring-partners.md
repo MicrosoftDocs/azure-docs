@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 11/28/2016
 ms.author: johnkem
 
 ---
@@ -82,6 +82,8 @@ The Splunk Add-on for Microsoft Cloud Services is [available in the Splunkbase h
 [Go to the documentation.][splunk-doc]
 
 ## Sumo Logic
+Sumo Logic is a secure, cloud-native, machine data analytics service, delivering real-time, continuous intelligence from structured, semi-structured and unstructured data across the entire application lifecycle and stack. More than 1,000 customers around the globe rely on Sumo Logic for the analytics and insights to build, run and secure their modern applications and cloud infrastructures. With Sumo Logic, customers gain a multi-tenant, service-model advantage to accelerate their shift to continuous innovation, increasing competitive advantage, business value and growth.
+
 [Learn more.][sumologic-doc]
 
 ## Next Steps
@@ -100,7 +102,7 @@ The Splunk Add-on for Microsoft Cloud Services is [available in the Splunkbase h
 [opsgenie-anchor]: #opsgenie "OpsGenie"
 [pagerduty-anchor]: #pagerduty "PagerDuty"
 [splunk-anchor]: #splunk-add-on-for-microsoft-cloud-services "Splunk"
-[sumologic-anchor]: #sumologic "Sumo Logic"
+[sumologic-anchor]: #sumo-logic "Sumo Logic"
 
 <!--Icon references-->
 [alertlogic-logo]: ./media/partner-logos/alertlogic.png

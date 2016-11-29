@@ -6,7 +6,6 @@
 ### [Common use cases](documentdb-use-cases.md)
 ### [Going social with DocumentDB](documentdb-social-media-apps.md)
 
-
 # Get Started
 ## Write your first app
 ### [.NET console app](documentdb-get-started.md)
@@ -47,7 +46,6 @@
 ### [Supercharge your account](documentdb-supercharge-your-account.md)
 
 ## Develop
-### [DocumentDB Emulator](documentdb-nosql-local-emulator.md)
 ### [SQL query](documentdb-sql-query.md)
 ### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
 ### [Performance testing](documentdb-performance-testing.md)
