@@ -17,7 +17,7 @@ ms.date: 05/16/2016
 ms.author: edmaca
 
 ---
-# Use U-SQL catalog
+# Use Azure Data Lake Analytics (U-SQL) catalog
 The U-SQL catalog is used to structure data and code so they can be shared by U-SQL scripts. The catalog enables the highest performance possible with data in Azure Data Lake.
 
 Each Azure Data Lake Analytics account has exactly one U-SQL Catalog associated with it. You cannot delete the U-SQL Catalog. Currently U-SQL Catalogs cannot be shared between Data Lake Store accounts.
@@ -48,8 +48,8 @@ You can use Data Lake Tools for Visual Studio to manage the catalog.  For more i
 
     - To add a new Database, right-click **Database**, and then click **Create Database**.
     - To add a new assembly, right-click **Assemblies**, and then click **Register Assembly**.
-    - To add a new schema, right-click **Schemas**, and then click "Create Schema**.
-    - To add a new table, right-click **Tables**, and then click ""Create Table**.
+    - To add a new schema, right-click **Schemas**, and then click **Create Schema**.
+    - To add a new table, right-click **Tables**, and then click **Create Table**.
     - To add a new table valued function, see [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md).
 
 

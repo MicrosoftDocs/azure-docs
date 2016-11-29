@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/22/2016
+ms.date: 11/29/2016
 ms.author: jgao
 ---
 
@@ -194,9 +194,11 @@ The following two screenshots show a code-behind file and its associated U-SQL s
 
 ![Data Lake Tools for Visual Studio Code code behind](./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-code-behind-call.png) 
 
-## Register assemblies
+## Use assemblies
 
-Using the Data Lake Tools, you can register custom code assemblies to the Data Lake Analytics metastore.
+For the information on developing assemblies, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assembly.md).
+
+Using the Data Lake Tools, you can register custom code assemblies to the Data Lake Analytics catalog.
 
 **To register an assembly**
 
@@ -206,9 +208,26 @@ Using the Data Lake Tools, you can register custom code assemblies to the Data L
 4.	Select a database.
 5.	Specify the local assembly path.
 
-## Access Data Lake Analytics Metadata
+The following U-SQL code demonstrates how to call an assembly. In the sample, the assemly name is *test*.
 
-After you have connected to Azure, you can use the following steps to access the U-SQL metadata:
+    REFERENCE ASSEMBLY [test];
+    @a=EXTRACT Iid int,Starts DateTime,Region string,Query string,DwellTime int,Results string,ClickedUrls string 
+    FROM @"ruoxin/SearchLog.txt" USING Extractors.Tsv();
+    
+    @d=SELECT DISTINCT Region FROM @a;
+    
+    @d1=PROCESS @d
+        PRODUCE Region string,
+                Mkt string
+                USING new USQLApplication_codebehind.MyProcessor();
+    
+    OUTPUT @d1 TO @"ruoxin/SearchLogtest.txt" USING Outputters.Tsv();
+
+
+
+## Access Data Lake Analytics catalog
+
+After you have connected to Azure, you can use the following steps to access the U-SQL catalog:
 
 **To access U-SQL metadata**
 
@@ -247,6 +266,7 @@ The Data Lake Tools for VSCode supports the following features:
 
 - For the getting started information on Data Lake Analytics, see [Tutorial: get started with Azure Data Lake Analytics](data-lake-analytics-get-started-portal.md).
 - For information on using Data Lake Tools for Visual Studio, see [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+- For the information on developing assemblies, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assembly.md).
 
 
 
