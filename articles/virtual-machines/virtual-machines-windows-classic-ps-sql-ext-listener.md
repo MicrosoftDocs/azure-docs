@@ -61,7 +61,7 @@ You must create a load-balanced endpoint for each VM hosting an Azure replica. I
         Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
    
     Once the publish settings file is imported, you can manage your Azure subscription in the PowerShell session.
-
+    
 1. Copy the PowerShell script below into a text editor and set the variable values to suit your environment (defaults have been provided for some parameters). Note that if your availability group spans Azure regions, you must run the script once in each datacenter for the cloud service and nodes that reside in that datacenter.
    
         # Define variables
