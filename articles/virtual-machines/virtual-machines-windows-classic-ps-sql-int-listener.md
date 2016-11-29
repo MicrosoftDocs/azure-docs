@@ -101,8 +101,13 @@ You must create a load-balanced endpoint for each VM hosting an Azure replica. I
 [!INCLUDE [firewall](../../includes/virtual-machines-ag-listener-open-firewall.md)]
 
 ## Create the availability group listener
+
+Create the availability group listener in two steps. First, create the client access point cluster resource and configure  dependencies. Second, configure the cluster resources with PowerShell.
+
+### Create the client access point and configure the cluster dependencies
 [!INCLUDE [firewall](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
+### Configure the cluster resources in PowerShell
 1. For ILB, you must use the IP address of the Internal Load Balancer (ILB) created earlier. Use the following script to obtain this IP Address in PowerShell.
    
         # Define variables

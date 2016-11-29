@@ -83,8 +83,13 @@ You must create a load-balanced endpoint for each VM hosting an Azure replica. I
 [!INCLUDE [firewall](../../includes/virtual-machines-ag-listener-open-firewall.md)]
 
 ## Create the availability group listener
+
+Create the availability group listener in two steps. First, create the client access point cluster resource and configure  dependencies. Second, configure the cluster resources with PowerShell.
+
+### Create the client access point and configure the cluster dependencies
 [!INCLUDE [firewall](../../includes/virtual-machines-ag-listener-create-listener.md)]
 
+### Configure the cluster resources in PowerShell
 1. For external load balancing, you must obtain the public virtual IP address of the cloud service that contains your replicas. Log into the Azure classic portal. Navigate to the cloud service that contains your availability group VM. Open the **Dashboard** view.
 2. Note the address shown under **Public Virtual IP (VIP) Address**. If your solution spans VNets, repeat this step for each cloud service that contains a VM that hosts a replica.
 3. On one of the VMs, copy the PowerShell script below into a text editor and set the variables to the values you noted earlier.
