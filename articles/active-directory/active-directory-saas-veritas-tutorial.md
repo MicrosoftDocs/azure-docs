@@ -1,18 +1,19 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with veritas| Microsoft Docs'
-description: Learn how to configure single sign-on between Azure Active Directory and veritas.
+title: 'Tutorial: Azure Active Directory integration with Veritas Enterprise Vault.cloud SSO | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and Veritas Enterprise Vault.cloud SSO.
 services: active-directory
+documentationcenter: ''
 author: jeevansd
-documentationcenter: na
 manager: femila
+editor: ''
 
-ms.assetid: 6f12dcc8-c685-4ed2-8670-7abe0c8748b9
+ms.assetid: c47894b1-f5df-4755-845d-f12f4c602dc4
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 11/23/2016
+ms.date: 11/29/2016
 ms.author: jeedes
 
 ---
@@ -125,7 +126,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-veritas-enterprise-vault-cloud-sso-tutorial/tutorial_veritas-enterprise-vault-cloud-sso_05.png)
 
-    a. Click **Download metadata**, and then save the file on your computer.
+    a. Click **Download Certificate**, and then save the file on your computer.
 
     b. Click **Next**.
 
