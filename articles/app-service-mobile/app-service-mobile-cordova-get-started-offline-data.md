@@ -40,12 +40,13 @@ project includes both of these plugins.
 1. In Visual Studio's Solution Explorer, open index.js and replace the following code
 
         var client,            // Connection to the Azure Mobile App backend
-          todoItemTable;      // Reference to a table endpoint on backend
+           todoItemTable;      // Reference to a table endpoint on backend
 
     with this code:
 
-        var client,             // Connection to the Azure Mobile App backend
-          todoItemTable, syncContext; // Reference to table and sync context
+        var client,            // Connection to the Azure Mobile App backend
+           todoItemTable,      // Reference to a table endpoint on backend
+           syncContext;        // Reference to offline data sync context
 
 2. Next, replace the following code:
 
@@ -54,8 +55,6 @@ project includes both of these plugins.
     with this code:
 
         client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net');
-
-        // Note: Requires at least version 2.0.0-beta6 of the Azure Mobile Apps plugin
         var store = new WindowsAzure.MobileServiceSqliteStore('store.db');
 
         store.defineTable({
@@ -75,8 +74,8 @@ project includes both of these plugins.
     used in your Azure back end. (You don't need to include all column values in this code.)  The `version` field
     is maintained by the mobile backend and is used for conflict resolution.
 
-    You get a reference to the sync context by calling **getSyncContext**. The sync context helps preserve table relationships by tracking and pushing changes
-    in all tables a client app has modified when **push** is called.
+    You get a reference to the sync context by calling **getSyncContext**. The sync context helps preserve table 
+    relationships by tracking and pushing changes in all tables a client app has modified when `.push()` is called.
 
 3. Update the application URL to your Mobile App application URL.
 
@@ -85,8 +84,6 @@ project includes both of these plugins.
         todoItemTable = client.getTable('todoitem'); // todoitem is the table name
 
     with this code:
-
-        // todoItemTable = client.getTable('todoitem');
 
         // Initialize the sync context with the store
         syncContext.initialize(store).then(function () {
