@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub for Node.js getting started | Microsoft Docs
-description: Azure IoT Hub with Node.js getting started tutorial. Use Azure IoT Hub and Node.js with the Microsoft Azure IoT SDKs to implement an Internet of Things solution.
+description: Azure IoT Hub with Node.js getting started tutorial. Use Azure IoT Hub and Node.js with the Azure IoT SDKs to implement an Internet of Things solution.
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -22,12 +22,12 @@ ms.author: dobett
 
 At the end of this tutorial, you have three Node.js console applications:
 
-* **CreateDeviceIdentity.js**, which creates a device identity and associated security key to connect your simulated device.
-* **ReadDeviceToCloudMessages.js**, which displays the telemetry sent by your simulated device.
+* **CreateDeviceIdentity.js**, which creates a device identity and associated security key to connect your simulated device app.
+* **ReadDeviceToCloudMessages.js**, which displays the telemetry sent by your simulated device app.
 * **SimulatedDevice.js**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second using the AMQP protocol.
 
 > [!NOTE]
-> The article [IoT Hub SDKs][lnk-hub-sdks] provides information about the various SDKs that you can use to build both applications to run on devices and your solution back end.
+> The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.
 > 
 > 
 
@@ -41,7 +41,7 @@ To complete this tutorial, you need the following:
 You have now created your IoT hub. You have the IoT Hub hostname and the IoT Hub connection string that you need to complete the rest of this tutorial.
 
 ## Create a device identity
-In this section, you create a Node.js console app that creates a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the device identity registry. Refer to the **Device Identity Registry** section of the [IoT Hub Developer Guide][lnk-devguide-identity] for more information. When you run this console application, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
+In this section, you create a Node.js console app that creates a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. Refer to the **Identity Registry** section of the [IoT Hub Developer Guide][lnk-devguide-identity] for more information. When you run this console application, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
 
 1. Create a new empty folder called **createdeviceidentity**. In the **createdeviceidentity** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
    
@@ -68,7 +68,7 @@ In this section, you create a Node.js console app that creates a device identity
    
     var registry = iothub.Registry.fromConnectionString(connectionString);
     ```
-6. Add the following code to create a device definition in the device identity registry in your IoT hub. This code creates a device if the device id does not exist in the registry, otherwise it returns the key of the existing device:
+6. Add the following code to create a device definition in the identity registry in your IoT hub. This code creates a device if the device id does not exist in the registry, otherwise it returns the key of the existing device:
    
     ```
     var device = new iothub.Device(null);
@@ -98,7 +98,7 @@ In this section, you create a Node.js console app that creates a device identity
 9. Make a note of the **Device id** and **Device key**. You need these values later when you create an application that connects to IoT Hub as a device.
 
 > [!NOTE]
-> The IoT Hub identity registry only stores device identities to enable secure access to the hub. It stores device IDs and keys to use as security credentials and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. Refer to [IoT Hub Developer Guide][lnk-devguide-identity] for more information.
+> The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub. It stores device IDs and keys to use as security credentials and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. Refer to [IoT Hub Developer Guide][lnk-devguide-identity] for more information.
 > 
 > 
 
@@ -253,12 +253,12 @@ You are now ready to run the apps.
     ```
    
     ![Node.js IoT Hub device client application to send device-to-cloud messages][8]
-3. The **Usage** tile in the [Azure portal][lnk-portal] shows the number of messages sent to the hub:
+3. The **Usage** tile in the [Azure portal][lnk-portal] shows the number of messages sent to the IoT hub:
    
     ![Azure portal Usage tile showing number of messages sent to IoT Hub][43]
 
 ## Next steps
-In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the hub. You also created an app that displays the messages received by the hub. 
+In this tutorial, you configured a new IoT hub in the Azure portal, and then created a device identity in the IoT hub's identity registry. You used this device identity to enable the simulated device app to send device-to-cloud messages to the IoT hub. You also created an app that displays the messages received by the IoT hub. 
 
 To continue getting started with IoT Hub and to explore other IoT scenarios, see:
 
