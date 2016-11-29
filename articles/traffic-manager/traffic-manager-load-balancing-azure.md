@@ -81,7 +81,7 @@ The following diagram shows the architecture of this scenario:
   * **Name**: The name of the application gateway.
   * **SKU size**: The size of the application gateway, available as Small, Medium, or Large.
   * **Instance count**: The number of instances, a value from 2 through 10.
-  * **Resource group**: The resource group to hold the application gateway, which can be an existing resource group or a new one.
+  * **Resource group**: The resource group that holds the application gateway. It can be an existing resource group or a new one.
   * **Location**: The region for the application gateway, which is the same location as the resource group. The location is important, because the virtual network and public IP must be in the same location as the gateway.
 3. Click **OK**.
 4. Define the virtual network, subnet, front-end IP, and listener configurations for the application gateway. In this scenario, the front-end IP address is **Public**, which allows it to be added as an endpoint to the Traffic Manager profile later on.
@@ -91,7 +91,7 @@ The following diagram shows the architecture of this scenario:
 
 #### Configure URL routing for application gateways
 
-An application gateway configured with a path-based rule takes a path pattern of the request URL in addition to round-robin distribution when choosing the back-end pool. In this scenario, we are adding a path-based rule to direct any URL with "/images/\*" to the image server pool. For more information about configuring URL path-based routing for an application gateway, refer to [Create a path-based rule for an application gateway](../application-gateway/application-gateway-create-url-route-portal.md).
+An application gateway that's configured with a path-based rule takes a path pattern of the request URL in addition to round-robin distribution when you choose the back-end pool. In this scenario, we are adding a path-based rule to direct any URL with "/images/\*" to the image server pool. For more information about configuring URL path-based routing for an application gateway, refer to [Create a path-based rule for an application gateway](../application-gateway/application-gateway-create-url-route-portal.md).
 
 ![Application Gateway web-tier diagram](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
@@ -105,21 +105,21 @@ An application gateway configured with a path-based rule takes a path pattern of
 
   ![Application Gateway Rules "Path based" button](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
-5. On the **Add path-based rule** blade, configure the rule by providing the following information:
+5. On the **Add path-based rule** blade, configure the rule by providing the following information.
 
-   Basic settings
+   Basic settings:
 
-   + **Name**: The friendly name of the rule that is accessible in the portal
-   + **Listener**: The listener that is used for the rule
-   + **Default backend pool**: The back-end pool to be used with the default rule
-   + **Default HTTP settings**: The HTTP settings to be used with the default rule
+   + **Name**: The friendly name of the rule that is accessible in the portal.
+   + **Listener**: The listener that is used for the rule.
+   + **Default backend pool**: The back-end pool to be used with the default rule.
+   + **Default HTTP settings**: The HTTP settings to be used with the default rule.
 
-   Path-based rules
+   Path-based rules:
 
-   + **Name**: The friendly name of the path-based rule
-   + **Paths**: The path rule that is used for forwarding traffic
-   + **Backend Pool**: The back-end pool to be used with this rule
-   + **HTTP Setting**: The HTTP settings to be used with this rule
+   + **Name**: The friendly name of the path-based rule.
+   + **Paths**: The path rule that is used for forwarding traffic.
+   + **Backend Pool**: The back-end pool to be used with this rule.
+   + **HTTP Setting**: The HTTP settings to be used with this rule.
 
    > [!IMPORTANT]
    > Paths: Valid paths must start with "/". The wildcard "\*" is allowed only at the end. Valid examples are /xyz, /xyz\*, or /xyz/\*.
@@ -128,7 +128,7 @@ An application gateway configured with a path-based rule takes a path pattern of
 
 ### Step 3: Add application gateways to the Traffic Manager endpoints
 
-In this scenario, Traffic Manager is connected to instances of application gateways (as configured in the preceding steps) that reside in different regions. Now that the application gateways are configured, the next step is to connect them to our Traffic Manager profile.
+In this scenario, Traffic Manager is connected to application gateways (as configured in the preceding steps) that reside in different regions. Now that the application gateways are configured, the next step is to connect them to our Traffic Manager profile.
 
 1. Navigate to your instance of the Traffic Manager profile. To do so, look in your resource group or search for the name of the Traffic Manager profile from **All Resources**.
 2. On the blade, select **Endpoints**, and then click **Add** to add an endpoint.
@@ -139,7 +139,7 @@ In this scenario, Traffic Manager is connected to instances of application gatew
 
   * **Type**: Select the type of endpoint to load-balance. In this scenario, select **Azure endpoint** because we are connecting it to the application gateway instances that were configured previously.
   * **Name**: Enter the name of the endpoint.
-  * **Target resource type**: Select **Public IP address**, and, under **Target resource**, select the public IP of the application gateway that was configured previously.
+  * **Target resource type**: Select **Public IP address** and then, under **Target resource**, select the public IP of the application gateway that was configured previously.
 
    ![Traffic Manager "Add endpoint" blade](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
@@ -149,11 +149,11 @@ In this scenario, Traffic Manager is connected to instances of application gatew
 
 In this scenario, Load Balancer distributes connections from the web tier to the databases within a high-availability cluster.
 
-If your high-availability database cluster is using SQL AlwaysOn, refer to [Configure one or more Always On Availability Group Listeners](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for step-by-step instructions.
+If your high-availability database cluster is using SQL Server AlwaysOn, refer to [Configure one or more Always On Availability Group Listeners](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for step-by-step instructions.
 
 For more information about configuring an internal load balancer, see [Create an Internal load balancer in the Azure portal](../load-balancer/load-balancer-get-started-ilb-arm-portal.md).
 
-1. Navigate to the Azure portal, and, in the left pane, click **New** > **Networking** > **Load balancer**.
+1. In the Azure portal, in the left pane, click **New** > **Networking** > **Load balancer**.
 2. On the **Create load balancer** blade, choose a name for your load balancer.
 3. Set the **Type** to **Internal**, and choose the appropriate virtual network and subnet for the load balancer to reside in.
 4. Under **IP address assignment**, select either **Dynamic** or **Static**.
@@ -179,7 +179,7 @@ For more information about configuring an internal load balancer, see [Create an
 
 2. On the **Add probe** blade, enter the name for the probe.
 3. Select the **Protocol** for the probe. For a database, you might want a TCP probe rather than an HTTP probe. To learn more about load balancer probes, refer to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
-4. Enter the **Port** of your database to be used when accessing the probe.
+4. Enter the **Port** of your database to be used for accessing the probe.
 5. Under **Interval**, specify how frequently to probe the application.
 6. Under **Unhealthy threshold**, specify the number of continuous probe failures that must occur for the back-end VM to be considered unhealthy.
 7. Click **OK** to create the probe.
@@ -198,7 +198,7 @@ For more information about configuring an internal load balancer, see [Create an
 
 ### Step 5: Connect web-tier VMs to the load balancer
 
-Now we configure the IP address and load-balancer front-end port in the applications that are running on your web-tier VMs for any database connections. This configuration is specific to the applications that run on these VMs. To configure the destination IP address and port, refer to the application documentation. To find the IP address of the front end, navigate to the front-end IP pool on the **Load balancer settings** blade in the Azure portal.
+Now we configure the IP address and Load Balancer front-end port in the applications that are running on your web-tier VMs for any database connections. This configuration is specific to the applications that run on these VMs. To configure the destination IP address and port, refer to the application documentation. To find the IP address of the front end, navigate to the front-end IP pool on the **Load balancer settings** blade in the Azure portal.
 
 ![Load Balancer "Frontend IP pool" navigation pane](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
