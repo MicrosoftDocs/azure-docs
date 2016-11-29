@@ -1,5 +1,5 @@
 --
-title: Advanced encoding with Media Encoder Standard | Microsoft Docs
+title: Perform advanced encoding by customizing MES presets | Microsoft Docs
 description: This topic shows how to perform advanced encoding by customizing Media Encoder Standard task presets.
 services: media-services
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: juliako
 
 ---
 
-# Advanced encoding with Media Encoder Standard
+# Perform advanced encoding by customizing MES presets 
 
 ## Overview
 
