@@ -81,12 +81,13 @@ You can also use the Azure Stack templates already provided in the [GitHub repos
 ### After starting my Azure Stack TP2 host, some VMs may not automatically start.
 After rebooting your host, you may notice Azure Stack services are not immediately available.  This is because Azure Stack [infrastructure VMs](azure-stack-architecture.md#virtual-machine-roles) and RPs take a little bit to check consistency, but will eventually start automatically.
 
-You may also notice that tenant VMs don't automatically start or appear in Hyper-V manager.  Don't panic, they are still there and just require manual steps to bring online.
+You may also notice that tenant VMs don't automatically start after a reboot.  This is a known inssue in TP2, and require manual steps to bring online:
 
 1.  On the POC host, start **Failover Cluster Manager** from the Start Menu.
 2.  Select the cluster named **S-Cluster.azurestack.local**
 3.  Select **Roles**
-4.  Select each virtual machine resource, check the computer name, and bring 
+4.  VMs in running or stopped state, as well as computer name in details, identify infrastructure VMs.  These VMs should start automatically following POC host reboot.
+5.  Tenant VMs will be in **Saved** state.  Right-click and select **Start** to resume the VM.
 
 
 ### I have deleted some virtual machines, but still see the VHD files on disk. Is this behavior expected?
