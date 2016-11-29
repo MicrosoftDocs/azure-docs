@@ -13,11 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/01/2016
+ms.date: 11/28/2016
 ms.author: annahar
 ---
 
 # Load balancing on multiple IP configurations
+
+> [!div class="op_single_selector"]
+> * [PowerShell](load-balancer-multiple-ip.md)
+> * [CLI](load-balancer-multiple-ip-cli.md)
+>
 
 This article describes how to use Azure Load Balancer with multiple IP addresses per virtual Network Interface (NIC). The support for multiple IP addresses on a NIC is a feature that is in Preview release, at this time. For more information, see the [Limitations](#limitations) section of this article. The following scenario illustrates how this feature works with Load Balancer.
 
