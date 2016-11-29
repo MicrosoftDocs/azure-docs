@@ -74,8 +74,8 @@ Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To 
 
    By default, the tool creates an IoT Hub in the Free pricing tier. For more infomation, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-> [!NOTE] The name of your IoT hub must be globally unique.
-> You can create only one F1 edition of Azure IoT Hub under your Azure subscription.
+> [!NOTE]
+> The name of your IoT hub must be globally unique. You can create only one F1 edition of Azure IoT Hub under your Azure subscription.
 
 ## Register Pi in your IoT hub
 Each device that sends messages to your IoT hub and receives messages from your IoT hub must be registered with a unique ID.
