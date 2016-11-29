@@ -21,7 +21,7 @@ ms.author: limichel
 
 ## Introduction
 
-Microsoft Azure provides multiple services for managing how network traffic is distributed and load balanced. You can use these services individually or combine their methods, depending on your specific needs, and build the optimal solution.
+Microsoft Azure provides multiple services for managing how network traffic is distributed and load balanced. You can use these services individually or combine their methods, depending on your needs, to build the optimal solution.
 
 In this tutorial, we first define a customer use case and see how it can be made more robust and performant by using the following Azure load-balancing portfolio: Traffic Manager, Application Gateway, and Load Balancer. We then provide step-by-step instructions for creating a deployment that is geographically redundant, distributes traffic to VMs, and helps you manage different types of requests.
 
@@ -60,7 +60,7 @@ The following diagram shows the architecture of this scenario:
 
 ### Step 1: Create a Traffic Manager profile
 
-1. Navigate to the Azure portal, click **New**, and then search the marketplace for "Traffic Manager profile."
+1. In the Azure portal, click **New**, and then search the marketplace for "Traffic Manager profile."
 2. On the **Create Traffic Manager profile** blade, enter the following basic information:
 
   * **Name**: Give your Traffic Manager profile a DNS prefix name.
@@ -75,7 +75,7 @@ The following diagram shows the architecture of this scenario:
 
 ### Step 2: Create the application gateways
 
-1. Navigate to the Azure portal, and, in the left pane, click **New** > **Networking** > **Application Gateway**.
+1. In the Azure portal, in the left pane, click **New** > **Networking** > **Application Gateway**.
 2. Enter the following basic information about the application gateway:
 
   * **Name**: The name of the application gateway.
