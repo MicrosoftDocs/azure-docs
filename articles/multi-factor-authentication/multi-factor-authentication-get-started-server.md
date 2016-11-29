@@ -63,9 +63,9 @@ Now that you have downloaded the server you can install and configure it.  Be su
 - - -
 Each MFA server must be able to communicate on port 443 outbound to the following addresses:
 
-* \https://pfd.phonefactor.net
-* \https://pfd2.phonefactor.net
-* \https://css.phonefactor.net
+* https://pfd.phonefactor.net
+* https://pfd2.phonefactor.net
+* https://css.phonefactor.net
 
 If outbound firewalls are restricted on port 443, open the following IP address ranges:
 
