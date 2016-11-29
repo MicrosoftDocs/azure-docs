@@ -21,9 +21,8 @@ ms.author: ningk
 # How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure
 Apache Tomcat (or simply Tomcat, formerly also Jakarta Tomcat) is an open source web server and servlet container developed by the Apache Software Foundation (ASF). Tomcat implements the Java Servlet and the JavaServer Pages (JSP) specifications from Sun Microsystems, and provides a pure Java HTTP web server environment in which to run Java code. In the simplest configuration, Tomcat runs in a single operating system process. This process runs a Java virtual machine (JVM). Every HTTP request from a browser to Tomcat is processed as a separate thread in the Tomcat process.  
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-For a Resource Manager template to deploy an Ubuntu VM with Open JDK and Tomcat, see [here](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../articles/azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For a Resource Manager template to deploy an Ubuntu VM with Open JDK and Tomcat, see [here](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
 
 In this guide, you will install tomcat7 on a Linux image and deploy it in Microsoft Azure.  
 
