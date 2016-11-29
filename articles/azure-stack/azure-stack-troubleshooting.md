@@ -87,7 +87,7 @@ You may also notice that tenant VMs don't automatically start after a reboot of 
 2.  Select the cluster **S-Cluster.azurestack.local**.
 3.  Select **Roles**.
 4.  VMs in running or stopped state, as well as computer name in details, identify infrastructure VMs.  These VMs should start automatically following POC host reboot.
-5.  Tenant VMs will be in **Saved** state.  Right-click the Virtual Machine and select **Start** to resume the VM.
+5.  Tenant VMs will be in *Saved* state.  Right-click the Virtual Machine and select **Start** to resume the VM.
 
 
 ### I have deleted some virtual machines, but still see the VHD files on disk. Is this behavior expected?
