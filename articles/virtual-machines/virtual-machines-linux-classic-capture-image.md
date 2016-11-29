@@ -72,7 +72,7 @@ These steps assume that you've already created an Azure VM using the Classic dep
    > [!NOTE]
    > You can view a list all the VMs created in your subscription by using `azure vm list`
 
-8. When the VM is stopped, capture the image . The following example captures the VM named `myVM` and creates a generalized image named `myNewVM`:
+8. When the VM is stopped, capture the image. The following example captures the VM named `myVM` and creates a generalized image named `myNewVM`:
    
     ```azurecli
     azure vm capture -t myVM myNewVM
@@ -91,7 +91,7 @@ These steps assume that you've already created an Azure VM using the Classic dep
    ![Image capture successful](./media/virtual-machines-linux-classic-capture-image/VMCapturedImageAvailable.png)
 
 ## Next steps
-The image is ready to be used to create VMs. You can use the Azure CLI command `azure vm create` and supply the image name you created. See [Using the Azure CLI with Classic deployment model](../virtual-machines-command-line-tools.md) for details about the command. Alternatively, use the [Azure classic portal][Azure classic portal] to create a custom VM by using the **From Gallery** method and selecting the image you created. See [How to Create a Custom VM][How to Create a Custom Virtual Machine] for more details.
+The image is ready to be used to create VMs. You can use the Azure CLI command `azure vm create` and supply the image name you created. For more information, see [Using the Azure CLI with Classic deployment model](../virtual-machines-command-line-tools.md). Alternatively, use the [Azure classic portal][Azure classic portal] to create a custom VM by using the **From Gallery** method and selecting the image you created. See [How to Create a Custom VM][How to Create a Custom Virtual Machine] for more details.
 
 **See also:** [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
