@@ -67,6 +67,65 @@ When using the information provided in the customization document, replace any e
 > [!NOTE]
 > You do not need to mark this script as __Persisted__, as it directly updates the Ambari configuration for the cluster.
 
+## Known issues
+
+### Storage accounts not displayed in Azure portal or tools
+
+When viewing the HDInsight cluster in the Azure portal, selecting the __Storage Accounts__ entry under __Properties__ will not display storage accounts added through this script action. Azure PowerShell and Azure CLI will not display the additional storage account either.
+
+This happens because the script only modifies the core-site.xml configuration for the cluster. This information is not currently used when retrieving the cluster information using Azure management APIs.
+
+To view storage account information added to the cluster using this script, use the Ambari REST API. The following command demonstrates how to use [cURL (http://curl.haxx.se/)](http://curl.haxx.se/) and [jq (https://stedolan.github.io/jq/)](https://stedolan.github.io/jq/) to retrieve and parse JSON data from Ambari:
+
+> [!div class="tabbedCodeSnippets" data-resources="OutlookServices.Calendar"]
+> ```PowerShell
+> curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["""fs.azure.account.key.STORAGEACCOUNT.blob.core.windows.net"""] | select(. != null)'
+> ```
+> ```Bash
+> curl -u admin:PASSWORD -G "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/configurations/service_config_versions?service_name=HDFS&service_config_version=1" | jq '.items[].configurations[].properties["fs.azure.account.key.STORAGEACCOUNT.blob.core.windows.net"] | select(. != null)'
+> ```
+
+When using this command, replace __CLUSTERNAME__ with the name of the HDInsight cluster. Replace __PASSWORD__ with the HTTP login password for the cluster. Replace __STORAGEACCOUNT__ with the name of the storage account added using script action. Information returned from this command appears similar to the following text:
+
+    "MIIB+gYJKoZIhvcNAQcDoIIB6zCCAecCAQAxggFaMIIBVgIBADA+MCoxKDAmBgNVBAMTH2RiZW5jcnlwdGlvbi5henVyZWhkaW5zaWdodC5uZXQCEA6GDZMW1oiESKFHFOOEgjcwDQYJKoZIhvcNAQEBBQAEggEATIuO8MJ45KEQAYBQld7WaRkJOWqaCLwFub9zNpscrquA2f3o0emy9Vr6vu5cD3GTt7PmaAF0pvssbKVMf/Z8yRpHmeezSco2y7e9Qd7xJKRLYtRHm80fsjiBHSW9CYkQwxHaOqdR7DBhZyhnj+DHhODsIO2FGM8MxWk4fgBRVO6CZ5eTmZ6KVR8wYbFLi8YZXb7GkUEeSn2PsjrKGiQjtpXw1RAyanCagr5vlg8CicZg1HuhCHWf/RYFWM3EBbVz+uFZPR3BqTgbvBhWYXRJaISwssvxotppe0ikevnEgaBYrflB2P+PVrwPTZ7f36HQcn4ifY1WRJQ4qRaUxdYEfzCBgwYJKoZIhvcNAQcBMBQGCCqGSIb3DQMHBAhRdscgRV3wmYBg3j/T1aEnO3wLWCRpgZa16MWqmfQPuansKHjLwbZjTpeirqUAQpZVyXdK/w4gKlK+t1heNsNo1Wwqu+Y47bSAX1k9Ud7+Ed2oETDI7724IJ213YeGxvu4Ngcf2eHW+FRK"
+
+This text is an example of an encrypted key, which is used to access the storage account.
+
+### Unable to access storage after changing key
+
+If you change the key for a storage account, HDInsight will no longer be able to access the storage account.
+
+This happens because the key stored in the core-site.xml for the cluster is the old key.
+
+Re-running the script action will __not__ update the key, as the script checks to see if an entry for the storage account already exists. If so, it does not make any changes.
+
+To work around this problem, you must remove the existing entry for the storage account. You can do this by using the following steps:
+
+1. In a web browser, open the Ambari Web UI for your HDInsight cluster. The URI is https://CLUSTERNAME.azurehdinsight.net. Replace __CLUSTERNAME__ with the name of your cluster.
+
+    When prompted, enter the HTTP login user and password for your cluster.
+
+2. From the list of services on the left of the page, select __HDFS__. Then select the __Configs__ tab in the center of the page.
+
+3. In the __Filter...__ field, enter a value of __fs.azure.account__. This will return entries for any additional storage accounts that have been added to the cluster. There are two types of entries; __keyprovider__ and __key__. Both will contain the name of the storage account as part of the key name. 
+
+    The following are example entries for a storage account named __mystorage__:
+
+        fs.azure.account.keyprovider.mystorage.blob.core.windows.net
+        fs.azure.account.key.mystorage.blob.core.windows.net
+
+4. After you have identified the keys for the storage account you need to remove, use the red '-' icon to the right of the entry to delete it. Then use the __Save__ button to save your changes.
+
+5. After changes have been saved, use the script action to add the storage account and new key value to the cluster.
+
+### Poor performance
+
+If the storage account is in a different region than the HDInsight cluster, you may experience poor performance. Accessing data in a different region sends network traffic outside the regional Azure data center and across the public internet, which can introduce latency.
+
+### Additional charges
+
+If the storage account is in a different region than the HDInsight cluster, you may notice additional egress charges on your Azure billing. An egress charge is applied when data leaves a regional data center, even if the traffic is destined for another Azure data center in a different region.
+
 ## Next steps
 
 In this document you have learned how to add additional storage accounts to an existing HDInsight cluster. For more information on script actions, see [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md)
