@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/21/2016
+ms.date: 11/28/2016
 ms.author: MikeRayMSFT
 
 ---
@@ -443,7 +443,8 @@ Follow the steps below to configure the cluster.
    | Access Point for Administering the Cluster |Type **Cluster1** in **Cluster Name** |
    | Confirmation |Use defaults unless you are using Storage Spaces. See the note following this table. |
 
-    >[AZURE.NOTE] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks in to storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, Windows detatches the virtual disks during the clustering process. As a result, they will not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell.
+    >[!NOTE]
+    >If you are using Storage Spaces you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, Windows detatches the virtual disks during the clustering process. As a result, they will not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](https://technet.microsoft.com/library/hh831739). 
 
     Now that you have created the cluster, verify the configuration and add the remaining nodes. 
 
