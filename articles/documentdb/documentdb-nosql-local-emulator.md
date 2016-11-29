@@ -78,7 +78,7 @@ When the emulator is running, you'll see an icon in the Windows taskbar notifica
 
 ![DocumentDB local emulator taskbar notification](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-taskbar.png)
 
-The DocumentDB Emulator is installed by default to the `C:\Program Files\Azure DocumentDB Emulator` directory. You can also start and stop the emulator from the command-line. See [command-line tool reference](#command-line) for more information.
+The DocumentDB Emulator is installed by default to the `C:\Program Files\DocumentDB Emulator` directory. You can also start and stop the emulator from the command-line. See [command-line tool reference](#command-line) for more information.
 
 ## Start the local emulator Data Explorer
 

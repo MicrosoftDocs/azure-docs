@@ -11,10 +11,8 @@ client.login("facebook").done(function (results) {
      alert("You are now logged in as: " + results.userId);
 }, function (err) {
      alert("Error: " + err);
-});app-service-mobile
-app-service-mobile-ios-get-started-users value passed to the login method above to one of
-the following: `microsoftaccount`, `facebook`, `twitter`, `google`, or `aad`.
-
+});
+```
 In this case, Azure App Service manages the OAuth 2.0 authentication flow by displaying the login page of the selected
 provider and generating a App Service authentication token after successful login with the identity provider. The login
 function, when complete, returns a JSON object (user) that exposes both the user ID and App Service authentication token
