@@ -30,15 +30,15 @@ If you can't connect to a Windows virtual machine (VM), you can reset the local 
 
 
 ## Ways to reset configuration or credentials
-You can reset Remote Desktop services and credentials in a few different ways, depending on your needs. For VMs created using the Resource Manager deployment model
+You can reset Remote Desktop services and credentials in a few different ways, depending on your needs. For VMs created using the Resource Manager deployment model:
 
-- [Reset using the Azure portal](#azure-portal-resource-manager)
-- [Reset using Azure PowerShell](#vmaccess-extension-and-powershell-resource-manager)
+- [Reset using the Azure portal](#azure-portal---resource-manager)
+- [Reset using Azure PowerShell](#vmaccess-extension-and-powershell---resource-manager)
 
 For VMs created using the Classic deployment model:
 
-- [Reset using the Azure portal](#azure-portal-classic)
-- [Reset using Azure PowerShell](#vmaccess-extension-and-powershell-classic)
+- [Reset using the Azure portal](#azure-portal---classic)
+- [Reset using Azure PowerShell](#vmaccess-extension-and-powershell---classic)
 
 ## Azure portal - Resource Manager
 Select your VM by clicking **Browse** > **Virtual machines** > *your Windows virtual machine* > **All settings** > **Reset password**. The password reset blade is displayed:
