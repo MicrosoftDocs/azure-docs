@@ -12,6 +12,7 @@ client.login("facebook").done(function (results) {
 }, function (err) {
      alert("Error: " + err);
 });
+```
 
 The valid values for the provider are 'aad', 'facebook', 'google', 'microsoftaccount', and 'twitter'.
 
