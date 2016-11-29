@@ -1,5 +1,5 @@
 ## <a name="create-client"></a>Create a Client Connection
-Create a client connection by creating a `WindowsAzure.MobileServiceClient` object.  Replace `appUrl` with the 
+Create a client connection by creating a `WindowsAzure.MobileServiceClient` object.  Replace `appUrl` with the
 URL to your Mobile App.
 
 ```
@@ -145,10 +145,9 @@ table
 On successful insertion, the inserted item is returned with the additional fields that are required
 for sync operations.  Update your own cache with this information for later updates.
 
-The Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.  If dynamic schema 
-is enabled, the schema of the table is updated dynamically.  This allows you to add columns to the table by 
-specifying them in an insert or update operation.  We recommend that you turn off dynamic schema before moving 
-your application to production.
+The Azure Mobile Apps Node.js Server SDK supports dynamic schema for development purposes.  Dynamic Schema allows
+you to add columns to the table by specifying them in an insert or update operation.  We recommend that you turn
+off dynamic schema before moving your application to production.
 
 ### <a name="modifying"></a>How to: Modify Data
 Similar to the `.insert()` method, you should create an Update object and then call `.update()`.  The update
@@ -169,7 +168,7 @@ table
 ```
 
 ### <a name="deleting"></a>How to: Delete Data
-Call the `.del()` method to delete a record.  Pass the ID in an object reference:
+To delete a record, call the `.del()` method.  Pass the ID in an object reference:
 
 ```
 table

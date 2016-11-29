@@ -46,15 +46,15 @@ To complete this tutorial, you need:
 
 [Watch a video showing steps in this section][9]
 
-## Update the server project to send push notifications
+## Update the server project
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a name="add-push-to-app"></a>Modify your Cordova app to receive push notifications
+## <a name="add-push-to-app"></a>Modify your Cordova app
 Ensure your Apache Cordova app project is ready to handle push notifications by
 installing the Cordova push plugin plus any platform-specific push services.
 
 #### Update the Cordova version in your project.
-If your project uses a version of Apache Cordova prior to v6.1.1, update the client project. To update
+If your project uses a version of Apache Cordova earlier than v6.1.1, update the client project. To update
 the project:
 
 * Right-click `config.xml` to open the configuration designer.
@@ -95,9 +95,8 @@ Follow the same procedure you used to install the push plugin.  Add the Device p
 plugins list (click **Plugins** > **Core** to find it). You need this plugin to obtain the platform
 name (`device.platform`).
 
-#### Register your device for push on start-up
-Initially, we include some minimal code for Android. Later, we will make some small modifications to run on
-iOS or Windows 10.
+#### Register your device on application start-up
+Initially, we include some minimal code for Android. Later, modify the app to run on iOS or Windows 10.
 
 1. Add a call to **registerForPushNotifications** during the callback for the login process, or at the bottom of
     the **onDeviceReady** method:
@@ -120,8 +119,8 @@ iOS or Windows 10.
 
             }, handleError);
 
-    This example shows calling **registerForPushNotifications** after authentication succeeds, which is
-    recommended when using both push notifications and authentication in your app.
+    This example shows calling **registerForPushNotifications** after authentication succeeds.  You can
+    call `registerForPushNotifications()` as often as is required.
 
 2. Add the new **registerForPushNotifications** method as follows:
 
@@ -311,8 +310,7 @@ config.xml, you can skip this step. However, if the IDs don't match, take the fo
     device, then click **OK** to accept push notifications.
 
    > [!NOTE]
-   > The app will request confirmation for push notifications.  This request only occurs the first time that the
-   > app runs.
+   > The app requests confirmation for push notifications during the first run.
 
 3. In the app, type a task, and then click the plus (+) icon.
 4. Verify that a notification is received, then click OK to dismiss the notification.
