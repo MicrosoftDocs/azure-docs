@@ -32,7 +32,7 @@ Server-level firewall rules enable administrators to access a SQL Database serve
 > For information about portable databases in the context of business continuity, see [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md).
 >
 
-[!INCLUDE [Create SQL Database firewall rule](../includes/sql-database-create-new-server-firewall-portal.md)]
+[!INCLUDE [Create SQL Database firewall rule](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
 ## Manage existing server-level firewall rules through the Azure portal
 Repeat the steps to manage the server-level firewall rules.
