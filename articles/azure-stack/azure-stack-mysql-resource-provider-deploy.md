@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 11/29/2016
 ms.author: JeffGo
 
 ---
@@ -56,7 +56,7 @@ The script prompts for required parameters:
 | --- | --- | --- |
 | **AadTenantDirectoryName** | The Azure Active Directory Name | _required_ |
 | **AzCredential** | Azure Stack Service Admin account credential (use the same account as you used for deploying Azure Stack) | _required_ |
-| **LocalCredential** | The local administrator account of the SQL resource provider VM" and the password will also be used for the SQL **sa** account | _required_ |
+| **LocalCredential** | The local administrator account of the MySQL resource provider VM | _required_ |
 | **ResourceGroupName** | Resource Group for the items created by this script | Default: Microsoft-MySQL-RP1 |
 | **VmName** | Name of the VM holding the resource provider | Default: mysqlrp |
 | **AcceptLicense** | Prompts to accept the GPL License Accept the terms of the GPL License (http://www.gnu.org/licenses/old-licenses/gpl-2.0.html) | No |
@@ -80,7 +80,11 @@ Depending on the system performance and download speeds, installation may take a
 3. Fill in the form with the database details.
 ![Create a test MySQL database](./media/azure-stack-mysql-rp-deploy/mysqldbdeployment2.png)
 
-	**Make a note of the "server name" you enter.** The connections string for your database includes the "server name" as part of the user name: for example, **"user@server1"**. You will need to input the user name in this format when you connect to a MySQL database: for example, when you deploy a MySQL web site using the Azure Web Site resource provider.
+	**Make a note of the "server name" you enter.** The connections string for your database includes the "server name" as part of the user name: for example, **"user1@server1"**. You will need to input the user name in this format when you connect to a MySQL database: for example, when you deploy a MySQL web site using the Azure Web Site resource provider.
+
+> [!NOTE]
+> The combined length of the user and server names cannot exceed 15 characters. This is a limitation of the MySQL implementations that are supported for TP2.
+>
 
 ## Next steps
 

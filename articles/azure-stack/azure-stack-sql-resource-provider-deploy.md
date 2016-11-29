@@ -12,7 +12,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 11/29/2016
 ms.author: JeffGo
 
 ---
@@ -72,7 +72,7 @@ The script prompts for required parameters:
 | --- | --- | --- |
 | **AadTenantDirectoryName** | The Azure Active Directory Name | _required_ |
 | **AzCredential** | Azure Stack Service Admin account credential (use the same account as you used for deploying Azure Stack) | _required_ |
-| **LocalCredential** | This is used for the local administrator account of the SQL resource provider VM and the password is also be used for the SQL **sa** account | _required_ |
+| **LocalCredential** | This is used for the local administrator account of the SQL resource provider VM; the password is also be used for the SQL **sa** account | _required_ |
 | **ResourceGroupName** | Resource Group for the items created by this script | Default: Microsoft-SQL-RP1 |
 | **VmName** | Name of the VM holding the resource provider | Default: sqlrp |
 | **DependencyFilesLocalPath** | Path to a local share containing the SQL ISO if you did an offline deployment. You can download [SQL 2014 SP1 Enterprise Evaluation ISO](http://care.dlservice.microsoft.com/dl/download/2/F/8/2F8F7165-BB21-4D1E-B5D8-3BD3CE73C77D/SQLServer2014SP1-FullSlipstream-x64-ENU.iso) from the Microsoft Download Center. | _leave blank to download from the internet_ |
