@@ -88,7 +88,7 @@ In the previous example:
 * **VHDName** is the label that appears in portal to identify the virtual hard disk.
 * **PathToVHDFile** is the full path and name of the .vhd file on your machine.
 
-The following shows a complete example:
+The following command shows a complete example:
 
 ```azurecli
 azure vm image create myImage `

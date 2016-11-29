@@ -57,7 +57,7 @@ To verify network connectivity, check the configured endpoints and see if you ca
 After these steps, try the SSH connection again.
 
 ## Find the source of the issue
-The SSH client on your computer might fail to reach the SSH service on the Azure VM due to issues or misconfigurations in the following:
+The SSH client on your computer might fail to reach the SSH service on the Azure VM due to issues or misconfigurations in the following areas:
 
 * [SSH client computer](#source-1-ssh-client-computer)
 * [Organization edge device](#source-2-organization-edge-device)
@@ -70,7 +70,7 @@ To eliminate your computer as the source of the failure, verify that it can make
 
 ![Diagram that highlights SSH client computer components](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot2.png)
 
-If the connection fails, check for the following on your computer:
+If the connection fails, check for the following issues on your computer:
 
 * A local firewall setting that is blocking inbound or outbound SSH traffic (TCP 22)
 * Locally installed client proxy software that is preventing SSH connections
@@ -109,14 +109,14 @@ To eliminate the cloud service endpoint and ACL as the source of the failure, ve
 
 ![Diagram that highlights cloud service endpoint and ACL](./media/virtual-machines-linux-detailed-troubleshoot-ssh-connection/ssh-tshoot4.png)
 
-If you don't have another VM in the same virtual network, you can easily create a new one. For more information, see [Create a Linux VM on Azure using the CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Delete the extra VM when you are done with your testing.
+If you don't have another VM in the same virtual network, you can easily create one. For more information, see [Create a Linux VM on Azure using the CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Delete the extra VM when you are done with your testing.
 
-If you can create an SSH connection with a VM in the same virtual network, check the following:
+If you can create an SSH connection with a VM in the same virtual network, check the following areas:
 
 * **The endpoint configuration for SSH traffic on the target VM.** The private TCP port of the endpoint should match the TCP port on which the SSH service on the VM is listening. (The default port is 22). For VMs created by using the Resource Manager deployment model, verify the SSH TCP port number in the Azure portal by selecting **Virtual machines** > *VM name* > **Settings** > **Endpoints**.
 * **The ACL for the SSH traffic endpoint on the target virtual machine.** An ACL enables you to specify allowed or denied incoming traffic from the Internet, based on its source IP address. Misconfigured ACLs can prevent incoming SSH traffic to the endpoint. Check your ACLs to ensure that incoming traffic from the public IP addresses of your proxy or other edge server is allowed. For more information, see [About network access control lists (ACLs)](../virtual-network/virtual-networks-acl.md).
 
-To eliminate the endpoint as a source of the problem, remove the current endpoint, create a new endpoint, and specify the SSH name (TCP port 22 for the public and private port number). For more information, see [Set up endpoints on a virtual machine in Azure](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
+To eliminate the endpoint as a source of the problem, remove the current endpoint, create another endpoint, and specify the SSH name (TCP port 22 for the public and private port number). For more information, see [Set up endpoints on a virtual machine in Azure](virtual-machines-windows-classic-setup-endpoints.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 <a id="nsg"></a>
 
@@ -134,7 +134,7 @@ If you haven't done so already, follow the instructions [to reset a password or 
 Try connecting from your computer again. If it still fails, the following are some of the possible issues:
 
 * The SSH service is not running on the target virtual machine.
-* The SSH service is not listening on TCP port 22. To test this, install a telnet client on your local computer and run "telnet *cloudServiceName*.cloudapp.net 22". This determines if the virtual machine allows inbound and outbound communication to the SSH endpoint.
+* The SSH service is not listening on TCP port 22. To test this, install a telnet client on your local computer and run "telnet *cloudServiceName*.cloudapp.net 22". This step determines if the virtual machine allows inbound and outbound communication to the SSH endpoint.
 * The local firewall on the target virtual machine has rules that are preventing inbound or outbound SSH traffic.
 * Intrusion detection or network monitoring software that's running on the Azure virtual machine is preventing SSH connections.
 
