@@ -47,7 +47,9 @@ You  must install Python before you can install Jupyter notebooks. Both Python a
 
 ## Install the kernels and Spark magic
 For instructions on how to install the Spark magic, the PySpark and Spark kernels, see the [sparkmagic documentation](https://github.com/jupyter-incubator/sparkmagic#installation) on GitHub.
+
 For clusters v3.4, please install sparkmagic 0.5.0 by executing `pip install sparkmagic==0.2.3`.
+
 For clusters v3.5, please install sparkmagic 0.8.4 by executing `pip install sparkmagic==0.8.4`.
 
 ## Configure Spark magic to access the HDInsight Spark cluster
@@ -86,17 +88,17 @@ In this section you configure the Spark magic that you installed earlier to conn
 
 5. Configure the right Heartbeat settings in `config.json`:
 
-* For `sparkmagic 0.5.0` (clusters v3.4), include:
+    * For `sparkmagic 0.5.0` (clusters v3.4), include:
 
-    "should_heartbeat": true,
-    "heartbeat_refresh_seconds": 5,
-    "heartbeat_retry_seconds": 1
+            "should_heartbeat": true,
+            "heartbeat_refresh_seconds": 5,
+            "heartbeat_retry_seconds": 1
 
-* For `sparkmagic 0.8.4` (clusters v3.5), include:
+    * For `sparkmagic 0.8.4` (clusters v3.5), include:
 
-    "heartbeat_refresh_seconds": 5,
-    "livy_server_heartbeat_timeout_seconds": 60,
-    "heartbeat_retry_seconds": 1
+            "heartbeat_refresh_seconds": 5,
+            "livy_server_heartbeat_timeout_seconds": 60,
+            "heartbeat_retry_seconds": 1
 
     >[AZURE.TIP] Heartbeats are sent to ensure that sessions are not leaked. Note that when a computer goes to sleep or is shut down, the hearbeat will not be sent, resulting in the session being cleaned up. For clusters v3.4, if you wish to disable this behavior, you can set the Livy config `livy.server.interactive.heartbeat.timeout` to `0` from the Ambari UI. For clusters v3.5, if you do not set the 3.5 configuration above, the session will not be deleted.
 
