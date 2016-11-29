@@ -5,7 +5,7 @@ services: virtual-machines-linux
 documentationcenter: 
 author: v-derekg
 manager: timlt
-editor:
+editor: ''
 
 ms.service: virtual-machines-linux
 ms.devlang: NA
@@ -16,7 +16,6 @@ ms.date: 11/23/2016
 ms.author: rclaus
 
 ---
-
 # SAP HANA on Azure (Large Instances) architecture and technical deployment guide, part 1: overview and architecture
 
 The Architecture and Technical Deployment Guide provides information to help you deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure. It is not intended to be a comprehensive guide covering specific setup of SAP solutions, but rather useful information in your initial deployment and ongoing operations. It should not replace SAP documentation related to the installation of SAP HANA (or the many SAP Support Notes that cover the topic). It gives you an overview and provides the additional detail of installing SAP HANA on Azure (Large Instances).
