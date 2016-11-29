@@ -32,7 +32,7 @@ However, the services have many differences, which are detailed in the following
 | Scale |Is optimized to support millions of simultaneously connected devices. |Can support a more limited number of simultaneous connections--up to 5,000 AMQP connections, as per [Azure Service Bus quotas][Azure Service Bus quotas]. On the other hand, Event Hubs enables you to specify the partition for each message sent. |
 | Device SDKs |Provides [device SDKs][Azure IoT Hub SDKs] for a large variety of platforms and languages, in addition to direct MQTT, AMQP, and HTTP APIs. |Is supported on .NET, Java, and C, in addition to AMQP and HTTP send interfaces. |
 | File upload |Enables IoT solutions to upload files from devices to the cloud. Includes a file notification endpoint for workflow integration and an operations monitoring category for debugging support. | Not supported. |
-| Route messages to multiple endpoints | Up to ten additional endpoints are supported. Rules determine how messages are delivered. | Requires an additional service for message dispatching. |
+| Route messages to multiple endpoints | Up to ten additional endpoints are supported. Rules determine how messages are routed. See [Send and receive messages with IoT Hub][lnk-devguide-messaging] for more information. | Requires an additional service for message dispatching. |
 
 In summary, even if the only use case is device-to-cloud telemetry ingress, IoT Hub provides a service that is specifically designed for IoT device connectivity. It will continue to expand the value propositions for these scenarios with IoT-specific features. Event Hubs is designed for event ingress at a massive scale, both in the context of inter-datacenter and intra-datacenter scenarios.
 
@@ -61,3 +61,4 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-scaling]: iot-hub-scaling.md
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-gateway]: iot-hub-linux-gateway-sdk-simulated-device.md
+[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
