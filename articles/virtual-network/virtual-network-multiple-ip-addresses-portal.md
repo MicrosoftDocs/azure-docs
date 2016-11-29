@@ -151,4 +151,4 @@ A public IP address is one setting for a public IP address resource. If you have
 4. You can click **Add** to add additional IP configurations, or close all open blades to finish adding IP addresses. Do not add the public IP address to the operating system.
 
 
-[!INCLUDE [../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]

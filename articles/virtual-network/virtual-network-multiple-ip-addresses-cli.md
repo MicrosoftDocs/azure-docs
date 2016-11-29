@@ -209,4 +209,4 @@ You can add additional private and public IP addresses to an existing NIC by com
 	 
 9. Add the private IP addresses you added to the NIC to the VM operating system by following the instructions in the [Add IP addresses to a VM operating system](#OsConfig) section of this article. Do not add the public IP addresses to the operating system.
 
-[!INCLUDE [../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
+[!INCLUDE [virtual-network-multiple-ip-addresses-os-config.md](../../includes/virtual-network-multiple-ip-addresses-os-config.md)]
