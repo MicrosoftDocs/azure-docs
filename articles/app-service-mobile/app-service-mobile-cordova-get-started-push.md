@@ -18,7 +18,7 @@ ms.author: yuaxu
 
 ---
 # Add push notifications to your Apache Cordova app
-[!INCLUDE [app-service-mobile-selector-get-started-push][selector]]
+[!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 ## Overview
 In this tutorial, you add push notifications to the [Apache Cordova quick start] project so that a push 
@@ -42,12 +42,12 @@ To complete this tutorial, you need:
 * (Windows) A [Windows Store Developer Account][8] and a Windows 10 device.
 
 ## <a name="configure-hub"></a>Configure a notification hub
-[!INCLUDE [app-service-mobile-configure-notification-hub]]
+[!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
 
 [Watch a video showing steps in this section][9]
 
 ## Update the server project to send push notifications
-[!INCLUDE [app-service-mobile-update-server-project-for-push-template]]
+[!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
 ## <a name="add-push-to-app"></a>Modify your Cordova app to receive push notifications
 Ensure your Apache Cordova app project is ready to handle push notifications by 
@@ -176,7 +176,7 @@ Complete this section to enable push notifications for Android.
 #### <a name="enable-gcm"></a>Enable Firebase Cloud Messaging
 Since we are targeting the Google Android platform initially, you must enable Firebase Cloud Messaging. 
 
-[!INCLUDE [notification-hubs-enable-firebase-cloud-messaging]]
+[!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
 #### <a name="configure-backend"></a>Configure the Mobile App backend to send push requests using FCM
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
@@ -382,12 +382,7 @@ Learn how to use the SDKs.
 * [Apache Cordova SDK]
 * [ASP.NET Server SDK]
 * [Node.js Server SDK]
-
-<!-- Includes -->
-[selector]: ../../includes/app-service-mobile-selector-get-started-push.md
-[app-service-mobile-configure-notification-hub]: ../../includes/app-service-mobile-configure-notification-hub.md
-[app-service-mobile-update-server-project-for-push-template]: ../../includes/app-service-mobile-update-server-project-for-push-template.md
-[notification-hubs-enable-firebase-cloud-messaging]: ../../includes/notification-hubs-enable-firebase-cloud-messaging.md
+ 
 <!-- Images -->
 [img1]: ./media/app-service-mobile-cordova-get-started-push/add-push-plugin.png
 
