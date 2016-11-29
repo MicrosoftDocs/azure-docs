@@ -23,7 +23,7 @@ ms.author: juliako
 
 This topic shows how to perform advanced encoding with Media Encoder Standard (MES) using a custom preset. The topic uses .NET to create an encoding task and a job that executes this task.  
 
-In this topic you will see how to customize a preset by taking the [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) preset and reducing the number of layers. The [Customizing Media Encoder Standard presets](media-services-advanced-encoding-with-mes.md]) topic demonstrates custom presets that can be used to perform advanced encoding tasks.
+In this topic you will see how to customize a preset by taking the [H264 Multiple Bitrate 720p](media-services-mes-preset-H264-Multiple-Bitrate-720p.md) preset and reducing the number of layers. The [Customizing Media Encoder Standard presets](media-services-advanced-encoding-with-mes.md) topic demonstrates custom presets that can be used to perform advanced encoding tasks.
 
 ## <a id="customizing_presets"></a> Customizing a MES preset
 
