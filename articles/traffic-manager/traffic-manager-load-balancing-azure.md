@@ -51,7 +51,7 @@ Using Traffic Manager, Application Gateway, and Load Balancer allows this websit
 
 The following diagram shows the architecture of this scenario:
 
-![alt text](./media/traffic-manager-load-balancing-azure/scenario-diagram.png "Diagram of load-balancing architecture")
+![Diagram of load-balancing architecture](./media/traffic-manager-load-balancing-azure/scenario-diagram.png)
 
 > [!NOTE]
 > This example is only one of many possible configurations of the load-balancing services that Azure offers. Traffic Manager, Application Gateway, and Load Balancer can be mixed and matched to best suit your load-balancing needs. For example, if SSL offload or Layer 7 processing is not necessary, Load Balancer can be used in place of Application Gateway.
@@ -71,7 +71,7 @@ The following diagram shows the architecture of this scenario:
 
 3. Click **Create** to generate the Traffic Manager profile.
 
-  ![alt text](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png ""Create Traffic Manager" blade for generating Traffic Manager profile")
+  !["Create Traffic Manager" blade](./media/traffic-manager-load-balancing-azure/s1-create-tm-blade.png)
 
 ### Step 2: Create the application gateways
 
@@ -93,21 +93,21 @@ The following diagram shows the architecture of this scenario:
 
 An application gateway configured with a path-based rule takes a path pattern of the request URL in addition to round-robin distribution when choosing the back-end pool. In this scenario, we are adding a path-based rule to direct any URL with "/images/\*" to the image server pool. For more information about configuring URL path-based routing for an application gateway, refer to [Create a path-based rule for an application gateway](../application-gateway/application-gateway-create-url-route-portal.md).
 
-![alt text](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png "Web-tier diagram")
+![Application Gateway web-tier diagram](./media/traffic-manager-load-balancing-azure/web-tier-diagram.png)
 
 1. From your resource group, navigate to the instance of the application gateway that was created in the preceding steps.
 2. Under **Settings**, select **Backend pools**, and then select **Add** to add the VMs that you want to associate with the web-tier back-end pools.
 3. On the **Add backend pool** blade, enter the name of the back-end pool and all the IP addresses of the machines that reside in the pool. In this scenario, we are connecting two back-end server pools of virtual machines.
 
-  ![alt text](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png "Application gateway "Add backend pool" button")
+  ![Application Gateway Backend pools "Add" button](./media/traffic-manager-load-balancing-azure/s2-appgw-add-bepool.png)
 
 4. Under **Settings** of the application gateway, select **Rules**, and then click the **Path based** button to add a rule.
 
-  ![alt text](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png "Application gateway "Add path-based rule" button")
+  ![Application Gateway Rules "Path based" button](./media/traffic-manager-load-balancing-azure/s2-appgw-add-pathrule.png)
 
 5. On the **Add path-based rule** blade, configure the rule by providing the following information:
 
-    Basic settings
+   Basic settings
 
    + **Name**: The friendly name of the rule that is accessible in the portal
    + **Listener**: The listener that is used for the rule
@@ -124,7 +124,7 @@ An application gateway configured with a path-based rule takes a path pattern of
    > [!IMPORTANT]
    > Paths: Valid paths must start with "/". The wildcard "\*" is allowed only at the end. Valid examples are /xyz, /xyz\*, or /xyz/\*.
 
-   ![alt text](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png "Application gateway "Add path-based rule" blade")
+   ![Application gateway "Add path-based rule" blade](./media/traffic-manager-load-balancing-azure/s2-appgw-pathrule-blade.png)
 
 ### Step 3: Add application gateways to the Traffic Manager endpoints
 
@@ -133,7 +133,7 @@ In this scenario, Traffic Manager is connected to instances of application gatew
 1. Navigate to your instance of the Traffic Manager profile. To do so, look in your resource group or search for the name of the Traffic Manager profile from **All Resources**.
 2. On the blade, select **Endpoints**, and then click **Add** to add an endpoint.
 
-  ![alt text](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png "Traffic Manager "Add endpoint" button")
+  ![Traffic Manager "Add endpoint" button](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
 3. On the **Add endpoint** blade, create an endpoint by entering the following information:
 
@@ -141,7 +141,7 @@ In this scenario, Traffic Manager is connected to instances of application gatew
   * **Name**: Enter the name of the endpoint.
   * **Target resource type**: Select **Public IP address**, and, under **Target resource**, select the public IP of the application gateway that was configured previously.
 
-   ![alt text](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png "Traffic Manager "Add endpoint" blade")
+   ![Traffic Manager "Add endpoint" blade](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint-blade.png)
 
 4. Now you can test your setup by accessing it with the DNS of your Traffic Manager profile (in this example: TrafficManagerScenario.trafficmanager.net). You can resend requests, bring up or bring down VMs and web servers that were created in different regions, and change the Traffic Manager profile settings to test your setup.
 
@@ -166,7 +166,7 @@ For more information about configuring an internal load balancer, see [Create an
 1. From your resource group, find the load balancer that was created in the previous steps.
 2. Under **Settings**, click **Backend pools**, and then click **Add** to add a back-end pool.
 
-  ![alt text](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png "Load balancer "Add backend pool" button")
+  ![Load balancer "Add backend pool" button](./media/traffic-manager-load-balancing-azure/s4-ilb-add-bepool.png)
 
 3. On the **Add backend pool** blade, enter the name of the back-end pool.
 4. Add either individual machines or an availability set to the back-end pool.
@@ -175,7 +175,7 @@ For more information about configuring an internal load balancer, see [Create an
 
 1. In your load balancer, under **Settings**, select **Probes**, and then click **Add** to add a probe.
 
- ![alt text](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png "Load balancer "Add probe" button")
+ ![Load balancer "Add probe" button](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. On the **Add probe** blade, enter the name for the probe.
 3. Select the **Protocol** for the probe. For a database, you might want a TCP probe rather than an HTTP probe. To learn more about load balancer probes, refer to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
@@ -200,7 +200,7 @@ For more information about configuring an internal load balancer, see [Create an
 
 Now we configure the IP address and load-balancer front-end port in the applications that are running on your web-tier VMs for any database connections. This configuration is specific to the applications that run on these VMs. To configure the destination IP address and port, refer to the application documentation. To find the IP address of the front end, navigate to the front-end IP pool on the **Load balancer settings** blade in the Azure portal.
 
-![alt text](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png "Load balancer "Frontend IP pool" navigation pane")
+![Load balancer "Frontend IP pool" navigation pane](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
 ## Next steps
 
