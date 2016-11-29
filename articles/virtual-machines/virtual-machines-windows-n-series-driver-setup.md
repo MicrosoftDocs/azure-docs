@@ -1,6 +1,6 @@
 ---
 title: N-series driver setup for Windows | Microsoft Docs
-description: How to set up NVIDIA GPU drivers for N-series VMs in Azure
+description: How to set up NVIDIA GPU drivers for N-series VMs running Windows in Azure
 services: virtual-machines-windows
 documentationcenter: ''
 author: dlepow
@@ -23,22 +23,12 @@ To take advantage of the GPU capabilities of Azure N-series VMs running Windows 
 
 For basic specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-For more information about the NVIDIA GPUs on the N-series VMs, see:
-* [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (for Azure NC VMs)
-* [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (for Azure NV VMs)
+
 
 
 ## Supported GPU drivers
 
 Connect by Remote Desktop to each N-series VM. Download and install the latest driver for your Windows operating system on each VM, as shown in the following tables. 
-
-### NVIDIA Tesla drivers for NC VMs
-
-| Operating system | Driver download |
-| --- | --- | 
-| Windows Server 2016 | [Version 369.73](http://www.nvidia.com/download/driverResults.aspx/111406/) |
-| Windows Server 2012 R2 | [Version 369.73](http://www.nvidia.com/download/driverResults.aspx/111404/) |
-
 
 ### NVIDIA GRID drivers for NV VMs
 
@@ -47,7 +37,15 @@ Connect by Remote Desktop to each N-series VM. Download and install the latest d
 | Windows Server 2016 | --- |
 | Windows Server 2012 R2 | --- |
 
-Browse additional drivers at [NVIDIA driver downloads](http://www.nvidia.com/Download/index.aspx?).
+### NVIDIA Tesla drivers for NC VMs
+
+| Operating system | Driver download |
+| --- | --- | 
+| Windows Server 2016 | [Version 369.73](http://us.download.nvidia.com/Windows/Quadro_Certified/369.73/369.73-tesla-desktop-winserver2016-international-whql.exe) |
+| Windows Server 2012 R2 | [Version 369.73](http://us.download.nvidia.com/Windows/Quadro_Certified/369.73/369.73-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) |
+
+
+
 
 > [!NOTE]
 > Developers building GPU-accelerated applications for the NVIDIA Tesla GPUs can also download and install the [CUDA Toolkit 8](https://developer.nvidia.com/cuda-downloads).
@@ -64,5 +62,11 @@ You can verify driver installation in Device Manager. The following example show
 To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
 
 ![NVIDIA device status](./media/virtual-machines-windows-n-series-driver-setup/smi.png)  
+
+## Next steps
+
+For more information about the NVIDIA GPUs on the N-series VMs, see:
+* [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (for Azure NC VMs)
+* [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (for Azure NV VMs)
 
 
