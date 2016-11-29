@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/15/2016
+ms.date: 11/29/2016
 ms.author: bryanla;mbaldwin
 
 ---
@@ -34,7 +34,7 @@ Consider the application object as the *global* representation of your applicati
 #### Service principal object
 The service principal object defines the policy and permissions for an application, providing the basis for a security principal to represent the application when accessing resources at run-time. The Azure AD Graph [ServicePrincipal entity][AAD-Graph-Sp-Entity] defines the schema for a service principal object. 
 
-A service principal is required in each tenant for which an instance of the application's usage must be represented, enabling secure access to resources owned by users from that tenant. A single-tenant application will have only one service principal (in its home tenant). A multi-tenant [Web application](active-directory-dev-glossary.md#web-client) will also have a service principal in each tenant where an administrator or user(s) from that tenant have given consent, allowing it to access their resources. Following consent, the service principal object will be consulted for future authorization requests. 
+Before an Azure AD tenant will allow an application to access the resources it is securing, a service principal must be created in the given tenant. The service principal provides the basis for Azure AD to secure the application's access to resources owned by users from that tenant. A single-tenant application will have only one service principal (in its home tenant). A multi-tenant [Web application](active-directory-dev-glossary.md#web-client) will also have a service principal in each tenant where an administrator or user(s) from that tenant have given consent, allowing it to access their resources. Following consent, the service principal object will be consulted for future authorization requests. 
 
 > [!NOTE]
 > Any changes you make to your application object, are also reflected in its service principal object in the application's home tenant only (the tenant where it was registered). For multi-tenant applications, changes to the application object are not reflected in any consumer tenants' service principal objects, until the consumer tenant removes access and grants access again.
