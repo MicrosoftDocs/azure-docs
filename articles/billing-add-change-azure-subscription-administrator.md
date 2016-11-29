@@ -38,16 +38,16 @@ There are three kinds of administrator roles in Microsoft Azure:
 2. On the Hub menu, select **Subscription** > *the subscription that you want the admin to access*.
 
     ![newselectsub](./media/billing-add-change-azure-subscription-administrator/newselectsub.png)
-3. In the subscription blade, select **Settings**> **Users**.
+3. In the subscription blade, select **Access control (IAM)**> **Add**.
 
     ![newsettings](./media/billing-add-change-azure-subscription-administrator/newsettings.png)
-4. In the Users blade, select **Add**>**Select a role** > **Owner**.
+4. Select **Select a role** > **Owner**.
 
     ![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
 
     **Note**
 
-   * The owner role can only manage the resources in the subscription that you assigned. This role does not have access privilege to other subscriptions. 
+   * The owner role can only manage the resources in the subscription that you assigned. This role does not have access privilege to other subscriptions.
    * The owners you added through the [Azure portal](https://portal.azure.com) cannot manage resource in the [Azure classic portal](https://manage.windowsazure.com).  
 5. Type the email address of the user you want to add as owner, click the user, and then click **Select**.
 
