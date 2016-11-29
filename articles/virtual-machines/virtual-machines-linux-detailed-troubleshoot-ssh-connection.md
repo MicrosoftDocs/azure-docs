@@ -134,7 +134,7 @@ If you haven't done so already, follow the instructions [to reset a password or 
 Try connecting from your computer again. If it still fails, the following are some of the possible issues:
 
 * The SSH service is not running on the target virtual machine.
-* The SSH service is not listening on TCP port 22. To test this, install a telnet client on your local computer and run "telnet *cloudServiceName*.cloudapp.net 22". This step determines if the virtual machine allows inbound and outbound communication to the SSH endpoint.
+* The SSH service is not listening on TCP port 22. To test, install a telnet client on your local computer and run "telnet *cloudServiceName*.cloudapp.net 22". This step determines if the virtual machine allows inbound and outbound communication to the SSH endpoint.
 * The local firewall on the target virtual machine has rules that are preventing inbound or outbound SSH traffic.
 * Intrusion detection or network monitoring software that's running on the Azure virtual machine is preventing SSH connections.
 

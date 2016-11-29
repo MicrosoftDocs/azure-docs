@@ -37,7 +37,7 @@ You can reset Remote Desktop services and credentials in a few different ways, d
 
 For VMs created using the Classic deployment model:
 
-- [Reset using the Azure portal](azure-portal-classic)
+- [Reset using the Azure portal](#azure-portal-classic)
 - [Reset using Azure PowerShell](#vmaccess-extension-and-powershell-classic)
 
 ## Azure portal - Resource Manager
