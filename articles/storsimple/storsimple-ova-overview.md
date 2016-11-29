@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/21/2016
+ms.date: 11/29/2016
 ms.author: alkohli
 ---
 # Introduction to the StorSimple Virtual Array
@@ -71,7 +71,7 @@ The StorSimple Virtual Array is particularly suitable for the following workflow
 * [Data protection and disaster recovery](#data-protection-and-disaster-recovery)
 
 ### Cloud-based storage management
-eYou can use the StorSimple Device Manager service running in the Azure portal to manage data stored on multiple devices and in multiple locations. This is particularly useful in distributed branch scenarios. Note that you must create separate instances of the StorSimple Device Manager service to manage virtual arrays and physical StorSimple devices. Also note that the virtual array now uses the new Azure portal instead of the Azure classic portal.
+You can use the StorSimple Device Manager service running in the Azure portal to manage data stored on multiple devices and in multiple locations. This is particularly useful in distributed branch scenarios. Note that you must create separate instances of the StorSimple Device Manager service to manage virtual arrays and physical StorSimple devices. Also note that the virtual array now uses the new Azure portal instead of the Azure classic portal.
 
 ![cloud-based storage management](./media/storsimple-ova-overview/cloud-based-storage-management.png)
 
