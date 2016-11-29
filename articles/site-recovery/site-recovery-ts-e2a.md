@@ -49,6 +49,7 @@ ms.author: ruturajd
 
 * Hyper-V servers should have fixes mentioned in [article 2961977](https://support.microsoft.com/kb/2961977)
  installed.
+
 ## **Recommended  Documents**
 [VMM to Azure](http://aka.ms/asrste2a)
 
