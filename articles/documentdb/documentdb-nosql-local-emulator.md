@@ -56,6 +56,7 @@ The DocumentDB Emulator provides a high-fidelity emulation of the DocumentDB ser
 
 While we created a high-fidelity local emulation of the actual DocumentDB service, the implementation of the DocumentDB Emulator is different than that of the service. For example, the DocumentDB Emulator uses standard OS components such as the local file system for persistence, and HTTPS protocol stack for connectivity. This means that some functionality that relies on Azure infrastructure like global replication, single-digit millisecond latency for reads/writes, and tunable consistency levels are not available via the DocumentDB Emulator.
 
+
 ## Authenticating requests against the DocumentDB Emulator
 Just as with Azure Document in the cloud, every request that you make against the DocumentDB Emulator must be authenticated. The DocumentDB Emulator supports a single fixed account and a well-known authentication key for master key authentication. This account and key are the only credentials permitted for use with the DocumentDB Emulator. They are:
 
@@ -69,10 +70,6 @@ Additionally, just as the Azure DocumentDB service, the DocumentDB Emulator supp
 
 ## Start and initialize the DocumentDB Emulator
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> ad31265b16bf2f540a73b2db17cbef05fd56fd04
 To start the Azure DocumentDB Emulator, select the Start button or press the Windows key. Begin typing **DocumentDB Emulator**, and select the emulator from the list of applications. 
 
 ![Select the Start button or press the Windows key, begin typing **DocumentDB Emulator**, and select the emulator from the list of applications](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-start.png)
@@ -95,9 +92,6 @@ Once you have the DocumentDB Emulator running on your desktop, you can use any s
     // Connect to the DocumentDB Emulator running locally
     DocumentClient client = new DocumentClient(
         new Uri("https://localhost:8081"), 
-<<<<<<< HEAD
-        "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==");
-=======
         "C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==",
         new ConnectionPolicy { EnableEndpointDiscovery = false });
 
@@ -107,7 +101,6 @@ Once you have the DocumentDB Emulator running on your desktop, you can use any s
 If you're using [DocumentDB protocol support for MongoDB](documentdb-protocol-mongodb.md), please use the following connection string:
 
     mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10250/admin?ssl=true&3t.sslSelfSignedCerts=true
->>>>>>> ad31265b16bf2f540a73b2db17cbef05fd56fd04
 
 You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/DocumentDBStudio) to connect to the DocumentDB Emulator. You can also migrate data between the DocumentDB Emulator and the Azure DocumentDB service using the [DocumentDB Data Migration Tool](https://github.com/azure/azure-documentdb-datamigrationtool).
 
