@@ -83,7 +83,7 @@ You can perform these same tasks in a getting started tutorial by using either [
     ![server location](./media/sql-database-get-started/server-location.png)
     
     > [!TIP]
-    > The checkbox for **Allow azure services to access server** cannot be changed on this blade. You can change this setting on the server firewall blade. For more information, seee [Get started with security](sql-database-get-started-security.md).
+    > The checkbox for **Allow azure services to access server** cannot be changed on this blade. You can change this setting on the server firewall blade. For more information, see [Get started with security](sql-database-get-started-security.md).
     >
     
 9. Click **Create**.
