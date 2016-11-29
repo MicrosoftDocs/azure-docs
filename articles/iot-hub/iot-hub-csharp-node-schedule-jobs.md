@@ -23,8 +23,8 @@ ms.author: juanpere
 ## Introduction
 Azure IoT Hub is a fully managed service that enables an back-end app to create and track jobs that schedule and update millions of devices.  Jobs can be used for the following actions:
 
-* Update device twin desired properties
-* Update device twin tags
+* Update desired properties
+* Update tags
 * Invoke direct methods
 
 Conceptually, a job wraps one of these actions and tracks the progress of execution against a set of devices, which is defined by a device twin query.  For example, using a job an back-end app can invoke a reboot method on 10,000 devices, specified by a device twin query and scheduled at a future time.  That application can then track progress as each of those devices receive and execute the reboot method.
@@ -32,18 +32,18 @@ Conceptually, a job wraps one of these actions and tracks the progress of execut
 Learn more about each of these capabilities in these articles:
 
 * Device twin and properties: [Get started with device twins][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]
-* direct methods: [Developer guide - direct methods][lnk-dev-methods] and [Tutorial: C2D methods][lnk-c2d-methods]
+* direct methods: [Developer guide - direct methods][lnk-dev-methods] and [Tutorial: Use direct methods][lnk-c2d-methods]
 
 This tutorial shows you how to:
 
-* Create a simulated device that has a direct method which enables **lockDoor** which can be called by the back-end app.
-* Create a console application that calls the **lockDoor** direct method on the simulated device using a job and updates the device twin desired properties using a device job.
+* Create a simulated device app that has a direct method which enables **lockDoor** which can be called by the back-end app.
+* Create a console application that calls the **lockDoor** direct method in the simulated device app using a job and updates the desired properties using a device job.
 
 At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
 
 **simDevice.js**, which connects to your IoT hub with the device identity and receives a **lockDoor** direct method.
 
-**ScheduleJob**, which calls a direct method on the simulated device and updates the device twin's desired properties using a job.
+**ScheduleJob**, which calls a direct method in the simulated device app and updates the device twin's desired properties using a job.
 
 To complete this tutorial, you need the following:
 
@@ -144,7 +144,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 10. Build the solution.
 
 ## Create a simulated device app
-In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the device twin reported properties to enable device twin queries to identify devices and when they last rebooted.
+In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the reported properties to enable device twin queries to identify devices and when they last rebooted.
 
 1. Create a new empty folder called **simDevice**.  In the **simDevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
    
