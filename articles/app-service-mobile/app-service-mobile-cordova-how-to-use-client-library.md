@@ -28,11 +28,10 @@ guide, we focus on the client-side Apache Cordova Plugin.
 This SDK supports Apache Cordova v6.0.0 and later on iOS, Android, and Windows devices.  The platform
 support is as follows:
 
-* Android API 19-24 (KitKat through Nougat)
+* Android API 19-24 (KitKat through Nougat).
 * iOS versions 8.0 and later.
-* Windows Phone 8.0
-* Windows Phone 8.1
-* Universal Windows Platform
+* Windows Phone 8.1.
+* Universal Windows Platform.
 
 ## <a name="Setup"></a>Setup and Prerequisites
 This guide assumes that you have created a backend with a table. This guide assumes that the table has the same schema as the tables in those
@@ -155,6 +154,10 @@ pushHandler.on('error', function (error) {
 Use the Notification Hubs SDK to send push notifications from the server.  Never send push notifications
 directly from clients. Doing so could be used to trigger a denial of service attack against Notification Hubs
 or the PNS.  The PNS could ban your traffic as a result of such attacks.
+
+## More information
+
+You can find detailed API details in our [API documentation](http://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
 [Azure portal]: https://portal.azure.com

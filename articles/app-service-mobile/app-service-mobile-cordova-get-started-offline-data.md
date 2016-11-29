@@ -59,16 +59,17 @@ Mobile Apps plugin is included in the project. The Quickstart project includes b
           columnDefinitions: {
               id: 'string',
               text: 'string',
-              deleted: 'boolean',
-              complete: 'boolean'
+              complete: 'boolean',
+              version: 'string'
           }
         });
 
         // Get the sync context from the client
         syncContext = client.getSyncContext();
 
-    The preceding code additions initialize the local store and define a local table that matches the column values used in your Azure back end. (You
-    don't need to include all column values in this code.)
+    The preceding code additions initialize the local store and define a local table that matches the column values 
+    used in your Azure back end. (You don't need to include all column values in this code.)  The `version` field
+    is maintained by the mobile backend and is used for conflict resolution.
 
     You get a reference to the sync context by calling **getSyncContext**. The sync context helps preserve table relationships by tracking and pushing changes
     in all tables a client app has modified when **push** is called.
@@ -90,7 +91,7 @@ Mobile Apps plugin is included in the project. The Quickstart project includes b
         todoItemTable = client.getSyncTable('todoitem');
 
         syncContext.pushHandler = {
-            onConflict: function (serverRecord, clientRecord, pushError) {
+            onConflict: function (pushError) {
                 // Handle the conflict.
                 console.log("Sync conflict! " + pushError.getError().message);
                 // Update failed, revert to server's copy.
@@ -221,7 +222,7 @@ In this section you will reconnect the app to the mobile backend, which simulate
 <!-- URLs. -->
 [Apache Cordova quick start]: app-service-mobile-cordova-get-started.md
 [README]: https://github.com/Azure/azure-mobile-apps-js-client#offline-data-sync-preview
-[offline sync sample]: https://github.com/shrishrirang/azure-mobile-apps-quickstarts/tree/samples/client/cordova/ZUMOAPPNAME
+[offline sync sample]: https://github.com/Azure-Samples/app-service-mobile-cordova-client-conflict-handling
 [Offline Data Sync in Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Cloud Cover: Offline Sync in Azure Mobile Services]: http://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Adding Authentication]: app-service-mobile-cordova-get-started-users.md

@@ -52,11 +52,13 @@ Mac computer.  Compiling Apache Cordova client applications using the command li
 ## Next Steps
 Now that you completed this quick start tutorial, move on to one of the following tutorials:
 
-* [Add Authentication] to your Apache Cordova app.
-* [Add Push Notifications] to your Apache Cordova app.
+* [Add Offline Data](app-service-mobile-cordova-get-started-offline-data.md) to your Apache Cordova app.
+* [Add Authentication](app-service-mobile-cordova-get-started-users.md) to your Apache Cordova app.
+* [Add Push Notifications](app-service-mobile-cordova-get-started-push.md) to your Apache Cordova app.
 
 Learn more about key concepts with Azure App Service.
 
+* [Offline Data]
 * [Authentication]
 * [Push Notifications]
 
@@ -72,8 +74,7 @@ Learn how to use the SDKs.
 [Azure portal]: https://portal.azure.com/
 [Visual Studio Community 2015]: http://www.visualstudio.com/
 [Visual Studio Tools for Apache Cordova]: https://www.visualstudio.com/en-us/features/cordova-vs.aspx
-[Add Authentication]: app-service-mobile-cordova-get-started-users.md
-[Add Push Notifications]: app-service-mobile-cordova-get-started-push.md
+[Offline Data]: app-service-mobile-offline-data-sync.md
 [Authentication]: app-service-mobile-auth.md
 [Push Notifications]: ../notification-hubs/notification-hubs-push-notification-overview.md
 [Apache Cordova SDK]: app-service-mobile-cordova-how-to-use-client-library.md

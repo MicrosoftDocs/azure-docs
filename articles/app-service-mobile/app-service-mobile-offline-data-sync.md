@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: multiple
 ms.topic: article
-ms.date: 10/01/2016
+ms.date: 10/30/2016
 ms.author: adrianha
 
 ---
@@ -40,6 +40,7 @@ Offline sync has a number of benefits:
 The following tutorials show how to add offline sync to your mobile clients using Azure Mobile Apps:
 
 * [Android: Enable offline sync]
+* [Apache Cordova: Enable offline sync](app-service-mobile-cordova-get-started-offline-data.md)
 * [iOS: Enable offline sync]
 * [Xamarin iOS: Enable offline sync]
 * [Xamarin Android: Enable offline sync]
