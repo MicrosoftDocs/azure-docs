@@ -22,7 +22,7 @@ ms.author: dobett
 [!INCLUDE [iot-suite-selector-connecting](../../includes/iot-suite-selector-connecting.md)]
 
 ## Build and run the node.js sample solution
-1. To clone the *Microsoft Azure IoT SDKs* GitHub repository and install the *Microsoft Azure IoT device SDK for Node.js* in your desktop environment, follow the [Prepare your development environment][lnk-github-prepare] instructions.
+1. To clone the *Azure IoT SDKs* GitHub repository and install the *Microsoft Azure IoT device SDK for Node.js* in your desktop environment, follow the [Prepare your development environment][lnk-github-prepare] instructions.
 2. From your local copy of the [azure-iot-sdks][lnk-github-repo] repository, copy the following two files from the node/device/samples folder to a folder on your device:
    
    * packages.json

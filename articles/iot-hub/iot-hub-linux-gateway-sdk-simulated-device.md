@@ -160,7 +160,7 @@ To run the sample:
 ## Next steps
 If you want to gain a more advanced understanding of the IoT Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
 
-* [Send device-to-cloud messages from a real device with the IoT Gateway SDK][lnk-physical-device]
+* [Send device-to-cloud messages from a physical device with the IoT Gateway SDK][lnk-physical-device]
 * [Azure IoT Gateway SDK][lnk-gateway-sdk]
 
 To further explore the capabilities of IoT Hub, see:

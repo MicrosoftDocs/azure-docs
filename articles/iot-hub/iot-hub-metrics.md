@@ -40,12 +40,12 @@ IoT Hub provides several metrics to give you an overview of the health of your h
 | Metric | Metric description | What the metric is used for |
 | --- | --- | --- |
 | d2c.telemetry.ingress.allProtocol |The count of messages sent across all devices |Overview data on message sends |
-| d2c.telemetry.ingress.success |The count of all successful messages into the hub |Overview of successful message ingress into the hub |
+| d2c.telemetry.ingress.success |The count of all successful messages into the IoT hub |Overview of successful message ingress into the IoT hub |
 | c2d.commands.egress.complete.success |The count of all command messages completed by the receiving device across all devices |Together with the metrics on abandon and reject, gives an overview of overall cloud-to-device command success rate |
 | c2d.commands.egress.abandon.success |The count of all messages successfully abandoned by the receiving device across all devices |Highlights potential issues if messages are getting abandoned more often than expected |
 | c2d.commands.egress.reject.success |The count of all messages successfully rejected by the receiving device across all devices |Highlights potential issues if messages are getting rejected more often than expected |
-| devices.totalDevices |The average, min, and max of the number of devices registered to the IoT hub |The number of devices registered to the hub |
-| devices.connectedDevices.allProtocol |The average, min, and max of the number of simultaneous connected devices |Overview of the number of devices connected to the hub |
+| devices.totalDevices |The average, min, and max of the number of devices registered to the IoT hub |The number of devices registered to the IoT hub |
+| devices.connectedDevices.allProtocol |The average, min, and max of the number of simultaneous connected devices |Overview of the number of devices connected to the IoT hub |
 
 ## Next steps
 Now that you’ve seen an overview of diagnostic metrics, follow this link to learn more about managing Azure IoT Hub:
