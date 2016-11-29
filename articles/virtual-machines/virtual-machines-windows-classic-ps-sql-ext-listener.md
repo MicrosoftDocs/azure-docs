@@ -48,7 +48,7 @@ This article focuses on creating a listener that uses **external load balancing*
 ## Create load-balanced VM endpoints with direct server return
 External load balancing uses the virtual the public Virtual IP address of the cloud service that hosts your VMs. So you do not need to create or configure the load balancer in this case.
 
-You must create a load-balanced endpoint for each VM hosting an Azure replica. If you have replicas in multiple regions, each replica for that region must be in the same cloud service in the same VNet. Creating Availability Group replicas that span multiple Azure regions requires configuring multiple VNets. For more information on configuring cross VNet connectivity, see  [Configure VNet to VNet Connectivity](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+You must create a load-balanced endpoint for each VM hosting an Azure replica. If you have replicas in multiple regions, each replica for that region must be in the same cloud service in the same VNet. Creating Availability Group replicas that span multiple Azure regions requires configuring multiple VNets. For more information on configuring cross VNet connectivity, see  [Configure VNet to VNet Connectivity](../vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
 
 1. In the Azure portal, navigate to each VM hosting a replica and view the details.
 2. Click the **Endpoints** tab for each of the VMs.
