@@ -22,6 +22,8 @@ ms.author: priyamo
 
 OpenID Connect is our recommendation if you are building a web application that is hosted on a server and accessed via a browser.
 
+[!INCLUDE [active-directory-protocols-getting-started](../../includes/active-directory-protocols-getting-started.md)]
+
 ## Authentication flow using OpenID Connect
 The most basic sign-in flow contains the following steps - each of them is described in detail below.
 

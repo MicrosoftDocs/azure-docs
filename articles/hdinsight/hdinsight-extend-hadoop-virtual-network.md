@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/21/2016
+ms.date: 11/29/2016
 ms.author: larryfr
 
 ---
@@ -173,7 +173,7 @@ The following examples demonstrate how to create a new Network Security Group th
         -VirtualNetwork $vnet `
         -Name $subnetName `
         -AddressPrefix $subnet.AddressPrefix `
-        -NetworkSecurityGroupId $nsg
+        -NetworkSecurityGroup $nsg
 
 **Using the Azure CLI**
 

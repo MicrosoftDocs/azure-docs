@@ -24,8 +24,8 @@ As described by previous articles, Azure IoT Hub enables a number of building bl
 ### When to use
 Consider using jobs when: a solution back end needs to schedule and track progress any of the following activities on a set of device:
 
-* Update device twin desired properties
-* Update device twin tags
+* Update desired properties
+* Update tags
 * Invoke direct methods
 
 ## Job lifecycle
@@ -109,7 +109,7 @@ The following is a list of properties and corresponding descriptions, which can 
 | **startTime** |Application provided start time (ISO-8601) for the job. |
 | **endTime** |IoT Hub provided date (ISO-8601) for when the job completed. Valid only after the job reaches the 'completed' state. |
 | **type** |Types of jobs: |
-| **scheduledUpdateTwin**: A job used to update a set of device twin desired properties or tags. | |
+| **scheduledUpdateTwin**: A job used to update a set of desired properties or tags. | |
 | **scheduledDeviceMethod**: A job used to invoke a device method on a set of device twins. | |
 | **status** |Current state of the job. Possible values for status: |
 | **pending** : Scheduled and waiting to be picked up by the job service. | |
@@ -135,8 +135,8 @@ Other reference topics in the Developer Guide include:
 
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
+* [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps

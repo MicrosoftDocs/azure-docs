@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/17/2016
+ms.date: 11/29/2016
 ms.author: helaw
 
 ---
@@ -49,6 +49,7 @@ Code examples are provided as is and expected results cannot be guaranteed. This
 * You cannot deploy a VM from a saved VM image.
 * Tenants may see services which are not included in their subscription.  When tenants attempt to deploy these resources, they receive an error.  Example:  Tenant subscription only includes storage resources.  Tenant will see option to create other resources like VMs.  In this scenario, when a tenant attempts to deploy a VM, they receive a message indicating the VM can’t be created. 
 * When installing TP2, you should not activate the host OS in the VHD provided where you run the Azure Stack setup script, or you may receive an error messaging stating Windows will expire soon.
+* Deployments with static IP network configurations require additional steps to activate the BGPNAT VM before the OS license expires, otherwise your environment may stop working and may require redeploying. For more information, see [this announcement](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureStack&announcementId=f35560ea-b0d2-4be0-b407-e20fe631d9fe).
 
 ## Deployment
 ### Deployment failure
@@ -77,8 +78,16 @@ Make sure that:
 You can also use the Azure Stack templates already provided in the [GitHub repository](http://aka.ms/AzureStackGitHub/) to help you get started.
 
 ## Virtual machines
-### After starting my Microsoft Azure Stack POC host, all my tenants VMs are gone from Hyper-V Manager, and come back automatically after waiting a bit?
-As the system comes back up the storage subsystem and RPs need to determine consistency. The time needed depends on the hardware and specs being used, but it may be some time after a reboot of the host for tenant VMs to come back and be recognized.
+### After starting my Azure Stack TP2 host, some VMs may not automatically start.
+After rebooting your host, you may notice Azure Stack services are not immediately available.  This is because Azure Stack [infrastructure VMs](azure-stack-architecture.md#virtual-machine-roles) and RPs take a little bit to check consistency, but will eventually start automatically.
+
+You may also notice that tenant VMs don't automatically start after a reboot of the POC host.  This is a known issue in TP2, and just requires a few manual steps to bring them online:
+
+1.  On the POC host, start **Failover Cluster Manager** from the Start Menu.
+2.  Select the cluster **S-Cluster.azurestack.local**.
+3.  Select **Roles**.
+4.  Tenant VMs will appear in a *saved* state.  Once all Infrastructure VMs are running, right-click the tenant VMs and select **Start** to resume the VM.
+
 
 ### I have deleted some virtual machines, but still see the VHD files on disk. Is this behavior expected?
 Yes, this is behavior expected. It was designed this way because:
@@ -109,8 +118,9 @@ The following information about Azure Stack installation steps may be useful for
 | 40.43 |(FBI) Set up Azure Stack Certification Authority |Installs Azure Stack Certification Authority. |
 | 40.44 |(FBI) Configure Azure Stack Certification Authority |Configures Azure Stack Certification Authority. |
 | 40.45 |(NET) Set up NC on VMs |Installs NC on the guest VMs |
-| 40.46 |(NET) Configure NC on VMs |Configure NC on the guest VMs |
-| 40.47 |(NET) Configure guest VMs |Configure the management VMs with NC ACLs. |
+| 40.46 | (NET) Configure NC on VMs | Configure NC on the guest VMs |
+| 40.47 | (NET) Validate NC on VMs | Validate NC and SLB Configuration |
+| 40.48 | (NET) Configure guest VMs | Configure the management VMs with NC ACLs |
 | 60.61.81 |(FBI) Deploy Azure Stack Fabric Ring Services - FabricRing PreRequisite |Creates VIPs for FabricRing |
 | 60.61.82 |(FBI) Deploy Azure Stack Fabric Ring Services - Deploy Fabric Ring Cluster |Installs and configures Azure Stack Fabric Ring Cluster. |
 | 60.61.83 |(FBI) Deploy Admin Extensions for Resource providers |Installing Admin Extensions for resource providers |

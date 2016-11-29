@@ -3,8 +3,8 @@ title: Create a record set and records for a DNS zone using PowerShell | Microso
 description: How to create host records for Azure DNS.Setting up record sets and records using PowerShell
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: georgewallace
+manager: timlt
 
 ms.assetid: a8068c5a-f248-4e97-be97-8bd0d79eeffd
 ms.service: dns
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: sewhee
+ms.author: gwallace
 ---
 
 # Create DNS record sets and records by using PowerShell
