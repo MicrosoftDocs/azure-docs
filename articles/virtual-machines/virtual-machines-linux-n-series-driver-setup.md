@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/23/2016
+ms.date: 11/29/2016
 ms.author: danlep
 
 ---
@@ -73,6 +73,5 @@ To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com
 ![NVIDIA device status](./media/virtual-machines-linux-n-series-driver-setup/smi.png)
 
 
-## Next steps
 
 
