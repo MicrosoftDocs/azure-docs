@@ -37,7 +37,7 @@ In summary, even if the only use case is device-to-cloud telemetry ingress, IoT 
 
 It is not uncommon to use both IoT Hub and Event Hubs in the same solution. IoT Hub handles the device-to-cloud communication, and Event Hubs handles later-stage event ingress into real-time processing engines.
 
-## Next steps
+### Next steps
 To learn more about planning your IoT Hub deployment, see [Scaling, HA, and DR][lnk-scaling].
 
 To further explore the capabilities of IoT Hub, see:
