@@ -32,7 +32,7 @@ The products (VMs) are available in Azure Government:
 | Dv2-series |Y |Y |
 | DS-series |Y |N |
 | F-series |Y |Y |
-| FS-series |Y |N |
+| FS-series |N |N |
 | G-series |Y |N |
 | GS-series |Y |N |
 
