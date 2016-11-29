@@ -136,8 +136,6 @@ You can perform these same tasks in a getting started tutorial by using either [
 
 ## Connect to SQL server using SQL Server Management Studio (SSMS)
 
-[!INCLUDE [SSMS Install](../../includes/sql-server-management-studio-install.md)]
-
 1. If you have not already done so, download and install the latest version of SSMS at [Download SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx). To stay up-to-date, the latest version of SSMS prompts you when there is a new version available to download.
 
 2. After installing, type **Microsoft SQL Server Management Studio** in the Windows search box and click **Enter** to open SSMS:
@@ -279,6 +277,7 @@ Now that you've completed this first getting started tutorial and created a data
 * If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to SQL Database](sql-database-cloud-migrate.md).
 * If you want to load some data into a new table from a CSV file by using the BCP command-line tool, see [Loading data into SQL Database from a CSV file using BCP](sql-database-load-from-csv-with-bcp.md).
 * If you want to start creating tables and other objects, see the "To create a table" topic in [Creating a table](https://msdn.microsoft.com/library/ms365315.aspx).
+
 ## Additional resources
 [What is SQL Database?](sql-database-technical-overview.md)
 

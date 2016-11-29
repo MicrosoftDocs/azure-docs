@@ -1,5 +1,5 @@
 ---
-title: Manage Azure SQL Database | Microsoft Docs
+title: View and update an Azure SQL database and its settings | Microsoft Docs
 description: Quick reference on how to view and update Azure SQL database settings using the Azure portal and PowerShell.
 services: sql-database
 documentationcenter: ''
@@ -21,7 +21,8 @@ ms.author: carlrab
 
 You can view and update an Azure SQL database and its settings using the [Azure portal](sql-database-manage-portal.md), [PowerShell](sql-database-manage-powershell.md), [SQL Server Management Studio](sql-database-manage-azure-ssms.md), the REST API or C#. 
 
-## View and update view SQL database settings using the Azure portal?
+## View and update SQL database settings using the Azure portal
+
 1. Open the **SQL databases** blade in the [Azure portal](https://portal.azure.com/). 
 
     ![sql databases](./media/sql-database-get-started/sql-databases.png)

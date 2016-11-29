@@ -1,5 +1,5 @@
 ---
-title: Manage Azure SQL Database | Microsoft Docs
+title: Create an Azure SQL database | Microsoft Docs
 description: Quick reference on how to create an Azure SQL database using the Azure portal, PowerShell, Transact-SQL.
 services: sql-database
 documentationcenter: ''
