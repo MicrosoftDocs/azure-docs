@@ -86,7 +86,7 @@ You may also notice that tenant VMs don't automatically start after a reboot of 
 1.  On the POC host, start **Failover Cluster Manager** from the Start Menu.
 2.  Select the cluster **S-Cluster.azurestack.local**.
 3.  Select **Roles**.
-4.  Once infrastructure VMs are on line, tenant VMs will be in *saved* state.  Right-click the tenant VMs and select **Start** to resume the VM.
+4.  Tenant VMs will appear in a *saved* state.  Once all Infrastructure VMs are running, right-click the tenant VMs and select **Start** to resume the VM.
 
 
 ### I have deleted some virtual machines, but still see the VHD files on disk. Is this behavior expected?
