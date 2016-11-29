@@ -21,12 +21,12 @@ ms.author: kdotchko
 IoT Hub enables devices to communicate with the IoT Hub device endpoints using the [MQTT v3.1.1][lnk-mqtt-org] protocol on port 8883 or MQTT v3.1.1 over WebSocket protocol on port 443. IoT Hub requires all device communication to be secured using TLS/SSL (hence, IoT Hub doesn’t support non-secure connections over port 1883).
 
 ## Connecting to IoT Hub
-A device can use the MQTT protocol to connect to an IoT hub either by using the libraries in the [Microsoft Azure IoT SDKs][lnk-device-sdks] or by using the MQTT protocol directly.
+A device can use the MQTT protocol to connect to an IoT hub either by using the libraries in the [Azure IoT SDKs][lnk-device-sdks] or by using the MQTT protocol directly.
 
-## Using the device client SDKs
-[Device client SDKs][lnk-device-sdks] that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device client SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. By default, the device client SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
+## Using the device SDKs
+[Device SDKs][lnk-device-sdks] that support the MQTT protocol are available for Java, Node.js, C, C#, and Python. The device SDKs use the standard IoT Hub connection string to establish a connection to an IoT hub. To use the MQTT protocol, the client protocol parameter must be set to **MQTT**. By default, the device SDKs connect to an IoT Hub with the **CleanSession** flag set to **0** and use **QoS 1** for message exchange with the IoT hub.
 
-When a device is connected to an IoT hub, the device client SDKs provide methods that enable the device to send messages to and receive messages from an IoT hub.
+When a device is connected to an IoT hub, the device SDKs provide methods that enable the device to send messages to and receive messages from an IoT hub.
 
 The following table contains links to code samples for each supported language and specifies the parameter to use to establish a connection to IoT Hub using the MQTT protocol.
 
@@ -39,7 +39,7 @@ The following table contains links to code samples for each supported language a
 | [Python][lnk-sample-python] |IoTHubTransportProvider.MQTT |
 
 ### Migrating a device app from AMQP to MQTT
-If you are using the [device client SDKs][lnk-device-sdks], switching from using AMQP to MQTT requires changing the protocol parameter in the client initialization as stated above.
+If you are using the [device SDKs][lnk-device-sdks], switching from using AMQP to MQTT requires changing the protocol parameter in the client initialization as stated above.
 
 When doing so, make sure to check the following items:
 
@@ -47,7 +47,7 @@ When doing so, make sure to check the following items:
 * MQTT does not support the *reject* operations when receiving [cloud-to-device messages][lnk-messaging]. If your back end needs to receive a response from the device app, consider using [direct methods][lnk-methods].
 
 ## Using the MQTT protocol directly
-If a device cannot use the device client SDKs, it can still connect to the public device endpoints using the MQTT protocol. In the **CONNECT** packet the device should use the following values:
+If a device cannot use the device SDKs, it can still connect to the public device endpoints using the MQTT protocol. In the **CONNECT** packet the device should use the following values:
 
 * For the **ClientId** field, use the **deviceId**.
 * For the **Username** field, use `{iothubhostname}/{device_id}`, where {iothubhostname} is the full CName of the IoT hub.
@@ -102,12 +102,12 @@ When a device client subscribes to a topic with **QoS 2**, IoT Hub grants maximu
 
 ### Retrieving a device twin's properties
 
-First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message contaning the twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
+First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message contaning the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
 
 Request id can be any valid value for a message property value, as per [IoT Hub messaging develper's guide][lnk-messaging], and status is validated as an integer.
 The reponse body will contain the properties section of the device's twin:
 
-The body of the device registry entry limited to the “properties” member, e.g.
+The body of the identity registry entry limited to the “properties” member, e.g.
 
         {
             "properties": {
@@ -135,10 +135,10 @@ Refer to the [Device twins developer's guide][lnk-devguide-twin] for more inform
 
 ### Update twin's reported properties
 
-First, a device has to be subscribed to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends a message, containing the twin update to `$iothub/twin/PATCH/properties/reported/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message contaning the twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
+First, a device has to be subscribed to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends a message, containing the device twin update to `$iothub/twin/PATCH/properties/reported/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message contaning the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
 
 The request message body contains a JSON document which provides new values for reported properties (no other property or metadata can be modified).
-Each member in the JSON document updates or add the corresponding member in the twin’s document. A member set to `null`, deletes the member from the containing object. E.g.
+Each member in the JSON document updates or add the corresponding member in the device twin’s document. A member set to `null`, deletes the member from the containing object. E.g.
 
         {
             "telemetrySendFrequency": "35m",

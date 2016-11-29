@@ -54,7 +54,7 @@ A device twin is a JSON document that includes:
 * **Desired properties**. Used in conjunction with reported properties to synchronize device configuration or condition. Desired properties can only be set by the application back end and can be read by the device app. The device app can also be notified in real time of changes on the desired properties.
 * **Reported properties**. Used in conjunction with desired properties to synchronize device configuration or condition. Reported properties can only be set by the device app and can be read and queried by the application back end.
 
-Additionally, the root of the device twin contains the read-only properties from the corresponding identity, as contained in the [device identity registry][lnk-identity].
+Additionally, the root of the device twin contains the read-only properties from the corresponding identity, as contained in the [identity registry][lnk-identity].
 
 ![][img-twin]
 
@@ -104,7 +104,7 @@ In the above example, the device twin contains a `batteryLevel` property that is
 Note how reported properties simplify scenarios where the back end is interested in the last known value of a property. Use [device-to-cloud messages][lnk-d2c] if the back end needs to process device telemetry in the form of sequences of timestamped events, such as time series.
 
 ### Desired property example
-In the above example, the `telemetryConfig` desired and reported properties are used by the back end and the device app to synchronize the telemetry configuration for this device. For example:
+In the above example, the `telemetryConfig` device twin desired and reported properties are used by the back end and the device app to synchronize the telemetry configuration for this device. For example:
 
 1. The app back end sets the desired property with the desired configuration value. Here is the portion of the document with the desired property:
    
@@ -116,7 +116,7 @@ In the above example, the `telemetryConfig` desired and reported properties are 
             ...
         },
         ...
-2. The device app is notified of the change immediately if connected, or at the first reconnect. The device app then reports the updated configuration (or an error condition using the `status` property). Here is the portion of reported properties:
+2. The device app is notified of the change immediately if connected, or at the first reconnect. The device app then reports the updated configuration (or an error condition using the `status` property). Here is the portion of the reported properties:
    
         ...
         "reported": {
@@ -130,7 +130,7 @@ In the above example, the `telemetryConfig` desired and reported properties are 
 3. The app back end can keep track the results of the configuration operation across many devices, by [querying][lnk-query] device twins.
 
 > [!NOTE]
-> The above snippets are examples, optimized for readability, of a possible way to encode a device configuration and its status. IoT Hub does not impose a specific schema for the desired and reported properties in the device twins.
+> The above snippets are examples, optimized for readability, of a possible way to encode a device configuration and its status. IoT Hub does not impose a specific schema for the device twin desired and reported properties in the device twins.
 > 
 > 
 
@@ -158,7 +158,7 @@ The back end operates on the device twin using the following atomic operations, 
 
 All the above operations support [Optimistic concurrency][lnk-concurrency] and require the **ServiceConnect** permission, as defined in the [Security][lnk-security] article.
 
-In addition to these operations, the back end can query the device twins using a SQL-like [query language][lnk-query], and perform operations on large sets of device twins using [jobs][lnk-jobs].
+In addition to these operations, the back end can query the device twins using the SQL-like [IoT Hub query language][lnk-query], and perform operations on large sets of device twins using [jobs][lnk-jobs].
 
 ## Device operations
 The device app operates on the device twin using the following atomic operations:
@@ -180,7 +180,7 @@ The [Azure IoT device SDKs][lnk-sdks] make it easy to use the above operations f
 The following reference topics provide you with more information about controlling access to your IoT hub.
 
 ## Tags and properties format
-Tags, desired and reported properties are JSON objects with the following restrictions:
+Tags, desired, and reported properties are JSON objects with the following restrictions:
 
 * All keys in JSON objects are case-sensitive 64 bytes UTF-8 UNICODE strings. Allowed characters exclude UNICODE control characters (segments C0 and C1), and `'.'`, `' '`, and `'$'`.
 * All values in JSON objects can be of the following JSON types: boolean, number, string, object. Arrays are not allowed.
@@ -212,7 +212,7 @@ The size is computed by counting all characters excluding UNICODE control charac
 IoT Hub will reject with error all operations that would increase the size of those documents above the limit.
 
 ## Device twin metadata
-IoT Hub maintains the timestamp of the last update for each JSON object in desired and reported properties. The timestamps are in UTC and encoded in the [ISO8601] format `YYYY-MM-DDTHH:MM:SS.mmmZ`.
+IoT Hub maintains the timestamp of the last update for each JSON object in device twin  desired and reported properties. The timestamps are in UTC and encoded in the [ISO8601] format `YYYY-MM-DDTHH:MM:SS.mmmZ`.
 For example:
 
         {
@@ -264,7 +264,7 @@ This information is kept at every level (not just the leaves of the JSON structu
 Tags, desired and reported properties all support optimistic concurrency.
 Tags have an etag, as per [RFC7232], that represents the tag's JSON representation. You can use this in conditional update operations from the back end to ensure consistency.
 
-Desired and reported properties do not have etags, but have a `$version` value that is guaranteed to be incremental. Analogously to an etag, the version can be used by the updating party (such as a device app for a reported property or the back end for a desired property) to enforce consistency of updates.
+Device twin desired and reported properties do not have etags, but have a `$version` value that is guaranteed to be incremental. Analogously to an etag, the version can be used by the updating party (such as a device app for a reported property or the back end for a desired property) to enforce consistency of updates.
 
 Versions are also useful when an observing agent (such as, the device app observing the desired properties) has to reconcile races between the result of a retrieve operation and an update notification. The section [Device reconnection flow][lnk-reconnection] provides more information.
 
@@ -287,8 +287,8 @@ Other reference topics in the Developer Guide include:
 
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
+* [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
