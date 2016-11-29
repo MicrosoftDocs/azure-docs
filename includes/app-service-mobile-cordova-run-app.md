@@ -18,7 +18,7 @@ The backend inserts data from the request into the TodoItem table in the SQL Dat
 information about the newly stored items back to the mobile app. The mobile app displays this data in
 the list.
 
-    ![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
+![](./media/app-service-mobile-cordova-quickstart/quickstart-startup.png)
 
 You can repeat steps 3 through 5 for other platforms.
 

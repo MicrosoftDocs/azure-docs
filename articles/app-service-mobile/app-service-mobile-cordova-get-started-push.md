@@ -93,7 +93,7 @@ The push plugin is now installed.
 #### Install the device plugin
 Follow the same procedure you used to install the push plugin.  Add the Device plugin from the Core
 plugins list (click **Plugins** > **Core** to find it). You need this plugin to obtain the platform
-name (`device.platform`).
+name.
 
 #### Register your device on application start-up
 Initially, we include some minimal code for Android. Later, modify the app to run on iOS or Windows 10.
