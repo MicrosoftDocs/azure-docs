@@ -16,7 +16,6 @@ ms.date: 11/23/2016
 ms.author: rclaus
 
 ---
-
 # SAP HANA on Azure (Large Instances) architecture and technical deployment guide, part 2: infrastructure connectivity
 
 After the purchase of SAP HANA on Azure (Large Instances) is finalized between you and the Microsoft enterprise account team, the following information is required:

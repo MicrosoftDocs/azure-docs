@@ -1,4 +1,4 @@
-﻿---
+---
 title: SAP HANA on Azure (Large Instances) architecture and technical deployment guide, part 4: High Availability and Disaster Recovery
  | Microsoft Docs
 description: Deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure.
@@ -17,7 +17,6 @@ ms.date: 11/23/2016
 ms.author: rclaus
 
 ---
-
 # SAP HANA on Azure (Large Instances) architecture and technical deployment guide, part 4: High Availability and Disaster Recovery
 
 High Availability (HA) and Disaster Recovery (DR) are very important aspects of running your mission-critical SAP HANA on Azure (Large Instances) server(s). It&#39;s import to work with SAP, your system integrator, and/or Microsoft to properly architect and implement the right HA/DR strategy for you. Important considerations like Recovery Point Objective (RPO) and Recovery Time Objective (RTO), specific to your environment, must be considered.

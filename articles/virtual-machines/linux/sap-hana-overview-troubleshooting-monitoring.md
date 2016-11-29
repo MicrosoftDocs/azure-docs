@@ -1,4 +1,4 @@
-﻿---
+---
 title: SAP HANA on Azure (Large Instances) architecture and technical deployment guide, part 5: troubleshooting and monitoring | Microsoft Docs
 description: Deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure.
 services: virtual-machines-linux
@@ -16,7 +16,6 @@ ms.date: 11/23/2016
 ms.author: rclaus
 
 ---
-
 # SAP HANA on Azure (Large Instances) architecture and technical deployment guide, part 5: troubleshooting and monitoring
 
 

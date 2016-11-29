@@ -1,4 +1,4 @@
-﻿---
+---
 title: SAP HANA on Azure (Large Instances) architecture and technical deployment guide, part 1: overview and architecture | Microsoft Docs
 description: Deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure.
 services: virtual-machines-linux
