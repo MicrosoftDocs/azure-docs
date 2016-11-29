@@ -81,12 +81,12 @@ You can also use the Azure Stack templates already provided in the [GitHub repos
 ### After starting my Azure Stack TP2 host, some VMs may not automatically start.
 After rebooting your host, you may notice Azure Stack services are not immediately available.  This is because Azure Stack [infrastructure VMs](azure-stack-architecture.md#virtual-machine-roles) and RPs take a little bit to check consistency, but will eventually start automatically.
 
-You may also notice that tenant VMs don't automatically start after a reboot of the POC host.  This is a known issue in TP2 and just requires a few manual steps to bring them online:
+You may also notice that tenant VMs don't automatically start after a reboot of the POC host.  This is a known issue in TP2, and just requires a few manual steps to bring them online:
 
 1.  On the POC host, start **Failover Cluster Manager** from the Start Menu.
 2.  Select the cluster **S-Cluster.azurestack.local**.
 3.  Select **Roles**.
-4.  VMs in running or stopped state, as well as computer name in details, identify infrastructure VMs.  These VMs should start automatically following POC host reboot.
+4.  Infrastructure VMs identified in *running* or *stopped* state, or by computer name in details, will start automatically following POC host reboot.
 5.  Tenant VMs will be in *Saved* state.  Right-click the Virtual Machine and select **Start** to resume the VM.
 
 
