@@ -3,8 +3,8 @@ title: Get started creating an Internet facing load balancer in classic deployme
 description: Learn how to create an Internet facing load balancer in classic deployment model for cloud services
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 tags: azure-service-management
 
 ms.assetid: 0bb16f96-56a6-429f-88f5-0de2d0136756
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/17/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Get started creating an Internet facing load balancer for cloud services

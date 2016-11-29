@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/26/2016
+ms.date: 11/29/2016
 ms.author: asmalser
 
 ---
@@ -72,6 +72,7 @@ This section outlines how to enable users to authenticate to Facebook at Work wi
 3. In a different web browser window, log into your Facebook at Work company site as an administrator.
 4. Follow the instructions at the following URL to configure Facebook at Work to use Azure AD as an identity provider: [https://developers.facebook.com/docs/facebook-at-work/authentication/cloud-providers](https://developers.facebook.com/docs/facebook-at-work/authentication/cloud-providers)
 5. Once completed, return to the browser windows showing the Azure classic portal, click the checkbox to confirm you have completed the procedure, then click **Next** and **Complete**.
+
 
 ## Automatically provisioning users to Facebook at Work
 Azure AD supports the ability to automatically synchonize the account details of assigned users to Facebook at Work. This automatic sychronization enables Facebook at Work to get the data it needs to authorize users for access, in advance of them attempting to sign-in for the first time. It also de-provisions users from Facebook at Work when access has been revoked in Azure AD.
