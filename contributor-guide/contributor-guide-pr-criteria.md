@@ -1,4 +1,4 @@
-# Quality criteria for pull request review
+﻿# Quality criteria for pull request review
 These criteria are intended for authors who create and maintain technical articles and for pull request reviewers who review content pull requests. If your pull request does not qualify for [automatic merging](contributor-guide-pull-request-etiquette.md#in-a-hurry-submit-prs-that-can-be-accepted-automatically), it will be reviewed by a human pull request reviewer. Pull request reviewers generally review only what is new or changed. Pull request reviewers evaluate the changes in a pull request according to the blocking and non-blocking quality review items listed in this article.
 
 ## Blocking content quality items
@@ -31,7 +31,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Site/design functionality |If H2 headings are present, the article contains at least two H2 headings. Using one H2 heading creates a single-item article TOC. H2 headings must be used before H3 headings to ensure a TOC is created. |
 | Site/design functionality | If articles are added or deleted, the author needs to link to the PR that includes the appropriate TOC changes. If the author has not coordinated for TOC changes for a new or removed article, they should open a bug at https//aka.ms/azuretodocsbug and hold off on changes until the TOC is ready. |
 | Markdown |HTML: Source content does not contain HTML at the block level – minor inline HTML is permitted – such as superscript, subscript, special characters, and other minor things that you can’t do with markdown. HTML tables are allowed ONLY if the table contains bulleted or numbered lists, but that is usually an indication the content needs to be simplified so the source can be coded in markdown. |
-| Markdown |Custom markdown elements are used where appropriate. Ex: Notes are coded using the AZURE.NOTE extension, not as plain text. |
+| Markdown |Custom markdown elements are used where appropriate. Ex: Notes are coded using the [!NOTE] extension, not as plain text. |
 | SEO |The " &#124; Microsoft Docs" site identifier is required. We no longer use the " &#124; Microsoft Azure" site identifier |
 | SEO |The *title* metadata value must include the word "Azure" |
 | SEO |The H1 title contains sufficient information to describe the content of the article, to differentiate it from other Azure articles, and to map to likely customer keywords. For example "Overview" as the H1 title is a fail. |
