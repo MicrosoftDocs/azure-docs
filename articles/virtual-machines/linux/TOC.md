@@ -50,6 +50,7 @@
 
 ## Use Storage
 ### [Disks and VHDs](../virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+### [Expand the OS disk](../virtual-machines/virtual-machines-linux-expand-disks?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Disk encryption](../virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Configure software RAID](../virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 ### [Configure LVM](../virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
