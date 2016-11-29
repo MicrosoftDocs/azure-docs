@@ -50,7 +50,7 @@ The following table summarizes the important features of the StorSimple Virtual 
 | Snapshots |Crash consistent |
 | Item-level recovery |Yes; users can restore from shares |
 
-e## Why use StorSimple?
+## Why use StorSimple?
 StorSimple connects users and servers to Azure storage in minutes, with no application modification.
 
 The following table describes some of the key benefits that the StorSimple Virtual Array solution provides.
@@ -60,8 +60,8 @@ The following table describes some of the key benefits that the StorSimple Virtu
 | Transparent integration |The virtual array supports the iSCSI or the SMB protocol. The data movement between the local tier and the cloud tier is seamless and transparent to the user. |
 | Reduced storage costs |With StorSimple, you provision sufficient local storage to meet current demands for the most used hot data. As storage needs grow, StorSimple tiers cold data into cost-effective cloud storage. The data is deduplicated and compressed before sending to the cloud to further reduce storage requirements and expense. |
 | Simplified storage management |StorSimple provides centralized management in the cloud using StorSimple Device Manager to manage multiple devices. |
-f| Improved disaster recovery and compliance |StorSimple facilitates faster disaster recovery by restoring the metadata immediately and restoring the data as needed. This means normal operations can continue with minimal disruption. |
-v| Data mobility |Data tiered to the cloud can be accessed from other sites for recovery and migration purposes. Note that you can restore data only to the original virtual array. However, you use disaster recovery features to restore the entire virtual array to another virtual array. |
+| Improved disaster recovery and compliance |StorSimple facilitates faster disaster recovery by restoring the metadata immediately and restoring the data as needed. This means normal operations can continue with minimal disruption. |
+| Data mobility |Data tiered to the cloud can be accessed from other sites for recovery and migration purposes. Note that you can restore data only to the original virtual array. However, you use disaster recovery features to restore the entire virtual array to another virtual array. |
 
 ## Workflows
 The StorSimple Virtual Array is particularly suitable for the following workflows:
@@ -70,7 +70,7 @@ The StorSimple Virtual Array is particularly suitable for the following workflow
 * [Location-independent backup](#location-independent-backup)
 * [Data protection and disaster recovery](#data-protection-and-disaster-recovery)
 
-#d## Cloud-based storage management
+### Cloud-based storage management
 eYou can use the StorSimple Device Manager service running in the Azure portal to manage data stored on multiple devices and in multiple locations. This is particularly useful in distributed branch scenarios. Note that you must create separate instances of the StorSimple Device Manager service to manage virtual arrays and physical StorSimple devices. Also note that the virtual array now uses the new Azure portal instead of the Azure classic portal.
 
 ![cloud-based storage management](./media/storsimple-ova-overview/cloud-based-storage-management.png)
