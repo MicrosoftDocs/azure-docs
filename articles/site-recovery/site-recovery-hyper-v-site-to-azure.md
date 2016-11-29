@@ -233,21 +233,26 @@ Where:
 
 Specify the Azure storage account to be used for replication, and the Azure network to which Azure VMs will connect after failover.
 
-1. Click **Prepare infrastructure** > **Target** and select the Azure subscription you want to use.
-2. Specify the deployment model you want to use for VMs after failover.
+1. Click **Prepare infrastructure** > **Target** > select the subscription and the resource group where you want to create the failed over virtual machines. Choose the deployment model that you want to use in Azure (classic or resource management) for the failed over virtual machines.
+
 3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
 
-   ![Storage](./media/site-recovery-hyper-v-site-to-azure/select-target.png)
+  	![Storage](./media/site-recovery-vmware-to-azure/enable-rep3.png))
+
+
 4. If you haven't created a storage account and you want to create one using Resource Manager click **+Storage** account to do that inline. On the **Create storage account** blade specify an account name, type, subscription, and location. The account should be in the same location as the Recovery Services vault.
 
-   ![Storage](./media/site-recovery-hyper-v-site-to-azure/gs-createstorage.png)
+  	![Storage](./media/site-recovery-hyper-v-site-to-azure/gs-createstorage.png)
 
-   If you want to create a storage account using the classic model you'll do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md).
-5. If you haven’t created an Azure network and you want to create one using Resource Manager click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
+
+If you want to create a storage account using the classic model you'll do that [in the Azure portal](../storage/storage-create-storage-account-classic-portal.md).
+
+
+If you haven’t created an Azure network and you want to create one using Resource Manager click **+Network** to do that inline. On the **Create virtual network** blade specify a network name, address range, subnet details, subscription, and location. The network should be in the same location as the Recovery Services vault.
 
    ![Network](./media/site-recovery-hyper-v-site-to-azure/gs-createnetwork.png)
 
-   If you want to create a network using the classic model you’ll do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
+If you want to create a network using the classic model you’ll do that [in the Azure portal](../virtual-network/virtual-networks-create-vnet-classic-pportal.md).
 
 ## Step 4: Set up replication settings
 1. To create a new replication policy click **Prepare infrastructure** > **Replication Settings** > **+Create and associate**.
