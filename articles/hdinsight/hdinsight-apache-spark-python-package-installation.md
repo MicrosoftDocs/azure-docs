@@ -56,7 +56,11 @@ Visit the documentation on [how to use custom script actions](https://docs.micro
 
     ![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
-5. You will now `import tensorflow` and run a hello world example. The result will look like this: ![TensorFlow code execution](./media/hdinsight-apache-spark-python-package-installation/execution.png)
+5. You will now `import tensorflow` and run a hello world example. The result will look like this:
+
+    ![TensorFlow code execution](./media/hdinsight-apache-spark-python-package-installation/execution.png)
+
+Code to copy:
 
     import tensorflow as tf
     hello = tf.constant('Hello, TensorFlow!')
