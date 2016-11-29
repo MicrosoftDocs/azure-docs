@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/20/2016
+ms.date: 11/28/2016
 ms.author: raiye
 
 ---
@@ -79,8 +79,8 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2, 4.6, 4.6.1, 4.6.2
 
 > [!NOTE]
 > Dates with a * are subject to change. 
-> The RDP Password for OS Family 5 must be a minimum of 10 characters.
 > 
+> The RDP Password for OS Family 5 must be a minimum of 10 characters.
 >
 
 | Configuration String | Release date | Disable date | Expired date |
