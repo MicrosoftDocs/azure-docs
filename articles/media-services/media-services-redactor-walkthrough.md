@@ -7,7 +7,7 @@ author: Lichard
 manager: erikre
 editor: ''
 
-ms.assetid: 5b6d8b8c-5f4d-4fef-b3d6-dc22c6b5a0f5
+ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na

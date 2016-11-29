@@ -18,7 +18,6 @@ ms.author: raynew
 
 ---
 # Replicate Hyper-V virtual machines in VMM clouds to Azure using the Azure portal
-> [!div class="op_single_selector"]
 > * [Azure portal](site-recovery-vmm-to-azure.md)
 > * [Azure classic](site-recovery-vmm-to-azure-classic.md)
 > * [PowerShell Resource Manager](site-recovery-vmm-to-azure-powershell-resource-manager.md)
@@ -45,14 +44,13 @@ For a full deployment, we strongly recommend you follow all the steps in the art
 | **Provider/agent** |Replicated VMs need the Azure Site Recovery Provider.<br/><br/> Hyper-V hosts need the Recovery Services agent.<br/><br/> You install these during deployment. |
 |  **Azure requirements** |Azure account<br/><br/> Recovery services vault<br/><br/> LRS or GRS storage account in vault region<br/><br/> Standard storage account<br/><br/> Azure virtual network in vault region. [Full details](#azure-prerequisites). |
 |  **Azure limitations** |If you use GRS, you need another LRS account for logging<br/><br/> Storage accounts created in the Azure portal can't be moved across resource groups in the same, or different, subscriptions. <br/><br/> Premium storage isn't supported.<br/><br/> Azure networks used for Site Recovery can't be moved across resource groups in the same, or different, subscriptions. |
-|  **VM replication** |VMs must comply with Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> |
+|  **VM replication** |[VMs must comply with Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/> |
 |  **Replication limitations** |You can't replicate VMs running Linux with a static IP address.<br/><br/> You can't exclude specific disks from replication. |
 | **Deployment steps** |1) Prepare Azure (subscription, storage, network) -> 2) Prepare on-premises (VMM and network mapping) -> 3) Create Recovery Services vault -> 4) Set up VMM and Hyper-V hosts -> 5) Configure replication settings -> 6) Enable replication -> 7) Test replication and failover. |
 
 ## Site Recovery in the Azure portal
 
-Azure has two different [deployment models](../resource-manager-deployment-model.md)
-for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal, and the Azure portal.
+Azure has two different [deployment models](../resource-manager-deployment-model.md) for creating and working with resources – Azure Resource Manager and classic. Azure also has two portals – the Azure classic portal, and the Azure portal. This article describes how to deploy in the Azure portal.
 
 
 This article describes how to deploy in the Azure portal, which provides a streamlined deployment experience. The classic portal can be used to maintain existing vaults. You can't create new vaults using the classic portal.
@@ -267,11 +265,13 @@ The Recovery Services agent running on Hyper-V hosts needs internet access to Az
 ## Step 3: Set up the target environment
 Specify the Azure storage account to be used for replication, and the Azure network to which Azure VMs will connect after failover.
 
-1. Click **Prepare infrastructure** > **Target**, and select the Azure subscription you want to use.
-2. Specify the deployment model you want to use for VMs after failover.
-3. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+1. Click **Prepare infrastructure** > **Target**, select the subscription and the resource group where you want to create the failed over virtual machines. Choose the deployment model that you want to use in Azure (classic or resource management) for the failed over virtual machines.
 
-   ![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+	![Storage](./media/site-recovery-vmm-to-azure/enablerep3.png)
+
+2. Site Recovery checks that you have one or more compatible Azure storage accounts and networks.
+  	![Storage](./media/site-recovery-vmm-to-azure/compatible-storage.png)
+
 4. If you haven't created a storage account, and you want to create one using Resource Manager, click **+Storage account** to do that inline.  On the **Create storage account** blade specify an account name, type, subscription, and location. The account should be in the same location as the Recovery Services vault.
 
    ![Storage](./media/site-recovery-vmm-to-azure/gs-createstorage.png)
