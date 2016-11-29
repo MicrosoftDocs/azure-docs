@@ -50,15 +50,16 @@ To complete this tutorial, you need:
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template]]
 
 ## <a name="add-push-to-app"></a>Modify your Cordova app to receive push notifications
-You must make sure that your Apache Cordova app project is ready to handle push notifications by 
+Ensure your Apache Cordova app project is ready to handle push notifications by 
 installing the Cordova push plugin plus any platform-specific push services.
 
 #### Update the Cordova version in your project.
-We recommended that you update the client project to Cordova 6.1.1 if your project is configured 
-using an older version. To update the project, right-click config.xml to open the configuration 
-designer. Select the Platforms tab and choose 6.1.1 in the **Cordova CLI** text box.
-
-Choose **Build**, then **Build Solution** to update the project.
+If you project uses a version of Apache Cordova prior to v6.1.1, update the client project. To update the project:
+ 
+* Right-click `config.xml` to open the configuration designer. 
+* Select the Platforms tab.
+* Choose 6.1.1 in the **Cordova CLI** text box.
+* Choose **Build**, then **Build Solution** to update the project.
 
 #### Install the push plugin
 Apache Cordova applications do not natively handle device or network capabilities.  These capabilities are provided
@@ -81,20 +82,21 @@ Execute the following command:
    ![][img1]
    ()
 
-2. Click on the arrow next to the installation source.
+2. Click the arrow next to the installation source.
 3. In **SENDER_ID**, if you already have a numeric project ID for the Google Developer Console project, you can 
-    add it here. Otherwise, enter a placeholder value, like 777777.  If you are targeting Android you can update 
+    add it here. Otherwise, enter a placeholder value, like 777777.  If you are targeting Android, you can update 
     this value in config.xml later.
 4. Click **Add**.
 
 The push plugin is now installed.
 
 #### Install the device plugin
-Follow the same procedure you used to install the push plugin, but you will find the Device plugin in the Core 
-plugins list (click **Plugins** > **Core** to find it). You need this plugin to obtain the platform name (`device.platform`).
+Follow the same procedure you used to install the push plugin.  Add the Device plugin from the Core 
+plugins list (click **Plugins** > **Core** to find it). You need this plugin to obtain the platform 
+name (`device.platform`).
 
 #### Register your device for push on start-up
-Initially, we will include some minimal code for Android. Later, we will make some small modifications to run on 
+Initially, we include some minimal code for Android. Later, we will make some small modifications to run on 
 iOS or Windows 10.
 
 1. Add a call to **registerForPushNotifications** during the callback for the login process, or at the bottom of 
@@ -165,15 +167,14 @@ iOS or Windows 10.
 
         pushRegistration.on('error', handleError);
         }
-3. (Android) In the above code, replace `Your_Project_ID` with the numeric project ID for your app from the 
+3. (Android) In the preceding code, replace `Your_Project_ID` with the numeric project ID for your app from the 
     [Google Developer Console].
 
 ## (Optional) Configure and run the app on Android
 Complete this section to enable push notifications for Android.
 
 #### <a name="enable-gcm"></a>Enable Firebase Cloud Messaging
-Since we are targeting the Google Android platform initially, you must enable Firebase Cloud Messaging. Similarly, 
-if you were targeting MicrosoftWindows devices, you would enable WNS support.
+Since we are targeting the Google Android platform initially, you must enable Firebase Cloud Messaging. 
 
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging]]
 
@@ -200,7 +201,7 @@ Open index.js and update the code to use your numeric project ID.
 Before you can deploy your application to your Android Device, you need to enable USB Debugging.  Perform the 
 following steps on your Android phone:
 
-1. Go to **Settings** > **About phone**, then tap the **Build number** until developer mode is enabled (about 7 times).
+1. Go to **Settings** > **About phone**, then tap the **Build number** until developer mode is enabled (about seven times).
 2. Back in **Settings** > **Developer Options** enable **USB debugging**, then connect your Android phone to your development PC with a USB Cable.
 
 We tested this using a Google Nexus 5X device running Android 6.0 (Marshmallow).  However, the techniques are 
@@ -216,52 +217,68 @@ The push plugin relies on Android Google Play Services for push notifications.
    * Google Repository revision 27 or higher
    * Google Play Services 9.0.2 or higher
 
-2. Click on **Install Packages** and wait for the installation to complete.
+2. Click **Install Packages** and wait for the installation to complete.
 
 The current required libraries are listed in the [phonegap-plugin-push installation documentation].
 
 #### Test push notifications in the app on Android
-You can now test push notifications by running the app and inserting items in the TodoItem table. You can do this from the same device or from a second device, as long as you are using the same backend. Test your Cordova app on the Android platform in one of the following ways:
+You can now test push notifications by running the app and inserting items in the TodoItem table. You can do this from the 
+same device or from a second device, as long as you are using the same backend. Test your Cordova app on the Android platform 
+in one of the following ways:
 
 * **On a physical device:**
-  Attach your Android device to your development computer with a USB cable.  Instead of **Google Android Emulator**, select **Device**. Visual Studio will deploy the application to the device and run it.  You can then interact with the application on the device.
-  Improve your development experience.  Screen sharing applications such as [Mobizen] can assist you in developing an Android application by projecting your Android screen on to a web browser on your PC.
+  Attach your Android device to your development computer with a USB cable.  Instead of **Google Android Emulator**, 
+  select **Device**. Visual Studio deploys the application to the device and then runs the application.  You can then 
+  interact with the application on the device.
+
+  Improve your development experience.  Screen sharing applications such as [Mobizen] can assist you in developing an 
+  Android application by projecting your Android screen on to a web browser on your PC.
+
 * **On an Android emulator:**
   There are additional configuration steps required when running on an emulator.
 
-    Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown below in the Android Virtual Device (AVD) manager.
+    Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown
+    below in the Android Virtual Device (AVD) manager.
 
     ![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-    If you want to use a faster x86 emulator, you [install the HAXM driver](https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM) and configure the emulator use it.
+    If you want to use a faster x86 emulator, you [install the HAXM driver][11] and configure the emulator to use it.
 
-    Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**, then follow the prompts to add an existing Google account to the device (we recommend using an existing account rather than creating a new one).
+    Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**, then follow the 
+    prompts to add an existing Google account to the device.
 
     ![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
 
-    Run the todolist app as before and insert a new todo item. This time, a notification icon is displayed in the notification area. You can open the notification drawer to view the full text of the notification.
+    Run the todolist app as before and insert a new todo item. This time, a notification icon is displayed in the 
+    notification area. You can open the notification drawer to view the full text of the notification.
 
     ![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
 
 ## (Optional) Configure and run on iOS
 This section is for running the Cordova project on iOS devices. You can skip this section if you are not working with iOS devices.
 
-#### Install and run the iOS remotebuild agent on a Mac or cloud service
-Before you can run a Cordova app on iOS using Visual Studio, go through the steps in the [iOS Setup Guide](http://taco.visualstudio.com/en-us/docs/ios-guide/) to install and run the remotebuild agent.
+#### Install and run the iOS remote build agent on a Mac or cloud service
+Before you can run a Cordova app on iOS using Visual Studio, go through the steps in the [iOS Setup Guide][12] to install
+and run the remote build agent.
 
-Make sure you can build the app for iOS. The steps in the setup guide are required to build for iOS from Visual Studio. If you do not have a Mac, you can build for iOS using the remotebuild agent on a service like MacInCloud. For more info, see [Run your iOS app in the cloud](http://taco.visualstudio.com/en-us/docs/build_ios_cloud/).
+Make sure you can build the app for iOS. The steps in the setup guide are required to build for iOS from Visual Studio. If 
+you do not have a Mac, you can build for iOS using the remote build agent on a service like MacInCloud. For more info, see 
+[Run your iOS app in the cloud](http://taco.visualstudio.com/en-us/docs/build_ios_cloud/).
 
 > [!NOTE]
 > XCode 7 or greater is required to use the push plugin on iOS.
 
 #### Find the ID to use as your App ID
-Before you register your app for push notifications, open config.xml in your Cordova app, find the `id` attribute value in the widget element, and copy it for later use. In the following XML, the ID is `io.cordova.myapp7777777`.
+Before you register your app for push notifications, open config.xml in your Cordova app, find the `id` attribute value 
+in the widget element, and copy it for later use. In the following XML, the ID is `io.cordova.myapp7777777`.
 
         <widget defaultlocale="en-US" id="io.cordova.myapp7777777"
           version="1.0.0" windows-packageVersion="1.1.0.0" xmlns="http://www.w3.org/ns/widgets"
             xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
 
-Later, use this identifier when you create an App ID on Apple's developer portal. (If you create a different App ID on the developer portal and want to use that, you will need to take a few extra steps later in this tutorial to change this ID in config.xml. The ID in the widget element must match the App ID on the developer portal.)
+Later, use this identifier when you create an App ID on Apple's developer portal. (If you create a different App ID on 
+the developer portal and want to use that, you will need to take a few extra steps later in this tutorial to change this 
+ID in config.xml. The ID in the widget element must match the App ID on the developer portal.)
 
 #### Register the app for push notifications on Apple's developer portal
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
@@ -385,6 +402,8 @@ Learn how to use the SDKs.
 [8]: https://developer.microsoft.com/en-us/store/register
 [9]: https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-3-Create-azure-notification-hub
 [10]: https://www.npmjs.com/
+[11]: https://taco.visualstudio.com/en-us/docs/run-app-apache/#HAXM
+[12]: http://taco.visualstudio.com/en-us/docs/ios-guide/
 
 [Adding Authentication]: app-service-mobile-cordova-get-started-users.md
 [authentication]: app-service-mobile-cordova-get-started-users.md
