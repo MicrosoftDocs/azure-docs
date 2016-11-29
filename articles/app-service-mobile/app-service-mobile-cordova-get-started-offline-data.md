@@ -140,7 +140,7 @@ project includes both of these plugins.
         }
 
     You decide when to push changes to the Mobile App backend by calling **syncContext.push()**. For example, 
-    you could add a call to **syncBackend** to a button event handler in the app such as a new sync button.
+    you could call **syncBackend** in a button event handler tied to a sync button.
     
 ## Offline sync considerations
 
@@ -149,7 +149,7 @@ function for login.  In a real-world application, you could also make this sync 
  manually or when the network state changes.
 
 When a pull is executed against a table that has pending local updates tracked by the context, that 
-pull operation automatically triggers a push. When refreshing, adding and completing items in this 
+pull operation automatically triggers a push. When refreshing, adding, and completing items in this 
 sample, you can omit the explicit **push** call, since it may be redundant.
 
 In the provided code, all records in the remote todoItem table are queried, but it is also possible 
@@ -159,8 +159,8 @@ to filter records by passing a query id and query to **push**. For more informat
 ## (Optional) Disable authentication
 
 If you don't want to set up authentication before testing offline sync, comment out the callback function 
-for login, but leave the code inside the callback function uncommented.  The code should look like this 
-after commenting out the login lines.
+for login, but leave the code inside the callback function uncommented.  The code should look like the
+following after commenting out the login lines.
 
       // Login to the service.
       // client.login('twitter')
@@ -193,8 +193,8 @@ local store, but are not synced to the backend data store until the connection i
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://yourmobileapp.azurewebsites.net-fail; style-src 'self'; media-src *">
 
 3. Build and run the client app and notice that an exception is logged in the console when the app attempts to 
-    sync with the backend after login. Any new items you add will exist only in the local store until they can 
-    be pushed to the mobile backend. The client app behaves as if it is connected to the backend.
+    sync with the backend after login. Any new items you add exist only in the local store until they are pushed 
+    to the mobile backend. The client app behaves as if it is connected to the backend.
 
 4. Close the app and restart it to verify that the new items you created are persisted to the local store.
 
@@ -208,7 +208,7 @@ local store, but are not synced to the backend data store until the connection i
 In this section, you reconnect the app to the mobile backend, which simulates the app coming back to 
 an online state. When you log in, data is synced to your mobile backend.
 
-1. Reopen index.js and correct the application URL to point to the correct URL.
+1. Reopen index.js and restore the application URL.
 2. Reopen index.html and correct the application URL in the CSP `<meta>` element.
 3. Rebuild and run the client app. The app attempts to sync with the mobile app backend after login. Verify 
     that no exceptions are logged in the debug console.

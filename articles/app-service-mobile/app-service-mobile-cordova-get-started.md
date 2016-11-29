@@ -23,22 +23,25 @@ ms.author: adrianha
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## Overview
-This tutorial shows you how to add a cloud-based backend service to an Apache Cordova mobile app by using an Azure mobile app backend.  You will create both a new
-mobile app backend and a simple *Todo list* Apache Cordova app that stores app data in Azure.
+This tutorial shows you how to add a cloud-based backend service to an Apache Cordova mobile app by using 
+an Azure mobile app backend.  You create both a new mobile app backend and a simple *Todo list* Apache Cordova 
+app that stores app data in Azure.
 
-Completing this tutorial is a prerequisite for all other Apache Cordova tutorials about using the Mobile Apps feature in Azure App Service.
+Completing this tutorial is a prerequisite for all other Apache Cordova tutorials about using the Mobile 
+Apps feature in Azure App Service.
 
 ## Prerequisites
-To complete this tutorial, you need the following:
+To complete this tutorial, you need the following prerequisites:
 
 * A PC with [Visual Studio Community 2015] or newer.
 * [Visual Studio Tools for Apache Cordova].
 * An [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
-You may also bypass Visual Studio and use the Apache Cordova command line directly.  This is useful when completing the tutorial on a
-Mac computer.  Compiling Apache Cordova client applications using the command line is not covered by this tutorial.
+You may also bypass Visual Studio and use the Apache Cordova command line directly.  Using the command line
+is useful when completing the tutorial on a Mac computer.  Compiling Apache Cordova client applications using 
+the command line is not covered by this tutorial.
 
-## Create a new Azure mobile app backend
+## Create an Azure mobile app backend
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 [Watch a video showing similar steps](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-1-Create-an-Azure-Mobile-App)
