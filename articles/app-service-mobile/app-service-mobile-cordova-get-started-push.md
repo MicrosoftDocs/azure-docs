@@ -239,21 +239,17 @@ app on the Android platform in one of the following ways:
 * **On an Android emulator:**
   There are additional configuration steps required when running on an emulator.
 
-    Make sure you are deploying to a virtual device that has Google APIs set as the target.  This can be
-    checked as shown in the Android Virtual Device (AVD) manager.
+    Make sure you are deploying to a virtual device that has Google APIs set as the target, as shown in the Android Virtual Device (AVD) manager.
 
     ![](./media/app-service-mobile-cordova-get-started-push/google-apis-avd-settings.png)
 
-    If you want to use a faster x86 emulator, you [install the HAXM driver][11] and configure the emulator to
-    use it.
+    If you want to use a faster x86 emulator, you [install the HAXM driver][11] and configure the emulator to use it.
 
-    Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**, then
-    follow the prompts.
+    Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**, then follow the prompts.
 
     ![](./media/app-service-mobile-cordova-get-started-push/add-google-account.png)
 
-    Run the todolist app as before and insert a new todo item. This time, a notification icon is displayed in the
-    notification area. You can open the notification drawer to view the full text of the notification.
+    Run the todolist app as before and insert a new todo item. This time, a notification icon is displayed in the notification area. You can open the notification drawer to view the full text of the notification.
 
     ![](./media/app-service-mobile-cordova-get-started-push/android-notifications.png)
 
@@ -282,7 +278,7 @@ attribute value in the widget element, and copy it for later use. In the followi
             xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
 
 Later, use this identifier when you create an App ID on Apple's developer portal. If you create a different
-App ID on the developer portal, you will need to take a few extra steps later in this tutorial. The ID in the
+App ID on the developer portal, you must take a few extra steps later in this tutorial. The ID in the
 widget element must match the App ID on the developer portal.
 
 #### Register the app for push notifications on Apple's developer portal
@@ -315,7 +311,7 @@ config.xml, you can skip this step. However, if the IDs don't match, take the fo
     device, then click **OK** to accept push notifications.
 
    > [!NOTE]
-   > You must explicitly accept push notifications from your app. This request only occurs the first time that the
+   > The app will request confirmation for push notifications.  This request only occurs the first time that the
    > app runs.
 
 3. In the app, type a task, and then click the plus (+) icon.
@@ -350,7 +346,7 @@ To support push notifications in your default (debug) builds, open build.json fi
             }
         }
 
-After the update, the preceding code should look like this.
+After the update, the build.json should contain the following code:
 
     "windows": {
         "release": {
