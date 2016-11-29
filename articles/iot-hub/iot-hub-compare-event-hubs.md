@@ -42,7 +42,7 @@ To learn more about planning your IoT Hub deployment, see [Scaling, HA and DR][l
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-twins]: iot-hub-devguide-device-twins.md

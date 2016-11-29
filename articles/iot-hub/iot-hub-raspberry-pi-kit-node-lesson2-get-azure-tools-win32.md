@@ -43,7 +43,7 @@ Install Python and the Azure command-line interface (Azure CLI). If you have any
 You also need to add the path of the folders where python.exe and pip.exe are installed to the system `PATH` environment variable. By default, python.exe is installed in `C:\Python27` and pip.exe is installed in `C:\Python27\Scripts`.
 
 ## Install Azure CLI
-Azure CLI provides a multiplatform command-line experience for Azure. You work directly from your command line to provision and manage resources.
+Azure CLI provides a multiplatform command-line experience for Azure. You work directly from your command-line to provision and manage resources.
 
 To install Azure CLI, follow these steps:
 

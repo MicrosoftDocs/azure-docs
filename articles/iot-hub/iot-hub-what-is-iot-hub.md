@@ -74,7 +74,7 @@ A solution may include both protocol and field gateways.
 Azure IoT Hub implements the [service-assisted communication][lnk-service-assisted-pattern] pattern to mediate the interactions between your devices and your solution back end. The goal of service-assisted communication is to establish trustworthy, bidirectional communication paths between a control system, such as IoT Hub, and special-purpose devices that are deployed in untrusted physical space. The pattern establishes the following principles:
 
 * Security takes precedence over all other capabilities.
-* Devices do not accept unsolicited network information. A device establishes all connections and routes in an outbound-only fashion. For a device to receive a command from the back end, the device must regularly initiate a connection to check for any pending commands to process.
+* Devices do not accept unsolicited network information. A device establishes all connections and routes in an outbound-only fashion. For a device to receive a command from the solution back end, the device must regularly initiate a connection to check for any pending commands to process.
 * Devices should only connect to or establish routes to well-known services they are peered with, such as IoT Hub.
 * The communication path between device and service or between device and gateway is secured at the application protocol layer.
 * System-level authorization and authentication are based on per-device identities. They make access credentials and permissions nearly instantly revocable.

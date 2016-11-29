@@ -31,7 +31,7 @@ There are two specific use-cases when it is useful to block the IoT Hub endpoint
 
 ## How filter rules are applied
 
-The IP filter rules are applied at the IoT Hub service level. Therefore the IP filter rules apply to all connections from devices and back-end applications using any supported protocol.
+The IP filter rules are applied at the IoT Hub service level. Therefore the IP filter rules apply to all connections from devices and back-end apps using any supported protocol.
 
 Any connection attempt from an IP address that matches a rejecting IP rule in your IoT hub receives an unauthorized 401 status code and description. The response message does not mention the IP rule.
 
@@ -93,7 +93,7 @@ To further explore the capabilities of IoT Hub, see:
 
 <!-- Links -->
 
-[IoT Hub Developer Guide]: iot-hub-devguide.md
+[IoT Hub developer guide]: iot-hub-devguide.md
 [Azure Express Route]:  https://azure.microsoft.com/en-us/documentation/articles/expressroute-faqs/#supported-services
 
 [lnk-monitor]: iot-hub-operations-monitoring.md

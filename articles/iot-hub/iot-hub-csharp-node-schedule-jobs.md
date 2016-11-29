@@ -32,12 +32,12 @@ Conceptually, a job wraps one of these actions and tracks the progress of execut
 Learn more about each of these capabilities in these articles:
 
 * Device twin and properties: [Get started with device twins][lnk-get-started-twin] and [Tutorial: How to use device twin properties][lnk-twin-props]
-* direct methods: [Developer guide - direct methods][lnk-dev-methods] and [Tutorial: Use direct methods][lnk-c2d-methods]
+* direct methods: [IoT Hub developer guide - direct methods][lnk-dev-methods] and [Tutorial: Use direct methods][lnk-c2d-methods]
 
 This tutorial shows you how to:
 
 * Create a simulated device app that has a direct method which enables **lockDoor** which can be called by the back-end app.
-* Create a console application that calls the **lockDoor** direct method in the simulated device app using a job and updates the desired properties using a device job.
+* Create a .NET console app that calls the **lockDoor** direct method in the simulated device app using a job and updates the desired properties using a device job.
 
 At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
 
@@ -70,7 +70,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
    
         using Microsoft.Azure.Devices;
         
-5. Add the following fields to the **Program** class. Replace the multiple placeholders with the connection string for the IoT hub that you created in the previous section.
+5. Add the following fields to the **Program** class. Replace the placeholder with the IoT Hub connection string for the hub that you created in the previous section.
    
         static string connString = "{iot hub connection string}";
         static ServiceClient client;
@@ -146,12 +146,12 @@ In this section, you create a .NET console app (using C#) that initiates a remot
 ## Create a simulated device app
 In this section, you create a Node.js console app that responds to a direct method called by the cloud, which triggers a simulated device reboot and uses the reported properties to enable device twin queries to identify devices and when they last rebooted.
 
-1. Create a new empty folder called **simDevice**.  In the **simDevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
+1. Create a new empty folder called **simDevice**.  In the **simDevice** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+2. At your command prompt in the **simDevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -165,7 +165,7 @@ In this section, you create a Node.js console app that responds to a direct meth
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Add a **connectionString** variable and use it to create a device client.  
+5. Add a **connectionString** variable and use it to create a **Client** instance.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId={yourdeviceid};SharedAccessKey={yourdevicekey}';
@@ -210,7 +210,7 @@ In this section, you create a Node.js console app that responds to a direct meth
 ## Run the apps
 You are now ready to run the apps.
 
-1. At the command-prompt in the **simDevice** folder, run the following command to begin listening for the reboot direct method.
+1. At the command prompt in the **simDevice** folder, run the following command to begin listening for the reboot direct method.
    
     ```
     node simDevice.js

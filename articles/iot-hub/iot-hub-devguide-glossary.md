@@ -60,7 +60,9 @@ A cloud gateway enables connectivity for devices that cannot connect directly to
 Refers to messages sent from an IoT hub to a connected device. Often, these messages are commands that instruct the device to take an action. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
 ## Connection string
-You use connection strings in your app code to encapsulate the information required to connect to an endpoint. A connection string typically includes the address of the endpoint and security information, but the format of the connection string varies across services.
+You use connection strings in your app code to encapsulate the information required to connect to an endpoint. A connection string typically includes the address of the endpoint and security information, but connection string formats vary across services. There are two types of connection string associated with the IoT Hub service:
+- *Device connection strings* enable devices to connect to the device-facing endpoints on an IoT hub.
+- *IoT Hub connection strings* enable back-end apps to connect to the service-facing endpoints on an IoT hub.
 
 ## Custom gateway
 A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). You can use the [Azure IoT Gateway SDK](#azure-iot-gateway-sdk) to build custom gateways that implement custom logic to handle messages and custom protocol conversions.
@@ -144,7 +146,7 @@ A gateway enables connectivity for devices that cannot connect directly to [IoT 
 The [identity registry](iot-hub-devguide-identity-registry.md) is the built-in component of an IoT hub that stores information about the individual devices permitted to connect to an IoT hub.
 
 ## Interactive message
-An interactive message is a [cloud-to-device](#cloud-to-device) message that triggers an immediate action in the application back end. For example, a device might send an alarm about a failure that should be automatically logged into a CRM system.
+An interactive message is a [cloud-to-device](#cloud-to-device) message that triggers an immediate action in the solution back end. For example, a device might send an alarm about a failure that should be automatically logged into a CRM system.
 
 ## IoT Hub
 IoT Hub is a fully managed Azure service that enables reliable and secure bidirectional communications between millions of devices and a solution back end. For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Using your [Azure subscription](#subscription), you can create IoT hubs to handle your IoT messaging workloads.
@@ -222,7 +224,7 @@ An Azure subscription is where billing takes place. Each Azure resource you crea
 In the context of a [device twin](iot-hub-devguide-device-twins.md), system properties are read-only and include information regarding the device usage such as last activity time and connection state.
 
 ## Tags
-In the context of a [device twin](iot-hub-devguide-device-twins.md), tags are device metadata stored and retrieved by the application back end in the form of a JSON document. Tags are not visible to apps on a device.
+In the context of a [device twin](iot-hub-devguide-device-twins.md), tags are device metadata stored and retrieved by the solution back end in the form of a JSON document. Tags are not visible to apps on a device.
 
 ## Telemetry
 Devices collect telemetry data, such as wind speed or temperature, and use [data-point messages](#data-point-messages) to send the telemetry to an IoT hub.

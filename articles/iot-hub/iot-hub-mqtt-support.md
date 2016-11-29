@@ -44,7 +44,7 @@ If you are using the [device SDKs][lnk-device-sdks], switching from using AMQP t
 When doing so, make sure to check the following items:
 
 * AMQP returns errors for many conditions, while MQTT terminates the connection. As a result your exception handling logic might require some changes.
-* MQTT does not support the *reject* operations when receiving [cloud-to-device messages][lnk-messaging]. If your back end needs to receive a response from the device app, consider using [direct methods][lnk-methods].
+* MQTT does not support the *reject* operations when receiving [cloud-to-device messages][lnk-messaging]. If your back-end app needs to receive a response from the device app, consider using [direct methods][lnk-methods].
 
 ## Using the MQTT protocol directly
 If a device cannot use the device SDKs, it can still connect to the public device endpoints using the MQTT protocol. In the **CONNECT** packet the device should use the following values:
@@ -57,9 +57,9 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
     For more information about how to generate SAS tokens, see the device section of [Using IoT Hub security tokens][lnk-sas-tokens].
 
-    When testing, you can also use the [Device Explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
+    When testing, you can also use the [device explorer][lnk-device-explorer] tool to quickly generate a SAS token that you can copy and paste into your own code:
 
-  1. Go to the **Management** tab in Device Explorer.
+  1. Go to the **Management** tab in **Device Explorer**.
   2. Click **SAS Token** (top right).
   3. On **SASTokenForm**, select your device in the **DeviceID** drop down. Set your **TTL**.
   4. Click **Generate** to create your token.
@@ -84,10 +84,10 @@ RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-en
 >
 >
 
-The device client application can also use `devices/{device_id}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message.
+The device app can also use `devices/{device_id}/messages/events/{property_bag}` as the **Will topic name** to define *Will messages* to be forwarded as a telemetry message.
 
-IoT Hub does not support QoS 2 messages. If a device client publishes a message with **QoS 2**, IoT Hub closes the network connection.
-IoT Hub does not persist Retain messages. If a device sends a message with the **RETAIN** flag set to 1, IoT Hub adds the **x-opt-retain** application property to the message. In this case, instead of persisting the retain message, IoT Hub passes it to the backend application.
+IoT Hub does not support QoS 2 messages. If a device app publishes a message with **QoS 2**, IoT Hub closes the network connection.
+IoT Hub does not persist Retain messages. If a device sends a message with the **RETAIN** flag set to 1, IoT Hub adds the **x-opt-retain** application property to the message. In this case, instead of persisting the retain message, IoT Hub passes it to the backend app.
 
 Refer to [Messaging developer's guide][lnk-messaging] for more information.
 
@@ -98,7 +98,7 @@ Please note, that the device will not receive any messages from IoT Hub, before 
 
 IoT Hub delivers messages with the **Topic Name** `devices/{device_id}/messages/devicebound/`, or `devices/{device_id}/messages/devicebound/{property_bag}` if there are any message properties. `{property_bag}` contains url-encoded key/value pairs of message properties. Only application properties and user-settable system properties (such as **messageId** or **correlationId**) are included in the property bag. System property names have the prefix **$**, application properties use the original property name with no prefix.
 
-When a device client subscribes to a topic with **QoS 2**, IoT Hub grants maximum QoS level 1 in the **SUBACK** packet. After that, IoT Hub will deliver messages to the device using QoS 1.
+When a device app subscribes to a topic with **QoS 2**, IoT Hub grants maximum QoS level 1 in the **SUBACK** packet. After that, IoT Hub will deliver messages to the device using QoS 1.
 
 ### Retrieving a device twin's properties
 
@@ -158,7 +158,7 @@ Refer to the [Device twins developer's guide][lnk-devguide-twin] for more inform
 
 ### Receiving desired properties update notifications
 
-When a device is connected, IoT Hub sends notifications to the topic `$iothub/twin/PATCH/properties/desired/?$version={new version}`, which contain the content of the update performed by the back-end. For instance,
+When a device is connected, IoT Hub sends notifications to the topic `$iothub/twin/PATCH/properties/desired/?$version={new version}`, which contain the content of the update performed by the solution back end. For instance,
 
         {
             "telemetrySendFrequency": "5m",
@@ -183,7 +183,7 @@ Refer to the [Direct method developer's guide][lnk-methods] for more information
 As a final consideration, if you need to customize the MQTT protocol behavior on the cloud side, you should review the [Azure IoT protocol gateway][lnk-azure-protocol-gateway] that enables you to deploy a high-performance custom protocol gateway that interfaces directly with IoT Hub. The Azure IoT protocol gateway enables you to customize the device protocol to accommodate brownfield MQTT deployments or other custom protocols. This approach does require, however, that you run and operate a custom protocol gateway.
 
 ## Next steps
-For more information, see [Notes on MQTT support][lnk-mqtt-devguide] in the Azure IoT Hub developer guide.
+For more information, see [Notes on MQTT support][lnk-mqtt-devguide] in the IoT Hub developer guide.
 
 To learn more about the MQTT protocol, see the [MQTT documentation][lnk-mqtt-docs].
 
@@ -196,7 +196,7 @@ To learn more about planning your IoT Hub deployment, see:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-device-sdks]: https://github.com/Azure/azure-iot-sdks/blob/master/readme.md

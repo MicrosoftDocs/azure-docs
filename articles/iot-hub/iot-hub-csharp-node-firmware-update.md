@@ -25,7 +25,7 @@ In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw
 
 This tutorial shows you how to:
 
-* Create a console app that calls the firmwareUpdate direct method in the simulated device app through your IoT hub.
+* Create a .NET console app that calls the firmwareUpdate direct method in the simulated device app through your IoT hub.
 * Create a simulated device app that implements a firmwareUpdate direct method which goes through a multi-stage process that waits to download the firmware image, downloads the firmware image, and finally applies the firmware image.  Throughout executing each stage the device uses the reported properties to update progress.
 
 At the end of this tutorial, you have a Node.js console device app and a .NET (C#) console back-end app:
@@ -40,7 +40,7 @@ To complete this tutorial, you need the following:
 * Node.js version 0.12.x or later, <br/>  [Prepare your development environment][lnk-dev-setup] describes how to install Node.js for this tutorial on either Windows or Linux.
 * An active Azure account. (If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.)
 
-Follow the [Get started with device management](iot-hub-csharp-node-device-management-get-started.md) article to create your IoT hub and get your connection string.
+Follow the [Get started with device management](iot-hub-csharp-node-device-management-get-started.md) article to create your IoT hub and get your IoT Hub connection string.
 
 [!INCLUDE [iot-hub-get-started-create-hub](../../includes/iot-hub-get-started-create-hub.md)]
 
@@ -61,7 +61,7 @@ In this section, you create a .NET console app (using C#) that initiates a remot
    
         using Microsoft.Azure.Devices;
         
-5. Add the following fields to the **Program** class. Replace the multiple placeholder value with the connection string for the IoT hub that you created in the previous section.
+5. Add the following fields to the **Program** class. Replace the multiple placeholder value with the IoT Hub connection string for the hub that you created in the previous section.
    
         static RegistryManager registryManager;
         static string connString = "{iot hub connection string}";
@@ -111,12 +111,12 @@ In this section, you will
 * Trigger a simulated firmware update
 * Use the reported properties to enable device twin queries to identify devices and when they last completed a firmware update
 
-1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
+1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command prompt.  Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
+2. At your command prompt in the **manageddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
@@ -130,7 +130,7 @@ In this section, you will
     var Client = require('azure-iot-device').Client;
     var Protocol = require('azure-iot-device-mqtt').Mqtt;
     ```
-5. Add a **connectionString** variable and use it to create a device client.  
+5. Add a **connectionString** variable and use it to create a **Client** instance.  
    
     ```
     var connectionString = 'HostName={youriothostname};DeviceId=myDeviceId;SharedAccessKey={yourdevicekey}';
@@ -320,7 +320,7 @@ In this section, you will
 ## Run the apps
 You are now ready to run the apps.
 
-1. At the command-prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
+1. At the command prompt in the **manageddevice** folder, run the following command to begin listening for the reboot direct method.
    
     ```
     node dmpatterns_fwupdate_device.js

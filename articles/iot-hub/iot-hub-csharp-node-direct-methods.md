@@ -20,9 +20,9 @@ ms.author: nberdy
 # Tutorial: Use direct methods (C#)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
-At the end of this tutorial, you will have a .NET and a Node.js console application:
+At the end of this tutorial, you will have a .NET and a Node.js console app:
 
-* **CallMethodOnDevice.sln**, a .NET app meant to be run from the back end, which calls a method in the simulated device app and displays the response.
+* **CallMethodOnDevice.sln**, a .NET back-end app, which calls a method in the simulated device app and displays the response.
 * **SimulatedDevice.js**, a Node.js app which simulates a device that connects to your IoT hub with the device identity created earlier, and responds to the method called by the cloud.
 
 > [!NOTE]
@@ -41,14 +41,14 @@ To complete this tutorial you need the following:
 [!INCLUDE [iot-hub-get-started-create-device-identity](../../includes/iot-hub-get-started-create-device-identity.md)]
 
 ## Create a simulated device app
-In this section, you create a Node.js console app that responds to a method called by the back end.
+In this section, you create a Node.js console app that responds to a method called by the solution back end.
 
-1. Create a new empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command-prompt. Accept all the defaults:
+1. Create a new empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
    
     ```
     npm init
     ```
-2. At your command-prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
+2. At your command prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** and **azure-iot-device-mqtt** packages:
    
     ```
         npm install azure-iot-device azure-iot-device-mqtt --save
@@ -62,7 +62,7 @@ In this section, you create a Node.js console app that responds to a method call
     var Mqtt = require('azure-iot-device-mqtt').Mqtt;
     var DeviceClient = require('azure-iot-device').Client;
     ```
-5. Add a **connectionString** variable and use it to create a device client. Replace **{device connection string}** with the connection string you generated in the *Create a device identity* section:
+5. Add a **connectionString** variable and use it to create a **DeviceClient** instance. Replace **{device connection string}** with the device connection string you generated in the *Create a device identity* section:
    
     ```
     var connectionString = '{device connection string}';
@@ -117,7 +117,7 @@ In this section, you create a .NET console app that calls a method in the simula
    
         using System.Threading.Tasks;
         using Microsoft.Azure.Devices;
-5. Add the following fields to the **Program** class. Replace the placeholder value with the connection string for the IoT hub that you created in the previous section.
+5. Add the following fields to the **Program** class. Replace the placeholder value with the IoT Hub connection string for the hub that you created in the previous section.
    
         static ServiceClient serviceClient;
         static string connectionString = "{iot hub connection string}";
@@ -145,7 +145,7 @@ In this section, you create a .NET console app that calls a method in the simula
 ## Run the applications
 You are now ready to run the applications.
 
-1. At a command-prompt in the **simulateddevice** folder, run the following command to start listening for method calls from your IoT Hub:
+1. At a command prompt in the **simulateddevice** folder, run the following command to start listening for method calls from your IoT Hub:
    
     ```
     node SimulatedDevice.js
