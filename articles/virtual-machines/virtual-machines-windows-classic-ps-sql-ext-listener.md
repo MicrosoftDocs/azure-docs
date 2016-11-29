@@ -48,7 +48,19 @@ This article focuses on creating a listener that uses **external load balancing*
 ## Create load-balanced VM endpoints with direct server return
 External load balancing uses the virtual the public Virtual IP address of the cloud service that hosts your VMs. So you do not need to create or configure the load balancer in this case.
 
-[!INCLUDE [load-balanced-endpoints](../../includes/virtual-machines-ag-listener-load-balanced-endpoints.md)]
+You must create a load-balanced endpoint for each VM hosting an Azure replica. If you have replicas in multiple regions, each replica for that region must be in the same cloud service in the same VNet. Creating Availability Group replicas that span multiple Azure regions requires configuring multiple VNets. For more information on configuring cross VNet connectivity, see  [Configure VNet to VNet Connectivity](../articles/vpn-gateway/virtual-networks-configure-vnet-to-vnet-connection.md).
+
+1. In the Azure portal, navigate to each VM hosting a replica and view the details.
+2. Click the **Endpoints** tab for each of the VMs.
+3. Verify that the **Name** and **Public Port** of the listener endpoint you want to use is not already in use. In the example below, the name is “MyEndpoint” and the port is “1433”.
+4. On your local client, download and install [the latest PowerShell module](https://azure.microsoft.com/downloads/).
+5. Launch **Azure PowerShell**. A new PowerShell session is opened with the Azure administrative modules loaded.
+6. Run **Get-AzurePublishSettingsFile**. This cmdlet directs you to a browser to download a publish settings file to a local directory. You may be prompted for your log-in credentials for your Azure subscription.
+7. Run the **Import-AzurePublishSettingsFile** command with the path of the publish settings file that you downloaded:
+   
+        Import-AzurePublishSettingsFile -PublishSettingsFile <PublishSettingsFilePath>
+   
+    Once the publish settings file is imported, you can manage your Azure subscription in the PowerShell session.
 
 1. Copy the PowerShell script below into a text editor and set the variable values to suit your environment (defaults have been provided for some parameters). Note that if your availability group spans Azure regions, you must run the script once in each datacenter for the cloud service and nodes that reside in that datacenter.
    
@@ -61,6 +73,7 @@ External load balancing uses the virtual the public Virtual IP address of the cl
         {
             Get-AzureVM -ServiceName $ServiceName -Name $node | Add-AzureEndpoint -Name "ListenerEndpoint" -Protocol "TCP" -PublicPort 1433 -LocalPort 1433 -LBSetName "ListenerEndpointLB" -ProbePort 37000 -ProbeProtocol "TCP" -DirectServerReturn $true | Update-AzureVM
         }
+
 2. Once you have set the variables, copy the script from the text editor into your Azure PowerShell session to run it. If the prompt still shows >>, type ENTER again to make sure the script starts running.
 
 ## Verify that KB2854082 is installed if necessary
