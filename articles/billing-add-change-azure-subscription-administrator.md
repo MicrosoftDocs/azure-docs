@@ -47,7 +47,7 @@ There are three kinds of administrator roles in Microsoft Azure:
 
     **Note**
 
-   * The owner role can manage all the resource in the subscription. This role does not have access privilege to other subscriptions and the [Azure Account Center](https://account.windowsazure.com/subscriptions).
+   * Unlike co-administrator, the owner role can only manage the services in the subscription you selected. This role does not have access privilege to other subscriptions. 
    * The owners you added through the [Azure portal](https://portal.azure.com) cannot manage resource in the [Azure classic portal](https://manage.windowsazure.com).  
 5. Type the email address of the user you want to add as owner, click the user, and then click **Select**.
 
