@@ -27,7 +27,7 @@ The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDe
 ## What are Jobs?
 Identity registry operations use the **Job** system when the operation:
 
-* Has a potentially long execution time compared to standard runtime operations, or
+* Has a potentially long execution time compared to standard run-time operations, or
 * Returns a large amount of data to the user.
 
 In these cases, instead of a single API call waiting or blocking on the result of the operation, the operation asynchronously creates a **Job** for that IoT hub. The operation then immediately returns a **JobProperties** object.

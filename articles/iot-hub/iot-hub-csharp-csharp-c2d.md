@@ -95,7 +95,7 @@ In this section, you'll write a .NET console app that sends cloud-to-device mess
     This opens the **Manage NuGet Packages** window.
 3. Search for `Microsoft Azure Devices`, click **Install**, and accept the terms of use. 
    
-    This downloads, installs, and adds a reference to the [Azure IoT - Service SDK NuGet package].
+    This downloads, installs, and adds a reference to the [Azure IoT service SDK NuGet package].
 4. Add the following `using` statement at the top of the **Program.cs** file:
    
         using Microsoft.Azure.Devices;
@@ -181,7 +181,7 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub develope
 
 <!-- Links -->
 
-[Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 
 [IoT Hub developer guide - C2D]: iot-hub-devguide-messaging.md

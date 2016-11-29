@@ -105,7 +105,7 @@ When a device app subscribes to a topic with **QoS 2**, IoT Hub grants maximum Q
 First, a device subscribes to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends an empty message to topic `$iothub/twin/GET/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message contaning the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
 
 Request id can be any valid value for a message property value, as per [IoT Hub messaging develper's guide][lnk-messaging], and status is validated as an integer.
-The reponse body will contain the properties section of the device's twin:
+The reponse body will contain the properties section of the device twin:
 
 The body of the identity registry entry limited to the “properties” member, e.g.
 
@@ -133,7 +133,7 @@ The possible status codes are:
 
 Refer to the [Device twins developer's guide][lnk-devguide-twin] for more information.
 
-### Update twin's reported properties
+### Update device twin's reported properties
 
 First, a device has to be subscribed to `$iothub/twin/res/#`, to receive the operation's responses. Then, it sends a message, containing the device twin update to `$iothub/twin/PATCH/properties/reported/?$rid={request id}`, with a populated value for **request id**. The service will then send a response message contaning the device twin data on topic `$iothub/twin/res/{status}/?$rid={request id}`, using the same **request id** as the request.
 

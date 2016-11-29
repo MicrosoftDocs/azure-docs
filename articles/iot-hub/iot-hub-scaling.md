@@ -40,7 +40,7 @@ Device-to-cloud messages follow these sustained throughput guidelines.
 | S3 |Up to 814 MB/minute per unit<br/>(1144.4 GB/day/unit) |Average of 208,333 messages/minute per unit<br/>(300 million messages/day per unit) |
 
 ## Identity registry operation throughput
-IoT Hub identity registry operations are not supposed to be runtime operations, as they are mostly related to device provisioning.
+IoT Hub identity registry operations are not supposed to be run-time operations, as they are mostly related to device provisioning.
 
 For specific burst performance numbers, see [IoT Hub quotas and throttles][IoT Hub quotas and throttles].
 

@@ -91,7 +91,7 @@ In this section, you write a .NET console app that receives file upload notifica
     This displays the Manage NuGet Packages window.
 3. Search for `Microsoft.Azure.Devices`, click **Install**, and accept the terms of use. 
    
-    This downloads, installs, and adds a reference to the [Azure IoT - Service SDK NuGet package] in the **ReadFileUploadNotification** project.
+    This downloads, installs, and adds a reference to the [Azure IoT service SDK NuGet package] in the **ReadFileUploadNotification** project.
 4. In the **Program.cs** file, add the following statements at the top of the file:
    
         using Microsoft.Azure.Devices;
@@ -167,7 +167,7 @@ To further explore the capabilities of IoT Hub, see:
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [lnk-configure-upload]: iot-hub-configure-file-upload.md
-[Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

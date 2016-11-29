@@ -39,7 +39,7 @@ Here is a detailed comparison of the various cloud-to-device communication optio
 Learn how to use direct methods, desired properties, and cloud-to-device messages in the following tutorials:
 
 * [Use direct methods][lnk-methods-tutorial], for direct methods;
-* [Use desired properties to configure devices][lnk-twin-properties], for twin's desired properties; 
+* [Use desired properties to configure devices][lnk-twin-properties], for device twin's desired properties; 
 * [Send cloud-to-device messages][lnk-c2d-tutorial], for cloud-to-device messages.
 
 [lnk-twins]: iot-hub-devguide-device-twins.md

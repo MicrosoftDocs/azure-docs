@@ -1,5 +1,5 @@
 ---
-title: Get started with the IoT Hub Gateway SDK | Microsoft Docs
+title: Get started with the Azure IoT Gateway SDK | Microsoft Docs
 description: This Azure IoT Gateway SDK walkthrough uses Linux to illustrate key concepts you should understand when you use the Azure IoT Gateway SDK.
 services: iot-hub
 documentationcenter: ''
