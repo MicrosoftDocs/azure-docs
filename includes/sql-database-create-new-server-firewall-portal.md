@@ -2,7 +2,7 @@
 <!--
 includes/sql-database-create-new-server-firewall-portal.md
 
-Latest Freshness check:  2016-08-01 , rickbyh.
+Latest Freshness check:  2016-11-28 , rickbyh.
 
 As of circa 2016-04-11, the following topics might include this include:
 articles/sql-database/sql-database-get-started-tutorial.md
@@ -16,21 +16,18 @@ Use the following steps in the Azure portal to create a server-level firewall ru
 2. On the default blade, click **SQL servers**.
    
       ![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-1.png)
-3. On the **SQL servers** blade, click the server on which to create the firewall rule.
+3. On the **SQL servers** blade, click the server for which to create the firewall rule.
    
      ![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-2.png)
-4. Review the properties of your server.
+4. Review the properties of your server, and then click **Firewall**.
    
      ![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-3.png)
-5. On the **Settings** blade, click **Firewall**.
-   
-     ![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-4.png)
    
    > [!NOTE]
    > You can also access the server-level **Firewall settings** blade from the toolbar of the **Database** blade.
-   > 
-   > 
-6. Click **Add client IP** to have Azure create a rule for your client IP address.
+    
+    
+6. Click **Add client IP** to have Azure fill in your IP address into the rule boxes.
    
       ![New server firewall](./media/sql-database-create-new-server-firewall-portal/sql-database-create-new-server-firewall-portal-5.png)
 7. Optionally, to allow access to a range of IP addresses, click the IP address that was added to edit the firewall address.

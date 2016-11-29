@@ -6,15 +6,15 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'blink led cloud pi, led blink from cloud'
 
 ms.assetid: 427d8e5e-8af8-4249-8607-44edc90a4972
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 11/28/2016
 ms.author: xshi
 
 ---
@@ -77,13 +77,8 @@ Update the `config-raspberrypi.json` file so that you can deploy the sample appl
 Deploy and run the sample application on Pi by running the following command:
 
 ```bash
-gulp
+gulp deploy && gulp run
 ```
-
-> [!NOTE]
-> The default gulp task runs `install-tools`, `deploy`, and `run` tasks sequentially. When you [deployed the blink app](iot-hub-raspberry-pi-kit-node-lesson1-deploy-blink-app.md), you ran these tasks separately.
-> 
-> 
 
 ## Verify that the sample application works
 You should see the LED that is connected to Pi blinking every two seconds. Every time the LED blinks, the sample application sends a message to your IoT hub and verifies that the message has been successfully sent to your IoT hub. In addition, each message received by the IoT hub is printed in the console window. The sample application terminates automatically after sending 20 messages.
