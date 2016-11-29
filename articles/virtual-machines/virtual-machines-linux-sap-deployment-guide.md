@@ -64,6 +64,7 @@ ms.author: sedusch
 [2191498]:https://launchpad.support.sap.com/#/notes/2191498
 [2233094]:https://launchpad.support.sap.com/#/notes/2233094
 [2243692]:https://launchpad.support.sap.com/#/notes/2243692
+[2367194]:https://launchpad.support.sap.com/#/notes/2367194
 
 [azure-cli]:../xplat-cli-install.md
 [azure-portal]:https://portal.azure.com
