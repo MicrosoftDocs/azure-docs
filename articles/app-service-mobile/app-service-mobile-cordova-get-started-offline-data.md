@@ -20,21 +20,21 @@ ms.author: adrianha
 # Enable offline sync for your Cordova mobile app
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
-This tutorial introduces the offline sync feature of Azure Mobile Apps for Cordova. Offline sync allows 
-end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there 
-is no network connection. Changes are stored in a local database.  Once the device is back online, these 
+This tutorial introduces the offline sync feature of Azure Mobile Apps for Cordova. Offline sync allows
+end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there
+is no network connection. Changes are stored in a local database.  Once the device is back online, these
 changes are synced with the remote service.
 
-This tutorial is based on the Cordova quickstart solution for Mobile Apps that you create when you complete 
-the tutorial [Apache Cordova quick start]. In this tutorial, you update the quickstart solution to add offline 
+This tutorial is based on the Cordova quickstart solution for Mobile Apps that you create when you complete
+the tutorial [Apache Cordova quick start]. In this tutorial, you update the quickstart solution to add offline
 features of Azure Mobile Apps.  We also highlight the offline-specific code in the app.
 
-To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps]. For 
+To learn more about the offline sync feature, see the topic [Offline Data Sync in Azure Mobile Apps]. For
 details of API usage, see the [API documentation](https://azure.github.io/azure-mobile-apps-js-client).
 
 ## Add offline sync to the quickstart solution
-The offline sync code must be added to the app. Offline sync requires the cordova-sqlite-storage plugin, which 
-automatically gets added to your app when the Azure Mobile Apps plugin is included in the project. The Quickstart 
+The offline sync code must be added to the app. Offline sync requires the cordova-sqlite-storage plugin, which
+automatically gets added to your app when the Azure Mobile Apps plugin is included in the project. The Quickstart
 project includes both of these plugins.
 
 1. In Visual Studio's Solution Explorer, open index.js and replace the following code
@@ -70,7 +70,7 @@ project includes both of these plugins.
         // Get the sync context from the client
         syncContext = client.getSyncContext();
 
-    The preceding code additions initialize the local store and define a local table that matches the column values 
+    The preceding code additions initialize the local store and define a local table that matches the column values
     used in your Azure back end. (You don't need to include all column values in this code.)  The `version` field
     is maintained by the mobile backend and is used for conflict resolution.
 
@@ -136,28 +136,28 @@ project includes both of these plugins.
           syncContext.pull(new WindowsAzure.Query('todoitem'));
         }
 
-    You decide when to push changes to the Mobile App backend by calling **syncContext.push()**. For example, 
-    you could add a call to **syncBackend** to a button event handler in the app such as a new sync button.
-    
+    You decide when to push changes to the Mobile App backend by calling **syncContext.push()**. For example,
+    you could call **syncBackend** in a button event handler tied to a sync button.
+
 ## Offline sync considerations
 
-In the sample, the **push** method of **syncContext** is only called on app startup in the callback 
+In the sample, the **push** method of **syncContext** is only called on app startup in the callback
 function for login.  In a real-world application, you could also make this sync functionality triggered
  manually or when the network state changes.
 
-When a pull is executed against a table that has pending local updates tracked by the context, that 
-pull operation automatically triggers a push. When refreshing, adding and completing items in this 
+When a pull is executed against a table that has pending local updates tracked by the context, that
+pull operation automatically triggers a push. When refreshing, adding, and completing items in this
 sample, you can omit the explicit **push** call, since it may be redundant.
 
-In the provided code, all records in the remote todoItem table are queried, but it is also possible 
-to filter records by passing a query id and query to **push**. For more information, see the section 
+In the provided code, all records in the remote todoItem table are queried, but it is also possible
+to filter records by passing a query id and query to **push**. For more information, see the section
 *Incremental Sync* in [Offline Data Sync in Azure Mobile Apps].
 
 ## (Optional) Disable authentication
 
-If you don't want to set up authentication before testing offline sync, comment out the callback function 
-for login, but leave the code inside the callback function uncommented.  The code should look like this 
-after commenting out the login lines.
+If you don't want to set up authentication before testing offline sync, comment out the callback function
+for login, but leave the code inside the callback function uncommented.  After commenting out the login lines,
+the code follows:
 
       // Login to the service.
       // client.login('twitter')
@@ -171,16 +171,16 @@ after commenting out the login lines.
 Now, the app syncs with the Azure backend when you run the app.
 
 ## Run the client app
-With offline sync now enabled, you can run the client application at least once on each platform to 
-populate the local store database. Later, you will simulate an offline scenario and modify the data in 
+With offline sync now enabled, you can run the client application at least once on each platform to
+populate the local store database. Later, simulate an offline scenario and modify the data in
 the local store while the app is offline.
 
 ## (Optional) Test the sync behavior
-In this section, you modify the client project to simulate an offline scenario by using an invalid 
-application URL for your backend. When you add or change data items, these changes are held in the 
+In this section, you modify the client project to simulate an offline scenario by using an invalid
+application URL for your backend. When you add or change data items, these changes are held in the
 local store, but are not synced to the backend data store until the connection is re-established.
 
-1. In the Solution Explorer, open the index.js project file and change the application URL to point to 
+1. In the Solution Explorer, open the index.js project file and change the application URL to point to
     an invalid URL, like the following code:
 
         client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net-fail');
@@ -189,9 +189,9 @@ local store, but are not synced to the backend data store until the connection i
 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://yourmobileapp.azurewebsites.net-fail; style-src 'self'; media-src *">
 
-3. Build and run the client app and notice that an exception is logged in the console when the app attempts to 
-    sync with the backend after login. Any new items you add will exist only in the local store until they can 
-    be pushed to the mobile backend. The client app behaves as if it is connected to the backend.
+3. Build and run the client app and notice that an exception is logged in the console when the app attempts to
+    sync with the backend after login. Any new items you add exist only in the local store until they are pushed
+    to the mobile backend. The client app behaves as if it is connected to the backend.
 
 4. Close the app and restart it to verify that the new items you created are persisted to the local store.
 
@@ -202,14 +202,14 @@ local store, but are not synced to the backend data store until the connection i
 
 ## (Optional) Test the reconnection to your mobile backend
 
-In this section, you reconnect the app to the mobile backend, which simulates the app coming back to 
+In this section, you reconnect the app to the mobile backend, which simulates the app coming back to
 an online state. When you log in, data is synced to your mobile backend.
 
-1. Reopen index.js and correct the application URL to point to the correct URL.
+1. Reopen index.js and restore the application URL.
 2. Reopen index.html and correct the application URL in the CSP `<meta>` element.
-3. Rebuild and run the client app. The app attempts to sync with the mobile app backend after login. Verify 
+3. Rebuild and run the client app. The app attempts to sync with the mobile app backend after login. Verify
     that no exceptions are logged in the debug console.
-4. (Optional) View the updated data using either SQL Server Object Explorer or a REST tool like Fiddler. Notice 
+4. (Optional) View the updated data using either SQL Server Object Explorer or a REST tool like Fiddler. Notice
     the data has been synchronized between the backend database and the local store.
 
     Notice the data has been synchronized between the database and the local store and contains the items you added while your app was disconnected.

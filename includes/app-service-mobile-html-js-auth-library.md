@@ -3,8 +3,8 @@ To have Mobile Apps manage the authentication process in your app, you must regi
 provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider.
 For more information, see the tutorial [Add authentication to your app](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
 
-Once you have registered your identity provider, call the .login() method with the name of your provider. For
-example, to login with Facebook use the following code.
+Once you have registered your identity provider, call the `.login()` method with the name of your provider. For
+example, to login with Facebook use the following code:
 
 ```
 client.login("facebook").done(function (results) {
@@ -19,10 +19,10 @@ The valid values for the provider are 'aad', 'facebook', 'google', 'microsoftacc
 > **Note:** Google Authentication does not currently work via Server Flow.  To authenticate with Google, you must
 > use a [client-flow method](#client-auth).
 
-In this case, Azure App Service manages the OAuth 2.0 authentication flow by displaying the login page of the selected
-provider and generating a App Service authentication token after successful login with the identity provider. The login
-function, when complete, returns a JSON object (user) that exposes both the user ID and App Service authentication token
-in the userId and authenticationToken fields, respectively. This token can be cached and re-used until it expires.
+In this case, Azure App Service manages the OAuth 2.0 authentication flow.  It displays the login page of the selected
+provider and generates an App Service authentication token after successful login with the identity provider. The login
+function, when complete, returns a JSON object that exposes both the user ID and App Service authentication token
+in the userId and authenticationToken fields, respectively. This token can be cached and reused until it expires.
 
 ###<a name="client-auth"></a>How to: Authenticate with a Provider (Client Flow)
 
@@ -70,8 +70,8 @@ This example gets a token from Live Connect, which is supplied to your App Servi
 
 ###<a name="auth-getinfo"></a>How to: Obtain information about the authenticated user
 
-The authentication information for the current user can be retrieved from the `/.auth/me` endpoint using any
-AJAX method.  Ensure you set the `X-ZUMO-AUTH` header to your authentication token.  The authentication token
+The authentication information can be retrieved from the `/.auth/me` endpoint using a HTTP call with any AJAX
+library.  Ensure you set the `X-ZUMO-AUTH` header to your authentication token.  The authentication token
 is stored in `client.currentUser.mobileServiceAuthenticationToken`.  For example, to use the fetch API:
 
 ```
@@ -86,6 +86,6 @@ fetch(url, { headers: headers })
     });
 ```
 
-Fetch is available as [an npm package](https://www.npmjs.com/package/whatwg-fetch) or for browser 
-download from [CDNJS](https://cdnjs.com/libraries/fetch). You could also use jQuery or another AJAX API 
-to fetch the information.  Data will be received as a JSON object.
+Fetch is available as [an npm package](https://www.npmjs.com/package/whatwg-fetch) or for browser
+download from [CDNJS](https://cdnjs.com/libraries/fetch). You could also use jQuery or another AJAX API
+to fetch the information.  Data is received as a JSON object.
