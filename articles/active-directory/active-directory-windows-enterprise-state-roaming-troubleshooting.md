@@ -2,7 +2,7 @@
 title: 'Troubleshooting Enterprise State Roaming of Settings | Microsoft Docs'
 description: Provides answers to some questions IT administrators might have about settings and app data sync.
 services: active-directory
-keywords="enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming"
+keywords=enterprise state roaming settings, windows cloud, frequently asked questions on enterprise state roaming
 documentationcenter: ''
 author: femila
 manager: swadhwa
