@@ -208,7 +208,7 @@ Follow these steps to solve the problem:
    ![specify certificate](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
 
 ## Copy activity fails
-### 1. Problem
+### Problem
 You may notice the following "UserErrorFailedToConnectToSqlserver" failure after you set up a pipeline in the Azure portal.
 
 `Error: Copy activity encountered a user error: ErrorCode=UserErrorFailedToConnectToSqlServer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server`
