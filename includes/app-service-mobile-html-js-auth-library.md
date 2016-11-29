@@ -1,9 +1,9 @@
 ### <a name="server-auth"></a>How to: Authenticate with a Provider (Server Flow)
 To have Mobile Apps manage the authentication process in your app, you must register your app with your identity
 provider. Then in your Azure App Service, you need to configure the application ID and secret provided by your provider.
-For more information, see the tutorial [Add authentication to your app](../articles/app-service-mobile/app-service-mobile-cordova-get-started-users.md).
+For more information, see the tutorial [Add authentication to your app](../articles/app-service-mobile/app-service-mobile-ios-get-started-users.md).
 
-Once you have registered your identity provider, call the .login() method with the name of your provider. For
+Once you have registered your identity provider, simply call the .login() method with the name of your provider. For
 example, to login with Facebook use the following code.
 
 ```
@@ -13,12 +13,6 @@ client.login("facebook").done(function (results) {
      alert("Error: " + err);
 });
 ```
-
-The valid values for the provider are 'aad', 'facebook', 'google', 'microsoftaccount', and 'twitter'.
-
-> **Note:** Google Authentication does not currently work via Server Flow.  To authenticate with Google, you must
-> use a [client-flow method](#client-auth).
-
 In this case, Azure App Service manages the OAuth 2.0 authentication flow by displaying the login page of the selected
 provider and generating a App Service authentication token after successful login with the identity provider. The login
 function, when complete, returns a JSON object (user) that exposes both the user ID and App Service authentication token
@@ -86,6 +80,6 @@ fetch(url, { headers: headers })
     });
 ```
 
-Fetch is available as [an npm package](https://www.npmjs.com/package/whatwg-fetch) or for browser 
-download from [CDNJS](https://cdnjs.com/libraries/fetch). You could also use jQuery or another AJAX API 
-to fetch the information.  Data will be received as a JSON object.
+Fetch is available as an npm package or for browser download from CDNJS. You could also use
+jQuery or another AJAX API to fetch the information.  Data will be received as a JSON object.
+
