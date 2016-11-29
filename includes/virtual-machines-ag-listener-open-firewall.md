@@ -1,9 +1,9 @@
-In this step, you create a firewall rule to open the probe port for the load-balanced endpoint (37000 as specified earlier), and another rule to open the availability group listener port. Since you created the load-balanced endpoint on the Azure VMs that contain availability group replicas, you need to open the probe port and the listener port on the respective Azure VMs.
+In this step, you create a firewall rule to open the probe port for the load-balanced endpoint (59999 as specified earlier), and another rule to open the availability group listener port. Since you created the load-balanced endpoint on the Azure VMs that contain availability group replicas, you need to open the probe port and the listener port on the respective Azure VMs.
 
 1. On VMs hosting replicas, launch **Windows Firewall with Advanced Security**.
 2. Right-click **Inbound Rules** and click **New Rule**.
 3. In the **Rule Type** page, select **Port**, then click **Next**.
-4. In the **Protocol and Ports** page, select **TCP** and type **37000** in the **Specific local ports** box. Then, click **Next**.
+4. In the **Protocol and Ports** page, select **TCP** and type **59999** in the **Specific local ports** box. Then, click **Next**.
 5. In the **Action** page, keep **Allow the connection** selected and click **Next**.
 6. In the **Profile** page, accept the default settings and click **Next**.
 7. In the **Name** page, specify a rule name, such as **Always On Listener Probe Port** in the **Name** text box, and click **Finish**.

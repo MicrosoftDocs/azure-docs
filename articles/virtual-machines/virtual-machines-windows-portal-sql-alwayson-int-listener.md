@@ -107,7 +107,7 @@ The next step is to create a probe. The probe defines how Azure will verify whic
 | --- | --- |
 | **Name** |A text name representing the probe. For example, **SQLAlwaysOnEndPointProbe**. |
 | **Protocol** |**TCP** |
-| **Port** |You may use any available port. For example, *37000*. |
+| **Port** |You may use any available port. For example, *59999*. |
 | **Interval** |*5* |
 | **Unhealthy threshold** |*2* |
 
@@ -182,7 +182,7 @@ In this step, you manually create the availability group listener in Failover Cl
   
         Import-Module FailoverClusters
   
-        Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="37000";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+        Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"="59999";"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
 * Update the variables and run the PowerShell script to configure the IP address and port for the new listener.
   
   > [!NOTE]
