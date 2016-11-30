@@ -108,9 +108,9 @@ compute instance, storage object, networking device, or other entity you can
 create or configure within the platform.
 
 Azure resources are deployed and managed using one of two models: [Azure
-Resource Manager (ARM), or the older Azure Service Management
+Resource Manager, or the older Azure Service Management
 (Classic)](https://azure.microsoft.com/en-us/documentation/articles/azure-classic-rm/).
-Any new resources are created using the ARM model.
+Any new resources are created using the Resource Manager model.
 
 ### Resource groups
 
