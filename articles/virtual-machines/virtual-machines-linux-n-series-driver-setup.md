@@ -29,7 +29,7 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 
 
 
-## Driver installaion on NC VMs running Ubuntu 16.04 LTS
+## Driver installation on NC VMs running Ubuntu 16.04 LTS
 
 Following are instructions to set up the CUDA Toolkit on an Azure NC VM running Ubuntu 16.04 LTS. The Toolkit includes drivers for NVIDIA Tesla K80 GPUs.
 
