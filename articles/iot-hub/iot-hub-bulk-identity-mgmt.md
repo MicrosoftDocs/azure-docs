@@ -27,7 +27,7 @@ The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDe
 ## What are Jobs?
 Identity registry operations use the **Job** system when the operation:
 
-* Has a potentially long execution time compared to standard runtime operations, or
+* Has a potentially long execution time compared to standard run-time operations, or
 * Returns a large amount of data to the user.
 
 In these cases, instead of a single API call waiting or blocking on the result of the operation, the operation asynchronously creates a **Job** for that IoT hub. The operation then immediately returns a **JobProperties** object.
@@ -339,12 +339,12 @@ static string GetContainerSasUri(CloudBlobContainer container)
 ## Next steps
 In this article, you learned how to perform bulk operations against the identity registry in an IoT hub. Follow these links to learn more about managing Azure IoT Hub:
 
-* [Usage metrics][lnk-metrics]
+* [IoT Hub metrics][lnk-metrics]
 * [Operations monitoring][lnk-monitor]
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-metrics]: iot-hub-metrics.md
