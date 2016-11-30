@@ -43,9 +43,14 @@
 ### [Troubleshoot](application-gateway-troubleshooting-502.md)
 # Reference
 ## [PowerShell cmdlets](https://docs.microsoft.com/powershell/resourcemanager)
+## [Azure CLI](/cli/azure/network/application-gateway)
+## [.NET](/dotnet/api)
+## [Java](/java/api/com.microsoft.azure.management.network)
+## [Node.js](http://azure.github.io/azure-sdk-for-node/azure-arm-network/latest/ApplicationGateways)
+## [Ruby](http://www.rubydoc.info/gems/azure_mgmt_network/0.8.0/Azure/ARM/Network/ApplicationGateways)
+## [Python](http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.network.operations.html#azure.mgmt.network.operations.ApplicationGatewaysOperations)
 ## [REST](https://msdn.microsoft.com/library/mt684941)
 ## [Classic REST](https://msdn.microsoft.com/library/azure/mt299393)
-
 # Related
 ## [ExpressRoute](/azure/expressroute/)
 ## [Virtual network](/azure/virtual-network/)
