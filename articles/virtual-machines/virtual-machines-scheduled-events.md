@@ -82,6 +82,7 @@ You can query for Scheduled Events simply by making the following call
 
 A response contains an array of scheduled events. An empty array means that there are currently no events scheduled.
 In the case where there are scheduled events, the response will look like this: 
+
 	{
      "Events":[
           {
