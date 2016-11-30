@@ -15,10 +15,11 @@ ms.devlang: multiple
 ms.topic: reference
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/08/2016
+ms.date: 11/30/2016
 ms.author: chrande
 
 ---
+
 # Azure Functions triggers and bindings developer reference
 This topic provides general reference for triggers and bindings. It includes some of the advanced binding features and syntax supported by all binding types.  
 
