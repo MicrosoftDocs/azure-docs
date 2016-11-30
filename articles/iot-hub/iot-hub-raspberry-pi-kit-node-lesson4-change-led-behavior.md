@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Optional: Change the on and off behavior of the LED | Microsoft Docs'
 description: Customize the messages to change the LED’s on and off behavior.
 services: iot-hub
@@ -10,7 +10,7 @@ keywords: ''
 
 ms.assetid: 3b42a4ad-0197-42f6-8ca9-04c883e879e8
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
