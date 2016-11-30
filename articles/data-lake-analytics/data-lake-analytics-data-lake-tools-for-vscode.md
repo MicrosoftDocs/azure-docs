@@ -3,7 +3,7 @@ title: Use the Azure Data Lake Tools for Visual Studio Code | Microsoft Docs
 description: 'Learn how to use the Azure Data Lake Tools for Visual Studio Code to create, test, and run U-SQL scripts. '
 services: data-lake-analytics
 documentationcenter: ''
-author: mumian
+author: jejiang
 manager: jhubbard
 editor: cgronlun
 
@@ -13,14 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/29/2016
-ms.author: jgao
+ms.date: 11/30/2016
+ms.author: jejiang
 ---
 
 # Use the Azure Data Lake Tools for Visual Studio Code
 
-Learn how to use the Azure Data Lake Tools for Visual Studio Code (VSCode) to create, test, and run U-SQL scripts.
+Learn how to use the Azure Data Lake Tools for Visual Studio Code (VSCode) to create, test, and run U-SQL scripts.  The information is also covered in the following video:
 
+<a href="https://www.youtube.com/watch?v=J_gWuyFnaGA&feature=youtu.be"><img src="./media/data-lake-analytics-data-lake-tools-for-vscode/data-lake-tools-for-vscode-video.png"></a>
 
 ## Prerequisites
 
@@ -184,7 +185,7 @@ To support code-behind, a working folder must be opened.
 2. Open the command palette by pressing **CTRL+SHIFT+P**.
 3. Enter **ADL: Generate Code Behind**.  A code-behind file is created in the same folder. 
 
-You can also right-click a script file, and then click **ADL: Generate Code Behind** to submit a U-SQL job. 
+You can also right-click a script file, and then click **ADL: Generate Code Behind** to generate a code-behind file. 
 
 Compile and submit a U-SQL script with code-behind is the same as the standalone U-SQL script.
 

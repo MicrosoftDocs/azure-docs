@@ -20,6 +20,8 @@ ms.author: edmaca
 # Develop U-SQL User defined operators for Azure Data Lake Analytics jobs
 Learn how to develop user defined operators to be used and reused in Data Lake Analytics jobs. You will develop a custom operator to convert country names.
 
+For the instructions of developing a general purpose assembly for U-SQL, see [Develop U-SQL assemblies for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-assemblies.md)
+
 ## Prerequisites
 * Visual Studio 2015, Visual Studio 2013 update 4, or Visual Studio 2012 with Visual C++ Installed
 * Microsoft Azure SDK for .NET version 2.5 or above.  Install it using the Web platform installer.
