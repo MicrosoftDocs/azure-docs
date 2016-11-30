@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 10/25/2016
+ms.date: 11/29/2016
 ms.author: rachelap@microsoft.com
 
 ---
@@ -32,27 +32,38 @@ In this short video, you learn how to create an Azure Function that listens to m
 ## Create an input queue trigger function
 The goal of this function is to write a message to a queue every 10 seconds. To accomplish this, you must create the function and message queues, and add the code to write messages to the newly created queues.
 
-1. Go to the Azure Portal and locate your Azure Function App.
-2. Click **New Function** > **TimerTrigger - Node**. Name the function **FunctionsBindingsDemo1**
-3. Enter a value of "0/10 * * * * *" for the Schedule. This value is in the form of a cron expression. This schedules the timer to run every 10 seconds.
-4. Click the **Create** button to create the function.
+1. Go to the Azure portal and locate your function app.
+
+2. Click **New Function** > **TimerTrigger - Node**. 
+
+3. Name the function **FunctionsBindingsDemo1**, enter a cron expression value of `0/10 * * * * *` for **Schedule**, and then click **Create**.
    
     ![Add a trigger timer functions](./media/functions-create-an-azure-connected-function/new-trigger-timer-function.png)
-5. Verify that the function works by viewing activity in the log. You might have to click the **Logs** link in the upper right corner to display the log pane.
+
+	This creates a timer triggered function that runs every 10 seconds.
+
+5. On the **Develop** tab, click **Logs** and view the activity in the log. You see a log entry written every ten seconds.
    
-   ![Verify the function works by viewing the log](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
+	![Verify the function works by viewing the log](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-view-log.png)
 
 ### Add a message queue
+
 1. Go to the **Integrate** tab.
+
 2. Choose **New Output** > **Azure Storage Queue** > **Select**.
+
 3. Enter **myQueueItem** in the **Message parameter name** text box.
+
 4. Select a storage account, or click **new** to create a storage account if you do not have an existing one.
+
 5. Enter **functions-bindings** in the **Queue name** text box.
+
 6. Click **Save**.  
    
    ![Add a trigger timer functions](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab.png)
 
 ### Write to the message queue
+
 1. Return to the **Develop** tab, and add the following code to the function after the existing code:
    
     ```javascript
@@ -77,22 +88,30 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
     ```
    
     This code creates a **myQueueItem** and sets its **time** property to the current timeStamp. It then adds the new queue item to the context's myQueue binding.
+
 3. Click **Save and Run**.
+
 4. Verify the code works by viewing the queue in Visual Studio.
    
    * Open Visual Studio, and go to **View** > **Cloud** **Explorer**.
    * Locate the storage account and **functions-bindings** queue you used when creating the myQueue queue. You should see rows of log data. You might need to sign into Azure through Visual Studio.  
 
 ## Create an output queue trigger function
+
 1. Click **New Function** > **QueueTrigger - C#**. Name the function **FunctionsBindingsDemo2**. Notice that you can mix languages in the same function app (Node and C# in this case).
+
 2. Enter **functions-bindings** in the **Queue name** field."
+
 3. Select a storage account to use or create a new one.
+
 4. Click **Create**
+
 5. Verify the new function works by viewing both the function's log and Visual Studio for updates. The function's log shows that the function is running and items are dequeued. Since the function is bound to the **functions-bindings** output queue as an input trigger, refreshing the **functions-bindings** Queue in Visual Studio should reveal that the items are gone. They have been dequeued.   
    
    ![Add an output queue timer functions](./media/functions-create-an-azure-connected-function/functionsbindingsdemo2-integrate-tab.png)   
 
 ### Modify the queue item type from JSON to object
+
 1. Replace the code in **FunctionsBindingsDemo2** with the following code:    
    
     ```cs
@@ -130,7 +149,9 @@ The goal of this function is to write a message to a queue every 10 seconds. To 
     ```
    
     This code adds two classes, **TableItem** and **QItem**, that you use to read and write to queues. Additionally, the **Run** function has been modified to accept the **QItem** and **TraceWriter** parameter, instead of a **string** and a **TraceWriter**. 
+
 2. Click the **Save** button.
+
 3. Verify the code works by checking the log. Notice that Azure functions automatically serialize and deserialize the object for you, making it easy to access the queue in an object-oriented fashion to pass around data. 
 
 ## Store messages in an Azure Table
