@@ -18,7 +18,7 @@ ms.author: jgao
 ---
 # Configure HBase repliction within one virtual network
 
-Learn how to configure HBase replication within one virtual network. Some use cases for cluster replication include:
+Learn how to configure HBase replication within one virtual network (VNet). Some use cases for cluster replication include:
 
 * Load balance. For example, running scans or MapReduce jobs on the secondary and ingesting data on the primary).
 * High availability.
@@ -40,15 +40,22 @@ Before you begin this tutorial, you must have the following:
   
     [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
-## Create a virtual network with two HBase clusters.
+## Create a virtual network with two HBase clusters
 
+To make it easier to go through this tutorial, we have created an Azure Resource Manager template. Using the template, you create a VNet and two HBase clusters within the VNet.  Click the following button to open the template in the Azure portal.
+
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-replication-one-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+If you prefer to configure the environment using other methods, see:
+
+- [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Create HBase clusters in Azure Virtual Network](hdinsight-hbase-provision-vnet.md).
 
 ## Load data 
 
-When you replicate a cluster, you must specify what table to replicate.  In this section, you will load some data into the primary cluster. In the next section, you will enable replication between the two clusters.
+When you replicate a cluster, you must specify the tables to replicate.  In this section, you will load some data into the primary cluster. In the next section, you will enable replication between the two clusters.
 
 Follow the instructions in [HBase tutorial: Get started using Apache HBase with Linux-based Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md) to create a *Contacts* table and insert some data into the table.
-
 
 ## Enable replication
 
