@@ -88,7 +88,7 @@ For this example, a Resource Group was deployed that includes a virtual machine 
 }
 ```
 
-Once exported using the automation script, the protected settings are replace with a single parameter.
+Once exported using the automation script, all protected settings are replaced with a single parameter. This replacement can be seen in the below example. 
 
 *Exported diagnostic extension:*
 
@@ -120,7 +120,33 @@ Once exported using the automation script, the protected settings are replace wi
 }
 ```
 
-## Extension dependencies
+When reconfiguring the protected settings, the propertoed of the configuration schema may be needed. These can be found in the Azure Resource Manager schema repository, which is on [GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json).
+
+From within the schema repository, search for the desired extension, for this example `IaaSDiagnostics`. The listed properties can be used to re-build the protected settings configuration.
+
+```json
+"protectedSettings": {
+	"type": "object",
+	"properties": {
+		"storageAccountName": {
+			"type": "string"
+		},
+		"storageAccountKey": {
+			"type": "string"
+		},
+		"storageAccountEndPoint": {
+			"type": "string"
+		}
+	},
+	"required": [
+		"storageAccountName",
+		"storageAccountKey",
+		"storageAccountEndPoint"
+	]
+}
+```
+
+## Configure extension dependencies
 
 When a Resource Group includes a VM extension, the exported copy will create a dependency for the extension on the virtual machine on which it will run. If a template deployment requires additional dependencies, these will need to be recreated.
 
