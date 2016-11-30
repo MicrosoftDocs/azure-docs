@@ -94,7 +94,7 @@ azure network nic create myVNic \
 ### Deploy the VM into the VNet, NSG and connect the VNic
 
 ```azurecli
-azure vm create \
+azure vm create myVM \
 -g myResourceGroup \
 -l westus \
 -y linux \
