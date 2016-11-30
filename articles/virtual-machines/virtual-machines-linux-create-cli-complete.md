@@ -77,7 +77,7 @@ azure network vnet create -g myResourceGroup -l westeurope\
   -n myVnet -a 192.168.0.0/16
 ```
 
-Create a subnet. The following example creates a subnet named `mySubnet`"
+Create a subnet. The following example creates a subnet named `mySubnet`:
 
 ```azurecli
 azure network vnet subnet create -g myResourceGroup \
@@ -126,7 +126,7 @@ azure network lb inbound-nat-rule create -g myResourceGroup -l myLoadBalancer \
   -n myLoadBalancerRuleSSH2 -p tcp -f 4223 -b 22
 ```
 
-Create the web inbound NAT rules for the load balancer. The following example creates a load balancer rule named `myLoadBalancerRuleWeb`
+Create the web inbound NAT rules for the load balancer. The following example creates a load balancer rule named `myLoadBalancerRuleWeb`:
 
 ```azurecli
 azure network lb rule create -g myResourceGroup -l myLoadBalancer \
