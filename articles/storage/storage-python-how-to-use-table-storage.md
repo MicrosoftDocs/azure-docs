@@ -152,9 +152,10 @@ to the client.
 The query in the following code returns only the descriptions of
 entities in the table.
 
-[AZURE.NOTE] The following snippet works only against the cloud
-storage service. This is not supported by the storage
-emulator.
+> [!NOTE]
+> The following snippet works only against the Azure Storage. It is not supported by the storage emulator.
+>
+>
 
 ```python
 tasks = table_service.query_entities('tasktable', filter="PartitionKey eq 'tasksSeattle'", select='description')

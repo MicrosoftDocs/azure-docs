@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/21/2016
-ms.author: robmcm
+ms.date: 11/29/2016
+ms.author: tamram
 
 ---
 # Node.js Web Application using Storage
@@ -65,10 +65,10 @@ and add them to the web.config settings:
 2. Change directories to the folder containing your application. For example, C:\\node\\tasklist\\WebRole1.
 3. From the Azure Powershell window enter the following cmdlet to retrieve the storage account information:
    
-  ```powershell  
-  PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
-  ```
-
+    ```powershell
+    PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
+    ```
+       
    This retrieves the list of storage accounts and account keys associated with your hosted service.
    
    > [!NOTE]
@@ -77,9 +77,9 @@ and add them to the web.config settings:
    > 
 4. Open the **ServiceDefinition.csdef** file containing the environment settings that are used when the application is deployed to Azure:
    
-  ```powershell
-  PS C:\node\tasklist> notepad ServiceDefinition.csdef
-  ```
+    ```powershell
+    PS C:\node\tasklist> notepad ServiceDefinition.csdef
+    ```
 
 5. Insert the following block under **Environment** element, substituting {STORAGE ACCOUNT} and {STORAGE ACCESS KEY} with the account name and the primary key for the storage account you want to use for deployment:
    
@@ -124,222 +124,221 @@ In this section you will extend the basic application created by the **express**
 2. In the **models** directory, create a new file named **task.js**. This file will contain the model for the tasks created by your application.
 3. At the beginning of the **task.js** file, add the following code to reference required libraries:
    
-  ```nodejs
-  var azure = require('azure-storage');
-  var uuid = require('node-uuid');
-  var entityGen = azure.TableUtilities.entityGenerator;
-  ```
+    ```nodejs
+    var azure = require('azure-storage');
+    var uuid = require('node-uuid');
+    var entityGen = azure.TableUtilities.entityGenerator;
+    ```
 
 4. Next, you will add code to define and export the Task object. This object is responsible for connecting to the table.
    
-  ```nodejs
-  module.exports = Task;
+    ```nodejs
+    module.exports = Task;
 
-  function Task(storageClient, tableName, partitionKey) {
-    this.storageClient = storageClient;
-    this.tableName = tableName;
-    this.partitionKey = partitionKey;
-    this.storageClient.createTableIfNotExists(tableName, function tableCreated(error) {
-      if(error) {
-        throw error;
-      }
-    });
-  };
-  ```
+    function Task(storageClient, tableName, partitionKey) {
+      this.storageClient = storageClient;
+      this.tableName = tableName;
+      this.partitionKey = partitionKey;
+      this.storageClient.createTableIfNotExists(tableName, function tableCreated(error) {
+        if(error) {
+          throw error;
+        }
+      });
+    };
+    ```
 
 5. Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in the table:
    
-  ```nodejs
-  Task.prototype = {
-    find: function(query, callback) {
-      self = this;
-      self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
-        if(error) {
-          callback(error);
-        } else {
-          callback(null, result.entries);
-        }
-      });
-    },
-   
-    addItem: function(item, callback) {
-      self = this;
-      // use entityGenerator to set types
-      // NOTE: RowKey must be a string type, even though
-      // it contains a GUID in this example.
-      var itemDescriptor = {
-        PartitionKey: entityGen.String(self.partitionKey),
-        RowKey: entityGen.String(uuid()),
-        name: entityGen.String(item.name),
-        category: entityGen.String(item.category),
-        completed: entityGen.Boolean(false)
-      };
-
-      self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
-        if(error){  
-          callback(error);
-        }
-        callback(null);
-      });
-    },
-   
-    updateItem: function(rKey, callback) {
-      self = this;
-      self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
-        if(error) {
-          callback(error);
-        }
-        entity.completed._ = true;
-        self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+    ```nodejs
+    Task.prototype = {
+      find: function(query, callback) {
+        self = this;
+        self.storageClient.queryEntities(query, function entitiesQueried(error, result) {
           if(error) {
+            callback(error);
+          } else {
+            callback(null, result.entries);
+          }
+        });
+      },
+
+      addItem: function(item, callback) {
+        self = this;
+        // use entityGenerator to set types
+        // NOTE: RowKey must be a string type, even though
+        // it contains a GUID in this example.
+        var itemDescriptor = {
+          PartitionKey: entityGen.String(self.partitionKey),
+          RowKey: entityGen.String(uuid()),
+          name: entityGen.String(item.name),
+          category: entityGen.String(item.category),
+          completed: entityGen.Boolean(false)
+        };
+
+        self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
+          if(error){  
             callback(error);
           }
           callback(null);
         });
-      });
+      },
+
+      updateItem: function(rKey, callback) {
+        self = this;
+        self.storageClient.retrieveEntity(self.tableName, self.partitionKey, rKey, function entityQueried(error, entity) {
+          if(error) {
+            callback(error);
+          }
+          entity.completed._ = true;
+          self.storageClient.updateEntity(self.tableName, entity, function entityUpdated(error) {
+            if(error) {
+              callback(error);
+            }
+            callback(null);
+          });
+        });
+      }
     }
-  }
-  ```nodejs
+    ```
 
 6. Save and close the **task.js** file.
 
 ### Create the controller
 1. In the **WebRole1/routes** directory, create a new file named **tasklist.js** and open it in a text editor.
 2. Add the following code to **tasklist.js**. This loads the azure and async modules, which are used by **tasklist.js**. This also defines the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:
+   
+    ```nodejs
+    var azure = require('azure-storage');
+    var async = require('async');
 
-  ```nodejs
-  var azure = require('azure-storage');
-  var async = require('async');
+    module.exports = TaskList;
 
-  module.exports = TaskList;
-
-  function TaskList(task) {
-    this.task = task;
-  }
-  ```
+    function TaskList(task) {
+      this.task = task;
+    }
+    ```
 
 3. Continue adding to the **tasklist.js** file by adding the methods used to **showTasks**, **addTask**, and **completeTasks**:
    
-  ```nodejs
-  TaskList.prototype = {
-    showTasks: function(req, res) {
-      self = this;
-      var query = azure.TableQuery()
-        .where('completed eq ?', false);
-      self.task.find(query, function itemsFound(error, items) {
-        res.render('index',{title: 'My ToDo List ', tasks: items});
-      });
-    },
+    ```nodejs
+    TaskList.prototype = {
+      showTasks: function(req, res) {
+        self = this;
+        var query = azure.TableQuery()
+          .where('completed eq ?', false);
+        self.task.find(query, function itemsFound(error, items) {
+          res.render('index',{title: 'My ToDo List ', tasks: items});
+        });
+      },
 
-    addTask: function(req,res) {
-      var self = this      
-      var item = req.body.item;
-      self.task.addItem(item, function itemAdded(error) {
-        if(error) {
-          throw error;
-        }
-        res.redirect('/');
-      });
-    },
+      addTask: function(req,res) {
+        var self = this      
+        var item = req.body.item;
+        self.task.addItem(item, function itemAdded(error) {
+          if(error) {
+            throw error;
+          }
+          res.redirect('/');
+        });
+      },
 
-    completeTask: function(req,res) {
-      var self = this;
-      var completedTasks = Object.keys(req.body);
-      async.forEach(completedTasks, function taskIterator(completedTask, callback) {
-        self.task.updateItem(completedTask, function itemsUpdated(error) {
-          if(error){
-            callback(error);
+      completeTask: function(req,res) {
+        var self = this;
+        var completedTasks = Object.keys(req.body);
+        async.forEach(completedTasks, function taskIterator(completedTask, callback) {
+          self.task.updateItem(completedTask, function itemsUpdated(error) {
+            if(error){
+              callback(error);
+            } else {
+              callback(null);
+            }
+          });
+        }, function goHome(error){
+          if(error) {
+            throw error;
           } else {
-            callback(null);
+            res.redirect('/');
           }
         });
-      }, function goHome(error){
-        if(error) {
-          throw error;
-        } else {
-          res.redirect('/');
-        }
-      });
+      }
     }
-  }
-  ```
+    ```
+    
 4. Save the **tasklist.js** file.
 
 ### Modify app.js
 1. In the **WebRole1** directory, open the **app.js** file in a text editor. 
 2. At the beginning of the file, add the following to load the azure module and set the table name and partition key:
    
-  ```nodejs
-  var azure = require('azure-storage');
-  var tableName = 'tasks';
-  var partitionKey = 'hometasks';
-  ```
+    ```nodejs
+    var azure = require('azure-storage');
+    var tableName = 'tasks';
+    var partitionKey = 'hometasks';
+    ```
 
 3. In the app.js file, scroll down to where you see the following line:
    
-  ```nodejs
-  app.use('/', routes);
-  app.use('/users', users);
-  ```
-   
+    ```nodejs
+    app.use('/', routes);
+    app.use('/users', users);
+    ```
+
     Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
    
-  ```nodejs
-  var TaskList = require('./routes/tasklist');
-  var Task = require('./models/task');
-  var task = new Task(azure.createTableService(), tableName, partitionKey);
-  var taskList = new TaskList(task);
+    ```nodejs
+    var TaskList = require('./routes/tasklist');
+    var Task = require('./models/task');
+    var task = new Task(azure.createTableService(), tableName, partitionKey);
+    var taskList = new TaskList(task);
 
-  app.get('/', taskList.showTasks.bind(taskList));
-  app.post('/addtask', taskList.addTask.bind(taskList));
-  app.post('/completetask', taskList.completeTask.bind(taskList));
-  ```
-
+    app.get('/', taskList.showTasks.bind(taskList));
+    app.post('/addtask', taskList.addTask.bind(taskList));
+    app.post('/completetask', taskList.completeTask.bind(taskList));
+    ```
+    
 4. Save the **app.js** file.
 
 ### Modify the index view
 1. Change directories to the **views** directory and open the **index.jade** file in a text editor.
 2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
    
-  ```nodejs
-  extends layout
+    extends layout
 
-  block content
-    h1= title
-    br
-
-    form(action="/completetask", method="post")
-      table.table.table-striped.table-bordered
-        tr
-          td Name
-          td Category
-          td Date
-          td Complete
-        if tasks != []
-          tr
-            td 
-        else
-          each task in tasks
-            tr
-              td #{task.name._}
-              td #{task.category._}
-              - var day   = task.Timestamp._.getDate();
-              - var month = task.Timestamp._.getMonth() + 1;
-              - var year  = task.Timestamp._.getFullYear();
-              td #{month + "/" + day + "/" + year}
-              td
-                input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
-      button.btn(type="submit") Update tasks
-    hr
-    form.well(action="/addtask", method="post")
-      label Item Name: 
-      input(name="item[name]", type="textbox")
-      label Item Category: 
-      input(name="item[category]", type="textbox")
+    block content
+      h1= title
       br
-      button.btn(type="submit") Add item
-  ```
 
+      form(action="/completetask", method="post")
+        table.table.table-striped.table-bordered
+          tr
+            td Name
+            td Category
+            td Date
+            td Complete
+          if tasks != []
+            tr
+              td 
+          else
+            each task in tasks
+              tr
+                td #{task.name._}
+                td #{task.category._}
+                - var day   = task.Timestamp._.getDate();
+                - var month = task.Timestamp._.getMonth() + 1;
+                - var year  = task.Timestamp._.getFullYear();
+                td #{month + "/" + day + "/" + year}
+                td
+                  input(type="checkbox", name="#{task.RowKey._}", value="#{!task.completed._}", checked=task.completed._)
+        button.btn(type="submit") Update tasks
+      hr
+      form.well(action="/addtask", method="post")
+        label Item Name: 
+        input(name="item[name]", type="textbox")
+        label Item Category: 
+        input(name="item[category]", type="textbox")
+        br
+        button.btn(type="submit") Add item
+        
 3. Save and close **index.jade** file.
 
 ### Modify the global layout
@@ -348,20 +347,18 @@ The **layout.jade** file in the **views** directory is used as a global template
 1. Download and extract the files for [Twitter Bootstrap](http://getbootstrap.com/). Copy the **bootstrap.min.css** file from the **bootstrap\\dist\\css** folder to the **public\\stylesheets** directory of your tasklist application.
 2. From the **views** folder, open the **layout.jade** in your text editor and replace the contents with the following:
    
-  ```nodejs
-  doctype html
-  html
-    head
-      title= title
-      link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
-      link(rel='stylesheet', href='/stylesheets/style.css')
-    body.app
-      nav.navbar.navbar-default
-        div.navbar-header
-          a.navbar-brand(href='/') My Tasks
-      block content
-  ```
-
+    doctype html
+    html
+      head
+        title= title
+        link(rel='stylesheet', href='/stylesheets/bootstrap.min.css')
+        link(rel='stylesheet', href='/stylesheets/style.css')
+      body.app
+        nav.navbar.navbar-default
+          div.navbar-header
+            a.navbar-brand(href='/') My Tasks
+        block content
+        
 3. Save the **layout.jade** file.
 
 ### Running the Application in the Emulator
@@ -419,18 +416,18 @@ The following steps show you how to stop and delete your application.
 1. In the Windows PowerShell window, stop the service deployment
    created in the previous section with the following cmdlet:
    
-  ```powershell
-  PS C:\node\tasklist\WebRole1> Stop-AzureService
-  ```
-
+    ```powershell
+    PS C:\node\tasklist\WebRole1> Stop-AzureService
+    ```
+       
    Stopping the service may take several minutes. When the service is stopped, you receive a message indicating that it has stopped.
 
 2. To delete the service, call the following cmdlet:
    
-  ```powershell
-  PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
-  ```   
-  
+    ```powershell
+    PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
+    ```
+       
    When prompted, enter **Y** to delete the service.
    
    Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
