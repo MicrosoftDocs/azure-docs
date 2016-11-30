@@ -1,4 +1,4 @@
--
+---
 title: Upgrading to the Azure Search .NET SDK version 1.1 | Microsoft Docs
 description: Upgrading to the Azure Search .NET SDK version 1.1
 services: search
