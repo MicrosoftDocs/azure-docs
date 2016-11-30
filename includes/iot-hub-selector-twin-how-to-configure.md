@@ -83,7 +83,7 @@ Note how the back end is able, at any time, to query the status of the configura
 
 This tutorial shows you how to:
 
-* Create a simulated device that receives configuration updates from the back end and reports multiple updates as *reported properties* on the configuration update process.
+* Create a simulated device app that receives configuration updates from the back end and reports multiple updates as *reported properties* on the configuration update process.
 * Create a back-end app that updates the desired configuration of a device, and then queries the configuration update process.
 
 <!-- links -->

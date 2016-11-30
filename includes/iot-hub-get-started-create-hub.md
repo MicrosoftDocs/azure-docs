@@ -1,5 +1,5 @@
 ## Create an IoT hub
-Create an IoT hub for your simulated device to connect to. The following steps show you how to complete this task by using the Azure portal.
+Create an IoT hub for your simulated device app to connect to. The following steps show you how to complete this task by using the Azure portal.
 
 1. Sign in to the [Azure portal][lnk-portal].
 2. In the Jumpbar, click **New** > **Internet of Things** > **Azure IoT Hub**.

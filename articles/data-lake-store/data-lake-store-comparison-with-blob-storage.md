@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Data Lake Store comparison with Azure Storage Blob | Microsoft Docs
 description: Azure Data Lake Store comparison with Azure Storage Blob
 services: data-lake-store
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 08/15/2016
+ms.date: 11/28/2016
 ms.author: nitinme
 
 ---
@@ -39,7 +39,7 @@ The table in this article summarizes the differences between Azure Data Lake Sto
 | Analytics Workload Performance |Optimized performance for parallel analytics workloads. High Throughput and IOPS. |Not optimized for analytics workloads |
 | Size limits |No limits on account sizes, file sizes or number of files |Specific limits documented [here](../azure-subscription-service-limits.md#storage-limits) |
 | Geo-redundancy |Locally-redundant (multiple copies of data in one Azure region) |Locally redundant (LRS), globally redundant (GRS), read-access globally redundant (RA-GRS). See [here](../storage/storage-redundancy.md) for more information |
-| Service state |Public Preview |Generally Available |
+| Service state |Generally available |Generally available |
 | Regional availability |See [here](https://azure.microsoft.com/regions/#services) |See [here](https://azure.microsoft.com/regions/#services) |
 | Price |See [Pricing](https://azure.microsoft.com/pricing/details/data-lake-store/) |See [Pricing](https://azure.microsoft.com/pricing/details/storage/) |
 
