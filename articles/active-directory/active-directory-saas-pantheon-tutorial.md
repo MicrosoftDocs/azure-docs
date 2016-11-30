@@ -1,5 +1,5 @@
 ---
-pageTitle: 'Tutorial: Azure Active Directory integration with Pantheon | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Pantheon | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Pantheon.
 services: active-directory
 documentationCenter: na
