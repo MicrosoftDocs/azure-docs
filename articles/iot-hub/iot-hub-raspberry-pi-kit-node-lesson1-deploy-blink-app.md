@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and deploy the blink application | Microsoft Docs
 description: Clone the sample Node.js application from GitHub, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds.
 services: iot-hub
@@ -10,7 +10,7 @@ keywords: ''
 
 ms.assetid: a5a03a57-fe86-416f-90ff-6eca17775842
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
