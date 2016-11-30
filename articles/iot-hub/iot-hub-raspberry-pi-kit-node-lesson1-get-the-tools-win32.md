@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'iot development, iot software, internet of things software, install git on windows, install node js windows, install npm on windows'
 
 ms.assetid: b3d88e17-97cc-4f23-85fd-a688fc228eb8
 ms.service: iot-hub
