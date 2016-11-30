@@ -32,7 +32,7 @@ To complete this tutorial you need the following:
   ```
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../resource-manager-deployment-model.md). The Azure CLI must be in Azure Resource Manager mode:
+> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). The Azure CLI must be in Azure Resource Manager mode:
 > 
 > ```
 > azure config mode arm
@@ -53,13 +53,13 @@ To complete this tutorial you need the following:
     azure account list 
    ```
 
-To set the subscription context under which you want to run the rest of the commands use
+   To set the subscription context under which you want to run the rest of the commands use
 
-```
+   ```
     azure account set <subscription name>
-```
+   ```
 
-1. If you do not have a resource group you can create one named **exampleResourceGroup** 
+3. If you do not have a resource group you can create one named **exampleResourceGroup** 
    ```
     azure group create -n exampleResourceGroup -l westus
    ```
@@ -106,7 +106,7 @@ Quick example:
 ## Next steps
 To learn more about developing for IoT Hub, see the following:
 
-* [IoT Hub SDKs][lnk-sdks]
+* [IoT SDKs][lnk-sdks]
 
 To further explore the capabilities of IoT Hub, see:
 
@@ -118,7 +118,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-status]: https://azure.microsoft.com/status/
 [lnk-CLI-install]: ../xplat-cli-install.md
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
-[lnk-CLI-arm]: ../xplat-cli-azure-resource-manager.md
+[lnk-CLI-arm]: ../azure-resource-manager/xplat-cli-azure-resource-manager.md
 
 [lnk-sdks]: iot-hub-devguide-sdks.md
 [lnk-portal]: iot-hub-create-through-portal.md 

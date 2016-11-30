@@ -28,8 +28,6 @@ In this article you'll find an overview of the backup management tasks available
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
 
-Resource Manager deployment model.
-
 ## Management portal tasks
 1. Sign in to the [Management Portal](https://manage.windowsazure.com).
 2. Click **Recovery Services**, then click the name of backup vault to view the Quick Start page.

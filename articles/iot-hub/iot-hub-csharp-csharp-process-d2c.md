@@ -21,16 +21,16 @@ ms.author: dobett
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## Introduction
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
 
 This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and it shows two scalable patterns that you can use to process device-to-cloud messages:
 
 * The reliable storage of device-to-cloud messages in [Azure blob storage]. A common scenario is *cold path* analytics, in which you store telemetry data in blobs to use as input into analytics processes. These processes can be driven by tools such as [Azure Data Factory] or the [HDInsight (Hadoop)] stack.
-* The reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are interactive when they are immediate triggers for a set of actions in the application back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, *data point* messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data point message.
+* The reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are interactive when they are immediate triggers for a set of actions in the solution back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, *data-point* messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
 
 Because IoT Hub exposes an [Event Hub][lnk-event-hubs]-compatible endpoint to receive device-to-cloud messages, this tutorial uses an [EventProcessorHost] instance. This instance:
 
-* Reliably stores *data point* messages in Azure blob storage.
+* Reliably stores *data-point* messages in Azure blob storage.
 * Forwards *interactive* device-to-cloud messages to an Azure [Service Bus queue] for immediate processing.
 
 Service Bus helps ensure reliable processing of interactive messages, as it provides per-message checkpoints, and time window-based de-duplication.
@@ -40,10 +40,10 @@ Service Bus helps ensure reliable processing of interactive messages, as it prov
 > 
 > 
 
-At the end of this tutorial, you run three Windows console apps:
+At the end of this tutorial, you run three .NET console apps:
 
-* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
-* **ProcessDeviceToCloudMessages** uses the [EventProcessorHost] class to retrieve messages from the Event Hub-compatible endpoint. It then reliably stores data point messages in Azure blob storage, and forwards interactive messages to a Service Bus queue.
+* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
+* **ProcessDeviceToCloudMessages** uses the [EventProcessorHost] class to retrieve messages from the Event Hub-compatible endpoint. It then reliably stores data-point messages in Azure blob storage, and forwards interactive messages to a Service Bus queue.
 * **ProcessD2CInteractiveMessages** de-queues the interactive messages from the Service Bus queue.
 
 > [!NOTE]
@@ -51,7 +51,7 @@ At the end of this tutorial, you run three Windows console apps:
 > 
 > 
 
-This tutorial is directly applicable to other ways to consume Event Hub-compatible messages, such as [HDInsight (Hadoop)] projects. For more information, see [Azure IoT Hub developer guide - Device to cloud].
+This tutorial is directly applicable to other ways to consume Event Hub-compatible messages, such as [HDInsight (Hadoop)] projects. For more information, see [IoT Hub developer guide - Device to cloud].
 
 To complete this tutorial, you need the following:
 
@@ -60,8 +60,8 @@ To complete this tutorial, you need the following:
 
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 
-## Send interactive messages from a simulated device
-In this section, you modify the simulated device application you created in the [Get started with IoT Hub] tutorial to send interactive device-to-cloud messages to the IoT hub.
+## Send interactive messages from a simulated device app
+In this section, you modify the simulated device app you created in the [Get started with IoT Hub] tutorial to send interactive device-to-cloud messages to the IoT hub.
 
 1. In Visual Studio, in the **SimulatedDevice** project, add the following method to the **Program** class.
    
@@ -84,7 +84,7 @@ In this section, you modify the simulated device application you created in the 
     ```
    
     This method is similar to the **SendDeviceToCloudMessagesAsync** method in the **SimulatedDevice** project. The only differences are that you now set the **MessageId** system property, and a user property called **messageType**.
-    The code assigns a globally unique identifier (GUID) to the **MessageId** property. The Service Bus can use this identifier to de-duplicate the messages it receives. The sample uses the **messageType** property to distinguish interactive from data point messages. The application passes this information in message properties, instead of in the message body, so that the event processor does not need to deserialize the message to perform message routing.
+    The code assigns a globally unique identifier (GUID) to the **MessageId** property. The Service Bus can use this identifier to de-duplicate the messages it receives. The sample uses the **messageType** property to distinguish interactive from data-point messages. The application passes this information in message properties, instead of in the message body, so that the event processor does not need to deserialize the message to perform message routing.
    
    > [!NOTE]
    > It is important to create the **MessageId** used to de-duplicate interactive messages in the device code. Intermittent network communications, or other failures, could result in multiple retransmissions of the same message from that device. You can also use a semantic message ID, such as a hash of the relevant message data fields, in place of a GUID.
@@ -102,7 +102,7 @@ In this section, you modify the simulated device application you created in the 
    > 
 
 ## Process device-to-cloud messages
-In this section, you create a Windows console app that processes device-to-cloud messages from IoT Hub. Iot Hub exposes an [Event Hub]-compatible endpoint to enable an application to read device-to-cloud messages. This tutorial uses the [EventProcessorHost] class to process these messages in a console app. For more information about how to process messages from Event Hubs, see the [Get Started with Event Hubs] tutorial.
+In this section, you create a .NET console app that processes device-to-cloud messages from IoT Hub. Iot Hub exposes an [Event Hub]-compatible endpoint to enable an application to read device-to-cloud messages. This tutorial uses the [EventProcessorHost] class to process these messages in a .NET console app. For more information about how to process messages from Event Hubs, see the [Get Started with Event Hubs] tutorial.
 
 The challenge when you implement reliable storage of data-point messages or forwarding of interactive messages is that event processing relies on the message consumer to provide checkpoints for its progress. Moreover, to achieve a high throughput, when you read from Event Hubs you should provide checkpoints in large batches. This approach creates the possibility of duplicate processing for a large number of messages if there is a failure and you revert to the previous checkpoint. In this tutorial, you see how to synchronize Azure Storage writes and Service Bus de-duplication windows with **EventProcessorHost** checkpoints.
 
@@ -115,7 +115,7 @@ The event processor uses Event Hubs message offsets as block IDs. This mechanism
 > 
 > 
 
-The application uses the Service Bus de-duplication feature to avoid duplicates when it processes interactive messages. The simulated device stamps each interactive message with a unique **MessageId**. These IDs enable Service Bus to ensure that, in the specified de-duplication time window, no two messages with the same **MessageId** are delivered to the receivers. This de-duplication, together with the per-message completion semantics provided by Service Bus queues, makes it easy to implement the reliable processing of interactive messages.
+The application uses the Service Bus de-duplication feature to avoid duplicates when it processes interactive messages. The simulated device app stamps each interactive message with a unique **MessageId**. These IDs enable Service Bus to ensure that, in the specified de-duplication time window, no two messages with the same **MessageId** are delivered to the receivers. This de-duplication, together with the per-message completion semantics provided by Service Bus queues, makes it easy to implement the reliable processing of interactive messages.
 
 To make sure that no message is resubmitted outside of the de-duplication window, the code synchronizes the **EventProcessorHost** checkpoint mechanism with the Service Bus queue de-duplication window. This synchronization is done by forcing a checkpoint at least once every time the de-duplication window elapses (in this tutorial, the window is one hour).
 
@@ -302,7 +302,7 @@ You also need a Service Bus queue to enable reliable processing of interactive m
    
     The **OpenAsync** method initializes the **currentBlockInitOffset** variable, which tracks the current offset of the first message read by this event processor. Remember that each processor is responsible for a single partition.
    
-    The **ProcessEventsAsync** method receives a batch of messages from IoT Hub, and processes them as follows: it sends interactive messages to the Service Bus queue, and appends data point messages to the memory buffer called **toAppend**. If the memory buffer reaches the 4 MB limit, or the de-duplication time windows elapses (one hour after a checkpoint in this tutorial), then the application triggers a checkpoint.
+    The **ProcessEventsAsync** method receives a batch of messages from IoT Hub, and processes them as follows: it sends interactive messages to the Service Bus queue, and appends data-point messages to the memory buffer called **toAppend**. If the memory buffer reaches the 4 MB limit, or the de-duplication time windows elapses (one hour after a checkpoint in this tutorial), then the application triggers a checkpoint.
    
     The **AppendAndCheckpoint** method first generates a blockId for the block to append. Azure Storage requires all block IDs to have the same length, so the method pads the offset with leading zeroes - `currentBlockInitOffset.ToString("0000000000000000000000000")`. Then, if a block with this ID is already in the blob, the method overwrites it with the current contents of the buffer.
    
@@ -342,7 +342,7 @@ You also need a Service Bus queue to enable reliable processing of interactive m
    > 
 
 ## Receive interactive messages
-In this section, you write a Windows console app that receives the interactive messages from the Service Bus queue. For more information about how to architect a solution using Service Bus, see [Build multi-tier applications with Service Bus][Build multi-tier applications with Service Bus].
+In this section, you write a .NET console app that receives the interactive messages from the Service Bus queue. For more information about how to architect a solution using Service Bus, see [Build multi-tier applications with Service Bus][Build multi-tier applications with Service Bus].
 
 1. In the current Visual Studio solution, create a Visual C# Windows project by using the **Console Application** project template. Name the project **ProcessD2CInteractiveMessages**.
 2. In Solution Explorer, right-click the **ProcessD2CInteractiveMessages** project, and then click **Manage NuGet Packages**. This operation displays the **NuGet Package Manager** window.
@@ -392,23 +392,23 @@ In this section, you write a Windows console app that receives the interactive m
 Now you are ready to run the applications.
 
 1. In Visual Studio, in Solution Explorer, right-click your solution and select **Set StartUp Projects**. Select **Multiple startup projects**, then select **Start** as the action for the **ProcessDeviceToCloudMessages**, **SimulatedDevice**, and **ProcessD2CInteractiveMessages** projects.
-2. Press **F5** to start the three console applications. The **ProcessD2CInteractiveMessages** application should process every interactive message sent from the **SimulatedDevice** application.
+2. Press **F5** to start the three console apps. The **ProcessD2CInteractiveMessages** application should process every interactive message sent from the **SimulatedDevice** application.
    
-   ![Three console applications][50]
+   ![Three console apps][50]
 
 > [!NOTE]
-> To see updates in your blob, you may need to reduce the **MAX_BLOCK_SIZE** constant in the **StoreEventProcessor** class to a smaller value, such as **1024**. This change is useful because it takes some time to reach the block size limit with the data sent by the simulated device. With a smaller block size, you do not need to wait so long to see the blob being created and updated. However, using a larger block size makes the application more scalable.
+> To see updates in your blob, you may need to reduce the **MAX_BLOCK_SIZE** constant in the **StoreEventProcessor** class to a smaller value, such as **1024**. This change is useful because it takes some time to reach the block size limit with the data sent by the simulated device app. With a smaller block size, you do not need to wait so long to see the blob being created and updated. However, using a larger block size makes the application more scalable.
 > 
 > 
 
 ## Next steps
-In this tutorial, you learned how to reliably process data point and interactive device-to-cloud messages by using the [EventProcessorHost] class.
+In this tutorial, you learned how to reliably process data-point and interactive device-to-cloud messages by using the [EventProcessorHost] class.
 
-The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your back end.
+The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your solution back end.
 
 To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite][lnk-suite].
 
-To learn more about developing solutions with IoT Hub, see the [IoT Hub Developer Guide].
+To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 
 <!-- Images. -->
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
@@ -425,12 +425,12 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub Develope
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
-[Azure IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
+[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
 
 [Azure Storage]: https://azure.microsoft.com/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
 
-[IoT Hub Developer Guide]: iot-hub-devguide.md
+[IoT Hub developer guide]: iot-hub-devguide.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
 [lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
