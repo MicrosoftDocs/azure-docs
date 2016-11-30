@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'raspberry pi led blink, blink led with raspberry pi'
 
 ms.assetid: a5a03a57-fe86-416f-90ff-6eca17775842
 ms.service: iot-hub
