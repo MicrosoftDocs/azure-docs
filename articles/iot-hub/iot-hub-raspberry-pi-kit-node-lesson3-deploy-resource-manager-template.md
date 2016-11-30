@@ -10,7 +10,7 @@ keywords: ''
 
 ms.assetid: 6c58de85-c5c4-4989-bb5e-08c45c549966
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
