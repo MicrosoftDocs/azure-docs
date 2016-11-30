@@ -28,28 +28,28 @@ This document provides an overview of VM extensions, prerequisites for using Azu
 
 Several different Azure VM extensions are available, each with a specific use case. Some examples are:
 
-- Apply PowerShell Desired State Configurations to a virtual machine using the DSC extension for Linux. For more information, see [Azure Desired State configuration extension](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
+- Apply PowerShell Desired State configurations to a virtual machine using the DSC extension for Linux. For more information, see [Azure Desired State configuration extension](https://github.com/Azure/azure-linux-extensions/tree/master/DSC).
 - Configure monitoring of a virtual machine with the Microsoft Monitoring Agent VM extension. For more information, see [Enable or disable VM monitoring](virtual-machines-linux-vm-monitoring.md).
 - Configure monitoring of your Azure infrastructure with the Datadog extension. For more information, see the [Datadog blog](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 - Configure a Docker host on an Azure virtual machine using the Docker VM extension. For more information, see [Docker VM extension](virtual-machines-linux-dockerextension.md).
 
-In addition to process specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a virtual machine. This is useful when designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](virtual-machines-linux-extensions-customscript.md).
+In addition to process-specific extensions, a Custom Script extension is available for both Windows and Linux virtual machines. The Custom Script extension for Linux allows any Bash script to be run on a virtual machine. This is useful when designing Azure deployments that require configuration beyond what native Azure tooling can provide. For more information, see [Linux VM Custom Script extension](virtual-machines-linux-extensions-customscript.md).
 
 To work through an example where a VM extension is used in an end-to-end application deployment, see [Automating application deployments to Azure virtual machines](virtual-machines-linux-dotnet-core-1-landing.md).
 
 ## Prerequisites
 
-Each Virtual Machine extension may have its own set of prerequisites. For instance, the Docker VM extension has a prerequisite of a supported Linux distribution. Requirements of individual extensions are detailed in the extension-specific documentation.
+Each Virtual Machine extension might have its own set of prerequisites. For instance, the Docker VM extension has a prerequisite of a supported Linux distribution. Requirements of individual extensions are detailed in the extension-specific documentation.
 
 ### Azure VM Agent
 
-The Azure VM Agent manages interactions between an Azure virtual machine and the Azure Fabric Controller. The VM Agent is responsible for many functional aspects of deploying and managing Azure virtual machines, including running VM extensions. The Azure VM Agent is pre-installed on Azure Gallery Images, and can be installed manually on supported operating systems.
+The Azure VM Agent manages interactions between an Azure virtual machine and the Azure Fabric Controller. The VM Agent is responsible for many functional aspects of deploying and managing Azure virtual machines, including running VM extensions. The Azure VM Agent is pre-installed on Azure Gallery Images and can be installed manually on supported operating systems.
 
 For information on supported operating systems and installation instructions, see [Azure Virtual Machine Agent](virtual-machines-linux-classic-agents-and-extensions.md).
 
 ## Discover VM extensions
 
-Many different VM extensions are available for use with Azure virtual machines. To see a complete list, run the following command with the Azure CLI, replacing the location with the location of choice.
+Many different VM extensions are available for use with Azure virtual machines. To see a complete list, run the following command with the Azure CLI, replacing the example location with the location of your choice.
 
 ```azurecli
 azure vm extension-image list westus
@@ -82,9 +82,9 @@ info:    vm extension set command OK
 
 ### Azure portal
 
-VM extensions can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine, choose **Extensions**, and click **Add**. Doing so provides a list of available extensions. Select the one you want, which provides a wizard for configuration.
+VM extensions can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine, choose **Extensions**, and click **Add**. Doing so provides a list of available extensions. Select the one you want and follow the instructions in the wizard.
 
-The following image depicts the installation of the Linux custom script extension from the Azure portal.
+The following image shows the installation of the Linux custom script extension from the Azure portal.
 
 ![Antimalware Extension](./media/virtual-machines-linux-extensions-features/script-extension-linux.jpg)
 
@@ -129,7 +129,7 @@ For more information, see [Authoring Azure Resource Manager templates with Linux
 
 When running a VM extension, it may be necessary to include sensitive information such as credentials, storage account names, and storage account access keys. Many VM extensions include a protected configuration that encrypts data and only decrypts it inside the target virtual machine. Each extension has a specific protected configuration schema, and each is detailed in extension-specific documentation.
 
-The following example depicts an instance of the Custom Script extension for Linux. Notice that the command to execute includes a set of credentials. In this example, the command to execute will not be encrypted.
+The following example shows an instance of the Custom Script extension for Linux. Notice that the command to execute includes a set of credentials. In this example, the command to execute will not be encrypted.
 
 
 ```json
