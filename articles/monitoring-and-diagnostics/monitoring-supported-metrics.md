@@ -302,19 +302,19 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|INREQS|Solicitações de Entrada|Count|Total|Taxa de transferência da mensagem de entrada do Hub de Eventos para um namespace|
-|SUCCREQ|Solicitações com êxito|Count|Total|Total de solicitações com êxito para um namespace|
-|FAILREQ|Solicitações com falha|Count|Total|Total de solicitações com falha para um namespace|
-|SVRBSY|Erros de servidor ocupado|Count|Total|Total de erros de ocupado do servidor para um namespace|
-|INTERR|Erros do servidor interno|Count|Total|Total de erros internos do servidor para um namespace|
-|MISCERR|Outros erros|Count|Total|Total de solicitações com falha para um namespace|
-|INMSGS|Mensagens de entrada|Count|Total|Total de mensagens de entrada para um namespace|
-|OUTMSGS|Mensagens de saída|Count|Total|Total de mensagens de saída para um namespace|
-|EHINMBS|Bytes recebidos por segundo|BytesPerSecond|Total|Taxa de transferência da mensagem de entrada do Hub de Eventos para um namespace|
-|EHOUTMBS|Bytes de saída por segundo|BytesPerSecond|Total|Total de mensagens de saída para um namespace|
-|EHABL|Arquivar mensagens da lista de pendências|Count|Total|O Hub de Eventos arquiva mensagens em uma lista de pendências para um namespace|
-|EHAMSGS|Arquivar mensagens|Count|Total|O Hub de Eventos arquivou mensagens em um namespace|
-|EHAMBS|Arquivar taxa de transferência da mensagem|BytesPerSecond|Total|O Hub de Eventos arquivou a taxa de transferência de mensagens em um namespace|
+|INREQS|Incoming Requests|Count|Total|Event Hub incoming message throughput for a namespace|
+|SUCCREQ|Successful Requests|Count|Total|Total successful requests for a namespace|
+|FAILREQ|Failed Requests|Count|Total|Total failed requests for a namespace|
+|SVRBSY|Server Busy Errors|Count|Total|Total server busy errors for a namespace|
+|INTERR|Internal Server Errors|Count|Total|Total internal server errors for a namespace|
+|MISCERR|Other Errors|Count|Total|Total failed requests for a namespace|
+|INMSGS|Incoming Messages|Count|Total|Total incoming messages for a namespace|
+|OUTMSGS|Outgoing Messages|Count|Total|Total outgoing messages for a namespace|
+|EHINMBS|Incoming bytes per second|BytesPerSecond|Total|Event Hub incoming message throughput for a namespace|
+|EHOUTMBS|Outgoing bytes per second|BytesPerSecond|Total|Total outgoing messages for a namespace|
+|EHABL|Archive backlog messages|Count|Total|Event Hub archive messages in backlog for a namespace|
+|EHAMSGS|Archive messages|Count|Total|Event Hub archived messages in a namespace|
+|EHAMBS|Archive message throughput|BytesPerSecond|Total|Event Hub archived message throughput in a namespace|
 
 ## Microsoft.Logic/workflows
 
@@ -369,8 +369,8 @@ Azure Monitor provides several ways to interact with metrics, including charting
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
-|CPUXNS|Uso de CPU por namespace|Percent|Maximum|Métrica de uso de CPU de namespace do barramento de serviço premium|
-|WSXNS|Uso do tamanho da memória por namespace|Percent|Maximum|Métrica de uso de memória de namespace do barramento de serviço premium|
+|CPUXNS|CPU usage per namespace|Percent|Maximum|Service bus premium namespace CPU usage metric|
+|WSXNS|Memory size usage per namespace|Percent|Maximum|Service bus premium namespace memory usage metric|
 
 ## Microsoft.Sql/servers/databases
 
