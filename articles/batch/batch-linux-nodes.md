@@ -219,11 +219,11 @@ The following table lists the Marketplace virtual machine images that are compat
 | OpenLogic | CentOS | 7.2 | latest | batch.node.centos 7 |
 | Oracle | Oracle-Linux | 7.0 | latest | batch.node.centos 7 |
 | Oracle | Oracle-Linux | 7.2 | latest | batch.node.centos 7 |
-| microsoft-ads | linux-data-science-vm | linuxdsvm | latest | batch.node.centos 7 |
 | SUSE | openSUSE | 13.2 | latest | batch.node.opensuse 13.2 |
 | SUSE | openSUSE-Leap | 42.1 | latest | batch.node.opensuse 42.1 |
 | SUSE | SLES | 12-SP1 | latest | batch.node.opensuse 42.1 |
 | SUSE | SLES-HPC | 12-SP1 | latest | batch.node.opensuse 42.1 |
+| microsoft-ads | linux-data-science-vm | linuxdsvm | latest | batch.node.centos 7 |
 | microsoft-ads | standard-data-science-vm | standard-data-science-vm | latest | batch.node.windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2008-R2-SP1 | latest | batch.node.windows amd64 |
 | MicrosoftWindowsServer | WindowsServer | 2012-Datacenter | latest | batch.node.windows amd64 |
