@@ -44,7 +44,7 @@ The number of partitions is specified at the Event Hub creation time and must be
 
 While partitions are identifiable and can be sent to directly, it is best to avoid sending data to specific partitions. Instead, you can use higher level constructs introduced in the [Event publisher](#event-publisher) and [Publisher Policy](#capacity-and-security) sections.
 
-In the context of Event Hubs, messages are referred to as *event data*. Event data contains the body of the event, a user defined property bag, and various metadata about the event such as its offset in the partition and its number in the stream sequence. Partitions are filled with a sequence of event data.
+In the context of Event Hubs, messages are referred to as *event data*. Event data contains the body of the event, a user-defined property bag, and various metadata about the event such as its offset in the partition and its number in the stream sequence. Partitions are filled with a sequence of event data.
 
 ## Event publisher
 Any entity that sends events or data to an Event Hub is an *event publisher*. Event publishers can publish events using either HTTPS or AMQP 1.0. Event publishers use a Shared Access Signature (SAS) token to identify themselves to an Event Hub, and can have a unique identity, or use a common SAS token, depending on the requirements of the scenario.
