@@ -1,4 +1,4 @@
-﻿---
+---
 title: Secure cloud resources with Azure MFA and AD FS
 description: This is the Azure Multi-Factor authentication page that describes how to get started with Azure MFA and AD FS in the cloud.
 services: multi-factor-authentication
@@ -13,39 +13,26 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 11/30/2016
 ms.author: kgremban
-
 ---
+
 # Securing cloud resources with Azure Multi-Factor Authentication and AD FS
-If your organization is federated with Azure Active Directory, use Azure Multi-Factor Authentication or Active Directory Federation Services to secure resources that are accessed by Azure AD. Use the following procedures to secure Azure Active Directory resources with either Azure Multi-Factor Authentication or Active Directory Federation Services.
+If your organization is federated with Azure Active Directory, use Azure Multi-Factor Authentication or Active Directory Federation Services (AD FS) to secure resources that are accessed by Azure AD. Use the following procedures to secure Azure Active Directory resources with either Azure Multi-Factor Authentication or Active Directory Federation Services.
 
 ## Secure Azure AD resources using AD FS
-To secure your cloud resource, first enable an account for users, then set up a claims rule. Follow this procedure to walk through the steps:
+To secure your cloud resource, set up a claims rule so that Active Directory Federation Services emits the multipleauthn claim when a user performs two-step verification successfully. This claim is passed on to Azure AD. Follow this procedure to walk through the steps:
 
-1. Use the steps outlined in [Turn-on multi-factor authentication for users](multi-factor-authentication-get-started-cloud.md#turn-on-two-step-verification-for-users) to enable an account.
-2. Start the AD FS Management console.
+1. Start the AD FS Management console.
    ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
-3. Navigate to **Relying Party Trusts** and right-click on the Relying Party Trust. Select **Edit Claim Rules…**
-4. Click **Add Rule…**
-5. From the drop-down, select **Send Claims Using a Custom Rule** and click **Next**.
-6. Enter a name for the claim rule.
-7. Under Custom rule: add the following text:
-
-    ```
-    => issue(Type = "http://schemas.microsoft.com/claims/authnmethodsreferences", Value = "http://schemas.microsoft.com/claims/multipleauthn");
-    ```
-
-    Corresponding claim:
-
-    ```
-    <saml:Attribute AttributeName="authnmethodsreferences" AttributeNamespace="http://schemas.microsoft.com/claims">
-    <saml:AttributeValue>http://schemas.microsoft.com/claims/multipleauthn</saml:AttributeValue>
-    </saml:Attribute>
-    ```
-8. Click **OK** then **Finish**. Close the AD FS Management console.
-
-Users then can complete signing in using the on-premises method (such as smartcard).
+2. Navigate to **Relying Party Trusts** and right-click on the relying party trust. Select **Edit Claim Rules**.
+3. Click **Add Rule**.
+4. From the drop-down, select **Pass Through of Filter an Incoming Claim** and click **Next**.
+5. Enter a name for the claim rule.
+6. Select **Authentication Methods References** as the Incoming claim type.
+7. Select **Pass through all claim values**.
+    ![Add Transform Claim Rule Wizard](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+8. Click **Finish**. Close the AD FS Management console.
 
 ## Trusted IPs for federated users
 Trusted IPs allow administrators to by-pass two-step verification for specific IP addresses, or for federated users that have requests originating from within their own intranet. The following sections describe how to configure Azure Multi-Factor Authentication Trusted IPs with federated users and by-pass two-step verification when a request originates from within a federated users intranet. This is achieved by configuring AD FS to use a pass-through or filter an incoming claim template with the Inside Corporate Network claim type.

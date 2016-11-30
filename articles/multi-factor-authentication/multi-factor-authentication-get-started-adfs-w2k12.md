@@ -113,6 +113,19 @@ If you don't want to use a username and password, follow these steps to configur
 
 Finally, to register the adapter, run the \Program Files\Multi-Factor Authentication Server\Register-MultiFactorAuthenticationAdfsAdapter.ps1 script in PowerShell. The adapter is registered as WindowsAzureMultiFactorAuthentication. Restart the AD FS service for the registration to take effect.
 
+## Secure Azure AD resources using AD FS
+To secure your cloud resource, set up a claims rule so that Active Directory Federation Services emits the multipleauthn claim when a user performs two-step verification successfully. This claim is passed on to Azure AD. Follow this procedure to walk through the steps:
+
+1. Start the AD FS Management console.
+   ![Cloud](./media/multi-factor-authentication-get-started-adfs-cloud/adfs1.png)
+2. Navigate to **Relying Party Trusts** and right-click on the relying party trust. Select **Edit Claim Rules**.
+3. Click **Add Rule**.
+4. From the drop-down, select **Pass Through of Filter an Incoming Claim** and click **Next**.
+5. Enter a name for the claim rule.
+6. Select **Authentication Methods References** as the Incoming claim type.
+7. Select **Pass through all claim values**.
+    ![Add Transform Claim Rule Wizard](./media/multi-factor-authentication-get-started-adfs-cloud/configurewizard.png)
+8. Click **Finish**. Close the AD FS Management console.
+
 ## Related topics
 For troubleshooting help, see the [Azure Multi-Factor Authentication FAQs](multi-factor-authentication-faq.md)
-
