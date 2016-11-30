@@ -117,8 +117,7 @@ RolePoint application expects the SAML assertions in a specific format. Please c
     ![Configure Single Sign-On](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_02.png)
 
 2. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
-    
-
+ 
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
     | FirstName | user.givenname |
