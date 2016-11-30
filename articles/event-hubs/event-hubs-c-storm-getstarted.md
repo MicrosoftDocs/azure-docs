@@ -53,7 +53,7 @@ Now you are ready to run the applications.
 ## Next steps
 The following resources are available for developing applications integrating Event Hubs and Storm.
 
-* [Analyzing sensor data with Storm and HDInsight][Analyzing sensor data with Storm and HDInsight] is a full scenario tutorial using Event Hubs, Storm, and HBase to ingest sensor data in an Hadoop cluster.
+* [Analyzing sensor data with Storm and HDInsight][Analyzing sensor data with Storm and HDInsight] is a full scenario tutorial using Event Hubs, Storm, and HBase to ingest sensor data in a Hadoop cluster.
 * [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight][Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight] is a tutorial on how to write Storm pipelines using C#.
 
 <!-- Images. -->
