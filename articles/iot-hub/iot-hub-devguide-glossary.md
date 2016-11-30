@@ -77,7 +77,7 @@ In the context of a [device twin](iot-hub-devguide-device-twins.md), desired con
 In the context of a [device twin](iot-hub-devguide-device-twins.md), desired properties is a subsection of the device twin that is used with [reported properties](#reported-properties) to synchronize device configuration or condition. Desired properties can only be set by a [back-end app](#back-end-app) and are observed by the [device app](#device-app).
 
 ## Device-to-cloud
-Refers to messages sent from a connected device to [IoT Hub](#iot-hub). These messages may be [data point](#data-point-message) or [interactive](#interactive-message) messages. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
+Refers to messages sent from a connected device to [IoT Hub](#iot-hub). These messages may be [data-point](#data-point-message) or [interactive](#interactive-message) messages. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
 ## Device
 In the context of IoT, a device is typically a small-scale, standalone computing device that may collect data or control other devices. For example, a device might be an environmental monitoring device, or a controller for the watering and ventilation systems in a greenhouse. The [device catalog](https://catalog.azureiotsuite.com/) provides a list of hardware devices certified to work with [IoT Hub](#iot-hub).
@@ -152,7 +152,7 @@ An interactive message is a [cloud-to-device](#cloud-to-device) message that tri
 IoT Hub is a fully managed Azure service that enables reliable and secure bidirectional communications between millions of devices and a solution back end. For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Using your [Azure subscription](#subscription), you can create IoT hubs to handle your IoT messaging workloads.
 
 ## IoT Hub metrics
-[IoT Hub metrics](iot-hub-metrics.md) give you data about the state of the IoT hubs in your [Azure subscription](#subscription). Metrics enable you to assess the overall health of the service and the devices connected to it. Metrics can help you see what is going on with your IoT hub and investigate root-cause issues without needing to contact Azure support.
+[IoT Hub metrics](iot-hub-metrics.md) give you data about the state of the IoT hubs in your [Azure subscription](#subscription). IoT Hub metrics enable you to assess the overall health of the service and the devices connected to it. IoT Hub metrics can help you see what is going on with your IoT hub and investigate root-cause issues without needing to contact Azure support.
 
 ## IoT Hub query language
 The [IoT Hub query language](iot-hub-devguide-query-language.md) is a SQL-like language that enables you to query your [jobs](#job) and device twins.

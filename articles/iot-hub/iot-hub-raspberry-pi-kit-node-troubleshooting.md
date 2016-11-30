@@ -127,7 +127,7 @@ The [Device explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/
 Configure your IoT hub connection string within this tool to use all its capabilities.
 
 ### iothub-explorer
-[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) is a sample multiplatform CLI tool to manage devices. You can use the tool to manage the devices in the identity registry, monitor device-to-cloud messages, and send cloud-to-device commands.
+[iothub-explorer](https://github.com/Azure/azure-iot-sdks/blob/master/tools/iothub-explorer/readme.md) is a sample multiplatform CLI tool to manage devices. You can use the tool to manage the devices in the identity registry, monitor device-to-cloud messages, and send cloud-to-device messages.
 
 To install the latest (prerelease) version of the iothub-explorer tool, run the following command in your command-line environment:
 

@@ -339,7 +339,7 @@ static string GetContainerSasUri(CloudBlobContainer container)
 ## Next steps
 In this article, you learned how to perform bulk operations against the identity registry in an IoT hub. Follow these links to learn more about managing Azure IoT Hub:
 
-* [Usage metrics][lnk-metrics]
+* [IoT Hub metrics][lnk-metrics]
 * [Operations monitoring][lnk-monitor]
 
 To further explore the capabilities of IoT Hub, see:

@@ -26,11 +26,11 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bi-dir
 This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and it shows two scalable patterns that you can use to process device-to-cloud messages:
 
 * The reliable storage of device-to-cloud messages in [Azure blob storage]. A common scenario is *cold path* analytics, in which you store telemetry data in blobs to use as input into analytics processes. These processes can be driven by tools such as [Azure Data Factory] or the [HDInsight (Hadoop)] stack.
-* The reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are interactive when they are immediate triggers for a set of actions in the solution back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, *data point* messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data point message.
+* The reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are interactive when they are immediate triggers for a set of actions in the solution back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, *data-point* messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
 
 Because IoT Hub exposes an [Event Hub][lnk-event-hubs]-compatible endpoint to receive device-to-cloud messages, this tutorial uses an [EventProcessorHost] instance. This instance:
 
-* Reliably stores *data point* messages in Azure blob storage.
+* Reliably stores *data-point* messages in Azure blob storage.
 * Forwards *interactive* device-to-cloud messages to an Azure [Service Bus queue] for immediate processing.
 
 Service Bus helps ensure reliable processing of interactive messages, as it provides per-message checkpoints, and time window-based de-duplication.
@@ -42,8 +42,8 @@ Service Bus helps ensure reliable processing of interactive messages, as it prov
 
 At the end of this tutorial, you run three .NET console apps:
 
-* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
-* **ProcessDeviceToCloudMessages** uses the [EventProcessorHost] class to retrieve messages from the Event Hub-compatible endpoint. It then reliably stores data point messages in Azure blob storage, and forwards interactive messages to a Service Bus queue.
+* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
+* **ProcessDeviceToCloudMessages** uses the [EventProcessorHost] class to retrieve messages from the Event Hub-compatible endpoint. It then reliably stores data-point messages in Azure blob storage, and forwards interactive messages to a Service Bus queue.
 * **ProcessD2CInteractiveMessages** de-queues the interactive messages from the Service Bus queue.
 
 > [!NOTE]
@@ -84,7 +84,7 @@ In this section, you modify the simulated device app you created in the [Get sta
     ```
    
     This method is similar to the **SendDeviceToCloudMessagesAsync** method in the **SimulatedDevice** project. The only differences are that you now set the **MessageId** system property, and a user property called **messageType**.
-    The code assigns a globally unique identifier (GUID) to the **MessageId** property. The Service Bus can use this identifier to de-duplicate the messages it receives. The sample uses the **messageType** property to distinguish interactive from data point messages. The application passes this information in message properties, instead of in the message body, so that the event processor does not need to deserialize the message to perform message routing.
+    The code assigns a globally unique identifier (GUID) to the **MessageId** property. The Service Bus can use this identifier to de-duplicate the messages it receives. The sample uses the **messageType** property to distinguish interactive from data-point messages. The application passes this information in message properties, instead of in the message body, so that the event processor does not need to deserialize the message to perform message routing.
    
    > [!NOTE]
    > It is important to create the **MessageId** used to de-duplicate interactive messages in the device code. Intermittent network communications, or other failures, could result in multiple retransmissions of the same message from that device. You can also use a semantic message ID, such as a hash of the relevant message data fields, in place of a GUID.
@@ -302,7 +302,7 @@ You also need a Service Bus queue to enable reliable processing of interactive m
    
     The **OpenAsync** method initializes the **currentBlockInitOffset** variable, which tracks the current offset of the first message read by this event processor. Remember that each processor is responsible for a single partition.
    
-    The **ProcessEventsAsync** method receives a batch of messages from IoT Hub, and processes them as follows: it sends interactive messages to the Service Bus queue, and appends data point messages to the memory buffer called **toAppend**. If the memory buffer reaches the 4 MB limit, or the de-duplication time windows elapses (one hour after a checkpoint in this tutorial), then the application triggers a checkpoint.
+    The **ProcessEventsAsync** method receives a batch of messages from IoT Hub, and processes them as follows: it sends interactive messages to the Service Bus queue, and appends data-point messages to the memory buffer called **toAppend**. If the memory buffer reaches the 4 MB limit, or the de-duplication time windows elapses (one hour after a checkpoint in this tutorial), then the application triggers a checkpoint.
    
     The **AppendAndCheckpoint** method first generates a blockId for the block to append. Azure Storage requires all block IDs to have the same length, so the method pads the offset with leading zeroes - `currentBlockInitOffset.ToString("0000000000000000000000000")`. Then, if a block with this ID is already in the blob, the method overwrites it with the current contents of the buffer.
    
@@ -402,7 +402,7 @@ Now you are ready to run the applications.
 > 
 
 ## Next steps
-In this tutorial, you learned how to reliably process data point and interactive device-to-cloud messages by using the [EventProcessorHost] class.
+In this tutorial, you learned how to reliably process data-point and interactive device-to-cloud messages by using the [EventProcessorHost] class.
 
 The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your solution back end.
 

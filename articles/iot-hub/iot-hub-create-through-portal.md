@@ -130,7 +130,7 @@ You can browse to the IoT hub you want to delete by clicking **Browse**, and the
 Follow these links to learn more about managing Azure IoT Hub:
 
 * [Bulk manage IoT devices][lnk-bulk]
-* [Usage metrics][lnk-metrics]
+* [IoT Hub metrics][lnk-metrics]
 * [Operations monitoring][lnk-monitor]
 
 To further explore the capabilities of IoT Hub, see:
