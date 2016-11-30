@@ -63,7 +63,7 @@ The Resource Manager template used in this tutorial is located in a public blob 
     * **Cluster version**: 3.4
     * **OS Type**: Linux
     * **Cluster type**: Hadoop
-    * **Number of worker node**: 2
+    * **Number of worker nodes**: 2
 
      Each cluster has an Azure Blob storage account dependency. It is usually referred as the default storage account. HDInsight cluster and its default storage account must be co-located in the same Azure region. Deleting clusters will not delete the storage account. In the template, the default storage account name is defined as the cluster name with "store" appended. 
 
