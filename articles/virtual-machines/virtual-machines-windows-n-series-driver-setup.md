@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 manager: timlt
 editor: ''
-tags: azure-resource-manager,azure-service-management
+tags: azure-resource-manager
 
 ms.assetid: f3950c34-9406-48ae-bcd9-c0418607b37d
 ms.service: virtual-machines-windows
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/29/2016
+ms.date: 11/30/2016
 ms.author: danlep
 
 ---
@@ -28,28 +28,21 @@ For basic specs, storage capacities, and disk details, see [Sizes for virtual ma
 
 ## Supported GPU drivers
 
-Connect by Remote Desktop to each N-series VM. Download and install the latest driver for your Windows operating system on each VM, as shown in the following tables. 
+Connect by Remote Desktop to each N-series VM. Download and install the supported driver for your Windows operating system. 
 
 ### NVIDIA GRID drivers for NV VMs
 
-| Operating system | Driver download |
-| --- | --- | 
-| Windows Server 2016 | --- |
-| Windows Server 2012 R2 | --- |
+* [Windows Server 2016](https://go.microsoft.com/fwlink/?linkid=836843)
+
+* [Windows Server 2012 R2](https://go.microsoft.com/fwlink/?linkid=836844)
 
 ### NVIDIA Tesla drivers for NC VMs
 
-| Operating system | Driver download |
-| --- | --- | 
-| Windows Server 2016 | [Version 369.73](http://us.download.nvidia.com/Windows/Quadro_Certified/369.73/369.73-tesla-desktop-winserver2016-international-whql.exe) |
-| Windows Server 2012 R2 | [Version 369.73](http://us.download.nvidia.com/Windows/Quadro_Certified/369.73/369.73-tesla-desktop-winserver2008-2012r2-64bit-international-whql.exe) |
+* [Windows Server 2016](https://go.microsoft.com/fwlink/?linkid=836841)
+
+* [Windows Server 2012 R2](https://go.microsoft.com/fwlink/?linkid=836842)
 
 
-
-
-> [!NOTE]
-> Developers building GPU-accelerated applications for the NVIDIA Tesla GPUs can also download and install the [CUDA Toolkit 8](https://developer.nvidia.com/cuda-downloads).
->
 
 ## Verify driver installation
 
@@ -65,8 +58,10 @@ To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com
 
 ## Next steps
 
-For more information about the NVIDIA GPUs on the N-series VMs, see:
-* [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (for Azure NC VMs)
-* [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (for Azure NV VMs)
+* For more information about the NVIDIA GPUs on the N-series VMs, see:
+    * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (for Azure NC VMs)
+    * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (for Azure NV VMs)
+
+* Developers building GPU-accelerated applications for the NVIDIA Tesla GPUs can also download and install the [CUDA Toolkit 8](https://developer.nvidia.com/cuda-downloads).
 
 

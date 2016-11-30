@@ -6,7 +6,7 @@ documentationcenter: ''
 author: dlepow
 manager: timlt
 editor: ''
-tags: azure-resource-manager,azure-service-management
+tags: azure-resource-manager
 
 ms.assetid: d91695d0-64b9-4e6b-84bd-18401eaecdde
 ms.service: virtual-machines-linux
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/29/2016
+ms.date: 11/30/2016
 ms.author: danlep
 
 ---
@@ -28,10 +28,10 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 > Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS. 
 
 
-## Install GPU drivers for NC VMs on Ubuntu 16.04 LTS
 
-Following are instructions to set up the CUDA Toolkit on an Azure NC VM running Ubuntu 16.04 LTS.
+## Driver installaion on NC VMs running Ubuntu 16.04 LTS
 
+Following are instructions to set up the CUDA Toolkit on an Azure NC VM running Ubuntu 16.04 LTS. The Toolkit includes drivers for NVIDIA Tesla K80 GPUs.
 
 1. Make an SSH connection to the Azure N-series VM.
 
@@ -71,8 +71,7 @@ To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com
 
 ## Next steps
 
-For more information about the NVIDIA GPUs on the N-series VMs, see:
-* [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (for Azure NC VMs)
-* [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (for Azure NV VMs)
-
+* For more information about the NVIDIA GPUs on the N-series VMs, see:
+    * [NVIDIA Tesla K80](http://www.nvidia.com/object/tesla-k80.html) (for Azure NC VMs)
+    * [NVIDIA Tesla M60](http://www.nvidia.com/object/tesla-m60.html) (for Azure NV VMs)
 
