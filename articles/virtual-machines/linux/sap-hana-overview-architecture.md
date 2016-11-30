@@ -35,7 +35,6 @@ Several common definitions are widely used in the Architecture and Technical Dep
 - **IaaS:** Infrastructure as a Service
 - **PaaS:** Platform as a Service
 - **SaaS:** Software as a Service
-- **ARM:** Azure Resource Manager. A framework to deploy objects in Azure, such as VMs, Virtual networks, etc.
 - **SAP Component:** An individual SAP application, such as ECC, BW, Solution Manager or EP. SAP components can be based on traditional ABAP or Java technologies or a non-NetWeaver based application such as Business Objects.
 - **SAP Environment:** One or more SAP components logically grouped to perform a business function, such as Development, QAS, Training, DR or Production.
 - **SAP Landscape:** This refers to the entire SAP assets in your IT landscape. The SAP landscape includes all production and non-production environments.
@@ -256,7 +255,7 @@ The architecture and processes around SAP HANA on Azure (Large Instances) is bui
 Deploying SAP HANA on Azure (Large Instances) in two different Azure regions, will cause a separate tenant to be deployed in the Large Instance stamp. However, you can expect both will end up under the same Azure subscription as long as these instances are part of the same SAP landscape.
 
 > [!IMPORTANT] 
-> Only Azure Resource Management (ARM) deployment is supported with SAP HANA on Azure (Large Instances), so please perform the planning and design around ARM deployments.
+> Only Azure Resource Management deployment is supported with SAP HANA on Azure (Large Instances).
 
 ### Additional Azure VNet information
 

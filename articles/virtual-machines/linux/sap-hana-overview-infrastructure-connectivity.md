@@ -43,14 +43,14 @@ After you provide the information, Microsoft will provision SAP HANA on Azure (L
 Networking setup information will then be provided to you for:
 
 - Connecting your Azure VNet(s) to the ExpressRoute circuit that will connect Azure VNets to HANA Large Instances
-  - For ARM:
+  - For Azure Resource Manager:
      - Authorization key(s)
      - ExpressRoute PeerID
 - Accessing HANA Large Instances with the established ExpressRoute circuit and Azure VNet
 
 ## Creating an Azure VNet
 
-This Azure VNet should be created using the Azure Resource Manager (ARM) deployment model. The old Azure deployment model, commonly known as ASM, is not supported for this solution.
+This Azure VNet should be created using the Azure Resource Manager deployment model. The old Azure deployment model, commonly known as ASM, is not supported for this solution.
 
 The Azure VNet that&#39;s created should have at least one tenant subnet and a gateway subnet. These should be assigned the IP address ranges as specified, and submitted to Microsoft.
 
@@ -181,12 +181,12 @@ While there isn&#39;t yet specific, dedicated Azure.com guidance on removing VNe
 
 To ensure everything is removed, delete the following items:
 
-- **For ARM:** The ExpressRoute connection, VNet Gateway, VNet Gateway Public IP and VNet
-- **For Classic:** The VNet Gateway and VNet
+- **For Azure Resource Manager:** The ExpressRoute connection, VNet Gateway, VNet Gateway Public IP and VNet
+- **For Classic VM:** The VNet Gateway and VNet
 
 ## Deleting an ExpressRoute circuit
 
-To remove an additional SAP HANA on Azure (Large Instances) ExpressRoute circuit, open an Azure support request with SAP HANA on Azure Service Management and request that the circuit be deleted. Within the Azure subscription, you may delete or keep the VNet as necessary. However, you must either delete the connection (if ARM), or unlink the connection (if Classic) between the HANA Large Instances ExpressRoute circuit and the linked VNet gateway.
+To remove an additional SAP HANA on Azure (Large Instances) ExpressRoute circuit, open an Azure support request with SAP HANA on Azure Service Management and request that the circuit be deleted. Within the Azure subscription, you may delete or keep the VNet as necessary. However, you must either delete the connection (if Azure Resource Manager), or unlink the connection (if Classic) between the HANA Large Instances ExpressRoute circuit and the linked VNet gateway.
 
 If you also want to remove a VNet, follow the guidance on Deleting a VNet in the section above.
 
