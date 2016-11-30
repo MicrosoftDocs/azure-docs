@@ -1,5 +1,5 @@
-﻿---
-title: Run a sample application to receive cloud-to-device messages | Microsoft Azure
+---
+title: Run a sample application to receive cloud-to-device messages | Microsoft Docs
 description: A sample application runs on Pi and monitors incoming messages from your IoT hub. A new gulp task sends messages to Pi from your IoT hub to blink the LED.
 services: iot-hub
 documentationcenter: ''
@@ -8,6 +8,7 @@ manager: timtl
 tags: ''
 keywords: 'cloud to device, message from cloud'
 
+ms.assetid: fcbc0dd0-cae3-47b0-8e58-240e4f406f75
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article

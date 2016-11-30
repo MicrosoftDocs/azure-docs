@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting | Microsoft Azure
+title: Troubleshooting | Microsoft Docs
 description: Troubleshooting page for Raspberry Pi Node.js experience
 services: iot-hub
 documentationcenter: ''
@@ -8,6 +8,7 @@ manager: timtl
 tags: ''
 keywords: 'iot issues, internet of things problems'
 
+ms.assetid: 3653c79b-8a0c-41d4-b0bf-f6b4edb4d233
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
