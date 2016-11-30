@@ -34,7 +34,8 @@ Replace any examples with your own settings.
 ### Create the Resource Group
 
 ```azurecli
-azure group create myResourceGroup -l westus
+azure group create myResourceGroup \
+-l westus
 ```
 
 ### Create the VNet
