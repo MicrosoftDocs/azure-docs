@@ -1,12 +1,11 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Predictix Price Reporting | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with EthicsPoint Incident Management (EPIM) | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and EthicsPoint Incident Management (EPIM).
 services: active-directory
 documentationCenter: na
 authors: jeevansd
 manager: femila
 editor: na
-
 
 ms.assetid: 8cb31a4c-9309-469b-93ac-daf0d3c7a3e6
 ms.service: active-directory
