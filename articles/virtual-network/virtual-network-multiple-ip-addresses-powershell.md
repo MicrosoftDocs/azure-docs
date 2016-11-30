@@ -174,20 +174,20 @@ You can add private and public IP addresses to a NIC by completing the steps tha
 6. Complete the steps in one of the following sections, based on your requirements:
 
 	**Add a private IP address**
-	
+
 	To add a private IP address to a NIC, you must create an IP configuration. The following command creates a configuration with a static IP address of 10.0.0.7. If you want to add a dynamic private IP address, remove `-PrivateIpAddress 10.0.0.7` before entering the command. When specifying a static IP address, it must be an unused address for the subnet. It's recommended that you first test the address to ensure it's available by entering the `Test-AzureRmPrivateIPAddressAvailability -IPAddress 10.0.0.7 -VirtualNetwork $myVnet` command. If the IP address is available, the output returns *True*. If it's not available, the output returns *False*, and a list of addresses that are available.
 
 	```powershell
 	Add-AzureRmNetworkInterfaceIpConfig -Name IPConfig-4 -NetworkInterface `
 	 $myNIC -Subnet $Subnet -PrivateIpAddress 10.0.0.7
 	```
+
 	Create as many configurations as you require, using unique configuration names and private IP addresses (for configurations with static IP addresses).
 
 	Add the private IP address to the VM operating system by completing the steps for your operating system in the [Add IP addresses to a VM operating system](#os-config) section of this article.
 
-
 	**Add a public IP address**
-	
+
 	A public IP address is added by associating a public IP address resource to either a new IP configuration or an existing IP configuration. Complete the steps in one of the sections that follow, as you require.
 
 	> [!NOTE]
