@@ -25,7 +25,7 @@ Before you get started, you must:
 
 * [Set up your development environment][lnk-setupdevbox] for working with the SDK on Windows.
 * [Create an IoT hub][lnk-create-hub] in your Azure subscription, you will need the name of your hub to complete this walkthrough. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* Add two devices to your IoT hub and make a note of their ids and device keys. You can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tool to add your devices to the IoT hub you created in the previous step and retrieve their keys.
+* Add two devices to your IoT hub and make a note of their ids and device keys. You can use the [device explorer or iothub-explorer][lnk-explorer-tools] tool to add your devices to the IoT hub you created in the previous step and retrieve their keys.
 
 To build the sample:
 
@@ -139,7 +139,7 @@ To run the sample:
     ```
     build\samples\simulated_device_cloud_upload\Debug\simulated_device_cloud_upload_sample.exe samples\simulated_device_cloud_upload\src\simulated_device_cloud_upload_win.json
     ```
-3. You can use the [Device Explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages that IoT hub receives from the gateway.
+3. You can use the [device explorer or iothub-explorer][lnk-explorer-tools] tool to monitor the messages that IoT hub receives from the gateway.
 
 ## Next steps
 If you want to gain a more advanced understanding of the IoT Gateway SDK and experiment with some code examples, visit the following developer tutorials and resources:
@@ -149,7 +149,7 @@ If you want to gain a more advanced understanding of the IoT Gateway SDK and exp
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 
 <!-- Links -->
 [lnk-setupdevbox]: https://github.com/Azure/azure-iot-gateway-sdk/blob/master/doc/devbox_setup.md
