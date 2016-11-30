@@ -28,7 +28,7 @@ If you are retiring an article, the first thing you should do is republish the a
 Determine if there are any non-Microsoft inbound links to your content. Frequently, blogs, forums, and other content on the web points to articles. You can work with blog owners to change these links, and you can remove or update links from forum posts. Web analytics tools can tell you if there are any high traffic inbound links you might need to manage in this way.
 
 ## Step 3: Remove all crosslinks to the article from the technical content repository (required)
-Do not rely on redirects to take care of crosslinks from other articles. Update or remove the cross references to the article you are deleting or renaming, including in articles owned by other people.
+Do not rely on redirects to take care of crosslinks from other articles. Update or remove the cross references to the article you are retiring, renaming, or moving, including links in articles owned by other authors.
 
 1. Ensure you are working in an up-to-date local branch – run `git pull upstream master` (or the appropriate variation on this command.
 2. Scan the azure-docs-pr/articles folder and the azure-docs-pr/includes folder for any articles and includes that link to the article you want to retire, and either remove the crosslinks or replace them with an appropriate new crosslinks. You can use a search and replace utility to find the crosslinks if you have one installed. If you don't, you can use Windows PowerShell for free! Here's how to use PowerShell to find the crosslinks:
