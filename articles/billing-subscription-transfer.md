@@ -60,7 +60,7 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 <a id="faq"></a>
 
 ## Frequently asked questions (FAQ)
-* ** <a name="whoisaa"></a> How can I know who is the account administrator of the subscription?**
+* <a name="whoisaa"></a> **How can I know who is the account administrator of the subscription?**
 
   You can confirm who is the account administrator of the subscription as follows:
 
