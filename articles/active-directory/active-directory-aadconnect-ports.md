@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 11/30/2016
 ms.author: billmath
 
 ---
@@ -68,10 +68,24 @@ This table describes the ports and protocols that are required for communication
 | HTTPS |443(TCP/UDP) |Used for device authentication. |
 | TCP |49443 (TCP) |Used for certificate authentication. |
 
-## Table 6a & 6b - Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
+## Table 6 Pass-through Authentication
+This table describes the ports and protocols that are required for communication between the connector and Azure AD.
+
+|Protocol|Port Number|Description
+| --- | --- | ---
+|HTTP|80|Enable outbound HTTP traffic for security validation such as SSL.
+|HTTPS|443|	Enable user authentication against Azure AD
+|HTTPS|10100–10120|	Enable responses from the connector back to the Azure AD 
+|Azure bus service|9352, 5671|	Enable communication between the Connector toward the Azure service for incoming requests.
+|HTTPS|9350|	Optional, to enables better performance for incoming requests
+|HTTPS|8080/443|	Enable the Connector bootstrap sequence and Connector automatic update
+|HTTPS|9090|	Enable Connector registration (required only for the Connector registration process)
+|HTTPS|9091|	Enable Connector trust certificate automatic renewal
+
+## Table 7a & 7b - Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 The following tables describe the endpoints, ports, and protocols that are required for communication between Azure AD Connect Health agents and Azure AD
 
-### Table 6a - Ports and Protocols for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
+### Table 7a - Ports and Protocols for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 This table describes the following outbound ports and protocols that are required for communication between the Azure AD Connect Health agents and Azure AD.  
 
 | Protocol | Ports | Description |
@@ -79,6 +93,6 @@ This table describes the following outbound ports and protocols that are require
 | HTTPS |443(TCP/UDP) |Outbound |
 | Azure Service Bus |5671 (TCP/UDP) |Outbound |
 
-### 6b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
+### 7b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 For a list of endpoints, see [the Requirements section for the Azure AD Connect Health agent](active-directory-aadconnect-health-agent-install.md#requirements).
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure AD Connect: User Sign In | Microsoft Docs'
 description: Azure AD Connect user sign in for custom settings.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 11/30/2016
 ms.author: billmath
 
 ---
@@ -41,9 +41,18 @@ Some organizations, however, have particular reasons for using a federated sign 
 With password synchronization, hashes of user passwords are synchronized from your on-premises Active Directory to Azure AD.  When passwords are changed or reset on premises, the new passwords are synchronized immediately to Azure AD so that your users can always use the same password for cloud resources as they do on-premises.  The passwords are never sent to Azure AD nor stored in Azure AD in clear text.
 Password synchronization can be used together with password write-back to enable self service password reset in Azure AD.
 
-<center>![Cloud](./media/active-directory-aadconnect-user-signin/passwordhash.png)</center>
+![Cloud](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
 [More information about password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
+
+### Pass-through Authentication
+With pass-through authentication the user’s password is validated against the on-premises Active Directory controller.  This allows for on-premises policies to be evaluate during authentication to cloud services such as logon hour restrictions.  Pass-through authentication utilizes a simple agent, on a Windows Server 2012 R2 domain joined machine in the on-premises environment, that listens for pass validation requests.  This agent does not require any inbound ports open to be open to the internet.
+
+In addition you can also enable single sign on for users on domain joined machines that are on the corporate network. With single sign on enable users only need enter a username to securely access cloud resources.
+
+![Pass-through auth](./media/active-directory-aadconnect-user-signin/pta.png)
+
+More information on pass-through authentication and restrictions in preview.
 
 ### Federation using a new or existing AD FS in Windows Server 2012 R2 farm
 With federated sign on, your users can sign on to Azure AD based services with their on-premises passwords and, while on the corporate network, without having to enter their passwords again.  The federation option with AD FS allows you to deploy a new or specify an existing AD FS in Windows Server 2012 R2 farm.  If you choose to specify an existing farm, Azure AD Connect will configure the trust between your farm and Azure AD so that your users can sign on.
@@ -69,6 +78,31 @@ If you are deploying a new farm or using an existing farm:
 If you have already configured cloud sign on using an earlier version of AD FS (such as AD FS 2.0) or a third party federation provider, you can choose to skip user sign in configuration via Azure AD Connect.  This will enable you to get the latest synchronization and other capabilities of Azure AD Connect while still using your existing solution for sign on.
 
 [Azure AD third-party federation compatibility list](active-directory-aadconnect-federation-compatibility.md)
+
+##Choosing the User sign-in method for your organization
+For most organizations who just want to enable user sign on to Office 365, SaaS applications and other Azure AD based resources, the default Password synchronization option is recommended. Some organizations, however, have a particular reasons that they are not able to use this option and can choose either federated sign on option such as AD FS or Pass-through authentication. The table below helps you to make the right choice. 
+
+I need to | PHS and SSO| PTA with SSO| AD FS |
+ --- | --- | --- | --- |
+Sync new user, contact, and group accounts created in my on-premises Active Directory to the cloud automatically|x|x|x|
+Sync incremental updates made to existing accounts in my on-premises Active Directory to the cloud automatically|x|x|x|
+Set up my tenant for Office 365 hybrid scenarios|x|x|x|
+Enable my users to sign in and access cloud services using their on-premises password|x|x|x|
+Reduce password administration costs|x|x|x|
+Control password policies from my on-premises Active Directory|x|x|x|
+Enable cloud-based multi-factor authentication solutions|x|x|x|
+Implement single sign-on using corporate credentials|x|x|x|
+Ensure no passwords are stored in the cloud||x|x|
+Ensure all user authentications occurs against your on-premises Active Directory through a simple agent||x|	 
+Ensure all user authentications occurs in your on-premises Active Directory|||x|
+Enable on-premises multi-factor authentication solutions|||x|
+Support smart card login for users|||x|
+You require some specific feature of AD FS such as, limit access to cloud services based on the exchange protocol|||x|
+I already have AD FS running and want to provide a single experience for my users|||x|
+Support for contidional access to both on-premises and cloud resources using device registration, Azure AD Join, or Intune MDM polices|||x|
+
+>[!NOTE] Pass-through authentication currently has some limitations with rich clients.  See Pass-through authentication for more details.
+
 
 ## User sign-in and user principal name (UPN)
 ### Understanding user principal name
