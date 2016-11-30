@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 11/26/2016
+ms.date: 11/30/2016
 ms.author: b-hoedid
 
 ---
@@ -27,7 +27,7 @@ With ChangeFeed support, DocumentDB provides a sorted list of documents within a
 * Perform real-time (stream) processing on updates
 * Synchronize data with a cache, search engine, or data warehouse
 
-Changes in DocumentDB are persisted and can be processed asychronously, and distributed across one or more consumers for parallel processing. Let's look at the APIs for ChangeFeed and how you can use them to build scalable real-time applications.
+Changes in DocumentDB are persisted and can be processed asynchronously, and distributed across one or more consumers for parallel processing. Let's look at the APIs for ChangeFeed and how you can use them to build scalable real-time applications.
 
 ![Using DocumentDB Change Feed to power real-time analytics and event-driven computing scenarios](./media/documentdb-change-feed/changefeed.png)
 
@@ -268,7 +268,8 @@ The .NET SDK provides the `CreateChangeFeedQuery` and `ChangeFeedOptions` helper
 
         foreach (PartitionKeyRange pkRange in partitionKeyRanges)
         {
-            string continuation = (checkpoints == null) ? null : checkpoints[pkRange.Id];
+            string continuation = null;
+            checkpoints.TryGetValue(pkRange.Id, out continuation);
 
             IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
                 collection,
@@ -300,7 +301,7 @@ The .NET SDK provides the `CreateChangeFeedQuery` and `ChangeFeedOptions` helper
 And the following snippet shows how to process changes in real-time with DocumentDB by using the ChangeFeed support and the method above. The first call returns all the documents in the collection, and the second only returns the two documents created that were created since the last checkpoint.
 
     // Returns all documents in the collection.
-    Dictionary<string, string> checkpoints = await GetChanges(client, collection, null);
+    Dictionary<string, string> checkpoints = await GetChanges(client, collection, new Dictionary<string, string>());
 
     await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-201", MetricType = "Temperature", Unit = "Celsius", MetricValue = 1000 });
     await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-212", MetricType = "Pressure", Unit = "psi", MetricValue = 1000 });
