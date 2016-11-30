@@ -43,87 +43,34 @@ Before you begin this tutorial, you must have the following:
 
 ## Create a virtual network with two HBase clusters.
 
-## Enable replication between HBase tables
-Now, you can create a sample HBase table, enable replication, and then test it with some data. The sample table you will use has two column families: Personal and Office. 
 
-In this tutorial, you will make the Europe HBase cluster as the source cluster, and the U.S. HBase cluster as the destination cluster.
+## Load data 
 
-Create HBase tables with the same names and column families on both the source and destination clusters, so that the destination cluster knows where to store data it will receive. For more information on using the HBase shell, see [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started].
+When you replicate a cluster, you must specify what table to replicate.  In this section, you will load some data into the primary cluster. In the next section, you will enable replication between the two clusters.
 
-**To create an HBase table on Contoso-HBase-EU**
+Follow the instructions in [HBase tutorial: Get started using Apache HBase with Linux-based Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started-linux.md) to create a *Contacts* table and insert some data into the table.
 
-1. Switch to the **Contoso-HBase-EU** RDP window.
-2. From the desktop, click **Hadoop Command Line**.
-3. Change the folder to the HBase home directory:
-   
-        cd %HBASE_HOME%\bin
-4. Open the HBase shell:
-   
-        hbase shell
-5. Create an HBase table:
-   
-        create 'Contacts', 'Personal', 'Office'
-6. Don't close either the RDP session nor the Hadoop Command Line window. You will still need them later in the tutorial.
 
-**To create an HBase table on Contoso-HBase-US**
+## Enable replication
 
-* Repeat the same steps to create the same table on Contoso-HBase-US.
-
-**To add Contoso-HBase-US as a replication peer**
-
-1. Switch to the **Contso-HBase_EU** RDP window.
-2. From the HBase shell window, add the destination cluster (Contoso-HBase-US) as a peer, for example:
-   
-        add_peer '1', 'zookeeper0.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper1.contoso-hbase-us.d4.internal.cloudapp.net,zookeeper2.contoso-hbase-us.d4.internal.cloudapp.net:2181:/hbase'
-   
-    In the sample, the domain suffix is *contoso-hbase-us.d4.internal.cloudapp.net*. You need to update it to match your domain suffix of the US HBase cluster. Make sure there is no spaces between the hostnames.
-
-**To configure each column family to be replicated on the source cluster**
-
-1. From the HBase shell window of the **Contso-HBase-EU** RDP session,  configure each column family to be replicated:
-   
-        disable 'Contacts'
-        alter 'Contacts', {NAME => 'Personal', REPLICATION_SCOPE => '1'}
-        alter 'Contacts', {NAME => 'Office', REPLICATION_SCOPE => '1'}
-        enable 'Contacts'
-
-**To bulk upload data to the HBase table**
-
-A sample data file has been uploaded to a public Azure Blob container with the following URL:
-
-        wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
-
-The content of the file:
-
-        8396    Calvin Raji    230-555-0191    5415 San Gabriel Dr.
-        16600    Karen Wu    646-555-0113    9265 La Paz
-        4324    Karl Xie    508-555-0163    4912 La Vuelta
-        16891    Jonathan Jackson    674-555-0110    40 Ellis St.
-        3273    Miguel Miller    397-555-0155    6696 Anchor Drive
-        3588    Osarumwense Agbonile    592-555-0152    1873 Lion Circle
-        10272    Julia Lee    870-555-0110    3148 Rose Street
-        4868    Jose Hayes    599-555-0171    793 Crawford Street
-        4761    Caleb Alexander    670-555-0141    4775 Kentucky Dr.
-        16443    Terry Chander    998-555-0171    771 Northridge Drive
-
-You can upload the same data file into your HBase cluster and import the data from there.
-
-1. Switch to the **Contoso-HBase-EU** RDP window.
-2. From the desktop, click **Hadoop Command Line**.
-3. Change the folder to the HBase home directory:
-   
-        cd %HBASE_HOME%\bin
-4. upload the data:
-   
-        hbase org.apache.hadoop.hbase.mapreduce.ImportTsv -Dimporttsv.columns="HBASE_ROW_KEY,Personal:Name, Personal:HomePhone, Office:Address" -Dimporttsv.bulk.output=/tmpOutput Contacts wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt
-   
-        hbase org.apache.hadoop.hbase.mapreduce.LoadIncrementalHFiles /tmpOutput Contacts
-
-## Verify that data replication is taking place
-You can verify that replication is taking place by scanning the tables from both clusters with the following HBase shell commands:
-
-        Scan 'Contacts'
-
+**To enable HBase replication from the Azure portal**
+ 
+1. Sign on to the Azure portal. 
+2. Open the primary HBase cluster.
+3. From the cluster menu, click **Script Actions**.
+4. Click **Submit New** from the top of the blade.
+5. Select or enter the following information:
+        
+        - Name: “Enable replication”
+        - Bash Script URL:  https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
+        - Select  "Head", and unselect the other node types.
+        - Parameters: -m hn1 -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <source cluster ambari password> -dp <destination cluster ambari password> -copydata
+ 
+Detailed explanation of parameters is provided in print_usage() section of following script:
+https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh
+ 
+For running a script action using Azure PowerShell, see []().  For running a script action using Azure CLI, see []().
+ 
 
 ## Next Steps
 In this tutorial, you have learned how to configure HBase replication across two datacenters. To learn more about HDInsight and HBase, see:
