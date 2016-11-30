@@ -1,5 +1,5 @@
 ---
-title: Use MongoChef with a DocumentDB account with protocol support for MongoDB | Microsoft Docs
+title: Use MongoChef with an Azure DocumentDB account with protocol support for MongoDB | Microsoft Docs
 description: Learn how to use MongoChef with a DocumentDB account with protocol support for MongoDB, now available for preview.
 keywords: mongochef
 services: documentdb
