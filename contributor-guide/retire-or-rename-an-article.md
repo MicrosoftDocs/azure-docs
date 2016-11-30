@@ -22,7 +22,7 @@ If you are retiring an article, the first thing you should do is republish the a
   ```
   ROBOTS: NOINDEX, NOFOLLOW
   ``` 
- If you are renaming the article
+ **Note**: This is the first step if you are retiring an article. If you are renaming or moving the article, you can do this as the last step.
     
 ## Step 2: Manage inbound links (required)
 Determine if there are any non-Microsoft inbound links to your content. Frequently, blogs, forums, and other content on the web points to articles. You can work with blog owners to change these links, and you can remove or update links from forum posts. Web analytics tools can tell you if there are any high traffic inbound links you might need to manage in this way.
