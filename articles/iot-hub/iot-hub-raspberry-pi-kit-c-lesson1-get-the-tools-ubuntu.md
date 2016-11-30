@@ -1,5 +1,5 @@
 ---
-title: Get the tools (Ubuntu 16.04) | Microsoft Azure
+title: Get the tools (Ubuntu 16.04) | Microsoft Docs
 description: Download and install the necessary tools and software for the first sample application for Pi on Ubuntu.
 services: iot-hub
 documentationcenter: ''
@@ -8,6 +8,7 @@ manager: timtl
 tags: ''
 keywords: 'iot development, iot software, internet of things software, install git on ubuntu, gulp run, install node js ubuntu'
 
+ms.assetid: 32cfea00-c254-4cef-8f6f-bbf807eca6b6
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
