@@ -17,7 +17,7 @@ In our publishing workflow, the article you want to retire, rename, or move must
 
 - **Retire**: Update the metadata so the article redirects to the service landing page. If the service is being deprecated, redirect the pages to the Azure hub page on docs.
 
-- **Rename**: Create a copy of the article, give the file it's new name, and then update the metadata of the original article so the article redirects to the new one.
+- **Rename**: Create a copy of the article, give the file its new name, and then update the metadata of the original article so the article redirects to the new one.
 
 - **Move**: Create a copy of the article in the new location, and then update the metadata of the original article so the article redirects to the new one. 
 
