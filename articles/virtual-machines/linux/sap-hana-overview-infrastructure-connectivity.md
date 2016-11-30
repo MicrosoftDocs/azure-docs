@@ -1,9 +1,9 @@
 ---
-title: SAP HANA on Azure (Large Instances) architecture and technical deployment guide, part 2: infrastructure connectivity | Microsoft Docs
-description: Deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure.
+title: Infrastructure and Connectivity to SAP HANA on Azure (Large Instances) | Microsoft Docs
+description: Configure required connectivity infrastructure to use SAP HANA on Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: v-derekg
+author: RicksterCDN
 manager: timlt
 editor:
 
@@ -16,7 +16,7 @@ ms.date: 11/23/2016
 ms.author: rclaus
 
 ---
-# SAP HANA on Azure (Large Instances) architecture and technical deployment guide, part 2: infrastructure connectivity
+# Infrastructure and Connectivity to SAP HANA on Azure (Large Instances)
 
 After the purchase of SAP HANA on Azure (Large Instances) is finalized between you and the Microsoft enterprise account team, the following information is required:
 
@@ -64,7 +64,7 @@ You can use any naming standard you like for these tenant subnets. However, **th
 > [!WARNING] 
 > It is critical that the gateway subnet always be named &quot;GatewaySubnet&quot;.
 
-The VNet can be created using the Azure Portal, PowerShell, Azure template, or Azure CLI (see [Create a virtual network using the Azure portal](https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/)).
+The VNet can be created using the Azure Portal, PowerShell, Azure template, or Azure CLI (see [Create a virtual network using the Azure portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)).
 
 ## Creating a gateway subnet
 
@@ -77,7 +77,7 @@ If a gateway already exists, check whether it is an ExpressRoute gateway or not.
 
 - Use either the (new) [Azure Portal](https://portal.azure.com/) or PowerShell to create an ExpressRoute VPN gateway connected to your VNet.
   - If you use Azure Portal, add a new **Virtual Network Gateway** and then select **ExpressRoute** as the gateway type.
-  - If you chose PowerShell instead, first download and use the latest [Azure PowerShell SDK](https://azure.microsoft.com/en-us/downloads/) to ensure an optimal experience. The following commands will create an ExpressRoute gateway. The text preceded by a _$_ are user defined variables that need to be updated with your specific information.
+  - If you chose PowerShell instead, first download and use the latest [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) to ensure an optimal experience. The following commands will create an ExpressRoute gateway. The text preceded by a _$_ are user defined variables that need to be updated with your specific information.
 
 ```
 # These Values should already exist, update to match your environment
@@ -142,7 +142,7 @@ Use either the Azure Portal, PowerShell or CLI when adding more IP addresses or 
 
 If you have not yet declared the additional IP address space range with SAP HANA on Azure Service Management, open an Azure support request to get it added. After you receive confirmation, perform the next steps.
 
-To create an additional subnet from the Azure portal, see the article [Create a virtual network using the Azure portal](https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/), and to create from PowerShell, see [Create a virtual network using PowerShell](https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-ps/).
+To create an additional subnet from the Azure portal, see the article [Create a virtual network using the Azure portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json), and to create from PowerShell, see [Create a virtual network using PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Adding VNets
 
@@ -169,7 +169,7 @@ Once the new circuit is created and the SAP HANA on Azure Service Management con
 
 To remove a VNet subnet, either the Azure Portal, PowerShell or CLI can be used. If an address space is removed, SAP HANA on Azure Service Management should be notified about the address space change in order to remove it from the ranges that SAP HANA on Azure (Large Instances) is allowed to communicate with.
 
-While there isn&#39;t yet specific, dedicated Azure.com guidance on removing subnets, the process for removing subnets is the reverse of the process for adding them. See the article Azure portal [Create a virtual network using the Azure portal](https://azure.microsoft.com/documentation/articles/virtual-networks-create-vnet-arm-pportal/) For more information on creating subnets.
+While there isn&#39;t yet specific, dedicated Azure.com guidance on removing subnets, the process for removing subnets is the reverse of the process for adding them. See the article Azure portal [Create a virtual network using the Azure portal](../../virtual-network.virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) For more information on creating subnets.
 
 ## Deleting a VNet
 
@@ -177,7 +177,7 @@ Use either the Azure Portal, PowerShell or CLI when deleting a VNet. SAP HANA on
 
 Once the VNet has been removed, open an Azure support request to provide the IP address space ranges to be removed.
 
-While there isn&#39;t yet specific, dedicated Azure.com guidance on removing VNets, the process for removing VNets is the reverse of the process for adding them, which is described above. See the articles [Create a virtual network using the Azure portal](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-vnet-arm-pportal) and [Create a virtual network using PowerShell](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-create-vnet-arm-ps)for more information on creating VNets.
+While there isn&#39;t yet specific, dedicated Azure.com guidance on removing VNets, the process for removing VNets is the reverse of the process for adding them, which is described above. See the articles [Create a virtual network using the Azure portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a virtual network using PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)for more information on creating VNets.
 
 To ensure everything is removed, delete the following items:
 

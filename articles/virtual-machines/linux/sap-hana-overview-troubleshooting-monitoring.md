@@ -1,9 +1,9 @@
 ---
-title: SAP HANA on Azure (Large Instances) architecture and technical deployment guide, part 5: troubleshooting and monitoring | Microsoft Docs
-description: Deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure.
+title: Troubleshooting and Monitoring of SAP HANA on Azure (Large Instances) | Microsoft Docs
+description: Troubleshoot and monitor SAP HANA on an Azure (Large Instances).
 services: virtual-machines-linux
 documentationcenter: 
-author: v-derekg
+author: RicksterCDN
 manager: timlt
 editor:
 
@@ -16,12 +16,12 @@ ms.date: 11/23/2016
 ms.author: rclaus
 
 ---
-# SAP HANA on Azure (Large Instances) architecture and technical deployment guide, part 5: troubleshooting and monitoring
+# Troubleshooting and Monitoring of SAP HANA on Azure (Large Instances)
 
 
 ## Monitoring in SAP HANA on Azure (Large Instances)
 
-SAP HANA on Azure (Large Instances) does no different from any other IaaS deployment—you need to monitor what the OS and the application is doing and how these consume the following resources:
+SAP HANA on Azure (Large Instances) is no different from any other IaaS deployment — you need to monitor what the OS and the application is doing and how these consume the following resources:
 
 - CPU
 - Memory
