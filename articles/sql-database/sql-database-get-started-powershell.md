@@ -19,9 +19,9 @@ ms.author: sstein
 
 ---
 
-# SQL Database tutorial: Get started with Azure SQL Database servers, databases and firewall rules by using Azure PowerShell and SQL Server Management Studio
+# SQL Database tutorial: Get started with Azure SQL Database servers, databases, and firewall rules by using Azure PowerShell
 
-In this getting-started tutorial, you learn how to use the Azure portal to:
+In this getting-started tutorial, you learn how to use PowerShell to:
 
 * Create a new Azure resource group
 * Create an Azure SQL logical server
@@ -30,7 +30,7 @@ In this getting-started tutorial, you learn how to use the Azure portal to:
 * Create the Adventure Works LT sample database
 * View Adventure Works LT sample database properties in Azure
 
-In this tutorial, you will also use the most recent version of SQL Server Management Studio to:
+In this tutorial, you will also:
 
 * Connect to the logical server and its master database
 * View master database properties
@@ -44,10 +44,10 @@ To complete this tutorial, you must connect to an Azure subscription using an ac
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 
-## Create a new SQL server using Azure PowerShell
+## Create a new logical SQL server using Azure PowerShell
 
-
-
+We need a resource group to contain the server, so the first step is to either create a new resource group (or get a reference to an existing one).
+The following snippets will create a resource group and Azure SQL server if they don't already exist:
 
 
 ```
@@ -101,11 +101,19 @@ $myServer
 ```
 
 
-## View the SQL Server properties using Azure PowerShell
+## View the logical SQL Server properties using Azure PowerShell
 
 ```
-Write-Output "Fully qualified server name: $serverName.database.windows.net"
-Write-Output "Server admin: $serverAdmin"
+$resourceGroupName = $myResourceGroupName
+$serverName = $myServerName
+
+$myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
+
+Write-Host "Server name: " $myServer.ServerName
+Write-Host "Fully qualified server name: $serverName.database.windows.net"
+Write-Host "Server location: " $myServer.Location
+Write-Host "Server version: " $myServer.ServerVersion
+Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
 ```
 
 
@@ -113,9 +121,6 @@ Write-Output "Server admin: $serverAdmin"
 
 
 ```
-# Create or update server firewall rule
-#######################################
-
 $serverFirewallRuleName = $myServerFirewallRuleName
 $serverFirewallStartIp = $myServerFirewallStartIp
 $serverFirewallEndIp = $myServerFirewallEndIp
@@ -124,12 +129,12 @@ $myFirewallRule = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $myServerFi
 
 if(!$myFirewallRule)
 {
-   Write-Output "Creating server firewall rule: $serverFirewallRuleName"
+   Write-host "Creating server firewall rule: $serverFirewallRuleName"
    $myFirewallRule = New-AzureRmSqlServerFirewallRule -ResourceGroupName $serverResourceGroupName -ServerName $serverName -FirewallRuleName $serverFirewallRuleName -StartIpAddress $serverFirewallStartIp -EndIpAddress $serverFirewallEndIp
 }
 else
 {
-   Write-Output "Server firewall rule $serverFirewallRuleName already exists:"
+   Write-host "Server firewall rule $serverFirewallRuleName already exists:"
 }
 $myFirewallRule
 ```
@@ -137,14 +142,39 @@ $myFirewallRule
 
 ## Connect to SQL server using Azure PowerShell
 
+Lets run a quick query against the master database to verify we can connect to the server. The following snippet builds a connection string based on the variables we used in the previous snippets.
+
+
+```
+$databaseName = "master"
+
+$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password=" + $myServerAdminPassword + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+
+
+$connection = New-Object System.Data.SqlClient.SqlConnection
+$connection.ConnectionString = $connectionString
+$connection.Open()
+$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
+
+$command.Connection = $connection
+$reader = $command.ExecuteReader()
+
+
+$tables = ""
+while ($reader.Read()) {
+    $tables += $reader["name"] + "`n"
+}
+$tables
+
+$connection.Close()
+```
 
 
 ## Create new AdventureWorksLT sample database using Azure PowerShell
 
-```
-# Create the AdventureWorksLT database from a bacpac in Azure Storage
-#####################################################################
+The following snippet imports a bacpac of the AdventureWorksLT sample database. The bacpac is located in Azure blob storage.
 
+```
 $resourceGroupName = $myResourceGroupName
 $serverName = $myServerName
 
@@ -161,7 +191,7 @@ $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGrou
 
 Do {
      $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
-     Write-Output "Importing database..." $importStatus.StatusMessage
+     Write-host "Importing database..." $importStatus.StatusMessage
      Start-Sleep -Seconds 30
      $importStatus.Status
    }
@@ -174,9 +204,6 @@ $importStatus
 ## View database properties using Azure PowerShell
 
 ```
-# View database properties
-##########################
-
 $resourceGroupName = $myResourceGroupName
 $serverName = $myServerName
 $databaseName = $myDatabaseName
@@ -192,12 +219,32 @@ Write-Host "Database performance level: " $myDatabase.CurrentServiceObjectiveNam
 Write-Host "Database status: " $myDatabase.Status
 ```
 
-## Create a new blank database using Azure PowerShell
+## Connect and query the sample database using Azure PowerShell
+
+```
+$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password=" + $myServerAdminPassword + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
 
+$connection = New-Object System.Data.SqlClient.SqlConnection
+$connection.ConnectionString = $connectionString
+$connection.Open()
+$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
+
+$command.Connection = $connection
+$reader = $command.ExecuteReader()
 
 
-## Sample Azure PowerShell script to create a server, firewall rule, and database
+$tables = ""
+while ($reader.Read()) {
+    $tables += $reader["name"] + "`n"
+}
+$tables
+
+$connection.Close()
+```
+
+
+## Complete Azure PowerShell script to create a server, firewall rule, and database
 
 
 
@@ -205,27 +252,27 @@ Write-Host "Database status: " $myDatabase.Status
 # Sign in to Azure and set the subscription to work with
 ########################################################
 
-$SubscriptionId = "[subscription-id}"
+$SubscriptionId = "{subscription-id}"
 
 Add-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+Set-AzureRmContext -SubscriptionId $SubscriptionId
 
 # User variables
 ################
 
 $myResourceGroupName = "{resource-group-name}"
-$myResourceGroupLocation = "{azure-region}"
+$myResourceGroupLocation = "{resource-group-location}"
 
 $myServerName = "{server-name}"
 $myServerVersion = "12.0"
-$myServerLocation = $myResourceGroupLocation
-$myServerResourceGroupName = $myResourceGroupName
-$myServerAdmin = "{admin-login}"
-$myServerAdminPassword = "{admin-password}" 
+$myServerLocation = "{server-location}"
+$myServerResourceGroupName = "{resource-group-name}"
+$myServerAdmin = "{server-admin}"
+$myServerAdminPassword = "{server-admin-password}" 
 
-$myServerFirewallRuleName = "{firewall-rule-name}"
-$myServerFirewallStartIp = "0.0.0.0"
-$myServerFirewallEndIp = "255.255.255.255"
+$myServerFirewallRuleName = "{server-firewall-rule-name}"
+$myServerFirewallStartIp = "{start-ip}"
+$myServerFirewallEndIp = "{end-ip}"
 
 $myDatabaseName = "AdventureWorksLT"
 $myDatabaseEdition = "Basic"
@@ -284,7 +331,7 @@ else
 }
 $myServer
 
-# View database properties
+# View server properties
 ##########################
 
 $resourceGroupName = $myResourceGroupName
@@ -320,8 +367,33 @@ else
 }
 $myFirewallRule
 
-Write-host "Fully qualified server name: $serverName.database.windows.net"
-Write-host "Server admin: $serverAdmin"
+
+
+# Connect to the server and master database
+###########################################
+$databaseName = "master"
+
+$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password=" + $myServerAdminPassword + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+
+
+$connection = New-Object System.Data.SqlClient.SqlConnection
+$connection.ConnectionString = $connectionString
+$connection.Open()
+$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
+
+$command.Connection = $connection
+$reader = $command.ExecuteReader()
+
+
+$tables = ""
+while ($reader.Read()) {
+    $tables += $reader["name"] + "`n"
+}
+$tables
+
+$connection.Close()
+
+
 
 # Create the AdventureWorksLT database from a bacpac
 ####################################################
@@ -377,7 +449,7 @@ $connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",14
 $connection = New-Object System.Data.SqlClient.SqlConnection
 $connection.ConnectionString = $connectionString
 $connection.Open()
-$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.tables", $connection)
+$command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.objects", $connection)
 
 $command.Connection = $connection
 $reader = $command.ExecuteReader()
@@ -385,7 +457,7 @@ $reader = $command.ExecuteReader()
 
 $tables = ""
 while ($reader.Read()) {
-    $tables += $reader["name"] + " (created " + $reader["create_date"] + ")`n"
+    $tables += $reader["name"] + "`n"
 }
 $tables
 
