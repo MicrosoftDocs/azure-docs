@@ -2356,11 +2356,11 @@ description: Learn how to build and manage powerful applications using Microsoft
                 </ul>
             </li>
             <li>
-                <a href="#developer">Developer</a>
-                <ul id="developer">
+                <a href="#sdktools">SDK/Tools</a>
+                <ul id="sdktools">
                     <li>
-                        <a href="#developer-all">all</a>
-                        <ul id="developer-all" class="cardsF">
+                        <a href="#sdktools-all">all</a>
+                        <ul id="sdktools-all" class="cardsF">
                             <li>
                                 <div class="container">
                                     <h1>Languages &amp; Frameworks</h1>
