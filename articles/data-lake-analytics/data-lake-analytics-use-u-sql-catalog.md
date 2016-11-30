@@ -50,7 +50,7 @@ You can use Data Lake Tools for Visual Studio to manage the catalog.  For more i
     - To add a new assembly, right-click **Assemblies**, and then click **Register Assembly**.
     - To add a new schema, right-click **Schemas**, and then click **Create Schema**.
     - To add a new table, right-click **Tables**, and then click **Create Table**.
-    - To add a new table valued function, see [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md).
+    - To add a new table-valued function, see [Develop U-SQL user-defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md).
 
 
 ![Browse U-SQL Visual Studio catalogs](./media/data-lake-analytics-use-u-sql-catalog/data-lake-analytics-browse-catalogs.png)
@@ -67,7 +67,7 @@ You can use Data Lake Tools for Visual Studio to manage the catalog.  For more i
   
   * [Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
   * [Use U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-  * [Develop U-SQL user defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+  * [Develop U-SQL user-defined operators for Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 * Management
   
   * [Manage Azure Data Lake Analytics using Azure portal](data-lake-analytics-manage-use-portal.md)
