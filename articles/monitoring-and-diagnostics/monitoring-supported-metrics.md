@@ -439,7 +439,7 @@ Azure Monitor provides several ways to interact with metrics, including charting
 |BytesReceived|Data In|Bytes|Total|Data In|
 |BytesSent|Data Out|Bytes|Total|Data Out|
 
-## Microsoft.Web/sites
+## Microsoft.Web/sites (including Azure Functions)
 
 |Metric|Metric Display Name|Unit|Aggregation Type|Description|
 |---|---|---|---|---|
