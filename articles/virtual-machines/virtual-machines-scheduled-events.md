@@ -1,7 +1,7 @@
 ﻿---
-title: Azure Metadata Service - Scheduled Events | Microsoft Azure
+title: Scheduled Events with Azure Metadata Service | Microsoft Docs
 description: React to Impactful Events on yout Virtual Machine before they happen.. 
-services: 'scheduled-events'
+services: 'virtual-machines'
 documentationcenter: ''
 author: zivraf
 manager: timlt
