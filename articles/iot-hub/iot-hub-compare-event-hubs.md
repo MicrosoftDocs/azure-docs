@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/06/2016
+ms.date: 11/16/2016
 ms.author: elioda
 
 ---
 # Comparison of Azure IoT Hub and Azure Event Hubs
 One of the main use cases for IoT Hub is to gather telemetry from devices. For this reason, IoT Hub is often compared to [Azure Event Hubs][Azure Event Hubs]. Like IoT Hub, Event Hubs is an event processing service that enables event and telemetry ingress to the cloud at massive scale, with low latency and high reliability.
 
-However, the services have many differences, which are detailed in the following table.
+However, the services have many differences, which are detailed in the following table:
 
 | Area | IoT Hub | Event Hubs |
 | --- | --- | --- |
@@ -33,12 +33,12 @@ However, the services have many differences, which are detailed in the following
 | Device SDKs |Provides [device SDKs][Azure IoT SDKs] for a large variety of platforms and languages, in addition to direct MQTT, AMQP, and HTTP APIs. |Is supported on .NET, Java, and C, in addition to AMQP and HTTP send interfaces. |
 | File upload |Enables IoT solutions to upload files from devices to the cloud. Includes a file notification endpoint for workflow integration and an operations monitoring category for debugging support. | Not supported. |
 
-In summary, even if the only use case is device-to-cloud telemetry ingress, IoT Hub provides a service that is specifically designed for device connectivity. It will continue to expand the value propositions for these scenarios with IoT-specific features. Event Hubs is designed for event ingress at a massive scale, both in the context of inter-datacenter and intra-datacenter scenarios.
+In summary, even if the only use case is device-to-cloud telemetry ingress, IoT Hub provides a service that is designed for IoT device connectivity. It continues to expand the value propositions for these scenarios with IoT-specific features. Event Hubs is designed for event ingress at a massive scale, both in the context of inter-datacenter and intra-datacenter scenarios.
 
-It is not uncommon to use both IoT Hub and Event Hubs in the same solution--where IoT Hub handles the device-to-cloud communication, and Event Hubs handles later-stage event ingress into real-time processing engines.
+It is not uncommon to use both IoT Hub and Event Hubs in the same solution. IoT Hub handles the device-to-cloud communication, and Event Hubs handles later-stage event ingress into real-time processing engines.
 
-## Next steps
-To learn more about planning your IoT Hub deployment, see [Scaling, HA and DR][lnk-scaling].
+### Next steps
+To learn more about planning your IoT Hub deployment, see [Scaling, HA, and DR][lnk-scaling].
 
 To further explore the capabilities of IoT Hub, see:
 

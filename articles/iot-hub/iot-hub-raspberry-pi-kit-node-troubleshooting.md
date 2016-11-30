@@ -6,15 +6,15 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'iot issues, internet of things problems'
 
 ms.assetid: 22cf50dc-8206-42a2-a1fc-f75fa85135fa
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 11/28/2016
 ms.author: xshi
 
 ---
@@ -63,7 +63,11 @@ When the debug engine is ready, you should see ```Debugger listening on port 585
 ### Configure Visual Studio Code to connect to the remote device
 1. Open the **Debug** panel on the left side.
 2. Click the green **Start Debugging** (F5) button. Visual Studio Code opens a launch.json file.
-3. Update the launch.json file with the following content. Replace `[device hostname or IP address]` with the actual device IP address or host name.   
+3. Update the launch.json file with the following content. Replace `[device hostname or IP address]` with the actual device IP address or host name.
+
+> [!NOTE]
+> To learn more about the Visual Studio Debugging, please refer to [Debugging in Visual Studio Code](https://code.visualstudio.com/Docs/editor/debugging#_launchjson-attributes).
+
 
 ```json
 {

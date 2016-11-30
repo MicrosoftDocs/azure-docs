@@ -3,8 +3,8 @@ title: Create an Internet facing load balancer in Resource Manager using a templ
 description: Learn how to create an Internet facing load balancer in Resource Manager using a template
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 tags: azure-resource-manager
 
 ms.assetid: b24f4729-4559-4458-8527-71009d242647
@@ -14,7 +14,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Creating an Internet facing load balancer using a template

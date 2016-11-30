@@ -310,7 +310,7 @@ In this section, you create a Java console app that simulates a device that send
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQP;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```

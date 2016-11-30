@@ -187,7 +187,7 @@ namespace Stateless1
                 ElasticSearchListener esListener = null;
                 if (configProvider.HasConfiguration)
                 {
-                    esListener = new ElasticSearchListener(configProvider);
+                    esListener = new ElasticSearchListener(configProvider, new FabricHealthReporter("ElasticSearchEventListener"));
                 }
 
                 // The ServiceManifest.XML file defines one or more service type names.
