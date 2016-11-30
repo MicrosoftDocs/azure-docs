@@ -100,7 +100,7 @@ In this section you configure the Spark magic that you installed earlier to conn
             "livy_server_heartbeat_timeout_seconds": 60,
             "heartbeat_retry_seconds": 1
 
-    >[AZURE.TIP] Heartbeats are sent to ensure that sessions are not leaked. Note that when a computer goes to sleep or is shut down, the hearbeat will not be sent, resulting in the session being cleaned up. For clusters v3.4, if you wish to disable this behavior, you can set the Livy config `livy.server.interactive.heartbeat.timeout` to `0` from the Ambari UI. For clusters v3.5, if you do not set the 3.5 configuration above, the session will not be deleted.
+    >[!TIP] Heartbeats are sent to ensure that sessions are not leaked. Note that when a computer goes to sleep or is shut down, the hearbeat will not be sent, resulting in the session being cleaned up. For clusters v3.4, if you wish to disable this behavior, you can set the Livy config `livy.server.interactive.heartbeat.timeout` to `0` from the Ambari UI. For clusters v3.5, if you do not set the 3.5 configuration above, the session will not be deleted.
 
 6. Start Jupyter. Use the following command from the command prompt.
    
@@ -122,7 +122,7 @@ In this section you configure the Spark magic that you installed earlier to conn
 
         If you can successfully retrieve the output, your connection to the HDInsight cluster is tested.
 
-    >[AZURE.TIP] If you want to update the notebook configuration to connect to a different cluster, update the config.json with the new set of values, as shown in Step 3 above. 
+    >[!TIP] If you want to update the notebook configuration to connect to a different cluster, update the config.json with the new set of values, as shown in Step 3 above. 
 
 ## Why should I install Jupyter on my computer?
 There can be a number of reasons why you might want to install Jupyter on your computer and then connect it to a Spark cluster on HDInsight.
