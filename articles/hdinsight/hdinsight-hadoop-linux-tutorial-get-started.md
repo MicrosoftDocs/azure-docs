@@ -46,7 +46,7 @@ The Resource Manager template used in this tutorial is located in a public blob 
 1. Click the following image to sign in to Azure and open the Resource Manager template in the Azure portal. 
    
     <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hadoop-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hadoop-linux-tutorial-get-started/deploy-to-azure.png" alt="Deploy to Azure"></a>
-2. Enter or select the following value:
+2. Enter or select the following values:
    
     ![HDInsight Linux get started Resource Manager template on portal](./media/hdinsight-hadoop-linux-tutorial-get-started/hdinsight-linux-get-started-arm-template-on-portal.png).
    
