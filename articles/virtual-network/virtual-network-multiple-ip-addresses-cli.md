@@ -21,7 +21,7 @@ ms.author: annahar
 # Assign multiple IP addresses to virtual machines using Azure CLI
 
 > [!div class="op_single_selector"]
-> * [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
+> * [Portal](virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
 > * [CLI](virtual-network-multiple-ip-addresses-cli.md)
 
