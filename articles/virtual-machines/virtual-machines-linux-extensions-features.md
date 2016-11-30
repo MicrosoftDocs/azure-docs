@@ -84,9 +84,9 @@ info:    vm extension set command OK
 
 VM extensions can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine, choose **Extensions**, and click **Add**. Doing so provides a list of available extensions. Select the one you want and follow the instructions in the wizard.
 
-The following image shows the installation of the Linux custom script extension from the Azure portal.
+The following image shows the installation of the Linux Custom Script extension from the Azure portal.
 
-![Antimalware Extension](./media/virtual-machines-linux-extensions-features/script-extension-linux.jpg)
+![Custom Script extension](./media/virtual-machines-linux-extensions-features/script-extension-linux.jpg)
 
 ### Azure Resource Manager templates
 
