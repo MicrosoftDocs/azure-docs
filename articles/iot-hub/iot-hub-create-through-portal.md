@@ -36,7 +36,7 @@ You can create an IoT hub using the following methods:
 * Creating an IoT hub through the Marketplace: Clicking **Create** opens a blade that is identical to the previous blade for the **+New** experience. The next sections list the several steps involved in creating an IoT hub.
 
 ### Choose the name of the IoT hub
-To create an IoT hub, you must name the hub. This name must be unique across the hubs. No duplication of hubs is allowed on the back end, so it is recommended that this hub is named as uniquely as possible.
+To create an IoT hub, you must name the IoT hub. This name must be unique across the IoT hubs. No duplication of hubs is allowed on the solution back end, so it is recommended that this hub is named as uniquely as possible.
 
 ### Choose the pricing tier
 You can choose from four tiers: **Free**, **Standard 1** and **Standard 2**, and **Standard S3**. The free tier allows only 500 devices to be connected to the IoT hub and up to 8,000 messages per day.
@@ -121,21 +121,21 @@ The pricing of an existing IoT hub can be changed through the **Pricing** settin
 
 ![][12]
 
-Moving from a higher tier (S2 or S3) to lower tier (S1 or S2) is allowed only when the number of messages sent for that day are not in conflict. For example, if the number of messages per day exceeds 400,000, then the tier for the IoT hub can be changed. However, if you change to the S1 tier then the hub is throttled for that day.
+Moving from a higher tier (S2 or S3) to lower tier (S1 or S2) is allowed only when the number of messages sent for that day are not in conflict. For example, if the number of messages per day exceeds 400,000, then the tier for the IoT hub can be changed. However, if you change to the S1 tier then the IoT hub is throttled for that day.
 
 ## Delete the IoT hub
-You can browse to the IoT hub you want to delete by clicking **Browse**, and then choosing the appropriate hub to delete. Click the **Delete** button below the hub name to delete the hub.
+You can browse to the IoT hub you want to delete by clicking **Browse**, and then choosing the appropriate hub to delete. Click the **Delete** button below the IoT hub name to delete the IoT hub.
 
 ## Next steps
 Follow these links to learn more about managing Azure IoT Hub:
 
 * [Bulk manage IoT devices][lnk-bulk]
-* [Usage metrics][lnk-metrics]
+* [IoT Hub metrics][lnk-metrics]
 * [Operations monitoring][lnk-monitor]
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 * [Secure your IoT solution from the ground up][lnk-securing]
 

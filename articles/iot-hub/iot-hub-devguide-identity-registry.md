@@ -1,6 +1,6 @@
 ---
-title: Developer guide - device identity registry | Microsoft Docs
-description: Azure IoT Hub developer guide - description of the device identity registry and how to use it to manage your devices
+title: Developer guide - identity registry | Microsoft Docs
+description: Azure IoT Hub developer guide - description of the identity registry and how to use it to manage your devices
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -19,20 +19,20 @@ ms.author: dobett
 ---
 # Manage device identities in IoT Hub
 ## Overview
-Every IoT hub has a device identity registry that stores information about the devices that are permitted to connect to the hub. Before a device can connect to a hub, there must be an entry for that device in the hub's device identity registry. A device must also authenticate with the hub based on credentials stored in the device identity registry.
+Every IoT hub has an identity registry that stores information about the devices that are permitted to connect to the IoT hub. Before a device can connect to an IoT hub, there must be an entry for that device in the IoT hub's identity registry. A device must also authenticate with the IoT hub based on credentials stored in the identity registry.
 
-At a high level, the device identity registry is a REST-capable collection of device identity resources. When you add an entry to the registry, IoT Hub creates a set of per-device resources in the service such as the queue that contains in-flight cloud-to-device messages.
+At a high level, the identity registry is a REST-capable collection of device identity resources. When you add an entry to the identity registry, IoT Hub creates a set of per-device resources in the service such as the queue that contains in-flight cloud-to-device messages.
 
 ### When to use
-Use the device identity registry when you need to provision devices that connect to you IoT hub and when you need to control per-device access to the device-facing endpoints in your hub.
+Use the identity registry when you need to provision devices that connect to you IoT hub and when you need to control per-device access to the device-facing endpoints in your hub.
 
 > [!NOTE]
-> The device identity registry does not contain any application-specific metadata.
+> The identity registry does not contain any application-specific metadata.
 > 
 > 
 
-## Device identity registry operations
-The IoT Hub device identity registry exposes the following operations:
+## Identity registry operations
+The IoT Hub identity registry exposes the following operations:
 
 * Create device identity
 * Update device identity
@@ -45,11 +45,11 @@ The IoT Hub device identity registry exposes the following operations:
 All these operations can use optimistic concurrency, as specified in [RFC7232][lnk-rfc7232].
 
 > [!IMPORTANT]
-> The only way to retrieve all identities in a hub's identity registry is to use the [Export][lnk-export] functionality.
+> The only way to retrieve all identities in an IoT hub's identity registry is to use the [Export][lnk-export] functionality.
 > 
 > 
 
-An IoT Hub device identity registry:
+An IoT Hub identity registry:
 
 * Does not contain any application metadata.
 * Can be accessed like a dictionary, by using the **deviceId** as the key.
@@ -58,12 +58,12 @@ An IoT Hub device identity registry:
 An IoT solution typically has a separate solution-specific store that contains application-specific metadata. For example, the solution-specific store in a smart building solution would record the room in which a temperature sensor is deployed.
 
 > [!IMPORTANT]
-> Only use the device identity registry for device management and provisioning operations. High throughput operations at run time should not depend on performing operations in the device identity registry. For example, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates][lnk-quotas] for the device identity registry, and the [device heartbeat][lnk-guidance-heartbeat] pattern.
+> Only use the identity registry for device management and provisioning operations. High throughput operations at run time should not depend on performing operations in the identity registry. For example, checking the connection state of a device before sending a command is not a supported pattern. Make sure to check the [throttling rates][lnk-quotas] for the identity registry, and the [device heartbeat][lnk-guidance-heartbeat] pattern.
 > 
 > 
 
 ## Disable devices
-You can disable devices by updating the **status** property of an identity in the registry. Typically, you use this property in two scenarios:
+You can disable devices by updating the **status** property of an identity in the identity registry. Typically, you use this property in two scenarios:
 
 * During a provisioning orchestration process. For more information, see [Device Provisioning][lnk-guidance-provisioning].
 * If, for any reason, you consider a device is compromised or has become unauthorized.
@@ -71,7 +71,7 @@ You can disable devices by updating the **status** property of an identity in th
 ## Import and export device identities
 You can export device identities in bulk from an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints]. Exports are long-running jobs that use a customer-supplied blob container to save device identity data read from the identity registry.
 
-You can import device identities in bulk to an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints]. Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the device identity registry.
+You can import device identities in bulk to an IoT hub's identity registry, by using asynchronous operations on the [IoT Hub resource provider endpoint][lnk-endpoints]. Imports are long-running jobs that use data in a customer-supplied blob container to write device identity data into the identity registry.
 
 * For detailed information about the import and export APIs, see [IoT Hub resource provider REST APIs][lnk-resource-provider-apis].
 * To learn more about running import and export jobs, see [Bulk management of IoT Hub device identities][lnk-bulk-identity].
@@ -96,7 +96,7 @@ A more complex implementation could include the information from [operations mon
 > 
 
 ## Reference topics:
-The following reference topics provide you with more information about the device identity registry.
+The following reference topics provide you with more information about the identity registry.
 
 ## Device identity properties
 Device identities are represented as JSON documents with the following properties.
@@ -104,7 +104,7 @@ Device identities are represented as JSON documents with the following propertie
 | Property | Options | Description |
 | --- | --- | --- |
 | deviceId |required, read-only on updates |A case-sensitive string (up to 128 characters long) of ASCII 7-bit alphanumeric characters + `{'-', ':', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '$', '''}`. |
-| generationId |required, read-only |A hub-generated, case-sensitive string up to 128 characters long. This is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
+| generationId |required, read-only |An IoT hub-generated, case-sensitive string up to 128 characters long. This is used to distinguish devices with the same **deviceId**, when they have been deleted and re-created. |
 | etag |required, read-only |A string representing a weak etag for the device identity, as per [RFC7232][lnk-rfc7232]. |
 | auth |optional |A composite object containing authentication information and security materials. |
 | auth.symkey |optional |A composite object containing a primary and a secondary key, stored in base64 format. |
@@ -121,16 +121,16 @@ Device identities are represented as JSON documents with the following propertie
 > 
 
 ## Additional reference material
-Other reference topics in the Developer Guide include:
+Other reference topics in the IoT Hub developer guide include:
 
-* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
+* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [IoT Hub device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
-* [IoT Hub query language for device twins, methods, and jobs][lnk-query] describes the query language you can use to retrieve information from IoT Hub about your device twins, methods and jobs.
+* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service apps that interact with IoT Hub.
+* [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
-Now you have learned how to use the IoT Hub device identity registry, you may be interested in the following Developer Guide topics:
+Now you have learned how to use the IoT Hub identity registry, you may be interested in the following IoT Hub developer guide topics:
 
 * [Control access to IoT Hub][lnk-devguide-security]
 * [Use device twins to synchronize state and configurations][lnk-devguide-device-twins]

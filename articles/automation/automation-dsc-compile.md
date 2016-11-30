@@ -3,8 +3,8 @@ title: Compiling configurations in Azure Automation DSC | Microsoft Docs
 description: 'Overview of two ways to compile Desired State Configuration (DSC) configurations: In the Azure portal, and with Windows PowerShell. '
 services: automation
 documentationcenter: na
-author: coreyp-at-msft
-manager: stevenka
+author: sdwheeler
+manager: carmonm
 editor: tysonn
 
 ms.assetid: 49f20b31-4fa5-4712-b1c7-8f4409f1aecc
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: na
 ms.date: 01/25/2016
-ms.author: coreyp
+ms.author: sewhee
 
 ---
 # Compiling configurations in Azure Automation DSC
