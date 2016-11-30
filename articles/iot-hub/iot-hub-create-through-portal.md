@@ -36,7 +36,7 @@ You can create an IoT hub using the following methods:
 * Creating an IoT hub through the Marketplace: Clicking **Create** opens a blade that is identical to the previous blade for the **+New** experience. The next sections list the several steps involved in creating an IoT hub.
 
 ### Choose the name of the IoT hub
-To create an IoT hub, you must name the IoT hub. This name must be unique across the IoT hubs. No duplication of hubs is allowed on the back end, so it is recommended that this hub is named as uniquely as possible.
+To create an IoT hub, you must name the IoT hub. This name must be unique across the IoT hubs. No duplication of hubs is allowed on the solution back end, so it is recommended that this hub is named as uniquely as possible.
 
 ### Choose the pricing tier
 You can choose from four tiers: **Free**, **Standard 1** and **Standard 2**, and **Standard S3**. The free tier allows only 500 devices to be connected to the IoT hub and up to 8,000 messages per day.
@@ -130,12 +130,12 @@ You can browse to the IoT hub you want to delete by clicking **Browse**, and the
 Follow these links to learn more about managing Azure IoT Hub:
 
 * [Bulk manage IoT devices][lnk-bulk]
-* [Usage metrics][lnk-metrics]
+* [IoT Hub metrics][lnk-metrics]
 * [Operations monitoring][lnk-monitor]
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 * [Secure your IoT solution from the ground up][lnk-securing]
 

@@ -42,7 +42,7 @@ In this article, you will learn:
 You also need to add the path of the folders where python.exe and pip.exe are installed to the system `PATH` environment variable. By default, python.exe is installed in `C:\Python27` and pip.exe is installed in `C:\Python27\Scripts`.
 
 ## Install the Azure CLI
-The Azure CLI provides a multiplatform command-line experience for Azure. You work directly from your command line to provision and manage resources.
+The Azure CLI provides a multiplatform command-line experience for Azure. You work directly from your command-line to provision and manage resources.
 
 To install the Azure CLI, follow these steps:
 

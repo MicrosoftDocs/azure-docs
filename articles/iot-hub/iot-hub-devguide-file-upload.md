@@ -124,16 +124,16 @@ Each IoT hub exposes the following configuration options for file upload notific
 | **fileNotifications.maxDeliveryCount** |Maximum delivery count for the file upload notification queue. |1 to 100. Default: 100. |
 
 ## Additional reference material
-Other reference topics in the Developer Guide include:
+Other reference topics in the IoT Hub developer guide include:
 
-* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
+* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
+* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service apps that interact with IoT Hub.
 * [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
-Now you have learned how to upload files from devices using IoT Hub, you may be interested in the following Developer Guide topics:
+Now you have learned how to upload files from devices using IoT Hub, you may be interested in the following IoT Hub developer guide topics:
 
 * [Manage device identities in IoT Hub][lnk-devguide-identities]
 * [Control access to IoT Hub][lnk-devguide-security]

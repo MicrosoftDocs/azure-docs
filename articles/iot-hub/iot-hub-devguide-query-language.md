@@ -143,7 +143,7 @@ Note how the **query** object is instantiated with a page size (up to 1000), and
 It is important to note that the query object exposes multiple **Next\***, depending on the deserialization option required by the query, such as device twin or job objects, or plain Json to be used when using projections.
 
 ### Node example
-The query functionality is exposed by the [Node service SDK][lnk-hub-sdks] in the the **Registry** object.
+The query functionality is exposed by the [Azure IoT service SDK for Node][lnk-hub-sdks] in the the **Registry** object.
 Here is an example of a simple query:
 
         var query = registry.createQuery('SELECT * FROM devices', 100);
