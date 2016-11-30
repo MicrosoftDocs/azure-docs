@@ -16,7 +16,8 @@ client.login("facebook").done(function (results) {
 
 The valid values for the provider are 'aad', 'facebook', 'google', 'microsoftaccount', and 'twitter'.
 
-> **Note:** Google Authentication does not currently work via Server Flow.  To authenticate with Google, you must
+> [!NOTE]
+> Google Authentication does not currently work via Server Flow.  To authenticate with Google, you must
 > use a [client-flow method](#client-auth).
 
 In this case, Azure App Service manages the OAuth 2.0 authentication flow.  It displays the login page of the selected
