@@ -38,7 +38,7 @@ To add your DocumentDB account with protocol support for MongoDB to the Robomong
 
     ![Screen shot of the Robomongo Manage Connections](./media/documentdb-mongodb-robomongo/manageconnections.png)
 5. On the **Authentication** tab, click **Perform authentication**. Then, enter your Database (default is *Admin*), **User Name** and **Password**.
-Both **User Name** and **Password** can be found in your connection information in *Step 1*.
+Both **User Name** and **Password** can be found in your connection information in Step 1.
 
     ![Screen shot of the Robomongo Authentication Tab](./media/documentdb-mongodb-robomongo/authentication.png)
 6. On the **SSL** tab, check **Use SSL protocol**, then change the **Authentication Method** to **Self-signed Certificate**.
