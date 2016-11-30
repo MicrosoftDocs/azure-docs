@@ -78,3 +78,67 @@ Under certain conditions, Enterprise State Roaming can fail to sync data if Azur
 For advanced troubleshooting, Event Viewer can be used to find specific errors. These are documented in the table below. The events can be found under Event Viewer > Applications and Services Logs > **Microsoft** > **Windows** > **SettingSync** and for identity-related issues with sync **Microsoft** > **Windows** > **Azure AD**.
 
 
+## Known issues 1
+
+| Issue | Details | Recommended action |
+|---    | ---     | ---                |
+| Sync does not work on devices that have apps side-loaded using MDM software.	| Affects devices running the Windows 10 Anniversary Update (Version 1607). In Event Viewer under the SettingSync-Azure logs, the Event ID 6013 with error 80070259 is frequently seen. | Make sure the Windows 10 v1607 client has the August 23, 2016 Cumulative Update (KB3176934 OS Build 14393.82). |
+| Internet Explorer Favorites do not sync. | Affects devices running the Windows 10 November Update (Version 1511).|	Make sure the Windows 10 v1511 client has the July 2016 Cumulative Update (KB3172985 OS Build 10586.494).|
+|Theme is not syncing, as well as data protected with Windows Information Protection. | To prevent data leakage, data that is protected with Windows Information Protection  will not sync through Enterprise State Roaming for devices using the Windows 10 Anniversary Update. |	None. Future updates to Windows may resolve this issue. |
+|Date, Time, and Region settings do not sync on domain-joined device. |	Devices that are domain-joined will not experience sync for the setting Date, Time, and Region: automatic time. Using automatic time may override the other Date, Time, and Region settings and cause those settings not to sync. |	None. |
+|UAC Prompts when syncing passwords. |	Affects devices running the Windows 10 November Update (Version 1511) with a wireless NIC that is configured to sync passwords. | Make sure the Windows 10 v1511 client has the Cumulative Update |
+
+## Known issues 2
+
+**Issue**  
+Sync does not work on devices that have apps side-loaded using MDM software.
+
+**Details**  
+Affects devices running the Windows 10 Anniversary Update (Version 1607). In Event Viewer under the SettingSync-Azure logs, the Event ID 6013 with error 80070259 is frequently seen.
+
+**Recommended action**  
+Make sure the Windows 10 v1607 client has the August 23, 2016 Cumulative Update (KB3176934 OS Build 14393.82). 
+
+---
+
+**Issue**  
+Internet Explorer Favorites do not sync.
+
+**Details**  
+Affects devices running the Windows 10 November Update (Version 1511).
+
+**Recommended action**  
+Make sure the Windows 10 v1511 client has the July 2016 Cumulative Update (KB3172985 OS Build 10586.494).
+
+---
+
+**Issue**  
+Theme is not syncing, as well as data protected with Windows Information Protection. 
+
+**Details**  
+To prevent data leakage, data that is protected with Windows Information Protection  will not sync through Enterprise State Roaming for devices using the Windows 10 Anniversary Update.
+
+**Recommended action**  
+None. Future updates to Windows may resolve this issue.
+
+---
+
+**Issue**  
+Date, Time, and Region settings do not sync on domain-joined device. 
+
+**Details**  
+Devices that are domain-joined will not experience sync for the setting Date, Time, and Region: automatic time. Using automatic time may override the other Date, Time, and Region settings and cause those settings not to sync. 
+
+**Recommended action**  
+None. 
+
+---
+
+**Issue**  
+UAC Prompts when syncing passwords.
+
+**Details**  
+Affects devices running the Windows 10 November Update (Version 1511) with a wireless NIC that is configured to sync passwords.
+
+**Recommended action**  
+Make sure the Windows 10 v1511 client has the Cumulative Update.
