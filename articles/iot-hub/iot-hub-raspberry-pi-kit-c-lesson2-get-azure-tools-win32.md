@@ -1,5 +1,5 @@
 ---
-title: Get Azure tools (Windows 7 and later) | Microsoft Azure
+title: Get Azure tools (Windows 7 and later) | Microsoft Docs
 description: Install Python and the Azure command-line interface (Azure CLI) on Windows 7 and later versions.
 services: iot-hub
 documentationcenter: ''
@@ -8,6 +8,7 @@ manager: timtl
 tags: ''
 keywords: 'iot cloud service, azure cli'
 
+ms.assetid: a3c083b5-0d76-46af-bc77-2ad7d8aadc1e
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
