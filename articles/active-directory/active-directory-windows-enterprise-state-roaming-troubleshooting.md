@@ -77,9 +77,26 @@ Under certain conditions, Enterprise State Roaming can fail to sync data if Azur
 ###Event Viewer
 For advanced troubleshooting, Event Viewer can be used to find specific errors. These are documented in the table below. The events can be found under Event Viewer > Applications and Services Logs > **Microsoft** > **Windows** > **SettingSync** and for identity-related issues with sync **Microsoft** > **Windows** > **Azure AD**.
 
+
 ## Known issues 1
 
-### Sync does not work on devices that have apps side-loaded using MDM software.
+| Issue | Details | Recommended action |
+|---    | ---     | ---                |
+| Sync does not work on devices that have apps side-loaded using MDM software.	| Affects devices running the Windows 10 Anniversary Update (Version 1607). In Event Viewer under the SettingSync-Azure logs, the Event ID 6013 with error 80070259 is frequently seen. | Make sure the Windows 10 v1607 client has the August 23, 2016 Cumulative Update (KB3176934 OS Build 14393.82). |
+| Internet Explorer Favorites do not sync. | Affects devices running the Windows 10 November Update (Version 1511).|	Make sure the Windows 10 v1511 client has the July 2016 Cumulative Update (KB3172985 OS Build 10586.494).|
+|Theme is not syncing, as well as data protected with Windows Information Protection. | To prevent data leakage, data that is protected with Windows Information Protection  will not sync through Enterprise State Roaming for devices using the Windows 10 Anniversary Update. |	None. Future updates to Windows may resolve this issue. |
+|Date, Time, and Region settings do not sync on domain-joined device. |	Devices that are domain-joined will not experience sync for the setting Date, Time, and Region: automatic time. Using automatic time may override the other Date, Time, and Region settings and cause those settings not to sync. |	None. |
+|UAC Prompts when syncing passwords. |	Affects devices running the Windows 10 November Update (Version 1511) with a wireless NIC that is configured to sync passwords. | Make sure the Windows 10 v1511 client has the Cumulative Update (KB3140743 OS Build 10586.494).|
+|Sync does not work on devices that use smart card for login. | If you attempt to sign in to your Windows device using a smart card or virtual smart card, settings sync will stop working.| None. Future updates to Windows may resolve this issue.|
+|Domain-joined device is not syncing after leaving corporate network. |	Domain-joined devices registered to Azure AD may experience sync failure if the device is off-site for extended periods of time, and domain authentication can't complete. | Connect the device to a corporate network so that sync can resume. |
+|Event ID 6065: 80070533 This user can’t sign in because this account is currently disabled | In Event Viewer under the SettingSync/Debug logs, this error can be seen when the tenant did not automatically have AzureRMS provisioned. | Proceed with the steps listed in KB3193791. |
+|Event ID 1098: Error: 0xCAA5001C Token broker operation failed | In Event Viewer under the AAD/Operational logs, this error may be seen with Event 1104: AAD Cloud AP plugin call Get token returned error: 0xC000005F. This issue occurs if there are missing permissions or ownership attributes. | Proceed with the steps listed KB3196528. |
+  
+
+
+## Known issues 2
+
+### Sync does not work on devices that have apps side-loaded using MDM software
 
 Affects devices running the Windows 10 Anniversary Update (Version 1607). In Event Viewer under the SettingSync-Azure logs, the Event ID 6013 with error 80070259 is frequently seen.
 
@@ -88,7 +105,7 @@ Make sure the Windows 10 v1607 client has the August 23, 2016 Cumulative Update 
 
 ---
 
-### Internet Explorer Favorites do not sync.
+### Internet Explorer Favorites do not sync
 
 Affects devices running the Windows 10 November Update (Version 1511).
 
@@ -97,7 +114,7 @@ Make sure the Windows 10 v1511 client has the July 2016 Cumulative Update (KB317
 
 ---
 
-### Theme is not syncing, as well as data protected with Windows Information Protection. 
+### Theme is not syncing, as well as data protected with Windows Information Protection 
 
 To prevent data leakage, data that is protected with Windows Information Protection  will not sync through Enterprise State Roaming for devices using the Windows 10 Anniversary Update.
 
@@ -106,7 +123,7 @@ None. Future updates to Windows may resolve this issue.
 
 ---
 
-### Date, Time, and Region settings do not sync on domain-joined device. 
+### Date, Time, and Region settings do not sync on domain-joined device 
   
 Devices that are domain-joined will not experience sync for the setting Date, Time, and Region: automatic time. Using automatic time may override the other Date, Time, and Region settings and cause those settings not to sync. 
 
@@ -115,15 +132,51 @@ None.
 
 ---
 
-### UAC Prompts when syncing passwords.
+### UAC Prompts when syncing passwords
 
 Affects devices running the Windows 10 November Update (Version 1511) with a wireless NIC that is configured to sync passwords.
 
 **Recommended action**  
-Make sure the Windows 10 v1511 client has the Cumulative Update.
+Make sure the Windows 10 v1511 client has the Cumulative Update (KB3140743 OS Build 10586.494).
+
+---
+
+### Sync does not work on devices that use smart card for login
+If you attempt to sign in to your Windows device using a smart card or virtual smart card, settings sync will stop working. 	
+
+**Recommended action**  
+None. Future updates to Windows may resolve this issue.
+
+---
+
+### Domain-joined device is not syncing after leaving corporate network 	
+Domain-joined devices registered to Azure AD may experience sync failure if the device is off-site for extended periods of time, and domain authentication can't complete.
+
+**Recommended action**  
+Connect the device to a corporate network so that sync can resume.
+
+---
+
+### Event ID 6065: 80070533 This user can’t sign in because this account is currently disabled	
+In Event Viewer under the SettingSync/Debug logs, this error can be seen when the tenant did not automatically have AzureRMS provisioned. 
+
+**Recommended action**  
+Proceed with the steps listed in KB3193791. 
+
+---
+
+### Event ID 1098: Error: 0xCAA5001C Token broker operation failed	
+In Event Viewer under the AAD/Operational logs, this error may be seen with Event 1104: AAD Cloud AP plugin call Get token returned error: 0xC000005F. This issue occurs if there are missing permissions or ownership attributes. 	
+
+**Recommended action**  
+Proceed with the steps listed KB3196528.  
 
 
-## Known issues 2
+
+
+
+
+## Known issues 3
 
 **Issue**  
 Sync does not work on devices that have apps side-loaded using MDM software.
@@ -176,7 +229,52 @@ UAC Prompts when syncing passwords.
 Affects devices running the Windows 10 November Update (Version 1511) with a wireless NIC that is configured to sync passwords.
 
 **Recommended action**  
-Make sure the Windows 10 v1511 client has the Cumulative Update.
+Make sure the Windows 10 v1511 client has the Cumulative Update (KB3140743 OS Build 10586.494).
+
+---
+
+**Issue**  
+Sync does not work on devices that use smart card for login.
+
+**Details**  
+If you attempt to sign in to your Windows device using a smart card or virtual smart card, settings sync will stop working. 	
+
+**Recommended action**  
+None. Future updates to Windows may resolve this issue.
+
+---
+
+**Issue**  
+Domain-joined device is not syncing after leaving corporate network. 
+
+**Details**  	
+Domain-joined devices registered to Azure AD may experience sync failure if the device is off-site for extended periods of time, and domain authentication can't complete.
+
+**Recommended action**  
+Connect the device to a corporate network so that sync can resume.
+
+---
+
+**Issue**  
+Event ID 6065: 80070533 This user can’t sign in because this account is currently disabled	
+
+**Details**  
+In Event Viewer under the SettingSync/Debug logs, this error can be seen when the tenant did not automatically have AzureRMS provisioned. 	
+
+**Recommended action**  
+Proceed with the steps listed in KB3193791. 
+
+---
+
+**Issue**  
+Event ID 1098: Error: 0xCAA5001C Token broker operation failed.
+
+**Details**  
+In Event Viewer under the AAD/Operational logs, this error may be seen with Event 1104: AAD Cloud AP plugin call Get token returned error: 0xC000005F. This issue occurs if there are missing permissions or ownership attributes. 	
+
+**Recommended action**  
+Proceed with the steps listed KB3196528.  
+
 
 
 ##Next steps
