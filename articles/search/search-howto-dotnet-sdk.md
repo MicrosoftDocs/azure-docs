@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/28/2016
+ms.date: 11/30/2016
 ms.author: brjohnst
 
 ---
@@ -360,7 +360,7 @@ This ability to use your own classes as documents works in both directions; You 
 > 
 > 
 
-**An important note about data types**
+**Why you should use nullable data types**
 
 When designing your own model classes to map to an Azure Search index, we recommend declaring properties of value types such as `bool` and `int` to be nullable (for example, `bool?` instead of `bool`). If you use a non-nullable property, you have to **guarantee** that no documents in your index contain a null value for the corresponding field. Neither the SDK nor the Azure Search service will help you to enforce this.
 
