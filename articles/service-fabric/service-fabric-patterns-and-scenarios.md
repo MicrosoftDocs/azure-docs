@@ -1,6 +1,6 @@
 ---
-title: Service Fabric patterns and scenarios | Microsoft Docs
-description: Service Fabric is a distributed systems platform used to build scalable, reliable, and easily-managed applications for the cloud. This article shows the architecture of Service Fabric.
+title: Explore Service Fabric patterns and scenarios | Microsoft Docs
+description: Learn best practices and proven, re-usable patterns to design, develop, and operate your microservices on Service Fabric. 
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -18,7 +18,7 @@ ms.author: ryanwi
 
 ---
 # Service Fabric patterns and scenarios
-If you’re looking at building large-scale microservices using Azure Service Fabric, learn from the experts who designed and built this platform as a service (PaaS). Get started with proper architecture, and then learn how to optimize resources for your application. The course is built around the answers to the questions most often asked by real-world customers about Azure Service Fabric scenarios and application areas.
+If you’re looking at building large-scale microservices using Azure Service Fabric, learn from the experts who designed and built this platform as a service (PaaS). Get started with proper architecture, and then learn how to optimize resources for your application. The [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-us/training-courses/service-fabric-patterns-and-practices-16925) course is built around the answers to the questions most often asked by real-world customers about Service Fabric scenarios and application areas.
  
 Find out how to design, develop, and operate your microservices on Service Fabric using best practices and proven, reusable patterns. Get a Service Fabric overview, and then dive deep into topics that cover cluster optimization and security, migrating legacy apps, IoT at scale, hosting game engines, and more. Look at continuous delivery for various workloads, and even get the details on Linux supports and containers. Explore the blueprint to design your first cloud app with the pros who know.
 
