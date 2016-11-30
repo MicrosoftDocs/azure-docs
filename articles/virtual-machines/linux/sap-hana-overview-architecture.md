@@ -25,7 +25,7 @@ The guide is published in five parts. Each part covers one of the following topi
 - [Overview and architecture](./sap-hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Infrastructure and connectivity](./sap-hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [SAP HANA installation](./sap-hana-overview-sap-hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [High Availability and Disaster Recovery](./sap-hana-overview-hight-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [High Availability and Disaster Recovery](./sap-hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Troubleshooting and monitoring](./sap-hana-overview-troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Definitions
@@ -260,10 +260,10 @@ Deploying SAP HANA on Azure (Large Instances) in two different Azure regions, wi
 
 ### Additional Azure VNet information
 
-In order to connect an Azure VNet to ExpressRoute, an Azure gateway must be created (see [About virtual network gateways for ExpressRoute](../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). An Azure gateway can be used either with ExpressRoute to an infrastructure outside of Azure (or to an Azure Large instance stamp), or to connect between Azure VNets (see [Configure a VNet-to-VNet connection for Resource Manager using PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps/?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). You can connect the Azure gateway to a maximum of four different ExpressRoute connections as long as those are coming from different MS Enterprise Exchanges (MSEE).
+In order to connect an Azure VNet to ExpressRoute, an Azure gateway must be created (see [About virtual network gateways for ExpressRoute](../../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). An Azure gateway can be used either with ExpressRoute to an infrastructure outside of Azure (or to an Azure Large instance stamp), or to connect between Azure VNets (see [Configure a VNet-to-VNet connection for Resource Manager using PowerShell](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps/?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). You can connect the Azure gateway to a maximum of four different ExpressRoute connections as long as those are coming from different MS Enterprise Exchanges (MSEE).
 
 > [!NOTE] 
-> The throughput an Azure gateway provides is different for both use cases (see [About VPN Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). The maximum throughput we can achieve with a VNet gateway is 10 Gbps, using an ExpressRoute connection. Keep in mind that copying files between an Azure VM residing in an Azure VNet and a system on-premises (as a single copy stream) will not achieve the full throughput of the different gateway SKUs. To leverage the complete bandwidth of the VNet gateway, you must use multiple streams, or copy different files in parallel streams of a single file.
+> The throughput an Azure gateway provides is different for both use cases (see [About VPN Gateway](../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). The maximum throughput we can achieve with a VNet gateway is 10 Gbps, using an ExpressRoute connection. Keep in mind that copying files between an Azure VM residing in an Azure VNet and a system on-premises (as a single copy stream) will not achieve the full throughput of the different gateway SKUs. To leverage the complete bandwidth of the VNet gateway, you must use multiple streams, or copy different files in parallel streams of a single file.
 
 As you read the above articles, please carefully note the information on UltraPerformance gateway SKU availability in different Azure regions.
 
@@ -278,7 +278,7 @@ For connection to SAP HANA on Azure (Large Instances), an Azure VNet must be con
 
 ### Single SAP system
 
-The on-premises infrastructure shown above is connected through ExpressRoute into Azure, and the ExpressRoute circuit connects into a Microsoft Enterprise Edge Router (MSEE) (see [ExpressRoute technical overview](../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Once established, that route connects into the Microsoft Azure backbone, and all Azure regions are accessible.
+The on-premises infrastructure shown above is connected through ExpressRoute into Azure, and the ExpressRoute circuit connects into a Microsoft Enterprise Edge Router (MSEE) (see [ExpressRoute technical overview](../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). Once established, that route connects into the Microsoft Azure backbone, and all Azure regions are accessible.
 
 > [!NOTE] 
 > For running SAP landscapes in Azure, connect to the MSEE closest to the Azure region in the SAP landscape. Azure Large Instance stamps are connected through dedicated MSEE devices to minimize network latency between Azure VMs in Azure IaaS and Large Instance stamps.
