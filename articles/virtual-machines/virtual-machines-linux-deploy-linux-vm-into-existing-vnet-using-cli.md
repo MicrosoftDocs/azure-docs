@@ -57,10 +57,9 @@ azure network nsg create myNSG \
 ### Add an inbound SSH allow rule
 
 ```azurecli
-azure network nsg rule create \
+azure network nsg rule create inboundSSH \
 -g myResourceGroup \
 -a myNSG \
--n inboundSSH \
 -c Allow \
 -p Tcp \
 -r Inbound \
