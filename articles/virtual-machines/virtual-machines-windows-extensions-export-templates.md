@@ -120,7 +120,7 @@ Once exported using the automation script, all protected settings are replaced w
 }
 ```
 
-When reconfiguring the protected settings, the propertoed of the configuration schema may be needed. These can be found in the Azure Resource Manager schema repository, which is on [GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json).
+When reconfiguring the protected settings configuration, the properties of the configuration may be needed. These can be found in the Azure Resource Manager schema repository, which is on [GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json).
 
 From within the schema repository, search for the desired extension, for this example `IaaSDiagnostics`. The listed properties can be used to re-build the protected settings configuration.
 
