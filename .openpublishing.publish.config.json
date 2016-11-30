@@ -8,7 +8,7 @@
 	"branch_target_mapping": {
 		"live": ["Publish"],
 		"master": ["Publish"],
-		"test-pdf": ["Publish", "Pdf"]
+		"test-pdf": ["Publish","Pdf"]
 	},
 	"docsets_to_publish": [{
 		"docset_name": "azure-documents",
