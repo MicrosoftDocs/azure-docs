@@ -21,7 +21,7 @@ ms.author: dobett
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## Introduction
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of IoT devices and an application back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and an application back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
 
 This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and it shows two scalable patterns that you can use to process device-to-cloud messages:
 
@@ -62,8 +62,8 @@ To complete this tutorial, you need the following:
 
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 
-## Send interactive messages from a simulated device
-In this section, you modify the simulated device application you created in the [Get started with IoT Hub] tutorial to send interactive device-to-cloud messages to the IoT hub.
+## Send interactive messages from a simulated device app
+In this section, you modify the simulated device app you created in the [Get started with IoT Hub] tutorial to send interactive device-to-cloud messages to the IoT hub.
 
 1. Use a text editor to open the simulated-device\src\main\java\com\mycompany\app\App.java file. This file contains the code for the **simulated-device** app you created in the [Get started with IoT Hub] tutorial.
 2. Add the following nested class to the **App** class:
@@ -118,7 +118,7 @@ In this section, you modify the simulated device application you created in the 
    > For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
    > 
    > 
-5. To build the **simulated-device** application using Maven, execute the following command at the command-prompt in the simulated-device folder:
+5. To build the **simulated-device** app using Maven, execute the following command at the command-prompt in the simulated-device folder:
    
     ```
     mvn clean package -DskipTests
@@ -138,7 +138,7 @@ The event processor uses Event Hubs message offsets as block IDs. This mechanism
 > 
 > 
 
-The application uses the Service Bus de-duplication feature to avoid duplicates when it processes interactive messages. The simulated device stamps each interactive message with a unique **MessageId**. This id Service Bus to ensure that, in the specified de-duplication time window, no two messages with the same **MessageId** are delivered to the receivers. This de-duplication, together with the per-message completion semantics provided by Service Bus queues, makes it easy to implement the reliable processing of interactive messages.
+The application uses the Service Bus de-duplication feature to avoid duplicates when it processes interactive messages. The simulated device app stamps each interactive message with a unique **MessageId**. This id Service Bus to ensure that, in the specified de-duplication time window, no two messages with the same **MessageId** are delivered to the receivers. This de-duplication, together with the per-message completion semantics provided by Service Bus queues, makes it easy to implement the reliable processing of interactive messages.
 
 To make sure that no message is resubmitted outside of the de-duplication window, the code synchronizes the **EventProcessorHost** checkpoint mechanism with the Service Bus queue de-duplication window. This synchronization is done by forcing a checkpoint at least once every time the de-duplication window elapses (in this tutorial, the window is one hour).
 
@@ -661,7 +661,7 @@ Now you are ready to run the three applications.
    ```
    
    ![Run process-d2c-messages][processd2c]
-3. To run the **simulated-device** application, in a command prompt or shell navigate to the simulated-device folder and execute the following command:
+3. To run the **simulated-device** app, in a command prompt or shell navigate to the simulated-device folder and execute the following command:
    
    ```
    mvn exec:java -Dexec.mainClass="com.mycompany.app.App"
@@ -670,7 +670,7 @@ Now you are ready to run the three applications.
    ![Run simulated-device][simulateddevice]
 
 > [!NOTE]
-> To see updates in your blob, you may need to reduce the **MAX_BLOCK_SIZE** constant in the **StoreEventProcessor** class to a smaller value, such as **1024**. This change is useful because it takes some time to reach the block size limit with the data sent by the simulated device. With a smaller block size, you do not need to wait so long to see the blob being created and updated. However, using a larger block size makes the application more scalable.
+> To see updates in your blob, you may need to reduce the **MAX_BLOCK_SIZE** constant in the **StoreEventProcessor** class to a smaller value, such as **1024**. This change is useful because it takes some time to reach the block size limit with the data sent by the simulated device app. With a smaller block size, you do not need to wait so long to see the blob being created and updated. However, using a larger block size makes the application more scalable.
 > 
 > 
 

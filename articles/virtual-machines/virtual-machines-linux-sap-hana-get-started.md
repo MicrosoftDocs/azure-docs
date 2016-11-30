@@ -195,7 +195,7 @@ SAP Note SAP HANA DB : Recommended OS settings for SLES 12 / SLES for SAP Applic
 One additional topic reagrding page-cache related to running SAP HANA on SLES can be found
 [here](https://www.suse.com/documentation/sles_for_sap/singlehtml/sles_for_sap_guide/sles_for_sap_guide.html#sec.s4s.configure.page-cache) in chapter 6.1 Kernel: Page-Cache Limit
 
-There is also a SAP Note regarding the page-cache limit [SAP Note 1557506](https://service.sap.com/sap/support/notes/1557506)
+There is also a SAP Note regarding the page-cache limit [SAP Note 1557506](https://launchpad.support.sap.com/#/notes/1557506)
 
 SLES 12 has a new tool which replaces the old sapconf utility. It's "tuned-adm" and there is a special
 SAP HANA profile available. One can find more details about this tool following the two links below.
@@ -515,7 +515,7 @@ the HANA DB instance with transaction "dbacockpit".
 * Information about deploying Linux VMs via templates :
   [Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI](virtual-machines-linux-cli-deploy-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * Comparison of deployment models between Azure Resource Manager and classic :
-  [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../resource-manager-deployment-model.md)
+  [Azure Resource Manager vs. classic deployment: Understand deployment models and the state of your resources](../azure-resource-manager/resource-manager-deployment-model.md)
 * Download NetWeaver 7.5 for Linux/HANA from the SAP Service Marketplace :
   ![](./media/virtual-machines-linux-sap-hana-get-started/image001.jpg)
 * Download HANA SP12 Platform Edition from the SAP Service Marketplace :

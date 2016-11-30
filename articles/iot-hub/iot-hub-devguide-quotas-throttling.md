@@ -44,9 +44,9 @@ The following is the list of enforced throttles. Values refer to an individual h
 | Jobs operations <br/> (create, update, list, delete) | 100/min/unit | 100/min/unit | 5000/min/unit |
 | Jobs per-device operation throughput | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
 
-It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub, and not the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the hub.
+It is important to clarify that the *device connections* throttle governs the rate at which new device connections can be established with an IoT hub, and not the maximum number of simultaneously connected devices. The throttle depends on the number of units that are provisioned for the IoT hub.
 
-For example, if you buy a single S1 unit, you get a throttle of 100 connections per second. This means that to connect 100,000 devices, it takes at least 1000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your device identity registry.
+For example, if you buy a single S1 unit, you get a throttle of 100 connections per second. This means that to connect 100,000 devices, it takes at least 1000 seconds (approximately 16 minutes). However, you can have as many simultaneously connected devices as you have devices registered in your identity registry.
 
 For an in-depth discussion of IoT Hub throttling behavior, see the blog post [IoT Hub throttling and you][lnk-throttle-blog].
 
@@ -71,7 +71,7 @@ IoT Hub enforces other limits on its different functionalities.
 Other reference topics in this IoT Hub developer guide include:
 
 * [IoT Hub endpoints][lnk-devguide-endpoints]
-* [IoT Hub query language for device twins, methods, and jobs][lnk-devguide-query]
+* [IoT Hub query language for device twins and jobs][lnk-devguide-query]
 * [IoT Hub MQTT support][lnk-devguide-mqtt]
 
 [lnk-pricing]: https://azure.microsoft.com/pricing/details/iot-hub

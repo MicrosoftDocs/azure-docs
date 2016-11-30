@@ -3,8 +3,8 @@ title: Testing Traffic Manager Settings | Microsoft Docs
 description: This article will help you test Traffic Manager settings
 services: traffic-manager
 documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 
 ms.assetid: 2180b640-596e-4fb2-be59-23a38d606d12
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Test your Traffic Manager settings
