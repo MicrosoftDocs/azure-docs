@@ -60,13 +60,13 @@ Publish your changes to the article repository by submitting a pull request. Ens
 These cleanup tasks need to be performed immediately after the changes are published.
 
 ### Fix ACOM links
-File a work item with the ACOM team to remove any crosslinks to the article from other pages on azure.microsoft.com.
+File a work item with the ACOM team to remove any crosslinks to retired articles from pages on azure.microsoft.com. If you renamed or moved articles, file a work item to have crosslinks on ACOM updated.
 
 ### Update the FWLink tool 
-Check the FWLink tool for any FWLinks that might point to the article. Point any FWLinks at replacement content; if you are not on the alias that owns the link, join it. If the owners won't update the link, file a ticket with MSCOM to have the link changed. More info - [internal wiki](http://sharepoint/sites/azurecontentguidance/wiki/Pages/Manage%20inbound%20links%20to%20retired%20topics.aspx).
+Check the FWLink tool for any FWLinks that might point to the article. Update the FWLinks to point at the appropriate replacement content; if you are not on the alias that owns the link, join it. If the owners won't update the link or let you join the alias, file a ticket at https://msdnhelp to have the link changed. 
 
 ### Manage inbound links
-Determine if there are any non-Microsoft inbound links to your content. Frequently, blogs, forums, and other content on the web points to articles. You can work with blog owners to change these links, and you can remove or update links from forum posts. Web analytics tools can tell you if there are any high traffic inbound links you might need to manage in this way.
+Determine if there are any high-traffic non-Microsoft inbound links to your content. Frequently, blogs, forums, and other web content point to articles. You can work with content owners to change or remove these links, and you can remove or update links from forum posts. Web analytics tools can tell you if there are any high-traffic inbound links you might need to manage in this way.
 
 ### Remove cached pages from search engines (only if absolutely necessary)
 Do this ONLY if the content needs to be removed from search quickly due to legal or severe customer issues. Per best practices from Google, normal priority content should be removed from search through natural search engine processes. Go to these web pages to remove cached web pages from search engines:
