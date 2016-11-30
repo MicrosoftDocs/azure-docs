@@ -1,6 +1,6 @@
 ﻿---
 title: Scheduled Events with Azure Metadata Service | Microsoft Docs
-description: React to Impactful Events on yout Virtual Machine before they happen.. 
+description: React to Impactful Events on your Virtual Machine before they happen.. 
 services: 'virtual-machines'
 documentationcenter: ''
 author: zivraf
@@ -24,7 +24,7 @@ ms.author: zivr
 Azure Metadata service enables you to discover information about your Virtual Machine hosted in Azure. The Azure Metadata Service can notify your Virtual Machine about upcoming events (e.g. reboot) 
 so your service can prepare for them and limit disruption. It's available for all Azure Virtual Machine types including PaaS as well as IaaS. The service gives your Virtual Machine time to perform 
 preventive tasks and minimize the effect of an event. For example, your service might drain sessions, elect a new leader, or copy data after observing that an instance is scheduled for reboot to avoid 
-disruption.The Service enables your Virtual Machine to notify Azure that it can continue with the event (ahead of time). This is useful for expediting the impact when your service has successfully complete the graceful shutdown sequence. 
+disruption. The Service enables your Virtual Machine to notify Azure that it can continue with the event (ahead of time). This is useful for expediting the impact when your service has successfully complete the graceful shutdown sequence. 
 
 
 
