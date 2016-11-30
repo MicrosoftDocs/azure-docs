@@ -3,11 +3,7 @@ This guidance is for SMEs who are listed as the author of an Azure technical art
 
 If you're a member of our Azure community and you think an article should be retired for any reason, please leave a comment in the comment stream for the article to let the author know something is wrong with the article.
 
-When authors want to retire, rename, or move articles, they need to follow specific steps to avoid bad experiences on the web site. Our goal should be to gracefully retire content so users of the website don't find broken links or receive 404 errors. 
-
-## Overview of retiring, renaming, or moving articles
-
-
+When authors want to retire, rename, or move articles, they need to follow specific steps to avoid bad experiences on the web site. Our goal should be to gracefully retire content so users of the website don't find broken links and receive 404 errors. 
 
 ## Step 1: Set the article to no-index/no-follow and republish it (recommended)
 If you are retiring an article, the first thing you should do is republish the article as no-index/no-follow a few weeks before you actually delete it. This is considered the best practice "pre-work" for retiring content. Doing this removes the article from search engine indexes so people won't find the article in search. To do this, add the following line as the last entry in the metadata section of the article:
