@@ -25,13 +25,8 @@ ms.author: tomfitz
 >
 >
 
-When you have an application that needs to access or modify resources, you must set up an Active Directory (AD) application and assign the required permissions to it. This topic shows you how to perform those steps through the portal. It shows you how to create a password for the application.
-
-## Active Directory concepts
-In this article, you create two objects - the Active Directory (AD) application and the service principal. The AD application is the global representation of your application. It contains the credentials (an application id and either a password or certificate). The service principal is the local representation of your application in an Active Directory. It contains the role assignment. This topic focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization. In a single-tenant application, you have one AD app and one service principal.
-
-You may be wondering - why do I need both objects? This approach makes more sense when you consider multi-tenant applications. You typically use multi-tenant applications for software-as-a-service (SaaS) applications, where your application runs in many different subscriptions. For multi-tenant applications, you have one AD app and multiple service principals (one in each Active Directory that grants access to the app). To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
-
+When you have an application that needs to access or modify resources, you must set up an Active Directory (AD) application and assign the required permissions to it. This topic shows you how to perform those steps through the portal. It focuses on a single-tenant application where the application is intended to run within only one organization. You typically use single-tenant applications for line-of-business applications that run within your organization.
+ 
 ## Required permissions
 To complete this topic, you must have sufficient permissions to register an application with your Active Directory, and assign the application to a role in your Azure subscription. Let's make sure you have the right permissions to perform those steps.
 
@@ -43,10 +38,10 @@ To complete this topic, you must have sufficient permissions to register an appl
 3. In your Active Directory, select **User settings**.
 
      ![select user settings](./media/resource-group-create-service-principal-portal/select-user-settings.png)
-4. Check the **App registrations** setting. If set to **Yes**, non-admin users can register AD apps. Your account has sufficient access to register the AD app, and you can proceed to checking permissions for your Azure subscription.
+4. Check the **App registrations** setting. If set to **Yes**, non-admin users can register AD apps. This setting means any user in the Active Directory can register an app. You can proceed to [Check Azure subscription permissions](#check-azure-subscription-permissions).
 
      ![view app registrations](./media/resource-group-create-service-principal-portal/view-app-registrations.png)
-5. If the app registrations setting is set to **No**, check whether your account is an admin for the Active Directory. Select **Overview** and **Find a user** from Quick tasks.
+5. If the app registrations setting is set to **No**, only admin users can register apps. You need to check whether your account is an admin for the Active Directory. Select **Overview** and **Find a user** from Quick tasks.
 
      ![find user](./media/resource-group-create-service-principal-portal/find-user.png)
 6. Search for your account, and select it when you find it.
@@ -55,7 +50,7 @@ To complete this topic, you must have sufficient permissions to register an appl
 7. For your account, select **Directory role**. 
 
      ![directory role](./media/resource-group-create-service-principal-portal/select-directory-role.png)
-8. View your assigned role for the Active Directory. If your account is assigned to the User role, ask an administrator to either assign you to an administrator role, or to enable users to register apps.
+8. View your assigned role for the Active Directory. If your account is assigned to the User role, but the app registration setting (from the preceding steps) is limited to admin users, ask your administrator to either assign you to an administrator role, or to enable users to register apps.
 
      ![view role](./media/resource-group-create-service-principal-portal/view-role.png)
 
@@ -93,16 +88,16 @@ To check your subscription permissions:
 
      ![add app](./media/resource-group-create-service-principal-portal/select-add-app.png)
 
-6. Provide a name and URL for the application, and select the type of application you want to create. Select **Create**.
+6. Provide a name and URL for the application. Select either **Web app / API** or **Native** for the type of application you want to create. After setting the values, select **Create**.
 
      ![name application](./media/resource-group-create-service-principal-portal/create-app.png)
 
 You have created your application.
 
-## Get application id and authentication key
-When programmatically logging in, you need the id for your application and an authentication key. To get those values, use the following steps:
+## Get application ID and authentication key
+When programmatically logging in, you need the ID for your application and an authentication key. To get those values, use the following steps:
 
-1. Select your application.
+1. From **App registrations** in Active Directory, select your application.
 
      ![select application](./media/resource-group-create-service-principal-portal/select-app.png)
 2. Copy the **Application ID** and store it in your application code. The applications in the [sample applications](#sample-applications) section refer to this value as the client id.
@@ -115,14 +110,14 @@ When programmatically logging in, you need the id for your application and an au
 
      ![save key](./media/resource-group-create-service-principal-portal/save-key.png)
 
-     The saved key is displayed. Copy it because you are not able to retrieve the key later. Store it where your application can retrieve it.
+     After saving the key, the value of the key is displayed. Copy this value because you are not able to retrieve the key later. You provide the key value with the application ID to log in as the application. Store the key value where your application can retrieve it.
 
      ![saved key](./media/resource-group-create-service-principal-portal/copy-key.png)
 
-## Get tenant id
-When programmatically logging in, you need to pass the tenant id with your authentication request. 
+## Get tenant ID
+When programmatically logging in, you need to pass the tenant ID with your authentication request. 
 
-1. To get the tenant id, select **Properties** for your Active Directory. 
+1. To get the tenant ID, select **Properties** for your Active Directory. 
 
      ![select active directory properties](./media/resource-group-create-service-principal-portal/select-ad-properties.png)
 
@@ -150,19 +145,19 @@ You can set the scope at the level of the subscription, resource group, or resou
 4. Select **Add**.
 
      ![select add](./media/resource-group-create-service-principal-portal/select-add.png)
-6. Select the **Reader** role (or whatever role you wish to assign the application to).
+6. Select the role you wish to assign to the application. The following image shows the **Reader** role.
 
      ![select role](./media/resource-group-create-service-principal-portal/select-role.png)
 
 8. Search for your application, and select it.
 
      ![search for app](./media/resource-group-create-service-principal-portal/search-app.png)
-9. Select **OK** to finish assigning the role. You should now see your application in the list of uses assigned to a role for that scope.
+9. Select **OK** to finish assigning the role. You see your application in the list of users assigned to a role for that scope.
 
 Your application is now set up in Active Directory. You have an ID and key to use for signing in as the application. The application is assigned to a role that is gives it certain actions it can perform. You can look the sample applications to learn more about how to accomplish tasks in application code.
 
 ## Sample applications
-The following sample applications show how to log in as the service principal.
+The following sample applications show how to log in as the AD application.
 
 **.NET**
 
@@ -190,5 +185,6 @@ The following sample applications show how to log in as the service principal.
 * [Managing Azure Resource and Resource Groups with Ruby](https://azure.microsoft.com/documentation/samples/resource-manager-ruby-resources-and-groups/)
 
 ## Next Steps
+* To set up a multi-tenant application, see [Developer's guide to authorization with the Azure Resource Manager API](resource-manager-api-authentication.md).
 * To learn about specifying security policies, see [Azure Role-based Access Control](../active-directory/role-based-access-control-configure.md).  
-* For a video demonstration of these steps, see [Enabling Programmatic Management of an Azure Resource with Azure Active Directory](https://channel9.msdn.com/Series/Azure-Active-Directory-Videos-Demos/Enabling-Programmatic-Management-of-an-Azure-Resource-with-Azure-Active-Directory).
+
