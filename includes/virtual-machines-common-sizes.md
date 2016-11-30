@@ -49,6 +49,7 @@ We have created the concept of the Azure Compute Unit (ACU) to provide a way of 
 | [F1s-F16s](#fs-series) |210-250* |
 | [G1-5](#g-series) |180 - 240* |
 | [GS1-5](#gs-series) |180 - 240* |
+| [L4s-L32s](#l-series) |180 - 240* |
 | [H](#h-series) |290 - 300* |
 
 ACUs marked with a * use Intel® Turbo technology to increase CPU frequency and provide a performance boost.  The amount of the boost can vary based on the VM size, workload, and other workloads running on the same host.
@@ -246,7 +247,7 @@ In addition to the substantial CPU power, the H-series offers diverse options fo
 
 ## L-series 
 
-The L-series is optimized for low latency storage optimized workloads, like NoSQL databases (e.g. Cassandra, MongoDB, Cloudera and Redis). This new series offers up to 32 CPU cores, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). This is the same CPU performance as the G-Series with 8 GiB of memory per CPU core.  
+The L-series is optimized for workloads that require low latency local storage, like NoSQL databases (e.g. Cassandra, MongoDB, Cloudera and Redis). The L-series offers up to 32 CPU cores, using the [Intel® Xeon® processor E5 v3 family](http://www.intel.com/content/www/us/en/processors/xeon/xeon-e5-solutions.html). This is the same CPU performance as the G/GS-Series and comes with 8 GiB of memory per CPU core.  
 
  
 | Size          | CPU cores | Memory: GiB | Local SSD: GiB | Max data disks | Max cached disk throughput: IOPS / MBps (cache size in GiB) | Max uncached disk throughput: IOPS / MBps | Max NICs / Network bandwidth | 
@@ -255,8 +256,6 @@ The L-series is optimized for low latency storage optimized workloads, like NoSQ
 | Standard_L8s  | 8    | 64   | 1,388 | 16             | NA / NA (0)          | 20,000 / 500                              | 4 / very high  | 
 | Standard_L16s | 16   | 128  | 2,807 | 32             | NA / NA (0)          | 40,000 / 1,000                            | 8 / extremely high | 
 | Standard_L32s | 32   | 256  | 5,630 | 64             | NA / NA (0)          | 80,000 / 2,000                            | 8 / extremely high | 
- 
- <br> 
  
 MBps = 10^6 bytes per second, and GiB = 1024^3 bytes. 
 
