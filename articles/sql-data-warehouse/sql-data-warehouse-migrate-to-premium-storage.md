@@ -17,23 +17,23 @@ ms.date: 11/29/2016
 ms.author: rortloff;barbkess
 
 ---
-# Migration to Premium Storage Details
-SQL Data Warehouse recently introduced [Premium Storage for greater performance predictability][Premium Storage for greater performance predictability].  We are now ready to migrate existing Data Warehouses currently on Standard Storage to Premium Storage.  Read on for more details about how and when automatic migrations occur and how to self-migrate if you prefer to control when the downtime occurs.
+# Migrate your data warehouse to premium storage
+Azure SQL Data Warehouse recently introduced [premium storage for greater performance predictability][premium storage for greater performance predictability]. Existing data warehouses currently on standard storage can now be migrated to premium storage. You can take advantage of automatic migration, or if you prefer to control when to migrate (which does involve some downtime), you can do the migration yourself.
 
-If you have more than one Data Warehouse, use the [automatic migration schedule][automatic migration schedule] below to determine when it will also be migrated.
+If you have more than one data warehouse, use the [automatic migration schedule][automatic migration schedule] below to determine when it will also be migrated.
 
 ## Determine storage type
-If you created a DW before the dates below, you are currently using Standard Storage.
+If you created a data warehouse before the dates below, you are currently using standard storage.
 
-| **Region** | **DW Created Before This Date** |
+| **Region** | **Data warehouse created before this date** |
 |:--- |:--- |
-| Australia East |Premium Storage Not Yet Available |
+| Australia East |Premium storage not yet available |
 | China East |November 1, 2016 |
 | China North |November 1, 2016 |
 | Germany Central |November 1, 2016 |
 | Germany Northeast |November 1, 2016 |
-| India West |Premium Storage Not Yet Available |
-| Japan West |Premium Storage Not Yet Available |
+| India West |Premium storage not yet available |
+| Japan West |Premium storage not yet available |
 | North Central US |November 10, 2016 |
 
 ## Automatic migration details
