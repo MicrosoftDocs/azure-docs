@@ -1,5 +1,5 @@
 ---
-title: IoT Hub diagnostic metrics
+title: IoT Hub metrics
 description: An overview of Azure IoT Hub metrics, enabling you to assess the overall health of their resource
 services: iot-hub
 documentationcenter: ''
@@ -17,12 +17,12 @@ ms.date: 11/16/2016
 ms.author: nberdy
 
 ---
-# Introduction to diagnostic metrics
-Diagnostic metrics give you better data about the state of the Azure resources in your Azure subscription. Metrics enable you to assess the overall health of the service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
+# Introduction to IoT Hub metrics
+IoT Hub metrics give you better data about the state of the Azure resources in your Azure subscription. IoT Hub metrics enable you to assess the overall health of the service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
 
-You can enable diagnostic metrics from the Azure portal.
+You can enable IoT Hub metrics from the Azure portal.
 
-## How to enable diagnostic metrics
+## How to enable IoT Hub metrics
 1. Create an IoT hub. You can find instructions on how to create an IoT hub in the [Get Started][lnk-get-started] guide.
 2. Open the blade of your IoT hub. From there, click **Diagnostics**.
    
@@ -34,27 +34,27 @@ You can enable diagnostic metrics from the Azure portal.
    
     ![][3]
 
-## Metrics and how to use them
+## IoT Hub metrics and how to use them
 IoT Hub provides several metrics to give you an overview of the health of your hub and the total number of connected devices. You can combine information from multiple metrics to paint a bigger picture of the state of the IoT hub. The following table describes the metrics each IoT hub tracks, and how each metric relates to the overall status of the IoT hub.
 
 | Metric | Metric description | What the metric is used for |
 | --- | --- | --- |
 | d2c.telemetry.ingress.allProtocol |The count of messages sent across all devices |Overview data on message sends |
 | d2c.telemetry.ingress.success |The count of all successful messages into the IoT hub |Overview of successful message ingress into the IoT hub |
-| c2d.commands.egress.complete.success |The count of all command messages completed by the receiving device across all devices |Together with the metrics on abandon and reject, gives an overview of overall cloud-to-device command success rate |
+| c2d.commands.egress.complete.success |The count of all command messages completed by the receiving device across all devices |Together with the metrics on abandon and reject, gives an overview of overall cloud-to-device message success rate |
 | c2d.commands.egress.abandon.success |The count of all messages successfully abandoned by the receiving device across all devices |Highlights potential issues if messages are getting abandoned more often than expected |
 | c2d.commands.egress.reject.success |The count of all messages successfully rejected by the receiving device across all devices |Highlights potential issues if messages are getting rejected more often than expected |
 | devices.totalDevices |The average, min, and max of the number of devices registered to the IoT hub |The number of devices registered to the IoT hub |
 | devices.connectedDevices.allProtocol |The average, min, and max of the number of simultaneous connected devices |Overview of the number of devices connected to the IoT hub |
 
 ## Next steps
-Now that you’ve seen an overview of diagnostic metrics, follow this link to learn more about managing Azure IoT Hub:
+Now that you’ve seen an overview of IoT Hub metrics, follow this link to learn more about managing Azure IoT Hub:
 
 * [Operations monitoring][lnk-monitor]
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
