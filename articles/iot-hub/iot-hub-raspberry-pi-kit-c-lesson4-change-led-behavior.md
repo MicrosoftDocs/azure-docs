@@ -1,5 +1,5 @@
 ---
-title: 'Optional: Change the on and off behavior of the LED | Microsoft Azure'
+title: Optional: Change the on and off behavior of the LED | Microsoft Docs
 description: Customize the messages to change the LED's on and off behavior.
 services: iot-hub
 documentationcenter: ''
@@ -8,6 +8,7 @@ manager: timtl
 tags: ''
 keywords: 'control led with raspberry pi, raspberry pi led control, raspberry pi control led'
 
+ms.assetid: 0201b8ed-d5e6-4445-9a4d-1305003d1eff
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
