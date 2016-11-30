@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/14/2016
+ms.date: 11/30/2016
 ms.author: kgremban
 
 ---
@@ -90,7 +90,7 @@ If you don't want to use a username and password, follow these steps to configur
 3. Export the public and private keys of the client certificate to a .pfx file.  
 4. Export the public key in Base64 format to a .cer file.  
 5. In Server Manager, verify that the Web Server (IIS)\Web Server\Security\IIS Client Certificate Mapping Authentication feature is installed. If it is not installed, select **Add Roles and Features** to add this feature.  
-6. In IIS Manager, double-click **Configuration Editor** in the website that contains the Web Service SDK virtual directory. It is important to do this at the website level and not at the virtual directory level.  
+6. In IIS Manager, double-click **Configuration Editor** in the website that contains the Web Service SDK virtual directory. It is important to select the website, not the virtual directory.  
 7. Go to the **system.webServer/security/authentication/iisClientCertificateMappingAuthentication** section.  
 8. Set enabled to **true**.  
 9. Set oneToOneCertificateMappingsEnabled to **true**.  

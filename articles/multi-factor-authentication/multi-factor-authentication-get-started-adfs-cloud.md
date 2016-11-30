@@ -40,7 +40,7 @@ Trusted IPs allow administrators to by-pass two-step verification for specific I
 This example uses Office 365 for our Relying Party Trusts.
 
 ### Configure the AD FS claims rules
-The first thing we need to do is to configure the AD FS claims. We will create two claims rules, one for the Inside Corporate Network claim type and an additional one for keeping our users signed in.
+The first thing we need to do is to configure the AD FS claims. Create two claims rules, one for the Inside Corporate Network claim type and an additional one for keeping our users signed in.
 
 1. Open AD FS Management.
 2. On the left, select **Relying Party Trusts**.
