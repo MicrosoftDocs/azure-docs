@@ -24,23 +24,27 @@ To connect to an Azure DocumentDB account with protocol support for MongoDB usin
 * Download and install [Robomongo](https://robomongo.org/)
 * Have your DocumentDB account with protocol support for MongoDB [connection string](documentdb-connect-mongodb-account.md) information
 
-## Create the connection in Robomongo
+## Connect using Robomongo
 To add your DocumentDB account with protocol support for MongoDB to the Robomongo MongoDB Connections, perform the following steps.
 
 1. Retrieve your DocumentDB with protocol support for MongoDB connection information using the instructions [here](documentdb-connect-mongodb-account.md).
 
     ![Screen shot of the connection string blade](./media/documentdb-mongodb-robomongo/connectionstringblade.png)
-2. First, click the connection button under File to manage your connections. Then, click **Create** in the *MongoDB Connections* window, which will open up the *Connection Settings* window.
-For *3*, choose a name that will help you identify the connection. Then, find the **Host** and **Port** from your connection information in *Step 1* and enter them into **Address** and **Port**, respectively. paint
+2. Run *Robomongo.exe*
+
+3. Click the connection button under **File** to manage your connections. Then, click **Create** in the *MongoDB Connections* window, which will open up the *Connection Settings* window.
+
+4. In the *Connection Settings* window, choose a name. Then, find the **Host** and **Port** from your connection information in *Step 1* and enter them into **Address** and **Port**, respectively.
 
     ![Screen shot of the Robomongo Manage Connections](./media/documentdb-mongodb-robomongo/manageconnections.png)
-3. In the *Connection Settings* window, on the **Authentication** tab, check **Perform authentication**. Then, enter the Database (*admin* will give read and write access to all databases), **User Name** and **Password**. Both the **User Name** and **Password** can be found in your connection information in *Step 1*.
+5. In the *Connection Settings* window, on the **Authentication** tab, click **Perform authentication**. Then, enter your Database (default is *Admin*), **User Name** and **Password**.
+Both **User Name** and **Password** can be found in your connection information in *Step 1*.
 
     ![Screen shot of the Robomongo Authentication Tab](./media/documentdb-mongodb-robomongo/authentication.png)
-4. In the *Connection Settings* window, on the **SSL** tab, check **Use SSL protocol**, then change the **Authentication Method** to **Self-signed Certificate**.
+6. In the *Connection Settings* window, on the **SSL** tab, check **Use SSL protocol**, then change the **Authentication Method** to **Self-signed Certificate**.
 
     ![Screen shot of the Robomongo SSL Tab](./media/documentdb-mongodb-robomongo/SSL.png)
-5. Finally, in the *Connection Settings* window, click **Test** to verify that you are able to connect, then **Save**.
+7. Finally, in the *Connection Settings* window, click **Test** to verify that you are able to connect, then **Save**.
 
 ## Next steps
 * Explore DocumentDB with protocol support for MongoDB [samples](documentdb-mongodb-samples.md).
