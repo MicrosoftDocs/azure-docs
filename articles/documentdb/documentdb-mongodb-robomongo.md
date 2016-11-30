@@ -1,5 +1,5 @@
 ---
-title: Use Robomongo with a DocumentDB account with protocol support for MongoDB | Microsoft Docs
+title: Use Robomongo with an Azure DocumentDB account with protocol support for MongoDB | Microsoft Docs
 description: Learn how to use Robomongo with a DocumentDB account with protocol support for MongoDB, now available for preview.
 keywords: robomongo
 services: documentdb
