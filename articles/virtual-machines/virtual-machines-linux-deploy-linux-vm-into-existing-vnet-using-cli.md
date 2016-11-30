@@ -147,10 +147,9 @@ azure network nsg create myNSG \
 The Linux VM needs access from the internet so a rule allowing inbound port 22 traffic to be passed through the network to port 22 on the Linux VM is needed.
 
 ```azurecli
-azure network nsg rule create \
+azure network nsg rule create inboundSSH \
 --resource-group myResourceGroup \
 --nsg-name myNSG \
---name inboundSSH \
 --access Allow \
 --protocol Tcp \
 --direction Inbound \
