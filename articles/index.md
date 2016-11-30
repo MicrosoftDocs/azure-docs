@@ -2446,7 +2446,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Get samples/a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Get samples</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://azure.microsoft.com/develop/nodejs">Learn more</a>
