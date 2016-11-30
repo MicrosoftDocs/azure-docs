@@ -1,6 +1,6 @@
 ﻿---
-title: Configure HBase replication with one virtual network | Microsoft Docs
-description: Learn how to configure HBase replication with one virtual network for load balancing, high availability, and zero downtime migration/update from one HDInsight version to another.
+title: Configure HBase replication within one virtual network | Microsoft Docs
+description: Learn how to configure HBase replication within one virtual network for load balancing, high availability, and zero downtime migration/update from one HDInsight version to another.
 services: hdinsight,virtual-network
 documentationcenter: ''
 author: mumian
@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/29/2016
+ms.date: 11/30/2016
 ms.author: jgao
 
 ---
@@ -28,7 +28,7 @@ Learn how to configure HBase replication within one virtual network. Some use ca
 Cluster replication uses a source-push methodology. An HBase cluster can be a source, a destination, or can fulfill both roles at once. Replication is asynchronous, and the goal of replication is eventual consistency. When the source receives an edit to a column family with replication enabled, that edit is propagated to all destination clusters. When data is replicated from one cluster to another, the source cluster and all clusters which have already consumed the data are tracked to prevent replication loops. For more information, 
 In this tutorial, you will configure a source-destination replication.  For other cluster topologies, see [Apache HBase Reference Guide](http://hbase.apache.org/book.html#_cluster_replication).
 
-Cluster replication is done by using a [script action] script located at [Github](https://github.com/Azure/hbase-utils/tree/master/replication). 
+Cluster replication is done by using a [script action](hdinsight-hadoop-customize-cluster-linux.md) script located at [Github](https://github.com/Azure/hbase-utils/tree/master/replication). 
 
 ## Prerequisites
 Before you begin this tutorial, you must have the following:
@@ -39,7 +39,6 @@ Before you begin this tutorial, you must have the following:
     To execute PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See Using the Set-ExecutionPolicy cmdlet.
   
     [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
-
 
 ## Create a virtual network with two HBase clusters.
 
