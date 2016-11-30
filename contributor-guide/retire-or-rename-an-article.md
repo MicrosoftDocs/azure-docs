@@ -1,5 +1,5 @@
 # Steps to follow when you retire, rename, or move an Azure technical article
-This guidance is for SMEs who are listed as the author of an article that needs to be retired from the technical documentation section of azure.microsoft.com. The steps also apply if a file is renamed.
+This guidance is for SMEs who are listed as the author of an Azure technical article that needs to be retired, renamed, or moved in docs.microsoft.com/azure.
 
 If you're a member of our Azure community and you think an article should be retired for any reason, please leave a comment in the comment stream for the article to let the author know something is wrong with the article.
 
