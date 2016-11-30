@@ -13,7 +13,7 @@ If you are retiring an article, the first thing you should do is republish the a
  **Note**: This is the first step if you are retiring an article. If you are renaming or moving the article, you can do this as the last step.
     
 ## Step 2: Turn the original article into a redirect, and create the new file if you are renaming or moving a file. 
-In our publishing workflow, the article you want to retire, rename, or move must remain in place so you can create a redirect to the new article or to the replacement content. You turn an article into a redirect by replacing the article metadata with redirect information. You have to think about these content management actions as follows:
+In our publishing workflow, the article you want to retire, rename, or move must remain in place so you can create a redirect to the new article or to the replacement content. You turn an article into a redirect by replacing the article metadata with redirect information. Make the changes that match what you want to do:
 
 - **Retire**: Update the metadata so the article redirects to the service landing page or to the Azure hub page if the service is being deprecated.
 
