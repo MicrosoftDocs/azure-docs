@@ -1,4 +1,4 @@
----
+-
 title: Upgrading to the Azure Search .NET SDK version 1.1 | Microsoft Docs
 description: Upgrading to the Azure Search .NET SDK version 1.1
 services: search
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/28/2016
+ms.date: 11/30/2016
 ms.author: brjohnst
 
 ---
@@ -360,7 +360,7 @@ You can change it to this to fix any build errors:
         Console.WriteLine(result.Document);
     }
 
-##### Important note for web applications
+##### Special case for web applications
 If you have a web application that serializes `DocumentSearchResponse` directly to send search results to the browser, you will need to change your code or the results will not serialize correctly. For example, if your code looks like this:
 
     public ActionResult Search(string q = "")
