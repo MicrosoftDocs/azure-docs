@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: java
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 
 ---
@@ -49,8 +49,6 @@ Now you are ready to run the applications.
 
 > [!NOTE]
 > In this tutorial only, use Storm in local mode for development purposes. Refer to the [HDInsight Storm overview] and the official [Apache Storm] documentation for more information of Storm deployments and patterns.
-> 
-> 
 
 ## Next steps
 The following resources are available for developing applications integrating Event Hubs and Storm.
