@@ -22,7 +22,7 @@ ms.author: nepeters
 
 ## Overview
 
-Operations Management Suite (OMS) provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. The OMS Agent virtual machine extension for Linux installs the OMS agent on Azure virtual machines, and enrolls virtual machines into an existing OMS workspace. This document details the supported platforms, configurations, and deployment options for the OMS virtual machine extension for Linux.
+Operations Management Suite (OMS) provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. The OMS Agent virtual machine extension for Linux is published and supported by Micosoft. The extension installs the OMS agent on Azure virtual machines, and enrolls virtual machines into an existing OMS workspace. This document details the supported platforms, configurations, and deployment options for the OMS virtual machine extension for Linux.
 
 For general information on Azure virtual machine extensions see, [Virtual Machine extensions overview](./virtual-machines-linux-extensions-features.md).
 
@@ -115,7 +115,7 @@ azure vm extension set <resource-group> <vm-name> \
   --private-config-path protected.json
 ```
 
-## Troubleshoot
+## Troubleshoot and support
 
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command using the Azure CLI.
 
@@ -129,3 +129,4 @@ Extension execution output is logged to the following file:
 /opt/microsoft/omsagent/bin/stdout
 `
 
+For support on the OMS Agent extension, please open a support case with Microsoft.
