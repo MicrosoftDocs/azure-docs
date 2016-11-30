@@ -34,7 +34,7 @@ The following Azure IoT device SDKs are available to download from GitHub:
 > 
 > 
 
-## OS Platforms and hardware compatibility
+## OS platform and hardware compatibility
 For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog][lnk-certified].
 
 ## Azure IoT service SDK
