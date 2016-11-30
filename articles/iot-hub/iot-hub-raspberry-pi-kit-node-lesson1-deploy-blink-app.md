@@ -6,15 +6,15 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'raspberry pi led blink, blink led with raspberry pi'
 
 ms.assetid: a5a03a57-fe86-416f-90ff-6eca17775842
 ms.service: iot-hub
-ms.devlang: multiple
+ms.devlang: node
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/21/2016
+ms.date: 11/28/2016
 ms.author: xshi
 
 ---
@@ -50,8 +50,6 @@ Take note of the `IP address` and `hostname` of Pi. You need this information la
 
 > [!NOTE]
 > Make sure that Pi is connected to the same network as your computer. For example, if your computer is connected to a wireless network while Pi is connected to a wired network, you might not see the IP address in the devdisco output.
-> 
-> 
 
 ## Clone the sample application
 To open the sample code, follow these steps:
@@ -85,23 +83,41 @@ To configure the device connection, follow these steps:
 
 1. Generate the device configuration file by running the following command:
    
-    ```bash
-    gulp init
-    ```
+   ```bash
+   gulp init
+   ```
    
-    The configuration file `config-raspberrypi.json` contains the user credentials you use to log in to Pi. To avoid the leak of user credentials, the configuration file is generated in the subfolder `.iot-hub-getting-started` of the home folder on your computer.
+   The configuration file `config-raspberrypi.json` contains the user credentials you use to log in to Pi. To avoid the leak of user credentials, the configuration file is generated in the subfolder `.iot-hub-getting-started` of the home folder on your computer.
+
 2. Open the device configuration file in Visual Studio Code by running the following command:
    
-    ```bash
-    # For Windows command prompt
-    code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
+   ```bash
+   # For Windows command prompt
+   code %USERPROFILE%\.iot-hub-getting-started\config-raspberrypi.json
    
-    # For macOS or Ubuntu
-    code ~/.iot-hub-getting-started/config-raspberrypi.json
-    ```
+   # For macOS or Ubuntu
+   code ~/.iot-hub-getting-started/config-raspberrypi.json
+   ```
+   
 3. Replace the placeholder `[device hostname or IP address]` with the IP address or the host name that you got previously in "Obtain the IP address and host name of Pi."
    
-    ![Config.json](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-config-mac.png)
+   ![Config.json](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-config-mac.png)
+
+> [!NOTE]
+> You can use SSH key instead of user name and password when connecting to Raspberry Pi. 
+> In order to do this you will have to generate the key using **ssh-keygen** and **ssh-copy-id pi@\<device address\>**.
+>
+> On Windows these commands are available in **Git Bash**.
+>
+> On MacOS you need to run **brew install ssh-copy-id**.
+>
+> After successfully uploading the key to the Raspberry Pi, replace **device_password** with **device_key_path** property in **config-raspberrypi.json**.
+>
+> Updated lines should look as below:
+> ```javascript
+> "device_user_name": "pi",
+> "device_key_path": "id_rsa",
+> ```
 
 Congratulations! You've successfully created the first sample application for Pi.
 
@@ -125,11 +141,6 @@ gulp deploy && gulp run
 ### Verify the app works
 You should now see the LED on Pi blinking every two seconds.  If you don’t see the LED blinking, see the [troubleshooting guide](iot-hub-raspberry-pi-kit-node-troubleshooting.md) for solutions to common problems.
 ![LED blinking](media/iot-hub-raspberry-pi-lessons/lesson1/led_blinking.jpg)
-
-> [!NOTE]
-> Use `Ctrl + C` to terminate the application.
-> 
-> 
 
 ## Summary
 You've installed the required tools to work with Pi and deployed a sample application to Pi to blink the LED. You can now create, deploy, and run another sample application that connects Pi to Azure IoT Hub to send and receive messages.

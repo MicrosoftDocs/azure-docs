@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 11/29/2016
 ms.author: genli
 
 ---
@@ -27,16 +27,16 @@ Missed an important email from Azure? Want to update other contact information i
 
 > [!NOTE]
 > If you need more help at any point in this article, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-> 
-> 
+>
+>
 
 ## Important information about your profile email address
 The email address in the Account Administrator’s profile is used by Microsoft to notify you about important billing-related updates about the subscription. We recommend that you specify a contact email address that you check regularly.
 
 ## How to change your profile information
-1. Sign in to the [Azure Account Center](https://account.windowsazure.com/) as the account administrator and then click **Profile**. Or go to https://account.windowsazure.com/Profile.
+1. Sign in to the [Azure Account Center](https://account.windowsazure.com/) as the account administrator and then click **Profile**. 
 2. Select the **Edit details** button, and then update the **Profile** information.
-   
+
    ![profile](./media/billing-how-to-change-azure-account-profile/profile.png)
 
 ## Frequently asked questions
@@ -57,6 +57,5 @@ If you sign up for the new Azure Billing Alerts preview feature, you will receiv
 
 > [!NOTE]
 > If you still have further questions, please [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
-> 
-> 
-
+>
+>

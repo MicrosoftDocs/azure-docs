@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/21/2016
+ms.date: 11/30/2016
 ms.author: erihur;genli
 
 ---
 # Understand your bill for Microsoft Azure
-To understand your Azure bill, review the invoice with the summary of charges and the separate detailed daily usage file. This article describes most of the terms shown in the invoice and the daily usage file. To get these files, see [How to download your Azure billing invoice and daily usage data](../billing-download-azure-invoice-daily-usage-date.md). If you're using a free trial subscription, you may not have daily usage data available.
+To understand your Azure bill, review the invoice with the summary of charges and the separate detailed daily usage file. This article describes most of the terms shown in the invoice and the daily usage file. To get these files, see [How to download your Azure billing invoice and daily usage data](../billing-download-azure-invoice-daily-usage-date.md). If you're using a free trial subscription, you can get your daily usage information but you don't have an invoice.
 
 The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans, like the Visual Studio Enterprise (MPN) subscribers, include monthly credits that you can use on any Azure service based on your needs.
 
@@ -87,7 +87,7 @@ The following sections describe most of the terms shown in version 2 of the deta
 The top section of the file shows the services that you used during the previous month's billing cycle. The following table lists the terms and descriptions shown in this section.
 
 | Term | Description |
-|:--- | --- |
+| --- | --- |
 |Billing Period |The billing period when the resource or service was used. |
 |Meter Category |Identifies the top-level service for which this usage belongs. |
 |Meter Sub-Category |Defines the type of Azure service and can affect the rate. |
@@ -110,7 +110,7 @@ The top section of the file shows the services that you used during the previous
 The Daily usage section of the file shows usage details that affect the billing rates. The following table lists the terms and descriptions shown in this section. 
 
 | Term| Description |
-|:--- | --- |
+| --- | --- |
 |Usage Date |The date when the resource was used. |
 |Meter Category |Identifies the top-level service for which this usage belongs. |
 |Meter ID |The billed meter identifier. This is an identifier used to price billing usage. |
@@ -137,5 +137,6 @@ External services used to be called Marketplace orders. External Services are pr
 ## Need help? Contact support. 
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly.
  
+
 
 

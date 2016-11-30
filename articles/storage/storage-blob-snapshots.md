@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a read-only snapshot of a blob | Microsoft Docs
 description: Learn how to create a snapshot of a blob to back up blob data at a given moment in time. Understand how snapshots are billed and how to use them to minimize capacity charges.
 services: storage
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 11/21/2016
 ms.author: tamram
 
 ---
@@ -95,7 +95,6 @@ Using snapshots with Premium Storage follow these rules:
 
 * The maximum number of snapshots per page blob in a premium storage account is 100. If that limit is exceeded, the Snapshot Blob operation returns error code 409 (**SnapshotCountExceeded**).
 * You can take a snapshot of a page blob in a premium storage account once every 10 minutes. If that rate is exceeded, the Snapshot Blob operation returns error code 409 (**SnaphotOperationRateExceeded**).
-* You cannot call Get Blob to read a snapshot of a page blob in a premium storage account. Calling Get Blob on a snapshot in a premium storage account returns error code 400 (**InvalidOperation**). However, you can call Get Blob Properties and Get Blob Metadata against a snapshot in a premium storage account.
 * To read a snapshot, you can use the Copy Blob operation to copy a snapshot to another page blob in the account. The destination blob for the copy operation must not have any existing snapshots. If the destination blob does have snapshots, then the Copy Blob operation returns error code 409 (**SnapshotsPresent**).
 
 ## Return the absolute URI to a snapshot
