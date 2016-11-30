@@ -195,8 +195,8 @@ We now have a VNet, a subnet inside that VNet, and an NSG acting as a firewall t
 Using the Azure CLI, and the `azure vm create` command, the Linux VM is deployed to the existing Azure Resource Group, VNet, Subnet, and VNic.  For more information on using the CLI to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
-azure vm create \
---resource-group myResourceGroup myVM \
+azure vm create myVM \
+--resource-group myResourceGroup \
 --location westus \
 --os-type linux \
 --image-urn Debian \
