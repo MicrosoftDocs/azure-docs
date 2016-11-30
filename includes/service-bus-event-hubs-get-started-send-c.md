@@ -7,7 +7,7 @@ In this section we will write a C app to send events to your Event Hub. We will 
     ```
     sudo apt-get install build-essential cmake uuid-dev openssl libssl-dev
     ```
-3. Download the [Qpid Proton library](http://qpid.apache.org/proton/index.html) library, and extract it, e.g.:
+3. Download the [Qpid Proton library](http://qpid.apache.org/proton/index.html), and extract it, e.g.:
    
     ```
     wget http://archive.apache.org/dist/qpid/proton/0.7/qpid-proton-0.7.tar.gz
