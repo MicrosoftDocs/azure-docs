@@ -13,12 +13,12 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 11/24/2016
+ms.date: 11/30/2016
 ms.author: eugenesh
 ---
 
 # Indexing Documents in Azure Blob Storage with Azure Search
-This article shows how to use Azure Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. The new Azure Search blob indexer makes this process quick and seamless.
+This article shows how to use Azure Search to index documents (such as PDFs, Microsoft Office documents, and several other common formats) stored in Azure Blob storage. First, it explains the basics of setting up and configuring a blob indexer. Then, it offers a deeper exploration of behaviors and scenarios you are likely to encounter. 
 
 ## Supported document formats
 The blob indexer can extract text from the following document formats:
@@ -42,17 +42,15 @@ The blob indexer can extract text from the following document formats:
 You can set up an Azure Blob Storage indexer using:
 
 * [Azure portal](https://ms.portal.azure.com)
-* Azure Search [REST API](https://msdn.microsoft.com/library/azure/dn946891.aspx)
-* Azure Search .NET SDK [version 2.0-preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx)
+* Azure Search [REST API](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations)
+* Azure Search [.NET SDK](https://aka.ms/search-sdk)
 
 > [!NOTE]
 > Some features (for example, field mappings) are not yet available in the portal, and have to be used programmatically.
 >
 >
 
-In this article, we'll set up an indexer using the REST API. First, we'll create a data source, then create an index, and finally configure the indexer.
-
-After that, we'll cover the details on how the blob indexer parses blobs, how to pick which blobs to index, how to deal with blobs of unsupported content types, and the available configuration settings. 
+Here, we demonstrate the flow using the REST API. 
 
 ### Step 1: Create a data source
 A data source specifies which data to index, credentials needed to access the data, and policies to efficiently identify changes in the data (new, modified, or deleted rows). A data source can be used by multiple indexers in the same search service.
@@ -144,7 +142,7 @@ You don't need to define fields for all of the above properties in your search i
 >
 >
 
-### Picking the document key field and dealing with different field names
+### Defining document keys and field mappings
 In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type Edm.String. The key field is required for each document that is being added to the index (it is actually the only required field).  
 
 You should carefully consider which extracted field should map to the key field for your index. The candidates are:

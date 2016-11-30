@@ -3,8 +3,8 @@ title: Azure Automation DSC Overview | Microsoft Docs
 description: An Overview of Azure Automation Desired State Configuration (DSC), its terms, and known issues
 services: automation
 documentationcenter: dev-center-name
-author: coreyp-at-msft
-manager: stevenka
+author: sdwheeler
+manager: carmonm
 editor: tysonn
 keywords: powershell dsc, desired state configuration, powershell dsc azure
 
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: powershell
 ms.workload: TBD
 ms.date: 05/10/2016
-ms.author: magoedte;coreyp
+ms.author: magoedte;sewhee
 
 ---
 # Azure Automation DSC Overview
