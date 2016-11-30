@@ -79,7 +79,7 @@ The Resource Manager template used in this tutorial is located in a public blob 
 ## Run Hive queries
 [Apache Hive](hdinsight-use-hive.md) is the most popular component used in HDInsight. There are many ways to run Hive jobs in HDInsight. In this tutorial, you will use the Ambari Hive view from the portal to run some Hive jobs. For other methods for submitting Hive jobs, see [Use Hive in HDInsight](hdinsight-use-hive.md).
 
-1. From the previous screenshot, click **Cluster Dashboard**, and then click **HDInsight Clsuter Dashboard**.  You can also browse to  **https://&lt;ClusterName>.azurehdinsight.net**, where &lt;ClusterName> is the cluster you created in the previous section to open Ambari.
+1. From the previous screenshot, click **Cluster Dashboard**, and then click **HDInsight Cluster Dashboard**.  You can also browse to  **https://&lt;ClusterName>.azurehdinsight.net**, where &lt;ClusterName> is the cluster you created in the previous section to open Ambari.
 2. Enter the Hadoop username and password that you specified in the previous section. The default username is **admin**.
 3. Open **Hive View** as shown in the following screenshot:
    
