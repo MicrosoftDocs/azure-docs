@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'retrieve data from cloud, iot cloud service'
 
 ms.assetid: 9965bd54-61da-479b-aaad-5604850a2be5
 ms.service: iot-hub
