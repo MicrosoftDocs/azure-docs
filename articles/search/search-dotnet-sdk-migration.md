@@ -25,7 +25,7 @@ For a more general walkthrough of the SDK including examples, see [How to use Az
 Version 3 of the Azure Search .NET SDK contains some changes from earlier versions. These are mostly minor, so changing your code should require only minimal effort. See [Steps to upgrade](#UpgradeSteps) for instructions on how to change your code to use the new SDK version.
 
 > [!NOTE]
-> If you're using version 0.13-preview or older, you should upgrade to version 1.1 first, and then upgrade to version 3. See [Appendix: Steps to upgrade to version 1.1](#UpgradeStepsV1) for instructions.
+> If you're using version 1.0.2-preview or older, you should upgrade to version 1.1 first, and then upgrade to version 3. See [Appendix: Steps to upgrade to version 1.1](#UpgradeStepsV1) for instructions.
 >
 >
 
