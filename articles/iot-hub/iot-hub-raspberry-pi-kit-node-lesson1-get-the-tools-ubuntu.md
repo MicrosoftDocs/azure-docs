@@ -6,7 +6,7 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: ''
+keywords: 'iot development, iot software, internet of things software, install git on ubuntu, gulp run, install node js ubuntu'
 
 ms.assetid: 4d5e45c0-1db9-4662-a039-99ba26333085
 ms.service: iot-hub
