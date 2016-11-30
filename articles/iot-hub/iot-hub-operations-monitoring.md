@@ -116,6 +116,7 @@ The connections category tracks errors that occur when devices connect or discon
     }
 
 ### File uploads
+
 The file upload category tracks errors that occur at the IoT hub and are related to file upload functionality. This category includes:
 
 - Errors that occur with the SAS URI, such as when it expires before a device notifies the hub of a completed upload.
@@ -123,6 +124,7 @@ The file upload category tracks errors that occur at the IoT hub and are related
 - Errors that occur when a file is not found in storage during IoT Hub notification message creation.
 
 Note that this category cannot catch errors that directly occur while the device is uploading a file to storage.
+
 
     {
          "authType": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\"}",

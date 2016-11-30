@@ -3,8 +3,8 @@ title: Internal load balancer Overview | Microsoft Docs
 description: Overview for internal load balancer and its features.How a load balancer works for Azure and possible scenarios to configure internal endpoints
 services: load-balancer
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: tysonn
 
 ms.assetid: 36065bfe-0ef1-46f9-a9e1-80b229105c85
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/24/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Internal load balancer overview

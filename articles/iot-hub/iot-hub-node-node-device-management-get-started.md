@@ -27,21 +27,21 @@ You use a direct method to initiate device management actions (such as reboot, f
 
 * Handling the method request sent from IoT Hub.
 * Initiating the corresponding device specific action on the device.
-* Providing status updates through the device twin reported properties to IoT Hub.
+* Providing status updates through the reported properties to IoT Hub.
 
 You can use a back-end app in the cloud to run device twin queries to report on the progress of your device management actions.
 
 This tutorial shows you how to:
 
 * Use the Azure portal to create an IoT Hub and create a device identity in your IoT hub.
-* Create a simulated device that has a direct method which enables reboot which can be called by the cloud.
-* Create a console application that calls the reboot direct method on the simulated device via your IoT hub.
+* Create a simulated device app that has a direct method which enables reboot which can be called by the cloud.
+* Create a console application that calls the reboot direct method in the simulated device app through your IoT hub.
 
 At the end of this tutorial, you have two Node.js console applications:
 
 **dmpatterns_getstarted_device.js**, which connects to your IoT hub with the device identity created earlier, receives a reboot direct method, simulates a physical reboot, and reports the time for the last reboot.
 
-**dmpatterns_getstarted_service.js**, which calls a direct method on the simulated device, displays the response, and displays the updated device twin reported properties.
+**dmpatterns_getstarted_service.js**, which calls a direct method in the simulated device app, displays the response, and displays the updated reported properties.
 
 To complete this tutorial, you need the following:
 
@@ -57,7 +57,7 @@ In this section, you will
 
 * Create a Node.js console app that responds to a direct method called by the cloud
 * Trigger a simulated device reboot
-* Use the device twin reported properties to enable device twin queries to identify devices and when they last rebooted
+* Use the reported properties to enable device twin queries to identify devices and when they last rebooted
 
 1. Create a new empty folder called **manageddevice**.  In the **manageddevice** folder, create a package.json file using the following command at your command-prompt.  Accept all the defaults:
    
@@ -243,7 +243,7 @@ Your IoT solutions can expand the defined set of device management patterns or e
 Typically, you configure devices to perform actions at a time that minimizes interruptions and downtime.  Device maintenance windows are a commonly used pattern to define the time when a device should update its configuration. Your back-end solutions can use the desired properties of the device twin to define and activate a policy on your device that enables a maintenance window. When a device receives the maintenance window policy, it can use the reported property of the device twin to report the status of the policy. The back-end app can then use device twin queries to attest to compliance of devices and each policy.
 
 ## Next steps
-In this tutorial, you used a direct method to trigger a remote reboot on a device, used the device twin reported properties to report the last reboot time from the device, and queried for the device twin to discover the last reboot time of the device from the cloud.
+In this tutorial, you used a direct method to trigger a remote reboot on a device, used the reported properties to report the last reboot time from the device, and queried for the device twin to discover the last reboot time of the device from the cloud.
 
 To continue getting started with IoT Hub and device management patterns such as remote over the air firmware update, see:
 
