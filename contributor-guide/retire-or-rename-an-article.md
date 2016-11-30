@@ -7,7 +7,7 @@ When authors want to retire, rename, or move articles, they need to follow speci
 
 ## Overview of retiring, renaming, or moving articles
 
-In our publishing workflow, the article you want to retire, rename, or move must remain in place so you can create a redirect to the new article or to the replacement content. You have to think about these content management actions as follows:
+In our publishing workflow, the article you want to retire, rename, or move must remain in place so you can create a redirect to the new article or to the replacement content. You turn an article into a redirect by replacing the article metadata with redirect information. You have to think about these content management actions as follows:
 
 - **Retire**: Update the metadata so the article redirects to the service landing page or to the Azure hub page if the service is being deprecated.
 
