@@ -35,7 +35,8 @@ Replace any examples with your own naming.
 ### Create the Resource Group
 
 ```azurecli
-azure group create myResourceGroup -l westus
+azure group create myResourceGroup \
+-l westus
 ```
 
 ### Create the VNet
@@ -58,10 +59,9 @@ azure network nsg create myNSG \
 ### Add an inbound SSH allow rule
 
 ```azurecli
-azure network nsg rule create \
+azure network nsg rule create inboundSSH \
 -g myResourceGroup \
 -a myNSG \
--n inboundSSH \
 -c Allow \
 -p Tcp \
 -r Inbound \
@@ -96,7 +96,7 @@ azure network nic create jenkinsVNic \
 ### Deploy the VM into the VNet, NSG and connect the VNic
 
 ```azurecli
-azure vm create \
+azure vm create jenkins \
 -g myResourceGroup \
 -l westus \
 -y linux \
@@ -106,8 +106,7 @@ azure vm create \
 -M ~/.ssh/id_rsa.pub \
 -F myVNet \
 -j mySubnet \
--n jenkinsVM \
--N jenkins
+-N jenkinsVNic
 ```
 
 ## Detailed walkthrough
@@ -149,10 +148,9 @@ azure network nsg create myNSG \
 The Linux VM needs access from the internet so a rule allowing inbound port 22 traffic to be passed through the network to port 22 on the Linux VM is needed.
 
 ```azurecli
-azure network nsg rule create \
+azure network nsg rule create inboundSSH \
 --resource-group myResourceGroup \
 --nsg-name myNSG \
---name inboundSSH \
 --access Allow \
 --protocol Tcp \
 --direction Inbound \
@@ -197,7 +195,7 @@ We now have a VNet, a subnet inside that VNet, and an NSG acting as a firewall t
 Using the Azure CLI, and the `azure vm create` command, the Linux VM is deployed to the existing Azure Resource Group, VNet, Subnet, and VNic.  For more information on using the CLI to deploy a complete VM, see [Create a complete Linux environment by using the Azure CLI](virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
-azure vm create \
+azure vm create jenkins \
 --resource-group myResourceGroup myVM \
 --location westus \
 --os-type linux \
@@ -208,7 +206,6 @@ azure vm create \
 --vnet-name myVNet \
 --vnet-subnet-name mySubnet \
 --nic-name jenkinsVNic
---name jenkins
 ```
 
 By using the CLI flags to call out existing resources, we instruct Azure to deploy the VM inside the existing network.  To reiterate, once a VNet and subnet have been deployed, they can be left as static or permanent resources inside your Azure region.  
