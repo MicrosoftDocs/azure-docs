@@ -3,11 +3,11 @@ This guidance is for SMEs who are listed as the author of an Azure technical art
 
 If you're a member of our Azure community and you think an article should be retired for any reason, please leave a comment in the comment stream for the article to let the author know something is wrong with the article.
 
-SME authors need to follow several steps to gracefully retire content so users of the website don't have a bad experience when we retire content from the site. Retiring the article or changing its name should be the last thing that happens!
+When authors want to retire, rename, or move articles, they need to follow specific steps to avoid bad experiences on the web site. Our goal should be to gracefully retire content so users of the website don't find broken links or receive 404 errors. 
 
 ## Overview of retiring, renaming, or moving articles
 
-In our publishing workflow, the article you want to retire, rename, or move must remain in place so you can create a redirect to the new article or to the replacement content. Specifically, you have to think about these content management actions as follows:
+In our publishing workflow, the article you want to retire, rename, or move must remain in place so you can create a redirect to the new article or to the replacement content. You have to think about these content management actions as follows:
 
 - **Retire**: Update the metadata so the article redirects to the service landing page or to the Azure hub page if the service is being deprecated.
 
@@ -15,7 +15,7 @@ In our publishing workflow, the article you want to retire, rename, or move must
 
 - **Move**: Create a copy of the article in the new location, and then update the metadata of the original article so the article redirects to the new one. 
 
-Do not delete articles from the azure-docs-pr or azure-docs repositories, period. This makes the article-level redirection impossible and guarantees that customers will experience 404s.
+Do not delete articles from the azure-docs-pr or azure-docs repositories, period. If you delete an article, you cannot create the article-level redirects, which guarantees that customers will experience 404s.
 
 ## Step 1: Set the article to no-index/no-follow and republish it (recommended)
 If you are retiring an article, the first thing you should do is republish the article as no-index/no-follow a few weeks before you actually delete it. This is considered the best practice "pre-work" for retiring content. Doing this removes the article from search engine indexes so people won't find the article in search. To do this, add the following line as the last entry in the metadata section of the article:
