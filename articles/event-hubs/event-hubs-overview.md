@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: sethm
 
 ---
@@ -22,14 +22,14 @@ Many modern solutions intend to provide adaptive customer experiences or to impr
 
 ![Event Hubs](./media/event-hubs-overview/IC759856.png)
 
-Azure Event Hubs is an event processing service that provides event and telemetry ingress to the cloud at massive scale, with low latency and high reliability. This service, used with other downstream services, is particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios. Event Hubs provides a message stream handling capability and though an Event Hub is an entity similar to queues and topics, it has characteristics that are very different from traditional enterprise messaging. Enterprise messaging scenarios commonly require sophisticated capabilities such as sequencing, dead-lettering, transaction support, and strong delivery assurances, while the dominant concern for event intake is high throughput and processing flexibility for event streams. Therefore, Event Hubs capabilities differ from Service Bus topics in that they are strongly biased towards high throughput and event processing scenarios. As such, Event Hubs do not implement some of the messaging capabilities that are available for topics. If you need those capabilities, topics remain the optimal choice.
+Azure Event Hubs is an event processing service that provides event and telemetry ingress to the cloud at massive scale, with low latency and high reliability. This service, used with other downstream services, is particularly useful in application instrumentation, user experience or workflow processing, and Internet of Things (IoT) scenarios. Event Hubs provides a message stream handling capability and though an Event Hub is an entity similar to queues and topics, it has characteristics that are very different from traditional enterprise messaging. Enterprise messaging scenarios commonly require sophisticated capabilities such as sequencing, dead-lettering, transaction support, and strong delivery assurances, while the dominant concern for event intake is high throughput and processing flexibility for event streams. Therefore, Event Hubs capabilities differ from Service Bus topics in that they are strongly biased towards high throughput and event processing scenarios. As such, Event Hubs does not implement some of the messaging capabilities that are available for topics. If you need those capabilities, topics remain the optimal choice.
 
 An Event Hub is created at the Event Hubs namespace level, similar to Service Bus queues and topics. Event Hubs uses AMQP and HTTP as its primary API interfaces. The following diagram shows the relationship between Event Hubs and Service Bus.
 
 ![Event Hubs](./media/event-hubs-overview/ehoverview2.png)
 
 ## Conceptual overview
-Event Hubs provides message streaming through a partitioned consumer pattern. Queues and topics use a [Competing Consumer](https://msdn.microsoft.com/library/dn568101.aspx) model in which each consumer attempts to read from the same queue or resource. This competition for resources ultimately results in complexity and scale limits for stream processing applications. Event Hubs uses a partitioned consumer pattern in which each consumer only reads a specific subset, or partition, of the message stream. This pattern enables horizontal scale for event processing and provides other stream-focused features that are unavailable in queues and topics.
+Event Hubs provides message streaming through a partitioned consumer pattern. Queues and topics use a [*competing consumer*](https://msdn.microsoft.com/library/dn568101.aspx) model in which each consumer attempts to read from the same queue or resource. This competition for resources ultimately results in complexity and scale limits for stream processing applications. Event Hubs uses a partitioned consumer pattern in which each consumer only reads a specific subset, or partition, of the message stream. This pattern enables horizontal scale for event processing and provides other stream-focused features that are unavailable in queues and topics.
 
 ### Partitions
 A partition is an ordered sequence of events that is held in an Event Hub. As newer events arrive, they are added to the end of this sequence. A partition can be thought of as a "commit log."
@@ -44,7 +44,7 @@ The number of partitions is specified at the Event Hub creation time and must be
 
 While partitions are identifiable and can be sent to directly, it is best to avoid sending data to specific partitions. Instead, you can use higher level constructs introduced in the [Event publisher](#event-publisher) and [Publisher Policy](#capacity-and-security) sections.
 
-In the context of Event Hubs, messages are referred to as *event data*. Event data contains the body of the event, a user defined property bag, and various metadata about the event such as its offset in the partition and its number in the stream sequence. Partitions are filled with a sequence of event data.
+In the context of Event Hubs, messages are referred to as *event data*. Event data contains the body of the event, a user-defined property bag, and various metadata about the event such as its offset in the partition and its number in the stream sequence. Partitions are filled with a sequence of event data.
 
 ## Event publisher
 Any entity that sends events or data to an Event Hub is an *event publisher*. Event publishers can publish events using either HTTPS or AMQP 1.0. Event publishers use a Shared Access Signature (SAS) token to identify themselves to an Event Hub, and can have a unique identity, or use a common SAS token, depending on the requirements of the scenario.
@@ -55,10 +55,10 @@ For more information about working with SAS, see [Shared Access Signature Authen
 This section describes common tasks for event publishers.
 
 #### Acquire a SAS token
-Shared Access Signature (SAS) is the authentication mechanism for Event Hubs. Service Bus provides SAS policies at the namespace and Event Hub level. A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format. Using the name of the key (policy) and the token, Service Bus can regenerate the hash and thus authenticate the sender. Normally, SAS tokens for event publishers are created with only **send** privileges on a specific Event Hub. This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy. For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
+A Shared Access Signature (SAS) is the authentication mechanism for Event Hubs. Service Bus provides SAS policies at the namespace and Event Hub level. A SAS token is generated from a SAS key and is an SHA hash of a URL, encoded in a specific format. Using the name of the key (policy) and the token, Service Bus can regenerate the hash and thus authenticate the sender. Normally, SAS tokens for event publishers are created with only **send** privileges on a specific Event Hub. This SAS token URL mechanism is the basis for publisher identification introduced in the publisher policy. For more information about working with SAS, see [Shared Access Signature Authentication with Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md).
 
 #### Publishing an event
-You can publish an event via AMQP 1.0 or HTTPS. Service Bus provides an [EventHubClient](https://msdn.microsoft.com/library/microsoft.servicebus.messaging.eventhubclient.aspx) class for publishing events to an Event Hub from .NET clients. For other runtimes and platforms, you can use any AMQP 1.0 client, such as [Apache Qpid](http://qpid.apache.org/). You can publish events individually, or batched. A single publication (event data instance) has a limit of 256KB, regardless of whether it is a single event or a batch. Publishing events larger than this results in an error. It is a best practice for publishers to be unaware of partitions within the Event Hub and to only specify a *partition key* (introduced in the next section), or their identity via their SAS token.
+You can publish an event via AMQP 1.0 or HTTPS. Service Bus provides an [EventHubClient](/dotnet/api/microsoft.servicebus.messaging.eventhubclient?redirectedfrom=MSDN#microsoft_servicebus_messaging_eventhubclient) class for publishing events to an Event Hub from .NET clients. For other runtimes and platforms, you can use any AMQP 1.0 client, such as [Apache Qpid](http://qpid.apache.org/). You can publish events individually, or batched. A single publication (event data instance) has a limit of 256 KB, regardless of whether it is a single event or a batch. Publishing events larger than this results in an error. It is a best practice for publishers to be unaware of partitions within the Event Hub and to only specify a *partition key* (introduced in the next section), or their identity via their SAS token.
 
 The choice to use AMQP or HTTPS is specific to the usage scenario. AMQP requires the establishment of a persistent bidirectional socket in addition to transport level security (TLS) or SSL/TLS. This can be a costly operation in terms of network traffic, but only happens at the beginning of an AMQP session. HTTPS has a lower initial overhead, but requires additional SSL overhead for every request. For publishers who frequently publish events, AMQP offers significant performance, latency, and throughput savings.
 
@@ -77,8 +77,10 @@ The publish/subscribe mechanism of Event Hubs is enabled through consumer groups
 
 The following are examples of the consumer group URI convention:
 
-    //<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
-    //<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
+```
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #1>
+//<my namespace>.servicebus.windows.net/<event hub name>/<Consumer Group #2>
+```
 
 The following image shows the event consumers within consumer groups.
 
@@ -124,20 +126,22 @@ Throughput units are provisioned on a best effort basis and may not always be av
 
 It is recommended that you carefully balance throughput units and partitions to achieve optimal scale with Event Hubs. A single partition has a maximum scale of one throughput unit. The number of throughput units should be less than or equal to the number of partitions in an Event Hub.
 
-For detailed pricing information, see [Event Hubs Pricing](https://azure.microsoft.com/pricing/details/event-hubs/).
+For detailed pricing information, see the [Event Hubs pricing](https://azure.microsoft.com/pricing/details/event-hubs/) page.
 
 ### Publisher policy
 Event Hubs enables granular control over event publishers through *publisher policies*. Publisher policies are a set of run-time features designed to facilitate large numbers of independent event publishers. With publisher policies, each publisher uses its own unique identifier when publishing events to an Event Hub, using the following mechanism:
 
-    //<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
+```
+//<my namespace>.servicebus.windows.net/<event hub name>/publishers/<my publisher name>
+```
 
 You don't have to create publisher names ahead of time, but they must match the SAS token used when publishing an event, in order to ensure independent publisher identities. For more information about SAS, see [Shared Access Signature Authentication with Service Bus](../service-bus-messaging/service-bus-shared-access-signature-authentication.md). When using publisher policies, the **PartitionKey** value is set to the publisher name. To work properly, these values must match.
 
 ## Summary
-Azure Event Hubs provides a hyper-scale event and telemetry processing service that can be used for common application and user workflow monitoring at any scale. With the ability to provide publish-subscribe capabilities with low latency and at massive scale, Event Hubs serve as the "on ramp" for Big Data. With publisher-based identity and revocation lists, these capabilities are extended into common Internet of Things scenarios. For more information about developing Event Hubs applications, see the [Event Hubs programming guide](event-hubs-programming-guide.md).
+Azure Event Hubs provides a hyper-scale event and telemetry processing service that can be used for common application and user workflow monitoring at any scale. With the ability to provide publish-subscribe capabilities with low latency and at massive scale, Event Hubs serves as the "on ramp" for Big Data. With publisher-based identity and revocation lists, these capabilities are extended into common [Internet of Things ](https://docs.microsoft.com/azure/#pivot=services&panel=iot) scenarios. For more information about developing Event Hubs applications, see the [Event Hubs programming guide](event-hubs-programming-guide.md).
 
 ## Next steps
-Now that you've learned about Event Hubs concepts, you can move on to the following scenarios:
+Now that you've learned Event Hubs concepts, you can move on to the following scenarios:
 
 * Get started with an [Event Hubs tutorial].
 * A complete [sample application that uses Event Hubs].

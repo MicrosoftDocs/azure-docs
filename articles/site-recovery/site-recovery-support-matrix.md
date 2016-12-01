@@ -71,18 +71,18 @@ Host OS | 64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 200
 
 **Host networking** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
-NIC teaming | Yes | Yes | Yes
+NIC teaming | Yes<br/><br/>Not supported in physical machines| Yes | Yes
 VLAN | Yes | Yes | Yes
 IPv4 | Yes | Yes | Yes
 IPv6 | No | No | No
 
 **Guest VM networking** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
 --- | --- | --- | ---
-NIC teaming | Yes | No | No
+NIC teaming | No | No | No
 IPv4 | Yes | Yes | Yes
 IPv6 | No | No | No
 Static IP (Windows) | Yes | Yes | Yes
-Static IP (Linux) | Yes | No | No
+Static IP (Linux) | No | No | No
 Multi-NIC | Yes | Yes | Yes
 
 **Azure networking** | **VMware/physical server** | **Hyper-V (no VMM)** | **Hyper-V (with VMM)**
