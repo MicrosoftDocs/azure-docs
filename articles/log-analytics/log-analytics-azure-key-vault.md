@@ -26,7 +26,7 @@ You can use the Azure Key Vault solution in Log Analytics to review Azure Key Va
 > 
 > 
 
-To use the solution you need to enable logging of Azure Key Vault diagnostics and direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
+To use the solution, you need to enable logging of Azure Key Vault diagnostics and direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
 
 ## Install and configure the solution
 Use the following instructions to install and configure the Azure Key Vault solution:
@@ -47,7 +47,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspace
 
 ## Review Azure Key Vault data collection details
 Azure Key Vault solution collects diagnostics logs directly from the Key Vault.
-Logs do not need to be written to blob storage and no agent is required for data collection.
+It is not necessary to write the logs to Azure Blob storage and no agent is required for data collection.
 
 The following table shows data collection methods and other details about how data is collected for Azure Key Vault.
 
