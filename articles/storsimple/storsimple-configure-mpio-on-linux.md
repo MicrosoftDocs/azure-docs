@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure MPIO on StorSimple Linux host| Microsoft Docs
 description: Configure MPIO on StorSimple connected to a Linux host running CentOS 6.6
 services: storsimple
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/18/2016
+ms.date: 12/01/2016
 ms.author: alkohli
 
 ---
@@ -151,8 +151,7 @@ Your StorSimple device should have:
      2. Ensure that the network interfaces have the same speed, both should be 1 GbE or 10 GbE.
      3. Note the IPv4 addresses of the iSCSI-enabled interfaces and save for later use on the host.
 * The iSCSI interfaces on your StorSimple device should be reachable from the CentOS server.
-  
-    To verify this, you need to provide the IP addresses of your StorSimple iSCSI-enabled network interfaces on your host server. The commands used and the corresponding output with DATA2 (10.126.162.25) and DATA3 (10.126.162.26) is shown below:
+      To verify this, you need to provide the IP addresses of your StorSimple iSCSI-enabled network interfaces on your host server. The commands used and the corresponding output with DATA2 (10.126.162.25) and DATA3 (10.126.162.26) is shown below:
   
         [root@centosSS ~]# iscsiadm -m discovery -t sendtargets -p 10.126.162.25:3260
         10.126.162.25:3260,1 iqn.1991-05.com.microsoft:storsimple8100-shx0991003g44mt-target
@@ -186,12 +185,12 @@ The multipath-supported devices can be automatically discovered and configured.
 
 1. Initialize `/etc/multipath.conf` file. Type:
    
-     `Copy mpathconf --enable`
+     `mpathconf --enable`
    
     The above command will create a `sample/etc/multipath.conf` file.
 2. Start multipath service. Type:
    
-    ``Copy service multipathd start``
+    `service multipathd start`
    
     You will see the following output:
    
