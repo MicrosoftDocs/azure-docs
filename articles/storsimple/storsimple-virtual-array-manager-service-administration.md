@@ -50,7 +50,7 @@ For more information about each workflow, click the appropriate procedure in the
 | If you want to do this ... | Use this procedure |
 | --- | --- | --- |
 | Create a service</br>Delete a service</br>Get the service registration key</br>Regenerate the service registration key |[Deploy the StorSimple Device Manager service](storsimple-virtual-array-manage-service.md) |
-|View the activity logs |[Use the StorSimple service summary](storsimple-virtual-array-service-summary.md) |
+| View the activity logs |[Use the StorSimple service summary](storsimple-virtual-array-service-summary.md) |
 | Deactivate a Virtual Array</br>Delete a Virtual Array |[Deactivate or delete a virtual array](storsimple-virtual-array-deactivate-and-delete-device.md) |
 | Disaster recovery and device failover</br>Failover prerequisites</br>Business continuity disaster recovery (BCDR)</br>Errors during disaster recovery |[Disaster recovery and device failover for your StorSimple Virtual Array](storsimple-virtual-array-failover-dr.md) |
 | Back up shares and volumes</br>Take a manual backup</br>Change the backup schedule</br>View existing backups |[Back up your StorSimple Virtual Array](storsimple-virtual-array-backup.md) |
