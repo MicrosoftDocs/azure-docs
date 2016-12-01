@@ -1052,7 +1052,7 @@ azure network nsg create --resource-group myResourceGroup --location westeurope 
   --name myNetworkSecurityGroup
 ```
 
-Let's add the inbound rule for the NSG to allow inbound connections on port 22 (to support SSH). The following example creates a rule named `myNetworkSecurityGroupRuleSSH` to allow TCP port 22:
+Let's add the inbound rule for the NSG to allow inbound connections on port 22 (to support SSH). The following example creates a rule named `myNetworkSecurityGroupRuleSSH` to allow TCP on port 22:
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
@@ -1061,7 +1061,7 @@ azure network nsg rule create --resource-group myResourceGroup \
   --name myNetworkSecurityGroupRuleSSH
 ```
 
-Now let's add the inbound rule for the NSG to allow inbound connections on port 80 (to support web traffic). The following example creates a rule named `myNetworkSecurityGroupRuleHTTP` to allow TCP port 80:
+Now let's add the inbound rule for the NSG to allow inbound connections on port 80 (to support web traffic). The following example creates a rule named `myNetworkSecurityGroupRuleHTTP` to allow TCP on port 80:
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
