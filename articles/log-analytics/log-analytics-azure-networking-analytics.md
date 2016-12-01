@@ -52,8 +52,11 @@ The following logs are supported for network security groups:
 Use the following instructions to install and configure the Azure Networking Analytics solution:
 
 1. Enable diagnostics logging for the resources you want to monitor:
-   * [Application Gateway](../application-gateway/application-gateway-diagnostics.md)
+   * [Application gateway](../application-gateway/application-gateway-diagnostics.md)
    * [Network security group](../virtual-network/virtual-network-nsg-manage-log.md)
+2. Enable the Azure Networking Analytics solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
+
+The following PowerShell script provides an example of how to enable diagnostic logging for application gateways and network security groups 
 ```
 $workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
 
@@ -65,7 +68,7 @@ $nsg = Get-AzureRmNetworkSecurityGroup -Name 'ContosoNSG'
 
 Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -Enabled $true
 ```
-2. Enable the Azure Networking Analytics solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
+
 
 If you do not enable diagnostic logging for a particular resource type, the dashboard blades for that resource are blank.
 
