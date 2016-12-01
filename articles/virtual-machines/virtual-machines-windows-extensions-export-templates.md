@@ -30,12 +30,14 @@ Many Virtual Machine extensions are available, however not all of them can be ex
 
 The following extension can be exported with the automation Script feature.
 
-- IaaS Diagnostics
-- Iaas Antimalware
-- Custom Script Extension for windows
-- Custom Script Extension for Linux
-- ..
-- ..
+| Extension | Version |
+|---|---|
+| IaaS Diagnostics |   |
+| Iaas Antimalware |   |
+| Custom Script Extension for Windows | |
+| Custom Script Extension for Linux | |
+| etc. | |
+
 
 ## Export the Resource Group
 
@@ -48,13 +50,13 @@ To export a Resource Group into a re-useable template, complete the following:
 
 ![Template Export](./media/virtual-machines-windows-extensions-export-templates/template-export.png)
 
-The Azure Resource Manager automations script includes a Resource Manager template, a parameters file, and several sample deployment scripts such as PowerShell and CLI. At this point the automation assets can be downloaded using the download button, added as a new template to the template library, or re-deployed using the deploy button.
+The Azure Resource Manager automations script produces a Resource Manager template, a parameters file, and several sample deployment scripts such as PowerShell and CLI. At this point the automation assets can be downloaded using the download button, added as a new template to the template library, or re-deployed using the deploy button.
 
 ## Configure protected settings
 
 Protected settings are not exported with the automation script. If the target resource group includes a virtual machine extension with a protected setting configuration, this will need to be manually re-configured. Modifications to the exported template can be made directly in the Azure portal, or on the downloaded template.
 
-For this example, a Resource Group was deployed that includes a virtual machine and the diagnostic extension. When this deployment initially occurred the diagnostic extension resource included a protected setting configuration which held storage account information.
+For this example, a Resource Group was deployed that includes a virtual machine and the diagnostic extension. When this deployment initially occurred, the diagnostic extension resource included a protected setting which held storage account information.
 
 *Initial diagnostic extension:*
 
@@ -120,9 +122,9 @@ Once exported using the automation script, all protected settings are replaced w
 }
 ```
 
-When reconfiguring the protected settings configuration, the properties of the configuration may be needed. These can be found in the Azure Resource Manager schema repository, which is on [GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json).
+When recreating the protected setting, each required parameter will need to be entered with a value. The value can be comprised of text, template parameters, template parameters, or a combination of these. Each parameter of the protected configuration can be found in the Azure Resource Manager schema repository, which is on [GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json).
 
-From within the schema repository, search for the desired extension, for this example `IaaSDiagnostics`. The listed properties can be used to re-build the protected settings configuration. Each required property will need to be defined for the protected setting and given a value. 
+From within the schema repository, search for the desired extension, for this example `IaaSDiagnostics`. Once the extension `protectedSettings` object has been located, take note of each parameter. In the example of the `IaasDiagnostic` extension, the require parameters are `storageAccountName`, `storageAccountKey`, and `storageAccountEndPoint`.
 
 ```json
 "protectedSettings": {
@@ -143,5 +145,15 @@ From within the schema repository, search for the desired extension, for this ex
 		"storageAccountKey",
 		"storageAccountEndPoint"
 	]
+}
+```
+
+On the exported template, replace the extensions protected setting with a new one that includes the required parameters and values. In the example of the `IaasDiagnostic` extension, the protected setting would look like this. Note that if using a variable or parameter for the property values, these will need to be created. 
+
+```json
+"protectedSettings": {
+	"storageAccountName": "[parameters('storageAccountName')]",
+	"storageAccountKey": "[parameters('storageAccountKey')]",
+	"storageAccountEndPoint": "https://core.windows.net"
 }
 ```
