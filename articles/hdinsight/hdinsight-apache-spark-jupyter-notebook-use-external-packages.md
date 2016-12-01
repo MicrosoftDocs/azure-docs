@@ -49,19 +49,20 @@ You must have the following:
     ![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 5. You will use the `%%configure` magic to configure the notebook to use an external package. In notebooks that use external packages, make sure you call the `%%configure` magic in the first code cell. This ensures that the kernel is configured to use the package before the session starts.
 
-    **For HDInsight 3.3 and HDInsight 3.4** 
+    * **For HDInsight 3.3 and HDInsight 3.4** 
 
-        %%configure
-        { "packages":["com.databricks:spark-csv_2.10:1.4.0"] }
-
-
-    **For HDInsight 3.5** 
-
-        %%configure
-        { "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}
+            %%configure
+            { "packages":["com.databricks:spark-csv_2.10:1.4.0"] }
 
 
-    >[AZURE.IMPORTANT] If you forget to configure the kernel in the first cell, you can use the `%%configure` with the `-f` parameter, but that will restart the session and all progress will be lost.
+
+    * **For HDInsight 3.5**
+
+            %%configure
+            { "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}
+
+
+    >[!IMPORTANT] If you forget to configure the kernel in the first cell, you can use the `%%configure` with the `-f` parameter, but that will restart the session and all progress will be lost.
 
 1. The snippet above expects the maven coordinates for the external package in Maven Central Repository. In this snippet, `com.databricks:spark-csv_2.10:1.4.0` is the maven coordinate for **spark-csv** package. Here's how you construct the coordinates for a package.
    
@@ -101,7 +102,9 @@ You must have the following:
 * [Run jobs remotely on a Spark cluster using Livy](hdinsight-apache-spark-livy-rest-interface.md)
 
 ### Tools and extensions
-* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applicatons](hdinsight-apache-spark-intellij-tool-plugin.md)
+
+* [Use external python packages with Jupyter notebooks in Apache Spark clusters on HDInsight Linux](hdinsight-apache-spark-python-package-installation.md)
+* [Use HDInsight Tools Plugin for IntelliJ IDEA to create and submit Spark Scala applications](hdinsight-apache-spark-intellij-tool-plugin.md)
 * [Use HDInsight Tools Plugin for IntelliJ IDEA to debug Spark applications remotely](hdinsight-apache-spark-intellij-tool-plugin-debug-jobs-remotely.md)
 * [Use Zeppelin notebooks with a Spark cluster on HDInsight](hdinsight-apache-spark-use-zeppelin-notebook.md)
 * [Kernels available for Jupyter notebook in Spark cluster for HDInsight](hdinsight-apache-spark-jupyter-notebook-kernels.md)
