@@ -55,13 +55,13 @@ Get-AzureVMAvailableExtension | Select ExtensionName, Version
 
 ## Run VM extensions
 
-Azure Virtual Machine extensions can be run on existing virtual machines, which is useful when you need to make configuration changes or recover connectivity on an already deployed VM. VM extensions can also be bundled with Azure Resource Manager template deployments. Using extensions with Resource Manager templates enables Azure virtual machines to be deployed and configured without the need for post-deployment intervention.
+Azure Virtual Machine extensions can be run on existing virtual machines, which is useful when you need to make configuration changes or recover connectivity on an already deployed VM. VM extensions can also be bundled with Azure Resource Manager template deployments. By using extensions with Resource Manager templates, you can enable Azure virtual machines to be deployed and configured without the need for post-deployment intervention.
 
 The following methods can be used to run an extension against an existing virtual machine.
 
 ### PowerShell
 
-Several PowerShell commands exist for running individual extensions. To see a list, run the following PowerShell commands:
+Several PowerShell commands exist for running individual extensions. To see a list, run the following PowerShell commands.
 
 ```powershell
 get-command Set-AzureRM*Extension* -Module AzureRM.Compute
@@ -86,7 +86,7 @@ Cmdlet          Set-AzureRmVMExtension                             2.2.0      Az
 Cmdlet          Set-AzureRmVMSqlServerExtension                    2.2.0      AzureRM.Compute
 ```
 
-The following example uses the Custom Script extension to download a script from a GitHub repository onto the target virtual machine and then run the script. For more information on the VM Access extension, see [Custom Script extension overview](virtual-machines-windows-extensions-customscript.md).
+The following example uses the Custom Script extension to download a script from a GitHub repository onto the target virtual machine and then run the script. For more information on the Custom Script extension, see [Custom Script extension overview](virtual-machines-windows-extensions-customscript.md).
 
 ```powershell
 Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
@@ -95,7 +95,7 @@ Set-AzureRmVMCustomScriptExtension -ResourceGroupName "myResourceGroup" `
     -Run "Create-File.ps1" -Location "West US"
 ```
 
-In this example, the VM Access extension is used to reset the administrative password of a Windows virtual machine. For more information on the VM Access Extension, see [Reset Remote Desktop service in a Windows VM](virtual-machines-windows-reset-rdp.md).
+In this example, the VM Access extension is used to reset the administrative password of a Windows virtual machine. For more information on the VM Access extension, see [Reset Remote Desktop service in a Windows VM](virtual-machines-windows-reset-rdp.md).
 
 ```powershell
 $cred=Get-Credential
@@ -112,7 +112,7 @@ The `Set-AzureRmVMExtension` command can be used to start any VM extension. For 
 
 A VM extension can be applied to an existing virtual machine through the Azure portal. To do so, select the virtual machine you want to use, choose **Extensions**, and click **Add**. This provides a list of available extensions. Select the one you want and follow the steps in the wizard.
 
-The following image depicts the installation of the Microsoft Antimalware extension from the Azure portal.
+The following image shows the installation of the Microsoft Antimalware extension from the Azure portal.
 
 ![Antimalware extension](./media/virtual-machines-windows-extensions-features/anti-virus-extension.png)
 
@@ -260,7 +260,7 @@ Extension execution status can also be found in the Azure portal. To view the st
 
 ### Rerun VM extensions
 
-There may be cases in which a virtual machine extension needs to be rerun. This can be accomplished by removing the extension and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure PowerShell module. Replace example parameter names with your own values.
+There may be cases in which a virtual machine extension needs to be rerun. You can do this by removing the extension and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure PowerShell module. Replace example parameter names with your own values.
 
 ```powershell
 Remove-AzureRmVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
@@ -271,7 +271,7 @@ An extension can also be removed using the Azure portal. To do so:
 1. Select a virtual machine.
 2. Select **Extensions**.
 3. Choose the desired extension.
-4. Select **Uninstall**. 
+4. Select **Uninstall**.
 
 ## Common VM extensions reference
 | Extension name | Description | More information |
