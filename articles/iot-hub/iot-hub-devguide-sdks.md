@@ -1,6 +1,6 @@
 ---
-title: Developer guide -  IoT Hub SDKs | Microsoft Docs
-description: Azure IoT Hub developer guide - Information about and links to the various Azure IoT Hub device and service SDKs.
+title: Understand the Azure IoT SDKs | Microsoft Docs
+description: Developer guide - information about and links to the various Azure IoT device and service SDKs that you can use to build device apps and back-end apps.
 services: iot-hub
 documentationcenter: ''
 author: dominicbetts
@@ -17,11 +17,11 @@ ms.date: 09/30/2016
 ms.author: dobett
 
 ---
-# IoT Hub SDKs
-## IoT Hub device SDKs
+# Azure IoT SDKs
+## Azure IoT device SDK
 The Microsoft Azure IoT device SDKs contain code that facilitates building devices and applications that connect to and are managed by Azure IoT Hub services.
 
-The following IoT device SDKs are available to download from GitHub:
+The following Azure IoT device SDKs are available to download from GitHub:
 
 * [Azure IoT device SDK for C][lnk-c-device-sdk] written in ANSI C (C99) for portability and broad platform compatibility.
 * [Azure IoT device SDK for .NET][lnk-dotnet-device-sdk]
@@ -34,13 +34,13 @@ The following IoT device SDKs are available to download from GitHub:
 > 
 > 
 
-## OS Platforms and hardware compatibility
+## OS platform and hardware compatibility
 For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog][lnk-certified].
 
-## IoT Hub service SDKs
-The Microsoft Azure IoT service SDKs contain code that facilitates building applications that interact directly with IoT Hub to manage devices and security.
+## Azure IoT service SDK
+The Azure IoT service SDK contain code that facilitates building applications that interact directly with IoT Hub to manage devices and security.
 
-The following IoT service SDKs are available to download from GitHub:
+The following Azure IoT service SDKs are available to download from GitHub:
 
 * [Azure IoT service SDK for .NET][lnk-dotnet-service-sdk]
 * [Azure IoT service SDK for Node.js][lnk-node-service-sdk]
@@ -72,7 +72,7 @@ The following is a list of links to online API reference documentation for Azure
 Other reference topics in this IoT Hub developer guide include:
 
 * [IoT Hub endpoints][lnk-devguide-endpoints]
-* [IoT Hub query language for twins, methods, and jobs][lnk-devguide-query]
+* [IoT Hub query language for device twins and jobs][lnk-devguide-query]
 * [Quotas and throttling][lnk-devguide-quotas]
 * [IoT Hub MQTT support][lnk-devguide-mqtt]
 

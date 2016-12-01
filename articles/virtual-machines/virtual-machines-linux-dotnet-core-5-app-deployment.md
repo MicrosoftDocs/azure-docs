@@ -1,4 +1,4 @@
-﻿---
+---
 title: Automating Application Deployment with Virtual Machine Extensions | Microsoft Docs
 description: Azure Virtual Machine DotNet Core Tutorial
 services: virtual-machines-linux
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
 
 ---
@@ -34,7 +34,7 @@ To learn more about hosting a .Net Core application on Linux, see [Publish to a 
 > 
 > 
 
-```none
+```bash
 #!/bin/bash
 
 # install dotnet core
@@ -81,7 +81,7 @@ Follow this link to see the JSON sample within the Resource Manager template –
 
 Notice in the below JSON that the script is stored in GitHub. This script could also be stored in Azure Blob storage. Also, Azure Resource Manager templates allow the script execution string to constructed such that template parameters values can be used as parameters for script execution. In this case data is provided when deploying the templates, and these values can then be used when executing the script.
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "extensions",
@@ -110,7 +110,7 @@ Notice in the below JSON that the script is stored in GitHub. This script could 
 }
 ```
 
-For more information on using the custom script extension, see [Custom script extensions with Resource Manager templates](virtual-machines-linux-extensions-customscript.md).
+For more information on using the custom script extension, see [Custom script extensions with Resource Manager templates](virtual-machines-linux-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Next Step
 <hr>

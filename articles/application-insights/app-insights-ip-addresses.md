@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # IP addresses used by Application Insights
-The [Visual Studio Application Insights](app-insights-overview.md) service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
+The [Azure Application Insights](app-insights-overview.md) service uses a number of IP addresses. You might need to know these addresses if the app that you are monitoring is hosted behind a firewall.
 
 > [!NOTE]
 > Although these addresses are static, it's possible that we will need to change them from time to time.
@@ -132,6 +132,8 @@ Open ports 80 (http) and 443 (https) for incoming traffic from these addresses:
 65.54.78.54
 65.54.78.57
 65.54.78.58
+65.54.78.59
+65.54.78.60
 65.55.244.15
 65.55.244.16
 65.55.244.17

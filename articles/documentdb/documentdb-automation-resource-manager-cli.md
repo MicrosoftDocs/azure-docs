@@ -22,8 +22,7 @@ ms.author: mimig
 > [!div class="op_single_selector"]
 > * [Azure portal](documentdb-create-account.md)
 > * [Azure CLI and ARM](documentdb-automation-resource-manager-cli.md)
->
->
+> * [Azure Powershell](documentdb-manage-account-with-powershell.md)
 
 This article shows you how to create an Azure DocumentDB account by using Azure Resource Manager templates or directly with the Azure Command-Line Interface (CLI). To create a DocumentDB account using the Azure portal, see [Create a DocumentDB database account using the Azure portal](documentdb-create-account.md).
 
@@ -54,7 +53,7 @@ Which produces the following output:
     Enter the code E1A2B3C4D to authenticate.
 
 > [!NOTE]
-> If you don't have an Azure account, you see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md).
+> If you don't have an Azure account, you see an error message indicating that you need a different type of account. To create one from your current Azure account, see [Creating a work or school identity in Azure Active Directory](../virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 >
 >
 

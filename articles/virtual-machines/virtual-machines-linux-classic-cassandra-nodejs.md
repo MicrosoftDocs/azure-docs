@@ -1,4 +1,4 @@
-﻿---
+---
 title: Run Cassandra with Linux on Azure | Microsoft Docs
 description: How to run a Cassandra cluster on Linux in Azure Virtual Machines from a Node.js app
 services: virtual-machines-linux
@@ -19,9 +19,8 @@ ms.author: hanuk;robmcm
 
 ---
 # Running Cassandra with Linux on Azure and Accessing it from Node.js
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-See Resource Manager templates for [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) and [Spark cluster and Cassandra on CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. See Resource Manager templates for [Datastax Enterprise](https://azure.microsoft.com/documentation/templates/datastax) and [Spark cluster and Cassandra on CentOS](https://azure.microsoft.com/documentation/templates/spark-and-cassandra-on-centos/).
 
 ## Overview
 Microsoft Azure is an open cloud platform that runs both Microsoft as well as non-Microsoft software which  includes operating systems, application servers, messaging middleware as well as SQL and NoSQL databases from both commercial and open source models. Building resilient services on public clouds including Azure requires careful planning and deliberate architecture for both applications servers as well storage layers. Cassandra’s distributed storage architecture naturally helps in building highly available systems that are fault tolerant for cluster failures. Cassandra is a cloud scale NoSQL database maintained by Apache Software Foundation at cassandra.apache.org; Cassandra is written in Java and hence runs on both on Windows as well as Linux platforms.
@@ -291,7 +290,7 @@ Log into the virtual machine using the hostname (hk-cas-template.cloudapp.net) a
 Execute the following sequence of actions to capture the image:
 
 ##### 1. Deprovision
-Use the command “sudo waagent –deprovision+user” to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](virtual-machines-linux-classic-capture-image.md) to Use as a Template more details on the image capture process.
+Use the command “sudo waagent –deprovision+user” to remove Virtual Machine instance specific information. See for [How to Capture a Linux Virtual Machine](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) to Use as a Template more details on the image capture process.
 
 ##### 2: Shutdown the VM
 Make sure that the virtual machine is highlighted and click the SHUTDOWN link from the bottom command bar.

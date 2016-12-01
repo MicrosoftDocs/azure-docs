@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshoot Windows VM deployment-Classic | Microsoft Docs
 description: Troubleshoot classic deployment issues when you create a new Windows virtual machine in Azure
 services: virtual-machines-windows
@@ -23,9 +23,8 @@ ms.author: cjiang
 
 [!INCLUDE [virtual-machines-troubleshoot-deployment-new-vm-opening](../../includes/virtual-machines-troubleshoot-deployment-new-vm-opening-include.md)]
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-For the Resource Manager version of this article, see [here](virtual-machines-windows-troubleshoot-deployment-new-vm.md).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For the Resource Manager version of this article, see [here](virtual-machines-windows-troubleshoot-deployment-new-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -48,7 +47,7 @@ In the Azure portal, click **Browse** > **Virtual machines** > *your Windows vir
 
 **Resolution:**
 
-To resolve both these errors, upload the original VHD, available on-prem, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run sysprep first. See [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md) for more information.
+To resolve both these errors, upload the original VHD, available on-prem, with the same setting as that for the OS (generalized/specialized). To upload as generalized, remember to run sysprep first. See [Create and upload a Windows Server VHD to Azure](virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) for more information.
 
 **Capture Errors:**
 
@@ -58,7 +57,7 @@ To resolve both these errors, upload the original VHD, available on-prem, with t
 
 **Resolution:**
 
-To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](virtual-machines-windows-classic-capture-image.md) with the same setting as that for the OS (generalized/specialized).
+To resolve both these errors, delete the current image from the portal, and [recapture it from the current VHDs](virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json) with the same setting as that for the OS (generalized/specialized).
 
 ## Issue: Custom/ gallery/ marketplace image; allocation failure
 This error arises in situations when the new VM request is sent to a cluster that either does not have available free space to accommodate the request, or cannot support the VM size being requested. It is not possible to mix different series of VMs in the same cloud service. So if you want to create a new VM of a different size than what your cloud service can support, the compute request will fail.

@@ -19,13 +19,12 @@ ms.author: cynthn
 
 ---
 # Attach a data disk to a Windows virtual machine created with the classic deployment model
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. If you want to use the new portal, see [How to attach a data disk to a Windows VM in the Azure portal](virtual-machines-windows-attach-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 If you need an additional data disk, you can attach an empty disk or an existing disk with data to a VM. In both cases, the disks are .vhd files that reside in an Azure storage account. In the case of a new disk, after you attach the disk, you'll also need to initialize it so it's ready for use by a Windows VM.
 
-For more details about disks, see [About Disks and VHDs for Virtual Machines](virtual-machines-windows-about-disks-vhds.md).
+For more details about disks, see [About Disks and VHDs for Virtual Machines](virtual-machines-windows-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 [!INCLUDE [howto-attach-disk-windows-linux](../../includes/howto-attach-disk-windows-linux.md)]
 
@@ -42,13 +41,13 @@ For more details about disks, see [About Disks and VHDs for Virtual Machines](vi
    ![Volume successfully initialized](./media/virtual-machines-windows-classic-attach-disk/newvolumecreated.png)
 
 > [!NOTE]
-> The size of the VM determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md).
+> The size of the VM determines how many disks you can attach to it. For details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 > 
 > 
 
 ## Additional resources
-[How to detach a disk from a Windows virtual machine](virtual-machines-windows-classic-detach-disk.md)
+[How to detach a disk from a Windows virtual machine](virtual-machines-windows-classic-detach-disk.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
-[About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md)
+[About disks and VHDs for virtual machines](virtual-machines-linux-about-disks-vhds.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 [logon]: virtual-machines-windows-classic-connect-logon.md

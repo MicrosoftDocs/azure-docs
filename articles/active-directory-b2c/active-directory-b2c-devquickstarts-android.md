@@ -20,8 +20,8 @@ ms.author: brandwe
 # Azure AD B2C: Call a web API from an Android application
 > [!WARNING]
 > This tutorial requires some important updates, specifically to remove the use of ADAL Android for B2C.  We are going to publish fresh instructions for using Azure AD B2C in Android apps in the next week, and we recommend holding off until that time.  But if you just want to try things out, feel free to continue with the article below.
-> 
-> 
+>
+>
 
 By using Azure Active Directory (Azure AD) B2C, you can add powerful self-service identity management features to your Android apps and web APIs in a few short steps. This article will show you how to create an Android "to-do list" app that calls a Node.js web API by using OAuth 2.0 bearer tokens. Both the Android app and the web API use Azure AD B2C to manage user identities and authenticate users.
 
@@ -35,8 +35,8 @@ For Android clients that need to access protected resources, Azure AD provides t
 
 > [!NOTE]
 > This article doesn't cover how to implement sign-in, sign-up, and profile management by using Azure AD B2C. It focuses on how to call web APIs after the user is authenticated. If you haven't already, you should start with the [.NET web app getting started tutorial](active-directory-b2c-devquickstarts-web-dotnet.md) to learn about the basics of Azure AD B2C.
-> 
-> 
+>
+>
 
 ## Get an Azure AD B2C directory
 Before you can use Azure AD B2C, you must create a directory, or tenant. A directory is a container for all of your users, apps, groups, and more. If you don't have one already, [create a B2C directory](active-directory-b2c-get-started.md) before you continue in this guide.
@@ -54,7 +54,7 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 ## Create your policies
 [!INCLUDE [active-directory-b2c-devquickstarts-policy](../../includes/active-directory-b2c-devquickstarts-policy.md)]
 
-In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains three identity experiences: sign up, sign in, and sign in by using Facebook.  You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). When you create your three policies, be sure to:
+In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This app contains three identity experiences: sign up, sign in, and sign in by using Facebook.  You need to create one policy of each type, as described in the [policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). When you create your three policies, be sure to:
 
 * Choose the **Display name** and other sign-up attributes in your sign-up policy.
 * Choose the **Display name** and **Object ID** application claims in every policy. You can choose other claims as well.
@@ -75,8 +75,8 @@ git clone --branch skeleton https://github.com/AzureADQuickStarts/B2C-NativeClie
 
 > [!NOTE]
 > **You are required to download the skeleton to complete this tutorial.** Because of the complexity of implementing a fully functional Android application, the skeleton has UX code that will run after you have completed this tutorial. This is a time-saving measure for developers. The UX code is not germane to the topic of how to add B2C to an Android application.
-> 
-> 
+>
+>
 
 The completed app is also [available as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-Android/archive/complete.zip) or on the `complete` branch of the same repository.
 
@@ -198,8 +198,8 @@ public class Constants {
 ## Add references to Android ADAL to your project
 > [!NOTE]
 > ADAL for Android uses an intent-based model to invoke authentication. Intents "lay over" the app to do work. This entire sample, and all ADAL for Android, centers on how to manage intents and pass information between them.
-> 
-> 
+>
+>
 
 First, tell Android about the layout of your application, including the intents you want to use. These intents will be explained in detail later in this tutorial.
 
@@ -732,8 +732,8 @@ Explanation of the parameters:
 
 > [!NOTE]
 > The Microsoft Intune company portal app provides the broker component, and it may be installed on the user's device. The app provides single sign-on (SSO) access across all applications on the device. Developers should be prepared to allow for Intune. ADAL for Android will use the broker account if there is one user account created in the authenticator. To use the broker, the developer needs to register a special `redirectUri` for the broker to use. `redirectUri` is in the format of msauth://packagename/Base64UrlencodedSignature. You can get `redirectUri` for your app by using the script `brokerRedirectPrint.ps1` or by using the API call `mContext.getBrokerRedirectUri()`. The signature is related to your signing certificates from the Google Play store.
-> 
-> 
+>
+>
 
  You can skip the broker user by using:
 
@@ -742,8 +742,8 @@ Explanation of the parameters:
     ```
 > [!NOTE]
 > In order to reduce the complexity of this B2C Quickstart, we have opted to skip the broker in our sample.
-> 
-> 
+>
+>
 
 Next, create helper methods that get the token alone during authentication calls to the task API.
 
@@ -968,4 +968,3 @@ cookieManager.removeSessionCookie();
 CookieSyncManager.getInstance().sync();
 ```
 [Learn more about cookies](http://developer.android.com/reference/android/webkit/CookieSyncManager.html).
-

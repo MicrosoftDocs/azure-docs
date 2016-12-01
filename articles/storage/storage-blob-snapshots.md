@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create a read-only snapshot of a blob | Microsoft Docs
 description: Learn how to create a snapshot of a blob to back up blob data at a given moment in time. Understand how snapshots are billed and how to use them to minimize capacity charges.
 services: storage
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/21/2016
 ms.author: tamram
 
 ---
@@ -37,37 +37,38 @@ Any leases associated with the base blob do not affect the snapshot. You cannot 
 ## Create a snapshot
 The following code example shows how to create a snapshot in .NET. This example specifies separate metadata for the snapshot when it is created.
 
-    private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
+```csharp
+private static async Task CreateBlockBlobSnapshot(CloudBlobContainer container)
+{
+    // Create a new block blob in the container.
+    CloudBlockBlob baseBlob = container.GetBlockBlobReference("sample-base-blob.txt");
+
+    // Add blob metadata.
+    baseBlob.Metadata.Add("ApproxBlobCreatedDate", DateTime.UtcNow.ToString());
+
+    try
     {
-        // Create a new block blob in the container.
-        CloudBlockBlob baseBlob = container.GetBlockBlobReference("sample-base-blob.txt");
+        // Upload the blob to create it, with its metadata.
+        await baseBlob.UploadTextAsync(string.Format("Base blob: {0}", baseBlob.Uri.ToString()));
 
-        // Add blob metadata.
-        baseBlob.Metadata.Add("ApproxBlobCreatedDate", DateTime.UtcNow.ToString());
+        // Sleep 5 seconds.
+        System.Threading.Thread.Sleep(5000);
 
-        try
-        {
-            // Upload the blob to create it, with its metadata.
-            await baseBlob.UploadTextAsync(string.Format("Base blob: {0}", baseBlob.Uri.ToString()));
-
-            // Sleep 5 seconds.
-            System.Threading.Thread.Sleep(5000);
-
-            // Create a snapshot of the base blob.
-            // Specify metadata at the time that the snapshot is created to specify unique metadata for the snapshot.
-            // If no metadata is specified when the snapshot is created, the base blob's metadata is copied to the snapshot.
-            Dictionary<string, string> metadata = new Dictionary<string, string>();
-            metadata.Add("ApproxSnapshotCreatedDate", DateTime.UtcNow.ToString());
-            await baseBlob.CreateSnapshotAsync(metadata, null, null, null);
-        }
-        catch (StorageException e)
-        {
-            Console.WriteLine(e.Message);
-            Console.ReadLine();
-            throw;
-        }
+        // Create a snapshot of the base blob.
+        // Specify metadata at the time that the snapshot is created to specify unique metadata for the snapshot.
+        // If no metadata is specified when the snapshot is created, the base blob's metadata is copied to the snapshot.
+        Dictionary<string, string> metadata = new Dictionary<string, string>();
+        metadata.Add("ApproxSnapshotCreatedDate", DateTime.UtcNow.ToString());
+        await baseBlob.CreateSnapshotAsync(metadata, null, null, null);
     }
-
+    catch (StorageException e)
+    {
+        Console.WriteLine(e.Message);
+        Console.ReadLine();
+        throw;
+    }
+}
+```
 
 ## Copy snapshots
 Copy operations involving blobs and snapshots follow these rules:
@@ -85,36 +86,39 @@ You cannot delete a blob with snapshots unless the snapshots are also deleted. Y
 
 The following code example shows how to delete a blob and its snapshots in .NET, where `blockBlob` is a variable of type **CloudBlockBlob**:
 
-    await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+```csharp
+await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null, null, null);
+```
 
 ## Snapshots with Azure Premium Storage
 Using snapshots with Premium Storage follow these rules:
 
 * The maximum number of snapshots per page blob in a premium storage account is 100. If that limit is exceeded, the Snapshot Blob operation returns error code 409 (**SnapshotCountExceeded**).
 * You can take a snapshot of a page blob in a premium storage account once every 10 minutes. If that rate is exceeded, the Snapshot Blob operation returns error code 409 (**SnaphotOperationRateExceeded**).
-* You cannot call Get Blob to read a snapshot of a page blob in a premium storage account. Calling Get Blob on a snapshot in a premium storage account returns error code 400 (**InvalidOperation**). However, you can call Get Blob Properties and Get Blob Metadata against a snapshot in a premium storage account.
 * To read a snapshot, you can use the Copy Blob operation to copy a snapshot to another page blob in the account. The destination blob for the copy operation must not have any existing snapshots. If the destination blob does have snapshots, then the Copy Blob operation returns error code 409 (**SnapshotsPresent**).
 
 ## Return the absolute URI to a snapshot
 This C# code example creates a snapshot and writes out the absolute URI for the primary location.
 
-    //Create the blob service client object.
-    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+```csharp
+//Create the blob service client object.
+const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
 
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    //Get a reference to a container.
-    CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
-    container.CreateIfNotExists();
+//Get a reference to a container.
+CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
+container.CreateIfNotExists();
 
-    //Get a reference to a blob.
-    CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
-    blob.UploadText("This is a blob.");
+//Get a reference to a blob.
+CloudBlockBlob blob = container.GetBlockBlobReference("sampleblob.txt");
+blob.UploadText("This is a blob.");
 
-    //Create a snapshot of the blob and write out its primary URI.
-    CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
-    Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
+//Create a snapshot of the blob and write out its primary URI.
+CloudBlockBlob blobSnapshot = blob.CreateSnapshot();
+Console.WriteLine(blobSnapshot.SnapshotQualifiedStorageUri.PrimaryUri);
+```
 
 ## Understand how snapshots accrue charges
 Creating a snapshot, which is a read-only copy of a blob, can result in additional data storage charges to your account. When designing your application, it is important to be aware how these charges might accrue so that you can minimize unnecessary costs.

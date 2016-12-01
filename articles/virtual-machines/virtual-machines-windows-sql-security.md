@@ -9,25 +9,26 @@ editor: ''
 tags: azure-service-management
 
 ms.assetid: d710c296-e490-43e7-8ca9-8932586b71da
-ms.service: virtual-machines-windows
+ms.service: virtual-machines-sql
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
-ms.workload: infrastructure-services
-ms.date: 06/24/2016
+ms.workload: iaas-sql-server
+ms.date: 11/15/2016
 ms.author: jroth
 
 ---
 # Security Considerations for SQL Server in Azure Virtual Machines
 This topic includes overall security guidelines that help establish secure access to SQL Server instances in an Azure VM. However, in order to ensure better protection to your SQL Server database instances in Azure, we recommend that you implement the traditional on-premises security practices in addition to the security best practices for Azure.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 For more information about the SQL Server security practices, see [SQL Server 2008 R2 Security Best Practices - Operational and Administrative Tasks](http://download.microsoft.com/download/1/2/A/12ABE102-4427-4335-B989-5DA579A4D29D/SQL_Server_2008_R2_Security_Best_Practice_Whitepaper.docx)
 
 Azure complies with several industry regulations and standards that can enable you to build a compliant solution with SQL Server running in a Virtual Machine. For information about regulatory compliance with Azure, see [Azure Trust Center](https://azure.microsoft.com/support/trust-center/).
 
-Following is a list of security recommendations that should be considered when configuring and connecting to the instance of SQL Server in an Azure VM.
+Following is a list of security recommendations to consider when configuring and connecting to the instance of SQL Server in an Azure VM.
 
 ## Considerations for managing accounts:
 * Create a unique local administrator account that is not named **Administrator**.
@@ -46,7 +47,7 @@ Following is a list of security recommendations that should be considered when c
 * If your virtual machines should be accessed only from a specific network, use Windows Firewall to restrict access to certain IP addresses or network subnets.
 
 ## Next Steps
-If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md).
+If you are also interested in best practices around performance, see [Performance Best Practices for SQL Server in Azure Virtual Machines](virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md).
+For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines overview](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

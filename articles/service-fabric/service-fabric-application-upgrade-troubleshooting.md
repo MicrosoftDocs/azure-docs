@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/14/2016
+ms.date: 11/15/2016
 ms.author: subramar
 
 ---
@@ -145,7 +145,7 @@ The upgrade was suspended upon failing by specifying a **FailureAction** of manu
 ### Recover from a suspended upgrade
 With a rollback **FailureAction**, there is no recovery needed since the upgrade automatically rolls back upon failing. With a manual **FailureAction**, there are several recovery options:
 
-1. Manually trigger a rollback
+1.  trigger a rollback
 2. Proceed through the remainder of the upgrade manually
 3. Resume the monitored upgrade
 

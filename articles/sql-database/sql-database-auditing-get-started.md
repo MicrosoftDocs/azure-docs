@@ -49,7 +49,7 @@ An auditing policy can be defined for a specific database or as a default server
 ## <a id="subheading-2"></a>Set up auditing for your database
 The following section describes the configuration of auditing using the Azure Portal.
 
-### <a id="subheading-2-1">i. Blob Auditing</a>
+### <a id="subheading-2-1">Blob Auditing</a>
 1. Launch the [Azure Portal](https://portal.azure.com) at https://portal.azure.com.
 2. Navigate to the settings blade of the SQL Database / SQL Server you want to audit. In the Settings blade, select **Auditing & Threat detection**.
    
@@ -72,7 +72,7 @@ The following section describes the configuration of auditing using the Azure Po
 6. If you want to customize the audited events, you can do this via PowerShell or REST API - see the [Automation (PowerShell / REST API)](#subheading-7) section for more details.
 7. Click **Save**.
 
-### <a id="subheading-2-2">ii. Table Auditing</a>
+### <a id="subheading-2-2">Table Auditing</a>
 > [!NOTE]
 > Before setting up **Table auditing**, check if you are using a ["Downlevel Client"](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md). Also, if you have strict firewall settings, please note that the [IP endpoint of your database will change](sql-database-auditing-and-dynamic-data-masking-downlevel-clients.md) when enabling Table Auditing.
 > 
@@ -104,7 +104,7 @@ You can explore audit logs using a tool such as [Azure Storage Explorer](http://
 
 See below specifics for analysis of both **Table** and **Blob** audit logs.
 
-### <a id="subheading-3-1">i. Blob Auditing</a>
+### <a id="subheading-3-1">Blob Auditing</a>
 Blob Auditing logs are saved as a collection of Blob files within a container named "**sqldbauditlogs**".
 
 For further details about the Blob audit logs storage folder hierarchy, Blob naming convention, and log format, see the [Blob Audit Log Format Reference (doc file download)](https://go.microsoft.com/fwlink/?linkid=829599).
@@ -128,7 +128,7 @@ There are several methods to view Blob Auditing logs:
      * Extended Events Reader **C# library** ([more info here](https://blogs.msdn.microsoft.com/extended_events/2011/07/20/introducing-the-extended-events-reader/))
      * Querying Extended Events Files Using **PowerShell** ([more info here](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/))
 
-### <a id="subheading-3-2">ii. Table Auditing</a>
+### <a id="subheading-3-2">Table Auditing</a>
 Table Auditing logs are saved as a collection of Azure Storage Tables with a **SQLDBAuditLogs** prefix.
 
 For further details about the Table audit log format, see the [Table Audit Log Format Reference (doc file download)](http://go.microsoft.com/fwlink/?LinkId=506733).

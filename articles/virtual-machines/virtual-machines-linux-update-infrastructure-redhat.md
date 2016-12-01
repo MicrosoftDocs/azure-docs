@@ -1,4 +1,4 @@
-﻿---
+---
 title: Red Hat Update Infrastructure (RHUI) | Microsoft Docs
 description: Learn about Red Hat Update Infrastructure (RHUI) for on-demand Red Hat Enterprise Linux instances in Microsoft Azure
 services: virtual-machines-linux
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 12/01/2016
 ms.author: borisb
 
 ---
@@ -35,7 +35,7 @@ As of September 2016, Azure has a new set of Red Hat Update Infrastructure (RHUI
 | --- | --- |
 | September 22, 2016 |RHUI servers and install directions available for use. VMs deployed using the new (September 2016 dated) RHEL PAYG marketplace images will automatically use the new RHUI servers, but existing VMs are “opt-in” |
 | November 1, 2016 |Legacy RHEL PAYG VM images (which use the old Azure RHUI servers) will be removed from the Azure Marketplace gallery |
-| January 16, 2017 |The old Azure RHUI servers will be decommissioned. Update all of your affected PAYG RHEL VMs by this time to maintain access to Azure RHUI |
+| December 16, 2016 (was January 16, 2017) |The old Azure RHUI servers will be decommissioned. Update all of your affected PAYG RHEL VMs by this time to maintain access to Azure RHUI |
 
 ### The IPs for the new RHUI content delivery servers are
 ```
@@ -47,6 +47,10 @@ As of September 2016, Azure has a new set of Red Hat Update Infrastructure (RHUI
 
 # Azure US Government
 13.72.186.193
+
+# Azure Germany
+51.5.243.77
+51.4.228.145
 ```
 
 ### Manual update procedure to use the new Azure RHUI servers
@@ -176,7 +180,7 @@ sudo rpm -U azureclient.rpm
 [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) offers a highly scalable solution to manage yum repository content for Red Hat Enterprise Linux cloud instances that are hosted by Red Hat-certified cloud providers. Based on the upstream Pulp project, RHUI allows cloud providers to locally mirror Red Hat-hosted repository content, create custom repositories with their own content, and make those repositories available to a large group of end users through a load-balanced content delivery system.
 
 ## Regions where RHUI is available
-RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page and Azure US Government regions. RHUI access for VMs provisioned from RHEL on-demand images is included in their price. Additional regional/national cloud availability will be updated as we expand RHEL on-demand availability in the future.
+RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page, Azure US Government and Azure Germany regions. RHUI access for VMs provisioned from RHEL on-demand images is included in their price. Additional regional/national cloud availability will be updated as we expand RHEL on-demand availability in the future.
 
 > [!NOTE]
 > Access to Azure-hosted RHUI is limited to the VMs within [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -200,7 +204,7 @@ To unregister RHUI and reregister to your update infrastructure follow the below
 > [!NOTE]
 > Access to the Azure-hosted RHUI is included in the RHEL Pay-As-You-Go (PAYG) image price. Unregistering a PAYG RHEL VM from the Azure-hosted RHUI does not convert the virtual machine into Bring-Your-Own-License (BYOL) type VM and hence you may be incurring double charges if you register the same VM with another source of updates. 
 > 
-> If you consistently need to use an update infrastructure other than Azure-hosted RHUI consider creating and deploying your own (BYOL-type) images as described in [Create and Upload Red Hat-based virtual machine for Azure](virtual-machines-linux-redhat-create-upload-vhd.md) article.
+> If you consistently need to use an update infrastructure other than Azure-hosted RHUI consider creating and deploying your own (BYOL-type) images as described in [Create and Upload Red Hat-based virtual machine for Azure](virtual-machines-linux-redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article.
 > 
 > 
 

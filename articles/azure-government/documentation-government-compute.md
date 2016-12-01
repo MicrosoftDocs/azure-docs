@@ -1,5 +1,5 @@
 ---
-title: Azure Government documentation | Microsoft Docs
+title: Azure Government Compute | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: Azure-Government
 cloud: gov
@@ -20,7 +20,7 @@ ms.author: ryansoc
 ---
 # Azure Government Compute
 ## Virtual Machines
-For details on this service and how to use it, see [Azure Virtual Machines Sizes](../virtual-machines/virtual-machines-windows-sizes.md).
+For details on this service and how to use it, see [Azure Virtual Machines Sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Variations
 The following VM SKUs are generally available (GA) in Azure Government:

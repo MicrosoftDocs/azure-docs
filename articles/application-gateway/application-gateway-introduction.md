@@ -13,17 +13,20 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/25/2016
+ms.date: 11/16/2016
 ms.author: gwallace
 
 ---
 # Application Gateway overview
+
 ## What is Application Gateway
+
 Microsoft Azure Application Gateway provides Application Delivery Controller (ADC) as a service, offering various layer 7 load balancing capabilities for your application. It allows customers to optimize web farm productivity by offloading CPU intensive SSL termination to the Application Gateway. It also provides other Layer 7 routing capabilities including round robin distribution of incoming traffic, cookie based session affinity, URL path based routing, and the ability to host multiple websites behind a single Application Gateway. Application Gateway also has a web application firewall (WAF) that protects your application against most of the OWASP top 10 common web vulnerabilities. Application Gateway can be configured as internet facing gateway, internal only gateway, or a combination of both. Application Gateway is fully Azure managed, scalable and highly available. It provides rich set of diagnostics and logging capabilities for better manageability. Application gateway works with virtual machines, cloud services and internal or external facing web applications.
 
 Application Gateway is a dedicated virtual appliance for your application and comprises of multiple worker instances for scalability and high availability. When you create an application gateway, an endpoint (public VIP or internal ILB IP) is associated and used for ingress network traffic. This VIP or ILB IP is provided by Azure Load Balancer working at the transport level (TCP/UDP) and having all incoming network traffic being load balanced to the Application Gateway worker instances. The Application Gateway then routes the HTTP/HTTPS traffic based on its configuration whether it's a virtual machine, cloud service, internal or an external IP address. For the SLA and pricing, refer to the [SLA](https://azure.microsoft.com/support/legal/sla/) and [Pricing](https://azure.microsoft.com/pricing/details/application-gateway/) pages.
 
 ## Features
+
 Application Gateway currently supports layer 7 application delivery with the following features:
 
 * **[Web Application Firewall (Preview)](application-gateway-webapplicationfirewall-overview.md)** - The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
@@ -38,6 +41,7 @@ Application Gateway currently supports layer 7 application delivery with the fol
 * **[Advanced diagnostics](application-gateway-diagnostics.md)** - Application gateway provides full diagnostics and access logs. Firewall logs are available for application gateway resources that have WAF enabled.
 
 ## Benefits
+
 Application Gateway is useful for:
 
 * Applications that require requests from the same user/client session to reach the same back-end virtual machine. Examples of these applications would be shopping cart apps and web mail servers.
@@ -53,11 +57,12 @@ Application Gateway load balancing as an Azure-managed service allows the provis
 [!INCLUDE [load-balancer-compare-tm-ag-lb-include.md](../../includes/load-balancer-compare-tm-ag-lb-include.md)]
 
 ## Gateway sizes and instances
-Application Gateway is currently offered in three sizes: Small, Medium, and Large. Small instance sizes are intended for development and testing scenarios.
 
-There are currently two skus for Application Gateway: WAF and Standard.
+Application Gateway is currently offered in three sizes: **Small**, **Medium**, and **Large**. Small instance sizes are intended for development and testing scenarios.
 
-You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. For a complete list of application gateway limits, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
+There are currently two skus for Application Gateway: **WAF** and **Standard**.
+
+You can create up to 50 application gateways per subscription, and each application gateway can have up to 10 instances each. Each application gateway can consist of 20 http listeners. For a complete list of application gateway limits, see [Application Gateway service limits](../azure-subscription-service-limits.md?toc=%2fazure%2fapplication-gateway%2ftoc.json#application-gateway-limits).
 
 The following table shows an average performance throughput for each application gateway instance:
 
@@ -72,14 +77,17 @@ The following table shows an average performance throughput for each application
 >
 
 ## Health monitoring
+
 Azure Application Gateway automatically monitors the health of the back-end instances through basic or custom health probes. By using health probes, this ensures that only healthy hosts respond to traffic. For more information, see [Application Gateway health monitoring overview](application-gateway-probe-overview.md).
 
 ## Configuring and managing
+
 For its endpoint, application gateway can have a public IP, private IP, or both when it is configured. Application Gateway is configured inside a virtual network in its own subnet. The subnet created or used for application gateway cannot contain any other types of resources, the only resources that are allowed in the subnet are other application gateways. To secure your backend resources the backend servers can be contained within a different subnet in the same virtual network as the application gateway. This additional subnet it not required for the backend applications, as long as the application gateway can reach the ip address, application gateway is able to provide ADC capabilities for the backend servers.
 
 You can create and manage an application gateway by using REST APIs, PowerShell cmdlets, Azure CLI, or [Azure portal](https://portal.azure.com/).
 
 ## Next steps
+
 After learning about Application gateway, you can [create an application gateway](application-gateway-create-gateway-portal.md) or you can [create an application gateway SSL offload](application-gateway-ssl-arm.md) to load-balance HTTPS connections.
 
 To learn how to create an application gateway using URL-based content routing, go to [Create an application gateway using URL-based routing](application-gateway-create-url-route-arm-ps.md) for more information.

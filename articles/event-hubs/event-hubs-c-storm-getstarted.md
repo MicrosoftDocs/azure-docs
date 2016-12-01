@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: java
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 
 ---
@@ -29,7 +29,7 @@ In this tutorial, you will learn how to ingest messages into an Event Hub using 
 
 To complete this tutorial, you will need the following:
 
-* A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
+* A C development environment. For this tutorial, we will assume the gcc stack on an [Azure Linux VM](../virtual-machines/virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) with Ubuntu 14.04. Instructions for other environments will be provided in external links.
 * A Java development environment configured to run [Maven](http://maven.apache.org/). For this tutorial, we will assume [Eclipse](https://www.eclipse.org/).
 * An active Azure account. If you don't have an account, you can create a free account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -49,13 +49,11 @@ Now you are ready to run the applications.
 
 > [!NOTE]
 > In this tutorial only, use Storm in local mode for development purposes. Refer to the [HDInsight Storm overview] and the official [Apache Storm] documentation for more information of Storm deployments and patterns.
-> 
-> 
 
 ## Next steps
 The following resources are available for developing applications integrating Event Hubs and Storm.
 
-* [Analyzing sensor data with Storm and HDInsight][Analyzing sensor data with Storm and HDInsight] is a full scenario tutorial using Event Hubs, Storm, and HBase to ingest sensor data in an Hadoop cluster.
+* [Analyzing sensor data with Storm and HDInsight][Analyzing sensor data with Storm and HDInsight] is a full scenario tutorial using Event Hubs, Storm, and HBase to ingest sensor data in a Hadoop cluster.
 * [Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight][Develop streaming data processing applications with SCP.NET and C# on Storm and HDInsight] is a tutorial on how to write Storm pipelines using C#.
 
 <!-- Images. -->

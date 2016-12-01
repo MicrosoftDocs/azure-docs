@@ -15,7 +15,7 @@
 Before you can use the Azure CLI with Azure resource groups, you need to have the right Azure CLI version and an Azure account. If you don't have the Azure CLI, [install it](../articles/xplat-cli-install.md).
 
 ### Update your Azure CLI version to 0.9.0 or later
-Type `azure --version` to see whether you have already installed version 0.9.0 or later. 
+Type `azure --version` to see whether you have already installed version 0.9.0 or later.
 
 ```azurecli
 azure --version
@@ -33,12 +33,12 @@ docker run -it microsoft/azure-cli
 ### Set your Azure account and subscription
 If you don't already have an Azure subscription but you do have an MSDN subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/). Or you can sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-Now [log in to your Azure account interactively](../articles/xplat-cli-connect.md#use-the-log-in-method) by typing `azure login` and following the prompts for an interactive login experience to your Azure account. 
+Now [log in to your Azure account interactively](../articles/xplat-cli-connect.md#scenario-1-azure-login-with-interactive-login) by typing `azure login` and following the prompts for an interactive login experience to your Azure account. 
 
 > [!NOTE]
-> If you have a work or school ID and you know you do not have two-factor authentication enabled, you can **also** use `azure login -u` along with the work or school ID to log in *without* an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md) to log in the same way.
-> 
-> 
+> If you have a work or school ID and you know you do not have two-factor authentication enabled, you can **also** use `azure login -u` along with the work or school ID to log in *without* an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](../articles/virtual-machines/virtual-machines-windows-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to log in the same way.
+>
+>
 
 Your account may have more than one subscription. You can list your subscriptions by typing `azure account list`, which might look something like this:
 
@@ -100,12 +100,12 @@ data:
 info:    group create command OK
 ```
 
-Second, you'll need an image. To find an image with the Azure CLI, see [Navigating and selecting Azure virtual machine images with PowerShell and the Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md). But for this article, here's a short list of popular images. We'll use CoreOS's Stable image for this quick-create.
+Second, you'll need an image. To find an image with the Azure CLI, see [Navigating and selecting Azure virtual machine images with PowerShell and the Azure CLI](../articles/virtual-machines/virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). But for this article, here's a short list of popular images. We'll use CoreOS's Stable image for this quick-create.
 
 > [!NOTE]
 > For ComputeImageVersion, you can also simply supply 'latest' as the parameter in both the template language and in the Azure CLI. This will allow you to always use the latest and patched version of the image without having to modify your scripts or templates. This is shown below.
-> 
-> 
+>
+>
 
 | PublisherName | Offer | Sku | Version |
 |:--- |:--- |:--- |:--- |
@@ -677,9 +677,9 @@ Again, you will need to find the values you want to enter for the parameters tha
 ### Step 2: Obtain the VHD
 Obviously, you'll need a .vhd for this. You can use one you already have in Azure, or you can upload one.
 
-For a Windows-based virtual machine, see [Create and upload a Windows Server VHD to Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md).
+For a Windows-based virtual machine, see [Create and upload a Windows Server VHD to Azure](../articles/virtual-machines/virtual-machines-windows-classic-createupload-vhd.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
-For a Linux-based virtual machine, see [Creating and uploading a virtual hard disk that contains the Linux operating system](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md).
+For a Linux-based virtual machine, see [Creating and uploading a virtual hard disk that contains the Linux operating system](../articles/virtual-machines/virtual-machines-linux-classic-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ### Step 3: Create the virtual machine by using the template
 Now you're ready to create a new virtual machine based on the .vhd. Create a group to deploy into, by using `azure group create <location>`:
@@ -1260,11 +1260,11 @@ info:    vm show command OK
 
 > [!NOTE]
 > If you want to programmatically store and manipulate the output of your console commands, you may want to use a JSON parsing tool such as **[jq](https://github.com/stedolan/jq)** or **[jsawk](https://github.com/micha/jsawk)**, or language libraries that are good for the task.
-> 
-> 
+>
+>
 
 ## <a id="log-on-to-a-linux-based-virtual-machine"></a>Task: Log on to a Linux-based virtual machine
-Typically Linux machines are connected to through SSH. For more information, see [How to use SSH with Linux on Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md).
+Typically Linux machines are connected to through SSH. For more information, see [How to use SSH with Linux on Azure](../articles/virtual-machines/virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a id="stop-a-virtual-machine"></a>Task: Stop a VM
 Run this command:
@@ -1275,8 +1275,8 @@ azure vm stop <group name> <virtual machine name>
 
 > [!IMPORTANT]
 > Use this parameter to keep the virtual IP (VIP) of the vnet in case it's the last VM in that vnet. <br><br> If you use the `StayProvisioned` parameter, you'll still be billed for the VM.
-> 
-> 
+>
+>
 
 ## <a id="start-a-virtual-machine"></a>Task: Start a VM
 Run this command:
@@ -1305,5 +1305,4 @@ Then you'll need to mount the disk, as you normally would in Linux.
 ## Next steps
 For far more examples of Azure CLI usage with the **arm** mode, see [Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager](../articles/xplat-cli-azure-resource-manager.md). To learn more about Azure resources and their concepts, see [Azure Resource Manager overview](../articles/azure-resource-manager/resource-group-overview.md).
 
-For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/) and [Application frameworks using templates](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md).
-
+For more templates you can use, see [Azure Quickstart templates](https://azure.microsoft.com/documentation/templates/) and [Application frameworks using templates](../articles/virtual-machines/virtual-machines-linux-app-frameworks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).

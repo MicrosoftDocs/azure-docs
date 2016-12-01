@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Virtual Machines Security Overview | Microsoft Docs
 description: " Azure Virtual Machines give you the flexibility of virtualization without having to buy and maintain the physical hardware that runs the virtual machine.  This article provides an overview of the core Azure security features that can be used with Azure Virtual Machines. "
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/21/2016
 ms.author: terrylan
 
 ---
@@ -149,4 +149,3 @@ Learn more:
 
 * [Microsoft Trust Center: Compliance](https://www.microsoft.com/TrustCenter/Compliance/default.aspx)
 * [Trusted Cloud: Microsoft Azure Security, Privacy, and Compliance](http://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
-

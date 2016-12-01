@@ -36,9 +36,9 @@ To build the complete working application, you’ll need to:
 To get started, [download the app skeleton](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/skeleton.zip) or [download the completed sample](https://github.com/AzureADQuickStarts/NativeClient-iOS/archive/complete.zip).  You'll also need an Azure AD tenant in which you can create users and register an application.  If you don't already have a tenant, [learn how to get one](active-directory-howto-tenant.md).
 
 > [!TIP]
-> Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/iOS) that will help you get up and running with Azure Active Directory in just a few minutes!  The developer portal will walk you through the process of registering an app and integrating Azure AD into your code.  When you’re finished, you will have a simple application that can authenticate users in your tenant and a backend that can accept tokens and perform validation. 
-> 
-> 
+> Try the preview of our new [developer portal](https://identity.microsoft.com/Docs/iOS) that will help you get up and running with Azure Active Directory in just a few minutes!  The developer portal will walk you through the process of registering an app and integrating Azure AD into your code.  When you’re finished, you will have a simple application that can authenticate users in your tenant and a backend that can accept tokens and perform validation.
+>
+>
 
 ## *1. Determine what your Redirect URI will be for iOS*
 In order to securely launch your applications in certain SSO scenarios we require that you create a **Redirect URI** in a particular format. A Redirect URI is used to ensure that the tokens return to the correct application that asked for them.
@@ -57,15 +57,14 @@ An example for this QuickStart code would be: ***msquickstart://com.microsoft.az
 ## *2. Register the DirectorySearcher Application*
 To enable your app to get tokens, you'll first need to register it in your Azure AD tenant and grant it permission to access the Azure AD Graph API:
 
-* Sign into the Azure Management Portal
-* In the left hand nav, click on **Active Directory**
-* Select a tenant in which to register the application.
-* Click the **Applications** tab, and click **Add** in the bottom drawer.
-* Follow the prompts and create a new **Native Client Application**.
-  * The **Name** of the application will describe your application to end-users
-  * The **Redirect Uri** is a scheme and string combination that Azure AD will use to return token responses.  Enter a value specific to your application based on the information above.
-* Once you've completed registration, AAD will assign your app a unique client identifier.  You'll need this value in the next sections, so copy it from the **Configure** tab.
-* Also in **Configure** tab, locate the "Permissions to Other Applications" section.  For the "Azure Active Directory" application, add the **Access Your Organization's Directory** permission under **Delegated Permissions**.  This will enable your application to query the Graph API for users.
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. On the top right, click on your account and under the **Directory** list, choose an Active Directory tenant where you have admin permissions.
+3. Type **App registrations** in the search filter.
+4. Click on **App registrations** and choose **Add**.
+5. Follow the prompts and create a new **Native Client Application**. The **Name** of the application will describe your application to end-users. The **Redirect URI** is the URI used to return tokens to your app. Enter a value specific to your application. Click on **Create** to create the application.
+6. While still in the Azure portal, choose your application, click on **Settings** and choose **Properties**.
+7. Find the Application ID value and copy it to the clipboard.
+8. Configure Permissions for your application - in the Settings menu, choose the 'Required permissions' section, click on **Add**, then **Select an API**, and select 'Windows Azure Active Directory' (this is the AADGraph API). Then, click on  **Select Permissions** and select 'Read Directory Data'.
 
 ## *3. Install & Configure ADAL*
 Now that you have an application in Azure AD, you can install ADAL and write your identity-related code.  In order for ADAL to be able to communicate with Azure AD, you need to provide it with some information about your app registration.
@@ -230,4 +229,3 @@ You can now move on to additional scenarios.  You may want to try:
 * Learn [How to enable cross-app SSO on iOS using ADAL](active-directory-sso-ios.md)  
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../includes/active-directory-devquickstarts-additional-resources.md)]
-

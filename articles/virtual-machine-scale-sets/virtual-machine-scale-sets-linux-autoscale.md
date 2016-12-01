@@ -1,4 +1,4 @@
-﻿---
+---
 title: Autoscale Linux Virtual Machine Scale Sets | Microsoft Docs
 description: Set up autoscaling for a Linux Virtual Machine Scale Set using Azure CLI
 services: virtual-machine-scale-sets
@@ -21,7 +21,7 @@ ms.author: davidmu
 # Automatically scale Linux machines in a virtual machine scale set
 Virtual machine scale sets make it easy for you to deploy and manage identical virtual machines as a set. Scale sets provide a highly scalable and customizable compute layer for hyperscale applications, and they support Windows platform images, Linux platform images, custom images, and extensions. To learn more, see [Virtual Machine Scale Sets Overview](virtual-machine-scale-sets-overview.md).
 
-This tutorial shows you how to create a scale set of Linux virtual machines using the latest version of Ubuntu Linux. The tutorial also shows you how to automatically scale the machines in the set. You create the scale set and set up scaling by creating an Azure Resource Manager template and deploying it using Azure CLI. For more information about templates, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). To learn more about automatic scaling of scale sets, see [Automatic scaling and Virtual Machine Scale Sets](virtual-machine-scale-sets-autoscale-overview.md).
+This tutorial shows you how to create a scale set of Linux virtual machines using the latest version of Ubuntu Linux. The tutorial also shows you how to automatically scale the machines in the set. You create the scale set and set up scaling by creating an Azure Resource Manager template and deploying it using Azure CLI. For more information about templates, see [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). To learn more about automatic scaling of scale sets, see [Automatic scaling and Virtual Machine Scale Sets](virtual-machine-scale-sets-autoscale-overview.md).
 
 In this tutorial, you deploy the following resources and extensions:
 
@@ -35,7 +35,7 @@ In this tutorial, you deploy the following resources and extensions:
 * Microsoft.Insights.VMDiagnosticsSettings
 * Microsoft.Insights/autoscaleSettings
 
-For more information about Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../resource-manager-deployment-model.md).
+For more information about Resource Manager resources, see [Azure Resource Manager vs. classic deployment](../azure-resource-manager/resource-manager-deployment-model.md).
 
 Before you get started with the steps in this tutorial, [install the Azure CLI](../xplat-cli-install.md).
 
@@ -47,7 +47,7 @@ Before you get started with the steps in this tutorial, [install the Azure CLI](
         azure login
    
    > [!NOTE]
-   > If you have a work or school ID and you do not have two-factor authentication enabled, use `azure login -u` with the ID to log in without an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](../virtual-machines/virtual-machines-linux-create-aad-work-id.md).
+   > If you have a work or school ID and you do not have two-factor authentication enabled, use `azure login -u` with the ID to log in without an interactive session. If you don't have a work or school ID, you can [create a work or school id from your personal Microsoft account](../virtual-machines/virtual-machines-linux-create-aad-work-id.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
    > 
    > 
 2. **Create a resource group** – All resources must be deployed to a resource group. For this tutorial, name the resource group **vmsstest1**.
@@ -110,7 +110,7 @@ An Azure Resource Manager template makes it possible for you to deploy and manag
    * The IP address names and prefixes for the virtual network and subnets.
    * The names and identifiers of the virtual network, load balancer, and network interfaces.
    * Storage account names for the accounts associated with the machines in the scale set.
-   * Settings for the Diagnostics extension that is installed on the virtual machines. For more information about the Diagnostics extension, see [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
+   * Settings for the Diagnostics extension that is installed on the virtual machines. For more information about the Diagnostics extension, see [Create a Windows Virtual machine with monitoring and diagnostics using Azure Resource Manager Template](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 4. Add the storage account resource under the resources parent element that you added to the template. This template uses a loop to create the recommended five storage accounts where the operating system disks and diagnostic data are stored. This set of accounts can support up to 100 virtual machines in a scale set, which is the current maximum. Each storage account is named with a letter designator that was defined in the variables combined with the suffix that you provide in the parameters for the template.
    
         {

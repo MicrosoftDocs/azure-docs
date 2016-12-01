@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/22/2016
 ms.author: johnkem
 
 ---
@@ -83,13 +83,23 @@ For non-Compute resources, you will need to do two things:
                 "enabled": false
               }
             }
+          ],
+          "metrics": [
+            {
+              "timeGrain": "PT1M",
+              "enabled": true,
+              "retentionPolicy": {
+                "enabled": false,
+                "days": 0
+              }
+            }
           ]
         }
       }
     ]
     ```
 
-The properties blob for the Diagnostic Setting follows [the format described in this article](https://msdn.microsoft.com/library/azure/dn931931.aspx).
+The properties blob for the Diagnostic Setting follows [the format described in this article](https://msdn.microsoft.com/library/azure/dn931931.aspx). Adding the `metrics` property will enable you to also send resource metrics to these same outputs.
 
 Here is a full example that creates a Network Security Group and turns on streaming to Event Hubs and storage in a storage account.
 
@@ -163,6 +173,16 @@ Here is a full example that creates a Network Security Group and turns on stream
                   "enabled": false
                 }
               }
+            ],
+            "metrics": [
+              {
+                "timeGrain": "PT1M",
+                "enabled": true,
+                "retentionPolicy": {
+                  "enabled": false,
+                  "days": 0
+                }
+              }
             ]
           }
         }
@@ -186,7 +206,7 @@ To enable diagnostics on a Compute resource, for example a Virtual Machine or Se
 > 
 > 
 
-The entire process, including samples, is described [in this document](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md).
+The entire process, including samples, is described [in this document](../virtual-machines/virtual-machines-windows-extensions-diagnostics-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Next Steps
 * [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)

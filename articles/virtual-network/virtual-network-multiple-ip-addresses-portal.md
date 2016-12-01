@@ -1,4 +1,4 @@
-﻿---
+---
 title: Multiple IP addresses for virtual machines - Portal | Microsoft Docs
 description: Learn how to assign multiple IP addresses to a virtual machine using the Azure Portal.
 services: virtual-network
@@ -22,8 +22,8 @@ ms.author: annahar
 > [!div class="op_single_selector"]
 > * [Azure Portal](virtual-network-multiple-ip-addresses-portal.md)
 > * [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
->
->
+> * [CLI](virtual-network-multiple-ip-addresses-cli.md)
+
 
 An Azure Virtual Machine (VM) can have one or more network interfaces (NIC) attached to it. Any NIC can have one or more public or private IP addresses assigned to it. If you're not familiar with IP addresses in Azure, read the [IP addresses in Azure](virtual-network-ip-addresses-overview-arm.md) article to learn more about them. This article explains how to use Azure Portal to assign multiple IP addresses to a VM in the Azure Resource Manager deployment model.
 
@@ -49,7 +49,7 @@ The following example configurations will be created and assigned to a NIC that 
 
 This scenario assumes you have a resource group called *RG1* within which there is a VNet called *VNet1* and a subnet called *Subnet1*. Further, it assumes you have a VM called *VM1*, a network interface called *VM1-NIC1* associated to it and a public IP address called *PIP1*.
 
-[This article](../virtual-machines/virtual-machines-windows-ps-create.md) walks through how to create the resources mentioned above in case you have not created them before.
+[This article](../virtual-machines/virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) walks through how to create the resources mentioned above in case you have not created them before.
 
 ## <a name = "create"></a>Create a VM with multiple IP addresses
 To create a multiple IP configurations based on the scenario above by using the Azure preview portal, follow the steps below.
@@ -62,7 +62,8 @@ To create a multiple IP configurations based on the scenario above by using the 
 
     ![Alt image text](media\\virtual-network-multiple-ip-addresses-portal\\01-portal.PNG)
 
-    >[AZURE.NOTE] Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.
+    >[!NOTE] 
+    > Public IP addresses have a nominal fee. To learn more about IP address pricing, read the [IP address pricing](https://azure.microsoft.com/pricing/details/ip-addresses) page.
 
 1. Next, to add an IP configuration, under the **IP configurations** section of your network interface, click on **+Add**.
 

@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/23/2016
+ms.date: 11/11/2016
 ms.author: banders;magoedte
 
 ---
@@ -79,8 +79,8 @@ The following tables list the ports related to these tasks.
 
 > [!NOTE]
 > Some of the following resources mention Advisor and Operational Insights, both were previous versions of OMS. However, the listed resources will change in the future.
-> 
-> 
+>
+>
 
 Here's a list of agent resources and ports:<br>
 
@@ -172,4 +172,3 @@ Or, you can also check for OMS management packs by using the following Windows P
 ## Next steps
 * [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md) to add functionality and gather data.
 * Get familiar with [log searches](log-analytics-log-searches.md) to view detailed information gathered by solutions.
-

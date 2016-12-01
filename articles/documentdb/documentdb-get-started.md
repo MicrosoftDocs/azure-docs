@@ -14,15 +14,17 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 08/29/2016
+ms.date: 11/16/2016
 ms.author: anhoh
 
 ---
 # NoSQL tutorial: Build a DocumentDB C# console application
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
+> * [.NET Core](documentdb-dotnetcore-get-started.md)
 > * [Node.js](documentdb-nodejs-get-started.md)
-> 
+> * [C++](documentdb-cpp-get-started.md)
+>  
 > 
 
 Welcome to the NoSQL tutorial for the Azure DocumentDB .NET SDK! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources.
@@ -48,12 +50,13 @@ Now let's get started!
 ## Prerequisites
 Please make sure you have the following:
 
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/).
+* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
+    * Alternatively, you can use the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) for this tutorial.
 * [Visual Studio 2013 / Visual Studio 2015](http://www.visualstudio.com/).
 * .NET Framework 4.6
 
 ## Step 1: Create a DocumentDB account
-Let's create a DocumentDB account. If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio Solution](#SetupVS).
+Let's create a DocumentDB account. If you already have an account you want to use, you can skip ahead to [Setup your Visual Studio Solution](#SetupVS). If you are using the DocumentDB Emulator, please follow the steps at [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Setup your Visual Studio Solution](#SetupVS).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 

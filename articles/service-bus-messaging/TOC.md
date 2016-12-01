@@ -47,7 +47,7 @@
 ### [Paired namespaces](service-bus-paired-namespaces.md)
 ### [Chain entities with auto-forwarding](service-bus-auto-forwarding.md)
 ## Manage
-### [Using ARM templates](service-bus-resource-manager-overview.md)
+### [Using Azure Resource Manager templates](service-bus-resource-manager-overview.md)
 ### [Using PowerShell to provision entities](service-bus-powershell-how-to-provision.md)
 
 # Reference
@@ -55,8 +55,12 @@
 ## [Samples](service-bus-samples.md)
 ## [Exceptions](service-bus-messaging-exceptions.md)
 ## [Quotas](service-bus-quotas.md)
-## [.NET](https://docs.microsoft.com/dotnet/api/)
-## [REST](https://docs.microsoft.com/rest/api/servicebus/)
+## [.NET](/dotnet/api/)
+## [REST](/rest/api/servicebus/)
+## [SQLFilter syntax](service-bus-messaging-sql-filter.md)
+## [SQLRuleAction syntax](service-bus-messaging-sql-rule-action.md)
+## [AMQP1.0 protocol guide](service-bus-amqp-protocol-guide.md)
+### [AMQP 1.0 request-response-based operations](service-bus-amqp-request-response.md)
 
 # Resources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
@@ -65,3 +69,5 @@
 ## [Pricing](https://azure.microsoft.com/pricing/details/service-bus/)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/service-bus/)
 ## [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer)
+## [Service updates](https://azure.microsoft.com/updates/?product=service-bus)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=service-bus)
