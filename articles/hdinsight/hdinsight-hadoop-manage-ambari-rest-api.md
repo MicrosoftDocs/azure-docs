@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/28/2016
+ms.date: 12/01/2016
 ms.author: larryfr
 
 ---
@@ -36,7 +36,7 @@ Apache Ambari simplifies the management and monitoring of a Hadoop cluster by pr
 
 * [jq](https://stedolan.github.io/jq/): jq is a cross-platform command-line utility for working with JSON documents. In this document, it is used to parse the JSON documents returned from the Ambari REST API.
 
-* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2): a cross-platform command-line utility for working with Azure services.
+* [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) (preview): a cross-platform command-line utility for working with Azure services.
   
 [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-cli.md)] 
 
@@ -241,18 +241,7 @@ You can then use this information with the [Azure CLI 2.0](https://docs.microsof
 
 At this point, if you look at the Ambari web UI, the Spark service will indicate that it needs to be restarted before the new configuration can take effect. Use the following steps to restart the service.
 
-1. Use the following to enable maintenance mode for the Spark service:
-   
-        echo '{"RequestInfo": {"context": "turning on maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"ON"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
-   
-    This command sends a JSON document to the server (contained in the `echo` statement,) which turns maintenance mode on.
-    You can verify that the service is now in maintenance mode using the following request:
-   
-        curl -u admin:PASSWORD -H "X-Requested-By: ambari" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK" | jq .ServiceInfo.maintenance_state
-   
-    This will return a value of `"ON"`.
-
-2. Next, use the following to turn the service off:
+1. Use the following to turn the service off:
    
         echo '{"RequestInfo": {"context" :"Stopping the Spark service"}, "Body": {"ServiceInfo": {"state": "INSTALLED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
    
@@ -274,15 +263,11 @@ At this point, if you look at the Ambari web UI, the Spark service will indicate
    
     If this returns a value of `"COMPLETED"` then the request has finished.
 
-3. Once the previous request completes, use the following to start the service.
+2. Once the previous request completes, use the following to start the service.
    
         echo '{"RequestInfo": {"context" :"Restarting the Spark service"}, "Body": {"ServiceInfo": {"state": "STARTED"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
    
     Once the service restarts, it is the new configuration settings.
-
-4. Finally, use the following to turn off maintenance mode.
-   
-        echo '{"RequestInfo": {"context": "turning off maintenance mode for SPARK"},"Body": {"ServiceInfo": {"maintenance_state":"OFF"}}}' | curl -u admin:PASSWORD -H "X-Requested-By: ambari" -X PUT -d "@-" "https://CLUSTERNAME.azurehdinsight.net/api/v1/clusters/CLUSTERNAME/services/SPARK"
 
 ## Next steps
 
