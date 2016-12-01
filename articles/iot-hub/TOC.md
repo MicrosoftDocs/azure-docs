@@ -104,7 +104,7 @@
 ## [Azure CLI](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
-## [Java (Service)](h/java/api/com.microsoft.azure.iot.service.auth)
+## [Java (Service)](/java/api/com.microsoft.azure.iot.service.auth)
 ## [Java (Devices)](/java/api/com.microsoft.azure.iothub)
 ## [Azure IoT SDKs](http://azure.github.io/azure-iot-sdks/)
 ## [Gateway SDK](http://azure.github.io/azure-iot-gateway-sdk)
