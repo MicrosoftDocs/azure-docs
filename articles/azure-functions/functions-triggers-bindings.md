@@ -27,9 +27,9 @@ For detailed information about working with a specific type of trigger or bindin
 
 | | | | |  
 | --- | --- | --- | --- |  
-| [HTTP/webhook](../articles/azure-functions/functions-bindings-http-webhook.md) | [Timer](../articles/azure-functions/functions-bindings-timer.md) | [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md) | [Service Bus](../articles/azure-functions/functions-bindings-service-bus.md)  |  
-| [DocumentDB](../articles/azure-functions/functions-bindings-documentdb.md) |  [Storage Blob](../articles/azure-functions/functions-bindings-storage-blob.md) | [Storage Queue](../articles/azure-functions/functions-bindings-storage-queue.md) |  [Storage Table](../articles/azure-functions/functions-bindings-storage-table.md) |  
-| [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md) | [Notification Hubs](../articles/azure-functions/functions-bindings-notification-hubs.md) | [Twilio](../articles/azure-functions/functions-bindings-twilio.md) |   
+| [HTTP/webhook](functions-bindings-http-webhook.md) | [Timer](functions-bindings-timer.md) | [Mobile Apps](functions-bindings-mobile-apps.md) | [Service Bus](functions-bindings-service-bus.md)  |  
+| [DocumentDB](functions-bindings-documentdb.md) |  [Storage Blob](functions-bindings-storage-blob.md) | [Storage Queue](functions-bindings-storage-queue.md) |  [Storage Table](functions-bindings-storage-table.md) |  
+| [Event Hubs](functions-bindings-event-hubs.md) | [Notification Hubs](functions-bindings-notification-hubs.md) | [Twilio](functions-bindings-twilio.md) |   
 | | | | |  
 
 These articles assume that you've read the [Azure Functions developer reference](functions-reference.md), and the [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md), or [Node.js](functions-reference-node.md) developer reference articles.
