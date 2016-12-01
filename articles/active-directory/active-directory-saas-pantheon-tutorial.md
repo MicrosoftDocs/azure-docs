@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 12/01/2016
 ms.author: jeedes
 
 ---
@@ -147,8 +147,8 @@ The integration will only work after doing the correct mapping.
 
 	• The **Single Sign-On Service URL**
 
->[!NOTE] 
->You also need to provide the Email Domain(s) information and Date Time when you want to enable this connection. You can find more details about it from [here](https://pantheon.io/docs/sso-organizations/)
+    >[!NOTE] 
+    >You also need to provide the Email Domain(s) information and Date Time when you want to enable this connection. You can find more details about it from [here](https://pantheon.io/docs/sso-organizations/)
 
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
