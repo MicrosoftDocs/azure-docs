@@ -13,10 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/23/2016
-ms.author: raynew 
-=======
-ms.date: 11/23/2016
+ms.date: 12/01/2016
 ms.author: raynew
 ---
 
@@ -34,7 +31,7 @@ Post any comments at the bottom of the article, or ask technical questions on th
 
 Azure has two different [deployment models](../azure-resource-manager/resource-manager-deployment-model.md) for creating and working with resources: the Azure Resource Manager mode, and the classic model. Azure also has two portals – the [Azure classic portal](https://manage.windowsazure.com/) that supports the classic deployment model, and the [Azure portal](https://ms.portal.azure.com/) with support for both deployment models.
 
-New Site Recovery scenarios should be deployed in the [Azure portal](https://portal.azure.com). This portal provides new features and an improved deployment experience. Vaults can be maintained in the classic portal, but new vaults can't be created. 
+New Site Recovery scenarios should be deployed in the [Azure portal](https://portal.azure.com). This portal provides new features and an improved deployment experience. Vaults can be maintained in the classic portal, but new vaults can't be created.
 
 
 ## Deployment scenarios
