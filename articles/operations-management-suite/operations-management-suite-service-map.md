@@ -53,12 +53,30 @@ By default, Service Map maps show the last 10 minutes of dependency information.
 
 ![Machine map with selected machine properties](media/oms-service-map/machine-map.png)
 
+## Status badges
+At the bottom of each server in the map can be a list of status badges conveying status information about the server.  The badges indicate that there is some relevant information for the server from one of the OMS solution integrations.  Clicking on a badge will take you directly to the details of the status in in the right panel.  The currently availably status badges include Alerts, Changes, Security, and Updates.
+
+![Failed connections](media/oms-service-map/status-badges.png)
+
 ## Failed connections
 Failed Connections are shown in Service Map maps for processes and computers, with a dashed red line showing if a client system is failing to reach a process or port.  Failed connections are reported from any system with a deployed Service Map agent if that system is the one attempting the failed connection.  Service Map measures this by observing TCP sockets that fail to establish a connection.  This could be due to a firewall, a misconfiguration in the client or server, or a remote service being unavailable.
 
 ![Failed connections](media/oms-service-map/failed-connections.png)
 
 Understanding failed connections can help with troubleshooting, migration validation, security analysis, and overall architectural understanding.  Sometimes failed connections are harmless, but they often point directly to a problem, such as a failover environment suddenly becoming unreachable, …or two application tiers not being able to talk after a cloud migration.
+
+## Context menu
+Clicking on the three dots in the top right of any server will expose the context menu for that server.
+
+![Failed connections](media/oms-service-map/context-menu.png)
+
+### Load Server Map
+Load Server Map will navigate to a new map with the selected server as the new Focus Machine.
+
+### Show/Hide Self Links
+Show Self Links will redraw the server node including any self links, which are TCP connections that start and end on processes within the server.  If self links are shown, the menu will toggle to Hide Self Links, allowing users toggle the drawing of self links.
+
+
 
 ## Computer and process properties
 When navigating a Service Map map, you can select machines and processes to gain additional context about their properties.  Machines provide information about DNS name, IPv4 addresses, CPU and Memory capacity, VM Type, Operating System version, Last Reboot time, and the IDs of their OMS and Service Map agents.
