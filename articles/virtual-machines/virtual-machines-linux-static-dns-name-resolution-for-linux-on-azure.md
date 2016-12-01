@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 12/01/2016
 ms.author: v-livech
 
 ---
@@ -28,9 +28,11 @@ The requirements are:
 * [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
 * [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## Quick commands for Azure experts
+## Quick commands
 
-Pre-requirments: Resource Group, VNet, NSG with SSH inbound, Subnet.
+If you need to quickly accomplish the task, the following section details the commands to needed. More detailed information and context for each step can be found the rest of the document, [starting here](virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#detailed-walkthrough).  
+
+Pre-Requirements: Resource Group, VNet, NSG with SSH inbound, Subnet.
 
 ### Create a VNic with internal DNS name labeling.
 
@@ -59,7 +61,7 @@ azure vm create jenkins \
 -N jenkinsVNic
 ```
 
-## Detailed walkthrough for Azure beginners
+## Detailed walkthrough
 
 A full continuous integration and continuous deployment (CiCd) infrastructure on Azure requires certain servers to be static or long-lived servers.  It is recommended that Azure assets like the VNets and NSGs should be static and long lived resources that are rarely deployed.  Once a VNet has been deployed, it can be reused by new deployments without any adverse affects to the infrastructure.  Adding to this static network a Git repository server and a Jenkins automation server delivers CiCd to your development or test environments.
 
