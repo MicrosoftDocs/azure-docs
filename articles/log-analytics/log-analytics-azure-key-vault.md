@@ -22,7 +22,7 @@ ms.author: richrund
 You can use the Azure Key Vault solution in Log Analytics to review Azure Key Vault AuditEvent logs.
 
 > [!NOTE]
-> Azure Key Vault Analytics is a [preview solution](log-analytics-add-solutions.md#preview-solutions-and-features).
+> Azure Key Vault Analytics is a [preview solution](log-analytics-add-solutions.md#preview-management-solutions-and-features).
 > 
 > 
 
