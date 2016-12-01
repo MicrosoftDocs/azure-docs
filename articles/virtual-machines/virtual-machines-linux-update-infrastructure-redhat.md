@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 12/01/2016
 ms.author: borisb
 
 ---
@@ -35,7 +35,7 @@ As of September 2016, Azure has a new set of Red Hat Update Infrastructure (RHUI
 | --- | --- |
 | September 22, 2016 |RHUI servers and install directions available for use. VMs deployed using the new (September 2016 dated) RHEL PAYG marketplace images will automatically use the new RHUI servers, but existing VMs are “opt-in” |
 | November 1, 2016 |Legacy RHEL PAYG VM images (which use the old Azure RHUI servers) will be removed from the Azure Marketplace gallery |
-| January 16, 2017 |The old Azure RHUI servers will be decommissioned. Update all of your affected PAYG RHEL VMs by this time to maintain access to Azure RHUI |
+| December 16, 2016 |The old Azure RHUI servers will be decommissioned. Update all of your affected PAYG RHEL VMs by this time to maintain access to Azure RHUI |
 
 ### The IPs for the new RHUI content delivery servers are
 ```
@@ -47,6 +47,9 @@ As of September 2016, Azure has a new set of Red Hat Update Infrastructure (RHUI
 
 # Azure US Government
 13.72.186.193
+
+# Azure Germany
+51.5.243.77
 ```
 
 ### Manual update procedure to use the new Azure RHUI servers
@@ -176,7 +179,7 @@ sudo rpm -U azureclient.rpm
 [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) offers a highly scalable solution to manage yum repository content for Red Hat Enterprise Linux cloud instances that are hosted by Red Hat-certified cloud providers. Based on the upstream Pulp project, RHUI allows cloud providers to locally mirror Red Hat-hosted repository content, create custom repositories with their own content, and make those repositories available to a large group of end users through a load-balanced content delivery system.
 
 ## Regions where RHUI is available
-RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page and Azure US Government regions. RHUI access for VMs provisioned from RHEL on-demand images is included in their price. Additional regional/national cloud availability will be updated as we expand RHEL on-demand availability in the future.
+RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page, Azure US Government and Azure Germany regions. RHUI access for VMs provisioned from RHEL on-demand images is included in their price. Additional regional/national cloud availability will be updated as we expand RHEL on-demand availability in the future.
 
 > [!NOTE]
 > Access to Azure-hosted RHUI is limited to the VMs within [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
