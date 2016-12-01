@@ -1,22 +1,22 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with TiViTz' | Microsoft Docs
-description: Learn how to use TiViTz with Azure Active Directory to enable single sign-on, automated provisioning, and more!
+title: 'Tutorial: Azure Active Directory integration with TiViTz | Microsoft Docs'
+description: Learn how to configure single sign-on between Azure Active Directory and TiViTz.
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+editor: na
 
 ms.assetid: b97ed88f-7888-4185-be22-41d1f62cbbf1
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 11/30/2016
+ms.date: 12/01/2016
 ms.author: jeedes
 
 ---
-
 # Tutorial: Azure Active Directory integration with TiViTz
 
 In this tutorial, you learn how to integrate TiViTz with Azure Active Directory (Azure AD).
