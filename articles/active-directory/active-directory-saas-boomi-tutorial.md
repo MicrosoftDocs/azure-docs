@@ -1,18 +1,19 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Boomi| Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Boomi | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Boomi.
 services: active-directory
+documentationCenter: na
 author: jeevansd
-documentationcenter: na
 manager: femila
+editor: na
 
 ms.assetid: 8e05afa9-2eda-4975-a0cc-6d408065860f
 ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: identity
-ms.date: 11/21/2016
+ms.date: 12/01/2016
 ms.author: jeedes
 
 ---
@@ -97,9 +98,9 @@ To configure and test Azure AD single sign-on with Boomi, you need to complete t
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a Boomi test user](#creating-a-boomi-test-user)** - to have a counterpart of Britta Simon in Boomi that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-6. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+3. **[Creating a Boomi test user](#creating-a-boomi-test-user)** - to have a counterpart of Britta Simon in Boomi that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -225,7 +226,7 @@ In order to enable Azure AD users to log into Boomi, they must be provisioned in
 
 1. Log into your Boomi company site as an administrator.
 
-2. After login, navigate to **User Management** and go to **Users**.
+2. After logging in, navigate to **User Management** and go to **Users**.
 
 	![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_001.png "Users")
 
@@ -235,13 +236,18 @@ In order to enable Azure AD users to log into Boomi, they must be provisioned in
 
 	![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_003.png "Users")
 
-4. Enter the user's **email address**.
+4. Enter the user's **User e-mail address**.
 
-5. Enter the user's **first** and **last names**.
+5. Enter the user's **First name** and **Last name**.
 
-6. Enter the user's **federation ID**. Each user must have a federation ID that uniquely identifies the user within the account. You will need this ID later, when you configure the user in your identity provider.
+6. Enter the user's **Federation ID**. Each user must have a Federation ID that uniquely identifies the user within the account. 
 
-7. Assign the **Standard User** role to the user. Do not assign the Administrator role because that would give him normal AtomSphere access as well as single sign-on access.
+	![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_004.png "Users")
+
+	> [!NOTE]
+	> Your Dell Boomi application expects the SAML assertion in specific format, which requires you to set the NameIdentifier attribute value with the user’s Federation ID. By default Azure AD uses the UserPrincipalName for NameIdentifier attribute. But for successful integration you need to adjust this value to match with user’s Federation ID in Boomi. With the correct mapping the integration will work.
+
+7. Assign the **Standard User** role to the user. Do not assign the Administrator role because that would give him normal Atmosphere access as well as single sign-on access.
 
 8. Click **OK**.
 
