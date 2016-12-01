@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 12/01/2016
 ms.author: nitinme
 
 ---
@@ -130,6 +130,10 @@ In Azure, a Data Lake Store account has several Azure roles:
 * Etc.
 
 Everyone in the **Owners** role for a Data Lake Store account is automatically a super-user for that account. To learn more about Azure Role Based Access Control (RBAC) see [Role-based access control](../active-directory/role-based-access-control-configure.md).
+
+If you would like to create a custom RBAC role that has super-user permissions. It needs to have these permissions:
+* Microsoft.DataLakeStore/accounts/Superuser/action
+* Microsoft.Authorization/roleAssignments/write
 
 ## The owning user
 The user who created the item is automatically the owning user of the item. An owning user can:
