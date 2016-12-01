@@ -1,6 +1,6 @@
 ﻿---
-title: Developer guide - control access to IoT Hub | Microsoft Docs
-description: Azure IoT Hub developer guide - how to control access to IoT Hub and manage security
+title: Understand Azure IoT Hub security | Microsoft Docs
+description: Developer guide - how to control access to IoT Hub for device apps and back-end apps. Includes information about security tokens and support for X.509 certificates.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -208,7 +208,7 @@ For example, a token created to access all device functionality should have the 
 * no policy name,
 * any expiration time.
 
-An example using the Node function above would be:
+An example using the Node.js function above would be:
 
     var endpoint ="myhub.azure-devices.net/devices/device1";
     var deviceKey ="...";
@@ -241,7 +241,7 @@ As an example, a token service using the pre-created shared access policy called
 * policy name: `device`,
 * any expiration time.
 
-An example using the Node function above would be:
+An example using the Node.js function above would be:
 
     var endpoint ="myhub.azure-devices.net/devices/device1";
     var policyName = 'device';

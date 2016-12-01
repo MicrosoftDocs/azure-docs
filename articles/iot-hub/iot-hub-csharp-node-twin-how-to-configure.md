@@ -1,6 +1,6 @@
 ---
-title: Use device twin properties | Microsoft Docs
-description: This tutorial shows you how to use device twin properties
+title: Use Azure IoT Hub device twin properties (.NET/Node) | Microsoft Docs
+description: How to use Azure IoT Hub device twins to configure devices. You use the Azure IoT device SDK for Node.js to implement a simulated device app and the Azure IoT service SDK for .NET to implement a service app that modifies a device configuration using a device twin.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -17,7 +17,7 @@ ms.date: 09/13/2016
 ms.author: elioda
 
 ---
-# Tutorial: Use desired properties to configure devices
+# How to use desired properties to configure devices
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 At the end of this tutorial, you will have two Node.js console apps:
