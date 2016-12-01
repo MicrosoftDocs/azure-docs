@@ -28,7 +28,7 @@ This document will detail how the Resource Group export process works regarding 
 
 Many Virtual Machine extensions are available, however not all of them can be exported into a Resource Manager template using the “Automation Script” feature. If a VM extension is not supported, it will need to be manually placed back into the exported template.
 
-The following extension can be exported with the automation Script feature.
+The following extensions can be exported with the automation Script feature.
 
 | Extension | Version |
 |---|---|
