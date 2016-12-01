@@ -1,6 +1,6 @@
 ---
 title: Create an IoT Hub using Azure CLI | Microsoft Docs
-description: Follow this article to create an IoT Hub using the Azure Command-Line Interface.
+description: How to create an Azure IoT hub using the cross-platform Azure Command-Line Interface.
 services: iot-hub
 documentationcenter: .net
 author: BeatriceOltean
@@ -17,7 +17,7 @@ ms.date: 09/21/2016
 ms.author: boltean
 
 ---
-# Create an IoT Hub using Azure CLI
+# How to create an IoT hub using the Azure CLI
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction

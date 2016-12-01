@@ -61,8 +61,8 @@ Some Redis clients don't support SSL, and by default the [non-SSL port is disabl
         JedisShardInfo shardInfo = new JedisShardInfo("<name>.redis.cache.windows.net", 6379);
         shardInfo.setPassword("<key>"); /* Use your access key. */
         Jedis jedis = new Jedis(shardInfo);
-         jedis.set("foo", "bar");
-         String value = jedis.get("foo");
+        jedis.set("foo", "bar");
+        String value = jedis.get("foo");
       }
     }
 
