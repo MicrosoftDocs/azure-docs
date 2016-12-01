@@ -61,7 +61,7 @@ You must have the following:
         { "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}
 
 
-    >[AZURE.IMPORTANT] If you forget to configure the kernel in the first cell, you can use the `%%configure` with the `-f` parameter, but that will restart the session and all progress will be lost.
+    >[!IMPORTANT] If you forget to configure the kernel in the first cell, you can use the `%%configure` with the `-f` parameter, but that will restart the session and all progress will be lost.
 
 1. The snippet above expects the maven coordinates for the external package in Maven Central Repository. In this snippet, `com.databricks:spark-csv_2.10:1.4.0` is the maven coordinate for **spark-csv** package. Here's how you construct the coordinates for a package.
    
