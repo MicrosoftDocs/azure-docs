@@ -13,19 +13,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 12/01/2016
 ms.author: richrund
 
 ---
-# Azure Key Vault (Preview) solution in Log Analytics
-> [!NOTE]
-> This is a [preview solution](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
-> 
-> 
+# Azure Key Vault Analytics (Preview) solution in Log Analytics
 
 You can use the Azure Key Vault solution in Log Analytics to review Azure Key Vault AuditEvent logs.
 
-You can enable logging of audit events for Azure Key Vault by configuring the diagnostics for the Key Vault and directing the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
+> [!NOTE]
+> Azure Key Vault Analytics is a [preview solution](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
+> 
+> 
+
+To use the solution you need to enable logging of Azure Key Vault diagnostics and direct the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
 
 ## Install and configure the solution
 Use the following instructions to install and configure the Azure Key Vault solution:
@@ -46,11 +47,11 @@ Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspace
 
 ## Review Azure Key Vault data collection details
 Azure Key Vault solution collects diagnostics logs directly from the Key Vault.
-Logs do not need to be writtent to blob storage and no agent is required for data collection.
+Logs do not need to be written to blob storage and no agent is required for data collection.
 
 The following table shows data collection methods and other details about how data is collected for Azure Key Vault.
 
-| Platform | Direct agent | Systems Center Operations Manager (SCOM) agent | Azure | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
+| Platform | Direct agent | Systems Center Operations Manager agent | Azure | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
 | Azure |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Yes](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | on arrival |
 
@@ -77,7 +78,7 @@ After you click the **Overview** tile, you can view summaries of your logs and t
     On any of the log search pages, you can view results by time, detailed results, and your log search history. You can also filter by facets to narrow the results.
 
 ## Log Analytics records
-The Azure Key Vault solution analyzes records that have a type of **KeyVaults** that are collected from [AuditEvent logs](../key-vault/key-vault-logging.md) in Azure Diagnostics.  Properties for these records are in the following table.  
+The Azure Key Vault solution analyzes records that have a type of **KeyVaults** that are collected from [AuditEvent logs](../key-vault/key-vault-logging.md) in Azure Diagnostics.  Properties for these records are in the following table:  
 
 | Property | Description |
 |:--- |:--- |
@@ -95,7 +96,7 @@ The Azure Key Vault solution analyzes records that have a type of **KeyVaults** 
 | requestUri_s |Uri of the request |
 | Resource |Name of the key vault |
 | ResourceGroup |Resource group of the key vault |
-| ResourceId |Azure Resource Manager Resource ID. For Key Vault logs, this is always the Key Vault resource ID. |
+| ResourceId |Azure Resource Manager Resource ID. For Key Vault logs, this is the Key Vault resource ID. |
 | ResourceProvider |*MICROSOFT.KEYVAULT* |
 | ResourceType | *VAULTS* |
 | ResultSignature |HTTP status (for example, *OK*) |
