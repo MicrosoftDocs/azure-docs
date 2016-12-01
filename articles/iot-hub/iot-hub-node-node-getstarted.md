@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub for Node.js getting started | Microsoft Docs
-description: Azure IoT Hub with Node.js getting started tutorial. Use Azure IoT Hub and Node.js with the Azure IoT SDKs to implement an Internet of Things solution.
+title: Get started with Azure IoT Hub (Node) | Microsoft Docs
+description: How to send device-to-cloud messages from a device to an Azure IoT hub using the Azure IoT SDKs for Node.js. You create a simulated device app to send messages, a service app to register your device in the identity registry, and a service app to read the device-to-cloud messages from the IoT hub.
 services: iot-hub
 documentationcenter: nodejs
 author: dominicbetts
@@ -17,7 +17,7 @@ ms.date: 09/12/2016
 ms.author: dobett
 
 ---
-# Get started with Azure IoT Hub for Node.js
+# How to get started with Azure IoT Hub (Node)
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 At the end of this tutorial, you have three Node.js console apps:
