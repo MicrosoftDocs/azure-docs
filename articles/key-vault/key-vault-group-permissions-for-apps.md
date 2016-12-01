@@ -7,12 +7,12 @@ author: amitbapat
 manager: mbaldwin
 tags: azure-resource-manager
 
-ms.assetid: 46d7bc21-fa79-49e4-8c84-032eef1d813e
+ms.assetid: 785d4e40-fb7b-485a-8cbc-d9c8c87708e6
 ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
 
@@ -25,7 +25,10 @@ Key Vault access control policy only supports 16 entries. However you can create
 
 Here are the pre-requisites:
 * Install Azure Active Directory V2 PowerShell module if you haven't already done so. [Follow instructions on this page](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
-* To run the following commands, you need permissions to create/edit groups in the Azure Active Directory tenant. If you don't have permissions, you may need to contact your Azure Active Directory administrator, .
+* [Install Azure PowerShell](../powershell-install-configure.md)
+* To run the following commands, you need permissions to create/edit groups in the Azure Active Directory tenant. If you don't have permissions, you may need to contact your Azure Active Directory administrator.
+
+Now run following commands in PowerShell.
 
 
 <pre>
