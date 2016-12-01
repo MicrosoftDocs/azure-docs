@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 12/01/2016
 ms.author: jeedes
 
 ---
@@ -135,9 +135,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     b. Click **Next**.
 
 
-5. To get SSO configured for your application, contact EthicsPoint Incident Management (EPIM) support team and provide them with the following:
-
-	• The downloaded **metadata**
+5. To get SSO configured for your application, contact EthicsPoint Incident Management (EPIM) support team and provide them with the downloaded **metadata** file.
 
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
@@ -238,7 +236,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 	![Assign User][205]
 
 
-### Testing Single Sign-On
+### Testing single sign-on
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
