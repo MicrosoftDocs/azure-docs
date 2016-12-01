@@ -23,7 +23,7 @@ This topic provides an overview of the Azure SQL Database logical servers and da
 ## What is an Azure SQL Database logical server?
 An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. For more information about Azure SQL logical servers, see [Logical servers](sql-database-server-overview.md). 
 
-## What is Azure SQL database?
+## What is an Azure SQL database?
 Each database in Azure SQL Database is associated with a logical server. The database can be:
 
 - A single database with its [own set of resources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTUs)

@@ -42,7 +42,7 @@ The StorSimple Device Manager service runs in Microsoft Azure and connects to mu
 3. Navigate to Browse --> 'Filter' on StorSimple Device Managers to view all your device managers in a given subscription.
 
 ## Use the StorSimple Device Manager service to perform management tasks
-The following table shows a summary of all the common management tasks and complex workflows that can be performed within the StorSimple Device Manager service UI. These tasks are organized based on the UI pages on which they are initiated.
+The following table shows a summary of all the common management tasks and complex workflows that can be performed within the StorSimple Device Manager service summary blade. These tasks are organized based on the blades on which they are initiated.
 
 For more information about each workflow, click the appropriate procedure in the table.
 

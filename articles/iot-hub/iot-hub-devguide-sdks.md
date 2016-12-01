@@ -1,6 +1,6 @@
 ---
-title: Developer guide -  Azure IoT SDKs | Microsoft Docs
-description: Azure IoT Hub developer guide - Information about and links to the various Azure IoT device and service SDKs.
+title: Understand the Azure IoT SDKs | Microsoft Docs
+description: Developer guide - information about and links to the various Azure IoT device and service SDKs that you can use to build device apps and back-end apps.
 services: iot-hub
 documentationcenter: ''
 author: dominicbetts
@@ -34,7 +34,7 @@ The following Azure IoT device SDKs are available to download from GitHub:
 > 
 > 
 
-## OS Platforms and hardware compatibility
+## OS platform and hardware compatibility
 For more information about SDK compatibility with specific hardware devices, see the [Azure Certified for IoT device catalog][lnk-certified].
 
 ## Azure IoT service SDK
