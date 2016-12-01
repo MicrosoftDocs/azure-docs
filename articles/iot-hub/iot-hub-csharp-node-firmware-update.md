@@ -1,6 +1,6 @@
 ---
-title: How to do a firmware update with Azure IoT Hub | Microsoft Docs
-description: This tutorial shows you how to do a firmware update
+title: Device firmware update with Azure IoT Hub (.NET/Node) | Microsoft Docs
+description: How to use device management on Azure IoT Hub to initiate a device firmware update. You use the Azure IoT device SDK for Node.js to implement a simulated device app and the Azure IoT service SDK for .NET to implement a service app that triggers the firmware update.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -17,7 +17,7 @@ ms.date: 11/17/2016
 ms.author: juanpere
 
 ---
-# Tutorial: How to do a firmware update
+# How to do a firmware update (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## Introduction
