@@ -124,9 +124,8 @@ In this phase, you install the Java runtime environment, tomcat, and other tomca
 ### Java runtime environment
 Tomcat is written in Java. There are two kinds of Java Development Kits (JDKs) (OpenJDK and Oracle JDK), and you can choose the one you want.  
 
-> AZURE.NOTE: Both JDKs have almost the same code for the classes in the Java API, but the code for the virtual machine is actually different. When it comes to libraries, OpenJDK tends to use open libraries while Oracle tends to use closed ones. But Oracle JDK has more classes and some fixed bugs, and Oracle JDK is more stable than OpenJDK.
-> 
-> 
+> [!NOTE] 
+> Both JDKs have almost the same code for the classes in the Java API, but the code for the virtual machine is actually different. When it comes to libraries, OpenJDK tends to use open libraries while Oracle tends to use closed ones. But Oracle JDK has more classes and some fixed bugs, and Oracle JDK is more stable than OpenJDK.
 
 The following commands download the different JDKs.  
 
@@ -209,9 +208,8 @@ You can edit the Tomcat user configuration file to setup your admin credentials 
 Here is an example:  
 ![][17]  
 
-> AZURE.NOTE: Create a strong password for the admin user name.  
-> 
-> 
+> [!NOTE] 
+> Create a strong password for the admin user name.  
 
 After editing this file, you should restart tomcat7 services with the following command to ensure that the changes take effect:  
 

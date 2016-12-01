@@ -137,7 +137,8 @@ If you don't plan to failover DRBD now, the first option is easier although argu
     INSERT INTO things VALUES (1, "Yet another entity");
     GRANT ALL ON things.\* TO root;
 
-**Warning**: this last statement effectively disables authentication for the root user in this table. This should be replaced by your production-grade GRANT statements and is included only for illustrative purposes.
+> [!WARNING]
+> This last statement effectively disables authentication for the root user in this table. This should be replaced by your production-grade GRANT statements and is included only for illustrative purposes.
 
 You also need to enable networking for MySQL if you want to make queries from outside the VMs, which is the purpose of this guide. On both VMs, open `/etc/mysql/my.cnf` and browse to `bind-address`, changing it from 127.0.0.1 to 0.0.0.0. After saving the file, issue a `sudo service mysql restart` on your current primary.
 
@@ -173,7 +174,8 @@ The main constraint for Corosync on Azure is that Corosync prefers multicast ove
 
 Fortunately, Corosync has a working unicast mode and the only real constraint is that, since all nodes are not communicating among themselves *automagically*, you need to define the nodes in your configuration files, including their IP addresses. We can use the Corosync example files for Unicast and just change bind address, node lists and logging directory (Ubuntu uses `/var/log/corosync` while the example files use `/var/log/cluster`) and enabling quorum tools.
 
-**Note the `transport: udpu` directive below and the manually defined IP addresses for the nodes**.
+> [!NOTE]
+> The `transport: udpu` directive below and the manually defined IP addresses for the nodes**.
 
 On `/etc/corosync/corosync.conf` for both nodes:
 
@@ -310,7 +312,8 @@ Sample code for the resource available on [GitHub](https://github.com/bureado/az
       property stonith-enabled=true \
       commit
 
-**Note:** the script doesn't perform up/down checks. The original SSH resource had 15 ping checks but recovery time for an Azure VM might be more variable.
+> [!NOTE]
+> The script doesn't perform up/down checks. The original SSH resource had 15 ping checks but recovery time for an Azure VM might be more variable.
 
 ## Limitations
 The following limitations apply:
