@@ -41,7 +41,7 @@ An HDInsight cluster comes with the Distcp utility, which can be used to copy da
 
 1. If you have a Windows cluster, remote into an HDInsight cluster that has access to a Data Lake Store account. For instructions, see [Connect to clusters using RDP](../hdinsight/hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp). From the cluster Desktop, open the Hadoop command line.
 
-    If you have a Linux cluster, use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-a-linux-based-hdinsight-cluster). Run the commands from the SSH prompt.
+    If you have a Linux cluster, use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-hdinsight). Run the commands from the SSH prompt.
 2. Verify whether you can access the Azure Storage Blobs (WASB). Run the following command:
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
@@ -107,7 +107,7 @@ When the size of the dataset to be moved is very large (e.g. >1TB) or if you hav
 
 * If you have a small number of large files, then you should split them into 256MB file chunks to give you more potential concurrency. 
  
-* If you are copying from an Azure Blob Storage account, your copy job may be throttled on the blob storage side. This will degrade the performance of your copy job. To learn more about the limits of Azure Blob Storage, see Azure Storage limits at [Azure subscription and service limits](../azure-subscription-service-limits.md)..
+* If you are copying from an Azure Blob Storage account, your copy job may be throttled on the blob storage side. This will degrade the performance of your copy job. To learn more about the limits of Azure Blob Storage, see Azure Storage limits at [Azure subscription and service limits](../azure-subscription-service-limits.md).
 
 ## See also
 * [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)

@@ -47,7 +47,7 @@ This section provides general guidance to improve performance when data is copie
 	| [Powershell](data-lake-store-get-started-powershell.md)       | PerFileThreadCount, ConcurrentFileCount |
 	| [AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)    | Azure Data Lake Analytics units         |
 	| [DistCp](data-lake-store-copy-data-wasb-distcp.md)            | -m (mapper)                             |
-	| [Azure Data Factory](data-factory-azure-datalake-connector.md)| parallelCopies                          |
+	| [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)| parallelCopies                          |
 	| [Sqoop](data-lake-store-data-transfer-sql-sqoop.md)           | fs.azure.block.size, -m (mapper)        | 
 
 
