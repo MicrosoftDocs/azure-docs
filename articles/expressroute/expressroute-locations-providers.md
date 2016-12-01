@@ -73,7 +73,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **Los Angeles** |CoreSite, Equinix, Megaport, NTT, Zayo Group |
 | **Melbourne** |AARNet, Equinix, Megaport, NEXTDC, Telstra Corporation |
 | **New York** |Equinix, Megaport, Zayo Group |
-| **Newport(Wales)+** |Next Generation Data+ |
+| **Newport(Wales)** |Next Generation Data |
 | **Montreal** |Cologix+ |
 | **Mumbai** |Tata Communications |
 | **Osaka** |Equinix, Internet Initiative Japan Inc. - IIJ, NTT Communications, Softbank |
