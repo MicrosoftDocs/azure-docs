@@ -51,7 +51,7 @@ Single sign on is supported via web browser based clients and Office clients tha
 >[!NOTE]For Windows 10 based clients the recommendation is to use Azure AD join for the best experience with Azure AD. 
 
 ## How single sign on works
-When you enable single sign on in Azure AD Connect, a computer account named AZUREADSSOACCT is created in the on-premises Active Directory and the Kerberos key decryption key is shared with Azure AD.  In addition, two Kerberos service principal names (SPNs) are created to represent the cloud URLs that are used in communications with the client.  
+[When you enable single sign on in Azure AD Connect, a computer account named AZUREADSSOACCT is created in the on-premises Active Directory and the Kerberos key decryption key is shared with Azure AD.  In addition, two Kerberos service principal names (SPNs) are created to represent the cloud URLs that are used in communications with the client.  
 
 Once this setup is complete, the process of authentication is the same as any other Windows Integrated Authentication (IWA) based application.  If you are familiar with how IWA works, then you already know how single sign on works with Azure AD.  If you’re not familiar, the process for IWA is as follows.
 
