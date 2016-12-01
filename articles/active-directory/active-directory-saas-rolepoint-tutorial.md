@@ -2,18 +2,18 @@
 title: 'Tutorial: Azure Active Directory integration with RolePoint | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and RolePoint.
 services: active-directory
-documentationcenter: ''
+documentationCenter: na
 author: jeevansd
 manager: femila
-editor: ''
+editor: na
 
-ms.assetid: 1055bba6-f4df-462e-bc9b-1ad5ada0f638
+ms.assetid: 68d37f40-15da-45f5-a9e1-d53f78e786d1
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 12/01/2016
 ms.author: jeedes
 
 ---
@@ -98,9 +98,9 @@ To configure and test Azure AD single sign-on with RolePoint, you need to comple
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-4. **[Creating a RolePoint test user](#creating-a-rolepoint-test-user)** - to have a counterpart of Britta Simon in RolePoint that is linked to the Azure AD representation of her.
-5. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
-6. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
+3. **[Creating a RolePoint test user](#creating-a-rolepoint-test-user)** - to have a counterpart of Britta Simon in RolePoint that is linked to the Azure AD representation of her.
+4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
+5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
 ### Configuring Azure AD single sign-on
 
@@ -116,8 +116,8 @@ RolePoint application expects the SAML assertions in a specific format. Please c
 
     ![Configure Single Sign-On](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_02.png)
 
-2. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:
- 
+2. On the **SAML token attributes** dialog, for each row shown in the table below, perform the following steps:    
+
 	| Attribute Name | Attribute Value |
 	| --- | --- |    
     | FirstName | user.givenname |
@@ -130,7 +130,7 @@ RolePoint application expects the SAML assertions in a specific format. Please c
 	
 	b. In the **Attribute Name** textbox, type the attribute name shown for that row.
 	
-	c. From the **Attribute Value** list, type the saml token ID shown for that row.
+	c. From the **Attribute Value** list, type the attribute value shown for that row.
 	
 	d. Click **Complete**
 
@@ -138,11 +138,11 @@ RolePoint application expects the SAML assertions in a specific format. Please c
 
 	![Configure Single Sign-On](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_04.png) 
 
-2. On the **How would you like users to sign on to RolePoint** page, select **Azure AD Single Sign-On**, and then click **Next**.
+4. On the **How would you like users to sign on to RolePoint** page, select **Azure AD Single Sign-On**, and then click **Next**.
  
 	![Configure Single Sign-On](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_05.png)
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+5. On the **Configure App Settings** dialog page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_06.png)
 
@@ -153,17 +153,17 @@ RolePoint application expects the SAML assertions in a specific format. Please c
 	> [!NOTE] 
 	> Please note that this is not the real value. You have to update this value with the actual Sign On URL. Contact [RolePoint support team](emaiLto:info@rolepoint.com) to get this value.
 
-4. On the **Configure single sign-on at RolePoint** page, click **Download metadata** and then save the file on your computer:
+6. On the **Configure single sign-on at RolePoint** page, click **Download metadata** and then save the file on your computer:
 
 	![Configure Single Sign-On](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_07.png) 
 
-5. To get SSO configured for your application, contact [RolePoint support team](emaiLto:info@rolepoint.com) and provide them with the downloaded **Metadata**.
+7. To get SSO configured for your application, contact [RolePoint support team](emaiLto:info@rolepoint.com) and provide them with the downloaded **Metadata**.
 
-6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+8. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 
 	![Azure AD Single Sign-On][10]
 
-7. On the **Single sign-on confirmation** page, click **Complete**.  
+9. On the **Single sign-on confirmation** page, click **Complete**.  
   
 	![Azure AD Single Sign-On][11]
 
