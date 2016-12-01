@@ -1,4 +1,4 @@
-﻿---
+---
 title: Troubleshoot Application Proxy | Microsoft Docs
 description: Covers how to troubleshoot errors in Azure AD Application Proxy.
 services: active-directory
@@ -15,8 +15,9 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: kgremban
-
 ---
+
+
 # Troubleshoot Application Proxy
 If errors occur in accessing a published application or in publishing applications, check the following options to see if Microsoft Azure AD Application Proxy is working correctly:
 
