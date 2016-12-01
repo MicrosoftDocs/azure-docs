@@ -43,7 +43,6 @@ For Security signals, we start collecting data as soon as you opt-in to use Iden
 
 | Report | Azure AD Free | Azure AD Premium 1 | Azure AD Premium 2 |
 | :--    | :--           | :--                | :--                |
-| Users at Risk | 7 days | 30 days | 90 days |
-| Risky Log-ins | 7 days | 30 days | 90 days |
+| Risky sign-ins | 7 days | 30 days | 90 days |
 
 
