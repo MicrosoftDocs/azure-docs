@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 11/22/2016
 ms.author: richrund
 
 ---
@@ -25,24 +25,34 @@ ms.author: richrund
 
 You can use the Azure Key Vault solution in Log Analytics to review Azure Key Vault AuditEvent logs.
 
-You can enable logging of audit events for Azure Key Vault. These logs are written to Azure Blob storage where they can then be indexed by Log Analytics for searching and analysis.
+You can enable logging of audit events for Azure Key Vault by configuring the diagnostics for the Key Vault and directing the diagnostics to a Log Analytics workspace. It is not necessary to write the logs to Azure Blob storage.
 
 ## Install and configure the solution
 Use the following instructions to install and configure the Azure Key Vault solution:
 
-1. Enable [diagnostics logging for Key Vault](../key-vault/key-vault-logging.md) resources that you want to monitor
-2. Configure Log Analytics to read the logs from blob storage by using the process described in [JSON files in blob storage](log-analytics-azure-storage-json.md).
-3. Enable the Azure Key Vault solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md).  
+1. Use `Set-AzureRmDiagnosticSetting` to enable diagnostics logging for the Key Vault resources to monitor: 
+2. Enable the Azure Key Vault solution by using the process described in [Add Log Analytics solutions from the Solutions Gallery](log-analytics-add-solutions.md). 
+
+The following PowerShell script provides an example of how to enable diagnostic logging for Key Vault:
+```
+$workspaceId = "/subscriptions/d2e37fee-1234-40b2-5678-0b2199de3b50/resourcegroups/oi-default-east-us/providers/microsoft.operationalinsights/workspaces/rollingbaskets"
+
+$kv = Get-AzureRmKeyVault -VaultName 'ContosoKeyVault'
+
+Set-AzureRmDiagnosticSetting -ResourceId $kv.ResourceId  -WorkspaceId $workspaceId -Enabled $true
+```
+ 
+ 
 
 ## Review Azure Key Vault data collection details
-Azure Key Vault solution collects diagnostics logs from Azure blob storage for Azure Key Vault.
-No agent is required for data collection.
+Azure Key Vault solution collects diagnostics logs directly from the Key Vault.
+Logs do not need to be writtent to blob storage and no agent is required for data collection.
 
 The following table shows data collection methods and other details about how data is collected for Azure Key Vault.
 
-| Platform | Direct agent | Systems Center Operations Manager (SCOM) agent | Azure Storage | SCOM required? | SCOM agent data sent via management group | Collection frequency |
+| Platform | Direct agent | Systems Center Operations Manager (SCOM) agent | Azure | Operations Manager required? | Operations Manager agent data sent via management group | Collection frequency |
 | --- | --- | --- | --- | --- | --- | --- |
-| Azure |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Yes](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |10 minutes |
+| Azure |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![Yes](./media/log-analytics-azure-keyvault/oms-bullet-green.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) |![No](./media/log-analytics-azure-keyvault/oms-bullet-red.png) | on arrival |
 
 ## Use Azure Key Vault
 After you install the solution, you can view the summary of request statuses over time for your monitored Key Vaults by using the **Azure Key Vault** tile on the **Overview** page of Log Analytics.
@@ -71,27 +81,25 @@ The Azure Key Vault solution analyzes records that have a type of **KeyVaults** 
 
 | Property | Description |
 |:--- |:--- |
-| Type |*KeyVaults* |
-| SourceSystem |*AzureStorage* |
+| Type |*AzureDiagnostics* |
+| SourceSystem |*Azure* |
 | CallerIpAddress |IP address of the client who made the request |
-| Category |For Key Vault logs, AuditEvent is the single, available value. |
+| Category | *AuditEvent* |
 | CorrelationId |An optional GUID that the client can pass to correlate client-side logs with service-side (Key Vault) logs. |
 | DurationMs |Time it took to service the REST API request, in milliseconds. This does not include network latency, so the time that you measure on the client side might not match this time. |
-| HttpStatusCode_d |HTTP status code returned by the request |
-| Id_s |Unique ID of the request |
-| Identity_o |Identity from the token that was presented when making the REST API request. This is usually a "user", a "service principal," or a combination "user+appId" as in the case of a request resulting from an Azure PowerShell cmdlet. |
+| httpStatusCode_d |HTTP status code returned by the request (for example, *200*) |
+| id_s |Unique ID of the request |
+| identity_claim_appid_g | GUID for the application id |
 | OperationName |Name of the operation, as documented in [Azure Key Vault Logging](../key-vault/key-vault-logging.md) |
-| OperationVersion |REST API version requested by the client |
-| RemoteIPLatitude |Latitude of the client who made the request |
-| RemoteIPLongitude |Longitude of the client who made the request |
-| RemoteIPCountry |Country of the client who made the request |
-| RequestUri_s |Uri of the request |
+| OperationVersion |REST API version requested by the client (for example *2015-06-01*) |
+| requestUri_s |Uri of the request |
 | Resource |Name of the key vault |
 | ResourceGroup |Resource group of the key vault |
 | ResourceId |Azure Resource Manager Resource ID. For Key Vault logs, this is always the Key Vault resource ID. |
 | ResourceProvider |*MICROSOFT.KEYVAULT* |
-| ResultSignature |HTTP status |
-| ResultType |Result of REST API request |
+| ResourceType | *VAULTS* |
+| ResultSignature |HTTP status (for example, *OK*) |
+| ResultType |Result of REST API request (for example, *Success*) |
 | SubscriptionId |Azure subscription ID of the subscription containing the Key Vault |
 
 ## Next steps
