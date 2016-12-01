@@ -23,7 +23,7 @@ ms.author: chrande
 # Azure Functions triggers and bindings developer reference
 This topic provides general reference for triggers and bindings. It includes some of the advanced binding features and syntax supported by all binding types.  
 
-If you are looking for detailed information around configuring and coding a specific type of trigger or binding, you may want to click on one of the trigger or bindings listed below instead:
+For detailed information about working with a specific type of trigger or binding, see one of the following reference topics:
 
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
 
@@ -59,7 +59,7 @@ A queue trigger binding contains this information for an Azure function. Here is
 }
 ```
 
-Your code may send different types of output depending on how the new queue item is processed. For example, you might want to write a new record to an Azure Storage table.  To accomplish this, you can setup an output binding to an Azure Storage table. Here is an example *function.json* that includes a storage table output binding that could be used with a queue trigger. 
+Your code may send different types of output depending on how the new queue item is processed. For example, you might want to write a new record to an Azure Storage table.  To do this, you create an output binding to an Azure Storage table. Here is an example *function.json* that includes a storage table output binding that could be used with a queue trigger. 
 
 ```json
 {
@@ -306,7 +306,7 @@ binding. With this patttern, you can bind to any number of supported input and o
 You might need imperative binding in cases where the computation of binding path or other inputs needs to happen at run time in your function
 instead of design time. 
 
-To perform imperative binding, Do the following:
+Define an imperative binding as follows:
 
 - **Do not** include an entry in *function.json* for your desired imperative bindings.
 - Pass in an input parameter [`Binder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Host/Bindings/Runtime/Binder.cs) 
@@ -318,7 +318,7 @@ or [`IBinder binder`](https://github.com/Azure/azure-webjobs-sdk/blob/master/src
 				...
 		}
 
-where `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's 
+	where `BindingTypeAttribute` is the .NET attribute that defines your binding and `T` is the input or output type that's 
 supported by that binding type. `T` also cannot be an `out` parameter type (such as `out JObject`). For example, the 
 Mobile Apps table output binding supports 
 [six output types](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.MobileApps/MobileTableAttribute.cs#L17-L22),
