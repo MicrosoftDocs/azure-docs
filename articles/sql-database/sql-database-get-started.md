@@ -36,9 +36,15 @@ In this tutorial, you also use the most recent version of SQL Server Management 
 * Connect to the sample database
 * View user database properties
 
-> [!IMPORTANT] 
-> To complete this tutorial, you must connect to the Azure portal using an account that is a member of either the owner role or the contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
->
+When you finish this tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). 
+
+**Time estimate**: This tutorial will take you approximately 30 minutes (assuming you already meet the prerequisites).
+
+## Prerequisites
+
+- You need an Azure account.  
+- You must be able to connect to the Azure portal using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
+
 
 You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
 
@@ -269,7 +275,7 @@ You can perform these same tasks in a getting started tutorial by using either [
 
 
 ## Next steps
-Now that you've completed this first getting started tutorial and created a database with some sample data, there are number of additional tutorials that you may wish to explore that build what you have learned in this tutorial. 
+Now that you've completed this tutorial, there are number of additional tutorials that you may wish to explore that build what you have learned in this tutorial. 
 
 * If you want to start exploring Azure SQL Database security, see [Getting started with security](sql-database-get-started-security.md).
 * If you know Excel, learn how to [Connect to a SQL database in Azure with Excel](sql-database-connect-excel.md).
