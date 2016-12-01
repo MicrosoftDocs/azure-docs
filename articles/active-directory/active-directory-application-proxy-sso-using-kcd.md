@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 12/01/2016
 ms.author: kgremban
 
 ---
@@ -127,14 +127,14 @@ This capability allows many organizations that have different on-prem and cloud 
 It will also help with applications that do not accept addresses in the form of email address, which is a very common scenario for non-Windows backend servers.
 
 ### Setting SSO for different cloud and on-prem identities
-1. Configure Azure AD Connect settings so the main identity will be the email address (mail). This is done as part of the customize process, by changing the **User Principle Name** field in the sync settings. Note that these settings also determine how users log in to Office365, Windows10 devices, and other applications that use Azure AD as their identity store.  
+1. Configure Azure AD Connect settings so the main identity will be the email address (mail). This is done as part of the customize process, by changing the **User Principal Name** field in the sync settings. Note that these settings also determine how users log in to Office365, Windows10 devices, and other applications that use Azure AD as their identity store.  
    ![Identifying users screenshot - User Principal Name dropdown](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_connect_settings.png)  
 2. In the Application Configuration settings for the application you would like to modify, select the **Delegated Login Identity** to be used:
    
-   * User Principle Name: joe@contoso.com  
-   * Alternate User Principle Name: joed@contoso.local  
-   * Username part of User Principle Name: joe  
-   * Username part of Alternate User Principle Name: joed  
+   * User Principal Name: joe@contoso.com  
+   * Alternate User Principal Name: joed@contoso.local  
+   * Username part of User Principal Name: joe  
+   * Username part of Alternate User Principal Name: joed  
    * On-premises SAM account name: depending on-prem domain controller configuration
    
    ![Delegated login identity drop-down menu screenshot](./media/active-directory-application-proxy-sso-using-kcd/app_proxy_sso_diff_id_upn.png)  
