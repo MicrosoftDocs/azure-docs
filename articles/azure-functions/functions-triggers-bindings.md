@@ -25,7 +25,12 @@ This topic provides general reference for triggers and bindings. It includes som
 
 For detailed information about working with a specific type of trigger or binding, see one of the following reference topics:
 
-[!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
+| | | | |  
+| --- | --- | --- | --- |  
+| [HTTP/webhook](../articles/azure-functions/functions-bindings-http-webhook.md) | [Timer](../articles/azure-functions/functions-bindings-timer.md) | [Mobile Apps](../articles/azure-functions/functions-bindings-mobile-apps.md) | [Service Bus](../articles/azure-functions/functions-bindings-service-bus.md)  |  
+| [DocumentDB](../articles/azure-functions/functions-bindings-documentdb.md) |  [Storage Blob](../articles/azure-functions/functions-bindings-storage-blob.md) | [Storage Queue](../articles/azure-functions/functions-bindings-storage-queue.md) |  [Storage Table](../articles/azure-functions/functions-bindings-storage-table.md) |  
+| [Event Hubs](../articles/azure-functions/functions-bindings-event-hubs.md) | [Notification Hubs](../articles/azure-functions/functions-bindings-notification-hubs.md) | [Twilio](../articles/azure-functions/functions-bindings-twilio.md) |   
+| | | | |  
 
 These articles assume that you've read the [Azure Functions developer reference](functions-reference.md), and the [C#](functions-reference-csharp.md), [F#](functions-reference-fsharp.md), or [Node.js](functions-reference-node.md) developer reference articles.
 
@@ -123,7 +128,7 @@ For more code examples and more specific information regarding Azure storage typ
 To use the more advanced binding features in the Azure portal, click the **Advanced editor** option on the **Integrate** tab of your function. The advanced editor allows you to edit the *function.json* directly in the portal.
 
 ## Random GUIDs
-Azure Functions provides a syntax to generate random GUIDs with your bindings. The following binding syntax will write output to a new BLOB with a unique name in an Azure Storage container: 
+Azure Functions provides a syntax to generate random GUIDs with your bindings. The following binding syntax writes output to a new BLOB with a unique name in a Storage container: 
 
 ```json
 {
@@ -180,7 +185,7 @@ public static Task<string> Run(WorkItem input, TraceWriter log)
 ```
 
 
-This same approach is demonstrated below with Node.js.
+This same approach is demonstrated with Node.js, as follows:
 
 ```javascript
 module.exports = function (context, input) {
@@ -190,7 +195,7 @@ module.exports = function (context, input) {
 }
 ```
 
-F# example provided below.
+The following is an F# example:
 
 ```fsharp
 let Run(input: WorkItem, log: TraceWriter) =
@@ -254,7 +259,7 @@ You might want to send the customer an SMS text message using your Twilio accoun
 },
 ```
 
-Now your function code only has to initialize the output parameter as follows. During execution the output properties will be bound to the desired input data.
+Now your function code only has to initialize the output parameter as follows. During execution, the output properties are bound to the desired input data.
 
 ```cs
 #r "Newtonsoft.Json"
