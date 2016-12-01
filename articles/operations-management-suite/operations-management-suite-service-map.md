@@ -74,7 +74,7 @@ Clicking on the three dots in the top right of any server will expose the contex
 Load Server Map will navigate to a new map with the selected server as the new Focus Machine.
 
 ### Show/Hide Self Links
-Show Self Links will redraw the server node including any self links, which are TCP connections that start and end on processes within the server.  If self links are shown, the menu will toggle to Hide Self Links, allowing users toggle the drawing of self links.
+Show Self Links will redraw the server node including any self links, which are TCP connections that start and end on processes within the server.  If self links are shown, the menu will change to Hide Self Links, allowing users to toggle the drawing of self links.
 
 
 
