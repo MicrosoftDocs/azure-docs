@@ -13,17 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/01/2016
+ms.date: 12/01/2016
 ms.author: terrylan
 
 ---
 # Add a web application firewall in Azure Security Center
 Azure Security Center may recommend that you add a web application firewall (WAF) from a Microsoft partner in order to secure your web applications. This document walks you through an example of how to do this.
 
+A WAF recommendation is shown for any public facing IP (either Instance Level IP or Load Balanced IP) that has an associated network security group with open inbound web ports (80,443).
+
+Security Center will recommend that you provision a WAF to help defend against attacks targeting your web applications on virtual machines and on App Service Environment. An App Service Environment (ASE) is a [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps. To learn more about ASE, see the [App Service Environment Documentation](../app-service/app-service-app-service-environments-readme.md).
+
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## Implement the recommendation
 1. In the **Recommendations** blade, select **Secure web application using web application firewall**.
@@ -47,9 +51,9 @@ Azure Security Center may recommend that you add a web application firewall (WAF
    ![Restrict traffic][6]
 
 > [!NOTE]
-> You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. WAF appliances (created using the Resource Manager deployment model) need to be deployed to a separate virtual network. WAF appliances (created using the classic deployment model) are restricted to using a network security group. This support will be extended to a fully customized deployment of a WAF appliance (classic) in the future. Learn more about the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
-> 
-> 
+> You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments.
+>
+>
 
 The logs from that WAF are now fully integrated. Security Center can start automatically gathering and analyzing the logs so that it can surface important security alerts to you.
 

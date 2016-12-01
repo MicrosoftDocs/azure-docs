@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/25/2016
+ms.date: 12/01/2016
 ms.author: terrylan
 
 ---
@@ -22,8 +22,8 @@ This document walks you through how to use recommendations in Azure Security Cen
 
 > [!NOTE]
 > This document introduces the service by using an example deployment.  This is not a step-by-step guide.
-> 
-> 
+>
+>
 
 ## What are security recommendations?
 Security Center periodically analyzes the security state of your Azure resources. When Security Center identifies potential security vulnerabilities, it creates recommendations. The recommendations guide you through the process of configuring the needed controls.
@@ -64,8 +64,8 @@ Use the table below as a reference to help you understand the available recommen
 
 > [!NOTE]
 > You will want to understand the [classic and Resource Manager deployment models](../azure-classic-rm.md) for Azure resources.
-> 
-> 
+>
+>
 
 | Recommendation | Description |
 | --- | --- |
@@ -73,7 +73,7 @@ Use the table below as a reference to help you understand the available recommen
 | [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md) |Recommends that you align your OS configurations with the recommended configuration rules, e.g. do not allow passwords to be saved. |
 | [Apply system updates](security-center-apply-system-updates.md) |Recommends that you deploy missing system security and critical updates to VMs. |
 | [Reboot after system updates](security-center-apply-system-updates.md#reboot-after-system-updates) |Recommends that you reboot a VM to complete the process of applying system updates. |
-| [Add a web application firewall](security-center-add-web-application-firewall.md) |Recommends that you deploy a web application firewall (WAF) for web endpoints. You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. WAF appliances (created using the Resource Manager deployment model) need to be deployed to a separate virtual network. WAF appliances (created using the classic deployment model) are restricted to using a network security group. This support will be extended to a fully customized deployment of a WAF appliance (classic) in the future. Security Center will recommend that you provision a WAF to help defend against attacks targeting your web applications on VMs and on App Service Environment (ASE). To learn more about ASE, see the [App Service Environment Documentation](../app-service/app-service-app-service-environments-readme.md). |
+| [Add a web application firewall](security-center-add-web-application-firewall.md) |Recommends that you deploy a web application firewall (WAF) for web endpoints. A WAF recommendation is shown for any public facing IP (either Instance Level IP or Load Balanced IP) that has an associated network security group with open inbound web ports (80,443).</br></br>Security Center will recommend that you provision a WAF to help defend against attacks targeting your web applications on virtual machines and on App Service Environment. An App Service Environment (ASE) is a [Premium](https://azure.microsoft.com/pricing/details/app-service/) service plan option of Azure App Service that provides a fully isolated and dedicated environment for securely running Azure App Service apps. To learn more about ASE, see the [App Service Environment Documentation](../app-service/app-service-app-service-environments-readme.md).</br></br>You can protect multiple web applications in Security Center by adding these applications to your existing WAF deployments. |
 | [Finalize application protection](security-center-add-web-application-firewall.md#finalize-application-protection) |To complete the configuration of a WAF, traffic must be rerouted to the WAF appliance. Following this recommendation will complete the necessary setup changes. |
 | [Add a Next Generation Firewall](security-center-add-next-generation-firewall.md) |Recommends that you add a Next Generation Firewall (NGFW) from a Microsoft partner in order to increase your security protections. |
 | [Route traffic through NGFW only](security-center-add-next-generation-firewall.md#route-traffic-through-ngfw-only) |Recommends that you configure network security group (NSG) rules that force inbound traffic to your VM through your NGFW. |
@@ -94,10 +94,10 @@ Use the table below as a reference to help you understand the available recommen
 You can filter and dismiss recommendations.
 
 1. Click **Filter** on the **Recommendations** blade. The **Filter** blade opens and you select the severity and state values you wish to see.
-   
+
     ![Filter recommendations][2]
 2. If you determine that a recommendation is not applicable, you can dismiss the recommendation and then filter it out of your view. There are two ways to dismiss a recommendation. One way is to right click an item, and then select **Dismiss**. The other is to hover over an item, click the three dots that appear to the right, and then select **Dismiss**. You can view dismissed recommendations by clicking **Filter**, and then selecting **Dismissed**.
-   
+
     ![Dismiss recommendation][3]
 
 ### Apply recommendations
