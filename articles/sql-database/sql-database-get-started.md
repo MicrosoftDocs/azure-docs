@@ -42,13 +42,23 @@ When you finish this tutorial, you will have a sample database and a blank datab
 
 ## Prerequisites
 
-- You need an Azure account.  
-- You must be able to connect to the Azure portal using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
+* You need an Azure account. You can [open a free Azure account](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
+* You must be able to connect to the Azure portal using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
-You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
+> [!TIP]
+> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
+>
 
-[!INCLUDE [Login](../../includes/azure-getting-started-portal-login.md)]
+### Sign in by using your existing account
+Using your [existing subscription](https://account.windowsazure.com/Home/Index), follow these steps to connect to the Azure portal.
+
+1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/).
+2. Sign in to the [Azure portal](https://portal.azure.com/).
+3. On the **Sign in** page, provide the credentials for your subscription.
+   
+   ![Sign in](./media/sql-database-get-started/login.png)
+
 
 <a name="create-logical-server-bk"></a>
 
