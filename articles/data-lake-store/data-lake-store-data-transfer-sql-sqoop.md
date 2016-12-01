@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/28/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 
 ---
@@ -29,7 +29,7 @@ Big data applications are a natural choice for processing unstructured and semi-
 Before you begin this article, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Enable your Azure subscription** for Data Lake Store public preview. See [instructions](data-lake-store-get-started-portal.md). 
+* **An Azure Data Lake Store account**. For instructions on how to create one, see [Get started with Azure Data Lake Store](data-lake-store-get-started-portal.md)
 * **Azure HDInsight cluster** with access to a Data Lake Store account. See [Create an HDInsight cluster with Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). This article assumes you have an HDInsight Linux cluster with Data Lake Store access.
 * **Azure SQL Database**. For instructions on how to create one, see [Create an Azure SQL database](../sql-database/sql-database-get-started.md)
 
@@ -130,6 +130,10 @@ An HDInsight cluster already has the Sqoop packages available. If you have confi
         2    Lila    Fulton
         3    Erna    Myers
         4    Annette    Simpson
+
+## Performance considerations while using Sqoop
+
+For performance tuning your Sqoop job to copy data to Data Lake Store, see [Sqoop performance document](https://blogs.msdn.microsoft.com/bigdatasupport/2015/02/17/sqoop-job-performance-tuning-in-hdinsight-hadoop/).
 
 ## See also
 * [Copy data from Azure Storage Blobs to Data Lake Store](data-lake-store-copy-data-azure-storage-blob.md)
