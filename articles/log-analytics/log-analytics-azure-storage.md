@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/1/2016
-l ms.author: banders
+ms.author: banders
 
 ---
 # Collecting logs and metrics for Azure services in Log Analytics
@@ -24,7 +24,7 @@ There are four different ways of collecting logs and metrics for Azure services:
 1. Azure diagnostics direct to Log Analytics (*Diagnostics* in the following table)
 2. Azure diagnostics to Azure storage to Log Analytics (*Storage* in the following table)
 3. Connectors for Azure services (*Connectors* in the following table)
-l 4. Scripts to collect and then post data into Log Analytics (blanks in the following table and for services that are not listed)
+4. Scripts to collect and then post data into Log Analytics (blanks in the following table and for services that are not listed)
 
 
 | Service | Resource Type | Logs | Metrics | Solution |
@@ -34,7 +34,7 @@ l 4. Scripts to collect and then post data into Log Analytics (blanks in the fol
 | Application insights    |                                         | Connector   | Connector   | Application Insights Connector (Preview) |
 | Automation accounts     | Microsoft.Automation/AutomationAccounts | Diagnostics |             | |
 | Batch accounts          | Microsoft.Batch/batchAccounts           | Diagnostics | Diagnostics | |
-o| Classic cloud services  |                                         | Storage     |             | |
+| Classic cloud services  |                                         | Storage     |             | |
 | Cognitive services      | Microsoft.CognitiveServices/accounts    |             | Diagnostics | |
 | Data Lake analytics     | Microsoft.DataLakeAnalytics/accounts    | Diagnostics |             | |
 | Data Lake store         | Microsoft.DataLakeStore/accounts        | Diagnostics |             | |
