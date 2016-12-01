@@ -28,59 +28,9 @@ The requirements are:
 * [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
 * [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-## Quick commands
+## Quick commands for Azure experts
 
-Replace any examples with your own naming.
-
-### Create the Resource Group
-
-```azurecli
-azure group create myResourceGroup \
--l westus
-```
-
-### Create the VNet
-
-```azurecli
-azure network vnet create myVNet \
--g myResourceGroup \
--a 10.10.0.0/24 \
--l westus
-```
-
-### Create the NSG
-
-```azurecli
-azure network nsg create myNSG \
--g myResourceGroup \
--l westus
-```
-
-### Add an inbound SSH allow rule
-
-```azurecli
-azure network nsg rule create inboundSSH \
--g myResourceGroup \
--a myNSG \
--c Allow \
--p Tcp \
--r Inbound \
--y 100 \
--f Internet \
--o 22 \
--e 10.10.0.0/24 \
--u 22
-```
-
-### Add a subnet to the VNet
-
-```azurecli
-azure network vnet subnet create mySubNet \
--g myResourceGroup \
--e myVNet \
--a 10.10.0.0/26 \
--o myNSG
-```
+Pre-requirments: Resource Group, VNet, NSG with SSH inbound, Subnet.
 
 ### Create a VNic with internal DNS name labeling.
 
@@ -109,9 +59,11 @@ azure vm create jenkins \
 -N jenkinsVNic
 ```
 
-## Detailed walkthrough
+## Detailed walkthrough for Azure beginners
 
 A full continuous integration and continuous deployment (CiCd) infrastructure on Azure requires certain servers to be static or long-lived servers.  It is recommended that Azure assets like the VNets and NSGs should be static and long lived resources that are rarely deployed.  Once a VNet has been deployed, it can be reused by new deployments without any adverse affects to the infrastructure.  Adding to this static network a Git repository server and a Jenkins automation server delivers CiCd to your development or test environments.
+
+_Replace any examples with your own naming._
 
 ## Create the Resource group
 
