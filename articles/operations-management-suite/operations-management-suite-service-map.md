@@ -122,14 +122,15 @@ Note that for Service Map to be able to display relevant alerts, the alert rule 
 ## Log Analytics records
 Service Map's computer and process inventory data is available for [search](../log-analytics/log-analytics-log-searches.md) in Log Analytics.  This can be applied to scenarios including migration planning, capacity analysis, discovery, and ad hoc performance troubleshooting.
 
-One record is generated per hour for each unique computer and process in addition to records generated when a process or computer starts or is on-boarded to Service Map.  These records have the properties in the following tables.  The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap ARM API.  The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap ARM API.  Note - as Service Map features grow, these fields are subject to change.
+One record is generated per hour for each unique computer and process in addition to records generated when a process or computer starts or is on-boarded to Service Map.  These records have the properties in the following tables.  The fields and values in the ServiceMapComputer_CL events map to fields of the Machine resource in the ServiceMap ARM API.  The fields and values in the ServiceMapProcess_CL events map to the fields of the Process resource in the ServiceMap ARM API.  The ResourceName_s field matches the name field in the corresponding ARM resource. Note - as Service Map features grow, these fields are subject to change.
+
 
 There are internally generated properties you can use to identify unique processes and computers:
 
-- Computer - Use ResourceName_s to globally identify a computer within an OMS Workspace.
-- Process - Use a ResourceName_s to identify a process on a machine.  Use in conjunction with MachineResourceName_s to globally identify a process with an OMS Workspace.
+- Computer - Use ResourceId or ResourceName_s to uniquely identify a computer within an OMS Workspace.
+- Process - Use ResourceId to uniquely identify a process within an OMS Workspace. ResourceName_s is unique within the context of the machine on which the process is running (MachineResourceName_s) 
 
-
+Since multiple records can exist for a given process and computer in a given time range, queries can return more than one record for the same computer or process. To include only the most recent record add "| dedup ResourceId" to the query.
 
 ### ServiceMapComputer_CL records
 Records with a type of **ServiceMapComputer_CL** have inventory data for servers with Service Map agents.  These records have the properties in the following table:
@@ -138,20 +139,21 @@ Records with a type of **ServiceMapComputer_CL** have inventory data for servers
 |:--|:--|
 | Type | *ServiceMapComputer_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceName_s | unique identifier for machine |
+| ResourceId | unique identifier for machine within the workspace |
+| ResourceName_s | unique identifier for machine within workspace |
 | ComputerName_s | computer FQDN |
-| Ipv4Addresses _s | a list of the server's IPv4s |
-| Ipv6Addresses_s | a list of the server's IPv6s |
+| Ipv4Addresses_s | a list of the server's IPv4 addresses |
+| Ipv6Addresses_s | a list of the server's IPv6 addresses |
 | DnsNames_s | array of DNS names |
-| OperatingSystemFamily_s | Windows or Linux |
-| OperatingSystemFullName_s | operating system version string  |
-| Bitness_d | bitness of machine (32) or (64) |
-| PhysicalMemory_d | physical memory |
+| OperatingSystemFamily_s | windows or linux |
+| OperatingSystemFullName_s | operating system full name  |
+| Bitness_s | bitness of machine (32bit) or (64bit) |
+| PhysicalMemory_d | physical memory in MB |
 | Cpus_d | number of cpus |
-| CpuSpeed_d | cpu speed |
+| CpuSpeed_d | cpu speed in MHz|
 | VirtualizationState_s | "unknown", "physical", "virtual", "hypervisor" |
 | VirtualMachineType_s | "hyperv", "vmware", etc. |
-| VirtualMachineNativeMachineId_s | VM ID as assigned by its hypervisor |
+| VirtualMachineNativeMachineId_g | VM ID as assigned by its hypervisor |
 | VirtualMachineName_s | VM name |
 | BootTime_t | boot time |
 
@@ -164,7 +166,8 @@ Records with a type of **ServiceMapProcess_CL** have inventory data for TCP-conn
 |:--|:--|
 | Type | *ServiceMapProcess_CL* |
 | SourceSystem | *OpsManager* |
-| ResourceName_s | unique identifier for process |
+| ResourceId | unique identifier for process within the workspace |
+| ResourceName_s | unique identifier for process within machine on which it is running|
 | MachineResourceName_s | machine resource name |
 | ExecutableName_s | process executable name |
 | StartTime_t | process pool start time |
@@ -178,32 +181,41 @@ Records with a type of **ServiceMapProcess_CL** have inventory data for TCP-conn
 | CommandLine_s | command line |
 | ExecutablePath _s | path to executable file |
 | WorkingDirectory_s | working directory |
-| UserName | user under which the process is executing |
-| UserDomain | domain user which the process is executing |
+| UserName | account under which the process is executing |
+| UserDomain | domain under which the process is executing |
 
 
 ## Sample log searches
 
-### List the physical memory capacity of all managed computers.
-Type=ServiceMapComputer_CL | select TotalPhysicalMemory_d, ComputerName_s | Dedup ComputerName_s
+### List all known machines
+Type=ServiceMapComputer_CL | dedup ResourceId
 
-### List computer name, DNS, IP, and OS version.
-Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemVersion_s, DnsNames_s, IPv4s_s  | dedup ComputerName_s
+### List the physical memory capacity of all managed computers.
+Type=ServiceMapComputer_CL | select PhysicalMemory_d, ComputerName_s | Dedup ResourceId
+
+### List computer name, DNS, IP, and OS.
+Type=ServiceMapComputer_CL | select ComputerName_s, OperatingSystemFullName_s, DnsNames_s, IPv4Addresses_s  | dedup ResourceId
 
 ### Find all processes with "sql" in the command line
-Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ProcessId_s
+Type=ServiceMapProcess_CL CommandLine_s = \*sql\* | dedup ResourceId
 
-### After viewing event data for given process, use its machine ID to retrieve the computer’s name
-Type=ServiceMapComputer_CL "m!m-9bb187fa-e522-5f73-66d2-211164dc4e2b" | Distinct ComputerName_s
+### Find a machine (most recent record) by resource name
+Type=ServiceMapComputer_CL "m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
+
+### Find a machine (most recent record) by ip address
+Type=ServiceMapComputer_CL "10.229.243.232" | dedup ResourceId
+
+### List all known processes on a given machine
+Type=ServiceMapProcess_CL MachineResourceName_s="m-4b9c93f9-bc37-46df-b43c-899ba829e07b" | dedup ResourceId
 
 ### List all computers running SQL
-Type=ServiceMapComputer_CL MachineId_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineId_s} | Distinct ComputerName_s
+Type=ServiceMapComputer_CL ResourceName_s IN {Type=ServiceMapProcess_CL \*sql\* | Distinct MachineResourceName_s} | dedup ResourceId | Distinct ComputerName_s
 
 ### List of all unique product versions of curl in my datacenter
-Type=ServiceMapProcess_CL Name_s=curl | Distinct ProductVersion_s
+Type=ServiceMapProcess_CL ExecutableName_s=curl | Distinct ProductVersion_s
 
 ### Create a Computer Group of all computers running CentOS
-Type=ServiceMapComputer_CL OperatingSystemVersion_s = "CentOS" | Distinct ComputerName_s
+Type=ServiceMapComputer_CL OperatingSystemFullName_s = \*CentOS\* | Distinct ComputerName_s
 
 
 
