@@ -18,9 +18,9 @@ ms.author: ryanwi
 
 ---
 # Service Fabric patterns and scenarios
-If you’re looking at building large-scale microservices using Azure Service Fabric, learn from the experts who designed and built this platform as a service (PaaS). Get started with proper architecture, and then learn how to optimize resources for your application. The [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-us/training-courses/service-fabric-patterns-and-practices-16925) course is built around the answers to the questions most often asked by real-world customers about Service Fabric scenarios and application areas.
+If you’re looking at building large-scale microservices using Azure Service Fabric, learn from the experts who designed and built this platform as a service (PaaS). Get started with proper architecture, and then learn how to optimize resources for your application. The [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-us/training-courses/service-fabric-patterns-and-practices-16925) course answers the questions most often asked by real-world customers about Service Fabric scenarios and application areas.
  
-Find out how to design, develop, and operate your microservices on Service Fabric using best practices and proven, reusable patterns. Get a Service Fabric overview, and then dive deep into topics that cover cluster optimization and security, migrating legacy apps, IoT at scale, hosting game engines, and more. Look at continuous delivery for various workloads, and even get the details on Linux supports and containers. Explore the blueprint to design your first cloud app with the pros who know.
+Find out how to design, develop, and operate your microservices on Service Fabric using best practices and proven, reusable patterns. Get an overview of Service Fabric and then dive deep into topics that cover cluster optimization and security, migrating legacy apps, IoT at scale, hosting game engines, and more. Look at continuous delivery for various workloads, and even get the details on Linux supports and containers. 
 
 ## Introduction
 Explore best practices, and learn about choosing platform as a service (PaaS) over infrastructure as a service (IaaS). Get the details on following proven application design principles.
