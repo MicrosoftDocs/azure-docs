@@ -24,43 +24,50 @@ To take advantage of the GPU capabilities of Azure N-series VMs running a suppor
 For N-series VM specs, storage capacities, and disk details, see [Sizes for virtual machines](virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
-> [!NOTE]
-> Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS. 
 
+## Supported GPU drivers
 
+ [!NOTE]
+> Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS.
 
-## Driver installation on NC VMs running Ubuntu 16.04 LTS
+### NVIDIA Tesla drivers for NC VMs
 
-Following are instructions to set up the CUDA Toolkit on an Azure NC VM running Ubuntu 16.04 LTS. The Toolkit includes drivers for NVIDIA Tesla K80 GPUs.
+* [Ubuntu 16.04 LTS](https://go.microsoft.com/fwlink/?linkid=836899)
+
+## Driver installation
 
 1. Make an SSH connection to the Azure N-series VM.
 
 2. To verify that the system has a CUDA-capable GPU, run the following command:
 
     ```bash
-    lspci | grep -i nvdia
+    lspci | grep -i NVIDIA
     ```
     You will see output similar to the following example (showing an NVIDIA Tesla K80 card):
 
     ![lspci command output](./media/virtual-machines-linux-n-series-driver-setup/lspci.png)
 
-3. To download and install the [CUDA Toolkit 8.0](http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/cuda-repo-ubuntu1604_8.0.44-1_amd64.deb) on the Ubuntu VM, run the following commands:
+3. Download the self-extracting .run file to your system. For example:
 
     ```bash
-    CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.44-1_amd64.deb
+    wget -O /tmp/NVIDIA-Linux-x86_64-367.48.run <download URL>
+    ```
 
-    wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+4. If you need to install `gcc` and `make` on your system (required for the Tesla drivers), type the following:
 
-    sudo dpkg -i /tmp/${CUDA_REPO_PKG}
-    
-    rm -f /tmp/${CUDA_REPO_PKG}
-    
-    sudo apt-get update
-    
-    sudo apt-get install cuda-drivers
-    ``` 
+    ```bash
+    sudo apt install gcc
 
-    The installation can take several minutes.
+    sudo apt install make
+    ```
+
+4. Change to the directory containing the driver package and run commands similar to the following:
+
+    ```bash
+    chmod +x NVIDIA-Linux-x86_64-367.48.run
+    
+    sudo sh ./NVIDIA-Linux-x86_64-367.48.run
+    ```
 
 ## Verify driver installation
 
