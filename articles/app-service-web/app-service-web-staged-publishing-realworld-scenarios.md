@@ -112,7 +112,8 @@ In this section, you will learn how to set up a deployment workflow by using slo
 
 4. Copy the following code in `wp-config.azure.php`:
 
-    ```    <?php
+    ```    
+    <?php
     // MySQL settings
     /** The name of the database for WordPress */
 
