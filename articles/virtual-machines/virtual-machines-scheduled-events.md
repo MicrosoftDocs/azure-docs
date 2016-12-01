@@ -1,24 +1,23 @@
 ﻿---
 title: Scheduled Events with Azure Metadata Service | Microsoft Docs
-description: React to Impactful Events on your Virtual Machine before they happen.. 
-services: 'virtual-machines'
+description: React to Impactful Events on your Virtual Machine before they happen.
+services: virtual-machines-windows, virtual-machines-linux, cloud-services
 documentationcenter: ''
 author: zivraf
 manager: timlt
 editor: ''
 tags: ''
 
-ms.service: value
+ms.assetid: 28d8e1f2-8e61-4fbe-bfe8-80a68443baba
+ms.service: virtual-machines-windows
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/21/2016
+ms.workload: infrastructure-services
+ms.date: 12/10/2016
 ms.author: zivr
 
 ---
-
-
 # Azure Metadata Service - Scheduled Events
 
 Azure Metadata service enables you to discover information about your Virtual Machine hosted in Azure. The Azure Metadata Service can notify your Virtual Machine about upcoming events (e.g. reboot) 
@@ -61,7 +60,6 @@ In the case where a Virtual Machine is used for cloud services (PaaS), the metad
 {HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure\DeploymentManagement}
 
 ### Versioning 
-
 The Metadata Service uses a versioned API in the following format: http://{ip}/metadata/{version}/scheduledevents
 It's recommended that your service consume the latest version available at: http://{ip}/metadata/latest/scheduledevents
 
@@ -101,7 +99,7 @@ EventType Captures the expected impact on the Virtual Machine where:
 - Reboot: The Virtual Machine is scheduled for reboot (memory will be wiped).
 - Redeploy: The Virtual Machine is scheduled to move to another node (ephemeral disk will be lost). 
 
-Note that when an event is scheduled (Status = Scheduled) Azure shares the time after which the event can start.
+Note that when an event is scheduled (Status = Scheduled) Azure shares the time after which the event can start (specified in the NotBefore field).
 
 ### Starting an event (expedite)
 
@@ -117,45 +115,33 @@ The following sample reads the metadata server for scheduled events and
 record them in the Application event log before acknowledging.
 
 ```PowerShell
-
-
 $localHostIP = "169.254.169.254"
 $ScheduledEventURI = "http://"+$localHostIP+"/metadata/latest/scheduledevents"
 
-$eventSource = "Cloudcontrol" 
-$eventLogName = "Application"
-$eventLogId = 1234
-New-EventLog -LogName Application -Source CloudControl
+# Call Azure Metadata Service - Scheduled Events 
+$scheduledEventsResponse =  Invoke-RestMethod -Headers @{"Metadata"="true"} -URI $ScheduledEventURI -Method get 
 
-$json =  Invoke-RestMethod -URI $ScheduledEventURI -Method get 
-
-if ($json.Events.Count -gt 0 )
+if ($json.Events.Count -eq 0 )
 {
-    Write-Output "Found “  $json.Events.Count ” Events in the doc "
-    for ($eventIdx=0; $eventIdx -lt $json.Events.Length ; $eventIdx++)
-    {
-     $str = "*" +$json.Events[$eventIdx].EventId +"*"
-     if (Get-EventLog -LogName $eventLogName -Source $eventSource -Message $str)
-     {
-       Write-Output "Event already stored in EventLog “ + $json.Events[$eventIdx].EventId
-     }
-     
-     elseif ($json.Events[$eventIdx].Resources[0].ToLower().substring(1) -eq $env:COMPUTERNAME.ToLower())
-     {
-       Write-EventLog -LogName Application -Source $eventSource -EventId $eventLogId -EntryType  Information -Message $json.events[$eventIdx] 
+    Write-Output "++No scheduled events were found"
+}
 
-       # YOUR LOGIC HERE 
+for ($eventIdx=0; $eventIdx -lt $scheduledEventsResponse.Events.Length ; $eventIdx++)
+{
+    if ($scheduledEventsResponse.Events[$eventIdx].Resources[0].ToLower().substring(1) -eq $env:COMPUTERNAME.ToLower())
+    {    
+        # YOUR LOGIC HERE 
+         pause "This Virtual Machine is scheduled for to "+ $scheduledEventsResponse.Events[$eventIdx].EventType
 
-       # Acknoledge the event to expedite
-       $jsonResp = "{""DocumentIncarnation"" : "+ $json.DocumentIncarnation+ ",""StartRequests"" : [{ ""EventId"": """+$json.events[$eventIdx].EventId +"""}]}"
-       $respbody = convertto-JSon $jsonResp
+        # Acknoledge the event to expedite
+        $jsonResp = "{""StartRequests"" : [{ ""EventId"": """+$scheduledEventsResponse.events[$eventIdx].EventId +"""}]}"
+        $respbody = convertto-JSon $jsonResp
        
-       Invoke-RestMethod -Uri $ScheduledEventURI  -Method POST -Body $jsonResp 
-       pause "Acknoledged the event. VM is about to go down"
- 
-     }
+        Invoke-RestMethod -Uri $ScheduledEventURI  -Headers @{"Metadata"="true"} -Method POST -Body $jsonResp 
     }
 }
+
+
 ``` 
 
 
@@ -199,5 +185,4 @@ static async Task RunAsync()
 }
 ```
 
-[ZR1]-H Metadata:true
 
