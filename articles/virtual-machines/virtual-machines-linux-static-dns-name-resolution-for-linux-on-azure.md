@@ -1,6 +1,6 @@
 ---
-title: Linux static internal DNS name resolution on Azure | Microsoft Docs
-description: How to set static internal DNS names for Linux VMs on Azure.
+title: Using internal DNS for VM name resolution on Azure | Microsoft Docs
+description: Using internal DNS for VM name resolution on Azure.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -19,7 +19,7 @@ ms.author: v-livech
 
 ---
 
-# Set static internal DNS names for Linux VMs on Azure
+# Using internal DNS for VM name resolution on Azure
 
 This article shows how to set static internal DNS names for Linux VMs using Virtual NIC cards (VNic) and DNS label names. Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.  Internal DNS names are only resolvable inside an Azure virtual network (VNet).
 
@@ -129,9 +129,9 @@ azure network vnet subnet create mySubNet \
 
 The Subnet is now added inside the VNet and associated with the NSG and the NSG rule.
 
-## Add a VNic to the subnet with DNS labeling
+## Creating static DNS names
 
-Virtual network cards (VNics) are important as you can reuse them by connecting them to different VMs, which keeps the VNic as a static resource while the VMs can be temporary.  By using DNS labeling on the VNic we are able to enable simple name resolution from other VMs in the VNet.  This enables other VMs to access the automation server by the DNS name `Jenkins` or the Git server as `gitrepo`.  Create a VNic and associate it with the Subnet created in the previous step.
+Azure is very flexible, but to use DNS names for VMs name resolution, you need to create them as Virtual network cards (VNics) using DNS labeling.  VNics are important as you can reuse them by connecting them to different VMs, which keeps the VNic as a static resource while the VMs can be temporary.  By using DNS labeling on the VNic we are able to enable simple name resolution from other VMs in the VNet.  This enables other VMs to access the automation server by the DNS name `Jenkins` or the Git server as `gitrepo`.  Create a VNic and associate it with the Subnet created in the previous step.
 
 ```azurecli
 azure network nic create jenkinsVNic \
