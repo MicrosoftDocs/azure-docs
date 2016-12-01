@@ -1,3 +1,3 @@
 ---
-redirect_url: sql-database-manage-powershell.md
+redirect_url: /azure/sql-database/sql-database-manage-powershell/
 --- 

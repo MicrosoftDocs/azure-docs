@@ -1,3 +1,3 @@
 ---
-redirect_url: sql-database-recovery-using-backups.md
+redirect_url: /azure/sql-database/sql-database-recovery-using-backups/
 --- 

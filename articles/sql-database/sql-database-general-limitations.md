@@ -1,3 +1,3 @@
 ---
-redirect_url: sql-database-features.md
+redirect_url: /azure/sql-database/sql-database-features/
 --- 
