@@ -1,4 +1,4 @@
-﻿---
+---
 title: Log Analytics log search REST API | Microsoft Docs
 description: This guide provides a basic tutorial describing how you can use the Log Analytics search REST API in the Operations Management Suite (OMS) and it provides examples that show you how to use the commands.
 services: log-analytics
@@ -21,9 +21,14 @@ ms.author: banders
 This guide provides a basic tutorial describing how you can use the Log Analytics Search REST API in the Operations Management Suite (OMS) and it provides examples that show you how to use the commands. Some of the examples in this article reference Operational Insights, which is the name of the previous version of Log Analytics.
 
 ## Overview of the Log Search REST API
-The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager API. In this document you will find examples where the API is accessed through the [ARMClient](https://github.com/projectkudu/ARMClient), an open source command line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient and PowerShell is one of many options to access the Log Analytics Search API. Another option is to use the Azure PowerShell module for OperationalInsights which includes cmdlets for accessing search. With these tools you can utilize the RESTful Azure Resource Manager API to make calls to OMS workspaces and perform search commands within them. The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.
+The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager API. In this document you will find examples where the API is accessed through the [ARMClient](https://github.com/projectkudu/ARMClient), an open source command line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient is one of many options to access the Log Analytics Search API. Another option is to use the Azure PowerShell module for OperationalInsights which includes cmdlets for accessing search. With these tools you can utilize the RESTful Azure Resource Manager API to make calls to OMS workspaces and perform search commands within them. The API will output search results to you in JSON format, allowing you to use the search results in many different ways programmatically.
 
 The Azure Resource Manager can be used via a [Library for .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) as well as a [REST API](https://msdn.microsoft.com/library/azure/mt163658.aspx). Review the linked web pages to learn more.
+
+> [!NOTE]
+> Each call to search can return upto 500,000 records if you use an aggregation command such as `|measure count()` or `distinct`. Searches that do not include an aggregation command return upto 5,000 records.
+> 
+> 
 
 ## Basic Log Analytics Search REST API tutorial
 ### To use the ARM Client
