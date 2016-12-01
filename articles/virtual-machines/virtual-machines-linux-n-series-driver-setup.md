@@ -27,7 +27,7 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 
 ## Supported GPU drivers
 
->
+
 > [!NOTE]
 > Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS.
 
