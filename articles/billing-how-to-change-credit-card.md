@@ -20,14 +20,14 @@ ms.author: genli
 ---
 # Change the credit card used to pay for an Azure subscription
 
-This article covers information about how to add, change or remove a credit card from your Azure account, and how payments are made.
+This article explains how to add, change or remove a credit card that’s associated with your Azure account, and how to make payments.
 
 <a id="addcard"></a>
 ## Add a new credit card as a payment method
 
 Follow these steps to add a credit card to your account.
 
-1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator.
 2. Under **Click a subscription to view details and usage**, select the subscription for which you want to add a new payment method.
 3. On the right side of the page, select **Manage payment methods**.
 4. On the **Manage payment methods** page, select “+” to add a new credit card.
@@ -35,42 +35,42 @@ Follow these steps to add a credit card to your account.
 6. Select **Next** to return to the **Manage payment methods** page. If the card you added is valid, it will be added to the list of available payment methods.
 
 > [!NOTE]
->If you receive an error after submitting your credit card information, see the article Your debit card or credit card is declined or not accepted.
+>If you receive an error message after you submit your credit card information, see the article [Your debit card or credit card is declined or not accepted](billing-credit-card-fails-during-azure-sign-up).
 >
 >
 
 ## Edit payment information for an existing credit card
 
-Follow these steps to check what payment method you are using and update the details of an existing credit card.
+Follow these steps to verify your payment method and update the details of an existing credit card.
 
-1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator. In the [Azure portal](https://portal.azure.com), you can access the Account Center by selecting **Subscription**>*the subscription name*>**Manage**.
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator.
 
    > [!NOTE]
-   > Only the  account administrator has permission to access the Account Center. For more information about account administrator, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md).
+   > Only the  account administrator has permission to access the Account Center. For more information about the account administrator, see [How to add or change Azure administrator roles](billing-add-change-azure-subscription-administrator.md).
    >
    >
 2. Under **Click a subscription to view details and usage**, select the subscription that is linked to the credit card.</br> ![selectsub](./media/billing-how-to-change-credit-card/selectsub.png)
 3. On the right side of the page, select **Manage payment methods**.</br> ![changesub](./media/billing-how-to-change-credit-card/changesub_new.png)
 
-  You will see the current payment method listed. Select it to verify the information you need.
+  You will see the current payment method listed. Select it to verify the required information.
 
   **How to update the details of an existing credit card**
 
-  If your credit card gets renewed and the number remains the same, you can simply update the details of the existing credit card, such as expiration date. However, if your credit card number ever changes due to being lost, stolen or expired, you may need to [add a new credit card to your account](#addcard). This is because the CVV security code on the card is changed when the credit card number changes.
+  If your credit card gets renewed and the number remains the same, you can simply update the existing credit card details, such as the expiration date. However, if your credit card number ever changes because the card is lost, stolen or expired, you may have to [add a credit card to your account](#addcard). This is because the CVV security code on the card is changed when the credit card number changes.
 
 4. On the **Manage payment methods** page, select **Edit** next to the credit card number.</br> ![changesub](./media/billing-how-to-change-credit-card/editcard_new.png)
 5. On the **Edit** page, verify that you have selected the correct credit card type and card number.
-6. Make the changes you need to the card details, and then select **Next** to the **Choose payment method** page.
+6. Make the necessary changes you need to the card details, and then select **Next** to the **Choose payment method** page.
 
 ## Change the credit card that you use to pay an Azure bill
 
-1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator.
 2. Under **Click a subscription to view details and usage**, select the subscription for which you want to update the payment method.
 3. On the right side of the page, select **Manage payment methods**.
-4. On the **Manage payment methods** page, click **Use Instead** to select the credit card you want to use.
+4. On the **Manage payment methods** page, click **Use Instead**, select the credit card that you want to use.
 
-## Removing a credit card from the account
-1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the Account Administrator.
+## Remove a credit card from the account
+1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator.
 2. Under **Click a subscription to view details and usage**, select the subscription for which you want to update the payment method.
 3. On the right side of the page, select **Manage payment methods**.
 4. On the **Manage payment methods** page, click **Delete** to select the credit card you want to delete.
