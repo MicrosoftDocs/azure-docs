@@ -43,7 +43,7 @@
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
 ## [Classic PowerShell](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
-## [Original REST model](/rest/api/apimanagement/ApiManagementREST/API-Management-REST/)
+## [Original REST model](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
 ## [Policies](https://msdn.microsoft.com/library/azure/dn894081)
 ## [Templates](https://msdn.microsoft.com/library/azure/mt697540)
 #Resources
