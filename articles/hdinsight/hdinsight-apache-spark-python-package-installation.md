@@ -19,11 +19,12 @@ ms.author: nitinme
 
 ---
 # Use external python packages with Jupyter notebooks in Apache Spark clusters on HDInsight Linux
-Learn how to configure Apache Spark cluster on HDInsight (Linux) to use external, community-contributed python packages that are not included out-of-the-box in the cluster.
+
+Learn how to use Script Actions to configure an Apache Spark cluster on HDInsight (Linux) to use external, community-contributed **python** packages that are not included out-of-the-box in the cluster.
 
 You can search the [package index](https://pypi.python.org/pypi) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, you can install packages made available through [Anaconda](https://docs.continuum.io/anaconda/pkg-docs) or [conda-forge](https://conda-forge.github.io/feedstocks.html).
 
-In this article, you will learn how to install the [TensorFlow](https://www.tensorflow.org/) package with your cluster and use it via the Jupyter notebook.
+In this article, you will learn how to install the [TensorFlow](https://www.tensorflow.org/) package using Script Actoin on your cluster and use it via the Jupyter notebook.
 
 ## Prerequisites
 You must have the following:
@@ -56,16 +57,20 @@ Visit the documentation on [how to use custom script actions](https://docs.micro
 
     ![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 
-5. You will now `import tensorflow` and run a hello world example. The result will look like this:
+5. You will now `import tensorflow` and run a hello world example. 
 
-    ![TensorFlow code execution](./media/hdinsight-apache-spark-python-package-installation/execution.png "Execute TensorFlow code")
+    Code to copy:
 
-Code to copy:
+	    import tensorflow as tf
+	    hello = tf.constant('Hello, TensorFlow!')
+	    sess = tf.Session()
+	    print(sess.run(hello))
 
-    import tensorflow as tf
-    hello = tf.constant('Hello, TensorFlow!')
-    sess = tf.Session()
-    print(sess.run(hello))
+	The result will look like this:
+	
+	![TensorFlow code execution](./media/hdinsight-apache-spark-python-package-installation/execution.png "Execute TensorFlow code")
+
+
 
 ## <a name="seealso"></a>See also
 * [Overview: Apache Spark on Azure HDInsight](hdinsight-apache-spark-overview.md)

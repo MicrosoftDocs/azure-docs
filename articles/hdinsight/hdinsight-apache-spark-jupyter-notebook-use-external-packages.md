@@ -19,11 +19,14 @@ ms.author: nitinme
 
 ---
 # Use external packages with Jupyter notebooks in Apache Spark clusters on HDInsight Linux
-Learn how to configure a Jupyter notebook in Apache Spark cluster on HDInsight (Linux) to use external, community-contributed packages that are not included out-of-the-box in the cluster. 
+
+Learn how to configure a Jupyter notebook in Apache Spark cluster on HDInsight (Linux) to use external, community-contributed **maven** packages that are not included out-of-the-box in the cluster. 
 
 You can search the [Maven repository](http://search.maven.org/) for the complete list of packages that are available. You can also get a list of available packages from other sources. For example, a complete list of community-contributed packages is available at [Spark Packages](http://spark-packages.org/).
 
 In this article, you will learn how to use the [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar) package with the Jupyter notebook.
+
+
 
 ## Prerequisites
 You must have the following:
@@ -40,13 +43,16 @@ You must have the following:
    > 
    > `https://CLUSTERNAME.azurehdinsight.net/jupyter`
    > 
-   > 
+
+
 3. Create a new notebook. Click **New**, and then click **Spark**.
    
     ![Create a new Jupyter notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.createnotebook.png "Create a new Jupyter notebook")
+
 4. A new notebook is created and opened with the name Untitled.pynb. Click the notebook name at the top, and enter a friendly name.
    
     ![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
+
 5. You will use the `%%configure` magic to configure the notebook to use an external package. In notebooks that use external packages, make sure you call the `%%configure` magic in the first code cell. This ensures that the kernel is configured to use the package before the session starts.
 
     * **For HDInsight 3.3 and HDInsight 3.4** 
@@ -61,10 +67,11 @@ You must have the following:
             %%configure
             { "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}
 
+      
 
-    >[!IMPORTANT] If you forget to configure the kernel in the first cell, you can use the `%%configure` with the `-f` parameter, but that will restart the session and all progress will be lost.
+    	>[!IMPORTANT] If you forget to configure the kernel in the first cell, you can use the `%%configure` with the `-f` parameter, but that will restart the session and all progress will be lost.
 
-1. The snippet above expects the maven coordinates for the external package in Maven Central Repository. In this snippet, `com.databricks:spark-csv_2.10:1.4.0` is the maven coordinate for **spark-csv** package. Here's how you construct the coordinates for a package.
+6. The snippet above expects the maven coordinates for the external package in Maven Central Repository. In this snippet, `com.databricks:spark-csv_2.10:1.4.0` is the maven coordinate for **spark-csv** package. Here's how you construct the coordinates for a package.
    
     a. Locate the package in the Maven Repository. For this tutorial, we use [spark-csv](http://search.maven.org/#artifactdetails%7Ccom.databricks%7Cspark-csv_2.10%7C1.4.0%7Cjar).
    
@@ -75,13 +82,15 @@ You must have the following:
     c. Concatenate the three values, separated by a colon (**:**).
    
         com.databricks:spark-csv_2.10:1.4.0
-2. Run the code cell with the `%%configure` magic. This will configure the underlying Livy session to use the package you provided. In the subsequent cells in the notebook, you can now use the package, as shown below.
+
+7. Run the code cell with the `%%configure` magic. This will configure the underlying Livy session to use the package you provided. In the subsequent cells in the notebook, you can now use the package, as shown below.
    
         val df = sqlContext.read.format("com.databricks.spark.csv").
         option("header", "true").
         option("inferSchema", "true").
         load("wasbs:///HdiSamples/HdiSamples/SensorSampleData/hvac/HVAC.csv")
-3. You can then run the snippets, like shown below, to view the data from the dataframe you created in the previous step.
+
+8. You can then run the snippets, like shown below, to view the data from the dataframe you created in the previous step.
    
         df.show()
    
