@@ -38,17 +38,17 @@ To use the [file upload functionality in IoT Hub][lnk-upload], you must first as
 ![][15]
 
 ## Next steps
-For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload] in the developer guide.
+For more information about the file upload capabilities of IoT Hub, see [Upload files from a device][lnk-upload] in the IoT Hub developer guide.
 
 Follow these links to learn more about managing Azure IoT Hub:
 
 * [Bulk manage IoT devices][lnk-bulk]
-* [Usage metrics][lnk-metrics]
+* [IoT Hub metrics][lnk-metrics]
 * [Operations monitoring][lnk-monitor]
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 * [Secure your IoT solution from the ground up][lnk-securing]
 

@@ -39,8 +39,8 @@ The following is the list of enforced throttles. Values refer to an individual h
 | Cloud-to-device receives <br/> (only when devices uses HTTP)| 1000/min/unit | 1000/min/unit| 50000/min/unit |
 | File upload | 100 file upload notifications/min/unit | 100 file upload notifications/min/unit | 5000 file upload notifications/min/unit |
 | Direct methods | 10/sec/unit | 30/sec/unit | 1500/sec/unit | 
-| Twin reads | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
-| Twin updates | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
+| Device twin reads | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
+| Device twin updates | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
 | Jobs operations <br/> (create, update, list, delete) | 100/min/unit | 100/min/unit | 5000/min/unit |
 | Jobs per-device operation throughput | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |
 
