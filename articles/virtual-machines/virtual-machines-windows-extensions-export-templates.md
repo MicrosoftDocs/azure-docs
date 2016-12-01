@@ -20,9 +20,9 @@ ms.author: nepeters
 
 # Exporting Resource Groups that contain VM extensions
 
-Azure Resource Groups can be exported into a Resource Manager template that can then be redeployed. The export process will interpret existing resources and configurations, and create a resource manager template that when deployed will result in a similar Resource Group. When using the Resource Group export option against a Resource Group containing Virtual Machine extensions, several items need to be considered such as extension compatibility, secured settings, and extension dependencies.
+Azure Resource Groups can be exported into a Resource Manager template that can then be redeployed. The export process will interpret existing resources and configurations, and create a resource manager template that when deployed will result in a similar Resource Group. When using the Resource Group export option against a Resource Group containing Virtual Machine extensions, several items need to be considered such as extension compatibility and secured settings.
 
-This document will detail how the Resource Group export process works regarding virtual machine extensions including a list of supported extension and details on handling secured data.
+This document will detail how the Resource Group export process works regarding virtual machine extensions, including a list of supported extension, and details on handling secured data.
 
 ## Supported Virtual Machine Extensions
 
@@ -54,77 +54,15 @@ The Azure Resource Manager automations script produces a Resource Manager templa
 
 ## Configure protected settings
 
-Protected settings are not exported with the automation script. If the target resource group includes a virtual machine extension with a protected setting configuration, this will need to be manually re-configured. Modifications to the exported template can be made directly in the Azure portal, or on the downloaded template.
+Many Azure virtual machine extensions include a protected settings configuration which encrypts sensitive data such as credentials and configuration strings. Protected settings are not exported with the automation script. If required, protected settings will need to be re-inserted into the exported templated.
 
-For this example, a Resource Group was deployed that includes a virtual machine and the diagnostic extension. When this deployment initially occurred, the diagnostic extension resource included a protected setting which held storage account information.
+## Step 1 - Get protected settings properties
 
-*Initial diagnostic extension:*
+Because each protected setting has a set of required properties, a list of these properties will need to be gathered. Each parameter of the protected configuration can be found in the [Azure Resource Manager schema on GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json).
 
-```json
-{
-	"name": "Microsoft.Insights.VMDiagnosticsSettings",
-	"type": "extensions",
-	"location": "[resourceGroup().location]",
-	"apiVersion": "[variables('apiVersion')]",
-	"dependsOn": [
-		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
-	],
-	"tags": {
-		"displayName": "AzureDiagnostics"
-	},
-	"properties": {
-		"publisher": "Microsoft.Azure.Diagnostics",
-		"type": "IaaSDiagnostics",
-		"typeHandlerVersion": "1.5",
-		"autoUpgradeMinorVersion": true,
-		"settings": {
-			"xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), variables('vmName'), variables('wadcfgxend')))]",
-			"storageAccount": "[parameters('existingdiagnosticsStorageAccountName')]"
-		},
-		"protectedSettings": {
-			"storageAccountName": "[parameters('existingdiagnosticsStorageAccountName')]",
-			"storageAccountKey": "[listkeys(variables('accountid'), variables('apiVersion')).key1]",
-			"storageAccountEndPoint": "https://core.windows.net"
-		}
-	}
-}
-```
+From within the schema repository, search for the desired extension, for this example `IaaSDiagnostics`. Once the extension `protectedSettings` object has been located, take note of each parameter. 
 
-Once exported using the automation script, all protected settings are replaced with a single parameter. This replacement can be seen in the below example. 
-
-*Exported diagnostic extension:*
-
-```json
-{
-	"comments": "Generalized from resource: '/subscriptions/d5b9d4b7-6fc1-46c5-bafe-38effaed19b2/resourceGroups/diagdemo01/providers/Microsoft.Compute/virtualMachines/MyWindowsVM/extensions/Microsoft.Insights.VMDiagnosticsSettings'.",
-	"type": "Microsoft.Compute/virtualMachines/extensions",
-	"name": "[parameters('extensions_Microsoft.Insights.VMDiagnosticsSettings_name')]",
-	"apiVersion": "2016-03-30",
-	"location": "westus",
-	"tags": {
-		"displayName": "AzureDiagnostics"
-	},
-	"properties": {
-		"publisher": "Microsoft.Azure.Diagnostics",
-		"type": "IaaSDiagnostics",
-		"typeHandlerVersion": "1.5",
-		"autoUpgradeMinorVersion": true,
-		"settings": {
-			"xmlCfg": "<truncated for docs",
-			"storageAccount": "disgstor01"
-		},
-		"protectedSettings": "[parameters('extensions_Microsoft.Insights.VMDiagnosticsSettings_protectedSettings')]"
-	},
-	"resources": [],
-	"dependsOn": [
-		"[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_MyWindowsVM_name'))]"
-	]
-}
-```
-
-When recreating the protected setting, each required parameter will need to be entered with a value. The value can be comprised of text, template parameters, template parameters, or a combination of these. Each parameter of the protected configuration can be found in the Azure Resource Manager schema repository, which is on [GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json).
-
-From within the schema repository, search for the desired extension, for this example `IaaSDiagnostics`. Once the extension `protectedSettings` object has been located, take note of each parameter. In the example of the `IaasDiagnostic` extension, the require parameters are `storageAccountName`, `storageAccountKey`, and `storageAccountEndPoint`.
+In the example of the `IaasDiagnostic` extension, the require parameters are `storageAccountName`, `storageAccountKey`, and `storageAccountEndPoint`.
 
 ```json
 "protectedSettings": {
@@ -148,7 +86,9 @@ From within the schema repository, search for the desired extension, for this ex
 }
 ```
 
-On the exported template, replace the extensions protected setting with a new one that includes the required parameters and values. In the example of the `IaasDiagnostic` extension, the protected setting would look like this. Note that if using a variable or parameter for the property values, these will need to be created. 
+## Step 2 - Re-create the protected configuration
+
+On the exported template, replace the extensions protected setting with a new one that includes the required parameters and values. In the example of the `IaasDiagnostic` extension, the protected setting would look like this. If using a variable or parameter for the property values, these will also need to be created. For more information on using variables and parameters, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md).
 
 ```json
 "protectedSettings": {
@@ -156,4 +96,37 @@ On the exported template, replace the extensions protected setting with a new on
 	"storageAccountKey": "[parameters('storageAccountKey')]",
 	"storageAccountEndPoint": "https://core.windows.net"
 }
+
+
+The final extension resource will look similar to the following:
+
+```json
+{
+	"name": "Microsoft.Insights.VMDiagnosticsSettings",
+	"type": "extensions",
+	"location": "[resourceGroup().location]",
+	"apiVersion": "[variables('apiVersion')]",
+	"dependsOn": [
+		"[concat('Microsoft.Compute/virtualMachines/', variables('vmName'))]"
+	],
+	"tags": {
+		"displayName": "AzureDiagnostics"
+	},
+	"properties": {
+		"publisher": "Microsoft.Azure.Diagnostics",
+		"type": "IaaSDiagnostics",
+		"typeHandlerVersion": "1.5",
+		"autoUpgradeMinorVersion": true,
+		"settings": {
+			"xmlCfg": "[base64(concat(variables('wadcfgxstart'), variables('wadmetricsresourceid'), variables('vmName'), variables('wadcfgxend')))]",
+			"storageAccount": "[parameters('existingdiagnosticsStorageAccountName')]"
+		},
+		"protectedSettings": {
+			"storageAccountName": "[parameters('storageAccountName')]",
+			"storageAccountKey": "[parameters('storageAccountKey')]",
+			"storageAccountEndPoint": "https://core.windows.net"
+		}
+	}
+}
 ```
+At this point the template can be deployed using any template deployment method.
