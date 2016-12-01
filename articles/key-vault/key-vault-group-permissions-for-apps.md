@@ -21,7 +21,7 @@ ms.author: ambapat
 
 ### Q: I have several (over 16) applications that need to access a key vault. Since Key Vault only allows 16 access control entries, how can I achieve that?
 
-Key Vault access control policy only supports 16 entries. However you can create an Azure Active Directory security groups. Add all the associated service principals to this security group and then grant access to this security group to Key Vault.
+Key Vault access control policy only supports 16 entries. However you can create an Azure Active Directory security group. Add all the associated service principals to this security group and then grant access to this security group to Key Vault.
 
 Here are the pre-requisites:
 * Install Azure Active Directory V2 PowerShell module if you haven't already done so. [Follow instructions on this page](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
