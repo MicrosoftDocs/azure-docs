@@ -49,16 +49,17 @@ You must have the following:
     ![Provide a name for the notebook](./media/hdinsight-apache-spark-jupyter-notebook-use-external-packages/hdispark.note.jupyter.notebook.name.png "Provide a name for the notebook")
 5. You will use the `%%configure` magic to configure the notebook to use an external package. In notebooks that use external packages, make sure you call the `%%configure` magic in the first code cell. This ensures that the kernel is configured to use the package before the session starts.
 
-    **For HDInsight 3.3 and HDInsight 3.4** 
+    * **For HDInsight 3.3 and HDInsight 3.4** 
 
-        %%configure
-        { "packages":["com.databricks:spark-csv_2.10:1.4.0"] }
+            %%configure
+            { "packages":["com.databricks:spark-csv_2.10:1.4.0"] }
 
 
-    **For HDInsight 3.5** 
 
-        %%configure
-        { "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}
+    * **For HDInsight 3.5**
+
+            %%configure
+            { "conf": {"spark.jars.packages": "com.databricks:spark-csv_2.10:1.4.0" }}
 
 
     >[!IMPORTANT] If you forget to configure the kernel in the first cell, you can use the `%%configure` with the `-f` parameter, but that will restart the session and all progress will be lost.
