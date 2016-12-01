@@ -29,7 +29,7 @@ Explore best practices, and learn about choosing platform as a service (PaaS) ov
 |:-----:|:---------------:|
 |<a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=N2KwbbSGD_6405167344">
 <img src="./media/service-fabric-patterns-and-scenarios/intro.png" WIDTH="360" HEIGHT="244">
-</a>|[Introduction to Service Fabric](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344)|
+</a>|<a <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344">Introduction to Service Fabric</a>|
 
 ## Cluster planning and management
 Learn about capacity planning, cluster optimization, and cluster security, in this look at Azure Service Fabric.
