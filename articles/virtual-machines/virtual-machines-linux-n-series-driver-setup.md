@@ -27,14 +27,15 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 
 ## Supported GPU drivers
 
- [!NOTE]
+>
+> [!NOTE]
 > Currently, Linux GPU support is only available on Azure NC VMs running Ubuntu Server 16.04 LTS.
 
 ### NVIDIA Tesla drivers for NC VMs
 
 * [Ubuntu 16.04 LTS](https://go.microsoft.com/fwlink/?linkid=836899)
 
-## Driver installation
+## Driver installation on Ubuntu 16.04 LTS
 
 1. Make an SSH connection to the Azure N-series VM.
 
@@ -72,7 +73,7 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 ## Verify driver installation
 
 
-To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver.
+To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
 
 ![NVIDIA device status](./media/virtual-machines-linux-n-series-driver-setup/smi.png)
 
