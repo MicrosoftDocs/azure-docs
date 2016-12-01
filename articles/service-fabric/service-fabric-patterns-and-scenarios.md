@@ -18,16 +18,18 @@ ms.author: ryanwi
 
 ---
 # Service Fabric patterns and scenarios
-If you’re looking at building large-scale microservices using Azure Service Fabric, learn from the experts who designed and built this platform as a service (PaaS). Get started with proper architecture, and then learn how to optimize resources for your application. The [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-us/training-courses/service-fabric-patterns-and-practices-16925) course answers the questions most often asked by real-world customers about Service Fabric scenarios and application areas.
+If you’re looking at building large-scale microservices using Azure Service Fabric, learn from the experts who designed and built this platform as a service (PaaS). Get started with proper architecture, and then learn how to optimize resources for your application. The [Service Fabric Patterns and Practices](https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344) course answers the questions most often asked by real-world customers about Service Fabric scenarios and application areas.
  
-Find out how to design, develop, and operate your microservices on Service Fabric using best practices and proven, reusable patterns. Get an overview of Service Fabric and then dive deep into topics that cover cluster optimization and security, migrating legacy apps, IoT at scale, hosting game engines, and more. Look at continuous delivery for various workloads, and even get the details on Linux supports and containers. 
+Find out how to design, develop, and operate your microservices on Service Fabric using best practices and proven, reusable patterns. Get an overview of Service Fabric and then dive deep into topics that cover cluster optimization and security, migrating legacy apps, IoT at scale, hosting game engines, and more. Look at continuous delivery for various workloads, and even get the details on Linux support and containers. 
 
 ## Introduction
 Explore best practices, and learn about choosing platform as a service (PaaS) over infrastructure as a service (IaaS). Get the details on following proven application design principles.
 
-<a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=N2KwbbSGD_6405167344">
+| Video | PowerPoint deck |
+|:-----:|:---------------:|
+|<a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=N2KwbbSGD_6405167344">
 <img src="./media/service-fabric-patterns-and-scenarios/intro.png" WIDTH="360" HEIGHT="244">
-</a>
+</a>|[Introduction to Service Fabric}(https://mva.microsoft.com/en-US/training-courses/service-fabric-patterns-and-practices-16925?l=mudwqISGD_6005167344)|
 
 ## Cluster planning and management
 Learn about capacity planning, cluster optimization, and cluster security, in this look at Azure Service Fabric.
@@ -79,3 +81,4 @@ Get the answer to the question, "Why containers?" Learn about the preview for Wi
 </a>
 
 ## Next steps
+Now that you've learned about Service Fabric patterns and scenarios, read more about how to [create and manage clusters](service-fabric/service-fabric-deploy-anywhere.md), [migrate Cloud Services apps to Service Fabric](service-fabric-cloud-services-migration-worker-role-stateless-service.md), [set up continuous delivery](service-fabric-set-up-continuous-integration), and [support for containers](service-fabric-containers-overview.md).
