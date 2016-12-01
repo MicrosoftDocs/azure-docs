@@ -122,6 +122,7 @@ If you specify a parameter name that matches one of the parameters in the comman
 > All passwords, keys, and other secrets should use the **secureString** type. If you pass sensitive data in a JSON object, use the **secureObject** type. Template parameters with secureString or secureObject types cannot be read after resource deployment. 
 > 
 > For example, the following entry in the deployment history shows the value for a string and object but not for secureString and secureObject.
+>
 > ![show deployment values](./media/resource-group-authoring-templates/show-parameters.png)  
 >
 
@@ -262,19 +263,27 @@ Knowing what values to specify for **apiVersion**, **type**, and **location** is
 
 To get all the resource providers with **PowerShell**, use:
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 From the returned list, find the resource providers you are interested in. To get the resource types for a resource provider (such as Storage), use:
 
-    (Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes
+```powershell
+(Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes
+```
 
 To get the API versions for a resource type (such storage accounts), use:
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).ApiVersions
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).ApiVersions
+```
 
 To get supported locations for a resource type, use:
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).Locations
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Storage).ResourceTypes | Where-Object ResourceTypeName -eq storageAccounts).Locations
+```
 
 To get all the resource providers with **Azure CLI**, use:
 
