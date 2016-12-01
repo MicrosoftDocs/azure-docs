@@ -35,7 +35,7 @@ Follow these steps to add a credit card to your account.
 6. Select **Next** to return to the **Manage payment methods** page. If the card you added is valid, it will be added to the list of available payment methods.
 
 > [!NOTE]
->If you receive an error message after you submit your credit card information, see the article [Your debit card or credit card is declined or not accepted](billing-credit-card-fails-during-azure-sign-up).
+>If you receive an error message after you submit your credit card information, see the article [Your debit card or credit card is declined or not accepted](billing-credit-card-fails-during-azure-sign-up.md).
 >
 >
 
