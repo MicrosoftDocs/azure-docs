@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/30/2016
+ms.date: 12/01/2016
 ms.author: osamazia
 
 ---
@@ -170,11 +170,11 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 
 | **Service** | **BGP community value** |
 | --- | --- |
-| **Exchange** |12076:5010 |
-| **SharePoint** |12076:5020 |
-| **Skype For Business** |12076:5030 |
-| **CRM Online** |12076:5040 |
-| **Other Office 365 Services** |12076:5100 |
+| Exchange Online |12076:5010 |
+| SharePoint Online |12076:5020 |
+| Skype For Business Online |12076:5030 |
+| CRM Online |12076:5040 |
+| Other Office 365 Online services |12076:5100 |
 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
@@ -191,11 +191,11 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | **Service in National Clouds** | **BGP community value** |
 | --- | --- |
 | **US Government** |  |
-| **Exchange** |12076:5110 |
-| **SharePoint** |12076:5120 |
-| **Skype For Business** |12076:5130 |
-| **CRM Online** |12076:5140 |
-| **Other Office 365 Services** |12076:5200 |
+| Exchange Online |12076:5110 |
+| SharePoint Online |12076:5120 |
+| Skype For Business Online |12076:5130 |
+| CRM Online |12076:5140 |
+| Other Office 365 Online services |12076:5200 |
 
 ## Next steps
 * Configure your ExpressRoute connection.
