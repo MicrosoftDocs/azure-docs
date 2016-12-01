@@ -20,7 +20,7 @@ ms.author: zivr
 ---
 # Azure Metadata Service - Scheduled Events
 
-Azure Metadata service enables you to discover information about your Virtual Machine hosted in Azure. The Azure Metadata Service can notify your Virtual Machine about upcoming events (e.g. reboot) 
+Azure Metadata service enables you to discover information about your Virtual Machine hosted in Azure. The Azure Metadata Service can notify your Virtual Machine about upcoming events (for example, reboot) 
 so your service can prepare for them and limit disruption. It's available for all Azure Virtual Machine types including PaaS as well as IaaS. The service gives your Virtual Machine time to perform 
 preventive tasks and minimize the effect of an event. For example, your service might drain sessions, elect a new leader, or copy data after observing that an instance is scheduled for reboot to avoid 
 disruption. The Service enables your Virtual Machine to notify Azure that it can continue with the event (ahead of time). This is useful for expediting the impact when your service has successfully complete the graceful shutdown sequence. 
@@ -29,17 +29,17 @@ disruption. The Service enables your Virtual Machine to notify Azure that it can
 
 ## Introduction - Why Scheduled Events?
 
-With Scheduled Events, you can learn of (discover) upcoming events which will impact the availability of your VMs and take proactive operations to limit the impact on your service.
-Multi-instance workloads which use replication techniques to maintain state may be vulnerable to frequent outages happening across multiple instances. Such outages may result in expensive tasks 
-(e.g. rebuilding indexes) or even a replica loss.
-In many other cases, using graceful shutdown sequence improves the overall service availability by completing in-flight transactions (or jobs) as well as reassigning other tasks to other VMs 
-in the cluster (manual failover).
+With Scheduled Events, you can learn of (discover) upcoming events which impact the availability of your VMs and take proactive operations to limit the impact on your service.
+Multi-instance workloads, which use replication techniques to maintain state, may be vulnerable to frequent outages happening across multiple instances. Such outages may result in expensive tasks 
+(for example, rebuilding indexes) or even a replica loss.
+In many other cases, using graceful shutdown sequence improves the overall service availability. For example, completing (or canceling) in-flight transactions, reassigning other tasks to other VMs 
+in the cluster (manual failover), remove the Virtual Machine from a load balancer pool.
 There are cases where notifying an administrator about upcoming event or even just logging such an event help improving the serviceability of applications hosted in the cloud.
 
 Azure Metadata Service surfaces scheduled events in the following use cases:     
--   Platform initiated ‘impactful’ maintenance (e.g. Host OS rollout)
--   Platform initiated ‘impact-less’ maintenance (e.g. In-place VM Migration)
--   Interactive calls (e.g. user restarts or redeploy a VM)
+-   Platform initiated ‘impactful’ maintenance (for example, Host OS rollout)
+-   Platform initiated ‘impact-less’ maintenance (for example, In-place VM Migration)
+-   Interactive calls (for example, user restarts or redeploy a VM)
 
 
 
@@ -56,12 +56,13 @@ going to be impacted.
 In the case where a Virtual Machine is created within a Virtual Network (VNet), the metadata service is available from the non-routable IP of:
 169.254.169.254
 
-In the case where a Virtual Machine is used for cloud services (PaaS), the metadata service is available from the host IP which could be discovered using the registry key of 
-{HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure\DeploymentManagement}
+In the case where a Virtual Machine is used for cloud services (PaaS), metadata service endpoint could be discovered using the registry.
+
+    {HKEY_LOCAL_MACHINE\Software\Microsoft\Windows Azure\DeploymentManagement}
 
 ### Versioning 
 The Metadata Service uses a versioned API in the following format: http://{ip}/metadata/{version}/scheduledevents
-It's recommended that your service consume the latest version available at: http://{ip}/metadata/latest/scheduledevents
+It is recommended that your service consumes the latest version available at: http://{ip}/metadata/latest/scheduledevents
 
 ### Using Headers
 When you query the Metadata Service, you must provide the following header **Metadata:true **. 
