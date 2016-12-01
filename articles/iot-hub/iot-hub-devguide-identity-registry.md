@@ -1,6 +1,6 @@
 ---
-title: Developer guide - identity registry | Microsoft Docs
-description: Azure IoT Hub developer guide - description of the identity registry and how to use it to manage your devices
+title: Understand the Azure IoT Hub identity registry | Microsoft Docs
+description: Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
