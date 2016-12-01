@@ -166,7 +166,6 @@
 #### [Manage user account provisioning](active-directory-enterprise-apps-manage-provisioning.md)
 
 ### Develop
-#### [Register apps using Azure portal](active-directory-app-registration.md)
 #### [Assign users](active-directory-applications-guiding-developers-assigning-users.md)
 #### [Assign groups](active-directory-applications-guiding-developers-assigning-groups.md)
 #### [Require assignment](active-directory-applications-guiding-developers-requiring-user-assignment.md)
