@@ -117,6 +117,8 @@ azure vm extension set <resource-group> <vm-name> \
 
 ## Troubleshoot and support
 
+### Troubleshoot
+
 Data about the state of extension deployments can be retrieved from the Azure portal, and by using the Azure CLI. To see the deployment state of extensions for a given VM, run the following command using the Azure CLI.
 
 ```azurecli
@@ -129,4 +131,6 @@ Extension execution output is logged to the following file:
 /opt/microsoft/omsagent/bin/stdout
 `
 
-For support on the OMS Agent extension, please open a support case with Microsoft.
+### Support
+
+If you need more help at any point in this article, you can contact the Azure experts on the [MSDN Azure and Stack Overflow forums](https://azure.microsoft.com/en-us/support/forums/). Alternatively, you can file an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/en-us/support/options/) and select Get support. For information about using Azure Support, read the [Microsoft Azure support FAQ](https://azure.microsoft.com/en-us/support/faq/).
