@@ -25,7 +25,6 @@ There are some prerequisites to achieve this.
 * Install Azure Active Directory V2 PowerShell module if you haven't already done so. [Follow instructions on this page](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
 * The user running the following commands needs to have permissions to create/edit groups in the Azure Active Directory tenant. You may need to contact your Azure Active Directory administrator, if you don't have permissions.
 
-For example, if you have key vault 'myvault' in a subscription that has been moved from tenant A to tenant B, here's how to change the tenant ID for this key vault and remove old access policies.
 
 <pre>
 # Connect to Azure AD 
