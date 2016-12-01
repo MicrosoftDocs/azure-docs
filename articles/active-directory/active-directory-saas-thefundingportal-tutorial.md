@@ -126,7 +126,7 @@ The Funding Portal application expects the SAML assertions to contain an attribu
    
     ![Configure Single Sign-On](./media/active-directory-saas-thefundingportal-tutorial/tutorial_thefundingportal_07.png)
 
-    a. In the Sign On URL text box, type a URL using the following pattern: `https://<subdomain>.regenteducation.net/`.
+    a. In the **Sign On URL** text box, type a URL using the following pattern: `https://<subdomain>.regenteducation.net/`.
 
     b. Click **Next**.
 

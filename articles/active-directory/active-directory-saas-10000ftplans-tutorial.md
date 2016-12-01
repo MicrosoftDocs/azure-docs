@@ -108,7 +108,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
     b. In the **Identifier** textbox, type `https://app.10000ft.com/saml/metadata`.
 
-    > [AZURE.NOTE] The value for **Identifier** is different if you have a custom domain. If you need assistance, contact your [10,000ft Plans support team](mailto:support@10000ft.com).  
+    > [!NOTE] The value for **Identifier** is different if you have a custom domain. If you need assistance, contact your [10,000ft Plans support team](mailto:support@10000ft.com).  
 
     c. Click **Next**
 

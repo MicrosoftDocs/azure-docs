@@ -70,7 +70,7 @@ To configure the integration of AppBlade into Azure AD, you need to add AppBlade
     ![Applications][4]
 6. In the search box, type **AppBlade**.
 
-![Creating an Azure AD test user](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_01.png)
+    ![Creating an Azure AD test user](./media/active-directory-saas-appblade-tutorial/tutorial_appblade_01.png)
 
 1. In the results pane, select **AppBlade**, and then click **Complete** to add the application.
    
