@@ -127,6 +127,18 @@ In the current implementation of Azure Active Directory, you can define conditio
 	![Conditions](./media/active-directory-conditional-access-azure-portal/04.png)
 
 
+## What you should know
+
+### Assignments
+
+When configuring a conditional access policy, you should at least assign one group to it. A conditional access policy that has no users and groups assigned, is never triggered.
+
+When you intend to assign several users and groups to a policy, you should start small by assigning only one user or group, and then test your configuration. If your policy works as expected, you can then add additional assignments to it.  
+
+All assignments are logically **ANDed**. If you have more than one assignment configured, to trigger a policy, all assignments must be satisfied.   
+
+
+
 ## Next steps
 
 TBD
