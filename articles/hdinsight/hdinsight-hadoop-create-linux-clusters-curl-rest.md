@@ -36,7 +36,7 @@ The Azure REST API allows you to perform management operations on services hoste
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 
-* **Azure CLI**. The Azure CLI is used to create a service principal, which is then used to generate authentication tokens for requests to the Azure REST API.
+* **Azure CLI 2.0** (preview). The Azure CLI is used to create a service principal, which is then used to generate authentication tokens for requests to the Azure REST API. For more information on the Azure CLI 2.0 preview, see [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
 
 * **cURL**. This utility is available through your package management system, or can be downloaded from [http://curl.haxx.se/](http://curl.haxx.se/).
 
@@ -266,13 +266,12 @@ This example will be used in the steps in this document. You must replace the pl
 
 ## Login to your Azure subscription
 
-Follow the steps documented in [Connect to an Azure subscription from the Azure Command-Line Interface (Azure CLI)](../xplat-cli-connect.md) and connect to your subscription using the `azure login` command.
+Follow the steps documented in [Get started with Azure CLI 2.0](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2) and connect to your subscription using the `az login` command.
 
 ## Create a service principal
+
 > [!NOTE]
 > These steps are an abridged version of the information provided in the *Create service principal with password* section of the [Use Azure CLI to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md#create-service-principal-with-password) document. These steps create a new service principal that can be used to authenticate the REST API requests used to create Azure resources such as an HDInsight cluster.
->
->
 
 1. From a command line, use the following command to list your Azure subscriptions.
 
