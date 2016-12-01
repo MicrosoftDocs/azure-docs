@@ -92,7 +92,7 @@ The following table shows the Azure Backup components that have support for Linu
 Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md)
 
 ### Back up Premium Storage VMs
-While backing up Premium Storage VMs, the Backup service creates a temporary staging location in the Premium Storage account. The staging location, named "AzureBackup-", is equal to the total data size of the premium disks attached to the VM.
+While backing up Premium Storage VMs, the Backup service creates a temporary staging location in the Premium Storage account. The staging location, named "AzureBackup-", is equal to the total data size of the premium disks attached to the VM. Please check if there is enough free space for a temporary staging location on the storage account. Details on [premium storage limitations](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets)
 
 > [!NOTE]
 > Do not modify or edit the staging location.
@@ -177,8 +177,8 @@ The Azure Backup agent offers network throttling, which allows you to control ho
 | Backup frequency<br/> (to Backup vault) |Three backups per day |Two backups per day |Two backups per day |One backup per day |
 | Backup frequency<br/> (to disk) |Not applicable |<li>Every 15 minutes for SQL Server <li>Every hour for other workloads |<li>Every 15 minutes for SQL Server <li>Every hour for other workloads</p> |Not applicable |
 | Retention options |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |
-| Retention period |Up to 99 years |Up to 99 years |Up to 99 years |Up to 99 years |
-| Recovery points in Backup vault |Unlimited |Unlimited |Unlimited |Unlimited |
+|Number of backup copies |Up to 9999 |Up to 9999 |Up to 9999 |Up to 9999 |
+|Retention period |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency|
 | Recovery points on local disk |Not applicable |<li>64 for File Servers,<li>448 for Application Servers |<li>64 for File Servers,<li>448 for Application Servers |Not applicable |
 | Recovery points on tape |Not applicable |Unlimited |Not applicable |Not applicable |
 
