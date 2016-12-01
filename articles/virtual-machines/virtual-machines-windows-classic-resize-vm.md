@@ -23,9 +23,8 @@ This article shows you how to resize a Windows VM, created in the classic deploy
 
 When considering the ability to resize a VM, there are two concepts which control the range of sizes available to resize the virtual machine. The first concept is the region in which your VM is deployed. The list of VM sizes available in region is under the Services tab of the Azure Regions web page. The second concept is the physical hardware currently hosting your VM. The physical servers hosting VMs are grouped together in clusters of common physical hardware. The method of changing a VM size differs depending on if the desired new VM size is supported by the hardware cluster currently hosting the VM.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-You can also [resize a VM created in the Resource Manager deployment model](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. You can also [resize a VM created in the Resource Manager deployment model](virtual-machines-windows-resize-vm.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ## Add your account
 You must configure Azure PowerShell to work with classic Azure resources. Follow the steps below to configure Azure PowerShell to manage classic resources.
