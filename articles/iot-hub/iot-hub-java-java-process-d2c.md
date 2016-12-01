@@ -1,6 +1,6 @@
 ---
-title: Process IoT Hub device-to-cloud messages (Java) | Microsoft Docs
-description: Follow this Java tutorial to learn useful patterns to process IoT Hub device-to-cloud messages.
+title: Process Azure IoT Hub device-to-cloud messages (Java) | Microsoft Docs
+description: How to process IoT Hub device-to-cloud messages by reading from the Event hubs-compatible endpoint on an IoT hub. You create a Java service app that uses an EventProcessorHost instance.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -17,7 +17,7 @@ ms.date: 09/01/2016
 ms.author: dobett
 
 ---
-# Tutorial: How to process IoT Hub device-to-cloud messages using Java
+# How to process IoT Hub device-to-cloud messages (Java)
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## Introduction
