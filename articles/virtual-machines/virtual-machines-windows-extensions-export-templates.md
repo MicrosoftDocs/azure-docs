@@ -60,9 +60,7 @@ Many Azure virtual machine extensions include a protected settings configuration
 
 Because each protected setting has a set of required properties, a list of these properties will need to be gathered. Each parameter of the protected configuration can be found in the [Azure Resource Manager schema on GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json).
 
-From within the schema repository, search for the desired extension, for this example `IaaSDiagnostics`. Once the extension `protectedSettings` object has been located, take note of each parameter. 
-
-In the example of the `IaasDiagnostic` extension, the require parameters are `storageAccountName`, `storageAccountKey`, and `storageAccountEndPoint`.
+From within the schema repository, search for the desired extension, for this example `IaaSDiagnostics`. Once the extension `protectedSettings` object has been located, take note of each parameter. In the example of the `IaasDiagnostic` extension, the require parameters are `storageAccountName`, `storageAccountKey`, and `storageAccountEndPoint`.
 
 ```json
 "protectedSettings": {
@@ -88,7 +86,9 @@ In the example of the `IaasDiagnostic` extension, the require parameters are `st
 
 ## Step 2 - Re-create the protected configuration
 
-On the exported template, replace the extensions protected setting with a new one that includes the required parameters and values. In the example of the `IaasDiagnostic` extension, the protected setting would look like this. If using a variable or parameter for the property values, these will also need to be created. For more information on using variables and parameters, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md).
+On the exported template, search for `protectedSettings` and replace the extensions protected setting object with a new one that includes the required parameters and a value for each parameter. If using a template variable or template parameter for the property values, these will also need to be created. For more information on using variables and parameters, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md). 
+
+In the example of the `IaasDiagnostic` extension, the protected setting would look like the following example.
 
 ```json
 "protectedSettings": {
@@ -96,7 +96,7 @@ On the exported template, replace the extensions protected setting with a new on
 	"storageAccountKey": "[parameters('storageAccountKey')]",
 	"storageAccountEndPoint": "https://core.windows.net"
 }
-
+```
 
 The final extension resource will look similar to the following:
 
