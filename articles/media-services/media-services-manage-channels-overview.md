@@ -1,6 +1,6 @@
 ﻿---
-title: Overview of Live Steaming using Azure Media Services | Microsoft Docs
-description: This topic gives an overview of live steaming using Azure Media Services.
+title: Overview of Live Streaming using Azure Media Services | Microsoft Docs
+description: This topic gives an overview of live streaming using Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -17,7 +17,7 @@ ms.date: 10/17/2016
 ms.author: juliako
 
 ---
-# Overview of Live Steaming using Azure Media Services
+# Overview of Live Streaming using Azure Media Services
 ## Overview
 When delivering live streaming events with Azure Media Services the following components are commonly involved:
 

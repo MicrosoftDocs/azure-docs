@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 11/21/2016
 ms.author: gwallace
 
 ---
@@ -153,9 +153,27 @@ Once the application gateway has been created, navigate to it in the portal to c
 
 These steps create a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. You can modify these settings to suit your deployment once the provisioning is successful.
 
+## Add servers to backend pools
+
+Once the application gateway is created, the systems that will host the application to be load balanced still need to be added to the application gateway. The IP addresses or FQDN values of these servers are added to the backend address pools.
+
+### Step 1
+
+Click on the application gateway you created, click **Backend pools**, and select the current backend pool.
+
+![Application Gateway backend pools][11]
+
+### Step 2
+
+Add the IP addresses or FQDN values in the text boxes and click **Save**
+
+![add values to application gateway backend pools][12]
+
+This saves the values in the backend pool. Once the application gateway has been updated, traffic that enters the application gateway is routed to the backend addresses added in this step.
+
 ## Next steps
 
-This scenario creates a default application gateway. The next steps are to configure the application gateway by adding pool members, modifying settings, and adjusting rules in the gateway for it to work properly.
+This scenario creates a default application gateway. The next steps are to configure the application gateway by modifying settings, and adjusting rules in the gateway. These steps can be found by visiting the following articles.
 
 Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
 
@@ -174,4 +192,6 @@ Learn how to protect your applications with [Web Application Firewall](applicati
 [8]: ./media/application-gateway-create-gateway-portal/figure8.png
 [9]: ./media/application-gateway-create-gateway-portal/figure9.png
 [10]: ./media/application-gateway-create-gateway-portal/figure10.png
+[11]: ./media/application-gateway-create-gateway-portal/figure11.png
+[12]: ./media/application-gateway-create-gateway-portal/figure12.png
 [scenario]: ./media/application-gateway-create-gateway-portal/scenario.png

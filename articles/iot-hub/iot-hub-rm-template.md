@@ -1,6 +1,6 @@
 ---
-title: Create an IoT Hub using an ARM template and C# | Microsoft Docs
-description: Follow this tutorial to get started using Azure Resource Manager templates to create an IoT Hub with a C# program.
+title: Create an Azure IoT Hub using a template (.NET) | Microsoft Docs
+description: How to use an Azure Resource Manager template to create an IoT Hub with a C# program.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -17,14 +17,14 @@ ms.date: 11/16/2016
 ms.author: dobett
 
 ---
-# Create an IoT hub using a C# program with an Azure Resource Manager template
+# How to create an IoT hub using Azure Resource Manager template (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
 You can use Azure Resource Manager to create and manage Azure IoT hubs programmatically. This tutorial shows you how to use an Azure Resource Manager template to create an IoT hub from a C# program.
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../resource-manager-deployment-model.md).  This article covers using the Azure Resource Manager deployment model.
+> Azure has two different deployment models for creating and working with resources:  [Azure Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md).  This article covers using the Azure Resource Manager deployment model.
 > 
 > 
 
@@ -33,7 +33,7 @@ To complete this tutorial, you need the following:
 * Microsoft Visual Studio 2015.
 * An active Azure account. <br/>If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
 * An [Azure Storage account][lnk-storage-account] where you can store your Azure Resource Manager template files.
-* [Microsoft Azure PowerShell 1.0][lnk-powershell-install] or later.
+* [Azure PowerShell 1.0][lnk-powershell-install] or later.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -193,7 +193,7 @@ Now you have deployed an IoT hub using an Azure Resource Manager template with a
 To learn more about developing for IoT Hub, see the following:
 
 * [Introduction to C SDK][lnk-c-sdk]
-* [IoT Hub SDKs][lnk-sdks]
+* [Azure IoT SDKs][lnk-sdks]
 
 To further explore the capabilities of IoT Hub, see:
 

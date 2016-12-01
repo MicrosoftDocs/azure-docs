@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2016
-ms.author: elizapo
+ms.author: mbaldwin
 
 ---
 # List of Ports and URLs to permit access for Azure RemoteApp Deployed in customer Virtual Network
