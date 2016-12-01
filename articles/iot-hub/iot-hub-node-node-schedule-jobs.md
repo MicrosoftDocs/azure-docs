@@ -1,6 +1,6 @@
 ---
-title: How to schedule jobs | Microsoft Docs
-description: This tutorial shows you how to schedule jobs
+title: Schedule jobs with Azure IoT Hub (Node) | Microsoft Docs
+description: How to schedule an Azure IoT Hub job to invoke a direct method on multiple devices. You use the Azure IoT SDKs for Node.js to implement the simulated device apps and a service app to run the job.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: juanpere
 
 ---
-# Tutorial: Schedule and broadcast jobs
+# How to schedule and broadcast jobs (Node)
 
 ## Introduction
 Azure IoT Hub is a fully managed service that enables a back-end app to create and track jobs that schedule and update millions of devices.  Jobs can be used for the following actions:

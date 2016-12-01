@@ -1,6 +1,6 @@
 ---
-title: Developer guide - file upload | Microsoft Docs
-description: Azure IoT Hub developer guide - uploading files from a device to IoT Hub
+title: Understand Azure IoT Hub  file upload | Microsoft Docs
+description: Developer guide - use the file upload feature of IoT Hub to manage uploading files from a device to an Azure storage blob container.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: dobett
 
 ---
-# Upload files from a device
+# Understand file uploads with IoT Hub
 ## Overview
 As detailed in the [IoT Hub endpoints][lnk-endpoints] article, devices can initiate file uploads by sending a notification through a device-facing endpoint (**/devices/{deviceId}/files**).  When a device notifies IoT Hub of a completed upload, IoT Hub generates file upload notifications that you can receive through a service-facing endpoint (**/messages/servicebound/filenotifications**) as messages.
 
