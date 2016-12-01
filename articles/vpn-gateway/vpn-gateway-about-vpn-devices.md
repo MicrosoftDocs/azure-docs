@@ -1,4 +1,4 @@
-﻿---
+---
 title: About VPN Devices for Site-to-Site VPN Gateway connections for Azure Virtual Networks | Microsoft Docs
 description: This article discusses VPN devices and IPsec parameters for S2S VPN Gateway connections and contains links to configuration instructions and samples.
 services: vpn-gateway
@@ -63,7 +63,7 @@ To help configure your VPN device, refer to the links that correspond to appropr
 | Open Systems AG |Mission Control Security Gateway |N/A |[Installation guide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |[Installation guide](https://www.open.ch/_pdf/Azure/AzureVPNSetup_Installation_Guide.pdf) |
 | Openswan |Openswan |2.6.32 |(Coming soon) |Not compatible |
 | Palo Alto Networks |All devices running PAN-OS |PAN-OS 6.1.5 or later (PolicyBased), PAN-OS 7.0.5 or later (RouteBased) |[Configuration instructions](https://live.paloaltonetworks.com/t5/Configuration-Articles/How-to-Configure-VPN-Tunnel-Between-a-Palo-Alto-Networks/ta-p/59065) |[Configuration instructions](https://live.paloaltonetworks.com/t5/Integration-Articles/Configuring-IKEv2-VPN-for-Microsoft-Azure-Environment/ta-p/60340) |
-| Watchguard |All |Fireware XTM v11.x |[Configuration instructions](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network/) |Not compatible |
+| Watchguard |All |Fireware XTM v11.x |[Configuration instructions](http://customers.watchguard.com/articles/Article/Configure-a-VPN-connection-to-a-Windows-Azure-virtual-network) |Not compatible |
 
 (*) ISR 7200 Series routers only support PolicyBased VPNs.
 

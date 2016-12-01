@@ -12,20 +12,24 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/16/2016
 ms.author: awills
 
 ---
 # Export telemetry from Application Insights
 Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there you can download your data and write whatever code you need to process it.  
 
-Continuous Export is available in the free trial period and on the [Standard and Premium pricing plans](https://azure.microsoft.com/pricing/details/application-insights/).
+Continuous Export is available in the [Enterprise pricing model](http://azure.microsoft.com/pricing/details/application-insights/).
 
 Before you set up continuous export, there are some alternatives you might want to consider:
 
 * [The Export button](app-insights-metrics-explorer.md#export-to-excel) at the top of a metrics or search blade lets you transfer tables and charts to an Excel spreadsheet. 
-* [Analytics](app-insights-analytics.md) provides a powerful query  language for telemetry, and also can export results.
-* If you're looking to [explore your data in Power BI](http://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx), you can do that without using Continuous Export.
+
+* [Analytics](app-insights-analytics.md) provides a powerful query language for telemetry, and also can export results.
+* If you're looking to [explore your data in Power BI](app-insights-export-power-bi.md), you can do that without using Continuous Export.
+* The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically. 
+
+After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](app-insights-data-retention-privacy.md). 
 
 ## Create a storage account
 If you don't already have a "classic" storage account, create one now.
@@ -36,6 +40,8 @@ If you don't already have a "classic" storage account, create one now.
 2. Create a container.
    
     ![In the new storage, select Containers, click the Containers tile, and then Add](./media/app-insights-export-telemetry/040.png)
+
+If you create the storage in a region that is different from your Application Insights resource, there may be [charges for data transfer](https://azure.microsoft.com/pricing/details/bandwidth/).
 
 ## <a name="setup"></a> Set up Continuous Export
 On your application's Overview blade in the Application Insights portal, open Continuous Export: 
@@ -153,7 +159,7 @@ The continuous export will restart.
 * [Export to SQL using Stream Analytics][exportasa]
 * [Stream Analytics sample 2](app-insights-export-stream-analytics.md)
 
-On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data.
+On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data, and you could use it to process data that has been exported from Application Insights.
 
 ## Q & A
 * *But all I want is a one-time download of a chart.*  

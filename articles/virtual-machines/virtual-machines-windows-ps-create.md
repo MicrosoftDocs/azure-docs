@@ -131,7 +131,7 @@ Now that you have all the pieces in place, it's time to create the virtual machi
     ```powershell
     $myVM = Add-AzureRmVMNetworkInterface -VM $myVM -Id $myNIC.Id
     ```
-6. Define the name and location of the VM hard disk. The virtual hard disk file is stored in a container. This command creates the disk in a container named **vhds/WindowsVMosDisk.vhd** in the storage account that you created.
+6. Define the name and location of the VM hard disk. The virtual hard disk file is stored in a container. This command creates the disk in a container named **vhds/myOsDisk1.vhd** in the storage account that you created.
    
     ```powershell
     $blobPath = "vhds/myOsDisk1.vhd"
@@ -140,7 +140,7 @@ Now that you have all the pieces in place, it's time to create the virtual machi
 7. Add the operating system disk information to the VM configuration. Replace The value of **$diskName** with a name for the operating system disk. Create the variable and add the disk information to the configuration.
    
     ```powershell
-    $vm = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
+    $myVM = Set-AzureRmVMOSDisk -VM $myVM -Name "myOsDisk1" -VhdUri $osDiskUri -CreateOption fromImage
     ```
 8. Finally, create the virtual machine.
    

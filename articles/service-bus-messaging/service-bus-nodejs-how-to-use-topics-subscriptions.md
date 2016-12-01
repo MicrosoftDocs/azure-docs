@@ -1,14 +1,14 @@
-﻿---
+---
 title: How to use Service Bus topics with Node.js | Microsoft Docs
 description: Learn how to use Service Bus topics and subscriptions in Azure from a Node.js app.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: nodejs
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: b9f5db85-7b6c-4cc7-bd2c-bd3087c99875
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: nodejs

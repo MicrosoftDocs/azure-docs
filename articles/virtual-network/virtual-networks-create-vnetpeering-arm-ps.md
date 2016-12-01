@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create VNet Peering using Powershell cmdlets | Microsoft Docs
 description: Learn how to create a virtual network using the Azure portal in Resource Manager.
 services: virtual-network
@@ -11,7 +11,7 @@ tags: azure-resource-manager
 ms.assetid: dac579bd-7545-461a-bdac-301c87434c84
 ms.service: virtual-network
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/14/2016
@@ -29,10 +29,9 @@ To create a VNet peering by using PowerShell, please follow the steps below:
 
 1. If you have never used Azure PowerShell, see [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions all the way to the end to sign into Azure and select your subscription.
 
-> [!NOTE]
-> PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
-> 
-> 
+	> [!NOTE]
+	> PowerShell cmdlet for managing VNet peering is shipped with [Azure PowerShell 1.6.](http://www.powershellgallery.com/packages/Azure/1.6.0)
+	>
 
 1. Read virtual network objects:
    
