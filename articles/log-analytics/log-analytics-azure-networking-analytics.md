@@ -70,7 +70,7 @@ Set-AzureRmDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspac
 If you do not enable diagnostic logging for a particular resource type, the dashboard blades for that resource are blank.
 
 ## Review Azure Networking Analytics data collection details
-Azure Networking Analytics management solution collects diagnostics logs directly from Azure Application Gateways and network security groups. Logs do not need to be written to blob storage and no agent is required for data collection.
+Azure Networking Analytics management solution collects diagnostics logs directly from Azure Application Gateways and network security groups. It is not necessary to write the logs to Azure Blob storage and no agent is required for data collection.
 
 The following table shows data collection methods and other details about how data is collected for Azure Networking Analytics.
 
