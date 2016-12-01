@@ -80,7 +80,7 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 
 
 
-## Steps to failback
+## Steps to reprotect
 
 1. In the Vault > replicated items > select the VM that's been failed over and right click to **Re-Protect**. You can also click the machine and select the reprotect from the command buttons.
 2. In the blade, you can see that the direction of protection "Azure to On-premises" is already selected.
