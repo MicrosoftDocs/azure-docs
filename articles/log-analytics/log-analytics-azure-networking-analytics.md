@@ -26,7 +26,7 @@ You can use the Azure Networking Analytics solution in Log Analytics to review:
 * Azure network security group logs.
 
 > [!NOTE]
-> Azure Networking Analytics is a [preview solution](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
+> Azure Networking Analytics is a [preview solution](log-analytics-add-solutions.md#preview-solutions-and-features).
 > 
 > 
 
