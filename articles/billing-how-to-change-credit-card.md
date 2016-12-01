@@ -23,14 +23,14 @@ ms.author: genli
 This article explains how to add, change or remove a credit card that’s associated with your Azure account, and how to make payments.
 
 <a id="addcard"></a>
-## Add a new credit card as a payment method
+## Add a credit card as a payment method
 
 Follow these steps to add a credit card to your account.
 
 1. Log on to the [Azure Account Center](https://account.windowsazure.com/Subscriptions) as the account administrator.
-2. Under **Click a subscription to view details and usage**, select the subscription for which you want to add a new payment method.
+2. Under **Click a subscription to view details and usage**, select the subscription for which you want to add a payment method.
 3. On the right side of the page, select **Manage payment methods**.
-4. On the **Manage payment methods** page, select “+” to add a new credit card.
+4. On the **Manage payment methods** page, select “+” to add a credit card.
 5. Choose a credit card type, and then provide all the required information.
 6. Select **Next** to return to the **Manage payment methods** page. If the card you added is valid, it will be added to the list of available payment methods.
 
