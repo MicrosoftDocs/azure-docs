@@ -219,7 +219,7 @@ Extension execution status can also be found in the Azure portal. To view the st
 
 ### Rerun a VM extension
 
-There may be cases in which a virtual machine extension needs to be rerun. This can be accomplished by removing the extension and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure CLI. Replace example parameter names with your own values.
+There may be cases in which a virtual machine extension needs to be rerun. You can do this by removing the extension and then rerunning the extension with an execution method of your choice. To remove an extension, run the following command with the Azure CLI. Replace example parameter names with your own values.
 
 ```azurecli
 azure vm extension set myResourceGroup myVM --uninstall CustomScript Microsoft.Azure.Extensions 2.0
