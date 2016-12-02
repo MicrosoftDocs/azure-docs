@@ -1,0 +1,78 @@
+---
+title: Scale a cloud service in Windows PowerShell | Microsoft Docs
+description: (classic) Learn how to use PowerShell to scale a web role or worker role in or out in Azure.
+services: cloud-services
+documentationcenter: ''
+author: seanmck
+manager: timlt
+editor: ''
+
+ms.assetid: ee37dd8c-6714-4c61-adb8-03d6bbf76c9a
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/01/2016
+ms.author: seanmck
+
+---
+# How to scale a cloud service in PowerShell
+
+You can use Windows PowerShell to scale a web role or worker role in or out by adding or removing instances.  
+
+## Login to Azure
+
+Before you can perform any operations on your subscription through PowerShell, you must login:
+
+```powershell
+Add-AzureAccount
+```
+
+If you have multiple subscriptions associated with your account, you may need to change the current subscription depending on where your cloud service resides. To check the current subscription, run:
+
+```powershell
+Get-AzureSubscription -Current
+```
+
+If you need to change the current subscription, run:
+
+```powershell
+Set-AzureSubscription -SubscriptionId <subscription_id>
+```
+
+## Check the current instance count for your role
+
+To check the current state of your role, run:
+
+```powershell
+Get-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>'
+```
+
+You should get back information about the role, including its current OS version and instance count. In this case, the role has a single instance.
+
+![Information about the role](./media/cloud-services-how-to-scale-powershell/get-azure-role.png)
+
+## Scale the role out by adding more instances
+
+To scale a role out, simply pass the desired number of instances as the **Count** parameter to the **Set-AzureRole** cmdlet:
+
+```powershell
+Set-AzureRole -ServiceName '<your_service_name>' -RoleName '<your_role_name>' -Slot <target_slot> -Count <desired_instances>
+```
+
+The cmdlet will block momentarily while the new instances are provisioned and started. During this time, if you open a new PowerShell window and call **Get-AzureRole** as shown above, you will see the new target instance count. And if you inspect the role status in the portal, you should see the new instance starting up:
+
+![VM instance starting in portal](./media/cloud-services-how-to-scale-powershell/role-instance-starting.png)
+
+Once the new instances have started, the cmdlet will return successfully:
+
+![Role instance increase success](./media/cloud-services-how-to-scale-powershell/set-azure-role-success.png)
+
+## Scale the role down by removing instances
+
+You can scale a role in by removing instances in exactly the same way. Simply set the **Count** parameter on **Set-AzureRole** to the number of instances you want to have after the scale in operation is complete.
+
+## Next steps
+
+It is not possible to configure auto-scale for cloud services from PowerShell. To do that, please see [How to auto scale a cloud service](cloud-services-how-to-scale-portal.md).
