@@ -101,7 +101,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
     </li>
     <li>
         <a href="/cli/azure/install-az-cli2">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -115,7 +115,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
     </li>
     <li>
         <a href="/dotnet/api">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -129,7 +129,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
     </li>
     <li>
         <a href="/java/api">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -143,7 +143,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
     </li>
     <li>
         <a href="/rest/api/compute">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -157,7 +157,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
     </li>
     <li>
         <a href="https://msdn.microsoft.com/library/mt163658">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -171,7 +171,7 @@ Use Azure Virtual Machines to create and run Linux virtual machines on Azure's c
     </li>
     <li>
         <a href="/rest/api/storage">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
