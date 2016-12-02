@@ -56,7 +56,7 @@ The Azure Resource Manager automations script produces a Resource Manager templa
 
 Many Azure virtual machine extensions include a protected settings configuration, that encrypts sensitive data such as credentials and configuration strings. Protected settings are not exported with the automation script. If required, protected settings will need to be re-inserted into the exported templated.
 
-## Step 1 - Get protected settings properties
+### Step 1 - Get protected settings properties
 
 Because each protected setting has a set of required properties, a list of these properties need to be gathered. Each parameter of the protected configuration can be found in the [Azure Resource Manager schema on GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json).
 
@@ -84,9 +84,9 @@ From within the schema repository, search for the desired extension, for this ex
 }
 ```
 
-## Step 2 - Re-create the protected configuration
+### Step 2 - Re-create the protected configuration
 
-On the exported template, search for `protectedSettings` and replace the extensions protected setting object with a new one that includes the required parameters and a value for each parameter. If using a template variable or template parameter for the property values, these need to be created. For more information on using variables and parameters, see [Authoring Azure Resource Manager templates](./resource-group-authoring-templates.md). 
+On the exported template, search for `protectedSettings` and replace the extensions protected setting object with a new one that includes the required parameters and a value for each parameter. If using a template variable or template parameter for the property values, these need to be created. For more information on using variables and parameters, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). 
 
 In the example of the `IaasDiagnostic` extension, the protected setting would look like the following example:
 
