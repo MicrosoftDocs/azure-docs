@@ -28,3 +28,19 @@ For this article the requirements are:
 - [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
 
 - [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+## Quick commands
+
+Copy file up to the Linux VM
+
+```bash
+scp file user@host:directory/targetfile
+```
+
+Copy file down from the Linux VM
+
+```bash
+scp user@host:directory/file targetfile
+```
+
+## Detailed walkthrough
