@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/23/2016
+ms.date: 12/01/2016
 ms.author: rclaus
 
 ---
@@ -157,7 +157,7 @@ Steps to add a new Azure VNet:
 
 ## Increasing ExpressRoute circuit bandwidth
 
-Consult with SAP HANA on Azure Service Management, if you are advised to increase the bandwidth of the SAP HANA on Azure (Large Instances) ExpressRoute circuit, make an Azure support request.  (You can request an increase for a single circuit bandwidth up to a maximum of 10 Gbps.)  You will receive notification after the operation is complete; no additional action needed to enable this higher speed in Azure.
+Consult with SAP HANA on Azure Service Management. If you are advised to increase the bandwidth of the SAP HANA on Azure (Large Instances) ExpressRoute circuit, create an Azure support request.  (You can request an increase for a single circuit bandwidth up to a maximum of 10 Gbps.)  You will receive notification after the operation is complete; no additional action needed to enable this higher speed in Azure.
 
 ## Adding an additional ExpressRoute circuit
 
@@ -169,7 +169,7 @@ Once the new circuit is created and the SAP HANA on Azure Service Management con
 
 To remove a VNet subnet, either the Azure Portal, PowerShell or CLI can be used. If an address space is removed, SAP HANA on Azure Service Management should be notified about the address space change in order to remove it from the ranges that SAP HANA on Azure (Large Instances) is allowed to communicate with.
 
-While there isn&#39;t yet specific, dedicated Azure.com guidance on removing subnets, the process for removing subnets is the reverse of the process for adding them. See the article Azure portal [Create a virtual network using the Azure portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) For more information on creating subnets.
+While there isn&#39;t yet specific, dedicated Azure.com guidance on removing subnets, the process for removing subnets is the reverse of the process for adding them. See the article Azure portal [Create a virtual network using the Azure portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information on creating subnets.
 
 ## Deleting a VNet
 
@@ -177,7 +177,7 @@ Use either the Azure Portal, PowerShell or CLI when deleting a VNet. SAP HANA on
 
 Once the VNet has been removed, open an Azure support request to provide the IP address space ranges to be removed.
 
-While there isn&#39;t yet specific, dedicated Azure.com guidance on removing VNets, the process for removing VNets is the reverse of the process for adding them, which is described above. See the articles [Create a virtual network using the Azure portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a virtual network using PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)for more information on creating VNets.
+While there isn&#39;t yet specific, dedicated Azure.com guidance on removing VNets, the process for removing VNets is the reverse of the process for adding them, which is described above. See the articles [Create a virtual network using the Azure portal](../../virtual-network/virtual-networks-create-vnet-arm-pportal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) and [Create a virtual network using PowerShell](../../virtual-network/virtual-networks-create-vnet-arm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for more information on creating VNets.
 
 To ensure everything is removed, delete the following items:
 
