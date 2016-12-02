@@ -141,7 +141,7 @@ Application Insights is an extensible Application Performance Management (APM) s
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://dev.applicationinsights.io/">REST API Reference</a></p>
+                        <p><a href="https://dev.applicationinsights.io/">REST API</a></p>
                     </div>
                 </div>
             </div>

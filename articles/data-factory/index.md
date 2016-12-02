@@ -115,7 +115,7 @@ Azure Data Factory is a cloud-based data integration service that automates the 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datafactory/">REST API Reference</a></p>
+                        <p><a href="/rest/api/datafactory/">REST API</a></p>
                     </div>
                 </div>
             </div>

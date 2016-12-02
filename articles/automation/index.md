@@ -152,8 +152,8 @@ Azure Automation provides a way for users to automate the manual, long-running, 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt662285.aspx">REST API Reference</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt163781">Classic REST API Reference</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt662285.aspx">REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt163781">Classic REST API</a></p>
                     </div>
                 </div>
             </div>

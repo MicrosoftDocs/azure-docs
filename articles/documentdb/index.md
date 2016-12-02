@@ -196,8 +196,8 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/documentdb/">REST API Reference</a></p>
-                        <p><a href="/rest/api/documentdbresourceprovider/">Resource Provider REST API Reference</a></p>
+                        <p><a href="/rest/api/documentdb/">REST API</a></p>
+                        <p><a href="/rest/api/documentdbresourceprovider/">Resource Provider REST API</a></p>
                     </div>
                 </div>
             </div>

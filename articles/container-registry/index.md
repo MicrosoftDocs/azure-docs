@@ -85,7 +85,7 @@ Azure Container Registry (preview) is a private registry for hosting container i
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/containerregistry">REST API Reference</a></p>
+                        <p><a href="/rest/api/containerregistry">REST API</a></p>
                      </div>
                 </div>
             </div>

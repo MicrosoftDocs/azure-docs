@@ -103,8 +103,8 @@ API Management helps organizations publish APIs to external, partner and interna
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/apimanagement/">REST API Reference</a></p>
-                        <p><a href="/rest/api/apimanagement/ApiManagementREST/API-Management-REST">REST API Reference (original)</a></p>
+                        <p><a href="/rest/api/apimanagement/">REST API</a></p>
+                        <p><a href="/rest/api/apimanagement/ApiManagementREST/API-Management-REST">REST API (original)</a></p>
                     </div>
                 </div>
             </div>

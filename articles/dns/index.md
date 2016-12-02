@@ -118,7 +118,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
             <div class="card">
                 <div class="cardText">
                     <h3>REST</h3>
-                    <p><a href="/rest/api/dns/">DNS REST API Reference</a></p>
+                    <p><a href="/rest/api/dns/">REST API</a></p>
                 </div>
             </div>
         </div>

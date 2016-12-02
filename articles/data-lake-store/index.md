@@ -190,7 +190,7 @@ Azure Data Lake Store is a hyper-scale repository for big data analytic workload
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datalakestore">REST API Reference</a></p>
+                        <p><a href="/rest/api/datalakestore">REST API</a></p>
                     </div>
                 </div>
             </div>

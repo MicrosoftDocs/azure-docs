@@ -136,7 +136,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/keyvault">REST API Reference</a></p>
+                        <p><a href="/rest/api/keyvault">REST API</a></p>
                     </div>
                 </div>
             </div>

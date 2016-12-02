@@ -54,7 +54,7 @@ Azure Data Catalog is a fully managed cloud service that enables users to discov
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/datacatalog/">REST API Reference</a></p>
+                        <p><a href="/rest/api/datacatalog/">REST API</a></p>
                     </div>
                 </div>
             </div>

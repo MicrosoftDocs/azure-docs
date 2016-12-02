@@ -137,8 +137,8 @@ Azure Application Gateway provides Application Deliver Controller (ADC) as a ser
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="https://msdn.microsoft.com/library/mt684941">REST API Reference</a></p>
-                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Classic REST API Reference</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/mt684941">REST API</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt299393">Classic REST API</a></p>
                     </div>
                 </div>
             </div>

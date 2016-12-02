@@ -207,7 +207,7 @@ App Service Web Apps is a fully managed compute platform that is optimized for h
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/appservice">REST API Reference</a></p>
+                        <p><a href="/rest/api/appservice">REST API</a></p>
                     </div>
                 </div>
             </div>

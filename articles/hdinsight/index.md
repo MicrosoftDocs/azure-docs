@@ -153,8 +153,8 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/hdinsight/">REST API Reference</a></p>
-                        <p><a href="/rest/api/hdinsightspark/">REST API Reference (Spark)</a></p>
+                        <p><a href="/rest/api/hdinsight/">REST API</a></p>
+                        <p><a href="/rest/api/hdinsightspark/">REST API (Spark)</a></p>
                     </div>
                 </div>
             </div>

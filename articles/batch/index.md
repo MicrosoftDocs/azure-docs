@@ -135,7 +135,6 @@ Azure Batch lets you run large-scale parallel and high-performance computing (HP
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/batchservice">Batch REST API Reference</a></p>
                     </div>
                 </div>
             </div>

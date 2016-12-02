@@ -136,7 +136,6 @@ The infrastructure for your application is typically made up of many components 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/resources/">Storage REST API Reference</a></p>
                     </div>
                 </div>
             </div>
