@@ -52,7 +52,7 @@ Azure Container Service makes it simple for you to create, configure, and manage
 <ul class="panelContent cardsW">
     <li>
         <a href="/powershell/azureps-cmdlets-docs">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -67,7 +67,7 @@ Azure Container Service makes it simple for you to create, configure, and manage
 
     <li>
         <a href="/dotnet/api/">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -82,7 +82,7 @@ Azure Container Service makes it simple for you to create, configure, and manage
 
     <li>
         <a href="/rest/api/">
-        <div class="cardSize">
+        <div class="cardSize"><p />
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
