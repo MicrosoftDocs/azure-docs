@@ -99,7 +99,7 @@ The following tables contain the device model-to-architecture initial guidance.
 #### StorSimple capacities for local and cloud storage
 
 
-|                        | 8100          | 8600            |
+| Storage capacity       | 8100          | 8600            |
 |------------------------|---------------|-----------------|
 | Local storage capacity | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Cloud storage capacity | &gt; 200 TiB\* | &gt; 500 TiB\* |
@@ -503,7 +503,7 @@ The following section illustrates how to create a short script to trigger and de
 
     Copy and paste the following code snippet:
 
-        ````
+        `
         Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
         Disable-AzureDataCollection
         $ApplianceName = <myStorSimpleApplianceName>
@@ -533,7 +533,7 @@ The following section illustrates how to create a short script to trigger and de
             }
         }
         
-        ````
+        `
 
 1.  Add the script to your backup job in Veritas Backup Exec, by editing your Veritas Backup Exec job options pre-post commands
 
