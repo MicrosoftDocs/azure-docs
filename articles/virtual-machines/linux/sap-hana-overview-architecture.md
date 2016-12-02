@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/23/2016
+ms.date: 12/01/2016
 ms.author: rclaus
 
 ---
 # Overview and Architecture of SAP HANA on Azure (Large Instances)
+This is a five-part architecture and technical deployment guide that provides information to help you deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure. It is not comprehensive, and does not cover specific details involving setup of SAP solutions. Instead, gives valuable information to help with your initial deployment and ongoing operations. Do not use it to replace SAP documentation related to the installation of SAP HANA (or the many SAP Support Notes that cover the topic). It also provides detail on installing SAP HANA on Azure (Large Instances).
 
-The Architecture and Technical Deployment Guide provides information to help you deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure. It is not intended to be a comprehensive guide covering specific setup of SAP solutions, but rather useful information in your initial deployment and ongoing operations. It should not replace SAP documentation related to the installation of SAP HANA (or the many SAP Support Notes that cover the topic). It gives you an overview and provides the additional detail of installing SAP HANA on Azure (Large Instances).
 
-The guide is published in five parts. Each part covers one of the following topics:
+The five parts of this guide cover the following topics:
 
 - [Overview and architecture](./sap-hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Infrastructure and connectivity](./sap-hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -143,7 +143,7 @@ The following list provides more detail on each of the layers and your responsib
 
 **Storage:** The virtualized partitioned storage for all volumes needed by the SAP HANA servers, as well as for snapshots.
 
-**Servers:** The dedicated physical servers to run the SAP HANA DBs assigned to tenants **.** They are hardware virtualized.
+**Servers:** The dedicated physical servers to run the SAP HANA DBs assigned to tenants. They are hardware virtualized.
 
 **SDDC:** The management software that is used to manage the data centers as a software defined entity. It allows Microsoft to pool resources for scale, availability and performance reasons.
 
