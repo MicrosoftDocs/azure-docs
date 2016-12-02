@@ -2,7 +2,7 @@
 layout: LandingPage
 ---
 
-#Azure Container Service Documentation
+# Azure Container Service Documentation
 
 Azure Container Service makes it simple for you to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. Container Service uses an optimized configuration of popular open-source scheduling and orchestration tools. This lets you use your existing skills or draw upon a large and growing body of community expertise to deploy and manage container-based applications on Microsoft Azure.
 
@@ -55,7 +55,7 @@ Azure Container Service makes it simple for you to create, configure, and manage
                 <div class="card">
                     <div class="cardText">
                         <h3>Command-Line</h3>
-                        <p><a href="/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute">PowerShell Reference: AzureRM.Compute Module</a></p>
+                        <p><a href="/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute">PowerShell</a></p>
                     </div>
                 </div>
             </div>
@@ -67,7 +67,7 @@ Azure Container Service makes it simple for you to create, configure, and manage
                 <div class="card">
                     <div class="cardText">
                         <h3>Languages</h3>
-                        <p><a href="/dotnet/api/microsoft.azure.management.compute.models">.NET: Microsoft.Azure.Management.Compute.Models Namespace</a></p>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute.models">.NET</a></p>
                    </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@ Azure Container Service makes it simple for you to create, configure, and manage
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/compute/containerservices">Compute REST</a></p>
+                        <p><a href="/rest/api/compute/containerservices">REST API</a></p>
                     </div>
                 </div>
             </div>
