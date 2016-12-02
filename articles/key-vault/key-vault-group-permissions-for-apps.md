@@ -24,8 +24,8 @@ ms.author: ambapat
 Key Vault access control policy only supports 16 entries. However you can create an Azure Active Directory security group. Add all the associated service principals to this security group and then grant access to this security group to Key Vault.
 
 Here are the pre-requisites:
-* Install Azure Active Directory V2 PowerShell module if you haven't already done so. [Follow instructions on this page](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
-* [Install Azure PowerShell](../powershell-install-configure.md)
+* [Install Azure Active Directory V2 PowerShell module](https://www.powershellgallery.com/packages/AzureAD/2.0.0.30).
+* [Install Azure PowerShell](../powershell-install-configure.md).
 * To run the following commands, you need permissions to create/edit groups in the Azure Active Directory tenant. If you don't have permissions, you may need to contact your Azure Active Directory administrator.
 
 Now run following commands in PowerShell.
