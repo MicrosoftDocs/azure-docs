@@ -1,5 +1,5 @@
 ---
-title: Explore Service Fabric patterns and scenarios | Microsoft Docs
+title: Azure Service Fabric patterns and scenarios | Microsoft Docs
 description: Learn best practices and proven, re-usable patterns to design, develop, and operate your microservices on Service Fabric. 
 services: service-fabric
 documentationcenter: .net
