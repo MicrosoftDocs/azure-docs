@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/1/2016
+ms.date: 12/2/2016
 ms.author: hkanna
 ---
 
@@ -89,7 +89,8 @@ Although StorSimple presents two main deployment scenarios (primary and secondar
 
 For more information about StorSimple, see [StorSimple 8000 series: hybrid cloud storage solution](storsimple-overview.md) and review the [technical StorSimple 8000 series specifications](storsimple-technical-specifications-and-compliance.md).
 
-> [!IMPORTANT] StorSimple device as backup target is only supported with StorSimple 8000 Update 3 or later.
+> [!IMPORTANT] 
+> StorSimple device as backup target is only supported with StorSimple 8000 Update 3 or later.
 
 ## Architecture overview
 
@@ -98,7 +99,7 @@ The following tables contain the device model-to-architecture initial guidance.
 #### StorSimple capacities for local and cloud storage
 
 
-|                        | 8100          | 8600            |
+| Storage capacity       | 8100          | 8600            |
 |------------------------|---------------|-----------------|
 | Local storage capacity | &lt; 10 TiB\*  | &lt; 20 TiB\*  |
 | Cloud storage capacity | &gt; 200 TiB\* | &gt; 500 TiB\* |
@@ -490,7 +491,7 @@ The following section illustrates how to create a short script to trigger and de
 
 2.  [Download and import publish Settings and subscription information.](https://msdn.microsoft.com/library/dn385850.aspx)
 
-3.  In the Azure classic portal, get the resource name and [registration key for your StorSimple Manager service](storsimple-deployment-walkthrough.md#step-2:-get-the-service-registration-key).
+3.  In the Azure classic portal, get the resource name and [registration key for your StorSimple Manager service](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 
 4.  On the server that runs the script, run Windows PowerShell as Administrator. Type:
 
