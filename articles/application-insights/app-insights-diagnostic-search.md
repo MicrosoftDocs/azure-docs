@@ -62,8 +62,8 @@ Open the Filter blade and choose the event types you want to see. (If, later, yo
 
 The event types are:
 
-* **Trace** - [Diagnostic logs](app-insights-asp-net-trace-logs.md) including TrackTrace,  log4Net, NLog, and System.Diagnostic.Trace calls.
-* **Request** - HTTP requests received by your server application, including pages, scripts, images, style files and data. These events are used to create the request and response overview charts.
+* **Trace** - [Diagnostic logs](app-insights-asp-net-trace-logs.md) including TrackTrace, log4Net, NLog, and System.Diagnostic.Trace calls.
+* **Request** - HTTP requests received by your server application, including pages, scripts, images, style files, and data. These events are used to create the request and response overview charts.
 * **Page View** - [Telemetry sent by the web client](app-insights-javascript.md), used to create page view reports. 
 * **Custom Event** - If you inserted calls to TrackEvent() in order to [monitor usage](app-insights-api-custom-events-metrics.md), you can search them here.
 * **Exception** - Uncaught [exceptions in the server](app-insights-asp-net-exceptions.md), and those that you log by using TrackException().
@@ -77,12 +77,12 @@ For example, pick out requests with a specific response code.
 
 ![Expand a property and choose a value](./media/app-insights-diagnostic-search/03-response500.png)
 
-Choosing no values of a particular property has the same effect as choosing all values; it switches off filtering on that property.
+Choosing no values of a particular property has the same effect as choosing all values. It switches off filtering on that property.
 
 ### Narrow your search
 Notice that the counts to the right of the filter values show how many occurrences there are in the current filtered set. 
 
-In this example, it's clear that the 'Rpt/Employees' request results in the majority of the 500 errors:
+In this example, it's clear that the 'Rpt/Employees' request results in most of the '500' errors:
 
 ![Expand a property and choose a value](./media/app-insights-diagnostic-search/04-failingReq.png)
 
@@ -126,14 +126,14 @@ Here are the search expressions you can use:
 
 
 ## Sampling
-If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module will automatically reduce the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request will be selected or deselected as a group, so that you can navigate between related events. 
+If your app generates a lot of telemetry (and you are using the ASP.NET SDK version 2.0.0-beta3 or later), the adaptive sampling module automatically reduces the volume that is sent to the portal by sending only a representative fraction of events. However, events that are related to the same request are selected or deselected as a group, so that you can navigate between related events. 
 
 [Learn about sampling](app-insights-sampling.md).
 
 
 
 ## Create work item
-You can create a bug in Visual Studio Team Services with  the details from any telemetry item. 
+You can create a bug in Visual Studio Team Services with the details from any telemetry item. 
 
 ![Click New Work Item, edit the fields, and then click OK.](./media/app-insights-diagnostic-search/42.png)
 
@@ -167,7 +167,7 @@ In addition to the out-of-the-box telemetry sent by Application Insights SDK, yo
 Up to 500 events per second from each application. Events are retained for seven days.
 
 ### How can I see POST data in my server requests?
-We don't log the POST data automatically, but you can use [TrackTrace or log calls](app-insights-search-diagnostic-logs.md). Put the POST data in the message parameter. You can't filter on the message the way you can properties, but the size limit is longer.
+We don't log the POST data automatically, but you can use [TrackTrace or log calls](app-insights-search-diagnostic-logs.md). Put the POST data in the message parameter. You can't filter on the message in the same way you can filter on properties, but the size limit is longer.
 
 ## <a name="add"></a>Next steps
 * [Write complex queries in Analytics](app-insights-analytics-tour.md)
