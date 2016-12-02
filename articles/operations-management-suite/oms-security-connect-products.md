@@ -55,7 +55,6 @@ On the agent machine, the events need to be sent from the syslog daemon to local
 2. Create a new file *security-config-omsagent.conf* and add the following content:
 
 
-	```
 	OMS_facility = local4
 	
 	filter f_local4_oms { facility(local4); };
@@ -63,7 +62,7 @@ On the agent machine, the events need to be sent from the syslog daemon to local
 	destination security_oms { tcp("127.0.0.1" port(25226)); };
 
 	log { source(src); filter(f_local4_oms); destination(security_oms); };
-	```
+	
 
 3. Download the file *security_events.conf* and place at */etc/opt/microsoft/omsagent/conf/omsagent.d/* in the OMS Agent computer.
 4. Type the command below to restart the syslog daemon:
