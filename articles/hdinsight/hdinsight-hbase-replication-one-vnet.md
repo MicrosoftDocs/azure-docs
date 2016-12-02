@@ -59,6 +59,8 @@ Follow the instructions in [HBase tutorial: Get started using Apache HBase with 
 
 ## Enable replication
 
+The following steps show how to call the script action script from the Azure porta. For running script action using Azure PowerShell and Azure CLI, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux).
+
 **To enable HBase replication from the Azure portal**
  
 1. Sign on to the Azure portal. 
@@ -71,12 +73,10 @@ Follow the instructions in [HBase tutorial: Get started using Apache HBase with 
         - Bash Script URL:  https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
         - Select  "Head", and unselect the other node types.
         - Parameters: -m hn1 -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <source cluster ambari password> -dp <destination cluster ambari password> -copydata
+
+        Set the values in the parameters. Detailed explanation of parameters is provided in print_usage() section of following script: [https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh).
  
-Detailed explanation of parameters is provided in print_usage() section of following script:
-https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh
- 
-For running a script action using Azure PowerShell, see []().  For running a script action using Azure CLI, see []().
- 
+After the script action is successfully deployed, you 
 
 ## Next Steps
 In this tutorial, you have learned how to configure HBase replication across two datacenters. To learn more about HDInsight and HBase, see:
