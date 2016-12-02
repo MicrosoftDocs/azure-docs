@@ -9,6 +9,7 @@ editor: monicar
 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
