@@ -27,8 +27,6 @@ The standard Azure metadata section looks like this:
 
 - The element name and attribute names are case sensitive.
 
-- Leave a blank line after each metadata section and before your page title to ensure that the page title is correctly converted to HTML during the publishing process.
-
 ## Attributes and values for the properties section
 
 ![](./media/article-metadata/checkmark-small.png)**title**: Required; important for SEO. The text for this attribute appears in the browser tab and as the title in a search result. Use 55-60 characters including spaces and including the site identifier *| Microsoft Azure* (typed as: space pipe space Microsoft Azure).  The pageTitle should be different from the H1.
