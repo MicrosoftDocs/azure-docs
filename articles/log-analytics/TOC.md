@@ -61,6 +61,10 @@
 ### [Log Search API](log-analytics-log-search-api.md)
 ### [Alert API](log-analytics-api-alerts.md)
 
+# reference
+## [PowerShell](/powershell/azureps-cmdlets-docs)
+
+
 # Resources
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Pricing](https://azure.microsoft.com/pricing/details/log-analytics/)
