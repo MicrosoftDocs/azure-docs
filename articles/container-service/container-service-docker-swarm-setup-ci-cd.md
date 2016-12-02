@@ -27,7 +27,7 @@ This article is based on a simple application, developped with ASP.NET Core and 
 
 You can get the code of the application on [GitHub](https://github.com/jcorioland/MyShop/tree/acs-docs)
 
-The objectives are to deliver this application continuously in a Docker Swarm cluster, using Visual Studio Team Services. The figure below details this continuous delivery pipeline:
+The objectives of this article are to explain how it is possible to deliver this application continuously in a Docker Swarm cluster, using Visual Studio Team Services. The figure below details this continuous delivery pipeline:
 
 ![MyShop sample application](./media/container-service-docker-swarm-setup-ci-cd/full-ci-cd-pipeline.png)
 
