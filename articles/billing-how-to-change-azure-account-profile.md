@@ -29,7 +29,7 @@ The email address in the Account Administrator’s profile is used by Microsoft 
 
 ## Frequently asked questions
 ### Can notifications be sent to a different email address other than the Account Owner email address associated with my account?
-Yes. The email address on the account will get important notifications about all the subscriptions under the account. So we recommend that you specify a contact email address that the Account Administrator checks regularly.
+Yes. The email address on the account gets important notifications about all the subscriptions under the account. So we recommend that you specify a contact email address that the Account Administrator checks regularly.
 
 ### Can I change the Account Administrator email address in my profile?
 Yes. The Account Administrator is the person who set up the Azure account and who receives important email notifications about all the subscriptions under the account. We recommend that you specify a contact email address that the Account Administrator checks regularly.
@@ -41,11 +41,10 @@ No. Updating the profile email address does not update your login email address.
 No. You can update the billing address associated with your credit card by going to the [subscription page](https://account.windowsazure.com/subscriptions) in the Azure Account Center.
 
 ### Why can’t I update the country?
-Because of technical constraints, we cannot change the country on an existing account. However, you can create a new account in the desired country and then contact Azure support to migrate your services to that account.
+Because of technical constraints, we cannot change the country on an existing account. However, you can create an account in the desired country and then contact Azure support to migrate your services to that account.
 
 ### What email address does the Azure Billing Alerts preview feature use?
-If you sign up for the new Azure Billing Alerts preview feature, you will receive Azure Billing Alerts email at the address you specify, regardless of whether you have changed the Account Administrator email address.
-
+You receive alert notifications at the email address you add when you sign up for the alerts. The email address used for the alerts is seperate from the Account Administrator email address.
 
 ## Need help? Contact support.
 If you still need help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to get your issue resolved quickly. 
