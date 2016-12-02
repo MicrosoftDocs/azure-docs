@@ -40,7 +40,7 @@ This section provides general guidance to improve performance when data is copie
 
 * **Cluster** - If you are running data ingestion jobs through an HDInsight cluster (such as for DistCp), we recommend using D-series VMs for the cluster because they contain more memory. Larger numbers of cores will also help to increase throughput.                                                                                                                                                                                                                                                                                                            
 
-* **Concurrency of threads** - If you are using an HDInsight cluster to copy data from a storage container, there are limitations to the parallel number of threads that can be used based on your cluster size, container size, and thread settings. One of the most important ways to get better performance on Data Lake Store is to increase the concurrency. You should tune your settings to get the maximum amount to concurrency to obtain higher throughput. The table below are the settings for each ingestion method that can be configured to achieve more concurrency.
+* **Concurrency of threads** - If you are using an HDInsight cluster to copy data from a storage container, there are limitations to the parallel number of threads that can be used based on your cluster size, container size, and thread settings. One of the most important ways to get better performance on Data Lake Store is to increase the concurrency. You should tune your settings to get the maximum amount to concurrency to obtain higher throughput. The table below are the settings for each ingestion method that can be configured to achieve more concurrency. Follow the links in the table to go to articles that talk about how to use the tool to ingest data into Data Lake Store and also how to performance-tune the tool for maximum throughput.
 
 	| Tool               | Concurrency setting                                                                |
 	|--------------------|------------------------------------------------------------------------------------|
@@ -50,8 +50,6 @@ This section provides general guidance to improve performance when data is copie
 	| [Azure Data Factory](../data-factory/data-factory-azure-datalake-connector.md)| parallelCopies                          |
 	| [Sqoop](data-lake-store-data-transfer-sql-sqoop.md)           | fs.azure.block.size, -m (mapper)        | 
 
-
-	Follow the links in the table above to go to articles that talk about how to use the tool to ingest data into Data Lake Store and also how to performance-tune the tool for maximum throughput.
 
 ## Guidelines while working with data analysis workloads
 
