@@ -81,6 +81,12 @@ We can use `sqlContext` to perform transformations on structured data. The first
         import io
 
         def csvParse(s, dialect='excel', use_unicode=True):
+            """Parse a single line from a CSV file.
+            
+            You can use functools.partial() if you need to change one of the keyword arguments when passing
+            in the function itself,
+            e.g. ``sc.textFile(...).map(functools.partial(csvParse, dialect='excel-tab'))``.
+            """
             if use_unicode:
                 FileLikeIO = io.StringIO
             else:
