@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 11/30/2016
 ms.author: jeedes
 
 ---
@@ -35,7 +35,6 @@ To configure Azure AD integration with Atlassian Cloud, you need the following i
 
 - An Azure AD subscription
 - A Atlassian Cloud single-sign on enabled subscription
-
 
 
 >[!NOTE] 
@@ -98,7 +97,7 @@ To configure and test Azure AD single sign-on with Atlassian Cloud, you need to 
 
 1. **[Configuring Azure AD Single Sign-On](#configuring-azure-ad-single-sign-on)** - to enable your users to use this feature.
 2. **[Creating an Azure AD test user](#creating-an-azure-ad-test-user)** - to test Azure AD single sign-on with Britta Simon.
-3. **[Creating a Atlassian Cloud test user](#creating-a-atlassian-cloud-test-user)** - to have a counterpart of Britta Simon in Atlassian Cloud that is linked to the Azure AD representation of her.
+3. **[Creating an Atlassian Cloud test user](#creating-Atlassian-cloud-test-user)** - to have a counterpart of Britta Simon in Atlassian Cloud that is linked to the Azure AD representation of her.
 4. **[Assigning the Azure AD test user](#assigning-the-azure-ad-test-user)** - to enable Britta Simon to use Azure AD single sign-on.
 5. **[Testing Single Sign-On](#testing-single-sign-on)** - to verify whether the configuration works.
 
@@ -123,7 +122,12 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Atlassian Cloud application using the following pattern: `https://<company name>.predictix.com/sso/request`
 	
-	b. click **Next**
+	b. In the **Identifier** textbox, type the URL with the following pattern: `https://id.atlassian.com/login`
+
+	>[!NOTE] 
+	>You can get the exact value of the **Identifier** from the Atlassian Cloud SAML Configuration screen.
+
+	c. click **Next**
  
 4. On the **Configure single sign-on at Atlassian Cloud** page, perform the following steps:
 
@@ -176,7 +180,9 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	• Copy the SP Identity ID from the SAML screen and paste it in Azure AD as the **Identifier** value
 
-	• Sign On URL is the tenant URL of your Atlassian Cloud 
+	• Sign On URL is the tenant URL of your Atlassian Cloud 	
+
+	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 	
 10. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
@@ -247,7 +253,6 @@ In this section, you create a test user in the classic portal called Britta Simo
 
 ### Creating an Atlassian Cloud test user
 
-![Create Atlassian Cloud User][20]
 
 In this section, you create a user called Britta Simon in Atlassian Cloud. It is important that user should be present in the Atlassian Cloud before doing single sign on. 
 Please login to your Atlassian Cloud instance with administrator rights and perform the following steps.
@@ -284,7 +289,7 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 
 2. In the applications list, select **Atlassian Cloud**.
 
-	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassian-cloud_50.png) 
+	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_50.png) 
 
 3. In the menu on the top, click **Users**.
 
