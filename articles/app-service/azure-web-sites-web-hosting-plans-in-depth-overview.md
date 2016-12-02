@@ -19,9 +19,26 @@ ms.author: byvinyal
 
 ---
 # Azure App Service plans in-depth overview
-An App Service plan represents a set of features and capacity that you can share across multiple apps. Web Apps, Mobile Apps, Function Apps, or API Apps, in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) all run in an App Service plan. These plans support five pricing tiers: *Free*, *Shared*, *Basic*, *Standard*, and *Premium*. Each tier has its own capabilities and capacity. Apps in the same subscription and geographic location can share a plan. All the apps that share a plan can use all the capabilities and features that are defined by the plan's tier. All apps that are associated with a plan run on the resources that the plan defines.
+App Service plans represent the collection of physical resources used to host your apps.
 
-For example, if your plan is configured to use two "small" instances in the standard service tier, all apps that are associated with that plan run on both instances and have access to the standard service tier functionality. Plan instances on which apps are running are fully managed and highly available.
+App Service Plans define:
+
+- Region (West US, East US, etc ...)
+- Scale count (1 instanc, 2 instances, etc ... )
+- Instance size (Small, Medium, Large)
+- SKU (Free, Shared, Basic, Standad, Premium)
+
+Web Apps, Mobile Apps, Function Apps, or API Apps, in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) all run in an App Service plan.  Apps in the same subscription and region and resource group can share an App Service plan. 
+
+All applications assigned to an **App Service Plan** share the resources defined by it allowing you to save cost when hosting multiple apps.
+
+Your **App Service Plan** can scale form **Free** and **Shared** SKUs to **Basic**, **Standard** and **Premium** SKUs giving you access to more resources and features along the way. 
+
+If your App Service Plan is set to **Basic**, **Standard** or **Premium** you can also control the **size** (Small, Medium, Large) and instance count (1-3 for Basic, 1-10 for Standard and 1-20 for Premium) of the VMs.
+
+For example, if your plan is configured to use two "small" instances in the standard service tier, all apps that are associated with that plan run on both instances and have access to the standard service tier functionality. Plan instances on which apps are running are fully managed and highly available. 
+
+The **SKU** and **Scale** of the app service plan will determin the cost and not the number of apps hosted in it.
 
 This article explores the key characteristics, such as tier and scale, of an App Service plan and how they come into play while managing your apps.
 

@@ -51,7 +51,20 @@ App Service offers several *app types*, each of which is intended to host a spec
 The word *app* here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. If your application is composed of a web front end and a RESTful API back end, you could deploy both to a web app or you could deploy your front-end code to a web app and your back-end code to an API app. Your application may be composed of multiple App Service apps of different kinds.
 
 ## App Service Plans
-[App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md) specify the kind of compute resources that your apps run on. If you expect light traffic loads, you can use shared VMs (**Free** and **Shared** pricing tiers). For higher loads, you can choose from several sizes of dedicated VMs (**Basic**, **Standard**, and **Premium** tiers). Multiple App Service apps can share the same plan, and they scale up and down the pricing tiers together in the plan.
+[App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md) represent the collection of physical resources used to host your apps.
+
+App Service Plans define:
+
+- **Region** (West US, East US, etc ...)
+- **Scale count** (1 instanc, 2 instances, etc ... )
+- **Instance size** (Small, Medium, Large)
+- **SKU** (Free, Shared, Basic, Standad, Premium)
+
+All applications assigned to an **App Service Plan** share the resources defined by it allowing you to save cost when hosting multiple apps.
+
+Your **App Service Plan** can scale form **Free** and **Shared** SKUs to **Basic**, **Standard** and **Premium** SKUs giving you access to more resources and features along the way. Once your App Service Plan is set to **Basic** **Standard** or **Premium** you can also control the **size** (Small, Medium, Large) and instance count (1-3 for Basic, 1-10 for Standard and 1-20 for Premium) of the VMs.
+
+The **SKU** and **Scale** of the app service plan will determin the cost and not the number of apps hosted in it. 
 
 If you need more scalability and network isolation, you can run your apps in an [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md).
 
