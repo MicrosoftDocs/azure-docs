@@ -41,7 +41,7 @@ An HDInsight cluster comes with the Distcp utility, which can be used to copy da
 
 1. If you have a Windows cluster, remote into an HDInsight cluster that has access to a Data Lake Store account. For instructions, see [Connect to clusters using RDP](../hdinsight/hdinsight-administer-use-management-portal.md#connect-to-clusters-using-rdp). From the cluster Desktop, open the Hadoop command line.
 
-    If you have a Linux cluster, use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect-to-hdinsight). Run the commands from the SSH prompt.
+    If you have a Linux cluster, use SSH to connect to the cluster. See [Connect to a Linux-based HDInsight cluster](../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md#connect). Run the commands from the SSH prompt.
 2. Verify whether you can access the Azure Storage Blobs (WASB). Run the following command:
 
         hdfs dfs –ls wasb://<container_name>@<storage_account_name>.blob.core.windows.net/
