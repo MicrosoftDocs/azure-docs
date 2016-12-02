@@ -210,7 +210,8 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
 ## TRIM/UNMAP support
 Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. These operations are primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded. Discarding pages can save cost if you create large files and then delete them.
 
->[!NOTE] RAID may not issue discard commands if the chunk size for the array is set to less than the default (512KB). This is because the unmap granularity on the Host is also 512KB. If you modified the array's chunk size via mdadm's `--chunk=` parameter, then TRIM/unmap requests may be ignored by the kernel.
+> [!NOTE]
+> RAID may not issue discard commands if the chunk size for the array is set to less than the default (512KB). This is because the unmap granularity on the Host is also 512KB. If you modified the array's chunk size via mdadm's `--chunk=` parameter, then TRIM/unmap requests may be ignored by the kernel.
 
 There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
 
