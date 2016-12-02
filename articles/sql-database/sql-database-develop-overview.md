@@ -3,7 +3,7 @@ title: SQL Database Develop Overview | Microsoft Docs
 description: Learn about available connectivity libraries and best practices for applications connecting to SQL Database.
 services: sql-database
 documentationcenter: ''
-author: annemill
+author: stevestein
 manager: jhubbard
 editor: genemi
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
-ms.author: annemill
+ms.author: sstein
 
 ---
 # SQL Database Development Overview

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
-ms.author: annemill
+ms.author: sstein
 
 ---
 # Ports beyond 1433 for ADO.NET 4.5 and SQL Database V12
