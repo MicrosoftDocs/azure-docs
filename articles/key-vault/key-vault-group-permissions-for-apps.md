@@ -1,5 +1,5 @@
 ﻿---
-title: Grant permission to many applications to access a key vault | Microsoft Docs
+title: Grant permission to many applications to access an Azure key vault | Microsoft Docs
 description: Learn how to grant permission to many applications to access a key vault
 services: key-vault
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.author: ambapat
 ---
 # Grant permission to many applications to access a key vault
 
-### Q: I have several (over 16) applications that need to access a key vault. Since Key Vault only allows 16 access control entries, how can I achieve that?
+## Q: I have several (over 16) applications that need to access a key vault. Since Key Vault only allows 16 access control entries, how can I achieve that?
 
 Key Vault access control policy only supports 16 entries. However you can create an Azure Active Directory security group. Add all the associated service principals to this security group and then grant access to this security group to Key Vault.
 
@@ -28,10 +28,11 @@ Here are the pre-requisites:
 * [Install Azure PowerShell](../powershell-install-configure.md).
 * To run the following commands, you need permissions to create/edit groups in the Azure Active Directory tenant. If you don't have permissions, you may need to contact your Azure Active Directory administrator.
 
-Now run following commands in PowerShell.
+Now run the following commands in PowerShell.
 
 
-<pre>
+```
+
 # Connect to Azure AD 
 
 Connect-AzureAD 
@@ -51,9 +52,10 @@ Add-AzureADGroupMember –ObjectId $aadGroup.ObjectId -RefObjectId $spn.ObjectId
 Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.ObjectId -PermissionToKeys all –PermissionToSecrets all –PermissionToCertificates all 
  
 # Of course you can adjust the permissions as required 
-</pre>
 
-If you need to grant different set of permissions to a group of applications, create a separate Azure Active Directory security group for such applications.
+```
+
+If you need to grant a different set of permissions to a group of applications, create a separate Azure Active Directory security group for such applications.
 
 ## Next steps
 
