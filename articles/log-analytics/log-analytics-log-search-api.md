@@ -18,7 +18,7 @@ ms.author: banders
 
 ---
 # Log Analytics log search REST API
-This guide provides a basic tutorial describing how you can use the Log Analytics Search REST API in the Operations Management Suite (OMS) and it provides examples that show you how to use the commands. 
+This guide provides a basic tutorial, including examples, of how you can use the Log Analytics Search REST API. Log Analytics is part of the Operations Management Suite (OMS). 
 
 > [!NOTE]
 > Log Analytics was previously called Operational Insights, which is why it is the name used in the resource provider.
@@ -28,7 +28,7 @@ This guide provides a basic tutorial describing how you can use the Log Analytic
 ## Overview of the Log Search REST API
 The Log Analytics Search REST API is RESTful and can be accessed via the Azure Resource Manager API. This article provides examples of accessing the API through [ARMClient](https://github.com/projectkudu/ARMClient), an open source command-line tool that simplifies invoking the Azure Resource Manager API. The use of ARMClient is one of many options to access the Log Analytics Search API. Another option is to use the Azure PowerShell module for OperationalInsights, which includes cmdlets for accessing search. With these tools, you can utilize the Azure Resource Manager API to make calls to OMS workspaces and perform search commands within them. The API outputs search results in JSON format, allowing you to use the search results in many different ways programmatically.
 
-The Azure Resource Manager can be used via a [Library for .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) and the [REST API](https://msdn.microsoft.com/library/azure/mt163658.aspx). To learn more review the linked web pages.
+The Azure Resource Manager can be used via a [Library for .NET](https://msdn.microsoft.com/library/azure/dn910477.aspx) and the [REST API](https://msdn.microsoft.com/library/azure/mt163658.aspx). To learn more, review the linked web pages.
 
 > [!NOTE]
 > If you use an aggregation command such as `|measure count()` or `distinct`, each call to search can return upto 500,000 records. Searches that do not include an aggregation command return upto 5,000 records.
@@ -49,7 +49,7 @@ The Azure Resource Manager can be used via a [Library for .NET](https://msdn.mic
     ```
 
 ### To perform a search using ARMClient
-1. Login to your Microsoft or OrgID account:
+1. Log in using your Microsoft account or your work or school account:
    
     ```
     armclient login
@@ -220,11 +220,11 @@ The following table describes the properties that are available.
 | Id |The unique identifier. |
 | Etag |**Required for Patch**. Updated by server on each write. Value must be equal to the current stored value or ‘*’ to update. 409 returned for old/invalid values. |
 | properties.query |**Required**. The search query. |
-| properties.displayName |**Required**. The user-defined display name of the query. If modeled as an Azure resource, this would be a Tag. |
-| properties.category |**Required**. The user-defined category of the query. If modeled as an Azure resource this would be a Tag. |
+| properties.displayName |**Required**. The user-defined display name of the query. |
+| properties.category |**Required**. The user-defined category of the query. |
 
 > [!NOTE]
-> The Log Analytics search API currently returns user-created saved searches when polled for saved searches in a workspace. The API will not return saved searches provided by solutions.
+> The Log Analytics search API currently returns user-created saved searches when polled for saved searches in a workspace. The API does not return saved searches provided by solutions.
 > 
 > 
 
@@ -252,7 +252,7 @@ The following table describes the properties that are available.
 ```
 
 ### Metadata - JSON only
-Here’s a way to see the fields for all log types for the data collected in your workspace. For example, if you want you know if the Event type has a field named Computer, then this is one way to look up and confirm.
+Here’s a way to see the fields for all log types for the data collected in your workspace. For example, if you want you know if the Event type has a field named Computer, then this query is one way to check.
 
 **Request for Fields:**
 
@@ -381,7 +381,7 @@ armclient get /subscriptions/{Subscription ID}/resourceGroups/{Resource Group Na
 ```
 
 ### Creating or updating a computer group
-To create a new computer group, use the Put method with a unique saved search ID. If you use an existing computer group ID, then that one is modified. When you create a computer group in the Log Analytics portal, then the ID is created from the group and name.
+To create a computer group, use the Put method with a unique saved search ID. If you use an existing computer group ID, then that one is modified. When you create a computer group in the Log Analytics portal, then the ID is created from the group and name.
 
 The query used for the group definition must return a set of computers for the group to function properly.  It's recommended that you end your query with `| Distinct Computer` to ensure the correct data is returned.
 
