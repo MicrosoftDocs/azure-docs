@@ -206,3 +206,31 @@ In this example, we create a single disk partition on /dev/sdc. The new disk par
    
     Please refer to your distribution's documentation on how to properly edit kernel parameters. For example, in many distributions (CentOS, Oracle Linux, SLES 11) these parameters may be added manually to the "`/boot/grub/menu.lst`" file.  On Ubuntu this parameter can be added to the `GRUB_CMDLINE_LINUX_DEFAULT` variable on "/etc/default/grub".
 
+
+## TRIM/UNMAP support
+Some Linux kernels support TRIM/UNMAP operations to discard unused blocks on the disk. These operations are primarily useful in standard storage to inform Azure that deleted pages are no longer valid and can be discarded. Discarding pages can save cost if you create large files and then delete them.
+
+>[AZURE.NOTE] RAID may not issue discard commands if the chunk size for the array is set to less than the default (512KB). This is because the unmap granularity on the Host is also 512KB. If you modified the array's chunk size via mdadm's `--chunk=` parameter, then TRIM/unmap requests may be ignored by the kernel.
+
+There are two ways to enable TRIM support in your Linux VM. As usual, consult your distribution for the recommended approach:
+
+- Use the `discard` mount option in `/etc/fstab`, for example:
+
+    ```bash
+    UUID=aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee  /data  ext4  defaults,discard  0  2
+    ```
+
+- In some cases the `discard` option may have performance implications. Alternatively, you can run the `fstrim` command manually from the command line, or add it to your crontab to run regularly:
+
+    **Ubuntu**
+
+    ```bash
+    # sudo apt-get install util-linux
+    # sudo fstrim /data
+    ```
+
+    **RHEL/CentOS**
+    ```bash
+    # sudo yum install util-linux
+    # sudo fstrim /data
+    ```
