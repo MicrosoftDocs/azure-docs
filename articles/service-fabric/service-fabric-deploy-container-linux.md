@@ -71,6 +71,14 @@ Once the application is built, you can deploy it to the local cluster using the 
     ./uninstall.sh
     ```
 
+## Adding more services to an existing application
+
+To add another container service to an application already created using `yo`, perform the following steps: 
+1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
+2. Run `yo azuresfguest:AddService`
+
+
+
 ## Next steps
 * [Overview of Service Fabric and containers](service-fabric-containers-overview.md)
 * [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)

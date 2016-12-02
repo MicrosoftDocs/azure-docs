@@ -146,6 +146,24 @@ Now, you can start the application upgrade with the following command:
 
 You can now monitor the application upgrade using SFX. In a few minutes, the application would have been updated.  You can also try an updated app with an error and check the auto rollback functionality in service fabric.
 
+## Converting from PFX to PEM and vice versa
+
+You might need to install a certificate in your local machine (with Windows or Linux) to access secure clusters that may be in a different environment. For example, accessing a secured Linux cluster from a Windows machine and vice versa. For this, you may need to convert your certificate from PFX to PEM and vice versa. 
+
+To convert from a PEM file to a PFX file, use the following command:
+
+```bash
+openssl pkcs12 -export -out certificate.pfx -inkey mycert.pem -in mycert.pem -certfile mycert.pem
+```
+
+To convert from a PFX file to a PEM file, use the following command:
+
+```bash
+openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
+```
+
+Refer to [OpenSSL documentation](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html) for details.
+
 ## Troubleshooting
 ### Copying of the application package does not succeed
 Check if `openssh` is installed. By default, Ubuntu Desktop doesn't have it installed. Install it using the following command:
@@ -172,6 +190,8 @@ If the problem still persists, try increasing the number of ssh sessions by exec
  sudo service sshd reload
 ```
 Using keys for ssh authentication (as opposed to passwords) isn't yet supported (since the platform uses ssh to copy packages), so use password authentication instead.
+
+
 
 ## Next steps
 Set up the development environment and deploy a Service Fabric application to a Linux cluster.

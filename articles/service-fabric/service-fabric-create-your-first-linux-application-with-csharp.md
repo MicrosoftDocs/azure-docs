@@ -82,6 +82,17 @@ Actor projects do not do anything on their own. They require another service or 
     ![Finding the primary replica in Service Fabric Explorer][sfx-primary]
 3. Click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This action restarts one of the five nodes in your local cluster forcing a failover to a secondary replica running on another node. As you perform this action, pay attention to the output from the test client and note that the counter continues to increment despite the failover.
 
+
+
+## Adding more services to an existing application
+
+To add another service to an application already created using `yo`, perform the following steps: 
+1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
+2. Run `yo azuresfcsharp:AddService`
+
+
+
+
 ## Next steps
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)

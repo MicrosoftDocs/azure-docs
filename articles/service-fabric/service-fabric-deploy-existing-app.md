@@ -319,6 +319,16 @@ If you browse to the directory by using Server Explorer, you can find the workin
 
 ![Location of log](./media/service-fabric-deploy-existing-app/loglocation.png)
 
+## Creating a guest executable using Yeoman for Service Fabric on Linux
+
+The procedure for creating and deploying a guest executable on Linux is the same as deploying a csharp or java application. 
+
+1. In a terminal, type **yo azuresfguest**.
+2. Name your application.
+3. Choose the type of your first service and name it. Choose **Guest Binary** for a guest executable (and **Guest Container** for a container), and provide the details including path of the executable and the parameters it must be invoked with.
+
+Yeoman would have created an application package with the appropriate application and manifest files along with install and uninstall scripts.
+
 ## Next steps
 In this article, you have learned how to package a guest executable and deploy it to Service Fabric. See the following articles for related information and tasks.
 

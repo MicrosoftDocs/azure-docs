@@ -95,13 +95,22 @@ The Service Fabric plugin is available through Eclipse extensibility.
 3. You are asked to confirm the use of the Service Fabric perspective, which optimizes Eclipse for use with Service Fabric projects. Choose 'Yes'.
 
 ### Deploy the application
-The Service Fabric templates include a set of Gradle tasks for building and deploying applications, which you can trigger through Eclipse.
+The Service Fabric templates include a set of Gradle tasks for building and deploying applications, which you can trigger through Eclipse. 
 
 1. Choose **Run > Run Configurations**.
-2. Expand **Gradle Project** and choose **ServiceFabricDeployer**.
-3. Click **Run**.
+2. Specify **local** or **cloud**. The default setup is **local**. For deploying to a remote cluster, select **cloud**.
+3. Ensure the proper information is populated in the publish profiles, by editing the `local.json` or `cloud.json` as appropriate.
+4. Click **Run**.
 
 Your app will build and deploy within a few moments. You can monitor its status from Service Fabric Explorer.
+
+
+## Adding more services to an existing application
+
+To add another service to an application already created using `yo`, perform the following steps: 
+1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
+2. Run `yo azuresfjava:AddService`
+
 
 ## Next steps
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
