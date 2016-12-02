@@ -69,7 +69,7 @@ Then click **Create Application**.
 
 ![New Application UI--public agent setting](media/dcos/dcos14.png)
 
-Back on the Marathon main page, you can see the deployment status for the container.
+Back on the Marathon main page, you can see the deployment status for the container. Initally you will see a status of **Deploying**. After a successful deployment, the status changes to **Running**.
 
 ![Marathon main page UI--container deployment status](media/dcos/dcos7.png)
 
@@ -82,7 +82,7 @@ You can also see the cluster node that the task is running on.
 ![DC/OS web UI--task cluster node](media/dcos/dcos9.png)
 
 ## Scale your containers
-You can use the Marathon UI to scale the instance count of a container. To do so, navigate to the **Marathon** page, select the container that you want to scale, and click the **Scale** button. In the **Scale Application** dialog box, enter the number of container instances that you want, and select **Scale Application**.
+You can use the Marathon UI to scale the instance count of a container. To do so, navigate to the **Marathon** page, select the container that you want to scale, and click  **Scale Application**. In the **Scale Application** dialog box, enter the number of container instances that you want, and click **Scale Application**.
 
 ![Marathon UI--Scale Application dialog box](media/dcos/dcos10.png)
 
