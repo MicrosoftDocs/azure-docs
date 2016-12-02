@@ -1,9 +1,9 @@
 ---
-title: Azure Container Service container management through the web UI | Microsoft Docs
+title: Manage an Azure Container Service cluster with Marathon UI | Microsoft Docs
 description: Deploy containers to an Azure Container Service cluster service by using the Marathon web UI.
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: dlepow
 manager: timlt
 editor: ''
 tags: acs, azure-container-service
@@ -15,11 +15,11 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/19/2016
+ms.date: 12/02/2016
 ms.author: timlt
 
 ---
-# Container management through the web UI
+# Manage an Azure Container Service DC/OS cluster through the Marathon web UI
 DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
 
 While frameworks are available for many popular workloads, this document will describe how you can create and scale container deployments with Marathon. Before working through these examples, you will need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
@@ -38,11 +38,12 @@ To see the Marathon UI, browse to http://localhost/Marathon. From this screen, y
 ![Marathon UI](media/dcos/dcos3.png)
 
 ## Deploy a Docker-formatted container
-To deploy a new container by using Marathon, click the **Create Application** button, and enter the following information into the form:
+To deploy a new container by using Marathon, click **Create Application**, and enter the following information into the form:
 
 | Field | Value |
 | --- | --- |
 | ID |nginx |
+| Memory | 32 |
 | Image |nginx |
 | Network |Bridged |
 | Host Port |80 |
@@ -63,6 +64,8 @@ If you want to statically map the container port to a port on the agent, you nee
 ![New Application UI--port 80 example](media/dcos/dcos13.png)
 
 The DC/OS cluster is deployed with set of private and public agents. For the cluster to be able to access applications from the Internet, you need to deploy the applications to a public agent. To do so, select the **Optional** tab of the New Application wizard and enter **slave_public** for the **Accepted Resource Roles**.
+
+Then click **Create Application**.
 
 ![New Application UI--public agent setting](media/dcos/dcos14.png)
 
