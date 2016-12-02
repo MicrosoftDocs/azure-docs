@@ -149,13 +149,13 @@ Use the following steps to add a custom claim to support sub-domains.
    ![Edit claim](./media/active-directory-multiple-domains/sub1.png)
 4. Replace the current claim:
    
-     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
+        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, ".+@(?<domain>.+)","http://${domain}/adfs/services/trust/"));
    
-   with
+       with
    
-     c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));
+        c:[Type == "http://schemas.xmlsoap.org/claims/UPN"] => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = regexreplace(c.Value, "^((.*)([.|@]))?(?<domain>[^.]*[.].*)$", "http://${domain}/adfs/services/trust/"));
 
-![Replace claim](./media/active-directory-multiple-domains/sub2.png)
+    ![Replace claim](./media/active-directory-multiple-domains/sub2.png)
 
-1. Click Ok.  Click Apply.  Click Ok.  Close AD FS Management.
+5. Click Ok.  Click Apply.  Click Ok.  Close AD FS Management.
 
