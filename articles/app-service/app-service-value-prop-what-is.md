@@ -37,7 +37,7 @@ Here are some key features and capabilities of App Service:
 * **Global scale with high availability** - Scale [up](../app-service-web/web-sites-scale.md) or [out](../monitoring-and-diagnostics/insights-how-to-scale.md) manually or automatically. Host your apps anywhere in Microsoft's global datacenter infrastructure, and the App Service [SLA](https://azure.microsoft.com/support/legal/sla/app-service/) promises high availability.
 * **Connections to SaaS platforms and on-premises data** - Choose from more than 50 [connectors](../connectors/apis-list.md) for enterprise systems (such as SAP, Siebel, and Oracle), SaaS services (such as Salesforce and Office 365), and internet services (such as Facebook and Twitter). Access on-premises data using [Hybrid Connections](../biztalk-services/integration-hybrid-connection-overview.md) and [Azure Virtual Networks](../app-service-web/web-sites-integrate-with-vnet.md).
 * **Security and compliance** - App Service is [ISO, SOC, and PCI compliant](https://www.microsoft.com/TrustCenter/).
-* **Application templates** - Choose from an extensive list of application templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/) that let you use a wizard to install popular open-source software such as WordPress, Joomla, and Drupal.
+* **Application templates** - Choose from an extensive list of templates in the [Azure Marketplace](https://azure.microsoft.com/marketplace/) that let you use a wizard to install popular open-source software such as WordPress, Joomla, and Drupal.
 * **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, and debugging.
 
 ## App types in App Service
@@ -48,21 +48,28 @@ App Service offers several *app types*, each of which is intended to host a spec
 * [**API Apps**](../app-service-api/app-service-api-apps-why-best-platform.md) - For hosting RESTful APIs.
 * [**Logic Apps**](../app-service-logic/app-service-logic-what-are-logic-apps.md) - For automating business processes and integrating systems and data across clouds without writing code.
 
-The word *app* here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. If your application is composed of a web front end and a RESTful API back end, you could deploy both to a web app or you could deploy your front-end code to a web app and your back-end code to an API app. Your application may be composed of multiple App Service apps of different kinds.
+The word *app* here refers to the hosting resources dedicated to running a workload. Taking “web app” as an example, you’re probably accustomed to thinking of a web app as both the compute resources and application code that together deliver functionality to a browser. But in App Service a *web app* is the compute resources that Azure provides for hosting your application code. 
+
+Your application may be composed of multiple App Service apps of different kinds. For example If your application is composed of a web front end and a RESTful API back end you could:
+
+- Deploy both (front end and api) to a single web app  
+- Deploy your front-end code to a web app and your back-end code to an API app. 
+
+
 
 ## App Service Plans
 [App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md) represent the collection of physical resources used to host your apps.
 
 App Service Plans define:
 
-- **Region** (West US, East US, etc, ...)
-- **Scale count** (one, two, etc, ... )
+- **Region** (West US, East US, etc.)
+- **Scale count** (one, two, three instances, etc. )
 - **Instance size** (Small, Medium, Large)
 - **SKU** (Free, Shared, Basic, Standard, Premium)
 
 All applications assigned to an **App Service Plan** share the resources defined by it allowing you to save cost when hosting multiple apps.
 
-Your **App Service Plan** can scale form **Free** and **Shared** SKUs to **Basic**, **Standard** and **Premium** SKUs giving you access to more resources and features along the way. Once your App Service Plan is set to **Basic** **Standard** or **Premium** you can also control the **size** (Small, Medium, Large) and instance count (1-3 for Basic, 1-10 for Standard and 1-20 for Premium) of the VMs.
+Your **App Service Plan** can scale form **Free** and **Shared** SKUs to **Basic**, **Standard** and **Premium** SKUs giving you access to more resources and features along the way. Once your App Service Plan is set to **Basic** or higher you can also control the **size** (Small, Medium, Large) and instance count (1-3 for Basic, 1-10 for Standard and 1-20 for Premium) of the VMs.
 
 The **SKU** and **Scale** of the app service plan determines the cost and not the number of apps hosted in it. 
 

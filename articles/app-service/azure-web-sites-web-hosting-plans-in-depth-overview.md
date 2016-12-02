@@ -23,10 +23,10 @@ App Service plans represent the collection of physical resources used to host yo
 
 App Service Plans define:
 
-- Region (West US, East US, etc ...)
-- Scale count (one, two, three instances, etc ... )
+- Region (West US, East US, etc.)
+- Scale count (one, two, three instances, etc. )
 - Instance size (Small, Medium, Large)
-- SKU (Free, Shared, Basic, Standad, Premium)
+- SKU (Free, Shared, Basic, Standard, Premium)
 
 Web Apps, Mobile Apps, Function Apps, or API Apps, in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) all run in an App Service plan.  Apps in the same subscription and region and resource group can share an App Service plan. 
 
@@ -34,7 +34,7 @@ All applications assigned to an **App Service Plan** share the resources defined
 
 Your **App Service Plan** can scale form **Free** and **Shared** SKUs to **Basic**, **Standard**, and **Premium** SKUs giving you access to more resources and features along the way. 
 
-If your App Service Plan is set to **Basic**, **Standard** or **Premium** you can also control the **size** (Small, Medium, Large) and instance count (1-3 for Basic, 1-10 for Standard and 1-20 for Premium) of the VMs.
+If your App Service Plan is set to **Basic** SKU or higher you can also control the **size** (Small, Medium, Large) and instance count (1-3 for Basic, 1-10 for Standard and 1-20 for Premium) of the VMs.
 
 For example, if your plan is configured to use two "small" instances in the standard service tier, all apps that are associated with that plan run on both instances and have access to the standard service tier functionality. Plan instances on which apps are running are fully managed and highly available. 
 
@@ -90,7 +90,7 @@ To move an app to another plan, go to the app that you want to move. On the **Se
 
 ![App Service plan selector.][change]
 
-Each plan has its own pricing tier. For example, moving a site from a Free tier to a Standard tier, enables all apps asigned to it to use the features and resources of the Standard tier.
+Each plan has its own pricing tier. For example, moving a site from a Free tier to a Standard tier, enables all apps assigned to it to use the features and resources of the Standard tier.
 
 ## Clone an app to a different App Service plan
 If you want to move the app to a different region, one alternative is app cloning. Cloning makes a copy of your app in a new or existing App Service plan or App Service environment in any region.
