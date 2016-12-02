@@ -90,7 +90,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
                 <div class="cardText">
                     <h3>Command-Line</h3>
                     <p><a href="/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns">PowerShell</a></p>
-                    <p><a href="https://docs.microsoft.com/en-us/cli/azure/network/dns">Azure CLI</a></p>
+                    <p><a href="/cli/azure/network/dns">Azure CLI</a></p>
                 </div>
             </div>
         </div>
@@ -102,8 +102,8 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
             <div class="card">
                 <div class="cardText">
                     <h3>Languages</h3>
-                    <p><a href="https://docs.microsoft.com/en-us/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p>
-                    <p><a href="https://docs.microsoft.com/en-us/java/api/com.microsoft.azure.management.dns">Java</a></p>
+                    <p><a href="/dotnet/api/microsoft.azure.management.dns.models">.NET</a></p>
+                    <p><a href="/java/api/com.microsoft.azure.management.dns">Java</a></p>
                     <p><a href="http://azure.github.io/azure-sdk-for-node/azure-arm-dns/latest/">Node.js</a></p>
                     <p><a href="http://www.rubydoc.info/gems/azure_mgmt_dns/0.8.0">Ruby</a></p>
                     <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-dns.html">Python</a></p>
@@ -118,7 +118,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
             <div class="card">
                 <div class="cardText">
                     <h3>REST</h3>
-                    <p><a href="https://docs.microsoft.com/en-us/rest/api/dns/">DNS REST API Reference</a></p>
+                    <p><a href="/rest/api/dns/">DNS REST API Reference</a></p>
                 </div>
             </div>
         </div>
