@@ -51,17 +51,17 @@ This topic provides answers to some of the most common questions about running [
 
     - Obtain a SQL image from the Azure VM Marketplace and pay the per-minute rate of SQL Server for each VM. Use a SQL Server VM from the gallery.  
     
-    Or  
+   Or  
 
     - Customers with Software Assurance can use [License Mobility](https://azure.microsoft.com/pricing/license-mobility/) to license both the active SQL VM and the passive SQL VM with the Fail-over Rights as described in [Volume Licensing Product Terms](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx). 
 
-    To use License Mobility, do one of the following: 
+   To use License Mobility, do one of the following: 
 
     - Create a BYOL SQL Server VM from the Azure Gallery. The BYOL images are labeled {BYOL} in the Azure Marketplace.  
     - Manually install SQL Server on a Windows VM from the Azure Marketplace. 
     - Manually install SQL Server on-premises and create an image. Then you can upload the image to Azure and create a VM from the uploaded image. 
 
-    Customers who use License Mobility for this purpose must notify Microsoft within 10 days with the License Verification form. To access this form go to http://microsoftvolumelicensing.com, click **Licensing Documents Search** and locate **License Verification** for your language and region.  
+   Customers who use License Mobility for this purpose must notify Microsoft within 10 days with the License Verification form. To access this form go to http://microsoftvolumelicensing.com, click **Licensing Documents Search** and locate **License Verification** for your language and region.  
 
 8. **How are updates and service packs applied on a SQL Server VM?**
    
