@@ -52,8 +52,8 @@ For these items, pull request reviewers provide feedback and instructions for th
 | Images |Images include alt text. [See the image guidance](create-images-markdown.md). |
 | Site/design functionality |The H2 headings, when rendered in the on-page TOC, should ideally wrap to no more than 2 lines. Longer headings make the article TOC harder to scan. |
 | Style conventions |All titles and headings are sentence case, per Azure style. |
-| Process |If the pull request could have easily been reconfigured to benefit from PRmerger automation, pull request reviewers provide feedback to the author about how to use branches so the changes could be merged automatically. See [the PR etiquette article](contributor-guide-pull-request-etiquette.md#in-a-hurry-submit-prs-that-can-be-accepted-automatically). |
-| Process |When you delete or rename an article, make sure you follow the process. Pull request reviewers should add the following comment and link in a comment:<br><br>*Please verify you followed the process in the contributors’ guide for deleting articles: <https://github.com/Azure/azure-docs-pr/blob/master/contributor-guide/retire-or-rename-an-article.md>*
+| Process |If the pull request could have easily been reconfigured to benefit from PRmerger automation, pull request reviewers provide feedback to the author about how to use branches so the changes could be merged automatically. See [the PR etiquette article](contributor-guide-pull-request-etiquette.md). |
+| Process |When you delete or rename an article, make sure you follow the process. Pull request reviewers should add the following comment and link in a comment:<br><br>*Please verify you followed the process in the contributors’ guide for deleting articles: [https://github.com/Azure/azure-docs-pr/blob/master/contributor-guide/retire-or-rename-an-article.md](retire-or-rename-an-article.md)*
 
 ## Related
 * [Pull request etiquette and best practices for Microsoft contributors](contributor-guide-pull-request-etiquette.md)
