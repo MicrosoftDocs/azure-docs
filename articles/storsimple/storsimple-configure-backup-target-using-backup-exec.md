@@ -57,7 +57,7 @@ StorSimple is designed to provide storage to applications that operate on a well
 **StorSimple tiering**
 ![Storsimple tiering diagram](./media/storsimple-configure-backup-target-using-backup-exec/image1.jpg)
 
-With this architecture in mind, you’ll find that StorSimple is ideally suited to operate as a backup target. StorSimple lets you:
+With this architecture in mind, you will find that StorSimple is ideally suited to operate as a backup target. StorSimple lets you:
 
 -   Perform most frequent restores from the local working set of data.
 
@@ -71,7 +71,7 @@ StorSimple uses automatic tiering between the on-premises device, which contains
 
 StorSimple offers the following benefits:
 
--   Unique deduplication and compression algorithms that leverage the cloud to achieve unprecedented deduplication levels
+-   Unique deduplication and compression algorithms that use the cloud to achieve unprecedented deduplication levels
 
 -   High availability
 
@@ -113,13 +113,13 @@ The following tables contain the device model-to-architecture initial guidance.
 
 ## StorSimple as a primary backup target
 
-In this scenario, the StorSimple volumes are presented to the backup application as the sole repository for backups. The following figure illustrates the solution architecture were all the backups use StorSimple tiered volumes for both backups and restores.
+In this scenario, the StorSimple volumes are presented to the backup application as the sole repository for backups. The following figure illustrates the solution architecture where all the backups use StorSimple tiered volumes for both backups and restores.
 
 ![StorSimple as a primary backup target logical diagram](./media/storsimple-configure-backup-target-using-backup-exec/primarybackuptargetlogicaldiagram.png)
 
 ### Primary target backup logical steps
 
-1.  Backup server contacts the target backup agent(s) and backup agents transmit data to backup server.
+1.  Backup server contacts the target backup agent and backup agent transmits data to backup server.
 
 2.  Backup server writes data to StorSimple tiered volumes.
 
@@ -141,7 +141,7 @@ In this scenario, the StorSimple volumes are presented to the backup application
 
 In this scenario, the StorSimple volumes are primarily used for mostly long-term retention or archiving.
 
-The following figure illustrates the architecture where the initial backups and restores target a high-performance volume, and then at a given schedule will be copied and archived to a StorSimple tiered volume.
+The following figure illustrates the architecture where the initial backups and restores target a high-performance volume. These backups are copied and archived to a StorSimple tiered volume at a given schedule.
 
 It is important to size your high-performance volume with ample space and performance to handle the retention policy capacity and performance requirements.
 
@@ -149,9 +149,9 @@ It is important to size your high-performance volume with ample space and perfor
 
 ### Secondary target backup logical steps
 
-1.  Backup server contacts the target backup agent(s) and backup agents transmit data to backup server.
+1.  Backup server contacts the target backup agent and backup agent transmits data to backup server.
 
-2.  Backup server writes data to high performance storage.
+2.  Backup server writes data to high-performance storage.
 
 3.  Backup server updates catalog database and completes the backup job.
 
@@ -175,7 +175,7 @@ The deployment of this solution consists of three steps: preparing the network i
 
 ### Configure the network 
 
-StorSimple as an integrated solution with the Azure cloud requires an active and working connection to the Azure cloud. This connection is used for the various operations such as management, transferring metadata, tiering older and less accessed data to the Azure cloud storage, and cloud snapshots.
+StorSimple as an integrated solution with the Azure cloud requires an active and working connection to the Azure cloud. This connection is used for operations such as cloud snapshots, management, metadata transfer, and to tier older, less accessed data to the Azure cloud storage.
 
 For the solution to perform optimally, we recommend that you adhere to the following networking best practices:
 
@@ -193,7 +193,7 @@ For Veritas Backup Exec installation best practices, go to [Best practices for B
 
 ## Configure the solution
 
-In this section, we will demonstrate some configuration examples. The following examples/recommendations illustrate the most basic and fundamental implementation; these may not apply directly to your specific backup requirements.
+In this section, we demonstrate some configuration examples. The following examples/recommendations illustrate the most basic and fundamental implementation. This implementation may not apply directly to your specific backup requirements.
 
 ### Configure StorSimple as backup target
 
@@ -202,11 +202,11 @@ In this section, we will demonstrate some configuration examples. The following 
 | StorSimple deployment tasks                                                                                                                 | Additional comments                                                                                                                                                                                                                                                                                      |
 |---------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Deploy   your on-premises StorSimple device                                                                                                 | Supported version: Update 3 and   above.                                                                                                                                                                                                                                                                 |
-| Enable backup target mode                                                                                                                   | Using  the following commands to enable/disable and get status (please refer to how  to remote connect to a StorSimple) </br> Enable backup mode:</br> `Set-HCSBackupApplianceMode -enable`</br>  Disable backup mode:</br> `Set-HCSBackupApplianceMode -disable`</br> Current state of backup mode settings</br> `Get-HCSBackupApplianceMode` |
-| Create a common volume container for your volume that will store the backup data.   All data in a volume container will be de-duplicated. | StorSimple volume containers define deduplication domains.                                                                                                                                                                                                                                             |
+| Enable backup target mode                                                                                                                   | Use  the following commands to enable/disable and get status. For more information, go to [connect remotely to a StorSimple](storsimple-remote-connect.md).</br> Enable backup mode:</br> `Set-HCSBackupApplianceMode -enable`</br>  Disable backup mode:</br> `Set-HCSBackupApplianceMode -disable`</br> Current state of backup mode settings</br> `Get-HCSBackupApplianceMode` |
+| Create a common volume container for your volume that stores the backup data.   All data in a volume container is de-duplicated. | StorSimple volume containers define deduplication domains.                                                                                                                                                                                                                                             |
 | Creating StorSimple volumes                                                                                                                 | Create volumes with sizes as close to the anticipated usage as possible as volume size affects cloud snapshot duration time. Properly sizing volumes is discussed in the Retention Policies section.</br> Use StorSimple tiered volumes and check Archival type. </br> Locally pinned volumes only are not supported.        |
 | Create a unique StorSimple backup policy for all the backup target volumes.                                                               | A StorSimple backup policy defines the volume consistency group.                                                                                                                                                                                                                                       |
-| Disable the schedule as the snapshots.                                                                                                    | Snapshots will be triggered as a post-processing operation.                                                                                                                                                                                                                                                         |
+| Disable the schedule as the snapshots.                                                                                                    | Snapshots are triggered as a post-processing operation.                                                                                                                                                                                                                                                         |
 |                                                                                                     |                                             |
 
 #### Host backup server storage configuration
@@ -267,15 +267,15 @@ The following list is a list of basic configuration settings to better integrate
 
 -   Backup data files should only contain data for a specific job. For example, no media appends across different jobs are allowed.
 
--   Veritas Backup Exec job verification should be disabled. If required, verification should be done right after the backup job. It is important to understand that this will affect your backup window.
+-   Veritas Backup Exec job verification should be disabled. If necessary, verification should be done right after the backup job. It is important to understand that this job affects your backup window.
 
 -   In the **Storage > Your disk > Details > Properties**, disable **Pre-allocate disk space**.
 
 ## Retention policies
 
-One of the most used backup retention policies is the Grandfather, Father and Son (GFS). An Incremental backup is performed daily, and full backups are done weekly and monthly. In this case, we would have 6 StorSimple Tiered Volumes.
+One of the most used backup retention policies is the Grandfather, Father, and Son (GFS). An incremental backup is performed daily, and full backups are done weekly and monthly. In this case, we would have 6 StorSimple tiered volumes.
 
--   One volume will contain the weekly, monthly, and yearly full backups.
+-   One volume contains the weekly, monthly, and yearly full backups.
 
 -   The other 5 StorSimple tiered volumes will be used for storing daily incremental backups.
 
@@ -285,7 +285,7 @@ In the example below, we are using a GFS rotation assuming the following:
 
 -   Full backups are 1 TiB
 
--   Daily incremental backups are 500GiB each.
+-   Daily incremental backups are 500 GiB each.
 
 -   4 weekly backups kept for a month
 
@@ -293,7 +293,7 @@ In the example below, we are using a GFS rotation assuming the following:
 
 -   1 yearly backup kept for 10 years
 
-Given the previous assumptions, you will create a 26 TiB StorSimple tiered volume for the monthly and yearly full backups. You will also create a 5 TiB StorSimple tiered volume for each of the incremental daily backups.
+Based on the previous assumptions, create a 26 TiB StorSimple tiered volume for the monthly and yearly full backups. Also, create a 5 TiB StorSimple tiered volume for each of the incremental daily backups.
 
 | Backup type retention | Size TiB | GFS multiplier\*                                       | Total capacity TiB          |
 |-----------------------|----------|--------------------------------------------------------|-----------------------------|
@@ -318,7 +318,7 @@ Given the previous assumptions, you will create a 26 TiB StorSimple tiered volum
 
 1.  Enter a representative name, for example, Saturday Full and an accompanying description. Proceed to the next page.
 
-    ![Veritas Backup Exec management console, Name and description screen](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
+    ![Veritas Backup Exec management console, Name, and description screen](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
 
 1.  Select the appropriate disk and click **Next &gt;**. For instance, we selected D:.
 
@@ -332,7 +332,7 @@ Given the previous assumptions, you will create a 26 TiB StorSimple tiered volum
 
     ![Veritas Backup Exec management console, Storage configuration summary screen](./media/storsimple-configure-backup-target-using-backup-exec/image11.png)
 
-1.  At the end of each assignment, change the storage device settings to match those recommended in the best practices list.
+1.  At the end of each assignment, change the storage device settings to match the recommended settings in the best practices list.
 
     ![Veritas Backup Exec management console, Storage device settings screen](./media/storsimple-configure-backup-target-using-backup-exec/image12.png)
 
@@ -342,11 +342,11 @@ Given the previous assumptions, you will create a 26 TiB StorSimple tiered volum
 
 > [!NOTE] Be aware that if you need to restore data from a backup that has been tiered to the cloud, the restore occurs at cloud speeds.
 
-In the following figure, we illustrate mapping of a typical volume to a backup job. In this case, all the weekly backups map to Saturday Full disk, and the incremental backups map to Monday-Friday Incremental disks. All the backups and restores will happen from a StorSimple tiered volume.
+In the following figure, we illustrate mapping of a typical volume to a backup job. In this case, all the weekly backups map to Saturday Full disk, and the incremental backups map to Monday-Friday Incremental disks. All the backups and restores happen from a StorSimple tiered volume.
 
 ![Primary backup target configuration logical diagram ](./media/storsimple-configure-backup-target-using-backup-exec/primarybackuptargetdiagram.png)
 
-#### StorSimple as a primary backup target Grandfather-Father-Son (GFS) schedule example
+#### StorSimple as a primary backup target Grandfather, Father, and Son (GFS) schedule example
 
 | GFS Rotation Schedule for 4 weeks, Monthly and Yearly |               |             |
 |--------------------------------------------------------------------------|---------------|-------------|
@@ -366,7 +366,7 @@ The following sequence assumes that Backup Exec and the target host are configur
 
 1.  In the Backup Definition Properties window, select **Edit** (under Backup).
 
-    ![Backup Definition Properties Window select Edit](./media/storsimple-configure-backup-target-using-backup-exec/image15.png)
+    ![Backup Definition Properties window select Edit](./media/storsimple-configure-backup-target-using-backup-exec/image15.png)
 
 1.  Configure your full and incremental backups so that they meet your RPO/RTO requirements and conform to the Veritas best practices.
 
@@ -428,7 +428,7 @@ The following table illustrates how the backups should be configured to run on t
 
 ### Assign StorSimple volumes to Backup Exec acrhive/deduplication job
 
-1.  Once the initial backup job is configured to use the RAID volume as the primary backup target, go to Veritas Backup Exec management console. Select the job that you want to archive to a StorSimple volume, right-click and select Backup definition properties. Click **Edit**.
+1.  Once the initial backup job is configured to use the RAID volume as the primary backup target, go to Veritas Backup Exec management console. Select the job that you want to archive to a StorSimple volume, right-click, and select Backup definition properties. Click **Edit**.
 
     ![Backup Exec console, backup definitions properties tab](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 
@@ -452,11 +452,11 @@ The following table illustrates how the backups should be configured to run on t
 
     ![Backup Exec console, backup definitions properties, Duplicate Options](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
-1.  In the Backup column, **add a new stage**. Choose the source as Incremental and the target as StorSimple volume where the incremental backup job is archived. Repeat the above steps.
+1.  In the Backup column, **add a new stage**. Choose the source as Incremental and the target as StorSimple volume where the incremental backup job is archived. Repeat the preceding steps.
 
 ## StorSimple cloud snapshots
 
-StorSimple cloud snapshots protect the data that resides in StorSimple device. This is equivalent to shipping tapes to an offsite facility and if using Azure geo-redundant storage (GRS), as shipping tapes to multiple sites. If a device restore was needed in case of a disaster, you could bring another StorSimple device online and do a failover. Following the failover, you would be able to access the data (at cloud speeds) from the most recent cloud snapshot.
+StorSimple cloud snapshots protect the data that resides in StorSimple device. This is equivalent to shipping tapes to an offsite facility and if using Azure geo-redundant storage (GRS), as shipping tapes to multiple sites. If a device restore was needed in a disaster, you could bring another StorSimple device online and do a failover. Following the failover, you would be able to access the data (at cloud speeds) from the most recent cloud snapshot.
 
 The following section illustrates how to create a short script to trigger and delete StorSimple cloud snapshots during backup post-processing. 
 
@@ -472,13 +472,13 @@ The following section illustrates how to create a short script to trigger and de
 
 #### Requirements:
 
--   The server that will run the script must have access to Azure cloud.
+-   The server that runs the script must have access to Azure cloud.
 
 -   The user account must have the necessary permissions.
 
 -   A StorSimple Backup Policy with the associated StorSimple Volumes configured but not enabled.
 
--   StorSimple Resource Name, Registration Key, Device Name and Backup policy ID.
+-   StorSimple Resource Name, Registration Key, Device Name, and Backup policy ID.
 
 #### Steps:
 
@@ -488,7 +488,7 @@ The following section illustrates how to create a short script to trigger and de
 
 3.  In the Azure classic portal, get the resource name and [registration key for your StorSimple Manager service](storsimple-deployment-walkthrough/#step-2:-get-the-service-registration-key).
 
-4.  On the server that will run the script, run Windows PowerShell as Administrator. Type:
+4.  On the server that runs the script, run Windows PowerShell as Administrator. Type:
 
     -   `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
 
@@ -534,7 +534,7 @@ The following section illustrates how to create a short script to trigger and de
 
     ![Backup Exec console, backup options, Pre/post commands tab](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
-> [!NOTE] We recommend that you run your StorSimple cloud snapshot backup policy at the end of your daily backup job as a post process script. For more information on how to backup and restore your backup application environment to meet your RPO/RTO, consult your backup architect.
+> [!NOTE] We recommend that you run your StorSimple cloud snapshot backup policy at the end of your daily backup job as a post process script. For more information on how to back up and restore your backup application environment to meet your RPO/RTO, consult your backup architect.
 
 ## StorSimple as a restore source
 
@@ -549,7 +549,7 @@ A disaster could occur due to various factors. The following table lists common 
 | Scenario                                                                    | Impact                                             | How to recover                                                                                                                                                                               | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
 |-----------------------------------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | StorSimple device failure.                                                | Backup and restore operations are interrupted. | Replace the failed device and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery/). | If a restore is performed immediately after the device recovery, the full working sets are being retrieved from the cloud to the new device. As a result, all operations are at cloud speeds. Additionally, the index and catalog rescanning could cause all the backup sets to be scanned and pulled from cloud tier to the local tier of the device. This makes it further time-intensive.                                                               |
-| Veritas Backup Exec Server failure.                                       | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [How to do a manual Backup and Restore of Backup Exec (BEDB) database](http://www.veritas.com/docs/000041083).            | The Veritas Backup Exec server will need to be rebuilt or restored at the DR site. The database will need to be restored to the most recent point. If the restored Veritas Backup Exec database is not in sync with your latest backup jobs, indexing and cataloging will be required. This index and catalog rescanning could cause all backup sets to be scanned and pulled from cloud tier to local device tier. This makes it further time-intensive. |
+| Veritas Backup Exec Server failure.                                       | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [How to do a manual Backup and Restore of Backup Exec (BEDB) database](http://www.veritas.com/docs/000041083).            | The Veritas Backup Exec server needs to be rebuilt or restored at the DR site. The database needs to be restored to the most recent point. If the restored Veritas Backup Exec database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning could cause all backup sets to be scanned and pulled from cloud tier to local device tier. This makes it further time-intensive. |
 | Site failure that results in the loss of both Backup server and StorSimple. | Backup and restore operations are interrupted. | Restore StorSimple first and then Veritas Backup Exec.                                                                                                                                   | Restore StorSimple first and then Veritas Backup Exec.                                                                If there is a need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. As a result, all operations are at cloud speed rate.|
 
 ## References
