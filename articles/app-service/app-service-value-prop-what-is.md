@@ -41,7 +41,7 @@ Here are some key features and capabilities of App Service:
 * **Visual Studio integration** - Dedicated tools in Visual Studio streamline the work of creating, deploying, and debugging.
 
 ## App types in App Service
-App Service offers several *app types*, each of which is intended to host a specific kind of workload:
+App Service offers several *app types*, each of which is intended to host a specific workload:
 
 * [**Web Apps**](../app-service-web/app-service-web-overview.md) - For hosting websites and web applications.
 * [**Mobile Apps**](../app-service-mobile/app-service-mobile-value-prop.md) For hosting mobile app back ends.
@@ -55,16 +55,16 @@ The word *app* here refers to the hosting resources dedicated to running a workl
 
 App Service Plans define:
 
-- **Region** (West US, East US, etc ...)
-- **Scale count** (1 instanc, 2 instances, etc ... )
+- **Region** (West US, East US, etc, ...)
+- **Scale count** (one, two, etc, ... )
 - **Instance size** (Small, Medium, Large)
-- **SKU** (Free, Shared, Basic, Standad, Premium)
+- **SKU** (Free, Shared, Basic, Standard, Premium)
 
 All applications assigned to an **App Service Plan** share the resources defined by it allowing you to save cost when hosting multiple apps.
 
 Your **App Service Plan** can scale form **Free** and **Shared** SKUs to **Basic**, **Standard** and **Premium** SKUs giving you access to more resources and features along the way. Once your App Service Plan is set to **Basic** **Standard** or **Premium** you can also control the **size** (Small, Medium, Large) and instance count (1-3 for Basic, 1-10 for Standard and 1-20 for Premium) of the VMs.
 
-The **SKU** and **Scale** of the app service plan will determin the cost and not the number of apps hosted in it. 
+The **SKU** and **Scale** of the app service plan determines the cost and not the number of apps hosted in it. 
 
 If you need more scalability and network isolation, you can run your apps in an [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md).
 
@@ -72,7 +72,7 @@ If you need more scalability and network isolation, you can run your apps in an 
 For information about how much App Service costs, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
 ## Test-drive App Service
-[Create a sample web app, mobile app, or logic app](http://go.microsoft.com/fwlink/?LinkId=523751) and play with it for 1 hour, with no credit card required, no commitments, no hassles.
+[Create a sample web app, mobile app, or logic app](http://go.microsoft.com/fwlink/?LinkId=523751) and play with it for one hour, with no credit card required, no commitments, no hassles.
 
 Or open a [free Azure account](https://azure.microsoft.com/pricing/free-trial/), and try one of our getting-started tutorials:
 
