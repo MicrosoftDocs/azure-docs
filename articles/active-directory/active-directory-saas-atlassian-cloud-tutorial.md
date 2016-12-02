@@ -37,6 +37,7 @@ To configure Azure AD integration with Atlassian Cloud, you need the following i
 - A Atlassian Cloud single-sign on enabled subscription
 
 
+
 >[!NOTE] 
 >To test the steps in this tutorial, we do not recommend using a production environment.
 
