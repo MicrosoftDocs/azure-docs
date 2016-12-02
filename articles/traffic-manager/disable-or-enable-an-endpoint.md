@@ -3,8 +3,8 @@ title: Disable or Enable a Traffic Manager endpoint | Microsoft Docs
 description: This article will help disable or enable your Traffic Manager profile endpoints.
 services: traffic-manager
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: tysonn
 
 ms.assetid: 9b2264ce-be06-43b2-a00b-5c724e5d71fd
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/18/2016
-ms.author: sewhee
+ms.author: kumud
 
 ---
 <!-- repub for nofollow -->

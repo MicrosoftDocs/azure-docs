@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 11/22/2016
 ms.author: carlrab; sashan
 
 ---
@@ -72,7 +72,7 @@ Use the following steps to configure long-term retention using PowerShell.
    
    ```
    New-AzureRmResourceGroup -Name $ResourceGroupName –Location 'WestUS' 
-   $vault = New-AzureRmRecoveryServicesVault -Name <string> -ResouceGroupName $ResourceGroupName -Location 'WestUS' 
+   $vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName $ResourceGroupName -Location 'WestUS' 
    Set-AzureRmRecoveryServicesBackupProperties   -BackupStorageRedundancy LocallyRedundant  -Vault $vault
    ```
 2. Register your Azure SQL Database Server to the vault so databases within the server can have backups stored for long term.
@@ -129,7 +129,7 @@ Use the following steps to restore a database from a backup in the Azure Recover
    
     ``` 
     #the following command finds the backup item associated with the database 'mydb'
-    $item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQL -Name 'mydb' 
+    $item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQLDatabase -Name 'mydb' 
     ```
 3. Find the backup you want to restore from.
    
@@ -183,7 +183,7 @@ To manually remove backups from the vault.
 4. Delete the container associated with ‘myserver’
    
     ```
-    Unregister -AzureRmRecoveryServicesBackupContainer –Container $container $container
+    Unregister-AzureRmRecoveryServicesBackupContainer –Container $container $container
     ```
 
 ## Long-Term Retention FAQ:
