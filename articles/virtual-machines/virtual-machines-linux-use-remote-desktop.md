@@ -76,7 +76,7 @@ azure network nsg rule create --resource-group myResourceGroup \
 ```
 
 ## Install graphical environment on Linux VM
-Most Linux VMs in Azure do not have a graphical environment installed by default. Linux VMs are commonly managed using SSH connections rather than a graphical environment. There are a variety of graphical environments in Linux. Depending on the choice of graphical environment you install, it may consume one to 2 GB of disk space, and take 5 to 10 minutes to install and configure all the required packages.
+Most Linux VMs in Azure do not have a graphical environment installed by default. Linux VMs are commonly managed using SSH connections rather than a graphical environment. There are various graphical environments in Linux that you can choose. Depending on your choice of graphical environment, it may consume one to 2 GB of disk space, and take 5 to 10 minutes to install and configure all the required packages.
 
 The following examples install and configure the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu VM. Commands for other distributions vary slightly (use `yum` to install on Red Hat Enterprise Linux and configure appropriate `selinux` rules, or use `zypper` to install on SUSE, for example).
 
@@ -92,7 +92,7 @@ xrdp is available on most Linux distributions, and works well with xfce. Install
 sudo apt-get install xrdp
 ```
 
-You need to tell xrdp what graphical environment to use when you start your session. Configure xrdp to use xfce as your graphical environment as follows:
+Tell xrdp what graphical environment to use when you start your session. Configure xrdp to use xfce as your graphical environment as follows:
 
 ```bash
 echo xfce4-session >~/.xsession
@@ -106,7 +106,7 @@ sudo service xrdp restart
 
 
 ## Set a local user account password
-If you created a password for your user account when you created your VM, skip this step. If you only use SSH key authentication and do not have a local account password set, you need to specify a password before you can log in to your VM using xrdp. xrdp cannot accept SSH keys for authentication. The following example specifies a password for the user account `ops`:
+If you created a password for your user account when you created your VM, skip this step. If you only use SSH key authentication and do not have a local account password set, specify a password before you use xrdp to log in to your VM. xrdp cannot accept SSH keys for authentication. The following example specifies a password for the user account `ops`:
 
 ```bash
 sudo passwd ops
@@ -117,7 +117,7 @@ sudo passwd ops
 
 
 ## Create a Network Security Group rule for Remote Desktop traffic
-To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). You can also [use the Azure portal to create a network security group rule](virtual-machines-windows-nsg-quickstart-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+To allow Remote Desktop traffic to reach your Linux VM, a network security group rule needs to be created that allows TCP on port 3389 to reach your VM. For more information about network security group rules, see [What is a Network Security Group?](../virtual-network/virtual-networks-nsg?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) You can also [use the Azure portal to create a network security group rule](virtual-machines-windows-nsg-quickstart-portal?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 The following example creates a network security group rule named `myNetworkSecurityGroupRule` to `allow` traffic on `tcp` port `3389`.
 
@@ -147,7 +147,7 @@ Open your Remote Desktop client and connect to the IP address or DNS name of you
 
 ![Connect to xrdp using your Remote Desktop client](./media/virtual-machines-linux-use-remote-desktop/remote-desktop-client.png)
 
-After authenticating, the xfce desktop environment will load and look similar to the following:
+After authenticating, the xfce desktop environment will load and look similar to the following example:
 
 ![xfce desktop environment through xrdp](./media/virtual-machines-linux-use-remote-desktop/xfce-desktop-environment.png)
 
