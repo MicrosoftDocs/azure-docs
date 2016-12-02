@@ -19,12 +19,12 @@ ms.author: daseidma;bwren;dairwin
 ---
 
 # Using Service Map solution in Operations Management Suite (OMS)
-![Alert Management icon](media/oms-service-map/icon.png) Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services.  Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
+![Service Map icon](media/oms-service-map/icon.png) Service Map automatically discovers application components on Windows and Linux systems and maps the communication between services. It allows you to view your servers as you think of them – as interconnected systems that deliver critical services.  Service Map shows connections between servers, processes, and ports across any TCP-connected architecture with no configuration required other than installation of an agent.
 
 This article describes the details of using Service Map.  For information on configuring Service Map and onboarding agents, see [Configuring Service Map solution in Operations Management Suite (OMS)](operations-management-suite-service-map-configure.md)
 
 
-## Use Cases: Make your IT processes dependency aware
+## Use cases: Make your IT processes dependency aware
 
 ### Discovery
 Service Map automatically builds a common reference map of dependencies across your servers, processes, and third-party services.  It discovers and maps all TCP dependencies, identifying surprise connections, remote third-party systems you depend on, and dependencies to traditional dark areas of your network such as DNS and AD.  Service Map discovers failed network connections that your managed systems are attempting to make, helping you identify potential server misconfiguration, service outages, and network issues.
