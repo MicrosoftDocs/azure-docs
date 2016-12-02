@@ -318,12 +318,12 @@ In this step, you create your first pipeline with a **HDInsightHive** activity. 
    ![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 8. When processing is done, you see the slice in **Ready** state.
 
-![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
+   ![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
-> [!IMPORTANT]
-> Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.    
->
->  
+   > [!IMPORTANT]
+   > Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to       take **approximately 30 minutes** to process the slice.
+   >
+   >
 
 9. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
 
