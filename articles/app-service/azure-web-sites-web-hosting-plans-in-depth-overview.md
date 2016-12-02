@@ -24,7 +24,7 @@ App Service plans represent the collection of physical resources used to host yo
 App Service Plans define:
 
 - Region (West US, East US, etc.)
-- Scale count (one, two, three instances, etc. )
+- Scale count (one, two, three instances, etc.)
 - Instance size (Small, Medium, Large)
 - SKU (Free, Shared, Basic, Standard, Premium)
 
@@ -34,9 +34,9 @@ All applications assigned to an **App Service Plan** share the resources defined
 
 Your **App Service Plan** can scale form **Free** and **Shared** SKUs to **Basic**, **Standard**, and **Premium** SKUs giving you access to more resources and features along the way. 
 
-If your App Service Plan is set to **Basic** SKU or higher you can also control the **size** (Small, Medium, Large) and instance count (1-3 for Basic, 1-10 for Standard and 1-20 for Premium) of the VMs.
+If your App Service Plan is set to **Basic** SKU or higher you can control the **size** and scale count of the VMs.
 
-For example, if your plan is configured to use two "small" instances in the standard service tier, all apps that are associated with that plan run on both instances and have access to the standard service tier functionality. Plan instances on which apps are running are fully managed and highly available. 
+For example, if your plan is configured to use two "small" instances in the standard service tier, all apps that are associated with that plan run on both instances. Apps also have access to the standard service tier features. Plan instances on which apps are running are fully managed and highly available. 
 
 The **SKU** and **Scale** of the app service plan determines the cost and not the number of apps hosted in it.
 
@@ -54,15 +54,15 @@ When you have multiple plans in a single resource group, you can also define an 
 ## Create an App Service plan or use existing one
 When you create an app, you should consider creating a resource group. On the other hand, if the app that you are about to create is a component for a larger application, this app should be created within the resource group that's allocated for that larger application.
 
-Whether the new app is an altogether new application or part of a larger one, you can choose to use an existing App Service plan to host it or create a new one. This decision is more a question of capacity and expected load.
+Whether the app is an altogether new application or part of a larger one, you can choose to use an existing plan to host it or create a new one. This decision is more a question of capacity and expected load.
 
-If this new app is going to use many resources and have different scaling factors from the other apps hosted in an existing plan, we recommend that you isolate it in its own plan.
+We recommend isolating your app into a new app service plan when:
 
-When you create a plan, you can allocate a new set of resources for your app and gain greater control over resource allocation because each plan gets its own set of instances.
+- App is resource intensive. 
+- App has different scaling factors from the other apps hosted in an existing plan.
+- App needs resource in a different geographical region.
 
-Because you can move apps across plans, you can change the way that resources are allocated across the bigger application.
-
-Finally, if you want to create an app in a different region, and that region doesn't have an existing plan, create a plan in that region to be able to host your app there.
+This way you can allocate a new set of resources for your app and gain greater control of your apps.
 
 ## Create an App Service plan
 > [!TIP]
@@ -79,7 +79,7 @@ You can then select or create the App Service plan for the new app.
 
  ![Create an App Service plan.][createASP]
 
-To create a App Service plan, click **[+] Create New**, type the **App Service plan** name, and then select an appropriate **Location**. Click **Pricing tier**, and then select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**. After you have selected the pricing tier, click the **Select** button.
+To create an App Service plan, click **[+] Create New**, type the **App Service plan** name, and then select an appropriate **Location**. Click **Pricing tier**, and then select an appropriate pricing tier for the service. Select **View all** to view more pricing options, such as **Free** and **Shared**. After you have selected the pricing tier, click the **Select** button.
 
 ## Move an app to a different App Service plan
 You can move an app to a different app service plan in the [Azure portal](https://portal.azure.com). You can move apps between plans as long as the plans are in the same resource group and geographical region.

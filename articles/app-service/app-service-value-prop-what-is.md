@@ -63,7 +63,7 @@ Your application may be composed of multiple App Service apps of different kinds
 App Service Plans define:
 
 - **Region** (West US, East US, etc.)
-- **Scale count** (one, two, three instances, etc. )
+- **Scale count** (one, two, three instances, etc.)
 - **Instance size** (Small, Medium, Large)
 - **SKU** (Free, Shared, Basic, Standard, Premium)
 
