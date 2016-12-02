@@ -17,7 +17,7 @@ ms.date: 09/21/2016
 ms.author: boltean
 
 ---
-# How to create an IoT hub using the Azure CLI
+# Create an IoT hub using the Azure CLI
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
