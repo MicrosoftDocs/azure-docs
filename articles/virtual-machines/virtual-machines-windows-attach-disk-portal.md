@@ -80,7 +80,7 @@ Continue by following instructions for attaching either a [new disk](#option-1-a
 
 ## Use TRIM with standard storage
 
-If you use standard storage(HDD), you should enable TRIM. TRIM discards unused blocks on the disk so you are only billed for storage that you are actually using. This can save on costs if you create large files and then delete them. 
+If you use standard storage (HDD), you should enable TRIM. TRIM discards unused blocks on the disk so you are only billed for storage that you are actually using. This can save on costs if you create large files and then delete them. 
 
 You can run this command to check the TRIM setting. Open a command prompt on your Windows VM and type:
 
