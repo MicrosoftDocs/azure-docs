@@ -37,6 +37,8 @@ Prerequisites to the exercises in this document:
 
 [Connect with the Swarm cluster in Azure Container Service](container-service-connect.md)
 
+[Create an Azure Container Registry](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-get-started-portal)
+
 ## Headings 
 
 Two ## signs create an H2 heading - if your article needs to be structured with headings below the H1, you need to have at least TWO H2 headings.
