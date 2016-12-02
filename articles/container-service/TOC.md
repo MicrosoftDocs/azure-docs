@@ -20,7 +20,7 @@
 ## [Manage with Kubernetes](container-service-kubernetes-walkthrough.md)
 ## [Manage with Docker Swarm](container-service-docker-swarm.md)
 # Reference
-##[PowerShell}(/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
+## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
 ## [REST API](/rest/api/compute/containerservices)
 # Resources
