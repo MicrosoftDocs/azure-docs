@@ -134,9 +134,6 @@ If you set up a credit card or a debit card as your payment method, the payment 
 ## How do I check the status of a payment made by credit card?
 [Create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to ask for the status of your payment. 
 
-## Where can I learn about consumption and rate plans?
-For more information about consumption and rate plans, see [Microsoft Azure Purchase Options](https://azure.microsoft.com/pricing/purchase-options/).
-
 ## What about Marketplace orders or external service charges?
 External services used to be called Marketplace orders. External Services are provided by independent service vendors, but are integrated within the Azure ecosystem. To learn more, see [Understand your Azure external service charges](../billing-understand-your-azure-marketplace-charges.md).
 
