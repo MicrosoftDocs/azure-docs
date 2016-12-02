@@ -245,8 +245,11 @@ No. Access control via ACLs is always on for a Data Lake Store account.
 ### What permissions are required to recursively delete a folder and its contents?
 * The parent folder must have **Write + Execute**.
 * The folder to be deleted, and every folder within it, requires **Read + Write + Execute**.
+
 > [!NOTE] 
 > Deleting the files in folders does not requires Write on those files. Also, the Root folder "/" can **never** be deleted.
+>
+>
 
 ### Who is set as the owner of a file or folder?
 The creator of a file or folder becomes the owner.
