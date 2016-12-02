@@ -140,47 +140,47 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 5. To get SSO configured for your application, login to the Atlassian Portal using the administrator rights.
 
-6. In the Authentication section of the left navigation click on the Domains.
+6. In the Authentication section of the left navigation click **Domains**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_06.png)
 
-	• Add your domain name and click on the **Add domain** button
+	a. In the textbox, type your domain name, and then click **Add domain**.
 		
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_07.png)
 
-	• To verify the domain click on **Verify** button 
+	b. To verify the domain, click **Verify**. 
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_08.png)
 
-	• Now download the domain verification html file and upload it to the root folder of your domain's website and the click on the **Verify domain** button
+	c. Download the domain verification html file, upload it to the root folder of your domain's website, and then click **Verify domain**.
 	
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_09.png)
 
-	• Once the domain is verified then it shows the status as verified.
+	d. Once the domain is verified, the value of the **Stauts** field is **Verified**.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_10.png)
 
-7. For configuring SAML Click on the SAML button from the left navigation
-
+7. in the left navigation bar, click **SAML**.
+ 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_11.png)
 
 8. Create a new SAML Configuration and add the Identity provider configuration.
 
-	• Copy the Entity ID value from Azure AD and paste it in the Identity Provider Entity ID field.
+	a, Copy the Entity ID value from Azure AD and paste it in the Identity Provider Entity ID field.
 	
-	• Copy the SAML SSO URL and paste it in the Identity Provider SSO URL box
+	b. Copy the SAML SSO URL and paste it in the Identity Provider SSO URL box.
 
-	• Open the downloaded certificate from Azure AD in Notepad and copy the values without the Begin and End lines and paste it in the Public X509 certificate box
+	c. Open the downloaded certificate from Azure AD in Notepad and copy the values without the Begin and End lines and paste it in the Public X509 certificate box.
 	
-	• Save the settings
+	d. Save the settings.
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_12.png)
   
-9. Now update the Azure AD settings to make sure that you have setup the correct Identifier URL
+9. Update the Azure AD settings to make sure that you have setup the correct Identifier URL
 
-	• Copy the SP Identity ID from the SAML screen and paste it in Azure AD as the **Identifier** value
+	a. Copy the SP Identity ID from the SAML screen and paste it in Azure AD as the **Identifier** value.
 
-	• Sign On URL is the tenant URL of your Atlassian Cloud 	
+	b. Sign On URL is the tenant URL of your Atlassian Cloud. 	
 
 	![Configure Single Sign-On](./media/active-directory-saas-atlassian-cloud-tutorial/tutorial_atlassiancloud_13.png)
 	
