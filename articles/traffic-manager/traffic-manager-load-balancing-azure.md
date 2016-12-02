@@ -128,7 +128,7 @@ When you choose a back-end pool, an application gateway that's configured with a
 
 ### Step 3: Add application gateways to the Traffic Manager endpoints
 
-In this scenario, Traffic Manager is connected to application gateways (as configured in the preceding steps) that reside in different regions. Now that the application gateways are configured, the next step is to connect them to our Traffic Manager profile.
+In this scenario, Traffic Manager is connected to application gateways (as configured in the preceding steps) that reside in different regions. Now that the application gateways are configured, the next step is to connect them to your Traffic Manager profile.
 
 1. Open your Traffic Manager profile. To do so, look in your resource group or search for the name of the Traffic Manager profile from **All Resources**.
 2. In the left pane, select **Endpoints**, and then click **Add** to add an endpoint.
@@ -178,7 +178,7 @@ For more information about configuring an internal load balancer, see [Create an
  ![Load Balancer "Add probe" blade](./media/traffic-manager-load-balancing-azure/s4-ilb-add-probe.png)
 
 2. On the **Add probe** blade, enter the name for the probe.
-3. Select the **Protocol** for the probe. For a database, you might want a TCP probe rather than an HTTP probe. To learn more about load balancer probes, refer to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
+3. Select the **Protocol** for the probe. For a database, you might want a TCP probe rather than an HTTP probe. To learn more about load-balancer probes, refer to [Understand load balancer probes](../load-balancer/load-balancer-custom-probe-overview.md).
 4. Enter the **Port** of your database to be used for accessing the probe.
 5. Under **Interval**, specify how frequently to probe the application.
 6. Under **Unhealthy threshold**, specify the number of continuous probe failures that must occur for the back-end VM to be considered unhealthy.
@@ -187,7 +187,7 @@ For more information about configuring an internal load balancer, see [Create an
 #### Configure the load-balancing rules
 
 1. Under **Settings** of your load balancer, select **Load balancing rules**, and then click **Add** to create a rule.
-2. On the **Add load balancing rule** blade, enter the **Name** for the load balancing rule.
+2. On the **Add load balancing rule** blade, enter the **Name** for the load-balancing rule.
 3. Choose the **Frontend IP Address** of the load balancer, **Protocol**, and **Port**.
 4. Under **Backend port**, specify the port to be used in the back-end pool.
 5. Select the **Backend pool** and the **Probe** that were created in the previous steps to apply the rule to.
@@ -198,7 +198,7 @@ For more information about configuring an internal load balancer, see [Create an
 
 ### Step 5: Connect web-tier VMs to the load balancer
 
-Now we configure the IP address and Load Balancer front-end port in the applications that are running on your web-tier VMs for any database connections. This configuration is specific to the applications that run on these VMs. To configure the destination IP address and port, refer to the application documentation. To find the IP address of the front end, in the Azure portal, go to the front-end IP pool on the **Load balancer settings** blade.
+Now we configure the IP address and load-balancer front-end port in the applications that are running on your web-tier VMs for any database connections. This configuration is specific to the applications that run on these VMs. To configure the destination IP address and port, refer to the application documentation. To find the IP address of the front end, in the Azure portal, go to the front-end IP pool on the **Load balancer settings** blade.
 
 ![Load Balancer "Frontend IP pool" navigation pane](./media/traffic-manager-load-balancing-azure/s5-ilb-frontend-ippool.png)
 
