@@ -503,7 +503,7 @@ The following section illustrates how to create a short script to trigger and de
 
     Copy and paste the following code snippet:
 
-        `
+        ````
         Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
         Disable-AzureDataCollection
         $ApplianceName = <myStorSimpleApplianceName>
@@ -533,7 +533,7 @@ The following section illustrates how to create a short script to trigger and de
             }
         }
         
-        `
+        ````
 
 1.  Add the script to your backup job in Veritas Backup Exec, by editing your Veritas Backup Exec job options pre-post commands
 
