@@ -44,7 +44,7 @@ Before you begin this tutorial, you must have the following:
 
 To make it easier to go through this tutorial, we have created an Azure Resource Manager template. Using the template, you create a VNet and two HBase clusters within the VNet. The template is stored in a public Azure Blob container.   Click the following button to open the template in the Azure portal.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-hbase-replication-one-vnet.json" target="_blank"><img src="./media/hdinsight-hbase-replication-one-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-hbase-replication-one-vnet.json" target="_blank"><img src="./media/hdinsight-hbase-replication-one-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 If you prefer to configure the environment using other methods, see:
 
@@ -84,19 +84,19 @@ The following list shows you some general usage cases and their parameter settin
 
 1. **Enable replication on all tables between the two clusters**. This scenario does not require the copy/migration of existing data on the tables, and it does not use Phoenix tables. Use the following parameters:
 
-        -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -m hn0 
+  -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -m hn0 
  
 2. **Enable replication on specific tables**. Use the following parameters to enable replication on table1, table2 and table3:
 
-        -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -m hn0 -t "table1;table2;table3" 
+  -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -m hn0 -t "table1;table2;table3" 
  
 3. **Enable replication on specific tables and copy the existing data**. Use the following parameters to enable replication on table1, table2 and table3:
 
-        -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -m hn0 -t "table1;table2;table3" -copydata
+  -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -m hn0 -t "table1;table2;table3" -copydata
  
 4. **Enable replication on all tables with replicating phoenix metadata from primary to secondary**. Phoenix metadata replication is not perfect and should be enabled with caution. 
 
-        -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -m hn0 -t "table1;table2;table3" -replicate-phoenix-meta  
+  -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -m hn0 -t "table1;table2;table3" -replicate-phoenix-meta  
 
 ## Copy and migrate data
 
@@ -112,7 +112,7 @@ There are two separate script action scripts for copying/migrating data after re
 
 You can follow the same procedure in [Enable replication](#enable-replication) to call the script action with the following parameters:
 
-        -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer>  [-everythingTillNow]
+  -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer>  [-everythingTillNow]
  
 Detailed description of parameters is provided in the print_usage() section of the [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh).
 
@@ -121,10 +121,10 @@ Detailed description of parameters is provided in the print_usage() section of t
 
 1. **Copy specific tables (test1, test2 and test3) for all rows edited till now (current timestamp)**:
  
-        -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow -m hn1
-    or
+    -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow -m hn1
+  or
 
-        --table-list="test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow --machine=hn1
+    --table-list="test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow --machine=hn1
  
  
 2.	**Copy specific tables with specified time range**:
@@ -136,7 +136,7 @@ Detailed description of parameters is provided in the print_usage() section of t
 
 To disable replication, you use another script action script located at https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh. You can follow the same procedure in [Enable replication](#enable-replication) to call the script action with the following parameters:
 
-        -s <src_cluster_dns> -sp <src_ambari_password> <-all|-t "table1;table2;...">  -m hn1
+  -s <src_cluster_dns> -sp <src_ambari_password> <-all|-t "table1;table2;...">  -m hn1
  
 Detailed explanation of parameters is provided in print_usage() section of the [script](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh).
  
@@ -145,14 +145,14 @@ Detailed explanation of parameters is provided in print_usage() section of the [
  
 1. **Disable replication on all tables**:
  
-        -s pri-hbcluster -sp Mypassword\!789 -all -m hn1
-    or
+    -s pri-hbcluster -sp Mypassword\!789 -all -m hn1
+  or
 
-        --src-cluster=pri-hbcluster --dst-cluster=sec-hbcluster --src-ambari-user=admin --src-ambari-password=Hello\!789
+    --src-cluster=pri-hbcluster --dst-cluster=sec-hbcluster --src-ambari-user=admin --src-ambari-password=Hello\!789
  
 2. **Disable replication on specified tables**(table1, table2 and table3):
   
-        -s pri-hbcluster -sp MyPassword\!789 -m hn1 -t "table1;table2;table3"
+    -s pri-hbcluster -sp MyPassword\!789 -m hn1 -t "table1;table2;table3"
  
 ## Next Steps
 
