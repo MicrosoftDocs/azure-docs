@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/30/2016
+ms.date: 12/02/2016
 ms.author: jgao
 
 ---
@@ -42,9 +42,9 @@ Before you begin this tutorial, you must have the following:
 
 ## Create a virtual network with two HBase clusters
 
-To make it easier to go through this tutorial, we have created an Azure Resource Manager template. Using the template, you create a VNet and two HBase clusters within the VNet.  Click the following button to open the template in the Azure portal.
+To make it easier to go through this tutorial, we have created an Azure Resource Manager template. Using the template, you create a VNet and two HBase clusters within the VNet. The template is stored in a public Azure Blob container.   Click the following button to open the template in the Azure portal.
 
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-linux-based-hbase-cluster-in-hdinsight.json" target="_blank"><img src="./media/hdinsight-hbase-replication-one-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-hbase-replication-one-vnet.json" target="_blank"><img src="./media/hdinsight-hbase-replication-one-vnet/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 If you prefer to configure the environment using other methods, see:
 
@@ -59,7 +59,7 @@ Follow the instructions in [HBase tutorial: Get started using Apache HBase with 
 
 ## Enable replication
 
-The following steps show how to call the script action script from the Azure porta. For running script action using Azure PowerShell and Azure CLI, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux).
+The following steps show how to call the script action script from the Azure portal. For running script action using Azure PowerShell and Azure CLI, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux).
 
 **To enable HBase replication from the Azure portal**
  
@@ -72,12 +72,98 @@ The following steps show how to call the script action script from the Azure por
         - Name: “Enable replication”
         - Bash Script URL:  https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
         - Select  "Head", and unselect the other node types.
-        - Parameters: -m hn1 -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <source cluster ambari password> -dp <destination cluster ambari password> -copydata
+        - Parameters: -m hn1 -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -copydata
 
-        Set the values in the parameters. Detailed explanation of parameters is provided in print_usage() section of following script: [https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh).
+        Set the values in the parameters. The parameters used in the sample enables replication and copy all the HBase tables from primary cluster to the secondary cluster. Detailed explanation of parameters is provided in print_usage() section of following script: [https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh).
  
-After the script action is successfully deployed, you 
+After the script action is successfully deployed, you can use SSH to connect to the secondary HBase cluster, and verify the data has been replicated.
 
+### Replication scenarios
+
+The following list shows you some general usage cases and their parameter settings:
+
+1. **Enable replication on all tables between the two clusters**. This scenario does not require the copy/migration of existing data on the tables, and it does not use Phoenix tables. Use the the following parameters:
+
+        -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -m hn0 
+ 
+2. **Enable replication on specific tables. Use the following parameters to enable replication on table1, table2 and table3:
+
+        -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -m hn0 -t "table1;table2;table3" 
+ 
+3. **Enable replication on specific tables and copy the existing data. Use the following parameters to enable replication on table1, table2 and table3:
+
+        -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -m hn0 -t "table1;table2;table3" -copydata
+ 
+4. **Enable replication on all tables with replicating phoenix metadata from primary to secondary. Phoenix metadata replication is not perfect and should be enabled with caution. 
+
+        -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -m hn0 -t "table1;table2;table3" -replicate-phoenix-meta  
+
+## Copy and migrate data
+
+There are two seperate script action scripts for copying/migrating data after replication is enabled:
+
+- For small tables (few GB's in size and overall copy is expected to finish in less than 1 hour):
+
+    https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_copy_table.sh
+ 
+- For large tables (expected to take longer than 1 hour to copy):
+
+    https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/nohup_hdi_copy_table.sh
+
+You can use the same procedure in [Enable replication](#enable-replication) to call the script action with the following parameters:
+
+        -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer>  [-everythingTillNow]
+ 
+Detailed description of parameters is provided in the print_usage() section of the [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh).
+
+
+### Scenarios
+
+1. Copy a given list of tables (test1, test2 and test3) for all rows edited till now (current timestamp):
+ 
+        -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow -m hn1
+    or
+
+        --table-list="test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow --machine=hn1
+ 
+ 
+2.	Copy a given list of tables with specified time range:
+  
+        -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -m hn1
+
+
+## Disable replication
+ 
+1.	Login to Azure portal and go to the primary HBase cluster. 
+ 
+2.	Go to "Scripts Action" --> "+ Submit New" 
+ 
+3.	Name: "Disabling Replication" (Give meaningful description). 
+ 
+4.	URI:  https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh
+ 
+5.	Pick only "Head" node and uncheck other node type.
+ 
+6.	Parameters: 
+-s <src_cluster_dns> -sp <src_ambari_password> <-all|-t "table1;table2;...">  -m hn1
+ 
+Detailed explanation of parameters is provided in print_usage() section of following script:
+https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh
+ 
+
+### Scenarios
+ 
+1.	Disable replication on all tables:
+ 
+        -s pri-hbcluster -sp Mypassword\!789 -all -m hn1
+    or
+
+        --src-cluster=pri-hbcluster --dst-cluster=sec-hbcluster --src-ambari-user=admin --src-ambari-password=Hello\!789
+ 
+2.	Disable replication on specified tables (table1, table2 and table3):
+  
+        -s pri-hbcluster -sp MyPassword\!789 -m hn1 -t "table1;table2;table3"
+ 
 ## Next Steps
 In this tutorial, you have learned how to configure HBase replication across two datacenters. To learn more about HDInsight and HBase, see:
 
