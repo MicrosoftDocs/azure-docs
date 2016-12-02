@@ -183,11 +183,3 @@ To use pscp from [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/downl
 1. [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) - shows you how to deploy, scale, update, and debug containerized applications.
 2. [Kubernetes Userguide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
 3. [Kubernetes Examples](https://github.com/kubernetes/kubernetes/tree/master/examples) - provides a number of examples on how to run real applications with Kubernetes.
-
-## Kubernetes Production Users
-Here are a sampling of production Kubernetes users from recent talks at the Kubernetes Conference (KubeCon)
-
-   * [TicketMaster](https://www.youtube.com/watch?v=PSPNg5AU_II)
-   * [Comcast](https://www.youtube.com/watch?v=lmeFkH-rHII)
-   * [Buffer](https://www.youtube.com/watch?v=EC_ZRLsw58M)
-   * [Concur](https://www.youtube.com/watch?v=eQ9R8prQUHU)
