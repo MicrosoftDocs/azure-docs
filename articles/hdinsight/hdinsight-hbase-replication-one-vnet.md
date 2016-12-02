@@ -16,7 +16,7 @@ ms.date: 12/02/2016
 ms.author: jgao
 
 ---
-# Configure HBase repliction within one virtual network
+# Configure HBase replication within one virtual network
 
 Learn how to configure HBase replication within one virtual network (VNet). Some use cases for cluster replication include:
 
@@ -82,7 +82,7 @@ After the script action is successfully deployed, you can use SSH to connect to 
 
 The following list shows you some general usage cases and their parameter settings:
 
-1. **Enable replication on all tables between the two clusters**. This scenario does not require the copy/migration of existing data on the tables, and it does not use Phoenix tables. Use the the following parameters:
+1. **Enable replication on all tables between the two clusters**. This scenario does not require the copy/migration of existing data on the tables, and it does not use Phoenix tables. Use the following parameters:
 
         -s <primary cluster DNS name> -d <secondary cluster DNS name> -sp <primary cluster ambari password> -dp <secondary cluster ambari password> -m hn0 
  
@@ -100,7 +100,7 @@ The following list shows you some general usage cases and their parameter settin
 
 ## Copy and migrate data
 
-There are two seperate script action scripts for copying/migrating data after replication is enabled:
+There are two separate script action scripts for copying/migrating data after replication is enabled:
 
 - For small tables (few GB's in size and overall copy is expected to finish in less than 1 hour):
 
@@ -110,7 +110,7 @@ There are two seperate script action scripts for copying/migrating data after re
 
     https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/nohup_hdi_copy_table.sh
 
-You can use the same procedure in [Enable replication](#enable-replication) to call the script action with the following parameters:
+You can follow the same procedure in [Enable replication](#enable-replication) to call the script action with the following parameters:
 
         -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer>  [-everythingTillNow]
  
@@ -133,42 +133,31 @@ Detailed description of parameters is provided in the print_usage() section of t
 
 
 ## Disable replication
+
+To disable replication, you use another script action script located at https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh. You can follow the same procedure in [Enable replication](#enable-replication) to call the script action with the following parameters:
+
+        -s <src_cluster_dns> -sp <src_ambari_password> <-all|-t "table1;table2;...">  -m hn1
  
-1.	Login to Azure portal and go to the primary HBase cluster. 
- 
-2.	Go to "Scripts Action" --> "+ Submit New" 
- 
-3.	Name: "Disabling Replication" (Give meaningful description). 
- 
-4.	URI:  https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh
- 
-5.	Pick only "Head" node and uncheck other node type.
- 
-6.	Parameters: 
--s <src_cluster_dns> -sp <src_ambari_password> <-all|-t "table1;table2;...">  -m hn1
- 
-Detailed explanation of parameters is provided in print_usage() section of following script:
-https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh
+Detailed explanation of parameters is provided in print_usage() section of the [script](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh).
  
 
 ### Scenarios
  
-1.	Disable replication on all tables:
+1. Disable replication on all tables:
  
         -s pri-hbcluster -sp Mypassword\!789 -all -m hn1
     or
 
         --src-cluster=pri-hbcluster --dst-cluster=sec-hbcluster --src-ambari-user=admin --src-ambari-password=Hello\!789
  
-2.	Disable replication on specified tables (table1, table2 and table3):
+2. Disable replication on specified tables (table1, table2 and table3):
   
         -s pri-hbcluster -sp MyPassword\!789 -m hn1 -t "table1;table2;table3"
  
 ## Next Steps
+
 In this tutorial, you have learned how to configure HBase replication across two datacenters. To learn more about HDInsight and HBase, see:
 
-* [HDInsight service page](https://azure.microsoft.com/services/hdinsight/)
-* [HDInsight documentation](https://azure.microsoft.com/documentation/services/hdinsight/)
 * [Get started with Apache HBase in HDInsight][hdinsight-hbase-get-started]
 * [HDInsight HBase overview][hdinsight-hbase-overview]
 * [Provision HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet]
@@ -182,11 +171,9 @@ In this tutorial, you have learned how to configure HBase replication across two
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png
 
 [powershell-install]: powershell-install-configure.md
-[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started.md
+[hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-provision-clusters.md
-[hdinsight-hbase-replication-vnet]: hdinsight-hbase-geo-replication-configure-vnets.md
-[hdinsight-hbase-replication-dns]: hdinsight-hbase-geo-replication-configure-dns.md
 [hdinsight-hbase-twitter-sentiment]: hdinsight-hbase-analyze-twitter-sentiment.md
 [hdinsight-sensor-data]: hdinsight-storm-sensor-data-analysis.md
 [hdinsight-hbase-overview]: hdinsight-hbase-overview.md
