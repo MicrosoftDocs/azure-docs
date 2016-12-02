@@ -20,3 +20,5 @@ ms.author: v-livech
 ---
 
 # Copy files to a Linux VM using SCP
+
+This article shows how to copy files from your workstation up to an Azure Linux VM, or from the Azure Linux VM down to your workstation, using SCP.  
