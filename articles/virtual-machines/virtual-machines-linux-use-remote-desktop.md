@@ -189,7 +189,7 @@ Review logs in `/var/log` on your Linux VM for indications as to why the service
 tail -f /var/log/syslog
 ```
 
-If you do not receive any response in your remote desktop client and do not see any events in the system logs, that indicates remote desktop traffic cannot reach the VM. Review you network security group rules to ensure that you have a rule to permit TCP on port 3389. For more information, see [Troubleshoot application connectivity issues](virtual-machines-linux-troubleshoot-app-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you do not receive any response in your remote desktop client and do not see any events in the system log, that indicates remote desktop traffic cannot reach the VM. Review you network security group rules to ensure that you have a rule to permit TCP on port 3389. For more information, see [Troubleshoot application connectivity issues](virtual-machines-linux-troubleshoot-app-connection?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 
 ## Next steps
