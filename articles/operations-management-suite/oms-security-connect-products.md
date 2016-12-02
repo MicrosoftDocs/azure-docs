@@ -26,9 +26,9 @@ This document helps you connect your security products into the OMS Security and
 
 
 ## What is CEF?
-Common Event Format (CEF) is an industry standard format on top of Syslog messages, used by many security vendors to allow event interoperability among different platforms. OMS Security and Audit Solution supports data ingestion using CEF, which enables you to connect your security products with OMS Security. 
+Common Event Format (CEF) is an industry standard format on top of Syslog messages, used by many security vendors to allow event interoperability among different platforms. OMS Security and Audit Solution support data ingestion using CEF, which enables you to connect your security products with OMS Security. 
 
-By connecting your data source to OMS, you will be able to take advantage of the following capabilities that are part of this platform:
+By connecting your data source to OMS, you are able to take advantage of the following capabilities that are part of this platform:
 
 - Search & Correlation
 - Auditing
@@ -38,7 +38,7 @@ By connecting your data source to OMS, you will be able to take advantage of the
 
 ## Collection of security solution logs
 
-OMS Security supports collection of logs using CEF over Syslogs and [Cisco ASA](https://blogs.technet.microsoft.com/msoms/2016/08/25/add-your-cisco-asa-logs-to-oms-security/) logs. For the purpose of this example, the source (computer that generates the logs) is a Linux computer running syslog-ng daemon and the target is OMS Security. To prepare the Linux computer you will need to perform the following tasks:
+OMS Security supports collection of logs using CEF over Syslogs and [Cisco ASA](https://blogs.technet.microsoft.com/msoms/2016/08/25/add-your-cisco-asa-logs-to-oms-security/) logs. In this example, the source (computer that generates the logs) is a Linux computer running syslog-ng daemon and the target is OMS Security. To prepare the Linux computer you will need to perform the following tasks:
 
 
 - Download the OMS Agent for Linux, version 1.2.0-25 or above.
@@ -57,17 +57,11 @@ On the agent machine, the events need to be sent from the syslog daemon to local
 
 	```
 	OMS_facility = local4
-	```
-
-	```
+	
 	filter f_local4_oms { facility(local4); };
-	```
 
-	```
 	destination security_oms { tcp("127.0.0.1" port(25226)); };
-	```
 
-	```
 	log { source(src); filter(f_local4_oms); destination(security_oms); };
 	```
 
@@ -107,14 +101,14 @@ On the agent machine, the events need to be sent from the syslog daemon to local
 
 ## Reviewing collected security events
 
-After the configuration is over, the security event will start to be ingested by OMS Security. To visualize those events, open the Log Search, type the command *Type=CommonSecurityLog* in the search field and press ENTER. The following example show the result of this command, notice that in this case OMS Security already ingested security logs from multiple vendors:
+After the configuration is over, the security event will start to be ingested by OMS Security. To visualize those events, open the Log Search, type the command *Type=CommonSecurityLog* in the search field and press ENTER. The following example shows the result of this command, notice that in this case OMS Security already ingested security logs from multiple vendors:
    
 ![OMS Security and Audit Baseline Assessment](./media/oms-security-connect-products/oms-security-connect-products-fig1.png)
 
 You can refine this search for one single vendor, for example, to visualize online Cisco logs, type: *Type=CommonSecurityLog DeviceVendor=Cisco*. The “CommonSecurityLog” has predefined fields for any CEF header including the basic extensios, while any other extension whether it’s “Custom Extension” or not, will be inserted into "AdditionalExtensions" field. You can use the Custom Fields feature to get dedicated fields from it. 
 
 ### Accessing computers missing baseline assessment
-OMS supports the domain member baseline profile on Windows Server 2008 R2 up to Windows Server 2012 R2. Windows Server 2016 baseline isn’t final yet and will be added as soon as it is published. All other operating systems scanned via OMS Security and Audit baseline assessment appears under the **Computers missing baseline assessment** section.
+OMS supports the domain member baseline profile on Windows Server 2008 R2 up to Windows Server 2012 R2. Windows Server 2016 baseline isn’t final yet and will be added as soon as it is published. All other operating systems scanned via OMS Security and Audit baseline assessment appear under the **Computers missing baseline assessment** section.
 
 ## See also
 In this document, you learned how to connect your CEF solution to OMS. To learn more about OMS Security, see the following articles:
