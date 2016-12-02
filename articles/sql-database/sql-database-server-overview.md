@@ -9,9 +9,9 @@ editor: ''
 
 ms.assetid: 
 ms.service: sql-database
-ms.custom: servers and databases
+ms.custom: overview
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
