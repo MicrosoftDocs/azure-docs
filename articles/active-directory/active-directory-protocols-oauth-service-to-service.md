@@ -18,7 +18,7 @@ ms.author: priyamo
 
 ---
 # Service to service calls using client credentials
-The OAuth 2.0 Client Credentials Grant Flow permits a web service (a *confidential client*) to use its own credentials to authenticate when calling another web service, instead of impersonating a user. In this scenario, the client is typically a middle-tier web service, a daemon service, or web site.
+The OAuth 2.0 Client Credentials Grant Flow permits a web service (a **confidential client**) to use its own credentials to authenticate when calling another web service, instead of impersonating a user. In this scenario, the client is typically a middle-tier web service, a daemon service, or web site.
 
 ## Client credentials grant flow diagram
 The following diagram explains how the client credentials grant flow works in Azure Active Directory (Azure AD).

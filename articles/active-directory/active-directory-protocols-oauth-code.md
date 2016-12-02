@@ -18,7 +18,7 @@ ms.author: priyamo
 
 ---
 # Authorize access to web applications using OAuth 2.0 and Azure Active Directory
-Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
+Azure Active Directory (Azure AD) uses OAuth 2.0 to enable you to authorize access to web applications and web APIs in your Azure AD tenant. This guide is language-independent, and describes how to send and receive HTTP messages without using any of our open-source libraries.
 
 The OAuth 2.0 authorization code flow is described in [section 4.1 of the OAuth 2.0 specification](https://tools.ietf.org/html/rfc6749#section-4.1) . It is used to perform authentication and authorization in the majority of app types, including web apps and natively installed apps.
 
@@ -59,8 +59,8 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 > [!NOTE]
 > If the user is part of an organization, an administrator of the organization can consent or decline on the user's behalf, or permit the user to consent. The user is given the option to consent only when the administrator permits it.
-> 
-> 
+>
+>
 
 At this point, the user will be asked to enter their credentials and consent to the permissions indicated in the `scope` query parameter. Once the user authenticates and grants consent, Azure AD sends a response to your app at the `redirect_uri` address in your request.
 
@@ -372,4 +372,3 @@ A sample error response could look like this:
 | correlation_id |A unique identifier for the request that can help in diagnostics across components. |
 
 For a description of the error codes and the recommended client action, please see [Error codes for token endpoint errors](#error-codes-for-token-endpoint-errors).
-

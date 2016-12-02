@@ -18,7 +18,7 @@ ms.author: priyamo
 
 ---
 # Authorize access to web applications using OpenID Connect and Azure Active Directory
-[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is a simple identity layer built on top of the OAuth 2.0 protocol. OAuth 2.0 defines mechanisms to obtain and use **access tokens** to access protected resources, but they do not define standard methods to provide identity information. OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process, providing information about the end user in the form of an `id_token` that verifies the identity of the user as well as provides basic profile information about the user.
+[OpenID Connect](http://openid.net/specs/openid-connect-core-1_0.html) is a simple identity layer built on top of the OAuth 2.0 protocol. OAuth 2.0 defines mechanisms to obtain and use **access tokens** to access protected resources, but it does not define standard methods to provide identity information. OpenID Connect implements authentication as an extension to the OAuth 2.0 authorization process, providing information about the end user in the form of an `id_token` that verifies the identity of the user as well as provides basic profile information about the user.
 
 OpenID Connect is our recommendation if you are building a web application that is hosted on a server and accessed via a browser.
 
