@@ -39,7 +39,9 @@ The objectives of this article are to explain how it is possible to deliver this
 7. Docker Swarm on ACS pull the latest version of the image 
 8. The new version of the application is deployed using docker-compose 
 
-Prerequisites to the exercises in this document:
+## Prerequisites
+
+Before starting this tutorial, you will need to:
 
 - [Create a Swarm cluster in Azure Container Service](container-service-deployment.md)
 - [Connect with the Swarm cluster in Azure Container Service](container-service-connect.md)
