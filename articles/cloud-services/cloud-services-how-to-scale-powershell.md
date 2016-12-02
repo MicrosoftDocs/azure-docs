@@ -53,7 +53,7 @@ You should get back information about the role, including its current OS version
 
 ![Information about the role](./media/cloud-services-how-to-scale-powershell/get-azure-role.png)
 
-## Scale the role out by adding more instances
+## Scale out the role by adding more instances
 
 To scale out your role, pass the desired number of instances as the **Count** parameter to the **Set-AzureRole** cmdlet:
 
@@ -69,7 +69,7 @@ Once the new instances have started, the cmdlet will return successfully:
 
 ![Role instance increase success](./media/cloud-services-how-to-scale-powershell/set-azure-role-success.png)
 
-## Scale the role down by removing instances
+## Scale in the role by removing instances
 
 You can scale in a role by removing instances in the same way. Set the **Count** parameter on **Set-AzureRole** to the number of instances you want to have after the scale in operation is complete.
 
