@@ -1,5 +1,5 @@
 ---
-title: Use external python packages with Jupyter notebooks in Apache Spark clusters on HDInsight | Microsoft Docs
+title: Use external python packages with Jupyter notebooks in Apache Spark clusters on Azure HDInsight | Microsoft Docs
 description: Step-by-step instructions on how to configure Jupyter notebooks available with HDInsight Spark clusters to use external python packages.
 services: hdinsight
 documentationcenter: ''
