@@ -20,13 +20,13 @@ ms.author: jucoriol
 
 # Full CI/CD pipeline to deploy a multi-container application on Azure Container Service with Docker Swarm using Visual Studio Team Services
 
-One of the biggest challenge when developping modern applications in the cloud is to be able to deliver these applications continuously. In this documentation you will learn how to implement a full CI/CD pipeline using Azure Container Service with Docker Swarm, an Azure Container Registry and Visual Studio Team Services Build & Release Management.
+One of the biggest challenge when developping modern applications for the cloud is being able to deliver these applications continuously. In this article you will learn how to implement a full CI/CD pipeline using Azure Container Service with Docker Swarm, an Azure Container Registry and Visual Studio Team Services Build & Release Management.
 
 This article is based on a simple application, available on [GitHub](https://github.com/jcorioland/MyShop/tree/acs-docs), and developped with ASP.NET Core. The application is composed by 4 different services, three web APIs and one web front:
 
 ![MyShop sample application](./media/container-service-docker-swarm-setup-ci-cd/myshop-application.png)
 
-The objectives of this article are to explain how it is possible to deliver this application continuously in a Docker Swarm cluster, using Visual Studio Team Services. The figure below details this continuous delivery pipeline:
+The objectives are to details how to deliver this application continuously in a Docker Swarm cluster, using Visual Studio Team Services. The figure below details this continuous delivery pipeline:
 
 ![MyShop sample application](./media/container-service-docker-swarm-setup-ci-cd/full-ci-cd-pipeline.png)
 
