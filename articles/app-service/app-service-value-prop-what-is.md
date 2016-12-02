@@ -69,7 +69,7 @@ App Service Plans define:
 
 All applications assigned to an **App Service Plan** share the resources defined by it allowing you to save cost when hosting multiple apps.
 
-Your **App Service Plan** can scale form **Free** and **Shared** SKUs to **Basic**, **Standard** and **Premium** SKUs giving you access to more resources and features along the way. Once your App Service Plan is set to **Basic** or higher you can also control the **size** (Small, Medium, Large) and instance count (1-3 for Basic, 1-10 for Standard and 1-20 for Premium) of the VMs.
+Your **App Service Plan** can scale form **Free** and **Shared** SKUs to **Basic**, **Standard**, and **Premium** SKUs giving you access to more resources and features along the way. Once your App Service Plan is set to **Basic** or higher you can also control the **size** and scale count of the VMs.
 
 The **SKU** and **Scale** of the app service plan determines the cost and not the number of apps hosted in it. 
 
