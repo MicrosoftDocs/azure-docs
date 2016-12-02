@@ -1,6 +1,6 @@
 ---
-title: Get started with the IoT Hub Gateway SDK | Microsoft Docs
-description: Azure IoT Gateway SDK walkthrough using Windows to illustrate key concepts you should understand when you use the Azure IoT Gateway SDK.
+title: Get started with the Azure IoT Gateway SDK (Windows) | Microsoft Docs
+description: How to build a gateway on a Windows machine and learn about key concepts in the Azure IoT Gateway SDK such as modules and JSON configuration files.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -17,7 +17,7 @@ ms.date: 11/16/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK - Get started using Windows
+# Get started with the Azure IoT Gateway SDK (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## How to build the sample
@@ -31,7 +31,7 @@ Before you get started, you must [set up your development environment][lnk-setup
 1. The **build.cmd** script creates a folder called **build** in your local copy of the repository. This folder contains the two modules used in this sample.
    
     The build script places **logger.dll** in the **build\\modules\\logger\\Debug** folder and **hello_world.dll** in the **build\\modules\\hello_world\\Debug** folder. Use these paths for the **module path** value as shown in the following JSON settings file.
-2. The hello_world_sample process takes the path to a JSON configuration file as an argument in the command line. The following example JSON file has been provided as part of the repo at **azure-iot-gateway-sdk\samples\hello_world\src\hello_world_win.json**. It works as is unless you have modified the build script to place modules or sample executables in non-default locations. 
+2. The hello_world_sample process takes the path to a JSON configuration file as an argument in the command-line. The following example JSON file has been provided as part of the repo at **azure-iot-gateway-sdk\samples\hello_world\src\hello_world_win.json**. It works as is unless you have modified the build script to place modules or sample executables in non-default locations. 
 
    > [!NOTE]
    > The module paths are relative to the directory where the hello_world_sample.exe is located. The sample JSON configuration file defaults to writing 'log.txt' in your current working directory.

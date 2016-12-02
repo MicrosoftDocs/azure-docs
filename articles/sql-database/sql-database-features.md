@@ -23,7 +23,7 @@ This topic provides an overview of the Azure SQL Database logical servers and da
 ## What is an Azure SQL Database logical server?
 An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. For more information about Azure SQL logical servers, see [Logical servers](sql-database-server-overview.md). 
 
-## What is Azure SQL database?
+## What is an Azure SQL database?
 Each database in Azure SQL Database is associated with a logical server. The database can be:
 
 - A single database with its [own set of resources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTUs)
@@ -65,7 +65,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | Change tracking | [Supported](https://msdn.microsoft.com/library/bb933875.aspx) | [Supported](https://msdn.microsoft.com/library/bb933875.aspx) |
 | Collation statements | [Supported](https://msdn.microsoft.com/library/ff848763.aspx) | [Supported](https://msdn.microsoft.com/library/ff848763.aspx) |
 | Columnstore indexes | [Supported](https://msdn.microsoft.com/library/gg492088.aspx) | [Premium edition only](https://msdn.microsoft.com/library/gg492088.aspx) |
-| Common language runtime (CLR) | [Supported](https://msdn.microsoft.com/library/ms131102.aspx) | [Supported](https://msdn.microsoft.com/library/ms131102.aspx) |
+| Common language runtime (CLR) | [Supported](https://msdn.microsoft.com/library/ms131102.aspx) | Not supported |
 | Contained databases | [Supported](https://msdn.microsoft.com/library/ff929071.aspx) | Built-in |
 | Contained users | [Supported](https://msdn.microsoft.com/library/ff929188.aspx) | [Supported](sql-database-manage-logins.md#non-administrator-users) |
 | Control of flow language keywords | [Supported](https://msdn.microsoft.com/library/ms174290.aspx) | [Supported](https://msdn.microsoft.com/library/ms174290.aspx) |

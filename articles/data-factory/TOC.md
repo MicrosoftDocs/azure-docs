@@ -88,6 +88,7 @@
 ## [REST](/rest/api/datafactory/)
 
 # Resources
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [Case Studies](data-factory-customer-case-studies.md)
 ### [Product Recommendations](data-factory-product-reco-usecase.md)
 ### [Customer Profiling](data-factory-customer-profiling-usecase.md)
