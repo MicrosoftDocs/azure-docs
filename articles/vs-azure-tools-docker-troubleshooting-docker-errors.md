@@ -21,13 +21,13 @@ ms.author: mlearned
 # Troubleshoot Visual Studio Docker development
 
 When working with Visual Studio Tools for Docker Preview, you may encounter some problems due to the preview nature.
-The following are some common issues and resolutions.  
+Following are some common issues and resolutions.  
 
 ## Visual Studio 2017 RC
 
 ### **Linux containers**
 
-###  Build errors occur when debugging a .NET Core web or console application.  
+####  Build errors occur when debugging a .NET Core web or console application.  
 
 This could be related to not sharing the drive where the project resides with Docker For Windows.  You may receive an error like the following:
 
@@ -46,19 +46,19 @@ To resolve this issue:
 
 The following issues are specific to debugging .NET Framework web and console applications in windows containers
 
-### Prerequisites
+#### Prerequisites
 
 1. Visual Studio 2017 RC (or later) with the .NET Core and Docker Preview workload installed.
 2. Windows 10 Anniversary Update with the latest Windows Update patches installed.
 3. [Docker for Windows (Beta)](https://docs.docker.com/docker-for-windows/)--(Version 1.12.2-beta28 7813 or later).
 4. In the notification area, click Docker for Windows, and then select **Switch to Windows containers**. After the machine restarts, ensure that this setting is retained.
 
-### Console output does not appear in Visual Studio's output window while debugging a console application
+#### Console output does not appear in Visual Studio's output window while debugging a console application
 
 This is a known issue with the Visual Studio debugger (msvsmon.exe), which is currently not designed for this scenario.  We are looking into providing support for this in
 a future release.  To see output from the console application in Visual Studio, use **Docker: Start Project**, which is equivalent to **Start without Debugging**.
 
-### Debugging web applications with the release configuration fails with (403) Forbidden error.
+#### Debugging web applications with the release configuration fails with (403) Forbidden error.
 
 To work around this issue, open web.release.config in the solution and comment out or delete the following lines:
 
@@ -66,7 +66,7 @@ To work around this issue, open web.release.config in the solution and comment o
 <compilation xdt:Transform="RemoveAttributes(debug)" />
 ```
 
-### When switching to windows containers, you could potentially see an error stating, "Error response from daemon: i/o timeout"
+#### When switching to windows containers, you could potentially see an error stating, "Error response from daemon: i/o timeout"
 
 This issue in Docker for Windows can be tracked at https://github.com/docker/for-win/issues/178.
 
@@ -75,7 +75,7 @@ This issue in Docker for Windows can be tracked at https://github.com/docker/for
 
 ### **Linux Containers**
 
-### Unable to validate volume mapping
+#### Unable to validate volume mapping
 Volume mapping is required to share the source code and binaries of your application with the app folder in the container.  Specific volume mappings are
 contained within docker-compose.dev.debug.yml and docker-compose.dev.release.yml. As files are changed on your host machine, the containers
 reflect these changes in a similar folder structure.
@@ -117,7 +117,7 @@ Documents        Libraries        Pictures
 ```
 
 > [!NOTE]
-> When working with Linux VMs, the container file system is case sensitive.
+> When working with Linux VMs, the container file system is case-sensitive.
 
 ## Build : "PrepareForBuild" task failed unexpectedly
 
@@ -129,8 +129,8 @@ Verify that the default Docker host is running. Open a command prompt and execut
 docker info
 ```
 
-If this returns an error, then attempt to start the **Docker For Windows** desktop app. If the desktop app is running, then **moby**
-should be visible in the notification area. Right-click **moby** and open **Settings**.  Click **Reset**, and then **Restart Docker**.
+If this returns an error, then attempt to start the **Docker for Windows** desktop app. If the desktop app is running, then **Moby**
+should be visible in the notification area. Right-click **Moby** and open **Settings**.  Click **Reset**, and then **Restart Docker**.
 
 ## Manually upgrading from version 0.31 to 0.40
 To manually upgrade Docker for Windows:
@@ -184,9 +184,9 @@ To manually upgrade Docker for Windows:
 
 1. Uninstall the previous version and install Docker Tools 0.40. Then go to **Add > Docker Support** from the context menu for your ASP.Net Core Web or Console Application. This adds the new required Docker artifacts back to your project.
 
-## An error dialog occurs when attempting to **Add Docker Support** or Debug (F5) an ASP.NET Core Application in a container
+## An error dialog occurs when attempting to add Docker Support or Debug (F5) an ASP.NET Core Application in a container
 
-After uninstalling and installing extensions, we have occasionally seen  Visual Studio's MEF (Managed Extensibility Framework) cache become corrupt. When this occurs, it can cause various error messages when adding Docker Support and/or attempting to run or Debug (F5) your ASP.NET Core Application. As a temporary workaround, execute the following steps to delete and regenerate the MEF cache.
+After uninstalling and installing extensions, we have occasionally seen Visual Studio's MEF (Managed Extensibility Framework) cache become corrupt. When this occurs, it can cause various error messages when adding Docker Support and/or attempting to run or Debug (F5) your ASP.NET Core Application. As a temporary workaround, execute the following steps to delete and regenerate the MEF cache.
 
 1. Close all instances of Visual Studio
 1. Open %USERPROFILE%\AppData\Local\Microsoft\VisualStudio\14.0\
