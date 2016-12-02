@@ -1,18 +1,19 @@
 ---
-title: 'Tutorial: Azure Active Directory Integration with Halosys | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with Halosys | Microsoft Docs'
 description: Learn how to use Halosys with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
 author: jeevansd
 documentationcenter: na
 manager: femila
+editor=""
 
-ms.assetid: 31177994-7910-4a72-bd76-5fa6260242fb
+ms.assetid: 42a0eb7c-5cb7-44a9-b00b-b0e7df4b63e8
 ms.service: active-directory
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/29/2016
+ms.date: 12/02/2016
 ms.author: jeedes
 
 ---
@@ -83,7 +84,7 @@ To configure the integration of Halosys into Azure AD, you need to add Halosys f
 	
 7. In the results pane, select **Halosys**, and then click **Complete** to add the application.
 
-
+	![Creating an Azure AD test user](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_011.png)
 
 ##  Configuring and testing Azure AD single sign-on
 In this section, you configure and test Azure AD single sign-on with Halosys based on a test user called "Britta Simon".
@@ -120,6 +121,8 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	![Configure Single Sign-On](./media/active-directory-saas-Halosys-tutorial/tutorial_Halosys_04.png) 
 
     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Halosys application using the following pattern: `https://<company-name>.Halosys.com/client-api/api`.
+
+	b.In the **Identifier URL** textbox, type the URL in the following pattern: `https://<company-name>.Halosys.com`.	
 		 
 4. On the **Configure single sign-on at Halosys** page, click **Download metadata**, and then save the file on your computer:
 
