@@ -17,9 +17,9 @@ ms.author: awills
 
 ---
 # Instrument web apps at runtime with Application Insights
-*Application Insights is in preview.*
 
-You can instrument a live web app with Visual Studio Application Insights, without having to modify or redeploy your code. In your apps are hosted by an on-premises IIS server, you install Status Monitor; or if they're Azure web apps or run in an Azure VM, you can install the Application Insights extension. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
+
+You can instrument a live web app with Azure Application Insights, without having to modify or redeploy your code. In your apps are hosted by an on-premises IIS server, you install Status Monitor; or if they're Azure web apps or run in an Azure VM, you can install the Application Insights extension. (There are also separate articles about instrumenting [live J2EE web apps](app-insights-java-live.md) and [Azure Cloud Services](app-insights-cloudservices.md).)
 
 ![sample charts](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
 
@@ -35,8 +35,8 @@ Here's a summary of what you get by each route:
 | --- | --- | --- |
 | Requests & exceptions |Yes |Yes |
 | [More detailed exceptions](app-insights-asp-net-exceptions.md) | |Yes |
-| [Dependency diagnostics](app-insights-asp-net-dependencies.md) |On .NET 4.6+ |Yes |
-| [System performance counters](app-insights-performance-counters.md) | |IIS or Azure cloud service, not Azure web app |
+| [Dependency diagnostics](app-insights-asp-net-dependencies.md) |On .NET 4.6+, but less detail |Yes, full detail: result codes, SQL command text, HTTP  Verb|
+| [System performance counters](app-insights-performance-counters.md) | |IIS or Azure cloud service, but not Azure web app |
 | [API for custom telemetry][api] |Yes | |
 | [Trace log integration](app-insights-asp-net-trace-logs.md) |Yes | |
 | [Page view & user data](app-insights-javascript.md) |Yes | |

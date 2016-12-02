@@ -1,5 +1,5 @@
 ---
-title: Manage NSGs using the PowerShell | Microsoft Docs
+title: Manage NSGs using PowerShell | Microsoft Docs
 description: Learn how to manage existing NSGs using PowerShell.
 services: virtual-network
 documentationcenter: na

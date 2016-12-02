@@ -3,9 +3,8 @@ title: Create a record set and records for a DNS Zone using CLI| Microsoft Docs
 description: How to create host records for Azure DNS.Setting up record sets and records using CLI
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: ''
+author: georgewallace
+manager: timlt
 
 ms.assetid: 02b897d3-e83b-4257-b96d-5c29aa59e843
 ms.service: dns
@@ -14,7 +13,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: sewhee
+ms.author: gwallace
 ---
 
 # Create DNS record sets and records by using CLI
@@ -41,7 +40,7 @@ To create record set, use `azure network dns record-set create`. Specify the res
 *Usage: network dns record-set create \<resource-group\> \<dns-zone-name\> \<name\> \<type\> \<ttl\>*
 
 ```azurecli
-    azure network dns record-set create myresourcegroup  contoso.com  www A  60
+azure network dns record-set create myresourcegroup  contoso.com  www A  60
 ```
 
 ### 2. Add records
@@ -55,7 +54,7 @@ You can add IPv4 *A* records to the "www" record set by using the following comm
 *Usage: network dns record-set add-record \<resource-group\> \<dns-zone-name\> \<record-set-name\> \<type\>*
 
 ```azurecli
-    azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
+azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 134.170.185.46
 ```
 
 ## Additional record type examples

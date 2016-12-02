@@ -5,12 +5,11 @@
 ## Scenarios
 ### [Common use cases](documentdb-use-cases.md)
 ### [Going social with DocumentDB](documentdb-social-media-apps.md)
-### [Multi-tenancy](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
-
 
 # Get Started
 ## Write your first app
 ### [.NET console app](documentdb-get-started.md)
+### [.NET Core console app](documentdb-dotnetcore-get-started.md)
 ### [Node.js console app](documentdb-nodejs-get-started.md)
 ### [C++ console app](documentdb-cpp-get-started.md)
 ## Build a web app
@@ -18,6 +17,7 @@
 ### [Node.js web app](documentdb-nodejs-application.md)
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
+## [Develop Locally](documentdb-nosql-local-emulator.md)
 ## [FAQ](documentdb-faq.md)
 
 # How To
@@ -83,18 +83,20 @@
 
 
 # Reference
-## [Java](/java/api/)
-## [Java SDK](documentdb-sdk-java.md)
-## [.NET](/dotnet/api/)
-## [.NET SDK](documentdb-sdk-dotnet.md)
-## [.NET samples](documentdb-dotnet-samples.md)
-## [Node.js SDK](documentdb-sdk-node.md)
-## [Node.js samples](documentdb-nodejs-samples.md)
-## [Python SDK](documentdb-sdk-python.md)
-## [Python samples](documentdb-python-samples.md)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.js](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST](/rest/api/documentdb/)
+## [REST Resource Provider](/rest/api/documentdbresourceprovider/)
+
+# Related
+## [.NET samples](documentdb-dotnet-samples.md)
+## [Node.js samples](documentdb-nodejs-samples.md)
+## [Python samples](documentdb-python-samples.md)
+## [SQL Syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)

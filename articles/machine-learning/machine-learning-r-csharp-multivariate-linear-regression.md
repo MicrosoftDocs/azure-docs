@@ -1,4 +1,4 @@
-﻿---
+---
 title: Multivariate Linear Regression | Microsoft Docs
 description: Multivariate Linear Regression
 services: machine-learning
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 11/21/2016
 ms.author: jaymathe
 
 ---

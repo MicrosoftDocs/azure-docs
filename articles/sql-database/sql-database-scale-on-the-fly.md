@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: 64e83b47-f16b-4aee-98b8-2d164f074c5e
 ms.service: sql-database
+ms.custom: benefits
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

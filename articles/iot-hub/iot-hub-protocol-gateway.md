@@ -1,6 +1,6 @@
 ---
 title: Azure IoT protocol gateway | Microsoft Docs
-description: Describes how to use Azure IoT protocol gateway to extend the capabilities and protocol support of Azure IoT Hub.
+description: How to use an Azure IoT protocol gateway to extend IoT Hub capabilities and protocol support to enable devices to connect to your hub using protocols not supported by IoT Hub natively.
 services: iot-hub
 documentationcenter: ''
 author: kdotchkoff
@@ -17,7 +17,7 @@ ms.date: 08/23/2016
 ms.author: kdotchko
 
 ---
-# Supporting additional protocols for IoT Hub
+# Support additional protocols for IoT Hub
 Azure IoT Hub natively supports communication over the MQTT, AMQP, and HTTP protocols. In some cases, devices or field gateways might not be able to use one of these standard protocols and will require protocol adaptation. In such cases, you can use a custom gateway. A custom gateway can enable protocol adaptation for IoT Hub endpoints by bridging the traffic to and from IoT Hub. You can use the [Azure IoT protocol gateway](https://github.com/Azure/azure-iot-protocol-gateway/blob/master/README.md) as a custom gateway to enable protocol adaptation for IoT Hub.
 
 ## Azure IoT protocol gateway
@@ -44,7 +44,7 @@ To learn more about planning your IoT Hub deployment, see:
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-compare]: iot-hub-compare-event-hubs.md

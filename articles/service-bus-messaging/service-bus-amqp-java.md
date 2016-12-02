@@ -1,14 +1,14 @@
-﻿---
+---
 title: Service Bus and Java with AMQP 1.0 | Microsoft Docs
 description: Using Service Bus from Java with AMQP
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 1848f58d-1b40-43e0-89c4-ab14ba34c032
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

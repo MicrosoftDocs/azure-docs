@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/15/2016
+ms.date: 11/29/2016
 ms.author: milanga;juliako;
 
 ---
@@ -69,7 +69,7 @@ The face detection and tracking JSON includes the following attributes:
 Face Detector uses techniques of fragmentation (where the metadata can be broken up in time-based chunks and you can download only what you need), and segmentation (where the events are broken up in case they get too large). Some simple calculations can help you transform the data. For example, if an event started at 6300 (ticks), with a timescale of 2997 (ticks/sec) and framerate of 29.97 (frames/sec), then:
 
 * Start/Timescale = 2.1 seconds
-* Seconds x (Framerate/Timescale) = 63 frames
+* Seconds x Framerate = 63 frames
 
 ## Face detection input and output example
 ### Input video
@@ -157,7 +157,7 @@ When creating a task with **Azure Media Face Detector**, you must specify a conf
 #### Aggregate defaults
 Below are recommended values for the aggregate window and interval settings. AggregateEmotionWindowMs should be longer than AggregateEmotionIntervalMs.
 
-| Defaults(s) | Max(s) | Min(s) |
+| Defaults(s) | Min(s) | Max(s) |
 | --- | --- | --- | --- |
 | AggregateEmotionWindowMs |0.5 |2 |
 | AggregateEmotionIntervalMs |0.5 |1 |

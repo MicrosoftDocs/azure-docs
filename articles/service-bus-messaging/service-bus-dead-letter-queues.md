@@ -1,20 +1,20 @@
 ---
 title: Service Bus dead-letter queues | Microsoft Docs
 description: Overview of Azure Service Bus dead-letter queues
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
-ms.author: clemensv;sethm
+ms.author: clemensv,sethm
 
 ---
 # Overview of Service Bus dead-letter queues
