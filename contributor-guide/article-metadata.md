@@ -27,7 +27,7 @@ The standard Azure metadata section looks like this:
 
 - The element name and attribute names are case sensitive.
 
-## Attributes and values for the properties section
+## Attributes and values
 
 ![](./media/article-metadata/checkmark-small.png)**title**: Required; important for SEO. The text for this attribute appears in the browser tab and as the title in a search result. Use 55-60 characters including spaces and including the site identifier *| Microsoft Azure* (typed as: space pipe space Microsoft Azure).  The pageTitle should be different from the H1.
 
@@ -68,7 +68,7 @@ The standard Azure metadata section looks like this:
 
 ![](./media/article-metadata/checkmark-small.png)**keywords**: Optional. For use by SEO champs only. Separate terms with commas. **Check with your SEO champ before you change or delete content in this article containing these terms.** This attribute records keywords the SEO champ has targeted and is tracking in order to improve search rank. The keywords do not render in the published HTML. Validation does not require this attribute.
 
-## Attributes and values for the tags section
+![](./media/article-metadata/checkmark-small.png)**ms.assetid**: Required, but leave it blank for now. We will be periodically adding the asset ID post publication.
 
 ![](./media/article-metadata/checkmark-small.png)**ms.service**: Required. Specifies the Azure service, tool, or feature that the article applies to. One value per page. 
 
@@ -76,31 +76,9 @@ The standard Azure metadata section looks like this:
 
 The list of approved ms.service values is listed [here](https://microsoft.sharepoint.com/teams/STBCSI/Insights/_layouts/15/WopiFrame.aspx?sourcedoc=%7b7A321BF1-0611-4184-84DA-A0E964C435FA%7d&file=WEDCS_MasterList_CSIValues.xlsx&action=default&IsList=1&ListId=%7b46B17C8A-CD7E-47ED-A1B6-F2B654B55E2B%7d&ListItemId=969)
 
-![](./media/article-metadata/checkmark-small.png)**ms.devlang**: Required. Specifies the programming language that the article applies to. Single value per page.
-
- If a page applies to two programming languages equally, choose **multiple**. If a page is primarily conceptual and its content is generally applicable to multiple programming languages, choose **multiple**. If a page is not targeted at developers and the programming language applicability is not relevant, choose **NA**. Use **rest-api** to identify REST API reference topics.
-
- - **cpp**
- - **dotnet**
- - **java**
- - **javascript**
- - **multiple**: The page applies to multiple programming languages equally.
- - **na**: The page is not targeting developers and is not specific to any programming languages.
- - **nodejs**
- - **objective-c**
- - **php**
- - **python**
- - **rest-api**
- - **ruby**
+![](./media/article-metadata/checkmark-small.png)**ms.workload**: Required, but leave as **na** at this time. The ms.workload value is being mapped by an xls, not the value in the .md file. The ms.workload value is still required for validation until the feature can be updated. That work is now being scheduled.  Please use **"na"** as the value for now.
 
 
-![](./media/article-metadata/checkmark-small.png)**ms.topic**: Required. Specifies the topic type. Most new pages created by contributors will use "article".
-
- - **article**: A conceptual topic, tutorial, feature guide, or other non-reference article
-
- - **get-started-article**: assign to articles that are featured in the Get Started or Overview section of the left navigation for a service.
-
- - **hero-article**: a "hero" tutorial that is designed to provide an introduction to a service or feature that gets visitors started using the service quickly and drives free-trial sign-ups and MSDN activations. Assign this value ONLY to articles that are featured on the documentation landing page for your service.
 
 ![](./media/article-metadata/checkmark-small.png)**ms.tgt_pltfrm**: Required. Specifies the target platform, for instance Windows, Linux, Windows Phone, iOS, Android, or special cache platforms. One value per page. This value will be **NA** for most topics except mobile and virtual machines.
 
@@ -136,7 +114,31 @@ The list of approved ms.service values is listed [here](https://microsoft.sharep
  - **vs-getting-started**: Identifies the VS Getting Started page group. Tag added 12/1/14.
  - **vs-what-happened**: Identifies the VS Getting Started What Happened page. Tag added 12/1/14.
 
-![](./media/article-metadata/checkmark-small.png)**ms.workload**: Required, but leave as **na** at this time. The ms.workload value is being mapped by an xls, not the value in the .md file. The ms.workload value is still required for validation until the feature can be updated. That work is now being scheduled.  Please use **"na"** as the value for now.
+![](./media/article-metadata/checkmark-small.png)**ms.devlang**: Required. Specifies the programming language that the article applies to. Single value per page.
+
+ If a page applies to two programming languages equally, choose **multiple**. If a page is primarily conceptual and its content is generally applicable to multiple programming languages, choose **multiple**. If a page is not targeted at developers and the programming language applicability is not relevant, choose **NA**. Use **rest-api** to identify REST API reference topics.
+
+ - **cpp**
+ - **dotnet**
+ - **java**
+ - **javascript**
+ - **multiple**: The page applies to multiple programming languages equally.
+ - **na**: The page is not targeting developers and is not specific to any programming languages.
+ - **nodejs**
+ - **objective-c**
+ - **php**
+ - **python**
+ - **rest-api**
+ - **ruby**
+
+
+![](./media/article-metadata/checkmark-small.png)**ms.topic**: Required. Specifies the topic type. Most new pages created by contributors will use "article".
+
+ - **article**: A conceptual topic, tutorial, feature guide, or other non-reference article
+
+ - **get-started-article**: assign to articles that are featured in the Get Started or Overview section of the left navigation for a service.
+
+ - **hero-article**: a "hero" tutorial that is designed to provide an introduction to a service or feature that gets visitors started using the service quickly and drives free-trial sign-ups and MSDN activations. Assign this value ONLY to articles that are featured on the documentation landing page for your service.
 
 ![](./media/article-metadata/checkmark-small.png) **ms.date**: Required. Specifies the date the article was last reviewed for relevance, accuracy, correct screen shots, and working links. Enter the date in mm/dd/yyyy format. This date also appears on the published article as the last updated date.
 
