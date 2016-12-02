@@ -4,7 +4,7 @@ description: Describes the StorSimple Backup Target configuration with Veritas B
 services: storsimple
 documentationcenter: ''
 author: hkanna
-manager:  matd
+manager: matd
 editor: ''
 
 ms.assetid: 
