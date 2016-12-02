@@ -29,7 +29,7 @@ The standard Azure metadata section looks like this:
 
 ## Attributes and values
 
-![](./media/article-metadata/checkmark-small.png)**title**: Required; important for SEO. The text for this attribute appears in the browser tab and as the title in a search result. Use 55-60 characters including spaces and including the site identifier *| Microsoft Azure* (typed as: space pipe space Microsoft Azure).  The pageTitle should be different from the H1.
+![](./media/article-metadata/checkmark-small.png)**title**: Required; important for SEO. The text for this attribute appears in the browser tab and as the title in a search result. Use 55-60 characters including spaces and including the site identifier *| Microsoft Docs* (typed as: space pipe space Microsoft Azure).  The pageTitle should be different from the H1.
 
 ![](./media/article-metadata/checkmark-small.png)**description**: Required; important for SEO (relevance) and site functionality. The description should be at least 125 characters long to 155 characters maximum including spaces. Describe the purpose of your content so customers will know whether to choose it from a list of search results. The value is:
 
