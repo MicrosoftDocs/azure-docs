@@ -44,3 +44,44 @@ scp user@host:directory/file targetfile
 ```
 
 ## Detailed walkthrough
+
+Moving files up and down from your Azure Linux VMs to your local workstation is a common task that requires security best practices along with making it convenient.  For the best security and connivence, SSH public and private keys are the best way to authenticate the SCP connection.  Once SSH has authenticated the connection, SCP then begins the process of copying the file.  Using a properly configured `~/.ssh/config` and SSH public and private keys, the SCP connection can be established without using a username and just a server name.  For more information on configuring your `~/.ssh/config` and SSH public and private keys, follow this article, [Create SSH keys on Linux and Mac for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+
+## SCP a file to a Linux VM
+
+For the first example we are copying an Azure credential file up to a Linux VM that will be used to deploy automation.  Because this file contains Azure API credentials which include secrets, security is important and the encrypted tunnel of SSH protects the contents of the file.
+
+```bash
+scp ~/.azure/credentials myserver:/home/ahmet/.azure/credentials
+```
+
+## SCP a directory from a Linux VM
+
+For this example we are copying a directory full of log files from the Linux VM down to your workstation.  A log file may or may not contain sensitive or secret data and using SCP ensures the contents of the log files is encrypted.  Using SCP to securely transfer the files is the easiest way to get the log directory and files down to your workstation while also being secure.
+
+```bash
+scp -r myserver:/home/ahmet/logs/ /tmp/.
+```
+
+The `-r` cli flag instructs SCP to recursively copy the files and directories from the point of the directory listed in the command.  Also notice that the command line syntax is similar to a `cp` copy command.
+
+Next steps:
+
+* [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Disable SSH passwords on your Linux VM by configuring SSHD](virtual-machines-linux-mac-disable-ssh-password-usage?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+x
