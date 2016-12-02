@@ -148,7 +148,7 @@ You can now monitor the application upgrade using SFX. In a few minutes, the app
 
 ## Converting from PFX to PEM and vice versa
 
-You might need to install a certificate in your local machine (with Windows or Linux) to access secure clusters that may be in a different environment. For example, accessing a secured Linux cluster from a Windows machine and vice versa. For this, you may need to convert your certificate from PFX to PEM and vice versa. 
+You might need to install a certificate in your local machine (with Windows or Linux) to access secure clusters that may be in a different environment. For example, while accessing a secured Linux cluster from a Windows machine and vice versa you may need to convert your certificate from PFX to PEM and vice versa. 
 
 To convert from a PEM file to a PFX file, use the following command:
 
