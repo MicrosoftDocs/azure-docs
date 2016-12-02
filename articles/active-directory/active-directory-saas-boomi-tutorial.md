@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 12/02/2016
 ms.author: jeedes
 
 ---
@@ -104,8 +104,11 @@ To configure and test Azure AD single sign-on with Boomi, you need to complete t
 
 ### Configuring Azure AD single sign-on
 
-In this section, you enable Azure AD single sign-on in the classic portal and configure single sign-on in your Boomi application.
+The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your Boomi application.
 
+Boomi application expects the SAML assertion in specific format, which requires you to set the NameIdentifier attribute value with the user’s Federation ID. By default Azure AD uses the UserPrincipalName for NameIdentifier attribute. But for successful integration you need to adjust this value to match with user’s Federation ID in Boomi. You can change this from "**Atrribute**" tab as shown in the screenshot below. The integration will only work after completing the correct mapping.
+
+![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_51.png)
 
 **To configure Azure AD single sign-on with Boomi, perform the following steps:**
 
@@ -131,6 +134,11 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 4. On the **Configure single sign-on at Boomi** page, click **Download certificate** and then save the file on your computer:
 
 	![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_05.png) 
+
+	> [!NOTE]
+	> Please note that NameID claim value in the Response has to match with Federation ID configured in Boomi system. So please work with Boomi support team to map the appropriate user identifier in your organization as Federation ID. By default Azure AD will set the NameIdentifier as UPN value. You can change this from Attribute tab as shown in the screenshot below. The integration will only work after completing the correct mapping. 
+ 	
+	![Configure Single Sign-On](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_51.png)
 
 5. In a different web browser window, log into your Boomi company site as an administrator. 
 
@@ -241,11 +249,6 @@ In order to enable Azure AD users to log into Boomi, they must be provisioned in
 5. Enter the user's **First name** and **Last name**.
 
 6. Enter the user's **Federation ID**. Each user must have a Federation ID that uniquely identifies the user within the account. 
-
-	![Users](./media/active-directory-saas-boomi-tutorial/tutorial_boomi_004.png "Users")
-
-	> [!NOTE]
-	> Your Dell Boomi application expects the SAML assertion in specific format, which requires you to set the NameIdentifier attribute value with the user’s Federation ID. By default Azure AD uses the UserPrincipalName for NameIdentifier attribute. But for successful integration you need to adjust this value to match with user’s Federation ID in Boomi. With the correct mapping the integration will work.
 
 7. Assign the **Standard User** role to the user. Do not assign the Administrator role because that would give him normal Atmosphere access as well as single sign-on access.
 
