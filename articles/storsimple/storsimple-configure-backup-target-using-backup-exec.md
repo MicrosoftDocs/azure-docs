@@ -411,7 +411,7 @@ The following table illustrates how the backups should be configured to run on t
 | StorSimple Week 2-4           |StorSimple disk (long term) | 1        | 4              | 4                   |
 | Monthly Full                                 |StorSimple disk (long term) | 1        | 12             | 12                   |
 | Yearly Full                               |StorSimple disk (long term) | 1        | 1              | 1                   |
-| | |          |                | 18*|
+|GFS Volumes Size Requirement | |          |                | 18*|
 
 \* the total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume
 
@@ -429,7 +429,7 @@ The following table illustrates how the backups should be configured to run on t
 | Yearly                                                                   | StorSimple Yearly  |                   |                   |                   |                   |                   |
 
 
-### Assign StorSimple volumes to Backup Exec acrhive/deduplication job
+### Assign StorSimple volumes to Backup Exec archive/deduplication job
 
 1.  Once the initial backup job is configured to use the RAID volume as the primary backup target, go to Veritas Backup Exec management console. Select the job that you want to archive to a StorSimple volume, right-click, and select Backup definition properties. Click **Edit**.
 
