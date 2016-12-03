@@ -39,26 +39,26 @@ Creating webapplication13628050196_webapplication1_1
 ERROR: for webapplication1  Cannot create container for service webapplication1: C: drive is not shared. Please share it in Docker for Windows Settings
 ```
 To resolve this issue:
+
 1. Right-click Docker for Windows in the notification area, and then select **Settings**.  
-2. Select **Shared Drives** and share the drive letter where the project resides.
+2. Select **Shared Drives** and share the drive where the project resides.
 
 ### **Windows containers**
 
-The following issues are specific to debugging .NET Framework web and console applications in windows containers
+The following issues are specific to debugging .NET Framework web and console applications in windows containers.
 
 #### Prerequisites
 
 1. Visual Studio 2017 RC (or later) with the .NET Core and Docker Preview workload installed.
 2. Windows 10 Anniversary Update with the latest Windows Update patches installed.
 3. [Docker for Windows (Beta)](https://docs.docker.com/docker-for-windows/)--(Version 1.12.2-beta28 7813 or later).
-4. In the notification area, click Docker for Windows, and then select **Switch to Windows containers**. After the machine restarts, ensure that this setting is retained.
+4. **Switch to Windows containers** must be selected. In the notification area, click Docker for Windows, and then select **Switch to Windows containers**. After the machine restarts, ensure that this setting is retained.
 
 #### Console output does not appear in Visual Studio's output window while debugging a console application
 
-This is a known issue with the Visual Studio debugger (msvsmon.exe), which is currently not designed for this scenario.  We are looking into providing support for this in
-a future release.  To see output from the console application in Visual Studio, use **Docker: Start Project**, which is equivalent to **Start without Debugging**.
+This is a known issue with the Visual Studio debugger (msvsmon.exe), which is currently not designed for this scenario. Support for this scenario might be included in a future release. To see output from the console application in Visual Studio, use **Docker: Start Project**, which is equivalent to **Start without Debugging**.
 
-#### Debugging web applications with the release configuration fails with (403) Forbidden error.
+#### Debugging web applications with the release configuration fails with (403) Forbidden error
 
 To work around this issue, open web.release.config in the solution and comment out or delete the following lines:
 
@@ -66,26 +66,31 @@ To work around this issue, open web.release.config in the solution and comment o
 <compilation xdt:Transform="RemoveAttributes(debug)" />
 ```
 
-#### When switching to windows containers, you could potentially see an error stating, "Error response from daemon: i/o timeout"
+#### When switching to windows containers, you see an error stating, "Error response from daemon: i/o timeout"
 
 This issue in Docker for Windows can be tracked at https://github.com/docker/for-win/issues/178.
 
 
 ## Visual Studio 2015
 
-### **Linux Containers**
+### **Linux containers**
 
 #### Unable to validate volume mapping
 Volume mapping is required to share the source code and binaries of your application with the app folder in the container.  Specific volume mappings are
 contained within docker-compose.dev.debug.yml and docker-compose.dev.release.yml. As files are changed on your host machine, the containers
 reflect these changes in a similar folder structure.
 
-To enable volume mapping, click Moby in the notification area and select **Settings**. Then select **Shared Drives**. Select the drive that hosts your project and the drive where %USERPROFILE% resides, and then click **Apply**.
+To enable volume mapping:
+
+1. Click Moby in the notification area and select **Settings**.
+2. Select **Shared Drives**.
+3. Select the drive that hosts your project and the drive where %USERPROFILE% resides.
+4. Click **Apply**.
 
 To test if volume mapping is functioning, Rebuild and select F5 from within Visual Studio after one or more drives have been shared, or run the following code from a command prompt.
 
 > [!NOTE]
-> This example assumes that your Users folder is located on the drive C and that it has been shared.
+> This example assumes that your Users folder is located on drive C and that it has been shared.
 > Revise as necessary if you have shared a different drive.
 
 ```
@@ -121,7 +126,7 @@ Documents        Libraries        Pictures
 
 ## Build : "PrepareForBuild" task failed unexpectedly
 
-Microsoft.DotNet.Docker.CommandLine.ClientException: An error occurred trying to connect:
+Microsoft.DotNet.Docker.CommandLine.ClientException: An error occurred trying to connect.
 
 Verify that the default Docker host is running. Open a command prompt and execute:
 
@@ -129,8 +134,7 @@ Verify that the default Docker host is running. Open a command prompt and execut
 docker info
 ```
 
-If this returns an error, then attempt to start the **Docker for Windows** desktop app. If the desktop app is running, then **Moby**
-should be visible in the notification area. Right-click **Moby** and open **Settings**.  Click **Reset**, and then **Restart Docker**.
+If this returns an error, then attempt to start the **Docker for Windows** desktop app. If the desktop app is running, then **Moby** should be visible in the notification area. Right-click **Moby** and open **Settings**. Click **Reset**, and then **Restart Docker**.
 
 ## Manually upgrading from version 0.31 to 0.40
 To manually upgrade Docker for Windows:
@@ -186,15 +190,15 @@ To manually upgrade Docker for Windows:
 
 ## An error dialog occurs when attempting to add Docker Support or Debug (F5) an ASP.NET Core Application in a container
 
-After uninstalling and installing extensions, we have occasionally seen Visual Studio's MEF (Managed Extensibility Framework) cache become corrupt. When this occurs, it can cause various error messages when adding Docker Support and/or attempting to run or Debug (F5) your ASP.NET Core Application. As a temporary workaround, execute the following steps to delete and regenerate the MEF cache.
+After uninstalling and installing extensions, Visual Studio's MEF (Managed Extensibility Framework) cache can become corrupt. When this occurs, it can cause various error messages when adding Docker Support and/or attempting to run or Debug (F5) your ASP.NET Core Application. As a temporary workaround, execute the following steps to delete and regenerate the MEF cache.
 
-1. Close all instances of Visual Studio
-1. Open %USERPROFILE%\AppData\Local\Microsoft\VisualStudio\14.0\
-1. Delete the following folders
+1. Close all instances of Visual Studio.
+1. Open %USERPROFILE%\AppData\Local\Microsoft\VisualStudio\14.0\.
+1. Delete the following folders:
      ```
        ComponentModelCache
        Extensions
        MEFCacheBackup
     ```
-1. Open Visual Studio
-1. Attempt the scenario again
+1. Open Visual Studio.
+1. Attempt the scenario again.
