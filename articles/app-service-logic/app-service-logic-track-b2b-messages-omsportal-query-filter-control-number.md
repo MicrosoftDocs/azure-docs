@@ -17,42 +17,42 @@ ms.date: 11/13/2016
 ms.author: padmavc
 
 ---
-# Create a query in OMS portal 
-Steps to create a query that filters the data for a specific interchange control number
+# Create a query in the Operations Management Suite portal
+In this article, learn the steps to create a query that filters data for a specific interchange control number.
 
 ## Prerequisites
 
-Enable diagnostics for your [Integration Account](app-service-logic-monitor-b2b-message.md), [logic apps](app-service-logic-monitor-your-logic-apps.md#azure-diagnostics-and-alerts) that have X12 connectors for richer details and debugging.  Follow the steps [here](app-service-logic-track-b2b-messages-omsportal.md) to publish diagnostic data to OMS portal.
+For richer details and debugging, turn on diagnostics in your [Integration Account](app-service-logic-monitor-b2b-message.md) for the [logic apps](app-service-logic-monitor-your-logic-apps.md#azure-diagnostics-and-alerts) that have X12 connectors.  Then, take the steps to [publish diagnostic data](app-service-logic-track-b2b-messages-omsportal.md) to the Operations Management Suite portal.
 
-## Create a query to search data for a specific interchange control number
+## Create a query to search for a specific interchange control number
 
-1. Selecting **Log Search** on home page  
+1. On the start page, select **Log Search**.  
 ![Select log search](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/logsearch.png)
 
-2. Type **Type="AzureDiagnostics"** in search window, pulls all data.  click **Add** to filter data  
+2. In the search box, type **Type="AzureDiagnostics"**. This pulls all data.  To filter data, click **Add**.  
 ![Select query](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query1.png)
 
-3. Type **interchange**, select **event_record_messageProperties_interchangeControlNumber_s**, and click **Add**  
-![Select control number](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query2.png)
+3. Type **interchange**, select **event_record_messageProperties_interchangeControlNumber_s**, and then click **Add**.  
+![Add filter](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query2.png)
 
-4. Select the control number that you want to filter data and click **Apply**  
-![Select control number](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query3.png)
+4. Select the control number that you want to filter data for, and then click **Apply**.  
+![Search on the control number](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query3.png)
 
-5. You can find the query created to filter data for the selected control number   
-![Select control number](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query4.png)
+5. You can find the query that you created to filter data for the selected control number.   
+![Find the query](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query4.png)
 
-6. Give a name to the query and save it   
-![Select control number](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query5.png) 
+6. Type a name for the query, and then save it.   
+![Save the query](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query5.png)
 
-7. Select **favorites** to view the query and use in future search  
-![Select control number](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query7.png)
+7. To view the query and use in future searches, select **favorites**.  
+![View the query](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query7.png)
 
-8. The query can be updated to search for a new interchange control number  
-![Select control number](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query6.png) 
+8. You can update the query to search for a new interchange control number.  
+![Update the query](./media/app-service-logic-track-b2b-messages-omsportal-query-filter-control-number/query6.png)
 
 
 ## Next steps
-[Custom Tracking Schema](app-service-logic-track-integration-account-custom-tracking-shema.md "Learn about Custom Tracking Schema")   
-[AS2 Tracking Schema](app-service-logic-track-integration-account-as2-tracking-shemas.md "Learn about AS2 Tracking Schema")    
-[X12 Tracking Schema](app-service-logic-track-integration-account-x12-tracking-shemas.md "Learn about X12 Tracking Schema")  
-[Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack") 
+[Learn more about custom tracking schemas](app-service-logic-track-integration-account-custom-tracking-shema.md).   
+[Learn more about AS2 tracking schemas](app-service-logic-track-integration-account-as2-tracking-shemas.md).    
+[Learn more about X12 tracking schemas](app-service-logic-track-integration-account-x12-tracking-shemas.md).  
+[Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).
