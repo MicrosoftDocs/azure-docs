@@ -57,21 +57,21 @@ Your application may be composed of multiple App Service apps of different kinds
 
 
 
-## App Service Plans
-[App Service Plans](azure-web-sites-web-hosting-plans-in-depth-overview.md) represent the collection of physical resources used to host your apps.
+## App Service plans
+[App Service plans](azure-web-sites-web-hosting-plans-in-depth-overview.md) represent the collection of physical resources used to host your apps.
 
-App Service Plans define:
+App Service plans define:
 
 - **Region** (West US, East US, etc.)
 - **Scale count** (one, two, three instances, etc.)
 - **Instance size** (Small, Medium, Large)
 - **SKU** (Free, Shared, Basic, Standard, Premium)
 
-All applications assigned to an **App Service Plan** share the resources defined by it allowing you to save cost when hosting multiple apps.
+All applications assigned to an **App Service plan** share the resources defined by it allowing you to save cost when hosting multiple apps.
 
-Your **App Service Plan** can scale form **Free** and **Shared** SKUs to **Basic**, **Standard**, and **Premium** SKUs giving you access to more resources and features along the way. Once your App Service Plan is set to **Basic** or higher you can also control the **size** and scale count of the VMs.
+Your **App Service plan** can scale form **Free** and **Shared** SKUs to **Basic**, **Standard**, and **Premium** SKUs giving you access to more resources and features along the way. Once your App Service Plan is set to **Basic** or higher you can also control the **size** and scale count of the VMs.
 
-The **SKU** and **Scale** of the app service plan determines the cost and not the number of apps hosted in it. 
+The **SKU** and **Scale** of the App Service plan determines the cost and not the number of apps hosted in it. 
 
 If you need more scalability and network isolation, you can run your apps in an [App Service Environment](../app-service-web/app-service-app-service-environment-intro.md).
 
