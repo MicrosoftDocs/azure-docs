@@ -20,7 +20,7 @@ ms.author: mlearned
 
 # Troubleshoot Visual Studio Docker development
 
-When working with Visual Studio Tools for Docker Preview, you may encounter some problems due to the preview nature.
+When working with Visual Studio Tools for Docker Preview, you may encounter some problems because of the nature of the preview.
 Following are some common issues and resolutions.  
 
 ## Visual Studio 2017 RC
@@ -134,7 +134,7 @@ Verify that the default Docker host is running. Open a command prompt and execut
 docker info
 ```
 
-If this returns an error, then attempt to start the **Docker for Windows** desktop app. If the desktop app is running, then **Moby** should be visible in the notification area. Right-click **Moby** and open **Settings**. Click **Reset**, and then **Restart Docker**.
+If this returns an error, then attempt to start the **Docker for Windows** desktop app. If the desktop app is running, then **Moby** should be visible in the notification area. Right-click **Moby** and open **Settings**. Click **Reset**, and then restart Docker.
 
 ## Manually upgrading from version 0.31 to 0.40
 To manually upgrade Docker for Windows:
@@ -190,7 +190,7 @@ To manually upgrade Docker for Windows:
 
 ## An error dialog occurs when attempting to add Docker Support or Debug (F5) an ASP.NET Core Application in a container
 
-After uninstalling and installing extensions, Visual Studio's MEF (Managed Extensibility Framework) cache can become corrupt. When this occurs, it can cause various error messages when adding Docker Support and/or attempting to run or Debug (F5) your ASP.NET Core Application. As a temporary workaround, execute the following steps to delete and regenerate the MEF cache.
+After uninstalling and installing extensions, Visual Studio's Managed Extensibility Framework (MEF) cache can become corrupt. When this occurs, it can cause various error messages when adding Docker Support and/or attempting to run or Debug (F5) your ASP.NET Core Application. As a temporary workaround, execute the following steps to delete and regenerate the MEF cache.
 
 1. Close all instances of Visual Studio.
 1. Open %USERPROFILE%\AppData\Local\Microsoft\VisualStudio\14.0\.
