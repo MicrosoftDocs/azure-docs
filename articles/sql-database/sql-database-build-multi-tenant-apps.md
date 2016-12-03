@@ -43,13 +43,13 @@ Basic, Standard, and Premium pools provide you a broad spectrum of performance, 
 ## Elastic tools
 In addition to elastic pools, there are SQL Database features to help manage operational activities across multiple databases:
 
-** Perform cross-database queries and reporting. **  
+**Perform cross-database queries and reporting**  
 [Elastic database query](sql-database-elastic-query-overview.md) enables you to run queries or reports across databases in your elastic pool and access remote data stored in many databases of your pool at once.
 
 ** Run cross database transactions. **  
 [Elastic database transactions](sql-database-elastic-transactions-overview.md) allow you to run transactions that span several databases in SQL Databases and perform operations (i.e. when processing financial transactions across databases, or when updating inventory in one database and orders).
 
-** Execute the same operations on several databases. **  
+**Execute the same operations on several databases**  
 [Elastic database jobs](sql-database-elastic-jobs-overview.md) execute administrative operations such as rebuilding indexes or updating schemas across each database in your elastic pool.
 
 Go to the homepage to see what else SQL Database has to offer.
