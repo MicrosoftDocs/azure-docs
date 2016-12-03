@@ -20,16 +20,16 @@ ms.author: zivr
 ---
 # Azure Metadata Service - Scheduled Events
 
-Azure Metadata service enables you to discover information about your Virtual Machine hosted in Azure. The Azure Metadata Service can notify your Virtual Machine about upcoming events (for example, reboot) 
-so your service can prepare for them and limit disruption. It's available for all Azure Virtual Machine types including PaaS as well as IaaS. The service gives your Virtual Machine time to perform 
+Azure Metadata service enables you to discover information about your Virtual Machine hosted in Azure. One of the Metadata Service data categories is Scheduled Events where you can get information regarding upcoming events (for example, reboot) 
+so your service can prepare for them and limit disruption. It's available for all Azure Virtual Machine types including PaaS and IaaS. The service gives your Virtual Machine time to perform 
 preventive tasks and minimize the effect of an event. For example, your service might drain sessions, elect a new leader, or copy data after observing that an instance is scheduled for reboot to avoid 
-disruption. The Service enables your Virtual Machine to notify Azure that it can continue with the event (ahead of time). This is useful for expediting the impact when your service has successfully complete the graceful shutdown sequence. 
+disruption.
 
 
 
 ## Introduction - Why Scheduled Events?
 
-With Scheduled Events, you can learn of (discover) upcoming events which impact the availability of your VMs and take proactive operations to limit the impact on your service.
+With Scheduled Events, you can learn of (discover) upcoming events that may impact the availability of your Virtual Machine and take proactive operations to limit the impact on your service.
 Multi-instance workloads, which use replication techniques to maintain state, may be vulnerable to frequent outages happening across multiple instances. Such outages may result in expensive tasks 
 (for example, rebuilding indexes) or even a replica loss.
 In many other cases, using graceful shutdown sequence improves the overall service availability. For example, completing (or canceling) in-flight transactions, reassigning other tasks to other VMs 
@@ -45,11 +45,11 @@ Azure Metadata Service surfaces scheduled events in the following use cases:  
 
 ## Scheduled Events – The Basics  
 
-Azure Metadata service expose information about running Virtual Machines using a REST Endpoint from within the VM. The information is available via a Non-routable IP so that it is not exposed 
+Azure Metadata service exposes information about running Virtual Machines using a REST Endpoint from within the VM. The information is available via a Non-routable IP so that it is not exposed 
 outside the VM.
 
 ### Scope 
-Scheduled events are surfaced to all VMs in a cloud service or to all VMs in an Availability Set. As a result,  you should check the **Resources* field in the event to identify which VMs are
+Scheduled events are surfaced to all VMs in a cloud service or to all VMs in an Availability Set. As a result, you should check the **Resources* field in the event to identify which VMs are
 going to be impacted.
 
 ### Discover the Endpoint
@@ -68,7 +68,7 @@ It is recommended that your service consumes the latest version available at: ht
 When you query the Metadata Service, you must provide the following header **Metadata:true **. 
 
 ### Enable Scheduled Events
-The first time you make the call to the scheduled events endpoint, Azure will implicitly enable the feature on your Virtual Machine. 
+The first time you call for scheduled events, Azure implicitly enables the feature on your Virtual Machine. 
 As a result, you should expect a delayed response in your first call of up to a minute. 
 
 
@@ -80,7 +80,7 @@ You can query for Scheduled Events simply by making the following call
 	curl -H Metadata:true http://169.254.169.254/metadata/latest/scheduledevents
 
 A response contains an array of scheduled events. An empty array means that there are currently no events scheduled.
-In the case where there are scheduled events, the response will look like this: 
+In the case where there are scheduled events, the response contains an array of events: 
 
 	{
      "Events":[
@@ -96,15 +96,15 @@ In the case where there are scheduled events, the response will look like this:
 	}
 
 EventType Captures the expected impact on the Virtual Machine where:
-- Pause: The Virtual Machine will be paused for few seconds. There is no impact on memory, open files or network connections
-- Reboot: The Virtual Machine is scheduled for reboot (memory will be wiped).
-- Redeploy: The Virtual Machine is scheduled to move to another node (ephemeral disk will be lost). 
+- Pause: The Virtual Machine is scheduled to pause for few seconds. There is no impact on memory, open files or network connections
+- Reboot: The Virtual Machine is scheduled for reboot (memory is wiped).
+- Redeploy: The Virtual Machine is scheduled to move to another node (ephemeral disk are lost). 
 
-Note that when an event is scheduled (Status = Scheduled) Azure shares the time after which the event can start (specified in the NotBefore field).
+When an event is scheduled (Status = Scheduled) Azure shares the time after which the event can start (specified in the NotBefore field).
 
 ### Starting an event (expedite)
 
-Once you have learned of an upcoming event, and completed your logic for graceful shutdown, you can start the event indicating Azure to move faster (when possible) by making a **POST** call 
+Once you have learned of an upcoming event and completed your logic for graceful shutdown, you can indicate Azure to move faster (when possible) by making a **POST** call 
  
 
 ## Samples 
@@ -149,41 +149,90 @@ for ($eventIdx=0; $eventIdx -lt $scheduledEventsResponse.Events.Length ; $eventI
 ### C\# Sample 
 
 ```csharp
-static async Task RunAsync()
-{
-    try
-    {
-        using (var client = new HttpClient())
-        {
-            client.BaseAddress = new Uri("http://169.254.169.254/");
-            client.DefaultRequestHeaders.Accept.Clear();
-            client.DefaultRequestHeaders.Accept.Add(new\
-            MediaTypeWithQualityHeaderValue("application/json"));
-            HttpResponseMessage response = await client.GetAsync(\
-            "metadata/latest/scheduledevents");
 
-            if (response.IsSuccessStatusCode)
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            ScheduledEventsCallAsync().Wait();
+            Console.ReadLine();
+
+        }
+        static async Task ScheduledEventsCallAsync()
+        {
+            try
             {
-                JSonHelper helper = new JSonHelper();
-                CloudControlMessage msg =
-                helper.ConvertJSonToObject&lt;CloudControlMessage&gt;\
-                (response.Content.ReadAsStringAsync().Result);
-                await AnalyzeCloudControlEvents(msg);
+                var client = new HttpClient();
+                client.BaseAddress = new Uri("http://169.254.169.254/");
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+                client.DefaultRequestHeaders.Add("Metadata", "true");
+                HttpResponseMessage response = await client.GetAsync("metadata/latest/scheduledevents");
+                if (response.IsSuccessStatusCode)
+                {
+                    Console.WriteLine("REST Call returned success {0}", response.Content);
+                    string str = response.Content.ReadAsStringAsync().Result;
+                    CloudControlMessage msg = JSonHelper.ConvertJSonToObject<CloudControlMessage>(str);
+                    Console.WriteLine("Analyze Scheduled Events Array with {0} events", msg.Events.Count);
+
+                    foreach (CloudControlEvent ccEvent in msg.Events)
+                    {
+                        Console.WriteLine("EventID: {0}, EventType{1}, EventStatus{2}, Resource{3}, NotBefore{4}",
+                            ccEvent.EventId,
+                            ccEvent.EventType,
+                            ccEvent.EventStatus,
+                            ccEvent.Resources.First<string>(),
+                            ccEvent.NoteBefore);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("REST Call returned failed {0}", response.IsSuccessStatusCode);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception caught {0}", ex);
+            }
+        }
+
+        public class CloudControlEvent
+        {
+            public string EventId { get; set; }
+            public string EventStatus { get; set; }
+            public string EventType { get; set; }
+            public string ResourceType { get; set; }
+            public List<string> Resources { get; set; }
+            public DateTime NoteBefore { get; set; }
+        }
+
+        public class CloudControlMessage
+        {
+            public List<CloudControlEvent> Events { get; set; }
+        }
+
+        private static class JSonHelper
+        {
+            public static string ConvertObjectToJSon<T>(T obj)
+            {
+                DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
+                MemoryStream ms = new MemoryStream();
+                ser.WriteObject(ms, obj);
+                string jsonString = Encoding.UTF8.GetString(ms.ToArray());
+                ms.Close();
+                return jsonString;
             }
 
-            else
+            public static T ConvertJSonToObject<T>(string jsonString)
             {
-                Debug.WriteLine("REST Call returned failed {0}",
-                response.IsSuccessStatusCode);
+                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(T));
+                MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(jsonString));
+                T obj = (T)serializer.ReadObject(ms);
+                return obj;
             }
         }
     }
 
-    catch (Exception ex)
-    {
-        Debug.WriteLine("Exception caught {0}", ex);
-    }
-}
 ```
 
 
