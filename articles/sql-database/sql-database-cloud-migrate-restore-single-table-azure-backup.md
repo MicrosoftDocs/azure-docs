@@ -33,6 +33,7 @@ You may encounter a situation in which you accidentally modified some data in a 
     > [!NOTE]
     > The name of the restored database will be in the DBName+TimeStamp format; for example, **Adventureworks2012_2016-01-01T22-12Z**. This step won't overwrite the existing database name on the server. This is a safety measure, and it's intended to allow you to verify the restored database before they drop their current database and rename the restored database for production use.
     >
+    
  All performance tiers from Basic to Premium are automatically backed up by the service, with varying backup retention metrics, depending on the tier:
 
 | DB Restore | Basic tier | Standard tiers | Premium tiers |
