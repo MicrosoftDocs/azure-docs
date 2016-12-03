@@ -150,10 +150,10 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
 
 ```
 
-This template will set up one availability test in addition to the main resource.
+
 
 ## Create Application Insights resources
-1. In PowerShell, sign in to Azure
+1. In PowerShell, sign in to Azure:
    
     `Login-AzureRmAccount`
 2. Run a command like this:
@@ -427,11 +427,9 @@ Azure should set up the resources in strict order. To make sure one setup comple
 * In the availability test resource:
   
     `"dependsOn": ["[resourceId('Microsoft.Insights/components', parameters('appName'))]"],`
-* In the alert resource:
+* In the alert resource for an availability test:
   
     `"dependsOn": ["[resourceId('Microsoft.Insights/webtests', variables('testName'))]"],`
-
-Notice that an availability test actually has two parts: the test itself, and an alert rule that fires depending on the test outcomes.
 
 
 
