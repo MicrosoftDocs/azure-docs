@@ -1,6 +1,6 @@
 ---
-title: Developer guide - Pricing example | Microsoft Docs
-description: Azure IoT Hub developer guide - Information about and links to the various Azure IoT device and service SDKs.
+title: Understand Azure IoT Hub pricing | Microsoft Docs
+description: Developer guide - information about how metering and pricing works with IoT Hub including worked examples.
 services: iot-hub
 documentationcenter: ''
 author: dominicbetts
@@ -39,7 +39,7 @@ ms.author: elioda
 
 > AZURE.NOTE All sizes are computed considering the payload size in bytes (protocol framing is ignored). In case of messages (which have properties and body) the size is computed in a protocol-agnostic way, as described in the [IoT Hub messaging developer's guide][lnk-message-size].
 
-## Example #1 - 
+## Example #1
 
 A device sends one 1KB device-to-cloud message per minute to IoT Hub, which is then read by Azure Stream Analytics. The solution back end invokes a method (with 512 bytes payload) on the device every ten minutes to trigger a specific action. The device responds to the method with a result of 200 bytes.
 

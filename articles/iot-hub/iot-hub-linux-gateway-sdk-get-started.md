@@ -1,6 +1,6 @@
 ---
-title: Get started with the Azure IoT Gateway SDK | Microsoft Docs
-description: This Azure IoT Gateway SDK walkthrough uses Linux to illustrate key concepts you should understand when you use the Azure IoT Gateway SDK.
+title: Get started with the Azure IoT Gateway SDK (Linux) | Microsoft Docs
+description: How to build a gateway on a Linux machine and learn about key concepts in the Azure IoT Gateway SDK such as modules and JSON configuration files.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -17,7 +17,7 @@ ms.date: 11/23/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK - Get started using Linux
+# Get started with the Azure IoT Gateway SDK (Linux)
 [!INCLUDE [iot-hub-gateway-sdk-getstarted-selector](../../includes/iot-hub-gateway-sdk-getstarted-selector.md)]
 
 ## How to build the sample
