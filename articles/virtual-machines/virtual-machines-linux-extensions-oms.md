@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/29/2016
+ms.date: 12/05/2016
 ms.author: nepeters
 
 ---
@@ -30,6 +30,8 @@ For more information on Operations Management Suite, see [Operations Management 
 
 ## Prerequisites
 
+### Operating System
+
 The OMS Agent extension can be run against these Linux distributions.
 
 | Distribution | Version |
@@ -40,6 +42,10 @@ The OMS Agent extension can be run against these Linux distributions.
 | Debian GNU/Linux | 6, 7, and 8 |
 | Ubuntu | 12.04 LTS, 14.04 LTS, 15.04 |
 | SUSE Linux Enterprise Server | 11 and 12 |
+
+### Connectivity
+
+The OMS Agent extension for Linux requires that the target virtual machine is connected to the internet. 
 
 ## Extension configuration
 

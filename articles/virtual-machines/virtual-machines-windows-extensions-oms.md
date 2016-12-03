@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/29/2016
+ms.date: 12/05/2016
 ms.author: nepeters
 
 ---
@@ -30,7 +30,13 @@ For more information on Operations Management Suite, see [Operations Management 
 
 ## Prerequisites
 
+### Operating System
+
 The OMS Agent extension for Windows can be run against Windows Server 2012, 2012 R2, and 2016 releases.
+
+### Connectivity
+
+The OMS Agent extension for Windows requires that the target virtual machine is connected to the internet. 
 
 ## Extension configuration
 
