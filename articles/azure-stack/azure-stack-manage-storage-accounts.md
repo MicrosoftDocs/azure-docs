@@ -162,7 +162,7 @@ retention period and immediately reclaim capacity. To do so –
     Clear-ACSStorageAccount -ResourceGroupName system -FarmName <your farmname>
     ```
 
-> For more details, please refer to [AzureStack powershell documentation](https://msdn.microsoft.com/library/mt637964.aspx)
+For more details, please refer to [AzureStack powershell documentation](https://msdn.microsoft.com/library/mt637964.aspx)
 > 
 > [!NOTE]
 > Running this cmdlet will permanently delete the account and its
