@@ -73,9 +73,9 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 	* **Azure Storage Blobs as default storage**
 
-		* For **Primary Storage Type**, click **Azure Storage**. Specify the details for the storage account and storage container, specify a location, and then click **Cluster AAD Identity**.
+		For **Primary Storage Type**, click **Azure Storage**. Specify the details for the storage account and storage container, specify a location, and then click **Cluster AAD Identity**.
 
-			![Add service principal to HDInsight cluster](./media/hdinsight-hadoop-create-linux-cluster-portal/hdi.adl.1.png "Add service principal to HDInsight cluster")
+		![Add service principal to HDInsight cluster](./media/hdinsight-hadoop-create-linux-cluster-portal/hdi.adl.1.png "Add service principal to HDInsight cluster")
 
 		>[!NOTE]
 		> Cluster AAD Identity is used to make the cluster accessible to the Azure Data Lake stores based on the AAD configuration. You will use this option if you want to use a Data Lake Store account as an additional storage associated with the cluster.
@@ -83,7 +83,7 @@ The Azure portal exposes most of the cluster properties. Using Azure Resource Ma
 
 	* **Azure Data Lake Store as default storage**
 
-		* For instructions on how to create an HDInsight cluster with Data Lake Store as default storage, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
+		For instructions on how to create an HDInsight cluster with Data Lake Store as default storage, see [Create an HDInsight cluster with Data Lake Store using Azure Portal](../data-lake-store/data-lake-store-hdinsight-hadoop-use-portal.md).
 
 	Click **Select** to save the data source configuration.
 
