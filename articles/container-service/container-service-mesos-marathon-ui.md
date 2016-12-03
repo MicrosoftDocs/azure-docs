@@ -22,13 +22,17 @@ ms.author: timlt
 # Manage an Azure Container Service DC/OS cluster through the Marathon web UI
 DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
 
-While frameworks are available for many popular workloads, this document describes how you can create and scale container deployments with Marathon. Before working through these examples, you need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
+While frameworks are available for many popular workloads, this document describes how you can create and scale container deployments with Marathon. 
+
+
+## Prerequisites
+Before working through these examples, you need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
 
 * [Deploy an Azure Container Service cluster](container-service-deployment.md)
 * [Connect to an Azure Container Service cluster](container-service-connect.md)
 
 ## Explore the DC/OS UI
-With a Secure Shell (SSH) tunnel established, browse to http://localhost/. This loads the DC/OS web UI and shows information about the cluster, such as used resources, active agents, and running services.
+With a Secure Shell (SSH) tunnel [established](container-service-connect.md), browse to http://localhost/. This loads the DC/OS web UI and shows information about the cluster, such as used resources, active agents, and running services.
 
 ![DC/OS UI](./media/dcos/dcos2.png)
 
