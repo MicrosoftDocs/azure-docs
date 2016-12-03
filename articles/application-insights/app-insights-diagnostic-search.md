@@ -35,7 +35,7 @@ For example, on the Overview blade, there's a bar chart of requests classified b
 
 The main body of Diagnostic Search is a list of telemetry items - server requests, page views, custom events that you have coded, and so on. At the top of the list is a summary chart showing counts of events over time.
 
-The blade refreshes itself at intervals, or you can click Refresh if you're waiting for a particular event.
+Click Refresh to get new events.
 
 ### In Visual Studio
 
