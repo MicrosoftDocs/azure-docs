@@ -18,7 +18,7 @@ ms.author: iainfou
 
 ---
 # Install and configure Remote Desktop to connect to a Linux VM in Azure
-Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to working with Linux, or for quick troubleshooting scenarios, the use of a remote desktop client may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp)) for your Linux VM.
+Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new Linux, or for quick troubleshooting scenarios, the use of a remote desktop client may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp)) for your Linux VM.
 
 
 ## Prerequisites
@@ -33,7 +33,7 @@ You also need the [latest Azure CLI](../xplat-cli-install.md) installed and logg
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to install and configure remote desktop on your VM. More detailed information and context for each step can be found the rest of the document, [starting here](#install-graphical-environment-on-linux-vm).
 
-The following examples install and configure the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu VM. Other distributions and desktop environments vary slightly (use `yum` to install on Red Hat Enterprise Linux and configure appropriate `selinux` rules, or use `zypper` to install on SUSE, for example).
+The following example installs the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu VM. Other distributions and desktop environments vary slightly. For example, you use `yum` to install on Red Hat Enterprise Linux and configure appropriate `selinux` rules, or use `zypper` to install on SUSE.
 
 SSH to your VM. Install the xfce desktop environment as follows:
 
@@ -86,10 +86,14 @@ az network nsg rule create --resource-group myResourceGroup \
     --access allow
 ```
 
+Connect to your Linux VM using your remote desktop client of choice.
+
+![Connect to xrdp using your Remote Desktop client](./media/virtual-machines-linux-use-remote-desktop/remote-desktop-client.png)
+
 ## Install a desktop environment on your Linux VM
 Most Linux VMs in Azure do not have a desktop environment installed by default. Linux VMs are commonly managed using SSH connections rather than a desktop environment. There are various desktop environments in Linux that you can choose. Depending on your choice of desktop environment, it may consume one to 2 GB of disk space, and take 5 to 10 minutes to install and configure all the required packages.
 
-The following examples install and configure the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu VM. Commands for other distributions vary slightly (use `yum` to install on Red Hat Enterprise Linux and configure appropriate `selinux` rules, or use `zypper` to install on SUSE, for example).
+The following examples installs the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu VM. Commands for other distributions vary slightly (use `yum` to install on Red Hat Enterprise Linux and configure appropriate `selinux` rules, or use `zypper` to install on SUSE, for example).
 
 ```bash
 sudo apt-get update
