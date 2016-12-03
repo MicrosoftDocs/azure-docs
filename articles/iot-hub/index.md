@@ -137,9 +137,9 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">REST (Resource Provider)</a></p>
-                        <p><a href="/rest/api/iothub/device-identities-rest">REST (Device Identities)</a></p>
-                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">REST (Device Messaging) REST API</a></p>
+                        <p><a href="/rest/api/iothub/resourceprovider/iot-hub-resource-provider-rest">REST API (Resource Provider)</a></p>
+                        <p><a href="/rest/api/iothub/device-identities-rest">REST API (Device Identities)</a></p>
+                        <p><a href="/rest/api/iothub/device-messaging-rest-apis">REST API (Device Messaging)</a></p>
                     </div>
                 </div>
             </div>
