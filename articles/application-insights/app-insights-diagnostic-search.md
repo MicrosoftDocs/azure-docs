@@ -45,10 +45,11 @@ Open the Search window in Visual Studio:
 
 ![Visual Studio open Application Insights search](./media/app-insights-diagnostic-search/32.png)
 
-The Search window has the same features as the web portal:
+The Search window has features similar to the web portal:
 
 ![Visual Studio Application Insights search window](./media/app-insights-diagnostic-search/34.png)
 
+The Track Operation tab is available when you open a request or a page view. An 'operation' is a sequence of events that is associated with to a single request or page view. For example, dependency calls, exceptions, trace logs, and custom events might be part of a single operation. The Track Operation tab shows graphically the timing and duration of these events in relation to the request or page view. 
 
 ## Inspect individual items
 Select any telemetry item to see key fields and related items. If you want to see the full set of fields, click "...". 
