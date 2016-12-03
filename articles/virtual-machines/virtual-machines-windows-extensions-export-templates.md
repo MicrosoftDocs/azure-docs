@@ -30,14 +30,39 @@ Many Virtual Machine extensions are available. However not all extensions can be
 
 The following extensions can be exported with the automation Script feature.
 
-| Extension | Version |
-|---|---|
-| IaaS Diagnostics |   |
-| Iaas Antimalware |   |
-| Custom Script Extension for Windows | |
-| Custom Script Extension for Linux | |
-| etc. | |
-
+| Extension |
+|---|
+| Acronis Backup |
+| Acronis Backup Linux |
+| Bg Info |
+| BMC CTM Agent Linux |
+| BMC CTM Agent Windows |
+| Chef Client |
+| Custom Script |
+| Custom Script Extension |
+| Custom Script for Linux |
+| Datadog Linux Agent |
+| Datadog Windows Agent |
+| Docker Extension |
+| DSC Extension |
+| Dynatrace Linux |
+| Dynatrace Windows |
+| HPE Security Application Defender |
+| IaaS Antimalware |
+| IaaS Diagnostics |
+| Linux Chef Client |
+| Linux Diagnostic |
+| OS Patching For Linux |
+| Puppet Agent |
+| Site 24x7 Apm Insight |
+| Site 24x7 Linux Server |
+| Site 24x7 Windows Server |
+| Trend Micro DSA |
+| Trend Micro DSA Linux |
+| VM Access Agent |
+| VM Access For Linux |
+| VM Snapshot |
+| VM Snapshot Linux |
 
 ## Export the Resource Group
 
@@ -56,9 +81,20 @@ The Azure Resource Manager automations script produces a Resource Manager templa
 
 Many Azure virtual machine extensions include a protected settings configuration, that encrypts sensitive data such as credentials and configuration strings. Protected settings are not exported with the automation script. If required, protected settings will need to be re-inserted into the exported templated.
 
-### Step 1 - Get protected settings properties
+### Step 1 - Remove exported parameter
 
-Because each protected setting has a set of required properties, a list of these properties need to be gathered. Each parameter of the protected configuration can be found in the [Azure Resource Manager schema on GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json).
+When the Resource Group is exported, a single parameter is created to provide a value to the extension resource. This parameter can be removed.  To remove the parameter, look through the parameter list and delete the parameter that looks similar to this JSON example.
+
+```json
+"extensions_extensionname_protectedSettings": {
+	"defaultValue": null,
+	"type": "SecureObject"
+}
+```
+
+### Step 2 - Get protected settings properties
+
+Because each protected setting has a set of required properties, a list of these properties need to be gathered. Each parameter of the protected configuration can be found in the [Azure Resource Manager schema on GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). This schema only includes the parameter sets for the extensions listed in the overview section of this document. 
 
 From within the schema repository, search for the desired extension, for this example `IaaSDiagnostics`. Once the extension `protectedSettings` object has been located, take note of each parameter. In the example of the `IaasDiagnostic` extension, the require parameters are `storageAccountName`, `storageAccountKey`, and `storageAccountEndPoint`.
 
@@ -84,7 +120,7 @@ From within the schema repository, search for the desired extension, for this ex
 }
 ```
 
-### Step 2 - Re-create the protected configuration
+### Step 3 - Re-create the protected configuration
 
 On the exported template, search for `protectedSettings` and replace the extensions protected setting object with a new one that includes the required parameters and a value for each parameter. If using a template variable or template parameter for the property values, these need to be created. For more information on using variables and parameters, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). 
 
@@ -129,4 +165,5 @@ The final extension resource looks similar to the following JSON example:
 	}
 }
 ```
+
 At this point, the template can be deployed using any template deployment method.
