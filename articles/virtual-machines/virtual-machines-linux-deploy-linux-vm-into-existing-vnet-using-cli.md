@@ -32,66 +32,6 @@ If you need to quickly accomplish the task, the following section details the  c
 
 Pre-requirments: Resource Group, VNet, NSG with SSH inbound, Subnet. Replace any examples with your own settings.
 
-### Create the Resource Group
-
-```azurecli
-azure group create myResourceGroup \
--l westus
-```
-
-### Create the VNet
-
-```azurecli
-azure network vnet create myVNet \
--g myResourceGroup \
--a 10.10.0.0/24 \
--l westus
-```
-
-### Create the NSG
-
-```azurecli
-azure network nsg create myNSG \
--g myResourceGroup \
--l westus
-```
-
-### Add an inbound SSH allow rule
-
-```azurecli
-azure network nsg rule create inboundSSH \
--g myResourceGroup \
--a myNSG \
--c Allow \
--p Tcp \
--r Inbound \
--y 100 \
--f Internet \
--o 22 \
--e 10.10.0.0/24 \
--u 22
-```
-
-### Add a subnet to the VNet
-
-```azurecli
-azure network vnet subnet create mySubNet \
--g myResourceGroup \
--e myVNet \
--a 10.10.0.0/26 \
--o myNSG
-```
-
-### Add a VNic to the subnet
-
-```azurecli
-azure network nic create myVNic \
--g myResourceGroup \
--l westus \
--m myVNet \
--k mySubNet
-```
-
 ### Deploy the VM into the VNet, NSG and connect the VNic
 
 ```azurecli
