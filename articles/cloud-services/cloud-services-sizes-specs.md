@@ -175,6 +175,11 @@ Here is an example for setting the role size to be [Standard_D2](#general-purpos
 
 As the nature of your workload changes or new VM sizes become available, you may want to change the size of your role. To do so, you must change the VM size in your service definition file (as shown above), repackage your Cloud Service, and deploy it. It is not possible to change VM sizes directly from the portal or PowerShell.
 
+> [!TIP]
+> You may want to use different VM sizes for your role in different environments (eg. test vs production). One way to do this is to create multiple service definition (.csdef) files in your project, then create different cloud service packages per environment during your automated build using the CSPack tool. To learn more about the elements of a cloud services package and how to create them, see [What is the cloud services model and how do I package it?][cloud-services-model-and-package.md]
+>
+>
+
 ## Next steps
 * Learn about [azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 * Learn more [about the H-series and compute-intensive A-series VMs](../virtual-machines/virtual-machines-windows-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for workloads like High-performance Computing (HPC).
