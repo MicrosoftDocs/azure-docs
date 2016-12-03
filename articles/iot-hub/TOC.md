@@ -101,7 +101,7 @@
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
 
 # Reference
-## [Azure CLI](/cli/azure/iot)
+## [Azure CLI 2.0 Preview](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Service)](/java/api/com.microsoft.azure.iot.service.auth)
