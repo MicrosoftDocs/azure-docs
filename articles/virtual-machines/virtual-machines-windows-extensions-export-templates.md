@@ -147,9 +147,9 @@ The final extension resource looks similar to the following JSON example:
 }
 ```
 
-If using a template variable or template parameter for the property values, these need to be created. When creating parameters for protected setting values, make sure to use the `SecureObject` type so that the sensitive values are secured. In the example of the `IaasDiagnostic` extension, the following parameters would be created in the parameters section of the Recourse Manager template.  
+If using a template parameters for the property values, these need to be created. When creating parameters for protected setting values, make sure to use the `SecureObject` type so that the sensitive values are secured. For more information on using variables and parameters, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
-For more information on using variables and parameters, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). 
+In the example of the `IaasDiagnostic` extension, the following parameters would be created in the parameters section of the Recourse Manager template.
 
 ```json
 "storageAccountName": {
