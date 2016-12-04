@@ -409,11 +409,14 @@ Disk encryption can be enabled on customer encrypted VHD using the PS cmdlets pu
 Follow the steps below to enable disk encryption for this scenario using CLI commands:
 
 1. Set access policies on Key Vault:
-   * Set ‘EnabledForDiskEncryption’ flag: `azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true`
-   * Set permissions to Azure AD app to write secrets to KeyVault: `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]`
+   * Set ‘EnabledForDiskEncryption’ flag: 
+   `azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true`
+   * Set permissions to Azure AD app to write secrets to KeyVault: 
+   `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys '["wrapKey"]' --perms-to-secrets '["set"]'`
 2. To enable encryption on an existing/running VM, type:
-    *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Get encryption status: *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
+`azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId> --volume-type [All|OS|Data]`
+3. Get encryption status: 
+`azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json`
 4. To enable encryption on a new VM from customer encrypted VHD, use the below parameters with “azure vm create” command:
    * disk-encryption-key-vault-id <disk-encryption-key-vault-id>
    * disk-encryption-key-url <disk-encryption-key-url>
@@ -447,11 +450,10 @@ Refer to the **Explore Azure disk encryption with Azure PowerShell** blog post [
 Follow the steps below to enable encryption on existing/running IaaS Windows VM in Azure using CLI commands:
 
 1. Set access policies on Key Vault:
-   * Set ‘EnabledForDiskEncryption’ flag: “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
-   * Set permissions to Azure AD app to write secrets to KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]”
-2. To enable encryption on an existing/running VM, type:
-    *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Get encryption status: *“azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”*
+   * Set ‘EnabledForDiskEncryption’ flag: `azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true`
+   * Set permissions to Azure AD app to write secrets to KeyVault: `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys '["wrapKey"]' --perms-to-secrets '["set"]'`
+2. To enable encryption on an existing/running VM: `azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId> --volume-type [All|OS|Data]`
+3. Get encryption status: `azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json`
 4. To enable encryption on a new VM from customer encrypted VHD, use the below parameters with “azure vm create” command:
    * disk-encryption-key-vault-id <disk-encryption-key-vault-id>
    * disk-encryption-key-url <disk-encryption-key-url>
@@ -480,11 +482,14 @@ The Resource Manager template parameters details for existing/running VM scenari
 Disk encryption can be enabled on customer encrypted VHD using the CLI command installed from [here](../xplat-cli-install.md). Follow the steps below to enable encryption on existing/running IaaS Linux VM in Azure using CLI commands:
 
 1. Set access policies on Key Vault:
-   * Set ‘EnabledForDiskEncryption’ flag: “azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true”
-   * Set permissions to Azure AD app to write secrets to KeyVault: “azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys [\"all\"] --perms-to-secrets [\"all\"]”
-2. To enable encryption on an existing/running VM, type:
-    *azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId>*
-3. Get encryption status: “azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json”
+   * Set ‘EnabledForDiskEncryption’ flag: 
+   `azure keyvault set-policy --vault-name <keyVaultName> --enabled-for-disk-encryption true`
+   * Set permissions to Azure AD app to write secrets to KeyVault: 
+   `azure keyvault set-policy --vault-name <keyVaultName> --spn <aadClientID> --perms-to-keys '["wrapKey"]' --perms-to-secrets '["set"]'`
+2. To enable encryption on an existing/running VM:
+`azure vm enable-disk-encryption --resource-group <resourceGroupName> --name <vmName> --aad-client-id <aadClientId> --aad-client-secret <aadClientSecret> --disk-encryption-key-vault-url <keyVaultURL> --disk-encryption-key-vault-id <keyVaultResourceId> --volume-type [All|OS|Data]`
+3. Get encryption status: 
+`azure vm show-disk-encryption-status --resource-group <resourceGroupName> --name <vmName> --json`
 4. To enable encryption on a new VM from customer encrypted VHD, use the below parameters with “azure vm create” command.
    * *disk-encryption-key-vault-id <disk-encryption-key-vault-id>*
    * *disk-encryption-key-url <disk-encryption-key-url>*

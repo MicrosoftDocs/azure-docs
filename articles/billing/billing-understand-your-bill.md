@@ -25,7 +25,7 @@ The charges for Microsoft Azure subscriptions vary by rate plan. Some rate plans
 
 Up to 24 hours of usage at the end of the previous billing period may show up in your current bill. Also charges listed on billing statements for international customers are for estimation purposes only. Banks have different costs for the conversion rates.
 
-## Understand your invoice (.pdf)
+## <a name="pdf"></a> Understand your invoice (.pdf)
 The invoice provides a summary of your charges. It’s available for download in the Portable Document Format (.pdf) from the [Azure portal](https://portal.azure.com). For more information, see [How to download your Azure billing invoice and daily usage data](../billing-download-azure-invoice-daily-usage-date.md). 
 
 The following sections list most of the terms that you see on your invoice and descriptions for each term.
@@ -76,7 +76,7 @@ The following table describes the sold to and payment instructions shown on your
 | Sold to |This is prepopulated with the profile address on the account. If you need to change this, see [How to change profile information of your Azure account such as contact email, address and phone number](../billing-how-to-change-azure-account-profile.md). |
 | Payment instructions |If your payment method is invoice, this is where to send checks, wire transfers, or overnight checks. For more information, see [Azure Billing - How to invoice](https://azure.microsoft.com/pricing/invoicing/) |
 
-## Understand detailed usage charges (.csv)
+## <a name="csv"></a> Understand detailed usage charges (.csv)
 The usage file shows how much of each resource was used within the current billing period. It’s available in a comma-separated values (.csv) file format that you can open in a spreadsheet application. If you see two versions available, download version 2. That's the most current file format. For more information, see [How to download your Azure billing invoice and daily usage data](../billing-download-azure-invoice-daily-usage-date.md).
 
 Usage charges are the total **monthly** charges on a subscription minus any credit or discount. You are billed for your past month’s usage.  

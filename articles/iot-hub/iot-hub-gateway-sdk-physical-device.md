@@ -1,6 +1,6 @@
 ﻿---
-title: Use a physical device with the IoT Gateway SDK | Microsoft Docs
-description: Azure IoT Gateway SDK walkthrough using a Texas Instruments SensorTag device to send data to IoT Hub through a gateway running on A Raspberry Pi 3
+title: Use a physical device with the Azure IoT Gateway SDK | Microsoft Docs
+description: How to use a Texas Instruments SensorTag device to send data to an IoT hub through a gateway running on a Raspberry Pi 3 device. The gateway is built using the Azure IoT Gateway SDK.
 services: iot-hub
 documentationcenter: ''
 author: chipalost
@@ -17,7 +17,7 @@ ms.date: 11/14/2016
 ms.author: andbuc
 
 ---
-# Azure IoT Gateway SDK – send device-to-cloud messages with a physical device using Linux
+# How to use the Azure IoT Gateway SDK to send device-to-cloud messages with a physical device (Linux)
 This walkthrough of the [Bluetooth low energy sample][lnk-ble-samplecode] shows you how to use the [Azure IoT Gateway SDK][lnk-sdk] to forward device-to-cloud telemetry to IoT Hub from a physical device and how to route commands from IoT Hub to a physical device.
 
 This walkthrough covers:

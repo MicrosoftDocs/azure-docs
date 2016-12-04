@@ -1,6 +1,6 @@
 ---
-title: Device management with IoT Hub overview | Microsoft Docs
-description: 'This article provides an overview of device management in Azure IoT Hub: enterprise device lifecycle, reboot, factory reset, firmware update, configuration, device twins, queries, jobs'
+title: Device management with Azure IoT Hub | Microsoft Docs
+description: Overview of device management in Azure IoT Hub: enterprise device lifecycle and device management patterns such as, reboot, factory reset, firmware update, configuration, device twins, queries, jobs.
 services: iot-hub
 documentationcenter: ''
 author: bzurcher

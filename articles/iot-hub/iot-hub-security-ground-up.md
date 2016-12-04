@@ -1,6 +1,6 @@
 ---
-title: Secure your IoT solution from the ground up | Microsoft Docs
-description: This article describes the built-in security features of the Microsoft Azure IoT Suite
+title: Secure your Azure IoT solution from the ground up | Microsoft Docs
+description: How to use the built-in security features of Microsoft Azure IoT Hub and Suite.
 services: iot-hub
 documentationcenter: ''
 author: YuriDio
