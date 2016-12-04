@@ -18,6 +18,8 @@ ms.workload: na
 ms.date: 11/10/2016
 ms.author: chrande; glenga
 
+toc_rel: toc.json
+
 ---
 # Azure Functions DocumentDB bindings
 [!INCLUDE [functions-selector-bindings](../../includes/functions-selector-bindings.md)]
