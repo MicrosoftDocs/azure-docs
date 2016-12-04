@@ -20,15 +20,15 @@ ms.author: nepeters
 
 # Exporting Resource Groups that contain VM extensions
 
-Azure Resource Groups can be exported into a Resource Manager template that can then be redeployed. The export process interprets existing resources and configurations, and creates a Resource Manager template that when deployed results in a similar Resource Group. When using the Resource Group export option against a Resource Group containing Virtual Machine extensions, several items need to be considered such as extension compatibility and secured settings.
+Azure Resource Groups can be exported into a new Resource Manager template that can then be redeployed. The export process interprets existing resources, and creates a Resource Manager template that when deployed results in a similar Resource Group. When using the Resource Group export option against a Resource Group containing Virtual Machine extensions, several items need to be considered such as extension compatibility and protected settings.
 
-This document details how the Resource Group export process works regarding virtual machine extensions, including a list of supported extension, and details on handling secured data.
+This document details how the Resource Group export process works regarding virtual machine extensions, including a list of supported extensions, and details on handling secured data.
 
 ## Supported Virtual Machine Extensions
 
-Many Virtual Machine extensions are available. However not all extensions can be exported into a Resource Manager template using the “Automation Script” feature. If a VM extension is not supported, it needs to be manually placed back into the exported template.
+Many Virtual Machine extensions are available. Not all extensions can be exported into a Resource Manager template using the “Automation Script” feature. If a virtual machine extension is not supported, it needs to be manually placed back into the exported template.
 
-The following extensions can be exported with the automation Script feature.
+The following extensions can be exported with the automation script feature.
 
 | Extension ||||
 |---|---|---|---|
@@ -49,12 +49,12 @@ To export a Resource Group into a reusable template, complete the following step
 
 1. Sign in to the Azure portal
 2. On the Hub Menu, click Resource Groups
-3. Select the resource group from the list
+3. Select the target resource group from the list
 4. In the Resource Group blade, click Automation Script
 
 ![Template Export](./media/virtual-machines-windows-extensions-export-templates/template-export.png)
 
-The Azure Resource Manager automations script produces a Resource Manager template, a parameters file, and several sample deployment scripts such as PowerShell and CLI. At this point, the automation assets can be downloaded using the download button, added as a new template to the template library, or redeployed using the deploy button.
+The Azure Resource Manager automations script produces a Resource Manager template, a parameters file, and several sample deployment scripts such as PowerShell and Azure CLI. At this point, the exported template can be downloaded using the download button, added as a new template to the template library, or redeployed using the deploy button.
 
 ## Configure protected settings
 
@@ -62,7 +62,7 @@ Many Azure virtual machine extensions include a protected settings configuration
 
 ### Step 1 - Remove template parameter
 
-When the Resource Group is exported, a single parameter is created to provide a value to the exported protected settings. This parameter can be removed. To remove the parameter, look through the parameter list and delete the parameter that looks similar to this JSON example.
+When the Resource Group is exported, a single tempalte parameter is created to provide a value to the exported protected settings. This parameter can be removed. To remove the parameter, look through the parameter list and delete the parameter that looks similar to this JSON example.
 
 ```json
 "extensions_extensionname_protectedSettings": {
@@ -71,13 +71,11 @@ When the Resource Group is exported, a single parameter is created to provide a 
 }
 ```
 
-New parameters may be created once the extensions protected settings has been reconfigured. This process is detailed in the subsequent sections of this document.
-
 ### Step 2 - Get protected settings properties
 
-Because each protected setting has a set of required properties, a list of these properties need to be gathered. Each parameter of the protected configuration can be found in the [Azure Resource Manager schema on GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). This schema only includes the parameter sets for the extensions listed in the overview section of this document. 
+Because each protected setting has a set of required properties, a list of these properties need to be gathered. Each parameter of the protected settings configuration can be found in the [Azure Resource Manager schema on GitHub](https://raw.githubusercontent.com/Azure/azure-resource-manager-schemas/master/schemas/2015-08-01/Microsoft.Compute.json). This schema only includes the parameter sets for the extensions listed in the overview section of this document. 
 
-From within the schema repository, search for the desired extension, for this example `IaaSDiagnostics`. Once the extension `protectedSettings` object has been located, take note of each parameter. In the example of the `IaasDiagnostic` extension, the require parameters are `storageAccountName`, `storageAccountKey`, and `storageAccountEndPoint`.
+From within the schema repository, search for the desired extension, for this example `IaaSDiagnostics`. Once the extensions `protectedSettings` object has been located, take note of each parameter. In the example of the `IaasDiagnostic` extension, the require parameters are `storageAccountName`, `storageAccountKey`, and `storageAccountEndPoint`.
 
 ```json
 "protectedSettings": {
@@ -103,9 +101,9 @@ From within the schema repository, search for the desired extension, for this ex
 
 ### Step 3 - Re-create the protected configuration
 
-On the exported template, search for `protectedSettings` and replace the extensions protected setting object with a new one that includes the required extension parameters and a value for each one.
+On the exported template, search for `protectedSettings` and replace the exported protected setting object with a new one that includes the required extension parameters and a value for each one.
 
-In the example of the `IaasDiagnostic` extension, the protected setting would look like the following example:
+In the example of the `IaasDiagnostic` extension, the new protected setting configuration would look like the following example:
 
 ```json
 "protectedSettings": {
@@ -147,7 +145,7 @@ The final extension resource looks similar to the following JSON example:
 }
 ```
 
-If using a template parameters for the property values, these need to be created. When creating parameters for protected setting values, make sure to use the `SecureObject` type so that the sensitive values are secured. For more information on using variables and parameters, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+If using template parameters to provide property values, these template parameters need to be created. When creating tempalte parameters for protected setting values, make sure to use the `SecureObject` parameter type so that sensitive values are secured. For more information on using parameters, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
 In the example of the `IaasDiagnostic` extension, the following parameters would be created in the parameters section of the Recourse Manager template.
 
