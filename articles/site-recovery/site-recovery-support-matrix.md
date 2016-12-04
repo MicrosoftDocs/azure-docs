@@ -79,9 +79,9 @@ Host OS | 64-bit Windows Server 2012 R2, Windows Server 2012, Windows Server 200
 
 **Name** | **Description** | **Latest version** | **Details**
 --- | --- | --- | --- | ---
-**Azure Site Recovery Provider** | Coordinates communications between on-premises servers and Azure/secondary site <br/><br/> Installed on on-premises VMM servers, or Hyper-V servers if there's no VMM server | 5.1.1700 (available from portal) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
+**Azure Site Recovery Provider** | Coordinates communications between on-premises servers and Azure/secondary site <br/><br/> Installed on on-premises VMM servers, or on Hyper-V servers if there's no VMM server | 5.1.1700 (available from portal) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
 **Azure Site Recovery Unified Setup (VMware to Azure)** | Coordinates communications between on-premises VMware servers and Azure <br/><br/> Installed on on-premises VMware servers | 9.3.4246.1 (available from portal) | [Latest features and fixes](https://support.microsoft.com/kb/3155002)
-**Mobility service** | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on  VMware VM or physical servers you want to replicate  | NA (available from portal) | .
+**Mobility service** | Coordinates replication between on-premises VMware servers/physical servers and Azure/secondary site<br/><br/> Installed on VMware VM or physical servers you want to replicate  | NA (available from portal) | .
 **Microsoft Azure Recovery Services (MARS) agent** | Coordinates replication between Hyper-V VMs and Azure<br/><br/> Installed on on-premises Hyper-V servers (with or without a VMM server) | |
 
 ## Support for networking
