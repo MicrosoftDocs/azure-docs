@@ -1,6 +1,6 @@
 ---
-title: Get started with Raspberry Pi 3 | Microsoft Azure
-description: Get started with Raspberry Pi 3, create your Azure IoT hub, and connect Pi to the IoT hub
+title: Get started with Raspberry Pi 3 | Microsoft Docs
+description: Get started with Raspberry Pi 3, create your Azure IoT hub, and connect Pi to the IoT hub.
 services: iot-hub
 documentationcenter: ''
 author: shizn
@@ -8,6 +8,7 @@ manager: timtl
 tags: ''
 keywords: 'azure iot hub, getting started with the internet of things, iot toolkit'
 
+ms.assetid: 68c0e730-1dc8-4e26-ac6b-573b217b302d
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article

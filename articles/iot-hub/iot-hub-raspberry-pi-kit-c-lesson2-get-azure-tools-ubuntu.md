@@ -1,5 +1,5 @@
 ---
-title: Get Azure tools (Ubuntu 16.04) | Microsoft Azure
+title: Get Azure tools (Ubuntu 16.04) | Microsoft Docs
 description: Install Python and Azure command-line interface (Azure CLI) on Ubuntu.
 services: iot-hub
 documentationcenter: ''
@@ -8,6 +8,7 @@ manager: timtl
 tags: ''
 keywords: 'iot cloud service, azure cli'
 
+ms.assetid: a03512f2-fabe-40c5-8505-b93eef8e5bec
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article

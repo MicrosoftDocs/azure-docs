@@ -1,13 +1,14 @@
 ---
-title: Get the tools (Windows 7 +) | Microsoft Azure
+title: Get the tools (Windows 7 +) | Microsoft Docs
 description: Download and install the necessary tools and software for the first sample application for Pi on Windows 7 and later versions.
 services: iot-hub
 documentationcenter: ''
 author: shizn
 manager: timtl
 tags: ''
-keywords: 'iot development, iot software, internet of things software, install git on windows, gulp run, install node js windows, install npm on windows, install python on windows'
+keywords: 'iot development, iot software, internet of things software, install git on windows, install node js windows, install npm on windows'
 
+ms.assetid: bd765ddd-65b7-4241-a391-dc77cb3af1c0
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article
