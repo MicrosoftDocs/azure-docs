@@ -30,39 +30,18 @@ Many Virtual Machine extensions are available. However not all extensions can be
 
 The following extensions can be exported with the automation Script feature.
 
-| Extension |
-|---|
-| Acronis Backup |
-| Acronis Backup Linux |
-| Bg Info |
-| BMC CTM Agent Linux |
-| BMC CTM Agent Windows |
-| Chef Client |
-| Custom Script |
-| Custom Script Extension |
-| Custom Script for Linux |
-| Datadog Linux Agent |
-| Datadog Windows Agent |
-| Docker Extension |
-| DSC Extension |
-| Dynatrace Linux |
-| Dynatrace Windows |
-| HPE Security Application Defender |
-| IaaS Antimalware |
-| IaaS Diagnostics |
-| Linux Chef Client |
-| Linux Diagnostic |
-| OS Patching For Linux |
-| Puppet Agent |
-| Site 24x7 Apm Insight |
-| Site 24x7 Linux Server |
-| Site 24x7 Windows Server |
-| Trend Micro DSA |
-| Trend Micro DSA Linux |
-| VM Access Agent |
-| VM Access For Linux |
-| VM Snapshot |
-| VM Snapshot Linux |
+| Extension ||||
+|---|---|---|---|
+| Acronis Backup | Datadog Windows Agent | OS Patching For Linux | VM Snapshot Linux
+| Acronis Backup Linux | Docker Extension | Puppet Agent |
+| Bg Info | DSC Extension | Site 24x7 Apm Insight |
+| BMC CTM Agent Linux | Dynatrace Linux | Site 24x7 Linux Server |
+| BMC CTM Agent Windows | Dynatrace Windows | Site 24x7 Windows Server |
+| Chef Client | HPE Security Application Defender | Trend Micro DSA |
+| Custom Script | IaaS Antimalware | Trend Micro DSA Linux |
+| Custom Script Extension | IaaS Diagnostics | VM Access For Linux |
+| Custom Script for Linux | Linux Chef Client | VM Access For Linux |
+| Datadog Linux Agent | Linux Diagnostic | VM Snapshot |
 
 ## Export the Resource Group
 
@@ -91,6 +70,8 @@ When the Resource Group is exported, a single parameter is created to provide a 
 	"type": "SecureObject"
 }
 ```
+
+New parameters may be created once the extensions protected settings has been reconfigured.
 
 ### Step 2 - Get protected settings properties
 
@@ -122,7 +103,7 @@ From within the schema repository, search for the desired extension, for this ex
 
 ### Step 3 - Re-create the protected configuration
 
-On the exported template, search for `protectedSettings` and replace the extensions protected setting object with a new one that includes the required parameters and a value for each parameter. If using a template variable or template parameter for the property values, these need to be created. For more information on using variables and parameters, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). 
+On the exported template, search for `protectedSettings` and replace the extensions protected setting object with a new one that includes the required parameters and a value for each parameter. If using a template variable or template parameter for the property values, these need to be created. When creating parameters for protected setting values, make sure to use the `SecureObject` type so that the sensitive values are secured. For more information on using variables and parameters, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). 
 
 In the example of the `IaasDiagnostic` extension, the protected setting would look like the following example:
 
