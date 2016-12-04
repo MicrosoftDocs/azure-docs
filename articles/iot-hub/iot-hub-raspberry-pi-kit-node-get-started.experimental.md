@@ -23,7 +23,7 @@ ms.author: xshi
 
 In this tutorial, you begin by learning the basics of working with Raspberry Pi 3 that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](http://www.windowsondevices.com/).
 
-Don't have a kit yet? Try the [Raspberry Pi 3 emulator](iot-hub-raspberry-pi-kit-emulator.md). Or buy a new kit [here](https://azure.microsoft.com/develop/iot/starter-kits).
+Don't have a kit yet? Try the [Raspberry Pi 3 emulator](https://blogs.msdn.microsoft.com/iliast/2016/11/10/how-to-emulate-raspberry-pi/). Or buy a new kit [here](https://azure.microsoft.com/develop/iot/starter-kits).
 
 ## Lesson 1: Configure your device
 ![Lesson 1 end-to-end diagram](media/iot-hub-raspberry-pi-lessons/e2e-lesson1.png)
