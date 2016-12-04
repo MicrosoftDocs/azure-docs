@@ -63,7 +63,7 @@ Here's what you can replicate with Site Recovery.
 | --- | --- |
 | **Azure** | A [Microsoft Azure](http://azure.microsoft.com/) account.<br/><br/> You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing. |
 | **On-premises** |**VMware VMs**: In the primary site you need a process server for caching, compressing and encrypting replication data. In the secondary site you need a configuration server to manage and monitor the deployment, and a master target server. We also recommend a vContinuum server, for easier management. In addition, you need one or more VMware vSphere hosts, and optionally a vCenter server. [Learn more](site-recovery-vmware-to-vmware.md)<br/><br/> **Hyper-V VMs in VMM clouds**: VMM servers, and Hyper-V hosts containing VMs you want to replicate. [Learn more](site-recovery-vmm-to-vmm.md#on-premises-prerequisites). |
-| **Network (VMM to VMM)** | If you replicating from VMM to VMM, you set up [network mapping](site-recovery-network-mapping.md) to ensures that replica VMs are connected to appropriate networks after failover, and are optimally placed on Hyper-V hosts. |
+| **Network (VMM to VMM)** | If you replicate from VMM to VMM, you set up [network mapping](site-recovery-network-mapping.md) to ensures that replica VMs are connected to appropriate networks after failover, and are optimally placed on Hyper-V hosts. |
 
 ## URL access
 
@@ -133,5 +133,4 @@ After reviewing general deployment requirements, read the detailed prerequisites
 * [Replicate Hyper-V server in VMM clouds to Azure](site-recovery-vmm-to-azure.md)
 * [Replicate Hyper-V virtual machines (without VMM) to Azure](site-recovery-hyper-v-site-to-azure.md)
 * [Replicate Hyper-V VMs to a secondary site](site-recovery-vmm-to-vmm.md)
-* [Replicate Hyper-V VMs to a secondary site with SAN](site-recovery-vmm-san.md)
 * [Replicate Hyper-V VMs with a single VMM server](site-recovery-single-vmm.md)
