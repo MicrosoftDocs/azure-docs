@@ -67,7 +67,7 @@ Please note some steps are shared between the different types of solutions and o
 * [Create a virtual machine running Linux in the Azure portal](../virtual-machines/virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Troubleshooting common issues encountered during VHD creation](marketplace-publishing-vm-image-creation-troubleshooting.md)
 
-## 3. Post-Publishing management of your offer
+## How to manage your solution
 * [Post-production guide for virtual machine offers](marketplace-publishing-vm-image-post-publishing.md)
 * [How to update the non-technical details of an offer or a SKU](marketplace-publishing-vm-image-post-publishing.md#2-how-to-update-the-non-technical-details-of-an-offer-or-a-sku)
 * [How to update the technical details of an offer or a SKU](marketplace-publishing-vm-image-post-publishing.md#1-how-to-update-the-technical-details-of-a-sku)
