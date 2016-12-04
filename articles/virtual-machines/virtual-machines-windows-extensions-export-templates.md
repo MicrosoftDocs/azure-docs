@@ -62,7 +62,7 @@ Many Azure virtual machine extensions include a protected settings configuration
 
 ### Step 1 - Remove template parameter
 
-When the Resource Group is exported, a single tempalte parameter is created to provide a value to the exported protected settings. This parameter can be removed. To remove the parameter, look through the parameter list and delete the parameter that looks similar to this JSON example.
+When the Resource Group is exported, a single template parameter is created to provide a value to the exported protected settings. This parameter can be removed. To remove the parameter, look through the parameter list and delete the parameter that looks similar to this JSON example.
 
 ```json
 "extensions_extensionname_protectedSettings": {
@@ -145,7 +145,7 @@ The final extension resource looks similar to the following JSON example:
 }
 ```
 
-If using template parameters to provide property values, these template parameters need to be created. When creating tempalte parameters for protected setting values, make sure to use the `SecureObject` parameter type so that sensitive values are secured. For more information on using parameters, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+If using template parameters to provide property values, these need to be created. When creating template parameters for protected setting values, make sure to use the `SecureObject` parameter type so that sensitive values are secured. For more information on using parameters, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
 
 In the example of the `IaasDiagnostic` extension, the following parameters would be created in the parameters section of the Recourse Manager template.
 
