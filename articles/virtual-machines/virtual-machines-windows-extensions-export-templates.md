@@ -103,7 +103,7 @@ From within the schema repository, search for the desired extension, for this ex
 
 ### Step 3 - Re-create the protected configuration
 
-On the exported template, search for `protectedSettings` and replace the extensions protected setting object with a new one that includes the required parameters and a value for each parameter. If using a template variable or template parameter for the property values, these need to be created. When creating parameters for protected setting values, make sure to use the `SecureObject` type so that the sensitive values are secured. For more information on using variables and parameters, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). 
+On the exported template, search for `protectedSettings` and replace the extensions protected setting object with a new one that includes the required extension parameters and a value for each one.
 
 In the example of the `IaasDiagnostic` extension, the protected setting would look like the following example:
 
@@ -144,6 +144,21 @@ The final extension resource looks similar to the following JSON example:
 			"storageAccountEndPoint": "https://core.windows.net"
 		}
 	}
+}
+```
+
+If using a template variable or template parameter for the property values, these need to be created. When creating parameters for protected setting values, make sure to use the `SecureObject` type so that the sensitive values are secured. In the example of the `IaasDiagnostic` extension, the following parameters would be created in the parameters section of the Recourse Manager template.  
+
+For more information on using variables and parameters, see [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). 
+
+```json
+"storageAccountName": {
+	"defaultValue": null,
+	"type": "SecureObject"
+},
+"storageAccountKey": {
+	"defaultValue": null,
+	"type": "SecureObject"
 }
 ```
 
