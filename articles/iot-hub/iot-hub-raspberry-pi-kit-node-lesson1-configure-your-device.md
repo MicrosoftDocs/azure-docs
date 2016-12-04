@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure your device | Microsoft Docs
 description: Configure Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
 services: iot-hub
@@ -6,11 +6,11 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: 'install raspbian, raspbian download, how to install raspbian, raspbian setup, raspberry pi install raspbian, raspberry pi install os, raspberry pi sd card install, raspberry pi connect, connect to raspberry pi, raspberry pi connectivity'
+keywords: ''
 
 ms.assetid: 43f7c2cf-f1a5-4dd5-93f0-7e546c6dc91e
 ms.service: iot-hub
-ms.devlang: node
+ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na

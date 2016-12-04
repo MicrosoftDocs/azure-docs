@@ -1,5 +1,5 @@
 ---
-title: Run a sample application to send device-to-cloud messages | Microsoft Docs
+title: Run a sample application to send device-to-cloud messages | Microsoft Azure
 description: Deploy and run a sample application to Raspberry Pi 3 that sends messages to your IoT hub and blinks the LED.
 services: iot-hub
 documentationcenter: ''
@@ -8,7 +8,6 @@ manager: timtl
 tags: ''
 keywords: 'blink led cloud pi, led blink from cloud'
 
-ms.assetid: e38df29f-f77f-435f-9add-46814297564f
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article

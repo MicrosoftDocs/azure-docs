@@ -1,5 +1,5 @@
 ---
-title: Get Azure tools (macOS 10.10) | Microsoft Docs
+title: Get Azure tools (macOS 10.10) | Microsoft Azure
 description: Install Python and Azure command-line interface (Azure CLI) on macOS.
 services: iot-hub
 documentationcenter: ''
@@ -8,7 +8,6 @@ manager: timtl
 tags: ''
 keywords: 'iot cloud service, azure cli'
 
-ms.assetid: f2d7d584-7734-401c-976c-81788a7282a3
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article

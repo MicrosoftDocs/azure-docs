@@ -6,11 +6,11 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: 'iot issues, internet of things problems'
+keywords: ''
 
 ms.assetid: 22cf50dc-8206-42a2-a1fc-f75fa85135fa
 ms.service: iot-hub
-ms.devlang: node
+ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na

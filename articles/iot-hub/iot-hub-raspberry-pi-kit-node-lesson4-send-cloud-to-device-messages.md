@@ -1,4 +1,4 @@
----
+﻿---
 title: Run the sample application to receive cloud-to-device messages | Microsoft Docs
 description: The sample application runs on Pi and monitors incoming messages from your IoT hub. A new gulp task sends messages to Pi from your IoT hub to blink the LED.
 services: iot-hub
@@ -6,11 +6,11 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: 'cloud to device, message from cloud'
+keywords: ''
 
 ms.assetid: 6ae6539e-1163-4490-8d72-fdf7803e3054
 ms.service: iot-hub
-ms.devlang: node
+ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na

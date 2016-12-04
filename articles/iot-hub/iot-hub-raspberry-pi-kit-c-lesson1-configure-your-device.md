@@ -1,5 +1,5 @@
 ---
-title: Configure your device | Microsoft Docs
+title: Configure your device | Microsoft Azure
 description: Configure Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
 services: iot-hub
 documentationcenter: ''
@@ -8,7 +8,6 @@ manager: timtl
 tags: ''
 keywords: 'install raspbian, raspbian download, how to install raspbian, raspbian setup, raspberry pi install raspbian, raspberry pi install os, raspberry pi sd card install, raspberry pi connect, connect to raspberry pi, raspberry pi connectivity'
 
-ms.assetid: 8ee9b23c-93f7-43ff-8ea1-e7761eb87a6f
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article

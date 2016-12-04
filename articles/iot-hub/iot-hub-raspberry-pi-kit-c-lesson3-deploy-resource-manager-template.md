@@ -1,5 +1,5 @@
 ---
-title: Create an Azure function app and storage account | Microsoft Docs
+title: Create an Azure function app and storage account | Microsoft Azure
 description: The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage.
 services: iot-hub
 documentationcenter: ''
@@ -8,7 +8,6 @@ manager: timtl
 tags: ''
 keywords: 'storing data in the cloud, data stored in cloud, iot cloud service'
 
-ms.assetid: 4bcfb071-b3ae-48cc-8ea5-7e7434732287
 ms.service: iot-hub
 ms.devlang: c
 ms.topic: article

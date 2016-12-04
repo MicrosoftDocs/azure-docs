@@ -6,11 +6,11 @@ documentationcenter: ''
 author: shizn
 manager: timlt
 tags: ''
-keywords: 'iot cloud service, azure cli'
+keywords: ''
 
 ms.assetid: 2f98923a-5274-4220-87d4-77ac8beb4d0f
 ms.service: iot-hub
-ms.devlang: node
+ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
