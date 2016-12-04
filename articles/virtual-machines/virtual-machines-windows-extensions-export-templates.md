@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/28/2016
+ms.date: 12/05/2016
 ms.author: nepeters
 ---
 
@@ -45,7 +45,7 @@ The following extensions can be exported with the automation Script feature.
 
 ## Export the Resource Group
 
-To export a Resource Group into a reuseable template, complete the following steps:
+To export a Resource Group into a reusable template, complete the following steps:
 
 1. Sign in to the Azure portal
 2. On the Hub Menu, click Resource Groups
@@ -60,9 +60,9 @@ The Azure Resource Manager automations script produces a Resource Manager templa
 
 Many Azure virtual machine extensions include a protected settings configuration, that encrypts sensitive data such as credentials and configuration strings. Protected settings are not exported with the automation script. If required, protected settings will need to be re-inserted into the exported templated.
 
-### Step 1 - Remove exported parameter
+### Step 1 - Remove template parameter
 
-When the Resource Group is exported, a single parameter is created to provide a value to the extension resource. This parameter can be removed.  To remove the parameter, look through the parameter list and delete the parameter that looks similar to this JSON example.
+When the Resource Group is exported, a single parameter is created to provide a value to the exported protected settings. This parameter can be removed. To remove the parameter, look through the parameter list and delete the parameter that looks similar to this JSON example.
 
 ```json
 "extensions_extensionname_protectedSettings": {
@@ -71,7 +71,7 @@ When the Resource Group is exported, a single parameter is created to provide a 
 }
 ```
 
-New parameters may be created once the extensions protected settings has been reconfigured.
+New parameters may be created once the extensions protected settings has been reconfigured. This will be detailed in the subsequent sections of this document.
 
 ### Step 2 - Get protected settings properties
 
