@@ -79,32 +79,3 @@ When logged in to a Windows Azure VM, task manager can be used to examine runnin
 ## Upgrade the VM Agent
 
 The Azure VM Agent for Windows is automatically upgraded. As new virtual machines are deployed to Azure, they receive the latest VM agent. Custom VM images should be manually updated to include the new VM agent.
-
-## Remove the VM Agent
-
-It is not recommended to uninstall existing Azure VM Agents. If the VM agent should not be installed on an Azure virtual machine, the recommendation is to deploy the VM without the VM agent. The VM agent can be omited from a deployment though several methods.
-
-### Azure Resource Manager template
-
-When using a Resource Manager template, the VM Agent can be disabled in the VM resources OS profile. The following JSON shows an example of this.
-
-```json
-"osProfile": {
-    "computerName": "[variables('vmName')]",
-    "adminUsername": "[parameters('adminUsername')]",
-    "adminPassword": "[parameters('adminPassword')]",
-    "windowsConfiguration": {
-    "provisionVMAgent": "false"
-    }
-},  
-```
-
-### PowerShell
-
-When using PowerShell to deploy a new Azure virtual machine, the `Set-AzureRmVMOperatingSystem` command includes a `-ProvisionVMAgnet` switch parameter. This means that if the parameter is present the VM Agent is installed, if not, the VM Agent is not installed. The following command configures the VM deployment operation so that the VM Agent is not installed. 
-
-For a complete walkthrough on deploying Azure virtual machines with PowerShell, see [Create a Windows VM using PowerShell](./virtual-machines-windows-ps-create.md).
-
-```PowerShell
-Set-AzureRmVMOperatingSystem -VM $myVM -Windows -ComputerName "myVM" -Credential $cred -EnableAutoUpdate
-```
