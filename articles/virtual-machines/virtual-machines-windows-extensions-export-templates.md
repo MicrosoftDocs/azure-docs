@@ -20,7 +20,7 @@ ms.author: nepeters
 
 # Exporting Resource Groups that contain VM extensions
 
-Azure Resource Groups can be exported into a Resource Manager template that can then be redeployed. The export process interprets existing resources and configurations, and create a Resource Manager template that when deployed results in a similar Resource Group. When using the Resource Group export option against a Resource Group containing Virtual Machine extensions, several items need to be considered such as extension compatibility and secured settings.
+Azure Resource Groups can be exported into a Resource Manager template that can then be redeployed. The export process interprets existing resources and configurations, and creates a Resource Manager template that when deployed results in a similar Resource Group. When using the Resource Group export option against a Resource Group containing Virtual Machine extensions, several items need to be considered such as extension compatibility and secured settings.
 
 This document details how the Resource Group export process works regarding virtual machine extensions, including a list of supported extension, and details on handling secured data.
 
@@ -58,7 +58,7 @@ The Azure Resource Manager automations script produces a Resource Manager templa
 
 ## Configure protected settings
 
-Many Azure virtual machine extensions include a protected settings configuration, that encrypts sensitive data such as credentials and configuration strings. Protected settings are not exported with the automation script. If required, protected settings will need to be re-inserted into the exported templated.
+Many Azure virtual machine extensions include a protected settings configuration, that encrypts sensitive data such as credentials and configuration strings. Protected settings are not exported with the automation script. If necessary, protected settings need to be reinserted into the exported templated.
 
 ### Step 1 - Remove template parameter
 
@@ -71,7 +71,7 @@ When the Resource Group is exported, a single parameter is created to provide a 
 }
 ```
 
-New parameters may be created once the extensions protected settings has been reconfigured. This will be detailed in the subsequent sections of this document.
+New parameters may be created once the extensions protected settings has been reconfigured. This process is detailed in the subsequent sections of this document.
 
 ### Step 2 - Get protected settings properties
 
