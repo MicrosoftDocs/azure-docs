@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/30/2016
+ms.date: 12/04/2016
 ms.author: hascipio
 
 ---
@@ -32,15 +32,15 @@ The first thing you would want to do as a publisher is to define what kind of so
 |Definition|Pre-configured images with a fully installed operating system and one or more applications. A virtual machine image provides the information necessary to create and deploy virtual machines in the Azure Virtual Machines service.|A data structure that can reference one or more distinct Azure services, including services published by other sellers, to enable Azure subscribers to deploy one or more offerings in a single, coordinated manner.|
 |Example|**For example,** as an Azure publisher, you've created and validated a VM with an innovative database service that's compelling enough such that other Azure subscribers would be willing to procure and deploy this VM into their cloud service environments.|**For example,** as an Azure publisher, you've bundles a set of services from across Azure that makes it quick to deploy a secure, high availability cloud service with load balancing in a few clicks. Other Azure subscribers could fine value in saving time by procuring this solution template rather manually identifying and configuring the same or similar Azure services.|
 
->[!NOTE]
+> [!NOTE]
 > Please note some steps are shared between the different types of solutions and others are distinct to the respective type of solution. This article provides a short overview of what steps you will need to complete for any type of solution.
 
 ## How to publish a solution
 ![draw](media/marketplace-publishing-getting-started/img01.png)
 
 ### 1. Nominate your solution for pre-approval
->[!IMPORTANT]
->Before you begin any work on the Azure Marketplace, you must be [pre-approved](http://azure.com/certified).
+> [!IMPORTANT]
+> Before you begin any work on the Azure Marketplace, you must be [pre-approved](http://azure.com/certified).
 
 - [Apply for Microsoft Azure Certified Pre-approval](marketplace-publishing-azure-certification.md)
 
