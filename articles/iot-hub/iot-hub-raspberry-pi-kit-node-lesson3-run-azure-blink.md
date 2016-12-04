@@ -26,6 +26,9 @@ This article will show you how to deploy and run a sample application on Raspber
 You will learn how to use the gulp tool to deploy and run the sample Node.js application on Pi.
 
 ## What you need
+* Before you start this task, you must have successfully completed [Create an Azure function app and a storage account to process and store IoT hub messages](iot-hub-raspberry-pi-kit-node-lesson3-deploy-resource-manager-template.md).
+
+## Get your IoT hub and device connection strings
 The device connection string is used by your Pi to connect to your IoT hub. The IoT hub connection string is used to connect to the identity registry in your IoT hub to manage the devices that are allowed to connect to your IoT hub. 
 
 * List all your IoT hubs in your resource group by running the following Azure CLI command:
