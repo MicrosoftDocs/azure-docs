@@ -21,7 +21,8 @@ ms.author: hascipio
 # Get pre-approved via the Microsoft Azure Certified program
 This article provides instructions on how to become Microsoft Azure Certified so that you can publish your solution into the Azure Marketplace and qualify for marketing benefits. For a detailed overview of the Microsoft Azure Certified program and its benefits, visit [http://azure.com/certified](http://azure.com/certified).
 
-> [!IMPORTANT] The Azure certification is applicable only if you are going to create a virtual machine or a solution template for the Azure Marketplace.
+> [!IMPORTANT]
+> The Azure certification is applicable only if you are going to create a virtual machine or a solution template for the Azure Marketplace.
 
 ## Getting started
 1. The first step on the path to getting your solution certified and onboarded to the Azure Marketplace is to fill out the application form on the [Microsoft Azure Certified](https://azure.microsoft.com/marketplace/partner-program/) webpage.
