@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy the StorSimple Manager service | Microsoft Docs
 description: Explains how to create and delete the StorSimple Manager service in the Azure classic portal, and describes how to manage the service registration key.
 services: storsimple
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/16/2016
+ms.date: 12/05/2016
 ms.author: v-sharos
 
 ---
@@ -47,6 +47,8 @@ Use the **Quick Create** option to create a StorSimple Manager service if you wa
 You can also choose to generate a default storage account when you create the service.
 
 A single service can manage multiple devices. However, a device cannot span multiple services. A large enterprise can have multiple service instances to work with different subscriptions, organizations, or even deployment locations. Please note that you need separate instances of StorSimple Manager service to manage StorSimple 8000 series devices and StorSimple Virtual Arrays.
+
+[AZURE.IMPORTANT] If you have an unused service created (no device operations were performed on this resource) prior to August 2016, it cannot be managed via Azure portal or Azure classic portal. We recommend that you create a new service in the Azure portal.
 
 Perform the following steps to create a service.
 
