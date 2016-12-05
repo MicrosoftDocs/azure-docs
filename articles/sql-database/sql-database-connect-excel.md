@@ -13,7 +13,7 @@ ms.service: sql-database
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: article
 ms.date: 07/05/2016
 ms.author: joseidz
 

@@ -100,7 +100,7 @@ The default usage quota is 150,000 objects. An object is an entry in the directo
 |:---:|:---:|:---:|:---:|
 | Up to 500,000 objects |No object limit |No object limit |No object limit for Office 365 user accounts |
 
-#### User/Group Management (add/update/delete)/ User-based provisioning, Device  registration
+#### User/Group Management (add/update/delete), User-based provisioning, Device registration
 **Type:** Common Features
 
 **Availability:**
