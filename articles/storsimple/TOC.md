@@ -200,7 +200,7 @@
 ## How to
 ### [Use .NET to transform data](storsimple-data-manager-dotnet-jobs.md)
 
-# StorSimple for partners
+# StorSimple for Partners
 
 ## Overview
 ### [What is the solution?](storsimple-partner-csp-overview.md)
@@ -213,7 +213,7 @@
 ## Release notes
 ### [CSP release notes](https://partner.microsoft.com/Support/whats-new)
 ### [StorSimple release notes](https://aka.ms/storsimple-latest-relnote)
-### [StorSimple CSP FAQ](storsimple-partner-faq.md)
+### [StorSimple CSP FAQ](storsimple-partner-csp-faq.md)
 
 # Related
 ## [StorSimple 5000-7000 Series](http://onlinehelp.storsimple.com)
