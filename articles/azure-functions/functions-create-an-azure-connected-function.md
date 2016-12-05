@@ -15,7 +15,7 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 11/29/2016
+ms.date: 12/05/2016
 ms.author: rachelap@microsoft.com
 
 ---
@@ -89,10 +89,25 @@ First you need to create a function that loads the message queue. To do this, yo
 
 3. Click **Save and Run**.
 
-### Verify the function by using Storage Explorer
-You can verify that the code works by viewing messages in the queue you created. You can connect to your storage queue by using Cloud Explorer in Visual Studio. However, the portal makes it easy to connect to your storage account by using Microsoft Azure Storage Explorer.
+### View queue updates by using Storage Explorer
+You can verify that your function is working by viewing messages in the queue you created.  You can connect to your storage queue by using Cloud Explorer in Visual Studio. However, the portal makes it easy to connect to your storage account by using Microsoft Azure Storage Explorer.
 
-1. 
+1. In the **Integrate** tab, click your queue output binding > **Documentation**, then unhide the Connection String for your storage account and copy the value. You use this value to connect to your storage account.
+
+	![Download Azure Storage Explorer](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-integrate-tab3.png)
+
+
+2. If you haven't already done so, download and install [Microsoft Azure Storage Explorer](http://storageexplorer.com). 
+ 
+3. In Storage Explorer, click the connect to Azure Storage icon, paste the connection string in the field, and complete the wizard.
+
+	![Storage explorer add connection.](./media/functions-create-an-azure-connected-function/functionsbindingsdemo1-storage-explorer.png)
+
+4. Under **Local and attached**, expand **Storage Accounts** > your storage account > **Queues** > **functions-bindings** and verify that messages are written to the queue.
+
+	![View of messages in the queue](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer.png)
+
+	If the queue does not exist or is empty, there is most likely a problem with your function binding or code.
 
 ## Create a queue triggered function
 
@@ -106,7 +121,7 @@ Now that you have messages being added to the queue, you can create another func
 
 	![Add an output queue timer function](./media/functions-create-an-azure-connected-function/function-demo2-new-function.png) 
 
-5. (Optional) You can verify that the new function works by viewing the queue in Storage Explorer or in Visual Studio. Refresh the **functions-bindings** queue and notice that items have been removed from the queue. This happens because the function is bound to the **functions-bindings** queue as an input trigger. Next, you will write the messages permanently to a storage table.
+5. (Optional) You can verify that the new function works by viewing the new queue in Storage Explorer as before. You can also use Cloud Explorer in Visual Studio. Refresh the **functions-bindings** queue and notice that items have been removed from the queue. This happens because the function is bound to the **functions-bindings** queue as an input trigger. Next, you will write the messages permanently to a storage table.
 
 ### Add a table output binding
 
@@ -158,15 +173,15 @@ Now that you have messages being added to the queue, you can create another func
 	```
 	Note that the **TableItem** class represents the Azure table, and modify the Run function to accept the newly created TableItem object. Notice that you must use the **PartitionKey** and **RowKey** properties in order for it to work.
 
-9. Click **Save**.
+9. Click **Save**.  Finally, you can verify the function works by viewing the table in Storage explorer or Visual Studio Cloud Explorer.
 
-4. (Optional) You can verify the code works by viewing the table in Visual Studio.
+4. (Optional) In your storage account in Storage Explorer, expand **Tables** > **functionsbindings** and verify that rows are added to the table.
+
+	![View of rows in the table](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer2.png)
+
+	If the table does not exist or is empty, there is most likely a problem with your function binding or code.
    
-   1. Open Visual Studio and select **View** > **Cloud Explorer**. Sign in to your Azure account, if required.
-   2. In your subscription, expand **Storage accounts** > *your storage account* > **Queues**, double-click **functions-bindings**, and then verify that rows of log data are written to the queue. 
-
-
-
+ 
 [!INCLUDE [Getting Started Note](../../includes/functions-bindings-next-steps.md)]
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
