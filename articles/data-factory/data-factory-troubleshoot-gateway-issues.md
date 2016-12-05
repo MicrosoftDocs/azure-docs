@@ -1,6 +1,6 @@
 ﻿---
 title: Troubleshoot Data Management Gateway issues | Microsoft Docs
-description: Provides tips to troubleshoot Data Management Gateway related issues.
+description: Provides tips to troubleshoot issues related to Data Management Gateway.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -37,10 +37,10 @@ The machine on which you are trying to install the gateway has failed to downloa
 #### Resolution
 Check your firewall proxy server settings to see whether the settings block the network connection from the computer to the [download center](https://download.microsoft.com/), and update the settings accordingly.
 
-Alternatively, you can download the installation file for the latest gateway from the [download center](https://www.microsoft.com/en-US/download/details.aspx?id=39717) on other machines that can access the download center, copy the installer file to the gateway host machine, and run it manually to install and update the gateway.
+Alternatively, you can download the installation file for the latest gateway from the [download center](https://www.microsoft.com/en-US/download/details.aspx?id=39717) on other machines that can access the download center. You can then copy the installer file to the gateway host computer and run it manually to install and update the gateway.
 
 ### 2. Problem
-You see this error when attempting to install a gateway by clicking **install directly on this computer** in the portal.
+You see this error when you're attempting to install a gateway by clicking **install directly on this computer** in the Azure portal.
 
 `Error:  Abort installing a new gateway on this computer because this computer has an existing installed gateway and a computer without any installed gateway is required for installing a new gateway.`  
 
@@ -66,64 +66,64 @@ You might see this message for one of the following reasons:
 Verify whether you are using the right gateway key from the portal. If needed, regenerate a key and use the key to register the gateway.
 
 ### 4. Problem
-You might see the following error message when registering a gateway.
+You might see the following error message when you're registering a gateway.
 
 `Error: The content or format of the gateway key "{gatewayKey}" is invalid, please go to azure portal to create one new gateway or regenerate the gateway key.`
 
 
 
-![content or format of key is invalid](media/data-factory-troubleshoot-gateway-issues/invalid-format-gateway-key.png)
+![Content or format of key is invalid](media/data-factory-troubleshoot-gateway-issues/invalid-format-gateway-key.png)
 
 #### Cause
-The content or format of the input gateway key is incorrect. One of the reasons could be that you copied only a portion of the key from the portal or you're using an invalid key.
+The content or format of the input gateway key is incorrect. One of the reasons can be that you copied only a portion of the key from the portal or you're using an invalid key.
 
 #### Resolution
-Generate a gateway key in the portal, and use the copy button to copy the whole key, and then paste it in this window to register the gateway.
+Generate a gateway key in the portal, and use the copy button to copy the whole key. Then paste it in this window to register the gateway.
 
 ### 5. Problem
-You might see the following error message when registering a gateway.
+You might see the following error message when you're registering a gateway.
 
 `Error: The gateway key is invalid or empty. Specify a valid gateway key from the portal.`
 
-![gateway key is invalid or empty](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
+![Gateway key is invalid or empty](media/data-factory-troubleshoot-gateway-issues/gateway-key-is-invalid-or-empty.png)
 
 #### Cause
 The gateway key has been regenerated or the gateway has been deleted in the portal.
 
 #### Resolution
-If the gateway still exists, regenerate the gateway key in the portal and use the copy button to copy the whole key. Paste it in the window to register the gateway. Otherwise, recreate the gateway and start over.
+If the gateway still exists, regenerate the gateway key in the portal and use the copy button to copy the whole key. Paste it in the window to register the gateway. Otherwise, re-create the gateway and start over.
 
 ### 6. Problem
-You might see the following error message when registering a gateway.
+You might see the following error message when you're registering a gateway.
 
 `Error: Gateway has been online for a while, then shows “Gateway is not registered” with the status “Gateway key is invalid”`
 
-![gateway key is invalid or empty](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
+![Gateway key is invalid or empty](media/data-factory-troubleshoot-gateway-issues/gateway-not-registered-key-invalid.png)
 
 #### Cause
 This error might happen because either the gateway has been deleted or the associated gateway key has been regenerated.
 
 #### Resolution
-If the gateway has been deleted, recreate the gateway from the portal, click **Register**, copy the key from the portal, paste it, and try to register the gateway.
+If the gateway has been deleted, re-create the gateway from the portal, click **Register**, copy the key from the portal, paste it, and try to register the gateway.
 
 If the gateway still exists but its key has been regenerated, use the new key to register the gateway. If you don’t have the key, regenerate the key again from the portal.
 
 ### 7. Problem
-When registering a gateway, you might need to enter path and password for a certificate.
+When you're registering a gateway, you might need to enter path and password for a certificate.
 
-![specify certificate](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
+![Specify certificate](media/data-factory-troubleshoot-gateway-issues/specify-certificate.png)
 
 #### Cause
 The gateway has been registered on other machines before. During the initial registration of a gateway, an encryption certificate has been associated with the gateway. The certificate can either be self-generated by the gateway or provided by the user.  This certificate is used to encrypt credentials of the data store (linked service).  
 
-![export certificate](media/data-factory-troubleshoot-gateway-issues/export-certificate.png)
+![Export certificate](media/data-factory-troubleshoot-gateway-issues/export-certificate.png)
 
 When restoring the gateway on a different host machine, the registration wizard asks for this certificate to decrypt credentials previously encrypted with this certificate.  Without this certificate, the credentials cannot be decrypted by the new gateway and subsequent copy activity executions associated with this new gateway will fail.  
 
 #### Resolution
-If you have exported the credential certificate from the original gateway machine by using the **Export** button on the **Settings** tab in the Data Management Gateway Configuration Manager, use the certificate here.
+If you have exported the credential certificate from the original gateway machine by using the **Export** button on the **Settings** tab in Data Management Gateway Configuration Manager, use the certificate here.
 
-You cannot skip this stage when recovering a gateway. If the certificate is missing, you need to delete the gateway from the portal and recreate a new gateway.  In addition, all linked services related to the gateway need to be updated by reentering their credentials.
+You cannot skip this stage when recovering a gateway. If the certificate is missing, you need to delete the gateway from the portal and re-create a new gateway.  In addition, update all linked services that are related to the gateway by reentering their credentials.
 
 ### 8. Problem
 You might see the following error message.
@@ -134,7 +134,7 @@ You might see the following error message.
 This error happens when your gateway is in an environment that requires an HTTP proxy to access Internet resources, or your proxy's authentication password is changed but it's not updated accordingly in your gateway.
 
 #### Resolution
-Follow the instructions in the [Proxy server considerations](#proxy-server-considerations) section of this article, and configure proxy settings with the Data Management Gateway Configuration Manager.
+Follow the instructions in the [Proxy server considerations](#proxy-server-considerations) section of this article, and configure proxy settings with Data Management Gateway Configuration Manager.
 
 ## Gateway is online with limited functionality
 ### 1. Problem
@@ -164,9 +164,9 @@ Gateway cannot connect to the cloud service through Service Bus.
 #### Resolution
 Follow these steps to get the gateway back online:
 
-1. Allow IP address outbound rules on the gateway machine and the corporate firewall. You can find IP addresses from the Windows Event Log (ID == 401): An attempt was made to access a socket in a way forbidden by its access permissions XX.XX.XX.XX:9350
-* Configure proxy settings on the gateway. See [Proxy server considerations](#proxy-server-considerations) section for details.
-* Enable outbound ports 5671 and 9350-9354 on both the Windows Firewall on the gateway machine and the corporate firewall. See [Ports and firewall](#ports-and-firewall) section for details. This step is optional, but recommended for performance consideration.
+1. Allow IP address outbound rules on the gateway machine and the corporate firewall. You can find IP addresses from the Windows Event Log (ID == 401): An attempt was made to access a socket in a way forbidden by its access permissions XX.XX.XX.XX:9350.
+* Configure proxy settings on the gateway. See the [Proxy server considerations](#proxy-server-considerations) section for details.
+* Enable outbound ports 5671 and 9350-9354 on both the Windows Firewall on the gateway machine and the corporate firewall. See the [Ports and firewall](#ports-and-firewall) section for details. This step is optional, but we recommend it for performance consideration.
 
 ### 3. Problem
 You see the following error.
@@ -188,26 +188,26 @@ You might see this error when you try to use Credential Manager in the portal to
 
 `Error: The data store '<Server>/<Database>' cannot be reached. Check connection settings for the data source.`
 
-When you see this error, the settings page of the Data Management Gateway Configuration Manager might look like the following screenshot.
+When you see this error, the settings page of Data Management Gateway Configuration Manager might look like the following screenshot.
 
 ![Database cannot be reached](media/data-factory-troubleshoot-gateway-issues/database-cannot-be-reached.png)
 
 #### Cause
-The SSL Certificate might have been lost on the gateway machine. The gateway computer cannot load the certificate currently that is used for SSL encryption. You might also see an error message in the event log that is similar to the following message.
+The SSL certificate might have been lost on the gateway machine. The gateway computer cannot load the certificate currently that is used for SSL encryption. You might also see an error message in the event log that is similar to the following message.
 
  `Unable to get the gateway settings from cloud service. Check the gateway key and the network connection. (Certificate with thumbprint cannot be loaded.)`
 
 #### Resolution
 Follow these steps to solve the problem:
 
-1. Start the Data Management Gateway Configuration Manager.
+1. Start Data Management Gateway Configuration Manager.
 2. Switch to the **Settings** tab.  
-3. Click the **Change** button to change the SSL Certificate.
+3. Click the **Change** button to change the SSL certificate.
 
-   ![change certificate button](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
-4. Select a new certificate as the SSL Certificate. You can use any SSL Certificate that is generated by you or any organization.
+   ![Change certificate button](media/data-factory-troubleshoot-gateway-issues/change-button-ssl-certificate.png)
+4. Select a new certificate as the SSL certificate. You can use any SSL certificate that is generated by you or any organization.
 
-   ![specify certificate](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
+   ![Specify certificate](media/data-factory-troubleshoot-gateway-issues/specify-http-end-point.png)
 
 ## Copy activity fails
 ### Problem
@@ -216,12 +216,12 @@ You might notice the following "UserErrorFailedToConnectToSqlserver" failure aft
 `Error: Copy activity encountered a user error: ErrorCode=UserErrorFailedToConnectToSqlServer,'Type=Microsoft.DataTransfer.Common.Shared.HybridDeliveryException,Message=Cannot connect to SQL Server`
 
 #### Cause
-This could happen for different reasons, and mitigation varies accordingly.
+This can happen for different reasons, and mitigation varies accordingly.
 
 #### Resolution
 Allow outbound TCP connections over port TCP/1433 on the Data Management Gateway client side before connecting to an SQL database.
 
-If the target database is an Azure SQL Database, check Azure SQL Server firewall settings as well.
+If the target database is an Azure SQL database, check SQL Server firewall settings for Azure as well.
 
 See the following section to test the connection to the on-premises data store.
 
@@ -237,40 +237,40 @@ If you see data store connection or driver-related errors, complete the followin
 
 ## Gateway logs
 ### Send gateway logs to Microsoft
-When you contact Microsoft Support to get help with troubleshooting gateway issues, you might be asked to share your gateway logs. With the release of the gateway, you can share required gateway logs with two button clicks in the Data Management Gateway Configuration Manager.    
+When you contact Microsoft Support to get help with troubleshooting gateway issues, you might be asked to share your gateway logs. With the release of the gateway, you can share required gateway logs with two button clicks in Data Management Gateway Configuration Manager.    
 
-1. Switch to the **Diagnostics** tab in the Data Management Gateway Configuration Manager.
+1. Switch to the **Diagnostics** tab in Data Management Gateway Configuration Manager.
 
-    ![Data Management Gateway - Diagnostics tab](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-diagnostics-tab.png)
+    ![Data Management Gateway Diagnostics tab](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-diagnostics-tab.png)
 2. Click **Send Logs** to see the following dialog box.
 
-    ![Data Management Gateway - Send logs](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png)
+    ![Data Management Gateway Send logs](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-dialog.png)
 3. (Optional) Click **view logs** to review logs in the event viewer.
-4. (Optional) Click **privacy** to review Microsoft online services privacy statement.
-5. Once you are satisfied with what you are about to upload, click **Send Logs** to actually send the logs from the last seven days to Microsoft for troubleshooting. You should see the status of the send logs operation as shown in the following screenshot.
+4. (Optional) Click **privacy** to review Microsoft web services privacy statement.
+5. When you are satisfied with what you are about to upload, click **Send Logs** to actually send the logs from the last seven days to Microsoft for troubleshooting. You should see the status of the send-logs operation as shown in the following screenshot.
 
-    ![Data Management Gateway - Send logs status](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
+    ![Data Management Gateway Send logs status](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-status.png)
 6. After the operation is complete, you see a dialog box as shown in the following screenshot.
 
-    ![Data Management Gateway - Send logs status](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
+    ![Data Management Gateway Send logs status](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-result.png)
 7. Save the **Report ID** and share it with Microsoft Support. The report ID is used to locate the gateway logs that you uploaded for troubleshooting.  The report ID is also saved in the event viewer.  You can find it by looking at the event ID “25”, and check the date and time.
 
-    ![Data Management Gateway - Send logs report ID](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
+    ![Data Management Gateway Send logs report ID](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-send-logs-report-id.png)    
 
 ### Archive gateway logs on gateway host machine
 There are some scenarios where you have gateway issues and you cannot share gateway logs directly:
 
 * You manually install the gateway and register the gateway.
-* You try to register the gateway with a regenerated key in the Data Management Gateway Configuration Manager.
+* You try to register the gateway with a regenerated key in Data Management Gateway Configuration Manager.
 * You try to send logs and the gateway host service cannot be connected.
 
 For these scenarios, you can save gateway logs as a zip file and share it when you contact Microsoft support. For example, if you receive an error while you register the gateway as shown in the following screenshot.   
 
-![Data Management Gateway - Registration error](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-registration-error.png)
+![Data Management Gateway Registration error](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-registration-error.png)
 
 Click the **Archive gateway logs** link to archive and save logs, and then share the zip file with Microsoft support.
 
-![Data Management Gateway - Archive logs](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-archive-logs.png)
+![Data Management Gateway Archive logs](media/data-factory-troubleshoot-gateway-issues/data-management-gateway-archive-logs.png)
 
 ### Locate gateway logs
 You can find detailed gateway log information in the Windows event logs.
@@ -278,6 +278,6 @@ You can find detailed gateway log information in the Windows event logs.
 1. Start Windows **Event Viewer**.
 2. Locate logs in the **Application and Services Logs** > **Data Management Gateway** folder.
 
- When troubleshooting gateway-related issues, look for error level events in the event viewer.
+ When you're troubleshooting gateway-related issues, look for error level events in the event viewer.
 
-![Data Management Gateway - logs in event viewer](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
+![Data Management Gateway logs in event viewer](media/data-factory-troubleshoot-gateway-issues/gateway-logs-event-viewer.png)
