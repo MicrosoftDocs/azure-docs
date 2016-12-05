@@ -36,20 +36,20 @@ In many other cases, using graceful shutdown sequence improves the overall servi
 in the cluster (manual failover), remove the Virtual Machine from a load balancer pool.
 There are cases where notifying an administrator about upcoming event or even just logging such an event help improving the serviceability of applications hosted in the cloud.
 
-Azure Metadata Service surfaces scheduled events in the following use cases:�����
--   Platform initiated �impactful� maintenance (for example, Host OS rollout)
--   Platform initiated �impact-less� maintenance (for example, In-place VM Migration)
+Azure Metadata Service surfaces scheduled events in the following use cases:
+-   Platform initiated 'impactful' maintenance (for example, Host OS rollout)
+-   Platform initiated 'impact-less' maintenance (for example, In-place VM Migration)
 -   Interactive calls (for example, user restarts or redeploy a VM)
 
 
 
-## Scheduled Events � The Basics  
+## Scheduled Events - The Basics  
 
 Azure Metadata service exposes information about running Virtual Machines using a REST Endpoint from within the VM. The information is available via a Non-routable IP so that it is not exposed 
 outside the VM.
 
 ### Scope 
-Scheduled events are surfaced to all VMs in a cloud service or to all VMs in an Availability Set. As a result, you should check the **Resources* field in the event to identify which VMs are
+Scheduled events are surfaced to all Virtual Machines in a cloud service or to all Virtual Machines in an Availability Set. As a result, you should check the **Resources* field in the event to identify which VMs are
 going to be impacted.
 
 ### Discover the Endpoint
