@@ -23,13 +23,12 @@ You can use the Azure portal to register your application with your Azure Active
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Choose your Azure AD tenant by selecting your account in the top right corner of the page.
-3. In the left-hand navigation pane, click **Azure Active Directory**.
-4. Click **App Registrations** and click **Add**.
-5. Follow the prompts and create a new application. If you'd like specific examples for web applications or native applications, check out our [quickstarts](active-directory-developers-guide.md).
+3. In the left-hand navigation pane, choose **More Services**, click **App Registrations** and click **Add**.
+4. Follow the prompts and create a new application. If you'd like specific examples for web applications or native applications, check out our [quickstarts](active-directory-developers-guide.md).
   * For Web Applications, provide the **Sign-On URL**, which is the base URL of your app, where users can sign in e.g `http://localhost:12345`.
 <!--TODO: add once App ID URI is configurable: The **App ID URI** is a unique identifier for your application. The convention is to use `https://<tenant-domain>/<app-name>`, e.g. `https://contoso.onmicrosoft.com/my-first-aad-app`-->
   * For Native Applications, provide a **Redirect URI**, which Azure AD uses to return token responses. Enter a value specific to your application, .e.g `http://MyFirstAADApp`
-6. Once you've completed registration, Azure AD assigns your application a unique client identifier, the Application ID.
+5. Once you've completed registration, Azure AD assigns your application a unique client identifier, the Application ID.
 
 ## Update application settings from the Azure portal
 
@@ -37,9 +36,8 @@ You can easily modify an existing application's settings using the Azure portal.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Choose your Azure AD tenant by selecting your account in the top right corner of the page.
-3. In the left-hand navigation pane, click **Azure Active Directory**.
-4. Click **App Registrations** and choose your application from the list.
-5. Click **Settings** to open up the settings page for the application.
+3. In the left-hand navigation pane, choose **More Services**, click **App Registrations** and choose your application from the list.
+4. Click **Settings** to open up the settings page for the application.
   * The **Properties** page lets you modify the general information for the application. This includes the application name, the sign-on URL, and the logout URL.
   * The **Reply URLs** page allows you to add a reply URL, which is where Azure AD sends token responses.
   * The **Owners** page allows you to add application owners.
@@ -52,10 +50,9 @@ You can use the inline manifest editor to modify certain application properties 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Choose your Azure AD tenant by selecting your account in the top right corner of the page.
-3. In the left-hand navigation pane, click **Azure Active Directory**.
-4. Click **App Registrations** and choose your application from the list.
-5. Click **Manifest** from the application page to open the inline manifest editor.
-6. You can directly make changes to the manifest and save it when you're ready. Alternatively, you can download the manifest to open it in your favorite editor and upload the updated manifest.
+3. In the left-hand navigation pane, choose **More Services**, click **App Registrations** and choose your application from the list.
+4. Click **Manifest** from the application page to open the inline manifest editor.
+5. You can directly make changes to the manifest and save it when you're ready. Alternatively, you can download the manifest to open it in your favorite editor and upload the updated manifest.
 
 ## Next Steps
 
