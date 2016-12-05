@@ -1,35 +1,37 @@
-<properties
-   pageTitle="Sample configuration for Linux VM extensions | Microsoft Azure"
-   description="Sample configuration for authoring templates with extensions for Linux VMs"
-   services="virtual-machines-linux"
-   documentationCenter=""
-   authors="kundanap"
-   manager="timlt"
-   editor=""
-   tags="azure-resource-manager"/>
+---
+title: Sample configuration for Linux VM extensions | Microsoft Docs
+description: Sample configuration for authoring templates with extensions for Linux VMs
+services: virtual-machines-linux
+documentationcenter: ''
+author: kundanap
+manager: timlt
+editor: ''
+tags: azure-resource-manager
 
-<tags
-   ms.service="virtual-machines-linux"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="vm-linux"
-   ms.workload="infrastructure-services"
-   ms.date="09/13/2016"
-   ms.author="kundanap"/>
+ms.assetid: 4f50e6b2-fce0-41ef-823d-df433957601a
+ms.service: virtual-machines-linux
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 09/13/2016
+ms.author: kundanap
 
+---
 # Linux VM extension configuration samples
-
-> [AZURE.SELECTOR]
-- [PowerShell - Template](virtual-machines-windows-extensions-configuration-samples.md)
-- [CLI - Template](virtual-machines-linux-extensions-configuration-samples.md)
+> [!div class="op_single_selector"]
+> * [PowerShell - Template](virtual-machines-windows-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+> * [CLI - Template](virtual-machines-linux-extensions-configuration-samples.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+> 
+> 
 
 <br>
 
 This article provides sample configuration for configuring Azure VM extensions for Linux VMs.
 
-To learn more about these extensions click here : [Azure VM Extensions Overview.](virtual-machines-windows-extensions-features.md)
+To learn more about these extensions click here : [Azure VM Extensions Overview.](virtual-machines-windows-extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
-To learn more about authoring extension templates click here : [Authoring Extension Templates.](virtual-machines-windows-extensions-authoring-templates.md)
+To learn more about authoring extension templates click here : [Authoring Extension Templates.](virtual-machines-windows-extensions-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 This article lists expected configuration values for some of the Linux Extensions.
 
@@ -55,7 +57,6 @@ The template snippet for Deploying extensions looks as following:
       }
 
 ## Sample template snippet for VM Extensions with VM Scale Sets.
-
           {
            "type":"Microsoft.Compute/virtualMachineScaleSets",
           ....
@@ -216,3 +217,4 @@ In the examples above, replace the version number with the latest version number
 Here is a full VM template for creating a Linux VM with an extension:
 
 [Custom Script Extension on a Linux VM](https://github.com/Azure/azure-quickstart-templates/blob/b1908e74259da56a92800cace97350af1f1fc32b/mongodb-on-ubuntu/azuredeploy.json/)
+

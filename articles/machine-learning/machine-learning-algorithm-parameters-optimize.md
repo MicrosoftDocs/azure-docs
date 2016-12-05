@@ -1,36 +1,35 @@
-<properties
-	pageTitle="Choose parameters to optimize your algorithms in Azure Machine Learning | Microsoft Azure"
-	description="Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning."
-	services="machine-learning"
-	documentationCenter=""
-	authors="bradsev"
-	manager="jhubbard"
-	editor="cgronlun"/>
+﻿---
+title: Choose parameters to optimize your algorithms in Azure Machine Learning | Microsoft Docs
+description: Explains how to choose the optimal parameter set for an algorithm in Azure Machine Learning.
+services: machine-learning
+documentationcenter: ''
+author: bradsev
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/12/2016"
-	ms.author="bradsev" />
+ms.assetid: 6717e30e-b8d8-4cc1-ad0b-1d4727928d32
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/12/2016
+ms.author: bradsev
 
-
+---
 # Choose parameters to optimize your algorithms in Azure Machine Learning
-
 This topic describes how to choose the right hyperparameter set for an algorithm in Azure Machine Learning. Most machine learning algorithms have parameters to set. When you train a model, you need to provide values for those parameters. The efficacy of the trained model depends on the model parameters that you choose. The process of finding the optimal set of parameters is known as *model selection*.
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 There are various ways to do model selection. In machine learning, cross-validation is one of the most widely used methods for model selection, and it is the default model selection mechanism in Azure Machine Learning. Because Azure Machine Learning supports both R and Python, you can always implement their own model selection mechanisms by using either R or Python.
 
 There are four steps in the process of finding the best parameter set:
 
-1.	**Define the parameter space**: For the algorithm, first decide the exact parameter values you want to consider.
-2.	**Define the cross-validation settings**: Decide how to choose cross-validation folds for the dataset.
-3.	**Define the metric**: Decide what metric to use for determining the best set of parameters, such as accuracy, root mean squared error, precision, recall, or f-score.
-4.	**Train, evaluate, and compare**: For each unique combination of the parameter values, cross-validation is carried out by and based on the error metric you define. After evaluation and comparison, you can choose the best-performing model.
+1. **Define the parameter space**: For the algorithm, first decide the exact parameter values you want to consider.
+2. **Define the cross-validation settings**: Decide how to choose cross-validation folds for the dataset.
+3. **Define the metric**: Decide what metric to use for determining the best set of parameters, such as accuracy, root mean squared error, precision, recall, or f-score.
+4. **Train, evaluate, and compare**: For each unique combination of the parameter values, cross-validation is carried out by and based on the error metric you define. After evaluation and comparison, you can choose the best-performing model.
 
 The following image illustrates shows how this can be achieved in Azure Machine Learning.
 
@@ -50,13 +49,12 @@ The [Partition and Sample][partition-and-sample] module can be used to randomly 
 
 ![Partition and sample](./media/machine-learning-algorithm-parameters-optimize/fig4.png)
 
-
 ## Define the metric
 The [Tune Model Hyperparameters][tune-model-hyperparameters] module provides support for empirically choosing the best set of parameters for a given algorithm and dataset. In addition to other information regarding training the model, the **Properties** pane of this module includes the metric for determining the best parameter set. It has two different drop-down list boxes for classification and regression algorithms, respectively. If the algorithm under consideration is a classification algorithm, the regression metric is ignored and vice versa. In this specific example, the metric is **Accuracy**.   
 
 ![Sweep parameters](./media/machine-learning-algorithm-parameters-optimize/fig5.png)
 
-## Train, evaluate, and compare  
+## Train, evaluate, and compare
 The same [Tune Model Hyperparameters][tune-model-hyperparameters] module trains all the models that correspond to the parameter set, evaluates various metrics, and then creates the best-trained model based on the metric you choose. This module has two mandatory inputs:
 
 * The untrained learner

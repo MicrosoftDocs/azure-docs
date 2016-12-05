@@ -1,32 +1,28 @@
-<properties 
-	pageTitle="How to make a phone call from Twilio (.NET) | Microsoft Azure" 
-	description="Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET." 
-	services="" 
-	documentationCenter=".net" 
-	authors="devinrader" 
-	manager="timlt" 
-	editor=""/>
+---
+title: How to make a phone call from Twilio (.NET) | Microsoft Docs
+description: Learn how to make a phone call and send a SMS message with the Twilio API service on Azure. Code samples written in .NET.
+services: ''
+documentationcenter: .net
+author: devinrader
+manager: timlt
+editor: ''
 
-<tags 
-	ms.service="cloud-services" 
-	ms.workload="tbd" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="dotnet" 
-	ms.topic="article" 
-	ms.date="05/04/2016" 
-	ms.author="microsofthelp@twilio.com"/>
+ms.assetid: 789185ad-69dc-4e9e-a936-42e0a25315c8
+ms.service: cloud-services
+ms.workload: tbd
+ms.tgt_pltfrm: na
+ms.devlang: dotnet
+ms.topic: article
+ms.date: 05/04/2016
+ms.author: microsofthelp@twilio.com
 
-
-
-
+---
 # How to make a phone call using Twilio in a web role on Azure
-
 This guide demonstrates how to use Twilio to make a call from a web page hosted in Azure. The resulting application prompts the user for phone call values, as shown in the following screenshot.
 
 ![Azure call form using Twilio and ASP.NET][twilio_dotnet_basic_form]
 
 ## <a name="twilio-prereqs"></a>Prerequisites
-
 You will need to do the following to use the code in this topic:
 
 1. Acquire a Twilio account and authentication token. To get started with Twilio, sign up at [https://www.twilio.com/try-twilio][try_twilio]. You can evaluate pricing at [http://www.twilio.com/pricing][twilio_pricing]. For information about the API provided by Twilio, see [http://www.twilio.com/voice/api][twilio_api].
@@ -35,15 +31,14 @@ You will need to do the following to use the code in this topic:
 You should be familiar with creating a basic web role on Azure.
 
 ## <a name="howtocreateform"></a>How to: Create a web form for making a call
-
 <a id="use_nuget"></a>To add the Twilio libraries to your web role project:
 
-1.  Open your solution in Visual Studio.
-2.  Right-click **References**.
-3.  Click **Manage NuGet Packages**.
-4.  Click **Online**.
-5.  In the search online box, type *twilio*.
-6.  Click **Install** on the Twilio package.
+1. Open your solution in Visual Studio.
+2. Right-click **References**.
+3. Click **Manage NuGet Packages**.
+4. Click **Online**.
+5. In the search online box, type *twilio*.
+6. Click **Install** on the Twilio package.
 
 The following code shows how to create a web form to retrieve user data for making a call. In this example, an ASP.NET web role named **TwilioCloud** is created.
 
@@ -163,7 +158,7 @@ This code was provided to show you basic functionality using Twilio in an ASP.NE
 * Read the Twilio security guidelines at [https://www.twilio.com/docs/security][twilio_docs_security].
 * Learn more about Twilio at [https://www.twilio.com/docs][twilio_docs].
 
-##<a name="seealso"></a>See also
+## <a name="seealso"></a>See also
 * [How to use Twilio for voice and SMS capabilities from Azure](twilio-dotnet-how-to-use-for-voice-sms.md)
 
 [twilio_pricing]: http://www.twilio.com/pricing

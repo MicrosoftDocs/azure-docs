@@ -1,33 +1,36 @@
-<properties
-   pageTitle="Create an application gateway with web application firewall using the portal | Microsoft Azure"
-   description="Learn how to create an Application Gateway with web application firewall by using the portal"
-   services="application-gateway"
-   documentationCenter="na"
-   authors="georgewallace"
-   manager="carmonm"
-   editor="tysonn"
-   tags="azure-resource-manager"
-/>
-<tags  
-   ms.service="application-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/26/2016"
-   ms.author="gwallace" />
+---
+title: Create an application gateway with web application firewall using the portal | Microsoft Docs
+description: Learn how to create an Application Gateway with web application firewall by using the portal
+services: application-gateway
+documentationcenter: na
+author: georgewallace
+manager: carmonm
+editor: tysonn
+tags: azure-resource-manager
 
+ms.assetid: b561a210-ed99-4ab4-be06-b49215e3255a
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 11/16/2016
+ms.author: gwallace
+
+---
 # Create an application gateway with web application firewall by using the portal
 
-> [AZURE.SELECTOR]
-- [Azure portal](application-gateway-web-application-firewall-portal.md)
-- [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
+> [!div class="op_single_selector"]
+> * [Azure portal](application-gateway-web-application-firewall-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
+> 
+> 
+
+The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks. Web application protects against many of the OWASP top 10 common web vulnerabilities.
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises.
 Application provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others.
 To find a complete list of supported features, visit [Application Gateway Overview](application-gateway-introduction.md)
-
-The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
 
 ## Scenarios
 
@@ -39,7 +42,10 @@ In the second scenario, you learn to [create an application gateway with web app
 
 ![Scenario example][scenario]
 
->[AZURE.NOTE] Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
+> [!NOTE]
+> Additional configuration of the application gateway, including custom health probes, backend pool addresses, and additional rules are configured after the application gateway is configured and not during initial deployment.
+> 
+> 
 
 ## Before you begin
 
@@ -62,23 +68,26 @@ Click **Configuration** and update the application gateway settings. When comple
 
 The settings to update an existing application gateway to support web application firewall are:
 
-- **Tier** - The tier selected must be **WAF** to support web application firewall
-- **SKU size** - This setting is the size of the application gateway with web application firewall, available options are (**Medium** and **Large**).
-- **Firewall status** - This setting either disables or enables web application firewall.
-- **Firewall mode** - This setting is how web application firewall deals with malicious traffic. **Detection** mode only logs the events, where **Prevention** mode logs the events and stops the malicious traffic.
+* **Tier** - The tier selected must be **WAF** to support web application firewall
+* **SKU size** - This setting is the size of the application gateway with web application firewall, available options are (**Medium** and **Large**).
+* **Firewall status** - This setting either disables or enables web application firewall.
+* **Firewall mode** - This setting is how web application firewall deals with malicious traffic. **Detection** mode only logs the events, where **Prevention** mode logs the events and stops the malicious traffic.
 
 ![blade showing basic settings][2]
 
->[AZURE.NOTE] To view web application firewall logs, diagnostics must be enabled and ApplicationGatewayFirewallLog selected. An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not available when using web application firewall.
+> [!NOTE]
+> To view web application firewall logs, diagnostics must be enabled and ApplicationGatewayFirewallLog selected. An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not available when using web application firewall.
+> 
+> 
 
 ## Create an application gateway with web application firewall
 
 This scenario will:
 
-- Create a medium web application firewall application gateway with two instances.
-- Create a virtual network named AdatumAppGatewayVNET with a reserved CIDR block of 10.0.0.0/16.
-- Create a subnet called Appgatewaysubnet that uses 10.0.0.0/28 as its CIDR block.
-- Configure a certificate for SSL offload.
+* Create a medium web application firewall application gateway with two instances.
+* Create a virtual network named AdatumAppGatewayVNET with a reserved CIDR block of 10.0.0.0/16.
+* Create a subnet called Appgatewaysubnet that uses 10.0.0.0/28 as its CIDR block.
+* Configure a certificate for SSL offload.
 
 ### Step 1
 
@@ -92,16 +101,19 @@ Next fill out the basic information about the application gateway. Be sure to ch
 
 The information needed for the basic settings is:
 
-- **Name** - The name for the application gateway.
-- **Tier** - The tier of the application gateway, available options are (**Standard** and **WAF**). Web application firewall is only available in the WAF Tier.
-- **SKU size** - This setting is the size of the application gateway, available options are (**Medium** and **Large**).
-- **Instance count** - The number of instances, this value should be a number between **2** and **10**.
-- **Resource group** - The resource group to hold the application gateway, it can be an existing resource group or a new one.
-- **Location** - The region for the application gateway, it is the same location at the resource group. *The location is important as the virtual network and public IP must be in the same location as the gateway*.
+* **Name** - The name for the application gateway.
+* **Tier** - The tier of the application gateway, available options are (**Standard** and **WAF**). Web application firewall is only available in the WAF Tier.
+* **SKU size** - This setting is the size of the application gateway, available options are (**Medium** and **Large**).
+* **Instance count** - The number of instances, this value should be a number between **2** and **10**.
+* **Resource group** - The resource group to hold the application gateway, it can be an existing resource group or a new one.
+* **Location** - The region for the application gateway, it is the same location at the resource group. *The location is important as the virtual network and public IP must be in the same location as the gateway*.
 
 ![blade showing basic settings][2-2]
 
->[AZURE.NOTE] An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not supported for web application firewall scenarios.
+> [!NOTE]
+> An instance count of 1 can be chosen for testing purposes. It is important to know that any instance count under two instances is not covered by the SLA and are therefore not recommended. Small gateways are not supported for web application firewall scenarios.
+> 
+> 
 
 ### Step 3
 
@@ -160,8 +172,8 @@ Once complete click **OK** to review the settings for the Application Gateway.
 
 Configure the **WAF** specific settings.
 
-- **Firewall status** - This setting turns WAF on or off.
-- **Firewall mode** - This setting determines the actions WAF takes on malicious traffic. If **Detection** is chosen, traffic is only logged.  If **Prevention** is chosen, traffic is logged and stopped with a 403 Unauthorized.
+* **Firewall status** - This setting turns WAF on or off.
+* **Firewall mode** - This setting determines the actions WAF takes on malicious traffic. If **Detection** is chosen, traffic is only logged.  If **Prevention** is chosen, traffic is logged and stopped with a 403 Unauthorized.
 
 ![web application firewall settings][9]
 
@@ -169,7 +181,7 @@ Configure the **WAF** specific settings.
 
 Review the Summary page and click **OK**.  Now the application gateway is queued up and created.
 
-### Step 12
+### Step 11
 
 Once the application gateway has been created, navigate to it in the portal to continue configuration of the application gateway.
 

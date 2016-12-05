@@ -5,15 +5,15 @@ When you provision a MongoLab database, MongoLab transmits a connection URI to A
 You can retrieve this URI in the Azure Portal using the following steps:
 
 1. Select **Add-ons**.  
-![AddonsButton][button-addons]
-1. Locate your MongoLab service in your add-on list.  
-![MongolabEntry][entry-mongolabaddon]
-1. Cick the name of your add-on to reach the add-on page.
-1. Click **Connection Info**.  
-![ConnectionInfoButton][button-connectioninfo]  
-Your MongoLab URI displays:  
-![ConnectionInfoScreen][screen-connectioninfo]  
-1.  Click the clipboard button to the right of the MONGOLAB_URI value to copy the full value to the clipboard.
+   ![AddonsButton][button-addons]
+2. Locate your MongoLab service in your add-on list.  
+   ![MongolabEntry][entry-mongolabaddon]
+3. Cick the name of your add-on to reach the add-on page.
+4. Click **Connection Info**.  
+   ![ConnectionInfoButton][button-connectioninfo]  
+   Your MongoLab URI displays:  
+   ![ConnectionInfoScreen][screen-connectioninfo]  
+5. Click the clipboard button to the right of the MONGOLAB_URI value to copy the full value to the clipboard.
 
 [entry-mongolabaddon]: ./media/howto-get-connectioninfo-mongolab/entry-mongolabaddon.png
 [button-connectioninfo]: ./media/howto-get-connectioninfo-mongolab/button-connectioninfo.png

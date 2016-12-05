@@ -1,28 +1,28 @@
-<properties
-   pageTitle="Scalability of Service Fabric services | Microsoft Azure"
-   description="Describes how to scale Service Fabric services"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="appi101"
-   manager="timlt"
-   editor=""/>
+---
+title: Scalability of Service Fabric services | Microsoft Docs
+description: Describes how to scale Service Fabric services
+services: service-fabric
+documentationcenter: .net
+author: appi101
+manager: timlt
+editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="08/10/2016"
-   ms.author="aprameyr"/>
+ms.assetid: ed324f23-242f-47b7-af1a-e55c839e7d5d
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 08/10/2016
+ms.author: aprameyr
 
+---
 # Scaling Service Fabric applications
 Azure Service Fabric makes it easy to build scalable applications by load-balancing services, partitions, and replicas on all the nodes in a cluster. This enables maximum resource utilization.
 
 High scale for Service Fabric applications can be achieved in two ways:
 
 1. Scaling at the partition level
-
 2. Scaling at the service name level
 
 ## Scaling at the partition level
@@ -46,16 +46,13 @@ One possible scenario would be to use date information as part of the service na
 
 However, this approach is based on the clients using application-specific naming information that is outside the scope of Service Fabric knowledge.
 
-- *Using a naming convention*: In 2013, when your application goes live, you create a service called fabric:/app/service2013. Near the second quarter of 2013, you create another service, called fabric:/app/service2014. Both of these services are of the same service type. In this approach, your client will need to employ logic to construct the appropriate service name based on the year.
-
-- *Using a lookup service*: Another pattern is to provide a secondary lookup service, which can provide the name of the service for a desired key. New service instances can then be created by the lookup service. The lookup service itself doesn't retain any application data, only data about the service names that it creates. Thus, for the year-based example above, the client would first contact the lookup service to find out the name of the service handling data for a given year, and then use that service name for performing the actual operation. The result of the first lookup can be cached.
+* *Using a naming convention*: In 2013, when your application goes live, you create a service called fabric:/app/service2013. Near the second quarter of 2013, you create another service, called fabric:/app/service2014. Both of these services are of the same service type. In this approach, your client will need to employ logic to construct the appropriate service name based on the year.
+* *Using a lookup service*: Another pattern is to provide a secondary lookup service, which can provide the name of the service for a desired key. New service instances can then be created by the lookup service. The lookup service itself doesn't retain any application data, only data about the service names that it creates. Thus, for the year-based example above, the client would first contact the lookup service to find out the name of the service handling data for a given year, and then use that service name for performing the actual operation. The result of the first lookup can be cached.
 
 ## Next steps
-
 For more information on Service Fabric concepts, see the following:
 
-- [Availability of Service Fabric services](service-fabric-availability-services.md)
+* [Availability of Service Fabric services](service-fabric-availability-services.md)
+* [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
+* [Defining and managing state](service-fabric-concepts-state.md)
 
-- [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
-
-- [Defining and managing state](service-fabric-concepts-state.md)

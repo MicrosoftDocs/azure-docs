@@ -11,15 +11,12 @@ articles/sql-database/sql-database-get-started-tutorial.md
 
 -->
 ## Connecting to the Azure Portal with a subscription
-
 If you have an existing subscription to Microsoft Azure, follow the steps below to connect to the Azure portal. If you do not have an existing Microsoft Azure account, follow one of the links below to obtain an account and then follow the steps below to connect to the Azure portal.
 
 1. Open your browser of choice and connect to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
-
-1. Log in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
-
-2. When the sign in page appear, provide the credentials for your subscription
-
+2. Log in to the [Azure portal](https://portal.azure.com/) at http://portal.azure.com/.
+3. When the sign in page appear, provide the credentials for your subscription
+   
    ![login][1]
 
 <!-- Image references. -->

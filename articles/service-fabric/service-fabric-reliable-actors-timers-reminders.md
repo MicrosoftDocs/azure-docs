@@ -1,22 +1,22 @@
-<properties
-   pageTitle="Reliable Actors timers and reminders | Microsoft Azure"
-   description="Introduction to timers and reminders for Service Fabric Reliable Actors."
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="vturecek"
-   manager="timlt"
-   editor="amanbha"/>
+---
+title: Reliable Actors timers and reminders | Microsoft Docs
+description: Introduction to timers and reminders for Service Fabric Reliable Actors.
+services: service-fabric
+documentationcenter: .net
+author: vturecek
+manager: timlt
+editor: amanbha
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="07/06/2016"
-   ms.author="vturecek"/>
+ms.assetid: 00c48716-569e-4a64-bd6c-25234c85ff4f
+ms.service: service-fabric
+ms.devlang: dotnet
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: NA
+ms.date: 10/19/2016
+ms.author: vturecek
 
-
+---
 # Actor timers and reminders
 Actors can schedule periodic work on themselves by registering either timers or reminders. This article shows how to use timers and reminders and explains the differences between them.
 
@@ -29,6 +29,11 @@ Actors can use the `RegisterTimer` and `UnregisterTimer` methods on their base c
 class VisualObjectActor : Actor, IVisualObject
 {
     private IActorTimer _updateTimer;
+
+    public VisualObjectActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
 
     protected override Task OnActivateAsync()
     {
@@ -93,6 +98,11 @@ Actors that use reminders must implement the `IRemindable` interface, as shown i
 ```csharp
 public class ToDoListActor : Actor, IToDoListActor, IRemindable
 {
+    public ToDoListActor(ActorService actorService, ActorId actorId)
+        : base(actorService, actorId)
+    {
+    }
+
     public Task ReceiveReminderAsync(string reminderName, byte[] context, TimeSpan dueTime, TimeSpan period)
     {
         if (reminderName.Equals("Pay cell phone bill"))
@@ -109,18 +119,19 @@ When a reminder is triggered, the Reliable Actors runtime will invoke the  `Rece
 
 The Actors runtime saves the actor's state when the `ReceiveReminderAsync` call finishes. If an error occurs in saving the state, that actor object will be deactivated and a new instance will be activated. 
 
-To unregister a reminder, an actor calls the `UnregisterReminder` method, as shown in the example below.
+To unregister a reminder, an actor calls the `UnregisterReminderAsync` method, as shown in the example below.
 
 ```csharp
 IActorReminder reminder = GetReminder("Pay cell phone bill");
-Task reminderUnregistration = UnregisterReminder(reminder);
+Task reminderUnregistration = UnregisterReminderAsync(reminder);
 ```
 
-As shown above, the `UnregisterReminder` method accepts an `IActorReminder` interface. The actor base class supports a `GetReminder` method that can be used to retrieve the `IActorReminder` interface by passing in the reminder name. This is convenient because the actor does not need to persist the `IActorReminder` interface that was returned from the `RegisterReminder` method call.
+As shown above, the `UnregisterReminderAsync` method accepts an `IActorReminder` interface. The actor base class supports a `GetReminder` method that can be used to retrieve the `IActorReminder` interface by passing in the reminder name. This is convenient because the actor does not need to persist the `IActorReminder` interface that was returned from the `RegisterReminder` method call.
 
 ## Next Steps
- - [Actor events](service-fabric-reliable-actors-events.md)
- - [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
- - [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
- - [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
- - [Sample code](https://github.com/Azure/servicefabric-samples)
+* [Actor events](service-fabric-reliable-actors-events.md)
+* [Actor reentrancy](service-fabric-reliable-actors-reentrancy.md)
+* [Actor diagnostics and performance monitoring](service-fabric-reliable-actors-diagnostics.md)
+* [Actor API reference documentation](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Sample code](https://github.com/Azure/servicefabric-samples)
+

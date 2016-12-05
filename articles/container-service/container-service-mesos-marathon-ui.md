@@ -1,55 +1,52 @@
-<properties
-   pageTitle="Azure Container Service container management through the web UI | Microsoft Azure"
-   description="Deploy containers to an Azure Container Service cluster service by using the Marathon web UI."
-   services="container-service"
-   documentationCenter=""
-   authors="neilpeterson"
-   manager="timlt"
-   editor=""
-   tags="acs, azure-container-service"
-   keywords="Docker, Containers, Micro-services, Mesos, Azure"/>
+---
+title: Azure Container Service container management through the web UI | Microsoft Docs
+description: Deploy containers to an Azure Container Service cluster service by using the Marathon web UI.
+services: container-service
+documentationcenter: ''
+author: neilpeterson
+manager: timlt
+editor: ''
+tags: acs, azure-container-service
+keywords: Docker, Containers, Micro-services, Mesos, Azure
 
-<tags
-   ms.service="container-service"
-   ms.devlang="na"
-   ms.topic="get-started-article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="09/19/2016"
-   ms.author="nepeters"/>
+ms.assetid: d148ed1e-b582-4d51-944f-1ac7ae3c4fd6
+ms.service: container-service
+ms.devlang: na
+ms.topic: get-started-article
+ms.tgt_pltfrm: na
+ms.workload: na
+ms.date: 09/19/2016
+ms.author: timlt
 
+---
 # Container management through the web UI
-
 DC/OS provides an environment for deploying and scaling clustered workloads, while abstracting the underlying hardware. On top of DC/OS, there is a framework that manages scheduling and executing compute workloads.
 
 While frameworks are available for many popular workloads, this document will describe how you can create and scale container deployments with Marathon. Before working through these examples, you will need a DC/OS cluster that is configured in Azure Container Service. You also need to have remote connectivity to this cluster. For more information on these items, see the following articles:
 
-- [Deploy an Azure Container Service cluster](container-service-deployment.md)
-- [Connect to an Azure Container Service cluster](container-service-connect.md)
+* [Deploy an Azure Container Service cluster](container-service-deployment.md)
+* [Connect to an Azure Container Service cluster](container-service-connect.md)
 
 ## Explore the DC/OS UI
-
 With a Secure Shell (SSH) tunnel established, browse to http://localhost/. This loads the DC/OS web UI and shows information about the cluster, such as used resources, active agents, and running services.
 
 ![DC/OS UI](media/dcos/dcos2.png)
 
 ## Explore the Marathon UI
-
 To see the Marathon UI, browse to http://localhost/Marathon. From this screen, you can start a new container or another application on the Azure Container Service DC/OS cluster. You can also see information about running containers and applications.  
 
 ![Marathon UI](media/dcos/dcos3.png)
 
 ## Deploy a Docker-formatted container
-
 To deploy a new container by using Marathon, click the **Create Application** button, and enter the following information into the form:
 
-Field           | Value
-----------------|-----------
-ID              | nginx
-Image           | nginx
-Network         | Bridged
-Host Port       | 80
-Protocol        | TCP
+| Field | Value |
+| --- | --- |
+| ID |nginx |
+| Image |nginx |
+| Network |Bridged |
+| Host Port |80 |
+| Protocol |TCP |
 
 ![New Application UI--General](media/dcos/dcos4.png)
 
@@ -82,7 +79,6 @@ You can also see the cluster node that the task is running on.
 ![DC/OS web UI--task cluster node](media/dcos/dcos9.png)
 
 ## Scale your containers
-
 You can use the Marathon UI to scale the instance count of a container. To do so, navigate to the **Marathon** page, select the container that you want to scale, and click the **Scale** button. In the **Scale Application** dialog box, enter the number of container instances that you want, and select **Scale Application**.
 
 ![Marathon UI--Scale Application dialog box](media/dcos/dcos10.png)
@@ -94,9 +90,11 @@ After the scale operation finishes, you will see multiple instances of the same 
 ![DC/OS web UI--nodes](media/dcos/dcos12.png)
 
 ## Next steps
-
-- [Work with DC/OS and the Marathon API](container-service-mesos-marathon-rest.md)
+* [Work with DC/OS and the Marathon API](container-service-mesos-marathon-rest.md)
 
 Deep dive on the Azure Container Service with Mesos
 
-> [AZURE.VIDEO] azurecon-2015-deep-dive-on-the-azure-container-service-with-mesos]
+> [!VIDEO https://channel9.msdn.com/Events/Microsoft-Azure/AzureCon-2015/ACON203/player]
+> 
+> 
+

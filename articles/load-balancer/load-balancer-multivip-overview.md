@@ -1,21 +1,21 @@
-<properties
-   pageTitle="Multiple VIPs for Azure Load Balancer | Microsoft Azure"
-   description="Overview of Multiple VIPs on Azure Load Balancer"
-   services="load-balancer"
-   documentationCenter="na"
-   authors="chkuhtz"
-   manager="narayan"
-   editor=""
-/>
-<tags
-   ms.service="load-balancer"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="08/11/2016"
-   ms.author="chkuhtz"
-/>
+---
+title: Multiple VIPs for Azure Load Balancer | Microsoft Docs
+description: Overview of Multiple VIPs on Azure Load Balancer
+services: load-balancer
+documentationcenter: na
+author: chkuhtz
+manager: narayan
+editor: ''
+
+ms.assetid: 748e50cd-3087-4c2e-a9e1-ac0ecce4f869
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 08/11/2016
+ms.author: chkuhtz
+---
 
 # Multiple VIPs for Azure Load Balancer
 
@@ -28,11 +28,11 @@ When you define an Azure Load Balancer, a frontend and a backend configuration a
 The following table contains some example frontend configurations:
 
 | VIP | IP address | protocol | port |
-|-----|------------|----------|------|
-|1|65.52.0.1|TCP|80|
-|2|65.52.0.1|TCP|_8080_|
-|3|65.52.0.1|_UDP_|80|
-|4|_65.52.0.2_|TCP|80|
+| --- | --- | --- | --- |
+| 1 |65.52.0.1 |TCP |80 |
+| 2 |65.52.0.1 |TCP |*8080* |
+| 3 |65.52.0.1 |*UDP* |80 |
+| 4 |*65.52.0.2* |TCP |80 |
 
 The table shows four different frontends. Frontends #1, #2 and #3 are a single VIP with multiple rules. The same IP address is used but the port or protocol is different for each frontend. Frontends #1 and #4 are an example of Multiple VIPs, where the same frontend protocol and port are reused across multiple VIPs.
 
@@ -52,29 +52,29 @@ We explore these scenarios further by starting with the default behavior.
 In this scenario, the frontend VIPs are configured as follows:
 
 | VIP | IP address | protocol | port |
-|-----|------------|----------|------|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|*65.52.0.2*|TCP|80|
+| --- | --- | --- | --- |
+| ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
+| ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
 
 The DIP is the destination of the inbound flow. In the backend pool, each VM exposes the desired service on a unique port on a DIP. This service is associated with the frontend through a rule definition.
 
 We define two rules:
 
 | Rule | Map frontend | To backend pool |
-|------|--------------|-----------------|
-| 1 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 | ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
-| 2 | ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 | ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
+| --- | --- | --- |
+| 1 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP1:80, ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) DIP2:80 |
+| 2 |![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP1:81, ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) DIP2:81 |
 
 The complete mapping in Azure Load Balancer is now as follows:
 
 | Rule | VIP IP address | protocol | port | Destination | port |
-|------|----------------|----------|------|-----|------|
-|![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|DIP IP Address|80|
-|![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65.52.0.2|TCP|80|DIP IP Address|81|
+| --- | --- | --- | --- | --- | --- |
+| ![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |DIP IP Address |80 |
+| ![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |DIP IP Address |81 |
 
 Each rule must produce a flow with a unique combination of destination IP address and destination port. By varying the destination port of the flow, multiple rules can deliver flows to the same DIP on different ports.
 
-Health probes are always directed to the DIP of a VM. You must insure you that your probe reflects the health of the VM.
+Health probes are always directed to the DIP of a VM. You must ensure you that your probe reflects the health of the VM.
 
 ## Rule type #2: backend port reuse by using Floating IP
 
@@ -96,34 +96,35 @@ For this scenario, every VM in the backend pool has three network interfaces:
 * VIP1: a loopback interface within guest OS that is configured with IP address of VIP1
 * VIP2: a loopback interface within guest OS that is configured with IP address of VIP2
 
->[AZURE.IMPORTANT] The configuration of the logical interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function. Health probe definitions use the DIP of the VM rather than the logical VIP. Therefore, your service must provide probe responses on a DIP port that reflect the status of the service offered on the logical VIP.
+> [!IMPORTANT]
+> The configuration of the logical interfaces is performed within the guest OS. This configuration is not performed or managed by Azure. Without this configuration, the rules will not function. Health probe definitions use the DIP of the VM rather than the logical VIP. Therefore, your service must provide probe responses on a DIP port that reflect the status of the service offered on the logical VIP.
 
 Let's assume the same frontend configuration as in the previous scenario:
 
 | VIP | IP address | protocol | port |
-|-----|------------|----------|------|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|*65.52.0.2*|TCP|80|
+| --- | --- | --- | --- |
+| ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |
+| ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |*65.52.0.2* |TCP |80 |
 
 We define two rules:
 
 | Rule | Map frontend | To backend pool |
-|------|--------------|-----------------|
-| 1 | ![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 | ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 (in VM1 and VM2) |
-| 2 | ![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 | ![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 (in VM1 and VM2) |
+| --- | --- | --- |
+| 1 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) VIP1:80 (in VM1 and VM2) |
+| 2 |![rule](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 |![backend](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) VIP2:80 (in VM1 and VM2) |
 
 The following table shows the complete mapping in the load balancer:
 
 | Rule | VIP IP address | protocol | port | Destination | port |
-|------|----------------|----------|------|-------------|------|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1|65.52.0.1|TCP|80|same as VIP (65.52.0.1)|same as VIP (80)|
-|![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2|65.52.0.2|TCP|80|same as VIP (65.52.0.2)|same as VIP (80)|
+| --- | --- | --- | --- | --- | --- |
+| ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-green.png) 1 |65.52.0.1 |TCP |80 |same as VIP (65.52.0.1) |same as VIP (80) |
+| ![VIP](./media/load-balancer-multivip-overview/load-balancer-rule-purple.png) 2 |65.52.0.2 |TCP |80 |same as VIP (65.52.0.2) |same as VIP (80) |
 
 The destination of the inbound flow is the VIP address on the loopback interface in the VM. Each rule must produce a flow with a unique combination of destination IP address and destination port. By varying the destination IP address of the flow, port reuse is possible on the same VM. Your service is exposed to the load balancer by binding it to the VIP’s IP address and port of the respective loopback interface.
 
 Notice that this example does not change the destination port. Even though this is a Floating IP scenario, Azure Load Balancer also supports defining a rule to rewrite the backend destination port and to make it different from the frontend destination port.
 
-The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md) configuration. Over time, we will document more of these scenarios.
+The Floating IP rule type is the foundation of several load balancer configuration patterns. One example that is currently available is the [SQL AlwaysOn with Multiple Listeners](../virtual-machines/virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) configuration. Over time, we will document more of these scenarios.
 
 ## Limitations
 

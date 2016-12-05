@@ -1,28 +1,26 @@
-<properties
-	pageTitle="Create Docker hosts in Azure with Docker Machine | Microsoft Azure"
-	description="Describes use of Docker Machine to create docker hosts in Azure."
-	services="virtual-machines-linux"
-	documentationCenter=""
-	authors="squillace"
-	manager="timlt"
-	editor="tysonn"/>
+---
+title: Create Docker hosts in Azure with Docker Machine | Microsoft Docs
+description: Describes use of Docker Machine to create docker hosts in Azure.
+services: virtual-machines-linux
+documentationcenter: ''
+author: squillace
+manager: timlt
+editor: tysonn
 
-<tags
-	ms.service="virtual-machines-linux"
-	ms.devlang="multiple"
-	ms.topic="article"
-	ms.tgt_pltfrm="vm-linux"
-	ms.workload="infrastructure-services"
-	ms.date="07/22/2016"
-	ms.author="rasquill"/>
+ms.assetid: 164b47de-6b17-4e29-8b7d-4996fa65bea4
+ms.service: virtual-machines-linux
+ms.devlang: multiple
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure-services
+ms.date: 07/22/2016
+ms.author: rasquill
 
+---
 # Use Docker Machine with the Azure driver
-
 [Docker](https://www.docker.com/) is one of the most popular virtualization approaches that uses Linux containers rather than virtual machines as a way of isolating application data and computing on shared resources. This topic describes when and how to use [Docker Machine](https://docs.docker.com/machine/) (the `docker-machine` command) to create new Linux VMs in Azure enabled as a docker host for your Linux containers.
 
-
 ## Create VMs with Docker Machine
-
 Create docker host VMs in Azure with the `docker-machine create` command using the `azure` driver argument for the driver option (`-d`) and any other arguments. 
 
 The following example relies upon the default values, but it does open port 80 on the VM to the internet to test with an nginx container, makes `ops` the logon user for SSH, and calls the new VM `machine`. 
@@ -39,7 +37,7 @@ docker-machine create -d azure \
 
 The output should look something like this, depending upon whether you have two-factor authentication configured in your account.
 
-```
+```bash
 Creating CA: /Users/user/.docker/machine/certs/ca.pem
 Creating client certificate: /Users/user/.docker/machine/certs/cert.pem
 Running pre-create checks...
@@ -71,7 +69,6 @@ To see how to connect your Docker Client to the Docker Engine running on this vi
 ```
 
 ## Configure your docker shell
-
 Now, type `docker-machine env <VM name>` to see what you need to do to configure the shell. 
 
 ```bash
@@ -80,7 +77,7 @@ docker-machine env machine
 
 That prints the environment information, which looks something like this. Note the IP address has been assigned, which you'll need to test the VM.
 
-```
+```bash
 export DOCKER_TLS_VERIFY="1"
 export DOCKER_HOST="tcp://191.237.46.90:2376"
 export DOCKER_CERT_PATH="/Users/rasquill/.docker/machine/machines/machine"
@@ -92,7 +89,6 @@ export DOCKER_MACHINE_NAME="machine"
 You can either run the suggested configuration command, or you can set the environment variables yourself. 
 
 ## Run a container
-
 Now you can run a simple web server to test whether all works correctly. Here we use a standard nginx image, specify that it should listen on port 80, and that if the VM restarts the container should restart as well (`--restart=always`). 
 
 ```bash
@@ -101,7 +97,7 @@ docker run -d -p 80:80 --restart=always nginx
 
 The output should look something like the following:
 
-```
+```bash
 Unable to find image 'nginx:latest' locally
 latest: Pulling from library/nginx
 efd26ecc9548: Pull complete
@@ -114,7 +110,6 @@ Status: Downloaded newer image for nginx:latest
 ```
 
 ## Test the container
-
 Examine running containers using `docker ps`:
 
 ```bash
@@ -127,8 +122,7 @@ And check to see the running container, type `docker-machine ip <VM name>` to fi
 ![Running ngnix container](./media/virtual-machines-linux-docker-machine/nginxsuccess.png)
 
 ## Next steps
-
-If you're interested, you can try out the Azure [Docker VM Extension](virtual-machines-linux-dockerextension.md) to do the same operation using the Azure CLI or Azure resource manager templates. 
+If you're interested, you can try out the Azure [Docker VM Extension](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to do the same operation using the Azure CLI or Azure resource manager templates. 
 
 For more examples of working with Docker, see [Working with Docker](https://github.com/Microsoft/HealthClinic.biz/wiki/Working-with-Docker) from the [HealthClinic.biz](https://github.com/Microsoft/HealthClinic.biz) 2015 Connect [demo](https://blogs.msdn.microsoft.com/visualstudio/2015/12/08/connectdemos-2015-healthclinic-biz/). For more quickstarts from the HealthClinic.biz demo, see [Azure Developer Tools Quickstarts](https://github.com/Microsoft/HealthClinic.biz/wiki/Azure-Developer-Tools-Quickstarts).
 

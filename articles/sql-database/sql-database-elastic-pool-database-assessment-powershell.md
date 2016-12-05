@@ -1,45 +1,46 @@
-<properties
-	pageTitle="Powershell script to identify single databases suitable for a pool | Microsoft Azure"
-	description="An elastic database pool is a collection of available resources that are shared by a group of elastic databases. This document provides a Powershell script to help assess the suitability of using an elastic database pool for a group of databases."
-	services="sql-database"
-	documentationCenter=""
-	authors="stevestein"
-	manager="jhubbard"
-	editor=""/>
+﻿---
+title: Powershell script to identify single databases suitable for a pool | Microsoft Docs
+description: An elastic database pool is a collection of available resources that are shared by a group of elastic databases. This document provides a Powershell script to help assess the suitability of using an elastic database pool for a group of databases.
+services: sql-database
+documentationcenter: ''
+author: stevestein
+manager: jhubbard
+editor: ''
 
-<tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="09/28/2016"
-	ms.author="sstein"
-	ms.workload="data-management"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+ms.assetid: db541e94-abc8-4578-bae0-9b8c8ad0170e
+ms.service: sql-database
+ms.devlang: NA
+ms.date: 09/28/2016
+ms.author: sstein
+ms.workload: data-management
+ms.topic: article
+ms.tgt_pltfrm: NA
 
+---
 # PowerShell script for identifying databases suitable for an elastic database pool
-
 The sample PowerShell script in this article estimates the aggregate eDTU values for user databases in a SQL Database server. The script collects data while it runs, and for a typical production workload, you should run the script for at least a day. Ideally, you want to run the script for a duration that represents your databases' typical workload. Run the script long enough to capture data that represents normal and peak utilization for the databases. Running the script a week or even longer will likely give a more accurate estimate.
 
 This script is useful for evaluating databases on v11 servers for migration to v12 servers, where pools are supported. On v12 servers, SQL Database has built-in intelligence that analyzes historical usage telemetry and recommends a pool when it will be more cost-effective. For information, see [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md)
 
-> [AZURE.IMPORTANT] Keep the PowerShell window open while running the script. Do not close the PowerShell window until you have run the script for the amount of time required. 
+> [!IMPORTANT]
+> Keep the PowerShell window open while running the script. Do not close the PowerShell window until you have run the script for the amount of time required. 
+> 
+> 
 
-## Prerequisites 
-
+## Prerequisites
 Install the following prior to running the script:
 
-- The latest Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-- The [SQL Server 2014 feature pack](https://www.microsoft.com/download/details.aspx?id=42295).
+* The latest Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* The [SQL Server 2014 feature pack](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ## Script details
-
 You can run the script from your local machine or a VM on the cloud. When running it from your local machine, you may incur data egress charges because the script needs to download data from your target databases. The following shows data volume estimation based on number of target databases and duration of running the script. For Azure data transfer costs, refer to [Data Transfer Pricing Details](https://azure.microsoft.com/pricing/details/data-transfers/).
-       
- -     One database per hour = 38 KB
- -     One database per day = 900 KB
- -     One database per week = 6 MB
- -     100 databases per day = 90 MB
- -     500 databases per week = 3 GB
+
+* One database per hour = 38 KB
+* One database per day = 900 KB
+* One database per week = 6 MB
+* 100 databases per day = 90 MB
+* 500 databases per week = 3 GB
 
 The script does not compile information for the following databases:
 
@@ -53,16 +54,14 @@ The script needs an output database to store intermediate data for analysis. You
 The script needs you to provide the credentials to connect to the target server (the elastic database pool candidate) with a full server name, <*dbname*>**.database.windows.net**. The script doesn’t support analyzing more than one server at a time.
 
 After submitting values for the initial set of parameters, you are prompted to log on to your Azure account. This is for logging on to your target server, not the output database server.
-	
+
 If you run into the following warnings while running the script you can ignore them:
 
-- WARNING: The Switch-AzureMode cmdlet is deprecated.
-- WARNING: Could not obtain SQL Server Service information. An attempt to connect to WMI on 'Microsoft.Azure.Commands.Sql.dll' failed with the following error: The RPC server is unavailable.
+* WARNING: The Switch-AzureMode cmdlet is deprecated.
+* WARNING: Could not obtain SQL Server Service information. An attempt to connect to WMI on 'Microsoft.Azure.Commands.Sql.dll' failed with the following error: The RPC server is unavailable.
 
 When the script completes, it outputs the estimated number of eDTUs needed for a pool to contain all candidate databases in the target server. This estimated eDTU can be used for creating and configuring the pool. Once the pool is created and databases moved into the pool, monitor the pool closely for a few days and make adjustments to the pool eDTU configuration as necessary. See [Monitor, manage, and size an elastic database pool](sql-database-elastic-pool-manage-portal.md).
 
-
-    
 ```
 param (
 [Parameter(Mandatory=$true)][string]$AzureSubscriptionName, # Azure Subscription name - can be found on the Azure portal: https://portal.azure.com/
@@ -269,5 +268,5 @@ $data = Invoke-Sqlcmd -ServerInstance $outputServerName -Database $outputdatabas
 $data | %{'{0}' -f $_[0]}
 }
 ```
-        
+
 

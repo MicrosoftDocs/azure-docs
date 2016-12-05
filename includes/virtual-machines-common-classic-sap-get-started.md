@@ -1,6 +1,5 @@
 
 ## Planning and Implementation
-
 Title: SAP NetWeaver on Azure Virtual Machines – Planning and Implementation Guide
 
 Summary: This is the paper to start with if you are thinking about running SAP NetWeaver in Azure Virtual Machines. This planning and implementation guide will help you evaluate whether an existing or planned SAP NetWeaver-based system can be deployed to an Azure Virtual Machines environment. It covers multiple SAP NetWeaver deployment scenarios, and includes SAP configurations that are specific to Azure. The paper lists and describes all the necessary configuration information you’ll need on the SAP/Azure side to run a hybrid SAP landscape. Measures you can take to ensure high availability of SAP NetWeaver-based systems on IaaS are also covered.
@@ -8,6 +7,7 @@ Summary: This is the paper to start with if you are thinking about running SAP N
 Updated: August 2015
 
 [Download this guide now](http://go.microsoft.com/fwlink/?LinkId=397963)
+
 ## Deployment
 Title: SAP NetWeaver on Azure Virtual Machines – Deployment Guide
 
@@ -27,7 +27,6 @@ Updated: December 2015
 [Download this guide now](http://go.microsoft.com/fwlink/?LinkId=397965)
 
 ## SAP NetWeaver on Azure
-
 Title: SAP NetWeaver - Building an Azure based Disaster Recovery Solution
 
 Summary:This document provides a step-by-step guidance for building an Azure based Disaster Recovery solution for SAP NetWeaver. The solution described assumes that the SAP landscape is running virtualized on-premise based on Hyper-V. In the first part of the document Azure Site Recovery (ASR) services are introduced in its components. The second part of the document describes specifics for SAP NetWeaver based landscapes. Possibilities of using ASR with SAP NetWeaver application instances and SAP Central Services are discussed and described. A focus of the second part is leveraging ASR for SAP Central Services which are protected with windows Server Failover Cluster configurations.
@@ -35,9 +34,4 @@ Summary:This document provides a step-by-step guidance for building an Azure bas
 Updated: September 2015
 
 [Download this guide now](http://go.microsoft.com/fwlink/?LinkID=521971)
-
-
-
-
-
 

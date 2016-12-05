@@ -1,33 +1,35 @@
-<properties
-	pageTitle="Azure Toolkit for Eclipse | Microsoft Azure"
-	description="Learn about the Azure Toolkit for Eclipse."
-	services=""
-	documentationCenter="java"
-	authors="rmcmurray"
-	manager="wpickett"
-	editor=""/>
+---
+title: Azure Toolkit for Eclipse | Microsoft Docs
+description: Learn about the Azure Toolkit for Eclipse.
+services: ''
+documentationcenter: java
+author: rmcmurray
+manager: wpickett
+editor: ''
 
-<tags
-	ms.service="multiple"
-	ms.workload="na"
-	ms.tgt_pltfrm="multiple"
-	ms.devlang="Java"
-	ms.topic="article"
-	ms.date="09/20/2016" 
-	ms.author="robmcm;asirveda"/>
+ms.assetid: ef2f3839-2549-4471-9b53-0deb7f4c128b
+ms.service: multiple
+ms.workload: na
+ms.tgt_pltfrm: multiple
+ms.devlang: Java
+ms.topic: article
+ms.date: 09/20/2016
+ms.author: robmcm;asirveda
 
+---
 <!-- Legacy MSDN URL = https://msdn.microsoft.com/library/azure/hh694271.aspx -->
 
 # Azure Toolkit for Eclipse
-
 The Azure Toolkit for Eclipse provides templates and functionality that allow you to easily create, develop, test, and deploy Azure applications using the Eclipse development environment. It is an Open Source project, whose source code is available under the MIT License from the project's site at:
 
 * <https://github.com/microsoft/azure-tools-for-java>
 
-> [AZURE.NOTE] There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ].
+> [!NOTE]
+> There is also an Azure Toolkit for the IntelliJ IDE. For more information, see [Azure Toolkit for IntelliJ].
+> 
+> 
 
 ## Getting Started with the Azure Toolkit for Eclipse
-
 The following articles will help you get started using the Azure Toolkit for Eclipse:
 
 * [What's New in the Azure Toolkit for Eclipse]
@@ -36,7 +38,6 @@ The following articles will help you get started using the Azure Toolkit for Ecl
 * [Create a Hello World Web App for Azure in Eclipse]
 
 ## Configuring Azure Project Settings
-
 The following articles show you how to use the Azure Toolkit for Eclipse to configure settings for your Azure projects:
 
 * [Azure Project Properties]
@@ -47,7 +48,6 @@ The following articles show you how to use the Azure Toolkit for Eclipse to conf
 * [Enabling Remote Access for Azure Deployments in Eclipse]
 
 ## Using the Azure Toolkit for Eclipse
-
 The following articles demonstrate using the Azure Toolkit for Eclipse to add Azure functionality to your Java projects:
 
 * [Displaying Javadoc Content in Eclipse for the Package for Azure Libraries for Java]
@@ -57,17 +57,16 @@ The following articles demonstrate using the Azure Toolkit for Eclipse to add Az
 * [Use HDInsight Tools Plugin for Eclipse to create Spark applications for HDInsight Spark Linux cluster][HDInsight Tools Plugin for Eclipse]
 
 ## See Also
-
 For more information about the Azure Toolkits for Java IDEs, see the following links:
 
-- *Azure Toolkit for Eclipse (This Article)*
-  - [Installing the Azure Toolkit for Eclipse]
-  - [Create a Hello World Web App for Azure in Eclipse]
-  - [What's New in the Azure Toolkit for Eclipse]
-- [Azure Toolkit for IntelliJ]
-  - [Installing the Azure Toolkit for IntelliJ]
-  - [Create a Hello World Web App for Azure in IntelliJ]
-  - [What's New in the Azure Toolkit for IntelliJ]
+* *Azure Toolkit for Eclipse (This Article)*
+  * [Installing the Azure Toolkit for Eclipse]
+  * [Create a Hello World Web App for Azure in Eclipse]
+  * [What's New in the Azure Toolkit for Eclipse]
+* [Azure Toolkit for IntelliJ]
+  * [Installing the Azure Toolkit for IntelliJ]
+  * [Create a Hello World Web App for Azure in IntelliJ]
+  * [What's New in the Azure Toolkit for IntelliJ]
 
 For more information about using Azure with Java, see the [Azure Java Developer Center].
 

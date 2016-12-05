@@ -4,6 +4,7 @@ You pay for two things: the hourly compute costs for the virtual network gateway
 
 **Data transfer costs**<br>Data transfer costs are calculated based on egress traffic from the source virtual network gateway.
 
-- If you are sending traffic to your on-premises VPN device, it will be charged with the Internet egress data transfer rate.
-- If you are sending traffic between virtual networks in different regions, the pricing is based the region.
-- If you are sending traffic only between virtual networks that are in the same region, there are no data costs. Traffic between VNets in the same region is free.
+* If you are sending traffic to your on-premises VPN device, it will be charged with the Internet egress data transfer rate.
+* If you are sending traffic between virtual networks in different regions, the pricing is based the region.
+* If you are sending traffic only between virtual networks that are in the same region, there are no data costs. Traffic between VNets in the same region is free.
+

@@ -21,3 +21,4 @@ New features and functionality will only be added to new versions. If you are us
 **6. What should I do if I cannot update my application before a cut-off date**
 
 We recommend that you upgrade to the latest SDK as early as possible. Once an SDK has been tagged for retirement you will have 12 months to update your application. If, for whatever reason, you cannot complete your application update within this timeframe then please contact the [DocumentDB Team](mailto:askdocdb@microsoft.com) and request their assistance before the cutoff date.
+

@@ -1,31 +1,29 @@
-<properties
- pageTitle="Logic App templates | Microsoft Azure"
- description="Learn how to use pre-created Logic app templates to help you get started"
- authors="kevinlam1"
- manager="dwrede"
- editor=""
- services="app-service\logic"
- documentationCenter=""/>
+---
+title: Logic App templates | Microsoft Docs
+description: Learn how to use pre-created Logic app templates to help you get started
+author: kevinlam1
+manager: dwrede
+editor: ''
+services: app-service\logic
+documentationcenter: ''
 
-<tags
-	ms.service="app-service-logic"
-	ms.workload="integration"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/24/2016"
-	ms.author="klam"/>
+ms.assetid: 3656acfb-eefd-4e75-b5d2-73da56c424c9
+ms.service: app-service-logic
+ms.workload: integration
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/24/2016
+ms.author: klam
 
+---
 # Logic App templates
-
 ## What are logic app templates
-
 A logic app template is a pre-built logic app that you can use to quickly get started creating your own workflow. 
 
 These templates are a good way to discover various patterns that can be built using logic apps. You can either use these templates as-is or modify them to fit your scenario.
 
 ## Overview of available templates
-
 There are many available templates currently published in the logic app platform. Some example categories, as well as the type of connectors used in them, are listed below.
 
 ### Enterprise cloud templates
@@ -43,8 +41,7 @@ Patterns to help improve personal productivity include templates that set daily 
 ### Consumer cloud templates
 Simple templates that integrate with social media services such as Twitter, Slack, and email, ultimately capable of strengthening social media marketing initiatives. These also include templates such as cloudy copying, which can help increase productivity by saving time spent on traditionally repetitive tasks. 
 
-## How to create a logic app using a template 
-
+## How to create a logic app using a template
 To get started using a logic app template, go into the logic app designer. If you're entering the designer by opening an existing logic app, the logic app automatically loads in your designer view. However, if you're creating a new logic app, you see the screen below.  
  ![](../../includes/media/app-service-logic-templates/template7.png)  
 
@@ -63,8 +60,8 @@ If you wish to return to the template viewer, select the *Templates* button in t
  ![](../../includes/media/app-service-logic-templates/template5.png)  
 
 ## How to deploy a logic app created from a template
-
 Once you have loaded your template and made any desired changes, select the save button in the upper left corner. This saves and publishes your logic app.  
  ![](../../includes/media/app-service-logic-templates/template6.png)  
 
 If you would like more information on how to add more steps into an existing logic app template, or make edits in general, read more at [Create a logic app](app-service-logic-create-a-logic-app.md).
+

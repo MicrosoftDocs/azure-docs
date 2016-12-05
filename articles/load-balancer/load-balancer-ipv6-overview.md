@@ -1,22 +1,22 @@
-<properties
-    pageTitle="Overview of IPv6 for Azure Load Balancer | Microsoft Azure"
-    description="Understanding IPv6 support for Azure Load Balancer and load-balanced VMs."
-    services="load-balancer"
-    documentationCenter="na"
-    authors="sdwheeler"
-    manager="carmonm"
-    editor=""
-    keywords="ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot"
-/>
-<tags
-    ms.service="load-balancer"
-    ms.devlang="na"
-    ms.topic="article"
-    ms.tgt_pltfrm="na"
-    ms.workload="infrastructure-services"
-    ms.date="09/14/2016"
-    ms.author="sewhee"
-/>
+---
+title: Overview of IPv6 for Azure Load Balancer | Microsoft Docs
+description: Understanding IPv6 support for Azure Load Balancer and load-balanced VMs.
+services: load-balancer
+documentationcenter: na
+author: kumudd
+manager: timlt
+editor: ''
+keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
+
+ms.assetid: 6a1d583f-a305-40fd-a94b-fa42e1943bbb
+ms.service: load-balancer
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 09/14/2016
+ms.author: kumud
+---
 
 # Overview of IPv6 for Azure Load Balancer
 
@@ -62,6 +62,7 @@ Limitations
 * You may not upgrade existing VMs to use IPv6 addresses. You must deploy new VMs.
 * A single IPv6 address can be assigned to a single network interface in each VM.
 * The public IPv6 addresses cannot be assigned to a VM. They can only be assigned to a load balancer.
+* You cannot configure the reverse DNS lookup for your public IPv6 addresses.
 * The VMs with the IPv6 addresses cannot be members of an Azure Cloud Service. They can be connected to an Azure Virtual Network (VNet) and communicate with each other over their IPv4 addresses.
 * Private IPv6 addresses can be deployed on individual VMs in a resource group but cannot be deployed into a resource group via Scale Sets.
 * Azure VMs cannot connect over IPv6 to other VMs, other Azure services, or on-premises devices. They can only communicate with the Azure load balancer over IPv6. However, they can communicate with these other resources using IPv4.

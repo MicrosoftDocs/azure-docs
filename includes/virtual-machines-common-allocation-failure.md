@@ -3,23 +3,20 @@ If your Azure issue is not addressed in this article, visit the [Azure forums on
 
 ## General troubleshooting steps
 ### Troubleshoot common allocation failures in the classic deployment model
-
 These steps can help resolve many allocation failures in virtual machines:
 
-- Resize the VM to a different VM size.<br>
-	Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
-
-- Delete all VMs from the cloud service and re-create VMs.<br>
-	Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Delete**. Then, click **New** > **Compute** > [virtual machine image].
+* Resize the VM to a different VM size.<br>
+    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Settings** > **Size**. For detailed steps, see [Resize the virtual machine](https://msdn.microsoft.com/library/dn168976.aspx).
+* Delete all VMs from the cloud service and re-create VMs.<br>
+    Click **Browse all** > **Virtual machines (classic)** > your virtual machine > **Delete**. Then, click **New** > **Compute** > [virtual machine image].
 
 ### Troubleshoot common allocation failures in the Azure Resource Manager deployment model
-
 These steps can help resolve many allocation failures in virtual machines:
 
-- Stop (deallocate) all VMs in the same availability set, then restart each one.<br>
-	To stop: Click **Resource groups** > your resource group > **Resources** > your availability set > **Virtual Machines** > your virtual machine > **Stop**.
-
-	After all VMs stop, select the first VM and click **Start**.
+* Stop (deallocate) all VMs in the same availability set, then restart each one.<br>
+    To stop: Click **Resource groups** > your resource group > **Resources** > your availability set > **Virtual Machines** > your virtual machine > **Stop**.
+  
+    After all VMs stop, select the first VM and click **Start**.
 
 ## Background information
 ### How allocation works
@@ -34,12 +31,12 @@ When an allocation request is pinned to a cluster, there's a higher chance of fa
 ## Detailed troubleshoot steps specific allocation failure scenarios in the classic deployment model
 Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
 
-- Resize a VM or add VMs or role instances to an existing cloud service
-- Restart partially stopped (deallocated) VMs
-- Restart fully stopped (deallocated) VMs
-- Staging/production deployments (platform as a service only)
-- Affinity group (VM/service proximity)
-- Affinity-group-based virtual network
+* Resize a VM or add VMs or role instances to an existing cloud service
+* Restart partially stopped (deallocated) VMs
+* Restart fully stopped (deallocated) VMs
+* Staging/production deployments (platform as a service only)
+* Affinity group (VM/service proximity)
+* Affinity-group-based virtual network
 
 When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
 
@@ -50,7 +47,10 @@ Two common failure scenarios are related to affinity groups. In the past, an aff
 Diagram 5 below presents the taxonomy of the (pinned) allocation scenarios.
 ![Pinned Allocation Taxonomy](./media/virtual-machines-common-allocation-failure/Allocation3.png)
 
-> [AZURE.NOTE] The error listed in each allocation scenario is a short form. Refer to the [Error string lookup](#Error string lookup) for detailed error strings.
+> [!NOTE]
+> The error listed in each allocation scenario is a short form. Refer to the [Error string lookup](#Error string lookup) for detailed error strings.
+> 
+> 
 
 ## Allocation scenario: Resize a VM or add VMs or role instances to an existing cloud service
 **Error**
@@ -68,7 +68,6 @@ If the error is Upgrade_VMSizeNotSupported*, try a different VM size. If using a
 If the error is GeneralError*, it's likely that the type of resource (such as a particular VM size) is supported by the cluster, but the cluster does not have free resources at the moment. Similar to the above scenario, add the desired compute resource through creating a new cloud service (note that the new cloud service has to use a different VIP) and use a regional virtual network to connect your cloud services.
 
 ## Allocation scenario: Restart partially stopped (deallocated) VMs
-
 **Error**
 
 GeneralError*
@@ -80,8 +79,9 @@ Partial deallocation means that you stopped (deallocated) one or more, but not a
 **Workaround**
 
 If it's acceptable to use a different VIP, delete the stopped (deallocated) VMs (but keep the associated disks) and add the VMs back through a different cloud service. Use a regional virtual network to connect your cloud services:
-- If your existing cloud service uses a regional virtual network, simply add the new cloud service to the same virtual network.
-- If your existing cloud service does not use a regional virtual network, create a new virtual network for the new cloud service, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
+
+* If your existing cloud service uses a regional virtual network, simply add the new cloud service to the same virtual network.
+* If your existing cloud service does not use a regional virtual network, create a new virtual network for the new cloud service, and then [connect your existing virtual network to the new virtual network](https://azure.microsoft.com/blog/vnet-to-vnet-connecting-virtual-networks-in-azure-across-different-regions/). See more about [regional virtual networks](https://azure.microsoft.com/blog/2014/05/14/regional-virtual-networks/).
 
 ## Allocation scenario: Restart fully stopped (deallocated) VMs
 **Error**
@@ -140,9 +140,9 @@ Alternatively, you can [migrate your affinity-group-based virtual network to a r
 ## Detailed troubleshooting steps specific allocation failure scenarios in the Azure Resource Manager deployment model
 Here are common allocation scenarios that cause an allocation request to be pinned. We'll dive into each scenario later in this article.
 
-- Resize a VM or add VMs or role instances to an existing cloud service
-- Restart partially stopped (deallocated) VMs
-- Restart fully stopped (deallocated) VMs
+* Resize a VM or add VMs or role instances to an existing cloud service
+* Restart partially stopped (deallocated) VMs
+* Restart fully stopped (deallocated) VMs
 
 When you receive an allocation error, see if any of the scenarios described apply to your error. Use the allocation error returned by the Azure platform to identify the corresponding scenario. If your request is pinned to an existing cluster, remove some of the pinning constraints to open your request to more clusters, thereby increasing the chance of allocation success.
 
@@ -205,3 +205,4 @@ Select a new VM size to allocate. If this does not work, please try again later.
 **GeneralError***
 
 "The server encountered an internal error. Please retry the request." Or "Failed to produce an allocation for the service."
+

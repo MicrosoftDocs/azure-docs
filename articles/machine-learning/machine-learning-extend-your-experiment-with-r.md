@@ -1,24 +1,23 @@
-<properties
-	pageTitle="Extend your experiment with R | Microsoft Azure"
-	description="How to extend the functionality of Azure Machine Learning Studio through the R language by using the Execute R Script module."
-	services="machine-learning"
-	documentationCenter=""
-	authors="garyericson"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Extend your experiment with R | Microsoft Docs
+description: How to extend the functionality of Azure Machine Learning Studio through the R language by using the Execute R Script module.
+services: machine-learning
+documentationcenter: ''
+author: garyericson
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="08/19/2016"
-	ms.author="garye" />
+ms.assetid: 2c038a45-ba4d-42ea-9a88-e67391ef8c0a
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 08/19/2016
+ms.author: garye
 
-
-#Extend your experiment with R
-
+---
+# Extend your experiment with R
 You can extend the functionality of ML Studio through the R language by using the [Execute R Script][execute-r-script] module.
 
 This module accepts multiple input datasets and it yields a single dataset as output. You can type an R script into the **R Script** parameter of the [Execute R Script][execute-r-script] module.
@@ -27,14 +26,13 @@ You access each input port of the module by using code similar to the following:
 
     dataset1 <- maml.mapInputPort(1)
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##Listing all currently-installed packages
-
+## Listing all currently-installed packages
 The list of installed packages can change. To get the complete, current list of installed packages, including the description of each package, enter the following code into the [Execute R Script][execute-r-script] module:
 
     out <- data.frame(installed.packages(,,,fields="Description"))
-	maml.mapOutputPort("out")
+    maml.mapOutputPort("out")
 
 This sends the list of packages to the output port of the [Execute R Script][execute-r-script] module.
 To view the package list, connect a conversion module such as [Convert to CSV][convert-to-csv] to the left output of the [Execute R Script][execute-r-script] module, run the experiment, then click the output of the conversion module and select **Download**. 
@@ -45,8 +43,7 @@ To view the package list, connect a conversion module such as [Convert to CSV][c
 For convenience, here is the [current full list with version numbers in Excel format](http://az754797.vo.msecnd.net/docs/RPackages.xlsx).
 -->
 
-##Importing packages
-
+## Importing packages
 You also can import packages that are not already installed from a staged ML Studio repository by using the following commands in the [Execute R Script][execute-r-script] module and zipped package archive:
 
     install.packages("src/my_favorite_package.zip", lib = ".", repos = NULL, verbose = TRUE)

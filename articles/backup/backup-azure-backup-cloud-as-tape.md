@@ -1,27 +1,28 @@
-<properties
-   pageTitle="Use Azure Backup to replace your tape infrastructure | Microsoft Azure"
-   description="Learn how Azure Backup provides tape-like semantics which enables you to backup and restore data in Azure"
-   services="backup"
-   documentationCenter=""
-   authors="trinadhk"
-   manager="vijayts"
-   editor=""/>
-<tags
-   ms.service="backup"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="storage-backup-recovery"
-   ms.date="09/27/2016"
-   ms.author="jimpark;trinadhk;markgal"/>
+﻿---
+title: Use Azure Backup to replace your tape infrastructure | Microsoft Docs
+description: Learn how Azure Backup provides tape-like semantics which enables you to backup and restore data in Azure
+services: backup
+documentationcenter: ''
+author: trinadhk
+manager: vijayts
+editor: ''
 
+ms.assetid: 2e1bb67d-986c-4437-8056-3a63169b4214
+ms.service: backup
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: storage-backup-recovery
+ms.date: 09/27/2016
+ms.author: jimpark;trinadhk;markgal
+
+---
 # Use Azure Backup to replace your tape infrastructure
-
 Azure Backup and System Center Data Protection Manager customers can:
 
-- Back up data in schedules which best suit the organizational needs.
-- Retain the backup data for longer periods
-- Make Azure a part of their long-term retention needs (instead of tape).
+* Back up data in schedules which best suit the organizational needs.
+* Retain the backup data for longer periods
+* Make Azure a part of their long-term retention needs (instead of tape).
 
 This article explains how customers can enable backup and retention policies. Customers who use tapes to address their long-term-retention needs now have a powerful and viable alternative with the availability of this feature. The feature is enabled in the latest release of the Azure Backup (which is available [here](http://aka.ms/azurebackup_agent)). System Center DPM customers must update to, at least, DPM 2012 R2 UR5 before using DPM with the Azure Backup service.
 
@@ -42,7 +43,6 @@ The retention policy specifies the duration for which the backup must be stored.
 The total number of “retention points” specified in this policy is 90 (daily points) + 40 (one each quarter for 10 years) = 130.
 
 ## Example – Putting both together
-
 ![Sample Screen](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **Daily retention policy**: Backups taken daily are stored for seven days.
@@ -52,14 +52,17 @@ The total number of “retention points” specified in this policy is 90 (daily
 
 The total number of “retention points” (points from which a customer can restore data) in the preceding diagram is computed as follows:
 
-- two points per day for seven days = 14 recovery points
-- two points per week for four weeks = 8 recovery points
-- two points per month for 12 months = 24 recovery points
-- one point per year per 10 years = 10 recovery points
+* two points per day for seven days = 14 recovery points
+* two points per week for four weeks = 8 recovery points
+* two points per month for 12 months = 24 recovery points
+* one point per year per 10 years = 10 recovery points
 
 The total number of recovery points is 56.
 
-> [AZURE.NOTE] Azure backup doesn't have a restriction on number of recovery points.
+> [!NOTE]
+> Azure backup doesn't have a restriction on number of recovery points.
+> 
+> 
 
 ## Advanced configuration
 By clicking **Modify** in the preceding screen, customers have further flexibility in specifying retention schedules.
@@ -69,5 +72,6 @@ By clicking **Modify** in the preceding screen, customers have further flexibili
 ## Next Steps
 For more information about Azure Backup, see:
 
-- [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
-- [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)
+* [Introduction to Azure Backup](backup-introduction-to-azure-backup.md)
+* [Try Azure Backup](backup-try-azure-backup-in-10-mins.md)
+

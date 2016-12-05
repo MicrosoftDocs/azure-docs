@@ -1,38 +1,38 @@
-<properties
-   pageTitle="Azure Mobile Engagement User Interface - Monitor"
-   description="Learn how to monitor real-time data about your application using Azure Mobile Engagement"
-   services="mobile-engagement"
-   documentationCenter=""
-   authors="piyushjo"
-   manager="dwrede"
-   editor=""/>
+﻿---
+title: Azure Mobile Engagement User Interface - Monitor
+description: Learn how to monitor real-time data about your application using Azure Mobile Engagement
+services: mobile-engagement
+documentationcenter: ''
+author: piyushjo
+manager: dwrede
+editor: ''
 
-<tags
-   ms.service="mobile-engagement"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="mobile-multiple"
-   ms.workload="mobile"
-   ms.date="08/19/2016"
-   ms.author="piyushjo"/>
+ms.assetid: b91ad89a-b89d-4377-abb0-cc2d16a2836d
+ms.service: mobile-engagement
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: mobile-multiple
+ms.workload: mobile
+ms.date: 08/19/2016
+ms.author: piyushjo
 
+---
 # How to monitor real-time data about your application
-
 This article describes the **MONITOR** tab of the **Mobile Engagement** portal. You use the **Mobile Engagement** portal to monitor and manage your mobile apps. Note that to start using the portal you first need to create an **Azure Mobile Engagement** account. 
-
 
 The Monitor section of the UI provides real-time analytics information and allows you to set alerts when thresholds are reached for most of the same information that is available historically in the [ANALYTICS](mobile-engagement-user-interface-analytics.md) section of the UI. See the **Glossary** section in the [Concepts](http://go.microsoft.com/fwlink/?LinkId=525555) topic for definitions of terms and abbreviations in Analytics and Monitoring (such as the following: Active User, New user, Retained User, Session, User Path Graph, Users Map, Tracking URLs, Trends, Activity, Event, Job, Error, Extra Info, Crash, and App-info).
 
->[AZURE.NOTE] Many sections of the **Mobile Engagement** portal UI contain the **SHOW HELP** button. Press this button to get more contextual information about a section.
+> [!NOTE]
+> Many sections of the **Mobile Engagement** portal UI contain the **SHOW HELP** button. Press this button to get more contextual information about a section.
+> 
+> 
 
 ## Monitor - Sessions, Jobs, Events, Errors, and Crashes
-
 You can see how many users are currently in session and on specific screens or doing specific actions. You can view user activity divided by Sessions, Jobs, Events, Errors, and Crashes. You can see the current information and show the information from the last hour, day, or week. You can see all of the information in each category or sort by the specific Session, Job, Event, Error, and Crash.  Live monitoring is helpful to use during events such as a Push campaign to see if there is an uptick in action right after you send your Push notification.
 
 ![Monitor1][14]  
 
 ## Troubleshooting with Monitor - Events - Details
-
 Generating an event in your application from your test device and finding it in Monitor - Events - Details is one of the easiest ways to find your Device ID for your test device and to confirm that Azure Mobile Engagement integration of Analytics, Monitoring, and Segments is working from your application. Once you have the Device ID of your test device, you can add it to your test devices in “My Account - Devices”. If you can't generate an event, make sure that Azure Mobile Engagement is correctly integrated in your Android/iOS/Web/Windows/Windows Phone app with the SDK.
 
 For more information, see:  [SDK Documentation][Link 5]
@@ -40,7 +40,6 @@ For more information, see:  [SDK Documentation][Link 5]
 ![Monitor2][15]  
 
 ## Troubleshooting with Monitor - Crashes - Details
-
 You can review crash information about your app from Monitor - Crashes - Details to help determine why your app is crashing. You should also look up known issues with each version of the SDK in the release notes for each version of the SDK for Android/iOS/Web/Windows/Windows Phone.
 
 For more information, see:  [SDK Documentation - Release notes][Link 5]
@@ -54,11 +53,9 @@ You can also specify a Minimum Detection Rate, which is the minimum amount of mi
 
 ![Monitor4][17]
 
-
 ## See also
-
-- [Concepts][Link 6]
-- [Troubleshooting Guide Service][Link 24]
+* [Concepts][Link 6]
+* [Troubleshooting Guide Service][Link 24]
 
 <!--Image references-->
 [1]: ./media/mobile-engagement-user-interface-navigation/navigation1.png

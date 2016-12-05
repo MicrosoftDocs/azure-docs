@@ -1,23 +1,23 @@
-<properties
-	pageTitle="Azure Single Sign On SAML Protocol | Microsoft Azure"
-	description="This article describes the Single Sign On SAML protocol in Azure Active Directory"
-	services="active-directory"
-	documentationCenter=".net"
-	authors="priyamohanram"
-	manager="mbaldwin"
-	editor=""/>
+---
+title: Azure Single Sign On SAML Protocol | Microsoft Docs
+description: This article describes the Single Sign On SAML protocol in Azure Active Directory
+services: active-directory
+documentationcenter: .net
+author: priyamohanram
+manager: mbaldwin
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.workload="identity"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="10/03/2016"
-	ms.author="priyamo"/>
+ms.assetid: ad8437f5-b887-41ff-bd77-779ddafc33fb
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/03/2016
+ms.author: priyamo
 
+---
 # Single Sign-On SAML protocol
-
 This article covers the SAML 2.0 authentication requests and responses that Azure Active Directory (Azure AD) supports for Single Sign-On.
 
 The protocol diagram below describes the single sign-on sequence. The cloud service (the service provider) uses an HTTP Redirect binding to pass an `AuthnRequest` (authentication request) element to Azure AD (the identity provider). Azure AD then uses an HTTP post binding to post a `Response` element to the cloud service.
@@ -25,7 +25,6 @@ The protocol diagram below describes the single sign-on sequence. The cloud serv
 ![Single Sign On Workflow](media/active-directory-single-sign-on-protocol-reference/active-directory-saml-single-sign-on-workflow.png)
 
 ## AuthnRequest
-
 To request a user authentication, cloud services send an `AuthnRequest` element to Azure AD. A sample SAML 2.0 `AuthnRequest` could look like this:
 
 ```
@@ -39,21 +38,20 @@ xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol">
 ```
 
 
-| Parameter | | Description |
-| ----------------------- | ------------------------------- | --------------- |
-| ID | required | Azure AD uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "id" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
-| Version | required | This should be **2.0**.|
-| IssueInstant | required | This is a DateTime string with a UTC value and [round-trip format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD expects a DateTime value of this type, but does not evaluate or use the value. |
-| AssertionConsumerServiceUrl | optional | If provided, this must match the `RedirectUri` of the cloud service in Azure AD. |
-| ForceAuthn | optional | If provided, this should be false. Any other value causes an error.|
-| IsPassive | optional | If provided, this should be false. Any other value causes an error. |  
+| Parameter |  | Description |
+| --- | --- | --- |
+| ID |required |Azure AD uses this attribute to populate the `InResponseTo` attribute of the returned response. ID must not begin with a number, so a common strategy is to prepend a string like "id" to the string representation of a GUID. For example, `id6c1c178c166d486687be4aaf5e482730` is a valid ID. |
+| Version |required |This should be **2.0**. |
+| IssueInstant |required |This is a DateTime string with a UTC value and [round-trip format ("o")](https://msdn.microsoft.com/library/az4se3k1.aspx). Azure AD expects a DateTime value of this type, but does not evaluate or use the value. |
+| AssertionConsumerServiceUrl |optional |If provided, this must match the `RedirectUri` of the cloud service in Azure AD. |
+| ForceAuthn |optional |If provided, this should be false. Any other value causes an error. |
+| IsPassive |optional |If provided, this should be false. Any other value causes an error. |
 
 All other `AuthnRequest` attributes, such as Consent, Destination, AssertionConsumerServiceIndex, AttributeConsumerServiceIndex and ProviderName are **ignored**.
 
 Azure AD also ignores the `Conditions` element in `AuthnRequest`.
 
 ### Issuer
-
 The `Issuer` element in an `AuthnRequest` must exactly match one of the **ServicePrincipalNames** in the cloud service in Azure AD. Typically, this is set to the **App ID URI** that is specified during application registration.
 
 A sample SAML excerpt containing the `Issuer` element looks like this:
@@ -63,7 +61,6 @@ A sample SAML excerpt containing the `Issuer` element looks like this:
 ```
 
 ### NameIDPolicy
-
 This element requests a particular name ID format in the response and is optional in `AuthnRequest` elements sent to Azure AD.
 
 A sample `NameIdPolicy` element looks like this:
@@ -74,32 +71,27 @@ A sample `NameIdPolicy` element looks like this:
 
 If `NameIDPolicy` is provided, you can include its optional `Format` attribute. The `Format` attribute can have only one of the following values; any other value results in an error.
 
--  `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory issues the NameID claim as a pairwise identifier.
-- `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory issues the NameID claim in e-mail address format.
-- `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: This value permits Azure Active Directory to select the claim format. Azure Active Directory issues the NameID as a pairwise identifier.
+* `urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`: Azure Active Directory issues the NameID claim as a pairwise identifier.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress`: Azure Active Directory issues the NameID claim in e-mail address format.
+* `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`: This value permits Azure Active Directory to select the claim format. Azure Active Directory issues the NameID as a pairwise identifier.
 
 Do not include the `SPNameQualifer` attribute. Azure AD ignores the `AllowCreate` attribute.
 
 ### RequestAuthnContext
-
 The `RequestedAuthnContext` element specifies the desired authentication methods. It is optional in `AuthnRequest` elements sent to Azure AD. Azure AD supports only one `AuthnContextClassRef` value: `urn:oasis:names:tc:SAML:2.0:ac:classes:Password`.
 
 ### Scoping
-
 The `Scoping` element, which includes a list of identity providers, is optional in `AuthnRequest` elements sent to Azure AD.
 
 If provided, do not include the `ProxyCount` attribute, `IDPListOption` or `RequesterID` element, as they are not supported.
 
 ### Signature
-
 Do not include a `Signature` element in `AuthnRequest` elements, as Azure AD does not support signed authentication requests.
 
 ### Subject
-
 Azure AD ignores the `Subject` element of `AuthnRequest` elements.
 
 ## Response
-
 When a requested sign-on completes successfully, Azure AD posts a response to the cloud service. A sample response to a successful sign-on attempt looks like this:
 
 ```
@@ -146,14 +138,12 @@ When a requested sign-on completes successfully, Azure AD posts a response to th
 ```
 
 ### Response
-
 The `Response` element includes the result of the authorization request. Azure AD sets the `ID`, `Version` and `IssueInstant` values in the `Response` element. It also sets the following attributes:
 
-- `Destination`: When sign-on completes successfully, this is set to the `RedirectUri` of the service provider (cloud service).
-- `InResponseTo`: This is set to the `ID` attribute of the `AuthnRequest` element that initiated the response.
+* `Destination`: When sign-on completes successfully, this is set to the `RedirectUri` of the service provider (cloud service).
+* `InResponseTo`: This is set to the `ID` attribute of the `AuthnRequest` element that initiated the response.
 
 ### Issuer
-
 Azure AD sets the `Issuer` element to `https://login.microsoftonline.com/<TenantIDGUID>/` where <TenantIDGUID> is the tenant ID of the Azure AD tenant.
 
 For example, a sample response with Issuer element could look like this:
@@ -163,7 +153,6 @@ For example, a sample response with Issuer element could look like this:
 ```
 
 ### Status
-
 The `Status` element conveys the success or failure of sign-on. It includes the `StatusCode` element, which contains a code or a set of nested codes that represent the status of the request. It also includes the `StatusMessage` element, which contains custom error messages that are generated during the sign-on process.
 
 <!-- TODO: Add a authentication protocol error reference -->
@@ -184,11 +173,9 @@ Timestamp: 2013-03-18 08:49:24Z</samlp:StatusMessage>
 ```
 
 ### Assertion
-
 In addition to the `ID`, `IssueInstant` and `Version`, Azure AD sets the following elements in the `Assertion` element of the response.
 
 #### Issuer
-
 This is set to `https://sts.windows.net/<TenantIDGUID>/`where <TenantIDGUID> is the Tenant ID of the Azure AD tenant.
 
 ```
@@ -196,7 +183,6 @@ This is set to `https://sts.windows.net/<TenantIDGUID>/`where <TenantIDGUID> is 
 ```
 
 #### Signature
-
 Azure AD signs the assertion in response to a successful sign-on. The `Signature` element contains a digital signature that the cloud service can use to authenticate the source to verify the integrity of the assertion.
 
 To generate this digital signature, Azure AD uses the signing key in the `IDPSSODescriptor` element of its metadata document.
@@ -208,7 +194,6 @@ To generate this digital signature, Azure AD uses the signing key in the `IDPSSO
 ```
 
 #### Subject
-
 This specifies the principal that is the subject of the statements in the assertion. It contains a `NameID` element, which represents the authenticated user. The `NameID` value is a targeted identifier that is directed only to the service provider that is the audience for the token. It is persistent - it can be revoked, but is never reassigned. It is also opaque, in that it does not reveal anything about the user and cannot be used as an identifier for attribute queries.
 
 The `Method` attribute of the `SubjectConfirmation` element is always set to `urn:oasis:names:tc:SAML:2.0:cm:bearer`.
@@ -223,7 +208,6 @@ The `Method` attribute of the `SubjectConfirmation` element is always set to `ur
 ```
 
 #### Conditions
-
 This element specifies conditions that define the acceptable use of SAML assertions.
 
 ```
@@ -236,11 +220,10 @@ This element specifies conditions that define the acceptable use of SAML asserti
 
 The `NotBefore` and `NotOnOrAfter` attributes specify the interval during which the assertion is valid.
 
-- The value of the `NotBefore` attribute is equal to or slightly (less than a second) later than the value of `IssueInstant` attribute of the `Assertion` element. Azure AD does not account for any time difference between itself and the cloud service (service provider), and does not add any buffer to this time.
-- The value of the `NotOnOrAfter` attribute is 70 minutes later than the value of the `NotBefore` attribute.
+* The value of the `NotBefore` attribute is equal to or slightly (less than a second) later than the value of `IssueInstant` attribute of the `Assertion` element. Azure AD does not account for any time difference between itself and the cloud service (service provider), and does not add any buffer to this time.
+* The value of the `NotOnOrAfter` attribute is 70 minutes later than the value of the `NotBefore` attribute.
 
 #### Audience
-
 This contains a URI that identifies an intended audience. Azure AD sets the value of this element to the value of `Issuer` element of the `AuthnRequest` that initiated the sign-on. To evaluate the `Audience` value, use the value of the `App ID URI` that was specified during application registration.
 
 ```
@@ -252,7 +235,6 @@ This contains a URI that identifies an intended audience. Azure AD sets the valu
 Like the `Issuer` value, the `Audience` value must exactly match one of the service principal names that represents the cloud service in Azure AD. However, if the value of the `Issuer` element is not a URI value, the `Audience` value in the response is the `Issuer` value prefixed with `spn:`.
 
 #### AttributeStatement
-
 This contains claims about the subject or user. The following excerpt contains a sample `AttributeStatement` element. The ellipsis indicates that the element can include multiple attributes and attribute values.
 
 ```
@@ -265,17 +247,16 @@ This contains claims about the subject or user. The following excerpt contains a
       </Attribute>
       ...
 </AttributeStatement>
-```		
+```        
 
-- **Name Claim** : The value of the `Name` attribute (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) is the user principal name of the authenticated user, such as `testuser@managedtenant.com`.
-- **ObjectIdentifier Claim** : The value of the `ObjectIdentifier` attribute (`http://schemas.microsoft.com/identity/claims/objectidentifier`) is the `ObjectId` of the directory object that represents the authenticated user in Azure AD. `ObjectId` is an immutable, globally unique, and re-use safe identifier of the authenticated user.
+* **Name Claim** : The value of the `Name` attribute (`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`) is the user principal name of the authenticated user, such as `testuser@managedtenant.com`.
+* **ObjectIdentifier Claim** : The value of the `ObjectIdentifier` attribute (`http://schemas.microsoft.com/identity/claims/objectidentifier`) is the `ObjectId` of the directory object that represents the authenticated user in Azure AD. `ObjectId` is an immutable, globally unique, and re-use safe identifier of the authenticated user.
 
 #### AuthnStatement
-
 This element asserts that the assertion subject was authenticated by a particular means at a particular time.
 
-- The `AuthnInstant` attribute specifies the time at which the user authenticated with Azure AD.
-- The `AuthnContext` element specifies the authentication context used to authenticate the user.
+* The `AuthnInstant` attribute specifies the time at which the user authenticated with Azure AD.
+* The `AuthnContext` element specifies the authentication context used to authenticate the user.
 
 ```
 <AuthnStatement AuthnInstant="2013-03-18T07:33:56.000Z" SessionIndex="_bf9c623d-cc20-407a-9a59-c2d0aee84d12">

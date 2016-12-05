@@ -1,35 +1,36 @@
-<properties
-	pageTitle="Cortana Intelligence Solution Template Playbook for demand forecasting of energy | Microsoft Azure"
-	description="A Solution Template with Microsoft Cortana Intelligence that helps forecast demand for an energy utility company."
-	services="cortana-analytics"
-	documentationCenter=""
-	authors="ilanr9"
-	manager="ilanr9"
-	editor="yijichen"/>
+﻿---
+title: Cortana Intelligence Solution Template Playbook for demand forecasting of energy | Microsoft Docs
+description: A Solution Template with Microsoft Cortana Intelligence that helps forecast demand for an energy utility company.
+services: cortana-analytics
+documentationcenter: ''
+author: ilanr9
+manager: ilanr9
+editor: yijichen
 
-<tags
-	ms.service="cortana-analytics"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="01/24/2016"
-	ms.author="ilanr9;yijichen;garye"/>
+ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
+ms.service: cortana-analytics
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 01/24/2016
+ms.author: ilanr9;yijichen;garye
 
-# Cortana Intelligence Solution Template Playbook for Demand Forecasting of Energy  
-
-## Executive Summary  
-
+---
+# Cortana Intelligence Solution Template Playbook for Demand Forecasting of Energy
+## Executive Summary
 In the past few years, Internet of Things (IoT), alternative energy sources, and big data have merged to create vast opportunities in the utility and energy domain. At the same time, the utility and the entire energy sector have seen consumption flattening out with consumers demanding
 better ways to control their use of energy. Hence, the utility and smart grid companies are in great need to innovate and renew themselves. Furthermore, many power and utility grids are becoming outdated and very costly to maintain and manage. During the last year, the team has been
 working on a number of engagements within the energy domain. During these engagements, we have encountered many cases in which the utilities or ISVs (Independent Software Vendors) have been looking into forecasting for future energy demand. These forecasts play an important role in their current and future business and have become the foundation for various use cases. These include short and long-term power load forecast, trading, load balancing, grid optimization etc. Big data and Advanced Analytics (AA) methods such as Machine Learning (ML) are the key enablers for producing accurate and reliable forecasts.  
 
 In this playbook, we put together the business and analytical guidelines needed for a successful development and deployment of energy demand forecast solution. These proposed guidelines can help utilities, data scientists, and data engineers in establishing fully operationalized, cloud-based, demand-forecasting solutions. For companies who are just starting their big data and advanced analytics journey, such a solution can represent the initial seed in their long-term smart grid strategy.
 
->[AZURE.TIP] To download a diagram that provides an architectural overview of this template, see [Cortana Intelligence Solution Template architecture for demand forecasting of energy](cortana-analytics-architecture-demand-forecasting-energy.md).  
+> [!TIP]
+> To download a diagram that provides an architectural overview of this template, see [Cortana Intelligence Solution Template architecture for demand forecasting of energy](cortana-analytics-architecture-demand-forecasting-energy.md).  
+> 
+> 
 
-## Overview  
-
+## Overview
 This document covers the business, data, and technical aspects of using Cortana Intelligence and in particular Azure Machine Learning (AML) for the implementation and deployment of Energy Forecasting Solutions. The document consists of three main parts:  
 
 1. Business understanding  
@@ -47,13 +48,13 @@ In addition, the document includes reference material that you can use to gain f
 It is important to note that we do not intend to cover in this document the deeper data science process, its mathematical and technical aspects. These details can be found in [Azure ML
 documentation](http://azure.microsoft.com/services/machine-learning/) and [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
-### Target Audience   
+### Target Audience
 The target audience for this document is both business and technical personnel who would like to gain knowledge and understanding of Machine Learning based solutions and how these are being used specifically within the energy-forecasting domain.
 
 Data scientists can also benefit from reading this document to gain a better understanding of the high level process that drives the deployment of an energy forecasting solution. In this context it can also be used to establish a good baseline and starting point for more
 detailed and advanced material.
 
-### Industry Trends  
+### Industry Trends
 In the past few years, IoT, alternative energy sources, and big data have merged to create vast opportunities in the utility and energy space. At the same time, the utility and the entire energy sectors have seen consumption flattening out with consumers demanding better ways to control
 their use of energy.
 
@@ -69,13 +70,13 @@ For the rest of this document we will focus on a specific family of use cases th
 future.
 
 ## Business Understanding
-
 ### Business Goals
 The **Energy Demo** goal is to demonstrate a typical predictive analytics and machine learning solution that can be deployed in a very short time frame. Specifically, our current focus is on enabling energy demand forecast solutions so that its business value can be quickly realized and
 leveraged upon. The information in this playbook can help the customer accomplishing the following goals:
--   Short time to value of machine learning based solution
--   Ability to expand a pilot use case to other use cases or to a broader scope based on their business need
--   Quickly gain Cortana Intelligence Suite product knowledge
+
+* Short time to value of machine learning based solution
+* Ability to expand a pilot use case to other use cases or to a broader scope based on their business need
+* Quickly gain Cortana Intelligence Suite product knowledge
 
 With these goals in mind, this playbook aims at delivering the business and technical knowledge that will assist in achieving these goals.
 
@@ -84,17 +85,18 @@ Within the energy sector, there could be many ways in which demand forecasting c
 
 #### Short Term Load Forecasting
 Within the context of energy demand, Short Term Load Forecasting (STLF) is defined as the aggregated load that is forecasted in the near future on various parts of the grid (or the grid as a whole). In this context, short term is defined to be time horizon within the range of 1 hour to 24 hours. In some cases, a horizon of 48 hours is also possible. Therefore, STLF is very common in an operational use case of the grid. Here are some examples of STLF driven use cases:
--   Supply and demand balancing
--   Power trading support
--   Market making (setting power price)
--   Grid operational optimization
--   [Demand response](https://en.wikipedia.org/wiki/Demand_response)
--   Peak demand forecasting
--   Demand side management
--   Load balancing and overload prevention
--   Long Term Load Forecasting
--   Fault and anomaly detection
--   Peak curtailment/leveling 
+
+* Supply and demand balancing
+* Power trading support
+* Market making (setting power price)
+* Grid operational optimization
+* [Demand response](https://en.wikipedia.org/wiki/Demand_response)
+* Peak demand forecasting
+* Demand side management
+* Load balancing and overload prevention
+* Long Term Load Forecasting
+* Fault and anomaly detection
+* Peak curtailment/leveling 
 
 STLF model are mostly based on the near past (last day or week) consumption data and use forecasted temperature as an important predictor. Obtaining accurate temperature forecast for the next hour and up to 24 hours is becoming less of a challenge now days. These models are less sensitive to seasonal patterns or long-term consumption trends.
 
@@ -113,15 +115,16 @@ Since the consumption scenario for LTLF is mostly planning, we can expect much l
 ### Short Term vs. Long Term Prediction
 The following table compares STLF and LTLF in respect to the most important attributes:
 
-|Attribute|Short Term Load Forecast|Long Term Load Forecast|
-|---|---|---|
-|Forecast Horizon|From 1 hour to 48 hours|From 1 to 6 months or more|
-|Data granularity|Hourly|Hourly or daily|
-|Typical use cases|<ul><li>Demand/Supply balancing</li><li>Pick hour forecasting</li><li>Demand response</li></ul>|<ul><li>Long term planning</li><li>Grid assets planning</li><li>Resource planning</li></ul>|
-|Typical predictors|<ul><li>Day or week</li><li>Hour of day</li><li>Hourly temperature</li></ul>|<ul><li>Month of year</li><li>Day of month</li><li>Long term temperature and climate</li></ul>|
-|Historical data range|Two to three years' worth of data|Five to 10 years' worth of data|
-|Typical accuracy|MAPE* of 5% or lower|MAPE* of 25% or lower|
-|Forecast frequency|Produced every hour or every 24 hours|Produced once monthly, quarterly or yearly|
+| Attribute | Short Term Load Forecast | Long Term Load Forecast |
+| --- | --- | --- |
+| Forecast Horizon |From 1 hour to 48 hours |From 1 to 6 months or more |
+| Data granularity |Hourly |Hourly or daily |
+| Typical use cases |<ul><li>Demand/Supply balancing</li><li>Pick hour forecasting</li><li>Demand response</li></ul> |<ul><li>Long term planning</li><li>Grid assets planning</li><li>Resource planning</li></ul> |
+| Typical predictors |<ul><li>Day or week</li><li>Hour of day</li><li>Hourly temperature</li></ul> |<ul><li>Month of year</li><li>Day of month</li><li>Long term temperature and climate</li></ul> |
+| Historical data range |Two to three years' worth of data |Five to 10 years' worth of data |
+| Typical accuracy |MAPE* of 5% or lower |MAPE* of 25% or lower |
+| Forecast frequency |Produced every hour or every 24 hours |Produced once monthly, quarterly or yearly |
+
 \*[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) –
 Mean Average Percent Error
 
@@ -134,9 +137,10 @@ influenced by long-term trends. These may include seasonality effects, national 
 In this use case, [eSmart](http://www.esmartsystems.com/) wanted to deploy a cloud-based solution that enables predicting the propensity of an overload situation on any given substation of the grid. In particular, eSmart wanted to identify substations that are likely to overload within the next hour, so an immediate action could be taken to avoid or resolve that situation.
 
 An accurate and fast performing prediction requires implementation of three predictive models:
--   Long term model that enables forecasting of power consumption on each substation during the next few weeks or months
--   Short term model that enables prediction of overload situation on a given substation during the next hour
--   Temperature model that provides forecasting of future temperature over multiple scenarios
+
+* Long term model that enables forecasting of power consumption on each substation during the next few weeks or months
+* Short term model that enables prediction of overload situation on a given substation during the next hour
+* Temperature model that provides forecasting of future temperature over multiple scenarios
 
 The objective of the long-term model is to rank the substations by their propensity to overload (given their power transmission capacity) during the next week or month. This allows the creation of a short list of substations that would serve as an input for the short-term prediction. As temperature is an important predictor for the long-term model, there is a need to constantly produce multi-scenario temperature forecasts and feed them as input into to the long-term model. The short term forecast is then invoked to predict which substation is likely to overload over the next hour.
 
@@ -151,16 +155,17 @@ focus therefore, is on accuracy and computational performance. For example, a ut
 It is therefore important to realize that not all use cases and business problems can be effectively solved using machine learning.
 
 Cortana Intelligence and machine learning could be highly effective in solving a given business problem when the following criteria are met:
--   The business problem in hand is **predictive** in nature. A predictive use case example is a utility company that would like to predict power load on a given substation during the next hour. On the other hand, analyzing and ranking drivers of historical demand would be **descriptive** in nature and therefore less applicable.
--   There is a clear **path of action** to be taken once the prediction is available. For example, predicting an overload on a substation during the next hour can trigger a proactive action of reducing load that is associated with that substation and thus potentially preventing an overload.
--   The use case represents a **typical type of problem** such that when solved it can pave the way to solving other similar use cases.
--   The customer can set **quantitative and qualitative goals** to demonstrate a successful solution implementation. For example, a good quantitative goal for energy demand forecast would be the required accuracy threshold (*e.g.*, up to 5% error is allowed) or when predicting substation overload then the precision (rate of true positives) and recall (extent of true positives) should be above a given threshold. These goals should be derived from the customer's business goals.
--   There is a clear **integration scenario** with the company's business workflow. For example, the substation load forecast can be integrated into the grid control center to allow overload prevention activities.
--   The customer has ready to use **data with sufficient quality** to support the use case (see more in the next section, **Data Quality**, of this playbook).
--   The customer embraces cloud centric data architecture or **cloud-based machine learning**, including Azure ML and other Cortana Intelligence Suite components.
--   The customer is willing to establish **an end to end data flow** that facilities the delivery of data into the cloud on an ongoing basis, and is willing to **operationalize** the solution.
--   The customer is ready to **dedicate resources** who will be actively engaged during the initial pilot implementation so that knowledge and ownership of the solution can be transferred to the customer upon successful completion.
--   The customer resource should be a **skilled data professional**, preferably a data scientist.
+
+* The business problem in hand is **predictive** in nature. A predictive use case example is a utility company that would like to predict power load on a given substation during the next hour. On the other hand, analyzing and ranking drivers of historical demand would be **descriptive** in nature and therefore less applicable.
+* There is a clear **path of action** to be taken once the prediction is available. For example, predicting an overload on a substation during the next hour can trigger a proactive action of reducing load that is associated with that substation and thus potentially preventing an overload.
+* The use case represents a **typical type of problem** such that when solved it can pave the way to solving other similar use cases.
+* The customer can set **quantitative and qualitative goals** to demonstrate a successful solution implementation. For example, a good quantitative goal for energy demand forecast would be the required accuracy threshold (*e.g.*, up to 5% error is allowed) or when predicting substation overload then the precision (rate of true positives) and recall (extent of true positives) should be above a given threshold. These goals should be derived from the customer's business goals.
+* There is a clear **integration scenario** with the company's business workflow. For example, the substation load forecast can be integrated into the grid control center to allow overload prevention activities.
+* The customer has ready to use **data with sufficient quality** to support the use case (see more in the next section, **Data Quality**, of this playbook).
+* The customer embraces cloud centric data architecture or **cloud-based machine learning**, including Azure ML and other Cortana Intelligence Suite components.
+* The customer is willing to establish **an end to end data flow** that facilities the delivery of data into the cloud on an ongoing basis, and is willing to **operationalize** the solution.
+* The customer is ready to **dedicate resources** who will be actively engaged during the initial pilot implementation so that knowledge and ownership of the solution can be transferred to the customer upon successful completion.
+* The customer resource should be a **skilled data professional**, preferably a data scientist.
 
 Qualification of a use case based on the above criteria can greatly improve the success rates of a use case and establish a good beachhead for the implementation of future use cases.
 
@@ -199,16 +204,14 @@ This is illustrated in the following diagram:
 
 The following paragraph describes this 4 step process:
 
-1.  **Data Collection** – Any advanced analytics based solution relies on data (see **Data Understanding**). Specifically, when it comes to predictive analytics and forecasting, we rely on ongoing, dynamic flow of data. In the case of energy demand forecasting, this data can be sourced directly from smart meters, or be already aggregated on an on-prem database. We also rely on other external sources of data such as weather and temperature. This ongoing flow of data must be orchestrated, scheduled, and stored. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF) is our main workhorse for accomplishing this task.
-2.  **Modeling** – For accurate and reliable energy forecasts, one must develop (train) and maintain a great model that makes use of the historical data and extracts the meaningful and predictive patterns in the data. The area of Machine Learning (ML) has been growing rapidly with more advanced algorithms being routinely developed. Azure ML Studio provides a great user experience that helps utilize the most advanced ML algorithms within a complete work flow. That workflow is illustrated in an intuitive flow diagram and includes the data preparation, feature extraction, modeling, and model evaluation. The user can pull in hundreds of various models that are included in this environment. By the end of this phase a data scientist will have a working model that is fully evaluated and ready for deployment.
-
-	The following diagram is an illustration of a typical workflow:
-
-	![Modeling Workflow](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
-
-3.  **Deployment** – With a working model in hand, the next step is deployment. Here the model is converted into a web service that exposes a RESTful API that can be concurrently invoked over the     Internet from various consumption clients. Azure ML provides a simple way of deploying a model directly from the Azure ML Studio with a single click of a button. The entire deployment process happens under the hood. This solution can automatically scale to meet the required consumption.
-
-4.  **Consumption** – In this phase, we actually make use of the forecasting model to produce predictions. The consumption can be driven from a user application (*e.g.*, dashboard) or directly from an operational system such as demand/supply balancing system or a grid optimization solution. Multiple use cases can be driven from a single model.
+1. **Data Collection** – Any advanced analytics based solution relies on data (see **Data Understanding**). Specifically, when it comes to predictive analytics and forecasting, we rely on ongoing, dynamic flow of data. In the case of energy demand forecasting, this data can be sourced directly from smart meters, or be already aggregated on an on-prem database. We also rely on other external sources of data such as weather and temperature. This ongoing flow of data must be orchestrated, scheduled, and stored. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF) is our main workhorse for accomplishing this task.
+2. **Modeling** – For accurate and reliable energy forecasts, one must develop (train) and maintain a great model that makes use of the historical data and extracts the meaningful and predictive patterns in the data. The area of Machine Learning (ML) has been growing rapidly with more advanced algorithms being routinely developed. Azure ML Studio provides a great user experience that helps utilize the most advanced ML algorithms within a complete work flow. That workflow is illustrated in an intuitive flow diagram and includes the data preparation, feature extraction, modeling, and model evaluation. The user can pull in hundreds of various models that are included in this environment. By the end of this phase a data scientist will have a working model that is fully evaluated and ready for deployment.
+   
+   The following diagram is an illustration of a typical workflow:
+   
+   ![Modeling Workflow](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
+3. **Deployment** – With a working model in hand, the next step is deployment. Here the model is converted into a web service that exposes a RESTful API that can be concurrently invoked over the     Internet from various consumption clients. Azure ML provides a simple way of deploying a model directly from the Azure ML Studio with a single click of a button. The entire deployment process happens under the hood. This solution can automatically scale to meet the required consumption.
+4. **Consumption** – In this phase, we actually make use of the forecasting model to produce predictions. The consumption can be driven from a user application (*e.g.*, dashboard) or directly from an operational system such as demand/supply balancing system or a grid optimization solution. Multiple use cases can be driven from a single model.
 
 ## Data Understanding
 After covering the business considerations (see **Business Understanding**) of an energy demand forecasting solution, we are now ready to discuss the data part. Any predictive analytics solution relies on reliable data. For energy demand forecasting, we rely on historical consumption data with various levels of granularity. That historical data is used as the raw material. It will undergo a careful analysis in which the data scientist will identify predictors (also referred to as features) that can be put into a model which will eventually generate the required forecasts.
@@ -223,21 +226,23 @@ The following diagram illustrates how the modeling process could be broken down 
 ![Model Development Cycle](media/cortana-analytics-playbook-demand-forecasting-energy/model-development-cycle.png)
 
 As can be seen the cycle consists of six steps:
--   Problem formulation
--   Data ingestion and data exploration
--   Data preparation and feature engineering
--   Modeling
--   Model evaluation
--   Development
+
+* Problem formulation
+* Data ingestion and data exploration
+* Data preparation and feature engineering
+* Modeling
+* Model evaluation
+* Development
 
 In the rest of this section we will describe the individual steps and items to consider at each step.
 
 ### Problem Formulation
 We can consider the problem formulation as the most critical step one needs to take prior to implementing any predictive analytics solution. Here we would transform the business problem and decompose it to specific elements which can be solved by using data and modeling techniques. It is a good practice to formulate the problem as a set of questions we would like to answer. Here are some possible questions that might be applicable within the scope of energy demand forecasting:
--   What is the expected load on an individual substation in the next hour or day?
--   At what time of the day will my grid experience peak demand?
--   How likely is my grid to sustain the expected peak load?
--   How much power should the power station generate during each hour of the day?
+
+* What is the expected load on an individual substation in the next hour or day?
+* At what time of the day will my grid experience peak demand?
+* How likely is my grid to sustain the expected peak load?
+* How much power should the power station generate during each hour of the day?
 
 Formulating these questions allows us to focus on getting the right data and implementing a solution that is fully aligned with the business problem at hand. Furthermore, we can then set some key metrics that allow us to evaluate the performance of the model. For example, how
 accurate should the forecast be and what is the range of error that would still be acceptable by the business?
@@ -255,25 +260,25 @@ After identifying the required data sources, we would like to ensure that raw da
 
 The raw data consists of rows and columns. Each measurement is represented as a single row of data. Each row of data includes multiple columns (also referred to as features or fields).
 
-1.  **Time stamp** – the timestamp field represents the actual time when the measurement was recorded. It should comply with one of the common date/time formats. Both date and time parts should be included. In most cases, there is no need for the time to be recorded till the second level of granularity. It is important to specify the time zone in which the data is recorded.
-2.  **Meter ID** - This field identifies the meter or the measurement device. It is a categorical variable and can be a combination of digits and characters.
-3.  **Consumption value** – This is the actual consumption at a given date/time. The consumption can be measured in kWh (kilowatt-hour) or any other preferred units. It is important to note that the measurement unit must stay consistent across all measurements in the data. In some cases, consumption can be supplied over 3 power phases. In that case we would need to collect all the independent consumption phases.
-4.  **Temperature** – the temperature is typically collected from an independent source. However, it should be compatible with the consumption data. It should include a timestamp as described above that will allow it to be synchronized with the actual consumption data. The temperature value can be specified in degrees Celsius or Fahrenheit but should stay consistent across all measurements.
-5.  **Location –** The location field is typically associated with the place where the temperature data has been collected. It can be represented as a zip-code number or in latitude/longitude (lat/long) format.
+1. **Time stamp** – the timestamp field represents the actual time when the measurement was recorded. It should comply with one of the common date/time formats. Both date and time parts should be included. In most cases, there is no need for the time to be recorded till the second level of granularity. It is important to specify the time zone in which the data is recorded.
+2. **Meter ID** - This field identifies the meter or the measurement device. It is a categorical variable and can be a combination of digits and characters.
+3. **Consumption value** – This is the actual consumption at a given date/time. The consumption can be measured in kWh (kilowatt-hour) or any other preferred units. It is important to note that the measurement unit must stay consistent across all measurements in the data. In some cases, consumption can be supplied over 3 power phases. In that case we would need to collect all the independent consumption phases.
+4. **Temperature** – the temperature is typically collected from an independent source. However, it should be compatible with the consumption data. It should include a timestamp as described above that will allow it to be synchronized with the actual consumption data. The temperature value can be specified in degrees Celsius or Fahrenheit but should stay consistent across all measurements.
+5. **Location –** The location field is typically associated with the place where the temperature data has been collected. It can be represented as a zip-code number or in latitude/longitude (lat/long) format.
 
 The following tables shows examples of a good consumption and temperature data format:
 
-|**Date**|**Time**|**Meter ID**|**Phase 1**|**Phase 2**|**Phase 3**|
-|--------|--------|------------|-----------|-----------|-----------|
-|7/1/2015|10:00:00|ABC1234     |7.0        |2.1        |5.3        |
-|7/1/2015|10:00:01|ABC1234     |7.1        |2.2        |4.3        |
-|7/1/2015|10:00:02|ABC1234     |6.0        |2.1        |4.0        |
+| **Date** | **Time** | **Meter ID** | **Phase 1** | **Phase 2** | **Phase 3** |
+| --- | --- | --- | --- | --- | --- |
+| 7/1/2015 |10:00:00 |ABC1234 |7.0 |2.1 |5.3 |
+| 7/1/2015 |10:00:01 |ABC1234 |7.1 |2.2 |4.3 |
+| 7/1/2015 |10:00:02 |ABC1234 |6.0 |2.1 |4.0 |
 
-|**Date**|**Time**|**Location**|**Temperature**|
-|--------|--------|-------------|---------------|
-|7/1/2015|10:00:00|11242        |24.4           |
-|7/1/2015|10:00:01|11242        |24.4           |
-|7/1/2015|10:00:02|11242        |24.5           |
+| **Date** | **Time** | **Location** | **Temperature** |
+| --- | --- | --- | --- |
+| 7/1/2015 |10:00:00 |11242 |24.4 |
+| 7/1/2015 |10:00:01 |11242 |24.4 |
+| 7/1/2015 |10:00:02 |11242 |24.5 |
 
 As can be seen above, this example includes 3 different values for consumption associated with 3 power phases. Also, note that the date and time fields are separated, however they can also be combined into a single column. In this case the location column is represented in a 5-digit zip-code format and the temperature in a degree Celsius format.
 
@@ -290,11 +295,12 @@ In order to accomplish this, Cortana Intelligence Suite offers various ways to s
 
 ### Data Quality
 The raw data source that is required for performing reliable and accurate demand forecasting must meet some basic data quality criteria. Although advanced statistical methods can be used to compensate for some possible data quality issue, we still need to ensure that we are crossing some base data quality threshold when ingesting new data. Here are a few considerations concerning raw data quality:
--   **Missing value** – this refers to the situation when specific measurement was not collected. The basic requirement here is that the missing value rate should not be greater than 10% for any given time period. In case that a single value is missing it should be indicated by using a pre-defined value (for example: '9999') and not '0' which could be a valid measurement.
--   **Measurement accuracy** – the actual value of consumption or temperature should be accurately recorded. Inaccurate measurements will produce inaccurate forecasts. Typically, the measurement error should be lower than 1% relative to the true value.
--   **Time of measurement** – it is required that the actual timestamp of the data collected will not deviate by more than 10 seconds relative to the true time of the actual measurement.
--   **Synchronization** – When multiple data sources are being used (*e.g.*, consumption and temperature) we must ensure that there are no time synchronization issues between them. This means that the time difference between the collected timestamp from any two independent data sources should not exceed more than 10 seconds.
--   **Latency** - As discussed above, in **Data Ingestion**, we are dependent on a reliable data flow and ingestion process. To control that we must ensure that we control the data latency. This is specified as the time difference between the time that the actual measurement was taken and the time at which it has been loaded into the Cortana Intelligence Suite storage and is ready for use. For short term load forecasting the total latency should not be greater than 30 minutes. For long term load forecasting the total latency should not be greater than 1 day.
+
+* **Missing value** – this refers to the situation when specific measurement was not collected. The basic requirement here is that the missing value rate should not be greater than 10% for any given time period. In case that a single value is missing it should be indicated by using a pre-defined value (for example: '9999') and not '0' which could be a valid measurement.
+* **Measurement accuracy** – the actual value of consumption or temperature should be accurately recorded. Inaccurate measurements will produce inaccurate forecasts. Typically, the measurement error should be lower than 1% relative to the true value.
+* **Time of measurement** – it is required that the actual timestamp of the data collected will not deviate by more than 10 seconds relative to the true time of the actual measurement.
+* **Synchronization** – When multiple data sources are being used (*e.g.*, consumption and temperature) we must ensure that there are no time synchronization issues between them. This means that the time difference between the collected timestamp from any two independent data sources should not exceed more than 10 seconds.
+* **Latency** - As discussed above, in **Data Ingestion**, we are dependent on a reliable data flow and ingestion process. To control that we must ensure that we control the data latency. This is specified as the time difference between the time that the actual measurement was taken and the time at which it has been loaded into the Cortana Intelligence Suite storage and is ready for use. For short term load forecasting the total latency should not be greater than 30 minutes. For long term load forecasting the total latency should not be greater than 1 day.
 
 ### Data Preparation and Feature Engineering
 Once the raw data has been ingested (see **Data Ingestion**) and has been securely stored, it is ready to be processed. The data preparation phase is basically taking the raw data and converting (transforming, reshaping) it into a form for the modeling phase. That may include
@@ -304,25 +310,27 @@ In this section we list some of the common data features that are included in th
 
 **Time driven features:**
 These features are derived from the date/timestamp data. These are extracted and converted into categorical features like:
--   Time of day – This is the hour of the day which takes values from 0 to 23
--   Day of week – This represents the day of the week and takes values from 1 (Sunday) to 7 (Saturday)
--   Day of month – This represents the actual date and can take values from 1 to 31
--   Month of year – This represents the month and takes values from 1 (January) to 12 (December)
--   Weekend – This is a binary value feature that takes the values of 0 for weekdays or 1 for weekend
--   Holiday - This is a binary value feature that takes the values of 0 for a regular day or 1 for a holiday
--   Fourier terms – The Fourier terms are weights that are derived from the timestamp and are used to capture the seasonality (cycles) in the data. Since we may have multiple seasons in our data we may need multiple Fourier terms. For example, demand values may have yearly, weekly, and daily seasons/cycles which will result in 3 Fourier terms.
+
+* Time of day – This is the hour of the day which takes values from 0 to 23
+* Day of week – This represents the day of the week and takes values from 1 (Sunday) to 7 (Saturday)
+* Day of month – This represents the actual date and can take values from 1 to 31
+* Month of year – This represents the month and takes values from 1 (January) to 12 (December)
+* Weekend – This is a binary value feature that takes the values of 0 for weekdays or 1 for weekend
+* Holiday - This is a binary value feature that takes the values of 0 for a regular day or 1 for a holiday
+* Fourier terms – The Fourier terms are weights that are derived from the timestamp and are used to capture the seasonality (cycles) in the data. Since we may have multiple seasons in our data we may need multiple Fourier terms. For example, demand values may have yearly, weekly, and daily seasons/cycles which will result in 3 Fourier terms.
 
 **Independent measurement features:**
 The independent features include all the data elements that we would like to use as predictors in our model. Here we exclude the dependent feature which we would need to predict.
--   Lag feature – these are time shifted values of the actual demand. For example, lag 1 features will hold the demand value in the previous hour (assuming hourly data) relative to the current timestamp. Similarly, we can add lag 2, lag 3, *etc*. The actual combination of lag features that are used are determined during the modeling phase by evaluation of the model results.
--   Long term trending – this feature represents the linear growth in demand between years.
+
+* Lag feature – these are time shifted values of the actual demand. For example, lag 1 features will hold the demand value in the previous hour (assuming hourly data) relative to the current timestamp. Similarly, we can add lag 2, lag 3, *etc*. The actual combination of lag features that are used are determined during the modeling phase by evaluation of the model results.
+* Long term trending – this feature represents the linear growth in demand between years.
 
 **Dependent feature:**
 The dependent feature is the data column which we would like our model to predict. With [supervised machine learning](https://en.wikipedia.org/wiki/Supervised_learning), we need to
 first train the model using the dependent features (which is also referred to as labels). This allows the model to learn the patterns in the data associated with the dependent feature. In energy demand forecast we typically want to predict the actual demand and therefore we would use it as the dependent feature.
 
 **Handling of missing values:**
-During the data preparation phase, we would need to determine the best strategy to handle missing values. This is mostly done by using the various statistical [data imputation methods](https://en.wikipedia.org/wiki/Imputation_(statistics)). In the case of energy demand forecasting, we typically impute missing values by using moving average from previous available data points.
+During the data preparation phase, we would need to determine the best strategy to handle missing values. This is mostly done by using the various statistical [data imputation methods](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). In the case of energy demand forecasting, we typically impute missing values by using moving average from previous available data points.
 
 **Data Normalization:**
 Data normalization is another type of transformation which is used to bring all numeric data such as demand forecast into a similar scale. This typically helps improve the model accuracy and precision. We would typically do this by dividing the actual value by the range of the data.
@@ -339,8 +347,11 @@ In the case of demand forecasting we make use of historical data which is ordere
 
 In recent years advanced algorithms have been developed to accommodate time series forecasting and to improve forecasting accuracy. We briefly discuss a few of them here.
 
-> [AZURE.NOTE] This section is not intended to be used as a machine learning and forecasting overview but rather as a short survey of modeling techniques that are commonly used for demand forecasting. For more information and educational material about time series forecasting, we highly
-recommend the online book [Forecasting: principles and practice](https://www.otexts.org/book/fpp).
+> [!NOTE]
+> This section is not intended to be used as a machine learning and forecasting overview but rather as a short survey of modeling techniques that are commonly used for demand forecasting. For more information and educational material about time series forecasting, we highly
+> recommend the online book [Forecasting: principles and practice](https://www.otexts.org/book/fpp).
+> 
+> 
 
 #### [**MA (Moving Average)**](https://www.otexts.org/fpp/6/2)
 Moving average is one of the first analytical techniques that has been used for time series forecasting and it is still one of the most commonly used techniques as of today. It is also the foundation for more advanced forecasting techniques. With moving average we are forecasting
@@ -405,14 +416,15 @@ clients. An example data flow cycle (or data pipeline) is illustrated in the dia
 ![Energy Demand Forecast End to End Data Flow](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
 
 These are the steps that take place as part of the energy demand forecast cycle:
-1.  Millions of deployed data meters are constantly generating power consumption data in real time.
-2.  This data is being collected and uploaded into a cloud repository (*e.g.*, Azure Blob).
-3.  Before being processed, the raw data is aggregated to a substation or regional level as defined by the business.
-4.  The feature processing (see **Data Preparation and Feature Processing**) then takes place and produces the data that is required for model training or scoring – the feature set data is stored in a database (*e.g.*, SQL Azure).
-5.  The re-training service is invoked to re-train the forecasting model – that updated version of the model is persisted so that it can be used by the scoring web service.
-6.  The scoring web service is invoked on a schedule that fits the required forecast frequency.
-7.  The forecasted data is stored in a database that can be accessed by the end consumption client.
-8.  The consumption client retrieves the forecasts, applies it back into the grid, and consumes it in accordance with the required use case.
+
+1. Millions of deployed data meters are constantly generating power consumption data in real time.
+2. This data is being collected and uploaded into a cloud repository (*e.g.*, Azure Blob).
+3. Before being processed, the raw data is aggregated to a substation or regional level as defined by the business.
+4. The feature processing (see **Data Preparation and Feature Processing**) then takes place and produces the data that is required for model training or scoring – the feature set data is stored in a database (*e.g.*, SQL Azure).
+5. The re-training service is invoked to re-train the forecasting model – that updated version of the model is persisted so that it can be used by the scoring web service.
+6. The scoring web service is invoked on a schedule that fits the required forecast frequency.
+7. The forecasted data is stored in a database that can be accessed by the end consumption client.
+8. The consumption client retrieves the forecasts, applies it back into the grid, and consumes it in accordance with the required use case.
 
 It is important to note that this entire cycle is fully automated and runs on a schedule. The entire orchestration of this data cycle can be done by using tools such as [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
 
@@ -424,3 +436,4 @@ The following diagram illustrates a typical Cortana Intelligence based architect
 ![End to End Deployment Architecture](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
 For more information about each of the components and the entire architecture please refer to the Energy Solution Template.
+

@@ -1,39 +1,38 @@
-<properties
-	pageTitle="Manage Role-Based Access Control (RBAC) with Azure PowerShell | Microsoft Azure"
-	description="How to manage RBAC with Azure PowerShell, including listing roles, assigning roles, and deleting role assignments."
-	services="active-directory"
-	documentationCenter=""
-	authors="kgremban"
-	manager="femila"
-	editor=""/>
+﻿---
+title: Manage Role-Based Access Control (RBAC) with Azure PowerShell | Microsoft Docs
+description: How to manage RBAC with Azure PowerShell, including listing roles, assigning roles, and deleting role assignments.
+services: active-directory
+documentationcenter: ''
+author: kgremban
+manager: femila
+editor: ''
 
-<tags
-	ms.service="active-directory"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="identity"
-	ms.date="07/22/2016"
-	ms.author="kgremban"/>
+ms.assetid: 9e225dba-9044-4b13-b573-2f30d77925a9
+ms.service: active-directory
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 07/22/2016
+ms.author: kgremban
 
+---
 # Manage Role-Based Access Control with Azure PowerShell
-
-> [AZURE.SELECTOR]
-- [PowerShell](role-based-access-control-manage-access-powershell.md)
-- [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
-- [REST API](role-based-access-control-manage-access-rest.md)
-
+> [!div class="op_single_selector"]
+> * [PowerShell](role-based-access-control-manage-access-powershell.md)
+> * [Azure CLI](role-based-access-control-manage-access-azure-cli.md)
+> * [REST API](role-based-access-control-manage-access-rest.md)
+> 
+> 
 
 You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resource Management API to manage access to your subscription at a fine-grained level. With this feature, you can grant access for Active Directory users, groups, or service principals by assigning some roles to them at a particular scope.
 
 Before you can use PowerShell to manage RBAC, you must have the following:
 
-- Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
-
-- Azure Resource Manager cmdlets. Install the [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
+* Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* Azure Resource Manager cmdlets. Install the [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
 
 ## List roles
-
 ### List all available roles
 To list RBAC roles that are available for assignment and to inspect the operations to which they grant access, use `Get-AzureRmRoleDefinition`.
 
@@ -57,7 +56,7 @@ Get-AzureRmRoleDefinition Contributor | FL Actions, NotActions
 ## See who has access
 To list RBAC access assignments, use `Get-AzureRmRoleAssignment`.
 
-###	List role assignments at a specific scope
+### List role assignments at a specific scope
 You can see all the access assignments for a specified subscription, resource group, or resource. For example, to see the all the active assignments for a resource group, use `Get-AzureRmRoleAssignment -ResourceGroupName <resource group name>`.
 
 ```
@@ -180,7 +179,6 @@ Set-AzureRmRoleDefinition -Role $role)
 ![RBAC PowerShell - Set-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/3-set-azurermroledefinition-2.png)
 
 ## Delete a custom role
-
 To delete a custom role, use the `Remove-AzureRmRoleDefinition` command.
 
 The following example removes the *Virtual Machine Operator* custom role.
@@ -209,5 +207,6 @@ In the following example, the *Virtual Machine Operator* custom role isn’t ava
 ![RBAC PowerShell - Get-AzureRmRoleDefinition - screenshot](./media/role-based-access-control-manage-access-powershell/5-get-azurermroledefinition2.png)
 
 ## See also
-- [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
-[AZURE.INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+* [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md)
+  [!INCLUDE [role-based-access-control-toc.md](../../includes/role-based-access-control-toc.md)]
+

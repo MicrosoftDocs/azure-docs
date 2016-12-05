@@ -1,34 +1,32 @@
-<properties
-   pageTitle="SQL Data Warehouse reference topics | Microsoft Azure"
-   description="Reference content links for SQL Data Warehouse."
-   services="sql-data-warehouse"
-   documentationCenter="NA"
-   authors="barbkess"
-   manager="jhubbard"
-   editor=""/>
+---
+title: SQL Data Warehouse reference topics | Microsoft Docs
+description: Reference content links for SQL Data Warehouse.
+services: sql-data-warehouse
+documentationcenter: NA
+author: barbkess
+manager: jhubbard
+editor: ''
 
-<tags
-   ms.service="sql-data-warehouse"
-   ms.devlang="NA"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="data-services"
-   ms.date="08/08/2016"
-   ms.author="barbkess;sonyama"/>
+ms.assetid: abecd886-77bd-484f-b006-93600533a044
+ms.service: sql-data-warehouse
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: NA
+ms.workload: data-services
+ms.date: 10/31/2016
+ms.author: barbkess
 
+---
 # Reference topics for SQL Data Warehouse
-
 These articles contain reference information for SQL Data Warehouse.
 
-- [Transact-SQL language elements][]
-- [Transact-SQL statements][]
-- [Transact-SQL system views][]
-- [PowerShell cmdlets][]
-
-
+* [Transact-SQL language elements][Transact-SQL language elements]
+* [Transact-SQL statements][Transact-SQL statements]
+* [Transact-SQL system views][Transact-SQL system views]
+* [PowerShell cmdlets][PowerShell cmdlets]
 
 ## Next steps
-For development information, see [development overview][].
+For development information, see [development overview][development overview].
 
 <!--Image references-->
 

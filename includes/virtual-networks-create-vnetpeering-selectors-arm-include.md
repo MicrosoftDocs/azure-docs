@@ -1,4 +1,4 @@
-> [AZURE.SELECTOR]
-- [Azure Portal](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-portal.md)
+> [!div class="op_single_selector"]
+- [Azure portal](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-portal.md)
 - [PowerShell](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-ps.md)
-- [ARM template](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md)
+- [Template](../articles/virtual-network/virtual-networks-create-vnetpeering-arm-template-click.md)

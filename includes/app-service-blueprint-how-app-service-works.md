@@ -11,5 +11,5 @@
 * [Azure App Service Development Stacks Support](/blog/windows-azure-websites-development-stacks-support/)
 
 ## Videos
-
 * [Azure App Service Architecture](/documentation/videos/why-azure-web-sites-plus-architecture/)
+

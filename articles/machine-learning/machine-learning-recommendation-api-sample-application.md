@@ -1,40 +1,40 @@
-<properties 
-	pageTitle="Common operations in the Machine Learning Recommendations API | Microsoft Azure" 
-	description="Azure ML Recommendation Sample Application" 
-	services="machine-learning" 
-	documentationCenter="" 
-	authors="LuisCabrer" 
-	manager="jhubbard" 
-	editor="cgronlun"/>
+---
+title: Common operations in the Machine Learning Recommendations API | Microsoft Docs
+description: Azure ML Recommendation Sample Application
+services: machine-learning
+documentationcenter: ''
+author: LuisCabrer
+manager: jhubbard
+editor: cgronlun
 
-<tags 
-	ms.service="machine-learning" 
-	ms.workload="data-services" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="09/08/2016" 
-	ms.author="luisca"/> 
+ms.assetid: 0220bc17-3315-47d7-84a3-ef490263a343
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/08/2016
+ms.author: luisca
 
-
+---
 # Recommendations API Sample Application Walkthrough
-
->[AZURE.NOTE] You should start using the Recommendations API Cognitive Service instead of this
+> [!NOTE]
+> You should start using the Recommendations API Cognitive Service instead of this
 > version. The Recommendations Cognitive Service will be replacing this service, and all the new 
 > features will be developed there. It has new capabilities like batching support, a better API Explorer,
 > a cleaner API surface, more consistent signup/billing experience, etc.
 > Learn more about [Migrating to the new Cognitive Service](http://aka.ms/recomigrate)
+> 
+> 
 
-##Purpose
-
+## Purpose
 This document shows the usage of the Azure Machine Learning Recommendations API via a [sample application](https://code.msdn.microsoft.com/Recommendations-144df403).
 
 This application is not intended to include full functionality, nor does it use all the APIs. It demonstrates some common operations to perform when you first want to play with the Machine Learning recommendation service. 
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-##Introduction to Machine Learning recommendation service
-
+## Introduction to Machine Learning recommendation service
 Recommendations via the Machine Learning recommendation service are enabled when you build a recommendation model based on the following data:
 
 * A repository of the items you want to recommend, also known as a catalog
@@ -60,18 +60,15 @@ To enable the previous scenario, do the following in the Machine Learning recomm
 
 You will usually invoke Get Recommendation for a certain period of time. During that period of time, you can redirect usage data to the Machine Learning recommendation system, which adds this data to the specified model container. When you have enough usage data, you can build a new recommendation model that incorporates the additional usage data. 
 
-##Prerequisites
-
+## Prerequisites
 * Visual Studio 2013
 * Internet access 
 * Subscription to the Recommendations API (https://datamarket.azure.com/dataset/amla/recommendations).
 
-##Azure Machine Learning sample app solution
-
+## Azure Machine Learning sample app solution
 This solution contains the source code, sample usage, catalog file, and directives to download the packages that are required for compilation.
 
-##The APIs used
-
+## The APIs used
 The application uses Machine Learning recommendation functionality via a subset of available APIs. The following APIs are demonstrated in the application:
 
 * Create model: Create a logical container to hold data and recommendation models. A model is identified by a name, and you  cannot create more than one model with the same name.
@@ -87,11 +84,10 @@ For a complete description of the APIs, please see the Microsoft Azure Marketpla
 **Note**: A model can have several builds over time (not simultaneously). Each build is created with the same or an updated catalog and additional usage data.
 
 ## Common pitfalls
-
 * You need to provide your user name and your Microsoft Azure Marketplace primary account key to run the sample app.
 * Running the sample app consecutively will fail. The application flow includes creating, uploading, building the monitor, and getting recommendations from a predefined model; therefore, it will fail on consecutive execution if you do not change the model name between invocations.
 * Recommendations might return without data. The sample app uses a very small catalog and usage file. Therefore, some items from the catalog will have no recommended items.
 
 ## Disclaimer
 The sample app is not intended to be run in a production environment. The data provided in the catalog is very small, and it will not provide a meaningful recommendation model. The data is provided as a demonstration. 
- 
+

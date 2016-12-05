@@ -7,3 +7,4 @@ Expand the desired deployment:
 Click on **View Log** to see the output of the custom deployment script:
 
 ![](./media/web-sites-python-troubleshoot-deployment/portal-deployment-log.png)
+

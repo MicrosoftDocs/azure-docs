@@ -1,26 +1,30 @@
-<properties
-   pageTitle="Configure an application gateway for SSL offload by using the portal | Microsoft Azure"
-   description="This page provides instructions to create an application gateway with SSL offload by using the portal"
-   documentationCenter="na"
-   services="application-gateway"
-   authors="georgewallace"
-   manager="carmonm"
-   editor="tysonn"/>
-<tags
-   ms.service="application-gateway"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="infrastructure-services"
-   ms.date="09/09/2016"
-   ms.author="gwallace"/>
+---
+title: Configure an application gateway for SSL offload by using the portal | Microsoft Docs
+description: This page provides instructions to create an application gateway with SSL offload by using the portal
+documentationcenter: na
+services: application-gateway
+author: georgewallace
+manager: carmonm
+editor: tysonn
 
+ms.assetid: 8373379a-a26a-45d2-aa62-dd282298eff3
+ms.service: application-gateway
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: infrastructure-services
+ms.date: 11/16/2016
+ms.author: gwallace
+
+---
 # Configure an application gateway for SSL offload by using the portal
 
-> [AZURE.SELECTOR]
--[Azure portal](application-gateway-ssl-portal.md)
--[Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
--[Azure Classic PowerShell](application-gateway-ssl.md)
+> [!div class="op_single_selector"]
+> * [Azure portal](application-gateway-ssl-portal.md)
+> * [Azure Resource Manager PowerShell](application-gateway-ssl-arm.md)
+> * [Azure Classic PowerShell](application-gateway-ssl.md)
+> 
+> 
 
 Azure Application Gateway can be configured to terminate the Secure Sockets Layer (SSL) session at the gateway to avoid costly SSL decryption tasks to happen at the web farm. SSL offload also simplifies the front-end server setup and management of the web application.
 
@@ -40,11 +44,11 @@ The HTTPS listener looks for traffic based on its configuration and helps route 
 
 Navigate to the Azure portal and select an existing application gateway
 
-![app gateway overview blade][1]
-
 ### Step 2
 
 Click Listeners and click the Add button to add a listener.
+
+![app gateway overview blade][1]
 
 ### Step 3
 

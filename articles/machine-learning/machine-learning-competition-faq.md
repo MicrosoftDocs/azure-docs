@@ -1,23 +1,23 @@
-<properties
-	pageTitle="Cortana Intelligence Competitions FAQ | Microsoft Azure"
-	description="Frequently asked questions about Microsoft Cortana Intelligence Competitions."
-	services="machine-learning"
-	documentationCenter=""
-	authors="hning86"
-	manager="jhubbard"
-	editor="cgronlun"/>
+﻿---
+title: Cortana Intelligence Competitions FAQ | Microsoft Docs
+description: Frequently asked questions about Microsoft Cortana Intelligence Competitions.
+services: machine-learning
+documentationcenter: ''
+author: hning86
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="machine-learning"
-	ms.workload="data-services"
-	ms.tgt_pltfrm="na"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.date="09/06/2016"
-	ms.author="haining;chlovel;garye"/>
+ms.assetid: 9bac5154-a56c-4e78-9d67-34368b9d1624
+ms.service: machine-learning
+ms.workload: data-services
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 09/06/2016
+ms.author: haining;chlovel;garye
 
+---
 # Microsoft Cortana Intelligence Competitions FAQ
-
 **What is Cortana Intelligence Competitions?**
 
 Microsoft is announcing Cortana Intelligence Competitions. Cortana Intelligence Competitions allows us to unite a global community of data enthusiasts by collectively solving some of world’s most complex data science problems. Cortana Intelligence Competitions allow data enthusiasts from across the world to compete and build highly accurate and intelligent data science models. Our hosted competitions are based on unique data sets that have been made available publically for the first time. Participants can win rewards or get recognition via our top 10 public leaderboard. Please go [here](http://aka.ms/CIComp) to access the Competitions home page.
@@ -33,16 +33,13 @@ forum](https://social.msdn.microsoft.com/forums/azure/home?forum=MachineLearning
 
 **How do I enter a competition?**
 
-Access the Competitions home page via the Cortana Intelligence Gallery. This page contains all competitions that are running. Each competition will have detailed instructions and participation rules, prizes, and duration on its sign up page. Please go [here](http://aka.ms/CIComp) to access the Competitions home page.  
+Access the Competitions home page via the Cortana Intelligence Gallery. This page contains all competitions that are running. Each competition will have detailed instructions and participation rules, prizes, and duration on its sign up page. Please go [here](http://aka.ms/CIComp) to access the Competitions home page.  
 
-1. Find the competition you’d like to participate in Cortana Intelligence Gallery, read all the instructions and watch the tutorial video, then click on the “Enter Competition” button to copy the Starter Experiment into your existing Azure Machine Learning workspace. If you don’t already have access to a workspace, you must create one beforehand. Run the Starter Experiment, observe the performance metric, then use your creativity to improve the performance of the model. You will likely spend majority of your time in this step.   
-
-2. Create a Predictive Experiment with the trained model out of your Starter Experiment. Then carefully adjust the input and output schema of the web service to ensure they conform to the requirement specified in the Competition documentation. The tutorial document generally will have detailed instruction on how to accomplish this. You can also watch the tutorial video if available.   
-
-3. Deploy a web service out of your Predictive Experiment. Test your web service using the Test button or the Excel template automatically created for you to ensure it is working properly.   
-
-4. Submit your web service as the competition entry, and see your public score in the Cortana Intelligence Gallery competition page. And celebrate if you make into the leaderboard!  
-After you successfully submit an entry, you can go back to the copied Starter Experiment, iterate, and update your Predictive Experiment, update the web service, and submit an new entry.   
+1. Find the competition you’d like to participate in Cortana Intelligence Gallery, read all the instructions and watch the tutorial video, then click on the “Enter Competition” button to copy the Starter Experiment into your existing Azure Machine Learning workspace. If you don’t already have access to a workspace, you must create one beforehand. Run the Starter Experiment, observe the performance metric, then use your creativity to improve the performance of the model. You will likely spend majority of your time in this step.   
+2. Create a Predictive Experiment with the trained model out of your Starter Experiment. Then carefully adjust the input and output schema of the web service to ensure they conform to the requirement specified in the Competition documentation. The tutorial document generally will have detailed instruction on how to accomplish this. You can also watch the tutorial video if available.   
+3. Deploy a web service out of your Predictive Experiment. Test your web service using the Test button or the Excel template automatically created for you to ensure it is working properly.   
+4. Submit your web service as the competition entry, and see your public score in the Cortana Intelligence Gallery competition page. And celebrate if you make into the leaderboard!  
+   After you successfully submit an entry, you can go back to the copied Starter Experiment, iterate, and update your Predictive Experiment, update the web service, and submit an new entry.   
 
 **Can I use open source tools for participating in these Competitions?**
 
@@ -53,11 +50,8 @@ The competition participants leverage Azure Machine Learning Studio, a cloud-bas
 No. In fact, we encourage data enthusiasts, those curious about data science, and other aspiring data scientists to enter our contest. We have designed supporting documents to allow everyone to compete. Our target audience is:
 
 * Data Developers, Data Scientists, BI and Analytics Professionals: those who are responsible for producing data and analytics content for others to consume.
-
 * Data Stewards: those who have the knowledge about the data, what it means, and how it is intended to be used and for which purpose.
-
 * Students & Researchers: those who are learning and gaining data related skills via academic programs in universities or participants of Massive Open Online Courses (MOOCs)
-
 
 **Can I enter with my colleagues as a team?**
 
@@ -65,25 +59,20 @@ The Competition platform currently does not support team participation. Each com
 
 **Do I need to pay to participate in a competition?**
 
-Competitions are free to participate in. You do, however, need access to an Azure Machine Learning workspace to participate. You can create a Free workspace without a credit card by simply logging in with a valid Microsoft account, or an Office 365 account. If you are already an Azure or Cortana Intelligence Suite customer, you can create and use a Standard workspace under the same Azure subscription. If you would like to purchase an Azure subscription you can go [here] (https://azure.microsoft.com/pricing). Note the standard rates will apply when using a Standard workspace to construct experiments. See Azure Machine Learning pricing information [here](https://azure.microsoft.com/pricing/details/machine-learning/). 
+Competitions are free to participate in. You do, however, need access to an Azure Machine Learning workspace to participate. You can create a Free workspace without a credit card by simply logging in with a valid Microsoft account, or an Office 365 account. If you are already an Azure or Cortana Intelligence Suite customer, you can create and use a Standard workspace under the same Azure subscription. If you would like to purchase an Azure subscription you can go [here](https://azure.microsoft.com/pricing). Note the standard rates will apply when using a Standard workspace to construct experiments. See Azure Machine Learning pricing information [here](https://azure.microsoft.com/pricing/details/machine-learning/). 
 
-[AZURE.INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
+[!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
 **What are public and private scores?**
 
 In most competitions, you will notice that you will receive a public score for every submission you make, generally within 10-20 minutes. But after the competition ends, you will receive a private score which is used for final ranking. Here is what happens:
 
 * The entire dataset used in the competition is randomly split with stratification into training and testing (the remaining) data. The random split is stratified to ensure that the distributions of labels in both training and testing data are consistent.
- 
 * The training data is uploaded and given to you as part of the Starter Experiment in the Import Data module configuration.
-
 * The testing data is further split into public and private testing data, using the same stratification.
-
 * The public testing data is used for the initial round of scoring. The result is referred to as public score and it is what you see in your submission history when you submit your entry. This score is calculated for every entry you submit. This public score is used to rank you on the public leaderboard.
-
 * The private testing data is used for the final round of scoring after the Competition ended. This is referred to as private score. 
-
-* For each participant, a fixed number, that can vary depending on the competition, among your entries with the highest public scores are automatically selected to enter the private scoring round. The entry with the highest private score is then selected to enter the final ranking, which ultimately determined the prize winners.  
+* For each participant, a fixed number, that can vary depending on the competition, among your entries with the highest public scores are automatically selected to enter the private scoring round. The entry with the highest private score is then selected to enter the final ranking, which ultimately determined the prize winners.  
 
 **Can Customers host a Competition on our platform?**
 
@@ -116,3 +105,4 @@ Currently Competition platform only supports submitting entries from a workspace
 **Do we keep Users’ Competitions Solutions/Entries?**
 
 User entries are only retained for evaluation purposes to identify the winning solutions. Please refer to our [Terms and Conditions](http://aka.ms/comptermsandconditions) for specifics.
+

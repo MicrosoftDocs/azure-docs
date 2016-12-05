@@ -1,29 +1,29 @@
-<properties
-	pageTitle="Analytics platforms: Apache Storm comparison to Stream Analytics | Microsoft Azure"
-	description="Get guidance choosing a cloud analytics platform by using an Apache Storm comparison to Stream Analytics. Understand features and differences."
-	keywords="analytics platform, analytics platforms, cloud analytics platform, storm comparison"
-	services="stream-analytics"
-	documentationCenter=""
-	authors="jeffstokes72"
-	manager="jhubbard"
-	editor="cgronlun"/>
+﻿---
+title: 'Analytics platforms: Apache Storm comparison to Stream Analytics | Microsoft Docs'
+description: Get guidance choosing a cloud analytics platform by using an Apache Storm comparison to Stream Analytics. Understand features and differences.
+keywords: analytics platform, analytics platforms, cloud analytics platform, storm comparison
+services: stream-analytics
+documentationcenter: ''
+author: jeffstokes72
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="stream-analytics"
-	ms.devlang="na"
-	ms.topic="article"
-	ms.tgt_pltfrm="na"
-	ms.workload="big-data"
-	ms.date="09/26/2016"
-	ms.author="jeffstok"/>
+ms.assetid: b9aac017-9866-4d0a-b98f-6f03881e9339
+ms.service: stream-analytics
+ms.devlang: na
+ms.topic: article
+ms.tgt_pltfrm: na
+ms.workload: big-data
+ms.date: 09/26/2016
+ms.author: jeffstok
 
+---
 # Help choosing a streaming analytics platform: Apache Storm comparison to Azure Stream Analytics
-
 Get guidance choosing a cloud analytics platform by using this Apache Storm comparison to Azure Stream Analytics. Understand the value propositions of Stream Analytics versus Apache Storm as a managed service on Azure HDInsight, so you can choose the right solution for your business use cases.
 
 Both analytics platforms provide benefits of a PaaS solution, there are a few major distinguishing capabilities that differentiate them. Capabilities as well as the limitations of these services are listed below to help you land on the solution you need to achieve your goals.
 
-## Storm comparison to Stream Analytics: General features ##
+## Storm comparison to Stream Analytics: General features
 <table border="1" cellspacing="0" cellpadding="0">
     <tbody>
         <tr>
@@ -280,10 +280,10 @@ Both analytics platforms provide benefits of a PaaS solution, there are a few ma
                 </p>
             </td>
         </tr>
-		<tr>
+        <tr>
             <td width="174" valign="top">
-				<p>
-				 <strong>Input Data Sources</strong>
+                <p>
+                 <strong>Input Data Sources</strong>
                 </p>
             </td>
             <td width="204" valign="top">

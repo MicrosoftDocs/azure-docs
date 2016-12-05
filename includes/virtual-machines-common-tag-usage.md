@@ -2,7 +2,6 @@
 
 
 ## Viewing your tags in the usage details
-
 Tags placed on Compute, Network, and Storage resources in the Resource Manager deployment model will be populated in your usage details in the [billing portal](https://account.windowsazure.com/).
 
 Click on **Download usage details** to view the usage details in your subscription.
@@ -18,5 +17,4 @@ From the usage details, you can see all of the tags in the **Tags** column:
 ![Tags column in Azure portal](./media/virtual-machines-common-tag-usage/azure-portal-tags-column.png)
 
 By analyzing these tags along with usage, organizations will be able to gain new insights into their consumption data.
-
 

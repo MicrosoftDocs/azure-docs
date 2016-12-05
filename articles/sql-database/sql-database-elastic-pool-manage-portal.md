@@ -1,33 +1,33 @@
-<properties
-	pageTitle="Monitor and manage an elastic database pool with the Azure portal | Microsoft Azure"
-	description="Learn how to use the Azure portal and SQL Database's built-in intelligence to manage, monitor, and right-size a scalable elastic database pool to optimize database performance and manage cost."
-	keywords=""
-	services="sql-database"
-	documentationCenter=""
-	authors="ninarn"
-	manager="jhubbard"
-	editor="cgronlun"/>
+---
+title: Monitor and manage an elastic database pool with the Azure portal | Microsoft Docs
+description: Learn how to use the Azure portal and SQL Database's built-in intelligence to manage, monitor, and right-size a scalable elastic database pool to optimize database performance and manage cost.
+keywords: ''
+services: sql-database
+documentationcenter: ''
+author: ninarn
+manager: jhubbard
+editor: cgronlun
 
-<tags
-	ms.service="sql-database"
-	ms.devlang="NA"
-	ms.date="06/22/2016"
-	ms.author="ninarn"
-	ms.workload="data-management"
-	ms.topic="article"
-	ms.tgt_pltfrm="NA"/>
+ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
+ms.service: sql-database
+ms.devlang: NA
+ms.date: 11/17/2016
+ms.author: ninarn
+ms.workload: data-management
+ms.topic: article
+ms.tgt_pltfrm: NA
 
-
+---
 # Monitor and manage an elastic database pool with the Azure portal
+> [!div class="op_single_selector"]
+> * [Azure portal](sql-database-elastic-pool-manage-portal.md)
+> * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
+> * [C#](sql-database-elastic-pool-manage-csharp.md)
+> * [T-SQL](sql-database-elastic-pool-manage-tsql.md)
+>
+>
 
-> [AZURE.SELECTOR]
-- [Azure portal](sql-database-elastic-pool-manage-portal.md)
-- [PowerShell](sql-database-elastic-pool-manage-powershell.md)
-- [C#](sql-database-elastic-pool-manage-csharp.md)
-- [T-SQL](sql-database-elastic-pool-manage-tsql.md)
-
-
-You can use the Azure portal to monitor and manage an elastic database pool and the databases in the pool. From the portal, you can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
+You can use the Azure portal to monitor and manage an elastic pool and the databases in the pool. From the portal, you can monitor the utilization of an elastic pool and the databases within that pool. You can also make a set of changes to your elastic pool and submit all changes at the same time. These changes include adding or removing databases, changing your elastic pool settings, or changing your database settings.
 
 The graphic below shows an example elastic pool. The view includes:
 
@@ -63,7 +63,10 @@ You can edit the chart and the metric blade to display other metrics such as CPU
 
 - In the **Edit Chart** blade, select a new time range (past hour, today, or past week), or click **custom** to select any date range in the last two weeks. Select the chart type (bar or line), then select the resources to monitor.
 
-> Note: Only metrics with the same unit of measure can be displayed in the chart at the same time. For example, if you select "eDTU percentage" then you will only be able to select other metrics with percentage as the unit of measure.
+> [!Note]
+> Only metrics with the same unit of measure can be displayed in the chart at the same time. For example, if you select "eDTU percentage" then you will only be able to select other metrics with percentage as the unit of measure.
+>
+>
 
 	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
@@ -107,7 +110,10 @@ In the database list in the **Database Resource Utilization** blade, you can fin
 
 You can add rules to resources that send email to people or alert strings to URL endpoints when the resource hits a utilization threshold that you set up.
 
-> [AZURE.IMPORTANT]Resource utilization monitoring for Elastic Pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for Elastic Pools is not currently supported. Any alerts set for Elastic Pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Please make sure that any alerts you define for Elastic Pools use a period (WindowSize) of 30 minutes or more.
+> [!IMPORTANT]
+> Resource utilization monitoring for Elastic Pools has a lag of at least 20 minutes. Setting alerts of less than 30 minutes for Elastic Pools is not currently supported. Any alerts set for Elastic Pools with a period (parameter called “-WindowSize” in PowerShell API) of less than 30 minutes may not be triggered. Please make sure that any alerts you define for Elastic Pools use a period (WindowSize) of 30 minutes or more.
+>
+>
 
 **To add an alert to any resource:**
 

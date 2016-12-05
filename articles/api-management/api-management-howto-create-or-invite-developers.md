@@ -1,28 +1,27 @@
-<properties 
-	pageTitle="How manage user accounts in Azure API Management | Microsoft Azure" 
-	description="Learn how to create or invite users in Azure API Management" 
-	services="api-management" 
-	documentationCenter="" 
-	authors="steved0x" 
-	manager="erikre" 
-	editor=""/>
+---
+title: How manage user accounts in Azure API Management | Microsoft Docs
+description: Learn how to create or invite users in Azure API Management
+services: api-management
+documentationcenter: ''
+author: steved0x
+manager: erikre
+editor: ''
 
-<tags 
-	ms.service="api-management" 
-	ms.workload="mobile" 
-	ms.tgt_pltfrm="na" 
-	ms.devlang="na" 
-	ms.topic="article" 
-	ms.date="08/09/2016" 
-	ms.author="sdanie"/>
+ms.assetid: 078abfa5-1e4f-4c9d-b9c7-a172bd19c1a2
+ms.service: api-management
+ms.workload: mobile
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 10/25/2016
+ms.author: sdanie
 
+---
 # How to manage user accounts in Azure API Management
-
 In API Management, developers are the users of the APIs that you expose using API Management. This guide shows to how to create and invite developers to use the APIs and products that you make available to them with your API Management instance. For information on managing user accounts programmatically, see the [User entity](https://msdn.microsoft.com/library/azure/dn776330.aspx) documentation in the [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) reference.
 
 ## <a name="create-developer"> </a>Create a new developer
-
-To create a new developer, click **Manage** in the Azure Classic Portal for your API Management service. This takes you to the API Management publisher portal. If you have not yet created an API Management service instance, see [Create an API Management service instance][] in the [Get started with Azure API Management][] tutorial.
+To create a new developer, click **Publisher portal** in the Azure Portal for your API Management service. This takes you to the API Management publisher portal. If you have not yet created an API Management service instance, see [Create an API Management service instance][Create an API Management service instance] in the [Get started with Azure API Management][Get started with Azure API Management] tutorial.
 
 ![Publisher portal][api-management-management-console]
 
@@ -38,10 +37,9 @@ By default, newly created developer accounts are **Active**, and associated with
 
 ![New developer][api-management-new-developer]
 
-Developer accounts that are in an **active** state can be used to access all of the APIs for which they have subscriptions. To associate the newly created developer with additional groups, see [How to associate groups with developers][].
+Developer accounts that are in an **active** state can be used to access all of the APIs for which they have subscriptions. To associate the newly created developer with additional groups, see [How to associate groups with developers][How to associate groups with developers].
 
 ## <a name="invite-developer"> </a>Invite a developer
-
 To invite a developer, click **Users** from the **API Management** menu on the left, and then click **Invite User**.
 
 ![Invite developer][api-management-invite-developer]
@@ -54,18 +52,16 @@ A confirmation message is displayed, but the newly invited developer does not ap
 
 ![Invite confirmation][api-management-invite-developer-confirmation]
 
-When a developer is invited, an email is sent to the developer. This email is generated using a template and is customizable. For more information, see [Configure email templates][].
+When a developer is invited, an email is sent to the developer. This email is generated using a template and is customizable. For more information, see [Configure email templates][Configure email templates].
 
 Once the invitation is accepted, the account becomes active.
 
 ## <a name="block-developer"> </a> Deactivate or reactivate a developer account
-
 By default, newly created or invited developer accounts are **Active**. To deactivate a developer account, click **Block**. To reactivate a blocked developer account, click **Activate**. A blocked developer account can not access the developer portal or call any APIs. To delete a user account, click **Delete**.
 
 ![Block developer][api-management-new-developer]
 
 ## Reset a user password
-
 To reset the password for a user account, click the name of the account.
 
 ![Reset password][api-management-view-developer]
@@ -77,13 +73,10 @@ Click **Reset password** to send a link to the user to reset their password.
 To programmatically work with user accounts, see the [User entity](https://msdn.microsoft.com/library/azure/dn776330.aspx) documentation in the [API Management REST](https://msdn.microsoft.com/library/azure/dn776326.aspx) reference. To reset a user account password to a specific value, you can use the [Update a user](https://msdn.microsoft.com/library/azure/dn776330.aspx#UpdateUser) operation and specify the desired password.
 
 ## Pending verification
-
 ![Pending verification][api-management-pending-verification]
 
 ## <a name="next-steps"> </a>Next steps
-
-Once a developer account is created, you can associate it with roles and subscribe it to products and APIs. For more information, see [How to create and use groups][].
-
+Once a developer account is created, you can associate it with roles and subscribe it to products and APIs. For more information, see [How to create and use groups][How to create and use groups].
 
 [api-management-management-console]: ./media/api-management-howto-create-or-invite-developers/api-management-management-console.png
 [api-management-add-new-user]: ./media/api-management-howto-create-or-invite-developers/api-management-add-new-user.png
@@ -96,8 +89,6 @@ Once a developer account is created, you can associate it with roles and subscri
 [api-management-view-developer]: ./media/api-management-howto-create-or-invite-developers/api-management-view-developer.png
 [api-management-reset-password]: ./media/api-management-howto-create-or-invite-developers/api-management-reset-password.png
 []: ./media/api-management-howto-create-or-invite-developers/.png
-
-
 
 [Create a new developer]: #create-developer
 [Invite a developer]: #invite-developer
