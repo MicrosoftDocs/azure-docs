@@ -177,7 +177,7 @@ Before you can upload a .vhd file, you need to establish a secure connection bet
 
    For more information, see [Get started with Azure cmdlets](http://msdn.microsoft.com/library/windowsazure/jj554332.aspx).
 
-   For more information about installing and configuring PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+   For more information about installing and configuring PowerShell, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Step 4: Upload the .vhd file
 When you upload the .vhd file, you can place it anywhere within your Blob storage. Following are some terms you'll use when you upload the file:
