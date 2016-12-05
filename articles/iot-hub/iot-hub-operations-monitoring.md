@@ -1,6 +1,6 @@
 ---
-title: IoT Hub operations monitoring
-description: An overview of Azure IoT Hub operations monitoring, enabling you to monitor the status of operations on your IoT hub in real time.
+title: Azure IoT Hub operations monitoring | Microsoft Docs
+description: How to use Azure IoT Hub operations monitoring to monitor the status of operations on your IoT hub in real time.
 services: iot-hub
 documentationcenter: ''
 author: nberdy
@@ -17,14 +17,14 @@ ms.date: 11/16/2016
 ms.author: nberdy
 
 ---
-# Introduction to operations monitoring
+# Operations monitoring
 IoT Hub operations monitoring enables you to monitor the status of operations on your IoT hub in real time. IoT Hub tracks events across several categories of operations. You can opt into sending events from one or more categories to an endpoint of your IoT hub for processing. You can monitor the data for errors or set up more complex processing based on data patterns.
 
 IoT Hub monitors five categories of events:
 
 * Device identity operations
 * Device telemetry
-* Cloud-to-device commands
+* Cloud-to-device messages
 * Connections
 * File uploads
 
@@ -78,7 +78,7 @@ The device telemetry category tracks errors that occur at the IoT hub and are re
     }
 
 ### Cloud-to-device commands
-The cloud-to-device commands category tracks errors that occur at the IoT hub and are related to the device command pipeline. This category includes errors that occur when sending commands (such as unauthorized sender), receiving commands (such as delivery count exceeded), and receiving command feedback (such as feedback expired). This category does not catch errors from a device that improperly handles a command if the command was delivered successfully.
+The cloud-to-device commands category tracks errors that occur at the IoT hub and are related to the cloud-to-device message pipeline. This category includes errors that occur when sending cloud-to-device messages (such as unauthorized sender), receiving cloud-to-device messages (such as delivery count exceeded), and receiving cloud-to-device message feedback (such as feedback expired). This category does not catch errors from a device that improperly handles a cloud-to-device message if the cloud-to-device message was delivered successfully.
 
     {
          "messageSizeInBytes": 1234,
@@ -144,7 +144,7 @@ Note that this category cannot catch errors that directly occur while the device
 ## Next steps
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 <!-- Links and images -->
