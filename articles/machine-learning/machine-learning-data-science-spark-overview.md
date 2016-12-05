@@ -34,7 +34,7 @@ The setup steps and code provided in this walkthrough is for HDInsight 3.4 Spark
 
 2.You need an HDInsight 3.4 Spark 1.6 cluster to complete this walkthrough. To create one, see the instructions provided in [Get started: create Apache Spark on Azure HDInsight](../hdinsight/hdinsight-apache-spark-jupyter-spark-sql.md). The cluster type and version is specified from the **Select Cluster Type** menu. 
 
-![](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
+![Configure cluster](./media/machine-learning-data-science-spark-overview/spark-cluster-on-portal.png)
 
 <!-- -->
 
@@ -104,11 +104,11 @@ We have taken a 0.1% sample of these files and joined the trip\_data and trip\_f
 ## Execute code from a Jupyter notebook on the Spark cluster
 You can launch the Jupyter Notebook from the Azure portal. Find your Spark cluster on your dashboard and click it to enter management page for your cluster. To open the notebook associated with the Spark cluster, click **Cluster Dashboards** -> **Jupyter Notebook** .
 
-![](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
+![Cluster dashboards](./media/machine-learning-data-science-spark-overview/spark-jupyter-on-portal.png)
 
 You can also browse to ***https://CLUSTERNAME.azurehdinsight.net/jupyter*** to access the Jupyter Notebooks. Replace the CLUSTERNAME part of this URL with the name of your own cluster. You need the password for your admin account to access the notebooks.
 
-![](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
+![Browse Jupyter Notebooks](./media/machine-learning-data-science-spark-overview/spark-jupyter-notebook.png)
 
 Select PySpark to see a directory that contains a few examples of pre-packaged notebooks that use the PySpark API.The notebooks that contain the code samples for this suite of Spark topic are available at [Github](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
