@@ -36,7 +36,7 @@ Pre-Requirements: Resource Group, VNet, NSG with SSH inbound, Subnet.
 
 ### Create a VNic with a static internal DNS name
 
-The `-r` cli flag is for setting the DNS label which provides the static DNS name for the VNic.
+The `-r` cli flag is for setting the DNS label, which provides the static DNS name for the VNic.
 
 ```azurecli
 azure network nic create jenkinsVNic \
@@ -47,7 +47,7 @@ azure network nic create jenkinsVNic \
 -r jenkins
 ```
 
-### Deploy the VM into the VNet, NSG and connect the VNic
+### Deploy the VM into the VNet, NSG and, connect the VNic
 
 The `-N` connects the VNic to the new VM during the deployment to Azure.
 
@@ -73,7 +73,7 @@ _Replace any examples with your own naming._
 
 ## Create the Resource group
 
-First we will create a Resource Group to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+First a Resource Group is created to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure group create myResourceGroup \
@@ -135,7 +135,7 @@ The Subnet is now added inside the VNet and associated with the NSG and the NSG 
 
 ## Creating static DNS names
 
-Azure is very flexible, but to use DNS names for VMs name resolution, you need to create them as Virtual network cards (VNics) using DNS labeling.  VNics are important as you can reuse them by connecting them to different VMs, which keeps the VNic as a static resource while the VMs can be temporary.  By using DNS labeling on the VNic we are able to enable simple name resolution from other VMs in the VNet.  This enables other VMs to access the automation server by the DNS name `Jenkins` or the Git server as `gitrepo`.  Create a VNic and associate it with the Subnet created in the previous step.
+Azure is very flexible, but to use DNS names for VMs name resolution, you need to create them as Virtual network cards (VNics) using DNS labeling.  VNics are important as you can reuse them by connecting them to different VMs, which keeps the VNic as a static resource while the VMs can be temporary.  By using DNS labeling on the VNic, we are able to enable simple name resolution from other VMs in the VNet.  Using resolvable names enables other VMs to access the automation server by the DNS name `Jenkins` or the Git server as `gitrepo`.  Create a VNic and associate it with the Subnet created in the previous step.
 
 ```azurecli
 azure network nic create jenkinsVNic \
