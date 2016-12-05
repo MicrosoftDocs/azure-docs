@@ -20,7 +20,7 @@ ms.author: billmath
 # Hybrid Identity Required Ports and Protocols
 The following document is a technical reference to provide information on the required ports and protocols that are required for implementing a hybrid identity solution. Use the following illustration and refer to the corresponding table.
 
-![What is Azure AD Connect](./media/active-directory-aadconnect-ports/required1.png)
+![What is Azure AD Connect](./media/active-directory-aadconnect-ports/required2.png)
 
 ## Table 1 - Azure AD Connect and On-premises AD
 This table describes the ports and protocols that are required for communication between the Azure AD Connect server and on-premises AD.
@@ -76,7 +76,7 @@ This table describes the ports and protocols that are required for communication
 |HTTP|80|Enable outbound HTTP traffic for security validation such as SSL.
 |HTTPS|443|	Enable user authentication against Azure AD
 |HTTPS|10100–10120|	Enable responses from the connector back to the Azure AD 
-|Azure bus service|9352, 5671|	Enable communication between the Connector toward the Azure service for incoming requests.
+|Azure service bus|9352, 5671|	Enable communication between the Connector toward the Azure service for incoming requests.
 |HTTPS|9350|	Optional, to enables better performance for incoming requests
 |HTTPS|8080/443|	Enable the Connector bootstrap sequence and Connector automatic update
 |HTTPS|9090|	Enable Connector registration (required only for the Connector registration process)
