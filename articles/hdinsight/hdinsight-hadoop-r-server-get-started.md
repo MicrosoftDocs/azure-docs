@@ -59,7 +59,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
      ![Cluster type blade screenshot](./media/hdinsight-getting-started-with-r/clustertypeconfig.png)
 
-   ​
+   
 
 5. Select **Credentials**, then enter a **Cluster Login Username** and **Cluster Login Password**.
 
@@ -107,7 +107,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
       Store, then select the ADLS storage account to use and add the cluster ADD
       identity to your cluster to allow access to the store.  For more information on this process see [Createan HDInsight cluster with Data Lake Store using Azure Portal](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal).
 
-      Use the **Select** button to save the data source configuration.
+      Use the **Select** button to save the data source configuration.
 
        ![Data source blade](./media/hdinsight-getting-started-with-r/datastore.png)
 
@@ -116,7 +116,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
    > [!NOTE]
    > If needed, you can re-size your cluster later through the Portal (Cluster -> Settings -> Scale Cluster) to increase or decrease the number of worker nodes.  This can be useful for idling down the cluster when not in use, or for adding capacity to meet the needs of larger tasks.
    >
-   > ​
+   > 
 
     Some factors to keep in mind when sizing your cluster, the data nodes, and the edge node include:  
 
@@ -135,7 +135,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
 
    ![Node pricing tiers blade](./media/hdinsight-getting-started-with-r/useexistingrg.png)
 
-   ​
+   
 
 9. After reviewing your selections, it is now time to create the cluster. To do so select **Pin to Startboard** and then **Create**. This will create the cluster and add a tile for it to the Startboard of your Azure Portal.
 
@@ -148,7 +148,7 @@ HDInsight includes an R Server option to be integrated into your HDInsight clust
    > [!NOTE]
    > It will take some time for the cluster to be created, usually around 20 minutes. Use the tile on the Startboard, or the **Notifications** entry on the left of the page to check on the creation process.
    >
-   > ​
+   > 
 
 ## Connect to RStudio Server
 
@@ -361,7 +361,7 @@ A compute context allows you to control whether computation will be performed lo
    > [!NOTE]
    > You can also use MapReduce to distribute computation across cluster nodes. For more information on compute context, see [Compute context options for R Server on HDInsight](hdinsight-hadoop-r-server-compute-contexts.md).
    >
-   > ​
+   > 
 
 ## Distribute R code to multiple nodes
 With R Server you can easily take existing R code and run it across multiple nodes in the cluster by using `rxExec`. This is useful when doing a parameter sweep or simulations. The following is an example of how to use `rxExec`.
