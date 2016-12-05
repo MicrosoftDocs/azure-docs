@@ -31,13 +31,13 @@ B2C tenant creation must be completed first. Skip this step if you have already 
 ## Step 2 - Open Azure portal in the Azure AD Tenant trusted by your Azure subscription
 Navigate to portal.azure.com.  Switch Directory to Azure AD Tenant that is trusted by your target Azure AD subscription.  Within the Azure portal, click the account name on the upper right of the dashboard to select the Azure AD Tenant.  This tenant is not an Azure AD B2C tenant.  An Azure subscription is needed to proceed. [Get an Azure Subscription](https://account.windowsazure.com/signup?showCatalog=True)
 
-![Switching to your Azure AD Tenant](.media/active-directory-b2c/SelectAzureADTenant.png)
+![Switching to your Azure AD Tenant](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
 ## Step 3 - Create a B2C Tenant resource in Azure Marketplace
 Open Marketplace by clicking the Marketplace icon, or selecting the green "+" in the upper left corner of the dashboard.  Search for and select Azure Active Directory B2C. Select Create.
-![Select Marketplace](./marketplace.png)
+![Select Marketplace](./media/active-directory-b2c-how-to-enable-billing/marketplace.png)
 
-![Search AD B2C](.media/active-directory-b2c/searchb2c.png)
+![Search AD B2C](./media/active-directory-b2c-how-to-enable-billing/searchb2c.png)
 
 The Azure AD B2C Resource create dialog covers the following parameters:
 
@@ -50,12 +50,12 @@ The Azure AD B2C Resource create dialog covers the following parameters:
 4. Resource Group and Location - This artifact helps you organize multiple Azure resources.  This choice has no impact on your B2C tenant location, performance, or billing status
 
 5. Pin to dashboard for easiest access to your B2C tenant billing information and the B2C tenant settings
-![Create B2C Resource](.media/active-directory-b2c/createresourceb2c.png)
+![Create B2C Resource](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
 ## Step 4 - Manage your B2C Tenant resources (optional)
 Once deployment is complete, a new "B2C Tenant" resource is created under the target resource group and related Azure subscription.  You should see a new resource of type "B2C Tenant" added alongside your other Azure resources.
 
-![Create B2C Resource](.media/active-directory-b2c/b2cresourcedashboard.png)
+![Create B2C Resource](./media/active-directory-b2c-how-to-enable-billing/b2cresourcedashboard.png)
 
 By clicking the B2C tenant resource, you are able to
 - Click Subscription name to review billing information. See Billing & Usage.
@@ -63,7 +63,7 @@ By clicking the B2C tenant resource, you are able to
 - Submit a support request
 - Move your B2C tenant resource to another Azure Subscription, or to another Resource Group.  This choice changes which Azure subscription receives usage charges.
 
-![B2C Resource settings](.media/active-directory-b2c/b2cresourcesettings.png)
+![B2C Resource settings](./media/active-directory-b2c-how-to-enable-billing/b2cresourcesettings.png)
 
 
 ## Next steps
