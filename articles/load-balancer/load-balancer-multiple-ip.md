@@ -13,11 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/01/2016
+ms.date: 11/28/2016
 ms.author: annahar
 ---
 
 # Load balancing on multiple IP configurations
+
+> [!div class="op_single_selector"]
+> * [PowerShell](load-balancer-multiple-ip.md)
+> * [CLI](load-balancer-multiple-ip-cli.md)
+>
 
 This article describes how to use Azure Load Balancer with multiple IP addresses per virtual Network Interface (NIC). The support for multiple IP addresses on a NIC is a feature that is in Preview release, at this time. For more information, see the [Limitations](#limitations) section of this article. The following scenario illustrates how this feature works with Load Balancer.
 
@@ -27,7 +32,7 @@ For this scenario we have two VMs running Windows, each with a single NIC. Each 
 
 ## Limitations
 
-At this time, configuration of load balancing on secondary IP configurations is only possible using Azure PowerShell. This limitation is temporary, and may change at any time. Revisit this page to check for updates.
+At this time, configuration of load balancing on secondary IP configurations is only possible using Azure PowerShell and Azure CLI. This limitation is temporary, and may change at any time. Revisit this page to check for updates.
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
@@ -37,7 +42,7 @@ To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsP
 
 Follow the steps below to achieve the scenario outlined in this article:
 
-1. Install Azure PowerShell. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+1. Install Azure PowerShell. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 2. Create a resource group using the following settings:
 
     ```powershell
@@ -74,12 +79,13 @@ Follow the steps below to achieve the scenario outlined in this article:
 
     You do not need to associate the secondary IP configurations with public IPs for the purpose of this tutorial. Edit the command to remove the public IP association part.
 
-6. Complete steps 4 through 6 again for VM2. Be sure to replace the VM name to VM2 when doing this.
+6. Complete steps 4 through 6 of this article again for VM2. Be sure to replace the VM name to VM2 when doing this. Note that you do not need to create a virtual network for the second VM. You may or may not create a new subnet based on your use case.
+
 7. Create two public IP addresses and store them in the appropriate variables as shown:
 
     ```powershell
-    $publicIP1 = New-AzureRmPublicIpAddress -Name PublicIp1 -ResourceGroupName contosofabrikam -Location 'West Central US' -AllocationMethod Static -DomainNameLabel contoso
-    $publicIP2 = New-AzureRmPublicIpAddress -Name PublicIp2 -ResourceGroupName contosofabrikam -Location 'West Central US' -AllocationMethod Static -DomainNameLabel fabrikam
+    $publicIP1 = New-AzureRmPublicIpAddress -Name PublicIp1 -ResourceGroupName contosofabrikam -Location 'West Central US' -AllocationMethod Dynamic -DomainNameLabel contoso
+    $publicIP2 = New-AzureRmPublicIpAddress -Name PublicIp2 -ResourceGroupName contosofabrikam -Location 'West Central US' -AllocationMethod Dynamic -DomainNameLabel fabrikam
 
     $publicIP1 = Get-AzureRmPublicIpAddress -Name PublicIp1 -ResourceGroupName contosofabrikam
     $publicIP2 = Get-AzureRmPublicIpAddress -Name PublicIp2 -ResourceGroupName contosofabrikam
@@ -92,7 +98,7 @@ Follow the steps below to achieve the scenario outlined in this article:
     $frontendIP2 = New-AzureRmLoadBalancerFrontendIpConfig -Name fabrikamfe -PublicIpAddress $publicIP2
     ```
 
-9. Create your backend address pools, a probe, and your load balacning rules:
+9. Create your backend address pools, a probe, and your load balancing rules:
 
     ```powershell
     $beaddresspool1 = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name contosopool
@@ -100,8 +106,8 @@ Follow the steps below to achieve the scenario outlined in this article:
 
     $healthProbe = New-AzureRmLoadBalancerProbeConfig -Name HTTP -RequestPath 'index.html' -Protocol http -Port 80 -IntervalInSeconds 15 -ProbeCount 2
 
-    $lbrule1 = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP1 -BackendAddressPool $beaddresspool1 -Probe $healthprobe -Protocol Tcp -FrontendPort 80 -BackendPort 80
-    $lbrule2 = New-AzureRmLoadBalancerRuleConfig -Name HTTP -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthprobe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+    $lbrule1 = New-AzureRmLoadBalancerRuleConfig -Name HTTPc -FrontendIpConfiguration $frontendIP1 -BackendAddressPool $beaddresspool1 -Probe $healthprobe -Protocol Tcp -FrontendPort 80 -BackendPort 80
+    $lbrule2 = New-AzureRmLoadBalancerRuleConfig -Name HTTPf -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthprobe -Protocol Tcp -FrontendPort 80 -BackendPort 80
     ```
 
 10. Once you have these resources created, create your load balancer:
@@ -116,6 +122,8 @@ Follow the steps below to achieve the scenario outlined in this article:
     $mylb = Get-AzureRmLoadBalancer -Name "mylb" -ResourceGroupName $myResourceGroup | Add-AzureRmLoadBalancerBackendAddressPoolConfig -Name fabrikampool | Set-AzureRmLoadBalancer
 
     $mylb | Add-AzureRmLoadBalancerFrontendIpConfig -Name fabrikamfe -PublicIpAddress $publicIP2 | Set-AzureRmLoadBalancer
+    
+    Add-AzureRmLoadBalancerRuleConfig -Name HTTP -LoadBalancer $mylb -FrontendIpConfiguration $frontendIP2 -BackendAddressPool $beaddresspool2 -Probe $healthProbe -Protocol Tcp -FrontendPort 80 -BackendPort 80 | Set-AzureRmLoadBalancer
     ```
 
 12. The commands below get the NICs and then add both IP configurations of each NIC to the backend address pool of the load balancer:

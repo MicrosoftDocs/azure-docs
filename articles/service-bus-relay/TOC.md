@@ -1,24 +1,27 @@
 # Overview
-## [What is Relay?](service-bus-relay-overview.md)
-## [FAQ](../service-bus-messaging/service-bus-faq.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [What is Relay?](relay-what-is-it.md)
+## [FAQ](relay-faq.md)
 
 # Get Started
-## [How to use Relay](service-bus-dotnet-how-to-use-relay.md)
+## [Create a namespace](relay-create-namespace-portal.md)
+## [Get started with Hybrid Connections](relay-hybrid-connections-dotnet-get-started.md)
+## [Get started with WCF Relay](service-bus-dotnet-how-to-use-relay.md)
 ## [Shared Access Signatures](../service-bus-messaging/service-bus-sas-overview.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Build hybrid apps using Service Bus Relay](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
-## [Relay .NET tutorial](service-bus-relay-tutorial.md)
-## [Relay REST tutorial](service-bus-relay-rest-tutorial.md)
+## [WCF Relay hybrid tutorial](service-bus-dotnet-hybrid-app-using-service-bus-relay.md)
+## [WCF Relay .NET tutorial](service-bus-relay-tutorial.md)
+## [WCF Relay REST tutorial](service-bus-relay-rest-tutorial.md)
 
 # How To
 ## [Authenticate and authorize](../service-bus-messaging/service-bus-authentication-and-authorization.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
 ## [Plan for outages and disasters](../service-bus-messaging/service-bus-outages-disasters.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
+## [Hybrid Connections protocol](relay-hybrid-connections-protocol.md)
+## [Common exceptions](relay-exceptions.md)
 
 # Reference
 ## [Samples](service-bus-relay-samples.md)
-## [Exceptions](../service-bus-messaging/service-bus-messaging-exceptions.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [Quotas](../service-bus-messaging/service-bus-quotas.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
+## [Hybrid Connections .NET API](/dotnet/api/microsoft.servicebus)
+## [WCF Relay .NET API](/dotnet/api/microsoft.servicebus)
+## [Port settings](service-bus-relay-port-settings.md)
 
 # Resources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)

@@ -86,7 +86,7 @@ Azure Load Balancer delivers high availability and network performance to your a
 
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-doc">
+        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">

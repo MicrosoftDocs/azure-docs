@@ -68,21 +68,17 @@
 ## [Manage updates](azure-stack-updates.md)
 ## [Develop for Azure Stack](azure-stack-developer.md)
 ## Deploy SQL or MySQL resource provider
-### [Use MySQL databases as PaaS on Azure Stack](azure-stack-mysql-rp-deploy-short.md)
-### [Deploy the SQL Server Resource Provider Adapter on Azure Stack](azure-stack-sql-rp-deploy-long.md)
-### [Use SQL databases on Azure Stack](azure-stack-sql-rp-deploy-short.md)
+### [Use MySQL databases as PaaS on Azure Stack](azure-stack-mysql-resource-provider-deploy.md)
+### [Deploy the SQL Server Resource Provider Adapter on Azure Stack](azure-stack-sql-resource-provider-deploy.md)
 
-## Plan and deploy Web Apps
-### [Azure Stack Web Apps Overview](azure-stack-webapps-overview.md)
-### [Before you get started with Azure Stack Web Apps](azure-stack-webapps-before-you-get-started.md)
-### [Deploy the MySQL Resource Provider on Azure Stack to use with WebApps](azure-stack-mysql-rp-deploy-long.md)
-### [Web Apps: Adding more web worker roles](azure-stack-webapps-add-worker-roles.md)
-### [Add a Web Apps resource provider to Azure Stack](azure-stack-webapps-deploy.md)
+## Plan and deploy App Service
+### [App Service on Azure Stack overview](azure-stack-app-service-overview.md)
+### [Before you get started](azure-stack-app-service-before-you-get-started.md)
+### [Add more web worker roles](azure-stack-app-service-add-worker-roles.md)
+### [Add an App Service resource provider to Azure Stack](azure-stack-app-service-deploy.md)
 
 # Troubleshoot
 ## [Troubleshoot Azure Stack](azure-stack-troubleshooting.md)
-## [Rerun a deployment from a failed step](azure-stack-rerun-deploy.md)
-## [Web Apps Resource Provider](azure-stack-webapps-troubleshoot-known-issues.md)
 
 # Resources
 ## [Tools](azure-stack-tools-paas-services.md)

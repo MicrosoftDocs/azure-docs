@@ -71,7 +71,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDb using .NET</h3>
+                        <h3>Get started with DocumentDB using .NET</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using ASP.NET MVC</h3>
+                        <h3>Get started with DocumentDB using ASP.NET MVC</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDb using Node.js</h3>
+                        <h3>Get started with DocumentDB using Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using Node.js Express</h3>
+                        <h3>Get started with DocumentDB using Node.js Express</h3>
                     </div>
                 </div>
             </div>
@@ -143,7 +143,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using a Java JSP app</h3>
+                        <h3>Get started with DocumentDB using a Java JSP app</h3>
                     </div>
                 </div>
             </div>

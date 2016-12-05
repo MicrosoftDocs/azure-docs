@@ -1,7 +1,8 @@
 ---
 layout: HubPage
 hide_bc: true
-title: Microsoft Azure Documentation
+title: Microsoft Azure Documentation | Microsoft Docs
+description: Learn how to build and manage powerful applications using Microsoft Azure cloud services. Get documentation, sample code, tutorials, and more.
 ---
 <div id="main" class="v2">
     <div class="container">
@@ -300,6 +301,12 @@ title: Microsoft Azure Documentation
                                             </a>
                                         </li>
                                         <li>
+                                            <a href="/azure/data-catalog/">
+                                                <img src="media/index/data-catalog.svg" alt="" />
+                                                <p>Data Catalog</p>
+                                            </a>
+                                        </li>
+                                        <li>
                                             <a href="/azure/data-lake-analytics/">
                                                 <img src="media/index/DataLakeStore.svg" alt="" />
                                                 <p>Data Lake Analytics</p>
@@ -331,8 +338,8 @@ title: Microsoft Azure Documentation
                                         </li>
                                         <li>
                                             <a href="https://docs.botframework.com/en-us/azure-bot-service/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
-                                                <p>Bot Service</p>
+                                                <img src="media/index/bot-service.svg" alt="" />
+                                                <p>Azure Bot Service</p>
                                             </a>
                                         </li>
                                     </ul>
@@ -503,16 +510,16 @@ title: Microsoft Azure Documentation
                                         </li>
                                         <li>
                                             <a href="/azure/billing/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                <img src="media/index/billing.svg" alt="" />
                                                 <p>Billing</p>
                                             </a>
                                         </li>
-                                        <!-- <li>
-                                            <a href="/azure/azure-advisor/">
-                                                <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                        <li>
+                                            <a href="/azure/advisor">
+                                                <img src="media/index/advisor.svg" alt="" />
                                                 <p>Azure Advisor</p>
                                             </a>
-                                        </li> -->
+                                        </li>
                                         <li>
                                             <a href="/azure/azure-resource-manager/">
                                                 <img src="media/index/AzureDefaultBlack.svg" alt="" />
@@ -620,7 +627,7 @@ title: Microsoft Azure Documentation
                                         </li>
                                         <li>
                                             <a href="/azure/sql-server-stretch-database/">
-                                                <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                <img src="media/index/SQLDatabase.svg" alt="" />
                                                 <p>SQL Server Stretch Database</p>
                                             </a>
                                         </li>
@@ -1333,7 +1340,7 @@ title: Microsoft Azure Documentation
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                        <img src="media/index/SQLDatabase.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -1484,6 +1491,25 @@ title: Microsoft Azure Documentation
                                 </a>
                             </li>
                             <li>
+                                <a href="/azure/data-catalog/">
+                                    <div class="cardSize">
+                                        <div class="cardPadding">
+                                            <div class="card">
+                                                <div class="cardImageOuter">
+                                                    <div class="cardImage">
+                                                        <img src="media/index/data-catalog.svg" alt="" />
+                                                    </div>
+                                                </div>
+                                                <div class="cardText">
+                                                    <h3>Data Catalog</h3>
+                                                    <p>Enable self-service data source discovery across the enterprise</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
                                 <a href="/azure/data-lake-analytics/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -1585,11 +1611,11 @@ title: Microsoft Azure Documentation
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/bot-service.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
-                                                    <h3>Bot Service</h3>
+                                                    <h3>Azure Bot Service</h3>
                                                     <p>Intelligent, serverless bot service that scales on demand</p>
                                                 </div>
                                             </div>
@@ -1842,7 +1868,7 @@ title: Microsoft Azure Documentation
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/SQLDataWarehouse.svg" alt="" />
+                                                        <img src="media/index/SQLDatabase.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2275,7 +2301,7 @@ title: Microsoft Azure Documentation
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/billing.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
@@ -2287,25 +2313,25 @@ title: Microsoft Azure Documentation
                                     </div>
                                 </a>
                             </li>
-                            <!-- <li>
-                                <a href="/azure/azure-advisor/">
+                            <li>
+                                <a href="/azure/advisor/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
                                                 <div class="cardImageOuter">
                                                     <div class="cardImage">
-                                                        <img src="media/index/AzureDefaultBlack.svg" alt="" />
+                                                        <img src="media/index/advisor.svg" alt="" />
                                                     </div>
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Advisor</h3>
-                                                    <p>Improve the cost effectiveness of your Azure resources</p>
+                                                    <p>Improve the cost effectiveness, performance, high availability, and security of your Azure resources</p>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </a>
-                            </li> -->
+                            </li>
                             <li>
                                 <a href="/azure/azure-resource-manager/">
                                     <div class="cardSize">
@@ -2318,7 +2344,7 @@ title: Microsoft Azure Documentation
                                                 </div>
                                                 <div class="cardText">
                                                     <h3>Azure Resource Manager</h3>
-                                                    <p>Work with the resources in as a group for Azure Services</p>
+                                                    <p>Deploy and manage Azure resources</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -2330,11 +2356,11 @@ title: Microsoft Azure Documentation
                 </ul>
             </li>
             <li>
-                <a href="#developer">Developer</a>
-                <ul id="developer">
+                <a href="#sdkstools">SDKs/Tools</a>
+                <ul id="sdkstools">
                     <li>
-                        <a href="#developer-all">all</a>
-                        <ul id="developer-all" class="cardsF">
+                        <a href="#sdkstools-all">all</a>
+                        <ul id="sdkstools-all" class="cardsF">
                             <li>
                                 <div class="container">
                                     <h1>Languages &amp; Frameworks</h1>
@@ -2351,16 +2377,19 @@ title: Microsoft Azure Documentation
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent/1.0.0-beta3">Get the .NET SDK</a>
+                                                    <a href="https://www.nuget.org/packages/Microsoft.Azure.Management.Fluent">Get the .NET SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/net/">Get started</a>
+                                                    <a href="https://docs.microsoft.com/dotnet/api/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/dotnet/api">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=dotnet">Get samples</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/net/">Learn more</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2378,16 +2407,19 @@ title: Microsoft Azure Documentation
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://www.visualstudio.com/vs/python/">Get the Python SDK</a>
+                                                    <a href="https://pypi.python.org/pypi/azure">Get the Python SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://www.visualstudio.com/vs/python/">Get started</a>
+                                                    <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure-sdk-for-python.readthedocs.io/en/latest/">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/resources/samples/?platform=python">Get samples</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/python">Learn more</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2405,16 +2437,19 @@ title: Microsoft Azure Documentation
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs/">Get the Node.js SDK</a>
+                                                    <a href="https://www.npmjs.com/package/azure">Get the Node.js SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/nodejs">Get started</a>
+                                                    <a href="http://azure.github.io/azure-sdk-for-node/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="http://azure.github.io/azure-storage-node/index.html">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Get  examples</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=nodejs">Get samples</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/nodejs">Learn more</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2432,16 +2467,19 @@ title: Microsoft Azure Documentation
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="http://search.maven.org/remotecontent?filepath=com/microsoft/azure/azure-parent/1.0.0-beta3/azure-parent-1.0.0-beta3.pom">Get the Java SDK</a>
+                                                    <a href="https://github.com/Azure/azure-sdk-for-java#download">Get the Java SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/java/">Get started</a>
+                                                    <a href="https://docs.microsoft.com/java/api/">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="/java/api/">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=java">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=java">Get samples</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/java/">Learn more</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2459,16 +2497,19 @@ title: Microsoft Azure Documentation
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://azure.microsoft.com/downloads/">Get the Ruby SDK</a>
+                                                    <a href="https://rubygems.org/gems/azure">Get the Ruby SDK</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/develop/ruby/">Get started</a>
+                                                    <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">Get started</a>
                                                 </p>
                                                 <p>
                                                     <a href="https://github.com/Azure/azure-sdk-for-ruby/blob/master/README.md">API reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=ruby">Get samples</a>
+                                                </p>
+                                                <p>
+                                                    <a href="https://azure.microsoft.com/develop/ruby/">Learn more</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2486,13 +2527,13 @@ title: Microsoft Azure Documentation
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="">Get started with REST</a>
+                                                    <a href="https://docs.microsoft.com/rest/api/">Get started with REST</a>
                                                 </h3>
                                                 <p>
                                                     <a href="/rest/api">Reference</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">Get examples</a>
+                                                    <a href="https://azure.microsoft.com/documentation/samples/?platform=rest">Get samples</a>
                                                 </p>
                                             </div>
                                         </div>
@@ -2705,13 +2746,13 @@ title: Microsoft Azure Documentation
                                             </div>
                                             <div class="cardText">
                                                 <h3>
-                                                    <a href="https://github.com/Microsoft/PTVS/releases/v2.2.4">Python Tools for Visual Studio 2015</a>
+                                                    <a href="https://www.visualstudio.com/vs/python">Python Tools</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://ptvs.azureedge.net/download/PTVS%20Samples%202.2.4.vsix">Samples</a>
+                                                    <a href="https://github.com/Microsoft/PTVS/wiki/PTVS-Installation">Get Started with Visual Studio</a>
                                                 </p>
                                                 <p>
-                                                    <a href="https://ptvs.azureedge.net/download/PTVS%202.2.4%20VS%202015.msi">Download</a>
+                                                    <a href="https://marketplace.visualstudio.com/items?itemName=donjayamanne.python">Get Started with Visual Studio Code</a>
                                                 </p>
                                             </div>
                                         </div>

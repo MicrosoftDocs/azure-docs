@@ -19,12 +19,11 @@ ms.author: seanmck
 ---
 # Prepare your development environment on Linux
 > [!div class="op_single_selector"]
-> -[ Windows](service-fabric-get-started.md)
-> 
+> * [Windows](service-fabric-get-started.md) 
 > * [Linux](service-fabric-get-started-linux.md)
 > * [OSX](service-fabric-get-started-mac.md)
 > 
-> 
+>  
 
  To deploy and run [Azure Service Fabric applications](service-fabric-application-model.md) on your Linux development machine, install the runtime and common SDK. You can also install optional SDKs for Java and .NET Core.
 
@@ -67,6 +66,7 @@ Once your sources are updated, you can install the SDK.
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/sdkcommonsetup.sh
     ```
+
 
 ## Set up the Azure cross-platform CLI
 The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js so [ensure that you have installed Node][install-node] before proceeding with the instructions below.
@@ -147,6 +147,16 @@ The .NET Core SDK provides the libraries and templates required to build Service
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/csharp/sdkcsharpsetup.sh
     ```
+## Updating the SDK and Runtime
+
+To update to the latest version of the SDK and runtime, run the following steps (remove SDKs from the list that you don't want to update or install):
+
+    ```bash
+    sudo apt-get update
+    sudo apt-get install servicefabric, servicefabricsdkcommon, servicefabricsdkcsharp, servicefabricsdkjava
+    ```
+
+For updating the CLI, navigate to the directory where you cloned the CLI and run `git pull` for updating. 
 
 ## Next steps
 * [Create your first Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)

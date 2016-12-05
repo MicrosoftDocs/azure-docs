@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 24375fc6-c94c-43ef-97ec-fce77343b581
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -62,7 +63,7 @@ This article shows how to import from a [BACPAC](https://msdn.microsoft.com/libr
 * [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
 ## Additional resources
-* [SQL Database V12](sql-database-v12-whats-new.md)
+* [SQL Database features](sql-database-features.md)
 * [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
 * [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 

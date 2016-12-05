@@ -54,6 +54,7 @@
 ### [Install RStudio](hdinsight-hadoop-r-server-install-r-studio.md)
 ### [Compute contexts](hdinsight-hadoop-r-server-compute-contexts.md)
 ## Use Spark for in-memory processing
+### [With Data Lake Store](hdinsight-apache-spark-use-with-data-lake-store.md)
 ### [With BI tools](hdinsight-apache-spark-use-bi-tools.md)
 ### [Standalone app](hdinsight-apache-spark-create-standalone-application.md)
 ### [Process streaming events](hdinsight-apache-spark-eventhub-streaming.md)
@@ -180,12 +181,12 @@
 #### [Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Reference
-## [REST API reference](https://msdn.microsoft.com/library/mt622197.aspx)
-## [Spark REST API for remote jobs](https://msdn.microsoft.com/library/mt613023.aspx)
-## [PowerShell cmdlets](https://msdn.microsoft.com/library/mt438705.aspx)
-## [.NET SDK for Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
-## [.NET SDK for HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
-## [.NET library for Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
+## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST](/rest/api/hdinsight/)
+## [REST (Spark)](/rest/api/hdinsightspark/)
 
 # Related
 ## Windows clusters
