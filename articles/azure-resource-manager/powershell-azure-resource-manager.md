@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: powershell
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 12/05/2016
 ms.author: tomfitz
 
 ---
@@ -36,8 +36,6 @@ In this topic, you learn how to manage your solutions with Azure PowerShell and 
 6. Create a Resource Manager template from your resource group
 7. Delete a resource group
 
-This topic does not show how to deploy a Resource Manager template to your subscription. For that information, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md).  
-
 ## Get started with Azure PowerShell
 
 If you have not installed Azure PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
@@ -50,12 +48,12 @@ To check your version of the Azure Resources module, use the following cmdlet:
 Get-Module -ListAvailable -Name AzureRm.Resources | Select Version
 ``` 
 
-This topic was updated for version 3.3.0. If you have an earlier version, you experience might not match the steps shown in this topic. For documentation about the cmdlets in this version, see [AzureRM.Resources Module](/en-us/powershell/resourcemanager/azurerm.resources/v3.3.0/azurerm.resources).
+This topic was updated for version 3.3.0. If you have an earlier version, your experience might not match the steps shown in this topic. For documentation about the cmdlets in this version, see [AzureRM.Resources Module](/en-us/powershell/resourcemanager/azurerm.resources/v3.3.0/azurerm.resources).
 
-## Login to your Azure account
-Before working on your solution, you must login to your account.
+## Log in to your Azure account
+Before working on your solution, you must log in to your account.
 
-To login to your Azure account, use the **Add-AzureRmAccount** cmdlet.
+To log in to your Azure account, use the **Add-AzureRmAccount** cmdlet.
 
 ```powershell
 Add-AzureRmAccount
@@ -75,7 +73,7 @@ CurrentStorageAccount :
 
 ```
 
-If you have more than one subscription, you can switch to a different subscription. First, let's see all of the subscriptions for your account.
+If you have more than one subscription, you can switch to a different subscription. First, let's see all the subscriptions for your account.
 
 ```powershell
 Get-AzureRmSubscription
@@ -140,9 +138,9 @@ Get-AzureRmResourceGroup
 ## Add resources to a resource group
 To add a resource to the resource group, you can use the **New-AzureRmResource** cmdlet or a cmdlet that is specific to the type of resource you are creating (like **New-AzureRmStorageAccount**). You might find it easier to use a cmdlet that is specific to a resource type because it includes parameters for the properties that are needed for the new resource. To use **New-AzureRmResource**, you must know all the properties to set without being prompted for them.
 
-However, adding a resource through cmdlets might cause future confusion because the new resource does not exist in a Resource Manager template. Microsoft recommends defining the infrastructure for your Azure solution in a Resource Manager template. Templates enable you to reliably and repeatedly deploy your solution. For this topic, you first create a new storage account with a PowerShell cmdlet, but later you see how to generate a template from your resource group.
+However, adding a resource through cmdlets might cause future confusion because the new resource does not exist in a Resource Manager template. Microsoft recommends defining the infrastructure for your Azure solution in a Resource Manager template. Templates enable you to reliably and repeatedly deploy your solution. This topic does not show how to deploy a Resource Manager template to your subscription. For that information, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md). For this topic, you create a storage account with a PowerShell cmdlet, but later you generate a template from your resource group.
 
-The following cmdlet creates a new storage account. You must provide a unique name for the storage account that is between 3 and 24 characters in length and uses only numbers and lower-case letters. If you use the name shown in the example, you will receive an error because that name is already in use.
+The following cmdlet creates a storage account. Instead of using the name shown in the example, provide a unique name for the storage account that is between 3 and 24 characters in length and uses only numbers and lower-case letters. If you use the name shown in the example, you will receive an error because that name is already in use.
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName TestRG1 -AccountName mystoragename -Type "Standard_LRS" -Location "South Central US"
@@ -156,7 +154,7 @@ Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1
 
 ## Add a tag
 
-Tags enable you to organize your resources according to different properties. For example, you may have several resources in different resource groups that all belong to the same department. You can apply a department tag and value to those resources to mark them as belonging to the same category. Or, you can mark whether a resource is used in a production or test environment. In this topic, you apply tags to only one resource, but in your environment it most likely makes sense to apply tags to all of your resources.
+Tags enable you to organize your resources according to different properties. For example, you may have several resources in different resource groups that belong to the same department. You can apply a department tag and value to those resources to mark them as belonging to the same category. Or, you can mark whether a resource is used in a production or test environment. In this topic, you apply tags to only one resource, but in your environment it most likely makes sense to apply tags to all your resources.
 
 The following cmdlet applies two tags to your storage account:
 
@@ -164,7 +162,7 @@ The following cmdlet applies two tags to your storage account:
 Set-AzureRmResource -Tag @{ Dept="IT"; Environment="Test" } -ResourceName mystoragename -ResourceGroupName TestRG1 -ResourceType Microsoft.Storage/storageAccounts
  ```
 
-Tags are updated as a single object. To add a new tag, first retrieve the existing tags. Add the new tag to the object that contains the existing tags, and reapply all the tags to the resource.
+Tags are updated as a single object. To add a tag to a resource that already includes tags, first retrieve the existing tags. Add the new tag to the object that contains the existing tags, and reapply all the tags to the resource.
 
 ```powershell
 $tags = (Get-AzureRmResource -ResourceName mystoragename -ResourceGroupName TestRG1).Tags
@@ -178,27 +176,27 @@ Use the **Find-AzureRmResource** cmdlet to retrieve resources for different sear
 
 * To get a resource by name, provide the **ResourceNameContains** parameter:
 
-   ```powershell
-   Find-AzureRmResource -ResourceNameContains mystoragename
-   ```
+  ```powershell
+  Find-AzureRmResource -ResourceNameContains mystoragename
+  ```
 
 * To get all the resources in a resource group, provide the **ResourceGroupNameContains** parameter:
 
-   ```powershell
-   Find-AzureRmResource -ResourceGroupNameContains TestRG1
-   ```
+  ```powershell
+  Find-AzureRmResource -ResourceGroupNameContains TestRG1
+  ```
 
 * To get all the resources with a tag name and value, provide the **TagName** and **TagValue** parameters:
 
-   ```powershell
-   Find-AzureRmResource -TagName Dept -TagValue IT
-   ``` 
+  ```powershell
+  Find-AzureRmResource -TagName Dept -TagValue IT
+  ``` 
 
 * To all the resources with a particular resource type, provide the **ResourceType** parameter:
 
-   ```powershell
-   Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
-   ```  
+  ```powershell
+  Find-AzureRmResource -ResourceType Microsoft.Storage/storageAccounts
+  ```  
 
 ## Lock a resource
 
@@ -223,46 +221,49 @@ For more information about setting locks, see [Lock resources with Azure Resourc
 ## Export Resource Manager template
 For an existing resource group (deployed through PowerShell or one of the other methods like the portal), you can view the Resource Manager template for the resource group. Exporting the template offers two benefits:
 
-1. You can easily automate future deployments of the solution because all of the infrastructure is defined in the template.
+1. You can easily automate future deployments of the solution because all the infrastructure is defined in the template.
 2. You can become familiar with template syntax by looking at the JavaScript Object Notation (JSON) that represents your solution.
-
-Through the PowerShell, you can either generate a template that represents the current state of your resource group, or retrieve the template that was used for a particular deployment.
-
-Exporting the template for a resource group is helpful when you have made changes to a resource group, and need to retrieve the JSON representation of its current state. However, the generated template contains only a minimal number of parameters and no variables. Most of the values in the template are hard-coded. Before deploying the generated template, you may wish to convert more of the values into parameters so you can customize the deployment for different environments.
-
-Exporting the template for a particular deployment is helpful when you need to view the actual template that was used to deploy resources. The template will include all of the parameters and variables defined for the original deployment. However, if someone in your organization has made changes to the resource group outside of what is defined in the template, this template will not represent the current state of the resource group.
 
 > [!NOTE]
 > The export template feature is in preview, and not all resource types currently support exporting a template. When attempting to export a template, you may see an error that states some resources were not exported. If needed, you can manually define these resources in your template after downloading it.
 > 
 > 
 
-### Export template from resource group
 To view the template for a resource group, run the **Export-AzureRmResourceGroup** cmdlet.
 
-    Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\TestRG1.json
+```powershell
+Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\TestRG1.json
+```
 
-### Download template from deployment
-To download the template used for a particular deployment, run the **Save-AzureRmResourceGroupDeploymentTemplate** cmdlet.
+There are many options and scenarios for exporting a Resource Manager template. For more information, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
 
-    Save-AzureRmResourceGroupDeploymentTemplate -DeploymentName azuredeploy -ResourceGroupName TestRG1 -Path c:\Azure\Templates\Downloads\azuredeploy.json
+## Remove resources or resource group
+You can remove a resource or resouce group. When you remove a resource group, you also remove all the resources within that resource group. 
 
-## Delete resources or resource group
 * To delete a resource from the resource group, use the **Remove-AzureRmResource** cmdlet. This cmdlet deletes the resource, but does not delete the resource group.
-  
-    This command removes the TestSite website from the TestRG1 resource group.
-  
-        Remove-AzureRmResource -Name TestSite -ResourceGroupName TestRG1 -ResourceType "Microsoft.Web/sites" -ApiVersion 2015-08-01
-* To delete a resource group, use the **Remove-AzureRmResourceGroup** cmdlet. This cmdlet deletes the resource group and its resources.
-  
-        Remove-AzureRmResourceGroup -Name TestRG1
-  
-    You are asked to confirm the deletion.
-  
-        Confirm
-        Are you sure you want to remove resource group 'TestRG1'
-        [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"): Y
 
+  ```powershell  
+  Remove-AzureRmResource -ResourceName mystoragename -ResourceType Microsoft.Storage/storageAccounts -ResourceGroupName TestRG1
+  ```
+
+* To delete a resource group and all its resources, use the **Remove-AzureRmResourceGroup** cmdlet.
+  
+  ```powershell
+  Remove-AzureRmResourceGroup -Name TestRG1
+  ```
+
+For both cmdlets, you are asked to confirm that you wish to remove the resource or resource group. If the operation succesfully deletes the resource or resource group, it returns **True**.
+
+## Run Resource Manager scripts with Azure Automation
+
+This topic shows you how to perform basic operations on your resources with Azure PowerShell. For more advanced management scenarios, you typically want to create a script, and reuse that script as needed or on a schedule. [Azure Automation](../automation/automation-intro.md) provides a way for you to automate frequently used scripts that manage your Azure solutions. 
+
+The following topics show you how to use Azure Automation, Resource Manager, and PowerShell to effectively perform management tasks:
+
+- For information about creating a runbook, see [My first PowerShell runbook](../automation/automation-first-runbook-textual-powershell.md).
+- For information about working with galleries of scripts, see [Runbook and module galleries for Azure Automation](../automation/automation-runbook-gallery.md).
+- For runbooks that start and stop virtual machines, see [Azure Automation scenario: Using JSON-formatted tags to create a schedule for Azure VM startup and shutdown](../automation/automation-scenario-start-stop-vm-wjson-tags.md).
+- For runbooks that start and stop virtual machines off-hours, see [Start/Stop VMs during off-hours solution in Automation](../automation/automation-solution-vm-management.md).
 
 ## Next Steps
 * To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager Templates](resource-group-authoring-templates.md).
