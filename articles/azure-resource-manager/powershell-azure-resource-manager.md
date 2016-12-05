@@ -140,7 +140,7 @@ To add a resource to the resource group, you can use the **New-AzureRmResource**
 
 However, adding a resource through cmdlets might cause future confusion because the new resource does not exist in a Resource Manager template. Microsoft recommends defining the infrastructure for your Azure solution in a Resource Manager template. Templates enable you to reliably and repeatedly deploy your solution. This topic does not show how to deploy a Resource Manager template to your subscription. For that information, see [Deploy resources with Resource Manager templates and Azure PowerShell](resource-group-template-deploy.md). For this topic, you create a storage account with a PowerShell cmdlet, but later you generate a template from your resource group.
 
-The following cmdlet creates a storage account. Instead of using the name shown in the example, provide a unique name for the storage account that is between 3 and 24 characters in length and uses only numbers and lower-case letters. If you use the name shown in the example, you will receive an error because that name is already in use.
+The following cmdlet creates a storage account. Instead of using the name shown in the example, provide a unique name for the storage account. The name must be between 3 and 24 characters in length, and use only numbers and lower-case letters. If you use the name shown in the example, you receive an error because that name is already in use.
 
 ```powershell
 New-AzureRmStorageAccount -ResourceGroupName TestRG1 -AccountName mystoragename -Type "Standard_LRS" -Location "South Central US"
@@ -238,7 +238,7 @@ Export-AzureRmResourceGroup -ResourceGroupName TestRG1 -Path c:\Azure\Templates\
 There are many options and scenarios for exporting a Resource Manager template. For more information, see [Export an Azure Resource Manager template from existing resources](resource-manager-export-template.md).
 
 ## Remove resources or resource group
-You can remove a resource or resouce group. When you remove a resource group, you also remove all the resources within that resource group. 
+You can remove a resource or resource group. When you remove a resource group, you also remove all the resources within that resource group. 
 
 * To delete a resource from the resource group, use the **Remove-AzureRmResource** cmdlet. This cmdlet deletes the resource, but does not delete the resource group.
 
@@ -252,7 +252,7 @@ You can remove a resource or resouce group. When you remove a resource group, yo
   Remove-AzureRmResourceGroup -Name TestRG1
   ```
 
-For both cmdlets, you are asked to confirm that you wish to remove the resource or resource group. If the operation succesfully deletes the resource or resource group, it returns **True**.
+For both cmdlets, you are asked to confirm that you wish to remove the resource or resource group. If the operation successfully deletes the resource or resource group, it returns **True**.
 
 ## Run Resource Manager scripts with Azure Automation
 
