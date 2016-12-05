@@ -1145,7 +1145,7 @@ The next step is to create the replication job between the two nodes.
 
 ![Figure 46: Create a replication job][sap-ha-guide-figure-3038]
 
-***Figure 46:** Create a replication job*
+_**Figure 46:** Create a replication job_
 
 A wizard guides you through the process of creating a replication job.
 
