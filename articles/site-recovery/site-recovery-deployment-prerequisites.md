@@ -138,6 +138,8 @@ Verify the requirements in the [InMage support matrix](https://aka.ms/asr-scout-
 **Hyper-V** | Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role, and the latest updates installed.<br/><br/> The Hyper-V server should contain one or more VMs<br/><br/> Hyper-V hosts should be located in host groups on the primary and secondary VMM servers.<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 R2, you should install update [2961977](https://support.microsoft.com/kb/2961977). If you have a Hyper-V cluster on Windows Server 2012, cluster broker isn't created automatically if you have a static IP address-based cluster. [Read more](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx) to configure manually.
 
 ### Hyper-V VM requirements (secondary site)
+
+**Component** | **Details**
 --- | ---
 **VMM cloud** | VMs must be located on Hyper-V host in VMM clouds.
 
@@ -193,6 +195,8 @@ Hyper-V (primary VMM/cloud) to secondary | Supported | Supported | Supported
 
 
 ### Failback from Azure to physical machines
+
+**Component** | **Details**
 --- | ---
 **Physical-to-physical failback** | This isn't supported. This means that if you fail over physical servers to Azure and then want to fail back, you must fail back to a VMware VM. You can't fail back to a physical server.
 **VM** | You need a VMware VM on-premises to fail back to.
