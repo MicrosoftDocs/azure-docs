@@ -1,4 +1,4 @@
-ï»¿---
+---
 title: Scheduled Events with Azure Metadata Service | Microsoft Docs
 description: React to Impactful Events on your Virtual Machine before they happen.
 services: virtual-machines-windows, virtual-machines-linux, cloud-services
@@ -36,14 +36,14 @@ In many other cases, using graceful shutdown sequence improves the overall servi
 in the cluster (manual failover), remove the Virtual Machine from a load balancer pool.
 There are cases where notifying an administrator about upcoming event or even just logging such an event help improving the serviceability of applications hosted in the cloud.
 
-Azure Metadata Service surfaces scheduled events in the following use cases:Â Â Â Â Â 
--   Platform initiated â€˜impactfulâ€™ maintenance (for example, Host OS rollout)
--   Platform initiated â€˜impact-lessâ€™ maintenance (for example, In-place VM Migration)
+Azure Metadata Service surfaces scheduled events in the following use cases:     
+-   Platform initiated ‘impactful’ maintenance (for example, Host OS rollout)
+-   Platform initiated ‘impact-less’ maintenance (for example, In-place VM Migration)
 -   Interactive calls (for example, user restarts or redeploy a VM)
 
 
 
-## Scheduled Events â€“ The Basics  
+## Scheduled Events – The Basics  
 
 Azure Metadata service exposes information about running Virtual Machines using a REST Endpoint from within the VM. The information is available via a Non-routable IP so that it is not exposed 
 outside the VM.
