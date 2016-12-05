@@ -1,5 +1,5 @@
 ---
-title: Site Recovery deployment prerequisites | Microsoft Docs
+title: Azure Site Recovery deployment prerequisites | Microsoft Docs
 description: This article describes the prerequisites for setting up replication with Azure Site Recovery.
 services: site-recovery
 documentationcenter: ''
@@ -173,7 +173,7 @@ Hyper-V (primary VMM/cloud) to secondary | Supported | Supported | Supported
 
 ## Failback requirements
 
-**Scenario** **Test** | **Planned** | **Unplanned**
+**Scenario** | **Test** | **Planned** | **Unplanned**
 --- | --- | --- | ---
 **Azure to VMware** | Unsupported | Unsupported | Supported
 **Azure to physical** | Unsupported | Unsupported | Supported to VMware only
