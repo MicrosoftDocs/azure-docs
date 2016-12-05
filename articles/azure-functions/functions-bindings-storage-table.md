@@ -45,7 +45,7 @@ The Storage table input to a function uses the following JSON objects in the `bi
 {
     "name": "<Name of input parameter in function signature>",
     "type": "table",
-    "direction": "in"
+    "direction": "in",
     "tableName": "<Name of Storage table>",
     "partitionKey": "<PartitionKey of table entity to read - see below>",
     "rowKey": "<RowKey of table entity to read - see below>",
