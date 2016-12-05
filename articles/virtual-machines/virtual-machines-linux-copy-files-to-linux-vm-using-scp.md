@@ -21,7 +21,7 @@ ms.author: v-livech
 
 # Copy files to an Azure Linux VM using SCP
 
-This article shows how to copy files from your workstation up to an Azure Linux VM, or from the Azure Linux VM down to your workstation, using SCP.  SCP is based on the BSD RCP protocol and uses SSH for the transport layer.  By using SSH for the transport, SCP uses SSH for authentication on the destination host while also moving the file in an encrypted tunnel provided by default with SSH.  SCP is a secure and easy way to move files to and from Azure Linux VMs as it uses the existing SSH authentication that is already configured on the Linux VM.  For SSH authentication, usernames and passwords can be used but SSH public and private key authentication are strongly recommended as a security best practice.  
+This article shows how to copy files from your workstation up to an Azure Linux VM, or from the Azure Linux VM down to your workstation, using Secure Copy (SCP).  For SSH authentication, usernames and passwords can be used but SSH public and private key authentication are strongly recommended as a security best practice.  
 
 For this article, the requirements are:
 
@@ -44,6 +44,8 @@ scp user@host:directory/file targetfile
 ```
 
 ## Detailed walkthrough
+
+SCP is based on the BSD RCP protocol and uses SSH for the transport layer.  By using SSH for the transport, SCP uses SSH for authentication on the destination host while also moving the file in an encrypted tunnel provided by default with SSH.  SCP is a secure and easy way to move files to and from Azure Linux VMs as it uses the existing SSH authentication that is already configured on the Linux VM.
 
 For security and convenience, SSH public and private keys are the best way to authenticate the SCP connection.  Once SSH has authenticated the connection, SCP then begins the process of copying the file.  Using a properly configured `~/.ssh/config` and SSH public and private keys, the SCP connection can be established without using a username and just using a server name.  For more information on configuring your `~/.ssh/config` and SSH public and private keys, follow this article, [Create SSH keys on Linux and Mac for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
