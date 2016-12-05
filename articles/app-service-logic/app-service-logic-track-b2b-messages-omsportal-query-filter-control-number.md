@@ -1,6 +1,6 @@
 ---
 title: Track B2B messages in the Operations Management Suite portal | Microsoft Docs
-description: Learn how to track B2B messages in the Microsoft Operations Management Suite portal
+description: Learn how to track B2B messages in the Operations Management Suite portal
 author: padmavc
 manager: erikre
 editor: ''
@@ -18,11 +18,11 @@ ms.author: padmavc
 
 ---
 # Create a query in the Operations Management Suite portal
-You can create a query that filters data for a specific interchange control number in the Microsoft Operations Management Suite portal.
+You can create a query that filters data for a specific interchange control number in the Operations Management Suite portal.
 
 ## Prerequisites
 
-For richer details and for debugging, turn on diagnostics in your [integration account](app-service-logic-monitor-b2b-message.md) for your [logic apps](app-service-logic-monitor-your-logic-apps.md#azure-diagnostics-and-alerts) that have X12 connectors. Then, take the steps to [publish diagnostic data](app-service-logic-track-b2b-messages-omsportal.md) to the Operations Management Suite portal.
+For debugging and for more detailed diagnostics information, turn on diagnostics in your [integration account](app-service-logic-monitor-b2b-message.md) for your [logic apps](app-service-logic-monitor-your-logic-apps.md#azure-diagnostics-and-alerts) that have X12 connectors. Then, do the steps to [publish diagnostic data](app-service-logic-track-b2b-messages-omsportal.md) to the Operations Management Suite portal.
 
 ## Create a query to search for a specific interchange control number
 
