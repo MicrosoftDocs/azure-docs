@@ -40,7 +40,6 @@ By connecting your data source to OMS, you are able to take advantage of the fol
 
 OMS Security supports collection of logs using CEF over Syslogs and [Cisco ASA](https://blogs.technet.microsoft.com/msoms/2016/08/25/add-your-cisco-asa-logs-to-oms-security/) logs. In this example, the source (computer that generates the logs) is a Linux computer running syslog-ng daemon and the target is OMS Security. To prepare the Linux computer you will need to perform the following tasks:
 
-
 - Download the OMS Agent for Linux, version 1.2.0-25 or above.
 - Follow the section **Quick Install Guide** from [this article](https://github.com/Microsoft/OMS-Agent-for-Linux/blob/master/docs/OMS-Agent-for-Linux.md#steps-to-install-the-oms-agent-for-linux) to install and onboard the agent to your workspace.
 
@@ -53,8 +52,6 @@ On the agent machine, the events need to be sent from the syslog daemon to local
 
 1. Open the terminal window, and go to the directory */etc/syslog-ng/* 
 2. Create a new file *security-config-omsagent.conf* and add the following content:
-
-
 	OMS_facility = local4
 	
 	filter f_local4_oms { facility(local4); };
@@ -63,10 +60,8 @@ On the agent machine, the events need to be sent from the syslog daemon to local
 
 	log { source(src); filter(f_local4_oms); destination(security_oms); };
 	
-
 3. Download the file *security_events.conf* and place at */etc/opt/microsoft/omsagent/conf/omsagent.d/* in the OMS Agent computer.
 4. Type the command below to restart the syslog daemon:
-
 	*For syslog-ng run:*
 	
 	```
@@ -91,7 +86,6 @@ On the agent machine, the events need to be sent from the syslog daemon to local
 	```
 	systemctl restart omsagent
 	```
-
 6. Type the command below and review the result to confirm that there are no errors in the OMS Agent log:
 
 	```	
