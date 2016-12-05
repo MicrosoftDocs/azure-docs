@@ -4,7 +4,7 @@ description: 'Learn about SQL error codes for SQL Database client applications, 
 keywords: sql error code,access sql,database connection error,sql error codes
 services: sql-database
 documentationcenter: ''
-author: annemill
+author: stevestein
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
-ms.author: annemill
+ms.author: sstein
 
 ---
 # SQL error codes for SQL Database client applications: Database connection error and other issues

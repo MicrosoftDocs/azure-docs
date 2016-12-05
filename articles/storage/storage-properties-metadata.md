@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 11/28/2016
 ms.author: tamram
 
 ---
@@ -38,25 +38,27 @@ To set properties on an object, specify the property value, then call the **SetP
 
 The following code example creates a container and writes some of its property values to a console window:
 
-    //Parse the connection string for the storage account.
-    const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
-    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
+```csharp
+//Parse the connection string for the storage account.
+const string ConnectionString = "DefaultEndpointsProtocol=https;AccountName=account-name;AccountKey=account-key";
+CloudStorageAccount storageAccount = CloudStorageAccount.Parse(ConnectionString);
 
-    //Create the service client object for credentialed access to the Blob service.
-    CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+//Create the service client object for credentialed access to the Blob service.
+CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-    // Retrieve a reference to a container. 
-    CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
+// Retrieve a reference to a container. 
+CloudBlobContainer container = blobClient.GetContainerReference("mycontainer");
 
-    // Create the container if it does not already exist.
-    container.CreateIfNotExists();
+// Create the container if it does not already exist.
+container.CreateIfNotExists();
 
-    // Fetch container properties and write out their values.
-    container.FetchAttributes();
-    Console.WriteLine("Properties for container {0}", container.StorageUri.PrimaryUri.ToString());
-    Console.WriteLine("LastModifiedUTC: {0}", container.Properties.LastModified.ToString());
-    Console.WriteLine("ETag: {0}", container.Properties.ETag);
-    Console.WriteLine();
+// Fetch container properties and write out their values.
+container.FetchAttributes();
+Console.WriteLine("Properties for container {0}", container.StorageUri.PrimaryUri.ToString());
+Console.WriteLine("LastModifiedUTC: {0}", container.Properties.LastModified.ToString());
+Console.WriteLine("ETag: {0}", container.Properties.ETag);
+Console.WriteLine();
+```
 
 ## Setting and Retrieving Metadata
 You can specify metadata as one or more name-value pairs on a blob or container resource. To set metadata, add name-value pairs to the **Metadata** collection on the resource, then call the **SetMetadata** method to save the values to the service.
@@ -68,31 +70,35 @@ You can specify metadata as one or more name-value pairs on a blob or container 
 
 The following code example sets metadata on a container. One value is set using the collection's **Add** method. The other value is set using implicit key/value syntax. Both are valid.
 
-    public static void AddContainerMetadata(CloudBlobContainer container)
-    {
-        //Add some metadata to the container.
-        container.Metadata.Add("docType", "textDocuments");
-        container.Metadata["category"] = "guidance";
+```csharp
+public static void AddContainerMetadata(CloudBlobContainer container)
+{
+    //Add some metadata to the container.
+    container.Metadata.Add("docType", "textDocuments");
+    container.Metadata["category"] = "guidance";
 
-        //Set the container's metadata.
-        container.SetMetadata();
-    }
+    //Set the container's metadata.
+    container.SetMetadata();
+}
+```
 
 To retrieve metadata, call the **FetchAttributes** method on your blob or container to populate the **Metadata** collection, then read the values, as shown in the example below.
 
-    public static void ListContainerMetadata(CloudBlobContainer container)
-    {
-        //Fetch container attributes in order to populate the container's properties and metadata.
-        container.FetchAttributes();
+```csharp
+public static void ListContainerMetadata(CloudBlobContainer container)
+{
+    //Fetch container attributes in order to populate the container's properties and metadata.
+    container.FetchAttributes();
 
-        //Enumerate the container's metadata.
-        Console.WriteLine("Container metadata:");
-        foreach (var metadataItem in container.Metadata)
-        {
-            Console.WriteLine("\tKey: {0}", metadataItem.Key);
-            Console.WriteLine("\tValue: {0}", metadataItem.Value);
-        }
+    //Enumerate the container's metadata.
+    Console.WriteLine("Container metadata:");
+    foreach (var metadataItem in container.Metadata)
+    {
+        Console.WriteLine("\tKey: {0}", metadataItem.Key);
+        Console.WriteLine("\tValue: {0}", metadataItem.Value);
     }
+}
+```
 
 ## See Also
 * [Azure Storage Client Library for .NET Reference](http://msdn.microsoft.com/library/azure/wa_storage_30_reference_home.aspx)

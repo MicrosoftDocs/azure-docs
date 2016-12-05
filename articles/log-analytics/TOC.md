@@ -61,6 +61,9 @@
 ### [Log Search API](log-analytics-log-search-api.md)
 ### [Alert API](log-analytics-api-alerts.md)
 
+# Reference
+## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
+
 # Resources
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)
 ## [Pricing](https://azure.microsoft.com/pricing/details/log-analytics/)

@@ -47,7 +47,22 @@ This topic provides answers to some of the most common questions about running [
     No. You can not switch from pay-per-minute licensing to using your own license. Create a new Azure virtual machine using one of the [BYOL images](virtual-machines-windows-sql-server-iaas-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json#BYOL), and then migrate your databases to the new server using standard [data migration techniques](virtual-machines-windows-migrate-sql.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 7. **Do you have to pay the SQL costs of a VM if it is only being used for standby/failover?**
    
-    If you are creating the SQL VM through the gallery, then you must have a separate license for the standby SQL VM and the pricing is the same. If you install SQL Server manually on a virtual machine with [License Mobility](https://azure.microsoft.com/pricing/license-mobility/), you have the option to have one free passive SQL instance for failover. Please review the restrictions and requirements.
+    Each of the deployed Azure Virtual Machines requires licensing for SQL Server. To accomplish this, you can do one of the following:
+
+    - Obtain a SQL image from the Azure VM Marketplace and pay the per-minute rate of SQL Server for each VM. Use a SQL Server VM from the gallery.  
+    
+   Or  
+
+    - Customers with Software Assurance can use [License Mobility](https://azure.microsoft.com/pricing/license-mobility/) to license both the active SQL VM and the passive SQL VM with the Fail-over Rights as described in [Volume Licensing Product Terms](https://www.microsoft.com/en-us/Licensing/product-licensing/products.aspx). 
+
+   To use License Mobility, do one of the following: 
+
+    - Create a BYOL SQL Server VM from the Azure Gallery. The BYOL images are labeled {BYOL} in the Azure Marketplace.  
+    - Manually install SQL Server on a Windows VM from the Azure Marketplace. 
+    - Manually install SQL Server on-premises and create an image. Then you can upload the image to Azure and create a VM from the uploaded image. 
+
+   Customers who use License Mobility for this purpose must notify Microsoft within 10 days with the License Verification form. To access this form go to http://microsoftvolumelicensing.com, click **Licensing Documents Search** and locate **License Verification** for your language and region.  
+
 8. **How are updates and service packs applied on a SQL Server VM?**
    
     Virtual machines give you control over the host machine, including when and how you apply updates. For the operating system, you can manually apply windows updates, or you can enable a scheduling service called [Automated Patching](virtual-machines-windows-classic-sql-automated-patching.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). Automated Patching installs any updates that are marked important, including SQL Server updates in that category. Other optional updates to SQL Server must be installed manually.
