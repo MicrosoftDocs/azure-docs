@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2016
+ms.date: 12/05/2016
 ms.author: jeedes
 
 ---
@@ -70,7 +70,7 @@ Configuring single sign-on for Zendesk requires you to retrieve a thumbprint val
 If you are not familiar with this procedure, see [How to retrieve a certificate's thumbprint value](http://youtu.be/YKQF266SAxI).
 
 ### To configure single sign-on, perform the following steps:
-1. In the Azure AD portal, on the **Zendesk** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure AD portal, on the **Zendesk** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Single sign-on](./media/active-directory-saas-zendesk-tutorial/IC773086.png "Single sign-on")
 

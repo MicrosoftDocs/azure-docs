@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2016
+ms.date: 12/05/2016
 ms.author: jeedes
 
 ---
@@ -115,9 +115,9 @@ If you are not familiar with this procedure, see [How to convert a binary certif
    
     d.  In **Environment** textbox, type the environment name.  
 
-    >[AZURE.NOTE] The value of the Environment attribute is tied to the value of the tenant URL:
-    >
-    >-   If the domain name of the Workday tenant URL starts with impl (e.g.: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.
+    >[!NOTE]
+    > The value of the Environment attribute is tied to the value of the tenant URL:  
+    >-   If the domain name of the Workday tenant URL starts with impl (e.g.: *https://impl.workday.com/\<tenant\>/login-saml2.htmld*), the **Environment** attribute must be set to Implementation.  
     >-   If the domain name starts with something else, you need to contact Workday to get the matching **Environment** value.
 
 1. In the **SAML Setup** section, perform the following steps:
