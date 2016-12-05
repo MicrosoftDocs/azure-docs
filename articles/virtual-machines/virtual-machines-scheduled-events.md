@@ -20,8 +20,8 @@ ms.author: zivr
 ---
 # Azure Metadata Service - Scheduled Events
 
-Azure Metadata service enables you to discover information about your Virtual Machine hosted in Azure. One of the Metadata Service data categories is Scheduled Events where you can get information regarding upcoming events (for example, reboot) 
-so your service can prepare for them and limit disruption. It's available for all Azure Virtual Machine types including PaaS and IaaS. The service gives your Virtual Machine time to perform 
+Azure Metadata Service enables you to discover information about your Virtual Machine hosted in Azure. Scheduled Events, one of the exposed categories , susurfaces information regarding upcoming events (for example, reboot) 
+so your application can prepare for them and limit disruption. It's available for all Azure Virtual Machine types including PaaS and IaaS. The service gives your Virtual Machine time to perform 
 preventive tasks and minimize the effect of an event. For example, your service might drain sessions, elect a new leader, or copy data after observing that an instance is scheduled for reboot to avoid 
 disruption.
 
@@ -100,7 +100,7 @@ EventType Captures the expected impact on the Virtual Machine where:
 - Reboot: The Virtual Machine is scheduled for reboot (memory is wiped).
 - Redeploy: The Virtual Machine is scheduled to move to another node (ephemeral disk are lost). 
 
-When an event is scheduled (Status = Scheduled) Azure shares the time after which the event can start (specified in the NotBefore field).
+When an event is scheduled (Status = Scheduled), Azure shares the time after which the event can start (specified in the NotBefore field).
 
 ### Starting an event (expedite)
 
