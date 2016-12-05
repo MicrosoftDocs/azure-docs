@@ -390,11 +390,11 @@ In the following figure, we illustrate mapping of a typical volume to a backup j
 
 Under Advanced Settings in the Backup tab, ensure Incremental is chosen and the “Enable synthetic fulls” option is unchecked, or disabled. Then ensure that **Active full backups** are enabled on every Saturday.
 
-    ![Veeam management console, new backup job advanced settings screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
+![Veeam management console, new backup job advanced settings screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
 Still in the Advanced Settings, under the Storage tab, ensure that Deduplication is disabled, compression is disabled, and optimized as a “LAN Target” for balanced performance and deduplication.
 
-    ![Veeam management console, new backup job advanced settings screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage13.png)
+![Veeam management console, new backup job advanced settings screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage13.png)
 
 To get more details on DeDupe and Compression settings please refer to [Data Compression and Deduplication](https://helpcenter.veeam.com/backup/vsphere/compression_deduplication.html)
 
