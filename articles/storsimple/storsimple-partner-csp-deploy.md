@@ -21,14 +21,14 @@ ms.author: alkohli
 
 StorSimple Virtual Array can be deployed by the Cloud Solution Provider (CSP) partners for their customers. A CSP partner can create a StorSimple Device Manager service. This service can then be used to deploy and manage StorSimple Virtual Array and the associated shares, volumes, and backups.
 
-This article describes how to deploy a StorSimple Virtual Array in CSP.
+This article describes how a CSP partner can add a customer to the subscription and then create a new service to deploy a StorSimple Virtual Array in CSP.
 
 ## Prerequisites
 
 Before you begin, ensure that:
 
 - You are enrolled under the CSP program.
-- You have valid [Partner Center](http://partnercenter.microsoft.com/) login credentials. The credentials enable you to sign into the Partner portal to add new customers, search for customers, or navigate to a customer account from the Partner dashboard. The CSP can function as a StorSimple administrator on behalf of the customer in the Azure portal.
+- You have valid [Partner Center](http://partnercenter.microsoft.com/) login credentials. The credentials enable you to sign in to the Partner portal to add new customers, search for customers, or navigate to a customer account from the Partner dashboard. The CSP can function as a StorSimple administrator on behalf of the customer in the Azure portal.
                              
 ## Add customers
 
@@ -54,15 +54,15 @@ Perform the following steps to add a customer to the StorSimple subscription.
 
     ![Save confirmation](./media/storsimple-partner-csp-deploy/image5.png)
 
-6. Find or navigate Customer.
+6. Find or navigate to the customer you just added. Click the company name to drill down into the details.
 
     ![Search for the customer](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. Under **Administer Services**, click **Microsoft Azure Management Portal** to sign in as an Azure administrator for your customer.
+7. In the left-pane, select **Service management**. In the right-pane, under **Administer services**, click **Microsoft Azure Management Portal** to sign in as an Azure administrator for your customer.
 
-    ![Log in to Azure portal](./media/storsimple-partner-csp-deploy/image7.png)
+    ![Log in to Azure portal](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. To create a StorSimple Device Manager, click **+** and search or navigate to **StorSimple Virtual Device Series** . For more information, go to [Deploy a StorSimple Device Manager service](storsimple-manage-service.md).
+8. To create a StorSimple Device Manager, click **+ New** and search for or navigate to **StorSimple Virtual Device Series**. For more information, go to [Deploy a StorSimple Device Manager service](storsimple-manage-service.md).
 
     ![Create StorSimple Device Manager service](./media/storsimple-partner-csp-deploy/image8.png)
  
