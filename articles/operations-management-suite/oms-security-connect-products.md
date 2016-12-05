@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/02/2016
+ms.date: 12/05/2016
 ms.author: yurid
 
 ---
 # Connecting your security products to the Operations Management Suite (OMS) Security and Audit Solution 
-This document helps you connect your security products into the OMS Security and Audit Solution. The following event types are supported:
+This document helps you connect your security products into the OMS Security and Audit Solution. The following sources are supported:
 
 - Common Event Format (CEF) events
 - Cisco ASA events
