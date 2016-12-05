@@ -10,8 +10,9 @@ editor: ''
 
 ms.assetid: 18e5d3f1-bfe5-4089-b6fd-76988ab29822
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
-ms.topic: article
+ms.topic: getting-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
