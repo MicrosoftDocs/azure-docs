@@ -46,7 +46,7 @@ This is now possible in Azure RemoteApp – currently as a limited preview featu
 ## How to get Azure RemoteApp PowerShell cmdlets
 To try the new preview functionality, you will need to use Azure PowerShell cmdlets. It is currently not possible to use the Azure Management portal to enable the new application publishing mode.
 
-First, make sure you have the [Azure PowerShell module](../powershell-install-configure.md) installed.
+First, make sure you have the [Azure PowerShell module](/powershell/azureps-cmdlets-docs) installed.
 
 Then launch the PowerShell console in administrator mode and run the following cmdlet:
 
