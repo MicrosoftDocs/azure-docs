@@ -40,8 +40,11 @@
 
 
 # Reference
-## [PowerShell](../monitoring-and-diagnostics/insights-powershell-samples.md)
-## [Azure CLI](../monitoring-and-diagnostics/insights-cli-samples.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.insights/v1.0.12/azurerm.insights?redirectedfrom=msdn#40v=azure.200#41)
 ## [.NET](https://msdn.microsoft.com/library/azure/dn802153)
+## [REST](/rest/api/monitor/)
+
+# Resources
+## [PowerShell Samples](../monitoring-and-diagnostics/insights-powershell-samples.md)
+## [Azure CLI 2.0 (Preview) Samples](../monitoring-and-diagnostics/insights-cli-samples.md)
 ## [List of supported metrics](../monitoring-and-diagnostics/monitoring-supported-metrics.md)
-## [REST API](https://msdn.microsoft.com/library/azure/dn931943)

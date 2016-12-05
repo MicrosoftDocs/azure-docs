@@ -1,6 +1,6 @@
 ---
-title: IoT Hub operations monitoring
-description: An overview of Azure IoT Hub operations monitoring, enabling you to monitor the status of operations on your IoT hub in real time.
+title: Azure IoT Hub operations monitoring | Microsoft Docs
+description: How to use Azure IoT Hub operations monitoring to monitor the status of operations on your IoT hub in real time.
 services: iot-hub
 documentationcenter: ''
 author: nberdy
@@ -17,7 +17,7 @@ ms.date: 11/16/2016
 ms.author: nberdy
 
 ---
-# Introduction to operations monitoring
+# Operations monitoring
 IoT Hub operations monitoring enables you to monitor the status of operations on your IoT hub in real time. IoT Hub tracks events across several categories of operations. You can opt into sending events from one or more categories to an endpoint of your IoT hub for processing. You can monitor the data for errors or set up more complex processing based on data patterns.
 
 IoT Hub monitors five categories of events:
