@@ -16,12 +16,13 @@ ms.date: 12/05/2016
 ms.author: Your MSFT alias or your full email address;semicolon separates two or more aliases
 
 ---
-# Linking and Azure Subscription to an Azure B2C tenant to pay for usage charges
+# Linking an Azure Subscription to an Azure B2C tenant to pay for usage charges
 
-Ongoing usage charges for Azure Active Directory B2C (or Azure AD B2C) are billed to an Azure Subscription. It is necessary for the tenant administrator to link or create an association between the Azure AD B2C tenant and an Azure subscription after creating the B2C tenant itself.  This link is achieved by creating an Azure "B2C Tenant" resource in the target Azure subscription. Many B2C Tenants can be linked to a single Azure subscription along with other Azure resources (for example, VMs, Data storage, LogicApps)
+Ongoing usage charges for Azure Active Directory B2C (or Azure AD B2C) are billed to an Azure Subscription. It is necessary for the tenant administrator to explicitly link the Azure AD B2C tenant to an Azure subscription after creating the B2C tenant itself.  This link is achieved by creating an Azure "B2C Tenant" resource in the target Azure subscription. Many B2C tenants can be linked to a single Azure subscription along with other Azure resources (for example, VMs, Data storage, LogicApps)
 
-[!IMPORTANT]
-The latest information on usage billing and pricing for B2C is at the following page. [Azure AD B2C Pricing](
+
+> [!IMPORTANT]
+> The latest information on usage billing and pricing for B2C is at the following page. [Azure AD B2C Pricing](
 https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 ## Step 1 - Create an Azure AD B2C Tenant
@@ -29,7 +30,7 @@ https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 B2C tenant creation must be completed first. Skip this step if you have already created your target B2C Tenant. [Get started with Azure AD B2C](https://azure.microsoft.com/documentation/articles/active-directory-b2c-get-started/)
 
 ## Step 2 - Open Azure portal in the Azure AD Tenant trusted by your Azure subscription
-Navigate to portal.azure.com.  Switch Directory to Azure AD Tenant that is trusted by your target Azure AD subscription.  Within the Azure portal, click the account name on the upper right of the dashboard to select the Azure AD Tenant.  This tenant is not an Azure AD B2C tenant.  An Azure subscription is needed to proceed. [Get an Azure Subscription](https://account.windowsazure.com/signup?showCatalog=True)
+Navigate to portal.azure.com.  Switch Directory to Azure AD Tenant that is trusted by your target Azure Subscription.  Within the Azure portal, click the account name on the upper right of the dashboard to select the Azure AD Tenant.  This tenant is not an Azure AD B2C tenant.  An Azure subscription is needed to proceed. [Get an Azure Subscription](https://account.windowsazure.com/signup?showCatalog=True)
 
 ![Switching to your Azure AD Tenant](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
