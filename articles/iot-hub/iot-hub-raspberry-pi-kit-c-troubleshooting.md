@@ -54,7 +54,7 @@ If the problem still exists, leave your comments at the end of this article or c
 
 ## Remote debugging
 
-Currently there is no remote debugging support available in Visual Studio Code C/C++ Extension, but this functionality is expected to be available soon.
+Remote debugging support will be available soon in Visual Studio Code C/C++ Extension.
 
 In a meanwhile you can use GDB via your favourite SSH terminal:
 
