@@ -1036,7 +1036,7 @@ In Failover Cluster Manager, change the cluster configuration to a file share wi
 
 ![Figure 32: Start the Configure Cluster Quorum Setting Wizard][sap-ha-guide-figure-3023]
 
-***Figure 32:** Start the Configure Cluster Quorum Setting Wizard*
+_**Figure 32:** Start the Configure Cluster Quorum Setting Wizard_
 
 ![Figure 33: Quorum configurations you can choose from][sap-ha-guide-figure-3024]
 
@@ -1112,7 +1112,7 @@ In the dialog box shown in Figure 40, select **Yes**.
 
 ![Figure 41: User selection for SIOS DataKeeper][sap-ha-guide-figure-3033]
 
-***Figure 41:** User selection for SIOS DataKeeper*
+_**Figure 41:** User selection for SIOS DataKeeper_
 
 On the screen shown in Figure 41, we recommend that you select **Domain or Server account**.
 
