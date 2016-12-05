@@ -109,7 +109,7 @@ When migration application from an on-premises environment, you might want to ke
 
 Once these topics have been considered, your web application should be ready for the Cloud. And don’t worry if some topics are not fully met, the migration tool will give best effort to migration. 
 
-The next steps in the migration process are to create an App Service web app and an Azure SQL Database. There are multiple sizes of Web Apps instances with varying number of CPU Cores and RAM amounts available for you to select based on your web applications requirement. For more information and pricing, see [http://aka.ms/azurewebsitesskus](/pricing/details/websites/). Likewise, Microsoft Azure SQL Database caters to all of a business’ needs with various service tiers and performance levels to fulfill requirements. Further information can be found at [http://aka.ms/azuresqldbskus](/pricing/details/sql-database/). Once created, the application is uploaded to App Service Web Apps, either via FTP or WebDeploy and then move onto the database.
+The next steps in the migration process are to create an App Service web app and an Azure SQL Database. There are multiple sizes of Web Apps instances with varying number of CPU Cores and RAM amounts available for you to select based on your web applications requirement. For more information and pricing, see [https://azure.microsoft.com/pricing/details/app-service/](https://azure.microsoft.com/pricing/details/app-service/). Likewise, Microsoft Azure SQL Database caters to all of a business’ needs with various service tiers and performance levels to fulfill requirements. Further information can be found at [https://azure.microsoft.com/pricing/details/sql-database/](https://azure.microsoft.com/pricing/details/sql-database/). Once created, the application is uploaded to App Service Web Apps, either via FTP or WebDeploy and then move onto the database.
 
 In this migration the solution uses Azure SQL Database but that is not the only database that is supported on Azure. Companies can also make use of MySQL, MongoDB, Azure DocumentDB and many more via add-ons which can be purchased at the [Azure Store](/marketplace/partner-program/). 
 
@@ -140,7 +140,7 @@ In addition to the scaling flexibility of Web Apps, the overall platform enables
 App Service Web Apps offers a flexible, cost effective, responsive solution to the dynamic needs of a business in a rapidly evolving environment. Web Apps helps businesses increase productivity and efficiency by making use of a managed platform with modern DevOps capabilities and reduced hands on management, while providing enterprise capabilities in scale, resilience, security and integration with on-premises assets.
 
 ## Call to Action
-For more information on the Azure App Service Web Apps service, visit [http://aka.ms/enterprisewebsites](/services/websites/enterprise/) where more information can be sourced, and sign up for a trial today at [http://aka.ms/azuretrial](/pricing/free-trial/) to evaluate the service and discover the benefits for your business.
+For more information on the Azure App Service Web Apps service, visit [http://aka.ms/enterprisewebsites](/services/websites/enterprise/) where more information can be sourced, and sign up for a trial today at [https://azure.microsoft.com/pricing/free-trial/](https://azure.microsoft.com/pricing/free-trial/) to evaluate the service and discover the benefits for your business.
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 
