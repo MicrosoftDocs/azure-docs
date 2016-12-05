@@ -1,6 +1,6 @@
 ---
-title: Developer guide topics for IoT Hub | Microsoft Docs
-description: Azure IoT Hub developer guide that includes IoT Hub endpoints, security, identity registry, device management, and messaging
+title: Developer guide for Azure IoT Hub | Microsoft Docs
+description: The Azure IoT Hub developer guide includes discussions of endpoints, security, the identity registry, device management, direct methods, device twins, file uploads, jobs, the IoT Hub query language, and messaging.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
