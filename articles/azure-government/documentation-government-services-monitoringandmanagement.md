@@ -42,6 +42,27 @@ The following Backup features are not currently available in Azure Government:
 * Azure Resource Manager vaults
 * Management using the Azure portal (the Azure classic portal is supported)
 
+The URLs for Backup are different in Azure Government:
+
+## Site Recovery
+Site Recovery is generally available in Azure Government.
+
+For more information, see [Site Recovery public documentation](../site-recovery/site-recovery-overview.md).
+
+### Variations
+The following Site Recovery features are not currently available in Azure Government:
+
+* Azure Resource Manager site recovery vaults
+
+| Site Recovery | Classic | ARM | 
+| --- | --- | --- |
+| VMWare/Physical  | GA | Planned |
+| Hyper-V | GA | Planned |
+| Site to Site | GA | Planned |
+| Region to Region  | NP | NP |
+Notes: Table applies to VA and Iowa. Region to Region is Preview in Public
+
+
 ## Log Analytics
 Log Analytics is generally available in Azure Government.
 
