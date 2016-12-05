@@ -26,8 +26,8 @@ The following are questions and answers that you might have as a StorSimple part
 Questions and answers are arranged into the following categories:
 
  - [StorSimple and Cloud Solutions Program (CSP) model](#storsimple-and-csp-model)
- - [Deploy and manage StorSimple as a partner](#deploying-and-managing-storsimple-as-a-partner)
- - [Support for StorSimple partners in CSP](#support-dor-storsimple-partners)
+ - [Deploy and manage StorSimple as a partner](#deploy-and-manage-storsimple-as-a-partner)
+ - [Support for StorSimple partners in CSP](#support-for-storsimple-partners)
 
 ## StorSimple and CSP model
 
@@ -40,7 +40,7 @@ For more information, go to [StorSimple in CSP program](https://www.microsoft.co
 StorSimple is a usage-based service. Customers procuring StorSimple Virtual Array via the CSP route pay for the usage of virtual array and Azure, billed as separate line-items in the CSP bill. 
 
 ### Is the StorSimple business model similar to that of other services based on seat licenses such as the Office 365 and the Enterprise Mobility Suite? 
-Yes. The model is a wholesale discount model just like other services based on seat licenses in CSP. The wholesale discount for StorSimple is 15% of the list price. This provides our CSP partners an opportunity to sell more and drive Azure storage consumption via SVA.  
+Yes. The model is a wholesale discount model just like other services based on seat licenses in CSP. The wholesale discount for StorSimple is 15% of the list price. This provides our CSP partners an opportunity to sell more and drive Azure storage consumption via StorSimple Virtual Array.  
 
 ### Which StorSimple SKUs are available at launch?
 The same SKUs that are available with the standalone StorSimple services. For more information on StorSimple SKUs, go to <link>.
@@ -97,4 +97,4 @@ For more information about StorSimple in CSP, go to:
 
 
 ## Next steps
-If you are ready to deploy your StorSimple, go to [Deploy your StorSimple in CSP](storsimple-partner-csp-storsimple-deploy.md).
+If you are ready to deploy your StorSimple, go to [Deploy your StorSimple in CSP](storsimple-partner-csp-deploy.md).

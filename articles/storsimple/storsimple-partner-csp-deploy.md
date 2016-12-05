@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/02/2016
+ms.date: 12/05/2016
 ms.author: alkohli
 ---
 
@@ -24,6 +24,7 @@ Microsoft Azure StorSimple is a unique approach to enterprise storage with true 
 StorSimple in CSP enables partners to capitalize on this opportunity. The partners own the end-to-end customer lifecycle with direct provisioning, billing, and support of Microsoft’s cloud services. In short, the partners can  now transact the StorSimple along with their services to customers.
 
 For more information about StorSimple in CSP, visit the [Partner center](http://partnercenter.microsoft.com/).
+
 For more information on billing, pricing, incentives, and getting support in CSP, go to [StorSimple in CSP: FAQ](storsimple-partner-csp-faq.md). 
 
 ## Deploy and manage StorSimple in CSP
@@ -34,7 +35,7 @@ For more information, go to [Deploy and manage your StorSimple Virtual Array in 
 
 Overview
 
-StorSimple Virtual Array (SVA) can be deployed by Cloud Solution Provider (CSP) partners for their customers. A CSP partner can create a StorSimple Device Manager service. This service can then be used to deploy and manage StorSimple Virtual Array and the associated shares, volumes, and backups.
+StorSimple Virtual Array can be deployed by Cloud Solution Provider (CSP) partners for their customers. A CSP partner can create a StorSimple Device Manager service. This service can then be used to deploy and manage StorSimple Virtual Array and the associated shares, volumes, and backups.
 
 ## Prerequisites
 
@@ -83,4 +84,4 @@ Perform the following steps to add customers to the StorSimple subscription.
 ## Next steps
 
 - If you have more questions regarding the StorSimple in CSP, go to [StorSimple in CSP: Frequently asked questions](storsimple-partner-csp-faq.md).
-- If you are ready to deploy your StorSimple, go to [Deploy your StorSimple in CSP](storsimple-partner-csp-sva-deploy.md).
+- If you are ready to deploy your StorSimple, go to [Deploy your StorSimple in CSP](storsimple-partner-csp-deploy.md).
