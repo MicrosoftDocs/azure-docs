@@ -21,7 +21,7 @@ ms.author: v-livech
 
 # Using internal DNS for VM name resolution on Azure
 
-This article shows how to set static internal DNS names for Linux VMs using Virtual NIC cards (VNic) and DNS label names. Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.  Internal DNS names are only resolvable inside an Azure virtual network (VNet).
+This article shows how to set static internal DNS names for Linux VMs using Virtual NIC cards (VNic) and DNS label names. Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.  Internal DNS names are only resolvable inside an Azure virtual network (VNet).  Because the DNS names are internal, they are not resolvable to the outside internet, providing additional security to the infrastructure.
 
 The requirements are:
 
@@ -34,7 +34,9 @@ If you need to quickly accomplish the task, the following section details the co
 
 Pre-Requirements: Resource Group, VNet, NSG with SSH inbound, Subnet.
 
-### Create a VNic with internal DNS name labeling.
+### Create a VNic with a static internal DNS name
+
+The `-r` cli flag is for setting the DNS label which provides the static DNS name for the VNic.
 
 ```azurecli
 azure network nic create jenkinsVNic \
@@ -46,6 +48,8 @@ azure network nic create jenkinsVNic \
 ```
 
 ### Deploy the VM into the VNet, NSG and connect the VNic
+
+The `-N` connects the VNic to the new VM during the deployment to Azure.
 
 ```azurecli
 azure vm create jenkins \
@@ -109,8 +113,8 @@ azure network nsg rule create inboundSSH \
 --protocol Tcp \
 --direction Inbound \
 --priority 100 \
---source-address-prefix Internet \
---source-port-range 22 \
+--source-address-prefix * \
+--source-port-range * \
 --destination-address-prefix 10.10.0.0/24 \
 --destination-port-range 22
 ```
