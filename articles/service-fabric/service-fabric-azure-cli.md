@@ -78,7 +78,8 @@ Replace the PublicIPorFQDN tag with the real IP or FQDN as appropriate. When con
 
 You can use PowerShell or CLI to interact with your Linux Service Fabric Cluster created through the Azure portal. 
 
-**Caution:** These clusters aren’t secure, thus, you may be opening up your one-box by adding the public IP address in the cluster manifest.
+> [!WARNING]
+> These clusters aren’t secure, thus, you may be opening up your one-box by adding the public IP address in the cluster manifest.
 
 ## Using the Azure CLI to connect to a Service Fabric Cluster
 The following Azure CLI commands describe how to connect to a secure cluster. The certificate details must match a certificate on the cluster nodes.
