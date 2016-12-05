@@ -142,7 +142,7 @@ In this scenario, the StorSimple volumes are presented to the backup application
 
 ## StorSimple as a secondary backup target
 
-In this scenario, the StorSimple volumes are primarily used for mostly long term retention or archiving.
+In this scenario, the StorSimple volumes are primarily used for mostly long-term retention or archiving.
 
 The following figure illustrates the architecture where the initial backups and restores target a high-performance volume. These backups are copied and archived to a StorSimple tiered volume at a given schedule.
 
@@ -325,7 +325,7 @@ Based on the previous assumptions, create a 26 TiB StorSimple tiered volume for 
 
 1.  Provide a name for the repository.
 
-    ![Veeam management console, Name and descrition screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
+    ![Veeam management console, Name and description screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
 1.  The repository will be Microsoft Windows Server. Choose the Veeam Server
 
@@ -372,7 +372,7 @@ In the following figure, we illustrate mapping of a typical volume to a backup j
 
 ### Assigning StorSimple volumes to a Veeam backup job
 
-1.  Start by creating a daily job with primary Veeam StorSimple in case of primary backup target scenario or DAS/NAS/JBOD in case of secondary backup target scenario as backup target, go to Jobs, Backup under Backup and Replication section. Then right click backup and select the VMware or Hyper-V per your environment.
+1.  Start by creating a daily job with primary Veeam StorSimple in case of primary backup target scenario or DAS/NAS/JBOD in case of secondary backup target scenario as backup target, go to Jobs, Backup under Backup and Replication section. Then right-click backup and select the VMware or Hyper-V per your environment.
 
     ![Veeam management console, new backup job](./media/storsimple-configure-backup-target-using-veeam/veeamimage8.png)
 
@@ -392,7 +392,7 @@ Under Advanced Settings in the Backup tab, ensure Incremental is chosen and the 
 
     ![Veeam management console, new backup job advanced settings screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
-Still in the Advanced Settings, under the Storage tab, ensure that Deduplication is disable, compression is disabled, and optimized as a “LAN Target” for balanced performance and deduplication.
+Still in the Advanced Settings, under the Storage tab, ensure that Deduplication is disabled, compression is disabled, and optimized as a “LAN Target” for balanced performance and deduplication.
 
     ![Veeam management console, new backup job advanced settings screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage13.png)
 
@@ -563,14 +563,14 @@ The following section illustrates how to create a short script to trigger and de
 1.  Add the script to your backup job in Veeam, by editing your Veeam job
     advanced options pre-post scripts
 
-![veeam backup advanced settings scripts tab](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
+![Veeam backup advanced settings scripts tab](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
 
 It is recommended that you run your StorSimple Cloud Snapshot backup policy at the end of your daily backup’s job as post process script. For more information on how to backup and restore your backup application environment to meet your RPO/RTO please consult with your backup architect.
 
 StorSimple as a restore source
 ==============================
 
-Restores from a StorSimple Appliance work as restore from any block storage device. In the case of restoring data that has been tiered to the cloud, restores will happen at cloud speeds otherwise restores will happen at local appliance disk speed. Veeam enables fast granular file-level recovery through StorSimple using the built in Veeam Explorers in the Veeam console.  A customer can use the Veeam Explorers to recover individual items, like email messages, Active Directory objects, or SharePoint items from within the backups of the databases of Microsoft Exchange, Active Directory, and SharePoint to the running application workload without on premises VM interruption.  The customer can also accomplish point in time recovery for Microsoft SQL and Oracle Databases.  Veeam and StorSimple make the process of item level recovery from Azure both fast and easy. For more information please see the documentation at the following links.
+Restores from a StorSimple Appliance work as restore from any block storage device. In the case of restoring data that has been tiered to the cloud, restores will happen at cloud speeds otherwise restores will happen at local appliance disk speed. Veeam enables fast granular file-level recovery through StorSimple using the built-in Veeam Explorers in the Veeam console.  A customer can use the Veeam Explorers to recover individual items, like email messages, Active Directory objects, or SharePoint items from within the backups of the databases of Microsoft Exchange, Active Directory, and SharePoint to the running application workload without on premises VM interruption.  The customer can also accomplish point in time recovery for Microsoft SQL and Oracle Databases.  Veeam and StorSimple make the process of item level recovery from Azure both fast and easy. For more information please see the documentation at the following links.
 
 [https://www.veeam.com/microsoft-exchange-recovery.html](https://www.veeam.com/microsoft-exchange-recovery.html)
 

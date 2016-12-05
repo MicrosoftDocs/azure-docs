@@ -306,11 +306,11 @@ Based on the previous assumptions, create a 26 TiB StorSimple tiered volume for 
 
 1.  Then Select your Server
 
-![NetBackup management console select server](./media/storsimple-configure-backup-target-using-netbackup/nbimage2.png)
+![NetBackup management console, select server](./media/storsimple-configure-backup-target-using-netbackup/nbimage2.png)
 
 1.  Then Next and Select your StorSimple Volume
 
-![NetBackup management console select the storsimple disk](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
+![NetBackup management console, select the storsimple disk](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
 1.  Then give it a name and click next and next to finish
 
@@ -348,8 +348,7 @@ In the following figure, we illustrate mapping of a typical volume to a backup j
 
 The following sequence assumes that NetBackup, the target host are configured in accordance with the NetBackup agent guidelines.
 
-1.  In the NetBackup management console select a Policies\> right
-    click\>New Policy
+1.  In the NetBackup management console select a Policy\> right-click\>New Policy
 
     ![NetBackup management console screen](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
@@ -385,12 +384,12 @@ The following sequence assumes that NetBackup, the target host are configured in
 
     ![NetBackup management console, new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
 
-1.  Right click differential-inc and select copy to new, in our case Mon-inc,
+1.  Right-click differential-inc and select copy to new, in our case Mon-inc,
     and click ok
 
     ![NetBackup management console, new policy schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage14.png)
 
-1.  Then right click the newly created schedule and select change.
+1.  Then right-click the newly created schedule and select change.
 
 2.  In the Attributes tab check Override policy storage selection and select the
     volume where Monday incremental backups go. In our case SS1
@@ -407,7 +406,7 @@ The following sequence assumes that NetBackup, the target host are configured in
 2.  Repeat steps 11-15 for each of incremental backups and select the
     appropriate volume and schedule.
 
-3.  Then right click on the Differential-inc schedule and delete it.
+3.  Then right-click on the Differential-inc schedule and delete it.
 
 4.  After deleting the Differential-inc schedule, modify your Full schedule to
     meet your needs.
@@ -465,7 +464,7 @@ The following table illustrates how the backups should be configured to run on t
 
 ### Assign StorSimple volumes to NetBackup archive/duplication job.
 
-Given the broad range option for storage and media management that NetBackup offers please consult with Veritas or your NetBackup Architect to properly asses the SLP requirements.
+Given the broad range option for storage and media management that NetBackup offers please consult with Veritas or your NetBackup Architect to properly assess the SLP requirements.
 
 1.  Once the initial Disk pools have been defined, proceed to define 3 Storage Lifecycle Policies:
 
@@ -499,13 +498,13 @@ In the management console under Storage, select Storage Lifecycle Policies and s
 
     ![NetBackup management console, change storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
 
-1.  Repeat steps 5-6 until you have the appopiate SLP-retention policy.
+1.  Repeat steps 5-6 until you have the appropriate SLP-retention policy.
 
     ![NetBackup management console, storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
 
 1.  Once you are done defining the appropriate SLP-Retention Policy, under Policy define a backup policy as illustrated on StorSimple as a Primary Target section.
 
-2.  Under the Schedules select the Full and right click, and select Change.
+2.  Under the Schedules select the Full and right-click, and select Change.
 
 ![NetBackup management console, change schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
 
@@ -628,7 +627,7 @@ A disaster could occur due to various factors. The following table lists common 
 | Scenario                                                                    | Impact                                             | How to recover                                                                                                                                                                               | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |-----------------------------------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | StorSimple appliance failure                                                | Backup and restore operations will be interrupted. | Replace the failed appliance and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery/) | If there’s a need to perform a restore after appliance recovery the full data working sets are being retrieved from the cloud to the new appliance, which will result in all operations to be at cloud speed rate. This indexing and cataloging rescanning process could cause all backup sets to be scanned and pulled from cloud tier to local appliance tier which might be a time-consuming process.                                                 |
-| NetBackup Server Failure                                              | Backup and restore operations are interrupted. | Rebuild the backup server and perform Database restore                                                                                                                                       | The NetBackup server will need to be rebuilt or restored at the DR site. The database needs to be restored to the most recent point. If the restored NetBackup database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process could cause all backup sets to be scanned and pulled from cloud tier to local device tier. This makese it further time-sensitive. |
+| NetBackup Server Failure                                              | Backup and restore operations are interrupted. | Rebuild the backup server and perform Database restore                                                                                                                                       | The NetBackup server will need to be rebuilt or restored at the DR site. The database needs to be restored to the most recent point. If the restored NetBackup database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process could cause all backup sets to be scanned and pulled from cloud tier to local device tier. This makes it further time-sensitive. |
 | Site failure that results in the loss of both Backup server and StorSimple. | Backup and restore operations are interrupted. | Restore StorSimple first and then NetBackup.                                                                                                                                          | Restore StorSimple first and then NetBackup.                                                                 If there is a need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. As a result, all operations are at cloud speed rate.|
 
 ## References
