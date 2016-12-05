@@ -136,6 +136,15 @@ The output binding uses the following JSON object in the `bindings` array of fun
 Copy this connection string by clicking the **Connection Information** button for the *namespace*, not the event hub 
 itself. This connection string must have send permissions to send the message to the event stream.
 
+## Output usage
+This section shows you how to use your Event Hub output binding in your function code.
+
+You can output messages to the configured event hub with the following parameter types: 
+
+* `out string`
+* `ICollector<string>` (to output multiple messages)
+* `IAsyncCollector<string>` (async version of `ICollector<T>`)
+
 <a name="outputsample"></a>
 
 ## Output sample
@@ -172,6 +181,18 @@ public static void Run(TimerInfo myTimer, out string outputEventHubMessage, Trac
 }
 ```
 
+Or, to create multiple messages:
+
+```cs
+public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessage, TraceWriter log)
+{
+    string message = $"Event Hub message created at: {DateTime.Now}";
+    log.Info(message); 
+    outputEventHubMessage.Add("1 " + message);
+    outputEventHubMessage.Add("2 " + message);
+}
+```
+
 <a name="outfsharp"></a>
 
 ### Output sample in F# #
@@ -190,8 +211,23 @@ let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: TraceWrit
 ```javascript
 module.exports = function (context, myTimer) {
     var timeStamp = new Date().toISOString();
-    context.log('TimerTriggerNodeJS1 function ran!', timeStamp);   
-    context.bindings.outputEventHubMessage = "TimerTriggerNodeJS1 ran at : " + timeStamp;
+    context.log('Event Hub message created at: ', timeStamp);   
+    context.bindings.outputEventHubMessage = "Event Hub message created at: " + timeStamp;
+    context.done();
+};
+```
+
+Or, to send multiple messages,
+
+```javascript
+module.exports = function(context) {
+    var timeStamp = new Date().toISOString();
+    var message = 'Event Hub message created at: ' + timeStamp;
+
+    context.bindings.outputEventHubMessage = [];
+
+    context.bindings.outputEventHubMessage.push("1 " + message);
+    context.bindings.outputEventHubMessage.push("2 " + message);
     context.done();
 };
 ```
