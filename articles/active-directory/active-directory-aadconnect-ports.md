@@ -18,7 +18,7 @@ ms.author: billmath
 
 ---
 # Hybrid Identity Required Ports and Protocols
-The following document is a technical reference to provide information on the required ports and protocols that are required for implementing a hybrid identity solution. Use the following illustration and refer to the corresponding table.
+The following document is a technical reference on the required ports and protocols for implementing a hybrid identity solution. Use the following illustration and refer to the corresponding table.
 
 ![What is Azure AD Connect](./media/active-directory-aadconnect-ports/required2.png)
 
@@ -44,8 +44,8 @@ This table describes the ports and protocols that are required for communication
 
 For a list of URLs and IP addresses you need to open in your firewall, see [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-## Table 3 - Azure AD Connect and Federation Servers/WAP
-This table describes the ports and protocols that are required for communication between the Azure AD Connect server and Federation/WAP servers.  
+## Table 3 - Azure AD Connect and AD FS Federation Servers/WAP
+This table describes the ports and protocols that are required for communication between the Azure AD Connect server and AD FS Federation/WAP servers.  
 
 | Protocol | Ports | Description |
 | --- | --- | --- |
@@ -68,7 +68,7 @@ This table describes the ports and protocols that are required for communication
 | HTTPS |443(TCP/UDP) |Used for device authentication. |
 | TCP |49443 (TCP) |Used for certificate authentication. |
 
-## Table 6 Pass-through Authentication
+## Table 6 - Pass-through Authentication
 This table describes the ports and protocols that are required for communication between the connector and Azure AD.
 
 |Protocol|Port Number|Description
