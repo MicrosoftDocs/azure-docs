@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting Docker client errors on Windows using Visual Studio | Microsoft Docs
+title: Troubleshooting Docker client errors on Windows by using Visual Studio | Microsoft Docs
 description: Troubleshoot problems you encounter when using Visual Studio to create and deploy web apps to Docker on Windows by using Visual Studio.
 services: azure-container-service
 documentationcenter: na
@@ -40,7 +40,7 @@ ERROR: for webapplication1  Cannot create container for service webapplication1:
 ```
 To resolve this issue:
 
-1. Right-click Docker for Windows in the notification area, and then select **Settings**.  
+1. Right-click **Docker for Windows** in the notification area, and then select **Settings**.  
 2. Select **Shared Drives** and share the drive where the project resides.
 
 ### **Windows containers**
@@ -49,10 +49,10 @@ The following issues are specific to debugging .NET Framework web and console ap
 
 #### Prerequisites
 
-1. Visual Studio 2017 RC (or later) with the .NET Core and Docker Preview workload installed.
-2. Windows 10 Anniversary Update with the latest Windows Update patches installed.
-3. [Docker for Windows (Beta)](https://docs.docker.com/docker-for-windows/)--(Version 1.12.2-beta28 7813 or later).
-4. **Switch to Windows containers** must be selected. In the notification area, click Docker for Windows, and then select **Switch to Windows containers**. After the machine restarts, ensure that this setting is retained.
+1. Visual Studio 2017 RC (or later) with the .NET Core and Docker Preview workload must be installed.
+2. Windows 10 Anniversary Update with the latest Windows Update patches must be installed.
+3. [Docker for Windows (Beta)](https://docs.docker.com/docker-for-windows/) (build 1.12.2-beta28 7813 or later) must be installed.
+4. **Switch to Windows containers** must be selected. In the notification area, click **Docker for Windows**, and then select **Switch to Windows containers**. After the machine restarts, ensure that this setting is retained.
 
 #### Console output does not appear in Visual Studio's output window while debugging a console application
 
@@ -82,7 +82,7 @@ reflect these changes in a similar folder structure.
 
 To enable volume mapping:
 
-1. Click Moby in the notification area and select **Settings**.
+1. Click **Moby** in the notification area and select **Settings**.
 2. Select **Shared Drives**.
 3. Select the drive that hosts your project and the drive where %USERPROFILE% resides.
 4. Click **Apply**.
@@ -97,7 +97,7 @@ To test if volume mapping is functioning, Rebuild and select F5 from within Visu
 docker run -it -v /c/Users/Public:/wormhole busybox
 ```
 
-*In the Linux container*
+Run the following code in the Linux container.
 
 ```
 / # ls
