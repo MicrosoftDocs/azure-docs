@@ -49,7 +49,7 @@ If you intend to increase the partition count in the future, you may need to sto
 ## DocumentDB settings for JSON output
 Creating DocumentDB as an output in Stream Analytics generates a prompt for information as seen below. This section provides an explanation of the properties definition.
 
-Partitioned Collection | Multiple Single Collections
+Partitioned Collection | Multiple “Single Partition” collections
 ---|---
 ![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png) |  ![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
