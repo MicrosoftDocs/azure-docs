@@ -1,4 +1,4 @@
-﻿---
+---
 title: AS2 tracking schemas | Microsoft Docs
 description: Learn more about AS2 tracking schemas
 author: padmavc
@@ -17,7 +17,6 @@ ms.date: 10/31/2016
 ms.author: padmavc
 
 ---
-
 # AS2 tracking schemas
 You can use these AS2 tracking schemas in your Azure integration account to help you monitor business-to-business (B2B) transactions:
 
@@ -122,15 +121,15 @@ You can use these AS2 tracking schemas in your Azure integration account to help
 | isMessageFailed |Boolean | Whether the AS2 message failed. (Mandatory) |
 | isMessageSigned |Boolean | Whether the AS2 message was signed. (Mandatory) |
 | isNrrEnabled | Boolean | Use default value if the value is not known. (Mandatory) |
-| statusCode | Enum | Allowed values are Accepted, Rejected, and AcceptedWithErrors. (Mandatory) |
-| micVerificationStatus | Enum | Allowed values are NotApplicable, Succeeded, and Failed. (Mandatory) |
-| correlationMessageId | String | Correlation ID, which is the original messaged ID (the message ID of the message for which MDN is configured). (Optional) |
+| statusCode | Enum | Allowed values are **Accepted**, **Rejected**, and **AcceptedWithErrors**. (Mandatory) |
+| micVerificationStatus | Enum | Allowed values are **NotApplicable**, **Succeeded**, and **Failed**. (Mandatory) |
+| correlationMessageId | String | Correlation ID. The original messaged ID (the message ID of the message for which MDN is configured). (Optional) |
 | incomingHeaders | Dictionary of JToken | Indicates incoming message header details. (Optional) |
 | outgoingHeaders |Dictionary of JToken | Indicates outgoing message header details. (Optional) |
 
 ## Next steps
-Learn more about the [Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).    
-Learn more about [monitoring B2B messages](app-service-logic-monitor-b2b-message.md).   
-Learn about [tracking B2B messages in the Operations Management Suite portal](app-service-logic-track-b2b-messages-omsportal.md).
-Learn more about [B2B custom tracking schemas](app-service-logic-track-integration-account-custom-tracking-shema.md).   
-Learn more about [X12 tracking schemas](app-service-logic-track-integration-account-x12-tracking-shemas.md).   
+* Learn more about the [Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).    
+* Learn more about [monitoring B2B messages](app-service-logic-monitor-b2b-message.md).   
+* Learn more about [B2B custom tracking schemas](app-service-logic-track-integration-account-custom-tracking-shema.md).   
+* Learn more about [X12 tracking schemas](app-service-logic-track-integration-account-x12-tracking-shemas.md).   
+* Learn about [tracking B2B messages in the Operations Management Suite portal](app-service-logic-track-b2b-messages-omsportal.md).

@@ -130,8 +130,8 @@ You can use these X12 tracking schemas in your Azure integration account to help
 | respondingtransactionSetControlNumber | String | Responding transaction set control number. (Optional) |
 | respondingTransactionSetId | String | Responding transaction set ID, which maps to AK201 in the acknowledgement. (Optional) |
 | statusCode | Boolean | Transaction set acknowledgement status code. (Mandatory) |
-| segmentsCount | Enum | Acknowledgement status code. Allowed values are Accepted, Rejected, and AcceptedWithErrors. (Mandatory) |
-| processingStatus | Enum | Processing status of the acknowledgement. Allowed values are Received, Generated, and Sent. (Mandatory) |
+| segmentsCount | Enum | Acknowledgement status code. Allowed values are **Accepted**, **Rejected**, and **AcceptedWithErrors*. (Mandatory) |
+| processingStatus | Enum | Processing status of the acknowledgement. Allowed values are **Received**, **Generated**, and **Sent*. (Mandatory) |
 | CorrelationMessageId | String | Correlation message ID. A combination of {AgreementName}*{GroupControlNumber}*{TransactionSetControlNumber}. (Optional) |
 | isMessageFailed | Boolean | Whether the X12 message failed. (Mandatory) |
 | ak2Segment | String | Acknowledgement for a transaction set within the received functional group. (Optional) |
@@ -231,8 +231,8 @@ You can use these X12 tracking schemas in your Azure integration account to help
 | isaSegment | String | ISA segment for the technical acknowledgement that's received from partners. (Optional) |
 | respondingInterchangeControlNumber |String | Interchange control number for the technical acknowledgement that's received from partners. (Optional) |
 | isMessageFailed | Boolean | Whether the X12 message failed. (Mandatory) |
-| statusCode | Enum | Interchange acknowledgement status code. Allowed values are Accepted, Rejected, and AcceptedWithErrors. (Mandatory) |
-| processingStatus | Enum | Acknowledgement status. Allowed values are Received, Generated, and Sent. (Mandatory) |
+| statusCode | Enum | Interchange acknowledgement status code. Allowed values are **Accepted**, **Rejected**, and **AcceptedWithErrors*. (Mandatory) |
+| processingStatus | Enum | Acknowledgement status. Allowed values are **Received**, **Generated**, and **Sent*. (Mandatory) |
 | ta102 | String | Interchange date. (Optional) |
 | ta103 | String | Interchange time. (Optional) |
 | ta105 | String | Interchange note code. (Optional) |
@@ -339,16 +339,16 @@ You can use these X12 tracking schemas in your Azure integration account to help
 | gsSegment | String | Same as functional group control number, but populated only in specific cases. (Optional) |
 | respondingfunctionalGroupControlNumber | String | Control number of the original functional group. (Optional) |
 | respondingFunctionalGroupId | String | Maps to AK101 in the acknowledgement functional group ID. (Optional) |
-| isMessageFailed | Boolean | Whether the X12 message failed . (Mandatory) |
-| statusCode | Enum | Acknowledgement status code. Allowed values are Accepted, Rejected, and AcceptedWithErrors. (Mandatory) |
-| processingStatus | Enum | Processing status of the acknowledgement. Allowed values are Received, Generated, and Sent. (Mandatory) |
+| isMessageFailed | Boolean | Whether the X12 message failed. (Mandatory) |
+| statusCode | Enum | Acknowledgement status code. Allowed values are **Accepted**, **Rejected**, and **AcceptedWithErrors**. (Mandatory) |
+| processingStatus | Enum | Processing status of the acknowledgement. Allowed values are **Received**, **Generated**, and **Sent**. (Mandatory) |
 | ak903 | String | Number of transaction sets received. (Optional) |
 | ak904 | String | Number of transaction sets accepted in the identified functional group. (Optional) |
 | ak9Segment | String | Whether the functional group identified in the AK1 segment is accepted or rejected, and why. (Optional) |
 
 ## Next steps
-Learn more about [monitoring B2B messages](app-service-logic-monitor-b2b-message.md).
-Learn about [tracking B2B messages in the Operations Management Suite portal](app-service-logic-track-b2b-messages-omsportal.md).
-Learn more about [AS2 tracking schemas](app-service-logic-track-integration-account-as2-tracking-shemas.md).
-Learn more about [B2B custom tracking schemas](app-service-logic-track-integration-account-custom-tracking-shema.md).
-Learn more about the [Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).  
+* Learn more about [monitoring B2B messages](app-service-logic-monitor-b2b-message.md).
+* Learn more about [AS2 tracking schemas](app-service-logic-track-integration-account-as2-tracking-shemas.md).
+* Learn more about [B2B custom tracking schemas](app-service-logic-track-integration-account-custom-tracking-shema.md).
+* Learn about [tracking B2B messages in the Operations Management Suite portal](app-service-logic-track-b2b-messages-omsportal.md).
+* Learn more about the [Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).  
