@@ -1,6 +1,6 @@
 ﻿---
 title: What is Microsoft Power BI Embedded?
-description: Power BI Embedded enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions to visualize data for your users
+description: Power BI Embedded enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions.
 services: power-bi-embedded
 documentationcenter: ''
 author: guyinacube
@@ -31,13 +31,13 @@ In the **Microsoft Power BI Embedded** usage model, licensing for Power BI is no
 ## Microsoft Power BI Embedded Conceptual Model
 ![](media\\powerbi-embedded-whats-is\\model.png)
 
-Like any other service in Azure, resources for Power BI Embedded are provisioned through the [Azure ARM APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource that you provision is a **Power BI Workspace Collection**.
+Like any other service in Azure, resources for Power BI Embedded are provisioned through the [Azure Resource Manager APIs](https://msdn.microsoft.com/library/mt712306.aspx). In this case, the resource that you provision is a **Power BI Workspace Collection**.
 
 ## Workspace Collection
 A **Workspace Collection** is the top-level Azure container for resources that contains 0 or more **Workspaces**.  A **Workspace** **Collection** has all of the standard Azure properties, as well as the following:
 
 * **Access Keys** – Keys used when securely calling the Power BI APIs (described in a later section).
-* **Users** – Azure Active Directory (AAD) users that have administrator rights to manage the Power BI Workspace Collection through the Azure portal or ARM API.
+* **Users** – Azure Active Directory (AAD) users that have administrator rights to manage the Power BI Workspace Collection through the Azure portal or Azure Resource Manager API.
 * **Region** – As part of provisioning a **Workspace Collection**, you can select a region to be provisioned in. For more information, see [Azure Regions](https://azure.microsoft.com/regions/).
 
 ## Workspace
