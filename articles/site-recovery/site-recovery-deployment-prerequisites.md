@@ -37,7 +37,7 @@ New Site Recovery scenarios should be deployed in the [Azure portal](https://por
 ## Azure account requirements
 
 **Requirement** | **Details**
---- | --- |
+--- | --- 
 **Azure account** | A [Microsoft Azure](http://azure.microsoft.com/) account.<br/><br/> You can start with a [free trial](https://azure.microsoft.com/pricing/free-trial/). [Learn more](https://azure.microsoft.com/pricing/details/site-recovery/) about Site Recovery pricing.
 
 
@@ -46,7 +46,7 @@ New Site Recovery scenarios should be deployed in the [Azure portal](https://por
 Replicated data is stored in Azure storage, and Azure VMs are created when failover occurs.
 
 **Requirement** | **Details**
---- | --- |
+--- | --- 
 [Azure storage account](../storage/storage-introduction.md) | You can use [GRS](../storage/storage-redundancy.md#geo-redundant-storage) or LRS storage.<br/><br/> We recommend GRS so that data is resilient if a regional outage occurs, or if the primary region can't be recovered. [Learn more](https://docs.microsoft.com/en-us/azure/storage/storage-redundancy)
 **Azure portal** | In the Azure portal you can use Resource Manager storage, or a classic storage account.
 **Premium storage** | [Premium storage](https://docs.microsoft.com/en-us/azure/storage/storage-premium-storage) is supported if you replicate VMware VMs or physical servers to Azure, using the Azure portal.<br/><br/> Premium storage is typically used for virtual machines that need a consistently high IO performance, and low latency to host IO intensive workloads.<br/><br/> If you do use premium storage, you also need a standard storage account to store replication logs that capture ongoing changes to on-premises data.
@@ -70,7 +70,7 @@ You need an Azure network to which Azure VMs will connect when they're created a
 **Configuration server** | An on-premises physical or virtual machine running Windows Server 2012 R2. All on-premises Site Recovery components are installed on this machine.<br/><br/>For VMware VM replication, we recommend you deploy the server as a highly available VMware VM. <br/><br/>If the server is a VMware VM, the network adapter type should be VMXNET3. If you use a different type of network adapter, install a [VMware update](https://kb.vmware.com/selfservice/microsites/search.do?cmd=displayKC&docType=kc&externalId=2110245&sliceId=1&docTypeID=DT_KB_1_1&dialogID=26228401&stateId=1) on the vSphere 5.5 server.<br/><br/>The server should have a static IP address.<br/><br/>The server should not be a domain controller.<br/><br/>The host name of the server should contain 15 characters or less.<br/><br/>The operating system should be in English only.<br/><br/> Install VMware vSphere PowerCLI 6.0. server.<br/><br/>The configuration server needs internet access. Outbound access is required as follows:<br/><br/>Temporary access on HTTP 80 during setup of the Site Recovery components (to download MySQL)<br/><br/>Ongoing outbound access on HTTPS 443 for replication management<br/><br/>Ongoing outbound access on HTTPS 9443 for replication traffic (this port can be modified)<br/><br/> Allow this URL for the MySQL download: ``http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi``<br/><br/> The server also needs access to [these URLs](#requirements-for-url-access)
 **Process server** | Installed by default on the configuration server<br/><br/> Acts as a replication gateway. It receives replication data from protected source machines, optimizes it with caching, compression, and encryption, and sends the data to Azure storage. It also handles push installation of the Mobility service to protected machines, and performs automatic discovery of VMware VMs. As your deployment grows you can add additional separate dedicated process servers to handle increasing volumes of replication traffic.
 **Master target server** | Installed by default on the configuration server. Handles replication data during failback from Azure.
-**vSphere hosts** | One or more VMware vSphere hypervisors.<br/><br/>Hypervisors should be running vSphere version 6.0, 5.5 or 5.1, with the latest updates.<br/><br/>We recommend that vSphere hosts and vCenter servers are located in the same network as the process server (this is the network in which the configuration server is located unless you’ve set up a dedicated process server). |
+**vSphere hosts** | One or more VMware vSphere hypervisors.<br/><br/>Hypervisors should be running vSphere version 6.0, 5.5 or 5.1, with the latest updates.<br/><br/>We recommend that vSphere hosts and vCenter servers are located in the same network as the process server (this is the network in which the configuration server is located unless you’ve set up a dedicated process server). 
 **vCenter servers** | We recommend that you deploy a VMware vCenter server, to manage your vSphere hosts. It should be running vCenter version 6.0 or 5.5, with the latest updates.<br/><br/>**Limitation**: Site Recovery doesn't support new vCenter and vSphere 6.0 features such as cross vCenter vMotion, virtual volumes, and storage DRS. Site Recovery support is limited to features that were also available in version 5.5
 
 ### VMware VM requirements (to Azure)
@@ -87,7 +87,8 @@ You need an Azure network to which Azure VMs will connect when they're created a
 
 **Component** | **Requirement**
 --- | ---
-**Configuration server** | An on-premises physical or virtual machine running Windows Server 2012 R2. All on-premises Site Recovery components are installed on this machine.<br/><br/> For physical machine replication, the machine can be a physical server.<br/><br/> Failback from Azure is always to VMware VMs, even if you replicated a physical server. If you don't deploy the configuration server as a VMware VM, you need to set up a VMware VM to receive failback traffic, before you fail back.<br/><br/> The configuration server needs internet access. Outbound access is required as follows:<br/><br/> Temporary access on HTTP 80 during setup of the Site Recovery components (to download MySQL)<br/><br/>Ongoing outbound access on HTTPS 443 for replication management<br/><br/>Ongoing outbound access on HTTPS 9443 for replication traffic (this port can be modified)<br/><br/> Allow this URL for the MySQL download: ``http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi``<br/><br/> The server also needs access to [these URLs](#requirements-for-url-access)
+**Configuration server** | An on-premises physical or virtual machine running Windows Server 2012 R2. All on-premises Site Recovery components are installed on this machine.<br/><br/> For physical machine replication, the machine can be a physical server.<br/><br/>  The configuration server needs internet access. Outbound access is required as follows:<br/><br/> Temporary access on HTTP 80 during setup of the Site Recovery components (to download MySQL)<br/><br/>Ongoing outbound access on HTTPS 443 for replication management<br/><br/>Ongoing outbound access on HTTPS 9443 for replication traffic (this port can be modified)<br/><br/> Allow this URL for the MySQL download: ``http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi``<br/><br/> The server also needs access to [these URLs](#requirements-for-url-access)
+**Failback** | Failback from Azure is always to VMware VMs, even if you replicated a physical server. If you don't deploy the configuration server as a VMware VM, you need to set up a VMware VM to receive failback traffic, before you fail back.
 
 ### Physical machine requirements (to Azure)
 
@@ -137,7 +138,7 @@ Verify the requirements in the [InMage support matrix](https://aka.ms/asr-scout-
 **Hyper-V** | Hyper-V servers must be running at least Windows Server 2012 with the Hyper-V role, and the latest updates installed.<br/><br/> The Hyper-V server should contain one or more VMs<br/><br/> Hyper-V hosts should be located in host groups on the primary and secondary VMM servers.<br/><br/> If you run Hyper-V in a cluster on Windows Server 2012 R2, you should install update [2961977](https://support.microsoft.com/kb/2961977). If you have a Hyper-V cluster on Windows Server 2012, cluster broker isn't created automatically if you have a static IP address-based cluster. [Read more](http://social.technet.microsoft.com/wiki/contents/articles/18792.configure-replica-broker-role-cluster-to-cluster-replication.aspx) to configure manually.
 
 ### Hyper-V VM requirements (secondary site)
-
+--- | ---
 **VMM cloud** | VMs must be located on Hyper-V host in VMM clouds.
 
 
@@ -149,8 +150,8 @@ Verify the requirements in the [InMage support matrix](https://aka.ms/asr-scout-
 
 These URLs should be available from VMware, VMM, and Hyper-V host servers.
 
-**URL** | **VMM to VMM** | **VMM to Azure** | **Hyper-V to Azure** | **VMware to Azure** |
-|--- | --- | --- | --- | ---
+**URL** | **VMM to VMM** | **VMM to Azure** | **Hyper-V to Azure** | **VMware to Azure** 
+--- | --- | --- | --- | ---
 ``*.accesscontrol.windows.net`` | Allow | Allow | Allow | Allow
 ``*.backup.windowsazure.com`` | Not required | Allow | Allow | Allow
 ``*.hypervrecoverymanager.windowsazure.com`` | Allow | Allow | Allow | Allow
@@ -163,7 +164,7 @@ These URLs should be available from VMware, VMM, and Hyper-V host servers.
 
 ## Failover requirements
 
-**Scenario** **Test** | **Planned** | **Unplanned**
+**Scenario** | **Test** | **Planned** | **Unplanned**
 --- | --- | --- | ---
 VMware to Azure | Supported | Unsupported | Supported
 Physical to Azure | Supported | Unsupported | Supported
@@ -192,7 +193,7 @@ Hyper-V (primary VMM/cloud) to secondary | Supported | Supported | Supported
 
 
 ### Failback from Azure to physical machines
-
+--- | ---
 **Physical-to-physical failback** | This isn't supported. This means that if you fail over physical servers to Azure and then want to fail back, you must fail back to a VMware VM. You can't fail back to a physical server.
 **VM** | You need a VMware VM on-premises to fail back to.
 **Configuration server** | Ff you didn't deploy the on-premises configuration server as a VMware VM, you need to set up a separate master target server as a VMware VM. This is needed because the master target server interacts and attaches to VMware storage to restore the disks to a VMware VM.
