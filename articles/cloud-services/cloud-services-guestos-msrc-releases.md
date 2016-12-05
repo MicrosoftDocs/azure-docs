@@ -4,7 +4,7 @@ description: The list of updates applied to Guest OS releases
 services: cloud-services
 documentationcenter: na
 author: raiye
-manager: markkie
+manager: timlt
 editor: ''
 
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
@@ -13,12 +13,37 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 10/31/2016
+ms.date: 12/1/2016
 ms.author: raiye
 
 ---
 # Azure Guest OS
 The following tables show the Microsoft Security Response Center (MSRC) updates applied to the Azure Guest OS. Search this article to determine if a particular update applies to the Guest OS you are using. Updates always carry forward for the particular [family][family-explain] they were introduced in.
+
+## November Guest OS
+| Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
+| --- | --- | --- | --- | --- |
+| MS16-129 |[3199057] |Cumulative Security Update for Microsoft Edge |5.3 |Nov 8, 2016 |
+| MS16-130 |[3199172] |Security Update for Microsoft Windows |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-131 |[3199151]	|Security Update for Microsoft Video Control |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-132 |[3199120] |Security Update for Microsoft Component |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-134 |[3193706] |Security Update for Common Log File System Driver |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-135 |[3199135] |Security Update for Kernel-Mode Drivers |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-137 |[3199173]	|Security Update for Windows Authentication Methods |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| MS16-138 |[3199647] |Security Update to Microsoft Virtual Hard Drive |5.3, 4.38, 3.45 |Nov 8, 2016 |
+| MS16-139 |[3199720] |Security Update for Windows Kernel |2.57 |Nov 8.2016 |
+| MS16-140 |[3193479] |Security Update For Boot Manager |5.3, 4.38, 3.45 |Nov 8, 2016 |
+| MS16-142 |[3198467] |Cumulative Security Update for Internet Explorer |2.57, 4.38, 5.3 |Nov 8, 2016 |
+| N/A |[3192321] |Turkey ends DST observance |5.3, 4.38, 3.45, 2.57 |Nov 8, 2016 |
+| N/A |[3185330] |October 2016 security monthly quality rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.57 |Nov 8, 2016 |
+| N/A |[3192403] |October 2016 Preview of Monthly Quality Rollup for Windows 7 SP1 and Windows Server 2008 R2 SP1 |2.57 |Nov 8, 2016 |
+| N/A |[3177467] |Servicing stack update for Windows 7 SP1 and Windows Server 2008 R2 SP1: September 20, 2016 |2.57 |Nov 8, 2016 |
+| N/A |[3185332] |October 2016 security monthly quality rollup for Windows Server 2012 |3.45 |Nov 8, 2016 |
+| N/A |[3192406] |October 2016 Preview of Monthly Quality Rollup for Windows Server 2012 |3.45 |Nov 8, 2016 |
+| N/A |[3185331] |October 2016 security monthly quality rollup for Windows 8.1 and Windows Server 2012 R2 |4.38 |Nov 8, 2016 |
+| N/A |[3192404] |October 2016 Preview of Monthly Quality Rollup for Windows 8.1 and Windows Server 2012 R2 |4.38 |Nov 8, 2016 |
+| N/A |[3199986] |Servicing stack update for Windows 10 Version 1607: October 27, 2016 |5.3 |Nov 8, 2016 |
+| N/A |[3197954] |Cumulative Update for Windows 10 Version 1607 and Windows Server 2016: October 27, 2016 |5.3 |Nov 8, 2016 |
 
 ## October Guest OS
 | Bulletin ID | Parent KB Article | Vulnerability Description | Guest OS | Date First Introduced |
@@ -353,6 +378,28 @@ The following tables show the Microsoft Security Response Center (MSRC) updates 
 | N/A |[3007054] |PIN-protected printing option always shows when you print a document within a Windows Store application in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2999802] |Solid lines instead of dotted lines are printed in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
 | N/A |[2896881] |Long logon time when you use the AddPrinterConnection VBScript command to map printers for users during logon process in Windows |4.15, 3.22, 2.34 |Jan 13 2015 |
+
+[3199057]: http://support.microsoft.com/kb/3199057 
+[3199172]: http://support.microsoft.com/kb/3199172 
+[3199151]: http://support.microsoft.com/kb/3199151 
+[3193706]: http://support.microsoft.com/kb/3193706 
+[3199120]: http://support.microsoft.com/kb/3199120 
+[3199135]: http://support.microsoft.com/kb/3199135 
+[3199173]: http://support.microsoft.com/kb/3199173 
+[3199647]: http://support.microsoft.com/kb/3199647 
+[3199720]: http://support.microsoft.com/kb/3199720 
+[3193479]: http://support.microsoft.com/kb/3193479 
+[3198467]: http://support.microsoft.com/kb/3198467 
+[3192321]: http://support.microsoft.com/kb/3192321 
+[3185330]: http://support.microsoft.com/kb/3185330 
+[3192403]: http://support.microsoft.com/kb/3192403 
+[3177467]: http://support.microsoft.com/kb/3177467 
+[3185332]: http://support.microsoft.com/kb/3185332 
+[3192406]: http://support.microsoft.com/kb/3192406 
+[3185331]: http://support.microsoft.com/kb/3185331 
+[3192404]: http://support.microsoft.com/kb/3192404 
+[3199986]: http://support.microsoft.com/kb/3199986 
+[3197954]: http://support.microsoft.com/kb/3197954  
 
 [3192887]: http://support.microsoft.com/kb/3192887
 [3192884]: http://support.microsoft.com/kb/3192884
