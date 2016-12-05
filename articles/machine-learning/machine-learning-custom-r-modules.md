@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
 ms.date: 08/19/2016
-ms.author: bradsev;ankarloff
+ms.author: bradsev;ankarlof
 
 ---
 # Author custom R modules in Azure Machine Learning
