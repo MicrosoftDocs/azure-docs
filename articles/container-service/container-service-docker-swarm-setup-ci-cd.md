@@ -100,6 +100,59 @@ All the configuration is done now. In the next parts, you will create the CI/CD 
 
 ## Create the build definition
 
+To create a new build definition, connect to your Visual Studio Team Services team project and click on the **Build & Release** top menu entry. In the Build definitions section, create on the **+ New** button. Choose to start from an empty template:
+
+![Visual Studio Team Services - New Build Definition](./media/container-service-docker-swarm-setup-ci-cd/create-build-vsts.png)
+
+In the next step, configure the new build with a GitHub repository source, check the continuous integration checkbox and select the agent queue where you have registered your Linux agent. Click **Create** to create the build definition:
+
+![Visual Studio Team Services - Create Build Definition](./media/container-service-docker-swarm-setup-ci-cd/vsts-create-build-github.png)
+
+First, open the **Repository** tab and configure the build to use the fork of the MyShop project that you have created in the prerequisites. Make sure that you have selected the *acs-docs* branch:
+
+![Visual Studio Team Services - Build Repository Configuration](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-repo-conf.png)
+
+Open the **Triggers** tab and check the build is configured to be triggered after each commit:
+
+![Visual Studio Team Services - Build Trigger Configuration](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-trigger-conf.png)
+
+The next step is to define the build workflow. There are 5 container images to build for the *MyShop* application. Each image will be built using the Dockerfile located in the project folders:
+
+- ProductsApi
+- Proxy
+- RatingsApi
+- RecommandationsApi
+- ShopFront
+
+To add a new step in the build workflow, click on the **+ Add build step...** button and choose the Docker step in the list:
+You need to add 10 Docker steps: two for each image, one for building the image and one for pushing the image in the Azure Container Registry.
+
+![Visual Studio Team Services - Add Build Steps](./media/container-service-docker-swarm-setup-ci-cd/vsts-github-trigger-conf.png)
+
+For each image, you need to configure one step that uses the *docker build* command:
+
+![Visual Studio Team Services - Docker Build](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-build.png)
+
+*For the build operation, you need to pick the Azure Container Registry, the "Build an image" action, the Dockerfile that defines each image, set the context to the Dockerfile root directory and define the name of the image. As you can see on the capture above, the image should start with the URI of your Azure Container Registry. You can also use a build variable to parameterize the tag of the image, here the build identifier.*
+
+And one step that uses the *docker push* command:
+
+![Visual Studio Team Services - Docker Push](./media/container-service-docker-swarm-setup-ci-cd/vsts-docker-push.png)
+
+*For the push operation, you need to pick the Azure Container Registry, select the "Push an image" action and give the name of the image that have been built in the previous step.*
+
+Once you have configured the five Build+Push steps, you have to add two more step in the build workflow.
+
+A command line task that will use a bash script to replace the *BuildNumber* occurence in the docker-compose.yml file with the current build id:
+
+![Visual Studio Team Services - Update Compose file](./media/container-service-docker-swarm-setup-ci-cd/vsts-build-replace-build-number.png)
+
+And finally, a task that drops the updates compose file as a build artefact so it can be used in the release:
+
+![Visual Studio Team Services - Publish Compose file](./media/container-service-docker-swarm-setup-ci-cd/vsts-publish-compose.png) 
+
+Click the **Save** button and give a name to your build definition.
+
 ## Create the release definition
 
 ## Wrap up and next steps
