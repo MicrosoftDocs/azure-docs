@@ -53,6 +53,8 @@ Partitioned Collection | Multiple Single Collections
 ---|---
 ![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png) |  ![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
 
+
+  
 > [!NOTE]  The **Multiple Single Scenario** requires a partition key and is a supported configuration. 
 
 * **Output Alias** – An alias to refer this output in your ASA query  
