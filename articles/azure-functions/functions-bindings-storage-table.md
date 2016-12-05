@@ -57,10 +57,8 @@ The Storage table input to a function uses the following JSON objects in the `bi
 
 Note the following: 
 
-* Use `partitionKey` and `rowKey` together to read a single entity. These properties are optional.
-* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
-  editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+* Use `partitionKey` and `rowKey` together to read a single entity. These properties are optional. 
+* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing one. You can also [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md#application-settings).  
 
 <a name="inputusage"></a>
 
@@ -181,9 +179,7 @@ Note the following:
 
 * Use `partitionKey` and `rowKey` together to write a single entity. These properties are optional. You can also
   specify `PartitionKey` and `RowKey` when you create the entity objects in your function code.
-* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
-  editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing one. You can also [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md#application-settings). 
 
 <a name="outputusage"></a>
 
