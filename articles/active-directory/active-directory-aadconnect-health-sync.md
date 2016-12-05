@@ -1,4 +1,3 @@
-
 ---
 title: Using Azure AD Connect Health with sync | Microsoft Docs
 description: This is the Azure AD Connect Health page that will discuss how to monitor Azure AD Connect sync.
