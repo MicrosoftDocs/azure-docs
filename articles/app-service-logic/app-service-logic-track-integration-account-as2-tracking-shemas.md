@@ -19,7 +19,7 @@ ms.author: padmavc
 ---
 
 # AS2 tracking schemas
-These AS2 tracking schemas are supported:
+You can use these AS2 tracking schemas in your Azure integration account to help you monitor business-to-business (B2B) transactions:
 
 * AS2 message tracking schema
 * AS2 MDN tracking schema
@@ -58,25 +58,25 @@ These AS2 tracking schemas are supported:
 
 | Property | Type | Description |
 | --- | --- | --- |
-| senderPartnerName | String | AS2 message sender's partner name (Optional) |
-| receiverPartnerName | String | AS2 message receiver's partner name (Optional) |
-| as2To | String | AS2 message receiver’s name that's in the headers of the AS2 message (Mandatory) |
-| as2From | String | AS2 message sender’s name that's in the headers of the AS2 message (Mandatory) |
-| agreementName | String | Name of the AS2 agreement to which the messages are resolved (Optional) |
-| direction | String | Direction of the message flow, Receive or Send (Mandatory) |
-| messageId | String | AS2 message ID that's in in the headers of the AS2 message (Optional) |
-| dispositionType |String | Message Disposition Notification (MDN) disposition type value (Optional) |
-| fileName | String | File name that's in the header of the AS2 message (Optional) |
-| isMessageFailed |Boolean | Whether the AS2 message failed (Mandatory) |
-| isMessageSigned | Boolean | Whether the AS2 message was signed (Mandatory) |
-| isMessageEncrypted | Boolean | Whether the AS2 message was encrypted (Mandatory) |
-| isMessageCompressed |Boolean | Whether the AS2 message was compressed (Mandatory) |
-| correlationMessageId | String | AS2 message ID, to correlate messages with MDNs (Optional) |
-| incomingHeaders |Dictionary of JToken | Incoming AS2 message header details (Optional) |
-| outgoingHeaders |Dictionary of JToken | Outgoing AS2 message header details (Optional) |
-| isNrrEnabled | Boolean | Use default value if the value is not known (Mandatory) |
-| isMdnExpected | Boolean | Use default value if the value is not known (Mandatory) |
-| mdnType | Enum | Allowed values are NotConfigured, Sync, and Async (Mandatory) |
+| senderPartnerName | String | AS2 message sender's partner name. (Optional) |
+| receiverPartnerName | String | AS2 message receiver's partner name. (Optional) |
+| as2To | String | AS2 message receiver’s name, from the headers of the AS2 message. (Mandatory) |
+| as2From | String | AS2 message sender’s name, from the headers of the AS2 message. (Mandatory) |
+| agreementName | String | Name of the AS2 agreement to which the messages are resolved. (Optional) |
+| direction | String | Direction of the message flow, receive or send. (Mandatory) |
+| messageId | String | AS2 message ID, from the headers of the AS2 message (Optional) |
+| dispositionType |String | Message Disposition Notification (MDN) disposition type value. (Optional) |
+| fileName | String | File name, from the header of the AS2 message. (Optional) |
+| isMessageFailed |Boolean | Whether the AS2 message failed. (Mandatory) |
+| isMessageSigned | Boolean | Whether the AS2 message was signed. (Mandatory) |
+| isMessageEncrypted | Boolean | Whether the AS2 message was encrypted. (Mandatory) |
+| isMessageCompressed |Boolean | Whether the AS2 message was compressed. (Mandatory) |
+| correlationMessageId | String | AS2 message ID, to correlate messages with MDNs. (Optional) |
+| incomingHeaders |Dictionary of JToken | Incoming AS2 message header details. (Optional) |
+| outgoingHeaders |Dictionary of JToken | Outgoing AS2 message header details. (Optional) |
+| isNrrEnabled | Boolean | Use default value if the value is not known. (Mandatory) |
+| isMdnExpected | Boolean | Use default value if the value is not known. (Mandatory) |
+| mdnType | Enum | Allowed values are NotConfigured, Sync, and Async. (Mandatory) |
 
 ## AS2 MDN tracking schema
 ````java
@@ -110,27 +110,27 @@ These AS2 tracking schemas are supported:
 
 | Property | Type | Description |
 | --- | --- | --- |
-| senderPartnerName | String | AS2 message sender's partner name (Optional) |
-| receiverPartnerName | String | AS2 message receiver's partner name (Optional) |
-| as2To | String | Partner name who receives the AS2 message (Mandatory) |
-| as2From | String | Partner name who sends the AS2 message (Mandatory) |
-| agreementName | String | Name of the AS2 agreement to which the messages are resolved (Optional) |
-| direction |String | Direction of the message flow: Receive or Send (Mandatory) |
-| messageId | String | AS2 message ID (Optional) |
-| originalMessageId |String | AS2 original message ID (Optional) |
-| dispositionType | String | MDN disposition type value (Optional) |
-| isMessageFailed |Boolean | Whether the AS2 message failed (Mandatory) |
-| isMessageSigned |Boolean | Whether the AS2 message was signed (Mandatory) |
-| isNrrEnabled | Boolean | Use default value if the value is not known (Mandatory) |
-| statusCode | Enum | Allowed values are Accepted, Rejected, and AcceptedWithErrors  (Mandatory) |
-| micVerificationStatus | Enum | Allowed values are NotApplicable, Succeeded, and Failed (Mandatory) |
-| correlationMessageId | String | Correlation ID, which is the original messaged ID (the message ID of the message for which MDN is configured) (Optional) |
-| incomingHeaders | Dictionary of JToken | Indicates incoming message header details (Optional) |
-| outgoingHeaders |Dictionary of JToken | Indicates outgoing message header details (Optional) |
+| senderPartnerName | String | AS2 message sender's partner name. (Optional) |
+| receiverPartnerName | String | AS2 message receiver's partner name. (Optional) |
+| as2To | String | Partner name who receives the AS2 message. (Mandatory) |
+| as2From | String | Partner name who sends the AS2 message. (Mandatory) |
+| agreementName | String | Name of the AS2 agreement to which the messages are resolved. (Optional) |
+| direction |String | Direction of the message flow, receive or send. (Mandatory) |
+| messageId | String | AS2 message ID. (Optional) |
+| originalMessageId |String | AS2 original message ID. (Optional) |
+| dispositionType | String | MDN disposition type value. (Optional) |
+| isMessageFailed |Boolean | Whether the AS2 message failed. (Mandatory) |
+| isMessageSigned |Boolean | Whether the AS2 message was signed. (Mandatory) |
+| isNrrEnabled | Boolean | Use default value if the value is not known. (Mandatory) |
+| statusCode | Enum | Allowed values are Accepted, Rejected, and AcceptedWithErrors. (Mandatory) |
+| micVerificationStatus | Enum | Allowed values are NotApplicable, Succeeded, and Failed. (Mandatory) |
+| correlationMessageId | String | Correlation ID, which is the original messaged ID (the message ID of the message for which MDN is configured). (Optional) |
+| incomingHeaders | Dictionary of JToken | Indicates incoming message header details. (Optional) |
+| outgoingHeaders |Dictionary of JToken | Indicates outgoing message header details. (Optional) |
 
 ## Next steps
-[Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).    
-[Learn more about monitoring B2B messages](app-service-logic-monitor-b2b-message.md).   
-[Tracking B2B messages in the Operations Management Suite portal](app-service-logic-track-b2b-messages-omsportal.md).   
-[Learn more about B2B custom tracking schemas](app-service-logic-track-integration-account-custom-tracking-shema.md).   
-[Learn more about X12 tracking schemas](app-service-logic-track-integration-account-x12-tracking-shemas.md).   
+Learn more about the [Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).    
+Learn more about [monitoring B2B messages](app-service-logic-monitor-b2b-message.md).   
+Learn about [tracking B2B messages in the Operations Management Suite portal](app-service-logic-track-b2b-messages-omsportal.md).
+Learn more about [B2B custom tracking schemas](app-service-logic-track-integration-account-custom-tracking-shema.md).   
+Learn more about [X12 tracking schemas](app-service-logic-track-integration-account-x12-tracking-shemas.md).   
