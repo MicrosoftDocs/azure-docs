@@ -198,41 +198,48 @@ For Veritas Backup Exec installation best practices, go to [Best practices for B
 
 In this section, we demonstrate some configuration examples. The following examples/recommendations illustrate the most basic and fundamental implementation. This implementation may not apply directly to your specific backup requirements.
 
+### Configure StorSimple
+
 | StorSimple deployment tasks                                                                                                                 | Additional comments                                                                                                                                                                                                                                                                                      |
 |---------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Deploy   your on-premises StorSimple device                                                                                                 | Supported version: Update 3 and   above.                                                                                                                                                                                                                                                                 |
-| Enable backup target mode                                                                                                                   | Use  the following commands to enable/disable and get status. For more information, go to [connect remotely to a StorSimple](storsimple-remote-connect.md).</br> Enable backup mode:`Set-HCSBackupApplianceMode -enable`</br>  Disable backup mode:`Set-HCSBackupApplianceMode -disable`</br> Current state of backup mode settings`Get-HCSBackupApplianceMode` |
+| Deploy your on-premises StorSimple device.                                                                                                | Supported version: Update 3 and above.                                                                                                                                                                                                                                                                 |
+| Enable backup target mode.                                                                                                                   | Use  the following commands to enable/disable and get status. For more information, go to [connect remotely to a StorSimple](storsimple-remote-connect.md).</br> Enable backup mode:`Set-HCSBackupApplianceMode -enable`</br>  Disable backup mode:`Set-HCSBackupApplianceMode -disable`</br> Current state of backup mode settings`Get-HCSBackupApplianceMode` |
 | Create a common volume container for your volume that stores the backup data.   All data in a volume container is de-duplicated. | StorSimple volume containers define deduplication domains.                                                                                                                                                                                                                                             |
-| Creating StorSimple volumes                                                                                                                 | Create volumes with sizes as close to the anticipated usage as possible as volume size affects cloud snapshot duration time. Properly sizing volumes is discussed in the Retention Policies section.</br> Use StorSimple tiered volumes and check Archival type. </br> Locally pinned volumes only are not supported.        |
+| Creating StorSimple volumes                                                                                                                 | Create volumes with sizes as close to the anticipated usage as possible as volume size affects cloud snapshot duration time. For more information on how to size a volume, go to [Retention policies](#retention-policies).</br> </br> Use StorSimple tiered volumes and check **Use this volume for less frequently accessed archival data**. </br> Locally pinned volumes only are not supported.|
 | Create a unique StorSimple backup policy for all the backup target volumes.                                                               | A StorSimple backup policy defines the volume consistency group.                                                                                                                                                                                                                                       |
 | Disable the schedule as the snapshots.                                                                                                    | Snapshots are triggered as a post-processing operation.                                                                                                                                                                                                                                                         |
 |                                                                                                     |                                             |
 
 
 
-| Host backup server storage configuration                                                                                                                              |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Spanned volumes (created by Windows Disk manager) are not supported.                                                                                                 |
-| Format your volumes using NTFS with 64 KB allocation unit size.                                                                                                             |
-| Map the StorSimple volumes directly to the Veritas Backup Exec server: <u1><li> Use iSCSI for physical servers. </li> <li> Use pass-through disks for virtual servers. </li></u1>|
-| |
+
+### Configure host backup server storage
+
+Ensure that the host backup server storage is configured as per the following guidelines.  
+
+- Spanned volumes (created by Windows Disk manager) are not supported.
+- Format your volumes using NTFS with 64 KB allocation size.
+- Map the StorSimple volumes directly to the “Veeam” server. 
+    - Use iSCSI in case of physical servers.
+    - Use pass-through disks for virtual servers.
 
 
 ## Best practices for StorSimple and Veritas Backup Exec
 
-The following list is a list of basic configuration settings to better integrate StorSimple and Veritas Backup Exec. Refer to the Veritas Backup Exec documentation for the latest Veritas Backup Exec settings and best practices on how to implement these requirements by visiting [www.veritas.com](https://www.veritas.com).
+Configure your solution as per the following guidelines.
+
 
 ### Operating system
 
--   Windows Server encryption and deduplication for the NTFS File System should be disabled.
+-   Disable Windows Server encryption and deduplication for the NTFS file system.
 
--   Windows Server defragmentation should be disabled on the StorSimple volumes.
+-   Disable Windows Server defragmentation on the StorSimple volumes.
 
--   Windows Server indexing should be disabled on the StorSimple volumes.
+-   Disable Windows Server indexing on the StorSimple volumes.
 
--   Antivirus scanning should be done at the source host and not run against the StorSimple volumes.
+-   Perform an antivirus scan at the source host (not against the StorSimple volumes).
 
--   The default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in task manager must be disabled.
+-   Disable the default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in task manager.
 
     - Disable Maintenance configurator in Windows Task Scheduler.
 
@@ -248,9 +255,9 @@ The following list is a list of basic configuration settings to better integrate
 
 -   Ensure the StorSimple device is updated to [Update 3 or later](storsimple-install-update-3.md).
 
--   iSCSI connections and resources should be isolated and dedicated to iSCSI and not shared for backup or other network traffic.
+-   Isolate iSCSI and cloud traffic. Use dedicated iSCSI connections for traffic between StorSimple and backup server.
 
--   The StorSimple device must be a dedicated backup target. Mixed workloads are not supported as these impact your RTO/RPO.
+-   Ensure StorSimple device is a dedicated backup target. Mixed workloads are not supported as these impact your RTO/RPO.
 
 ### Veritas Backup Exec
 
@@ -266,38 +273,40 @@ The following list is a list of basic configuration settings to better integrate
 
 -   Backup data files should only contain data for a specific job. For example, no media appends across different jobs are allowed.
 
--   Veritas Backup Exec job verification should be disabled. If necessary, verification should be done right after the backup job. It is important to understand that this job affects your backup window.
+-   Disable job verification. If necessary, verification should be scheduled after the latest backup job. It is important to understand that this job affects your backup window.
 
 -   In the **Storage > Your disk > Details > Properties**, disable **Pre-allocate disk space**.
 
+Refer to the Veritas Backup Exec documentation for the latest Veritas Backup Exec settings and best practices on how to implement these requirements by visiting [www.veritas.com](https://www.veritas.com).
+
 ## Retention policies
 
-One of the most used backup retention policies is the Grandfather, Father, and Son (GFS). An incremental backup is performed daily, and full backups are done weekly and monthly. In this case, we would have 6 StorSimple tiered volumes.
+One of the most used backup retention policies is the Grandfather, Father, and Son (GFS). In this policy, an incremental backup is performed daily. The full backups are done weekly and monthly. This policy results in 6 StorSimple tiered volumes.
 
 -   One volume contains the weekly, monthly, and yearly full backups.
 
--   The other 5 StorSimple tiered volumes will be used for storing daily incremental backups.
+-   The other 5 volumes store daily incremental backups.
 
-In the example below, we are using a GFS rotation assuming the following:
+In the following example, we are a GFS rotation. The example assumes the following:
 
--   Non-deduped or compressed data
+-   Non-deduped or compressed data is used.
 
--   Full backups are 1 TiB
+-   Full backups are 1 TiB each.
 
 -   Daily incremental backups are 500 GiB each.
 
--   4 weekly backups kept for a month
+-   4 weekly backups kept for a month.
 
--   12 monthly backups kept for a year
+-   12 monthly backups kept for a year.
 
--   1 yearly backup kept for 10 years
+-   1 yearly backup kept for 10 years.
 
-Based on the previous assumptions, create a 26 TiB StorSimple tiered volume for the monthly and yearly full backups. Also, create a 5 TiB StorSimple tiered volume for each of the incremental daily backups.
+Based on the preceeding assumptions, create a 26 TiB StorSimple tiered volume for the monthly and yearly full backups. Create a 5 TiB StorSimple tiered volume for each of the incremental daily backups.
 
 | Backup type retention | Size TiB | GFS multiplier\*                                       | Total capacity TiB          |
 |-----------------------|----------|--------------------------------------------------------|-----------------------------|
 | Weekly full           | 1        | 4                                                      | 4                           |
-| Daily incremental     | 0.5      | 20 “cycles are equal to the number of weeks per month” | 12 (2 for additional quota) |
+| Daily incremental     | 0.5      | 20 (cycles equal number of weeks per month) | 12 (2 for additional quota) |
 | Monthly full          | 1        | 12                                                     | 12                          |
 | Yearly full           | 1        | 10                                                     | 10                          |
 | GFS requirement       |          |                                                        | 38                          |
@@ -544,7 +553,7 @@ The following section illustrates how to create a short script to trigger and de
 
 ## StorSimple as a restore source
 
-Restores from a StorSimple work similar to restores from any block storage device. When restoring data that is tiered to the cloud, restores occur at cloud speeds. For local date, restores occur at local disk speed of the device. For information on how to perform a restore, refer to Veritas Backup Exec documentation, and conform to Veritas Backup Exec restore best practices.
+Restores from a StorSimple work similar to restores from any block storage device. When restoring data that is tiered to the cloud, restores occur at cloud speeds. For local data, restores occur at local disk speed of the device. For information on how to perform a restore, refer to Veritas Backup Exec documentation, and conform to Veritas Backup Exec restore best practices.
 
 ## StorSimple failover and disaster recovery
 
