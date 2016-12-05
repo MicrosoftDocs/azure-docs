@@ -229,10 +229,10 @@ domain name (FQDN) of your custom domain to the list.
 7. Upon successful validation **Add hostname** button will become active and you will be able to the assign hostname. 
 8. Once Azure finishes configuring your new custom domain name, navigate to your custom domain name in a browser. The browser should open your Azure app, which means that your custom domain name is configured properly.
 
-## Migrate an active domain to App Service with no downtime 
+## Migrate an active domain with no downtime 
 
-When you migrate a live site to App Service, the domain name you want to move to App Service is already in use (serving live traffic), and you don't want any downtime in DNS resolution during
-the migration process. In this case, you need to preemptively bind your web app to it for domain verification. To do this, follow the modified steps below:
+When you migrate a live site and its domain name to App Service, that domain name is already serving live traffic, and you don't want any downtime in DNS resolution during
+the migration process. In this case, you need to preemptively bind the domain name to your Azure app for domain verification. To do this, follow the modified steps below:
 
 1. First, create a verification TXT record with your DNS registry by following the steps at [Step 2. Create the DNS record(s)](#createdns).
 Your additional TXT record takes on the convention that maps from &lt;*subdomain*>.&lt;*rootdomain*> to &lt;*appname*>.azurewebsites.net.
@@ -265,7 +265,9 @@ See the following table for examples:
 
     Your custom domain is now enabled in your Azure app. The only thing left to do is to update the DNS record with your domain registrar.
 
-3. Finally, update your domain's DNS record to point to your Azure app as is shown in [Step 2. Create the DNS record(s)](#createdns).
+3. Finally, update your domain's DNS record to point to your Azure app as is shown in [Step 2. Create the DNS record(s)](#createdns). 
+
+    User traffic should be redirected to your Azure app immediately after DNS propagation happens.
 
 <a name="verify"></a>
 
