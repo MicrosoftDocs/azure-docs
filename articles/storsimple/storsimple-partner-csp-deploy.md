@@ -21,7 +21,7 @@ ms.author: alkohli
 
 StorSimple Virtual Array can be deployed by the Cloud Solution Provider (CSP) partners for their customers. A CSP partner can create a StorSimple Device Manager service. This service can then be used to deploy and manage StorSimple Virtual Array and the associated shares, volumes, and backups.
 
-This article describes how a CSP partner can add a customer to the subscription and then create a new service to deploy a StorSimple Virtual Array in CSP.
+This article describes how a CSP partner can add a customer or a new subscription to an existing customer and then create a service to deploy a StorSimple Virtual Array in CSP.
 
 ## Prerequisites
 
@@ -30,9 +30,9 @@ Before you begin, ensure that:
 - You are enrolled under the CSP program.
 - You have valid [Partner Center](http://partnercenter.microsoft.com/) login credentials. The credentials enable you to sign in to the Partner portal to add new customers, search for customers, or navigate to a customer account from the Partner dashboard. The CSP can function as a StorSimple administrator on behalf of the customer in the Azure portal.
                              
-## Add customers
+## Add a new customers 
 
-Perform the following steps to add a customer to the StorSimple subscription.
+If you add a customer, a subscription is automatically created. Perform the following steps in the Partner portal to add a customer (and automatically create a subscription).
 
 1. Go to the [Partner Center](http://partnercenter.microsoft.com/) and sign in using your CSP credentials. Click **Dashboard**.
 
@@ -65,7 +65,23 @@ Perform the following steps to add a customer to the StorSimple subscription.
 8. To create a StorSimple Device Manager, click **+ New** and search for or navigate to **StorSimple Virtual Device Series**. For more information, go to [Deploy a StorSimple Device Manager service](storsimple-manage-service.md).
 
     ![Create StorSimple Device Manager service](./media/storsimple-partner-csp-deploy/image8.png)
- 
+
+
+## Add a subscription
+
+In some instances, you may have an existing customer, and you need to add a new subscription. Perform the following steps in the Partner portal to add a new subscription to an existing customer.
+
+1. Go to the [Partner Center](http://partnercenter.microsoft.com/) and sign in using your CSP credentials. Click **Dashboard**.
+
+     ![Dashboard in Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
+                              
+2. In the left-pane, click **Customers**. Find or navigate to the customer you want to add a new subscription to. Click the ![Expand check icon](./media/storsimple-partner-csp-deploy/expand_check_icon.png) icon to expand the row for the company name for your customer. In the details, click **Add subscriptions**.
+
+    ![Customers](./media/storsimple-partner-csp-deploy/image10.png)
+
+3. Check **Microsoft Azure** for the **Top offers** in the subscription and click **Submit**. This will create a new subscription.
+
+    ![Add new subscription](./media/storsimple-partner-csp-deploy/image11.png)
 
 ## Next steps
 
