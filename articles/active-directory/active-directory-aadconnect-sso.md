@@ -18,7 +18,7 @@ ms.author: billmath
 ---
 
 # What is Single Sign On (SSO) (preview)
-Single sign on is an option that can be enabled in Azure Active Directory Connect with either password hash synchronization or pass-through authentication.  When enabled, users need not type their password to sign in to Azure Active Directory (Azure AD) or other cloud services when they are on their corporate machines and connected on the corporate network.  
+Single sign on is an option that can be enabled in Azure Active Directory Connect with either [password hash synchronization](active-directory/active-directory-aadconnectsync-implement-password-synchronization.md) or [pass-through authentication](active-directory-aadconnect-pass-through-authentication.md).  When enabled, users need not type their password to sign in to Azure Active Directory (Azure AD) or other cloud services when they are on their corporate machines and connected on the corporate network.  
 
 By enabling single sign-on, when your users access resources connected to Azure Active Directory services (such as Office 365, Microsoft Intune, CRM Online, and SaaS services), user don’t need to type their password but instead use a Kerberos ticket acquired automatically from your on-premises Active Directory.
 
@@ -49,7 +49,7 @@ Single sign on is supported via web browser based clients and Office clients tha
 *Requires separate configuration.
 
 >[!NOTE]
->For Windows 10 based clients the recommendation is to use Azure AD join for the best experience with Azure AD. 
+>For Windows 10 based clients the recommendation is to use [Azure AD join](active-directory/active-directory-azureadjoin-overview.md) for the best experience with Azure AD. 
 
 ## How single sign on works
 

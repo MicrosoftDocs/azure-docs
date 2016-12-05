@@ -61,13 +61,13 @@ Before you can enable and use Azure AD pass-through authentication, you need to 
 - A server running Windows Server 2012 R2 or higher on which to run the AAD Connect tool.  This machine must be a member of the same forest at the user who will be validated.
 - Note if you have more than one forest containing users to be synchronized with Azure AD, the forests must have trusts between them. 
 - A second server running Windows Server 2012 R2 or higher on which to run a second connector for high availability and load balancing.  Instructions are include below on how to deploy this connector.
-- If there is a firewall between the connector and Azure AD, make sure that
-- If url filtering is enabled, ensure that the connector can communicate to these follow URLs: 
-	-  *.msappproxy.net
-	-  *.servicebus.windows.net.  
-	-  The connector also makes connection on direct IP connections to the Azure data center ip ranges. 
-- Ensure that the firewall does not perform SSL inspection as the connector uses client certificates to communicate with Azure AD.
-- Ensure the connector can make HTTPS (TCP) requests to Azure AD on the ports below. 
+- If there is a firewall between the connector and Azure AD, make sure that:
+	- If url filtering is enabled, ensure that the connector can communicate to these follow URLs: 
+		-  *.msappproxy.net
+		-  *.servicebus.windows.net.  
+		-  The connector also makes connection on direct IP connections to the Azure data center ip ranges. 
+	- Ensure that the firewall does not perform SSL inspection as the connector uses client certificates to communicate with Azure AD.
+	- Ensure the connector can make HTTPS (TCP) requests to Azure AD on the ports below. 
 
 |Port Number|Description
 | --- | ---
