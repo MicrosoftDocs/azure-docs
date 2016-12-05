@@ -18,7 +18,7 @@ ms.author: iainfou
 
 ---
 # Install and configure Remote Desktop to connect to a Linux VM in Azure
-Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new Linux, or for quick troubleshooting scenarios, the use of a remote desktop client may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp)) for your Linux VM.
+Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp)) for your Linux VM.
 
 
 ## Prerequisites
@@ -33,7 +33,7 @@ You also need the [latest Azure CLI](../xplat-cli-install.md) installed and logg
 ## Quick commands
 If you need to quickly accomplish the task, the following section details the base commands to install and configure remote desktop on your VM. More detailed information and context for each step can be found the rest of the document, [starting here](#install-graphical-environment-on-linux-vm).
 
-The following example installs the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu VM. Other distributions and desktop environments vary slightly. For example, you use `yum` to install on Red Hat Enterprise Linux and configure appropriate `selinux` rules, or use `zypper` to install on SUSE.
+The following example installs the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu VM. Other distributions and desktop environments vary slightly. For example, use `yum` to install on Red Hat Enterprise Linux and configure appropriate `selinux` rules, or use `zypper` to install on SUSE.
 
 SSH to your VM. Install the xfce desktop environment as follows:
 
@@ -66,7 +66,7 @@ Set a password for your user account if currently only using SSH key for authent
 sudo passwd ops
 ```
 
-Exit the SSH session to your Linux VM. Use the Azure CLI on your local computer to create a network security group rule to allow the remote desktop traffic. The following example creates a rule named `myNetworkSecurityGroupRule` within `myNetworkSecurityGroup` to `allow` traffic on `tcp` port `3389`:
+Exit the SSH session to your Linux VM. Use the Azure CLI on your local computer to create a network security group rule to allow the remote desktop traffic. The following example uses the Azure CLI (azure.js) to create a rule named `myNetworkSecurityGroupRule` within `myNetworkSecurityGroup` to allow traffic on tcp port 3389:
 
 ```azurecli
 azure network nsg rule create --resource-group myResourceGroup \
