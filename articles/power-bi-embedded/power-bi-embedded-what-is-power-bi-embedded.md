@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: powerbi
-ms.date: 10/04/2016
+ms.date: 12/05/2016
 ms.author: asaxton
 
 ---
@@ -41,7 +41,7 @@ A **Workspace Collection** is the top-level Azure container for resources that c
 * **Region** – As part of provisioning a **Workspace Collection**, you can select a region to be provisioned in. For more information, see [Azure Regions](https://azure.microsoft.com/regions/).
 
 ## Workspace
-A **Workspace** is a container of Power BI content, which can include datasets, reports and dashboards. A **Workspace** is empty when first created. During Preview, you’ll author all content using Power BI Desktop and you'll upload it to one of your workspaces using the [Power BI REST APIs](http://docs.powerbi.apiary.io/reference).
+A **Workspace** is a container of Power BI content, which can include datasets, reports and dashboards. A **Workspace** is empty when first created. During Preview, you’ll author all content using Power BI Desktop and you'll programmatically deploy the PBIX into your workspace using the [Power BI Import API](https://msdn.microsoft.com/library/mt711504.aspx).
 
 ## Using Workspace Collections and Workspaces
 **Workspace Collections** and **Workspaces** are containers of content that are used and organized in whichever way best fits the design of the application you are building. There will be many different ways that you could arrange the content within them. You may choose to put all content within one workspace and then later use app tokens to further subdivide the content amongst your customers. You may also choose to put all of your customers in separate workspaces so that there is some separation between them. Or, you may choose to organize users by region rather than by customer. This flexible design allows you to choose the best way to organize content.
