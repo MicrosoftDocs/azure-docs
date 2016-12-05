@@ -109,7 +109,7 @@ Now both these settings are available in your assets.
 
 More information about how to connect to your subscription via
 PowerShell is given
-[here](../powershell-install-configure.md).
+[here](/powershell/azureps-cmdlets-docs).
 
 Next, you will create a runbook in Azure Automation that can add an
 endpoint for the front-end virtual machine after failover.

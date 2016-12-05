@@ -39,7 +39,7 @@ To configure Active Geo-Replication using PowerShell, you need the following:
 
 * An Azure subscription. 
 * An Azure SQL database - The primary database that you want to replicate.
-* Azure PowerShell 1.0 or later. You can download and install the Azure PowerShell modules by following [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell 1.0 or later. You can download and install the Azure PowerShell modules by following [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Configure your credentials and select your subscription
 First you must establish access to your Azure account so start PowerShell and then run the following cmdlet. In the login screen enter the same email and password that you use to sign in to the Azure portal.
