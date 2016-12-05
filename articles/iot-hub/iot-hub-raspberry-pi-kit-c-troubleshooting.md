@@ -52,6 +52,17 @@ npm install -g npm
 
 If the problem still exists, leave your comments at the end of this article or create a GitHub issue in our [sample repository](https://github.com/Azure-Samples/iot-hub-c-raspberrypi-getting-started)
 
+## Remote debugging
+
+Currently there is no remote debugging support available in Visual Studio Code C/C++ Extension, but this functionality is expected to be available soon.
+
+I a meanwhile you can use GDB via your favourite SSH terminal:
+
+```bash
+cd c-pi-lesson-x
+sudo gdb app
+```
+
 ## Azure-CLI issues
 The Azure command-line interface (Azure CLI) is a preview build. Look for solution in the [Preview Install Guide](https://github.com/Azure/azure-cli/blob/master/doc/preview_install_guide.md) to seek solutions. Try to upgrade Azure-cli to latest version when commands don’t work as expected.
 
