@@ -1,6 +1,6 @@
 ﻿---
 title: Azure Monitoring Overview | Microsoft Docs
-description:  Top level overview of Azure Monitor feature in Microsoft Azure, which includs alerts, webhooks, autoscale and more.
+description:  Top level overview of Azure Monitor feature in Microsoft Azure, which includes alerts, webhooks, autoscale and more.
 author: rboucher
 manager: carmonm
 editor: ''
