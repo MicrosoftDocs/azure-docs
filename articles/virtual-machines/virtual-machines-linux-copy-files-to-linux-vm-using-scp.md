@@ -1,6 +1,6 @@
 ---
-title: Copy files to a Linux VM using SCP | Microsoft Docs
-description: Copy files to a Azure Linux VM using SCP.
+title: Copy files to an Azure Linux VM using SCP | Microsoft Docs
+description: Copy files to an Azure Linux VM using SCP.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: vlivech
@@ -19,9 +19,9 @@ ms.author: v-livech
 
 ---
 
-# Copy files to a Linux VM using SCP
+# Copy files to an Azure Linux VM using SCP
 
-This article shows how to copy files from your workstation up to an Azure Linux VM, or from the Azure Linux VM down to your workstation, using SCP.  SCP is based on the BSD RCP protocol.  SCP uses SSH for the transport layer.  By using SSH for the transport, SCP uses SSH for authentication on the destination host while also moving the file in an encrypted tunnel provided by default by SSH.  SCP is a secure and easy way to move files to and from Azure Linux VMs as it  uses the existing SSH authentication that is already configured on the Linux VM.  For SSH authentication, usernames and passwords can be used but SSH public and private key authentication are strongly suggested as a security best practice.  
+This article shows how to copy files from your workstation up to an Azure Linux VM, or from the Azure Linux VM down to your workstation, using SCP.  SCP is based on the BSD RCP protocol and uses SSH for the transport layer.  By using SSH for the transport, SCP uses SSH for authentication on the destination host while also moving the file in an encrypted tunnel provided by default with SSH.  SCP is a secure and easy way to move files to and from Azure Linux VMs as it uses the existing SSH authentication that is already configured on the Linux VM.  For SSH authentication, usernames and passwords can be used but SSH public and private key authentication are strongly recommended as a security best practice.  
 
 For this article, the requirements are:
 
@@ -31,13 +31,13 @@ For this article, the requirements are:
 
 ## Quick commands
 
-Copy file up to the Linux VM
+Copy a file up to the Linux VM
 
 ```bash
 scp file user@host:directory/targetfile
 ```
 
-Copy file down from the Linux VM
+Copy a file down from the Linux VM
 
 ```bash
 scp user@host:directory/file targetfile
@@ -45,11 +45,11 @@ scp user@host:directory/file targetfile
 
 ## Detailed walkthrough
 
-Moving files up and down from your Azure Linux VMs to your local workstation is a common task that requires security best practices along with making it convenient.  For the best security and convenience, SSH public and private keys are the best way to authenticate the SCP connection.  Once SSH has authenticated the connection, SCP then begins the process of copying the file.  Using a properly configured `~/.ssh/config` and SSH public and private keys, the SCP connection can be established without using a username and just a server name.  For more information on configuring your `~/.ssh/config` and SSH public and private keys, follow this article, [Create SSH keys on Linux and Mac for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For security and convenience, SSH public and private keys are the best way to authenticate the SCP connection.  Once SSH has authenticated the connection, SCP then begins the process of copying the file.  Using a properly configured `~/.ssh/config` and SSH public and private keys, the SCP connection can be established without using a username and just using a server name.  For more information on configuring your `~/.ssh/config` and SSH public and private keys, follow this article, [Create SSH keys on Linux and Mac for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## SCP a file to a Linux VM
 
-For the first example, we are copying an Azure credential file up to a Linux VM that is used to deploy automation.  Because this file contains Azure API credentials, which include secrets, security is important and the encrypted tunnel of SSH protects the contents of the file.
+For the first example, we are copying an Azure credential file up to a Linux VM that is used to deploy automation.  Because this file contains Azure API credentials, which include secrets, security is important and the encrypted tunnel SSH provides, protects the contents of the file.
 
 ```bash
 scp ~/.azure/credentials myserver:/home/ahmet/.azure/credentials
