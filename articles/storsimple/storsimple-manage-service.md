@@ -3,8 +3,8 @@ title: Deploy the StorSimple Manager service | Microsoft Docs
 description: Explains how to create and delete the StorSimple Manager service in the Azure classic portal, and describes how to manage the service registration key.
 services: storsimple
 documentationcenter: ''
-author: SharS
-manager: carmonm
+author: alkohli
+manager: byronr
 editor: ''
 
 ms.assetid: bc1d5650-275c-42ed-bc77-cdb596f85943
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/05/2016
-ms.author: v-sharos
+ms.author: alkohli
 
 ---
 # Deploy the StorSimple Manager service
@@ -48,7 +48,8 @@ You can also choose to generate a default storage account when you create the se
 
 A single service can manage multiple devices. However, a device cannot span multiple services. A large enterprise can have multiple service instances to work with different subscriptions, organizations, or even deployment locations. Please note that you need separate instances of StorSimple Manager service to manage StorSimple 8000 series devices and StorSimple Virtual Arrays.
 
-[AZURE.IMPORTANT] If you have an unused service created (no device operations were performed on this resource) prior to August 2016, it cannot be managed via Azure portal or Azure classic portal. We recommend that you create a new service in the Azure portal.
+> [!IMPORTANT] 
+> If you have an unused service created (no device operations were performed on this resource) prior to August 2016, it cannot be managed via Azure portal or Azure classic portal. We recommend that you create a new service in the Azure portal.
 
 Perform the following steps to create a service.
 
@@ -57,7 +58,8 @@ Perform the following steps to create a service.
 ## Delete a service
 Before you delete a service, make sure that no connected devices are using it. If the service is in use, deactivate the connected devices. The deactivate operation will sever the connection between the device and the service, but preserve the device data in the cloud.
 
-[AZURE.IMPORTANT] After a service is deleted, the operation cannot be reversed. Any device that was using the service will need to be factory reset before it can be used with another service. In this scenario, the local data on the device, as well as the configuration, will be lost.
+> [!IMPORTANT] 
+> After a service is deleted, the operation cannot be reversed. Any device that was using the service will need to be factory reset before it can be used with another service. In this scenario, the local data on the device, as well as the configuration, will be lost.
 
 Perform the following steps to delete a service.
 
