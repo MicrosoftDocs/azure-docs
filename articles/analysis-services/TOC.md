@@ -12,6 +12,8 @@
 ###[On-premise data gateway](analysis-services-gateway.md)
 
 # Reference
-##[PowerShell](https://docs.microsoft.com/en-us/powershell/resourcemanager)
-##[Datasource connections](analysis-services-datasource.md)
+##[PowerShell](/powershell/resourcemanager)
 ##[REST](/rest/api/analysisservices/)
+
+# Related
+##[Datasource connections](analysis-services-datasource.md)
