@@ -144,6 +144,7 @@ You don't need to define fields for all of the above properties in your search i
 >
 >
 
+<a name="DocumentKeys"></a>
 ### Defining document keys and field mappings
 In Azure Search, the document key uniquely identifies a document. Every search index must have exactly one key field of type Edm.String. The key field is required for each document that is being added to the index (it is actually the only required field).  
 
