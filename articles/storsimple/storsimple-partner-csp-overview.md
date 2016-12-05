@@ -24,7 +24,7 @@ ms.author: alkohli
 
 Microsoft Azure StorSimple is a unique approach to enterprise storage with true hybrid cloud storage capabilities. It empowers the customers to take advantage of economical cloud storage for the inactive data, while keeping their mission-critical data on-premises for the highest levels of performance. 
 
-StorSimple in CSP enables partners to capitalize on this opportunity. The partners own the end-to-end customer lifecycle with direct provisioning, billing, and support of Microsoft’s cloud services. In short, the partners can  now transact the StorSimple along with their services to customers.
+StorSimple in CSP enables partners to capitalize on this opportunity. The partners own the end-to-end customer lifecycle with direct provisioning, billing, and support of Microsoft’s cloud services. In short, the partners can now transact the StorSimple along with their services to customers.
 
 For more information about StorSimple in CSP, visit the [Partner center](http://partnercenter.microsoft.com/).
 For more information on billing, pricing, incentives, and getting support in CSP, go to [StorSimple in CSP: FAQ](storsimple-partner-csp-faq.md). 

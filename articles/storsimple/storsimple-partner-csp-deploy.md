@@ -28,7 +28,7 @@ This article describes how to deploy a StorSimple Virtual Array in CSP.
 Before you begin, ensure that:
 
 - You are enrolled under the CSP program.
-- You have valid [Partner Center](http://partnercenter.microsoft.com/) login credentials. The credentials will enable you to sign into the Partner portal to add new customers, search for customers, or navigate to a customer account from the Partner dashboard. The CSP can function as a StorSimple administrator on behalf of the customer in the Azure Portal.
+- You have valid [Partner Center](http://partnercenter.microsoft.com/) login credentials. The credentials enable you to sign into the Partner portal to add new customers, search for customers, or navigate to a customer account from the Partner dashboard. The CSP can function as a StorSimple administrator on behalf of the customer in the Azure portal.
                              
 ## Add customers
 
@@ -38,13 +38,13 @@ Perform the following steps to add a customer to the StorSimple subscription.
 
      ![Dashboard in Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. In the left-pane, click **Customers**. In the right-pane, click **Add customers**. Enter the details of the customer. Click **Next:Subscriptions** to create a customer subscription.
+2. In the left-pane, click **Customers**. In the right-pane, click **Add customers**. Enter the details of the customer. Click **Next: Subscriptions** to create a customer subscription.
 
     ![Add customer](./media/storsimple-partner-csp-deploy/image2.png)
 
 3.  Select **Microsoft Azure** offer. Scroll to the bottom of the page and click **Review**.
 
-    ![Ireview subscription information](./media/storsimple-partner-csp-deploy/image3.png)
+    ![Review subscription information](./media/storsimple-partner-csp-deploy/image3.png)
                               
 4. Review the information and click **Submit**.
 
@@ -58,11 +58,11 @@ Perform the following steps to add a customer to the StorSimple subscription.
 
     ![Search for the customer](./media/storsimple-partner-csp-deploy/image6.png)  
 
-7. Under **Administer Services**, click **Microsoft Azure Management Portal**. This would automatically sign you in as an Azure Administrator for your customer.
+7. Under **Administer Services**, click **Microsoft Azure Management Portal** to sign in as an Azure administrator for your customer.
 
-    ![Log into Azure portal](./media/storsimple-partner-csp-deploy/image7.png)
+    ![Log in to Azure portal](./media/storsimple-partner-csp-deploy/image7.png)
 
-8. Click the **+** symbol and search or navigate to **StorSimple Virtual Device Series** to create a StorSimple Device Manager.
+8. To create a StorSimple Device Manager, click **+** and search or navigate to **StorSimple Virtual Device Series** . For more information, go to [Deploy a StorSimple Device Manager service](storsimple-manage-service.md).
 
     ![Create StorSimple Device Manager service](./media/storsimple-partner-csp-deploy/image8.png)
  
