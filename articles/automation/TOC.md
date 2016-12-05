@@ -61,10 +61,10 @@
 ### [Runbook job suspended](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
-## [Classic PowerShell](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [PowerShell (Classic)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
 ## [.NET](/dotnet/api/microsoft.azure.management.automation)
 ## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [Classic REST](https://msdn.microsoft.com/library/azure/mt163781)
+## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)
 # Resources
 ## [Release notes](https://azure.microsoft.com/updates/?product=automation)
 ## [Pricing](https://azure.microsoft.com/pricing/details/automation/)  
