@@ -141,8 +141,8 @@ Configure your A record as follows (@ typically represents the root domain):
     <td>IP address from <a href="#vip">Step 1</a></td>
   </tr>
   <tr>
-    <td>*.contoso.com (wildcard)</td>
-    <td>*</td>
+    <td>\*.contoso.com (wildcard)</td>
+    <td>\*</td>
     <td>IP address from <a href="#vip">Step 1</a></td>
   </tr>
 </table>
@@ -167,8 +167,8 @@ Your additional TXT record takes on the convention that maps from &lt;*subdomain
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
-    <td>*.contoso.com (wildcard)</td>
-    <td>*</td>
+    <td>\*.contoso.com (wildcard)</td>
+    <td>\*</td>
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
@@ -200,8 +200,8 @@ Configure your CNAME record as follows (@ typically represents the root domain):
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
   <tr>
-    <td>*.contoso.com (wildcard)</td>
-    <td>*</td>
+    <td>\*.contoso.com (wildcard)</td>
+    <td>\*</td>
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
   </tr>
 </table>
@@ -255,8 +255,8 @@ See the following table for examples:
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
     </tr>
     <tr>
-    <td>*.contoso.com (sub)</td>
-    <td>awverify.*.contoso.com</td>
+    <td>\*.contoso.com (wildcard)</td>
+    <td>awverify.\*.contoso.com</td>
     <td>&lt;<i>appname</i>>.azurewebsites.net</td>
     </tr>
     </table>
