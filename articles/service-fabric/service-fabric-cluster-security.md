@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/19/2016
+ms.date: 12/06/2016
 ms.author: chackdan
 
 ---
@@ -107,7 +107,11 @@ Client certificates are not typically issued by a third-party certificate author
 
 
 ## Next steps
-This article provides conceptual information about cluster security. Next, [create a cluster in Azure using a Resource Manager template](service-fabric-cluster-creation-via-arm.md) or through the [Azure portal](service-fabric-cluster-creation-via-portal.md).
+This article provides conceptual information about cluster security. Next,
+
+
+1.  [create a cluster in Azure using a Resource Manager template](service-fabric-cluster-creation-via-arm.md) 
+2.  [Azure portal](service-fabric-cluster-creation-via-portal.md).
 
 <!--Image references-->
 [Node-to-Node]: ./media/service-fabric-cluster-security/node-to-node.png
