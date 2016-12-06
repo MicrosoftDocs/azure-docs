@@ -17,7 +17,7 @@ ms.date: 10/05/2016
 ms.author: dobett
 
 ---
-# How to manage your IoT Hub device identities in bulk
+# Manage your IoT Hub device identities in bulk
 Each IoT hub has an identity registry you can use to create per-device resources in the service, such as a queue that contains in-flight cloud-to-device messages. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry.
 
 Import and export operations take place in the context of *Jobs* that enable you to execute bulk service operations against an IoT hub.

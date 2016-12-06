@@ -17,7 +17,7 @@ ms.date: 08/29/2016
 ms.author: andbuc
 
 ---
-# How to use the Azure IoT Gateway SDK to send device-to-cloud messages with a simulated device (Linux)
+# Use the Azure IoT Gateway SDK to send device-to-cloud messages with a simulated device (Linux)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## Build and run the sample
