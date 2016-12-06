@@ -19,7 +19,7 @@ ms.author: zakramer;tsingh;divacc
 
 ---
 # Azure Marketplace for Azure Government
-If you're an Azure Governemt partner who's interested in publishing offerings to the Azure Marketplace, find the details in this article.
+If you're an Azure Government partner who's interested in publishing offerings to the Azure Marketplace, find the details in this article.
 
 ## Publishing
 > [!NOTE]
