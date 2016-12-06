@@ -69,6 +69,11 @@ Why have stateful microservices along with stateless ones? The two main reasons 
 
 For more information about application patterns with Service Fabric, read [Application scenarios](service-fabric-application-scenarios.md) and [Choosing a programming model framework](service-fabric-choose-framework.md) for your service.
 
+You can also watch this Microsoft Virtual Academy video for an overview of stateless and stateful services:
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">  
+<img src="./media/service-fabric-technical-overview/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
+
 ## Application lifecycle management
 Service Fabric provides support for the full application lifecycle management of cloud applications. This lifecycle includes development through deployment, daily management, and maintenance to eventual decommissioning.
 
@@ -77,6 +82,11 @@ Service Fabric application lifecycle management capabilities enable application 
 Most applications consist of a combination of stateless and stateful microservices and other executables/runtimes that are deployed together. By having strong types on the applications and packaged microservices, Service Fabric enables the deployment of multiple application instances. Each instance is managed and upgraded independently. Importantly, Service Fabric can deploy *any* executables or runtime and make them reliable. For example, Service Fabric deploys ASP.NET Core 1, Node.js, Java virtual machines, scripts, or anything else that makes up your application.
 
 For more information about application lifecycle management, read [Application lifecycle](service-fabric-application-lifecycle.md). For more about how to deploy any code, see [Deploy a guest executable](service-fabric-deploy-existing-app.md).
+
+You can also watch this Microsoft Virtual Academy video for an overview of app lifecycle management:
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">  
+<img src="./media/service-fabric-technical-overview/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## Key capabilities
 By using Service Fabric, you can:
