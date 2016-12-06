@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor and manage Azure Data Factory pipelines
 description: Learn how to use Azure Portal and Azure PowerShell to monitor and manage Azure data factories and pipelines you have created.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/05/2016
 ms.author: spelluru
 
 ---
@@ -121,7 +121,7 @@ The dataset slices in data factory can have one of the following statuses:
 <tr
 <td rowspan="2">InProgress</td><td>Validating</td><td>Validation in progress.</td>
 </tr>
-<td></td>
+<td>-</td>
 <td>The slice is being processed.</td>
 </tr>
 <tr>
@@ -134,15 +134,15 @@ The dataset slices in data factory can have one of the following statuses:
 <td>Validation</td><td>Validation has failed.</td>
 </tr>
 <tr>
-<td></td><td>Failed to generate and/or validate the slice.</td>
+<td>-</td><td>Failed to generate and/or validate the slice.</td>
 </tr>
-<td>Ready</td><td></td><td>The slice is ready for consumption.</td>
-</tr>
-<tr>
-<td>Skipped</td><td></td><td>The slice is not processed.</td>
+<td>Ready</td><td>-</td><td>The slice is ready for consumption.</td>
 </tr>
 <tr>
-<td>None</td><td></td><td>A slice that used to exist with a different status, but has been reset.</td>
+<td>Skipped</td><td>None</td><td>The slice is not processed.</td>
+</tr>
+<tr>
+<td>None</td><td>-</td><td>A slice that used to exist with a different status, but has been reset.</td>
 </tr>
 </table>
 
@@ -219,21 +219,21 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
 1. Launch **Azure PowerShell**.
 2. Run **Get-AzureRmDataFactorySlice** command to see the slices and their statuses. You should see a slice with the status: **Failed**.        
    
-         Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
+         Get-AzureRmDataFactorySlice [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] <DateTime> [[-EndDateTime] <DateTime> ] [-Profile <AzureProfile> ] [ <CommonParameters>]
    
    For example:
    
-         Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
+         Get-AzureRmDataFactorySlice -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime 2014-05-04 20:00:00
    
    Replace **StartDateTime** with the StartDateTime value you specified for the Set-AzureRmDataFactoryPipelineActivePeriod.
 3. Now, run the **Get-AzureRmDataFactoryRun** cmdlet to get details about activity run for the slice.
    
-        Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-TableName] <String> [-StartDateTime] 
+        Get-AzureRmDataFactoryRun [-ResourceGroupName] <String> [-DataFactoryName] <String> [-DatasetName] <String> [-StartDateTime] 
         <DateTime> [-Profile <AzureProfile> ] [ <CommonParameters>]
    
     For example:
    
-        Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -TableName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
+        Get-AzureRmDataFactoryRun -ResourceGroupName ADF -DataFactoryName LogProcessingFactory -DatasetName EnrichedGameEventsTable -StartDateTime "5/5/2014 12:00:00 AM"
    
     The value of StartDateTime is the start time for the error/problem slice you noted from the previous step. The date-time should be enclosed in double quotes.
 4. You should see the output with details about the error (similar to the following):
@@ -241,7 +241,7 @@ If the activity run fails in a pipeline, the dataset produced by the pipeline is
         Id                      : 841b77c9-d56c-48d1-99a3-8c16c3e77d39
         ResourceGroupName       : ADF
         DataFactoryName         : LogProcessingFactory3
-        TableName               : EnrichedGameEventsTable
+        DatasetName               : EnrichedGameEventsTable
         ProcessingStartTime     : 10/10/2014 3:04:52 AM
         ProcessingEndTime       : 10/10/2014 3:06:49 AM
         PercentComplete         : 0
@@ -279,7 +279,7 @@ The following example sets the status of all slices for the table 'DAWikiAggrega
 
 The UpdateType is set to UpstreamInPipeline, which means that statuses of each slice for the table and all the dependent (upstream) tables are set to "Waiting." Other possible value for this parameter is "Individual."
 
-    Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -TableName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
+    Set-AzureRmDataFactorySliceStatus -ResourceGroupName ADF -DataFactoryName WikiADF -DatasetName DAWikiAggregatedData -Status Waiting -UpdateType UpstreamInPipeline -StartDateTime 2014-05-21T16:00:00 -EndDateTime 2014-05-21T20:00:00
 
 
 ## Create alerts
@@ -615,4 +615,3 @@ You can move a data factory to a different resource group or a different subscri
 You can also move any related resources (such as alerts associated with the data factory) along with the data factory.
 
 ![Move Resources dialog box](./media/data-factory-monitor-manage-pipelines/MoveResources.png)
-

@@ -1,14 +1,14 @@
 ---
 title: Create Service Bus resources using Azure Resource Manager templates | Microsoft Docs
 description: Use Azure Resource Manager templates to automate the creation of Service Bus resources
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 24f6a207-0fa4-49cf-8a58-963f9e2fd655
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: tbd
 ms.topic: article
 ms.tgt_pltfrm: dotnet
@@ -50,7 +50,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 For complete information about deploying Azure Resource Manager templates, see [Deploy resources with Azure Resource Manager templates][Deploy resources with Azure Resource Manager templates].
 
 ### Install PowerShell
-Install Azure PowerShell by following the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+Install Azure PowerShell by following the instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### Create a template
 Clone or copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) template from GitHub:
@@ -142,7 +142,7 @@ To use an optional parameters file, copy the [201-servicebus-create-queue](https
 }
 ```
 
-For more information, see the [Parameter file](../resource-group-template-deploy.md#parameter-file) topic.
+For more information, see the [Parameter file](../resource-group-template-deploy.md#parameter-precedence) topic.
 
 ### Log in to Azure and set the Azure subscription
 From a PowerShell prompt, run the following command:

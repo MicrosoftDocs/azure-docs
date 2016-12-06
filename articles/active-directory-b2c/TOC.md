@@ -50,6 +50,8 @@
 ## [Multi-factor Authentication](../multi-factor-authentication/multi-factor-authentication.md)
 
 # Resources
-## [Support](active-directory-b2c-support.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 ## [Azure feedback forum](http://feedback.azure.com/forums/169401-azure-active-directory)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c) 
+## [Service updates](https://azure.microsoft.com/updates/?product=active-directory-b2c)
+## [Support](active-directory-b2c-support.md)

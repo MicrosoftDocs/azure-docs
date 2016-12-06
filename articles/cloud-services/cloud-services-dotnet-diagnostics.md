@@ -37,15 +37,16 @@ This article assumes you have an Azure subscription and are using Visual Studio 
 ### Step 2: Instrument your code
 Replace the contents of WorkerRole.cs with the following code. The class SampleEventSourceWriter, inherited from the [EventSource Class][EventSource Class], implements four logging methods: **SendEnums**, **MessageMethod**, **SetOther** and **HighFreq**. The first parameter to the **WriteEvent** method defines the ID for the respective event. The Run method implements an infinite loop that calls each of the logging methods implemented in the **SampleEventSourceWriter** class every 10 seconds.
 
-    using Microsoft.WindowsAzure.ServiceRuntime;
-    using System;
-    using System.Diagnostics;
-    using System.Diagnostics.Tracing;
-    using System.Net;
-    using System.Threading;
+```csharp
+using Microsoft.WindowsAzure.ServiceRuntime;
+using System;
+using System.Diagnostics;
+using System.Diagnostics.Tracing;
+using System.Net;
+using System.Threading;
 
-    namespace WorkerRole1
-    {
+namespace WorkerRole1
+{
     sealed class SampleEventSourceWriter : EventSource
     {
         public static SampleEventSourceWriter Log = new SampleEventSourceWriter();
@@ -113,7 +114,8 @@ Replace the contents of WorkerRole.cs with the following code. The class SampleE
             return base.OnStart();
         }
     }
-    }
+}
+```
 
 
 ### Step 3: Deploy your Worker Role
@@ -135,27 +137,27 @@ Replace the contents of WorkerRole.cs with the following code. The class SampleE
 3. Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Click on the **Schemas** property in the **Properties** window. Click the **…** in the **Schemas** property. Click the **Add…** button and navigate to the location where you saved the XSD file and select the file WadConfig.xsd. Click **OK**.
 4. Replace the contents of the WadExample.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
 
-```
-        <?xml version="1.0" encoding="utf-8"?>
-        <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-              <WadCfg>
-                <DiagnosticMonitorConfiguration overallQuotaInMB="25000">
-                  <PerformanceCounters scheduledTransferPeriod="PT1M">
-                    <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
-                    <PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
-                      </PerformanceCounters>
-                      <EtwProviders>
-                        <EtwEventSourceProviderConfiguration provider="SampleEventSourceWriter" scheduledTransferPeriod="PT5M">
-                              <Event id="1" eventDestination="EnumsTable"/>
-                              <Event id="2" eventDestination="MessageTable"/>
-                              <Event id="3" eventDestination="SetOtherTable"/>
-                              <Event id="4" eventDestination="HighFreqTable"/>
-                              <DefaultEvents eventDestination="DefaultTable" />
-                        </EtwEventSourceProviderConfiguration>
-                      </EtwProviders>
-                </DiagnosticMonitorConfiguration>
-              </WadCfg>
-        </PublicConfig>
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
+  <WadCfg>
+    <DiagnosticMonitorConfiguration overallQuotaInMB="25000">
+      <PerformanceCounters scheduledTransferPeriod="PT1M">
+        <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT1M" unit="percent" />
+        <PerformanceCounterConfiguration counterSpecifier="\Memory\Committed Bytes" sampleRate="PT1M" unit="bytes"/>
+      </PerformanceCounters>
+      <EtwProviders>
+        <EtwEventSourceProviderConfiguration provider="SampleEventSourceWriter" scheduledTransferPeriod="PT5M">
+          <Event id="1" eventDestination="EnumsTable"/>
+          <Event id="2" eventDestination="MessageTable"/>
+          <Event id="3" eventDestination="SetOtherTable"/>
+          <Event id="4" eventDestination="HighFreqTable"/>
+          <DefaultEvents eventDestination="DefaultTable" />
+        </EtwEventSourceProviderConfiguration>
+      </EtwProviders>
+    </DiagnosticMonitorConfiguration>
+  </WadCfg>
+</PublicConfig>
 ```
 
 ### Step 5: Install Diagnostics on your Worker Role
@@ -164,13 +166,13 @@ The PowerShell cmdlets for managing Diagnostics on a web or worker role are: Set
 1. Open Azure PowerShell.
 2. Execute the script to install Diagnostics on your worker role (replace *StorageAccountKey* with the storage account key for your wadexample storage account):
 
-```
-    $storage_name = "wadexample"
-    $key = "<StorageAccountKey>"
-    $config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExample\WorkerRole1\WadExample.xml"
-    $service_name="wadexample"
-    $storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key
-    Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
+```powershell
+$storage_name = "wadexample"
+$key = "<StorageAccountKey>"
+$config_path="c:\users\<user>\documents\visual studio 2013\Projects\WadExample\WorkerRole1\WadExample.xml"
+$service_name="wadexample"
+$storageContext = New-AzureStorageContext -StorageAccountName $storage_name -StorageAccountKey $key
+Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -DiagnosticsConfigurationPath $config_path -ServiceName $service_name -Slot Staging -Role WorkerRole1
 ```
 
 ### Step 6: Look at your telemetry data

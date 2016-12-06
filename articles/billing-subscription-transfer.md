@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/13/2016
 ms.author: genli
 
 ---
@@ -60,13 +60,13 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 <a id="faq"></a>
 
 ## Frequently asked questions (FAQ)
-* **How can I know who is the account administrator of the subscription?**
+* <a name="whoisaa"></a> **How can I know who is the account administrator of the subscription?**
 
   You can confirm who is the account administrator of the subscription as follows:
 
   1. Sign in to the [Azure portal](https://portal.azure.com).
   2. On the Hub menu, select **Subscription**.
-  3. Select the subscription you want to check, and then select **Settings**.
+  3. Select the subscription you want to check, and then look under **Settings**.
   4. Select **Properties**. The account administrator of the subscription will be displayed in the **Account Admin** box.  
 * **Does a subscription transfer result in any service downtime?**
 
@@ -88,8 +88,8 @@ You can now do this easily in the Microsoft Azure Account Center- for Pay-As-You
 
   This is not a complete list. The recipient should consider updating any secrets associated with the service if they need to restrict access to their resources. Most resources can be updated as follows:
 
-  1. Go to the Azure portal:   [*https://portal.azure.com*](https://portal.azure.com)
-  2. Click Browse All -&gt; All Resources
+  1. Go to the [Azure portal](https://portal.azure.com).
+  2. On the Hub menu, select **All resources**.
   3. Select the resource. This opens the resource blade.
   4. In the resource blade, click **Settings**. Here you can view and update existing secrets.
 * **If I transfer the subscription in the middle of the billing cycle,

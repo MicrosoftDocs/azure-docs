@@ -113,6 +113,10 @@ In a different case, there is no dependency call that is particularly long. But 
 
 There seems to be a big gap after the first dependency call, so we should look at our code to see why that is.
 
+### Profiling your live site
+
+No idea where the time goes? The Application Insights profiler will trace HTTP calls to your live site and show you which functions in your code took the longest time. The profiler is currently in limited preview - you can [sign up to try it](https://aka.ms/AIProfilerPreview).
+
 ## Failed requests
 Failed requests might also be associated with failed calls to dependencies. Again, we can click through to track down the problem.
 

@@ -4,7 +4,7 @@ description: 'Learn about SQL error codes for SQL Database client applications, 
 keywords: sql error code,access sql,database connection error,sql error codes
 services: sql-database
 documentationcenter: ''
-author: annemill
+author: stevestein
 manager: jhubbard
 editor: ''
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 07/12/2016
-ms.author: annemill
+ms.author: sstein
 
 ---
 # SQL error codes for SQL Database client applications: Database connection error and other issues
@@ -209,6 +209,6 @@ The following errors do not fall into any previous categories.
 | 45169 |16 |The SQL azure system is under load, and is placing an upper limit on the number of concurrent server CRUD operations for a single subscription (e.g., create server). The subscription specified in the error message has exceeded the maximum number of concurrent connections, and the request was denied. Try again later. |
 
 ## Related links
-* [Azure SQL Database General Limitations and Guidelines](sql-database-general-limitations.md)
+* [Azure SQL Database Features](sql-database-features.md)
 * [Azure SQL Database resource limits](sql-database-resource-limits.md)
 

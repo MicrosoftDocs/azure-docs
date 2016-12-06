@@ -65,8 +65,22 @@ Security Center helps you prevent, detect, and respond to threats with increased
 ---
 ## Reference
 
-### REST
-[Security Center REST API Reference](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100))
+<ul class="panelContent cardsW">
+    <li>
+        <a href="https://msdn.microsoft.com/en-US/library/mt704034(Azure.100)">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Security Center REST API Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+<ul>	
 
 ---
 <div class="downloadHolder">

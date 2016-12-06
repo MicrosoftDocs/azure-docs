@@ -3,9 +3,8 @@ title: Manage DNS zones using PowerShell | Microsoft Docs
 description: You can manage DNS zones using Azure Powershell. How to update, delete and create DNS zones on Azure DNS
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
-editor: ''
+author: georgewallace
+manager: timlt
 
 ms.assetid: a67992ab-8166-4052-9b28-554c5a39e60c
 ms.service: dns
@@ -14,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: sewhee
+ms.author: gwallace
 ---
 # How to manage DNS Zones using PowerShell
 
@@ -22,7 +21,7 @@ ms.author: sewhee
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 > * [PowerShell](dns-operations-dnszones.md)
 
-This article will show you how to manage your DNS zone by using PowerShell. In order to use these steps, you'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets (1.0 or later). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+This article will show you how to manage your DNS zone by using PowerShell. In order to use these steps, you'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets (1.0 or later). See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
 
 ## Create a new DNS zone
 
@@ -76,7 +75,7 @@ Use one of the following two ways to remove a DNS zone:
 
 ### Specify the zone using the zone name and resource group name
 
-This operation has an optional *-Force* switch which suppresses the prompt to confirm you want to remove the DNS zone.
+This operation has an optional `-Force` switch which suppresses the prompt to confirm you want to remove the DNS zone.
 
 ```powershell
 Remove-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup [-Force]
@@ -84,8 +83,9 @@ Remove-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup 
 
 ### Specify the zone using a $zone object
 
-Specify the zone using a $zone object from `Get-AzureRmDnsZone`. This operation has an optional *-Force* switch which suppresses the prompt to confirm you want to remove the DNS zone. As with `Set-AzureRmDnsZone`, specifying the zone using a $zone object enables Etag checks to ensure concurrent changes are not deleted. <BR>
-The optional *-Overwrite* flag suppresses these checks. See [Etags and Tags](dns-getstarted-create-dnszone.md#tagetag) for more information.
+Specify the zone using a $zone object from `Get-AzureRmDnsZone`. This operation has an optional `-Force` switch which suppresses the prompt to confirm you want to remove the DNS zone. As with `Set-AzureRmDnsZone`, specifying the zone using a $zone object enables Etag checks to ensure concurrent changes are not deleted.
+
+The optional `-Overwrite` flag suppresses these checks. See [Etags and Tags](dns-getstarted-create-dnszone.md#tagetag) for more information.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup

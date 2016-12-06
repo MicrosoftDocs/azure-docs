@@ -29,7 +29,7 @@ The following limits apply only for networking resources managed through Azure R
 | Network Interfaces (NIC) |300 |10000 |
 | Network Security Groups (NSG) |100 |400 |
 | NSG rules per NSG |200 |500 |
-| User defined route tables |100 |400 |
+| User defined route tables |100 |200 |
 | User defined routes per route table |100 |400 |
 | Public IP addresses (dynamic) |60 |contact support |
 | Public IP addresses (Static) |20 |contact support |

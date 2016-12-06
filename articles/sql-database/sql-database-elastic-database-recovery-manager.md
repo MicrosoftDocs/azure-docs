@@ -8,6 +8,7 @@ author: ddove
 
 ms.assetid: 45520ca3-6903-4b39-88ba-1d41b22da9fe
 ms.service: sql-database
+ms.custom: elastic
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -32,9 +33,9 @@ In a sharded database environment, there is one tenant per database, and many da
 
 The GSM and LSM may become out of sync for the following reasons:
 
-1. The deletion of a shard whose range is believed to no longer be in use, or renaming of a shard. Deleting a shard results in an **orphaned shard mapping**. Similarly, a renamed database can cause an orphaned shard mapping. Depending on the intent of the change, the shard may need to be removed or the shard location needs to be updated. To recover a deleted database, see [Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage](sql-database-troubleshoot-backup-and-restore.md).
-2. A geo-failover event occurs. To continue, one must update the server name, and database name of shard map manager in the application and then update the shard mapping details for any and all shards in a shard map. In case of a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions.
-3. Either a shard or the ShardMapManager database is restored to an earlier point-in time.
+1. The deletion of a shard whose range is believed to no longer be in use, or renaming of a shard. Deleting a shard results in an **orphaned shard mapping**. Similarly, a renamed database can cause an orphaned shard mapping. Depending on the intent of the change, the shard may need to be removed or the shard location needs to be updated. To recover a deleted database, see [Restore a deleted database](sql-database-restore-deleted-database-portal.md).
+2. A geo-failover event occurs. To continue, one must update the server name, and database name of shard map manager in the application and then update the shard mapping details for any and all shards in a shard map. In case of a geo-failover, such recovery logic should be automated within the failover workflow. Automating recovery actions enables a frictionless manageability for geo-enabled databases and avoids manual human actions. To learn about options to recover a database in the event of a data center outage, see [Business Continuity](sql-database-business-continuity.md) and [Disaster Recovery](sql-database-disaster-recovery.md).
+3. Either a shard or the ShardMapManager database is restored to an earlier point-in time. To learn about point in time recovery, see [Point in time recovery](sql-database-point-in-time-restore-portal.md).
 
 For more information about Azure SQL Database Elastic Database tools, Geo-Replication and Restore, please see the following: 
 
@@ -65,7 +66,7 @@ This example removes shards from the shard map.
 
     rm.DetachShard(s.Location, customerMap); 
 
-The map the shard location in the GSM  prior to the deletion of the shard. Because the shard was deleted, it is assumed this was intentional, and the sharding key range is no longer in use. If this is not the case, you can execute point-in time restore. to recover the shard from an earlier point-in-time. (In that case, review the section below to detect shard inconsistencies.) To recover, see [Restore a database to a previous point in time, restore a deleted database, or recover from a data center outage](sql-database-troubleshoot-backup-and-restore.md).
+The map the shard location in the GSM  prior to the deletion of the shard. Because the shard was deleted, it is assumed this was intentional, and the sharding key range is no longer in use. If this is not the case, you can execute point-in time restore. to recover the shard from an earlier point-in-time. (In that case, review the section below to detect shard inconsistencies.) To recover, see [Point in time recovery](sql-database-point-in-time-restore-portal.md).
 
 Since it is assumed the database deletion was intentional, the final administrative cleanup action is to delete the entry to the shard in the shard map manager. This prevents the application from inadvertently writing information to a range which is not expected.
 

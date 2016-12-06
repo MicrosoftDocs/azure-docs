@@ -1,14 +1,14 @@
 ---
 title: Manage Service Bus with PowerShell | Microsoft Docs
 description: Manage Service Bus with PowerShell scripts
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: aff8e2ce-bc8b-489f-aca9-a18782be0375
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -184,7 +184,7 @@ Some ready-made scripts are also available for download:
 [Purchase Options]: http://azure.microsoft.com/pricing/purchase-options/
 [Member Offers]: http://azure.microsoft.com/pricing/member-offers/
 [Free Trial]: http://azure.microsoft.com/pricing/free-trial/
-[Install and configure Azure PowerShell]: ../powershell-install-configure.md
+[Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
 [Service Bus NuGet package]: http://www.nuget.org/packages/WindowsAzure.ServiceBus/
 [Get-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495122.aspx
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx

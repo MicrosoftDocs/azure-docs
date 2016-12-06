@@ -17,7 +17,7 @@ In order to use EventProcessorHost, you must have an [Azure Storage account][Azu
 ### Create a Java project using the EventProcessor Host
 The Java client library for Event Hubs is available for use in Maven projects from the [Maven Central Repository][Maven Package], and can be referenced using the following dependency declaration inside your Maven project file:    
 
-``` XML
+```XML
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>azure-eventhubs</artifactId>
@@ -34,7 +34,7 @@ For different types of build environments, you can explicitly obtain the latest 
 
 1. For the following sample, first create a new Maven project for a console/shell application in your favorite Java development environment. The class will be called ```ErrorNotificationHandler```.     
    
-    ``` Java
+    ```Java
     import java.util.function.Consumer;
     import com.microsoft.azure.eventprocessorhost.ExceptionReceivedEventArgs;
    
@@ -167,7 +167,7 @@ For different types of build environments, you can explicitly obtain the latest 
     ```
 4. Replace the following fields with the values used when you created the Event Hub and storage account.
    
-    ``` Java
+    ```Java
     final String namespaceName = "----ServiceBusNamespaceName-----";
     final String eventHubName = "----EventHubName-----";
    

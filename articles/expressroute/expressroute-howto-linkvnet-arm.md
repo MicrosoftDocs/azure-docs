@@ -33,7 +33,7 @@ This article will help you link virtual networks (VNets) to Azure ExpressRoute c
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Configuration prerequisites
-* You need the latest version of the Azure PowerShell modules (at least version 1.0). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+* You need the latest version of the Azure PowerShell modules (at least version 1.0). See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
 * You need to review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 * You must have an active ExpressRoute circuit. 
   * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 
@@ -70,7 +70,9 @@ The *circuit owner* is an authorized power user of the ExpressRoute circuit reso
 The *circuit owner* has the power to modify and revoke authorizations at any time. Revoking an authorization results in all link connections being deleted from the subscription whose access was revoked.
 
 ### Circuit owner operations
-#### Creating an authorization
+
+**Creating an authorization**
+
 The circuit owner creates an authorization. This results in the creation of an authorization key that can be used by a circuit user to connect their virtual network gateways to the ExpressRoute circuit. An authorization is valid for only one connection.
 
 The following cmdlet snippet shows how to create an authorization:
@@ -94,14 +96,16 @@ The response to this will contain the authorization key and status:
 
 
 
-#### Reviewing authorizations
+**Reviewing authorizations**
+
 The circuit owner can review all authorizations that are issued on a particular circuit by running the following cmdlet:
 
     $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
     $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 
-#### Adding authorizations
+**Adding authorizations**
+
 The circuit owner can add authorizations by using the following cmdlet:
 
     $circuit = Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
@@ -112,27 +116,31 @@ The circuit owner can add authorizations by using the following cmdlet:
     $authorizations = Get-AzureRmExpressRouteCircuitAuthorization -ExpressRouteCircuit $circuit
 
 
-#### Deleting authorizations
+**Deleting authorizations**
+
 The circuit owner can revoke/delete authorizations to the user by running the following cmdlet:
 
     Remove-AzureRmExpressRouteCircuitAuthorization -Name "MyAuthorization2" -ExpressRouteCircuit $circuit
     Set-AzureRmExpressRouteCircuit -ExpressRouteCircuit $circuit    
 
-### Circuit user operations
+**Circuit user operations**
+
 The circuit user needs the peer ID and an authorization key from the circuit owner. The authorization key is a GUID.
 
 Peer ID is, can be checked from the following command.
 
     Get-AzureRmExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG"
 
-#### Redeeming connection authorizations
+**Redeeming connection authorizations**
+
 The circuit user can run the following cmdlet to redeem a link authorization:
 
     $id = "/subscriptions/********************************/resourceGroups/ERCrossSubTestRG/providers/Microsoft.Network/expressRouteCircuits/MyCircuit"    
     $gw = Get-AzureRmVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyRG"
     $connection = New-AzureRmVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "RemoteResourceGroup" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $id -ConnectionType ExpressRoute -AuthorizationKey "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"
 
-#### Releasing connection authorizations
+**Releasing connection authorizations**
+
 You can release an authorization by deleting the connection that links the ExpressRoute circuit to the virtual network.
 
 ## Next steps

@@ -47,18 +47,24 @@
 ### [Paired namespaces](service-bus-paired-namespaces.md)
 ### [Chain entities with auto-forwarding](service-bus-auto-forwarding.md)
 ## Manage
-### [Using ARM templates](service-bus-resource-manager-overview.md)
+### [Using Azure Resource Manager templates](service-bus-resource-manager-overview.md)
 ### [Using PowerShell to provision entities](service-bus-powershell-how-to-provision.md)
 
 # Reference
+## [PowerShell](/powershell/resourcemanager/azurerm.scheduler/v0.11.1/azurerm.scheduler)
+## [.NET](/dotnet/api/microsoft.azure.management.servicebus)
+## [Java](/java/api/com.microsoft.azure.servicebus.amqp)
+## [REST](/rest/api/servicebus)
+
+# Resources
+## [SQLFilter syntax](service-bus-messaging-sql-filter.md)
+## [SQLRuleAction syntax](service-bus-messaging-sql-rule-action.md)
+## [AMQP1.0 protocol guide](service-bus-amqp-protocol-guide.md)
+### [AMQP 1.0 request-response-based operations](service-bus-amqp-request-response.md)
 ## [Pricing details](service-bus-pricing-billing.md)
 ## [Samples](service-bus-samples.md)
 ## [Exceptions](service-bus-messaging-exceptions.md)
 ## [Quotas](service-bus-quotas.md)
-## [.NET](/dotnet/api/)
-## [REST](/rest/api/servicebus/)
-
-# Resources
 ## [Blog](https://blogs.msdn.microsoft.com/servicebus/)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/servicebus)
 ## [MSDN forums](https://social.msdn.microsoft.com/forums/home?forum=servbus)
