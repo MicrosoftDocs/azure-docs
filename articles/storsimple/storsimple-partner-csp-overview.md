@@ -31,7 +31,7 @@ For more information on billing, pricing, incentives, and getting support in CSP
 
 ## Deploy and manage StorSimple in CSP
 
-StorSimple in CSP is available as a seat license service in all the countries where the CSP exists and the StorSimple Device Manager is available. StorSimple in CSP uses the Azure portal and the StorSimple Device Manager service. A CSP partner can create a StorSimple Device Manager to manage StorSimple Virtual Arrays, shares, volumes, and backups. You can administer all the virtual arrays registered to your StorSimple Device Manager service via the Azure portal.
+StorSimple in CSP is available as a usage-based service in all the markets where the StorSimple is available today. StorSimple in CSP uses the Azure portal and the StorSimple Device Manager service. A CSP partner can create a StorSimple Device Manager to manage StorSimple Virtual Arrays, shares, volumes, and backups. You can administer all the virtual arrays registered to your StorSimple Device Manager service via the Azure portal.
 
 For more information, go to [Deploy and manage your StorSimple Virtual Array in the CSP](storsimple-partner-csp-deploy.md).
 

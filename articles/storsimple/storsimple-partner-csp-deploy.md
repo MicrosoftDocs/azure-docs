@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure StorSimple and Cloud Solutions Program Overview | Microsoft Docs
+title: Microsoft Azure StorSimple and Cloud Solutions Provider Program Overview | Microsoft Docs
 description: An overview about the StorSimple and CSP for StorSimple partners.
 services: storsimple
 documentationcenter: NA
@@ -75,7 +75,7 @@ In some instances, you may have an existing customer, and you need to add a new 
 
      ![Dashboard in Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. In the left-pane, click **Customers**. Find or navigate to the customer you want to add a new subscription to. Click the ![Expand check icon](./media/storsimple-partner-csp-deploy/expand_check_icon.png) icon to expand the row for the company name for your customer. In the details, click **Add subscriptions**.
+2. In the left-pane, click **Customers**. Find or navigate to the customer you want to add a new subscription to. Click the ![Expand check icon](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) icon to expand the row for the company name for your customer. In the details, click **Add subscriptions**.
 
     ![Customers](./media/storsimple-partner-csp-deploy/image10.png)
 

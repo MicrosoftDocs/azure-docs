@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions on StorSimple and Cloud Solutions Program for partners | Microsoft Docs
+title: Frequently asked questions on StorSimple and Cloud Solutions Provider Program for partners | Microsoft Docs
 description: Find answers to some common questions regarding StorSimple and CSP for partners.
 services: storsimple
 documentationcenter: NA
@@ -17,38 +17,36 @@ ms.date: 12/05/2016
 ms.author: alkohli
 ---
 
-# StorSimple in Cloud Solutions Program: Frequently Asked Questions
+# StorSimple in Cloud Solutions Provider Program: Frequently Asked Questions
 
 
 ## Overview
-The following are questions and answers that you might have as a StorSimple partner when you deploy or manage a StorSimple device in Azure portal.
+The following are questions and answers that you might have as a StorSimple partner when you deploy or manage a StorSimple Virtual Array in Azure portal.
 
 Questions and answers are arranged into the following categories:
 
- - [StorSimple and Cloud Solutions Program (CSP) model](#storsimple-and-csp-model)
- - [Deploy and manage StorSimple as a partner](#deploy-and-manage-storsimple-as-a-partner)
+ - [StorSimple and Cloud Solutions Provider Program (CSP) model](#storsimple-and-csp-model)
+ - [Deploy and manage virtual array as a partner](#deploy-and-manage-storsimple-as-a-partner)
  - [Support for StorSimple partners in CSP](#support-for-storsimple-partners)
 
 ## StorSimple and CSP model
 
 ### What does it mean to have StorSimple as a part of the Cloud Solutions Provider (CSP) program?
-Starting XXX date, StorSimple in CSP enables our CSP partners to value-add and resell StorSimple Virtual Array to the end-customers. In the current model, the customers need an Azure Enterprise Agreement (EA) to use the StorSimple Virtual Array. The new model enables the CSP partners to own the end-to-end customer lifecycle with direct provisioning, billing, and support of Microsoft’s cloud services. 
+ StorSimple in CSP enables our CSP partners to resell StorSimple Virtual Array their customers. This model enables the CSP partners to own the end-to-end customer lifecycle with direct provisioning, billing, and support of Microsoft’s cloud services. 
 
 For more information, go to [StorSimple in CSP program](https://www.microsoft.com/server-cloud/products/storsimple/). 
 
 ### Is StorSimple a usage-based or based on seat licenses like Office 365 and Enterprise Mobility Suite (EMS)?
 StorSimple is a usage-based service. Customers who procure StorSimple Virtual Array via the CSP route pay for the usage of virtual array and Azure, billed as separate line-items in the CSP bill. 
 
-### Is the StorSimple business model similar to that of other services based on seat licenses such as the Office 365 and the Enterprise Mobility Suite? 
-Yes. The model is a wholesale discount model just like other services based on seat licenses in CSP. The wholesale discount for StorSimple is 15% of the list price. This model provides our CSP partners an opportunity to sell more and drive Azure storage consumption via StorSimple Virtual Array.  
+### Is the StorSimple business model similar to that of other services such as the Office 365 and the Enterprise Mobility Suite? 
+Yes. The model is a wholesale discount model just like other usage-based services in Azure. The wholesale discount for StorSimple is similar to that of other Azure services. This model provides our CSP partners an opportunity to sell more and drive Azure consumption via StorSimple Virtual Array.  
 
 ### Which StorSimple SKUs are available at launch?
-The same SKUs that are available with the standalone StorSimple services. For more information on StorSimple SKUs, go to <link>.
+The same SKUs that are available with the standalone StorSimple services. 
 
 ### Is there any difference between the StorSimple directly purchased from Microsoft under EA and StorSimple as a part of CSP?
-No. Under CSP, customers can also purchase other services offered by the CSP partner along with StorSimple Virtual Array (SVA) under one invoice. Do note that for procuring the StorSimple Physical Array, customers still need to go through the EA route. 
-
-There are changes happening to the current ASAP model, as well, that are being communicated in parallel to the availability of StorSimple Virtual Array on CSP.
+No. Under CSP, customers can also purchase other services offered by the CSP partner along with StorSimple Virtual Array (SVA) under one invoice. Do note that for procuring the StorSimple 8000 series physical device, customers still need to go through the EA route. 
 
 ### In which markets, is StorSimple available in CSP at launch?
 StorSimple Virtual Array in CSP is available in all the markets where StorSimple is available today. For more information, go to the [list of regions where StorSimple is available](https://azure.microsoft.com/regions/services/).
