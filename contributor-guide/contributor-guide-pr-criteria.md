@@ -11,7 +11,9 @@ The updates in the pull request must comply with the following criteria to be me
 | Prerequisites |The pull request cannot be blocked by a merge conflict. |
 | Prerequisites |The pull request contains updates only to technical articles and images. PRs that mix updates to TOC files, index files, and articles will be closed without further review. |
 | Repo integrity |Pull request contains no obvious content regressions. |
-| Repo integrity |Pull request does not include an embedded repo or any unusual, extraneous files. All file updates should be restricted to the articles and includes folders in the repo. Items to watch for: .DS_Store, .gitignore, azure-docs-pr embedded in root folder.|
+| Repo integrity |No article-related files, images, or folders are being added to the root directory of the repo.|
+| Repo integrity|Pull requests that change a configuration file in the root folder must be reviewed and merged by the repo administrator. |
+| Repo integrity |Pull request does not include an embedded repo or any unusual, extraneous files. All file updates should be restricted to the articles and includes folders in the repo. Items to watch for: .DS_Store, desktop.ini, .gitignore, azure-docs-pr embedded in root folder.|
 | Repo integrity |Pull request contains fewer than 100 changed files unless the PR intentionally is updating a release branch from master. (Really, a PR should contain far fewer than that, but after 100 changed files, GitHub doesn’t display the diffs). |
 | Repo integrity |If articles are deleted in the pull request, the deletions must be by the listed author. If not by the listed author, the PR must contain a comment indicating the article deletions are intentional |
 | Naming |File names for new files follow the [file naming guidelines](file-names-and-locations.md). |
@@ -33,7 +35,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Markdown |HTML: Source content does not contain HTML at the block level – minor inline HTML is permitted – such as superscript, subscript, special characters, and other minor things that you can’t do with markdown. HTML tables are allowed ONLY if the table contains bulleted or numbered lists, but that is usually an indication the content needs to be simplified so the source can be coded in markdown. |
 | Markdown |Custom markdown elements are used where appropriate. Ex: Notes are coded using the AZURE.NOTE extension, not as plain text. |
 | SEO |The " &#124; Microsoft Docs" site identifier is required. We no longer use the " &#124; Microsoft Azure" site identifier |
-| SEO |The *title* metadata value must include the word "Azure" |
+| SEO |The *title* metadata value must include the word "Azure" (Operations Management Suite articles are excepted) |
 | SEO |The H1 title contains sufficient information to describe the content of the article, to differentiate it from other Azure articles, and to map to likely customer keywords. For example "Overview" as the H1 title is a fail. |
 | Terminology |The use of the ARM acronym, V1, or V2 as references to the classic and Resource Manager deployment models is a blocking terminology item. |
 | Images |Animated GIFs are not accepted into the repo. |

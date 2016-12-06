@@ -53,13 +53,19 @@ scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 
 If you are on Windows you will need to use Bash on Ubuntu on Windows or the Putty 'pscp' tool.
 
-Once you have `kubectl` configured, you can test this with:
+Once you have `kubectl` configured, you can test this by listing the nodes in your cluster:
 
 ```console
 kubectl get nodes
 ```
 
-which should show you the nodes in your cluster.
+Finally, you can view the Kubernetes Dashboard. First, execute:
+
+```console
+kubectl proxy
+```
+
+The Kubernetes UI is now available at: http://localhost:8001/ui
 
 For further instructions you can see the [Kubernetes quick start](http://kubernetes.io/docs/user-guide/quick-start/)
 

@@ -29,7 +29,7 @@ You can use Role-Based Access Control (RBAC) in the Azure portal and Azure Resou
 
 Before you can use PowerShell to manage RBAC, you must have the following:
 
-* Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell version 0.8.8 or later. To install the latest version and associate it with your Azure subscription, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Azure Resource Manager cmdlets. Install the [Azure Resource Manager cmdlets](https://msdn.microsoft.com/library/mt125356.aspx) in PowerShell.
 
 ## List roles

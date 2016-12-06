@@ -44,7 +44,6 @@ Released: 2016 November
 
 * Added support for installing Azure AD Connect on Windows Server 2016 standard or better.
 * Added support for using SQL Server 2016 as the remote database for Azure AD Connect.
-* Added support for managing AD FS 2016 using Azure AD Connect.
 
 ## 1.1.281.0
 Released: 2016 August

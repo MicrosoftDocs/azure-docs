@@ -49,3 +49,8 @@ When you are working with a release branch, the best way to create a local worki
 
 This creates the local branch directly from the upstream branch, avoiding any local merging.
 
+Then, to keep your local copy of the release branch up to date with the upstream version, run:
+
+    git pull upstream <release-branch-name>
+    
+The person repsonsible for managing the release from the content side needs to update the release branch with updates from master on a daily basis.
