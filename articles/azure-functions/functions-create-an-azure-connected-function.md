@@ -28,7 +28,7 @@ This topic shows you how to create an Azure Function that listens to messages on
 >
 >
 
-## Create an input queue trigger function
+## Create a function that writes to the queue
 
 Before you can connect to a storage queue, you need to create a function that loads the message queue. This function uses a timer trigger that writes a message to the queue every 10 seconds.
 
@@ -108,7 +108,7 @@ You can verify that your function is working by viewing messages in the queue yo
 
 	If the queue does not exist or is empty, there is most likely a problem with your function binding or code.
 
-## Create a queue triggered function
+## Create a function that reads from the queue
 
 Now that you have messages being added to the queue, you can create another function that reads from the queue and writes the messages permanently to an Azure Storage table. Because a function app can have functions of various languages, you can define this function using C# script.
 
