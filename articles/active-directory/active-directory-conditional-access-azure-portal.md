@@ -147,4 +147,4 @@ If you need to configure a location condition that applies to all connections ma
 
 ## Next steps
 
-TBD
+If you want to know how to configure a conditional access policy, see [Get started with conditional access in Azure Active Directory](active-directory-conditional-access-azure-portal-get-started.md).
