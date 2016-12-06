@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: a2e47475-c955-4a8d-a65c-cbef9a6d9b9f
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na

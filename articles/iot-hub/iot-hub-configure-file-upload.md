@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: dobett
 
 ---
-# How to configure IoT Hub file uploads using the Azure portal
+# Configure IoT Hub file uploads using the Azure portal
 ## File upload
 To use the [file upload functionality in IoT Hub][lnk-upload], you must first associate an Azure Storage account with your hub. Select the **File upload** settings to display a list of file upload properties for the IoT hub that is being modified.
 
