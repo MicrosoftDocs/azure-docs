@@ -108,7 +108,7 @@ A Team Services release definition describes a workflow that is composed of a se
 12. Save the release definition.
 
 > [!NOTE]
-> Microsoft Accounts (e.g. @hotmail.com, @outlook.com) are not supported fro Azure Active Directory authentication.
+> Microsoft Accounts (e.g. @hotmail.com, @outlook.com) are not supported with Azure Active Directory authentication.
 > 
 > 
 
