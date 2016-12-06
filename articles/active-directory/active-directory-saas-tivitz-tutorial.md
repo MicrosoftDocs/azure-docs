@@ -5,7 +5,6 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-editor: na
 
 ms.assetid: b97ed88f-7888-4185-be22-41d1f62cbbf1
 ms.service: active-directory
@@ -13,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 12/06/2016
 ms.author: jeedes
 
 ---
@@ -125,12 +124,10 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	b. In the **Identifier** textbox, type a URL using the following pattern: `https://<company name>.o365.tivitz.com/`
 
-	c. In the **Reply URL** textbox, type a URL using the following pattern: `https://<company name>.o365.tivitz.com/simplesaml/`
-
-    d. Click **Next**.
+    c. Click **Next**.
 
 	> [!NOTE] 
-	> Please note that these are not the real values. You have to update these values with the actual Sign On URL, Identifier and Reply URL. Contact [TiViTz support team](emaiLto:info@tivitz.com) to get these values.
+	> Please note that these are not the real values. You have to update these values with the actual Sign On URL and Identifier. Contact [TiViTz support team](emaiLto:info@tivitz.com) to get these values.
 
 4. On the **Configure single sign-on at TiViTz** page, click **Download metadata** and then save the file on your computer:
 
