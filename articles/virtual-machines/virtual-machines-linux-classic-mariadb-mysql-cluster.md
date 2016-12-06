@@ -71,16 +71,17 @@ This article describes how to complete the following steps:
 7. Use SSH to sign in to the template VM that you created at mariadbhatemplate.cloudapp.net:22, and connect by using your private key.
 
 ### Software
-1. Obtain root.
+1. Get the root.
 
         sudo su
-        
+
 2. Install RAID support:
 
-    1. Install mdadm.
+    a. Install mdadm.
 
               yum install mdadm
-    2. Create the RAID0/stripe configuration with an EXT4 file system.
+
+    b. Create the RAID0/stripe configuration with an EXT4 file system.
 
               mdadm --create --verbose /dev/md0 --level=stripe --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
               mdadm --detail --scan >> /etc/mdadm.conf
@@ -100,56 +101,61 @@ This article describes how to complete the following steps:
     7. Mount the new partition.
 
               mount /mnt/data
-3. Install MariaDB:
 
-   1. Create the MariaDB.repo file:
+3. Install MariaDB.
+
+    1. Create the MariaDB.repo file.
 
                 vi /etc/yum.repos.d/MariaDB.repo
-   2. Fill the repo file with the following content.
+
+    2. Fill the repo file with the following content:
 
               [mariadb]
               name = MariaDB
               baseurl = http://yum.mariadb.org/10.0/centos7-amd64
               gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
               gpgcheck=1
-   3. To avoid conflicts, remove existing postfix and mariadb-libs.
+    3. To avoid conflicts, remove existing postfix and mariadb-libs.
 
-          yum remove postfix mariadb-libs-*
-   4. Install MariaDB with Galera.
+           yum remove postfix mariadb-libs-*
+    4. Install MariaDB with Galera.
 
-          yum install MariaDB-Galera-server MariaDB-client galera
+           yum install MariaDB-Galera-server MariaDB-client galera
+
 4. Move the MySQL data directory to the RAID block device.
 
-   1. Copy the current MySQL directory into its new location and remove the old directory.
+    1. Copy the current MySQL directory into its new location and remove the old directory.
 
-          cp -avr /var/lib/mysql /mnt/data  
-          rm -rf /var/lib/mysql
-   2. Set permissions for the new directory accordingly.
+           cp -avr /var/lib/mysql /mnt/data  
+           rm -rf /var/lib/mysql
+    2. Set permissions for the new directory accordingly.
 
-          chown -R mysql:mysql /mnt/data && chmod -R 755 /mnt/data/  
-   3. Create a symlink pointing the old directory to the new location on the RAID partition.
+           chown -R mysql:mysql /mnt/data && chmod -R 755 /mnt/data/
 
-          ln -s /mnt/data/mysql /var/lib/mysql
+    3. Create a symlink pointing the old directory to the new location on the RAID partition.
+
+           ln -s /mnt/data/mysql /var/lib/mysql
+
 5. Because [SELinux interferes with the cluster operations](http://galeracluster.com/documentation-webpages/configuration.html#selinux), it is necessary to disable it for the current session. Edit `/etc/selinux/config` to disable it for subsequent restarts.
 
-            setenforce 0
+       setenforce 0
 
        then editing `/etc/selinux/config` to set `SELINUX=permissive`
 6. Validate MySQL runs.
 
-   1. Start MySQL.
+   a. Start MySQL.
 
            service mysql start
-   2. Secure the MySQL installation, set the root password, remove anonymous users to disable remote root login, and remove the test database.
+   b. Secure the MySQL installation, set the root password, remove anonymous users to disable remote root login, and remove the test database.
 
            mysql_secure_installation
-   3. Create a user on the database for cluster operations, and optionally your applications.
+   c. Create a user on the database for cluster operations, and optionally for your applications.
 
            mysql -u root -p
            GRANT ALL PRIVILEGES ON *.* TO 'cluster'@'%' IDENTIFIED BY 'p@ssw0rd' WITH GRANT OPTION; FLUSH PRIVILEGES;
            exit
 
-   4. Stop MySQL.
+   d. Stop MySQL.
 
             service mysql stop
 7. Create a configuration placeholder.
@@ -185,7 +191,7 @@ This article describes how to complete the following steps:
    1. Edit the MySQL configuration file again.
 
            vi /etc/my.cnf.d/server.cnf
-   2. Edit the **[mariadb]** section and append the following content.
+   2. Edit the **[mariadb]** section and append the following content:
 
    > [!NOTE]
    > We recommend that innodb\_buffer\_pool_size is 70% of your VM's memory. In this example, it has been set at 2.45 GB for the medium Azure VM with 3.5 GB of RAM.
@@ -288,6 +294,7 @@ When you created the clustered VMs, you added them into an availability set call
 Now use the Azure Load Balancer to balance requests between the three nodes.
 
 Run the following commands on your machine by using the Azure CLI.
+
 The command parameters structure is: `azure vm endpoint create-multiple <MachineName> <PublicPort>:<VMPort>:<Protocol>:<EnableDirectServerReturn>:<Load Balanced Set Name>:<ProbeProtocol>:<ProbePort>`
 
     azure vm endpoint create-multiple mariadb1 3306:3306:tcp:false:MySQL:tcp:3306
@@ -322,7 +329,7 @@ Then create a database and populate it with some data.
     INSERT INTO TestTable (value)  VALUES ('Value2');
     SELECT * FROM TestTable;
 
-The database you created returns the following table.
+The database you created returns the following table:
 
     +----+--------+
     | id | value  |
