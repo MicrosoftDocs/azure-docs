@@ -45,7 +45,6 @@
        import android.os.AsyncTask;
        import android.os.Bundle;
        import android.support.v4.app.NotificationCompat;
-
 11. Add this member to the `MyHandler` class:
 
 
