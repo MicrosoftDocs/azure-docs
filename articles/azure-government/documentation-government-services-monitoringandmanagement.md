@@ -45,7 +45,7 @@ The following Backup features are not currently available in Azure Government:
 The URLs for Backup are different in Azure Government:
 
 ## Site Recovery
-Site Recovery is generally available in Azure Government.
+Site Recovery (ASR) is generally available in Azure Government.
 
 For more information, see [Site Recovery public documentation](../site-recovery/site-recovery-overview.md).
 
@@ -59,8 +59,15 @@ The following Site Recovery features are not currently available in Azure Govern
 | VMWare/Physical  | GA | Planned |
 | Hyper-V | GA | Planned |
 | Site to Site | GA | Planned |
-| Region to Region  | NP | NP |
-Notes: Table applies to VA and Iowa. Region to Region is Preview in Public
+
+Notes: Table applies to VA and Iowa. 
+
+The URLs for ASR  are different in Azure Government:
+
+| Azure Public | Azure Government | Notes |
+| --- | --- | --- |
+| Add Public Endpoint | https://pod01-srs1.ugv.hypervrecoverymanager.windowsazure.us</Endpoint> | usgoveast  |
+
 
 
 ## Log Analytics
