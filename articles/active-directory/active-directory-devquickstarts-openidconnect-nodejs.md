@@ -3,7 +3,7 @@ title: Getting started with Azure AD sign in and sign out using node.js
 description: How to build a node.js Express MVC Web App that integrates with Azure AD for sign in.
 services: active-directory
 documentationcenter: nodejs
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: ''
 
