@@ -21,7 +21,7 @@ ms.author: v-livech
 
 # Using internal DNS for VM name resolution on Azure
 
-This article shows how to set static internal DNS names for Linux VMs using Virtual NIC cards (VNic) and DNS label names. Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.  Internal DNS names are only resolvable inside an Azure virtual network (VNet).  Because the DNS names are internal, they are not resolvable to the outside internet, providing additional security to the infrastructure.
+This article shows how to set static internal DNS names for Linux VMs using Virtual NIC cards (VNic) and DNS label names. Static DNS names are used for permanent infrastructure services like a Jenkins build server, which is used for this document, or a Git server.
 
 The requirements are:
 
@@ -67,13 +67,15 @@ azure vm create jenkins \
 
 ## Detailed walkthrough
 
-A full continuous integration and continuous deployment (CiCd) infrastructure on Azure requires certain servers to be static or long-lived servers.  It is recommended that Azure assets like the VNets and NSGs should be static and long lived resources that are rarely deployed.  Once a VNet has been deployed, it can be reused by new deployments without any adverse affects to the infrastructure.  Adding to this static network a Git repository server and a Jenkins automation server delivers CiCd to your development or test environments.
+A full continuous integration and continuous deployment (CiCd) infrastructure on Azure requires certain servers to be static or long-lived servers.  It is recommended that Azure assets like the Virtual Networks (VNets) and Network Security Groups (NSGs), should be static and long lived resources that are rarely deployed.  Once a VNet has been deployed, it can be reused by new deployments without any adverse affects to the infrastructure.  Adding to this static network a Git repository server and a Jenkins automation server delivers CiCd to your development or test environments.  
+
+Internal DNS names are only resolvable inside an Azure virtual network.  Because the DNS names are internal, they are not resolvable to the outside internet, providing additional security to the infrastructure.
 
 _Replace any examples with your own naming._
 
 ## Create the Resource group
 
-First a Resource Group is created to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+A Resource Group is needed to organize everything we create in this walkthrough.  For more information on Azure Resource Groups, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ```azurecli
 azure group create myResourceGroup \
