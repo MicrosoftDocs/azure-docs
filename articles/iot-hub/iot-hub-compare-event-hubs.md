@@ -1,6 +1,6 @@
 ---
 title: Compare Azure IoT Hub to Azure Event Hubs | Microsoft Docs
-description: A comparison of the Azure IoT Hub and Azure Event Hubs services highlighting functional differences and use cases.
+description: A comparison of the IoT Hub and Event Hubs Azure services highlighting functional differences and use cases. The comparison includes supported protocols, device management, monitoring, and file uploads.
 services: iot-hub
 documentationcenter: ''
 author: fsautomata
@@ -42,7 +42,7 @@ To learn more about planning your IoT Hub deployment, see [Scaling, HA, and DR][
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-twins]: iot-hub-devguide-device-twins.md

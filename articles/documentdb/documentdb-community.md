@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/21/2016
+ms.date: 11/30/2016
 ms.author: andrl
 
 ---
@@ -198,7 +198,7 @@ Follow us on twitter [@DocumentDB](https://twitter.com/DocumentDB) and stay up t
 ## Contact the team
 ![Team](./media/documentdb-community/documentdb-team.png)
 
-Do you need technical help? Have questions? Wondering whether NoSQL is a good fit for you? You can [schedule a 1:1 chat directly with the DocumentDB engineering team](http://www.askdocdb.com/). You can also shoot us an [e-mail](mailto:askdocdb@microsoft.com) or tweet us at [@DocumentDB](https://twitter.com/DocumentDB). 
+Do you need technical help? Have questions? Wondering whether NoSQL is a good fit for you? You can schedule a 1:1 chat directly with the DocumentDB engineering team by sending us an [e-mail](mailto:askdocdb@microsoft.com) or tweeting us at [@DocumentDB](https://twitter.com/DocumentDB).
 
 ## Open source projects
 These projects are actively developed by the Azure DocumentDB team in collaboration with our open source community.

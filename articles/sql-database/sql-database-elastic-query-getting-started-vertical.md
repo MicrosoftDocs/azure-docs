@@ -94,7 +94,7 @@ Once you have defined your external data source and your external tables you can
 ## Cost
 Currently, the elastic database query feature is included into the cost of your Azure SQL Database.  
 
-For pricing information see [SQL Database Pricing](/pricing/details/sql-database). 
+For pricing information see [SQL Database Pricing](https://azure.microsoft.com/pricing/details/sql-database). 
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

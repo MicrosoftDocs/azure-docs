@@ -194,7 +194,7 @@ If you need help with this PowerShell script, see [Using the Azure PowerShell wi
 7. Open the folder and check the files in the folders.
 
 ## Create data factory
-With the storage account, the input data, and the HiveQL script prepared, you are ready to create an Azure data factory. There are several methods for creating data factory. You use the Azure portal to call a custom Resource Management template in this tutorial. You can also call the Resource Management template from [Azure CLI](../resource-group-template-deploy-cli.md) and [Azure PowerShell](../resource-group-template-deploy.md#deploy-with-powershell). For other data factory creation methods, see [Tutorial: Build your first data factory](../data-factory/data-factory-build-your-first-pipeline.md).
+With the storage account, the input data, and the HiveQL script prepared, you are ready to create an Azure data factory. There are several methods for creating data factory. You use the Azure portal to call a custom Resource Management template in this tutorial. You can also call the Resource Management template from [Azure CLI](../resource-group-template-deploy-cli.md) and [Azure PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy). For other data factory creation methods, see [Tutorial: Build your first data factory](../data-factory/data-factory-build-your-first-pipeline.md).
 
 The top-level Resource Management template contains:
 

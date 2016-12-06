@@ -32,7 +32,7 @@ Open your terminal and install
 
     ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install FreeTDS
-    sudo -H pip install pymssql=2.1.1
+    sudo -H pip install pymssql==2.1.1
 
 ### **Linux (Ubuntu)**
 Open your terminal and navigate to a directory where you plan on creating your python script. Enter the following commands to install **FreeTDS** and **pymssql**. pymssql uses FreeTDS to connect to SQL Databases.
@@ -40,7 +40,7 @@ Open your terminal and navigate to a directory where you plan on creating your p
     sudo apt-get --assume-yes update
     sudo apt-get --assume-yes install freetds-dev freetds-bin
     sudo apt-get --assume-yes install python-dev python-pip
-    sudo pip install pymssql=2.1.1
+    sudo pip install pymssql==2.1.1
 
 ### **Windows**
 Install pymssql from [**here**](http://www.lfd.uci.edu/~gohlke/pythonlibs/#pymssql). 
