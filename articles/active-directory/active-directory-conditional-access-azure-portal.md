@@ -118,8 +118,8 @@ To use device platforms in the policy, first change the configure toggles to **Y
 
 	![Conditions](./media/active-directory-conditional-access-azure-portal/02.png)
 
-- **Locations** -  The location is identified by the IP address of the client you have used to connect to Azure Active Directory. Azure Active Directory provides you with a method to define trusted IP address ranges. You can define the locations that are included as well as locations that are exempted from a policy.  
-Typically, use cases require restricting access from outside the trusted IPs. You can achieve this by excluding the trusted IPs.     
+- **Locations** -  The location is identified by the IP address of the client you have used to connect to Azure Active Directory. This condition requires you to be familiar with Trusted IPs. Trusted IPs is a feature of multi-factor authentication that enables you to define trusted IP address ranges representing your organization's local intranet. When you configure a location conditions, Trusted IPs enables you to distinguish between connections made from your organization's network and all other locations. For more details, see [Trusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).  
+You can either include all locations or all trused IPs and you can exclude all trusted IPs.
 
 	![Conditions](./media/active-directory-conditional-access-azure-portal/03.png)
 
@@ -136,7 +136,12 @@ When configuring a conditional access policy, you should at least assign one gro
 
 When you intend to assign several users and groups to a policy, you should start small by assigning only one user or group, and then test your configuration. If your policy works as expected, you can then add additional assignments to it.  
 
-All assignments are logically **ANDed**. If you have more than one assignment configured, to trigger a policy, all assignments must be satisfied.   
+All assignments are logically **ANDed**. If you have more than one assignment configured, to trigger a policy, all assignments must be satisfied.  
+
+If you need to configure a location condition that applies to all connections made from outside your organization's network, you can accomplish this by:
+
+- Including **All locations**
+- Excluding **All trusted IPs** 
 
 
 
