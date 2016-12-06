@@ -1,8 +1,30 @@
+
+---
+title: Overview of virtual networks and Windows virtual machines in Azure | Microsoft Docs
+description: Learn about networking as it relates to the basics of creating Windows virtual machines in Azure.
+services: virtual-machines-windows
+documentationcenter: ''
+author: davidmu1
+manager: timlt
+editor: tysonn
+tags: azure-resource-manager
+
+ms.assetid: 5493e9f7-7d45-4e98-be9a-657a53708746
+ms.service: virtual-machines-windows
+ms.workload: infrastructure-services
+ms.tgt_pltfrm: vm-windows
+ms.devlang: na
+ms.topic: get-started-article
+ms.date: 12/06/2016
+ms.author: davidmu
+
+---
+
 # Overview of virtual networks and Windows virtual machines in Azure 
 
-When you create an Azure virtual machine (VM), you must also create a [virtual network](../virtual-network/virtual-networks-overview.md) (VNet) or use an existing VNet. When you do this, you also need to make decisions about how your VMs are intended to be accessed on the VNet. It is very important to [plan before creating resources](../virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure that you understand the [limits of networking resources](../azure-subscription-service-limits.md#networking-limits).
+When you create an Azure virtual machine (VM), you must create a [virtual network](../virtual-network/virtual-networks-overview.md) (VNet) or use an existing VNet. You also need to decide how your VMs are intended to be accessed on the VNet. It is important to [plan before creating resources](../virtual-network/virtual-network-vnet-plan-design-arm.md) and make sure that you understand the [limits of networking resources](../azure-subscription-service-limits.md#networking-limits).
 
-In the figure below, VMs are represented as web servers and database servers. Each set of VMs are assigned to separate subnets in the VNet.
+In the following figure, VMs are represented as web servers and database servers. Each set of VMs are assigned to separate subnets in the VNet.
 
 ![Azure virtual network](./media/virtual-machines-windows-network-overview/vnetoverview.png)
 
@@ -21,11 +43,11 @@ In addition to those basic resources, you should also consider these optional re
 
 ## Virtual network and subnets
 
-You either create a VNet and subnets yourself or they are created for you when you create a VM. A subnet is a range of IP addresses in the VNet. You can divide a VNet into multiple subnets for organization and security. VMs deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration.
+A subnet is a range of IP addresses in the VNet. You can divide a VNet into multiple subnets for organization and security. VMs deployed to subnets (same or different) within a VNet can communicate with each other without any extra configuration.
 
-When you set up a VNet, you specify the topology, including the available address spaces and subnets. If the VNet is to be connected to other VNets, you must select address ranges that don't overlap. The IP addresses are private and can't be accessed from the Internet. This used to be true only for the unrouteable IP addresses such as 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16. Now, Azure treats any address range as part of the private VNet IP address space that is only reachable within the VNet, within interconnected VNets, and from your on-premises location. 
+When you set up a VNet, you specify the topology, including the available address spaces and subnets. If the VNet is to be connected to other VNets, you must select address ranges that don't overlap. The IP addresses are private and can't be accessed from the Internet, which used to be true only for the non-routeable IP addresses such as 10.0.0.0/8, 172.16.0.0/12, or 192.168.0.0/16. Now, Azure treats any address range as part of the private VNet IP address space that is only reachable within the VNet, within interconnected VNets, and from your on-premises location. 
 
-If you work within an organization in which someone else is responsible for the internal networks, you should talk to that person before selecting your address space. You do this to make sure there is no overlap and to let them know the space you want to use so they don’t try to use the same range of IP addresses. 
+If you work within an organization in which someone else is responsible for the internal networks, you should talk to that person before selecting your address space. Make sure there is no overlap and let them know the space you want to use so they don’t try to use the same range of IP addresses. 
 
 By default, there is no security boundary between subnets, so VMs in each of these subnets can talk to one another. However, you can set up Network Security Groups (NSGs), which allow you to control the traffic flow to and from subnets and to and from VMs. 
 
@@ -33,9 +55,9 @@ This table lists the methods that you can use to create a VNet and subnets.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) | If you let Azure create a VNet when you create a VM, the name is a combination of the resource group name that contains the VNet and **-vnet**, the address space is 10.0.0.0/24, the required subnet name is **default**, and the subnet address range is 10.0.0.0/24. |
-| [Azure PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md) | You use the [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) and [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) commands to create a subnet and a VNet. You can also use [Add-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Add-AzureRmVirtualNetworkSubnetConfig) to add a subnet to an existing VNet. |
-| [Azure CLI](../virtual-network/virtual-networks-create-vnet-arm-cli.md) | In Azure CLI, the subnet and the VNet are created at the same time. You simply provide a **-n** parameter to the [azure network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) command, which specifies the subnet name. |
+| [Azure portal](../virtual-network/virtual-networks-create-vnet-arm-pportal.md) | If you let Azure create a VNet when you create a VM, the name is a combination of the resource group name that contains the VNet and **-vnet**. The address space is 10.0.0.0/24, the required subnet name is **default**, and the subnet address range is 10.0.0.0/24. |
+| [Azure PowerShell](../virtual-network/virtual-networks-create-vnet-arm-ps.md) | You use [New-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetworkSubnetConfig) and [New-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmVirtualNetwork) to create a subnet and a VNet. You can also use [Add-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Add-AzureRmVirtualNetworkSubnetConfig) to add a subnet to an existing VNet. |
+| [Azure CLI](../virtual-network/virtual-networks-create-vnet-arm-cli.md) | In Azure CLI, the subnet and the VNet are created at the same time. Provide a **-n** parameter to [azure network vnet create](https://docs.microsoft.com/cli/azure/network/vnet#create) with the subnet name. |
 | [Template](../virtual-network/virtual-networks-create-vnet-arm-template-click.md) | The easiest way to create a VNet and subnets is to download an existing template, such as [Virtual Network with two Subnets](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vnet-two-subnets), and modify it for your needs. |
 
 ## IP addresses 
@@ -47,7 +69,7 @@ You can use these types of [IP addresses](../virtual-network/virtual-network-ip-
 
 You can assign public IP addresses to VMs or internet-facing load balancers. You can assign private IP addresses to VMs and internal load balancers. You assign IP addresses to a VM using a network interface.
 
-There are two methods in which an IP address is allocated to a resource - dynamic or static. The default allocation method is dynamic, where an IP address is not allocated when it's created. Instead, the public IP address is allocated when you create a VM or start a stopped VM. The IP address is released when you stop or delete the VM. This causes the IP address to change when you stop and start a VM. 
+There are two methods in which an IP address is allocated to a resource - dynamic or static. The default allocation method is dynamic, where an IP address is not allocated when it's created. Instead, the public IP address is allocated when you create a VM or start a stopped VM. The IP address is released when you stop or delete the VM. 
 
 To ensure the IP address for the VM remains the same, you can set the allocation method explicitly to static. In this case, an IP address is assigned immediately. It is released only when you delete the VM or change its allocation method to dynamic.
 	
@@ -56,8 +78,8 @@ This table lists the methods that you can use to create an IP address.
 | Method | Description |
 | ------ | ----------- |
 | [Azure portal](../virtual-network/virtual-network-deploy-static-pip-arm-portal.md) | By default, public IP addresses are dynamic and the address associated to them may change when the VM is deleted. To guarantee that the VM always uses the same public IP address, create a static IP address. |
-| [Azure PowerShell](../virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | You use the [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmPublicIpAddress) command with the **-AllocationMethod** parameter as Dynamic or Static. |
-| [Azure CLI](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | You use the [azure network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) command with the **--allocation-method** parameter as Dynamic or Static. |
+| [Azure PowerShell](../virtual-network/virtual-network-deploy-static-pip-arm-ps.md) | You use [New-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmPublicIpAddress) with the **-AllocationMethod** parameter as Dynamic or Static. |
+| [Azure CLI](../virtual-network/virtual-network-deploy-static-pip-arm-cli.md) | You use [azure network public-ip create](https://docs.microsoft.com/cli/azure/network/public-ip#create) with the **--allocation-method** parameter as Dynamic or Static. |
 | [Template](../virtual-network/virtual-network-deploy-static-pip-arm-template.md) | Use [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) as a guide for deploying a public IP address using a template. |
 
 After you create a public IP address, you can associate it with a VM by assigning it to a NIC.
@@ -71,15 +93,15 @@ This table lists the methods that you can use to create a network interface.
 | Method | Description |
 | ------ | ----------- |
 | Azure portal | When you create a VM in the Azure portal, a network interface is automatically created for you. |
-| [Azure PowerShell](../virtual-network/virtual-network-deploy-multinic-arm-ps.md) | Use the [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkInterface) command with the **-PublicIpAddressId** parameter to provide the identifer of the public IP address that you previously created. |
-| [Azure CLI](../virtual-network/virtual-network-deploy-multinic-arm-cli.md) | Use the [azure network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) command with the **--public-ip-address** parameter to provide the identifer of the public IP address that you previously created. |
+| [Azure PowerShell](../virtual-network/virtual-network-deploy-multinic-arm-ps.md) | Use [New-AzureRmNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkInterface) with the **-PublicIpAddressId** parameter to provide the identifer of the public IP address that you previously created. |
+| [Azure CLI](../virtual-network/virtual-network-deploy-multinic-arm-cli.md) | To provide the identifer of the public IP address that you previously created, use [azure network nic create](https://docs.microsoft.com/cli/azure/network/nic#create) with the **--public-ip-address** parameter. |
 | [Template](../virtual-network/virtual-network-deploy-multinic-arm-template.md) | Use [Network Interface in a Virtual Network with Public IP Address](https://github.com/Azure/azure-quickstart-templates/tree/master/101-nic-publicip-dns-vnet) as a guide for deploying a network interface using a template. |
 				 
 ## Load balancers
 
-[Azure Load Balancer](../load-balancer/load-balancer-overview.md) delivers high availability and network performance to your applications. A load balancer can be configured to [balance incoming Internet traffic](../load-balancer/load-balancer-internet-overview.md) to VMs, [balance traffic between VMs in a VNet](../load-balancer/load-balancer-internal-overview.md), balance between on-premises computers and VMs in a cross-premises network, or forward external traffic to a specific VM.
+[Azure Load Balancer](../load-balancer/load-balancer-overview.md) delivers high availability and network performance to your applications. A load balancer can be configured to [balance incoming Internet traffic](../load-balancer/load-balancer-internet-overview.md) to VMs or [balance traffic between VMs in a VNet](../load-balancer/load-balancer-internal-overview.md). A load balancer can also balance traffic between on-premises computers and VMs in a cross-premises network, or forward external traffic to a specific VM.
 
-The load balancer maps the public IP address and port number of incoming traffic to the private IP address and port number of the VM and vice versa for the response traffic from the VM.
+The load balancer maps incoming and outgoing traffic between the public IP address and port on the load balancer and the private IP address and port of the VM.
 
 When you create a load balancer, you must also consider these configuration elements:
 
@@ -94,8 +116,8 @@ This table lists the methods that you can use to create an internet-facing load 
 | Method | Description |
 | ------ | ----------- |
 | Azure portal | You can't currently create an internet-facing load balancer using the Azure portal. |
-| [Azure PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md) | Use the [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerFrontendIpConfig) command with the **-PublicIpAddress** parameter to provide the identifer of the public IP address that you previously created. Use [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerBackendAddressPoolConfig) to create the configuration of the back-end address pool. Use [New-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerInboundNatRuleConfig) to create inbound NAT rules associated with the front-end IP configuration that you created. Use [New-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerProbeConfig) to create the probes that you need. Use [New-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerRuleConfig) to create the load balancer configuration. Use [New-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancer) to create the load balancer.|
-| [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli,md) | Use the [azure network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) command to create the initial load balancer configuration. Use [azure network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) to add the public IP address that you previously created. Use [azure network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) to add the configuration of the back-end address pool. Use [azure network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) to add NAT rules. Use [azure network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) to add the load balancer rules. Use [azure network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) to add the probes.|
+| [Azure PowerShell](../load-balancer/load-balancer-get-started-internet-arm-ps.md) | To provide the identifer of the public IP address that you previously created, use [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerFrontendIpConfig) with the **-PublicIpAddress** parameter . Use [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerBackendAddressPoolConfig) to create the configuration of the back-end address pool. Use [New-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerInboundNatRuleConfig) to create inbound NAT rules associated with the front-end IP configuration that you created. Use [New-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerProbeConfig) to create the probes that you need. Use [New-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerRuleConfig) to create the load balancer configuration. Use [New-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancer) to create the load balancer.|
+| [Azure CLI](../load-balancer/load-balancer-get-started-internet-arm-cli,md) | Use [azure network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) to create the initial load balancer configuration. Use [azure network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) to add the public IP address that you previously created. Use [azure network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) to add the configuration of the back-end address pool. Use [azure network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) to add NAT rules. Use [azure network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) to add the load balancer rules. Use [azure network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) to add the probes. |
 | [Template](../load-balancer/load-balancer-get-started-internet-arm-template) | Use [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-loadbalancer-natrules) as a guide for deploying a load balancer using a template. |
 	
 This table lists the methods that you can use to create an internal load balancer.
@@ -103,19 +125,19 @@ This table lists the methods that you can use to create an internal load balance
 | Method | Description |
 | ------ | ----------- |
 | Azure portal | You can't currently create an internal load balancer using the Azure portal. |
-| [Azure PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Use the [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerFrontendIpConfig) command with the **-PrivateIpAddress** parameter to provide a private IP address in the network subnet. Use [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerBackendAddressPoolConfig) to create the configuration of the back-end address pool. Use [New-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerInboundNatRuleConfig) to create inbound NAT rules associated with the front-end IP configuration that you created. Use [New-AzureRmLoadBalancerProbeConfig] to create the probes that you need. Use [New-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerRuleConfig) to create the load balancer configuration. Use [New-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancer) to create the load balancer.|
+| [Azure PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) | To provide a private IP address in the network subnet, use [New-AzureRmLoadBalancerFrontendIpConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerFrontendIpConfig) with the **-PrivateIpAddress** parameter . Use [New-AzureRmLoadBalancerBackendAddressPoolConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerBackendAddressPoolConfig) to create the configuration of the back-end address pool. Use [New-AzureRmLoadBalancerInboundNatRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerInboundNatRuleConfig) to create inbound NAT rules associated with the front-end IP configuration that you created. Use [New-AzureRmLoadBalancerProbeConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerProbeConfig) to create the probes that you need. Use [New-AzureRmLoadBalancerRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancerRuleConfig) to create the load balancer configuration. Use [New-AzureRmLoadBalancer](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmLoadBalancer) to create the load balancer.|
 | [Azure CLI](../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Use the [azure network lb create](https://docs.microsoft.com/cli/azure/network/lb#create) command to create the initial load balancer configuration. Use [azure network lb frontend-ip create](https://docs.microsoft.com/cli/azure/network/lb/frontend-ip#create) with the **--private-ip-address** parameter to define the private IP address. Use [azure network lb address-pool create](https://docs.microsoft.com/cli/azure/network/lb/address-pool#create) to add the configuration of the back-end address pool. Use [azure network lb inbound-nat-rule create](https://docs.microsoft.com/cli/azure/network/lb/inbound-nat-rule#create) to add NAT rules. Use [azure network lb rule create](https://docs.microsoft.com/cli/azure/network/lb/rule#create) to add the load balancer rules. Use [azure network lb probe create](https://docs.microsoft.com/cli/azure/network/lb/probe#create) to add the probes.|
 | [Template](../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Use [2 VMs in a Load Balancer and configure NAT rules on the LB](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) as a guide for deploying a load balancer using a template. |
 
 ## Network security groups
 
-A [network security group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VMs in a VNet. NSGs can be associated with either subnets or individual VMs within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
+A [network security group (NSG)](../virtual-network/virtual-networks-nsg.md) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VMs in a VNet. NSGs can be associated with either subnets or individual VMs within that subnet. When an NSG is associated with a subnet, the ACL rules apply to all the VMs in that subnet. In addition, traffic to an individual VM can be restricted further by associating an NSG directly to that VM.
 
-NSGs contain two sets of rules: inbound and outbound. The priority for a rule must be unique within each set. Each rule has properties of protocol, source and destination port ranges or address prefixes, direction of traffic, priority, and access type. 
+NSGs contain two sets of rules: inbound and outbound. The priority for a rule must be unique within each set. Each rule has properties of protocol, source port ranges, destination port ranges, address prefixes, direction of traffic, priority, and access type. 
 
 All NSGs contain a set of default rules. The default rules cannot be deleted, but because they are assigned the lowest priority, they can be overridden by the rules that you create. 
 
-When you associate an NSG to a NIC, the network access rules in the NSG are applied only to that NIC. That means that in a multi-NIC VM, if an NSG is applied to a single NIC, it does not affect traffic bound to other NICs. You can associate different NSGs to a VM (or NIC, depending on the deployment model) and the subnet that a NIC or VM is bound to. Priority is given based on the direction of traffic.
+When you associate an NSG to a NIC, the network access rules in the NSG are applied only to that NIC. If an NSG is applied to a single NIC on a multi-NIC VM, it does not affect traffic to the other NICs. You can associate different NSGs to a VM (or NIC, depending on the deployment model) and the subnet that a NIC or VM is bound to. Priority is given based on the direction of traffic.
 
 Be sure to [plan](../virtual-network/virtual-networks-nsg#planning.md) your NSGs when you plan your VMs and VNet.
 
@@ -123,7 +145,7 @@ This table lists the methods that you can use to create a network security group
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) | When you create a VM in the Azure portal, a NSG is automatically created for you to enable remote access to the VM. The name of the NSG is a combination of the name of the VM and **-nsg**. This NSG contains one inbound rule defined with a priority of 1000, the service is set to RDP, the protocol is set to TCP, the port is set to 3389, and the action is set to Allow.|
+| [Azure portal](../virtual-network/virtual-networks-create-nsg-arm-pportal.md) | When you create a VM in the Azure portal, an NSG is automatically created for you to enable remote access to the VM. The name of the NSG is a combination of the name of the VM and **-nsg**. This NSG contains one inbound rule with a priority of 1000, service set to RDP, the protocol set to TCP, port set to 3389, and action set to Allow. |
 | [Azure PowerShell](../virtual-network/virtual-networks-create-nsg-arm-ps.md) | Use [New-AzureRmNetworkSecurityRuleConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityRuleConfig) and provide the required rule information. Use [New-AzureRmNetworkSecurityGroup](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/New-AzureRmNetworkSecurityGroup) to create the NSG. Use [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetworkSubnetConfig) to configure the NSG for the subnet. Use [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/resourcemanager/AzureRM.Network/v1.0.13/Set-AzureRmVirtualNetwork?redirectedfrom=msdn) to add the NSG to the VNet. |
 | [Azure CLI](../virtual-network/virtual-networks-create-nsg-arm-cli.md) | Use [azure network nsg create](https://docs.microsoft.com/cli/azure/network/nsg#create) to initially create the NSG. Use [azure network nsg rule create](https://docs.microsoft.com/cli/azure/network/nsg/rule#create) to add rules to the NSG. Use [azure network vnet subnet update](https://docs.microsoft.com/en-us/cli/azure/network/vnet/subnet#update) to add the NSG to the subnet. |
 | [Template](../virtual-network/virtual-networks-create-nsg-arm-template.md) | Use [Create a Network Security Group](https://github.com/Azure/azure-quickstart-templates/tree/master/101-security-group-create) as a guide for deploying a network security group using a template. |
@@ -134,18 +156,18 @@ VMs can be created in the same VNet and they can connect to each other using pri
 
 VMs are assigned an IP address when they are deployed. If you deploy multiple VMs into a VNet or subnet, they are assigned IP addresses as they boot up. A dynamic IP address (DIP) is the internal IP address associated with a VM. You can allocate a static DIP to a VM. If you do this, you should consider using a specific subnet for static DIPs to avoid accidentally reusing a static DIP for another VM.  
 
-If you create a VM and later want to migrate it into a VNet, it is not a simple configuration change. You have to redeploy the VM into the VNet. The easiest way to do this is to delete the VM, but not any disks attached to it, and then re-create the VM using the original disks in the VNet. 
+If you create a VM and later want to migrate it into a VNet, it is not a simple configuration change. You must redeploy the VM into the VNet. The easiest way to redeploy is to delete the VM, but not any disks attached to it, and then re-create the VM using the original disks in the VNet. 
 
 This table lists the methods that you can use to create a VM in a VNet.
 
 | Method | Description |
 | ------ | ----------- |
-| [Azure portal](virtual-machines-windows-hero-tutorial.md) | Uses the default network settings that were previouosly mentioned. |
+| [Azure portal](virtual-machines-windows-hero-tutorial.md) | Uses the default network settings that were previously mentioned. |
 | [Azure PowerShell](virtual-machines-windows-ps-create.md) | Includes the use of [Add-AzureRmVMNetworkInterface](https://docs.microsoft.com/powershell/resourcemanager/azurerm.compute/v1.3.4/Add-AzureRmVMNetworkInterface) to add the NIC that you previously created to the VM configuration. |
-| [Template](virtual-machines-windows-ps-template.md) | Use [Very simple deployment of an Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) as a guide for deploying a VM using a template. |
+| [Template](virtual-machines-windows-ps-template.md) | Use [Very simple deployment of a Windows VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-windows) as a guide for deploying a VM using a template. |
 
 ## Next steps
 
-- Learn about configuring [user defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview). 
+- Learn about configuring [user-defined routes and IP forwarding](../virtual-network/virtual-networks-udr-overview). 
 - Learn about configuring [VNet to VNet connections](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 - Learn how to [Troubleshoot routes](../virtual-network/virtual-network-routes-troubleshoot-portal.md).
