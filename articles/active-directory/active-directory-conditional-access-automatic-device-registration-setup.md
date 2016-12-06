@@ -270,11 +270,9 @@ c:[Type == "http://schemas.xmlsoap.org/claims/UPN"]
 
         => issue(Type = "http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid", Value = "http://'+$VerifiedDomain+'/adfs/services/trust/");' 
 
-
         $existingRules = (Get-ADFSRelyingPartyTrust -Identifier urn:federation:MicrosoftOnline).IssuanceTransformRules 
 
         $updatedRules = $existingRules + $rule1 + $rule2 + $rule3 + $rule4+ $rule5+  $rule6 
-
 
         $crSet = New-ADFSClaimRuleSet -ClaimRule $updatedRules 
 
