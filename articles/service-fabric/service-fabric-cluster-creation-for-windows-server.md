@@ -23,7 +23,7 @@ You can use Azure Service Fabric to create Service Fabric clusters on any virtua
 This article walks you through the steps for creating a cluster by using the standalone package for Service Fabric on premises, though it can be easily adapted for any other environment such as other cloud providers.
 
 > [!NOTE]
-> This standalone Windows Server package is commercially available and may be used for production deployments. This package may contain new Service Fabric features that are in "Preview", Refer to .  "Preview features included in this package." for the list of the preview features. You can  [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
+> This standalone Windows Server package is commercially available and may be used for production deployments. This package may contain new Service Fabric features that are in "Preview". Refer to "Preview features included in this package." for the list of the preview features. You can [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
 > 
 > 
 
