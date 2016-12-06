@@ -20,7 +20,6 @@ ms.author: rachelap@microsoft.com
 
 ---
 # Create an Azure Function that is connected to an Azure service
-[!INCLUDE [Getting Started Note](../../includes/functions-getting-started.md)]
 
 This topic shows you how to create an Azure Function that listens to messages on an Azure  Storage queue and copies the messages to rows in an Azure Storage table. A timer triggered function is used to load messages into the queue. A second function reads from the queue and writes messages to the table. Both the queue and the table are created for you by Azure Functions based on the binding definitions.
 
