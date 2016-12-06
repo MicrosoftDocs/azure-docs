@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/31/2016
+ms.date: 11/28/2016
 ms.author: tamram
 
 ---
@@ -48,16 +48,18 @@ For more details on connection strings, see [Configure Azure Storage Connection 
 ### Authentication with a shared access signature
 Some Azure storage client libraries, such as the Xamarin library, only support authentication with a shared access signature (SAS) token. You will need to create this SAS token using a tool or application that supports Shared Key authentication. An easy way to generate the SAS token is via Azure PowerShell:
 
-1. Install Azure PowerShell if you haven't already. Using the latest version of the Azure PowerShell cmdlets is recommended. See [How to install and configure Azure PowerShell](../powershell-install-configure.md#Install) for installation instructions.
+1. Install Azure PowerShell if you haven't already. Using the latest version of the Azure PowerShell cmdlets is recommended. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs#Install) for installation instructions.
 2. Open Azure PowerShell and run the following commands. Remember to replace *ACCOUNT_NAME* and *ACCOUNT_KEY==* with your own credentials. Replace *CONTAINER_NAME* with a name of your choosing.
-   
-        $context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
-   
-        New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
-   
-        $now = Get-Date 
-   
-        New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+
+```powershell
+$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+
+New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
+
+$now = Get-Date 
+
+New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryTime $now.AddDays(1.0) -Context $context -FullUri
+```
 
 The resulting shared access signature URI for the new container should be similar to the following:
 

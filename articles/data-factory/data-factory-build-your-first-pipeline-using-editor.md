@@ -1,4 +1,4 @@
-﻿---
+---
 title: Build your first data factory (Azure portal) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory Editor in the Azure portal.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/14/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 
 ---
@@ -318,20 +318,20 @@ In this step, you create your first pipeline with a **HDInsightHive** activity. 
    ![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-blade.png)
 8. When processing is done, you see the slice in **Ready** state.
 
-> [!IMPORTANT]
-> Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.    
->
->
+   ![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)  
 
-    ![Dataset](./media/data-factory-build-your-first-pipeline-using-editor/dataset-slice-ready.png)    
+   > [!IMPORTANT]
+   > Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to       take **approximately 30 minutes** to process the slice.
+   >
+   >
 
-1. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
+9. When the slice is in **Ready** state, check the **partitioneddata** folder in the **adfgetstarted** container in your blob storage for the output data.  
 
    ![output data](./media/data-factory-build-your-first-pipeline-using-editor/three-ouptut-files.png)
-2. Click the slice to see details about it in a **Data slice** blade.
+10. Click the slice to see details about it in a **Data slice** blade.
 
    ![Data slice details](./media/data-factory-build-your-first-pipeline-using-editor/data-slice-details.png)  
-3. Click an activity run in the **Activity runs list** to see details about an activity run (Hive activity in our scenario) in an **Activity run details** window.   
+11. Click an activity run in the **Activity runs list** to see details about an activity run (Hive activity in our scenario) in an **Activity run details** window.   
 
    ![Activity run details](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-blade.png)    
 

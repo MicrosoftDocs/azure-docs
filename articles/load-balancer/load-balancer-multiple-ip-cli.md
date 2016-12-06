@@ -8,7 +8,7 @@ manager: narayan
 editor: ''
 tags: azure-resource-manager
 
-ms.assetid: 
+ms.assetid:
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: article
@@ -44,7 +44,7 @@ Follow the steps below to achieve the scenario outlined in this article:
 
 1. [Install and Configure the Azure CLI](../xplat-cli-install.md) the Azure CLI by following the steps in the linked article and log into your Azure account.
 2. [Create a resource group](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-resource-groups-and-choose-deployment-locations) called *contosofabrikam* as described above.
- 
+
     ```azurecli
     azure group create contosofabrikam westcentralus
     ```
@@ -55,7 +55,7 @@ Follow the steps below to achieve the scenario outlined in this article:
     azure availset create --resource-group contosofabrikam --location westcentralus --name myAvailabilitySet
     ```
 
-4. [Create a virtual network](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) called *myVNet* and a subnet called *mySubnet*: 
+4. [Create a virtual network](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-virtual-network-and-subnet) called *myVNet* and a subnet called *mySubnet*:
 
     ```azurecli
     azure network vnet create --resource-group contosofabrikam --name myVnet --address-prefixes 10.0.0.0/16  --location westcentralus
@@ -102,7 +102,7 @@ Follow the steps below to achieve the scenario outlined in this article:
     azure network lb show --resource-group contosofabrikam --name mylb
     ```
 
-10. [Create a public IP](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address-pip), *myPublicIp*, and [storage account](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account), *mystorageaccont1* for your first virtual machine VM1 as shown below:
+10. [Create a public IP](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-public-ip-address), *myPublicIp*, and [storage account](../virtual-machines/virtual-machines-linux-create-cli-complete.md?toc=%2fazure%2fvirtual-network%2ftoc.json#create-a-storage-account), *mystorageaccont1* for your first virtual machine VM1 as shown below:
 
     ```azurecli
     azure network public-ip create --resource-group contosofabrikam --location westcentralus --name myPublicIP --domain-name-label mypublicdns345 --allocation-method Dynamic
