@@ -31,7 +31,7 @@ You'll learn how to:
 > 
 > If you don't have a GitHub account, you can sign up [here](https://github.com/join).
 > 
-> If you don't have a [Microsoft Azure](https://azure.microsoft.com/) account, you can sign up for a FREE trial [here](https://azure.microsoft.com/pricing/free-trial/). This will also lead you through the sign up process for a [Microsoft Account](http://account.microsoft.com) if you do not already have one. Alternatively, if you are a Visual Studio subscriber, you can [activate your MSDN benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+> If you don't have a [Microsoft Azure](https://azure.microsoft.com/) account, you can sign up for a FREE trial [here](https://azure.microsoft.com/pricing/free-trial/). This will also lead you through the sign up process for a [Microsoft Account](http://account.microsoft.com) if you do not already have one. Alternatively, if you are a Visual Studio subscriber, you can [activate your MSDN benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 > 
 > If you do not have git on your development machine, then if you are using a Macintosh or Windows machine, install git from [here](http://www.git-scm.com). If you are using Linux, install git using the mechanism most appropriate for you, such as `sudo apt-get install git`.
 > 

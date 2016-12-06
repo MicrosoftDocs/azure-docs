@@ -30,7 +30,7 @@ This script is useful for evaluating databases on v11 servers for migration to v
 ## Prerequisites
 Install the following prior to running the script:
 
-* The latest Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* The latest Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * The [SQL Server 2014 feature pack](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ## Script details

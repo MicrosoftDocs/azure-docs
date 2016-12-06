@@ -31,7 +31,7 @@ This article shows how to copy a SQL database with PowerShell to the same server
 To complete this article, you need the following:
 
 * An Azure SQL database (a database to copy). If you do not have a SQL database, create one following the steps in this article: [Create your first Azure SQL Database](sql-database-get-started.md).
-* The latest version of Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* The latest version of Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Many new features of SQL Database are only supported when you are using the [Azure Resource Manager deployment model](../azure-resource-manager/resource-group-overview.md), so examples use the [Azure SQL Database PowerShell cmdlets](https://msdn.microsoft.com/library/azure/mt574084\(v=azure.300\).aspx) for Resource Manager. The existing classic deployment model [Azure SQL Database (classic) cmdlets](https://msdn.microsoft.com/library/azure/dn546723\(v=azure.300\).aspx) are supported for backward compatibility, but we recommend you use the Resource Manager cmdlets.
 

@@ -183,7 +183,7 @@ Node.js provides a rich ecosystem of modules that can be used by your applicatio
 
 If you encounter problems with your application after it has been deployed to Azure, see [How to debug a Node.js application in Azure App Service](web-sites-nodejs-debug.md) for information on diagnosing the problem.
 
-This article uses the Azure Portal to create a web app. You can also use the [Azure Command-Line Interface](../xplat-cli-install.md) or [Azure PowerShell](../powershell-install-configure.md) to perform the same operations.
+This article uses the Azure Portal to create a web app. You can also use the [Azure Command-Line Interface](../xplat-cli-install.md) or [Azure PowerShell](/powershell/azureps-cmdlets-docs) to perform the same operations.
 
 For more information about how to develop Node.js applications on Azure, see the [Node.js Developer Center](/develop/nodejs/).
 
