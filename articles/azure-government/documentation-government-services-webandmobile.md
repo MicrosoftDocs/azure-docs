@@ -33,7 +33,7 @@ The following information identifies the Azure Government boundary for Azure SQL
 
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
-| All data stored and processed in Microsoft Azure App Services can contain Azure Government-regulated data. You must use database tools for data transfer of Azure Government-regulated data. |Azure App Services metadata is not permitted to contain export controlled data. Do not enter regulated/controlled data into the following fields:  |
+| Data entered, stored, and processed within Azure App Service can contain export controlled data. Binaries running within Azure App Service. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. SQL connection strings. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your Azure App Service. Do not enter Regulated/controlled data into the following fields: Resource groups, Resource names, Resource tags|
 
 ## Next Steps
 For supplemental information and updates subscribe to the
