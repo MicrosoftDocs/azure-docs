@@ -203,7 +203,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 [lnk-storage-account]: ../storage/storage-create-storage-account.md

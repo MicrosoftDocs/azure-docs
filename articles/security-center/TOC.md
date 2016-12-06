@@ -53,7 +53,7 @@
 ### [Troubleshooting guide](security-center-troubleshooting-guide.md)
 
 # Reference
-## [REST API](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
+## [REST](https://msdn.microsoft.com/en-US/library/mt704034(Azure.100).aspx)
 
 # Related
 ## [Azure Security](/azure/security/)

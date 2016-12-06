@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/22/2016
+ms.date: 12/05/2016
 ms.author: cherylmc
 
 ---
@@ -87,7 +87,7 @@ Connectivity across geopolitical regions is not supported on the standard Expres
 | **NTT Communications** |Supported |Supported |London, Los Angeles, Osaka, Singapore, Tokyo, Washington DC |
 | **[Orange](http://www.orange-business.com/en/products/business-vpn-galerie)** |Supported |Supported |Amsterdam, Hong Kong, London, Silicon Valley, Singapore, Sydney, Washington DC |
 | **PCCW Global Limited** |Supported |Supported |Hong Kong |
-| **SIFY** |Supported |Supported |Chennai |
+| **[SIFY](http://telecom.sify.com/azure-expressroute.html)** |Supported |Supported |Chennai |
 | **[SingTel](http://info.singtel.com/about-us/news-releases/singtel-provide-secure-private-access-microsoft-azure-public-cloud)** |Supported |Supported |Singapore |
 | **Softbank** |Supported |Supported |Osaka, Tokyo |
 | **[Tata Communications](http://www.tatacommunications.com/lp/izo/azure/azure_index.html)** |Supported |Supported |Amsterdam, Chennai, Hong Kong, London, Mumbai, Silicon Valley, Singapore, Washington DC |
