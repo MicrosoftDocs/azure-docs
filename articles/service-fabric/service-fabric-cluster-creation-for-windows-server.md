@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and manage a standalone Azure Service Fabric cluster | Microsoft Docs
 description: Create and manage an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in any cloud.
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2016
+ms.date: 12/06/2016
 ms.author: dkshir;chackdan
 
 ---
@@ -23,7 +23,7 @@ You can use Azure Service Fabric to create Service Fabric clusters on any virtua
 This article walks you through the steps for creating a cluster by using the standalone package for Service Fabric on premises, though it can be easily adapted for any other environment such as other cloud providers.
 
 > [!NOTE]
-> This standalone Windows Server package may contain features that are currently in preview and are not supported for commercial use. To see the list of features that are in preview, see "Preview features included in this package." You can also [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
+> This standalone Windows Server package is commercially available and may be used for production deployments. This package may contain new Service Fabric features that are in "Preview", Refer to .  "Preview features included in this package." for the list of the preview features. You can  [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
 > 
 > 
 
@@ -32,6 +32,7 @@ This article walks you through the steps for creating a cluster by using the sta
 ## Get support for the Service Fabric standalone package
 * Ask the community about the Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Open a ticket for [Professional Support for Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Learn more about [Professional Support from Microsoft](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+* You can get support for this package as a part of the [Microsoft premier support](https://support.microsoft.com/en-us/premier) as well 
 
 <a id="downloadpackage"></a>
 
@@ -237,6 +238,7 @@ To disable telemetry, add the following to *properties* in your cluster config: 
 
 ## Preview features included in this package
 None.
+
 
 > [!NOTE]
 > With the new [GA version of the standalone cluster for Windows Server (version 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/), you can upgrade your cluster to future releases, manually or automatically. Because this feature is not available on the preview versions, you will need to create a cluster by using the GA version and migrate your data and applications from the preview cluster. Stay tuned for more details on this feature.
