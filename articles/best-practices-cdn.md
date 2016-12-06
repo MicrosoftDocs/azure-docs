@@ -148,7 +148,7 @@ If you deliver client-side scripts using the CDN, you may encounter issues if th
 * If the origin from which you are delivering content is a folder within the application, such as the *cdn* root folder, you can configure outbound rules in the application configuration file to set an *Access-Control-Allow-Origin* header on all responses. For more information about using rewrite rules, see [URL Rewrite Module](http://www.iis.net/learn/extensions/url-rewrite-module).
 
 ### Custom domains
-The Azure CDN allows you to specify a [custom domain name](cdn/cdn-map-content-to-custom-domain.md) nd use it to access resources through the CDN. You can also set up a custom subdomain name using a *CNAME* record in your DNS. Using this approach can provide an additional layer of abstraction and control.
+The Azure CDN allows you to specify a [custom domain name](cdn/cdn-map-content-to-custom-domain.md) and use it to access resources through the CDN. You can also set up a custom subdomain name using a *CNAME* record in your DNS. Using this approach can provide an additional layer of abstraction and control.
 
 If you use a *CNAME*, you cannot use SSL because the CDN uses its own single SSL certificate, and this certificate will not match your custom domain/subdomain names.
 
