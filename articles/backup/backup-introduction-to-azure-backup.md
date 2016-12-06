@@ -5,7 +5,7 @@ services: backup
 documentationcenter: ''
 author: markgalioto
 manager: cfreeman
-editor: tysonn
+editor:
 keywords: backup and restore; recovery services; backup solutions
 
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
