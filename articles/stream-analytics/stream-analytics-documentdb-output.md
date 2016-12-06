@@ -55,8 +55,8 @@ Partitioned Collection | Multiple “Single Partition” collections
 
 
   
-> 
-> [!NOTE]  The **Multiple “Single Partition” collections** scenario requires a partition key and is a supported configuration. 
+> [!NOTE]
+> The **Multiple “Single Partition” collections** scenario requires a partition key and is a supported configuration. 
 
 * **Output Alias** – An alias to refer this output in your ASA query  
 * **Account Name** – The name or endpoint URI of the DocumentDB account.  
