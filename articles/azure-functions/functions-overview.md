@@ -69,7 +69,8 @@ Azure Functions has two kinds of pricing plans, choose the one that best fits yo
 
 * **Consumption plan** - When your function runs, Azure provides all of the necessary computational resources. You don't have to worry about resource management, and you only pay for the time that your code runs. 
 * **App Service plan** - Run your functions just like your web, mobile, and API apps. When you are already using App Service for your other applications, you can run your functions on the same plan at no additional cost. 
-Full pricing details are available on the [Functions Pricing page](https://azure.microsoft.co/pricing/details/functions/). For more information about scaling your functions, see [How to scale Azure Functions](functions-scale.md).
+
+Full pricing details are available on the [Functions Pricing page](https://azure.microsoft.com/pricing/details/functions/). For more information about scaling your functions, see [How to scale Azure Functions](functions-scale.md).
 
 ## Next Steps
 * [Create your first Azure Function](functions-create-first-azure-function.md)  

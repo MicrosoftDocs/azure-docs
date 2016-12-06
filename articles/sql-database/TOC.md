@@ -22,6 +22,7 @@
 ## Security
 ### [Azure Security Center for Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
+
 # Get Started
 ## Databases and servers
 ### Single databases
@@ -189,6 +190,7 @@
 #### [Upgrade using the Azure portal](sql-database-upgrade-server-portal.md)
 #### [Upgrade using PowerShell](sql-database-upgrade-server-powershell.md)
 #### [Pricing tier recommendations](sql-database-service-tier-advisor.md)
+
 # How To
 ## Create and manage
 ### Servers and databases
@@ -315,7 +317,6 @@
 #### [Azure portal](sql-database-geo-replication-failover-portal.md)
 #### [PowerShell](sql-database-geo-replication-failover-powershell.md)
 #### [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-
 ## Troubleshoot
 ### [Connection issues](sql-database-troubleshoot-common-connection-issues.md)
 ### [Transient connection error](sql-database-troubleshoot-connection.md)
@@ -325,26 +326,26 @@
 
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
-## [PowerShell classic](/powershell/servicemanagement/)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
+## [PowerShell (Elastic DB)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [.NET](https://docs.microsoft.com)
+## [Java](/java/api/com.microsoft.azure.management.sql)
+## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+## [Python](https://msdn.microsoft.com/library/mt652092.aspx)
+## [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+## [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [Azure SQL Database Cmdlets](/powershell/resourcemanager/AzureRM.Sql/v1.0.12/AzureRM.Sql)
-## [SQL Server Cmdlets](https://msdn.microsoft.com/library/mt740629.aspx)
 ## [REST](/rest/api/sql/)
 
+# Related
 ## SQL Database Management Library
-### [SQL Database Management Library Reference](https://msdn.microsoft.com/library/azure/mt349017.aspx)
 ### [Get the SQL Database Management Library package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 ## [SQL Server Drivers](https://msdn.microsoft.com/library/mt654049.aspx)
 ### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
 ### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-### [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+
 ### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
-### [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
-### [Python](https://msdn.microsoft.com/library/mt652092.aspx)
-### [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/sql-database/)

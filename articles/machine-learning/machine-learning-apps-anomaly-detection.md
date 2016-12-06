@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/11/2016
-ms.author: alokkirpal
+ms.author: alok
 
 ---
 # Machine Learning Anomaly Detection Service
