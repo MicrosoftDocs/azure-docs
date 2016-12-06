@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/19/2016
-ms.author: garye;bradsev 
+ms.author: garye;bradsev
 
 ---
 # Import your training data into Azure Machine Learning Studio from various data sources
