@@ -1,7 +1,24 @@
 title: Azure Government Intelligence + Analytics | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: Azure-Government
-cloud: gov
+cloud: gov# ## Premium Storage
+For details on this service and how to use it, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
+
+### Variations
+Premium Storage is generally available in the USGov Virginia. This includes DS-series Virtual Machines.
+
+### ConsiderationAzure Government Intelligence + Analytics
+## Azure HDInsight
+For details on this service and how to use it, see [Azure Storage public documentation](../storage/index.md).
+
+### Variations
+The URLs for storage accounts in Azure Government are different:
+
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| Blob Storage |*.blob.core.windows.net |*.blob.core.usgovcloudapi.net |
+| Queue Storage |*.queue.core.windows.net |*.queue.core.usgovcloudapi.net |
+| Table Storage |*.table.core.windows.net |*.table.core.usgovcloudapi.net |
 documentationcenter: ''
 author: meganyount
 manager: zakramer
@@ -17,18 +34,7 @@ ms.date: 12/06/2016
 ms.author: ryansoc
 
 ---
-# Azure Government Storage
-## Azure Storage
-For details on this service and how to use it, see [Azure Storage public documentation](../storage/index.md).
 
-### Variations
-The URLs for storage accounts in Azure Government are different:
-
-| Service Type | Azure Public | Azure Government |
-| --- | --- | --- |
-| Blob Storage |*.blob.core.windows.net |*.blob.core.usgovcloudapi.net |
-| Queue Storage |*.queue.core.windows.net |*.queue.core.usgovcloudapi.net |
-| Table Storage |*.table.core.windows.net |*.table.core.usgovcloudapi.net |
 
 > [!NOTE]
 > All of your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md). 
@@ -46,13 +52,7 @@ The following information identifies the Azure Government boundary for Azure Sto
 | --- | --- |
 | Data entered, stored, and processed within an Azure Storage product can contain export controlled data. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Azure Storage metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter Regulated/controlled data into the following fields:  Resource groups, Deployment names, Resource names, Resource tags |
 
-## Premium Storage
-For details on this service and how to use it, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
-
-### Variations
-Premium Storage is generally available in the USGov Virginia. This includes DS-series Virtual Machines.
-
-### Considerations
+s
 The same storage data considerations listed above apply to premium storage accounts.
 
 ## Next Steps
