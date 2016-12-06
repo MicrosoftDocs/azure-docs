@@ -147,93 +147,126 @@ for ($eventIdx=0; $eventIdx -lt $scheduledEventsResponse.Events.Length ; $eventI
 
 
 ### C\# Sample 
-
+The following is a client surfacing APIs to communicate with the Metadata Service
 ```csharp
-
-    class Program
+   public class ScheduledEventsClient
     {
-        static void Main(string[] args)
-        {
-            ScheduledEventsCallAsync().Wait();
-            Console.ReadLine();
+        private readonly string scheduledEventsEndpoint;
+        private readonly string defaultIpAddress = "169.254.169.254"; 
 
+        public ScheduledEventsClient()
+        {
+            scheduledEventsEndpoint = string.Format("http://{0}/metadata/latest/scheduledevents", defaultIpAddress);
         }
-        static async Task ScheduledEventsCallAsync()
+        /// Retrieve Scheduled Events 
+        public string GetDocument()
         {
-            try
+            Uri cloudControlUri = new Uri(scheduledEventsEndpoint);
+            using (var webClient = new WebClient())
             {
-                var client = new HttpClient();
-                client.BaseAddress = new Uri("http://169.254.169.254/");
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-                client.DefaultRequestHeaders.Add("Metadata", "true");
-                HttpResponseMessage response = await client.GetAsync("metadata/latest/scheduledevents");
-                if (response.IsSuccessStatusCode)
-                {
-                    Console.WriteLine("REST Call returned success {0}", response.Content);
-                    string str = response.Content.ReadAsStringAsync().Result;
-                    CloudControlMessage msg = JSonHelper.ConvertJSonToObject<CloudControlMessage>(str);
-                    Console.WriteLine("Analyze Scheduled Events Array with {0} events", msg.Events.Count);
-
-                    foreach (CloudControlEvent ccEvent in msg.Events)
-                    {
-                        Console.WriteLine("EventID: {0}, EventType{1}, EventStatus{2}, Resource{3}, NotBefore{4}",
-                            ccEvent.EventId,
-                            ccEvent.EventType,
-                            ccEvent.EventStatus,
-                            ccEvent.Resources.First<string>(),
-                            ccEvent.NoteBefore);
-                    }
-                }
-                else
-                {
-                    Console.WriteLine("REST Call returned failed {0}", response.IsSuccessStatusCode);
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Exception caught {0}", ex);
-            }
+                webClient.Headers.Add("Metadata", "true");
+                return webClient.DownloadString(cloudControlUri);
+            }   
         }
 
-        public class CloudControlEvent
+        /// Issues a post request to the scheduled events endpoint with the given json string
+        public void PostResponse(string jsonPost)
         {
-            public string EventId { get; set; }
-            public string EventStatus { get; set; }
-            public string EventType { get; set; }
-            public string ResourceType { get; set; }
-            public List<string> Resources { get; set; }
-            public DateTime NoteBefore { get; set; }
-        }
-
-        public class CloudControlMessage
-        {
-            public List<CloudControlEvent> Events { get; set; }
-        }
-
-        private static class JSonHelper
-        {
-            public static string ConvertObjectToJSon<T>(T obj)
+            using (var webClient = new WebClient())
             {
-                DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(T));
-                MemoryStream ms = new MemoryStream();
-                ser.WriteObject(ms, obj);
-                string jsonString = Encoding.UTF8.GetString(ms.ToArray());
-                ms.Close();
-                return jsonString;
-            }
-
-            public static T ConvertJSonToObject<T>(string jsonString)
-            {
-                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(T));
-                MemoryStream ms = new MemoryStream(Encoding.UTF8.GetBytes(jsonString));
-                T obj = (T)serializer.ReadObject(ms);
-                return obj;
+                webClient.Headers.Add("Content-Type", "application/json");
+                webClient.UploadString(scheduledEventsEndpoint, jsonPost);
             }
         }
     }
 
 ```
+Scheduled Events could be parsed using the following data structures 
+
+```csharp
+      public class ScheduledEventsDocument
+    {
+        public List<CloudControlEvent> Events { get; set; }
+    }
+
+    public class CloudControlEvent
+    {
+        public string EventId { get; set; }
+        public string EventStatus { get; set; }
+        public string EventType { get; set; }
+        public string ResourceType { get; set; }
+        public List<string> Resources { get; set; }
+        public DateTime NoteBefore { get; set; }
+    }
+
+    public class ScheduledEventsApproval
+    {
+        public List<StartRequest> StartRequests = new List<StartRequest>();
+    }
+
+    public class StartRequest
+    {
+        [JsonProperty("EventId")]
+        private string eventId;
+
+        public StartRequest(string eventId)
+        {
+            this.eventId = eventId;
+        }
+    }
+
+```
+
+Putting all of this together results in code similar to this  
+
+```csharp
+public class Program
+    {
+    static ScheduledEventsClient client;
+    static void Main(string[] args)
+    {
+        while (true)
+        {
+            client = new ScheduledEventsClient();
+            string json = client.GetDocument();
+            ScheduledEventsDocument scheduledEventsDocument = JsonConvert.DeserializeObject<ScheduledEventsDocument>(json);
+
+            HandleEvents(scheduledEventsDocument.Events);
+
+            // Wait for user response
+            Console.WriteLine("Press Enter to approve executing events\n");
+            Console.ReadLine();
+
+            // Approve events
+            ScheduledEventsApproval scheduledEventsApprovalDocument = new ScheduledEventsApproval();
+            foreach (CloudControlEvent ccevent in scheduledEventsDocument.Events)
+            {
+                scheduledEventsApprovalDocument.StartRequests.Add(new StartRequest(ccevent.EventId));
+            }
+            if (scheduledEventsApprovalDocument.StartRequests.Count > 0)
+            {
+                // Serialize using Newtonsoft.Json
+                string approveEventsJsonDocument =
+                    JsonConvert.SerializeObject(scheduledEventsApprovalDocument);
+
+                Console.WriteLine($"Approving events with json: {approveEventsJsonDocument}\n");
+                client.PostResponse(approveEventsJsonDocument);
+            }
+
+            Console.WriteLine("Complete. Press enter to repeat\n\n");
+            Console.ReadLine();
+            Console.Clear();
+        }
+    }
+
+    private static void HandleEvents(List<CloudControlEvent> events)
+    {
+        // Add logic for handling events here
+    }
+}
+
+```
+
 ### Python Sample 
 
 ```python
