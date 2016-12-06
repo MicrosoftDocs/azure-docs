@@ -17,7 +17,7 @@ ms.date: 11/14/2016
 ms.author: andbuc
 
 ---
-# How to use the Azure IoT Gateway SDK to send device-to-cloud messages with a physical device (Linux)
+# Use the Azure IoT Gateway SDK to send device-to-cloud messages with a physical device (Linux)
 This walkthrough of the [Bluetooth low energy sample][lnk-ble-samplecode] shows you how to use the [Azure IoT Gateway SDK][lnk-sdk] to forward device-to-cloud telemetry to IoT Hub from a physical device and how to route commands from IoT Hub to a physical device.
 
 This walkthrough covers:

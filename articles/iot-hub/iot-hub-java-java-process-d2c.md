@@ -17,7 +17,7 @@ ms.date: 12/06/2016
 ms.author: dobett
 
 ---
-# How to process IoT Hub device-to-cloud messages (Java)
+# Process IoT Hub device-to-cloud messages (Java)
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## Introduction
