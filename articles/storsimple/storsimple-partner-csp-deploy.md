@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/05/2016
+ms.date: 12/06/2016
 ms.author: alkohli
 ---
 
@@ -64,7 +64,7 @@ If you add a customer, a subscription is automatically created. Perform the foll
 
     ![Log in to Azure portal](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. To create a StorSimple Device Manager, click **+ New** and search for or navigate to **StorSimple Virtual Device Series**. For more information, go to [Deploy a StorSimple Device Manager service](storsimple-manage-service.md).
+8. To create a StorSimple Device Manager, click **+ New** and search for or navigate to **StorSimple Virtual Device Series**. For more information, go to [Deploy a StorSimple Device Manager service](storsimple-virtual-array-manage-service.md).
 
     ![Create StorSimple Device Manager service](./media/storsimple-partner-csp-deploy/image8.png)
 
@@ -93,7 +93,7 @@ In some instances, you may have an existing customer, and you need to add a new 
 
     ![Log in to Azure portal](./media/storsimple-partner-csp-deploy/image9.png)
 
-8. To create a StorSimple Device Manager, click **+ New** and search for or navigate to **StorSimple Virtual Device Series**. For more information, go to [Deploy a StorSimple Device Manager service](storsimple-manage-service.md).
+8. To create a StorSimple Device Manager, click **+ New** and search for or navigate to **StorSimple Virtual Device Series**. For more information, go to [Deploy a StorSimple Device Manager service](storsimple-virtual-array-manage-service.md).
 
     ![Create StorSimple Device Manager service](./media/storsimple-partner-csp-deploy/image8.png)
 
