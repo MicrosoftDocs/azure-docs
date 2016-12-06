@@ -3,7 +3,7 @@ title: Multi-tenant support in Azure Site Recovery for replicating VMware virtua
 description: Describes how to deploy Azure Site Recovery in a multi-tenant environment to orchestrate replication, failover and recovery of on-premises VMware virtual machines to Azure through the CSP Program using the Azure portal
 services: site-recovery
 documentationcenter: ''
-author: manayar
+author: mayanknayar
 manager: jwhit
 editor: ''
 
