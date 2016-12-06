@@ -67,23 +67,7 @@ scp -r myserver:/home/ahmet/logs/ /tmp/.
 
 The `-r` cli flag instructs SCP to recursively copy the files and directories from the point of the directory listed in the command.  Also notice that the command-line syntax is similar to a `cp` copy command.
 
-Next steps:
+## Next steps
 
 * [Manage users, SSH, and check or repair disks on Azure Linux VMs using the VMAccess Extension](virtual-machines-linux-using-vmaccess-extension?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Disable SSH passwords on your Linux VM by configuring SSHD](virtual-machines-linux-mac-disable-ssh-password-usage?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-x
