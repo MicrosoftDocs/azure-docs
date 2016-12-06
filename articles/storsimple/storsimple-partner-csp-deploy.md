@@ -30,7 +30,7 @@ Before you begin, ensure that:
 - You are enrolled under the CSP program.
 - You have valid [Partner Center](http://partnercenter.microsoft.com/) login credentials. The credentials enable you to sign in to the Partner portal to add new customers, search for customers, or navigate to a customer account from the Partner dashboard. The CSP can function as a StorSimple administrator on behalf of the customer in the Azure portal.
                              
-## Add a new customers 
+## Add a new customer
 
 If you add a customer, a subscription is automatically created. Perform the following steps in the Partner portal to add a customer (and automatically create a subscription).
 
