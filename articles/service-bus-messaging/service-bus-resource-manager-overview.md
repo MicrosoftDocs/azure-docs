@@ -24,8 +24,8 @@ Azure Resource Manager templates help you define the resources to deploy for a s
 
 > [!NOTE]
 > The examples in this article show how to use Azure Resource Manager to create a Service Bus namespace and messaging entity (queue). For other template examples, visit the [Azure Quickstart Templates gallery][Azure Quickstart Templates gallery] and search for "Service Bus."
-> 
-> 
+>
+>
 
 ## Service Bus and Event Hubs Resource Manager templates
 These Service Bus Azure Resource Manager templates are available for download and deployment. Click the following links for details about each one, with links to the templates on GitHub:
@@ -142,7 +142,7 @@ To use an optional parameters file, copy the [201-servicebus-create-queue](https
 }
 ```
 
-For more information, see the [Parameter file](../resource-group-template-deploy.md#parameter-precedence) topic.
+For more information, see the [Parameter file](../azure-resource-manager/resource-group-template-deploy.md#parameter-precedence) topic.
 
 ### Log in to Azure and set the Azure subscription
 From a PowerShell prompt, run the following command:
@@ -188,7 +188,7 @@ Test-AzureRmResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <p
 ```
 
 ### Create the deployment
-To create the new deployment, run the `New-AzureRmResourceGroupDeployment` command, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, see [Incremental and complete deployments](../resource-group-template-deploy.md#incremental-and-complete-deployments).
+To create the new deployment, run the `New-AzureRmResourceGroupDeployment` command, and provide the necessary parameters when prompted. The parameters include a name for your deployment, the name of your resource group, and the path or URL to the template file. If the **Mode** parameter is not specified, the default value of **Incremental** is used. For more information, see [Incremental and complete deployments](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments).
 
 The following command prompts you for the three parameters in the PowerShell window:
 
@@ -208,7 +208,7 @@ You can also use inline parameters when you run the deployment cmdlet. The comma
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
 ```
 
-To run a [complete](../resource-group-template-deploy.md#incremental-and-complete-deployments) deployment, set the **Mode** parameter to **Complete**:
+To run a [complete](../azure-resource-manager/resource-group-template-deploy.md#incremental-and-complete-deployments) deployment, set the **Mode** parameter to **Complete**:
 
 ```
 New-AzureRmResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json

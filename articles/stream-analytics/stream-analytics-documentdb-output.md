@@ -51,7 +51,7 @@ Creating DocumentDB as an output in Stream Analytics generates a prompt for info
 
 Partitioned Collection | Multiple “Single Partition” collections
 ---|---
-![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png) |  ![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png)
+![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-1.png) |  ![documentdb stream analytics output screen](media/stream-analytics-documentdb-output/stream-analytics-documentdb-output-2.png)
 
 
   
