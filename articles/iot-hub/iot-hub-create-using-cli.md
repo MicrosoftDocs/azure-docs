@@ -41,7 +41,7 @@ Sign in to your Azure account and configure the Azure CLI to work with IoT Hub r
 
 1. At the command prompt, run the [login command][lnk-login-command]:
     
-    ```
+    ```azurecli
     az login
     ```
 
@@ -49,25 +49,25 @@ Sign in to your Azure account and configure the Azure CLI to work with IoT Hub r
 
 2. If you have multiple Azure subscriptions, signing in to Azure grants you access to all the Azure accounts associated with your credentials. Use the following [command to list the Azure accounts][lnk-az-account-command] available for you to use:
     
-    ```
+    ```azurecli
     az account list 
     ```
 
     Use the following command to select subscription that you want to use to run the commands to create your IoT hub. You can use either the subscription name or ID from the output of the previous command:
 
-    ```
+    ```azurecli
     az account set --subscription {your subscription name or id}
     ```
 
 3. You must register the IoT provider before you can deploy IoT resources. Run the following [command to register the IoT provider][lnk-az-register-command]:
     
-    ```
+    ```azurecli
     az provider register -namespace "Microsoft.Devices"
     ```
 
 4. You may need to install the Azure CLI _iot component_. Run the following [command to add the iot component][lnk-az-addcomponent-command]:
     
-    ```
+    ```azurecli
     az component update --add iot
     ```
 
@@ -77,7 +77,7 @@ Use the Azure CLI to create a resource group and then add an IoT hub.
 
 1. When you create an IoT hub, you must create it in a resource group. Either use an existing resource group, or run the following [command to create a resource group][lnk-az-resource-command]:
     
-    ```
+    ```azurecli
      az resource group create --name {your resource group name} --location westus
     ```
 
@@ -88,7 +88,7 @@ Use the Azure CLI to create a resource group and then add an IoT hub.
 
 2. Run the following [command to create an IoT hub][lnk-az-iot-command] in your resource group:
     
-    ```
+    ```azurecli
     az iot hub create --name {your iot hub name} --resource-group {your resource group name} --sku S1
     ```
 
@@ -103,13 +103,13 @@ You can use the Azure CLI to [delete an individual resource][lnk-az-resource-com
 
 To delete an IoT hub, run the following command:
 
-```
+```azurecli
 az resource delete --name {your iot hub name} --resource-group {your resource group name} --resource-type Microsoft.Devices/IotHubs
 ```
 
 To delete a resource group and all its resources, run the following command:
 
-```
+```azurecli
 az resource group delete --name {your resource group name}
 ```
 
