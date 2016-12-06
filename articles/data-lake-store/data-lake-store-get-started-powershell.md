@@ -36,7 +36,7 @@ Learn how to use Azure PowerShell to create an Azure Data Lake Store account and
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* **Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* **Azure PowerShell 1.0 or greater**. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Authentication
 This article uses a simpler authentication approach with Data Lake Store where you are prompted to enter your Azure account credentials. The access level to Data Lake Store account and file system is then governed by the access level of the logged in user. However, there are other approaches as well to authenticate with Data Lake Store, which are **end-user authentication** or **service-to-service authentication**. For instructions and more information on how to authenticate, see [Authenticate with Data Lake Store using Azure Active Directory](data-lake-store-authenticate-using-active-directory.md).
@@ -133,7 +133,7 @@ Below are the most important settings that can be tuned to get the best performa
 
 **Example**
 
-This command downloads files from Azure Data Lake Store to the userâ€™s local drive using 20 threads per file and 100 concurrent files. 
+This command downloads files from Azure Data Lake Store to the user’s local drive using 20 threads per file and 100 concurrent files. 
 
 	Export-AzureRmDataLakeStoreItem -AccountName <Data Lake Store account name> -PerFileThreadCount 20-ConcurrentFileCount 100 -Path /Powershell/100GB/ -Destination C:\Performance\ -Force -Recurse
 
@@ -152,7 +152,7 @@ Here's some guidance that you can use.
 		Total thread count = 16 cores * 6 = 96 threads
 
 
-* **Step 2: Calculate PerFileThreadCount**  - We calculate our PerFileThreadCount based on the size of the files. For files smaller than 2.5GB, there is no need to change this parameter because the default of 10 is sufficient. For files larger than 2.5GB, you should use 10 threads as the base for the first 2.5GB and add 1 thread for each additional 256MB increase in file size. If you are copying a folder with a large range of file sizes, consider grouping them into similar file sizes. Having dissimilar file sizes may cause non-optimal performance. If thatâ€™s not possible to group similar file sizes, you should set PerFileThreadCount based on the largest file size.
+* **Step 2: Calculate PerFileThreadCount**  - We calculate our PerFileThreadCount based on the size of the files. For files smaller than 2.5GB, there is no need to change this parameter because the default of 10 is sufficient. For files larger than 2.5GB, you should use 10 threads as the base for the first 2.5GB and add 1 thread for each additional 256MB increase in file size. If you are copying a folder with a large range of file sizes, consider grouping them into similar file sizes. Having dissimilar file sizes may cause non-optimal performance. If that’s not possible to group similar file sizes, you should set PerFileThreadCount based on the largest file size.
 
 		PerFileThreadCount = 10 threads for the first 2.5GB + 1 thread for each additional 256MB increase in file size
 
@@ -160,7 +160,7 @@ Here's some guidance that you can use.
 
 	Assuming you have 100 files ranging from 1GB to 10GB, we use the 10GB as the largest file size for equation, which would read like the following.
 
-		PerFileThreadCount = 10 + ((10GB â€“ 2.5GB) / 256MB) = 40 threads
+		PerFileThreadCount = 10 + ((10GB – 2.5GB) / 256MB) = 40 threads
 
 * **Step 3: Calculate ConcurrentFilecount** - Use the total thread count and PerFileThreadCount to calculate ConcurrentFileCount based on the following equation. 
 
@@ -178,7 +178,7 @@ Here's some guidance that you can use.
 
 You might require further tuning because there is a range of file sizes to work with. The above calculation works well if all or most of the files are larger and closer to the 10GB range. If instead, there are many different files sizes with many files being smaller, then you could reduce PerFileThreadCount. By reducing the PerFileThreadCount, we can increase ConcurrentFileCount. So, if we assume that most of our files are smaller in the 5GB range, we can re-do our calculation:
 
-	PerFileThreadCount = 10 + ((5GB â€“ 2.5GB) / 256MB) = 20
+	PerFileThreadCount = 10 + ((5GB – 2.5GB) / 256MB) = 20
 
 So, **ConcurrentFileCount** will now be 96/20, which is 4.8, rounded off to **4**.
 
