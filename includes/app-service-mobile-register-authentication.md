@@ -1,5 +1,5 @@
 
-First, you need to register your app at an identity provider's site, and then you will set the provider-generated credentials in the Mobile App back end.
+First, you need to register your app at an identity provider's site, and then you will set the provider-generated credentials in the Mobile Apps back end.
 
 1. Configure your preferred identity provider by following the provider-specific instructions:
 

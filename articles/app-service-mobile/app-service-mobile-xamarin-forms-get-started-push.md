@@ -26,7 +26,7 @@ In this tutorial, you add push notifications to all the projects that resulted f
 If you do not use the downloaded quick start server project, you will need the push notification extension package. For more information, see [Work with the .NET backend server SDK for Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## Prerequisites
-* For iOS, you will need an [Apple Developer Program membership](https://developer.apple.com/programs/ios/) and a physical iOS device. The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
+For iOS, you will need an [Apple Developer Program membership](https://developer.apple.com/programs/ios/) and a physical iOS device. The [iOS simulator does not support push notifications](https://developer.apple.com/library/ios/documentation/IDEs/Conceptual/iOS_Simulator_Guide/TestingontheiOSSimulator.html).
 
 ## <a name="configure-hub"></a>Configure a notification hub
 [!INCLUDE [app-service-mobile-configure-notification-hub](../../includes/app-service-mobile-configure-notification-hub.md)]
@@ -265,12 +265,12 @@ With the back end configured with FCM, you can add components and codes to the c
 Now, you are ready test push notifications in the app running on an Android device or the emulator.
 
 ### Test push notifications in your Android app
-The first two steps are required only when testing on an emulator.
+The first two steps are required only when you're testing on an emulator.
 
 1. Make sure that you are deploying to or debugging on a virtual device that has Google APIs set as the target, as shown below in the Android Virtual Device manager.
 2. Add a Google account to the Android device by clicking **Apps** > **Settings** > **Add account**. Then follow the prompts to add an existing Google account to the device, or to create a new one.
 3. In Visual Studio or Xamarin Studio, right-click the **Droid** project and click **Set as startup project**.
-4. Press the **Run** button to build the project and start the app on your Android device or emulator.
+4. Click **Run** to build the project and start the app on your Android device or emulator.
 5. In the app, type a task, and then click the plus (**+**) icon.
 6. Verify that a notification is received when an item is added.
 
@@ -423,7 +423,7 @@ You can also continue on to one of the following tutorials:
 * [Add authentication to your app ](app-service-mobile-xamarin-forms-get-started-users.md)  
   Learn how to authenticate users of your app with an identity provider.
 * [Enable offline sync for your app](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
-  Learn how to add offline support for your app by using a Mobile App back end. Offline sync allows end-users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
+  Learn how to add offline support for your app by using a Mobile App back end. With offline sync, users can interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 <!-- Images. -->
 

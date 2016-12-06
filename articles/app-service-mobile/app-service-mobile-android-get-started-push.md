@@ -1,6 +1,6 @@
 ---
-title: Add push notifications to your Android app with Azure Mobile Apps | Microsoft Docs
-description: Learn how to use Azure Mobile Apps to send push notifications to your Android app.
+title: Add push notifications to your Android app with Mobile Apps | Microsoft Docs
+description: Learn how to use Mobile Apps to send push notifications to your Android app.
 services: app-service\mobile
 documentationcenter: android
 manager: erikre
@@ -69,10 +69,10 @@ You can test the app by directly attaching an Android phone with a USB cable, or
 ## Next steps
 Now that you completed this tutorial, consider continuing on to one of the following tutorials:
 
-* [Add authentication to your Android app](app-service-mobile-android-get-started-users.md)
+* [Add authentication to your Android app](app-service-mobile-android-get-started-users.md).
   Learn how to add authentication to the todolist quickstart project on Android using a supported identity provider.
-* [Enable offline sync for your Android app](app-service-mobile-android-get-started-offline-data.md)
-  Learn how to add offline support your app using a Mobile App back end. Offline sync allows end users to interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
+* [Enable offline sync for your Android app](app-service-mobile-android-get-started-offline-data.md).
+  Learn how to add offline support your app using a Mobile App back end. With offline sync, users can interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 <!-- URLs -->
 [Android quick start]: app-service-mobile-android-get-started.md

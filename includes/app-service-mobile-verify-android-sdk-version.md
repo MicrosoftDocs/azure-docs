@@ -2,13 +2,13 @@ Because of ongoing development, the Android SDK version installed in Android Stu
 
 Two symptoms of version mismatch are:
 
-- When you Build or Rebuild the project, you may get Gradle error messages like "**failed to find target Google Inc.:Google APIs:n**".
+- When you build or rebuild the project, you may get Gradle error messages like "**failed to find target Google Inc.:Google APIs:n**".
 - Standard Android objects in code that should resolve based on `import` statements may be generating error messages.
 
-If either of these appear, the version of the Android SDK installed in Android Studio might not match the SDK target of the downloaded project. To verify the version, make the following changes:
+If either of these appears, the version of the Android SDK installed in Android Studio might not match the SDK target of the downloaded project. To verify the version, make the following changes:
 
-1. In Android Studio, click **Tools** => **Android** => **SDK Manager**. If you have not installed the latest version of the SDK Platform, then click to install it. Make a note of the version number.
-2. In the Project Explorer tab, under **Gradle Scripts**, open the file **build.gradle (modeule: app)**. Ensure that the **compileSdkVersion** and **buildToolsVersion** are set to the latest SDK version installed. The tags might look like this:
+1. In Android Studio, click **Tools** > **Android** > **SDK Manager**. If you have not installed the latest version of the SDK Platform, then click to install it. Make a note of the version number.
+2. On the **Project Explorer** tab, under **Gradle Scripts**, open the file **build.gradle (modeule: app)**. Ensure that the **compileSdkVersion** and **buildToolsVersion** are set to the latest SDK version installed. The tags might look like this:
 
              compileSdkVersion 'Google Inc.:Google APIs:23'
             buildToolsVersion "23.0.2"

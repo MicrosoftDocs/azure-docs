@@ -1,9 +1,9 @@
 
-By default, APIs in a Mobile App back end can be invoked anonymously. Next, you need to restrict access to only authenticated clients.  
+By default, APIs in a Mobile Apps back end can be invoked anonymously. Next, you need to restrict access to only authenticated clients.  
 
-* **Node.js back end (via portal)** :  
+* **Node.js back end (via the Azure portal)** :  
 
-    In your Mobile App's **Settings**, click **Easy Tables** and select your table. Click **Change permissions**, select **Authenticated access only** for all permissions, and then click **Save**.
+    In your Mobile Apps settings, click **Easy Tables** and select your table. Click **Change permissions**, select **Authenticated access only** for all permissions, and then click **Save**.
 * **.NET back end (C#)**:  
 
     In the server project, navigate to **Controllers** > **TodoItemController.cs**. Add the `[Authorize]` attribute to the **TodoItemController** class, as follows. To restrict access only to specific methods, you can also apply this attribute just to those methods instead of the class. Republish the server project.
