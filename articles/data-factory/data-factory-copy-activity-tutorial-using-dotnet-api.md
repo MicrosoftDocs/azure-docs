@@ -177,7 +177,6 @@ You should have following four values from these steps:
    > [!IMPORTANT]
    > Replace **storageaccountname** and **accountkey** with name and key of your Azure Storage account.
 
-
             // create a linked service for input data store: Azure Storage
             Console.WriteLine("Creating Azure Storage linked service");
             client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,

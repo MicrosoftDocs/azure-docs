@@ -92,7 +92,7 @@ The Node.js app is defined in the file **server.js**, located in the directory f
 This code is essentially the same as the "Hello World" sample on the [nodejs.org] website, except it uses the port number assigned by the cloud environment.
 
 ## Deploy the application to Azure
-    [AZURE.INCLUDE [create-account-note](../../includes/create-account-note.md)]
+    [!INCLUDE [create-account-note](../../includes/create-account-note.md)]
 
 ### Download the Azure publishing settings
 To deploy your application to Azure, you must first download the publishing settings for your Azure subscription.
@@ -108,12 +108,13 @@ To deploy your application to Azure, you must first download the publishing sett
 
        Import-AzurePublishSettingsFile [path to file]
 
-    > [AZURE.NOTE] After importing the publish settings, consider deleting the downloaded .publishSettings file, because it contains information that could allow someone to access your account.
+    > [!NOTE]
+    > After importing the publish settings, consider deleting the downloaded .publishSettings file, because it contains information that could allow someone to access your account.
 
 ### Publish the application
 To publish, run the following commands:
 
-      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))   
+      $ServiceName = "NodeHelloWorld" + $(Get-Date -Format ('ddhhmm'))
     Publish-AzureServiceProject -ServiceName $ServiceName  -Location "East US" -Launch
 
 * **-ServiceName** specifies the name for the deployment. This must be a unique name, otherwise the publish process will fail. The **Get-Date** command tacks on a date/time string that should make the name unique.
