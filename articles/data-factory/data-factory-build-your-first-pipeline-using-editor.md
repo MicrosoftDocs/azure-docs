@@ -1,4 +1,4 @@
-﻿---
+---
 title: Build your first data factory (Azure portal) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory Editor in the Azure portal.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/14/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 
 ---
