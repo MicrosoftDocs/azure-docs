@@ -1,11 +1,10 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Splunk Enterprise and Splunk Cloud' | Microsoft Docs
+title: 'Tutorial: Azure Active Directory integration with Splunk Enterprise and Splunk Cloud | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and Splunk Enterprise and Splunk Cloud.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-editor: na
 
 ms.assetid: b3e2b4a9-749c-4895-813d-db46f8dfdbf8
 ms.service: active-directory
@@ -17,6 +16,7 @@ ms.date: 12/05/2016
 ms.author: jeedes
 
 ---
+
 # Tutorial: Azure Active Directory integration with Splunk Enterprise and Splunk Cloud
 
 In this tutorial, you learn how to integrate Splunk Enterprise and Splunk Cloud with Azure Active Directory (Azure AD).
