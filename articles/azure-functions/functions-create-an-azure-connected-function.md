@@ -21,7 +21,9 @@ ms.author: rachelap@microsoft.com
 ---
 # Create an Azure Function that is connected to an Azure service
 
-This topic shows you how to create an Azure Function that listens to messages on an Azure  Storage queue and copies the messages to rows in an Azure Storage table. A timer triggered function is used to load messages into the queue. A second function reads from the queue and writes messages to the table. Both the queue and the table are created for you by Azure Functions based on the binding definitions.
+This topic shows you how to create an Azure Function that listens to messages on an Azure  Storage queue and copies the messages to rows in an Azure Storage table. A timer triggered function is used to load messages into the queue. A second function reads from the queue and writes messages to the table. Both the queue and the table are created for you by Azure Functions based on the binding definitions. 
+
+To make things more interesting, one function is written in JavaScript and the other is written in C# script. This demonstrates how a function app can have functions in various languages.
 
 ## Watch the video
 >[!VIDEO https://channel9.msdn.com/Series/Windows-Azure-Web-Sites-Tutorials/Create-an-Azure-Function-which-binds-to-an-Azure-service/player]
@@ -30,13 +32,13 @@ This topic shows you how to create an Azure Function that listens to messages on
 
 ## Create a function that writes to the queue
 
-Before you can connect to a storage queue, you need to create a function that loads the message queue. This function uses a timer trigger that writes a message to the queue every 10 seconds.
+Before you can connect to a storage queue, you need to create a function that loads the message queue. This JavaScript function uses a timer trigger that writes a message to the queue every 10 seconds.
 
 ### Create the function
 
 1. Go to the Azure portal and locate your function app.
 
-2. Click **New Function** > **TimerTrigger - Node**. 
+2. Click **New Function** > **TimerTrigger-JavaScript**. 
 
 3. Name the function **FunctionsBindingsDemo1**, enter a cron expression value of `0/10 * * * * *` for **Schedule**, and then click **Create**.
    
@@ -82,7 +84,7 @@ Before you can connect to a storage queue, you need to create a function that lo
     toBeQed.time = timeStamp;
     context.bindings.myQueueItem = toBeQed;
    
-    ```
+    ```  
    
     This code creates a **myQueueItem** and sets its **time** property to the current timeStamp. It then adds the new queue item to the context's **myQueueItem** binding.
 
@@ -110,18 +112,20 @@ You can verify that your function is working by viewing messages in the queue yo
 
 ## Create a function that reads from the queue
 
-Now that you have messages being added to the queue, you can create another function that reads from the queue and writes the messages permanently to an Azure Storage table. Because a function app can have functions of various languages, you can define this function using C# script.
+Now that you have messages being added to the queue, you can create another function that reads from the queue and writes the messages permanently to an Azure Storage table.
 
 ### Create the function
 
-1. Click **New Function** > **QueueTrigger - CSharp**. 
+1. Click **New Function** > **QueueTrigger-CSharp**. 
  
 2. Name the function `FunctionsBindingsDemo2`, enter **functions-bindings** in the **Queue name** field, select an existing storage account or create one, and then click **Create**.
 
 	![Add an output queue timer function](./media/functions-create-an-azure-connected-function/function-demo2-new-function.png) 
 
-5. (Optional) You can verify that the new function works by viewing the new queue in Storage Explorer as before. You can also use Cloud Explorer in Visual Studio. Refresh the **functions-bindings** queue and notice that items have been removed from the queue. This happens because the function is bound to the **functions-bindings** queue as an input trigger. Next, you	 write the messages permanently to a storage table.
+3. (Optional) You can verify that the new function works by viewing the new queue in Storage Explorer as before. You can also use Cloud Explorer in Visual Studio.  
 
+4. (Optional) Refresh the **functions-bindings** queue and notice that items have been removed from the queue. The removal occurs because the function is bound to the **functions-bindings** queue as an input trigger and the function reads the queue. 
+5. 
 ### Add a table output binding
 
 1. In FunctionsBindingsDemo2, click **Integrate** > **New Output** > **Azure Table Storage** > **Select**.
@@ -174,7 +178,7 @@ Now that you have messages being added to the queue, you can create another func
 
 9. Click **Save**.  Finally, you can verify the function works by viewing the table in Storage explorer or Visual Studio Cloud Explorer.
 
-4. (Optional) In your storage account in Storage Explorer, expand **Tables** > **functionsbindings** and verify that rows are added to the table.
+4. (Optional) In your storage account in Storage Explorer, expand **Tables** > **functionsbindings** and verify that rows are added to the table. You can do the same in Cloud Explorer in Visual Studio.
 
 	![View of rows in the table](./media/functions-create-an-azure-connected-function/functionsbindings-azure-storage-explorer2.png)
 
