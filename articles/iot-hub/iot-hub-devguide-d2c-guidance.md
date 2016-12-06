@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub device to cloud communications guidance | Microsoft Docs
-description: Azure IoT Hub developer guide - guidance on when to use device-to-cloud messages, reported properties, or file upload. 
+title: Azure IoT Hub device-to-cloud options | Microsoft Docs
+description: Developer guide - guidance on when to use device-to-cloud messages, reported properties, or file upload for cloud-to-device communications. 
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -17,8 +17,8 @@ ms.date: 09/30/2016
 ms.author: elioda
 
 ---
-# Device to cloud communications guidance
-When sending information from the device app to the back-end, IoT Hub exposes three options:
+# Device-to-cloud communications guidance
+When sending information from the device app to the solution back end, IoT Hub exposes three options:
 
 * [Device-to-cloud (D2C) messages][lnk-d2c], for time series telemetry and alerts;
 * [Reported properties][lnk-twins], for reporting device state information such as available capabilities, conditions and state of long-running workflows (e.g. configuration and software updates);
@@ -35,7 +35,7 @@ Here is a detailed comparison of the various device-to-cloud communication optio
 | Protocol | Available on all protocols. | Currently available only when using MQTT. | Available when using any protocol, but requires HTTP on the device. |
 
 > [!NOTE]
-> It is possible that an application requires to both send information as a telemetry time series or alert and also to make it available in the device twin. In those cases, the device app can both send a D2C message and report a property change, or the back end can store the information in the device twin's tags when it receives the message. Since D2C messages allow much higher throughput than device twin updates, it is sometimes desirable to avoid updating the device twin for every D2C message.
+> It is possible that an application requires to both send information as a telemetry time series or alert and also to make it available in the device twin. In those cases, the device app can both send a D2C message and report a property change, or the solution back end can store the information in the device twin's tags when it receives the message. Since D2C messages allow much higher throughput than device twin updates, it is sometimes desirable to avoid updating the device twin for every D2C message.
 > 
 > 
 
