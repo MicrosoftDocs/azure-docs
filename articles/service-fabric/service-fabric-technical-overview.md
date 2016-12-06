@@ -26,6 +26,11 @@ Service Fabric is a distributed systems platform that makes it easy to package, 
 **Node**: A machine or VM that is part of a cluster is called a node. Each node is assigned a node name (a string). Nodes have characteristics such as placement properties. Each machine or VM has an auto-start Windows service, `FabricHost.exe`, which starts running upon boot and then starts two executables: `Fabric.exe` and `FabricGateway.exe`. These two executables make up the node. For testing scenarios, you can host multiple nodes on a single machine or VM by running multiple instances of `Fabric.exe` and `FabricGateway.exe`.
 
 ## Application concepts
+The application concepts listed in this section are also discussed in the folling Microsoft Virtual Academy video:
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">  
+<img src="./media/service-fabric-technical-overview/DesignTimeVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
+
 **Application Type**: The name/version assigned to a collection of service types. Defined in an `ApplicationManifest.xml` file, embedded in an application package directory, which is then copied to the Service Fabric cluster's image store. You can then create a named application from this application type within the cluster.
 
 Read the [Application Model](service-fabric-application-model.md) article for more information.
