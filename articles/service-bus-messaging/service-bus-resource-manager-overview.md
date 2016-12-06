@@ -50,7 +50,7 @@ The following procedure describes how to use PowerShell to deploy an Azure Resou
 For complete information about deploying Azure Resource Manager templates, see [Deploy resources with Azure Resource Manager templates][Deploy resources with Azure Resource Manager templates].
 
 ### Install PowerShell
-Install Azure PowerShell by following the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+Install Azure PowerShell by following the instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### Create a template
 Clone or copy the [201-servicebus-create-queue](https://github.com/Azure/azure-quickstart-templates/blob/master/201-servicebus-create-queue/azuredeploy.json) template from GitHub:

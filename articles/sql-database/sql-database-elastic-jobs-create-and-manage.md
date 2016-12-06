@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: f858344d-085b-4022-935e-1b5fa20adbac
 ms.service: sql-database
+ms.custom: jobs
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na

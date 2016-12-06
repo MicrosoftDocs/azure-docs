@@ -391,6 +391,8 @@ In C# functions you can also output to any of the following types:
 * `ICloudBlob`
 * `CloudBlockBlob` 
 * `CloudPageBlob` 
+* `ICollector<T>` (to output multiple blobs)
+* `IAsyncCollector<T>` (async version of `ICollector<T>`)
 
 <a name="outputsample"></a>
 

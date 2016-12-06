@@ -107,7 +107,7 @@ You can download the existing template for creating a VNet and two subnets from 
 
 Complete the following steps to deploy the template you downloaded by using PowerShell:
 
-1. Install and configure Azure PowerShell by completing the steps in the [How to Install and Configure Azure PowerShell](../powershell-install-configure.md) article.
+1. Install and configure Azure PowerShell by completing the steps in the [How to Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article.
 2. Run the following command to create a new resource group:
 
 	```powershell
