@@ -120,7 +120,7 @@ The following is a list of properties and corresponding descriptions, which can 
 | **completed** : Job has completed. | |
 | **deviceJobStatistics** |Statistics about the job's execution. |
 
-During the preview, the deviceJobStatistics object is available only after the job is completed.
+**deviceJobStatistics** properties.
 
 | Property | Description |
 | --- | --- |
