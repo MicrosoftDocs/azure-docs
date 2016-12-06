@@ -17,7 +17,7 @@ ms.date: 11/17/2016
 ms.author: juanpere
 
 ---
-# How to do a firmware update (.NET/Node)
+# Use device management to initiate a device firmware update (.NET/Node)
 [!INCLUDE [iot-hub-selector-firmware-update](../../includes/iot-hub-selector-firmware-update.md)]
 
 ## Introduction
