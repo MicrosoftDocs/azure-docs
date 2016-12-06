@@ -20,7 +20,7 @@ ms.author: seanmck
 # Visualize your cluster with Service Fabric Explorer
 Service Fabric Explorer is a web-based tool for inspecting and managing applications and nodes in an Azure Service Fabric cluster. Service Fabric Explorer is hosted directly within the cluster, so it is always available, regardless of where your cluster is running.
 
-The following Microsoft Virtual Academy video describes how to use Service Fabric Explorer:
+Watch the following Microsoft Virtual Academy video to learn how to use Service Fabric Explorer:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965">
 <img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244">
 </a></center>
