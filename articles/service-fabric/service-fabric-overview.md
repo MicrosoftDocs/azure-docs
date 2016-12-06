@@ -20,7 +20,16 @@ ms.author: mfussell
 # Overview of Azure Service Fabric
 Azure Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. Service Fabric also addresses the significant challenges in developing and managing cloud applications. Developers and administrators can avoid complex infrastructure problems and focus on implementing mission-critical, demanding workloads that are scalable, reliable, and manageable. Service Fabric represents the next-generation middleware platform for building and managing these enterprise-class, tier-1, cloud-scale applications.
 
-This [short video](https://aka.ms/servicefabricvideo) introduces Service Fabric and microservices.
+This short Channel9 video introduces Service Fabric and microservices:
+<center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
+<img src="./media/service-fabric-technical-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
+
+This longer Microsoft Virtual Academy video describes the Service Fabric core concepts:
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">  
+<img src="./media/service-fabric-technical-overview/CoreConceptsVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
+
 
 ## Applications composed of microservices
 Service Fabric enables you to build and manage scalable and reliable applications composed of microservices that run at very high density on a shared pool of machines, which is referred to as a cluster. It provides a sophisticated runtime to build distributed, scalable, stateless and stateful microservices. It also provides comprehensive application management capabilities to provision, deploy, monitor, upgrade/patch, and delete deployed applications.

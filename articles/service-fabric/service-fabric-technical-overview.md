@@ -20,7 +20,7 @@ ms.author: ryanwi
 # Service Fabric terminology overview
 Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. This topic details the terminology used by Service Fabric in order to understand the terms used in the documentation.
 
-The application concepts listed in this section are also discussed in the following Microsoft Virtual Academy videos:
+The concepts listed in this section are also discussed in the following Microsoft Virtual Academy videos:
 <table><tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">  
 <img src="./media/service-fabric-technical-overview/CoreConceptsVid.png" WIDTH="360" HEIGHT="244">  
 </a></td></td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">  
