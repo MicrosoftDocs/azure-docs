@@ -236,7 +236,7 @@ git submodule update --init --recursive
 When you have a complete copy of the IoT Gateway SDK repository on your Raspberry Pi 3, you can build it using the following command from the folder that contains the SDK:
 
 ```
-./tools/build.sh --skip-unittests --skip-e2e-tests
+./tools/build.sh --skip-unittests
 ```
 
 ### Configure and run the BLE sample on your Raspberry Pi 3
