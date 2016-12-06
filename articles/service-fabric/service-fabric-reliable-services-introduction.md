@@ -37,6 +37,11 @@ Reliable Services gives you a simple, powerful, top-level programming model to h
 * A simple model for running your own code that looks like programming models you are used to. Your code has a well-defined entry point and easily managed lifecycle.
 * A pluggable communication model. Use the transport of your choice, such as HTTP with [Web API](service-fabric-reliable-services-communication-webapi.md), WebSockets, custom TCP protocols, etc. Reliable Services provide some great out-of-the-box options you can use, or you can provide your own.
 
+Watch this Microsoft Virtual Academy video for an overview of Reliable services:
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">  
+<img src="./media/service-fabric-reliable-services-introduction/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
+
 ## What makes Reliable Services different?
 Reliable Services in Service Fabric is different from services you may have written before. Service Fabric provides reliability, availability, consistency, and scalability.  
 
