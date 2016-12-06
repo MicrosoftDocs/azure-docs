@@ -722,7 +722,7 @@ In this tutorial, you learned how to define an Oozie workflow and an Oozie coord
 
 [powershell-download]: http://azure.microsoft.com/downloads/
 [powershell-about-profiles]: http://go.microsoft.com/fwlink/?LinkID=113729
-[powershell-install-configure]: ../powershell-install-configure.md
+[powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 

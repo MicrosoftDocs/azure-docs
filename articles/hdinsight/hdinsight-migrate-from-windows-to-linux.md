@@ -81,7 +81,7 @@ You can use the Hadoop HDFS command to directly copy data from the storage for y
 Alternatively, you may want to use the `Start-AzureStorageBlobCopy` Azure PowerShell cmdlet to copy blobs between storage accounts outside of HDInsight. For more information, see the How to manage Azure Blobs section of Using Azure PowerShell with Azure Storage.
 
 ## Client-side technologies
-In general, client-side technologies such as [Azure PowerShell cmdlets](../powershell-install-configure.md), [Azure CLI](../xplat-cli-install.md) or the [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) will continue to work the same with Linux-based clusters, as they rely on REST APIs that are the same across both cluster OS types.
+In general, client-side technologies such as [Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs), [Azure CLI](../xplat-cli-install.md) or the [.NET SDK for Hadoop](https://hadoopsdk.codeplex.com/) will continue to work the same with Linux-based clusters, as they rely on REST APIs that are the same across both cluster OS types.
 
 ## Server-side technologies
 The following table provides guidance on migrating server-side components that are Windows specific.

@@ -497,7 +497,7 @@ Now that you have learned how to use Mahout, discover other ways of working with
 * [MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
 [build]: http://mahout.apache.org/developers/buildingmahout.html
-[aps]: ../powershell-install-configure.md
+[aps]: /powershell/azureps-cmdlets-docs
 [movielens]: http://grouplens.org/datasets/movielens/
 [100k]: http://files.grouplens.org/datasets/movielens/ml-100k.zip
 [getstarted]: hdinsight-hadoop-linux-tutorial-get-started.md
