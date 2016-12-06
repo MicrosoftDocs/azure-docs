@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/01/2016
-ms.author: mthalman
+ms.date: 12/06/2016
+ms.author: mthalman;mikhegn
 
 ---
 # Set up continuous integration for a Service Fabric application by using Visual Studio Team Services
@@ -106,6 +106,11 @@ A Team Services release definition describes a workflow that is composed of a se
     6. For Certificate Based authentication, define the Base64 encoding of the client certificate file in the **Client Certificate** field.  See the help pop-up on that field for info on how to get that value.  If your certificate is password-protected, define the password in the **Password** field.
     7. Confirm your changes by clicking **OK**. After navigating back to your release definition, click the refresh icon on the **Cluster Connection** field to see the endpoint you just added.
 12. Save the release definition.
+
+> [!NOTE]
+> Microsoft Accounts (e.g. @hotmail.com, @outlook.com) are not supported fro Azure Active Directory authentication.
+> 
+> 
 
 The definition that is created consists of one task of type **Service Fabric Application Deployment**. See the [task documentation page](https://go.microsoft.com/fwlink/?LinkId=820528) for more information about this task.
 
