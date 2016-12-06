@@ -583,8 +583,7 @@ The following section illustrates how to create a short script to trigger and de
 
     Copy and paste the following code snippet:
 
-
-        ````
+        ```
         Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
         Disable-AzureDataCollection
         $ApplianceName = <myStorSimpleApplianceName>
@@ -613,8 +612,8 @@ The following section illustrates how to create a short script to trigger and de
                 Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
             }
         }
-        
-        ````
+
+        ```
 6.  Add the script to your backup job in NetBackup, by editing your NetBackup job options pre-post commands
 
 > [!NOTE]
