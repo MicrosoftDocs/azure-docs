@@ -35,40 +35,11 @@ This article talks about how create an Azure AD web application for service-to-s
 
 ## Prerequisites
 * An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-* Your subscription ID. You can retrieve it from the Azure Portal. For example, it is available from the Data Lake Store account blade.
-  
-    ![Get subscription ID](./media/data-lake-store-authenticate-using-active-directory/get-subscription-id.png)
-* Your Azure AD domain name. You can retrieve it by hovering the mouse in the top-right corner of the Azure Portal. From the screenshot below, the domain name is **contoso.microsoft.com**, and the GUID within brackets is the tenant ID. 
-  
-    ![Get AAD domain](./media/data-lake-store-authenticate-using-active-directory/get-aad-domain.png)
-
-## Service-to-service authentication
-This is the recommended approach if you want your application to automatically authenticate with Azure AD, without the need for an end-user to provide their credentials. Your application will be able to authenticate itself for as long as its credentials are valid, which can be customized to be in the order of years.
-
-### What do I need to use this approach?
-* Azure AD domain name. This is already listed in the prerequisite of this article.
-* Azure AD **web application**.
-* Client ID for the Azure AD web application.
-* Client secret for the Azure AD web application.
-* Token endpoint for the Azure AD web application.
-* Enable access for the Azure AD web application on the the Data Lake Store file/folder or the Data Lake Analytics account that you want to work with.
-
-For instructions on how to create an Azure AD web application and configure it for the requirements listed above, see the section [Create an Active Directory application](#create-an-active-directory-application) below.
-
-> [!NOTE]
-> By default the Azure AD application is configured to use the client secret, which you can retrieve from the Azure AD application. However, if you want the Azure AD application to use a certificate instead, you must create the Azure AD web application using Azure PowerShell, as described at [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
-> 
-> 
 
 ## Create an Active Directory application
-In this section we learn about how to create and configure an Azure AD web application for service-to-service authentication with Azure Data Lake Store using Azure Active Directory. 
+In this section we learn about how to create and configure an Azure AD web application for service-to-service authentication with Azure Data Lake Store using Azure Active Directory. Note that creating an "Active Directory Application" creates a service principal for you, it does not actually create an app or any code.
 
 ### Step 1: Create an Azure Active Directory application
-> [!NOTE]
-> The steps below use the Azure Portal. You can also create an Azure AD application using [Azure PowerShell](../resource-group-authenticate-service-principal.md) or [Azure CLI](../resource-group-authenticate-service-principal-cli.md).
-> 
-> 
-
 1. Log in to your Azure Account through the [classic portal](https://manage.windowsazure.com/).
 2. Select **Active Directory** from the left pane.
    
@@ -125,6 +96,12 @@ When programmatically logging in, you need the id for your application. If the a
    
     ![tenant id](./media/data-lake-store-authenticate-using-active-directory/save-tenant.png)
 
+#### Note down the following properties that you will need for the next steps:
+1. Name of Web Application ID created in step 1.6 above
+2. The client ID retrieved in step 2.2 above
+3. The key created in step 2.4 above
+4. The Tenant ID retrieved in step 2.5 above
+
 ### Step 3: Assign the Azure AD application to the Azure Data Lake Store account file or folder (only for service-to-service authentication)
 1. Sign on to the new [Azure Portal](https://portal.azure.com) and open the Azure Data Lake Store account that you want to associate with the Azure Active Directory application you created earlier.
 2. In your Data Lake Store account blade, click **Data Explorer**.
@@ -153,4 +130,10 @@ In this article you created an Azure AD web application and gathered the informa
 
 * [Get started with Azure Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Get started with Azure Data Lake Store using Java SDK](data-lake-store-get-started-java-sdk.md)
+
+This article walked you thorugh the basic steps needed to get a user pricipal up and running for your application. You can look at the following articles to get further information:
+* [Use PowerShell to create service principal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
+* [Use certificate authentication for service principal authentication](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal#create-service-principal-with-certificate)
+* [Other methods to authenticate to Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-authentication-scenarios)
+
 
