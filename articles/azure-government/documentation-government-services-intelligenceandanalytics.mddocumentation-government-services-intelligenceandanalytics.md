@@ -1,59 +1,40 @@
 title: Azure Government Intelligence + Analytics | Microsoft Docs
 description: This provides a comparision of features and guidance on developing applications for Azure Government
 services: Azure-Government
-cloud: gov# ## Premium Storage
-For details on this service and how to use it, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
-
-### Variations
-Premium Storage is generally available in the USGov Virginia. This includes DS-series Virtual Machines.
-
-### ConsiderationAzure Government Intelligence + Analytics
-## Azure HDInsight
-For details on this service and how to use it, see [Azure Storage public documentation](../storage/index.md).
-
-### Variations
-The URLs for storage accounts in Azure Government are different:
-
-| Service Type | Azure Public | Azure Government |
-| --- | --- | --- |
-| Blob Storage |*.blob.core.windows.net |*.blob.core.usgovcloudapi.net |
-| Queue Storage |*.queue.core.windows.net |*.queue.core.usgovcloudapi.net |
-| Table Storage |*.table.core.windows.net |*.table.core.usgovcloudapi.net |
+cloud: gov
 documentationcenter: ''
-author: meganyount
+author: meyoun
 manager: zakramer
 editor: ''
 
-ms.assetid: 83df022b-d791-4efb-9fdf-8afe47a885d5
+ms.assetid: 4b7720c1-699e-432b-9246-6e49fb77f497
 ms.service: multiple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
 ms.date: 12/06/2016
-ms.author: ryansoc
-
+ms.author: meyoun
 ---
+# Azure Government Intelligence + Analytics
+This article outlines the intelligence and analytics services, variations, and considerations for the Azure Government environment.
 
+## Azure HDInsight
+HDInsight is generally available in Azure Government.
 
-> [!NOTE]
-> All of your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md). 
->
->
+### Variations
+The following HDInsight features are not currently available in Azure Government.
 
-For more information on APIs see the <a href="https://msdn.microsoft.com/en-us/library/azure/mt616540.aspx"> Cloud Storage Account Constructor</a>.
+* Azure Data Lake Store is not currently available in Azure Government. Azure Blob Storage is the only available storage option at this time.
+* HDInsight is not available on Windows.
 
-The endpoint suffix to use in these overloads is core.usgovcloudapi.net
+The URLs for Log Analytics are different in Azure Government:
+| Service Type | Azure Public | Azure Government |
+| --- | --- | --- |
+| HDInsight Cluster |*.azurehdinsight.net |*.azurehdinsight.us |
 
-### Considerations
-The following information identifies the Azure Government boundary for Azure Storage:
+For more information, see [Azure HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md).
 
-| Regulated/controlled data permitted | Regulated/controlled data not permitted |
-| --- | --- |
-| Data entered, stored, and processed within an Azure Storage product can contain export controlled data. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Azure Storage metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter Regulated/controlled data into the following fields:  Resource groups, Deployment names, Resource names, Resource tags |
-
-s
-The same storage data considerations listed above apply to premium storage accounts.
 
 ## Next Steps
 For supplemental information and updates subscribe to the
