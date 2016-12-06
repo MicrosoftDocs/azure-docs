@@ -125,7 +125,7 @@ At this point your virtual network contains one subnet, named Subnet-1. The doma
     If **SQL-HA-RG** is not visible, find it by clicking **Resource Groups** and filtering by the resource group name.
 2. Click **autoHAVNET** on the list of resources. Azure opens the network configuration blade.
 3. On **autoHAVNET** virtual network, click **All settings.**
-4. **On the **Settings** blade, click **Subnets**.
+4. On the **Settings** blade, click **Subnets**.
    
     Notice the subnet that you already created. 
    
@@ -603,7 +603,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 In order to connect to the availability group directly, you need to configure a load balancer. The load balancer directs client traffic to the VM that is bound to the listener IP address and on the probe port. This tutorial use an internal load balancer, or ILB. The ILB allows traffic from within the same virtual network to connect to SQL Server. Applications that need to connect to SQL Server over the internet require an internet facing - or external - load balancer. For more information, see [Azure Load Balancer overview](../load-balancer/load-balancer-overview.md).
 
 > [!NOTE]
-> This tutorial shows how to create a single listener - with one ILB  IP address. To create one or more listeners using one or mor eIP addresses, see [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+> This tutorial shows how to create a single listener - with one ILB  IP address. To create one or more listeners using one or more IP addresses, see [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > 
 

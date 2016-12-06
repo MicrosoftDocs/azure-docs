@@ -1,6 +1,6 @@
 ---
-title: Process IoT Hub device-to-cloud messages (Java) | Microsoft Docs
-description: Follow this Java tutorial to learn useful patterns to process IoT Hub device-to-cloud messages.
+title: Process Azure IoT Hub device-to-cloud messages (Java) | Microsoft Docs
+description: How to process IoT Hub device-to-cloud messages by reading from the Event hubs-compatible endpoint on an IoT hub. You create a Java service app that uses an EventProcessorHost instance.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -17,16 +17,16 @@ ms.date: 09/01/2016
 ms.author: dobett
 
 ---
-# Tutorial: How to process IoT Hub device-to-cloud messages using Java
+# How to process IoT Hub device-to-cloud messages (Java)
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## Introduction
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and an application back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
 
 This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and it shows two scalable patterns that you can use to process device-to-cloud messages:
 
 * The reliable storage of device-to-cloud messages in [Azure blob storage]. A common scenario is *cold path* analytics, in which you store telemetry data in blobs to use as input into analytics processes. These processes can be driven by tools such as [Azure Data Factory] or the [HDInsight (Hadoop)] stack.
-* The reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are interactive when they are immediate triggers for a set of actions in the application back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, *data-point* messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
+* The reliable processing of *interactive* device-to-cloud messages. Device-to-cloud messages are interactive when they are immediate triggers for a set of actions in the solution back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, *data-point* messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
 
 Because IoT Hub exposes an [Event Hub][lnk-event-hubs]-compatible endpoint to receive device-to-cloud messages, this tutorial uses an [EventProcessorHost] instance. This instance:
 
@@ -51,7 +51,7 @@ At the end of this tutorial, you run three Java console apps:
 > 
 > 
 
-This tutorial is directly applicable to other ways to consume Event Hub-compatible messages, such as [HDInsight (Hadoop)] projects. For more information, see [Azure IoT Hub developer guide - Device to cloud].
+This tutorial is directly applicable to other ways to consume Event Hub-compatible messages, such as [HDInsight (Hadoop)] projects. For more information, see [IoT Hub developer guide - Device to cloud].
 
 To complete this tutorial, you need the following:
 
@@ -118,14 +118,14 @@ In this section, you modify the simulated device app you created in the [Get sta
    > For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
    > 
    > 
-5. To build the **simulated-device** app using Maven, execute the following command at the command-prompt in the simulated-device folder:
+5. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
    
     ```
     mvn clean package -DskipTests
     ```
 
 ## Process device-to-cloud messages
-In this section, you create a Java console app that processes device-to-cloud messages from IoT Hub. Iot Hub exposes an [Event Hub]-compatible endpoint to enable an application to read device-to-cloud messages. This tutorial uses the [EventProcessorHost] class to process these messages in a console app. For more information about how to process messages from Event Hubs, see the [Get Started with Event Hubs] tutorial.
+In this section, you create a Java console app that processes device-to-cloud messages from IoT Hub. Iot Hub exposes an [Event Hub]-compatible endpoint to enable an application to read device-to-cloud messages. This tutorial uses the [EventProcessorHost] class to process these messages in a Java console app. For more information about how to process messages from Event Hubs, see the [Get Started with Event Hubs] tutorial.
 
 The main challenge when you implement reliable storage of data-point messages or forwarding of interactive messages, is that event processing relies on the message consumer to provide checkpoints for its progress. Moreover, to achieve a high throughput, when you read from Event Hubs you should provide checkpoints in large batches. This approach creates the possibility of duplicate processing for a large number of messages, if there is a failure and you revert to the previous checkpoint. In this tutorial, you see how to synchronize Azure Storage writes and Service Bus de-duplication windows with **EventProcessorHost** checkpoints.
 
@@ -169,7 +169,7 @@ In this section, you create a Java application to process messages from the Even
 
 The first task is to add a Maven project called **process-d2c-messages** that receives device-to-cloud messages from the IoT Hub Event Hub-compatible endpoint and routes those messages to other back-end services.
 
-1. In the iot-java-get-started folder you created in the [Get started with IoT Hub] tutorial, create a Maven project called **process-d2c-messages** using the following command at your command-prompt. Note this is a single, long command:
+1. In the iot-java-get-started folder you created in the [Get started with IoT Hub] tutorial, create a Maven project called **process-d2c-messages** using the following command at your command prompt. Note this is a single, long command:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=process-d2c-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -220,7 +220,7 @@ The next task is to add an **ErrorNotificationHandler** class to the project.
 
 Now you can add a class that implements the **IEventProcessor** interface. The **EventProcessorHost** class calls this class to process device-to-cloud messages received from IoT Hub. The code in this class implements the logic to store messages reliably in a blob container, and forward interactive messages to the Service Bus queue.
 
-The **onEvents** method sets the **latestEventData** variable that tracks the offset and sequence number of the latest message read by this event processor. Remember that each processor is responsible for a single partition. The **onEvents** method then receives a batch of messages from IoT Hub, and processes them as follows: it sends interactive messages to the Service Bus queue, and appends data point messages to the **toAppend** memory buffer. If the memory buffer reaches the 4 MB block limit, or the de-duplication time windows elapses (one hour after the last checkpoint in this tutorial), then the method triggers a checkpoint.
+The **onEvents** method sets the **latestEventData** variable that tracks the offset and sequence number of the latest message read by this event processor. Remember that each processor is responsible for a single partition. The **onEvents** method then receives a batch of messages from IoT Hub, and processes them as follows: it sends interactive messages to the Service Bus queue, and appends data-point messages to the **toAppend** memory buffer. If the memory buffer reaches the 4 MB block limit, or the de-duplication time windows elapses (one hour after the last checkpoint in this tutorial), then the method triggers a checkpoint.
 
 The **AppendAndCheckPoint** method first generates a **blockId** for the block to append to the blob. Azure Storage requires all block IDs to have the same length, so the method pads the offset with leading zeros. Then, if a block with this ID is already in the blob, the method overwrites it with the current buffer content.
 
@@ -521,7 +521,7 @@ The final task in the **process-d2c-messages** project is to add code to the **m
     System.out.println("End of sample");
     ```
 12. Save and close the process-d2c-messages\src\main\java\com\mycompany\app\App.java file.
-13. To build the **process-d2c-messages** application using Maven, execute the following command at the command-prompt in the process-d2c-messages folder:
+13. To build the **process-d2c-messages** application using Maven, execute the following command at the command prompt in the process-d2c-messages folder:
     
     ```
     mvn clean package -DskipTests
@@ -532,7 +532,7 @@ In this section, you write a Java console app that receives the interactive mess
 
 The first task is to add a Maven project called **process-interactive-messages** that receives messages sent on the Service Bus queue from the **EventProcessor** instances.
 
-1. In the iot-java-get-started folder you created in the [Get started with IoT Hub] tutorial, create a Maven project called **process-interactive-messages** using the following command at your command-prompt. Note this is a single, long command:
+1. In the iot-java-get-started folder you created in the [Get started with IoT Hub] tutorial, create a Maven project called **process-interactive-messages** using the following command at your command prompt. Note this is a single, long command:
    
     ```
     mvn archetype:generate -DgroupId=com.mycompany.app -DartifactId=process-interactive-messages -DarchetypeArtifactId=maven-archetype-quickstart -DinteractiveMode=false
@@ -638,7 +638,7 @@ The next task is to add code to retrieve messages from the Service Bus queue.
     executor.shutdownNow();
     ```
 7. Save and close the process-interactive-messages\src\main\java\com\mycompany\app\App.java file.
-8. To build the **process-interactive-messages** application using Maven, execute the following command at the command-prompt in the process-interactive-messages folder:
+8. To build the **process-interactive-messages** application using Maven, execute the following command at the command prompt in the process-interactive-messages folder:
    
     ```
     mvn clean package -DskipTests
@@ -677,11 +677,11 @@ Now you are ready to run the three applications.
 ## Next steps
 In this tutorial, you learned how to reliably process data-point and interactive device-to-cloud messages by using the [EventProcessorHost] class.
 
-The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your back end.
+The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your solution back end.
 
 To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite][lnk-suite].
 
-To learn more about developing solutions with IoT Hub, see the [IoT Hub Developer Guide].
+To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 
 <!-- Images. -->
 [simulateddevice]: ./media/iot-hub-java-java-process-d2c/runsimulateddevice.png
@@ -698,12 +698,12 @@ To learn more about developing solutions with IoT Hub, see the [IoT Hub Develope
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
-[Azure IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
+[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
 
 [Azure Storage]: https://azure.microsoft.com/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
 
-[IoT Hub Developer Guide]: iot-hub-devguide.md
+[IoT Hub developer guide]: iot-hub-devguide.md
 [Get started with IoT Hub]: iot-hub-java-java-getstarted.md
 [Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
 [lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/

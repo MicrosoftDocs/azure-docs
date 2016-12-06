@@ -1,6 +1,6 @@
 ---
-title: Create an IoT Hub using the resource provider REST API | Microsoft Docs
-description: Follow this tutorial to get started using the resource provider REST API to create an IoT Hub.
+title: Create an Azure IoT hub using the resource provider REST API | Microsoft Docs
+description: How to use the resource provider REST API to create an IoT Hub.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -17,7 +17,7 @@ ms.date: 11/16/2016
 ms.author: dobett
 
 ---
-# Tutorial: Create an IoT hub using a C# program and the resource provider REST API
+# How to create an IoT hub using the resource provider REST API (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
@@ -32,7 +32,7 @@ To complete this tutorial, you need the following:
 
 * Microsoft Visual Studio 2015.
 * An active Azure account. <br/>If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
-* [Microsoft Azure PowerShell 1.0][lnk-powershell-install] or later.
+* [Azure PowerShell 1.0][lnk-powershell-install] or later.
 
 [!INCLUDE [iot-hub-prepare-resource-manager](../../includes/iot-hub-prepare-resource-manager.md)]
 
@@ -176,7 +176,7 @@ To further explore the capabilities of IoT Hub, see:
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
 [lnk-azure-portal]: https://portal.azure.com/
 [lnk-status]: https://azure.microsoft.com/status/
-[lnk-powershell-install]: ../powershell-install-configure.md
+[lnk-powershell-install]: /powershell/azureps-cmdlets-docs
 [lnk-rest-api]: https://msdn.microsoft.com/library/mt589014.aspx
 [lnk-azure-rm-overview]: ../azure-resource-manager/resource-group-overview.md
 
