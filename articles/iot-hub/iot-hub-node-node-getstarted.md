@@ -17,7 +17,7 @@ ms.date: 09/12/2016
 ms.author: dobett
 
 ---
-# How to get started with Azure IoT Hub (Node)
+# Get started with Azure IoT Hub (Node)
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 At the end of this tutorial, you have three Node.js console apps:
