@@ -51,7 +51,7 @@ The following figure shows a high availability architecture that implements an i
 The benefit of this architecture is that all NVAs are active, and if one fails the load balancer directs network traffic to the other NVA. Both NVAs route traffic to the internal load balancer so as long as one NVA is active, traffic continues to flow. The NVAs are required to terminate SSL traffic intended for the web tier VMs. These NVAs cannot be extended to handle on-premises traffic because on-premises traffic requires another dedicated set of NVAs with their own network routes.
 
 > [!NOTE]
-> Parts of this architecture are used as part of both the [DMZ between Azure and your on-premises datacenter][dmz-on-prem] reference architecture and the [DMZ between Azure and the Internet][dmz-internet] reference architecture. A deployment is available for each of these reference architectures by following the links.
+> This architecture is used in the [DMZ between Azure and your on-premises datacenter][dmz-on-prem] reference architecture and the [DMZ between Azure and the Internet][dmz-internet] reference architecture. Each of these reference architectures includes a deployment solution that you can use. Follow the links for more information.
 
 ## Egress with layer 7 NVAs
 
@@ -62,7 +62,7 @@ The previous architecture can be expanded to provide an egress DMZ for requests 
 In this architecture, all traffic originating in Azure is routed to an internal load balancer. The load balancer distributes outgoing requests between a set of NVAs. These NVAs direct traffic to the Internet using their individual public IP addresses.
 
 > [!NOTE]
-> Parts of this architecture are used as part of both the [DMZ between Azure and your on-premises datacenter][dmz-on-prem] reference architecture and the [DMZ between Azure and the Internet][dmz-internet] reference architecture. A deployment is available for each of these reference architectures by following the links. 
+> This architecture is used in the [DMZ between Azure and your on-premises datacenter][dmz-on-prem] reference architecture and the [DMZ between Azure and the Internet][dmz-internet] reference architecture. Each of these reference architectures includes a deployment solution that you can use. Follow the links for more information.
 
 ## Ingress-egress with layer 7 NVAs
 
