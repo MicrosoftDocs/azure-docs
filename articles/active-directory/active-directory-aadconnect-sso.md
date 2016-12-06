@@ -49,7 +49,7 @@ Single sign on is supported via web browser based clients and Office clients tha
 *Requires separate configuration.
 
 >[!NOTE]
->For Windows 10 based clients the recommendation is to use [Azure AD join](active-directory/active-directory-azureadjoin-overview.md) for the best experience with Azure AD. 
+>For Windows 10 based clients the recommendation is to use [Azure AD join](active-directory-azureadjoin-overview.md) for the best experience with Azure AD. 
 
 ## How single sign on works
 

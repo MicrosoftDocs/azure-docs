@@ -208,7 +208,7 @@ Configuring AD FS with Azure AD Connect is simple with just a few clicks. The fo
 * An SSL certificate for the federation service name you intend to use (for example sts.contoso.com)
 
 ### AD FS configuration pre-requisites
-To configure your AD FS farm using Azure AD Connect, ensure WinRM is enabled on the remote servers. In addition, go through the ports requirement listed in [Table 3 - Azure AD Connect and Federation Servers/WAP](../active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-federation-serverswap).
+To configure your AD FS farm using Azure AD Connect, ensure WinRM is enabled on the remote servers. In addition, go through the ports requirement listed in [Table 3 - Azure AD Connect and Federation Servers/WAP](../active-directory-aadconnect-ports.md#table-3---azure-ad-connect-and-ad-fs-federation-serverswap).
 
 ### Create a new AD FS farm or use an existing AD FS farm
 You can use an existing AD FS farm or you can choose to create a new AD FS farm. If you choose to create a new one, you are required to provide the SSL certificate. If the SSL certificate is protected by a password, you are prompted for the password.
