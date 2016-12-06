@@ -17,6 +17,8 @@ ms.date: 12/05/2016
 ms.author: alkohli
 ---
 
+# Deploy StorSimple Virtual Array for Cloud Solution Provider Program
+
 ## Overview
 
 StorSimple Virtual Array can be deployed by the Cloud Solution Provider (CSP) partners for their customers. A CSP partner can create a StorSimple Device Manager service. This service can then be used to deploy and manage StorSimple Virtual Array and the associated shares, volumes, and backups.
@@ -54,7 +56,7 @@ If you add a customer, a subscription is automatically created. Perform the foll
 
     ![Save confirmation](./media/storsimple-partner-csp-deploy/image5.png)
 
-6. Find or navigate to the customer you just added. Click the company name to drill down into the details.
+6. Find or navigate to the customer you just added. Click the **Company name** to drill down into the details.
 
     ![Search for the customer](./media/storsimple-partner-csp-deploy/image6.png)  
 
@@ -82,6 +84,18 @@ In some instances, you may have an existing customer, and you need to add a new 
 3. Check **Microsoft Azure** for the **Top offers** in the subscription and click **Submit**. This will create a new subscription.
 
     ![Add new subscription](./media/storsimple-partner-csp-deploy/image11.png)
+
+6. After a new subscription is created, click **<-- Customers** in the left-pane to return to the **Customers** page. Search for the customer for whiom you just created a new subscription. Click the **Company name** to drill down into the details.
+
+    ![Search for the customer](./media/storsimple-partner-csp-deploy/image6.png)  
+
+7. In the left-pane, select **Service management**. In the right-pane, under **Administer services**, click **Microsoft Azure Management Portal** to sign in as an Azure administrator for your customer.
+
+    ![Log in to Azure portal](./media/storsimple-partner-csp-deploy/image9.png)
+
+8. To create a StorSimple Device Manager, click **+ New** and search for or navigate to **StorSimple Virtual Device Series**. For more information, go to [Deploy a StorSimple Device Manager service](storsimple-manage-service.md).
+
+    ![Create StorSimple Device Manager service](./media/storsimple-partner-csp-deploy/image8.png)
 
 ## Next steps
 
