@@ -21,16 +21,17 @@ ms.author: ryanwi
 Service Fabric is a distributed systems platform that makes it easy to package, deploy, and manage scalable and reliable microservices. This topic details the terminology used by Service Fabric in order to understand the terms used in the documentation.
 
 The concepts listed in this section are also discussed in the following Microsoft Virtual Academy videos:
-<table><tr><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">  
+| Description | Video |
+|:-----------:|:-----:|
+|Core concepts| <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">  
 <img src="./media/service-fabric-technical-overview/CoreConceptsVid.png" WIDTH="360" HEIGHT="244">  
-</a></td></td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">  
+</a> |
+|Design-time concepts| <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tlkI046yC_2906218965">  
 <img src="./media/service-fabric-technical-overview/DesignTimeVid.png" WIDTH="360" HEIGHT="244">  
-</a></td><td><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">  
+</a> |
+|Run-time concepts| <a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=x7CVH56yC_1406218965">  
 <img src="./media/service-fabric-technical-overview/RunTimeVid.png" WIDTH="360" HEIGHT="244">  
-</a></tr>
-<tr><td>Core concepts</td>
-<td>Design-time concepts</td>
-<td>Run-time concepts</td></tr></table>
+</a> |
 
 ## Infrastructure concepts
 **Cluster**: A network-connected set of virtual or physical machines into which your microservices are deployed and managed.  Clusters can scale to thousands of machines.
