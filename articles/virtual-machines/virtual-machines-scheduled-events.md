@@ -147,7 +147,7 @@ for ($eventIdx=0; $eventIdx -lt $scheduledEventsResponse.Events.Length ; $eventI
 
 
 ### C\# Sample 
-The following is a client surfacing APIs to communicate with the Metadata Service
+The code below is of a client surfacing APIs to communicate with the Metadata Service
 ```csharp
    public class ScheduledEventsClient
     {
@@ -217,7 +217,7 @@ Scheduled Events could be parsed using the following data structures
 
 ```
 
-Putting all of this together results in code similar to this  
+A Sample Program using the client to retrieve, handle, and acknoledge events:   
 
 ```csharp
 public class Program
