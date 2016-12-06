@@ -42,7 +42,7 @@ ChangeFeed allows for efficient processing of large datasets with a high volume 
 
 **Lambda Pipelines with Azure DocumentDB for ingestion and query:**
 
-![Using DocumentDB Change Feed to power real-time analytics and event-driven computing scenarios](./media/documentdb-change-feed/changefeed.png)
+![Azure DocumentDB based lambda pipeline for ingestion and query](./media/documentdb-change-feed/lambda.png)
 
 You can use DocumentDB to receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real-time with [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
 
