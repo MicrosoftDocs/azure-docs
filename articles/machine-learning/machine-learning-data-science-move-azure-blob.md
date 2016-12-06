@@ -17,7 +17,7 @@ ms.date: 09/14/2016
 ms.author: bradsev;sachouks
 
 ---
-# Move Data to and from Azure Blob Storage
+# Move data to and from Azure Blob Storage
 [!INCLUDE [cap-ingest-data-selector](../../includes/cap-ingest-data-selector.md)]
 
 <!-- just in case, adding this to separate these two include references -->
