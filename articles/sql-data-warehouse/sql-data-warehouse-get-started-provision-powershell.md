@@ -94,7 +94,7 @@ If you're interested in more on how to manage SQL Data Warehouse programmaticall
 [how to create a SQL Data Warehouse from the Azure Portal]: ./sql-data-warehouse-get-started-provision.md
 [Create an Azure SQL Database logical server with the Azure Portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[how to create a resource group]: ../resource-group-template-deploy-portal.md#create-resource-group
+[how to create a resource group]: ../azure-resource-manager/resource-group-template-deploy-portal.md#create-resource-group
 
 <!--MSDN references-->
 [MSDN]: https://msdn.microsoft.com/library/azure/dn546722.aspx
