@@ -79,7 +79,7 @@ The above policy can easily be modified to a scenario where you might want to al
 ```
 
 #### Virtual Machine Property Fields
-The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more information about policy fields, see [Use policy to manage resources and control access](../resource-manager-policy.md#fields).
+The table below describes the Virtual Machine properties that can be used as fields in your policy definition. For more information about policy fields, see [Use policy to manage resources and control access](../azure-resource-manager/resource-manager-policy.md#conditions).
 
 | Field Name | Description |
 | --- | --- |
@@ -89,7 +89,7 @@ The table below describes the Virtual Machine properties that can be used as fie
 | imageVersion |Specifies the image version for the chosen SKU |
 
 ## Create the Policy
-A policy can easily be created using the REST API directly or the PowerShell cmdlets. You can read more about [creating and assigning a policy](../resource-manager-policy.md#create-and-assign-a-policy).
+A policy can easily be created using the REST API directly or the PowerShell cmdlets. You can read more about [creating and assigning a policy](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).
 
 ## Apply the Policy
-After creating the policy you’ll need to apply it on a defined scope. The scope can be a subscription, resource group or even the resource. You can read more about [creating and assigning a policy](../resource-manager-policy.md#create-and-assign-a-policy).
+After creating the policy you’ll need to apply it on a defined scope. The scope can be a subscription, resource group or even the resource. You can read more about [creating and assigning a policy](../azure-resource-manager/resource-manager-policy.md#create-and-assign-a-policy).

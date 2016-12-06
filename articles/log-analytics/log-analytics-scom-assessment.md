@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/18/2016
+ms.date: 12/06/2016
 ms.author: banders
 
 ---
 
 # Optimize your environment with the System Center Operations Manager Assessment (Preview) solution in Log Analytics
 
-You can use the System Center Operations Manager Assessment solution to assess the risk and health of your System Center Operations Manager server environments on a regular interval. This article helps you install, configure, and use the solution so that you can take corrective actions for potential problems.
+You can use the System Center Operations Manager Assessment solution to assess the risk and health of your System Center Operations Manager server environments on a regular interval. This article helps you install, configure, and use the solution so that you can take corrective actions for potential problems. 
 
 This solution provides a prioritized list of recommendations specific to your deployed server infrastructure. The recommendations are categorized across four focus areas, which help you quickly understand the risk and take corrective action.
 
@@ -241,6 +241,12 @@ If you have recommendations that you want to ignore, you can create a text file 
 3. If you decide later that you want to see ignored recommendations, remove any IgnoreRecommendations.txt files, or you can remove RecommendationIDs from them.
 
 ## System Center Operations Manager Assessment solution FAQ
+
+*I added the assessment solution to my OMS workspace. But I don’t see the recommendations. Why not?* After adding the solution, use the following steps view the recommendations on the OMS dashboard.  
+
+- [Set the Run As account for System Center Operations Manager Assessment](#operations-manager-run-as-accounts-for-oms)  
+- [Configure the System Center Operations Manager Assessment rule](#configure-the-assessment-rule)
+
 
 *Is there a way to configure how often the assessment runs?* Yes. See [Configure the run frequency](#configure-the-run-frequency).
 
