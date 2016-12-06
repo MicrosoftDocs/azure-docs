@@ -1,5 +1,5 @@
 ---
-title: Running a MariaDB (MySQL) cluster on Azure
+title: Run a MariaDB (MySQL) cluster on Azure | Microsoft Docs
 description: Create a MariaDB + Galera MySQL cluster on Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
@@ -27,10 +27,10 @@ ms.author: v-ahsab
 >
 >
 
-We're creating a multi-Master [Galera](http://galeracluster.com/products/) cluster of [MariaDBs](https://mariadb.org/en/about/) (a robust, scalable, and reliable drop-in replacement for MySQL) to work in a highly available environment on Azure virtual machines.
+This article shows you how to create a multi-Master [Galera](http://galeracluster.com/products/) cluster of [MariaDBs](https://mariadb.org/en/about/) (a robust, scalable, and reliable drop-in replacement for MySQL) to work in a highly available environment on Azure virtual machines.
 
 ## Architecture overview
-This topic describes how to complete the following steps:
+This article describes how to complete the following steps:
 
 - Create a three-node cluster.
 - Separate the data disks from the OS disk.
@@ -53,13 +53,13 @@ This topic describes how to complete the following steps:
 2. Create a virtual network.
 
         azure network vnet create --address-space 10.0.0.0 --cidr 8 --subnet-name mariadb --subnet-start-ip 10.0.0.0 --subnet-cidr 24 --affinity-group mariadbcluster mariadbvnet
-3. Create a storage account to host all our disks. You shouldn't be placing more than 40 heavily used disks on the same storage account to avoid hitting the 20,000 IOPS storage account limit. In this case, we're well below that limit, so we'll store everything on the same account for simplicity.
+3. Create a storage account to host all our disks. You shouldn't place more than 40 heavily used disks on the same storage account to avoid hitting the 20,000 IOPS storage account limit. In this case, you're well below that limit, so you'll store everything on the same account for simplicity.
 
         azure storage account create mariadbstorage --label mariadbstorage --affinity-group mariadbcluster
 4. Find the name of the CentOS 7 virtual machine image.
 
         azure vm image list | findstr CentOS
-   The output will be something like: `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`.
+   The output will be something like `5112500ae3b842c8b9c604889f8753c3__OpenLogic-CentOS-70-20140926`.
 
    Use that name in the following step.
 5. Create the VM template replacing /path/to/key.pem with the path where you stored the generated .pem SSH key.
@@ -68,35 +68,36 @@ This topic describes how to complete the following steps:
 6. Attach four 500-GB data disks to the VM for use in the RAID configuration.
 
         FOR /L %d IN (1,1,4) DO azure vm disk attach-new mariadbhatemplate 512 http://mariadbstorage.blob.core.windows.net/vhds/mariadbhatemplate-data-%d.vhd
-7. Use SSH to sign in to the template VM that you created at mariadbhatemplate.cloudapp.net:22 and connect by using your private key.
+7. Use SSH to sign in to the template VM that you created at mariadbhatemplate.cloudapp.net:22, and connect by using your private key.
 
 ### Software
 1. Obtain root.
 
         sudo su
+        
 2. Install RAID support:
 
-   1. Install mdadm.
+    1. Install mdadm.
 
               yum install mdadm
-   2. Create the RAID0/stripe configuration with an EXT4 file system.
+    2. Create the RAID0/stripe configuration with an EXT4 file system.
 
               mdadm --create --verbose /dev/md0 --level=stripe --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
               mdadm --detail --scan >> /etc/mdadm.conf
               mkfs -t ext4 /dev/md0
-   3. Create the mount point directory.
+    3. Create the mount point directory.
 
               mkdir /mnt/data
-   4. Retrieve the UUID of the newly created RAID device.
+    4. Retrieve the UUID of the newly created RAID device.
 
               blkid | grep /dev/md0
-   5. Edit /etc/fstab.
+    5. Edit /etc/fstab.
 
               vi /etc/fstab
-   6. Add the device to enable auto mounting on reboot, replacing the UUID with the value obtained from the previous **blkid** command.
+    6. Add the device to enable auto mounting on reboot, replacing the UUID with the value obtained from the previous **blkid** command.
 
               UUID=<UUID FROM PREVIOUS>   /mnt/data ext4   defaults,noatime   1 2
-   7. Mount the new partition.
+    7. Mount the new partition.
 
               mount /mnt/data
 3. Install MariaDB:
@@ -305,7 +306,7 @@ Change **Probe Interval** to 5 seconds and save your changes.
 
 ![Change Probe Interval](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint3.PNG)
 
-## Validating the cluster
+## Validate the cluster
 The hard work is done. The cluster should be now accessible at `mariadbha.cloudapp.net:3306`, which hits the load balancer and route requests between the three VMs smoothly and efficiently.
 
 Use your favorite MySQL client to connect, or connect from one of the VMs to verify that this cluster is working.
