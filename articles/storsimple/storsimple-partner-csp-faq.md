@@ -58,7 +58,7 @@ There are multiple solutions:
 - The partners can deliver solutions built around StorSimple and other Azure services or third-party software. For more information, review some possible [solutions that exist around StorSimple](https://aka.ms/storsimple-build-solutions).
 
 ### What are the incentives available for StorSimple CSP partners? Do I qualify for any CSP program incentives?
-For information on incentives, go to [](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+For information on incentives, go to [CSP program incentives ](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
 
    
 - They can also discover new business models by delivering managed services.
