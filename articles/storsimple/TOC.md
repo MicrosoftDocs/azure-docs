@@ -208,8 +208,6 @@
 ## Get started
 ### [Deploy StorSimple in CSP](storsimple-partner-csp-deploy.md)
 
-## How to
-
 ## Release notes
 ### [CSP release notes](https://partner.microsoft.com/Support/whats-new)
 ### [StorSimple release notes](https://aka.ms/storsimple-latest-relnote)
