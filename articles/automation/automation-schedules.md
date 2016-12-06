@@ -26,7 +26,7 @@ To schedule a runbook in Azure Automation to start at a specified time, you link
 > 
 
 ## Windows PowerShell Cmdlets
-The cmdlets in the following table are used to create and manage schedules with Windows PowerShell in Azure Automation. They ship as part of the [Azure PowerShell module](../powershell-install-configure.md).
+The cmdlets in the following table are used to create and manage schedules with Windows PowerShell in Azure Automation. They ship as part of the [Azure PowerShell module](/powershell/azureps-cmdlets-docs).
 
 | Cmdlets | Description |
 |:--- |:--- |
