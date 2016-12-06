@@ -27,7 +27,7 @@ This short Channel9 video introduces Service Fabric and microservices:
 
 This longer Microsoft Virtual Academy video describes the Service Fabric core concepts:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=tbuZM46yC_5206218965">  
-<img src="./media/service-fabric-technical-overview/CoreConceptsVid.png" WIDTH="360" HEIGHT="244">  
+<img src="./media/service-fabric-overview/CoreConceptsVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
 
