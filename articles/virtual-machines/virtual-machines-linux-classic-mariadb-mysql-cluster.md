@@ -86,61 +86,61 @@ This article describes how to complete the following steps:
               mdadm --create --verbose /dev/md0 --level=stripe --raid-devices=4 /dev/sdc /dev/sdd /dev/sde /dev/sdf
               mdadm --detail --scan >> /etc/mdadm.conf
               mkfs -t ext4 /dev/md0
-    3. Create the mount point directory.
+    c. Create the mount point directory.
 
               mkdir /mnt/data
-    4. Retrieve the UUID of the newly created RAID device.
+    d. Retrieve the UUID of the newly created RAID device.
 
               blkid | grep /dev/md0
-    5. Edit /etc/fstab.
+    e. Edit /etc/fstab.
 
               vi /etc/fstab
-    6. Add the device to enable auto mounting on reboot, replacing the UUID with the value obtained from the previous **blkid** command.
+    f. Add the device to enable auto mounting on reboot, replacing the UUID with the value obtained from the previous **blkid** command.
 
               UUID=<UUID FROM PREVIOUS>   /mnt/data ext4   defaults,noatime   1 2
-    7. Mount the new partition.
+    g. Mount the new partition.
 
               mount /mnt/data
 
 3. Install MariaDB.
 
-    1. Create the MariaDB.repo file.
+    a. Create the MariaDB.repo file.
 
                 vi /etc/yum.repos.d/MariaDB.repo
 
-    2. Fill the repo file with the following content:
+    b. Fill the repo file with the following content:
 
               [mariadb]
               name = MariaDB
               baseurl = http://yum.mariadb.org/10.0/centos7-amd64
               gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
               gpgcheck=1
-    3. To avoid conflicts, remove existing postfix and mariadb-libs.
+    c. To avoid conflicts, remove existing postfix and mariadb-libs.
 
            yum remove postfix mariadb-libs-*
-    4. Install MariaDB with Galera.
+    d. Install MariaDB with Galera.
 
            yum install MariaDB-Galera-server MariaDB-client galera
 
 4. Move the MySQL data directory to the RAID block device.
 
-    1. Copy the current MySQL directory into its new location and remove the old directory.
+    a. Copy the current MySQL directory into its new location and remove the old directory.
 
            cp -avr /var/lib/mysql /mnt/data  
            rm -rf /var/lib/mysql
-    2. Set permissions for the new directory accordingly.
+    b. Set permissions for the new directory accordingly.
 
            chown -R mysql:mysql /mnt/data && chmod -R 755 /mnt/data/
 
-    3. Create a symlink pointing the old directory to the new location on the RAID partition.
+    c. Create a symlink pointing the old directory to the new location on the RAID partition.
 
            ln -s /mnt/data/mysql /var/lib/mysql
 
 5. Because [SELinux interferes with the cluster operations](http://galeracluster.com/documentation-webpages/configuration.html#selinux), it is necessary to disable it for the current session. Edit `/etc/selinux/config` to disable it for subsequent restarts.
 
-       setenforce 0
+            setenforce 0
 
-       then editing `/etc/selinux/config` to set `SELINUX=permissive`
+            then editing `/etc/selinux/config` to set `SELINUX=permissive`
 6. Validate MySQL runs.
 
    a. Start MySQL.
@@ -160,11 +160,12 @@ This article describes how to complete the following steps:
             service mysql stop
 7. Create a configuration placeholder.
 
-   1. Edit the MySQL configuration to create a placeholder for the cluster settings. Do not replace the **`<Variables>`** or uncomment now. That will happen after you create a VM from this template.
+   a. Edit the MySQL configuration to create a placeholder for the cluster settings. Do not replace the **`<Variables>`** or uncomment now. That will happen after you create a VM from this template.
 
-           vi /etc/my.cnf.d/server.cnf
-   2. Edit the **[galera]** section and clear it out.
-   3. Edit the **[mariadb]** section.
+            vi /etc/my.cnf.d/server.cnf
+   b. Edit the **[galera]** section and clear it out.
+
+   c. Edit the **[mariadb]** section.
 
            wsrep_provider=/usr/lib64/galera/libgalera_smm.so
            binlog_format=ROW
@@ -188,10 +189,10 @@ This article describes how to complete the following steps:
 
 9. Optimize the system for performance. For more information, see [performance tuning strategy](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-   1. Edit the MySQL configuration file again.
+   a. Edit the MySQL configuration file again.
 
-           vi /etc/my.cnf.d/server.cnf
-   2. Edit the **[mariadb]** section and append the following content:
+            vi /etc/my.cnf.d/server.cnf
+   b. Edit the **[mariadb]** section and append the following content:
 
    > [!NOTE]
    > We recommend that innodb\_buffer\_pool_size is 70% of your VM's memory. In this example, it has been set at 2.45 GB for the medium Azure VM with 3.5 GB of RAM.
@@ -212,10 +213,10 @@ This article describes how to complete the following steps:
         waagent -deprovision
 11. Capture the VM through the portal. (Currently, [issue #1268 in the Azure CLI] tools describes the fact that images captured by the Azure CLI tools do not capture the attached data disks.)
 
-    1. Shut down the machine through the portal.
-    2. Click **Capture** and specify the image name as **mariadb-galera-image**. Provide a description and check "I have run waagent."
-      ![Capture the Virtual Machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture.png)
-      ![Capture the Virtual Machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
+    a. Shut down the machine through the portal.
+    b. Click **Capture** and specify the image name as **mariadb-galera-image**. Provide a description and check "I have run waagent."
+      ![Capture the virtual machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture.png)
+      ![Capture the virtual machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
 
 ## Create the cluster
 Create three VMs with the template you created, and then configure and start the cluster.
@@ -235,7 +236,6 @@ Create three VMs with the template you created, and then configure and start the
    > The following commands are split over multiple lines for clarity, but you should enter each as one line.
    >
    >
-
         azure vm create
         --virtual-network-name mariadbvnet
         --subnet-names mariadb
@@ -277,8 +277,8 @@ Create three VMs with the template you created, and then configure and start the
 
         sudo vi /etc/my.cnf.d/server.cnf
 
-    Uncomment **`wsrep_cluster_name`** and **`wsrep_cluster_address`** by removing the **#** at the beginning.
-    Additionally, replace **`<ServerIP>`** in **`wsrep_node_address`** and **`<NodeName>`** in **`wsrep_node_name`** with the VM's IP address and name respectively and uncomment those lines as well.
+    Uncomment **`wsrep_cluster_name`** and **`wsrep_cluster_address`** by removing the **#** at the beginning of the line.
+    Additionally, replace **`<ServerIP>`** in **`wsrep_node_address`** and **`<NodeName>`** in **`wsrep_node_name`** with the VM's IP address and name, respectively, and uncomment those lines as well.
 5. Start the cluster on MariaDB1 and let it run at startup.
 
         sudo service mysql bootstrap
@@ -288,7 +288,7 @@ Create three VMs with the template you created, and then configure and start the
         sudo service mysql start
         chkconfig mysql on
 
-## Load balancing the cluster
+## Load balance the cluster
 When you created the clustered VMs, you added them into an availability set called clusteravset to ensure that they were put on different fault and update domains and that Azure never does maintenance on all machines at once. This configuration meets the requirements to be supported by the Azure service level agreement (SLA).
 
 Now use the Azure Load Balancer to balance requests between the three nodes.
@@ -301,17 +301,17 @@ The command parameters structure is: `azure vm endpoint create-multiple <Machine
     azure vm endpoint create-multiple mariadb2 3306:3306:tcp:false:MySQL:tcp:3306
     azure vm endpoint create-multiple mariadb3 3306:3306:tcp:false:MySQL:tcp:3306
 
-The CLI sets the load balancer probe interval to 15 seconds, which may be a bit too long. Change it in the portal under **Endpoints** for any of the VMs.
+The CLI sets the load balancer probe interval to 15 seconds, which might be a bit too long. Change it in the portal under **Endpoints** for any of the VMs.
 
 ![Edit endpoint](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint.PNG)
 
 Select **Reconfigure the Load-Balanced Set**.
 
-![Reconfigure Load Balanced Set](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint2.PNG)
+![Reconfigure the load-balanced Set](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint2.PNG)
 
 Change **Probe Interval** to 5 seconds and save your changes.
 
-![Change Probe Interval](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint3.PNG)
+![Change probe interval](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint3.PNG)
 
 ## Validate the cluster
 The hard work is done. The cluster should be now accessible at `mariadbha.cloudapp.net:3306`, which hits the load balancer and route requests between the three VMs smoothly and efficiently.
@@ -343,7 +343,7 @@ The database you created returns the following table:
 ## Next steps
 In this article, you created a three-node MariaDB + Galera highly available cluster on Azure virtual machines running CentOS 7. The VMs are load balanced with the Azure Load Balancer.
 
-You may want to look at [another way to cluster MySQL on Linux](virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) and ways to [optimize and test MySQL performance on Azure Linux VMs](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+You might want to look at [another way to cluster MySQL on Linux](virtual-machines-linux-classic-mysql-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) and ways to [optimize and test MySQL performance on Azure Linux VMs](virtual-machines-linux-classic-optimize-mysql.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 <!--Anchors-->
 [Architecture overview]: #architecture-overview
