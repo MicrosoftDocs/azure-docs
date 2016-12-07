@@ -413,9 +413,7 @@ We recommend that you verify the properties of the source machine. Remember that
 
     ![Enable replication](./media/site-recovery-vmm-to-azure/test-failover2.png)
 3. In **Compute and Network** > **Compute properties**, you can specify the Azure VM name and target size. Modify the name to comply with [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements) if you need to. You can also view and modify information about the target network, subnet, and the IP address that's assigned to the Azure VM. 
-4. 
-5. 
-6.  that:
+Note that:
 
    * You can set the target IP address. If you don't provide an address, the failed over machine will use DHCP. If you set an address that isn't available at failover, the failover will fail. The same target IP address can be used for test failover if the address is available in the test failover network.
    * The number of network adapters is dictated by the size you specify for the target virtual machine, as follows:
