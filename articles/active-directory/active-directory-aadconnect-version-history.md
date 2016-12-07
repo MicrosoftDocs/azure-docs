@@ -39,6 +39,11 @@ Released: 2016 December
 
 * Pass-through Authentication (Preview).
 
+
+**Known Issues:**
+
+* Port 9090 must be open outbound to complete installation.
+
 >[!NOTE]
 >This build will not be available to customers through the Azure AD Connect Auto Upgrade feature.
 
