@@ -63,18 +63,18 @@ Each target platform has different prerequisites.
   * [Visual Studio 2013 for Windows with Update 2 or later](http://www.visualstudio.com/downloads/download-visual-studio-vs#d-express-windows-8) (Express or another version) or [Visual Studio 2015](https://www.visualstudio.com/downloads/download-visual-studio-vs#d-community).
 
 * To build and run for iOS
-  
+
   * Xcode 6.x or greater. Download it at http://developer.apple.com/downloads or the [Mac App Store](http://itunes.apple.com/us/app/xcode/id497799835?mt=12)
   * [ios-sim](https://www.npmjs.org/package/ios-sim) – allows you to launch iOS apps into the iOS Simulator from the command line (can be easily installed via the terminal: `npm install -g ios-sim`)
 * To build and run application for Android
-  
+
   * Install [Java Development Kit (JDK) 7](http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html) or later. Make sure `JAVA_HOME` (Environment Variable) is correctly set according to JDK installation path (for example C:\Program Files\Java\jdk1.7.0_75).
   * Install [Android SDK](http://developer.android.com/sdk/installing/index.html?pkg=tools) and add `<android-sdk-location>\tools` location (for example, C:\tools\Android\android-sdk\tools) to your `PATH` Environment Variable.
   * Open Android SDK Manager (for example, via terminal: `android`) and install
     * *Android 5.0.1 (API 21)* platform SDK
     * *Android SDK Build-tools* version 19.1.0 or higher
     * *Android Support Repository* (Extras)
-  
+
   Android sdk doesn't provide any default emulator instance. Create a new one by running `android avd` from terminal and then selecting *Create...* if you want to run Android app on emulator. Recommended *Api Level* is 19 or higher, see [AVD Manager](http://developer.android.com/tools/help/avd-manager.html) for more information about Android emulator and creation options.
 
 ## 1.    Register an application with Azure AD
@@ -111,7 +111,7 @@ That will create the folder structure and scaffolding for the Cordova project.
 Move to the new DirSearchClient folder
 
     cd .\DirSearchClient
-    
+
 and copy the content of the starter project in the www subfolder using file manager or the following command in your shell:
 
   * Windows: `xcopy ..\NativeClient-MultiTarget-Cordova\DirSearchClient www /E /Y`
@@ -184,8 +184,8 @@ This first part of the method inspects the ADAL cache to see if there is already
                 app.context = new Microsoft.ADAL.AuthenticationContext(authority);
             }
 ```
-The second part of the method performs the proper tokewn request.
-The `acquireTokenSilentAsync` method asks to ADAL to return a token for the specified resource without showing any UX. That can happen if the cache already has a suitable access token stored, or if there is a refresh token that can be used to get a new access token without shwoing any prompt.
+The second part of the method performs the proper token request.
+The `acquireTokenSilentAsync` method asks to ADAL to return a token for the specified resource without showing any UX. That can happen if the cache already has a suitable access token stored, or if there is a refresh token that can be used to get a new access token without showing any prompt.
 If that attempt fails, we fall back on `acquireTokenAsync` - which will visibly prompt the user to authenticate.
 
 ```javascript

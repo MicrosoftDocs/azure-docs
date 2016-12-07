@@ -25,9 +25,9 @@ ms.author: dastrock
 If you're developing a Windows Phone 8.1 app, Azure AD makes it simple and straightforward for you to authenticate your users with their Active Directory accounts.  It also enables your application to securely consume any web API protected by Azure AD, such as the Office 365 APIs or the Azure API.
 
 > [!NOTE]
-> This code sample uses ADAL v2.0.  For the latest technology, you may want to instead try our [Windows Universal Tutorial using ADAL v3.0](active-directory-devquickstarts-windowsstore.md).  If you are indeed building an app for Windows Phone 8.1, this is the right place.  ADAL v2.0 is still fully supported, and is the recommended way of developing apps agianst Windows Phone 8.1 using Azure AD.
-> 
-> 
+> This code sample uses ADAL v2.0.  For the latest technology, you may want to instead try our [Windows Universal Tutorial using ADAL v3.0](active-directory-devquickstarts-windowsstore.md).  If you are indeed building an app for Windows Phone 8.1, this is the right place.  ADAL v2.0 is still fully supported, and is the recommended way of developing apps against Windows Phone 8.1 using Azure AD.
+>
+>
 
 For .NET native clients that need to access protected resources, Azure AD provides the Active Directory Authentication Library, or ADAL.  ADAL’s sole purpose in life is to make it easy for your app to get access tokens.  To demonstrate just how easy it is, here we’ll build a "Directory Searcher" Windows Phone 8.1 app that:
 
@@ -96,7 +96,7 @@ public MainPage()
 }
 ```
 
-* Now locate the `Search(...)` method, which will be invoked when the user cliks the "Search" button in the app's UI.  This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  But in order to query the Graph API, you need to include an access_token in the `Authorization` header of the request - this is where ADAL comes in.
+* Now locate the `Search(...)` method, which will be invoked when the user clicks the "Search" button in the app's UI.  This method makes a GET request to the Azure AD Graph API to query for users whose UPN begins with the given search term.  But in order to query the Graph API, you need to include an access_token in the `Authorization` header of the request - this is where ADAL comes in.
 
 ```C#
 private async void Search(object sender, RoutedEventArgs e)
@@ -155,7 +155,7 @@ private async void QueryGraph(AuthenticationResult result)
 // Update the Page UI to represent the signed in user
 ActiveUser.Text = result.UserInfo.DisplayableId;
 ```
-* Finally, you can use ADAL to sign the user out of hte application as well.  When the user clicks the "Sign Out" button, we want to ensure that the next call to `AcquireTokenSilentAsync(...)` will fail.  With ADAL, this is as easy as clearing the token cache:
+* Finally, you can use ADAL to sign the user out of the application as well.  When the user clicks the "Sign Out" button, we want to ensure that the next call to `AcquireTokenSilentAsync(...)` will fail.  With ADAL, this is as easy as clearing the token cache:
 
 ```C#
 private void SignOut()
@@ -176,4 +176,3 @@ For reference, the completed sample (without your configuration values) is provi
 [Secure a .NET Web API with Azure AD >>](active-directory-devquickstarts-webapi-dotnet.md)
 
 [!INCLUDE [active-directory-devquickstarts-additional-resources](../../../includes/active-directory-devquickstarts-additional-resources.md)]
-

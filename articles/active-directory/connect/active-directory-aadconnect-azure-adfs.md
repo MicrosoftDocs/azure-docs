@@ -1,6 +1,6 @@
 ﻿---
 title: Active Directory Federation Services in Azure | Microsoft Docs
-description: In this document you will learn how to deploy AD FS in Azure for high availablity.
+description: In this document you will learn how to deploy AD FS in Azure for high availability.
 keywords: deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure
 services: active-directory
 documentationcenter: ''
@@ -25,7 +25,7 @@ There are several advantages of deploying AD FS in Azure, a few of them are list
 * **High Availability** - With the power of Azure Availability Sets, you ensure a highly available infrastructure.
 * **Easy to Scale** – Need more performance? Easily migrate to more powerful machines by just a few clicks in Azure
 * **Cross-Geo Redundancy** – With Azure Geo Redundancy you can be assured that your infrastructure is highly available across the globe
-* **Easy to Manage** – With highly simplified management options in Azure portal, managing your infrastructure is very easy and hassle-free 
+* **Easy to Manage** – With highly simplified management options in Azure portal, managing your infrastructure is very easy and hassle-free
 
 ## Design principles
 ![Deployment design](./media/active-directory-aadconnect-azure-adfs/deployment.png)
@@ -78,7 +78,7 @@ After the NSGs are created, associate NSG_INT with subnet INT and NSG_DMZ with s
 ![NSG configure](./media/active-directory-aadconnect-azure-adfs/nsgconfigure1.png)
 
 * Click on Subnets to open the panel for subnets
-* Select the subnet to associate with the NSG 
+* Select the subnet to associate with the NSG
 
 After configuration, the panel for Subnets should look like below:
 
@@ -101,7 +101,7 @@ In order to maintain high availability and avoid dependence on a single storage 
 ![Create storage accounts](./media/active-directory-aadconnect-azure-adfs/storageaccount1.png)
 
 ### 3. Create availability sets
-For each role (DC/AD FS and WAP), create availability sets that will contain 2 machines each at the minimum. This will help achieve higher availability for each role. 
+For each role (DC/AD FS and WAP), create availability sets that will contain 2 machines each at the minimum. This will help achieve higher availability for each role.
 While creating the availability sets, it is essential to decide on the following:
 
 * **Fault Domains**: Virtual machines in the same fault domain share the same power source and physical network switch. A minimum of 2 fault domains are recommended. The default value is 3 and you can leave it as is for the purpose of this deployment
@@ -150,8 +150,8 @@ To deploy an ILB, select Load Balancers in the Azure portal and click on add (+)
 
 > [!NOTE]
 > if you do not see **Load Balancers** in your menu, click **Browse** in the lower left of the portal and scroll until you see **Load Balancers**.  Then click the yellow star to add it to your menu. Now select the new load balancer icon to open the panel to begin configuration of the load balancer.
-> 
-> 
+>
+>
 
 ![Browse load balancer](./media/active-directory-aadconnect-azure-adfs/browseloadbalancer.png)
 
@@ -171,7 +171,7 @@ Next step is to configure the backend pool and the backend probe.
 
 **6.2.    Configure ILB backend pool**
 
-Select the newly created ILB in the Load Balancers panel. It will open the settings panel. 
+Select the newly created ILB in the Load Balancers panel. It will open the settings panel.
 
 1. Select backend pools from the settings panel
 2. In the add backend pool panel, click on add virtual machine
@@ -190,13 +190,13 @@ In the ILB settings panel, select Probes.
    b. **Protocol**: TCP
    c. **Port**: 443 (HTTPS)
    d. **Interval**: 5 (default value) – this is the interval at which ILB will probe the machines in the backend pool
-   e. **Unhealthy threshold limit**: 2 (default val ue) – this is the threshold of consecutive probe failures after which ILB will declare a machine in the backend pool non-responsive and stop sending traffic to it.
+   e. **Unhealthy threshold limit**: 2 (default value) – this is the threshold of consecutive probe failures after which ILB will declare a machine in the backend pool non-responsive and stop sending traffic to it.
 
 ![Configure ILB probe](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
 
 **6.4.    Create load balancing rules**
 
-In order to effectively balance the traffic, the ILB should be configured with load balancing rules. In order to create a load balancing rule, 
+In order to effectively balance the traffic, the ILB should be configured with load balancing rules. In order to create a load balancing rule,
 
 1. Select Load balancing rule from the settings panel of the ILB
 2. Click on Add in the Load balancing rule panel
@@ -222,7 +222,7 @@ In order to ensure that Web Application Proxy servers are able to reach the AD F
 
 **7.2.    Installing the Web Application Proxy role**
 
-After you ensure that Web Application Proxy servers are able to reach the AD FS servers behind ILB, you can next install the Web Application Proxy servers. 
+After you ensure that Web Application Proxy servers are able to reach the AD FS servers behind ILB, you can next install the Web Application Proxy servers.
 Web Application Proxy servers do not be joined to the domain. Install the Web Application Proxy roles on the two Web Application Proxy servers by selecting the Remote Access role. The server manager will guide you to complete the WAP installation.
 For more information on how to deploy WAP, read [Install and Configure the Web Application Proxy Server](https://technet.microsoft.com/library/dn383662.aspx).
 
@@ -249,11 +249,11 @@ Click on the newly created load balancer entry in the Load balancers panel to br
 2. Click on Configuration
 3. Provide a DNS label. This will become the public DNS label that you can access from anywhere, for example contosofs.westus.cloudapp.azure.com. You can add an entry in the external DNS for the federation service (like fs.contoso.com) that resolves to the DNS label of the external load balancer (contosofs.westus.cloudapp.azure.com).
 
-![Configure internet facing load balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment3.png) 
+![Configure internet facing load balancer](./media/active-directory-aadconnect-azure-adfs/elbdeployment3.png)
 
 ![Configure internet facing load balancer (DNS)](./media/active-directory-aadconnect-azure-adfs/elbdeployment4.png)
 
-**8.3.    Configure backend pool for Internet Facing (Public) Load Balancer** 
+**8.3.    Configure backend pool for Internet Facing (Public) Load Balancer**
 
 Follow the same steps as in creating the internal load balancer, to configure the backend pool for Internet Facing (Public) Load Balancer as the availability set for the WAP servers. For example, contosowapset.
 
@@ -300,14 +300,14 @@ Overall, you need the following rules to efficiently secure your internal subnet
 
 > [!NOTE]
 > If client user certificate authentication (clientTLS authentication using X509 user certificates) is required, then AD FS requires TCP port 49443 be enabled for inbound access.
-> 
-> 
+>
+>
 
 ### 10.    Test the AD FS sign-in
 The easiest way is to test AD FS is by using the IdpInitiatedSignon.aspx page. In order to be able to do that, it is required to enable the IdpInitiatedSignOn on the AD FS properties. Follow the steps below to verify your AD FS setup
 
 1. Run the below cmdlet on the AD FS server, using PowerShell, to set it to enabled.
-   Set-AdfsProperties -EnableIdPInitiatedSignonPage $true 
+   Set-AdfsProperties -EnableIdPInitiatedSignonPage $true
 2. From any external machine access https://adfs.thecloudadvocate.com/adfs/ls/IdpInitiatedSignon.aspx  
 3. You should see the AD FS page like below:
 
@@ -322,7 +322,7 @@ The template deploys a 6 machine setup, 2 each for Domain Controllers, AD FS and
 
 [AD FS in Azure Deployment Template](https://github.com/paulomarquesc/adfs-6vms-regular-template-based)
 
-You can use an existing virtual network or create a new VNET while deploying this template. The various parameters available for customizing the deployment are listed below with the description of usage of the parameter in the deployment process. 
+You can use an existing virtual network or create a new VNET while deploying this template. The various parameters available for customizing the deployment are listed below with the description of usage of the parameter in the deployment process.
 
 | Parameter | Description |
 |:--- |:--- |
@@ -353,16 +353,15 @@ You can use an existing virtual network or create a new VNET while deploying thi
 | AdminPassword |The password for the local Administrator account of the virtual machines |
 
 ## Additional resources
-* [Availability Sets](https://aka.ms/Azure/Availability) 
+* [Availability Sets](https://aka.ms/Azure/Availability)
 * [Azure Load Balancer](https://aka.ms/Azure/ILB)
 * [Internal Load Balancer](https://aka.ms/Azure/ILB/Internal)
 * [Internet Facing Load Balancer](https://aka.ms/Azure/ILB/Internet)
 * [Storage Accounts](https://aka.ms/Azure/Storage)
 * [Azure Virtual Networks](https://aka.ms/Azure/VNet)
-* [AD FS and Web Application Proxy Links](http://aka.ms/ADFSLinks) 
+* [AD FS and Web Application Proxy Links](http://aka.ms/ADFSLinks)
 
 ## Next steps
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 * [Configuring and managing your AD FS using Azure AD Connect](active-directory-aadconnectfed-whatis.md)
 * [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
-

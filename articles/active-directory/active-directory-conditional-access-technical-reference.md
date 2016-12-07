@@ -47,28 +47,27 @@ Conditional access rules that use an “At work” network, rely on trusted IP a
 * Require multi-factor authentication when not at work
 * Block access when not at work
 
-Options for specifiying “at work” networks
+Options for specifying “at work” networks
 
-1. Configure trusted IP address ranges in the [multi-factor authentication configuration page](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules. 
+1. Configure trusted IP address ranges in the [multi-factor authentication configuration page](../multi-factor-authentication/multi-factor-authentication-whats-next.md). Conditional Access policy will use the configured ranges on each authentication request and token issuance to evaluate rules.
 2. Configure use of the inside corpnet claim, this option can be used with federated directories, using AD FS. [Learn more about the inside coronet claims](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips).
 3. Configure public IP address ranges. On the configure tab, for your directory, you can set public IP addresses. Conditional Access will use these as ‘at work’ IP addresses, this allows additional ranges to be configure, above the 50 IP address limit that is enforced by the MFA setting page.
 
 ## Rules based on application sensitivity
-Rules are configured per application allowing the high value services to be secured without impacting access to other services. Conditional access rules can be configured on the  **Configure** tab of the application. 
+Rules are configured per application allowing the high value services to be secured without impacting access to other services. Conditional access rules can be configured on the  **Configure** tab of the application.
 
 Rules currently offered:
 
 * **Require multi-factor authentication**
-  
+
   * All users that this policy is applied to will be required to authenticate via multi-factor authentication at least once.
 * **Require multi-factor authentication when not at work**
-  
+
   * If this policy is applied, all users will be required to have performed multi-factor authentication at least once if they access the service from a non-work remote location. If they move from a work to remote location, they will be required to perform multifactor authentication when accessing the service.
-* **Block access when not at work** 
-  
+* **Block access when not at work**
+
   * When users move from work to a remote location, they will be blocked if the "Block access when not at work" policy is applied to them.  They will be re-allowed access when at a work location.
 
 ## Related topics
 * [Securing access to Office 365 and other apps connected to Azure Active Directory](active-directory-conditional-access.md)
 * [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md)
-
