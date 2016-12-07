@@ -34,7 +34,7 @@ This article explains how to prepare your environment to back up workloads using
 > 
 > 
 
-You can also protect information as a server (IaaS) workloads such as VMs in Azure.
+You can also protect Infrastructure as a Service (IaaS) workloads such as VMs in Azure.
 
 > [!NOTE]
 > Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
