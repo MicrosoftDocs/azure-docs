@@ -26,7 +26,7 @@ Certificates can be stored securely in Azure Automation so they can be accessed 
 > 
 
 ## Windows PowerShell Cmdlets
-The cmdlets in the following table are used to create and manage automation certificate assets with Windows PowerShell. They ship as part of the [Azure PowerShell module](../powershell-install-configure.md) which is available for use in Automation runbooks and DSC configurations.
+The cmdlets in the following table are used to create and manage automation certificate assets with Windows PowerShell. They ship as part of the [Azure PowerShell module](/powershell/azureps-cmdlets-docs) which is available for use in Automation runbooks and DSC configurations.
 
 | Cmdlets | Description |
 |:--- |:--- |

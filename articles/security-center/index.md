@@ -73,7 +73,7 @@ Security Center helps you prevent, detect, and respond to threats with increased
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Security Center REST API Reference</p>
+                        <p>Security Center REST API</p>
                     </div>
                 </div>
             </div>
