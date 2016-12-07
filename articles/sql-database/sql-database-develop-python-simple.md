@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect to SQL Database by using Python | Microsoft Docs
 description: Presents a Python code sample you can use to connect to Azure SQL Database.
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 452ad236-7a15-4f19-8ea7-df528052a3ad
 ms.service: sql-database
+ms.custom: app development
 ms.workload: drivers
 ms.tgt_pltfrm: na
 ms.devlang: python
