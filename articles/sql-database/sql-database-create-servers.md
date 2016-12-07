@@ -1,5 +1,5 @@
 ---
-title:Create Azure SQL Database servers | Microsoft Docs
+title: Create Azure SQL Database servers | Microsoft Docs
 description: Quick reference on how to create Azure SQL Database servers using the Azure portal and PowerShell.
 services: sql-database
 documentationcenter: ''
