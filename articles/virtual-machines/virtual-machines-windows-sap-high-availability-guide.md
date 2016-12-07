@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/18/2016
+ms.date: 12/07/2016
 ms.author: goraco
 
 ---
@@ -287,6 +287,8 @@ ms.author: goraco
 [sap-ha-guide-10.2]:virtual-machines-windows-sap-high-availability-guide.md#5e959fa9-8fcd-49e5-a12c-37f6ba07b916 (Failover from node A to node B)
 [sap-ha-guide-10.3]:virtual-machines-windows-sap-high-availability-guide.md#755a6b93-0099-4533-9f6d-5c9a613878b5 (SAP ASCS/SCS instance is running on cluster node B)
 
+[sap-ha-multi-sid-guide]:virtual-machines-windows-sap-high-availability-multi-sid.md (SAP Multi-SID HA configuration)
+
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
 [sap-ha-guide-figure-1001]:./media/virtual-machines-shared-sap-high-availability-guide/1001-wsfc-on-azure-ilb.png
@@ -295,6 +297,8 @@ ms.author: goraco
 [sap-ha-guide-figure-2001]:./media/virtual-machines-shared-sap-high-availability-guide/2001-wsfc-sap-ascs-ha-on-azure.png
 [sap-ha-guide-figure-2003]:./media/virtual-machines-shared-sap-high-availability-guide/2003-wsfc-sap-dbms-ha-on-azure.png
 [sap-ha-guide-figure-2004]:./media/virtual-machines-shared-sap-high-availability-guide/2004-wsfc-sap-ha-e2e-archit-template1-on-azure.png
+[sap-ha-guide-figure-2005]:./media/virtual-machines-shared-sap-high-availability-guide/2005-wsfc-sap-ha-e2e-arch-template2-on-azure.png
+
 [sap-ha-guide-figure-3000]:./media/virtual-machines-shared-sap-high-availability-guide/3000-template-parameters-sap-ha-arm-on-azure.png
 [sap-ha-guide-figure-3001]:./media/virtual-machines-shared-sap-high-availability-guide/3001-configuring-dns-servers-for-Azure-vnet.png
 [sap-ha-guide-figure-3002]:./media/virtual-machines-shared-sap-high-availability-guide/3002-configuring-static-IP-address-for-network-card-of-each-vm.png
@@ -351,6 +355,7 @@ ms.author: goraco
 [sap-ha-guide-figure-5002]:./media/virtual-machines-shared-sap-high-availability-guide/5002-wsfc-sap-sid-node-b.png
 [sap-ha-guide-figure-5003]:./media/virtual-machines-shared-sap-high-availability-guide/5003-sios-replicating-local-volume-b-to-a.png
 
+[sap-ha-guide-figure-6003]:./media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
 [powershell-install-configure]:../powershell-install-configure.md
 [resource-group-authoring-templates]:../resource-group-authoring-templates.md
@@ -470,20 +475,30 @@ These SAP notes are related to the topic of SAP in Azure:
 | [1999351] |Enhanced Azure Monitoring for SAP |
 | [2178632] |Key Monitoring Metrics for SAP on Microsoft Azure |
 | [1999351] |Virtualization on Windows: Enhanced Monitoring |
+| [2243692] |Use of Azure Premium SSD Storage for SAP DBMS Instance |
 
 Learn more about the [limitations of Azure subscriptions][azure-subscription-service-limits-subscription], including general default limitations and maximum limitations.
 
-## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>High-availability SAP with Azure Resource Manager vs. the classic deployment model
-The Azure Resource Manager and classic deployment models are different in two main ways:
+## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>High-availability SAP with Azure Resource Manager vs. the Classic Deployment Model
+The Azure Resource Manager and classic deployment models are different in the following ways:
 
-* Resource groups
-* Clustering requirements
+- Resource groups
+- Azure Internal Load Balancer dependency on the Azure resource group
+- Support for SAP Multi-SID scenario
 
 ### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a> Resource groups
-In Azure Resource Manager, you can use resource groups to manage all the application resources in your Azure subscription. In an integrated approach, in a resource group, all resources have the same life cycle. For example, all resources are created at the same time and deleted at the same time. You can get more information about [resource groups](../azure-resource-manager/resource-group-overview.md#resource-groups).
+In Azure Resource Manager, you can use resource groups to manage all the application resources in your Azure subscription. In an integrated approach, in a resource group, all resources have the same life cycle. For example, all resources are created at the same time and deleted at the same time. You can get more information about [resourc groups](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
-### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Clustering with Azure Resource Manager vs. the classic deployment model
-In the Azure Resource Manager model, you don't need a cloud service to use Azure internal load balancing for high availability.
+### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Azure Internal Load Balancer dependency on the Azure Resource Group
+
+In the old classical Azure deployment model, there is a dependence between Azure Internal Load Balancer (ILB) and cloud service group. Every ILB needs one cloud service group.
+
+In the Azure Resource Manager model, you don't need an Azure resource group to use Azure ILB . Therefore, the setting is more simple and more flexible.
+
+
+### Support for SAP Multi-SID scenario
+
+With new Azure resource manager model we have ability to install multiple different SAP SID ASCS/SCS instances in one cluster. This is possible through the support for multiple IPs per one Azure internal load balancer.
 
 To use the Azure classic model, follow the procedures described in [SAP NetWeaver in Azure: Clustering SAP ASCS/SCS instances by using Windows Server Failover Clustering in Azure with SIOS DataKeeper](http://go.microsoft.com/fwlink/?LinkId=613056).
 
@@ -586,7 +601,7 @@ You must place all virtual machines that host SAP application servers in the sam
 
 Learn about how to [manage the availability of virtual machines][virtual-machines-manage-availability].
 
-Because the Azure storage account is a potential single point of failure, it's important to have at least two Azure storage accounts, in which at least two virtual machines are distributed. In an ideal setup, each virtual machine that is running an SAP dialog instance would be deployed in a different storage account.
+Because the Azure storage account is a potential single point of failure, it's important to have at least two Azure storage accounts, in which at least two virtual machines are distributed. In an ideal setup, the disks of each virtual machine that is running an SAP dialog instance would be deployed in a different storage account.
 
 ### <a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a> High-availability SAP ASCS/SCS instance
 ![Figure 5: High-availability SAP ASCS/SCS instance][sap-ha-guide-figure-2001]
@@ -612,16 +627,51 @@ _**Figure 7:** Example of a high-availability SAP DBMS: SQL Server Always On_
 For more information about clustering SQL Server in Azure by using the Azure Resource Manager deployment model, see these articles:
 
 * [Configure Always On availability group in Azure Virtual Machines manually by using Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
-* [Configure an internal load balancer for an Always On availability group in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
+* [Configure an Azure Internal Load Balancer for an AlwaysOn availability group in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
 ### <a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a> End-to-end high-availability deployment scenarios
-Figure 8 shows an example of an SAP NetWeaver high-availability architecture in Azure. In this scenario, we use one dedicated cluster for the SAP ASCS/SCS instance and another one for the DBMS.
 
-![Figure 8: SAP HA Architectural Template 1, with a dedicated cluster for ASCS/SCS, and a dedicated cluster for the DBMS instance][sap-ha-guide-figure-2004]
+#### Architectural Template 1
+
+Figure 8 shows an example of an SAP NetWeaver high-availability architecture in Azure for **ONE** SAP system. In this scenario, we use:
+
+
+- one dedicated cluster for the SAP ASCS/SCS instance
+- another dedicated cluster for the DBMS
+- SAP application servers are deployed in own dedicated VMs
+
+![Figure 8: SAP HA Architectural Template 1, dedicated cluster for ASCS/SCS and the DBMS instance][sap-ha-guide-figure-2004]
 
 _**Figure 8:** SAP HA Architectural Template 1: Dedicated clusters for ASCS/SCS and DBMS_
 
+#### Architectural Template 2
+
+Here we have an example of an SAP NetWeaver high-availability architecture in Azure for **ONE** SAP system. In this scenario, we use:
+
+- one dedicated cluster for **BOTH** the SAP ASCS/SCS instance and for the DBMS
+- SAP application servers are deployed in own dedicated VMs
+
+![Figure: SAP HA Architectural Template 2, with a dedicated cluster for ASCS/SCS, and a dedicated cluster for the DBMS instance][sap-ha-guide-figure-2005]
+
+_**Figure:** SAP HA Architectural Template 2, with a dedicated cluster for ASCS/SCS, and a dedicated cluster for the DBMS instance_
+
+#### Architectural Template 3
+
+![Figure: SAP HA Architectural Template 3, with a dedicated cluster for different ASCS/SCS instances][sap-ha-guide-figure-6003]
+
+_**Figure:** SAP HA Architectural Template 3, with a dedicated cluster for or different ASCS/SCS instances_
+
+
+Here we have an example of an SAP NetWeaver high-availability architecture in Azure for TWO SAP systems, with <SID1> and <SID2>. In this scenario, we use:
+
+- one dedicated cluster for **BOTH** the SAP ASCS/SCS **SID1** instance and SAP ASCS/SCS **SID2** instance
+- for each the DBMS is used own cluster -e.g. we have one dedicated cluster for DBMS SID1 and another dedicated cluster for DBMS SID2
+- SAP application servers of the SAP system SID1 have own dedicated VM
+- SAP application servers of the SAP system SID2 have own dedicated VM
+
 ## <a name="78092dbe-165b-454c-92f5-4972bdbef9bf"></a> Prepare the infrastructure
+
+### Architectural Template 1
 Azure Resource Manager templates for SAP help simplify deployment of required resources.
 
 The three-tier templates also support high-availability scenarios, like Architectural Template 1, which has two clusters. Each cluster is an SAP single point of failure for SAP ASCS/SCS and DBMS.
@@ -710,6 +760,21 @@ The SAP Azure Resource Manager template automatically creates the Azure virtual 
 > You also need to deploy at least one dedicated virtual machine for Active Directory and DNS in the same Azure Virtual Network instance. The template doesn't create these virtual machines.
 >
 >
+
+
+### Architectural Template 2
+
+You can use this Azure Resource Manager templates for SAP help simplify deployment of required infrastructure resources for SAP Architectural Template 2.
+
+Here's where you can get Azure Resource Manager templates for this deployment scenario:
+
+* [Azure Marketplace image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
+* [Custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+
+
+### Architectural Template 3
+
+You can prepare infrastructure and configure SAP **Multi-SID** e.g. add additional SAP ASCS/SCS instance into an **EXISTING** cluster by following this document: [Configure Additional SAP ASCS/SCS Instance into an Existing Cluster configuration to create a SAP Multi-SID configuration - Azure Resource Manager][sap-ha-multi-sid-guide].
 
 ### <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Azure Virtual Network
 In our example, the address space of the Azure virtual network is 10.0.0.0/16. There is one subnet called **Subnet**, with an address range of 10.0.0.0/24. All virtual machines and internal load balancers are deployed in this virtual network.
@@ -824,7 +889,7 @@ When you install your SAP ASCS/SCS instance, you must use the default instance n
 
 Next, create these required internal load balancing endpoints for the SAP NetWeaver ABAP ASCS ports:
 
-| Service/load balancing rule name | Default port numbers | Concrete ports for (ASCS instance with instance number 00) (ERS with 10) |
+| Service/Load Balancing Rule Name | Default Port Numbers | Concrete Ports for (ASCS instance with instance number 00) (ERS with 10) |
 | --- | --- | --- |
 | Enqueue Server / *lbrule3200* |32<*InstanceNumber*> |3200 |
 | ABAP Message Server / *lbrule3600* |36<*InstanceNumber*> |3600 |
@@ -842,7 +907,7 @@ _**Table 1:** Port numbers of the SAP NetWeaver ABAP ASCS instances_
 
 Then, create these required internal load balancing endpoints for the SAP NetWeaver Java SCS ports:
 
-| Service/load balancing rule name | Default port numbers | Concrete ports for (SCS instance with instance number 01) (ERS with 11) |
+| Service/Load Balancing Rule Name | Default Port Numbers | Concrete Ports for (SCS instance with instance number 01) (ERS with 11) |
 | --- | --- | --- |
 | Enqueue Server / *lbrule3201* |32<*InstanceNumber*> |3201 |
 | Gateway Server / *lbrule3301* |33<*InstanceNumber*> |3301 |
@@ -864,8 +929,8 @@ _**Figure 13:** Default ASCS/SCS load balancing rules for the Azure internal loa
 
 Set the IP address of the load balancer **pr1-lb-dbms** to the IP address of the virtual host name of the DBMS instance (in our example, **10.0.0.33**).
 
-### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Change the ASCS/SCS default load balancing rules for the Azure internal load balancer
-If you want to use different numbers for the SAP ASCS or SCS instances, you must update the names and values of those ports.
+### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Change the ASCS/SCS default load balancing rules for the Azure Internal Load Balancer
+If you want to use different numbers for the SAP ASCS or SCS instances, you must update the names and values of their ports.
 
 One way to update instance numbers is by using the Azure portal:
 
@@ -883,7 +948,7 @@ Here's an example of an update for port *lbrule3200*.
 
 ![Figure 14: Change the ASCS/SCS default load balancing rules for the Azure internal load balancer][sap-ha-guide-figure-3005]
 
-_**Figure 14:** Change the ASCS/SCS default load balancing rules for the Azure internal load balancer_
+_**Figure 14:** Change the ASCS/SCS default load balancing rules for the Azure Internal Load Balancer_
 
 ### <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> Add Windows virtual machines to the domain
 After you assign a static IP address to the virtual machines, add the virtual machines to the domain.
@@ -1355,7 +1420,7 @@ You can use one of these options to initiate a failover of the SAP <*SID*> clust
   ```powershell
   Move-ClusterGroup -Name "SAP WAC"
   ```
-  
+
 * Restart cluster node A within the Windows guest operating system (initiates an automatic failover of the SAP <*SID*> cluster group from node A to node B)  
 * Restart cluster node A from the Azure portal (initiates an automatic failover of the SAP <*SID*> cluster group from node A to node B)  
 * Restart cluster node A by using Azure PowerShell (initiates an automatic failover of the SAP <*SID*> cluster group from node A to node B)
