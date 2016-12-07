@@ -194,7 +194,7 @@ If you selected **IP based SSL** and your custom domain is configured using an A
 ## More Resources
 * [Enable HTTPS for an app in Azure App Service](web-sites-configure-ssl-certificate.md)
 * [Buy and Configure a custom domain name in Azure App Service](custom-dns-web-site-buydomains-web-app.md)
-* [Microsoft Azure Trust Center](/support/trust-center/security/)
+* [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/)
 * [Configuration options unlocked in Azure Web Sites](http://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
 * [Azure Management Portal](https://manage.windowsazure.com)
 

@@ -28,7 +28,7 @@ Service Fabric is a good choice if you’re creating a new app or re-writing an 
 If you have an existing application that would require substantial modifications to run in App Service or Service Fabric, you could choose Virtual Machines in order to simplify migrating to the cloud. However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure App Service and Service Fabric. If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment. Azure Virtual Machines is Infrastructure-as-a-Service (IaaS), while App Service and Service Fabric are Platform-as-a-Service (Paas). 
 
 ## <a name="features"></a>Feature Comparison
-The following table compares the capabilities of App Service, Cloud Services, Virtual Machines, and Service Fabric to help you make the best choice. For current information about the SLA for each option, see [Azure Service Level Agreements](/support/legal/sla/).
+The following table compares the capabilities of App Service, Cloud Services, Virtual Machines, and Service Fabric to help you make the best choice. For current information about the SLA for each option, see [Azure Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
 | Feature | App Service (web apps) | Cloud Services (web roles) | Virtual Machines | Service Fabric | Notes |
 | --- | --- | --- | --- | --- | --- |

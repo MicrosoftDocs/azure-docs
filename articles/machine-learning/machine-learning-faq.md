@@ -301,7 +301,7 @@ You can also find training at [Microsoft Virtual Academy](http://www.microsoftvi
 
 **How do I get support for Azure Machine Learning?**
 
-To get technical support for Azure Machine Learning, go to [Azure Support](/support/options/) and select **Machine Learning**.
+To get technical support for Azure Machine Learning, go to [Azure Support](https://azure.microsoft.com/support/options/) and select **Machine Learning**.
 
 Azure Machine Learning also has a community forum on MSDN where you can ask questions related to Azure Machine Learning. The forum is monitored by the Azure Machine Learning team. Visit [Azure Forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 

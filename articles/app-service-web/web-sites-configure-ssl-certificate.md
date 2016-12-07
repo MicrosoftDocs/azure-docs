@@ -603,7 +603,7 @@ Follow these steps:
 For more information on the IIS URL Rewrite module, see the [URL Rewrite](http://www.iis.net/downloads/microsoft/url-rewrite) documentation.
 
 ## More Resources
-* [Microsoft Azure Trust Center](/support/trust-center/security/)
+* [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/)
 * [Configuration options unlocked in Azure Web Sites](https://azure.microsoft.com/blog/2014/01/28/more-to-explore-configuration-options-unlocked-in-windows-azure-web-sites/)
 * [Enable diagnostic logging](web-sites-enable-diagnostic-log.md)
 * [Configure web apps in Azure App Service](web-sites-configure.md)
