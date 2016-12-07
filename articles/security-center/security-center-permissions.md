@@ -24,16 +24,16 @@ Security Center assesses the configuration of your resources to identify securit
 
 The following table displays roles and allowed actions in Security Center. An X indicates that the action is allowed for that role.
 
-|:Role:|:Edit security policy:|:Apply security recommendations for a resource:|:Remediate or Dismiss alerts:|:View alerts across a subscription:|:View alerts for a specific resource:|
-| --- | --- | --- | --- | --- | --- |
-|:Subscription Owner |:X:|:X:|:X:|:X:|:X:|
-|:Subscription Contributor |:X:|:X:|:X:|:X:|:X:|
-|:Resource Group Owner |:--:|:X:|:--:|:--:|:X:|
-|:Resource Group Contributor |:--:|:X:|:--:|:--:|:X:|
-|:Reader |:--:|:--:|:--:|:X:|:X:|
+| Role | Edit security policy | Apply security recommendations for a resource | Remediate or Dismiss alerts | View alerts across a subscription | View alerts for a specific resource |
+|:--- |:---:|:---:|:---:|:---:|:---:|
+| Subscription Owner | X | X | X | X | X |
+| Subscription Contributor | X | X | X | X | X |
+| Resource Group Owner | -- | X | -- | -- | X |
+| Resource Group Contributor | -- | X | -- | -- | X |
+| Reader | -- | -- | -- | X | X |
 
 > [!NOTE]
-> We recommend that you assign the least permissive role needed for users to complete their tasks. For example, users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies, should be assigned the Reader role.
+> We recommend that you assign the least permissive role needed for users to complete their tasks. For example, assign the Reader role to users who only need to view information about the security health of a resource but not take action, such as applying recommendations or editing policies.
 >
 >
 
