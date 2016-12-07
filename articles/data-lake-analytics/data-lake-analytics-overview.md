@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Microsoft Azure Data Lake Analytics | Microsoft Docs
 description: 'Data Lake Analytics is an Azure Big Data service that lets you use data to drive your business using insights gained from your data in the cloud, regardless its size or where it is.'
 services: data-lake-analytics
