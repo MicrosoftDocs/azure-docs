@@ -1,4 +1,4 @@
-﻿---
+---
 title: Microsoft cloud services and network security | Microsoft Docs
 description: Learn some of the key features available in Azure to help create secure network environments
 services: virtual-network
@@ -510,7 +510,7 @@ The addition of an ExpressRoute Private Peering network connection can extend th
 ## References
 ### Helpful websites and documentation
 * Access Azure with Azure Resource Manager:
-* Accessing Azure with PowerShell: [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](powershell-install-configure.md)
+* Accessing Azure with PowerShell: [https://azure.microsoft.com/documentation/articles/powershell-install-configure/](/powershell/azureps-cmdlets-docs)
 * Virtual networking documentation: [https://azure.microsoft.com/documentation/services/virtual-network/](https://azure.microsoft.com/documentation/services/virtual-network/)
 * Network security group documentation: [https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/](virtual-network/virtual-networks-nsg.md)
 * User defined routing documentation: [https://azure.microsoft.com/documentation/articles/virtual-networks-udr-overview/](virtual-network/virtual-networks-udr-overview.md)

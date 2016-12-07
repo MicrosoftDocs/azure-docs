@@ -35,24 +35,21 @@
         public class MyHandler extends NotificationsHandler {
 10. Add the following import statements for the `MyHandler` class:
 
+        import com.microsoft.windowsazure.notifications.NotificationsHandler;
+        import android.app.NotificationManager;
+        import android.app.PendingIntent;
+        import android.content.Context;
+        import android.content.Intent;
+        import android.os.AsyncTask;
+        import android.os.Bundle;
+        import android.support.v4.app.NotificationCompat;
+11. Next add this member to the `MyHandler` class:
 
-       import com.microsoft.windowsazure.notifications.NotificationsHandler;
-       import android.app.NotificationManager;
-       import android.app.PendingIntent;
-       import android.content.Context;
-       import android.content.Intent;
-       import android.os.AsyncTask;
-       import android.os.Bundle;
-       import android.support.v4.app.NotificationCompat;
-11. Add this member to the `MyHandler` class:
+        public static final int NOTIFICATION_ID = 1;
+12. In the `MyHandler` class, add the following code to override the **onRegistered** method, which registers your device with the mobile service Notification Hub.
 
-
-       public static final int NOTIFICATION_ID = 1;
-12. In the `MyHandler` class, add the following code to override the **onRegistered** method, which registers your device with the mobile service notification hub.
-
-
-       @Override
-       public void onRegistered(Context context,  final String gcmRegistrationId) {
+        @Override
+        public void onRegistered(Context context,  final String gcmRegistrationId) {
            super.onRegistered(context, gcmRegistrationId);
 
            new AsyncTask<Void, Void, Void>() {
@@ -69,11 +66,10 @@
                }
            }.execute();
        }
-13. In the `MyHandler` class, add the following code to override the **onReceive** method. This causes the notification to display when it is received.
+13. In the `MyHandler` class, add the following code to override the **onReceive** method, which causes the notification to display when it is received.
 
-
-       @Override
-       public void onReceive(Context context, Bundle bundle) {
+        @Override
+        public void onReceive(Context context, Bundle bundle) {
                String msg = bundle.getString("message");
 
                PendingIntent contentIntent = PendingIntent.getActivity(context,

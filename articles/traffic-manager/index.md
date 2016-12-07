@@ -106,7 +106,7 @@ Azure Traffic Manager allows you to control the distribution of user traffic for
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Traffic Manager REST API Reference</p>
+                        <p>Traffic Manager REST API</p>
                     </div>
                 </div>
             </div>
