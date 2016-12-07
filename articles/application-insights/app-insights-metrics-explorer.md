@@ -123,10 +123,6 @@ Notice that you can switch between grids and graphs:
 
 ![Select a grid or graph, then choose a chart type](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
-## Aggregation type
-
-
-
 ## Filter your data
 To see just the metrics for a selected set of property values:
 
