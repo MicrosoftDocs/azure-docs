@@ -37,13 +37,13 @@ In this tutorial, you also:
 * Connect to the sample database
 * View user database properties
 
-[!IMPORTANT] 
-To complete this tutorial, you must connect to an Azure subscription using an account that is a member of either the owner role or the contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
+> [!IMPORTANT] 
+> To complete this tutorial, you must connect to an Azure subscription using an account that is a member of either the owner role or the contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
 
-## Pre-requisite - Save the AdventureWorksLT sample database BACPAC to Azure blob storage
+## Download and save the AdventureWorksLT sample database BACPAC to Azure blob storage
 
-This tutorial imports a BACPAC file from Azure Storage to a new Azure SQL database, so the first step is to get a copy of the AdventureWorksLT BACPAC, and upload it to blob storage.
+This tutorial creates a new AdventureWorksLT database by importing a BACPAC file from Azure Storage to the new Azure SQL database. So the first step is to get a copy of the AdventureWorksLT BACPAC, and upload it to blob storage.
 The following steps get the sample database ready to import:
 
 1. [Download the AdventureWorksLT BACPAC](https://msftdbprodsamples.codeplex.com/downloads/get/478214).
@@ -56,7 +56,7 @@ The following steps get the sample database ready to import:
 
 ## Create a new logical SQL server using Azure PowerShell
 
-We need a resource group to contain the server, so the first step is to either create a new resource group and server ([New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)), or get references to existing ones ([Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
+We need a resource group to contain the server, so the first step is to either create a new resource group and server ([New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)), or get references to existing ones ([Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
 The following snippets will create a resource group and Azure SQL server if they don't already exist:
 
 
@@ -129,7 +129,7 @@ Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
 
 ## Create a server-level firewall rule using Azure PowerShell
 
-The following uses the [Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserverfirewallrule), and [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) cmdlets get a reference or create a new rule. For this snippet, if the rule already exists, it only gets a reference to it and doesn't update the start and end IP addresses. You can always modify the **else** clause to use the [Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverfirewallrule) for create or update functionality.
+The following uses the [Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserverfirewallrule), and [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) cmdlets get a reference or create a new rule. For this snippet, if the rule already exists, it only gets a reference to it and doesn't update the start and end IP addresses. You can always modify the **else** clause to use the [Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverfirewallrule) for create or update functionality.
 
 ```
 $serverFirewallRuleName = "{server-firewall-rule-name}"
@@ -269,8 +269,8 @@ $connection.Close()
 
 $SubscriptionId = "{subscription-id}"
 
-Login-AzureRmAccount
-Select-AzureRmSubscription -SubscriptionId $SubscriptionId
+Add-AzureRmAccount
+Set-AzureRmContext -SubscriptionId $SubscriptionId
 
 # User variables
 ################
@@ -295,7 +295,7 @@ $myDatabaseServiceLevel = "Basic"
 
 $myStorageKeyType = "StorageAccessKey"
 # Get these values from your Azure storage account:
-$myStorageUri = "{http://{your-container}.blob.core.windows.net/AdventureWorksLT.bacpac}"
+$myStorageUri = "{http://your-container.blob.core.windows.net/AdventureWorksLT.bacpac}"
 $myStorageKey = "{your-storage-key}"
 
 
