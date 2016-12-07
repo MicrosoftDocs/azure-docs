@@ -1,26 +1,30 @@
-<properties
-   pageTitle="Permissions in Azure Security Center | Microsoft Azure"
-   description="This article explains how Azure Security Center uses role-based access control to assign permissions to users and identifies the allowed actions for each role."
-   services="security-center"
-   documentationCenter="na"
-   authors="TerryLanfear"
-   manager="MBaldwin"
-   editor=""/>
+---
+title: Permissions in Azure Security Center | Microsoft Docs
+description: This article explains how Azure Security Center uses role-based access control to assign permissions to users and identifies the allowed actions for each role.
+services: security-center
+cloud: na
+documentationcenter: na
+author: TerryLanfear
+manager: MBaldwin
 
-<tags
-   ms.service="security-center"
-   ms.devlang="na"
-   ms.topic="article"
-   ms.tgt_pltfrm="na"
-   ms.workload="na"
-   ms.date="12/07/2016"
-   ms.author="terrylan"/>
+ms.assetid:
+ms.service: security-center
+ms.workload: na
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/07/2016
+ms.author: terrylan
+
+---
 
 # Permissions in Azure Security Center
 
 Azure Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure.
 
 Security Center assesses the configuration of your resources to identify security issues and vulnerabilities. In Security Center, you only see information related to a resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
+
+## Roles and allowed actions
 
 The following table displays roles and allowed actions in Security Center. An X indicates that the action is allowed for that role.
 
