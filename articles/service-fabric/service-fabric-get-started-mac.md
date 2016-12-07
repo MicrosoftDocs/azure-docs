@@ -30,7 +30,7 @@ You can build Service Fabric applications to run on Linux clusters using Mac OS 
 ## Prerequisites
 Service Fabric does not run natively on OS X. To run a local Service Fabric cluster, we provide a pre-configured Ubuntu virtual machine using Vagrant and VirtualBox. Before you get started, you need:
 
-* [Vagrant (v1.8.4 or later)](http://wwww.vagrantup.com/downloads)
+* [Vagrant (v1.8.4 or later)](http://www.vagrantup.com/downloads)
 * [VirtualBox](http://www.virtualbox.org/wiki/Downloads)
 
 ## Create the local VM

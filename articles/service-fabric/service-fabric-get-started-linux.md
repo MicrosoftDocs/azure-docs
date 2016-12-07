@@ -109,6 +109,12 @@ If everything has installed successfully, you should be able to start a local cl
 
 At this point, you are able to deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services using the Java or .NET Core SDKs, follow the optional setup steps below.
 
+
+> [!NOTE]
+> Stand alone clusters aren't supported in Linux - only one box and Azure Linux multi-machine clusters are supported in the preview.
+> 
+> 
+
 ## Install the Java SDK and Eclipse Neon plugin (optional)
 The Java SDK provides the libraries and templates required to build Service Fabric services using Java.
 
@@ -160,7 +166,9 @@ For updating the CLI, navigate to the directory where you cloned the CLI and run
 
 ## Next steps
 * [Create your first Java application on Linux](service-fabric-create-your-first-linux-application-with-java.md)
+* [Create your first CSharp application on Linux](service-fabric-create-your-first-linux-application-with-csharp.md)
 * [Prepare your development environment on OSX](service-fabric-get-started-mac.md)
+* [Use the Azure CLI to manage your Service Fabric applications](service-fabric-azure-cli.md)
 
 <!-- Links -->
 
