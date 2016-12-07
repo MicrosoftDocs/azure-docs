@@ -24,8 +24,6 @@ This document provides details on the differences between HDInsight on Windows a
 
 > [!NOTE]
 > HDInsight clusters use Ubuntu long term support (LTS) as the operating system for the nodes in the cluster. For information on the version of Ubuntu available with HDInsight, along with other component versioning information, see [HDInsight component versions](hdinsight-component-versioning.md).
->
->
 
 ## Migration tasks
 The general workflow for migration is as follows.
@@ -55,10 +53,13 @@ You can use the Hadoop HDFS command to directly copy data from the storage for y
 
 1. Find the storage account and default container information for your existing cluster. You can do this by using the following Azure PowerShell script.
 
-        $clusterName="Your existing HDInsight cluster name"
-        $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
-        write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
-        write-host "Default container: $clusterInfo.DefaultStorageContainer"
+    ```powershell
+    $clusterName="Your existing HDInsight cluster name"
+    $clusterInfo = Get-AzureRmHDInsightCluster -ClusterName $clusterName
+    write-host "Storage account name: $clusterInfo.DefaultStorageAccount.split('.')[0]"
+    write-host "Default container: $clusterInfo.DefaultStorageContainer"
+    ```
+
 2. Follow the steps in the Create Linux-based clusters in HDInsight document to create a new test environment. Stop before creating the cluster, and instead select **Optional Configuration**.
 3. From the Optional Configuration blade, select **Linked Storage Accounts**.
 4. Select **Add a storage key**, and when prompted, select the storage account that was returned by the PowerShell script in step 1. Click **Select** on each blade to close them. Finally, create the cluster.
@@ -70,7 +71,8 @@ You can use the Hadoop HDFS command to directly copy data from the storage for y
 
         hdfs dfs -cp wasbs://CONTAINER@ACCOUNT.blob.core.windows.net/path/to/old/data /path/to/new/location
 
-    [AZURE.NOTE] If the directory structure that contains the data does not exist on the test environment, you can create it using the following command.
+    > [!NOTE]
+    > If the directory structure that contains the data does not exist on the test environment, you can create it using the following command.
 
         hdfs dfs -mkdir -p /new/path/to/create
 
@@ -135,8 +137,6 @@ Ambari has an alert system that can tell you of potential problems with the clus
 > Ambari alerts indicate that there *may* be a problem, not that there *is* a problem. For example, you may receive an alert that HiveServer2 cannot be accessed, even though you can access it normally.
 >
 > Many alerts are implemented as interval-based queries against a service, and expect a response within a specific time frame. So the alert doesn't necessarily mean that the service is down, just that it didn't return results within the expected time frame.
->
->
 
 In general, you should evaluate whether an alert has been occurring for an extended period, or mirrors user problems that have previously been reported with the cluster before taking action on it.
 
