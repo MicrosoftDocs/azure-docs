@@ -33,7 +33,7 @@ StorSimple is a great backup target for the following reasons:
 
 -   It provides standard local storage for backup applications to use without any changes to provide a fast backup destination. StorSimple is also available for quick restore of recent backups.
 
--   Its cloud tiering is seamlessly integrated with a cloud storage account to use cost-effective Microsoft Azure storage.
+-   Its cloud tiering is seamlessly integrated with cost-effective Microsoft Azure cloud storage.
 
 -   It automatically provides offsite storage for disaster recovery.
 

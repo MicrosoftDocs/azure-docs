@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/05/2016
+ms.date: 12/06/2016
 ms.author: hkanna
 ---
 
@@ -200,7 +200,7 @@ In this section, we demonstrate some configuration examples. The following examp
 
 ### Configure StorSimple
 
-| StorSimple Deployment Tasks                                                                                                                 | Additional Comments                                                                                                                                                                                                                                                                                      |
+| StorSimple deployment tasks                                                                                                                 | Additional comments                                                                                                                                                                                                                                                                                      |
 |---------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | eploy your on-premises StorSimple device.                                                                                    | Supported version: Update 3 and   above.                                                                                                                                                                                                                                                                 |
 | Enable backup target mode.                                                                                                                | Use  the following commands to enable/disable and get status. For more information, go to [connect remotely to a StorSimple](storsimple-remote-connect.md).</br> Enable backup mode:`Set-HCSBackupApplianceMode -enable`</br>  Disable backup mode:`Set-HCSBackupApplianceMode -disable`</br> Current state of backup mode settings`Get-HCSBackupApplianceMode` |
@@ -258,9 +258,9 @@ Configure your solution as per the following guidelines.
 
 ### Veeam
 
--   The Veeam database should be local to the server and not reside on a StorSimple Volume.
+-   The Veeam database should be local to the server and not reside on a StorSimple volume.
 
--   For DR, Back up your Veeam database on a StorSimple Volume.
+-   For DR, back up your Veeam database on a StorSimple volume.
 
 -   We support Veeam full and incremental backups for this solution. We recommend that you do not use synthetic and differential backups.
 
@@ -308,7 +308,7 @@ In the following example, we are a GFS rotation. The example assumes the followi
 
 Based on the preceeding assumptions, create a 26 TiB StorSimple tiered volume for the monthly and yearly full backups. Create a 5 TiB StorSimple tiered volume for each of the incremental daily backups.
 
-| Backup type retention | Size TiB | GFS multiplier\*                                       | Total Capacity TiB          |
+| Backup type retention | Size TiB | GFS multiplier\*                                       | Total capacity TiB          |
 |-----------------------|----------|--------------------------------------------------------|-----------------------------|
 | Weekly full           | 1        | 4                                                      | 4                           |
 | Daily incremental     | 0.5      | 20 (cycles equal number of weeks per month) | 12 (2 for additional quota) |
@@ -321,44 +321,44 @@ Based on the preceeding assumptions, create a 26 TiB StorSimple tiered volume fo
 
 ## Configuring Veeam storage
 
-1.  In **Backup Infrastucture** settings, select **Backup Repositories**, right-click and **Add Backup Repository**.
+1.  Go to **Backup Infrastucture** settings. Select **Backup Repositories**, then right-click and select **Add Backup Repository**.
 
     ![Veeam management console, backup repository screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
-1.  Provide a name for the repository.
+1.  Provide a **Name** and **Description** for the repository. Click **Next >**.
 
     ![Veeam management console, Name and description screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
-1.  The repository will be Microsoft Windows Server. Choose the Veeam Server
+1.  Select backup repository as **Microsoft Windows Server**. Choose the Veeam Server. Click **Next >**.
 
     ![Veeam management console, select type of backup respository](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
-1.  On the location page, browse and select the required volume
+1.  To specify **Location**, browse and select the required volume. Set the **Limit maximum concurrent tasks to:** to 4. This will ensure only 4 virtual disks are being processed concurrently as each VM is processed.
+Click **Advanced**.
 
     ![Veeam management console, select volume](./media/storsimple-configure-backup-target-using-veeam/veeamimage4.png)
 
-    Set the “Limit maximum concurrent tasks to:” to 4. This will ensure only 4 virtual disks are being processed concurrently as each VM is processed.
 
-1.  Click Advanced tab and configure use per-VM backup files
+1.  Choose **Use per-VM backup files**.
 
     ![Veeam management console, storage compatibility settings](./media/storsimple-configure-backup-target-using-veeam/veeamimage5.png)
 
-1.  vPower NFS may be enabled.
+1.  Enable **vPower NFS service on the mount server (recommended)**.
 
     ![Veeam management console, backup respository screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
-1.  review the settings.
+1.  Review the settings and proceed to the next page.
 
     ![Veeam management console, backup respository screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage7.png)
 
-1.  Click next and the repository will be added to the Veeam server.
+    A repository is added to the Veeam server.
 
 ## StorSimple as a primary backup target
 
 > [!NOTE]
 > Be aware that if you need to restore data from a backup that has been tiered to the cloud, the restore occurs at cloud speeds.
 
-In the following figure, we illustrate mapping of a typical volume to a backup job. In this case, all the weekly backups map to Saturday Full disk, and the incremental backups map to Monday-Friday Incremental disks. All the backups and restores will happen from a StorSimple tiered volume.
+In the following figure, we illustrate mapping of a typical volume to a backup job. In this case, all the weekly backups map to Saturday full disk, and the incremental backups map to Monday-Friday incremental disks. All the backups and restores will happen from a StorSimple tiered volume.
 
 ![Primary backup target configuration logical diagram ](./media/storsimple-configure-backup-target-using-veeam/primarybackuptargetdiagram.png)
 
@@ -374,33 +374,34 @@ In the following figure, we illustrate mapping of a typical volume to a backup j
 
 ### Assigning StorSimple volumes to a Veeam backup job
 
-1.  Start by creating a daily job with primary Veeam StorSimple in case of primary backup target scenario or DAS/NAS/JBOD in case of secondary backup target scenario as backup target, go to Jobs, Backup under Backup and Replication section. Then right-click backup and select the VMware or Hyper-V per your environment.
+1.  Create a daily job with primary Veeam StorSimple in case of primary backup target scenario or DAS/NAS/JBOD in case of secondary backup target scenario as backup target. Go to **Backup 
+&#38; Replication &gt; Backup**. Right-click and then select VMware or Hyper-V as per your environemnt.
 
     ![Veeam management console, new backup job](./media/storsimple-configure-backup-target-using-veeam/veeamimage8.png)
 
-1.  Type a Name and Description for the daily backup job
+1.  Provide a **Name** and **Description** for the daily backup job.
 
     ![Veeam management console, new backup job screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
-1.  Select virtual machines to backup:
+1.  Select a virtual machine to backup to.
 
     ![Veeam management console, new backup job screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
-1.  Set appropriate Proxy and StorSimple Repository. Set restore points per RPO/RTO definitions for your environment on locally attached storage.
+1.  Set appropriate **Backup proxy** and **Backup repository**. Set **Restore points to keep on disk** per the RPO/RTO definitions for your environment on locally attached storage. Click Advanced.
 
     ![Veeam management console, new backup job screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage11.png)
 
-    Under Advanced Settings in the Backup tab, ensure Incremental is chosen and the “Enable synthetic fulls” option is unchecked, or disabled. Then ensure that **Active full backups** are enabled on every Saturday.
+    In the **Backup** tab, choose **Incremental**. Ensure **Create synthetic full backups periodically** is unchecked. Enable **Create active full backups periodically** and choose Weekly on selected **Active full backups** are enabled on every Saturday.
 
     ![Veeam management console, new backup job advanced settings screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage12.png)
 
-    Still in the Advanced Settings, under the Storage tab, ensure that Deduplication is disabled, compression is disabled, and optimized as a “LAN Target” for balanced performance and deduplication.
+    In the Storage tab, ensure that deduplication and compression are disabled, and file block swap and deletion is enabled. Set the **Storage optimization** to **LAN Target** for balanced performance and deduplication.
 
     ![Veeam management console, new backup job advanced settings screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage13.png)
 
-    To get more details on DeDupe and Compression settings please refer to [Data Compression and Deduplication](https://helpcenter.veeam.com/backup/vsphere/compression_deduplication.html)
+    For details on deduplication and compression settings, refer to [Data Compression and Deduplication](https://helpcenter.veeam.com/backup/vsphere/compression_deduplication.html)
 
-1.  Enable Application Aware Processing. This is optional.
+1.  You can choose to **Enable Application Aware Processing**.
 
     ![Veeam management console, new backup job guest processing screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage14.png)
 
@@ -411,46 +412,46 @@ In the following figure, we illustrate mapping of a typical volume to a backup j
 ## StorSimple as a secondary backup target
 
 > [!NOTE]
-> Be aware that if you need to restore data from a backup that has been tiered to the cloud, the restore occurs at cloud speeds.
+> The restore occurs at cloud speeds for the data from a backup that has been tiered to the cloud.
 
 In this model, you must have a storage media (other than StorSimple) to serve as a temporary cache. For example, you could use a RAID volume to accommodate space, IOs, and bandwidth. We recommend using RAID 5, 50 and 10.
 
 In the following figure, we illustrate typical short-term retention local (to the server) volumes and long-term retention archive volumes. In this case, all the backups run on the local (to the server) RAID volume. These backups are periodically duplicated and archived to an archive volume. It is important to size your local (to the server) RAID volume to handle the short-term retention capacity and performance requirements.
 
-In a similar rotation, as in StorSimple as a Primary Backup Target the Local RAID volume would need
 
-| Backup type and retention                    |Configured storage| Size (TiB) | GFS multiplier | Total Capacity (TiB)        |
+
+| Backup type and retention                    |Configured storage| Size (TiB) | GFS multiplier | Total capacity (TiB)        |
 |----------------------------------------------|-----|----------|----------------|------------------------|
-| Week 1 (Full and incremental) |Local disk (short term)| 1        | 1              | 1           |
-| StorSimple Week 2-4           |StorSimple disk (long term) | 1        | 4              | 4                   |
-| Monthly Full                                 |StorSimple disk (long term) | 1        | 12             | 12                   |
-| Yearly Full                               |StorSimple disk (long term) | 1        | 1              | 1                   |
-|GFS Volumes Size Requirement | |          |                | 18*|
+| Week 1 (full and incremental) |Local disk (short term)| 1        | 1              | 1           |
+| StorSimple week 2-4           |StorSimple disk (long term) | 1        | 4              | 4                   |
+| Monthly full                                 |StorSimple disk (long term) | 1        | 12             | 12                   |
+| Yearly full                               |StorSimple disk (long term) | 1        | 1              | 1                   |
+|GFS volumes size requirement | |          |                | 18*|
 
-\* the total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume
+\* The total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume.
 
 ![Storsimple as secondary backup target logical diagram ](./media/storsimple-configure-backup-target-using-veeam/secondarybackuptargetdiagram.png)
 
 #### GFS example schedule
 
-| GFS rotation Weekly, Monthly and, Yearly schedule|                    |                   |                   |                   |                   |                   |
+| GFS rotation weekly, monthly, and yearly schedule|                    |                   |                   |                   |                   |                   |
 |--------------------------------------------------------------------------|--------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
-| Week                                                                     | Full               | Incremental Day 1        | Incremental Day 2        | Incremental Day 3        | Incremental Day 4        | Incremental Day 5        |
-| Week 1                                                                   | Local RAID Volume  | Local RAID Volume | Local RAID Volume | Local RAID Volume | Local RAID Volume | Local RAID Volume |
-| Week 2                                                                   | StorSimple Week2-4 |                   |                   |                   |                   |                   |
-| Week 3                                                                   | StorSimple Week2-4 |                   |                   |                   |                   |                   |
-| Week 4                                                                   | StorSimple Week2-4 |                   |                   |                   |                   |                   |
-| Monthly                                                                  | StorSimple Monthly |                   |                   |                   |                   |                   |
-| Yearly                                                                   | StorSimple Yearly  |                   |                   |                   |                   |                   |
+| Week                                                                     | Full               | Incremental day 1        | Incremental day 2        | Incremental day 3        | Incremental day 4        | Incremental day 5        |
+| Week 1                                                                   | Local RAID volume  | Local RAID volume | Local RAID volume | Local RAID volume | Local RAID volume | Local RAID volume |
+| Week 2                                                                   | StorSimple week 2-4 |                   |                   |                   |                   |                   |
+| Week 3                                                                   | StorSimple week 2-4 |                   |                   |                   |                   |                   |
+| Week 4                                                                   | StorSimple week 2-4 |                   |                   |                   |                   |                   |
+| Monthly                                                                  | StorSimple monthly |                   |                   |                   |                   |                   |
+| Yearly                                                                   | StorSimple yearly  |                   |                   |                   |                   |                   |
 
 
 ### Assigning StorSimple volumes to a Veeam copy job
 
-1.  Launch the New Backup Copy Job wizard
+1.  Launch the New Backup Copy Job wizard. Go to **Jobs > Backup Copy**. Select VMware or Hyper-V as per your environment.
 
     ![Veeam management console, new backup copy job screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
 
-1.  Specify the job name and description
+1.  Specify the job name and description.
 
     ![Veeam management console, new backup copy job screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage17.png)
 
@@ -459,18 +460,18 @@ In a similar rotation, as in StorSimple as a Primary Backup Target the Local RAI
 
     ![Veeam management console, new backup copy job screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage18.png)
 
-1.  Exclude objects from the backup copy job if needed
+1.  Exclude objects from the backup copy job if needed.
 
-1.  Select backup repositories, define restore points to keep and make sure to
-    enable “keep the following restore points for archival purposes” and define
+1.  Select **Backup repository**, define **Restore points to keep** and make sure to
+    enable **keep the following restore points for archival purposes**. Define the backup frequency and then click **Advanced**.
 
     ![Veeam management console, new backup copy job screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
-1.  Specify advanced settings, make sure to specify the following
+1.  Specify advanced settings as following:
 
-    -   On maintenance tab, Disable storage level corruption guard.
+    -   On **Maintenance** tab, disable storage level corruption guard.
 
-    -   On Storage tab, make sure deduplication is set to none
+    -   On **Storage** tab, ensure that deduplication and compression are disabled.
 
     ![Veeam management console, new backup copy job advanced settings screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage20.png)
 
@@ -478,17 +479,16 @@ In a similar rotation, as in StorSimple as a Primary Backup Target the Local RAI
 
 1.  Specify data transfer to be direct.
 
-1.  Define the backup copy window schedule as per your needs
+1.  Define the backup copy window schedule as per your needs and finish.
 
-1.  Finish working with the wizard
 
-More details on the way to configure Backup Copy Job please refer to [Creating Backup Copy Jobs](https://helpcenter.veeam.com/backup/hyperv/backup_copy_create.html)
+For more information, go to [Create backup copy jobs](https://helpcenter.veeam.com/backup/hyperv/backup_copy_create.html).
 
 ## StorSimple cloud snapshots
 
-StorSimple cloud snapshots protect the data that resides in StorSimple device. This is equivalent to shipping tapes to an offsite facility and if using Azure geo-redundant storage (GRS), as shipping tapes to multiple sites. If a device restore was needed in a disaster, you could bring another StorSimple device online and do a failover. Following the failover, you would be able to access the data (at cloud speeds) from the most recent cloud snapshot.
+StorSimple cloud snapshots protect the data that resides in StorSimple device. This is equivalent to shipping tapes to an offsite facility. If using Azure geo-redundant storage (GRS), this is equivalent to shipping tapes to multiple sites. If a device restore is needed in a disaster, you could bring another StorSimple device online and do a failover. Following the failover, you can access the data (at cloud speeds) from the most recent cloud snapshot.
 
-The following section illustrates how to create a short script to trigger and delete StorSimple cloud snapshots during backup post-processing. 
+The following section illustrates how to create a short script to trigger and delete StorSimple cloud snapshots during the backup post-processing. 
 
 > [!NOTE] 
 > Snapshots that are manually or programmatically created do not follow the StorSimple snapshot expiration policy. These must be manually or programmatically deleted.
@@ -496,7 +496,7 @@ The following section illustrates how to create a short script to trigger and de
 ### Start and delete cloud snapshots with a script
 
 > [!NOTE] 
-> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information on how to run a post-backup script, refer to Veritas Backup Exec documentation.
+> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information on how to run a post-backup script, refer to Veeam documentation.
 
 #### Backup lifecycle
 
@@ -509,7 +509,7 @@ The following section illustrates how to create a short script to trigger and de
 
 -   The user account must have the necessary permissions.
 
--   A StorSimple Backup Policy with the associated StorSimple Volumes configured but not enabled.
+-   A StorSimple backup policy with the associated StorSimple volumes configured but not enabled.
 
 -   StorSimple Resource Name, Registration Key, Device Name, and Backup policy ID.
 
@@ -517,7 +517,7 @@ The following section illustrates how to create a short script to trigger and de
 
 1.  [Install Azure PowerShell](/powershell-install-configure/).
 
-2.  [Download and import publish Settings and subscription information.](https://msdn.microsoft.com/library/dn385850.aspx)
+2.  [Download and import publish settings and subscription information.](https://msdn.microsoft.com/library/dn385850.aspx)
 
 3.  In the Azure classic portal, get the resource name and [registration key for your StorSimple Manager service](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 
@@ -531,44 +531,43 @@ The following section illustrates how to create a short script to trigger and de
 
     Copy and paste the following code snippet:
 
-        ```
-        Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-        Disable-AzureDataCollection
-        $ApplianceName = <myStorSimpleApplianceName>
-        $RetentionInDays = 20
-        $RetentionInDays = -$RetentionInDays
-        $Today = Get-Date
-        $ExpirationDate = $Today.AddDays($RetentionInDays)
-        Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-        Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-        $CompletedSnapshots =@()
-        $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-        Write-Host "The Expiration date is " $ExpirationDate
-        Write-Host
+    ```powershell
+    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
+    Disable-AzureDataCollection
+    $ApplianceName = <myStorSimpleApplianceName>
+    $RetentionInDays = 20
+    $RetentionInDays = -$RetentionInDays
+    $Today = Get-Date
+    $ExpirationDate = $Today.AddDays($RetentionInDays)
+    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
+    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
+    $CompletedSnapshots =@()
+    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
+    Write-Host "The Expiration date is " $ExpirationDate
+    Write-Host
 
-        ForEach ($SnapShot in $CompletedSnapshots)
+    ForEach ($SnapShot in $CompletedSnapshots)
+    {
+        $SnapshotStartTimeStamp = $Snapshot.CreatedOn
+        if ($SnapshotStartTimeStamp -lt $ExpirationDate)
+
         {
-            $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-            if ($SnapshotStartTimeStamp -lt $ExpirationDate)
-
-            {
-                $SnapShotInstanceID = $SnapShot.InstanceId
-                Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-                Write-Host "Instance ID " $SnapShotInstanceID
-                Write-Host "This snpashotdate is older and needs to be deleted"
-                Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-                Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-            }
+            $SnapShotInstanceID = $SnapShot.InstanceId
+            Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
+            Write-Host "Instance ID " $SnapShotInstanceID
+            Write-Host "This snpashotdate is older and needs to be deleted"
+            Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
+            Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
         }
-        
-        ```
+    }
+    ```
 
-6.  Add the script to your backup job in Veeam, by editing your Veeam job
-    advanced options pre-post scripts
+6.  To add the script to your backup job, edit your Veeam job
+    advanced options. 
 
 ![Veeam backup advanced settings scripts tab](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
 
-It is recommended that you run your StorSimple Cloud Snapshot backup policy at the end of your daily backup’s job as post process script. For more information on how to backup and restore your backup application environment to meet your RPO/RTO please consult with your backup architect.
+It is recommended that you run your StorSimple cloud snapshot backup policy at the end of your daily backup’s job as a post-processing script. For more information on how to backup and restore your backup application environment to meet your RPO/RTO, please consult with your backup architect.
 
 StorSimple as a restore source
 ==============================
