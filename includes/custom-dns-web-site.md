@@ -280,7 +280,7 @@ Once configuration has completed, the custom domain name will be listed in the *
 
 ## Next steps
 * [How to manage web sites](/manage/services/web-sites/how-to-manage-websites/)
-* [Configure an SSL certificate for Web Sites](/develop/net/common-tasks/enable-ssl-web-site/)
+* [Configure an SSL certificate for Web Sites](https://azure.microsoft.com/develop/net/common-tasks/enable-ssl-web-site/)
 
 <!-- Bookmarks -->
 

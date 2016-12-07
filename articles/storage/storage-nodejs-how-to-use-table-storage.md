@@ -452,7 +452,7 @@ For more information, see the following resources.
 
 * [Azure Storage Team Blog][Azure Storage Team Blog].
 * [Azure Storage SDK for Node][Azure Storage SDK for Node] repository on GitHub.
-* [Node.js Developer Center](/develop/nodejs/)
+* [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/)
 
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [OData.org]: http://www.odata.org/

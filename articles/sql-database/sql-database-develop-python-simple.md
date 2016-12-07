@@ -111,7 +111,7 @@ Paste the following code inside sql_sample.py.
 ## Next steps
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
 * More information on the [Microsoft Python Driver for SQL Server](https://msdn.microsoft.com/library/mt652092.aspx)
-* Visit the [Python Developer Center](/develop/python/).
+* Visit the [Python Developer Center](https://azure.microsoft.com/develop/python/).
 
 ## Additional resources
 * [Design Patterns for Multi-tenant SaaS Applications with Azure SQL Database](sql-database-design-patterns-multi-tenancy-saas-applications.md)

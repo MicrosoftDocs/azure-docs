@@ -55,7 +55,7 @@ Now that you've built a working application that creates an Event Hub and sends 
 * A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
 * The [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] sample.
 
-For more information, see the [Java Developer Center](/develop/java/).
+For more information, see the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 
 <!-- Images. -->
 [21]: ./media/event-hubs-java-ephcs-getstarted/run-csharp-ephcs1.png

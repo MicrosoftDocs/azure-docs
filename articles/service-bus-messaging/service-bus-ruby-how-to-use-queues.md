@@ -87,7 +87,7 @@ will use this value in your code later in this tutorial.
 > 
 
 ## Create a Ruby application
-Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](/develop/ruby/tutorials/web-app-with-linux-vm/).
+Create a Ruby application. For instructions, see [Create a Ruby Application on Azure](https://azure.microsoft.com/develop/ruby/tutorials/web-app-with-linux-vm/).
 
 ## Configure your application to use Service Bus
 To use Azure Service Bus, download and use the Ruby Azure package, which includes a set of convenience libraries that communicate with the storage REST services.

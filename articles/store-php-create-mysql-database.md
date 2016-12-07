@@ -147,5 +147,5 @@ app. Just follow the steps below:
     Congratulations, your PHP web app in Azure is now accessing data from your MySQL database. 
 
 ## Next steps
-For more information, see the [PHP Developer Center](/develop/php/).
+For more information, see the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 

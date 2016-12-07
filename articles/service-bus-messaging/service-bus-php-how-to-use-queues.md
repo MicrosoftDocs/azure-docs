@@ -215,7 +215,7 @@ In the event that the application crashes after processing the message but befor
 ## Next steps
 Now that you've learned the basics of Service Bus queues, see [Queues, topics, and subscriptions][Queues, topics, and subscriptions] for more information.
 
-For more information, also see the [PHP Developer Center](/develop/php/).
+For more information, also see the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [require_once]: http://php.net/require_once
