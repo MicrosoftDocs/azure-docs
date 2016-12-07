@@ -22,7 +22,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
 
 This short Channel9 video introduces Service Fabric and microservices:
 <center><a target="_blank" href="https://aka.ms/servicefabricvideo">  
-<img src="./media/service-fabric-technical-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
+<img src="./media/service-fabric-overview/OverviewVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
 This longer Microsoft Virtual Academy video describes the Service Fabric core concepts:
@@ -71,7 +71,7 @@ For more information about application patterns with Service Fabric, read [Appli
 
 You can also watch this Microsoft Virtual Academy video for an overview of stateless and stateful services:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=HhD9566yC_4106218965">  
-<img src="./media/service-fabric-technical-overview/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
+<img src="./media/service-fabric-overview/ReliableServicesVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
 ## Application lifecycle management
@@ -85,7 +85,7 @@ For more information about application lifecycle management, read [Application l
 
 You can also watch this Microsoft Virtual Academy video for an overview of app lifecycle management:
 <center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=My3Ka56yC_6106218965">  
-<img src="./media/service-fabric-technical-overview/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">  
+<img src="./media/service-fabric-overview/AppLifecycleVid.png" WIDTH="360" HEIGHT="244">  
 </a></center>
 
 ## Key capabilities
