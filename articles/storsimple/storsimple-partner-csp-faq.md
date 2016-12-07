@@ -1,5 +1,5 @@
 ---
-title: Frequently asked questions on StorSimple and Cloud Solutions Provider Program for partners | Microsoft Docs
+title: Frequently asked questions on Microsoft Azure StorSimple and Cloud Solutions Provider Program for partners | Microsoft Docs
 description: Find answers to some common questions regarding StorSimple and CSP for partners.
 services: storsimple
 documentationcenter: NA
