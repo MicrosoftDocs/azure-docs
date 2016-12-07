@@ -12,7 +12,7 @@ ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.workload: big-data
+ms.workload: big-data`
 ms.date: 12/05/2016
 ms.author: edmaca
 
