@@ -30,7 +30,6 @@
 
     ![](./media/app-service-mobile-android-configure-push/android-studio-create-class.png)
 
-
 9. In the MyHandler file, replace the class declaration with:
 
         public class MyHandler extends NotificationsHandler {
@@ -45,12 +44,10 @@
        import android.os.AsyncTask;
        import android.os.Bundle;
        import android.support.v4.app.NotificationCompat;
-
 11. Add this member to the `MyHandler` class:
 
 
        public static final int NOTIFICATION_ID = 1;
-
 12. In the `MyHandler` class, add the following code to override the **onRegistered** method, which registers your device with the mobile service notification hub.
 
 
@@ -72,7 +69,6 @@
                }
            }.execute();
        }
-
 13. In the `MyHandler` class, add the following code to override the **onReceive** method. This causes the notification to display when it is received.
 
 
@@ -97,7 +93,6 @@
                        context.getSystemService(Context.NOTIFICATION_SERVICE);
                notificationManager.notify(NOTIFICATION_ID, notification);
        }
-       
 14. Back in the TodoActivity.java file, update the **onCreate** method of the *ToDoActivity* class to register the notification handler class. Make sure to add this code after the *MobileServiceClient* is instantiated.
 
         NotificationsManager.handleNotifications(this, SENDER_ID, MyHandler.class);
