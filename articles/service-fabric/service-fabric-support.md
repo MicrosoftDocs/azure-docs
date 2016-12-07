@@ -19,7 +19,7 @@ ms.author: chackdan
 ---
 # Azure Service Fabric support options
 
-In order to deliver the appropriate support for your service fabric clusters that you are running  your application work loads on, we have set up various options for you. Depending on the level of support needed and the severity of the issue, you get to pick the right options. 
+To deliver the appropriate support for your service fabric clusters that you are running your application work loads on, we have set up various options for you. Depending on the level of support needed and the severity of the issue, you get to pick the right options. 
 
 
 <a id="getlivesitesupportonazure"></a>
@@ -66,7 +66,7 @@ The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place
 
 ## Supported Service fabric versions.
 
- Make sure to keep your cluster running a supported service fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. the  The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/).
+ Make sure to keep your cluster running a supported service fabric version always. As and when we announce the release of a new version of service fabric, the previous version is marked for end of support after a minimum of 60 days from that date. The new releases are announced [on the service fabric team blog](https://blogs.msdn.microsoft.com/azureservicefabric/).
 
 Refer to the following documents on details on how to keep your cluster running a supported service fabric version.
 
@@ -78,11 +78,11 @@ Here are the list of the service fabric versions that are supported and their su
 
 | **Service Fabric runtime cluster** | **End of Support Date** |
 | --- | --- |
-| All cluster versions prior to 5.3.121 |January 20th 2017 |
-| 5.3.121.* |February 24th 2017 |
-| 5.3.204.* |February 24th 2017 |
-| 5.3.301.* |February 24th 2017 |
-| 5.3.311.* |February 24th 2017 |
+| All cluster versions prior to 5.3.121 |January 20 2017 |
+| 5.3.121.* |February 24 2017 |
+| 5.3.204.* |February 24 2017 |
+| 5.3.301.* |February 24 2017 |
+| 5.3.311.* |February 24 2017 |
 | 5.4. *. * |Current version and so no end date |
 
 
