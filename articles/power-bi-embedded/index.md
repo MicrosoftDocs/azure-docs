@@ -120,7 +120,7 @@ Power BI Embedded is an Azure service that enables application developers to add
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Power BI Embedded REST API Reference</p>
+                        <p>Power BI Embedded REST API</p>
                     </div>
                 </div>
             </div>

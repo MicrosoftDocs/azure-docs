@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Live Streaming using Azure Media Services | Microsoft Docs
 description: This topic gives an overview of live streaming using Azure Media Services.
 services: media-services

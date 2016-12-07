@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 4e288e17-bc3e-4255-9fbe-0a2ac0dbd7dd
 ms.service: sql-database
+ms.custom: sharded databases pool; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -23,8 +24,7 @@ ms.author: srinia
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
 > * [C#](sql-database-elastic-pool-manage-csharp.md)
 > * [T-SQL](sql-database-elastic-pool-manage-tsql.md)
-> 
-> 
+>  
 
 Use the [Create Database (Azure SQL Database)](https://msdn.microsoft.com/library/dn268335.aspx) and [Alter Database(Azure SQL Database)](https://msdn.microsoft.com/library/mt574871.aspx) commands to create and move databases into and out of elastic pools. The elastic pool must exist before you can use these commands. These commands affect only databases. Creation of new pools and the setting of pool properties (such as min and max eDTUs) cannot be changed with T-SQL commands.
 

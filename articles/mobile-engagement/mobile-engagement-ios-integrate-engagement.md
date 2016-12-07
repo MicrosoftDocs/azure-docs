@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Mobile Engagement iOS SDK Integration | Microsoft Docs
 description: Latest updates and procedures for iOS SDK for Azure Mobile Engagement
 services: mobile-engagement
