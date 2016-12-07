@@ -18,7 +18,7 @@ ms.author: billmath
 ---
 
 # What is Single Sign On (SSO) (preview)
-Single sign on is an option that can be enabled in Azure Active Directory Connect with either [password hash synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) (PHS) or [pass-through authentication](active-directory-aadconnect-pass-through-authentication.md) (PTA).  When enabled, users need not type their password to sign in to Azure Active Directory (Azure AD) or other cloud services when they are on their corporate machines and connected on the corporate network.  
+Single sign on is an option that can be enabled in Azure Active Directory Connect with either [Password hash synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) or [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md).  When enabled, users need not type their password to sign in to Azure Active Directory (Azure AD) or other cloud services when they are on their corporate machines and connected on the corporate network.  
 
 By enabling single sign-on, when your users access resources connected to Azure Active Directory services (such as Office 365, Microsoft Intune, CRM Online, and SaaS services), user don’t need to type their password but instead use a Kerberos ticket acquired automatically from your on-premises Active Directory.
 
@@ -26,7 +26,7 @@ By enabling single sign-on, when your users access resources connected to Azure 
 
 By providing your end users with SSO, access to cloud based services is more familiar and provides the organization with a secure and simple process that doesn’t require any additional on-premises components.
 
-SSO is a feature that is enabled through AAD Connect and works with password hash sync or pass-through authentication and your on-premises Active Directory.  For your end users to use single sign on in your environment, you need to ensure that users are:
+SSO is a feature that is enabled through AAD Connect and works with Password hash sync or Pass-through authentication and your on-premises Active Directory.  For your end users to use single sign on in your environment, you need to ensure that users are:
 
 
 - On a domain joined machine
@@ -69,8 +69,8 @@ First the user attempts to access a resource.  A resource can be either a machin
 
 Single sign on is an opportunistic feature, which means that if it fails for some reason, the user simply need only enter their password on the login page as usual.
 
-## Enabling SSO with PTA or PHS
-Azure AD Connect provides a simple process to enable single sign on with pass-through authentication or Password hash sync.  You will need to ensure that you have domain administrator rights to one of the domains within each forest you synchronize to allow the configuration of the Kerberos service principal names (SPNs) on the machine account.  The username and password are not stored in Azure AD Connect or Azure AD and are used only for this operation.
+## Enabling SSO with Pass-through Authentication or Password Hash Sync
+Azure AD Connect provides a simple process to enable single sign on with Pass-through authentication or Password hash sync.  You will need to ensure that you have domain administrator rights to one of the domains within each forest you synchronize to allow the configuration of the Kerberos service principal names (SPNs) on the machine account.  The username and password are not stored in Azure AD Connect or Azure AD and are used only for this operation.
 
 When installing Azure AD Connect select a custom installation so that you are able to configure single sign on on the user sign-in page. For more details, see [Custom installation of Azure AD Connect](connect\active-directory-aadconnect-get-started-custom.md).
 
