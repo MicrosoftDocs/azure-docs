@@ -174,7 +174,7 @@ The Azure Backup agent offers network throttling, which allows you to control ho
 
 ### Backup and retention
 
-Azure Backup has a limit of 9999 recovery points, also known as backup copies or snapshots, per *protected instance*. A protected instance is a computer, server (physical or virtual), or workload configured to back up data to Azure. For more information see the section, [What is a protected instance](./backup-introduction-to-azure-backup.md#what-is-a-protected-instance-)? An instance is protected once a backup copy of data has been saved. The backup copy of data is the protection. If the source data was lost or became corrupt, the backup copy could restore the source data. The following table shows the maximum backup frequency for each component. Your backup policy configuration determines how quickly you consume the recovery points. For example, if you create a recovery point each day, then you can retain recovery points for 27 years before you run out. If you take a monthly recovery point, you can retain recovery points for 833 years before you run out. The Backup service does not set an expiration time limit on a recovery point.
+Azure Backup has a limit of 9999 recovery points, also known as backup copies or snapshots, per *protected instance*. A protected instance is a computer, server (physical or virtual), or workload configured to back up data to Azure. For more information see the section, [What is a protected instance](backup-introduction-to-azure-backup.md#what-is-a-protected-instance). An instance is protected once a backup copy of data has been saved. The backup copy of data is the protection. If the source data was lost or became corrupt, the backup copy could restore the source data. The following table shows the maximum backup frequency for each component. Your backup policy configuration determines how quickly you consume the recovery points. For example, if you create a recovery point each day, then you can retain recovery points for 27 years before you run out. If you take a monthly recovery point, you can retain recovery points for 833 years before you run out. The Backup service does not set an expiration time limit on a recovery point.
 
 |  | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
@@ -186,7 +186,7 @@ Azure Backup has a limit of 9999 recovery points, also known as backup copies or
 | Recovery points on local disk |Not applicable |<li>64 for File Servers,<li>448 for Application Servers |<li>64 for File Servers,<li>448 for Application Servers |Not applicable |
 | Recovery points on tape |Not applicable |Unlimited |Not applicable |Not applicable |
 
-## What is a protected instance?
+## What is a protected instance
 A protected instance is a generic reference to a Windows computer, a server (physical or virtual), or SQL database that has been configured to back up to Azure. An instance is protected once you configure a backup policy for the computer, server, or database, and create a backup copy of the data. Subsequent copies of the backup data for that protected instance (which are called recovery points), increase the amount of storage consumed. You can create up to 9999 recovery points for a protected instance. If you delete a recovery point from storage, it does not count against the 9999 recovery point total.
 Some common examples of protected instances are virtual machines, application servers, databases, and personal computers running the Windows operating system. For example:
 
