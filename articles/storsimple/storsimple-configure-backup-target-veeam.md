@@ -59,7 +59,7 @@ StorSimple is designed to provide storage to applications that operate on a well
 **StorSimple tiering**
 ![Storsimple tiering diagram](./media/storsimple-configure-backup-target-using-veeam/image1.jpg)
 
-With this architecture in mind, you will find that StorSimple is ideally suited to operate as a backup target. StorSimple lets you:
+With this architecture in mind, you find that StorSimple is ideally suited to operate as a backup target. StorSimple lets you:
 
 -   Perform most frequent restores from the local working set of data.
 
@@ -77,7 +77,7 @@ StorSimple offers the following benefits:
 
 -   High availability
 
--   Geo-replication by leveraging Azure geo-replication
+-   Geo-replication by using Azure geo-replication
 
 -   Azure integration
 
@@ -202,23 +202,23 @@ In this section, we demonstrate some configuration examples. The following examp
 
 | StorSimple deployment tasks                                                                                                                 | Additional comments                                                                                                                                                                                                                                                                                      |
 |---------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| eploy your on-premises StorSimple device.                                                                                    | Supported version: Update 3 and   above.                                                                                                                                                                                                                                                                 |
+| Deploy your on-premises StorSimple device.                                                                                    | Supported version: Update 3 and   above.                                                                                                                                                                                                                                                                 |
 | Enable backup target mode.                                                                                                                | Use  the following commands to enable/disable and get status. For more information, go to [connect remotely to a StorSimple](storsimple-remote-connect.md).</br> Enable backup mode:`Set-HCSBackupApplianceMode -enable`</br>  Disable backup mode:`Set-HCSBackupApplianceMode -disable`</br> Current state of backup mode settings`Get-HCSBackupApplianceMode` |
-| Create a common volume container for your volume that will store the backup data. All data in a volume container will be de-duplicated. | StorSimple volume containers define deduplication domains.                                                                                                                                                                                                                                             |
+| Create a common volume container for your volume that stores the backup data. All data in a volume container is de-duplicated. | StorSimple volume containers define deduplication domains.                                                                                                                                                                                                                                             |
 | Creating StorSimple volumes.                                                                                                                 | Create volumes with sizes as close to the anticipated usage as possible as volume size affects cloud snapshot duration time. For more information on how to size a volume, go to [Retention policies](#retention-policies).</br> </br> Use StorSimple tiered volumes and check **Use this volume for less frequently accessed archival data**. </br> Locally pinned volumes only are not supported.        |
 | Create a unique StorSimple backup policy for all the backup target volumes.                                                               | A StorSimple backup policy defines the volume consistency group.                                                                                                                                                                                                                                       |
-| Disable the schedule as the snapshots.                                                                                                    | Snapshots will be triggered as a post-processing operation.                                                                                                                                                                                                                                                         |
+| Disable the schedule as the snapshots.                                                                                                    | Snapshots are triggered as a post-processing operation.                                                                                                                                                                                                                                                         |
 |                                                                                                     |                                             |
 
 
 ### Configure host backup server storage
 
-Ensure that the host backup server storage is configured as per the following guidelines.  
+Ensure that the host backup server storage is configured as per the following guidelines:  
 
-- Spanned volumes (created by Windows Disk manager) are not supported.
-- Format your volumes using NTFS with 64 KB allocation size.
-- Map the StorSimple volumes directly to the “Veeam” server. 
-    - Use iSCSI in case of physical servers.
+- Do not use spanned volumes (created by Windows Disk manager) as these volumes are not supported.
+- Format your volumes using NTFS with 64 KB allocation unit size.
+- Map the StorSimple volumes directly to the Veeam server. 
+    - Use iSCSI for physical servers.
     - Use pass-through disks for virtual servers.
 
 
@@ -254,7 +254,7 @@ Configure your solution as per the following guidelines.
 
 -   Isolate iSCSI and cloud traffic. Use dedicated iSCSI connections for traffic between StorSimple and backup server.
 
--   Ensure StorSimple device is a dedicated backup target. Mixed workloads are not supported as these impact your RTO/RPO.
+-   Ensure StorSimple device is a dedicated backup target. Mixed workloads are not supported as these workloads impact your RTO/RPO.
 
 ### Veeam
 
@@ -292,7 +292,7 @@ One of the most used backup retention policies is the Grandfather, Father, and S
 
 -   The other 5 volumes store daily incremental backups.
 
-In the following example, we are a GFS rotation. The example assumes the following:
+In the following example, we are a GFS rotation. The following example assumes:
 
 -   Non-deduped or compressed data is used.
 
@@ -306,7 +306,7 @@ In the following example, we are a GFS rotation. The example assumes the followi
 
 -   1 yearly backup kept for 10 years.
 
-Based on the preceeding assumptions, create a 26 TiB StorSimple tiered volume for the monthly and yearly full backups. Create a 5 TiB StorSimple tiered volume for each of the incremental daily backups.
+Based on the preceding assumptions, create a 26 TiB StorSimple tiered volume for the monthly and yearly full backups. Create a 5 TiB StorSimple tiered volume for each of the incremental daily backups.
 
 | Backup type retention | Size TiB | GFS multiplier\*                                       | Total capacity TiB          |
 |-----------------------|----------|--------------------------------------------------------|-----------------------------|
@@ -321,19 +321,19 @@ Based on the preceeding assumptions, create a 26 TiB StorSimple tiered volume fo
 
 ## Configuring Veeam storage
 
-1.  Go to **Backup Infrastucture** settings. Select **Backup Repositories**, then right-click and select **Add Backup Repository**.
+1.  Go to **Backup Infrastructure** settings. Select **Backup Repositories**, then right-click and select **Add Backup Repository**.
 
     ![Veeam management console, backup repository screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage1.png)
 
 1.  Provide a **Name** and **Description** for the repository. Click **Next >**.
 
-    ![Veeam management console, Name and description screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
+    ![Veeam management console, name, and description screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage2.png)
 
 1.  Select backup repository as **Microsoft Windows Server**. Choose the Veeam Server. Click **Next >**.
 
-    ![Veeam management console, select type of backup respository](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
+    ![Veeam management console, select type of backup repository](./media/storsimple-configure-backup-target-using-veeam/veeamimage3.png)
 
-1.  To specify **Location**, browse and select the required volume. Set the **Limit maximum concurrent tasks to:** to 4. This will ensure only 4 virtual disks are being processed concurrently as each VM is processed.
+1.  To specify **Location**, browse and select the required volume. Set the **Limit maximum concurrent tasks to:** to 4. This ensures that only 4 virtual disks are being processed concurrently as each VM is processed.
 Click **Advanced**.
 
     ![Veeam management console, select volume](./media/storsimple-configure-backup-target-using-veeam/veeamimage4.png)
@@ -345,7 +345,7 @@ Click **Advanced**.
 
 1.  Enable **vPower NFS service on the mount server (recommended)**.
 
-    ![Veeam management console, backup respository screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
+    ![Veeam management console, backup repository screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage6.png)
 
 1.  Review the settings and proceed to the next page.
 
@@ -355,10 +355,10 @@ Click **Advanced**.
 
 ## StorSimple as a primary backup target
 
-> [!NOTE]
-> Be aware that if you need to restore data from a backup that has been tiered to the cloud, the restore occurs at cloud speeds.
+> [!IMPORTANT]
+> If you need to restore data from a backup that has been tiered to the cloud, the restore occurs at cloud speeds.
 
-In the following figure, we illustrate mapping of a typical volume to a backup job. In this case, all the weekly backups map to Saturday full disk, and the incremental backups map to Monday-Friday incremental disks. All the backups and restores will happen from a StorSimple tiered volume.
+In the following figure, we illustrate mapping of a typical volume to a backup job. In this case, all the weekly backups map to Saturday full disk, and the incremental backups map to Monday-Friday incremental disks. All the backups and restores happen from a StorSimple tiered volume.
 
 ![Primary backup target configuration logical diagram ](./media/storsimple-configure-backup-target-using-veeam/primarybackuptargetdiagram.png)
 
@@ -375,7 +375,7 @@ In the following figure, we illustrate mapping of a typical volume to a backup j
 ### Assigning StorSimple volumes to a Veeam backup job
 
 1.  Create a daily job with primary Veeam StorSimple in case of primary backup target scenario or DAS/NAS/JBOD in case of secondary backup target scenario as backup target. Go to **Backup 
-&#38; Replication &gt; Backup**. Right-click and then select VMware or Hyper-V as per your environemnt.
+&#38; Replication &gt; Backup**. Right-click and then select VMware or Hyper-V as per your environment.
 
     ![Veeam management console, new backup job](./media/storsimple-configure-backup-target-using-veeam/veeamimage8.png)
 
@@ -383,7 +383,7 @@ In the following figure, we illustrate mapping of a typical volume to a backup j
 
     ![Veeam management console, new backup job screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage9.png)
 
-1.  Select a virtual machine to backup to.
+1.  Select a virtual machine to back up to.
 
     ![Veeam management console, new backup job screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage10.png)
 
@@ -467,7 +467,7 @@ In the following figure, we illustrate typical short-term retention local (to th
 
     ![Veeam management console, new backup copy job screen](./media/storsimple-configure-backup-target-using-veeam/veeamimage19.png)
 
-1.  Specify advanced settings as following:
+1.  Specify the following advanced settings:
 
     -   On **Maintenance** tab, disable storage level corruption guard.
 
@@ -491,12 +491,12 @@ StorSimple cloud snapshots protect the data that resides in StorSimple device. T
 The following section illustrates how to create a short script to trigger and delete StorSimple cloud snapshots during the backup post-processing. 
 
 > [!NOTE] 
-> Snapshots that are manually or programmatically created do not follow the StorSimple snapshot expiration policy. These must be manually or programmatically deleted.
+> Snapshots that are manually or programmatically created do not follow the StorSimple snapshot expiration policy. These snapshots must be manually or programmatically deleted.
 
 ### Start and delete cloud snapshots with a script
 
 > [!NOTE] 
-> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information on how to run a post-backup script, refer to Veeam documentation.
+> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information on how to run a post-backup script, see Veeam documentation.
 
 #### Backup lifecycle
 
@@ -527,7 +527,7 @@ The following section illustrates how to create a short script to trigger and de
 
     Make a note of the Backup Policy ID.
 
-5.  In Notepad, create a new Windows PowerShell Script and save it in the same location where you saved the Azure publish settings. For example, `C:\\CloudSnapshot\\StorSimpleCloudSnapshot.ps1`.
+5.  In Notepad, create a Windows PowerShell Script and save it in the same location where you saved the Azure publish settings. For example, `C:\\CloudSnapshot\\StorSimpleCloudSnapshot.ps1`.
 
     Copy and paste the following code snippet:
 
@@ -567,7 +567,7 @@ The following section illustrates how to create a short script to trigger and de
 
 ![Veeam backup advanced settings scripts tab](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
 
-It is recommended that you run your StorSimple cloud snapshot backup policy at the end of your daily backup’s job as a post-processing script. For more information on how to backup and restore your backup application environment to meet your RPO/RTO, please consult with your backup architect.
+It is recommended that you run your StorSimple cloud snapshot backup policy at the end of your daily backup’s job as a post-processing script. For more information on how to back up and restore your backup application environment to meet your RPO/RTO, consult with your backup architect.
 
 StorSimple as a restore source
 ==============================
@@ -599,8 +599,8 @@ A disaster could occur due to various factors. The following table lists common 
 | Scenario                                                                    | Impact                                             | How to recover                                                                                                                                                                               | Notes                                                                                                                                                                                                                                                                                                                                                                                                                                    |
 |-----------------------------------------------------------------------------|----------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | StorSimple device failure.                                               | Backup and restore operations are interrupted. | Replace the failed device and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery.md) | If a restore is performed immediately after the device recovery, the full working sets are being retrieved from the cloud to the new device. As a result, all operations are at cloud speeds. Additionally, the index and catalog rescanning could cause all the backup sets to be scanned and pulled from cloud tier to the local tier of the device. This makes it further time-intensive.                                 |
-| Veeam Server failure.                                                     | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [Veeam Help Center (Technical Documentation)](https://www.veeam.com/documentation-guides-datasheets.html)     | The Veeam server will need to be rebuilt or restored in DR site. The database needs to be restored to the most recent point. If the restored Veeam database is not in sync with your latest backup jobs, indexing and cataloging will be required. This index and catalog rescanning could cause all backup sets to be scanned and pulled from cloud tier to local device tier. This makes it further time-intensive. |
-| Site failure that results in the loss of both Backup server and StorSimple. | Backup and restore operations are interrupted. | Restore StorSimple first and then Veeam                                                                                                                                                  | Restore StorSimple first and then Veeam. If there is a need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. As a result, all operations are at cloud speed rate.                                                                                                                                                                            |
+| Veeam Server failure.                                                     | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [Veeam Help Center (Technical Documentation)](https://www.veeam.com/documentation-guides-datasheets.html)     | The Veeam server needs to be rebuilt or restored in DR site. Restore the database to the most recent point. If the restored Veeam database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning could cause all backup sets to be scanned and pulled from cloud tier to local device tier. This makes it further time-intensive. |
+| Site failure that results in the loss of both Backup server and StorSimple. | Backup and restore operations are interrupted. | Restore StorSimple first and then Veeam.                                                                                                                                                  | Restore StorSimple first and then Veeam. If there is a need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. As a result, all operations are at cloud speed rate.                                                                                                                                                                            |
 
 
 ## References
