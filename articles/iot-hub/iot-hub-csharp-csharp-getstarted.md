@@ -1,6 +1,6 @@
 ---
-title: Azure IoT Hub for C# getting started | Microsoft Docs
-description: Azure IoT Hub with C# getting started tutorial. Use Azure IoT Hub and C# with the Azure IoT SDKs to implement an Internet of Things solution.
+title: Get started with Azure IoT Hub (.NET) | Microsoft Docs
+description: How to send device-to-cloud messages from a device to an Azure IoT hub using the Azure IoT SDKs for .NET. You create a simulated device app to send messages, a service app to register your device in the identity registry, and a service app to read the device-to-cloud messages from the IoT hub.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -17,7 +17,7 @@ ms.date: 09/12/2016
 ms.author: dobett
 
 ---
-# Get started with Azure IoT Hub for .NET
+# Get started with Azure IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 At the end of this tutorial, you have three .NET console apps:

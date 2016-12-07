@@ -1,6 +1,6 @@
 ---
-title: Process IoT Hub device-to-cloud messages (.Net) | Microsoft Docs
-description: Follow this tutorial to learn useful patterns to process IoT Hub device-to-cloud messages.
+title: Process Azure IoT Hub device-to-cloud messages (.NET) | Microsoft Docs
+description: How to process IoT Hub device-to-cloud messages by reading from the Event hubs-compatible endpoint on an IoT hub. You create a .NET service app that uses an EventProcessorHost instance.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -17,7 +17,7 @@ ms.date: 10/05/2016
 ms.author: dobett
 
 ---
-# Tutorial: How to process IoT Hub device-to-cloud messages using .Net
+# Process IoT Hub device-to-cloud messages (.NET)
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## Introduction

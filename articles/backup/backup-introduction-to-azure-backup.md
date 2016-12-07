@@ -1,11 +1,11 @@
 ---
 title: What is Azure Backup? | Microsoft Docs
-description: By using Azure Backup and Recovery Services, you can back up and restore data and applications from Windows Servers, Windows client machines, System Center DPM servers and Azure virtual machines.
+description: Using Azure Backup and Recovery Services, you can back up and restore data and applications from Windows Servers, Windows client machines, System Center DPM servers and Azure virtual machines.
 services: backup
 documentationcenter: ''
 author: markgalioto
 manager: cfreeman
-editor: tysonn
+editor:
 keywords: backup and restore; recovery services; backup solutions
 
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
+ms.date: 12/6/2016
 ms.author: jimpark; trinadhk
 
 ---
@@ -92,7 +92,7 @@ The following table shows the Azure Backup components that have support for Linu
 Azure Backup protects Premium Storage VMs. Azure Premium Storage is solid-state drive (SSD)-based storage designed to support I/O-intensive workloads. Premium Storage is attractive for virtual machine (VM) workloads. For more information about Premium Storage, see the article, [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md)
 
 ### Back up Premium Storage VMs
-While backing up Premium Storage VMs, the Backup service creates a temporary staging location in the Premium Storage account. The staging location, named "AzureBackup-", is equal to the total data size of the premium disks attached to the VM.
+While backing up Premium Storage VMs, the Backup service creates a temporary staging location in the Premium Storage account. The staging location, named "AzureBackup-", is equal to the total data size of the premium disks attached to the VM. Check if there is enough free space for a temporary staging location on the storage account. For additional information, see the article, [premium storage limitations](../storage/storage-premium-storage.md#premium-storage-scalability-and-performance-targets).
 
 > [!NOTE]
 > Do not modify or edit the staging location.
@@ -172,13 +172,16 @@ If you are backing up your data to a System Center DPM or Azure Backup Server, c
 The Azure Backup agent offers network throttling, which allows you to control how network bandwidth is used during data transfer. Throttling can be helpful if you need to back up data during work hours but do not want the backup process to interfere with other internet traffic. Throttling for data transfer applies to back up and restore activities.
 
 ### Backup and retention
+
+Azure Backup has a limit of 9999 recovery points, also known as backup copies or snapshots, per Backup vault. The following table shows the maximum backup frequency (to vault) for each component. Your backup policy configuration determines how quickly you consume the recovery points. For example, if you create a recovery point each day, then you can retain recovery points for 27 years before you run out. If you take a monthly recovery point, then you can retain recovery points for 833 years before you run out. The Backup service does not set an expiration time limit on a recovery point.
+
 |  | Azure Backup agent | System Center DPM | Azure Backup Server | Azure IaaS VM Backup |
 | --- | --- | --- | --- | --- |
 | Backup frequency<br/> (to Backup vault) |Three backups per day |Two backups per day |Two backups per day |One backup per day |
 | Backup frequency<br/> (to disk) |Not applicable |<li>Every 15 minutes for SQL Server <li>Every hour for other workloads |<li>Every 15 minutes for SQL Server <li>Every hour for other workloads</p> |Not applicable |
 | Retention options |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |
-| Retention period |Up to 99 years |Up to 99 years |Up to 99 years |Up to 99 years |
-| Recovery points in Backup vault |Unlimited |Unlimited |Unlimited |Unlimited |
+| Maximum recovery points per server |9999|9999|9999|9999|
+| Maximum retention period |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency |
 | Recovery points on local disk |Not applicable |<li>64 for File Servers,<li>448 for Application Servers |<li>64 for File Servers,<li>448 for Application Servers |Not applicable |
 | Recovery points on tape |Not applicable |Unlimited |Not applicable |Not applicable |
 

@@ -1,6 +1,6 @@
 ---
-title: IoT Hub - IP Filter | Microsoft Docs
-description: This tutorial show you to blacklist or whitelist certain IP addresses for Azure IoT Hub.
+title: Azure IoT Hub IP filters | Microsoft Docs
+description: How to use IP filtering to block connections from specific IP addresses for to your Azure IoT hub. You can block connections from individual or ranges of IP addresses.
 services: iot-hub
 documentationcenter: ''
 author: BeatriceOltean
@@ -18,7 +18,7 @@ ms.author: boltean
 
 ---
 
-# IP Filter
+# Use IP filters
 
 Security is an important aspect of any IoT solution based on Azure IoT Hub. Sometimes you need to blacklist or whitelist certain IP addresses as part of your security configuration. The _IP filter_ feature enables you to configure rules for rejecting or accepting traffic from specific IPv4 addresses.
 

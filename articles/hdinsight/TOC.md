@@ -181,12 +181,12 @@
 #### [Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Reference
-## [PowerShell cmdlets](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
-## [.NET SDK for Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
-## [.NET SDK for HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
-## [.NET library for Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-## [REST API reference](/rest/api/hdinsight/)
-## [Spark REST API for remote jobs](/rest/api/hdinsightspark/)
+## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
+## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST](/rest/api/hdinsight/)
+## [REST (Spark)](/rest/api/hdinsightspark/)
 
 # Related
 ## Windows clusters

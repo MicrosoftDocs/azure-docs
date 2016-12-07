@@ -1,6 +1,6 @@
 ---
-title: How to do a firmware update | Microsoft Docs
-description: This tutorial shows you how to do a firmware update
+title: Device firmware update with Azure IoT Hub (Node) | Microsoft Docs
+description: How to use device management on Azure IoT Hub to initiate a device firmware update. You use the Azure IoT SDKs for Node.js to implement a simulated device app and a service app that triggers the firmware update.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: juanpere
 
 ---
-# Tutorial: How to do a firmware update
+# Use device management to initiate a device firmware update (Node)
 ## Introduction
 In the [Get started with device management][lnk-dm-getstarted] tutorial, you saw how to use the [device twin][lnk-devtwin] and [direct methods][lnk-c2dmethod] primitives to remotely reboot a device. This tutorial uses the same IoT Hub primitives and provides guidance and shows you how to do an end-to-end simulated firmware update.  This pattern is used in the firmware update implementation for the Intel Edison device sample.
 

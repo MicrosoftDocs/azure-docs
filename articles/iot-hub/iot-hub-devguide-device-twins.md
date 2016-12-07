@@ -1,6 +1,6 @@
 ---
-title: Developer guide - Understand device twins | Microsoft Docs
-description: Azure IoT Hub developer guide - use device twins to synchronize state and configuration data between IoT Hub and your devices
+title: Understand Azure IoT Hub device twins | Microsoft Docs
+description: Developer guide - use device twins to synchronize state and configuration data between IoT Hub and your devices
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: elioda
 
 ---
-# Understand device twins
+# Device twins
 ## Overview
 *Device twins* are JSON documents that store device state information (metadata, configurations, and conditions). IoT Hub persists a device twin for each device that you connect to IoT Hub. This article will describe:
 

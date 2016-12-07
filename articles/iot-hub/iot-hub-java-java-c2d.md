@@ -1,6 +1,6 @@
 ---
-title: Send cloud-to-device messages with IoT Hub | Microsoft Docs
-description: Follow this tutorial to learn how to send cloud-to-device messages using Azure IoT Hub with Java.
+title: Cloud-to-device messages with Azure IoT Hub (Java) | Microsoft Docs
+description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for Java. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -17,7 +17,7 @@ ms.date: 11/23/2016
 ms.author: dobett
 
 ---
-# Tutorial: How to send cloud-to-device messages with IoT Hub and Java
+# Send cloud-to-device messages with IoT Hub (Java)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## Introduction

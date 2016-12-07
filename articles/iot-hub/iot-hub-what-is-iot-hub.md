@@ -1,6 +1,6 @@
 ---
 title: Azure IoT Hub overview | Microsoft Docs
-description: 'Overview of Azure IoT Hub service: what is iot hub, device connectivity, internet of things communication patterns, and service-assisted communication pattern'
+description: 'Overview of the Azure IoT Hub service: what is IoT Hub, device connectivity, internet of things communication patterns, gateways, and the service-assisted communication pattern'
 services: iot-hub
 documentationcenter: ''
 author: dominicbetts

@@ -74,7 +74,7 @@ Customers and partners require the ability to accurately predict and manage thei
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Billing REST API Reference</p>
+                        <p>REST API</p>
                     </div>
                 </div>
             </div>

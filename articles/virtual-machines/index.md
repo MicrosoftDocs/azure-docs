@@ -71,7 +71,7 @@ An Azure virtual machine gives you the flexibility of virtualization without hav
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Virtual Machine REST API Reference</p>
+                        <p>Virtual Machine REST API</p>
                     </div>
                 </div>
             </div>

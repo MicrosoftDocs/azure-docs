@@ -4,7 +4,7 @@ description: A printable machine learning algorithm cheat sheet helps you choose
 keywords: algorithm cheat sheet,cheat sheet,machine learning algorithm
 services: machine-learning
 documentationcenter: ''
-author: brohrer
+author: garyericson
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2016
-ms.author: brohrer;garye
+ms.author: garye
 
 ---
 # Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio

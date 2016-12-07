@@ -1,6 +1,6 @@
 ---
-title: IoT Hub metrics
-description: An overview of Azure IoT Hub metrics, enabling you to assess the overall health of their resource
+title: Azure IoT Hub metrics | Microsoft Docs
+description: How to use Azure IoT Hub metrics to assess and monitor the overall health of your IoT hubs.
 services: iot-hub
 documentationcenter: ''
 author: nberdy
@@ -17,8 +17,8 @@ ms.date: 11/16/2016
 ms.author: nberdy
 
 ---
-# Introduction to IoT Hub metrics
-IoT Hub metrics give you better data about the state of the Azure resources in your Azure subscription. IoT Hub metrics enable you to assess the overall health of the service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
+# IoT Hub metrics
+IoT Hub metrics give you better data about the state of the Azure IoT resources in your Azure subscription. IoT Hub metrics enable you to assess the overall health of the IoT Hub service and the devices connected to it. User-facing statistics are important because they help you see what is going on with your IoT hub and help root-cause issues without needing to contact Azure support.
 
 You can enable IoT Hub metrics from the Azure portal.
 
