@@ -561,7 +561,9 @@ You can import a data file and use it just like any of the standard tables (requ
     | summarize count() by realName
 ```
 
-To import a table, open **Settings**, **Data sources** and follow the instructions to add a source. Use this definition to upload tables.
+To import a table, in the Schema blade, under **Other Data Sources**, follow the instructions to add a new data source, by uploading a sample of your data. Then you can use this definition to upload tables. 
+
+The import feature is currently in preview, so you will initially see a "Contact us" link under "Other data sources." Use this to sign up to the preview program, and the link will then be replaced by an "Add new data source" button. 
 
 
 ## Tables
