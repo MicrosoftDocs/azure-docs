@@ -1,5 +1,5 @@
 ---
-title: Azure Service Fabric Support Statement | Microsoft Docs
+title: Azure Service Fabric Support options | Microsoft Docs
 description: Azure Service Fabric cluster versions supported and links to file support tickets.
 services: service-fabric
 documentationcenter: .net
