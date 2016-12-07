@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: db541e94-abc8-4578-bae0-9b8c8ad0170e
 ms.service: sql-database
+ms.custom: V11; elastic database pool
 ms.devlang: NA
 ms.date: 09/28/2016
 ms.author: sstein

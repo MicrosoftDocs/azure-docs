@@ -10,7 +10,7 @@ editor: cgronlun
 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
-ms.custom: elastic
+ms.custom: sharded databases pool
 ms.devlang: NA
 ms.date: 11/15/2016
 ms.author: CarlRabeler
