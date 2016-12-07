@@ -34,7 +34,7 @@ Select a connector to learn how to build workflows quickly.
 |![API Icon][Google-Tasksicon]<br/>**Google Tasks**|![API Icon][HideKeyicon]<br/>**HideKey**|![API Icon][HipChaticon]<br/>**HipChat**|[![API Icon][HTTPicon]<br/>**HTTP**][HTTPdoc]|
 |[![API Icon][HTTP-Swaggericon]<br/>**HTTP Swagger**][http-swaggerdoc]|[![API Icon][HTTP~Requesticon]<br/>**HTTP<br/>Request**][HTTP~Requestdoc]|[![API Icon][HTTP~Responseicon]<br/>**HTTP<br/>Response**][HTTP~Responsedoc]|[![API Icon][Informixicon]<br/>**Informix**][Informixdoc]|
 |![API Icon][Insightlyicon]<br/>**Insightly**|![API Icon][Instagramicon]<br/>**Instagram**|![API Icon][Instapapericon]<br/>**Instapaper**|![API Icon][JIRAicon]<br/>**JIRA**|
-|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API Icon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]|![API Icon][MQicon]<br/>**MQ**|
+|[![API Icon][MailChimpicon]<br/>**MailChimp**][MailChimpdoc]|![API Icon][Mandrillicon]<br/>**Mandrill**|[![API Icon][Microsoft-Translatoricon]<br/>**Microsoft<br/>Translator**][Microsoft-Translatordoc]||
 |[![API Icon][Nested~Logic-Appicon]<br/>**Nested<br/>Logic App**][Nested~Logic-Appdoc]|[![API Icon][Office-365~Outlookicon]<br/>**Office 365<br/>Outlook**][office365-outlookdoc]|[![API Icon][Office-365~Usersicon]][office365-usersdoc]<br/>**Office 365<br/>Users**|[![API Icon][Office-365~Videoicon]<br/>**Office 365<br/>Video**][office365-videodoc]|
 |[![API Icon][OneDriveicon]<br/>**OneDrive**][OneDrivedoc]|[![API Icon][OneDrive-for~Businessicon]<br/>**OneDrive for<br/>Business**][OneDrive-for~Businessdoc]|[![API Icon][Outlook.comicon]<br/>**Outlook.com**][Outlook.comdoc]|![API Icon][PagerDutyicon]<br/>**PagerDuty**|
 |![API Icon][Pinteresticon]<br/>**Pinterest**|[![API Icon][Project-Onlineicon]<br/>**Project Online**][Project-Onlinedoc]|[![API Icon][Queryicon]<br/>**Query**][Querydoc]|[![API Icon][Recurrenceicon]<br/>**Recurrence**][Recurrencedoc]|
@@ -45,19 +45,27 @@ Select a connector to learn how to build workflows quickly.
 |![API Icon][Vimeoicon]<br/>**Vimeo**|![API Icon][Visual-Studio~Team-Servicesicon]<br/>**Visual Studio<br/>Team Services**|[![API Icon][Webhookicon]<br/>**Webhook**][Webhookdoc]|![API Icon][WordPressicon]<br/>**WordPress**|
 |[![API Icon][Wunderlisticon]<br/>**Wunderlist**][Wunderlistdoc]|[![API Icon][Yammericon]<br/>**Yammer**][Yammerdoc]|![API Icon][YouTubeicon]<br/>**YouTube**|[![API Icon][FileSystemIcon]<br/>**File System**][FileSystemdoc]
 
-> [!NOTE]
-> If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
-> 
-> 
-
-## Enterprise Integration Pack (EIP) connectors
-Use the EIP connectors to create Logic apps for B2B scenarios that include EAI and EDI.  
+### Integration account connectors 
 
 | EIP connectors |  |  |  |
 | --- | --- | --- | --- |
 | [![API Icon][xmlvalidateicon]<br/>**XML <br/>validation**][xmlvalidatedoc] |[![API Icon][xmltransformicon]<br/>**XML<br/> transform**][xmltransformdoc] |[![API Icon][flatfileicon]<br/>**Flat file</br>encode**][flatfiledoc] |[![API Icon][flatfiledecodeicon]<br/>**Flat file</br>decode**][flatfiledecodedoc] |
 | [![API Icon][as2icon]<br/>**AS2</br>decode**][as2decode] |[![API Icon][as2icon]<br/>**AS2</br>encode**][as2encode] |[![API Icon][x12icon]<br/>**X12</br>decode**][x12decode] |[![API Icon][x12icon]<br/>**X12</br>encode**][x12encode] |
 | [![API Icon][x12icon]<br/>**EDIFACT</br>decode**][EDIFACTdecode] |[![API Icon][x12icon]<br/>**EDIFACT</br>encode**][EDIFACTencode] | | |
+
+> [!NOTE]
+> If you want to get started with Azure Logic Apps before signing up for an Azure account, go to [Try Logic App](https://tryappservice.azure.com/?appservice=logic). You can immediately create a short-lived starter Logic app in App Service. No credit cards required; no commitments.
+> 
+> 
+
+## Enterprise connectors
+Use the enterprise connectors to create Logic apps for B2B scenarios that include EAI and EDI.  
+
+| Enterprise connectors |  |
+| --- | --- |
+|![API Icon][MQicon]<br/>**MQ**|![API Icon][SAPicon]<br/>**SAP**|
+
+
 
 <!-- TODO: Add Functions, App Service, and Nested Workflow Icons -->
 ### Connectors can be triggers
@@ -192,6 +200,7 @@ Connectors can also be used as actions within your apps. Actions are useful for 
 [RSSicon]: ./media/apis-list/rss.png
 [Common-Data~Serviceicon]: ./media/apis-list/runtimeservice.png
 [Salesforceicon]: ./media/apis-list/salesforce.png
+[SAPicon]: ./media/apis-list/sap.png
 [SendGridicon]: ./media/apis-list/sendgrid.png
 [Service-Busicon]: ./media/apis-list/servicebus.png
 [SFTPicon]: ./media/apis-list/sftp.png
