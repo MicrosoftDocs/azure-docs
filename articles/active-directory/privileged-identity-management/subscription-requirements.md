@@ -13,18 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 12/07/2016
 ms.author: barclayn
 
 ---
 
 # Azure Active Directory Privileged Identity Management subscription requirements
 
-  
+Azure AD Privileged Identity Management is available as part of the Premium P2 edition of Azure AD. For more information on the other features of P2 and how it compares to Premium P1, see [Azure Active Directory editions](../active-directory-editions.md).
 
+>[!NOTE]
 When Azure Active Directory (Azure AD) Privileged Identity Management was in preview, there were no license checks for a tenant to try the service.  Now that Azure AD Privileged Identity Management has reached general availability, a trial or paid subscription must be present for the tenant to continue using Privileged Identity Management after December 2016.
   
-Azure AD Privileged Identity Management is available as part of the Premium P2 edition of Azure AD. For more information on the other features of P2 and how it compares to Premium P1, see [Azure Active Directory editions](../active-directory-editions.md).
 
 ## Confirm your trial or paid subscription
 
@@ -46,7 +46,7 @@ Azure AD Privileged Identity Management will no longer be available in your tena
 - Your organization had an Azure AD Premium P2 or EMS E5 trial that expired.
 - Your organization had a purchased subscription that expired.
 
-When an Azure AD Premium P2 subscription or EMS E5 subscription expires, or an organization that was using Azure AD Privileged Identity Management does not obtain Azure AD Premium P2 or EMS E5 subscription:
+When an Azure AD Premium P2 subscription or EMS E5 subscription expires, or an organization that was using Azure AD Privileged Identity Management in preview does not obtain Azure AD Premium P2 or EMS E5 subscription:
 
 - Permanent role assignments to Azure AD roles will be unaffected.
 - The Azure AD Privileged Identity Management extension in the Azure portal, as well as the Graph API cmdlets and PowerShell interfaces of Azure AD Privileged Identity Management, will no longer be available for users to activate privileged roles, manage privileged access, or perform access reviews of privileged roles.
