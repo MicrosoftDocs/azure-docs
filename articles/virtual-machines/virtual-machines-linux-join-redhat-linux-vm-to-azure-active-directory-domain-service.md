@@ -48,7 +48,7 @@ azure vm image list | grep "Red Hat"
 
 ```azurecli
 azure vm create myVM \
--o a879bbefc56a43abb0ce65052aac09f3__RHEL_7_3_Standard_Azure_RHUI-20161104230023 \
+-o a879bbefc56a43abb0ce65052aac09f3__RHEL_7_2_Standard_Azure_RHUI-20161026220742 \
 -g ahmet \
 -p myPassword \
 -e 22 \
