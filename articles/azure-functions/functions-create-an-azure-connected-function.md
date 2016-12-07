@@ -185,7 +185,17 @@ Now that you have messages being added to the queue, you can create another func
 	If the table does not exist or is empty, there is most likely a problem with your function binding or code.
    
  
-[!INCLUDE [Getting Started Note](../../includes/functions-bindings-next-steps.md)]
+[!INCLUDE [Next steps](../../includes/functions-bindings-next-steps.md)]
 
-[!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
+## Next steps
+See these topics for more information about Azure Functions.
+
+* [Azure Functions developer reference](functions-reference.md)  
+  Programmer reference for coding functions and defining triggers and bindings.
+* [Testing Azure Functions](functions-test-a-function.md)  
+  Describes various tools and techniques for testing your functions.
+* [How to scale Azure Functions](functions-scale.md)  
+  Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan. 
+
+[!INCLUDE [Getting help note](../../includes/functions-get-help.md)]
 
