@@ -57,8 +57,7 @@ Create an Azure Active Directory application, create a service principal for the
 
    > [!IMPORTANT]
    > Note down **SubscriptionId** and **TenantId** from the output of this command.
-   >
-   >
+
 5. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.
 
         New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
@@ -109,48 +108,56 @@ You should have following four values from these steps:
 
     Replace values for **&lt;Application ID&gt;**, **&lt;Password&gt;**, **&lt;Subscription ID&gt;**, and **&lt;tenant ID&gt;** with your own values.
 
-        <?xml version="1.0" encoding="utf-8" ?>
-        <configuration>
-            <startup>
-                <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
-            </startup>
-            <appSettings>
-                <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
-                <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
-                <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
+    ```xml
+    <?xml version="1.0" encoding="utf-8" ?>
+    <configuration>
+        <startup>
+            <supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.5.2" />
+        </startup>
+        <appSettings>
+            <add key="ActiveDirectoryEndpoint" value="https://login.windows.net/" />
+            <add key="ResourceManagerEndpoint" value="https://management.azure.com/" />
+            <add key="WindowsManagementUri" value="https://management.core.windows.net/" />
 
-                <add key="ApplicationId" value="your application ID" />
-                <add key="Password" value="Password you used while creating the AAD application" />
-                <add key="SubscriptionId" value= "Subscription ID" />
-                <add key="ActiveDirectoryTenantId" value="Tenant ID" />
-            </appSettings>
-        </configuration>
+            <add key="ApplicationId" value="your application ID" />
+            <add key="Password" value="Password you used while creating the AAD application" />
+            <add key="SubscriptionId" value= "Subscription ID" />
+            <add key="ActiveDirectoryTenantId" value="Tenant ID" />
+        </appSettings>
+    </configuration>
+    ```
+
 5. Add the following **using** statements to the source file (Program.cs) in the project.
 
-        using System.Threading;
-        using System.Configuration;
-        using System.Collections.ObjectModel;
+    ```csharp
+    using System.Threading;
+    using System.Configuration;
+    using System.Collections.ObjectModel;
 
-        using Microsoft.Azure.Management.DataFactories;
-        using Microsoft.Azure.Management.DataFactories.Models;
-        using Microsoft.Azure.Management.DataFactories.Common.Models;
+    using Microsoft.Azure.Management.DataFactories;
+    using Microsoft.Azure.Management.DataFactories.Models;
+    using Microsoft.Azure.Management.DataFactories.Common.Models;
 
-        using Microsoft.IdentityModel.Clients.ActiveDirectory;
-        using Microsoft.Azure;
+    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Microsoft.Azure;
+    ```
+
 6. Add the following code that creates an instance of **DataPipelineManagementClient** class to the **Main** method. You use this object to create a data factory, a linked service, input and output datasets, and a pipeline. You also use this object to monitor slices of a dataset at runtime.
 
-            // create data factory management client
-            string resourceGroupName = "ADFTutorialResourceGroup";
-            string dataFactoryName = "APITutorialFactory";
+    ```csharp
+    // create data factory management client
+    string resourceGroupName = "ADFTutorialResourceGroup";
+    string dataFactoryName = "APITutorialFactory";
 
-            TokenCloudCredentials aadTokenCredentials =
-                new TokenCloudCredentials(
-                    ConfigurationManager.AppSettings["SubscriptionId"],
-                    GetAuthorizationHeader());
+    TokenCloudCredentials aadTokenCredentials =
+        new TokenCloudCredentials(
+            ConfigurationManager.AppSettings["SubscriptionId"],
+            GetAuthorizationHeader());
 
-            Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
+    Uri resourceManagerUri = new Uri(ConfigurationManager.AppSettings["ResourceManagerEndpoint"]);
 
-            DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+    DataFactoryManagementClient client = new DataFactoryManagementClient(aadTokenCredentials, resourceManagerUri);
+    ```
 
    > [!IMPORTANT]
    > Replace the value of **resourceGroupName** with the name of your Azure resource group.
@@ -159,286 +166,307 @@ You should have following four values from these steps:
 
 7. Add the following code that creates a **data factory** to the **Main** method.
 
-            // create a data factory
-            Console.WriteLine("Creating a data factory");
-            client.DataFactories.CreateOrUpdate(resourceGroupName,
-                new DataFactoryCreateOrUpdateParameters()
-                {
-                    DataFactory = new DataFactory()
-                    {
-                        Name = dataFactoryName,
-                        Location = "westus",
-                        Properties = new DataFactoryProperties() { }
-                    }
-                }
-            );
+    ```csharp
+    // create a data factory
+    Console.WriteLine("Creating a data factory");
+    client.DataFactories.CreateOrUpdate(resourceGroupName,
+        new DataFactoryCreateOrUpdateParameters()
+        {
+            DataFactory = new DataFactory()
+            {
+                Name = dataFactoryName,
+                Location = "westus",
+                Properties = new DataFactoryProperties() { }
+            }
+        }
+    );
+    ```
+
 8. Add the following code that creates an **Azure Storage linked service** to the **Main** method.
 
    > [!IMPORTANT]
    > Replace **storageaccountname** and **accountkey** with name and key of your Azure Storage account.
 
-            // create a linked service for input data store: Azure Storage
-            Console.WriteLine("Creating Azure Storage linked service");
-            client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
-                new LinkedServiceCreateOrUpdateParameters()
-                {
-                    LinkedService = new LinkedService()
-                    {
-                        Name = "AzureStorageLinkedService",
-                        Properties = new LinkedServiceProperties
-                        (
-                            new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<accountkey>")
-                        )
-                    }
-                }
-            );
+    ```csharp
+    // create a linked service for input data store: Azure Storage
+    Console.WriteLine("Creating Azure Storage linked service");
+    client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
+        new LinkedServiceCreateOrUpdateParameters()
+        {
+            LinkedService = new LinkedService()
+            {
+                Name = "AzureStorageLinkedService",
+                Properties = new LinkedServiceProperties
+                (
+                    new AzureStorageLinkedService("DefaultEndpointsProtocol=https;AccountName=<storageaccountname>;AccountKey=<accountkey>")
+                )
+            }
+        }
+    );
+    ```
+
 9. Add the following code that creates an **Azure SQL linked service** to the **Main** method.
 
    > [!IMPORTANT]
    > Replace **servername**, **databasename**, **username**, and **password** with names of your Azure SQL server, database, user, and password.
-   >
-   >
 
-            // create a linked service for output data store: Azure SQL Database
-            Console.WriteLine("Creating Azure SQL Database linked service");
-            client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
-                new LinkedServiceCreateOrUpdateParameters()
-                {
-                    LinkedService = new LinkedService()
-                    {
-                        Name = "AzureSqlLinkedService",
-                        Properties = new LinkedServiceProperties
-                        (
-                            new AzureSqlDatabaseLinkedService("Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30")
-                        )
-                    }
-                }
-            );
+    ```csharp
+    // create a linked service for output data store: Azure SQL Database
+    Console.WriteLine("Creating Azure SQL Database linked service");
+    client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
+        new LinkedServiceCreateOrUpdateParameters()
+        {
+            LinkedService = new LinkedService()
+            {
+                Name = "AzureSqlLinkedService",
+                Properties = new LinkedServiceProperties
+                (
+                    new AzureSqlDatabaseLinkedService("Data Source=tcp:<servername>.database.windows.net,1433;Initial Catalog=<databasename>;User ID=<username>;Password=<password>;Integrated Security=False;Encrypt=True;Connect Timeout=30")
+                )
+            }
+        }
+    );
+    ```
+
 10. Add the following code that creates **input and output datasets** to the **Main** method.
 
-            // create input and output datasets
-            Console.WriteLine("Creating input and output datasets");
-            string Dataset_Source = "DatasetBlobSource";
-            string Dataset_Destination = "DatasetAzureSqlDestination";
+    ```csharp
+    // create input and output datasets
+    Console.WriteLine("Creating input and output datasets");
+    string Dataset_Source = "DatasetBlobSource";
+    string Dataset_Destination = "DatasetAzureSqlDestination";
 
-            Console.WriteLine("Creating input dataset of type: Azure Blob");
-            client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+    Console.WriteLine("Creating input dataset of type: Azure Blob");
+    client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
 
-            new DatasetCreateOrUpdateParameters()
+    new DatasetCreateOrUpdateParameters()
+    {
+        Dataset = new Dataset()
+        {
+            Name = Dataset_Source,
+            Properties = new DatasetProperties()
             {
-                Dataset = new Dataset()
+                Structure = new List<DataElement>()
                 {
-                    Name = Dataset_Source,
-                    Properties = new DatasetProperties()
-                    {
-                        Structure = new List<DataElement>()
-                        {
-                            new DataElement() { Name = "FirstName", Type = "String" },
-                            new DataElement() { Name = "LastName", Type = "String" }
-                        },
-                        LinkedServiceName = "AzureStorageLinkedService",
-                        TypeProperties = new AzureBlobDataset()
-                        {
-                            FolderPath = "adftutorial/",
-                            FileName = "emp.txt"
-                        },
-                        External = true,
-                        Availability = new Availability()
-                        {
-                            Frequency = SchedulePeriod.Hour,
-                            Interval = 1,
-                        },
+                    new DataElement() { Name = "FirstName", Type = "String" },
+                    new DataElement() { Name = "LastName", Type = "String" }
+                },
+                LinkedServiceName = "AzureStorageLinkedService",
+                TypeProperties = new AzureBlobDataset()
+                {
+                    FolderPath = "adftutorial/",
+                    FileName = "emp.txt"
+                },
+                External = true,
+                Availability = new Availability()
+                {
+                    Frequency = SchedulePeriod.Hour,
+                    Interval = 1,
+                },
 
-                        Policy = new Policy()
-                        {
-                            Validation = new ValidationPolicy()
-                            {
-                                MinimumRows = 1
-                            }
-                        }
+                Policy = new Policy()
+                {
+                    Validation = new ValidationPolicy()
+                    {
+                        MinimumRows = 1
                     }
                 }
-            });
+            }
+        }
+    });
 
-            Console.WriteLine("Creating output dataset of type: Azure SQL");
-            client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
-                new DatasetCreateOrUpdateParameters()
+    Console.WriteLine("Creating output dataset of type: Azure SQL");
+    client.Datasets.CreateOrUpdate(resourceGroupName, dataFactoryName,
+        new DatasetCreateOrUpdateParameters()
+        {
+            Dataset = new Dataset()
+            {
+                Name = Dataset_Destination,
+                Properties = new DatasetProperties()
                 {
-                    Dataset = new Dataset()
+                    Structure = new List<DataElement>()
                     {
-                        Name = Dataset_Destination,
-                        Properties = new DatasetProperties()
-                        {
-                            Structure = new List<DataElement>()
-                            {
-                                new DataElement() { Name = "FirstName", Type = "String" },
-                                new DataElement() { Name = "LastName", Type = "String" }
-                            },
-                            LinkedServiceName = "AzureSqlLinkedService",
-                            TypeProperties = new AzureSqlTableDataset()
-                            {
-                                TableName = "emp"
-                            },
+                        new DataElement() { Name = "FirstName", Type = "String" },
+                        new DataElement() { Name = "LastName", Type = "String" }
+                    },
+                    LinkedServiceName = "AzureSqlLinkedService",
+                    TypeProperties = new AzureSqlTableDataset()
+                    {
+                        TableName = "emp"
+                    },
 
-                            Availability = new Availability()
-                            {
-                                Frequency = SchedulePeriod.Hour,
-                                Interval = 1,
-                            },
-                        }
-                    }
-                });
+                    Availability = new Availability()
+                    {
+                        Frequency = SchedulePeriod.Hour,
+                        Interval = 1,
+                    },
+                }
+            }
+        });
+    ```
 
 11. Add the following code that **creates and activates a pipeline** to the **Main** method. This pipeline has a **CopyActivity** that takes **BlobSource** as a source and **BlobSink** as a sink.
 
-           // create a pipeline
-           Console.WriteLine("Creating a pipeline");
-           DateTime PipelineActivePeriodStartTime = new DateTime(2016, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
-           DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
-           string PipelineName = "ADFTutorialPipeline";
+    ```csharp
+    // create a pipeline
+    Console.WriteLine("Creating a pipeline");
+    DateTime PipelineActivePeriodStartTime = new DateTime(2016, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
+    DateTime PipelineActivePeriodEndTime = PipelineActivePeriodStartTime.AddMinutes(60);
+    string PipelineName = "ADFTutorialPipeline";
 
-           client.Pipelines.CreateOrUpdate(resourceGroupName, dataFactoryName,
-               new PipelineCreateOrUpdateParameters()
-               {
-                   Pipeline = new Pipeline()
-                   {
-                       Name = PipelineName,
-                       Properties = new PipelineProperties()
-                       {
-                           Description = "Demo Pipeline for data transfer between blobs",
+    client.Pipelines.CreateOrUpdate(resourceGroupName, dataFactoryName,
+        new PipelineCreateOrUpdateParameters()
+        {
+            Pipeline = new Pipeline()
+            {
+                Name = PipelineName,
+                Properties = new PipelineProperties()
+                {
+                    Description = "Demo Pipeline for data transfer between blobs",
 
-                   // Initial value for pipeline's active period. With this, you won't need to set slice status
-                   Start = PipelineActivePeriodStartTime,
-                           End = PipelineActivePeriodEndTime,
+            // Initial value for pipeline's active period. With this, you won't need to set slice status
+            Start = PipelineActivePeriodStartTime,
+                    End = PipelineActivePeriodEndTime,
 
-                           Activities = new List<Activity>()
-                           {
-                               new Activity()
-                               {
-                                   Name = "BlobToAzureSql",
-                                   Inputs = new List<ActivityInput>()
-                                   {
-                                       new ActivityInput() {
-                                           Name = Dataset_Source
-                                       }
-                                   },
-                                   Outputs = new List<ActivityOutput>()
-                                   {
-                                       new ActivityOutput()
-                                       {
-                                           Name = Dataset_Destination
-                                       }
-                                   },
-                                   TypeProperties = new CopyActivity()
-                                   {
-                                       Source = new BlobSource(),
-                                       Sink = new BlobSink()
-                                       {
-                                           WriteBatchSize = 10000,
-                                           WriteBatchTimeout = TimeSpan.FromMinutes(10)
-                                       }
-                                   }
-                               }
-                           },
-                       }
-                   }
-               });
+                    Activities = new List<Activity>()
+                    {
+                        new Activity()
+                        {
+                            Name = "BlobToAzureSql",
+                            Inputs = new List<ActivityInput>()
+                            {
+                                new ActivityInput() {
+                                    Name = Dataset_Source
+                                }
+                            },
+                            Outputs = new List<ActivityOutput>()
+                            {
+                                new ActivityOutput()
+                                {
+                                    Name = Dataset_Destination
+                                }
+                            },
+                            TypeProperties = new CopyActivity()
+                            {
+                                Source = new BlobSource(),
+                                Sink = new BlobSink()
+                                {
+                                    WriteBatchSize = 10000,
+                                    WriteBatchTimeout = TimeSpan.FromMinutes(10)
+                                }
+                            }
+                        }
+                    },
+                }
+            }
+        });
+    ```
+
 12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only slice expected in this sample.
 
-           // Pulling status within a timeout threshold
-           DateTime start = DateTime.Now;
-           bool done = false;
+    ```csharp
+    // Pulling status within a timeout threshold
+    DateTime start = DateTime.Now;
+    bool done = false;
 
-           while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
-           {
-               Console.WriteLine("Pulling the slice status");
-               // wait before the next status check
-               Thread.Sleep(1000 * 12);
+    while (DateTime.Now - start < TimeSpan.FromMinutes(5) && !done)
+    {
+        Console.WriteLine("Pulling the slice status");
+        // wait before the next status check
+        Thread.Sleep(1000 * 12);
 
-               var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
-                   new DataSliceListParameters()
-                   {
-                       DataSliceRangeStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
-                       DataSliceRangeEndTime = PipelineActivePeriodEndTime.ConvertToISO8601DateTimeString()
-                   });
+        var datalistResponse = client.DataSlices.List(resourceGroupName, dataFactoryName, Dataset_Destination,
+            new DataSliceListParameters()
+            {
+                DataSliceRangeStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString(),
+                DataSliceRangeEndTime = PipelineActivePeriodEndTime.ConvertToISO8601DateTimeString()
+            });
 
-               foreach (DataSlice slice in datalistResponse.DataSlices)
-               {
-                   if (slice.State == DataSliceState.Failed || slice.State == DataSliceState.Ready)
-                   {
-                       Console.WriteLine("Slice execution is done with status: {0}", slice.State);
-                       done = true;
-                       break;
-                   }
-                   else
-                   {
-                       Console.WriteLine("Slice status is: {0}", slice.State);
-                   }
-               }
-           }
+        foreach (DataSlice slice in datalistResponse.DataSlices)
+        {
+            if (slice.State == DataSliceState.Failed || slice.State == DataSliceState.Ready)
+            {
+                Console.WriteLine("Slice execution is done with status: {0}", slice.State);
+                done = true;
+                break;
+            }
+            else
+            {
+                Console.WriteLine("Slice status is: {0}", slice.State);
+            }
+        }
+    }
+    ```
+
 13. Add the following code to get run details for a data slice to the **Main** method.
 
-           Console.WriteLine("Getting run details of a data slice");
+    ```csharp
+    Console.WriteLine("Getting run details of a data slice");
 
-           // give it a few minutes for the output slice to be ready
-           Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
-           Console.ReadKey();
+    // give it a few minutes for the output slice to be ready
+    Console.WriteLine("\nGive it a few minutes for the output slice to be ready and press any key.");
+    Console.ReadKey();
 
-           var datasliceRunListResponse = client.DataSliceRuns.List(
-                   resourceGroupName,
-                   dataFactoryName,
-                   Dataset_Destination,
-                   new DataSliceRunListParameters()
-                   {
-                       DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
-                   }
-               );
+    var datasliceRunListResponse = client.DataSliceRuns.List(
+            resourceGroupName,
+            dataFactoryName,
+            Dataset_Destination,
+            new DataSliceRunListParameters()
+            {
+                DataSliceStartTime = PipelineActivePeriodStartTime.ConvertToISO8601DateTimeString()
+            }
+        );
 
-           foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
-           {
-               Console.WriteLine("Status: \t\t{0}", run.Status);
-               Console.WriteLine("DataSliceStart: \t{0}", run.DataSliceStart);
-               Console.WriteLine("DataSliceEnd: \t\t{0}", run.DataSliceEnd);
-               Console.WriteLine("ActivityId: \t\t{0}", run.ActivityName);
-               Console.WriteLine("ProcessingStartTime: \t{0}", run.ProcessingStartTime);
-               Console.WriteLine("ProcessingEndTime: \t{0}", run.ProcessingEndTime);
-               Console.WriteLine("ErrorMessage: \t{0}", run.ErrorMessage);
-           }
+    foreach (DataSliceRun run in datasliceRunListResponse.DataSliceRuns)
+    {
+        Console.WriteLine("Status: \t\t{0}", run.Status);
+        Console.WriteLine("DataSliceStart: \t{0}", run.DataSliceStart);
+        Console.WriteLine("DataSliceEnd: \t\t{0}", run.DataSliceEnd);
+        Console.WriteLine("ActivityId: \t\t{0}", run.ActivityName);
+        Console.WriteLine("ProcessingStartTime: \t{0}", run.ProcessingStartTime);
+        Console.WriteLine("ProcessingEndTime: \t{0}", run.ProcessingEndTime);
+        Console.WriteLine("ErrorMessage: \t{0}", run.ErrorMessage);
+    }
 
-           Console.WriteLine("\nPress any key to exit.");
-           Console.ReadKey();
+    Console.WriteLine("\nPress any key to exit.");
+    Console.ReadKey();
+    ```
+
 14. Add the following helper method used by the **Main** method to the **Program** class.
 
-       public static string GetAuthorizationHeader()
-       {
-           AuthenticationResult result = null;
-           var thread = new Thread(() =>
-           {
-               try
-               {
-                   var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+    ```csharp
+    public static string GetAuthorizationHeader()
+    {
+        AuthenticationResult result = null;
+        var thread = new Thread(() =>
+        {
+            try
+            {
+                var context = new AuthenticationContext(ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] + ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
 
-                   ClientCredential credential = new ClientCredential(ConfigurationManager.AppSettings["ApplicationId"], ConfigurationManager.AppSettings["Password"]);
-                   result = context.AcquireToken(resource: ConfigurationManager.AppSettings["WindowsManagementUri"], clientCredential: credential);
-               }
-               catch (Exception threadEx)
-               {
-                   Console.WriteLine(threadEx.Message);
-               }
-           });
+                ClientCredential credential = new ClientCredential(ConfigurationManager.AppSettings["ApplicationId"], ConfigurationManager.AppSettings["Password"]);
+                result = context.AcquireToken(resource: ConfigurationManager.AppSettings["WindowsManagementUri"], clientCredential: credential);
+            }
+            catch (Exception threadEx)
+            {
+                Console.WriteLine(threadEx.Message);
+            }
+        });
 
-           thread.SetApartmentState(ApartmentState.STA);
-           thread.Name = "AcquireTokenThread";
-           thread.Start();
-           thread.Join();
+        thread.SetApartmentState(ApartmentState.STA);
+        thread.Name = "AcquireTokenThread";
+        thread.Start();
+        thread.Join();
 
-           if (result != null)
-           {
-               return result.AccessToken;
-           }
+        if (result != null)
+        {
+            return result.AccessToken;
+        }
 
-           throw new InvalidOperationException("Failed to acquire token");
-       }
+        throw new InvalidOperationException("Failed to acquire token");
+    }
+    ```
+
 15. In the Solution Explorer, expand the project (**DataFactoryAPITestApp**), right-click **References**, and click **Add Reference**. Select check box for "**System.Configuration**" assembly and click **OK**.
 16. Build the console application. Click **Build** on the menu and click **Build Solution**.
 17. Confirm that there is at least one file in the **adftutorial** container in your Azure blob storage. If not, create **Emp.txt** file in Notepad with the following content and upload it to the adftutorial container.
