@@ -192,9 +192,6 @@ Filters log traces (logged using [TrackTrace()](app-insights-api-custom-events-m
  *  CRITICAL        - filter out all but CRITICAL
 
 
-```
-
-
 ## Custom filters
 
 ### 1. Code your filter
