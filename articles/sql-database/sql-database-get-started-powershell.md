@@ -37,26 +37,25 @@ In this tutorial, you also:
 * Connect to the sample database
 * View user database properties
 
-> [!IMPORTANT] 
-> To complete this tutorial, you must connect to an Azure subscription using an account that is a member of either the owner role or the contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
-
-## Download and save the AdventureWorksLT sample database BACPAC to Azure blob storage
+## Download and save the AdventureWorksLT sample database (BACPAC) to Azure blob storage
 
 This tutorial creates a new AdventureWorksLT database by importing a BACPAC file from Azure Storage to the new Azure SQL database. So the first step is to get a copy of the AdventureWorksLT BACPAC, and upload it to blob storage.
 The following steps get the sample database ready to import:
 
-1. [Download the AdventureWorksLT BACPAC](https://msftdbprodsamples.codeplex.com/downloads/get/478214).
-2. [Create a storage account](../storage/storage-create-storage-account.md).
-3. [Upload the BACPAC file to a blob container in your storage account (use AzCopy)](../storage/storage-use-azcopy.md#blob-upload). 
+1. [Download the AdventureWorksLT BACPAC](https://sqldbbacpacs.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac) and save it with a .bacpac file extension.
+2. [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) - Set *Account kind* to **Blob storage**.
+3. After creating your storage account, browse to it and create a new **Container**.
+4. Upload the BACPAC file to the blob container in your storage account You can use teh Upload button at the top of the container in the portal, or [use AzCopy](../storage/storage-use-azcopy.md#blob-upload). 
+5. After saving the AdventureWorksLT.bacpac, you need the URL and storage account key. Select your bacpac file and copy the URL. It will be similar to https://{storage-account-name}.blob.core.windows.net/{container-name}/AdventureWorksLT.bacpac. On the storage account page, click **Access keys**, and copy **key1**. You need these values for the import code snippet later in this tutorial.
 
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 
 ## Create a new logical SQL server using Azure PowerShell
-
-We need a resource group to contain the server, so the first step is to either create a new resource group and server ([New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)), or get references to existing ones ([Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
+#create-a-storage-account
+You need a resource group to contain the server, so the first step is to either create a new resource group and server ([New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)), or get references to existing ones ([Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
 The following snippets will create a resource group and Azure SQL server if they don't already exist:
 
 
