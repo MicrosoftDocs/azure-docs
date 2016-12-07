@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 81a59ada-c459-4437-ad25-4346b75454ac
 ms.service: sql-database
+ms.custom: V11
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

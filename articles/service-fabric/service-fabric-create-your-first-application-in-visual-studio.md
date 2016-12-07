@@ -61,7 +61,7 @@ A Service Fabric application can contain one or more services, each with a speci
     The application project does not contain any code directly. Instead, it references a set of service projects. In addition, it contains three other types of content:
    
    * **Publish profiles**: Used to manage tooling preferences for different environments.
-   * **Scripts**: Includes a PowerShell script for deploying/upgrading your application. Visual Studio uses the script behind-the-scenes by Visual Studio. The script can also be invoked directly at the command line.
+   * **Scripts**: Includes a PowerShell script for deploying/upgrading your application. Visual Studio uses the script behind-the-scenes. The script can also be invoked directly at the command line.
    * **Application definition**: Includes the application manifest under *ApplicationPackageRoot*. Associated application parameter files are under *ApplicationParameters*, which define the application and allow you to configure it specifically for a given environment.
      
      For an overview of the contents of the service project, see [Getting started with Reliable Services](service-fabric-reliable-services-quick-start.md).

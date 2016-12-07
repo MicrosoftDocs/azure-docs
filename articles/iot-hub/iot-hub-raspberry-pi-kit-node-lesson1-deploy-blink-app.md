@@ -56,16 +56,16 @@ To open the sample code, follow these steps:
 
 1. Clone the sample repository from GitHub by running the following command:
    
-    ```bash
-    git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started.git
-    ```
+   ```bash
+   git clone https://github.com/Azure-Samples/iot-hub-node-raspberrypi-getting-started.git
+   ```
 2. Open the sample application in Visual Studio Code by running the following commands:
    
-    ```bash
-    cd iot-hub-node-raspberrypi-getting-started
-    cd Lesson1
-    code .
-    ```
+   ```bash
+   cd iot-hub-node-raspberrypi-getting-started
+   cd Lesson1
+   code .
+   ```
 
 ![Repo structure](media/iot-hub-raspberry-pi-lessons/lesson1/vscode-blink-mac.png)
 

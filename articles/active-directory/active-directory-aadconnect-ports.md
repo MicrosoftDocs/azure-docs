@@ -13,14 +13,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/25/2016
+ms.date: 12/06/2016
 ms.author: billmath
 
 ---
 # Hybrid Identity Required Ports and Protocols
-The following document is a technical reference to provide information on the required ports and protocols that are required for implementing a hybrid identity solution. Use the following illustration and refer to the corresponding table.
+The following document is a technical reference on the required ports and protocols for implementing a hybrid identity solution. Use the following illustration and refer to the corresponding table.
 
-![What is Azure AD Connect](./media/active-directory-aadconnect-ports/required1.png)
+![What is Azure AD Connect](./media/active-directory-aadconnect-ports/required2.png)
 
 ## Table 1 - Azure AD Connect and On-premises AD
 This table describes the ports and protocols that are required for communication between the Azure AD Connect server and on-premises AD.
@@ -44,8 +44,8 @@ This table describes the ports and protocols that are required for communication
 
 For a list of URLs and IP addresses you need to open in your firewall, see [Office 365 URLs and IP address ranges](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2).
 
-## Table 3 - Azure AD Connect and Federation Servers/WAP
-This table describes the ports and protocols that are required for communication between the Azure AD Connect server and Federation/WAP servers.  
+## Table 3 - Azure AD Connect and AD FS Federation Servers/WAP
+This table describes the ports and protocols that are required for communication between the Azure AD Connect server and AD FS Federation/WAP servers.  
 
 | Protocol | Ports | Description |
 | --- | --- | --- |
@@ -68,10 +68,24 @@ This table describes the ports and protocols that are required for communication
 | HTTPS |443(TCP/UDP) |Used for device authentication. |
 | TCP |49443 (TCP) |Used for certificate authentication. |
 
-## Table 6a & 6b - Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
+## Table 6 - Pass-through Authentication
+This table describes the ports and protocols that are required for communication between the connector and Azure AD.
+
+|Protocol|Port Number|Description
+| --- | --- | ---
+|HTTP|80|Enable outbound HTTP traffic for security validation such as SSL.
+|HTTPS|443|	Enable user authentication against Azure AD
+|HTTPS|10100–10120|	Enable responses from the connector back to the Azure AD 
+|Azure service bus|9352, 5671|	Enable communication between the Connector toward the Azure service for incoming requests.
+|HTTPS|9350|	Optional, to enables better performance for incoming requests
+|HTTPS|8080/443|	Enable the Connector bootstrap sequence and Connector automatic update
+|HTTPS|9090|	Enable Connector registration (required only for the Connector registration process)
+|HTTPS|9091|	Enable Connector trust certificate automatic renewal
+
+## Table 7a & 7b - Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 The following tables describe the endpoints, ports, and protocols that are required for communication between Azure AD Connect Health agents and Azure AD
 
-### Table 6a - Ports and Protocols for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
+### Table 7a - Ports and Protocols for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 This table describes the following outbound ports and protocols that are required for communication between the Azure AD Connect Health agents and Azure AD.  
 
 | Protocol | Ports | Description |
@@ -79,6 +93,6 @@ This table describes the following outbound ports and protocols that are require
 | HTTPS |443(TCP/UDP) |Outbound |
 | Azure Service Bus |5671 (TCP/UDP) |Outbound |
 
-### 6b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
+### 7b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
 For a list of endpoints, see [the Requirements section for the Azure AD Connect Health agent](active-directory-aadconnect-health-agent-install.md#requirements).
 
