@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Additional SAP ASCS/SCS Instance into an Existing Cluster configuration to create a SAP Multi-SID configuration - Azure Resource Manager | Microsoft Docs
 description: High-availability guide for SAP NetWeaver Multi-SID on Windows Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
