@@ -42,9 +42,10 @@
 ### [Resource quotas](documentdb-limits.md)
 ### [Increase quotas](documentdb-increase-limits.md)
 ### [Request units](documentdb-request-units.md)
-### [Azure CLI and Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
-#### [Add or remove regions with Azure CLI](documentdb-automation-region-management.md)
-#### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
+### Azure CLI
+#### [Create an account](documentdb-automation-resource-manager-cli.md)
+#### [Add or remove regions](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Firewall support](documentdb-firewall-support.md)
 ### [Supercharge your account](documentdb-supercharge-your-account.md)
 
