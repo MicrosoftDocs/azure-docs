@@ -1,4 +1,3 @@
-
 ---
 title: Azure Guidance | Microsoft Docs
 description: Best practices and guidance for Azure

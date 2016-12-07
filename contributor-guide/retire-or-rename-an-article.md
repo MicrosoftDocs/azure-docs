@@ -5,12 +5,11 @@ If you're a member of our Azure community and you think an article should be ret
 
 When authors want to retire, rename, or move articles, they need to follow specific steps to avoid bad experiences on the web site. Our goal should be to gracefully retire content so users of the website don't find broken links and receive 404 errors. 
 
-## Step 1: Set the article to no-index/no-follow and republish it (recommended)
-If you are retiring an article, the first thing you should do is republish the article as no-index/no-follow a few weeks before you actually delete it. This is considered the best practice "pre-work" for retiring content. Doing this removes the article from search engine indexes so people won't find the article in search. To do this, add the following line as the last entry in the metadata section of the article:
+## Step 1: Set the article to no-index/no-follow and republish it (as appropriate)
+Do this step if you are preparing to deprecate content and do not want it to be discoverable, but you want it to remain published to support inbound links. To do this, add the following line as the last entry in the metadata section of the article:
   ```
   ROBOTS: NOINDEX, NOFOLLOW
   ``` 
- **Note**: This is the first step if you are retiring an article. If you are renaming or moving the article, you can do this as the last step.
     
 ## Step 2: Turn the original article into a redirect, and create the new file if you are renaming or moving a file. 
 In our publishing workflow, the article you want to retire, rename, or move must remain in place so you can create a redirect to the new article or to the replacement content. You turn an article into a redirect by replacing the article metadata with redirect information. Make the changes that match what you want to do:
