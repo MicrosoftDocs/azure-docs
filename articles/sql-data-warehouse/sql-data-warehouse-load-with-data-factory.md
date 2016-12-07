@@ -29,7 +29,7 @@ This tutorial loads data into Azure SQL Data Warehouse by using Azure Data Facto
 
 - The tutorial assumes you understand the basics of using Transact-SQL to create tables and schemas.  
 
-- You need an Azure Storage Account. You can [open a free Azure account](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+- You need an Azure Storage Account. You can [open a free Azure account](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
 - You need an online SQL Data Warehouse. If you do not already have a data warehouse, learn how to [Create an Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md). For best performance, locate the storage account and the data warehouse in the same Azure region.
 
