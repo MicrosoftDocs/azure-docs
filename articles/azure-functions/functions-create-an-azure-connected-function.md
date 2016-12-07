@@ -32,7 +32,7 @@ To make things more interesting, one function is written in JavaScript and the o
 
 ## Create a function that writes to the queue
 
-Before you can connect to a storage queue, you need to create a function that loads the message queue. This JavaScript function uses a timer trigger that writes a message to the queue every 10 seconds.
+Before you can connect to a storage queue, you need to create a function that loads the message queue. This JavaScript function uses a timer trigger that writes a message to the queue every 10 seconds. If you don't already have an Azure account, check out the [Try Azure Functions](https://functions.azure.com/try) experience, or [create your free Azure acccount](https://azure.microsoft.com/free/).
 
 1. Go to the Azure portal and locate your function app.
 
