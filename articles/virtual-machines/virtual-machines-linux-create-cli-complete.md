@@ -221,23 +221,21 @@ In the following examples, replace example parameter names with your own values.
 Azure resource groups are logical deployment entities that contain configuration information and metadata to enable the logical management of resource deployments. The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
 
 ```azurecli
-azure group create --name myResourceGroup --location westeurope
+az resource group create --name myResourceGroup --location westeurope
 ```
 
 Output:
 
 ```azurecli                        
-info:    Executing command group create
-+ Getting resource group myResourceGroup
-+ Creating resource group myResourceGroup
-info:    Created resource group myResourceGroup
-data:    Id:                  /subscriptions/guid/resourceGroups/myResourceGroup
-data:    Name:                myResourceGroup
-data:    Location:            westeurope
-data:    Provisioning State:  Succeeded
-data:    Tags: null
-data:
-info:    group create command OK
+{
+  "id": "/subscriptions/guid/resourceGroups/myResourceGroup",
+  "location": "westeurope",
+  "name": "myResourceGroup",
+  "properties": {
+    "provisioningState": "Succeeded"
+  },
+  "tags": null
+}
 ```
 
 ## Create a storage account
@@ -246,63 +244,49 @@ You need storage accounts for your VM disks and for any additional data disks th
 Here we use the `azure storage account create` command, passing the location of the account, the resource group that controls it, and the type of storage support you want. The following example creates a storage account named `mystorageaccount`:
 
 ```azurecli
-azure storage account create \  
-  --location westeurope \
-  --resource-group myResourceGroup \
-  --kind Storage --sku-name GRS \
-  mystorageaccount
+az storage account create --resource-group myResourceGroup --location westeurope \
+  --kind Storage --sku Standard_LRS --name mystorageaccount
 ```
 
 Output:
 
 ```azurecli
-info:    Executing command storage account create
-+ Creating storage account
-info:    storage account create command OK
-```
-
-To examine our resource group by using the `azure group show` command, let's use the [jq](https://stedolan.github.io/jq/) tool along with the `--json` Azure CLI option. (You can use **jsawk** or any language library you prefer to parse the JSON.)
-
-```azurecli
-azure group show myResourceGroup --json | jq '.'
-```
-
-Output:
-
-```json
 {
-  "tags": {},
-  "id": "/subscriptions/guid/resourceGroups/myResourceGroup",
-  "name": "myResourceGroup",
-  "provisioningState": "Succeeded",
+  "accessTier": null,
+  "creationTime": "2016-12-07T17:59:50.090092+00:00",
+  "customDomain": null,
+  "encryption": null,
+  "id": "/subscriptions/guid/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
+  "kind": "Storage",
+  "lastGeoFailoverTime": null,
   "location": "westeurope",
-  "properties": {
-    "provisioningState": "Succeeded"
+  "name": "mystorageaccount",
+  "primaryEndpoints": {
+    "blob": "https://mystorageaccount.blob.core.windows.net/",
+    "file": "https://mystorageaccount.file.core.windows.net/",
+    "queue": "https://mystorageaccount.queue.core.windows.net/",
+    "table": "https://mystorageaccount.table.core.windows.net/"
   },
-  "resources": [
-    {
-      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-      "name": "mystorageaccount",
-      "type": "storageAccounts",
-      "location": "westeurope",
-      "tags": null
-    }
-  ],
-  "permissions": [
-    {
-      "actions": [
-        "*"
-      ],
-      "notActions": []
-    }
-  ]
+  "primaryLocation": "westeurope",
+  "provisioningState": "Succeeded",
+  "resourceGroup": "myresourcegroup",
+  "secondaryEndpoints": null,
+  "secondaryLocation": null,
+  "sku": {
+    "name": "Standard_LRS",
+    "tier": "Standard"
+  },
+  "statusOfPrimary": "Available",
+  "statusOfSecondary": null,
+  "tags": {},
+  "type": "Microsoft.Storage/storageAccounts"
 }
 ```
 
 To investigate the storage account by using the CLI, you first need to set the account names and keys. Replace the name of the storage account in the following example with a name that you choose:
 
 ```bash
-AZURE_STORAGE_CONNECTION_STRING="$(azure storage account connectionstring show mystorageaccount --resource-group myResourceGroup --json | jq -r '.string')"
+AZURE_STORAGE_CONNECTION_STRING="$(az storage account show-connection-string --resource-group myResourceGroup --name mystorageaccountikf2 --query connectionString)"
 ```
 
 Then you can view your storage information easily:
@@ -326,8 +310,8 @@ info:    storage container list command OK
 Next you're going to need to create a virtual network running in Azure and a subnet in which you can create your VMs. The following example creates a virtual network named `myVnet` with the `192.168.0.0/16` address prefix:
 
 ```azurecli
-azure network vnet create --resource-group myResourceGroup --location westeurope \
-  --name myVnet --address-prefixes 192.168.0.0/16
+az network vnet create --resource-group myResourceGroup --location westeurope \
+  --name myVnet --address-prefix 192.168.0.0/16 \
 ```
 
 Output:
@@ -347,55 +331,10 @@ data:      192.168.0.0/16
 info:    network vnet create command OK
 ```
 
-Again, let's use the --json option of `azure group show` and `jq` to see how we're building our resources. We now have a `storageAccounts` resource and a `virtualNetworks` resource.  
+Now let's create a subnet in the `myVnet` virtual network into which the VMs are deployed. We use the `az network vnet subnet create` command, along with the resources we've already created: the `myResourceGroup` resource group and the `myVnet` virtual network. In the following example, we add the subnet named `mySubnet` with the subnet address prefix of `192.168.1.0/24`:
 
 ```azurecli
-azure group show myResourceGroup --json | jq '.'
-```
-
-Output:
-
-```json
-{
-  "tags": {},
-  "id": "/subscriptions/guid/resourceGroups/myResourceGroup",
-  "name": "myResourceGroup",
-  "provisioningState": "Succeeded",
-  "location": "westeurope",
-  "properties": {
-    "provisioningState": "Succeeded"
-  },
-  "resources": [
-    {
-      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/virtualNetworks/myVnet",
-      "name": "myVnet",
-      "type": "virtualNetworks",
-      "location": "westeurope",
-      "tags": null
-    },
-    {
-      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount",
-      "name": "mystorageaccount",
-      "type": "storageAccounts",
-      "location": "westeurope",
-      "tags": null
-    }
-  ],
-  "permissions": [
-    {
-      "actions": [
-        "*"
-      ],
-      "notActions": []
-    }
-  ]
-}
-```
-
-Now let's create a subnet in the `myVnet` virtual network into which the VMs are deployed. We use the `azure network vnet subnet create` command, along with the resources we've already created: the `myResourceGroup` resource group and the `myVnet` virtual network. In the following example, we add the subnet named `mySubnet` with the subnet address prefix of `192.168.1.0/24`:
-
-```azurecli
-azure network vnet subnet create --resource-group myResourceGroup \
+az network vnet subnet create --resource-group myResourceGroup \
   --vnet-name myVnet --name mySubnet --address-prefix 192.168.1.0/24
 ```
 
@@ -456,8 +395,8 @@ Output:
 Now let's create the public IP address (PIP) that we assign to your load balancer. It enables you to connect to your VMs from the Internet by using the `azure network public-ip create` command. Because the default address is dynamic, we create a named DNS entry in the **cloudapp.azure.com** domain by using the `--domain-name-label` option. The following example creates a public IP named `myPublicIP` with the DNS name of `mypublicdns`. Because the DNS name must be unique, you provide your own unique DNS name:
 
 ```azurecli
-azure network public-ip create --resource-group myResourceGroup \
-  --location westeurope --name myPublicIP --domain-name-label mypublicdns
+az network public-ip create --resource-group myResourceGroup --location westeurope \
+  --name myPublicIP --dns-name mypublicdns --allocation-method static --idle-timeout 4
 ```
 
 Output:
