@@ -15,11 +15,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/24/2016
+ms.date: 12/08/2016
 ms.author: goraco
 
 ---
-# Configure Additional SAP ASCS/SCS Instance into an Existing Cluster configuration to create a SAP Multi-SID configuration - Azure Resource Manager
+# Configure Additional SAP ASCS/SCS Instance into an Existing Cluster to Create a SAP Multi-SID Configuration
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -480,10 +480,12 @@ The big picture with complete landscape with two high available SAP systems woul
 
 _**Figure 3:** SAP High Availability Multi-SID Setup with two SAP System_
 
-Important is following:
-- The **SAP ASCS / SCS** instances **share the same WSFC cluster**.
-- Each **DBMS SID** has its **own dedicated WSFC cluster**.
-- **SAP application servers** belonging to one SAP system SID have **own dedicated VMs**.
+> [!IMPORTANT]
+> Important is following:
+> - The **SAP ASCS / SCS** instances **share the same WSFC cluster**.
+> - Each **DBMS SID** has its **own dedicated WSFC cluster**.
+>- **SAP application servers** belonging to one SAP system SID have **own dedicated VMs**.
+>
 
 ## Prepare the infrastructure
 Let’s say you want to install **additional** SAP ASCS/SCS instance with following parameters:
@@ -691,7 +693,7 @@ High-level procedure description is following:
 
 - [Test the SAP ASCS/SCS instance failover and SIOS replication][sap-ha-guide-10]
 
-## Useful Links
+## Next Steps
 
 - [Networking Limits - Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Multiple VIPs for Azure Load Balancer][load-balancer-multivip-overview]
