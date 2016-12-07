@@ -31,6 +31,9 @@ By default, the number of users in a B2C tenant is limited to 50,000 users. If y
 ## Branding issues on verification email
 The default verification email contains Microsoft branding. We will remove it in the future. For now, you can remove it by using the [company branding feature](../active-directory/active-directory-add-company-branding.md).
 
+## Branding issues on local account sign-in page in a Sign-in policy
+The local account sign-in page in a Sign-in policy can be customized only using the [company branding feature](../active-directory/active-directory-add-company-branding.md), and not by the page UI customization feature described [here](active-directory-b2c-reference-ui-customization.md). In addition, there are no labels or placeholders available on the username and password fields. As a workaround, we recommend that you use the fully-customizable "Sign-up or Sign-in policy" instead. If you are interested in fully customizing the local account sign-in page in a Sign-in policy, do vote for the feature on [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/suggestions/13062033-b2c-fully-customizable-sign-in-page).
+
 ## Restrictions on applications
 The following types of applications are not currently supported in Azure AD B2C. For a description of the supported types of applications, refer to [Azure AD B2C: Types of applications](active-directory-b2c-apps.md).
 
