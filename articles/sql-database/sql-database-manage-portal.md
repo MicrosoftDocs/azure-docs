@@ -3,7 +3,7 @@ title: Manage Azure SQL Database using the Azure Portal | Microsoft Docs
 description: Quick reference on how to use the Azure Portal to manage a relational database in the cloud using the Azure Portal.
 services: sql-database
 documentationcenter: ''
-author: carlrabeler
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
