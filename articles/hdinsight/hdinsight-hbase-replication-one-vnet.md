@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/02/2016
+ms.date: 12/07/2016
 ms.author: jgao
 
 ---
@@ -34,11 +34,6 @@ Cluster replication is done by using a [script action](hdinsight-hadoop-customiz
 Before you begin this tutorial, you must have the following:
 
 * **An Azure subscription**. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
-* **A workstation with Azure PowerShell**.
-  
-    To execute PowerShell scripts, you must run Azure PowerShell as administrator and set the execution policy to *RemoteSigned*. See Using the Set-ExecutionPolicy cmdlet.
-  
-[!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 
 ## Create a virtual network with two HBase clusters
 
@@ -74,7 +69,7 @@ The following steps show how to call the script action script from the Azure por
   - **Head**: (Selected. And unselect the other node types.
   - **Parameters**: 
 
-    --machine hn1 --src-cluster <primary cluster DNS name> --dst-cluster <secondary cluster DNS name> --src-ambari-password <primary cluster Ambari password> --dst-ambari-password <secondary cluster Ambari password> -copydata
+        --machine hn1 --src-cluster <primary cluster DNS name> --dst-cluster <secondary cluster DNS name> --src-ambari-password <primary cluster Ambari password> --dst-ambari-password <secondary cluster Ambari password> -copydata
 
     Set the values in the parameters. The parameters used in the sample enables replication and copy all the HBase tables from primary cluster to the secondary cluster. Detailed explanation of parameters is provided in print_usage() section of following script: [https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh).
  
