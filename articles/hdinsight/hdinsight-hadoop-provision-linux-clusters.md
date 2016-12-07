@@ -69,13 +69,14 @@ The following table lists the default VM sizes for HDInsight:
   | Head – Default VM size |D3 |D3 |A3 |D12 |D12 |
   | Head – Recommended VM sizes |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
   | Worker – Default VM size |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Worker – Recommended VM sizes |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14;Linux: D4, D12, D13, D14 |Windows: D12, D13, D14;Linux: D4, D12, D13, D14 |
+  | Worker – Recommended VM sizes |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
   | Zookeeper – Default VM size | |A2 |A2 | | |
   | Zookeeper – Recommended VM sizes | |A2, A3, A4 |A2, A3, A4 | | |
   | Edge – Default VM sizes | | | | |Windows: D12; Linux: D4 |
   | Edge – Recommended VM sizes | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
 
-Note that Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
+> [!NOTE]
+> Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
 
 > [!IMPORTANT]
 > If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB of RAM.
@@ -89,7 +90,7 @@ You can add other components such as Hue or R to these basic types by using [Scr
 > 
 > 
 
-If your solution requires technologies that are spread across multiple HDInsight cluster types, you should create an Azure Virtual Network and create the required cluster types within the virtual network. This allows the clusters, and any code you deploy to them, to directly communicate with each other.
+If your solution requires technologies that are spread across multiple HDInsight cluster types, you should create an Azure Virtual Network and create the required cluster types within the virtual network. This configuration allows the clusters, and any code you deploy to them, to directly communicate with each other.
 
 For more information on using an Azure Virtual Network with HDInsight, see [Extend HDInsight with Azure Virtual Networks](hdinsight-extend-hadoop-virtual-network.md).
 
