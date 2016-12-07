@@ -1,4 +1,4 @@
-﻿---
+---
 title: HPC Pack 2016 cluster in Azure | Microsoft Docs
 description: Learn how to deploy an HPC Pack 2016 cluster in Azure
 services: virtual-machines-windows

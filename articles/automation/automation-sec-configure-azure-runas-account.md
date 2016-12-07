@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Azure Run As Account | Microsoft Docs
 description: Tutorial that walks you through the creation, testing, and example use of security principal authentication in Azure Automation.
 services: automation
@@ -134,7 +134,7 @@ Before proceeding, please verify the following:
 
 1. You have downloaded and installed [Windows Management Framework (WMF) 4.0](https://www.microsoft.com/download/details.aspx?id=40855) if you are running Windows 7.   
     If you are running Windows Server 2012 R2, Windows Server 2012, Windows 2008 R2, Windows 8.1, and Windows 7 SP1, [Windows Management Framework 5.0](https://www.microsoft.com/download/details.aspx?id=50395) is available for installation.
-2. Azure PowerShell 1.0. For information about this release and how to install it, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+2. Azure PowerShell 1.0. For information about this release and how to install it, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 3. You have created an automation account.  This account will be referenced as the value for parameters –AutomationAccountName and -ApplicationDisplayName in both scripts below.
 
 To get the values for *SubscriptionID*, *ResourceGroup*, and *AutomationAccountName*, which are required parameters for the scripts, in the Azure portal select your Automation account from the **Automation account** blade and select **All settings**.  From the **All settings** blade, under **Account Settings** select **Properties**.  In the **Properties** blade, you can note these values.<br> ![Automation Account properties](media/automation-sec-configure-azure-runas-account/automation-account-properties.png)  

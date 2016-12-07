@@ -1,4 +1,4 @@
-﻿---
+---
 title: Archive an Azure SQL database to a BACPAC file by using PowerShell
 description: Archive an Azure SQL database to a BACPAC file by using PowerShell
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 9439dd83-812f-4688-97ea-2a89a864d1f3
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.date: 08/15/2016
 ms.author: sstein

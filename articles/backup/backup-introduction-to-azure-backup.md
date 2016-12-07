@@ -1,11 +1,11 @@
 ---
 title: What is Azure Backup? | Microsoft Docs
-description: By using Azure Backup and Recovery Services, you can back up and restore data and applications from Windows Servers, Windows client machines, System Center DPM servers and Azure virtual machines.
+description: Using Azure Backup and Recovery Services, you can back up and restore data and applications from Windows Servers, Windows client machines, System Center DPM servers and Azure virtual machines.
 services: backup
 documentationcenter: ''
 author: markgalioto
 manager: cfreeman
-editor: tysonn
+editor:
 keywords: backup and restore; recovery services; backup solutions
 
 ms.assetid: 0d2a7f08-8ade-443a-93af-440cbf7c36c4
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/31/2016
+ms.date: 12/6/2016
 ms.author: jimpark; trinadhk
 
 ---
@@ -180,7 +180,7 @@ Azure Backup has a limit of 9999 recovery points, also known as backup copies or
 | Backup frequency<br/> (to Backup vault) |Three backups per day |Two backups per day |Two backups per day |One backup per day |
 | Backup frequency<br/> (to disk) |Not applicable |<li>Every 15 minutes for SQL Server <li>Every hour for other workloads |<li>Every 15 minutes for SQL Server <li>Every hour for other workloads</p> |Not applicable |
 | Retention options |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |Daily, weekly, monthly, yearly |
-| Recovery points per Backup vault |9999|9999|9999|9999|
+| Maximum recovery points per server |9999|9999|9999|9999|
 | Maximum retention period |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency |Depends on backup frequency |
 | Recovery points on local disk |Not applicable |<li>64 for File Servers,<li>448 for Application Servers |<li>64 for File Servers,<li>448 for Application Servers |Not applicable |
 | Recovery points on tape |Not applicable |Unlimited |Not applicable |Not applicable |

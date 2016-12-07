@@ -5,7 +5,7 @@ services: sql-database
 documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
-editor: monicar
+editor: ''
 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/15/2016
+ms.date: 12/06/2016
 ms.author: carlrab
 
 ---
