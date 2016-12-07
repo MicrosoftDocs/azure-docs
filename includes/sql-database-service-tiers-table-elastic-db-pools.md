@@ -1,3 +1,9 @@
+<!--
+Used in:
+sql-database-elastic-pool.md   
+sql-database-resource-limits.md
+sql-database-service-tiers.md  
+-->
 
 ### Basic elastic pool limits
 
