@@ -26,7 +26,7 @@ This article explores and illustrates the different approaches available to depl
 
 We will outline a shared-nothing two-node single-master MySQL high availability solution based on DRBD, Corosync, and Pacemaker. Only one node runs MySQL at a time. Reading and writing from the DRBD resource is also limited to only one node at a time.
 
-There is no need for a VIP solution like LVS, because we will be using Microsoft Azure's Load-Balanced Sets to provide round-robin functionality and endpoint detection, removal, and graceful recovery of the VIP. The VIP is a globally routable IPv4 address assigned by Microsoft Azure when you first create the cloud service.
+There is no need for a VIP solution like LVS, because you will be using Microsoft Azure's Load-Balanced Sets to provide round-robin functionality and endpoint detection, removal, and graceful recovery of the VIP. The VIP is a globally routable IPv4 address assigned by Microsoft Azure when you first create the cloud service.
 
 There are other possible architectures for MySQL, including NBD Cluster, Percona, and Galera, as well as several middleware solutions, including at least one available as a VM on [VM Depot](http://vmdepot.msopentech.com). As long as these solutions can replicate on unicast vs. multicast or broadcast and don't rely on shared storage or multiple network interfaces, the scenarios should be easy to deploy on Microsoft Azure.
 
@@ -54,7 +54,7 @@ Create an affinity group for the solution by signing in to the Azure classic por
 A new network is created, and a subnet is created inside the network. This example uses a 10.10.10.0/24 network with only one /24 subnet inside.
 
 ### Virtual machines
-The first Ubuntu 13.10 VM is created by using an Endorsed Ubuntu Gallery image, and called `hadb01`. A new cloud service is created in the process, called hadb. This name illustrates the shared, load-balanced nature that the service will have when more resources are added. The creation of `hadb01` is uneventful and completed by using the portal. An endpoint for SSH is automatically created, and the new network is selected. Now you can create an availability set for the VMs.
+The first Ubuntu 13.10 VM is created by using an Endorsed Ubuntu Gallery image and is called `hadb01`. A new cloud service is created in the process, called hadb. This name illustrates the shared, load-balanced nature that the service will have when more resources are added. The creation of `hadb01` is uneventful and completed by using the portal. An endpoint for SSH is automatically created, and the new network is selected. Now you can create an availability set for the VMs.
 
 After the first VM is created (technically, when the cloud service is created), create the second VM, `hadb02`. For the second VM, use Ubuntu 13.10 VM from the Gallery by using the portal, but use an existing cloud service, `hadb.cloudapp.net`, instead of creating a new one. The network and availability set should be automatically selected. An SSH endpoint will be created, too.
 
@@ -75,7 +75,7 @@ Do not install MySQL at this time. Debian and Ubuntu installation scripts will i
 Verify (by using `/sbin/ifconfig`) that both VMs are using addresses in the 10.10.10.0/24 subnet and that they can ping each other by name. You can also use `ssh-keygen` and `ssh-copy-id` to make sure both VMs can communicate via SSH without requiring a password.
 
 ### Set up DRBD
-Create a DRBD resource that uses the underlying `/dev/sdc1` partition to produce a `/dev/drbd1` resource that can be formatted by using ext3 and used in both primary and secondary nodes. To do this, open `/etc/drbd.d/r0.res` and copy the following resource definition. Do this on both VMs:
+Create a DRBD resource that uses the underlying `/dev/sdc1` partition to produce a `/dev/drbd1` resource that can be formatted by using ext3 and used in both primary and secondary nodes. To do this, open `/etc/drbd.d/r0.res` and copy the following resource definition on both VMs:
 
     resource r0 {
       on `hadb01` {
@@ -118,7 +118,7 @@ Now you're ready to install MySQL on `hadb01`:
 
     sudo apt-get install mysql-server
 
-For `hadb02`, you have two options. You can install mysql-server now, which will create /var/lib/mysql and fill it with a new data directory, and then proceed to remove the contents. To perform this option, run the following code on `hadb02`:
+For `hadb02`, you have two options. You can install mysql-server, which will create /var/lib/mysql, fill it with a new data directory, and then  remove the contents. To perform this option, run the following code on `hadb02`:
 
     sudo apt-get install mysql-server
     sudo service mysql stop
@@ -126,16 +126,16 @@ For `hadb02`, you have two options. You can install mysql-server now, which will
 
 The second option is to failover to `hadb02` and then install mysql-server there (installation scripts will notice the existing installation and won't touch it).
 
-On `hadb01`:
+Run the following code on `hadb01`:
 
     sudo drbdadm secondary –force r0
 
-On `hadb02`:
+Run the following code on `hadb02`:
 
     sudo drbdadm primary –force r0
     sudo apt-get install mysql-server
 
-If you don't plan to failover DRBD now, the first option is easier although arguably less elegant. After you set this up, you can start working on your MySQL database. On `hadb02` (or whichever one of the servers is active, according to DRBD):
+If you don't plan to failover DRBD now, the first option is easier although arguably less elegant. After you set this up, you can start working on your MySQL database. Run the following code on `hadb02` (or whichever one of the servers is active, according to DRBD):
 
     mysql –u root –p
     CREATE DATABASE azureha;
@@ -151,7 +151,7 @@ You also need to enable networking for MySQL if you want to make queries from ou
 ### Create the MySQL Load Balanced Set
 Go back to the portal, go to `hadb01`, and choose **Endpoints**. To create an  Endpoint, choose MySQL (TCP 3306) from the drop-down list and select **Create new load balanced set**. Name the load-balanced endpoint `lb-mysql`. Set **Time** to 5 seconds, minimum.
 
-After the endpoint is created, go to `hadb02`, choose **Endpoints**, and create an endpoint. Choose `lb-mysql`, then select MySQL from the drop-down list. You can also use the Azure CLI for this step.
+After you create the endpoint, go to `hadb02`, choose **Endpoints**, and create an endpoint. Choose `lb-mysql`, then select MySQL from the drop-down list. You can also use the Azure CLI for this step.
 
 You now have everything you need for manual operation of the cluster.
 
@@ -242,7 +242,7 @@ You will see output similar to the following image:
 ## Set up Pacemaker
 Pacemaker uses the cluster to monitor for resources, define when primaries go down, and switch those resources to secondaries. Resources can be defined from a set of available scripts or from LSB (init-like) scripts, among other choices.
 
-We want Pacemaker to "own" the DRBD resource, the mountpoint, and the MySQL service. If Pacemaker can turn on and off DRBD, mount and unmount it, and then start and stop MySQL in the right order when something bad happens with the primary. Then setup is complete.
+We want Pacemaker to "own" the DRBD resource, the mountpoint, and the MySQL service. If Pacemaker can turn on and off DRBD, mount and unmount it, and then start and stop MySQL in the right order when something bad happens with the primary, setup is complete.
 
 When you first install Pacemaker, your configuration should be simple enough, something like:
 
