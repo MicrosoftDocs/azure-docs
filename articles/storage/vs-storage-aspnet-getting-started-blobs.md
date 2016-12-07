@@ -59,7 +59,7 @@ The following steps illustrate how to programmatically create a blob container. 
 
 5. Call the **CloudBlobContainer.CreateIfNotExists** method to create the container if it does not yet exist.
 
-    	container.CreateIfNotExistsAsync();
+    	container.CreateIfNotExists();
 
 ## Upload a blob into a blob container
 

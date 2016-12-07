@@ -318,7 +318,7 @@ The following steps illustrate how to search for, and then delete an entity.
             TableOperation deleteOperation = TableOperation.Delete(customer);
 
             // Execute the delete operation.
-            table.ExecuteAsync(deleteOperation);
+            table.Execute(deleteOperation);
         }
 
 ## Next steps
