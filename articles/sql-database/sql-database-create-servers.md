@@ -18,6 +18,7 @@ ms.date: 11/23/2016
 ms.author: carlrab
 
 ---
+
 # Create Azure SQL Database servers
 
 You can create an Azure SQL Database server using the [Azure portal](https://portal.azure.com/), PowerShell, the REST API, or C#. 
