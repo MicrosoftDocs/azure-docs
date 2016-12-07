@@ -51,7 +51,7 @@ The following table compares the capabilities of App Service, Cloud Services, Vi
 | Visual Studio integration |X |X |X |X | |
 | Remote Debugging |X |X |X | | |
 | Deploy code with TFS |X |X |X |X | |
-| Network isolation with [Azure Virtual Network](/services/virtual-network/) |X |X |X |X |See also [Azure Websites Virtual Network Integration](/blog/2014/09/15/azure-websites-virtual-network-integration/) |
+| Network isolation with [Azure Virtual Network](/services/virtual-network/) |X |X |X |X |See also [Azure Websites Virtual Network Integration](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
 | Support for [Azure Traffic Manager](/services/traffic-manager/) |X |X |X |X | |
 | Integrated Endpoint Monitoring |X |X |X | | |
 | Remote desktop access to servers | |X |X |X | |
