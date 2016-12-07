@@ -145,7 +145,6 @@ Currently, the supported aliases are:
 | Microsoft.SQL/servers/elasticPools/dtu | |
 | Microsoft.SQL/servers/elasticPools/edition | |
 
-Currently, policy only works on PUT requests. 
 
 ## Effect
 Policy supports three types of effect - **deny**, **audit**, and **append**. 
@@ -166,6 +165,32 @@ For **append**, you must provide the following details:
     ]
 
 The value can be either a string or a JSON format object. 
+
+## Parameters
+From API version 2016-12-01, you can use parameters in your policy definition. This helps simplify your policy management by reducing number of policy definitions. Users who assign the policy will provide values to the parameters when they assign this policy.
+
+In the policy rule, you can reference the parameters similar to what you do in templates. For example: 
+        
+      ...
+      { 
+          "field" : "location",
+          "in" : "[parameters(listOfLocations)]"
+      }
+      ...
+      
+Also, you need to declare the parameters when you create policy defnitnions. For the example above: 
+
+    ....
+    "parameters": {
+      "listOfLocations": {
+        "type": "array",
+        "metadata": {
+          "description": "An array of permitted locations for resources.",
+          "displayName": "List Of Locations"
+        }
+      }
+    ....
+The type of a parameter can be either string or array. The metadata property is used for tools like Azure Portal to display user friendly information. 
 
 ## Policy definition examples
 Now let's look at how we define the policy to achieve the preceding scenarios.
@@ -353,25 +378,34 @@ To create a policy, run:
 
     PUT https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
 
-For api-version use *2016-04-01*. Include a request body similar to the following example:
+For api-version use *2016-04-01* or *2016-12-01* . Include a request body similar to the following example:
 
     {
-      "properties":{
-        "policyType":"Custom",
-        "description":"Test Policy",
-        "policyRule":{
-          "if" : {
-            "not" : {
-              "field" : "tags",
-              "containsKey" : "costCenter"
+      "properties": {
+        "parameters": {
+          "listOfAllowedLocations": {
+            "type": "array",
+            "metadata": {
+              "description": "An array of permitted locations for resources.",
+              "strongType": "location",
+              "displayName": "List Of Locations"
+            }
+          }
+        },
+        "displayName": "Geo-compliance policy template",
+        "description": "This policy enables you to restrict the locations your organization can specify when deploying resources. Use to enforce your geo-compliance requirements.",
+        "policyRule": {
+          "if": {
+            "not": {
+              "field": "location",
+              "in": "[parameters('listOfAllowedLocations')]"
             }
           },
-          "then" : {
-            "effect" : "deny"
+          "then": {
+            "effect": "deny"
           }
         }
-      },
-      "name":"testdefinition"
+      }
     }
 
 You can apply the policy definition at the desired scope through the [REST API for policy assignments](https://docs.microsoft.com/rest/api/resources/policyassignments). The REST API enables you to create and delete policy assignments, and get information about existing assignments.
@@ -380,17 +414,20 @@ To create a policy assignment, run:
 
     PUT https://management.azure.com /subscriptions/{subscription-id}/providers/Microsoft.authorization/policyassignments/{policyAssignmentName}?api-version={api-version}
 
-The {policy-assignment} is the name of the policy assignment. For api-version use *2016-04-01*. 
+The {policy-assignment} is the name of the policy assignment. For api-version use *2016-04-01* or "2016-12-01"( for paramters). 
 
 With a request body similar to the following example:
 
     {
       "properties":{
-        "displayName":"VM_Policy_Assignment",
+        "displayName":"West US only policy assignment on the subscription ",
+        "description":"Resources can only be provisioned in West US regions",
+        "parameters": {
+             "listOfAllowedLocations": ["West US", "West US2"]
+         },
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"
       },
-      "name":"VMPolicyAssignment"
     }
 
 ### PowerShell
