@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'SQL Database performance: Service tiers | Microsoft Docs'
 description: Compare SQL Database service tiers.
 keywords: database options,database performance
