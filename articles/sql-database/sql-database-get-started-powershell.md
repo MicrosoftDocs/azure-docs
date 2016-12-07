@@ -64,8 +64,8 @@ The following snippets will create a resource group and Azure SQL server if they
 # Create new, or get existing resource group
 ############################################
 
-$resourceGroupName = {resource-group-name}
-$resourceGroupLocation = {resource-group-location}
+$resourceGroupName = "{resource-group-name}"
+$resourceGroupLocation = "{resource-group-location}"
 
 $myResourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ea SilentlyContinue
 
@@ -85,13 +85,13 @@ $myResourceGroup
 # Create a new, or get existing server
 ######################################
 
-$serverName = {server-name}
-$serverVersion = {server-version}
-$serverLocation = {server-location}
-$serverResourceGroupName = {resource-group-name}
+$serverName = "{server-name}"
+$serverVersion = "12.0"
+$serverLocation = "{server-location}"
+$serverResourceGroupName = "{resource-group-name}"
 
-$serverAdmin = {eerver-admin}
-$serverAdminPassword = {server-admin-password}
+$serverAdmin = "{server-admin}"
+$serverAdminPassword = "{server-admin-password}"
 
 $securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
 $serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
@@ -114,8 +114,8 @@ $myServer
 ## View logical SQL Server properties using Azure PowerShell
 
 ```
-$resourceGroupName = {resource-group-name}
-$serverName = {server-name}
+$resourceGroupName = "{resource-group-name}"
+$serverName = "{server-name}"
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
 
@@ -132,9 +132,9 @@ Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
 The following uses the [Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserverfirewallrule), and [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) cmdlets get a reference or create a new rule. For this snippet, if the rule already exists, it only gets a reference to it and doesn't update the start and end IP addresses. You can always modify the **else** clause to use the [Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverfirewallrule) for create or update functionality.
 
 ```
-$serverFirewallRuleName = {server-firewall-rule-name}
-$serverFirewallStartIp = {server-firewall-rule-startIp}
-$serverFirewallEndIp = {server-firewall-rule-endIp}
+$serverFirewallRuleName = "{server-firewall-rule-name}"
+$serverFirewallStartIp = "{server-firewall-rule-startIp}"
+$serverFirewallEndIp = "{server-firewall-rule-endIp}"
 
 $myFirewallRule = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 
@@ -186,16 +186,16 @@ $connection.Close()
 The following snippet imports a bacpac of the AdventureWorksLT sample database using the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport) cmdlet. The bacpac is located in Azure blob storage. After running the import cmdlet, you can monitor the progress of the import operation using the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus) cmdlet.
 
 ```
-$resourceGroupName = {resource-group-name}
-$serverName = {server-name}
+$resourceGroupName = "{resource-group-name}"
+$serverName = "{server-name}"
 
-$databaseName = {database-name}
-$databaseEdition = {database-edition}
-$databaseServiceLevel = {database-service-level} 
+$databaseName = "{database-name}"
+$databaseEdition = "Basic"
+$databaseServiceLevel = "Basic"
 
 $storageKeyType = "StorageAccessKey"
-$storageUri = {storage-uri}
-$storageKey = {storage-key}
+$storageUri = "{storage-uri}"
+$storageKey = "{storage-key}"
 
 $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
@@ -217,9 +217,9 @@ $importStatus
 
 
 ```
-$resourceGroupName = $myResourceGroupName
-$serverName = $myServerName
-$databaseName = $myDatabaseName
+$resourceGroupName = "{resource-group-name}"
+$serverName = "{server-name}"
+$databaseName = "{database-name}"
 
 $myDatabase = Get-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName
 
@@ -269,8 +269,8 @@ $connection.Close()
 
 $SubscriptionId = "{subscription-id}"
 
-Add-AzureRmAccount
-Set-AzureRmContext -SubscriptionId $SubscriptionId
+Login-AzureRmAccount
+Select-AzureRmSubscription -SubscriptionId $SubscriptionId
 
 # User variables
 ################
@@ -291,11 +291,11 @@ $myServerFirewallEndIp = "{end-ip}"
 
 $myDatabaseName = "AdventureWorksLT"
 $myDatabaseEdition = "Basic"
-$myDatabaseServiceLevel = " "
+$myDatabaseServiceLevel = "Basic"
 
 $myStorageKeyType = "StorageAccessKey"
 # Get these values from your Azure storage account:
-$myStorageUri = "http://{your-container}.blob.core.windows.net/{AdventureWorksLT.bacpac}"
+$myStorageUri = "{http://{your-container}.blob.core.windows.net/AdventureWorksLT.bacpac}"
 $myStorageKey = "{your-storage-key}"
 
 
