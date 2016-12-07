@@ -3,7 +3,7 @@ title: Get Started with Event Hubs in Java with Apache Storm | Microsoft Docs
 description: Follow this tutorial to get started using Azure Event Hubs; sending events with Java and receiving them in an Apache Storm cluster.
 services: event-hubs
 documentationcenter: ''
-author: fsautomata
+author: sethmanheim
 manager: timlt
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2016
+ms.date: 12/07/2016
 ms.author: sethm
 
 ---
@@ -61,7 +61,6 @@ The following resources are available for developing applications integrating Ev
 [22]: ./media/event-hubs-java-storm-getstarted/receive-storm2.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs Overview]: event-hubs-overview.md
 
