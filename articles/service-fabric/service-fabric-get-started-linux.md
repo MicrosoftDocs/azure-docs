@@ -31,7 +31,7 @@ ms.author: seanmck
 ### Supported operating system versions
 The following operating system versions are supported for development:
 
-* Ubuntu 16.04 (Xenial Xerus)
+* Ubuntu 16.04 ("Xenial Xerus")
 
 ## Update your apt sources
 To install the SDK and the associated runtime package via apt-get, you must first update your apt sources.
@@ -56,7 +56,7 @@ To install the SDK and the associated runtime package via apt-get, you must firs
 ## Install and set up the SDK
 Once your sources are updated, you can install the SDK.
 
-1. Install the Service Fabric SDK package. You will be asked to confirm the installation and to agree to a license agreement.
+1. Install the Service Fabric SDK package. You are asked to confirm the installation and to agree to a license agreement.
    
     ```bash
     sudo apt-get install servicefabricsdkcommon
@@ -69,7 +69,7 @@ Once your sources are updated, you can install the SDK.
 
 
 ## Set up the Azure cross-platform CLI
-The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js so [ensure that you have installed Node][install-node] before proceeding with the instructions below.
+The [Azure cross-platform CLI][azure-xplat-cli-github] includes commands for interacting with Service Fabric entities, including clusters and applications. It is based on Node.js so [ensure that you have installed Node][install-node] before proceeding with the following instructions:
 
 1. Clone the github repo to your development machine.
    
@@ -107,7 +107,7 @@ If everything has installed successfully, you should be able to start a local cl
    
     ![Service Fabric Explorer on Linux][sfx-linux]
 
-At this point, you are able to deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services using the Java or .NET Core SDKs, follow the optional setup steps below.
+At this point, you are able to deploy pre-built Service Fabric application packages or new ones based on guest containers or guest executables. To build new services using the Java or .NET Core SDKs, follow the optional setup steps provided in subsequent sections.
 
 
 > [!NOTE]
