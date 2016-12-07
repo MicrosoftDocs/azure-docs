@@ -4,7 +4,7 @@ description: Provides and overview of the available services in Azure Government
 services: Azure-Government
 cloud: gov
 documentationcenter: ''
-author: ryansoc
+author: jomolesk
 manager: zakramer
 editor: ''
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 10/06/2016
-ms.author: ryansoc
+ms.date: 12/07/2016
+ms.author: jomolesk
 
 ---
 # Azure Government Compliance
@@ -36,6 +36,9 @@ For example, AC-1 requires access control  policies and procedures be documented
 For access to the CRM as well as the Azure Blueprint System Security Plan Template, please e-mail AzureBlueprint@microsoft.com.
 
 We value any feedback on the CRM as it is pivotal to our iteration of the document to make it as effective as possible in streamlining customer ATO processes.
+
+## Blueprint Deployment Guidance
+Add text here.
 
 ## Next Steps
 <a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx"> Microsoft Trust Center </a>
