@@ -24,8 +24,8 @@ This FAQ answers common questions about using and purchasing ClearDB MySQL datab
 ## What options do I have for MySQL on Azure?
 You have several options:
 
-* [ClearDB Shared MySQL database](/marketplace/partners/cleardb/databases/)
-* [ClearDB MySQL Premium clusters](/marketplace/partners/cleardb-clusters/cluster/)
+* [ClearDB Shared MySQL database](https://azure.microsoft.com/marketplace/partners/cleardb/databases/)
+* [ClearDB MySQL Premium clusters](https://azure.microsoft.com/marketplace/partners/cleardb-clusters/cluster/)
 * [MySQL cluster running on an Azure VM](https://github.com/azure/azure-quickstart-templates/tree/master/mysql-replication)
 * [Single instance of MySQL running on an Azure VM](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
@@ -47,7 +47,7 @@ The default database option is Titan, which is $3.50. We don’t show the cost d
 Yes. You can connect your web app to your database as long as your Azure VM has given remote access to your web app. For more information, see [Install MySQL on a virtual machine](virtual-machines/virtual-machines-windows-classic-mysql-2008r2.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## In which countries are ClearDB Premium MySQL clusters supported?
-[ClearDB Premium MySQL clusters](/marketplace/partners/cleardb-clusters/cluster/) are available in all Azure regions worldwide with the exception of India, Australia, Brazil South, and China.
+[ClearDB Premium MySQL clusters](https://azure.microsoft.com/marketplace/partners/cleardb-clusters/cluster/) are available in all Azure regions worldwide with the exception of India, Australia, Brazil South, and China.
 
 ## Can I create a new cluster prior to creating a database with ClearDB premium cluster solution?
 No, creating empty ClearDB clusters is not supported. The Azure portal allows you to create databases in a cluster, which may create a new cluster at the same time.
@@ -59,7 +59,7 @@ No, Azure will not warn you if you delete a marketplace purchase that your appli
 Azure Marketplace is not available to customers enrolled in Azerbaijan, Croatia, Norway or Puerto Rico. ClearDB is not available in these regions.
 
 ## What pricing tier should I choose for a production web app and database?
-Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend either a Saturn or Jupiter plan. Review the features & limitations of each pricing tier for both [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) and [ClearDB MySQL databases](/marketplace/partners/cleardb/databases/) to choose the one that fits your needs.
+Use Basic or a higher pricing tier for Web Apps. For ClearDB, we recommend either a Saturn or Jupiter plan. Review the features & limitations of each pricing tier for both [Web Apps](https://azure.microsoft.com/pricing/details/app-service/) and [ClearDB MySQL databases](https://azure.microsoft.com/marketplace/partners/cleardb/databases/) to choose the one that fits your needs.
 
 ## How do I upgrade my ClearDB database from one plan to another?
 In the [Azure portal](https://portal.azure.com), you can scale up a ClearDB shared hosting database. Read this [article](https://blogs.msdn.microsoft.com/appserviceteam/2016/10/06/upgrade-your-cleardb-mysql-database-in-azure-portal/) to learn more. We currently don't support upgrade for ClearDB Premium clusters in the Azure portal.
@@ -100,5 +100,5 @@ Access to Azure Marketplace for third-party services can be managed by your EA A
 Contact [Enterprise Customer Support](http://aka.ms/AzureEntSupport) with regards to billing under their EA enrollment. The EA Portal Support Team will answer your question or help resolve your issue.
 
 ## More information
-[Azure Marketplace FAQ](/marketplace/faq/)
+[Azure Marketplace FAQ](https://azure.microsoft.com/marketplace/faq/)
 
