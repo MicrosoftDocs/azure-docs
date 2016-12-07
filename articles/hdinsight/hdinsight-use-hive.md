@@ -205,7 +205,7 @@ Now that you've learned what Hive is and how to use it with Hadoop in HDInsight,
 [hdinsight-upload-data]: hdinsight-upload-data.md
 [hdinsight-get-started]: hdinsight-get-started.md
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx
 
 [image-hdi-hive-powershell]: ./media/hdinsight-use-hive/HDI.HIVE.PowerShell.png
