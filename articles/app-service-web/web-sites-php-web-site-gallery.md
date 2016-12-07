@@ -85,7 +85,7 @@ The WordPress site that you deploy in this tutorial uses MySQL for the database.
 ## Launch and manage your WordPress web app
 1. When the web app creation is finished, navigate in the Azure Portal to the resource group in which you created the application, and you can see the web app and the database.
    
-    The extra resource with the light bulb icon is [Application Insights](/services/application-insights/), which provides monitoring services for your web app.
+    The extra resource with the light bulb icon is [Application Insights](https://azure.microsoft.com/services/application-insights/), which provides monitoring services for your web app.
 2. In the **Resource group** blade, click the web app line.
    
     ![Configure web app](./media/web-sites-php-web-site-gallery/resourcegroup.png)

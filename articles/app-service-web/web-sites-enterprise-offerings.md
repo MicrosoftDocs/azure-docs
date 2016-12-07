@@ -20,7 +20,7 @@ ms.author: anwestg
 # Azure App Service Web Apps Offerings for Enterprise Whitepaper
 The need to reduce costs and deliver IT solutions faster in a rapidly evolving environment creates new challenges for Developers, IT Professionals, and Managers. Users are increasingly looking for their Line of Business (LOB) web applications to be quick, responsive, and available from any device. At the same time, businesses are trying to capitalize on the increased productivity and efficiency that comes from integration with cloud and mobile services, this may be something as simple as single sign-on across devices using Active Directory to collaboration in Office365 using data pulled from an internal LOB application which in turn pulls in data from the company implementation of Salesforce. [Azure App Service Web Apps](http://go.microsoft.com/fwlink/?LinkId=529714) is an enterprise-class cloud service for developing, testing, and running web and mobile applications, Web APIs, and generic websites. It can be used to run corporate websites, intranet sites, business apps, and digital marketing campaigns on a global network of datacenters optimized for scale and availability, along with support for continuous integration and modern DevOps practices.  
 
-This whitepaper highlights the capabilities of the [Web Apps](/services/app-service/web/) service specifically focused on running LOB Web Applications, covering migration of existing web applications and deployment of new LOB web applications on the platform.
+This whitepaper highlights the capabilities of the [Web Apps](https://azure.microsoft.com/services/app-service/web/) service specifically focused on running LOB Web Applications, covering migration of existing web applications and deployment of new LOB web applications on the platform.
 
 ## Audience
 IT Professionals, architects, and managers who are looking to migrate to the cloud web workloads that are currently running on-premises. Web workloads can span either Business to Employee or Business to Partners web applications.
@@ -139,7 +139,7 @@ In addition to the scaling flexibility of Web Apps, the overall platform enables
 App Service Web Apps offers a flexible, cost effective, responsive solution to the dynamic needs of a business in a rapidly evolving environment. Web Apps helps businesses increase productivity and efficiency by making use of a managed platform with modern DevOps capabilities and reduced hands on management, while providing enterprise capabilities in scale, resilience, security and integration with on-premises assets.
 
 ## Call to Action
-For more information on the Azure App Service Web Apps service, visit [http://aka.ms/enterprisewebsites](/services/websites/enterprise/) where more information can be sourced, and sign up for a trial today at [https://azure.microsoft.com/pricing/free-trial/](https://azure.microsoft.com/pricing/free-trial/) to evaluate the service and discover the benefits for your business.
+For more information on the Azure App Service Web Apps service, visit [http://aka.ms/enterprisewebsites](https://azure.microsoft.com/services/websites/enterprise/) where more information can be sourced, and sign up for a trial today at [https://azure.microsoft.com/pricing/free-trial/](https://azure.microsoft.com/pricing/free-trial/) to evaluate the service and discover the benefits for your business.
 
 [!INCLUDE [app-service-web-whats-changed](../../includes/app-service-web-whats-changed.md)]
 

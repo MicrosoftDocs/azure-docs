@@ -267,7 +267,7 @@ You have now created and deployed an ASP.NET web application that uses a hybrid 
 
 [Josh Twist introduces hybrid connections (Channel 9 video)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Hybrid Connections overview](/services/biztalk-services/)
+[Hybrid Connections overview](https://azure.microsoft.com/services/biztalk-services/)
 
 [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 

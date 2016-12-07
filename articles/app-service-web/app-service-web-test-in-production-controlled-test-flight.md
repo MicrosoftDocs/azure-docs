@@ -18,7 +18,7 @@ ms.author: cephalin
 
 ---
 # Flighting deployment (beta testing) in Azure App Service
-This tutorial shows you how to do *flighting deployments* by integrating the various capabilities of [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) and [Azure Application Insights](/services/application-insights/).
+This tutorial shows you how to do *flighting deployments* by integrating the various capabilities of [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714) and [Azure Application Insights](https://azure.microsoft.com/services/application-insights/).
 
 *Flighting* is a deployment process that validates a new feature or change with a limited number of real customers, and is a major testing in production
 scenario. It is akin to beta testing and is sometimes known as "controlled test flight". Many large enterprises with a web presence use this approach to
