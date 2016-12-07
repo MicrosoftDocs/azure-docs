@@ -33,9 +33,9 @@ In this article, you learn to determine if a SQL Server database is compatible t
 
 2. Execute the following SqlPackage command with the following arguments for your environment:
 
-```   
+   ```   
     sqlpackage.exe /Action:Export /ssn:< server_name > /sdn:< database_name > /tf:< target_file > /p:TableData=< schema_name.table_name > > < output_file > 2>&1
-```   
+   ```   
 
    | Argument | Description |
    | --- | --- |
