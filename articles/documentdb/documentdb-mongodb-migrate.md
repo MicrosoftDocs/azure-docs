@@ -40,7 +40,8 @@ To migrate to an Azure DocumentDB account with protocol support for MongoDB, you
 
 4. In the newly opened Account blade, click on **Connection String** in left-hand navigation.
 
-![Screen shot of the Connection Blade](./media/documentdb-mongodb-migrate/ConnectionStringBlade.png)
+    ![Screen shot of the Connection Blade](./media/documentdb-mongodb-migrate/ConnectionStringBlade.png)
+
 5. The **Connection String** blade will contain all the information to successfully connect to your account.
 
 ## Import data to DocumentDB with protocol support for MongoDB with mongoimport
