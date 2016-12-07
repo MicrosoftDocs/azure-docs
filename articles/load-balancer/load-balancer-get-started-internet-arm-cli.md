@@ -17,7 +17,7 @@ ms.workload: infrastructure-services
 ms.date: 10/24/2016
 ms.author: kumud
 ---
-# Creating an internal load balancer using the Azure CLI
+# Creating an internet load balancer using the Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portal](../load-balancer/load-balancer-get-started-internet-portal.md)

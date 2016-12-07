@@ -248,8 +248,8 @@
 
 # Reference
 ## [Azure CLI](/cli/azure/)
-## [Java](/java/api/)
 ## [.NET](/dotnet/api)
+## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
 
 # Related
