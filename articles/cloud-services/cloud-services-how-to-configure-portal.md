@@ -49,7 +49,7 @@ You can add alerts to your cloud service. Click **Settings** > **Alert Rules** >
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
-From here you can setup an alert. With the **Mertic** drop down box, you can setup an alert for the following types of data.
+From here you can setup an alert. With the **Metric** drop down box, you can setup an alert for the following types of data.
 
 * Disk read
 * Disk write
@@ -73,7 +73,7 @@ First, click on the cloud service instance.
 
 ![Cloud Service Instance](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 
-From the blade that opens uou can initiate a remote desktop connection, remotely reboot the instance, or remotely reimage (start with a fresh image) the instance.
+From the blade that opens you can initiate a remote desktop connection, remotely reboot the instance, or remotely reimage (start with a fresh image) the instance.
 
 ![Cloud Service Instance Buttons](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 

@@ -86,7 +86,7 @@ The **ServiceDefinition.csdef** file specifies the settings that are used by Azu
 </ServiceDefinition>
 ```
 
-You can refer to the [Service Definition Schema][] for a better understanding of the XML schema used here, however, here is a quick explanation of some of the elements:
+You can refer to the [Service Definition Schema](https://msdn.microsoft.com/library/azure/ee758711.aspx) for a better understanding of the XML schema used here, however, here is a quick explanation of some of the elements:
 
 **Sites**  
 Contains the definitions for websites or web applications that are hosted in IIS7.
