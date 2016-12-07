@@ -1,4 +1,4 @@
-﻿---
+---
 title: Simulate a device with the Azure IoT Gateway SDK (Linux) | Microsoft Docs
 description: How to use the Azure IoT Gateway SDK on Linux to create a simulated device that sends telemetry through a gateway to an IoT hub.
 services: iot-hub
