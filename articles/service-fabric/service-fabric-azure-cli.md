@@ -165,6 +165,7 @@ openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 
 Refer to [OpenSSL documentation](https://www.openssl.org/docs/man1.0.1/apps/pkcs12.html) for details.
 
+<a id="troubleshooting"></a>
 ## Troubleshooting
 ### Copying of the application package does not succeed
 Check if `openssh` is installed. By default, Ubuntu Desktop doesn't have it installed. Install it using the following command:
