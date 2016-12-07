@@ -140,7 +140,7 @@ Logic Apps is a design tool for modeling and automating processes into workflows
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Logic Apps REST API Reference</p>
+                        <p>Logic Apps REST API</p>
                     </div>
                 </div>
             </div>

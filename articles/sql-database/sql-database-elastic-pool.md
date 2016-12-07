@@ -6,15 +6,16 @@ services: sql-database
 documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: cgronlun
+editor: ''
 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
+ms.custom: sharded databases pool
 ms.devlang: NA
-ms.date: 11/15/2016
+ms.date: 12/06/2016
 ms.author: CarlRabeler
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 
 ---

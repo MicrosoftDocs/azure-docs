@@ -11,5 +11,9 @@
 ## Integrate
 ###[On-premise data gateway](analysis-services-gateway.md)
 
-# References
+# Reference
+##[PowerShell](/powershell/resourcemanager)
+##[REST](/rest/api/analysisservices/)
+
+# Related
 ##[Datasource connections](analysis-services-datasource.md)

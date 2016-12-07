@@ -1,6 +1,6 @@
 ---
-title: Developer guide - identity registry | Microsoft Docs
-description: Azure IoT Hub developer guide - description of the identity registry and how to use it to manage your devices
+title: Understand the Azure IoT Hub identity registry | Microsoft Docs
+description: Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: dobett
 
 ---
-# Manage device identities in IoT Hub
+# Identity registry
 ## Overview
 Every IoT hub has an identity registry that stores information about the devices that are permitted to connect to the IoT hub. Before a device can connect to an IoT hub, there must be an entry for that device in the IoT hub's identity registry. A device must also authenticate with the IoT hub based on credentials stored in the identity registry.
 

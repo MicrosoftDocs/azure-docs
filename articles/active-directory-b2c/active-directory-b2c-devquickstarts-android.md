@@ -3,7 +3,7 @@ title: 'Azure Active Directory B2C: Call a web API from an Android application |
 description: This article will show you how to create an Android 'to-do list' app that calls a Node.js web API by using OAuth 2.0 bearer tokens. Both the Android app and the web API use Azure Active Directory B2C to manage user identities and authenticate users.
 services: active-directory-b2c
 documentationcenter: android
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: ''
 

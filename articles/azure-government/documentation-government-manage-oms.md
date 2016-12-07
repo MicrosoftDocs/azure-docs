@@ -37,8 +37,8 @@ You can connect Azure VMs to OMS directly through the Azure portal. For instruct
 
 You can also connect them programmatically or configure the OMS extension right into your Azure Resource Manager templates. See the instructions for Windows-based machines at [Connect Windows computers to Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents) and for Linux-based machines at [Connect Linux computers to Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents).
 
-## Onboard Storage Accounts and SCOM to OMS
-OMS can also connect to your Storage Account and/or existing SCOM 2013 deployments to offer you operations management in hybrid scenarios (across cloud providers or in cloud/on-premises infrastructures).
+## Onboarding Storage Accounts and SCOM to OMS
+OMS can also connect to your Storage Account and/or existing System Center Operations Manager deployments to offer you operations management in hybrid scenarios (across cloud providers or in cloud/on-prem infrastructures).
 
 ![Figure 2: Connecting Azure Storage and SCOM to OMS](./media/documentation-government-oms-figure2.png)
 <p align="center">Figure 2: Connecting Azure Storage and SCOM to OMS</p>

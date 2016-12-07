@@ -1,6 +1,6 @@
 ---
 title: Use the Azure portal to create an IoT Hub | Microsoft Docs
-description: An overview of how to create and manage Azure IoT hubs through the Azure portal
+description: How to create, manage, and delete Azure IoT hubs through the Azure portal. Includes information about pricing tiers, scaling, security, and messaging configuration.
 services: iot-hub
 documentationcenter: ''
 author: dominicbetts

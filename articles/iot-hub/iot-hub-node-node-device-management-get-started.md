@@ -1,6 +1,6 @@
 ---
-title: Get started with device management | Microsoft Docs
-description: This tutorial shows you how to get started with device management on Azure IoT Hub
+title: Get started with Azure IoT Hub device management (Node) | Microsoft Docs
+description: How to use IoT Hub device management to initiate a remote device reboot. You use the Azure IoT SDK for Node.js to implement a simulated device app that includes a direct method and a service app that invokes the direct method.
 services: iot-hub
 documentationcenter: .net
 author: juanjperez
@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: juanpere
 
 ---
-# Tutorial: Get started with device management
+# Get started with device management (Node)
 ## Introduction
 IoT cloud applications can use primitives in Azure IoT Hub, namely the device twin and direct methods, to remotely start and monitor device management actions on devices.  This article provides guidance and code for how an IoT cloud application and a device work together to initiate and monitor a remote device reboot using IoT Hub.
 

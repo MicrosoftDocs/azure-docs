@@ -9,8 +9,9 @@ editor: ''
 
 ms.assetid: 2dedddbb-618d-462b-80dd-e4a57857c737
 ms.service: sql-database
+ms.custom: sharded databases pool
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: csharp
 ms.workload: data-management
 ms.date: 10/04/2016
