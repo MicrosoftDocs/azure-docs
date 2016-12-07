@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upgrade to Azure SQL Database V12 using PowerShell | Microsoft Docs
 description: Explains how to upgrade to Azure SQL Database V12 including how to upgrade Web and Business databases, and how to upgrade a V11 server migrating its databases directly into an elastic database pool using PowerShell.
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: bb87b726-496c-4429-a43a-103a3e89abc4
 ms.service: sql-database
+ms.custom: V11
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na

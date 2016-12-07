@@ -1,4 +1,4 @@
-﻿---
+---
 title: SAP NetWeaver on Azure Virtual Machines (VMs) – Deployment Guide | Microsoft Docs
 description: SAP NetWeaver on Azure Virtual Machines (VMs) – Deployment Guide
 services: virtual-machines-windows

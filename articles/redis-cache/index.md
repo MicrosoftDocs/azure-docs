@@ -201,7 +201,7 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Redis Cache REST API Reference</p>
+                        <p>Redis Cache REST API</p>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Clone your StorSimple volume | Microsoft Docs
 description: Describes the different clone types and when to use them, and explains how you can use a backup set to clone an individual volume.
 services: storsimple
