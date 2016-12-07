@@ -43,7 +43,7 @@ Port: 8001
 
 6.  Set breakpoints at desired points and debug the application.
 
-If the application is crashing, you may also want to enable coredumps. Execute ``ulimit -c`` in a shell and if it returns 0, then coredumps are not enabled. You have to execute ``ulimit -c unlimited`` to enable unlimited coredumps. You can also verify the status using the command ``ulimit -a``.  If you wanted to update the coredump generation path, execute ``echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern``. 
+If the application is crashing, you may also want to enable coredumps. Execute ``ulimit -c`` in a shell and if it returns 0, then coredumps are not enabled. Execute the command ``ulimit -c unlimited`` to enable unlimited coredumps. You can also verify the status using the command ``ulimit -a``.  If you wanted to update the coredump generation path, execute ``echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern``. 
 
 ## Next steps
 *[Collect logs using Linux Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md)
