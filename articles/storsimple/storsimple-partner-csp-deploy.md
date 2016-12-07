@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 12/06/2016
+ms.date: 12/07/2016
 ms.author: alkohli
 ---
 
@@ -32,9 +32,9 @@ Before you begin, ensure that:
 - You are enrolled under the CSP program.
 - You have valid [Partner Center](http://partnercenter.microsoft.com/) login credentials. The credentials enable you to sign in to the Partner portal to add new customers, search for customers, or navigate to a customer account from the Partner dashboard. The CSP can function as a StorSimple administrator on behalf of the customer in the Azure portal.
                              
-## Add a new customer
+## Add a customer
 
-If you add a customer, a subscription is automatically created. Perform the following steps in the Partner portal to add a customer (and automatically create a subscription).
+If you add a customer, a subscription is automatically created. To add a customer (and automatically create a subscription), perform the following steps in the Partner portal.
 
 1. Go to the [Partner Center](http://partnercenter.microsoft.com/) and sign in using your CSP credentials. Click **Dashboard**.
 
@@ -71,21 +71,21 @@ If you add a customer, a subscription is automatically created. Perform the foll
 
 ## Add a subscription
 
-In some instances, you may have an existing customer, and you need to add a new subscription. Perform the following steps in the Partner portal to add a new subscription to an existing customer.
+In some instances, you may have an existing customer, and you need to add a subscription. To add a subscription to an existing customer, perform the following steps in the Partner portal.
 
 1. Go to the [Partner Center](http://partnercenter.microsoft.com/) and sign in using your CSP credentials. Click **Dashboard**.
 
      ![Dashboard in Partner Center](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. In the left-pane, click **Customers**. Find or navigate to the customer you want to add a new subscription to. Click the ![Expand check icon](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) icon to expand the row for the company name for your customer. In the details, click **Add subscriptions**.
+2. In the left-pane, click **Customers**. Find or navigate to the customer you want to add a subscription to. Click the ![Expand check icon](./media/storsimple-partner-csp-deploy/expand_pane_icon.png) icon to expand the row for the company name for your customer. In the details, click **Add subscriptions**.
 
     ![Customers](./media/storsimple-partner-csp-deploy/image10.png)
 
-3. Check **Microsoft Azure** for the **Top offers** in the subscription and click **Submit**. This will create a new subscription.
+3. Check **Microsoft Azure** for the **Top offers** in the subscription and click **Submit**. This creates a new subscription.
 
     ![Add new subscription](./media/storsimple-partner-csp-deploy/image11.png)
 
-6. After a new subscription is created, click **<-- Customers** in the left-pane to return to the **Customers** page. Search for the customer for whiom you just created a new subscription. Click the **Company name** to drill down into the details.
+6. After a new subscription is created, click **<-- Customers** in the left-pane to return to the **Customers** page. Search for the customer for whom you just created a subscription. Click the **Company name** to drill down into the details.
 
     ![Search for the customer](./media/storsimple-partner-csp-deploy/image6.png)  
 
