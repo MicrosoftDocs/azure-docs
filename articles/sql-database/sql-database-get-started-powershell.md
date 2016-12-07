@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 08/19/2016
+ms.date: 12/07/2016
 ms.author: sstein
 
 ---
@@ -30,7 +30,7 @@ In this getting-started tutorial, you learn how to use PowerShell to:
 * Create the Adventure Works LT sample database
 * View Adventure Works LT sample database properties in Azure
 
-In this tutorial, you will also:
+In this tutorial, you also:
 
 * Connect to the logical server and its master database
 * View master database properties
@@ -41,12 +41,22 @@ In this tutorial, you will also:
 To complete this tutorial, you must connect to an Azure subscription using an account that is a member of either the owner role or the contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
 
 
+## Pre-requisite - Save the AdventureWorksLT sample database BACPAC to Azure blob storage
+
+This tutorial imports a BACPAC file from Azure Storage to a new Azure SQL database, so the first step is to get a copy of the AdventureWorksLT BACPAC, and upload it to blob storage.
+The following steps get the sample database ready to import:
+
+1. [Download the AdventureWorksLT BACPAC](https://msftdbprodsamples.codeplex.com/downloads/get/478214).
+2. [Create a storage account](../storage/storage-create-storage-account).
+3. [Upload the BACPAC file to a blob container in your storage account (use AzCopy)](../storage/storage-use-azcopy#blob-upload). 
+
+
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
 
 ## Create a new logical SQL server using Azure PowerShell
 
-We need a resource group to contain the server, so the first step is to either create a new resource group (or get a reference to an existing one).
+We need a resource group to contain the server, so the first step is to either create a new resource group and server ([New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)), or get references to existing ones ([Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
 The following snippets will create a resource group and Azure SQL server if they don't already exist:
 
 
@@ -54,8 +64,8 @@ The following snippets will create a resource group and Azure SQL server if they
 # Create new, or get existing resource group
 ############################################
 
-$resourceGroupName = $myResourceGroupName
-$resourceGroupLocation = $myResourceGroupLocation
+$resourceGroupName = {resource-group-name}
+$resourceGroupLocation = {resource-group-location}
 
 $myResourceGroup = Get-AzureRmResourceGroup -Name $resourceGroupName -ea SilentlyContinue
 
@@ -75,13 +85,13 @@ $myResourceGroup
 # Create a new, or get existing server
 ######################################
 
-$serverName = $myServerName
-$serverVersion = $myServerVersion
-$serverLocation = $myServerLocation
-$serverResourceGroupName = $myServerResourceGroupName
+$serverName = {server-name}
+$serverVersion = {server-version}
+$serverLocation = {server-location}
+$serverResourceGroupName = {resource-group-name}
 
-$serverAdmin = $myServerAdmin
-$serverAdminPassword = $myServerAdminPassword
+$serverAdmin = {eerver-admin}
+$serverAdminPassword = {server-admin-password}
 
 $securePassword = ConvertTo-SecureString –String $serverAdminPassword –AsPlainText -Force
 $serverCreds = New-Object –TypeName System.Management.Automation.PSCredential –ArgumentList $serverAdmin, $securePassword
@@ -101,11 +111,11 @@ $myServer
 ```
 
 
-## View the logical SQL Server properties using Azure PowerShell
+## View logical SQL Server properties using Azure PowerShell
 
 ```
-$resourceGroupName = $myResourceGroupName
-$serverName = $myServerName
+$resourceGroupName = {resource-group-name}
+$serverName = {server-name}
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
 
@@ -119,13 +129,14 @@ Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
 
 ## Create a server-level firewall rule using Azure PowerShell
 
+The following uses the [Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserverfirewallrule), and [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) cmdlets get a reference or create a new rule. For this snippet, if the rule already exists, it only gets a reference to it and doesn't update the start and end IP addresses. You can always modify the **else** clause to use the [Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverfirewallrule) for create or update functionality.
 
 ```
-$serverFirewallRuleName = $myServerFirewallRuleName
-$serverFirewallStartIp = $myServerFirewallStartIp
-$serverFirewallEndIp = $myServerFirewallEndIp
+$serverFirewallRuleName = {server-firewall-rule-name}
+$serverFirewallStartIp = {server-firewall-rule-startIp}
+$serverFirewallEndIp = {server-firewall-rule-endIp}
 
-$myFirewallRule = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $myServerFirewallRuleName -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+$myFirewallRule = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 
 if(!$myFirewallRule)
 {
@@ -142,13 +153,13 @@ $myFirewallRule
 
 ## Connect to SQL server using Azure PowerShell
 
-Lets run a quick query against the master database to verify we can connect to the server. The following snippet builds a connection string based on the variables we used in the previous snippets.
+Lets run a quick query against the master database to verify we can connect to the server. The following snippet uses the [.NET Framework Provider for SQL Server (System.Data.SqlClient)](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) to connect and query the database. It builds a connection string based on the variables we used in the previous snippets. Replace the placeholder with the SQL server admin password.
 
 
 ```
 $databaseName = "master"
 
-$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password=" + $myServerAdminPassword + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password={SqlAdministratorLogin-password}" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
 
 $connection = New-Object System.Data.SqlClient.SqlConnection
@@ -172,19 +183,19 @@ $connection.Close()
 
 ## Create new AdventureWorksLT sample database using Azure PowerShell
 
-The following snippet imports a bacpac of the AdventureWorksLT sample database. The bacpac is located in Azure blob storage.
+The following snippet imports a bacpac of the AdventureWorksLT sample database using the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport) cmdlet. The bacpac is located in Azure blob storage. After running the import cmdlet, you can monitor the progress of the import operation using the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus) cmdlet.
 
 ```
-$resourceGroupName = $myResourceGroupName
-$serverName = $myServerName
+$resourceGroupName = {resource-group-name}
+$serverName = {server-name}
 
-$databaseName = $myDatabaseName
-$databaseEdition = $myDatabaseEdition
-$databaseServiceLevel = $myDatabaseServiceLevel
+$databaseName = {database-name}
+$databaseEdition = {database-edition}
+$databaseServiceLevel = {database-service-level} 
 
 $storageKeyType = "StorageAccessKey"
-$storageUri = $myStorageUri
-$storageKey = $myStorageKey
+$storageUri = {storage-uri}
+$storageKey = {storage-key}
 
 $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
@@ -202,6 +213,8 @@ $importStatus
 
 
 ## View database properties using Azure PowerShell
+
+
 
 ```
 $resourceGroupName = $myResourceGroupName
@@ -221,8 +234,10 @@ Write-Host "Database status: " $myDatabase.Status
 
 ## Connect and query the sample database using Azure PowerShell
 
+Lets run a quick query against the AdventureWorksLT database to verify we can connect. The following snippet uses the [.NET Framework Provider for SQL Server (System.Data.SqlClient)](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) to connect and query the database. It builds a connection string based on the variables we used in the previous snippets. Replace the placeholder with the SQL server admin password.
+
 ```
-$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password=" + $myServerAdminPassword + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password={SqlAdministratorLogin-password}" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
 
 $connection = New-Object System.Data.SqlClient.SqlConnection
@@ -278,10 +293,10 @@ $myDatabaseName = "AdventureWorksLT"
 $myDatabaseEdition = "Basic"
 $myDatabaseServiceLevel = " "
 
-$myStorageUri = "http://sqldbbacpacs.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac"
-$myStorageKey = "8a/socfMldcfLe2AAPCqNniluY5IB2nQocIEwsvbGTCqSVOfSnL+gknYi7lYbh7VY9tTdZhUPkSqiHP2Tv7cFg=="
-
-
+$myStorageKeyType = "StorageAccessKey"
+# Get these values from your Azure storage account:
+$myStorageUri = "http://{your-container}.blob.core.windows.net/{AdventureWorksLT.bacpac}"
+$myStorageKey = "{your-storage-key}"
 
 
 # Create new, or get existing resource group
@@ -354,7 +369,7 @@ $serverFirewallRuleName = $myServerFirewallRuleName
 $serverFirewallStartIp = $myServerFirewallStartIp
 $serverFirewallEndIp = $myServerFirewallEndIp
 
-$myFirewallRule = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $myServerFirewallRuleName -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
+$myFirewallRule = Get-AzureRmSqlServerFirewallRule -FirewallRuleName $serverFirewallRuleName -ServerName $serverName -ResourceGroupName $serverResourceGroupName -ea SilentlyContinue
 
 if(!$myFirewallRule)
 {
@@ -405,7 +420,7 @@ $databaseName = $myDatabaseName
 $databaseEdition = $myDatabaseEdition
 $databaseServiceLevel = $myDatabaseServiceLevel
 
-$storageKeyType = "StorageAccessKey"
+$storageKeyType = $myStorageKeyType
 $storageUri = $myStorageUri
 $storageKey = $myStorageKey
 
