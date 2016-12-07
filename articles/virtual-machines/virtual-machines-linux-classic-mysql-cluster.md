@@ -30,7 +30,7 @@ There is no need for a VIP solution like LVS, because we will be using Microsoft
 
 There are other possible architectures for MySQL, including NBD Cluster, Percona, and Galera, as well as several middleware solutions, including at least one available as a VM on [VM Depot](http://vmdepot.msopentech.com). As long as these solutions can replicate on unicast vs. multicast or broadcast and don't rely on shared storage or multiple network interfaces, the scenarios should be easy to deploy on Microsoft Azure.
 
-These clustering architectures can be extended to other products like PostgreSQL and OpenLDAP on a similar fashion. For example, this load-balancing procedure with shared nothing was successfully tested with multi-master OpenLDAP, and you can watch it on our Channel 9 blog.
+These clustering architectures can be extended to other products like PostgreSQL and OpenLDAP in a similar fashion. For example, this load-balancing procedure with shared nothing was successfully tested with multi-master OpenLDAP, and you can watch it on our Channel 9 blog.
 
 ## Get ready
 You need the following resources and abilities:
@@ -54,16 +54,16 @@ Create an affinity group for the solution by signing in to the Azure classic por
 A new network is created, and a subnet is created inside the network. This example uses a 10.10.10.0/24 network with only one /24 subnet inside.
 
 ### Virtual machines
-The first Ubuntu 13.10 VM is created by using an Endorsed Ubuntu Gallery image, and called `hadb01`. A new cloud service is created in the process, called hadb. We call it this to illustrate the shared, load-balanced nature that the service will have when we add more resources. The creation of `hadb01` is uneventful and completed by using the portal. An endpoint for SSH is automatically created, and our created network is selected. We also choose to create an availability set for the VMs.
+The first Ubuntu 13.10 VM is created by using an Endorsed Ubuntu Gallery image, and called `hadb01`. A new cloud service is created in the process, called hadb. This name illustrates the shared, load-balanced nature that the service will have when more resources are added. The creation of `hadb01` is uneventful and completed by using the portal. An endpoint for SSH is automatically created, and the new network is selected. Now you can create an availability set for the VMs.
 
-Once the first VM is created (technically, when the cloud service is created) we proceed to create the second VM, `hadb02`. For the second VM, we will also use Ubuntu 13.10 VM from the Gallery by using the portal, but we will choose to use an existing cloud service, `hadb.cloudapp.net`, instead of creating a new one. The network and availability set should be automatically selected. An SSH endpoint will be created, too.
+After the first VM is created (technically, when the cloud service is created), create the second VM, `hadb02`. For the second VM, use Ubuntu 13.10 VM from the Gallery by using the portal, but use an existing cloud service, `hadb.cloudapp.net`, instead of creating a new one. The network and availability set should be automatically selected. An SSH endpoint will be created, too.
 
-After both VMs have been created, we will take note of the SSH port for `hadb01` (TCP 22) and `hadb02` (automatically assigned by Azure).
+After both VMs have been created, take note of the SSH port for `hadb01` (TCP 22) and `hadb02` (automatically assigned by Azure).
 
 ### Attached storage
-Attach a new disk to both VMs and create new 5-GB disks in the process. The disks are hosted in the VHD container in use for our main operating system disks. After disks are created and attached, there is no need for us to restart Linux because the kernel will see the new device. This device is usually `/dev/sdc`. Check `dmesg` for the output.
+Attach a new disk to both VMs and create new 5-GB disks in the process. The disks are hosted in the VHD container in use for your main operating system disks. After disks are created and attached, there is no need to restart Linux because the kernel will see the new device. This device is usually `/dev/sdc`. Check `dmesg` for the output.
 
-On each VM, we create a partition by using `cfdisk` (primary, Linux partition) and write the new partition table. Do not create a filesystem on this partition.
+On each VM, create a partition by using `cfdisk` (primary, Linux partition) and write the new partition table. Do not create a filesystem on this partition.
 
 ## Set up the cluster
 Use APT to install Corosync, Pacemaker, and DRBD on both Ubuntu VMs. To do so with `apt-get`, run the following code:
@@ -149,14 +149,14 @@ If you don't plan to failover DRBD now, the first option is easier although argu
 You also need to enable networking for MySQL if you want to make queries from outside the VMs, which is the purpose of this guide. On both VMs, open `/etc/mysql/my.cnf` and go to `bind-address`. Change the address from 127.0.0.1 to 0.0.0.0. After saving the file, issue a `sudo service mysql restart` on your current primary.
 
 ### Create the MySQL Load Balanced Set
-Go back to the portal, go to `hadb01`, and choose **Endpoints**. To create an  Endpoint, choose MySQL (TCP 3306) from the drop-down list select **Create new load balanced set**. Name the load-balanced endpoint `lb-mysql`. Set **Time** to 5 seconds, minimum.
+Go back to the portal, go to `hadb01`, and choose **Endpoints**. To create an  Endpoint, choose MySQL (TCP 3306) from the drop-down list and select **Create new load balanced set**. Name the load-balanced endpoint `lb-mysql`. Set **Time** to 5 seconds, minimum.
 
 After the endpoint is created, go to `hadb02`, choose **Endpoints**, and create an endpoint. Choose `lb-mysql`, then select MySQL from the drop-down list. You can also use the Azure CLI for this step.
 
 You now have everything you need for manual operation of the cluster.
 
 ### Test the load-balanced set
-Tests can be performed from an outside machine by using any MySQL client, or by using certain applications, like phpMyAdmin running as an Azure Website. In this case we used MySQL's command-line tool on another Linux box:
+Tests can be performed from an outside machine by using any MySQL client, or by using certain applications, like phpMyAdmin running as an Azure Website. In this case, you used MySQL's command-line tool on another Linux box:
 
     mysql azureha –u root –h hadb.cloudapp.net –e "select * from things;"
 
@@ -178,7 +178,7 @@ Corosync is the underlying cluster infrastructure required for Pacemaker to work
 
 The main constraint for Corosync on Azure is that Corosync prefers multicast over broadcast over unicast communications, but Microsoft Azure networking only supports unicast.
 
-Fortunately, Corosync has a working unicast mode, and the only real constraint is that since all nodes are not communicating among themselves *automagically*, you need to define the nodes in your configuration files, including their IP addresses. We can use the Corosync example files for Unicast and change bind address, node lists, and logging directory (Ubuntu uses `/var/log/corosync` while the example files use `/var/log/cluster`), and enable quorum tools.
+Fortunately, Corosync has a working unicast mode, and the only real constraint is that since all nodes are not communicating among themselves *automagically*, you need to define the nodes in your configuration files, including their IP addresses. We can use the Corosync example files for Unicast and change bind address, node lists, and logging directories (Ubuntu uses `/var/log/corosync` while the example files use `/var/log/cluster`), and enable quorum tools.
 
 > [!NOTE]
 > The following `transport: udpu` directive and the manually defined IP addresses for the nodes**.
@@ -242,7 +242,7 @@ You will see output similar to the following image:
 ## Set up Pacemaker
 Pacemaker uses the cluster to monitor for resources, define when primaries go down, and switch those resources to secondaries. Resources can be defined from a set of available scripts or from LSB (init-like) scripts, among other choices.
 
-We want Pacemaker to "own" the DRBD resource, the mountpoint, and the MySQL service. If Pacemaker can turn on and off DRBD, mount it/umount it, and start/stop MySQL in the right order when something bad happens with the primary, our setup is complete.
+We want Pacemaker to "own" the DRBD resource, the mountpoint, and the MySQL service. If Pacemaker can turn on and off DRBD, mount and unmount it, and then start and stop MySQL in the right order when something bad happens with the primary. Then setup is complete.
 
 When you first install Pacemaker, your configuration should be simple enough, something like:
 
@@ -307,10 +307,10 @@ You're ready for an automatic failover simulation. There are two ways to do this
 
 The soft way uses the cluster's shutdown function: ``crm_standby -U `uname -n` -v on``. If you use this on the master, the slave takes over. Remember to set this back to off. If you don't, crm_mon will show one node on standby.
 
-The hard way is shutting down the primary VM (hadb01) via the portal or by changing the runlevel on the VM (that is, halt, shutdown). This helps Corosync and Pacemaker by signaling that the master's going down. You can test this (useful for maintenance windows), but you can also force the scenario by just freezing the VM.
+The hard way is shutting down the primary VM (hadb01) via the portal or by changing the runlevel on the VM (that is, halt, shutdown). This helps Corosync and Pacemaker by signaling that the master's going down. You can test this (useful for maintenance windows), but you can also force the scenario by freezing the VM.
 
 ## STONITH
-It should be possible to issue a VM shutdown via the Azure CLI in lieu of a STONITH script that controls a physical device. You can use `/usr/lib/stonith/plugins/external/ssh` as a base and enable STONITH in the cluster's configuration. Azure CLI should be globally installed and the publish settings and profile should be loaded for the cluster's user.
+It should be possible to issue a VM shutdown via the Azure CLI in lieu of a STONITH script that controls a physical device. You can use `/usr/lib/stonith/plugins/external/ssh` as a base and enable STONITH in the cluster's configuration. Azure CLI should be globally installed, and the publish settings and profile should be loaded for the cluster's user.
 
 Sample code for the resource is available on [GitHub](https://github.com/bureado/aztonith). You need to change the cluster's configuration by adding the following to `sudo crm configure`:
 
