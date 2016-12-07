@@ -265,4 +265,4 @@ Some ready-made scripts are also available for download:
 [New-AzureSBNamespace]: https://msdn.microsoft.com/library/azure/dn495165.aspx
 [Get-AzureSBAuthorizationRule]: https://msdn.microsoft.com/library/azure/dn495113.aspx
 [.NET API for Service Bus]: https://msdn.microsoft.com/en-us/library/azure/mt419900.aspx
-[Install and configure Azure PowerShell]: ../powershell-install-configure.md
+[Install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs

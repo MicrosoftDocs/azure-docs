@@ -1,4 +1,4 @@
-﻿---
+---
 title: Restore an Azure SQL Database from a geo-redundant backup (PowerShell) | Microsoft Docs
 description: Restore an Azure SQL Database into a new server from a geo-redundant backup
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 4b42bffa-f98c-406a-9a96-51721cc423d4
 ms.service: sql-database
+ms.custom: business continuity; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell

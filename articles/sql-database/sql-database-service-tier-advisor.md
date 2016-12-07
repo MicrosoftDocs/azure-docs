@@ -1,4 +1,4 @@
-﻿---
+---
 title: Pricing tier recommendations for Azure SQL Database
 description: When changing pricing tiers in the Azure portal, pricing tier recommendations are provided that recommend the tier that is best suited for running an existing Azure SQL Database’s workload. Pricing tiers describe the service tier and performance level of a SQL database.
 services: sql-database
@@ -9,6 +9,7 @@ editor: monicar
 
 ms.assetid: 265beec9-7478-4abd-9ab5-4094e2e75fe4
 ms.service: sql-database
+ms.custom: v11
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

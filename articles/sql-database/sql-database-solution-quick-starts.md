@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure SQL Database Solution Quick Starts | Microsoft Docs
 description: Learn about Azure SQL Database Solutions
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 21399478-6296-4ad3-bde2-5e14ee49a8eb
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Powershell script to identify single databases suitable for a pool | Microsoft Docs
 description: An elastic database pool is a collection of available resources that are shared by a group of elastic databases. This document provides a Powershell script to help assess the suitability of using an elastic database pool for a group of databases.
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: db541e94-abc8-4578-bae0-9b8c8ad0170e
 ms.service: sql-database
+ms.custom: V11; elastic database pool
 ms.devlang: NA
 ms.date: 09/28/2016
 ms.author: sstein
@@ -30,7 +31,7 @@ This script is useful for evaluating databases on v11 servers for migration to v
 ## Prerequisites
 Install the following prior to running the script:
 
-* The latest Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* The latest Azure PowerShell. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * The [SQL Server 2014 feature pack](https://www.microsoft.com/download/details.aspx?id=42295).
 
 ## Script details

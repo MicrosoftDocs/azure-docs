@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to generate and transfer HSM-protected keys for Azure Key Vault | Microsoft Docs
 description: Use this article to help you plan for, generate, and then transfer your own HSM-protected keys to use with Azure Key Vault.
 services: key-vault
@@ -74,7 +74,7 @@ For this first step, do the following procedures on your workstation that is con
 ### Step 1.1: Install Azure PowerShell
 From the Internet-connected workstation, download and install the Azure PowerShell module that includes the cmdlets to manage Azure Key Vault. This requires a minimum version of 0.8.13.
 
-For installation instructions, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+For installation instructions, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ### Step 1.2: Get your Azure subscription ID
 Start an Azure PowerShell session and sign in to your Azure account by using the following command:
