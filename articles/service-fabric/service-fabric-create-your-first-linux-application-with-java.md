@@ -25,7 +25,10 @@ ms.author: seanmck
 > 
 > 
 
-Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we create an application for Linux and build a service using Java.
+Service Fabric provides SDKs for building services on Linux in both .NET Core and Java. In this tutorial, we create an application for Linux and build a service using Java.  The following Microsoft Virtual Academy video also walks you through the process of creating a Java app on Linux:  
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=DOX8K86yC_206218965">  
+<img src="./media/service-fabric-create-your-first-linux-application-with-java/LinuxVid.png" WIDTH="360" HEIGHT="244">  
+</a></center>
 
 ## Prerequisites
 Before you get started, make sure that you have [set up your Linux development environment](service-fabric-get-started-linux.md). If you are using Mac OS X, you can [set up a Linux one-box environment in a virtual machine using Vagrant](service-fabric-get-started-mac.md).
@@ -83,7 +86,7 @@ Actor projects do not do anything on their own. They require another service or 
 3. Click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This restarts one of the five nodes in your local cluster and force a failover to one of the secondary replicas running on another node. As you do this, pay attention to the output from the test client and note that the counter continues to increment despite the failover.
 
 ## Build and deploy an application with the Eclipse Neon plugin
-If you installed the Service Plugin for Eclipse Neon, you can use it to create, build, and deploy Service Fabric applications built with Java.  When installing Eclipse, choose the **Eclipse IDE for Java developers**.
+If you installed the [Service Fabric Plugin](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) for Eclipse Neon, you can use it to create, build, and deploy Service Fabric applications built with Java.  When installing Eclipse, choose the **Eclipse IDE for Java developers**.
 
 ### Create the application
 The Service Fabric plugin is available through Eclipse extensibility.
