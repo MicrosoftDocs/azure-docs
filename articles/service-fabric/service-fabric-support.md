@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/06/2016
+ms.date: 12/07/2016
 ms.author: chackdan
 
 ---
@@ -32,7 +32,6 @@ or [Microsoft support portal](http://support.microsoft.com/oas/default.aspx?prid
 Learn more about
  
 - [Professional Support from Microsoft for Azure](https://azure.microsoft.com/en-us/support/plans/?b=16.44).
-- [Professional Support from Microsoft for on-premise](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 <a id="getlivesitesupportonprem"></a>
@@ -61,7 +60,6 @@ The [Service Fabric tag on StackOverflow][stackoverflow] and the [Service Fabric
 ### Azure Feedback forum
 
 The [Azure Feedback Forum for Service Fabric][uservoice-forum] is the best place for submitting big feature ideas you have for the product as we review the most popular requests are part of our medium to long-term planning. We encourage you to rally support for your suggestions within the community.
-* 
 
 
 <a id="releasesuport"></a>
@@ -82,11 +80,10 @@ Here are the list of the service fabric versions that are supported and their su
 | --- | --- |
 | All cluster versions prior to 5.3.121 |January 20th 2017 |
 | 5.3.121.* |February 24th 2017 |
+| 5.3.204.* |February 24th 2017 |
 | 5.3.301.* |February 24th 2017 |
 | 5.3.311.* |February 24th 2017 |
-| 5.4.*.* |Current version and so no end date |
-
-
+| 5.4. *. * |Current version and so no end date |
 
 
 ## Next steps
