@@ -1,6 +1,6 @@
 ---
-title: Continuous integration for Service Fabric | Microsoft Docs
-description: Get an overview of how to set up continuous integration for a Service Fabric application by using Visual Studio Team Services (VSTS).
+title: Set up Service Fabric continuous integration and deployment with Visual Studio Team Services | Microsoft Docs
+description: Get an overview of how to set up continuous integration and deployment for a Service Fabric application by using Visual Studio Team Services (VSTS).
 services: service-fabric
 documentationcenter: na
 author: mthalman-msft
@@ -17,8 +17,8 @@ ms.date: 12/06/2016
 ms.author: mthalman;mikhegn
 
 ---
-# Set up continuous integration for a Service Fabric application by using Visual Studio Team Services
-This article describes the steps to set up continuous integration for an Azure Service Fabric application by using Visual Studio Team Services (VSTS), to ensure that your application is built, packaged, and deployed in an automated fashion.
+# Set up Service Fabric continuous integration and deployment with Visual Studio Team Services
+This article describes the steps to set up continuous integration and deployment for an Azure Service Fabric application by using Visual Studio Team Services (VSTS), to ensure that your application is built, packaged, and deployed in an automated fashion.
 
 This document reflects the current procedure and is expected to change over time.
 
