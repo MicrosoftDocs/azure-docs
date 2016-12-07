@@ -47,8 +47,8 @@ This tutorial imports a BACPAC file from Azure Storage to a new Azure SQL databa
 The following steps get the sample database ready to import:
 
 1. [Download the AdventureWorksLT BACPAC](https://msftdbprodsamples.codeplex.com/downloads/get/478214).
-2. [Create a storage account](../storage/storage-create-storage-account).
-3. [Upload the BACPAC file to a blob container in your storage account (use AzCopy)](../storage/storage-use-azcopy#blob-upload). 
+2. [Create a storage account](../storage/storage-create-storage-account.md).
+3. [Upload the BACPAC file to a blob container in your storage account (use AzCopy)](../storage/storage-use-azcopy.md#blob-upload). 
 
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
