@@ -42,16 +42,18 @@ To migrate to an Azure DocumentDB account with protocol support for MongoDB, you
 
 4. In the newly opened Account blade, click on **Connection String** in left-hand navigation.
 
+![Screen shot of the Connection Blade](./media/documentdb-mongodb-migrate/ConnectionStringBlade.png)
+
 5. The **Connection String** blade will contain all the information to successfully connect to your account.
 
 # Import data to DocumentDB with protocol support for MongoDB with mongoimport
 
 1. Fill in the *host*, *username*, and *password* with the values specific for your account.
 
-    Template: 
-        
+    Template:
+
         mongoimport.exe --host <your_hostname>:10250 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates --type json --file C:\sample.json
-        
+
     Example:
 
         mongoimport.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates --db sampleDB --collection sampleColl --type json --file C:\Users\anhoh\Desktop\*.json
@@ -63,13 +65,13 @@ To migrate to an Azure DocumentDB account with protocol support for MongoDB, you
 1. Fill in the *host*, *username*, and *password* with the values specific for your account.
 
     Template:
-    
+
         mongorestore.exe --host <your_hostname>:10250 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path to backup>
-        
+
     Example:
-        
+
         mongorestore.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
-        
+
 2. Congratulations! You have successfully restored data to your DocumentDB account.
 
 ## Next steps
