@@ -28,9 +28,7 @@ To migrate to an Azure DocumentDB account with protocol support for MongoDB, you
 
 1. **Increase throughput** - The duration of your data migration will be influenced by how much throughput you provision for your collections. Make sure you increase the throughput for larger data migrations. Afterwards, make sure to decrease the throughput back down to save costs. Instructions on how to increase throughput in the [Azure Portal](https://portal.azure.com) can be found in [Performance levels and pricing tiers in DocumentDB](documentdb-performance-levels.md).
 
-2. **Pre-create Collections** - Best practice is to pre-create collections to make sure that each collection is configured properly before the migration. If the collections are not pre-created, the migration will automatically create them, but best practice is to pre-create them to ensure all configurations are correct. Instructions on how to create collections in the [Azure Portal](https://portal.azure.com) can be found in [How to create a DocumentDB colleciton and database using the Azure portal](documentdb-create-collection.md).
-
-3. **Enable SSL** - DocumentDB has strict security requirements and standards. Make sure to enable SSL when interacting with your account. The examples below include how to enable SSL for *mongoimport* and *mongorestore*.
+2. **Enable SSL** - DocumentDB has strict security requirements and standards. Make sure to enable SSL when interacting with your account. The examples below include how to enable SSL for *mongoimport* and *mongorestore*.
 
 # Find your Connection Information (Host, Port, Username, and Password)
 
