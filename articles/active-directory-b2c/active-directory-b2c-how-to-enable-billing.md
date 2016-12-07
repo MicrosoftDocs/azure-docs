@@ -1,6 +1,6 @@
 ---
 title: How to Link an Azure Subscription to Azure AD B2C | Microsoft Docs
-description: Step-by-step guide to enable billing for Azure AD B2C into an Azure subscription.
+description: Step-by-step guide to enable billing for Azure AD B2C tenant into an Azure subscription.
 services: active-directory-b2c
 documentationcenter: dev-center-name
 author: rojasja
@@ -8,17 +8,17 @@ manager: mbaldwin
 
 
 ms.service: active-directory-b2c
-ms.devlang: may be required
+ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: may be required
+ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/05/2016
-ms.author: Your MSFT alias or your full email address;semicolon separates two or more aliases
+ms.author: joroja
 
 ---
 # Linking an Azure Subscription to an Azure B2C tenant to pay for usage charges
 
-Ongoing usage charges for Azure Active Directory B2C (or Azure AD B2C) are billed to an Azure Subscription. It is necessary for the tenant administrator to explicitly link the Azure AD B2C tenant to an Azure subscription after creating the B2C tenant itself.  This link is achieved by creating an Azure "B2C Tenant" resource in the target Azure subscription. Many B2C tenants can be linked to a single Azure subscription along with other Azure resources (for example, VMs, Data storage, LogicApps)
+Ongoing usage charges for Azure Active Directory B2C (or Azure AD B2C) are billed to an Azure Subscription. It is necessary for the tenant administrator to explicitly link the Azure AD B2C tenant to an Azure subscription after creating the B2C tenant itself.  This link is achieved by creating an Azure AD "B2C Tenant" resource in the target Azure subscription. Many B2C tenants can be linked to a single Azure subscription along with other Azure resources (for example, VMs, Data storage, LogicApps)
 
 
 > [!IMPORTANT]
@@ -30,7 +30,7 @@ https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 B2C tenant creation must be completed first. Skip this step if you have already created your target B2C Tenant. [Get started with Azure AD B2C](https://azure.microsoft.com/documentation/articles/active-directory-b2c-get-started/)
 
 ## Step 2 - Open Azure portal in the Azure AD Tenant trusted by your Azure subscription
-Navigate to portal.azure.com.  Switch Directory to Azure AD Tenant that is trusted by your target Azure Subscription.  Within the Azure portal, click the account name on the upper right of the dashboard to select the Azure AD Tenant.  This tenant is not an Azure AD B2C tenant.  An Azure subscription is needed to proceed. [Get an Azure Subscription](https://account.windowsazure.com/signup?showCatalog=True)
+Navigate to portal.azure.com. Switch to the Azure AD Tenant that shows the Azure subscription you would like to use. This  Azure AD tenant is different from the B2C tenant. Within the Azure portal, click the account name on the upper right of the dashboard to select the Azure AD Tenant.    An Azure subscription is needed to proceed. [Get an Azure Subscription](https://account.windowsazure.com/signup?showCatalog=True)
 
 ![Switching to your Azure AD Tenant](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
@@ -42,25 +42,25 @@ Open Marketplace by clicking the Marketplace icon, or selecting the green "+" in
 
 The Azure AD B2C Resource create dialog covers the following parameters:
 
-1. Azure AD B2C Tenant – Select an Azure AD B2C Tenant from the dropdown.  Only eligible Azure AD B2C tenants show.  Eligible B2C tenants meet these conditions: You are the global administrator of the B2C Tenant, and the B2C tenant is not currently associated to an Azure subscription.
+1. Azure AD B2C Tenant – Select an Azure AD B2C Tenant from the dropdown.  Only eligible Azure AD B2C tenants show.  Eligible B2C tenants meet these conditions: You are the global administrator of the B2C tenant, and the B2C tenant is not currently associated to an Azure subscription
 
-2. Azure AD Resource name - is preselected to match the domain name of the B2C Tenant.
+2. Azure AD B2C Resource name - is preselected to match the domain name of the B2C Tenant
 
-3. Subscription - An Azure subscription in which the current user is an administrator or a co-administrator.  Multiple Azure AD B2C Tenants may be added to one Azure subscription
+3. Subscription - An active Azure subscription in which the current user is an administrator or a co-administrator.  Multiple Azure AD B2C Tenants may be added to one Azure subscription
 
-4. Resource Group and Location - This artifact helps you organize multiple Azure resources.  This choice has no impact on your B2C tenant location, performance, or billing status
+4. Resource Group and Resource Group location - This artifact helps you organize multiple Azure resources.  This choice has no impact on your B2C tenant location, performance, or billing status
 
 5. Pin to dashboard for easiest access to your B2C tenant billing information and the B2C tenant settings
 ![Create B2C Resource](./media/active-directory-b2c-how-to-enable-billing/createresourceb2c.png)
 
 ## Step 4 - Manage your B2C Tenant resources (optional)
-Once deployment is complete, a new "B2C Tenant" resource is created under the target resource group and related Azure subscription.  You should see a new resource of type "B2C Tenant" added alongside your other Azure resources.
+Once deployment is complete, a new "B2C Tenant" resource is created in the target resource group and related Azure subscription.  You should see a new resource of type "B2C Tenant" added alongside your other Azure resources.
 
 ![Create B2C Resource](./media/active-directory-b2c-how-to-enable-billing/b2cresourcedashboard.png)
 
 By clicking the B2C tenant resource, you are able to
 - Click Subscription name to review billing information. See Billing & Usage.
-- Click B2C Settings to open a new browser tab directly in to your B2C tenant Settings blade
+- Click Azure AD B2C Settings to open a new browser tab directly in to your B2C tenant Settings blade
 - Submit a support request
 - Move your B2C tenant resource to another Azure Subscription, or to another Resource Group.  This choice changes which Azure subscription receives usage charges.
 
