@@ -77,6 +77,10 @@ stream of data to it by calling the **UploadFromStream** method. This operation 
 or overwrite it if it does exist. The following example shows how to upload a blob into a container and assumes that the container was already created.
 
     // Create or overwrite the "myblob" blob with contents from a local file.
+    
+    string blobName = "myfileName";
+    var blockBlob = container.GetBlockBlobReference(blobName);
+    
     using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
     {
         blockBlob.UploadFromStream(fileStream);
