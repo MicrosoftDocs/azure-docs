@@ -78,11 +78,11 @@ Here are the list of the service fabric versions that are supported and their su
 
 | **Service Fabric runtime cluster** | **End of Support Date** |
 | --- | --- |
-| All cluster versions prior to 5.3.121 |January 20 2017 |
-| 5.3.121.* |February 24 2017 |
-| 5.3.204.* |February 24 2017 |
-| 5.3.301.* |February 24 2017 |
-| 5.3.311.* |February 24 2017 |
+| All cluster versions prior to 5.3.121 |January 20, 2017 |
+| 5.3.121.* |February 24, 2017 |
+| 5.3.204.* |February 24, 2017 |
+| 5.3.301.* |February 24, 2017 |
+| 5.3.311.* |February 24, 2017 |
 | 5.4. *. * |Current version and so no end date |
 
 
