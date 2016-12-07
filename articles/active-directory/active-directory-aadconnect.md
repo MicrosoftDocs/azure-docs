@@ -59,8 +59,8 @@ You can find the download for Azure AD Connect on [Microsoft Download Center](ht
 [After installation](active-directory-aadconnect-whats-next.md) you should verify it is working as expected and assign licenses to the users.
 
 ### Next steps to Install Azure AD Connect
-|Topic |  
-|--------- | ---------
+|Topic | Link 
+|--- | ---
 |Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 |Install using Express settings | [Express installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-express.md)
 |Install using Customized settings | [Custom installation of Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md)
