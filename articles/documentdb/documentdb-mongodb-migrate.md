@@ -66,7 +66,7 @@ To migrate to an Azure DocumentDB account with protocol support for MongoDB, you
 
     Template:
 
-        mongorestore.exe --host <your_hostname>:10250 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path to backup>
+        mongorestore.exe --host <your_hostname>:10250 -u <your_username> -p <your_password> --db <your_database> --collection <your_collection> --ssl --sslAllowInvalidCertificates <path_to_backup>
 
     Example:
 
