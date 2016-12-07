@@ -90,7 +90,7 @@ Azure ExpressRoute lets you extend your on-premises networks into the Microsoft 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>ExpressRoute REST API Reference</p>
+                        <p>ExpressRoute REST API</p>
                     </div>
                 </div>
             </div>

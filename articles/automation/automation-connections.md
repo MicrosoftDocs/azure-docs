@@ -28,7 +28,7 @@ When you create a connection, you must specify a *connection type*. The connecti
 > 
 
 ## Windows PowerShell Cmdlets
-The cmdlets in the following table are used to create and manage Automation connections with Windows PowerShell. They ship as part of the [Azure PowerShell module](../powershell-install-configure.md) which is available for use in Automation runbooks and DSC configurations.
+The cmdlets in the following table are used to create and manage Automation connections with Windows PowerShell. They ship as part of the [Azure PowerShell module](/powershell/azureps-cmdlets-docs) which is available for use in Automation runbooks and DSC configurations.
 
 | Cmdlet | Description |
 |:--- |:--- |
