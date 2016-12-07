@@ -88,7 +88,7 @@ For information about how to handle authentication from mobile clients, see the 
 ## More information
 For more information about authentication and authorization in Azure App Service, see the following resources:
 
-* [Expanding App Service authentication / authorization](/blog/announcing-app-service-authentication-authorization/)
+* [Expanding App Service authentication / authorization](https://azure.microsoft.com/blog/announcing-app-service-authentication-authorization/)
 * [How to configure your App Service application to use Azure Active Directory login](../app-service-mobile/app-service-mobile-how-to-configure-active-directory-authentication.md) (Includes links for other authentication providers at the top of the page.) 
 
 For more information about OAuth 2.0, OpenID Connect, and JSON Web Tokens (JWT), see the following resources.

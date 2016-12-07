@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: efb35451-3fed-4264-bf86-72b350f67d50
 ms.service: sql-database
+ms.custom: troubleshoot
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
