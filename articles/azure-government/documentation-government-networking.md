@@ -4,7 +4,7 @@ description: This provides a comparison of features and guidance for private con
 services: Azure-Government
 cloud: gov
 documentationcenter: ''
-author: ryansoc
+author: jawalte
 manager: zakramer
 editor: ''
 
@@ -14,8 +14,8 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/28/2016
-ms.author: ryansoc
+ms.date: 12/07/2016
+ms.author: jawalte
 
 ---
 # Azure Government Networking
