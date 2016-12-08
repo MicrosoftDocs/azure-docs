@@ -39,6 +39,7 @@
 #### [Remediate OS vulnerabilities](security-center-remediate-os-vulnerabilities.md)
 #### [Resolve endpoint protection health alerts](security-center-resolve-endpoint-protection-health-alerts.md)
 #### [Update OS version](security-center-update-os-version.md)
+#### [Vulnerability assessment not installed](security-center-vulnerability-assessment-recommendations.md)
 
 ### [Monitor security health](security-center-monitoring.md)
 ### [Monitor partner solutions](security-center-partner-solutions.md)
