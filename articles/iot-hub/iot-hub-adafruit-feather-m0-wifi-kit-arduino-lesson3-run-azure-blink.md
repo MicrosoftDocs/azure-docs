@@ -1,5 +1,5 @@
 ---
-title: Run a sample application to send device-to-cloud messages | Microsoft Docs
+title: Run a sample application to send device-to-cloud messages to Azure IoT Hub | Microsoft Docs
 description: Deploy and run a sample application to Adafruit Feather M0 WiFi that sends messages to your IoT hub and blinks the LED.
 services: iot-hub
 documentationcenter: ''

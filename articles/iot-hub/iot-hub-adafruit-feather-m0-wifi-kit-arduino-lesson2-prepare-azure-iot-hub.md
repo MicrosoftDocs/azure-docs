@@ -1,5 +1,5 @@
 ---
-title: Create your IoT hub and register Adafruit Feather M0 WiFi | Microsoft Docs
+title: Create your Azure IoT hub and register Adafruit Feather M0 WiFi | Microsoft Docs
 description: Create a resource group, create an Azure IoT hub, and register Adafruit Feather M0 WiFi in the Azure IoT hub by using the Azure CLI.
 services: iot-hub
 documentationcenter: ''
@@ -76,7 +76,8 @@ Azure IoT Hub helps you connect, monitor, and manage millions of IoT assets. To 
 
 By default, the tool creates an IoT Hub in the Free pricing tier. For more infomation, see [Azure IoT Hub pricing](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-> [!NOTE] The name of your IoT hub must be globally unique.
+> [!NOTE]
+> The name of your IoT hub must be globally unique.
 > You can create only one F1 edition of Azure IoT Hub under your Azure subscription.
 
 ## Register your Arduino board in your IoT hub

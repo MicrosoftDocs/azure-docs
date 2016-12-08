@@ -1,5 +1,5 @@
 ---
-title: Change the on and off behavior of the LED | Microsoft Docs
+title: Change the LED blink behavior with messages from Azure IoT Hub | Microsoft Docs
 description: Customize the messages to change the LED’s on and off behavior.
 services: iot-hub
 documentationcenter: ''

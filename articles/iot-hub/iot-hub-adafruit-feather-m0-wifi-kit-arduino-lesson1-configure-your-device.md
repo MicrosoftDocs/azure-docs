@@ -1,5 +1,5 @@
 ---
-title: Configure your device | Microsoft Docs
+title: Configure your your Azure IoT Starter Kit | Microsoft Docs
 description: Configure Adafruit Feather M0 WiFi for first-time use.
 services: iot-hub
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Create and deploy the blink application | Microsoft Docs
+title: Deploy the blink application to your Azure IoT Starter Kit | Microsoft Docs
 description: Clone the sample Arduino application from GitHub, and run gulp to deploy this application to your Adafruit Feather M0 WiFi. This sample application blinks the GPIO #13 on-board LED every two seconds.
 services: iot-hub
 documentationcenter: ''
@@ -49,7 +49,7 @@ To open the sample application, follow these steps:
    code .
    ```
 
-   ![Repo structure](media/iot-hub-adafruit-feather-huzzah-esp8266-lessons/lesson1/vscode-blink-arduino-mac.png)
+   ![Repo structure][repo-structure]
 
 The `app.ino` file in the `app` subfolder is the key source file that contains the code to control the LED.
 

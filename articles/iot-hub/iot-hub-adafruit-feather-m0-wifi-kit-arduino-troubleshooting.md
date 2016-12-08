@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting | Microsoft Docs
+title: Troubleshooting Adafruit Feather M0 WiFi Azure IoT Starter Kit | Microsoft Docs
 description: Troubleshooting page for Adafruit Feather M0 WiFi Arduino experience
 services: iot-hub
 documentationcenter: ''

@@ -1,5 +1,5 @@
 ---
-title: Get started with Adafruit Feather M0 WiFi | Microsoft Docs
+title: Get started with Adafruit Feather M0 WiFi Azure IoT Starter Kit | Microsoft Docs
 description: Get started with Adafruit Feather M0 WiFi, create your Azure IoT hub, and connect Adafruit Feather M0 WiFi to the IoT hub
 services: iot-hub
 documentationcenter: ''
@@ -20,7 +20,7 @@ ms.author: xshi
 ---
 # Get started with your Arduino board: Adafruit Feather M0 WiFi
 
-In this tutorial, you begin by learning the basics of working with your Arduino board. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](../articles/iot-hub/iot-hub-what-is-iot-hub.md).
+In this tutorial, you begin by learning the basics of working with your Arduino board. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md).
 
 ## Lesson 1: Configure your device
 ![Lesson 1 end-to-end diagram][Lesson-1-end-to-end-diagram]
