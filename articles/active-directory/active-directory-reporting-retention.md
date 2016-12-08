@@ -28,7 +28,7 @@ How can you get the collection of activity data started?
 | Azure AD Edition | Collection Start |
 | :--              | :--   |
 |Premium and Premium 2 | When you sign-up for a license |
-| Free | The first time you open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](aka.ms/aadreports)  |
+| Free | The first time you open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](https://aka.ms/aadreports)  |
 
 
 When is your activity data available in the Azure portal?
