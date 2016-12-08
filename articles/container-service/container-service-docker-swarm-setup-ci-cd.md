@@ -155,4 +155,41 @@ Click the **Save** button and give a name to your build definition.
 
 ## Create the release definition
 
-## Wrap up and next steps
+[Visual Studio Team Services allows to manage releases across environments](https://www.visualstudio.com/team-services/release-management/). It is possible to enable continuous deployment to make sure that your application is deployed on your different environments (dev, qa, pre-production, production…) in a smooth way. You can create a new environment that represents your Azure Container Service Docker Swarm cluster.
+
+![Visual Studio Team Services - Release to ACS](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-acs.png) 
+
+The first thing to configure is the artefact source. It allows to link this new release definition to the build that you have defined in the previous part. By doing this, the docker-compose.yml file will be avaialble in the release process.
+
+![Visual Studio Team Services - Release Artefacts](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-artefacts.png) 
+
+Then, you need to configure the release trigger to make sure that a new release will be started as soon as the build complete successfuly:
+
+![Visual Studio Team Services - Release Triggers](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-trigger.png) 
+
+The release workflow is simple and is composed by two steps: 
+
+- The first one uses SCP to copy the compose file to a deploy folder on the ACS master node, using the SSH connection you have configured previously
+
+![Visual Studio Team Services - Release SCP](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-scp.png)
+
+- The second one that executes a bash command to execute docker and docker-compose commands on the master:
+
+![Visual Studio Team Services - Release Bash](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-bash.png)
+
+The command executed on the master use the Docker CLI and the Docker-Compose CLI to:
+
+- Login to the Azure Container Registry (it uses three build variables that have been defined in the *Variables* tab)
+- Define the DOCKER_HOST variable to work with the Swarm endpoint (:2375)
+- Navigate to the deploy folder that has been created by the SCP step and that contains the docker-compose.yml file 
+- Execute docker-compose commands that pull the new images, stop the services, remove the services and create the new containers.
+
+As you can see on the capture above, the **Fail on STDERR** checkbox is unchecked. This is an important part that you do not want to miss! Actually, docker-compose print several diagnostic information like that containers are stopping or being deleted on the standard error output. If you let the checkbox checked, Visual Studio Team Services will consider that some errors have occurred during the release, even if all goes well.
+
+*Note: be careful that this deployment will include some downtime as we are stopping the old services and running the new one. It is possible to avoid this by doing a blue/green deployment.*
+
+You can save this new release definition.
+
+## Test the CI/CD pipeline
+
+Now that you are done with the configuration, it's time to test this new CI/CD pipeline. The easiest way to test it is to update the source code and commit the changes into your GitHub repository. A few seconds after you have pushed the code you will see a new build running in Visual Studio Team Services. Once completed successfuly, a new release will be triggered and will deploy the new version of the application on Azure Container Services.
