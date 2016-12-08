@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 12/17/2016
 ms.author: tedway; neerajkh
 
 ---
 # Multi-Geo Help documentation
-This article describes how you can create a workspace and publish a web service in other Azure regions.
+This article describes how you can create a workspace and publish a web service in different Azure regions.  The [Azure Products by Region page](https://azure.microsoft.com/en-us/regions/services/) lists regions where Azure Machine Learning is available.
 
 ## Create a workspace
 1. Sign in to the Azure Classic Portal.
@@ -43,9 +43,9 @@ To programmatically manage web services, such as for retraining, use the region-
 
 ### Things to note
 1. You can only copy experiments between workspaces that belong to the same region this way. If you need to copy experiment across workspaces in different regions, you can use the [PowerShell](http://aka.ms/amlps) commandlet [*Copy-AmlExperiment*](https://github.com/hning86/azuremlps/blob/master/README.md#copy-amlexperiment) to accomplish that. Another workaround is to publish the experiment into Gallery in unlisted mode, then open it in the workspace from the other region.
-2. The region selector will only show workspaces for one region at a time. In the future, you will be able to see a full list of workspaces you have access to across all regions at the same time.  
-3. A free workspace or Guest Access (anonymous) workspace will be created and hosted in South Central U.S. In the future, you will be able to create Free/Guest Access workspaces in the region that you choose.  
-4. Web services deployed from a workspace in Southeast Asia will also be hosted in Southeast Asia. In the future, you will be able to have the flexibility of creating experiments in one region, and deploying generated web service endpoints into different regions.  
+2. The region selector will only show workspaces for one region at a time.  
+3. A free workspace or Guest Access (anonymous) workspace will be created and hosted in South Central U.S.  
+4. Web services deployed from a workspace in Southeast Asia will also be hosted in Southeast Asia.  
 
 ## More information
 Ask a question on the [Azure Machine Learning forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=MachineLearning).
