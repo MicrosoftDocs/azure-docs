@@ -22,7 +22,7 @@ ms.author: carlrab
 
 In this How To topic, you learn how to configure long-term retention of automated backups in an Azure Recovery Services vault.
 
-## Configure long-term retention of automated backups in an Azure Recovery Services vault uisng the Azure portal
+## Configure long-term retention using the Azure portal
 
 1. Open the **SQL Server** blade for your server.
 

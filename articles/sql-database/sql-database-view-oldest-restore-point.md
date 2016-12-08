@@ -22,7 +22,7 @@ ms.author: carlrab
 
 In this How To topic, you learn how to view the oldest restore point from service-generated backups of an Azure SQL database.
 
-## View the oldest restore point from the service-generated backups of an Azure SQL database using the Azure portal
+## View the oldest restore point using the Azure portal
 
 1. Open the **SQL database** blade for your database.
 

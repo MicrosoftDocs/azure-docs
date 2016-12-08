@@ -22,7 +22,7 @@ ms.author: carlrab
 
 In this How To topic, you learn how to view information about your database backups in long-term backup retention.
 
-## View information about your database backups in long-term backup retention using the Azure portal 
+## View long-term backup retention information using the Azure portal 
 
 1. Open the blade for the Azure Recovery Services vault (go to **All resources** and select it from the list of resources for your subscription) to view the amount of storage used by your database backups in the vault.
 
