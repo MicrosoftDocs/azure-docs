@@ -14,82 +14,23 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 12/05/2016
 ms.author: v-livech
 
 ---
 
-# Deploy a Linux VM into an existing VNet & NSG using the CLI
+# Deploy a Linux VM into an existing Azure Virtual Network using the CLI
 
-This article shows how to use CLI flags to deploy a VM into an existing Virtual Network (VNet), that is secured with an existing Network Security Group (NSG).  The requirements are:
+This article shows how to use CLI flags to deploy a VM into an existing Virtual Network (VNet).  The requirements are:
 
 - [an Azure account](https://azure.microsoft.com/pricing/free-trial/)
-
 - [SSH public and private key files](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Quick Commands
 
-Replace any examples with your own settings.
+If you need to quickly accomplish the task, the following section details the  commands needed. More detailed information and context for each step can be found the rest of the document, [starting here](virtual-machines-linux-deploy-linux-vm-into-existing-vnet-using-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#detailed-walkthrough).
 
-### Create the Resource Group
-
-```azurecli
-azure group create myResourceGroup \
--l westus
-```
-
-### Create the VNet
-
-```azurecli
-azure network vnet create myVNet \
--g myResourceGroup \
--a 10.10.0.0/24 \
--l westus
-```
-
-### Create the NSG
-
-```azurecli
-azure network nsg create myNSG \
--g myResourceGroup \
--l westus
-```
-
-### Add an inbound SSH allow rule
-
-```azurecli
-azure network nsg rule create inboundSSH \
--g myResourceGroup \
--a myNSG \
--c Allow \
--p Tcp \
--r Inbound \
--y 100 \
--f Internet \
--o 22 \
--e 10.10.0.0/24 \
--u 22
-```
-
-### Add a subnet to the VNet
-
-```azurecli
-azure network vnet subnet create mySubNet \
--g myResourceGroup \
--e myVNet \
--a 10.10.0.0/26 \
--o myNSG
-```
-
-### Add a VNic to the subnet
-
-```azurecli
-azure network nic create myVNic \
--g myResourceGroup \
--l westus \
--m myVNet \
--k mySubNet
-```
+Pre-requirments: Resource Group, VNet, NSG with SSH inbound, Subnet. Replace any examples with your own settings.
 
 ### Deploy the VM into the VNet, NSG and connect the VNic
 

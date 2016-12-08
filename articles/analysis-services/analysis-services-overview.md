@@ -1,4 +1,4 @@
-﻿---
+---
 title: What is Azure Analysis Services | Microsoft Docs
 description: Get the big picture of Analysis Services in Azure.
 services: analysis-services
@@ -40,7 +40,7 @@ Azure Analysis Services is compatible with the same SQL Server 2016 Analysis Ser
 ## Use the tools you already know
 ![BI developer tools](./media/analysis-services-overview/aas-overview-dev-tools.png)
 
-When creating data models for Azure Analysis Services, you use the same tools as for SQL Server Analysis Services. Author and deploy tabular models by using the latest versions of [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) or by using [Azure Powershell](../powershell-install-configure.md) and [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) templates in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+When creating data models for Azure Analysis Services, you use the same tools as for SQL Server Analysis Services. Author and deploy tabular models by using the latest versions of [SQL Server Data Tools (SSDT)](https://msdn.microsoft.com/library/mt204009.aspx) or by using [Azure Powershell](/powershell/azureps-cmdlets-docs) and [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) templates in [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
 ## Connect to data sources
 Data models deployed to servers in Azure support connecting to data sources on-premises in your organization or in the cloud. Combine data from both on-premises and cloud data sources for a hybrid BI solution.

@@ -237,7 +237,7 @@ After uploading the files, use the following steps to run the Hive and Pig jobs.
     Once this job completes, you should see the same output as when you previously ran the script using Jython.
 
 ### PowerShell
-These steps use Azure PowerShell. If this is not already installed and configured on your development machine, see [How to install and configure Azure PowerShell](../powershell-install-configure.md) before using the following steps.
+These steps use Azure PowerShell. If this is not already installed and configured on your development machine, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) before using the following steps.
 
 [!INCLUDE [upgrade-powershell](../../includes/hdinsight-use-latest-powershell.md)]
 

@@ -1,10 +1,10 @@
-﻿---
+---
 title: Machine learning algorithm cheat sheet | Microsoft Docs
 description: A printable machine learning algorithm cheat sheet helps you choose the right algorithm for your predictive model in Azure Machine Learning Studio.
 keywords: algorithm cheat sheet,cheat sheet,machine learning algorithm
 services: machine-learning
 documentationcenter: ''
-author: brohrer
+author: garyericson
 manager: jhubbard
 editor: cgronlun
 
@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/09/2016
-ms.author: brohrer;garye
+ms.author: garye
 
 ---
 # Machine learning algorithm cheat sheet for Microsoft Azure Machine Learning Studio
