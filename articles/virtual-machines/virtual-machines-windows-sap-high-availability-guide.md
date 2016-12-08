@@ -1,4 +1,4 @@
----
+﻿---
 title: SAP NetWeaver on Azure Virtual Machines (VMs) - High-Availability Guide | Microsoft Docs
 description: High-availability guide for SAP NetWeaver on Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
@@ -69,7 +69,7 @@ ms.author: goraco
 
 [azure-cli]:../xplat-cli-install.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:../powershell-install-configure.md
+[azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
@@ -357,7 +357,7 @@ ms.author: goraco
 
 [sap-ha-guide-figure-6003]:./media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
-[powershell-install-configure]:../powershell-install-configure.md
+[powershell-install-configure]:/powershell/azureps-cmdlets-docs
 [resource-group-authoring-templates]:../resource-group-authoring-templates.md
 [resource-group-overview]:../resource-group-overview.md
 [resource-groups-networking]:../virtual-network/resource-groups-networking.md
