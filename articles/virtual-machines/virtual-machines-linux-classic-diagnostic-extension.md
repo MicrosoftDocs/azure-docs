@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitoring a Linux VM with a VM extension | Microsoft Docs
 description: Learn how to use the Linux Diagnostic Extension to monitor the performance and diagnostic data of a Linux VM in Azure.
 services: virtual-machines-linux
