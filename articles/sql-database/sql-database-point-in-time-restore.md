@@ -48,7 +48,7 @@ Select a database to restore in the Azure portal:
 
 ## Restore an Azure SQL Database to a previous point in time using PowerShell
 
-[!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
+[!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell-h3.md)]
 
 ### Restore your database to a point in time as a standalone database
 1. Get the database you want to restore by using the [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648\(v=azure.300\).aspx) cmdlet.
