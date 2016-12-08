@@ -34,7 +34,7 @@ If you need the classic version of this topic, see [Provision a SQL Server virtu
 For this tutorial you'll need:
 
 * An Azure account and subscription before you start. If you don't have one, sign up for a [free trial](https://azure.microsoft.com/pricing/free-trial/).
-* [Azure PowerShell)](../powershell-install-configure.md), minimum version of 1.4.0 or later (this tutorial written using version 1.5.0).
+* [Azure PowerShell)](/powershell/azureps-cmdlets-docs), minimum version of 1.4.0 or later (this tutorial written using version 1.5.0).
   * To retrieve your version, type **Get-Module Azure -ListAvailable**.
 
 ## Configure your subscription
@@ -80,7 +80,7 @@ Modify as desired and then execute the following cmdlet to initialize these vari
     $SubnetName = "Default"
     $VNetAddressPrefix = "10.0.0.0/16"
     $VNetSubnetAddressPrefix = "10.0.0.0/24"
-    $DomainName = "sqlvm1"   
+    $DomainName = "sqlvm1"
 
 ### Virtual machine properties
 Use the following variables to define the virtual machine name, the computer name, the virtual machine size, and the operating system disk name for the virtual machine.
@@ -120,7 +120,7 @@ Execute the following cmdlet to create your new resource group.
 ## Create a storage account
 The virtual machine requires storage resources for the operating system disk and for the SQL Server data and log files. For simplicity, we will create a single disk for both. You can attach additional disks later using the [Add-Azure Disk](https://msdn.microsoft.com/library/azure/dn495252.aspx) cmdlet in order to place your SQL Server data and log files on dedicated disks. We will use the [New-AzureRmStorageAccount](https://msdn.microsoft.com/library/mt607148.aspx) cmdlet to create a standard storage account in your new resource group and with the storage account name, storage Sku name, and location defined using the variables that you previously initialized.
 
-Execute the following cmdlet to create your new storage account.  
+Execute the following cmdlet to create your new storage account.
 
     $StorageAccount = New-AzureRmStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageName -SkuName $StorageSku -Kind "Storage" -Location $Location
 
@@ -230,7 +230,7 @@ Execute the following cmdlet to create your virtual machine.
 
 The virtual machine is created. Notice that a standard storage account is created for boot diagnostics because the specified storage account for the virtual machine's disk is a premium storage account.
 
-You can now view this machine in the Azure Portal to see [its public IP address and its fully qualified domain name](virtual-machines-windows-portal-sql-server-provision.md#4-configure-sql-server-settings).  
+You can now view this machine in the Azure Portal to see [its public IP address and its fully qualified domain name](virtual-machines-windows-portal-sql-server-provision.md).
 
 ## Example script
 The following script contains the complete PowerShell script for this tutorial. It assumes that you have already setup the Azure subscription to use with the **Add-AzureRmAccount** and **Select-AzureRmSubscription** commands.
@@ -292,3 +292,4 @@ The following script contains the complete PowerShell script for this tutorial. 
 
 ## Next steps
 After the virtual machine is created, you are ready to connect to the virtual machine using RDP and setup connectivity. For more information, see [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
