@@ -130,7 +130,7 @@ Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
 
 You need to know your public IP address to set the firewall rule. You can get your IP address by using a browser of your choice (ask "what is my IP address). For details, see [firewall rules](sql-database-firewall-configure.md).
 
-The following uses the [Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserverfirewallrule), and [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) cmdlets get a reference or create a new rule. For this snippet, if the rule already exists, it only gets a reference to it and doesn't update the start and end IP addresses. You can always modify the **else** clause to use the [Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverfirewallrule) for create or update functionality.
+The following uses the [Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserverfirewallrule), and [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) cmdlets to get a reference or create a new rule. For this snippet, if the rule already exists, it only gets a reference to it and doesn't update the start and end IP addresses. You can always modify the **else** clause to use the [Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverfirewallrule) for create or update functionality.
 
 ```
 $serverName = "{server-name}"
@@ -156,7 +156,7 @@ $myFirewallRule
 
 ## Connect to SQL server using Azure PowerShell
 
-Lets run a quick query against the master database to verify we can connect to the server. The following snippet uses the [.NET Framework Provider for SQL Server (System.Data.SqlClient)](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) to connect and query the database. It builds a connection string based on the variables we used in the previous snippets. Replace the placeholders with the SQL server admin and password you used to create the server in the previous steps.
+Lets run a quick query against the master database to verify we can connect to the server. The following snippet uses the [.NET Framework Provider for SQL Server (System.Data.SqlClient)](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) to connect and query the server's master database. It builds a connection string based on the variables we used in the previous snippets. Replace the placeholders with the SQL server admin and password you used to create the server in the previous steps.
 
 
 ```
@@ -242,6 +242,9 @@ Write-Host "Database status: " $myDatabase.Status
 Lets run a quick query against the AdventureWorksLT database to verify we can connect. The following snippet uses the [.NET Framework Provider for SQL Server (System.Data.SqlClient)](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) to connect and query the database. It builds a connection string based on the variables we used in the previous snippets. Replace the placeholder with the SQL server admin password.
 
 ```
+$serverName = {server-name}
+$databaseName = {database-name}
+
 $connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID={server-admin};Password={admin-password}" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
 
@@ -285,8 +288,8 @@ $myResourceGroupLocation = "{resource-group-location}"
 
 $myServerName = "{server-name}"
 $myServerVersion = "12.0"
-$myServerLocation = "{server-location}"
-$myServerResourceGroupName = "{resource-group-name}"
+$myServerLocation = $myResourceGroupLocation
+$myServerResourceGroupName = $myResourceGroupName
 $myServerAdmin = "{server-admin}"
 $myServerAdminPassword = "{server-admin-password}" 
 
@@ -300,7 +303,7 @@ $myDatabaseServiceLevel = "Basic"
 
 $myStorageKeyType = "StorageAccessKey"
 # Get these values from your Azure storage account:
-$myStorageUri = "{http://your-container.blob.core.windows.net/AdventureWorksLT.bacpac}"
+$myStorageUri = "{http://your-storage-account.blob.core.windows.net/your-container/AdventureWorksLT.bacpac}"
 $myStorageKey = "{your-storage-key}"
 
 
