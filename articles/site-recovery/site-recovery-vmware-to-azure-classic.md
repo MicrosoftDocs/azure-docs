@@ -246,7 +246,8 @@ If you want to replicate VMware virtual machines install the following VMware co
 >
 >
 
-[!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
+
 
 
 1. On the **Quick Start** page download the unified installation file to the server.
