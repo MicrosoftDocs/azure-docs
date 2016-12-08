@@ -32,7 +32,8 @@ To access the MFA Management Portal via the MFA Service Settings page, sign into
 | [One-time bypass](#one-time-bypass) |A one-time bypass allows a user to authenticate a single time by "bypassing" multi-factor authentication. |How to set up and configure a one-time bypass |
 | [Custom Voice Messages](#custom-voice-messages) |Custom voice messages allow you to use your own recordings or greetings with multi-factor authentication. |How to set up and configure custom greetings and messages |
 | [Caching](#caching-in-azure-multi-factor-authentication) |Caching allows you to set a specific time period so that subsequent authentication attempts succeed automatically. |How to set up and configure authentication caching. |
-| [Trusted IPs](#trusted-ips) |Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet. |Configure and set up IP addresses that are exempt for multi-factor authentication |
+| [Trusted IPs](#trusted-ips) |Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local 
+. |Configure and set up IP addresses that are exempt for multi-factor authentication |
 | [App Passwords](#app-passwords) |An app password allows an application that is not MFA-aware to bypass multi-factor authentication and continue working. |Information about app passwords. |
 | [Remember Multi-Factor Authentication for remembered devices and browsers](#remember-multi-factor-authentication-for-devices-users-trust) |Allows you to remember devices for a set number of days after a user has successfully signed in using MFA. |Information about enabling this feature and setting up the number of days. |
 | [Selectable Verification Methods](#selectable-verification-methods) |Allows you to choose the authentication methods that are available for users to use. |Information about enabling or disabling specific authentication methods such as call or text messages. |
@@ -154,7 +155,7 @@ Caching allows you to set a specific time period so that subsequent authenticati
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## Trusted IPs
-Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet. The features are available for Azure AD tenants that have Azure AD Premium, Enterprise Mobility Suite or Azure Multi-Factor Authentication licenses.
+Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet. This features is available with the full version of Azure Multi-Factor Authentication. (For details on how to get the full version of Azure Multi-Factor Authentication, see [How to get Azure Multi-Factor Authentication](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication).)
 
 | Type of Azure AD Tenant | Available Trusted IP options |
 |:--- |:--- |
