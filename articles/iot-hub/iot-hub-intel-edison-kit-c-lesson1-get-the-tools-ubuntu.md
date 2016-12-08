@@ -1,5 +1,5 @@
 ---
-title: Get the tools for Azure IoT Starter Kit (Ubuntu 16.04) | Microsoft Docs
+title: Get the tools for your Azure IoT Starter Kit (Ubuntu 16.04) | Microsoft Docs
 description: Download and install the necessary tools and software for the first sample application for Edison on Ubuntu.
 services: iot-hub
 documentationcenter: ''
