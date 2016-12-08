@@ -18,9 +18,9 @@ ms.author: rclaus
 ---
 # Overview and Architecture of SAP HANA on Azure (Large Instances)
 
-The Architecture and Technical Deployment Guide provides information to help you deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure. It is not intended to be a comprehensive guide covering specific setup of SAP solutions, but rather useful information in your initial deployment and ongoing operations. It should not replace SAP documentation related to the installation of SAP HANA (or the many SAP Support Notes that cover the topic). It gives you an overview and provides the additional detail of installing SAP HANA on Azure (Large Instances).
+This is a five-part architecture and technical deployment guide that provides information to help you deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure. It is not comprehensive, and does not cover specific details involving setup of SAP solutions. Instead, gives valuable information to help with your initial deployment and ongoing operations. Do not use it to replace SAP documentation related to the installation of SAP HANA (or the many SAP Support Notes that cover the topic). It also provides detail on installing SAP HANA on Azure (Large Instances).
 
-The guide is published in five parts. Each part covers one of the following topics:
+The five parts of this guide cover the following topics:
 
 - [Overview and architecture](./sap-hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - [Infrastructure and connectivity](./sap-hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
@@ -105,7 +105,6 @@ As with Azure VMs, SAP HANA on Azure (Large Instances) is offered in multiple Az
 Just as you can choose between different VM types with Azure Virtual Machines, you can choose from different SKUs of HANA Large Instances that are tailored for different workload types of SAP HANA. SAP applies memory to processor socket ratios for varying workloads based on the Intel processor generations—there are four different SKU types offered:
 
 As of October 2016, SAP HANA on Azure (Large Instances) is available in four configurations:
-
 | SAP Solution | CPU | RAM | Storage |
 | --- | --- | --- | --- |
 | Optimized for OLAP: SAP BW, BW/4HANA<br /> or SAP HANA for generic OLAP workload | SAP HANA on Azure S72<br /> – 2 x Intel® Xeon® Processor E7-8890 v3 |  768 GB |  3 TB |
@@ -130,7 +129,6 @@ There will be multiple customers deploying on SAP HANA on Azure (Large Instances
 ## Operations model and responsibilities
 
 The service provided with SAP HANA on Azure (Large Instances) is aligned with Azure IaaS services. You get an HANA Large Instances instance with an installed operating system that is optimized for SAP HANA. As with Azure IaaS VMs, most of the tasks of hardening the OS, installing additional software you need, installing HANA, operating the OS and HANA, and updating the OS and HANA is your responsibility. Microsoft will not force OS updates or HANA updates on you.
-
 ![Responsibilities of SAP HANA on Azure (Large Instances)](./media/sap-hana-overview-architecture/image2-responsibilities.png)
 
 As you can see in the diagram above, SAP HANA on Azure (Large Instances) is a multi-tenant Infrastructure as a Service offer. And as a result, the division of responsibility is at the OS-Infrastructure boundary, for the most part. Microsoft is responsible for all aspects of the service below the line of the operating system and you are responsible above the line, including the operating system. So most current on-premises methods you may be employing for compliance, security, application management, basis and OS management can continue to be used. The systems appear as if they are in your network in all regards.
@@ -143,7 +141,7 @@ The following list provides more detail on each of the layers and your responsib
 
 **Storage:** The virtualized partitioned storage for all volumes needed by the SAP HANA servers, as well as for snapshots.
 
-**Servers:** The dedicated physical servers to run the SAP HANA DBs assigned to tenants **.** They are hardware virtualized.
+**Servers:** The dedicated physical servers to run the SAP HANA DBs assigned to tenants. They are hardware virtualized.
 
 **SDDC:** The management software that is used to manage the data centers as a software defined entity. It allows Microsoft to pool resources for scale, availability and performance reasons.
 
