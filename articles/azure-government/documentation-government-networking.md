@@ -51,6 +51,41 @@ For network services to support Azure Government customer applications and solut
 
 All customers who utilize a private connectivity architecture should validate that an appropriate implementation is established and maintained for the customer connection to the Gateway Network/Internet (GN/I) edge router demarcation point for Azure Government. Similarly, your organization must establish network connectivity between your on-premise environment and Gateway Network/Customer (GN/C) edge router demarcation point for Azure Government.
 
+## Azure Government ExpressRoute Support for BGP communities (Preview)
+This section provides an overview of how BGP communities will be used with ExpressRoute in AzureGov. Microsoft will advertise routes in the public and Microsoft peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
+
+If you are connecting to Microsoft through ExpressRoute at any one peering location within the AzureGov region, you will have access to all Microsoft cloud services across all regions within the government boundary. 
+
+For example, if you connected to Microsoft in Washington D.C. through ExpressRoute, you will have access to all Microsoft cloud services hosted in AzureGov.
+
+Refer to the [ExpressRoute partners and peering locations](expressroute-locations.md) page for a detailed list of ExpressRoute for AzureGov peering locations.
+
+You can purchase more than one ExpressRoute circuit. Having multiple connections offers you significant benefits on high availability due to geo-redundancy. In cases where you have multiple ExpressRoute circuits, you will receive the same set of prefixes advertised from Microsoft on the public peering and Microsoft peering paths. This means you will have multiple paths from your network into Microsoft. This can potentially cause sub-optimal routing decisions to be made within your network. As a result, you may experience sub-optimal connectivity experiences to different services. 
+
+Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to customers](expressroute-optimize-routing.md).
+
+| **National Clouds Azure Region**| **BGP community value** |
+| --- | --- |
+| **US Government** |  |
+| US Gov Iowa | 12076:51109 |
+| US Gov Virginia | 12076:51105 |
+
+All routes advertised from Microsoft will be tagged with the appropriate community value. 
+
+In addition to the above, Microsoft will also tag prefixes based on the service they belong to. This applies only to the Microsoft peering. The table below provides a mapping of service to BGP community value.
+
+| **Service in National Clouds** | **BGP community value** |
+| --- | --- |
+| **US Government** |  |
+| Exchange Online |12076:5110 |
+| SharePoint Online |12076:5120 |
+| Skype For Business Online |12076:5130 |
+| CRM Online |12076:5140 |
+| Other Office 365 Online services |12076:5200 |
+
+> [!NOTE]
+> Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
+
 ## Next Steps
 For supplemental information and updates please subscribe to the
 <a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
