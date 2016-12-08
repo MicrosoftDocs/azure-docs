@@ -241,7 +241,7 @@ By default, the output is in JSON (JavaScript Object Notation). To output as a l
 ## Create a storage account
 You need storage accounts for your VM disks and for any additional data disks that you want to add. You create storage accounts almost immediately after you create resource groups.
 
-Here we use [az storage account create](cli/azure/storage/account#create), and pass the location of the account, the resource group that controls it, and the type of storage support you want. The following example creates a storage account named `mystorageaccount`:
+Here we use [az storage account create](/cli/azure/storage/account#create), and pass the location of the account, the resource group that controls it, and the type of storage support you want. The following example creates a storage account named `mystorageaccount`:
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westeurope \
@@ -283,13 +283,13 @@ Output:
 }
 ```
 
-To investigate the storage account by using the CLI, you first need to set the account names and keys. Use [az storage account show-connection-string](cli/azure/storage/account#show-connection-string). Replace the name of the storage account in the following example with a name that you choose:
+To investigate the storage account by using the CLI, you first need to set the account names and keys. Use [az storage account show-connection-string](/cli/azure/storage/account#show-connection-string). Replace the name of the storage account in the following example with a name that you choose:
 
 ```bash
 export AZURE_STORAGE_CONNECTION_STRING="$(az storage account show-connection-string --resource-group myResourceGroup --name mystorageaccount --query connectionString)"
 ```
 
-Then you can view your storage information with [az storage container list](cli/azure/storage/container#list):
+Then you can view your storage information with [az storage container list](/cli/azure/storage/container#list):
 
 ```azurecli
 az storage container list
@@ -741,7 +741,7 @@ az network nsg rule create --resource-group myResourceGroup --nsg-name myNetwork
 > [!NOTE]
 > The inbound rule is a filter for inbound network connections. In this example, we bind the NSG to the VMs virtual NIC, which means that any request to port 22 is passed through to the NIC on our VM. This inbound rule is about a network connection, and not about an endpoint, which is what it would be about in classic deployments. To open a port, you must leave the `--source-port-range` set to '\*' (the default value) to accept inbound requests from **any** requesting port. Ports are typically dynamic.
 
-Examine the network security group and rules with [az network nsg show](cli/azure/network/nsg#show):
+Examine the network security group and rules with [az network nsg show](/cli/azure/network/nsg#show):
 
 ```azurecli
 az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
