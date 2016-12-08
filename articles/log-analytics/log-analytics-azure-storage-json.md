@@ -1,4 +1,4 @@
-﻿---
+---
 title: Analyze Azure diagnostic logs using Log Analytics | Microsoft Docs
 description: Log Analytics can read the logs from Azure services that write Azure diagnostic logs to blob storage in JSON format.
 services: log-analytics
@@ -74,7 +74,7 @@ We have provided a PowerShell script module that exports two cmdlets to assist w
 
 ### Pre-requisites
 1. Azure PowerShell with version 1.0.8 or newer of the Operational Insights cmdlets.
-   * [How to install and configure Azure PowerShell](../powershell-install-configure.md)
+   * [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
    * Verify your version of cmdlets: `Import-Module AzureRM.OperationalInsights -MinimumVersion 1.0.8 `
 2. Diagnostic logging is configured for the Azure resource you want to monitor. Use `Set-AzureRmDiagnosticSetting` or refer to [Use Log Analytics to collect data from Azure storage accounts](log-analytics-azure-storage.md) for how to enable diagnostics.
 3. A [Log Analytics](https://portal.azure.com/#create/Microsoft.LogAnalyticsOMS) workspace  

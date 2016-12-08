@@ -48,7 +48,8 @@ If you already have a Service Bus queue created, jump to the [Send messages to t
 To send messages to the queue, we will write a C# console application using Visual Studio.
 
 ### Create a console application
-1. Launch Visual Studio and create a new Console application.
+
+- Launch Visual Studio and create a new Console application.
 
 ### Add the Service Bus NuGet package
 1. Right-click the newly created project and select **Manage NuGet Packages**.

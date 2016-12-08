@@ -32,14 +32,14 @@ In this article, you use Azure PowerShell to create your first Azure data factor
 
 ## Prerequisites
 * Read through [Tutorial Overview](data-factory-build-your-first-pipeline.md) article and complete the **prerequisite** steps.
-* Follow instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md) article to install latest version of Azure PowerShell on your computer.
+* Follow instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article to install latest version of Azure PowerShell on your computer.
 * (optional) This article does not cover all the Data Factory cmdlets. See [Data Factory Cmdlet Reference](https://msdn.microsoft.com/library/dn820234.aspx) for comprehensive documentation on Data Factory cmdlets.
 
 ## Create data factory
 In this step, you use Azure PowerShell to create an Azure Data Factory named **FirstDataFactoryPSH**. A data factory can have one or more pipelines. A pipeline can have one or more activities in it. For example, a Copy Activity to copy data from a source to a destination data store and a HDInsight Hive activity to run Hive script to transform input data. Let's start with creating the data factory in this step.
 
 1. Start Azure PowerShell and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run these commands again.
-   * Run `Login-AzureRmAccount` and enter the user name and password that you use to sign in to the Azure portal.  
+   * Run `Login-AzureRmAccount` and enter the user name and password that you use to sign in to the Azure portal.
    * Run `Get-AzureRmSubscription` to view all the subscriptions for this account.
    * Run `Get-AzureRmSubscription -SubscriptionName <SUBSCRIPTION NAME> | Set-AzureRmContext` to select the subscription that you want to work with. This subscription should be the same as the one you used in the Azure portal.
 2. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command:
@@ -47,7 +47,7 @@ In this step, you use Azure PowerShell to create an Azure Data Factory named **F
         New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
     Some of the steps in this tutorial assume that you use the resource group named ADFTutorialResourceGroup. If you use a different resource group, you need to use it in place of ADFTutorialResourceGroup in this tutorial.
-3. Run the **New-AzureRmDataFactory** cmdlet that creates a data factory named **FirstDataFactoryPSH**.  
+3. Run the **New-AzureRmDataFactory** cmdlet that creates a data factory named **FirstDataFactoryPSH**.
 
         New-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH –Location "West US"
 
@@ -104,7 +104,7 @@ In this step, you link your Azure Storage account to your data factory. You use 
     If you close Azure PowerShell in the middle of the tutorial, you have to run the **Get-AzureRmDataFactory** cmdlet next time you start Azure PowerShell to complete the tutorial.
 
 ### Create Azure HDInsight linked service
-In this step, you link an on-demand HDInsight cluster to your data factory. The HDInsight cluster is automatically created at runtime and deleted after it is done processing and idle for the specified amount of time. You could use your own HDInsight cluster instead of using an on-demand HDInsight cluster. See [Compute Linked Services](data-factory-compute-linked-services.md) for details.  
+In this step, you link an on-demand HDInsight cluster to your data factory. The HDInsight cluster is automatically created at runtime and deleted after it is done processing and idle for the specified amount of time. You could use your own HDInsight cluster instead of using an on-demand HDInsight cluster. See [Compute Linked Services](data-factory-compute-linked-services.md) for details.
 
 1. Create a JSON file named **HDInsightOnDemandLinkedService**.json in the **C:\ADFGetStarted** folder with the following content.
 
@@ -144,7 +144,7 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
         New-AzureRmDataFactoryLinkedService $df -File .\HDInsightOnDemandLinkedService.json
 
 ## Create datasets
-In this step, you create datasets to represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
+In this step, you create datasets to represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.
 
 ### Create input dataset
 1. Create a JSON file named **InputTable.json** in the **C:\ADFGetStarted** folder with the following content:
@@ -280,7 +280,8 @@ In this step, you create your first pipeline with a **HDInsightHive** activity. 
 
     In the activity JSON, you specify that the Hive script runs on the compute specified by the **linkedServiceName** – **HDInsightOnDemandLinkedService**.
 
-   > [ACOM.NOTE] See "Pipeline JSON" in [Pipelines and activities in Azure Data Factory](data-factory-create-pipelines.md) for details about JSON properties that are used in the example.
+   > [!NOTE]
+   > See "Pipeline JSON" in [Pipelines and activities in Azure Data Factory](data-factory-create-pipelines.md) for details about JSON properties that are used in the example.
 
 2. Confirm that you see the **input.log** file in the **adfgetstarted/inputdata** folder in the Azure blob storage, and run the following command to deploy the pipeline. Since the **start** and **end** times are set in the past and **isPaused** is set to false, the pipeline (activity in the pipeline) runs immediately after you deploy.
 
@@ -293,7 +294,7 @@ In this step, you use Azure PowerShell to monitor what’s going on in an Azure 
 1. Run **Get-AzureRmDataFactory** and assign the output to a **$df** variable.
 
         $df=Get-AzureRmDataFactory -ResourceGroupName ADFTutorialResourceGroup -Name FirstDataFactoryPSH
-2. Run **Get-AzureRmDataFactorySlice** to get details about all slices of the **EmpSQLTable**, which is the output table of the pipeline.  
+2. Run **Get-AzureRmDataFactorySlice** to get details about all slices of the **EmpSQLTable**, which is the output table of the pipeline.
 
         Get-AzureRmDataFactorySlice $df -DatasetName AzureBlobOutput -StartDateTime 2016-04-01
 
@@ -338,14 +339,14 @@ In this step, you use Azure PowerShell to monitor what’s going on in an Azure 
     ![output data](./media/data-factory-build-your-first-pipeline-using-powershell/three-ouptut-files.png)
 
 > [!IMPORTANT]
-> Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.  
+> Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.
 >
 > The input file gets deleted when the slice is processed successfully. Therefore, if you want to rerun the slice or do the tutorial again, upload the input file (input.log) to the inputdata folder of the adfgetstarted container.
 >
 >
 
 ## Summary
-In this tutorial, you created an Azure data factory to process data by running Hive script on a HDInsight hadoop cluster. You used the Data Factory Editor in the Azure portal to do the following steps:  
+In this tutorial, you created an Azure data factory to process data by running Hive script on a HDInsight hadoop cluster. You used the Data Factory Editor in the Azure portal to do the following steps:
 
 1. Created an Azure **data factory**.
 2. Created two **linked services**:

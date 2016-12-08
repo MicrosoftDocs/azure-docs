@@ -1,5 +1,5 @@
 ---
-title: Java web app analytics with Application Insights | Microsoft Docs
+title: Java web app analytics with Azure Application Insights | Microsoft Docs
 description: 'Application Performance Monitoring for Java web apps with Application Insights. '
 services: application-insights
 documentationcenter: java
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/17/2016
+ms.date: 12/02/2016
 ms.author: awills
 
 ---
@@ -28,7 +28,7 @@ Application Insights supports Java apps running on Linux, Unix, or Windows.
 You need:
 
 * Oracle JRE 1.6 or later, or Zulu JRE 1.6 or later
-* A subscription to [Microsoft Azure](https://azure.microsoft.com/). (You could start with the [free trial](https://azure.microsoft.com/pricing/free-trial/).)
+* A subscription to [Microsoft Azure](https://azure.microsoft.com/).
 
 *If you have a web app that's already live, you could follow the alternative procedure to [add the SDK at runtime in the web server](app-insights-java-live.md). That alternative avoids rebuilding the code, but you don't get the option to write code to track user activity.*
 

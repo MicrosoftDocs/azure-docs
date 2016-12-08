@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to manage security after restoring a database to a new server or failing over a database to a secondary database copy | Microsoft Docs
 description: This topic explains security considerations for managing security after a database restore or a failover.
 services: sql-database
@@ -9,6 +9,7 @@ editor: monicar
 
 ms.assetid: c7c898c9-69d4-4e16-8b7e-720bbb3353dd
 ms.service: sql-database
+ms.custom: business continuity; how to
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

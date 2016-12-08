@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Redis Cache FAQ | Microsoft Docs
 description: Learn the answers to common questions, patterns and best practices for Azure Redis Cache
 services: redis-cache
@@ -90,8 +90,8 @@ There are several ways you can get started with Azure Redis Cache.
 
 If you don't already have an Azure account, you can:
 
-* [Open an Azure account for free](/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
-* [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
+* [Open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=redis_cache_hero). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features.
+* [Activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=redis_cache_hero). Your MSDN subscription gives you credits every month that you can use for paid Azure services.
 
 <a name="cache-size"></a>
 

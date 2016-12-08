@@ -1,4 +1,4 @@
-﻿---
+---
 title: Introduction to Storage | Microsoft Docs
 description: An overview of Azure Storage, Microsoft's online data storage in the cloud. Learn how to use the best available cloud storage solution in your applications.
 services: storage
@@ -197,7 +197,7 @@ Azure Storage resources can be accessed by any language that can make HTTP/HTTPS
 * [Azure Storage Client Tools](storage-explorers.md)
 * [Azure SDKs and Tools](https://azure.microsoft.com/tools/)
 * [Azure Storage Emulator](http://www.microsoft.com/download/details.aspx?id=43709)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [AzCopy Command-Line Utility](http://aka.ms/downloadazcopy)
 
 ## Next Steps

@@ -273,7 +273,7 @@ In this tutorial you learned how to create an HBase cluster. To learn more, see:
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 
 
 [hdinsight-customize-cluster]: hdinsight-hadoop-customize-cluster.md
