@@ -35,7 +35,7 @@ For example, AC-1 requires access control  policies and procedures be documented
 
 For access to the CRM as well as the Azure Blueprint System Security Plan Template, please e-mail AzureBlueprint@microsoft.com.
 
-We value any feedback on the CRM as it is pivotal to our iteration of the document to make it as effective as possible in streamlining customer ATO processes.
+We value any feedback on the CRM as your input is pivotal to our iteration of the document to make it as effective as possible in streamlining customer ATO processes.
 
 ## Next Steps
 <a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx"> Microsoft Trust Center </a>

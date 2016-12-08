@@ -1,4 +1,3 @@
-
 ---
 title: 'Azure AD Connect: Version Release History | Microsoft Docs'
 description: This topic lists all releases of Azure AD Connect and Azure AD Sync
@@ -31,6 +30,13 @@ Topic |
 Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./connect/active-directory-aadconnect-accounts-permissions.md#upgrade)
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1.1.371.0
+Released: 2016 December
+
+**Fixed issue:**
+
+* Azure AD Connect installation or upgrade fails if Port 9090 is not opened for outbound connection.
 
 ## 1.1.370.0
 Released: 2016 December

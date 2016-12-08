@@ -1,4 +1,3 @@
-
 ---
 title: 'Getting recommendations in batches: Machine learning recommendations API | Microsoft Docs'
 description: Azure machine learning recommendations--getting recommendations in batches

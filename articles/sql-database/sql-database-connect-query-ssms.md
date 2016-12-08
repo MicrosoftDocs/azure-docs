@@ -5,7 +5,7 @@ metacanonical: ''
 keywords: connect to sql database,sql server management studio
 services: sql-database
 documentationcenter: ''
-author: carlrabeler
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 

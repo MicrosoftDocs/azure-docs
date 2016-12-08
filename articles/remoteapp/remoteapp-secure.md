@@ -1,4 +1,3 @@
-
 ---
 title: Secure apps and resources in Azure RemoteApp | Microsoft Docs
 description: Learn how to lock down apps and resources in Azure RemoteApp
