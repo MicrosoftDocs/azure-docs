@@ -4,7 +4,7 @@ description: Learn how to use the Azure PowerShell cmdlets for Azure Storage to 
 services: storage
 documentationcenter: na
 author: robinsh
-manager: carmonm
+manager: timlt
 
 ms.assetid: f4704f58-abc6-4f89-8b6d-1b1659746f5a
 ms.service: storage
@@ -12,7 +12,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/06/2016
 ms.author: robinsh
 ---
 

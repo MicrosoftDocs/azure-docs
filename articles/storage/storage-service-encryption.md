@@ -4,7 +4,7 @@ description: Use the Azure Storage Service Encryption feature to encrypt your Az
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: edabe3ee-688b-41e0-b34f-613ac9c3fdfd
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---
