@@ -18,6 +18,7 @@
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
 ## [Develop Locally](documentdb-nosql-local-emulator.md)
+### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [FAQ](documentdb-faq.md)
 
 # How To
@@ -41,7 +42,10 @@
 ### [Resource quotas](documentdb-limits.md)
 ### [Increase quotas](documentdb-increase-limits.md)
 ### [Request units](documentdb-request-units.md)
-### [Azure CLI and Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### Azure CLI
+#### [Create an account](documentdb-automation-resource-manager-cli.md)
+#### [Add or remove regions](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Firewall support](documentdb-firewall-support.md)
 ### [Supercharge your account](documentdb-supercharge-your-account.md)
 

@@ -33,9 +33,9 @@ In this getting-started tutorial, you learn how to use the Azure portal to:
 In this tutorial, you also use the most recent version of SQL Server Management Studio to:
 
 * Connect to the logical server and its master database
-* View master database properties
+* Query the master database
 * Connect to the sample database
-* View user database properties
+* Query the sample database
 
 When you finish this tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). 
 
