@@ -29,11 +29,11 @@ It should take about 20 minutes to do the steps in this article.
 >
 
 ## Step 1: Create the template file
-You can create your own template using the information found in [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md). You can also deploy templates that have been created for you from [Azure Quickstarts Templates](https://azure.microsoft.com/documentation/templates/).
+You can create your own template using the information found in [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md). You can also deploy templates that have been created for you from [Azure Quickstarts Templates](https://azure.microsoft.com/documentation/templates/).
 
 1. Open your favorite text editor and add the required schema element and the required contentVersion element:
 
-  ```json  
+  ```json
   {
     "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
@@ -42,7 +42,7 @@ You can create your own template using the information found in [Authoring Azure
 
 2. [Parameters](../azure-resource-manager/resource-group-authoring-templates.md#parameters) are not always required, but they provide a way to input values when the template is deployed. Add the parameters element and its child elements after the contentVersion element:
 
-  ```json   
+  ```json
   {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
@@ -55,7 +55,7 @@ You can create your own template using the information found in [Authoring Azure
 
 3. [Variables](../azure-resource-manager/resource-group-authoring-templates.md#variables) can be used in a template to specify values that may change frequently or values that need to be created from a combination of parameter values. Add the variables element after the parameters section:
 
-  ```json   
+  ```json
   {
     "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
     "contentVersion": "1.0.0.0",
@@ -65,7 +65,7 @@ You can create your own template using the information found in [Authoring Azure
     },
     "variables": {
       "vnetID":"[resourceId('Microsoft.Network/virtualNetworks','myvn1')]",
-      "subnetRef": "[concat(variables('vnetID'),'/subnets/mysn1')]"  
+      "subnetRef": "[concat(variables('vnetID'),'/subnets/mysn1')]"
     },
   }
   ```
@@ -180,7 +180,7 @@ You can create your own template using the information found in [Authoring Azure
   ```
 
   > [!NOTE]
-  > This article creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
+  > This article creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 5. Save the template file as *VirtualMachineTemplate.json*.
 
@@ -207,25 +207,25 @@ To specify values for the resource parameters that were defined in the template,
 2. Save the parameters file.
 
 ## Step 3: Install Azure PowerShell
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 ## Step 4: Create a resource group
 All resources must be deployed in a [resource group](../azure-resource-manager/resource-group-overview.md).
 
 1. Get a list of available locations where resources can be created.
 
-  ```powershell   
+  ```powershell
   Get-AzureRmLocation | sort DisplayName | Select DisplayName
   ```
 2. Replace the value of **$locName** with a location from the list, for example **Central US**. Create the variable.
 
-  ```powershell   
+  ```powershell
   $locName = "location name"
   ```
 
 3. Replace the value of **$rgName** with the name of the new resource group. Create the variable and the resource group.
 
-  ```powershell   
+  ```powershell
   $rgName = "resource group name"
   New-AzureRmResourceGroup -Name $rgName -Location $locName
   ```
@@ -276,3 +276,4 @@ Outputs           :
 ## Next Steps
 * If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md)
 * Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-ps-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+
