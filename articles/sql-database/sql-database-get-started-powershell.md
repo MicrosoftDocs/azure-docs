@@ -38,15 +38,15 @@ In this tutorial, you also:
 * View user database properties
 
 
-## Download and save the AdventureWorksLT sample database (BACPAC) to Azure blob storage
+## Download and save the AdventureWorksLT sample database (.bacpac) to Azure blob storage
 
-This tutorial creates a new AdventureWorksLT database by importing a BACPAC file from Azure Storage. The first step is to get a copy of the AdventureWorksLT BACPAC, and upload it to blob storage.
+This tutorial creates a new AdventureWorksLT database by importing a .bacpac file from Azure Storage. The first step is to get a copy of the AdventureWorksLT.bacpac, and upload it to blob storage.
 The following steps get the sample database ready to import:
 
-1. [Download the AdventureWorksLT BACPAC](https://sqldbbacpacs.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac) and save it with a .bacpac file extension.
+1. [Download the AdventureWorksLT.bacpac](https://sqldbbacpacs.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac) and save it with a .bacpac file extension.
 2. [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) - Set *Account kind* to **Blob storage**.
 3. After creating your storage account, browse to it and create a new **Container**.
-4. Upload the BACPAC file to the blob container in your storage account You can use teh Upload button at the top of the container in the portal, or [use AzCopy](../storage/storage-use-azcopy.md#blob-upload). 
+4. Upload the .bacpac file to the blob container in your storage account You can use the **Upload** button at the top of the container in the Azure portal, or [use AzCopy](../storage/storage-use-azcopy.md#blob-upload). 
 5. After saving the AdventureWorksLT.bacpac, you need the URL and storage account key for the import code snippet later in this tutorial. Select your bacpac file and copy the URL. It will be similar to https://{storage-account-name}.blob.core.windows.net/{container-name}/AdventureWorksLT.bacpac. On the storage account page, click **Access keys**, and copy **key1**.
 
 
@@ -58,7 +58,7 @@ The following steps get the sample database ready to import:
 You need a resource group to contain the server, so the first step is to either create a new resource group and server ([New-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/new-azurermresourcegroup), [New-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserver)), or get references to existing ones ([Get-AzureRmResourceGroup](https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.3.0/get-azurermresourcegroup), [Get-AzureRmSqlServer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserver)).
 The following snippets will create a resource group and Azure SQL server if they don't already exist:
 
-
+For a list of valid Azure locations and string format, see [Helper snippets](#helper-snippets) section below.
 ```
 # Create new, or get existing resource group
 ############################################
@@ -488,6 +488,23 @@ $connection.Close()
 
 > [!TIP]
 > You can save some money while you are learning by deleting databases that you are not using. For Basic edition databases, you can restore them within 7 days. However, do not delete a server. If you do so, you cannot recover the server or any of its deleted databases.
+
+## Helper snippets
+
+```
+# Get a list of Azure regions where you can create SQL resources
+
+$sqlRegions = (Get-AzureRmLocation | Where-Object { $_.Providers -eq "Microsoft.Sql" })
+foreach ($region in $sqlRegions)
+{
+   $region.Location
+}
+
+# Clean up
+# Delete a resource group (and all contained resources)
+Remove-AzureRmResourceGroup -Name {resource-group-name}
+```
+
 
 
 ## Next steps
