@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/7/2016
+ms.date: 12/8/2016
 ms.author: iainfou
 
 ---
@@ -32,8 +32,6 @@ The environment contains:
 
 ![Basic environment overview](./media/virtual-machines-linux-create-cli-complete/environment_overview.png)
 
-To create this custom environment, you need the latest [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/install-az-cli2).
-
 ## CLI versions to complete the task
 You can complete the task using one of the following CLI versions:
 
@@ -45,7 +43,9 @@ If you need to quickly accomplish the task, the following section details the ba
 
 In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
 
-Create the resource group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
+To create this custom environment, you need the latest [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using `az login`.
+
+First, create the resource group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
 
 ```azurecli
 az resource group create -n myResourceGroup -l westeurope
@@ -54,27 +54,30 @@ az resource group create -n myResourceGroup -l westeurope
 Create the storage account. The following example creates a storage account named `mystorageaccount`. (The storage account name must be unique, so provide your own unique name.)
 
 ```azurecli
-az storage account create -g myResourceGroup -l westeurope \
-  --kind Storage --sku Standard_LRS -n mystorageaccount
+az storage account create -g myResourceGroup -l westeurope -n mystorageaccount \
+  --kind Storage --sku Standard_LRS
 ```
 
 Create the virtual network. The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
 
 ```azurecli
-az network vnet create -g myResourceGroup -l westeurope\
-  -n myVnet --address-prefix 192.168.0.0/16 \
-  --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
+az network vnet create -g myResourceGroup -l westeurope -n myVnet \
+  --address-prefix 192.168.0.0/16 --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
 ```
 
 Create a public IP. The following example creates a public IP named `myPublicIP` with the DNS name of `mypublicdns`. (The DNS name must be unique, so provide your own unique name.)
 
 ```azurecli
-az network public-ip create -g myResourceGroup -l westeurope \
-  -n myPublicIP --dns-name mypublicdns --allocation-method static \
-  --idle-timeout 4
+az network public-ip create -g myResourceGroup -l westeurope -n myPublicIP \
+  --dns-name mypublicdns --allocation-method static --idle-timeout 4
 ```
 
-Create the load balancer. The following example creates a load balancer named `myLoadBalancer`, associates the public IP, a front-end IP pool named `mySubnetPool` and a back-end IP pool named `myBackEndPool`:
+Create the load balancer. The following example creates:
+
+- a load balancer named `myLoadBalancer`
+- associates the public IP
+- a front-end IP pool named `mySubnetPool`
+- a back-end IP pool named `myBackEndPool`
 
 ```azurecli
 az network lb create -g myResourceGroup -l westeurope -n myLoadBalancer \
@@ -96,8 +99,8 @@ az network lb inbound-nat-rule create -g myResourceGroup --lb-name myLoadBalance
 Create the load balancer health probe. The following example creates a TCP probe named `myHealthProbe`:
 
 ```azurecli
-az network lb probe create -g myResourceGroup --lb-name myLoadBalancer \
-  -n myHealthProbe --protocol tcp --port 80 --interval 15 --threshold 4
+az network lb probe create -g myResourceGroup --lb-name myLoadBalancer -n myHealthProbe \
+  --protocol tcp --port 80 --interval 15 --threshold 4
 ```
 
 Create the web inbound NAT rules for the load balancer. The following example creates a load balancer rule named `myLoadBalancerRuleWeb` and associates it with the `myHealthProbe` probe:
@@ -118,41 +121,38 @@ az network lb show -g myResourceGroup -n myLoadBalancer
 Create the network security group. The following example creates a network security group named `myNetworkSecurityGroup`:
 
 ```azurecli
-az network nsg create -g myResourceGroup -l westeurope \
-  -n myNetworkSecurityGroup
+az network nsg create -g myResourceGroup -l westeurope -n myNetworkSecurityGroup
 ```
 
 Add two inbound rules for the network security group. The following example creates two rules, `myNetworkSecurityGroupRuleSSH` and `myNetworkSecurityGroupRuleHTTP`:
 
 ```azurecli
-az network nsg rule create --protocol tcp --direction inbound --priority 1000 \
+az network nsg rule create -g myResourceGroup --nsg-name myNetworkSecurityGroup \
+  --n myNetworkSecurityGroupRuleSSH --protocol tcp --direction inbound --priority 1000 \
   --source-address-prefix '*' --source-port-range '*' \
-  --destination-address-prefix '*' --destination-port-range 22 --access allow \
-  -g myResourceGroup --nsg-name myNetworkSecurityGroup -n myNetworkSecurityGroupRuleSSH
-az network nsg rule create --protocol tcp --direction inbound --priority 1001 \
+  --destination-address-prefix '*' --destination-port-range 22 --access allow
+az network nsg rule create -g myResourceGroup --nsg-name myNetworkSecurityGroup \
+  -n myNetworkSecurityGroupRuleHTTP --protocol tcp --direction inbound --priority 1001 \
   --source-address-prefix '*' --source-port-range '*' \
-  --destination-address-prefix '*' --destination-port-range 80 --access allow \
-  -g myResourceGroup --nsg-name myNetworkSecurityGroup -n myNetworkSecurityGroupRuleHTTP
+  --destination-address-prefix '*' --destination-port-range 80 --access allow
 ```
 
 Create the first network interface card (NIC). The following example creates a NIC named `myNic1` and attaches it to the load balancer `myLoadBalancer` and appropriate pools, and also attaches it to the `myNetworkSecurityGroup`:
 
 ```azurecli
-az network nic create -g myResourceGroup -l westeurope --name myNic1 \
-  --vnet-name myVnet --subnet mySubnet \
+az network nic create -g myResourceGroup -l westeurope -n myNic1 \
+  --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup \
   --lb-name myLoadBalancer --lb-address-pools myBackEndPool \
-  --lb-inbound-nat-rules myLoadBalancerRuleSSH1 \
-  --network-security-group myNetworkSecurityGroup
+  --lb-inbound-nat-rules myLoadBalancerRuleSSH1
 ```
 
 Create the second NIC. The following example creates a NIC named `myNic2`:
 
 ```azurecli
 az network nic create -g myResourceGroup -l westeurope --name myNic2 \
-  --vnet-name myVnet --subnet mySubnet \
+  --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup \
   --lb-name myLoadBalancer --lb-address-pools myBackEndPool \
-  --lb-inbound-nat-rules myLoadBalancerRuleSSH2 \
-  --network-security-group myNetworkSecurityGroup
+  --lb-inbound-nat-rules myLoadBalancerRuleSSH2
 ```
 
 Create the availability set. The following example creates an availability set named `myAvailabilitySet`:
@@ -213,7 +213,7 @@ az resource group export -n myResourceGroup > myResourceGroup.json
 ## Detailed walkthrough
 The detailed steps that follow explain what each command is doing as you build out your environment. These concepts are helpful when you build your own custom environments for development or production.
 
-Make sure that you have the latest [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/install-az-cli2).
+Make sure that you have installed the latest [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/install-az-cli2) and logged to an Azur account in with `az login`.
 
 In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
 
@@ -245,7 +245,7 @@ Here we use the `azure storage account create` command, passing the location of 
 
 ```azurecli
 az storage account create --resource-group myResourceGroup --location westeurope \
-  --kind Storage --sku Standard_LRS --name mystorageaccount
+  --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
 Output:
@@ -286,7 +286,7 @@ Output:
 To investigate the storage account by using the CLI, you first need to set the account names and keys. Replace the name of the storage account in the following example with a name that you choose:
 
 ```bash
-AZURE_STORAGE_CONNECTION_STRING="$(az storage account show-connection-string --resource-group myResourceGroup --name mystorageaccountikf2 --query connectionString)"
+AZURE_STORAGE_CONNECTION_STRING="$(az storage account show-connection-string --resource-group myResourceGroup --name mystorageaccount --query connectionString)"
 ```
 
 Then you can view your storage information easily:
@@ -310,7 +310,7 @@ info:    storage container list command OK
 Next you're going to need to create a virtual network running in Azure and a subnet in which you can create your VMs. The following example creates a virtual network named `myVnet` with the `192.168.0.0/16` address prefix, and a subnet named `mySubnet` with the subnet address prefix of `192.168.1.0/24`:
 
 ```azurecli
-az network vnet create --resource-group myResourceGroup --location westeurope\
+az network vnet create --resource-group myResourceGroup --location westeurope \
   --name myVnet --address-prefix 192.168.0.0/16 \
   --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
 ```
@@ -545,8 +545,7 @@ Let's also go ahead and create a NAT rule for TCP port 80 for web traffic, hooki
 ```azurecli
 az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalancer \
   --name myLoadBalancerRuleWeb --protocol tcp --frontend-port 80 --backend-port 80 \
-  --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool \
-  --probe-name myHealthProbe
+  --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool --probe-name myHealthProbe
 ```
 
 Output:
@@ -712,19 +711,19 @@ az network nsg create --resource-group myResourceGroup --location westeurope \
 Let's add the inbound rule for the NSG to allow inbound connections on port 22 (to support SSH). The following example creates a rule named `myNetworkSecurityGroupRuleSSH` to allow TCP on port 22:
 
 ```azurecli
-az network nsg rule create --protocol tcp --direction inbound --priority 1000 \
+az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup \
+  --name myNetworkSecurityGroupRuleSSH --protocol tcp --direction inbound --priority 1000 \
   --source-address-prefix '*' --source-port-range '*' \
-  --destination-address-prefix '*' --destination-port-range 22 --access allow \
-  -g myResourceGroup --nsg-name myNetworkSecurityGroup -n myNetworkSecurityGroupRuleSSH
+  --destination-address-prefix '*' --destination-port-range 22 --access allow
 ```
 
 Now let's add the inbound rule for the NSG to allow inbound connections on port 80 (to support web traffic). The following example creates a rule named `myNetworkSecurityGroupRuleHTTP` to allow TCP on port 80:
 
 ```azurecli
-az network nsg rule create --protocol tcp --direction inbound --priority 1001 \
+az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup \
+  --name myNetworkSecurityGroupRuleHTTP --protocol tcp --direction inbound --priority 1001 \
   --source-address-prefix '*' --source-port-range '*' \
-  --destination-address-prefix '*' --destination-port-range 80 --access allow \
-  -g myResourceGroup --nsg-name myNetworkSecurityGroup -n myNetworkSecurityGroupRuleHTTP
+  --destination-address-prefix '*' --destination-port-range 80 --access allow
 ```
 
 > [!NOTE]
@@ -733,7 +732,7 @@ az network nsg rule create --protocol tcp --direction inbound --priority 1001 \
 Examine the network security group and rules:
 
 ```azurecli
-az network nsg show -g myResourceGroup -n myNetworkSecurityGroup
+az network nsg show --resource-group myResourceGroup --name myNetworkSecurityGroup
 ```
 
 Output:
@@ -893,9 +892,8 @@ The following example creates a NIC named `myNic1`:
 
 ```azurecli
 az network nic create --resource-group myResourceGroup --location westeurope --name myNic1 \
-  --vnet-name myVnet --subnet mySubnet \
-  --lb-name myLoadBalancer --lb-address-pools myBackEndPool --lb-inbound-nat-rules myLoadBalancerRuleSSH1 \
-  --network-security-group myNetworkSecurityGroup
+  --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup \
+  --lb-name myLoadBalancer --lb-address-pools myBackEndPool --lb-inbound-nat-rules myLoadBalancerRuleSSH1
 ```
 
 Output:
@@ -952,9 +950,8 @@ Now we create the second NIC, hooking in to our back-end IP pool again. This tim
 
 ```azurecli
 az network nic create --resource-group myResourceGroup --location westeurope --name myNic2 \
-  --vnet-name myVnet --subnet mySubnet \
-  --lb-name myLoadBalancer --lb-address-pools myBackEndPool --lb-inbound-nat-rules myLoadBalancerRuleSSH2 \
-  --network-security-group myNetworkSecurityGroup
+  --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup \
+  --lb-name myLoadBalancer --lb-address-pools myBackEndPool --lb-inbound-nat-rules myLoadBalancerRuleSSH2
 ```
 
 
@@ -975,14 +972,7 @@ Read more about [managing the availability of VMs](virtual-machines-linux-manage
 ## Create the Linux VMs
 You've created the storage and network resources to support Internet-accessible VMs. Now let's create those VMs and secure them with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We locate that image information by using `az vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-We selected an image by using the command `az vm image list --location westeurope --publisher canonical | grep LTS`. In this case, we use `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. For the last field, we pass `latest` so that in the future we always get the most recent build. (The string we use is `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
-
-This next step is familiar to anyone who has already created an ssh rsa public and private key pair on Linux or Mac by using **ssh-keygen -t rsa -b 2048**. If you do not have any certificate key pairs in your `~/.ssh` directory, you can create them:
-
-* Automatically, by using the `az vm create --generate-ssh-keys` option.
-* Manually, by using [the instructions to create them yourself](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-
-Alternatively, you can use the `--admin-password` method to authenticate your SSH connections after the VM is created. This method is typically less secure.
+We also specify an SSH key to use for authentication. If you do not have any SSH keys, you can create them by using [these instructions](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Alternatively, you can use the `--admin-password` method to authenticate your SSH connections after the VM is created. This method is typically less secure.
 
 We create the VM by bringing all our resources and information together with the `az vm create` command:
 
@@ -996,9 +986,9 @@ az vm create \
     --vnet myVnet \
     --subnet-name mySubnet \
     --nsg myNetworkSecurityGroup \
-    --storage-account mystorageaccountikf \
+    --storage-account mystorageaccount \
     --image UbuntuLTS \
-    --ssh-key-value ~/.ssh/azure_id_rsa.pub \
+    --ssh-key-value ~/.ssh/id_rsa.pub \
     --admin-username ops
 ```
 
@@ -1018,7 +1008,7 @@ Output:
 You can connect to your VM immediately by using your default SSH keys. Make sure that you specify the appropriate port since we're passing through the load balancer. (For our first VM, we set up the NAT rule to forward port 4222 to our VM.)
 
 ```bash
-ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222
+ssh ops@mypublicdns.westeurope.cloudapp.azure.com -p 4222 -i ~/.ssh/id_rsa.pub
 ```
 
 Output:
@@ -1076,8 +1066,7 @@ This command creates the `myResourceGroup.json` file in your current working dir
 To create an environment from your template:
 
 ```azurecli
-az group deployment create --resource-group myNewResourceGroup \
-  --template-file myResourceGroup.json
+az group deployment create --resource-group myNewResourceGroup --template-file myResourceGroup.json
 ```
 
 You might want to read [more about how to deploy from templates](../resource-group-template-deploy-cli.md). Learn about how to incrementally update environments, use the parameters file, and access templates from a single storage location.
