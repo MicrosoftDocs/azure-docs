@@ -53,6 +53,11 @@ Currently you can only automatically grow and shrink HPC Pack compute nodes that
         cd $env:CCP_HOME\bin
 
         Login-AzureRmAccount
+        
+        #if your account is in more than one Azure Active Directory tenant or Azure subscription, you can run the following command to ensure select the correct tenant and subscription
+        Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
+        # user can run the following command to view current selected tenant and subscription
+        Get-AzureRMContext
 
         .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -CertificateThumbprint "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" -TenantId xxxxxxxx-xxxxx-xxxxx-xxxxx-xxxxxxxxxxxx
     ```
@@ -67,7 +72,7 @@ Currently you can only automatically grow and shrink HPC Pack compute nodes that
 
     **CertificateThumbprint** - Thumbprint of the certificate you installed on the head node in Step 1.
 
-    **TenantId** - Tenant ID of your Azure Active Directory.
+    **TenantId** - Tenant ID of your Azure Active Directory. User can get the tenant Id from Azure Active Directory portal 'Properties' page
 
     For more details about **ConfigARMAutoGrowShrinkCert.ps1**, run `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`.
 
