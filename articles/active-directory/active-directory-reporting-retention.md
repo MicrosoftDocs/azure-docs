@@ -23,28 +23,23 @@ ms.author: dhanyahk
 
 This topic provides you with answers to the most common questions in conjunction with the data retention for the different activity reports in Azure Active Directory. 
 
-## How can you get the collection of activity data started?
+How can you get the collection of activity data started?
 
 | Azure AD Edition | Collection Start |
 | :--              | :--   |
 |Premium and Premium 2 | When you sign-up for a license |
-| Free | When you sign on to the Azure portal or the first time you are using the reporting APIs |
+| Free | The first time you open the [Azure Active Directory blade](https://ms.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) or use the [reporting APIs](aka.ms/aadreports)  |
 
 
-## When is your activity data available in the Azure portal?
+When is your activity data available in the Azure portal?
 
 - **Immediately** - If you have already been working with reports in the Azure classic portal
 - **Within 2 hours** - If you haven’t turned reporting on  in the Azure classic portal
 
-
-## When does Azure AD collect activity data?  
-Azure AD collects activity data whenever you get authenticated by Azure AD.
-For example, before you can start working with an app that is managed by Azure AD, you need get authenticated, first.
-
-## How can you get the collection of security signals started?  
+How can you get the collection of security signals started?  
 For security signals, the collection process starts when you opt-in to use the Identity Protection Center. 
 
-## For how long is the collected data stored?
+For how long is the collected data stored?
 
 **Activity reports**	
 
@@ -60,6 +55,3 @@ For security signals, the collection process starts when you opt-in to use the I
 | Risky sign-ins | 7 days | 30 days | 90 days |
 
 
-## Next steps
-
-If you are looking for more details about reporting in Azure Active Directory, see the [Azure Active Directory Reporting Guide](active-directory-reporting-guide.md).
