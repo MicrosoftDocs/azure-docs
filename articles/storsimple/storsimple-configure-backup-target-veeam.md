@@ -7,7 +7,7 @@ author: hkanna
 manager: matd
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -38,7 +38,7 @@ StorSimple is a great backup target for the following reasons:
 -   It automatically provides offsite storage for disaster recovery.
 
 
-## Target audience 
+## Target audience
 
 The audience for this paper includes backup administrators, storage administrators, and storage architects with knowledge of storage, Windows Server 2012 R2, Ethernet, cloud services, and Veeam.
 
@@ -89,7 +89,7 @@ Although StorSimple presents two main deployment scenarios (primary and secondar
 
 For more information about StorSimple, see [StorSimple 8000 series: hybrid cloud storage solution](storsimple-overview.md) and review the [technical StorSimple 8000 series specifications](storsimple-technical-specifications-and-compliance.md).
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > StorSimple device as backup target is only supported with StorSimple 8000 Update 3 or later.
 
 ## Architecture overview
@@ -219,12 +219,11 @@ Ensure that the host backup server storage is configured as per the following gu
 - Format your volumes using NTFS with 64 KB allocation unit size.
 - Map the StorSimple volumes directly to the Veeam server. 
     - Use iSCSI for physical servers.
-    - Use pass-through disks for virtual servers.
 
 
 ## Best practices for StorSimple and Veeam
 
-Configure your solution as per the following guidelines. 
+Configure your solution as per the following guidelines.
 
 ### Operating system
 
@@ -245,7 +244,7 @@ Configure your solution as per the following guidelines.
     - Download: [PSEXEC – Microsoft Sysinternals](https://technet.microsoft.com/sysinternals/bb897553.aspx)
 
       - After downloading PSEXEC, run Windows PowerShell as an administrator, and type:
-            
+
             `psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable`
 
 ### StorSimple
@@ -367,7 +366,7 @@ In the following figure, we illustrate mapping of a typical volume to a backup j
 | GFS Rotation Schedule for 4 weeks, Monthly and Yearly |               |             |
 |--------------------------------------------------------------------------|---------------|-------------|
 | Frequency/Backup Type   | Full          | Incremental (Day 1 - 5)  |
-| Weekly (week 1 - 4)    | Saturday | Monday - Friday | 
+| Weekly (week 1 - 4)    | Saturday | Monday - Friday |
 | Monthly     | Saturday  |             |
 | Yearly      | Saturday  |             |
 
@@ -488,6 +487,7 @@ For more information, go to [Create backup copy jobs](https://helpcenter.veeam.c
 
 StorSimple cloud snapshots protect the data that resides in StorSimple device. This is equivalent to shipping tapes to an offsite facility. If using Azure geo-redundant storage (GRS), this is equivalent to shipping tapes to multiple sites. If a device restore is needed in a disaster, you could bring another StorSimple device online and do a failover. Following the failover, you can access the data (at cloud speeds) from the most recent cloud snapshot.
 
+
 The following section illustrates how to create a short script to trigger and delete StorSimple cloud snapshots during the backup post-processing. 
 
 > [!NOTE] 
@@ -497,6 +497,7 @@ The following section illustrates how to create a short script to trigger and de
 
 > [!NOTE] 
 > Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information on how to run a post-backup script, see Veeam documentation.
+
 
 #### Backup lifecycle
 
@@ -572,7 +573,7 @@ It is recommended that you run your StorSimple cloud snapshot backup policy at t
 StorSimple as a restore source
 ==============================
 
-Restores from a StorSimple device work as restore from any block storage device. When restoring data that is tiered to the cloud, restores occur at cloud speeds. For local data, restores occur at local disk speed of the device. 
+Restores from a StorSimple device work as restore from any block storage device. When restoring data that is tiered to the cloud, restores occur at cloud speeds. For local data, restores occur at local disk speed of the device.
 
 Veeam enables fast granular file-level recovery through StorSimple using the built-in Explorers in the Veeam console. Use the Veeam Explorers to recover individual items such as email messages, Active Directory objects, or SharePoint items from the backups. The recovery can be done without on-premises VM disruption. You can also accomplish the point-in-time recovery for Microsoft SQL and Oracle Databases. Veeam and StorSimple make the process of item level recovery from Azure both fast and easy. For information on how to perform a restore, refer to Veeam documentation.
 

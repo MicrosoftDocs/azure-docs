@@ -32,19 +32,19 @@ Once you have downloaded the zip file to your computer, extract the contents and
 
 For detailed information on setting up build paths in Eclipse, see the [Java Build Path] article at the Eclipse website.
 
-**Note:** See the license.txt and ThirdPartyNotices.txt file file inside the ZIP for license and other information.
+**Note:** See the license.txt and ThirdPartyNotices.txt file inside the ZIP for license and other information.
 
 ## Azure Libraries for Java - Building with Maven
 ### Step 1 - Set up your project to use Maven for build
-To create Maven projects in Eclipse which use the Azure libraries for Java, following the instructions in the [Getting Started with Azure Management Libraries for Java][maven-getting-started] article. 
+To create Maven projects in Eclipse which use the Azure libraries for Java, following the instructions in the [Getting Started with Azure Management Libraries for Java][maven-getting-started] article.
 
 ### Step 2 - Configure your Maven settings with the requisite dependencies
-Once your project has been configured to use Maven for build, you can add the the requisite dependencies to your pom.xml file using syntax like the following example. Note that you do not need to add every dependency that is listed in the following example; you only need to add the specific dependencies which your project requires.
+Once your project has been configured to use Maven for build, you can add the requisite dependencies to your pom.xml file using syntax like the following example. Note that you do not need to add every dependency that is listed in the following example; you only need to add the specific dependencies which your project requires.
 
 > [!NOTE]
 > Within each `<version>` element in the following sample, replace the "n.n.n" placeholders in this example with valid version numbers, which can be obtained from the [Azure Libraries Repository on Maven].
-> 
-> 
+>
+>
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -110,7 +110,7 @@ The Azure Toolkit for Eclipse uses the latest version of the Azure SDK. This can
 ## See Also
 [Azure Toolkit for Eclipse]
 
-[Installing the Azure Toolkit for Eclipse] 
+[Installing the Azure Toolkit for Eclipse]
 
 [Creating a Hello World Application for Azure in Eclipse]
 

@@ -22,8 +22,8 @@ ms.author: jroth
 > [!div class="op_single_selector"]
 > * [Portal](virtual-machines-windows-portal-sql-server-provision.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 > * [PowerShell](virtual-machines-windows-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-> 
-> 
+>
+>
 
 ## Overview
 This tutorial shows you how to create a single Azure virtual machine using the **Azure Resource Manager** deployment model using Azure PowerShell cmdlets. In this tutorial, we will create a single virtual machine using a single disk drive from an image in the SQL Gallery. We will create new providers for the storage, network, and compute resources that will be used by the virtual machine. If you have existing providers for any of these resources, you can use those providers instead.
@@ -136,8 +136,8 @@ We will start by creating a subnet configuration for our virtual network. For ou
 
 > [!NOTE]
 > You can define additional properties of the virtual network subnet configuration using this cmdlet, but that is beyond the scope of this tutorial.
-> 
-> 
+>
+>
 
 Execute the following cmdlet to create your virtual subnet configuration.
 
@@ -155,8 +155,8 @@ Now that we have our virtual network defined, we need to configure an IP address
 
 > [!NOTE]
 > You can define additional properties of the public IP address using this cmdlet, but that is beyond the scope of this initial tutorial. You could also create a private address or an address with a static address, but that is also beyond the scope of this tutorial.
-> 
-> 
+>
+>
 
 Execute the following cmdlet to create your public IP address.
 
@@ -230,7 +230,7 @@ Execute the following cmdlet to create your virtual machine.
 
 The virtual machine is created. Notice that a standard storage account is created for boot diagnostics because the specified storage account for the virtual machine's disk is a premium storage account.
 
-You can now view this machine in the Azure Portal to see [its public IP address and its fully qualified domain name](virtual-machines-windows-portal-sql-server-provision.md#Connect).  
+You can now view this machine in the Azure Portal to see [its public IP address and its fully qualified domain name](virtual-machines-windows-portal-sql-server-provision.md#4-configure-sql-server-settings).  
 
 ## Example script
 The following script contains the complete PowerShell script for this tutorial. It assumes that you have already setup the Azure subscription to use with the **Add-AzureRmAccount** and **Select-AzureRmSubscription** commands.
@@ -292,4 +292,3 @@ The following script contains the complete PowerShell script for this tutorial. 
 
 ## Next steps
 After the virtual machine is created, you are ready to connect to the virtual machine using RDP and setup connectivity. For more information, see [Connect to a SQL Server Virtual Machine on Azure (Resource Manager)](virtual-machines-windows-sql-connect.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

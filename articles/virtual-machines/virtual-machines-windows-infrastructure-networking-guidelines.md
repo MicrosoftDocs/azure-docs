@@ -1,4 +1,4 @@
-﻿---
+---
 title: Networking Infrastructure Guidelines | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying virtual networking in Azure infrastructure services.
 documentationcenter: ''

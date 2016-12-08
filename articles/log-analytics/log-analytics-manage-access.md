@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage workspaces | Microsoft Docs
 description: Manage workspaces in Log Analytics using a variety of administrative tasks on users, accounts, workspaces, and Azure accounts.
 services: log-analytics

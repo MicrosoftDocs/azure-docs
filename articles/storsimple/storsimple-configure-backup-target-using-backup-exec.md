@@ -7,7 +7,7 @@ author: hkanna
 manager: matd
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
@@ -89,7 +89,7 @@ Although StorSimple presents two main deployment scenarios (primary and secondar
 
 For more information about StorSimple, see [StorSimple 8000 series: hybrid cloud storage solution](storsimple-overview.md) and review the [technical StorSimple 8000 series specifications](storsimple-technical-specifications-and-compliance.md).
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > StorSimple device as backup target is only supported with StorSimple 8000 Update 3 or later.
 
 ## Architecture overview
@@ -176,7 +176,7 @@ It is important to size your high-performance volume with ample space and perfor
 
 The deployment of this solution consists of three steps: preparing the network infrastructure, deploying your StorSimple device as a backup target, and finally deploying the Veritas Backup Exec. Each of these steps is discussed in detail in the following sections.
 
-### Configure the network 
+### Configure the network
 
 StorSimple as an integrated solution with the Azure cloud requires an active and working connection to the Azure cloud. This connection is used for operations such as cloud snapshots, management, metadata transfer, and to tier older, less accessed data to the Azure cloud storage.
 
@@ -219,7 +219,7 @@ Ensure that the host backup server storage is configured as per the following gu
 
 - Spanned volumes (created by Windows Disk manager) are not supported.
 - Format your volumes using NTFS with 64 KB allocation size.
-- Map the StorSimple volumes directly to the “Veeam” server. 
+- Map the StorSimple volumes directly to the “Veeam” server.
     - Use iSCSI in case of physical servers.
     - Use pass-through disks for virtual servers.
 
@@ -248,7 +248,7 @@ Configure your solution as per the following guidelines.
     - Download: [PSEXEC – Microsoft Sysinternals](https://technet.microsoft.com/sysinternals/bb897553.aspx)
 
       - After downloading PSEXEC, run Windows PowerShell as an administrator, and type:
-            
+
             `psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable`
 
 ### StorSimple
@@ -348,7 +348,7 @@ Based on the preceeding assumptions, create a 26 TiB StorSimple tiered volume fo
 
 ## StorSimple as a primary backup target
 
-> [!NOTE] 
+> [!NOTE]
 > Be aware that if you need to restore data from a backup that has been tiered to the cloud, the restore occurs at cloud speeds.
 
 In the following figure, we illustrate mapping of a typical volume to a backup job. In this case, all the weekly backups map to Saturday full disk, and the incremental backups map to Monday-Friday incremental disks. All the backups and restores happen from a StorSimple tiered volume.
@@ -385,12 +385,12 @@ The following sequence assumes that Backup Exec and the target host are configur
 
 1.  Assign corresponding StorSimple volumes to your backup schedule.
 
-    > [!NOTE] 
+    > [!NOTE]
     > **Compression** and **Encryption type** are set to **None**.
 
 2.  Under **Verify**, select the **Do not verify data for this job** as this may affect StorSimple tiering.
 
-    > [!NOTE] 
+    > [!NOTE]
     > Defragmentation, indexing, and background verification negatively affect the StorSimple tiering.
 
     ![Backup Options verify settings](./media/storsimple-configure-backup-target-using-backup-exec/image17.png)
@@ -470,14 +470,14 @@ The following table illustrates how the backups should be configured to run on t
 
 StorSimple cloud snapshots protect the data that resides in StorSimple device. This is equivalent to shipping tapes to an offsite facility and if using Azure geo-redundant storage (GRS), as shipping tapes to multiple sites. If a device restore was needed in a disaster, you could bring another StorSimple device online and do a failover. Following the failover, you would be able to access the data (at cloud speeds) from the most recent cloud snapshot.
 
-The following section illustrates how to create a short script to trigger and delete StorSimple cloud snapshots during backup post-processing. 
+The following section illustrates how to create a short script to trigger and delete StorSimple cloud snapshots during backup post-processing.
 
-> [!NOTE] 
+> [!NOTE]
 > Snapshots that are manually or programmatically created do not follow the StorSimple snapshot expiration policy. These must be manually or programmatically deleted.
 
 ### Start and delete cloud snapshots with a script
 
-> [!NOTE] 
+> [!NOTE]
 > Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information on how to run a post-backup script, refer to Veritas Backup Exec documentation.
 
 #### Backup lifecycle
