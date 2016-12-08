@@ -298,12 +298,24 @@ az storage container list
 Output:
 
 ```azurecli
-info:    Executing command storage container list
-+ Getting storage containers
-data:    Name  Public-Access  Last-Modified
-data:    ----  -------------  -----------------------------
-data:    vhds  Off            Sun, 27 Sep 2015 19:03:54 GMT
-info:    storage container list command OK
+[
+  {
+    "metadata": null,
+    "name": "vhds",
+    "properties": {
+      "etag": "\"0x8D41F912D472F94\"",
+      "lastModified": "2016-12-08T17:39:35+00:00",
+      "lease": {
+        "duration": null,
+        "state": null,
+        "status": null
+      },
+      "leaseDuration": "infinite",
+      "leaseState": "leased",
+      "leaseStatus": "locked"
+    }
+  }
+]
 ```
 
 ## Create a virtual network and subnet
