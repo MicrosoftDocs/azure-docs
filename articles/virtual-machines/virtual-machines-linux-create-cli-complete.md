@@ -385,11 +385,11 @@ Output:
 The public IP address resource has been allocated logically, but a specific address has not yet been assigned. To obtain an IP address, you're going to need a load balancer, which we have not yet created.
 
 ## Create a load balancer and IP pools
-When you create a load balancer, it enables you to distribute traffic across multiple VMs. It also provides redundancy to your application by running multiple VMs that respond to user requests in the event of maintenance or heavy loads. The following example creates a load balancer named `myLoadBalancer`:
+When you create a load balancer, it enables you to distribute traffic across multiple VMs. It also provides redundancy to your application by running multiple VMs that respond to user requests in the event of maintenance or heavy loads. The following example creates a load balancer named `myLoadBalancer`, a front-end IP pool named `myFrontEndPool`, and hooks up the `myPublicIP` resource:
 
 ```azurecli
 az network lb create --resource-group myResourceGroup --location westeurope --name myLoadBalancer \
-  --public-ip-address myPublicIP
+  --public-ip-address myPublicIP --frontend-ip-name myFrontEndPool
 ```
 
 Output:
@@ -399,7 +399,7 @@ Output:
   "loadBalancer": {
     "backendAddressPools": [
       {
-        "etag": "W/\"42819932-74ca-450a-855b-419c36b1f76c\"",
+        "etag": "W/\"7a05df7a-5ee2-4581-b411-4b6f048ab291\"",
         "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myLoadBalancerbepool",
         "name": "myLoadBalancerbepool",
         "properties": {
@@ -410,14 +410,14 @@ Output:
     ],
     "frontendIPConfigurations": [
       {
-        "etag": "W/\"42819932-74ca-450a-855b-419c36b1f76c\"",
-        "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/frontendIPConfigurations/LoadBalancerFrontEnd",
-        "name": "LoadBalancerFrontEnd",
+        "etag": "W/\"7a05df7a-5ee2-4581-b411-4b6f048ab291\"",
+        "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/frontendIPConfigurations/myFrontEndPool",
+        "name": "myFrontEndPool",
         "properties": {
           "privateIPAllocationMethod": "Dynamic",
           "provisioningState": "Succeeded",
           "publicIPAddress": {
-            "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/PublicIPmyLoadBalancer",
+            "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP",
             "resourceGroup": "myResourceGroup"
           }
         },
@@ -430,63 +430,46 @@ Output:
     "outboundNatRules": [],
     "probes": [],
     "provisioningState": "Succeeded",
-    "resourceGuid": "b5815801-b53d-4c22-aafc-2a9064f90f3c"
+    "resourceGuid": "f4879d84-5ae8-4e06-8b9b-1419baa875d9"
   }
 }
 ```
 
 Note how we used the `--public-ip-address` switch to pass in the `myPublicIP` that we created earlier. Assigning the public IP address to the load balancer allows you to reach your VMs across the Internet.
 
-Our load balancer is fairly empty, so let's create some IP pools. We want to create two IP pools for our load balancer, one for the front end and one for the back end. The front-end IP pool is publicly visible. Then we use the back-end pool as a location for our VMs to connect to. That way, the traffic can flow through the load balancer to the VMs.
-
-First, let's create our front-end IP pool. The following example creates a front-end pool named `myFrontEndPool`:
-
-```azurecli
-az network lb frontend-ip create --resource-group myResourceGroup \
-  --lb-name myLoadBalancer --name myFrontEndPool --public-ip-address myPublicIP
-```
-
-Output:
-
-```json
-{
-  "etag": "W/\"2828a9e2-6153-4e53-b7d0-7773a0a0d24b\"",
-  "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/frontendIPConfigurations/myFrontEndPool",
-  "inboundNatPools": null,
-  "inboundNatRules": null,
-  "loadBalancingRules": null,
-  "name": "myFrontEndPool",
-  "outboundNatRules": null,
-  "privateIpAddress": null,
-  "privateIpAllocationMethod": "Dynamic",
-  "provisioningState": "Succeeded",
-  "publicIpAddress": {
-    "dnsSettings": null,
-    "etag": null,
-    "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/publicIPAddresses/myPublicIP",
-    "idleTimeoutInMinutes": null,
-    "ipAddress": null,
-    "ipConfiguration": null,
-    "location": null,
-    "name": null,
-    "provisioningState": null,
-    "publicIpAddressVersion": null,
-    "publicIpAllocationMethod": null,
-    "resourceGroup": "myResourceGroup",
-    "resourceGuid": null,
-    "tags": null,
-    "type": null
-  },
-  "resourceGroup": "myResourceGroup",
-  "subnet": null
-}
-```
-
-Next, let's create our second IP pool, this time for our back-end traffic. The following example creates a back-end pool named `myBackEndPool`:
+We use a back-end pool as a location for our VMs to connect to. That way, the traffic can flow through the load balancer to the VMs. Let's create the IP pool for our back-end traffic. The following example creates a back-end pool named `myBackEndPool`:
 
 ```azurecli
 az network lb address-pool create --resource-group myResourceGroup \
   --lb-name myLoadBalancer --name myBackEndPool
+```
+
+Snipped output:
+
+```json
+  "backendAddressPools": [
+    {
+      "backendIpConfigurations": null,
+      "etag": "W/\"a61814bc-ce4c-4fb2-9d6a-5b1949078345\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myLoadBalancerbepool",
+      "loadBalancingRules": null,
+      "name": "myLoadBalancerbepool",
+      "outboundNatRule": null,
+      "provisioningState": "Succeeded",
+      "resourceGroup": "myResourceGroup"
+    },
+    {
+      "backendIpConfigurations": null,
+      "etag": "W/\"a61814bc-ce4c-4fb2-9d6a-5b1949078345\"",
+      "id": "/subscriptions/guid/resourceGroups/myResourceGroup/providers/Microsoft.Network/loadBalancers/myLoadBalancer/backendAddressPools/myBackEndPool",
+      "loadBalancingRules": null,
+      "name": "myBackEndPool",
+      "outboundNatRule": null,
+      "provisioningState": "Succeeded",
+      "resourceGroup": "myResourceGroup"
+    }
+  ],
+  "etag": "W/\"a61814bc-ce4c-4fb2-9d6a-5b1949078345\"",
 ```
 
 
@@ -990,9 +973,9 @@ Read more about [managing the availability of VMs](virtual-machines-linux-manage
 
 
 ## Create the Linux VMs
-You've created the storage and network resources to support Internet-accessible VMs. Now let's create those VMs and secure them with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We locate that image information by using `azure vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+You've created the storage and network resources to support Internet-accessible VMs. Now let's create those VMs and secure them with an SSH key that doesn't have a password. In this case, we're going to create an Ubuntu VM based on the most recent LTS. We locate that image information by using `az vm image list`, as described in [finding Azure VM images](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-We selected an image by using the command `azure vm image list westeurope canonical | grep LTS`. In this case, we use `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. For the last field, we pass `latest` so that in the future we always get the most recent build. (The string we use is `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
+We selected an image by using the command `az vm image list --location westeurope --publisher canonical | grep LTS`. In this case, we use `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`. For the last field, we pass `latest` so that in the future we always get the most recent build. (The string we use is `canonical:UbuntuServer:16.04.0-LTS:16.04.201608150`).
 
 This next step is familiar to anyone who has already created an ssh rsa public and private key pair on Linux or Mac by using **ssh-keygen -t rsa -b 2048**. If you do not have any certificate key pairs in your `~/.ssh` directory, you can create them:
 
