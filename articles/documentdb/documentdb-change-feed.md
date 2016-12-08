@@ -14,14 +14,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 11/26/2016
+ms.date: 11/30/2016
 ms.author: b-hoedid
 
 ---
 # Working with the ChangeFeed support in Azure DocumentDB
 [Azure DocumentDB](documentdb-introduction.md) is a fast and flexible NoSQL database service that is used for storing high-volume transactional and operational data with predictable single-digit millisecond latency for reads and writes. This makes it well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to track changes made to DocumentDB data, and update materialized views, perform real-time analytics, archive data to cold storage, and trigger notifications on certain events based on these changes. DocumentDB's **ChangeFeed support** allows you to build efficient and scalable solutions for each of these patterns.
 
-With ChangeFeed support, DocumentDB provides a real-time sorted list of documents within a DocumentDB collection in the order in which they were modified. These changes can be read and processed by a single consumer that performs real-time analysis or triggers certain actions, or distributed across a number of consumers for distributed processing. Let's look at the APIs for ChangeFeed and how you can use them to build scalable real-time applications.
+With ChangeFeed support, DocumentDB provides a sorted list of documents within a DocumentDB collection in the order in which they were modified. This feed can be used to listen for modifications to data within the collection and perform actions such as:
+
+* Trigger a call to an API when a document is inserted or modified
+* Perform real-time (stream) processing on updates
+* Synchronize data with a cache, search engine, or data warehouse
+
+Changes in DocumentDB are persisted and can be processed asynchronously, and distributed across one or more consumers for parallel processing. Let's look at the APIs for ChangeFeed and how you can use them to build scalable real-time applications.
 
 ![Using DocumentDB Change Feed to power real-time analytics and event-driven computing scenarios](./media/documentdb-change-feed/changefeed.png)
 
@@ -36,7 +42,7 @@ ChangeFeed allows for efficient processing of large datasets with a high volume 
 
 **Lambda Pipelines with Azure DocumentDB for ingestion and query:**
 
-![Using DocumentDB Change Feed to power real-time analytics and event-driven computing scenarios](./media/documentdb-change-feed/changefeed.png)
+![Azure DocumentDB based lambda pipeline for ingestion and query](./media/documentdb-change-feed/lambda.png)
 
 You can use DocumentDB to receive and store event data from devices, sensors, infrastructure, and applications, and process these events in real-time with [Azure Stream Analytics](documentdb-search-indexer.md), [Apache Storm](../hdinsight/hdinsight-storm-overview.md), or [Apache Spark](../hdinsight/hdinsight-apache-spark-overview.md). 
 
@@ -45,19 +51,20 @@ Within web and mobile apps, you can track events such as changes to your custome
 # How ChangeFeed works in Azure DocumentDB
 DocumentDB provides the ability to incrementally read updates made to a DocumentDB collection. This change feed has the following properties:
 
-* Changes to documents within a collection are available immediately in real-time in the change feed with no lag.
-* Each change to a document will appear only once in the change feed.
-* The change feed is sorted by time of modification within each partition key value. There is no guaranteed order across partition-key values.
-* Changes can be synchronized from any point-in-time, i.e. there is no fixed data retention period for which changes are available.
-* Only the most recent change for a given document will be included in the change log. Intermediate changes may not be available.
+* Changes are persistent in DocumentDB and can be processed asynchronously.
+* Changes to documents within a collection are available immediately in the change feed.
+* Each change to a document appears only once in the change feed. Only the most recent change for a given document is included in the change log. Intermediate changes may not be available.
+* The change feed is sorted by order of modification within each partition key value. There is no guaranteed order across partition-key values.
+* Changes can be synchronized from any point-in-time, that is, there is no fixed data retention period for which changes are available.
 * Changes are available in chunks of partition key ranges. This capability allows changes from large collections to be processed in parallel by multiple consumers/servers.
+* Applications can request for multiple ChangeFeeds simultaneously on the same collection.
 
-DocumentDB's Change Feed is enabled by default for all accounts, and does not incur any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change feed, just like any other operation from DocumentDB. The change feed includes inserts and update operations made to documents within the collection. You can capture deletes by either setting a "soft-delete" flag within your documents in place of deletes. Alternatively, you can set a finite expiration period for your documents via the [TTL capability](documentdb-time-to-live.md), for example, 24 hours and use the value of that property to capture deletes.
+DocumentDB's Change Feed is enabled by default for all accounts, and does not incur any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change feed, just like any other operation from DocumentDB. The change feed includes inserts and update operations made to documents within the collection. You can capture deletes by setting a "soft-delete" flag within your documents in place of deletes. Alternatively, you can set a finite expiration period for your documents via the [TTL capability](documentdb-time-to-live.md), for example, 24 hours and use the value of that property to capture deletes. With this solution, you have to process changes within a shorter time interval than the TTL expiration period. 
 
 In the following section, we describe how to access the change feed using the DocumentDB REST API and SDKs.
 
 ## Working with the REST API and SDK
-DocumentDB provides elastic containers or storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](documentdb-partition-data.md) for scalability and performance. DocumentDB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). The change feed can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API, and can be processed in parallel across ranges of partition keys.
+DocumentDB provides elastic containers of storage and throughput called **collections**. Data within collections is logically grouped using [partition keys](documentdb-partition-data.md) for scalability and performance. DocumentDB provides various APIs for accessing this data, including lookup by ID (Read/Get), query, and read-feeds (scans). The change feed can be obtained by populating two new request headers to DocumentDB's `ReadDocumentFeed` API, and can be processed in parallel across ranges of partition keys.
 
 ### ReadDocumentFeed API
 Let's take a brief look at how ReadDocumentFeed works. DocumentDB supports reading a feed of documents within a collection via the `ReadDocumentFeed` API. For example, the following request returns a page of documents inside the `serverlogs` collection. 
@@ -74,7 +81,11 @@ Let's take a brief look at how ReadDocumentFeed works. DocumentDB supports readi
 
 Results can be limited by using the `x-ms-max-item-count` header, and reads can be resumed by resubmitting the request with a `x-ms-continuation` header returned in the previous response. When performed from a single client, `ReadDocumentFeed` iterates through results across partitions serially. 
 
-You can retrieve this information using one of the supported [DocumentDB SDKs](documentdb-sdk-dotnet.md). For example, the following snippet shows how to perform ReadDocumentFeed in .NET.
+**Serial Read Document Feed**
+
+![DocumentDB ReadDocumentFeed serial execution](./media/documentdb-change-feed/readfeedserial.png)
+
+You can also retrieve the feed of documents using one of the supported [DocumentDB SDKs](documentdb-sdk-dotnet.md). For example, the following snippet shows how to perform ReadDocumentFeed in .NET.
 
     FeedResponse<dynamic> feedResponse = null;
     do
@@ -86,18 +97,14 @@ You can retrieve this information using one of the supported [DocumentDB SDKs](d
 > [!NOTE]
 > ChangeFeed requires SDK versions 1.11.0 and above (currently available in private preview)
 
-**Serial Read Document Feed**
-
-![DocumentDB ReadDocumentFeed serial execution](./media/documentdb-change-feed/readfeedserial.png)
-
 ### Distributed Execution of ReadDocumentFeed
-For collections that contain terabytes of data or more, or ingest a large volume of updates, serial execution of read feed from a single client machine might not be a practical solution. In order to support these big data scenarios, DocumentDB provides APIs to distribute `ReadDocumentFeed` calls transparently across a number of client readers/consumers. 
+For collections that contain terabytes of data or more, or ingest a large volume of updates, serial execution of read feed from a single client machine might not be practical. In order to support these big data scenarios, DocumentDB provides APIs to distribute `ReadDocumentFeed` calls transparently across multiple client readers/consumers. 
 
 **Distributed Read Document Feed**
 
 ![DocumentDB ReadDocumentFeed distributed execution](./media/documentdb-change-feed/readfeedparallel.png)
 
-In order to provide scalable processing of incremental changes, DocumentDB supports a scale-out model for the change feed API based on ranges of partition keys.
+To provide scalable processing of incremental changes, DocumentDB supports a scale-out model for the change feed API based on ranges of partition keys.
 
 * You can obtain a list of partition key ranges for a collection performing a `ReadPartitionKeyRanges` call. 
 * For each partition key range, you can perform a `ReadDocumentFeed` to read documents with partition keys within that range.
@@ -140,7 +147,7 @@ This request returns the following response containing metadata about the partit
 
 
 **Partition Key Range Properties**:
-Each partition key range includes the metadata properties in the following table. The id property must be used in the following call to retrieve changes for the partition key range.
+Each partition key range includes the metadata properties in the following table:
 
 <table>
 	<tr>
@@ -149,7 +156,10 @@ Each partition key range includes the metadata properties in the following table
 	</tr>
 	<tr>
 		<td>id</td>
-		<td>The ID for the partition key range. This is a stable and unique ID within each collection.</td>
+		<td>
+			<p>The ID for the partition key range. This is a stable and unique ID within each collection.</p>
+			<p>Must be used in the following call to read changes by partition key range.</p>
+		</td>
 	</tr>
 	<tr>
 		<td>maxExclusive</td>
@@ -220,11 +230,14 @@ The following table lists the request and response headers for ReadDocumentFeed 
 	</tr>
 	<tr>
 		<td>etag</td>
-		<td>The logical version of data within the collection.</td>
+		<td>
+			<p>The logical sequence number (LSN) of last document returned in the response.</p>
+			<p>incremental ReadDocumentFeed can be resumed by resubmitting this value in If-None-Match.</p>
+		</td>
 	</tr>
 </table>
 
-Here's a sample request to return all incremental changes in collection from the logical version/ETag `28535` and partition key range = `1`:
+Here's a sample request to return all incremental changes in collection from the logical version/ETag `28535` and partition key range = `16`:
 
 	GET https://mydocumentdb.documents.azure.com/dbs/bigdb/colls/bigcoll/docs HTTP/1.1
 	x-ms-max-item-count: 1
@@ -237,7 +250,7 @@ Here's a sample request to return all incremental changes in collection from the
 	Accept: application/json
 	Host: mydocumentdb.documents.azure.com
 
-Changes will be ordered by time within each partition key value within the partition key range. There is no guaranteed order across partition-key values. Just like read-feed calls, if there are more results than can fit in a single page, you can read the next page of results by resubmitting the request with the `x-ms-continuation` header. If multiple documents were updated transactionally within a stored procedure or trigger, they will all be returned within the same response page.
+Changes are ordered by time within each partition key value within the partition key range. There is no guaranteed order across partition-key values. If there are more results than can fit in a single page, you can read the next page of results by resubmitting the request with the `If-None-Match` header with value equal to the `etag` from the previous response. If multiple documents were updated transactionally within a stored procedure or trigger, they will all be returned within the same response page.
 
 The .NET SDK provides the `CreateChangeFeedQuery` and `ChangeFeedOptions` helper classes to access changes made to a collection. The following snippet shows how to retrieve all changes from the beginning using the .NET SDK from a single client.
 
@@ -246,8 +259,6 @@ The .NET SDK provides the `CreateChangeFeedQuery` and `ChangeFeedOptions` helper
         string collection,
         Dictionary<string, string> checkpoints)
     {
-        Dictionary<string, string> nextCheckpoints = new Dictionary<string, string>();
-
         List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
         FeedResponse<PartitionKeyRange> response;
 
@@ -260,7 +271,9 @@ The .NET SDK provides the `CreateChangeFeedQuery` and `ChangeFeedOptions` helper
 
         foreach (PartitionKeyRange pkRange in partitionKeyRanges)
         {
-            string continuation = (checkpoints == null) ? null : checkpoints[pkRange.Id];
+            string continuation = null;
+            checkpoints.TryGetValue(pkRange.Id, out continuation);
+
             IDocumentQuery<Document> query = client.CreateDocumentChangeFeedQuery(
                 collection,
                 new ChangeFeedOptions
@@ -273,29 +286,42 @@ The .NET SDK provides the `CreateChangeFeedQuery` and `ChangeFeedOptions` helper
 
             while (query.HasMoreResults)
             {
-                FeedResponse<Document> readChangesResponse = query.ExecuteNextAsync<Document>().Result;
-                foreach (Document changedDocument in readChangesResponse)
+                FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+
+                foreach (DeviceReading changedDocument in 
+                    readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))
                 {
                     Console.WriteLine(changedDocument.Id);
                 }
 
-                nextCheckpoints[pkRange.Id] = response.ResponseContinuation;
+                checkpoints[pkRange.Id] = response.ResponseContinuation;
             }
         }
 
-        return nextCheckpoints;
+        return checkpoints;
     }
 
-And the following snippet shows how to process changes in real-time with DocumentDB by using the ChangeFeed support and the method above. The first call returns all the documents in the collection, and the second only returns the two documents created that were created since the last checkpoint.
+And the following snippet shows how to process changes in real-time with DocumentDB by using the ChangeFeed support and the preceding function. The first call returns all the documents in the collection, and the second only returns the two documents created that were created since the last checkpoint.
 
     // Returns all documents in the collection.
-    Dictionary<string, string> checkpoints = await GetChanges(client, collection, null);
+    Dictionary<string, string> checkpoints = await GetChanges(client, collection, new Dictionary<string, string>());
 
-    client.CreateDocumentAsync(collection, new { id = Guid.NewGuid().ToString() }).Wait();
-    client.CreateDocumentAsync(collection, new { id = Guid.NewGuid().ToString() }).Wait();
+    await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-201", MetricType = "Temperature", Unit = "Celsius", MetricValue = 1000 });
+    await client.CreateDocumentAsync(collection, new DeviceReading { DeviceId = "xsensr-212", MetricType = "Pressure", Unit = "psi", MetricValue = 1000 });
 
     // Returns only the two documents created above.
     checkpoints = await GetChanges(client, collection, checkpoints);
+
+
+You can also filter the change feed using client side logic to selectively process events. For example, here's a snippet that uses client side LINQ to process only temperature change events from device sensors.
+
+    FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
+
+    foreach (DeviceReading changedDocument in 
+        readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))
+    {
+        // trigger an action, like call an API
+    }
 
 In this article, we provided a walkthrough of DocumentDB's ChangeFeed support, and how to track changes made to DocumentDB data using the DocumentDB REST API and/or SDKs. 
 
