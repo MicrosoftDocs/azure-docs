@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-ms.date: 11/14/2016
+hms.date: 12/08/2016
 ms.author: danlep
 
 ---
@@ -53,16 +53,27 @@ Currently you can only automatically grow and shrink HPC Pack compute nodes that
         cd $env:CCP_HOME\bin
 
         Login-AzureRmAccount
+    ```
         
-        #if your account is in more than one Azure Active Directory tenant or Azure subscription, you can run the following command to ensure select the correct tenant and subscription
+    If your account is in more than one Azure Active Directory tenant or Azure subscription, you can run the following command to select the correct tenant and subscription:
+  
+    ```powershell
         Login-AzureRMAccount -TenantId <TenantId> -SubscriptionId <subscriptionId>
-        # user can run the following command to view current selected tenant and subscription
+    ```     
+       
+    Run the following command to view the currently selected tenant and subscription:
+    
+    ```powershell
         Get-AzureRMContext
+    ```
 
+  4. Run the following script
+
+    ```powershell
         .\ConfigARMAutoGrowShrinkCert.ps1 -DisplayName “YourHpcPackAppName” -HomePage "https://YourHpcPackAppHomePage" -IdentifierUri "https://YourHpcPackAppUri" -CertificateThumbprint "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" -TenantId xxxxxxxx-xxxxx-xxxxx-xxxxx-xxxxxxxxxxxx
     ```
 
-  where
+    where
 
     **DisplayName** - Azure Active Application display name. If the application does not exist, it is created in Azure Active Directory.
 
