@@ -49,7 +49,7 @@ Azure Metadata service exposes information about running Virtual Machines using 
 outside the VM.
 
 ### Scope 
-Scheduled events are surfaced to all Virtual Machines in a cloud service or to all Virtual Machines in an Availability Set. As a result, you should check the **Resources* field in the event to identify which VMs are
+Scheduled events are surfaced to all Virtual Machines in a cloud service or to all Virtual Machines in an Availability Set. As a result, you should check the **Resources** field in the event to identify which VMs are
 going to be impacted.
 
 ### Discover the Endpoint
@@ -184,7 +184,7 @@ The code below is of a client surfacing APIs to communicate with the Metadata Se
 Scheduled Events could be parsed using the following data structures 
 
 ```csharp
-      public class ScheduledEventsDocument
+    public class ScheduledEventsDocument
     {
         public List<CloudControlEvent> Events { get; set; }
     }
@@ -313,3 +313,5 @@ if __name__ == '__main__':
 
 
 ```
+## Next Steps 
+[Planned maintenance for virtual machines in Azure](./virtual-machines-linux-planned-maintenance.md)
