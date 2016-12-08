@@ -29,7 +29,7 @@ For the Resource Manager version of this topic, see [Provision a SQL Server virt
 
 ### Install and configure PowerShell:
 1. If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-2. [Download and install the latest Azure PowerShell commands](../powershell-install-configure.md).
+2. [Download and install the latest Azure PowerShell commands](/powershell/azureps-cmdlets-docs).
 3. Start Windows PowerShell, and connect it to your Azure subscription with the **Add-AzureAccount** command.
    
         Add-AzureAccount
