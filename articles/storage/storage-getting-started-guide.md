@@ -48,7 +48,7 @@ Once you have an account, you can create a simple Azure Storage application usin
 
     ![Azure Quick Starts][Image1]
 
-You may want to review the source code before running the application. To review the code, select **Solution Explorer** on the **View** menu in Visual Studio. Then, double click the Program.cs file.
+You may want to review the source code before running the application. To review the code, select **Solution Explorer** on the **View** menu in Visual Studio. Then, double-click the Program.cs file.
 
 Next, run the sample application:
 
