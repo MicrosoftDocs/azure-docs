@@ -48,7 +48,7 @@ This topic provides answers to some of the most common questions about running [
 
 7. **Do I have to pay to license SQL Server on an Azure VM if it is only being used for standby/failover?**
    
-    You do not have to pay to license a SQL Server VM if you have Software Assurance and use License Mobility as described in [Virtual Machine Licensing FAQ](http://azure.microsoft.com/pricing/licensing-faq/).
+    You do not have to pay to license SQL Server participating as a passive secondary replica in an HA deployment, if you have Software Assurance and use License Mobility as described in [Virtual Machine Licensing FAQ](http://azure.microsoft.com/pricing/licensing-faq/).
     
 8. **How are updates and service packs applied on a SQL Server VM?**
    
