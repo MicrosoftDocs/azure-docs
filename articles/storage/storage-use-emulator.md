@@ -3,8 +3,8 @@ title: Use the Azure Storage Emulator for Development and Testing | Microsoft Do
 description: The Azure storage emulator provides a free local development environment for developing and testing against Azure Storage. Learn about the storage emulator, including how requests are authenticated, how to connect to the emulator from your application, and how to use the command-line tool.
 services: storage
 documentationcenter: ''
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: f480b059-df8a-4a63-b05a-7f2f5d1f5c2a
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # Use the Azure Storage Emulator for Development and Testing
@@ -76,7 +76,7 @@ When the emulator is running, you'll see an icon in the Windows taskbar notifica
 
 When the storage emulator starts, a command-line window will appear. You can use this command-line window to start and stop the storage emulator as well as clear data, get current status, and initialize the emulator. For more information, see [Storage Emulator Command-Line Tool Reference](#storage-emulator-command-line-tool-reference).
 
-When the command line window is closed, the storage emulator continues to run. To bring up the command line again, follow the steps above as if starting the storage emulator.
+When the command-line window is closed, the storage emulator continues to run. To bring up the command line again, follow the steps above as if starting the storage emulator.
 
 The first time you run the storage emulator, the local storage environment is initialized for you. The initialization process creates a database in LocalDB and reserves HTTP ports for each local storage service.
 
@@ -158,7 +158,7 @@ To view the list of options, type `/help` at the command prompt.
 | **Init** |Performs one-time initialization to set up the emulator. |`AzureStorageEmulator.exe init [-server serverName] [-sqlinstance instanceName] [-forcecreate] [-inprocess]` |*-server serverName\instanceName*: Specifies the server hosting the SQL instance. <br/>*-sqlinstance instanceName*: Specifies the name of the SQL instance to be used in the default server instance. <br/>*-forcecreate*: Forces creation of the SQL database, even if it already exists. <br/>*-inprocess*: Performs initialization in the current process instead of spawning a new process. You must launch the current process with elevated permissions in order to perform initialization. |
 
 ## Differences between the storage emulator and Azure Storage
-Because the storage emulator is an emulated enviroment running in a local SQL instance, there are some differences in functionality between the emulator and an Azure storage account in the cloud:
+Because the storage emulator is an emulated environment running in a local SQL instance, there are some differences in functionality between the emulator and an Azure storage account in the cloud:
 
 * The storage emulator supports only a single fixed account and a well-known authentication key.
 * The storage emulator is not a scalable storage service and will not support a large number of concurrent clients.
@@ -219,5 +219,5 @@ There are no differences specific to Queue storage in the emulator.
 
 ### Version 3.0
 * The Azure storage emulator is no longer shipped in the same package as the compute emulator.
-* The storage emulator graphical user interface is deprecated in favor of a scriptable command line interface. For details on the command line interface, see Storage Emulator Command-Line Tool Reference. The graphical interface will continue to be present in version 3.0, but it can only be accessed when the Compute Emulator is installed by right-clicking on the system tray icon and selecting Show Storage Emulator UI.
+* The storage emulator graphical user interface is deprecated in favor of a scriptable command-line interface. For details on the command-line interface, see Storage Emulator Command-Line Tool Reference. The graphical interface will continue to be present in version 3.0, but it can only be accessed when the Compute Emulator is installed by right-clicking on the system tray icon and selecting Show Storage Emulator UI.
 * Version 2013-08-15 of the Azure storage services is now fully supported. (Previously this version was only supported by Storage Emulator version 2.2.1 Preview.)
