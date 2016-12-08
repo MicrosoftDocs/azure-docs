@@ -32,6 +32,9 @@ The billing invoice and daily usage is downloadable from the [Azure Account Cent
 
 For more information about your invoice and daily usage, see [Understand your bill for Microsoft Azure](./billing/billing-understand-your-bill.md).
 
+You can also download your invoice from the [Azure portal](https://portal.azure.com) by going to **Subscriptions**, select the subscription, and then select **Billing & usage**. You can view your daily usage by clicking the billing period. 
+
+
 ## <a name="noinvoice"></a> Why don't I see an invoice for the last billing period?
 There could be several reasons that you don't see an invoice:
 - You have a monthly credit amount with your subscription that you didn't exceed or you have a free trial. An invoice isn't generated unless you owe money.
