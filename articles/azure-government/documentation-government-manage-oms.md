@@ -12,12 +12,12 @@ editor: ''
 # Azure government cybersecurity: Monitoring and securing your assets with Operations Management Suite
 
 ## Cybersecurity in the cloud
-A crucial concern for our customers who are moving to the cloud is retaining asset management and security of the Azure Government services that they've deployed to the cloud. Virtual machine firewalls need to be configured correctly. Virtual networks need to have the right network security groups applied to them. Access to your assets needs to be locked down at the right time. All of these necessary work streams need to be planned, designed, and provisioned to enable a secure infrastructure for your agency to use.
+A crucial concern for our customers who are moving to the cloud is retaining asset management and security of the Azure Government services that they've deployed to the cloud. Virtual machine firewalls need to be configured correctly. Virtual networks need to have the right network security groups applied to them. Access to your assets needs to be locked down at the right time. All these necessary work streams need to be planned, designed, and provisioned to enable a secure infrastructure for your agency to use.
 
-Setting up this kind of environment can be challenging. Onboarding your fleet of servers to any monitoring service is hard operation to scale, and it can also be challenging to update the monitoring service. Monitoring infrastructure on different cloud providers as well as across the cloud and on-premises is difficult. Finally, keeping your monitoring up-to-date and enabling insights to monitor, detect, alert, and take action against cybersecurity threats requires time, resources, and computing power.
+Setting up this kind of environment can be challenging. Onboarding your fleet of servers to any monitoring service is hard operation to scale, and it can also be challenging to update the monitoring service. Monitoring infrastructure on different cloud providers as well as across the cloud and on-premises is difficult. Finally, keeping your monitoring up-to-date and enabling insights to monitor, detect, alert, and counter cybersecurity threats requires time, resources, and computing power.
 
 ## Microsoft Operations Management Suite
-Microsoft Operations Management Suite, now available in Azure Government, is a service that enables you to do all of these things by leveraging the power of map reduce and machine learning as a service.
+Microsoft Operations Management Suite, now available in Azure Government, is a service that enables you to do all these things by leveraging the power of map reduce and machine learning as a service.
 
 Operations Management Suite can:
 
@@ -51,17 +51,17 @@ Operations Management Suite also supports logging information from other monitor
 
 Information about setting up Operations Management Suite with your existing SCOM implementation on-premises can be found in [Connect Operations Manager to Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-om-agents).
 
-## Leverage intelligence through Operations Management Suite solution packs
+## Apply intelligence through Operations Management Suite solution packs
 Now that you have various sources for logging data, you have to make sense of all this data.
 
-Operations Management Suite, at its core, is a log search service that lets you write powerful queries to very quickly search across thousands or even millions of logs. However, discovering the issues that you need to write queries for is very difficult.
+Operations Management Suite, at its core, is a log search service that lets you write powerful queries to quickly search across thousands or even millions of logs. However, discovering the issues that you need to write queries for is difficult.
 
 Enter Operations Management Suite solutions. These are packs of queries that are integrated natively with Operations Management Suite map reduce and machine learning technology to proactively give you insights into your Operations Management Suite-managed fleet.
 
-On the theme of cyber security, I’ll briefly discuss three cybersecurity scenarios that Operations Management Suite can solve out of the box for you.
+On the theme of cyber security, I briefly discuss three cybersecurity scenarios that Operations Management Suite can solve out of the box for you.
 
 ### Antimalware assessment
-Antimalware assessments gives you a pre-canned set of queries, notifications, and monitoring dashboards to tell you at a glance how well your fleet is protected against malware.
+Antimalware assessments give you a pre-canned set of queries, notifications, and monitoring dashboards to tell you at a glance how well your fleet is protected against malware.
 
 This dashboard gives you a list of four things:
 * Any servers that have active and/or remediated threats.
@@ -92,9 +92,9 @@ Operations Management Suite threat intelligence looks at all the network logs on
 
 For example, in the following illustration, I can see that there are both inbound and outbound network connections to the People’s Republic of China.
 
-By double-clicking on the inbound tag, I can discover that a Linux VM that is being managed by Operations Management Suite is making outbound connections to a known dark net IP address in China.
+By double-clicking the inbound tag, I can discover that a Linux VM that is being managed by Operations Management Suite is making outbound connections to a known dark net IP address in China.
 
-You can also set up alerts to Operations Management Suite Solutions like Threat Intelligence. In the following screenshot, I've set up an alert so that if Operations Management Suite detect more than ten outbound connections to a known malicious IP address, it sends an alert out to me via email. I then configure that alert to fire an Azure Automation job, which is set up to automatically shut down that VM.
+You can also set up alerts to Operations Management Suite Solutions like Threat Intelligence. In the following screenshot, I've set up an alert so that if Operations Management Suite detects more than 10 outbound connections to a known malicious IP address, it sends an alert out to me via email. I then configure that alert to fire an Azure Automation job, which is set up to automatically shut down that VM.
 
 ![Figure 6: Operations Management Suite alerts and automation](./media/documentation-government-oms-figure6.png)
 <p align="center">Figure 6: Operations Management Suite alerts and automation</p>
@@ -103,4 +103,4 @@ This is just one example of an out-of-box Operations Management Suite solution t
 
 Operations Management Suite continues to update its machine learning to fight the latest threats automatically for you, and we continue to roll out new solutions to the Operations Management Suite Solution Gallery as well.
 
-For more information about Operations Management Suite, see  [our documentation page].(https://azure.microsoft.com/en-us/documentation/articles/documentation-government-overview/)
+For more information about Operations Management Suite, see [our documentation page].(https://azure.microsoft.com/en-us/documentation/articles/documentation-government-overview/)
