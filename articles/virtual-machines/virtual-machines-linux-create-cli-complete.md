@@ -388,7 +388,8 @@ The public IP address resource has been allocated logically, but a specific addr
 When you create a load balancer, it enables you to distribute traffic across multiple VMs. It also provides redundancy to your application by running multiple VMs that respond to user requests in the event of maintenance or heavy loads. The following example creates a load balancer named `myLoadBalancer`:
 
 ```azurecli
-az network lb create --resource-group myResourceGroup --location westeurope --name myLoadBalancer
+az network lb create --resource-group myResourceGroup --location westeurope --name myLoadBalancer \
+  --public-ip-address myPublicIP
 ```
 
 Output:
@@ -434,13 +435,15 @@ Output:
 }
 ```
 
-Our load balancer is fairly empty, so let's create some IP pools. We want to create two IP pools for our load balancer, one for the front end and one for the back end. The front-end IP pool is publicly visible. It's also the location to which we assign the PIP that we created earlier. Then we use the back-end pool as a location for our VMs to connect to. That way, the traffic can flow through the load balancer to the VMs.
+Note how we used the `--public-ip-address` switch to pass in the `myPublicIP` that we created earlier. Assigning the public IP address to the load balancer allows you to reach your VMs across the Internet.
+
+Our load balancer is fairly empty, so let's create some IP pools. We want to create two IP pools for our load balancer, one for the front end and one for the back end. The front-end IP pool is publicly visible. Then we use the back-end pool as a location for our VMs to connect to. That way, the traffic can flow through the load balancer to the VMs.
 
 First, let's create our front-end IP pool. The following example creates a front-end pool named `myFrontEndPool`:
 
 ```azurecli
 az network lb frontend-ip create --resource-group myResourceGroup \
-  --lb-name myLoadBalancer --public-ip-address myPublicIP --name myFrontEndPool
+  --lb-name myLoadBalancer --name myFrontEndPool --public-ip-address myPublicIP
 ```
 
 Output:
@@ -478,8 +481,6 @@ Output:
   "subnet": null
 }
 ```
-
-Note how we used the `--public-ip-address` switch to pass in the `myPublicIP` that we created earlier. Assigning the public IP address to the load balancer allows you to reach your VMs across the Internet.
 
 Next, let's create our second IP pool, this time for our back-end traffic. The following example creates a back-end pool named `myBackEndPool`:
 
