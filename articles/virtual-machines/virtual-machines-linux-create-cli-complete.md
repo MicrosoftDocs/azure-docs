@@ -1055,7 +1055,7 @@ At this point, you're running your Ubuntu VMs behind a load balancer in Azure th
 
 
 ## Export the environment as a template
-Now that you have built out this environment, what if you want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can [build JSON templates manually](../resource-group-authoring-templates.md) or export an existing environment to create the JSON template for you:
+Now that you have built out this environment, what if you want to create an additional development environment with the same parameters, or a production environment that matches it? Resource Manager uses JSON templates that define all the parameters for your environment. You build out entire environments by referencing this JSON template. You can [build JSON templates manually](../azure-resource-manager/resource-group-authoring-templates.md) or export an existing environment to create the JSON template for you:
 
 ```azurecli
 az resource group export -n myResourceGroup > myResourceGroup.json
