@@ -1,5 +1,5 @@
 ---
-title: Get the tools (macOS 10.10) | Microsoft Docs
+title: Get Azure tools for Azure IoT Starter Kit (macOS 10.10) | Microsoft Docs
 description: Download and install the necessary tools and software for the first sample application for Edison on macOS.
 services: iot-hub
 documentationcenter: ''

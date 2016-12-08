@@ -1,5 +1,5 @@
 ---
-title: Create and deploy the blink application | Microsoft Docs
+title: Create and deploy the blink application into the Azure IoT Starter Kit | Microsoft Docs
 description: Clone the sample C application from GitHub, and run gulp to deploy this application to your Intel Edison board. This sample application blinks the LED connected to the board every two seconds.
 services: iot-hub
 documentationcenter: ''

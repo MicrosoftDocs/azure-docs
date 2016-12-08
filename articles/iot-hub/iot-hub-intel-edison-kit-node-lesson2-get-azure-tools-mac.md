@@ -1,5 +1,5 @@
 ---
-title: Get Azure tools (macOS 10.10) | Microsoft Docs
+title: Get Azure tools for Azure IoT Starter Kit (macOS 10.10) | Microsoft Docs
 description: Install Python and Azure command-line interface (Azure CLI) on macOS.
 services: iot-hub
 documentationcenter: ''

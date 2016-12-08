@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting | Microsoft Docs
+title: Troubleshooting Intel Edison Azure IoT Starter Kit | Microsoft Docs
 description: Troubleshooting page for Intel Edison Node.js experience
 services: iot-hub
 documentationcenter: ''
