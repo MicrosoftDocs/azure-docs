@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy a split-merge service | Microsoft Docs
 description: Splitting and Merging with elastic database tools
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 9a993c0f-7052-46cd-aa59-073bea8d535a
 ms.service: sql-database
+ms.custom: sharded databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na

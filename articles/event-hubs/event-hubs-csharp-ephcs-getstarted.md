@@ -1,6 +1,6 @@
 ---
 title: Get Started with Event Hubs in C# | Microsoft Docs
-description: Follow this tutorial to get started using Azure Event Hubs with C# and using the EventProcessorHost.
+description: Follow this tutorial to get started using Azure Event Hubs with C# and using the Event Processor Host.
 services: event-hubs
 documentationcenter: ''
 author: jtaubensee
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/02/2016
+ms.date: 12/07/2016
 ms.author: jotaub;sethm
 
 ---
@@ -63,6 +63,7 @@ Press **Ctrl+C** in the **Sender** window to end the Sender application, then pr
 Now that you've built a working application that creates an Event Hub and sends and receives data, you can move on to the following scenarios:
 
 * A complete [sample application that uses Event Hubs][sample application that uses Event Hubs].
+* [Event Processor Host](/dotnet/api/microsoft.servicebus.messaging.eventprocessorhost)
 * The [Scale out Event Processing with Event Hubs][Scale out Event Processing with Event Hubs] sample.
 * [Event Hubs overview][Event Hubs overview]
 
@@ -73,7 +74,6 @@ Now that you've built a working application that creates an Event Hub and sends 
 [22]: ./media/event-hubs-csharp-ephcs-getstarted/run-csharp-ephcs2.png
 
 <!-- Links -->
-[Azure classic portal]: https://manage.windowsazure.com/
 [Event Processor Host]: https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost
 [Event Hubs overview]: event-hubs-overview.md
 [sample application that uses Event Hubs]: https://code.msdn.microsoft.com/Service-Bus-Event-Hub-286fd097

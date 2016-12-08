@@ -1,4 +1,4 @@
-﻿---
+---
 title: High availability features of Linux-based HDInsight (Hadoop) | Microsoft Docs
 description: Learn how Linux-based HDInsight clusters improve reliability and availability by using an additional head node. You will learn how this impacts Hadoop services such as Ambari and Hive, as well as how to individually connect to each head node using SSH.
 services: hdinsight
@@ -213,10 +213,10 @@ In this document you have learned how Azure HDInsight provides high availability
 
 * [Ambari REST Reference](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md)
 * [Install and configure the Azure CLI](../xplat-cli-install.md)
-* [Install and configure Azure PowerShell](../powershell-install-configure.md)
+* [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Manage HDInsight using Ambari](hdinsight-hadoop-manage-ambari.md)
 * [Provision Linux-based HDInsight clusters](hdinsight-hadoop-provision-linux-clusters.md)
 
 [preview-portal]: https://portal.azure.com/
-[azure-powershell]: ../powershell-install-configure.md
+[azure-powershell]: /powershell/azureps-cmdlets-docs
 [azure-cli]: ../xplat-cli-install.md
