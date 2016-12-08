@@ -77,28 +77,28 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 
 | Geography of the destination data store | Region of the destination data store | Region used for data movement |
 |:--- |:--- |:--- |
-| United States | East US |East US |
-| . | East US 2 |East US 2 |
-| . | Central US |Central US |
-| . | North Central US |North Central US |
-| . | South Central US |South Central US |
-| . | West Central US |Central US |
-| . | West US |West US |
-| . | West US 2 |West US |
+| United States | East US | East US |
+| . | East US 2 | East US 2 |
+| . | Central US | Central US |
+| . | North Central US | North Central US |
+| . | South Central US | South Central US |
+| . | West Central US | West Central US |
+| . | West US | West US |
+| . | West US 2 | West US |
 | Canada | Canada East | Canada Central |
 | . | Canada Central | Canada Central |
-| Brazil | Brazil South |Brazil South |
-| Europe | North Europe |North Europe |
-| . | West Europe |West Europe |
-| Asia Pacific | Southeast Asia |Southeast Asia |
-| . | East Asia |Southeast Asia |
-| Australia | Australia East |Australia East |
-| . | Australia Southeast |Australia Southeast |
-| Japan | Japan East |Japan East |
-| . | Japan West |Japan East |
-| India | Central India |Central India |
-| . | West India |Central India |
-| . | South India |Central India |
+| Brazil | Brazil South | Brazil South |
+| Europe | North Europe | North Europe |
+| . | West Europe | West Europe |
+| Asia Pacific | Southeast Asia | Southeast Asia |
+| . | East Asia | Southeast Asia |
+| Australia | Australia East | Australia East |
+| . | Australia Southeast | Australia Southeast |
+| Japan | Japan East | Japan East |
+| . | Japan West | Japan East |
+| India | Central India | Central India |
+| . | West India | Central India |
+| . | South India | Central India |
 
 
 > [!NOTE]

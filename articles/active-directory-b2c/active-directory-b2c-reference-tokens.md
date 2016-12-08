@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/22/2016
+ms.date: 12/06/2016
 ms.author: dastrock
 
 ---
@@ -77,8 +77,9 @@ Note that the claims in ID tokens are not returned in any particular order. In a
 | Code hash |`c_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |A code hash is included in an ID token only when the token is issued together with an OAuth 2.0 authorization code. A code hash can be used to validate the authenticity of an authorization code. See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on how to perform this validation. |
 | Access token hash |`at_hash` |`SGCPtt01wxwfgnYZy2VJtQ` |An access token hash is included in an ID token only when the token is issued together with an OAuth 2.0 access token. An access token hash can be used to validate the authenticity of an access token. See the [OpenID Connect specification](http://openid.net/specs/openid-connect-core-1_0.html) for more details on how to perform this validation. |
 | Nonce |`nonce` |`12345` |A nonce is a strategy used to mitigate token replay attacks. Your app can specify a nonce in an authorization request by using the `nonce` query parameter. The value you provide in the request will be emitted unmodified in the `nonce` claim of an ID token only. This allows your app to verify the value against the value it specified on the request, which associates the app's session with a given ID token. Your app should perform this validation during the ID token validation process. |
-| Subject |`sub` |`Not supported currently. Use oid claim.` |This is a principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. However, the subject claim is not yet implemented in the Azure AD B2C. You should configure your policies to include the object ID `oid` claim and use its value to identify users, rather than use the subject claim for authorization. |
-| Authentication context class reference |`acr` |`b2c_1_sign_in` |This is the name of the policy that was used to acquire the ID token. |
+| Subject |`sub` |`884408e1-2918-4cz0-b12d-3aa027d7563b` |This is a principal about which the token asserts information, such as the user of an app. This value is immutable and cannot be reassigned or reused. It can be used to perform authorization checks safely, such as when the token is used to access a resource. By default, the subject claim is populated with the object ID of the user in the directory. Refer to [this article](active-directory-b2c-token-session-sso.md) to learn more. |
+| Authentication context class reference |`acr` |Not applicable |Not used currently, except in the case of older policies. Refer to [this article](active-directory-b2c-token-session-sso.md) to learn more. |
+| Trustframework policy |`tfp` |`b2c_1_sign_in` |This is the name of the policy that was used to acquire the ID token. |
 | Authentication time |`auth_time` |`1438535543` |This claim is the time at which a user last entered credentials, represented in epoch time. |
 
 ### Refresh tokens
