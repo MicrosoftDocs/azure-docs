@@ -6,7 +6,6 @@
 ## [HBase](hdinsight-hbase-overview.md)
 ## [Apache Storm](hdinsight-storm-overview.md)
 ## [Domain-joined HDInsight preview](hdinsight-domain-joined-introduction.md)
-## [Interactive Hive preview](hdinsight-hadoop-use-interactive-hive.md)
 ## [Kafka preview](hdinsight-apache-kafka-introduction.md)
 
 # Get Started
@@ -16,7 +15,6 @@
 ## [Start with Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Start with HBase & NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Start with Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
-## [Start with Interactive Hive preview](hdinsight-hadoop-use-interactive-hive.md)
 ## [Start with Kafka preview](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
