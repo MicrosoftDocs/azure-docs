@@ -23,10 +23,10 @@ ms.author: boltean
 ## Introduction
 You can use Azure CLI (azure.js) to create and manage Azure IoT hubs programmatically. This article shows you how to use the Azure CLI (azure.js) to create an IoT hub.
 
-> [!NOTE]
-> You can also use the Azure CLI Preview (az.py) to create an IoT hub. For more information, see [Create an IoT hub using the Azure CLI 2.0 Preview](iot-hub-create-using-cli.md).
-> 
-> 
+You can complete the task using one of the following CLI versions:
+
+* Azure CLI (azure.js) – the CLI for the classic and resource management deployment models as described in this article.
+* [Azure CLI 2.0 (Preview) (az.py)](iot-hub-create-using-cli.md) - the next generation CLI for the resource management deployment model.
 
 To complete this tutorial you need the following:
 

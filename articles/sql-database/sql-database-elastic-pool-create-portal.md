@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: bf12594b-d258-40e6-a9fc-d8a8710c2d65
 ms.service: sql-database
-ms.custom: elastic
+ms.custom: sharded databases pool
 ms.devlang: NA
 ms.date: 11/17/2016
 ms.author: ninarn
