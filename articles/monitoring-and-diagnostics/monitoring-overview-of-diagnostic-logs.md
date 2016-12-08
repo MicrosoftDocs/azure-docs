@@ -90,11 +90,6 @@ To enable sending of Diagnostic Logs to a Log Analytics workspace, use this comm
 
     Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
 
-> [!NOTE]
-> The WorkspaceId parameter is not available in the October release. It will become available in the November release.
-> 
-> 
-
 You can obtain your Log Analytics workspace ID in the Azure portal.
 
 You can combine these parameters to enable multiple output options.
@@ -117,11 +112,6 @@ The Service Bus Rule ID is a string with this format: `{service bus resource ID}
 To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
     azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
-
-> [!NOTE]
-> The workspaceId parameter is not available in the October release. It will become available in the November release.
-> 
-> 
 
 You can obtain your Log Analytics workspace ID in the Azure portal.
 
