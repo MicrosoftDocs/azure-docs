@@ -65,7 +65,7 @@ In addition to adding pre-integrated applications from the gallery, all the cust
   ![Adding a newly-developed application in a few clicks](./media/active-directory-enterprise-apps-whats-new-azure-portal/05.png)
 
 
->[AZURE.NOTE]
+>[!NOTE]
 >Once you add an application using the Application Registry, you’ll see it show up in the list of Enterprise Applications where you’ll be able to configure single sign-on and manage access policies for your new application.
 
   ![Managing access to your new application under Enterprise Applications](./media/active-directory-enterprise-apps-whats-new-azure-portal/06.png)
@@ -146,6 +146,10 @@ After you’ve added lots of new applications, maybe you want to allow your user
 ##Feedback
 
 We hope you like using the updated preview experience. Please keep the feedback coming! Post your feedback and ideas for improvement in the **Admin Portal** section of our [feedback forum](https://feedback.azure.com/forums/169401-azure-active-directory/category/162510-admin-portal).  We’re excited about building cool new stuff every day, and use your guidance to shape and define what we build next.
+
+## Next steps
+
+For more details about SSO for enterprise apps, see [Managing single sign-on for enterprise apps in the new Azure portal](active-directory-enterprise-apps-manage-sso.md).
 
 
 
