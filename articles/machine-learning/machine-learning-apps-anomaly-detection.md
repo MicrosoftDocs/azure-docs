@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Machine Learning app: Anomaly Detection Service | Microsoft Docs'
 description: Anomaly Detection API is an example built with Microsoft Azure Machine Learning that detects anomalies in time series data with numerical values that are uniformly spaced in time.
 services: machine-learning
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 10/11/2016
-ms.author: alokkirpal
+ms.author: alok
 
 ---
 # Machine Learning Anomaly Detection Service

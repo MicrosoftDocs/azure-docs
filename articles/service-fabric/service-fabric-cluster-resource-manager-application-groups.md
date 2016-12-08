@@ -1,4 +1,4 @@
-﻿---
+---
 title: Service Fabric Cluster Resource Manager - Application Groups | Microsoft Docs
 description: Overview of the Application Group functionality in the Service Fabric Cluster Resource Manager
 services: service-fabric

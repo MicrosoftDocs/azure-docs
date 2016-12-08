@@ -48,7 +48,7 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/nodejs.svg" alt="" />
+                            <img src="media/index/dotnet.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -60,7 +60,7 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
         </a>
     </li>
     <li>
-        <a href="/azure/redis-cache/cache-dotnet-how-to-use-azure-redis-cache">
+        <a href="/azure/redis-cache/cache-web-app-howto">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -201,7 +201,7 @@ Azure Redis Cache is based on the popular open-source Redis Cache. It gives you 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Redis Cache REST API Reference</p>
+                        <p>Redis Cache REST API</p>
                     </div>
                 </div>
             </div>

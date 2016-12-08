@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Azure Storage in five minutes | Microsoft Docs
 description: Quickly ramp up on Microsoft Azure Blobs, Table, and Queues using Azure Storage Quick Starts, Visual Studio, and the Azure storage emulator. Run your first Azure Storage application in five minutes.
 services: storage
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: get-started-article
-ms.date: 10/18/2016
+ms.date: 11/17/2016
 ms.author: tamram
 
 ---
@@ -44,10 +44,9 @@ Once you have an account, you can create a simple Azure Storage application usin
 3. In the **New Project** dialog box, click **Installed** > **Templates** > **Visual C#** > **Cloud** > **QuickStarts** > **Data Services**.
     a. Choose one of the following templates: **Azure Storage: Blobs**, **Azure Storage: Files**, **Azure Storage: Queues**, or **Azure Storage: Tables**.
     b. Make sure that **.NET Framework 4.5** is selected as the target framework.
-   
-   * 3.c. Specify a name for your project and create the new Visual Studio solution, as shown:
+    c. Specify a name for your project and create the new Visual Studio solution, as shown:
      
-     ![Azure Quick Starts][Image1]
+    ![Azure Quick Starts][Image1]
 
 You may want to review the source code before running the application. To review the code, select **Solution Explorer** on the **View** menu in Visual Studio. Then, double click the Program.cs file.
 
@@ -56,7 +55,9 @@ Next, run the sample application:
 1. In Visual Studio, select **Solution Explorer** on the **View** menu. Open  the App.config file and comment out the connection string for the Azure storage emulator:
    
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
+
 2. Uncomment the connection string for the Azure Storage Service and provide the storage account name and access key in the App.config file:
+   
    `<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=[AccountName];AccountKey=[AccountKey]"`
    
    To retrieve your storage account access key, see [Manage your storage access keys](storage-create-storage-account.md#manage-your-storage-access-keys).
@@ -77,11 +78,12 @@ To try it, let’s create a simple Azure Storage application using one of the Az
     c. Specify a name for your project and create the new Visual Studio solution, as shown:
    
     ![Azure Quick Starts][Image1]
+
 4. In Visual Studio, select **Solution Explorer** on the **View** menu. Open  the App.config file and comment out the connection string for your Azure storage account if you have already added one. Then uncomment the connection string for the Azure storage emulator:
    
    `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
 
-You may want to review the source code before running the application. To review the code, select **Solution Explorer** on the **View** menu in Visual Studio. Then, double click the Program.cs file.
+You may want to review the source code before running the application. To review the code, select **Solution Explorer** on the **View** menu in Visual Studio. Then, double-click the Program.cs file.
 
 Next, run the sample application in the Azure Storage Emulator:
 

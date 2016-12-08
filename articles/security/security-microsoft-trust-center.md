@@ -1,4 +1,4 @@
-﻿---
+---
 title: Microsoft Trust Center | Microsoft Docs
 description: The Microsoft Trust center provides you the information you need to be confident that the Azure platform on which you run your services is secure.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
 
 ---
@@ -36,4 +36,3 @@ Here's what you find at the Microsoft Trust Center:
 * [Resources](https://aka.ms/tcresources) – Investigate white papers, videos, and case studies on Microsoft Trusted Cloud
 
 The [Microsoft Trust Center](https://www.microsoft.com/trustcenter) has what you need to understand what we do to secure the Microsoft Cloud.
-

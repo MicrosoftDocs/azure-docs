@@ -1,4 +1,4 @@
-﻿---
+---
 title: Storing Azure SQL Database Backups for up to 10 years | Microsoft Docs
 description: Learn how Azure SQL Database supports storing backups for up to 10 years.
 keywords: ''
@@ -10,11 +10,12 @@ editor: ''
 
 ms.assetid: 66fdb8b8-5903-4d3a-802e-af08d204566e
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 10/19/2016
+ms.date: 11/22/2016
 ms.author: carlrab; sashan
 
 ---
@@ -72,7 +73,7 @@ Use the following steps to configure long-term retention using PowerShell.
    
    ```
    New-AzureRmResourceGroup -Name $ResourceGroupName –Location 'WestUS' 
-   $vault = New-AzureRmRecoveryServicesVault -Name <string> -ResouceGroupName $ResourceGroupName -Location 'WestUS' 
+   $vault = New-AzureRmRecoveryServicesVault -Name <string> -ResourceGroupName $ResourceGroupName -Location 'WestUS' 
    Set-AzureRmRecoveryServicesBackupProperties   -BackupStorageRedundancy LocallyRedundant  -Vault $vault
    ```
 2. Register your Azure SQL Database Server to the vault so databases within the server can have backups stored for long term.
@@ -129,7 +130,7 @@ Use the following steps to restore a database from a backup in the Azure Recover
    
     ``` 
     #the following command finds the backup item associated with the database 'mydb'
-    $item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQL -Name 'mydb' 
+    $item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQLDatabase -Name 'mydb' 
     ```
 3. Find the backup you want to restore from.
    
@@ -183,7 +184,7 @@ To manually remove backups from the vault.
 4. Delete the container associated with ‘myserver’
    
     ```
-    Unregister -AzureRmRecoveryServicesBackupContainer –Container $container $container
+    Unregister-AzureRmRecoveryServicesBackupContainer –Container $container $container
     ```
 
 ## Long-Term Retention FAQ:
@@ -210,6 +211,10 @@ To manually remove backups from the vault.
    A. Yes, TDE is supported. You can restore the database from the vault even if the original database no longer exists.
 11. Q. What happens with the backups in the vault if my subscription is suspended? 
    A. If your subscription is suspended, we retain the existing databases and backups but the new backups will not be copied to the vault. After you re-active the subscription the service will resume copying backups to the vault. Your vault will become accessible to the restore operations using the backups that had been copied there before the subscription was suspended. 
+12. Q: Can I get access to the SQL Database backup files so I can download / restore to SQL Server ?
+   A: No, not at this time.
+13. Q: Is it possible to have multiple Schedules (Daily , Weekly, Monthly , Yearly) within a SQL Retention Policy.
+   A: No, this is only available for Virtal Machine backups at this time.
 
 ## Next steps
 Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).

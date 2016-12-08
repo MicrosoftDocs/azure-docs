@@ -1,4 +1,4 @@
-﻿---
+---
 title: What is Azure Active Directory?
 description: Use Azure Active Directory to extend your existing on-premises identities into the cloud or develop Azure AD integrated applications.
 services: active-directory
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/09/2016
+ms.date: 11/17/2016
 ms.author: curtand
 
 ---
@@ -47,6 +47,59 @@ Your organization can use Azure AD to improve employee productivity, streamline 
 * Implement consistent, self-service application access management, empowering business owners to move quickly while cutting IT costs and overheads.
 * Monitor application usage and protect your business from advanced threats with security reporting and monitoring.
 * Secure mobile (remote) access to on-premises applications.
+
+## How does Azure AD compare to on-premises Active Directory Domain Services (AD DS)?
+
+Both Azure Active Directory (Azure AD) and on-premises Active Directory (Active Directory Domain Services or AD DS) are systems that store directory data and manage communication between users and resources, including user logon processes, authentication, and directory searches.
+
+AD DS is a server role on Windows Server, which means that it can be deployed on physical or virtual machines. It has a hierarchical structure based on X.500. It uses DNS for locating objects, can be interacted with using LDAP, and it primarily uses Kerberos for authentication. Active Directory enables organizational units (OUs) and Group Policy Objects (GPOs) in addition to joining machines to the domain, and trusts are created between domains.
+
+Azure AD is a multi-customer public directory service, which means that within Azure AD you can create a tenant for your cloud servers and applications such as Office 365. Users and groups are created in a flat structure without OUs or GPOs. Authentication is performed through protocols such as SAML, WS-Federation, and OAuth. It's possible to query Azure AD, but instead of using LDAP you must use a REST API called AD Graph API. These all work over HTTP and HTTPS.
+
+You can use Azure AD Connect to sync your on-premises identities with Azure AD.
+
+### Authentication and authorization details
+
+| Azure AD                                   | On-premises AD DS |
+|--------------------------------------------|-------------------|
+| <li>   SAML      <li>   WS-Federation    <li>   Interactive with supported credentials  <li>   OAuth 2.0   <li>   OpenID Connect                          | <li>   SAML   <li>   WS-Federation  <li>   NTLM  <li>   Kerberos   <li>   MD5   <li>   Basic          |
+
+### Object repository details
+
+| Azure AD                                          | On-premises AD DS |
+|---------------------------------------------------|-------------------|
+| Access via Azure AD Graph and Microsoft Graph | X.500 LDAP    |
+
+### Programmatic access details
+
+| Azure AD                        | On-premises AD DS |
+|---------------------------------|-------------------|
+| MS/Azure AD Graph REST APIs | LDAP          |
+
+### SSO to applications details
+
+| Azure AD           | On-premises AD DS   |
+|--------------------|---------------------|
+| <li>   OpenID Connect  <li>   SAML          | <li>   SAML      <li>   WS-Fed   <li>   Open-ID connect  |
+
+### Access management details
+
+| Azure AD         | On-premises AD DS     |
+|------------------------------------|------------------------------------------------------------------------|
+| <li>   Resource-defined scope and role based access control   <li>   Client-define delegated and application permissions        <li>   Consent Framework (enforces proper user/admin consent, as defined/requested by resource/client)  <li>   Via app role, can be applied individually or through groups, supports:   <ul> <li>   Admin managed       <li>   Self-service application access  <li>   User consent </ul>         | <li>   Via ACLs, can be applied individually or through groups, supports:  <ul><li>   Admin managed  </ul>                                                 |
+
+### Group management details
+
+| Azure AD                          | On-premises AD DS                                 |
+|-----------------------------------|---------------------------------------------------|
+| <li>   Admin managed    <li>   Rule/dynamic managed   <li>   Self-service group management  | <li>   Admin managed      <li>   External system (FIM, or other) required for:  <ul><li>   Rule/dynamic managed      </ul>                 |
+
+### Supported credentials details
+
+| Azure AD           | On-premises AD DS  |
+|--------------------|--------------------|
+| <li>   Username + password  <li>   Smartcard     | <li>   Username + password  <li>   Smartcard     |
+
 
 ## How can I get started?
 * If you are an IT admin:

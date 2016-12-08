@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set Up Apache Tomcat on a Linux VM | Microsoft Docs
 description: Learn how to set up Apache Tomcat7 using an Azure virtual machine (VM) running Linux.
 services: virtual-machines-linux
@@ -21,9 +21,8 @@ ms.author: ningk
 # How to Set Up Tomcat7 on a Linux Virtual Machine with Microsoft Azure
 Apache Tomcat (or simply Tomcat, formerly also Jakarta Tomcat) is an open source web server and servlet container developed by the Apache Software Foundation (ASF). Tomcat implements the Java Servlet and the JavaServer Pages (JSP) specifications from Sun Microsystems, and provides a pure Java HTTP web server environment in which to run Java code. In the simplest configuration, Tomcat runs in a single operating system process. This process runs a Java virtual machine (JVM). Every HTTP request from a browser to Tomcat is processed as a separate thread in the Tomcat process.  
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-For a Resource Manager template to deploy an Ubuntu VM with Open JDK and Tomcat, see [here](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For a Resource Manager template to deploy an Ubuntu VM with Open JDK and Tomcat, see [here](https://azure.microsoft.com/documentation/templates/openjdk-tomcat-ubuntu-vm/).
 
 In this guide, you will install tomcat7 on a Linux image and deploy it in Microsoft Azure.  
 
@@ -125,9 +124,8 @@ In this phase, you install the Java runtime environment, tomcat, and other tomca
 ### Java runtime environment
 Tomcat is written in Java. There are two kinds of Java Development Kits (JDKs) (OpenJDK and Oracle JDK), and you can choose the one you want.  
 
-> AZURE.NOTE: Both JDKs have almost the same code for the classes in the Java API, but the code for the virtual machine is actually different. When it comes to libraries, OpenJDK tends to use open libraries while Oracle tends to use closed ones. But Oracle JDK has more classes and some fixed bugs, and Oracle JDK is more stable than OpenJDK.
-> 
-> 
+> [!NOTE] 
+> Both JDKs have almost the same code for the classes in the Java API, but the code for the virtual machine is actually different. When it comes to libraries, OpenJDK tends to use open libraries while Oracle tends to use closed ones. But Oracle JDK has more classes and some fixed bugs, and Oracle JDK is more stable than OpenJDK.
 
 The following commands download the different JDKs.  
 
@@ -210,9 +208,8 @@ You can edit the Tomcat user configuration file to setup your admin credentials 
 Here is an example:  
 ![][17]  
 
-> AZURE.NOTE: Create a strong password for the admin user name.  
-> 
-> 
+> [!NOTE] 
+> Create a strong password for the admin user name.  
 
 After editing this file, you should restart tomcat7 services with the following command to ensure that the changes take effect:  
 

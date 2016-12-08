@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect computers and devices to OMS using the OMS Gateway | Microsoft Docs
 description: Connect your OMS-managed devices and Operations Manager-monitored computers with the OMS Gateway to send data to the OMS service when they do not have Internet access.
 services: log-analytics
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 11/20/2016
 ms.author: banders
 
 ---
@@ -70,8 +70,8 @@ Operations Manager agents send some data such as Operations Manager alerts, conf
 
 > [!NOTE]
 > If you plan to use the Gateway with network load balancing, see [Optionally configure network load balancing](#optionally-configure-network-load-balancing).
-> 
-> 
+>
+>
 
 ## Configure a SCOM proxy server
 You configure Operations Manager to add the gateway to act as a proxy server. When you update the proxy configuration, the proxy configuration is automatically applied to all the agents reporting to Operations Manager.
@@ -121,7 +121,7 @@ Use the following tables to identify the URL for each location:
 | North Central US |ncus-jobruntimedata-prod-su1.azure-automation.net |
 | West Europe |we-jobruntimedata-prod-su1.azure-automation.net |
 | South Central US |scus-jobruntimedata-prod-su1.azure-automation.net |
-| East US |eus-jobruntimedata-prod-su1.azure-automation.net |
+| East US 2 |eus2-jobruntimedata-prod-su1.azure-automation.net |
 | Central Canada |cc-jobruntimedata-prod-su1.azure-automation.net |
 | North Europe |ne-jobruntimedata-prod-su1.azure-automation.net |
 | South East Asia |sea-jobruntimedata-prod-su1.azure-automation.net |
@@ -136,7 +136,7 @@ Use the following tables to identify the URL for each location:
 | North Central US |ncus-agentservice-prod-1.azure-automation.net |
 | West Europe |we-agentservice-prod-1.azure-automation.net |
 | South Central US |scus-agentservice-prod-1.azure-automation.net |
-| East US |eus2-agentservice-prod-1.azure-automation.net |
+| East US 2 |eus2-agentservice-prod-1.azure-automation.net |
 | Central Canada |cc-agentservice-prod-1.azure-automation.net |
 | North Europe |ne-agentservice-prod-1.azure-automation.net |
 | South East Asia |sea-agentservice-prod-1.azure-automation.net |
@@ -232,4 +232,3 @@ You can also leave feedback about OMS or Log Analytics at the [Microsoft Azure f
 
 ## Next steps
 * [Add data sources](log-analytics-data-sources.md) to collect data from the Connected Sources in your OMS workspace and store it in the OMS repository.
-

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure security overview | Microsoft Docs
 description: The Microsoft Azure Security Information site on Azure.com is your place for technical answers to your Azure security questions.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/09/2016
+ms.date: 11/18/2016
 ms.author: terrylan
 
 ---
@@ -44,8 +44,7 @@ The Azure Security Information site currently addresses the following categories
 
 > [!NOTE]
 > All the articles we have in the Azure Security Information site appear in the navigation on the left side of the page. If you want to see all the articles, click or tap **See More** at the bottom of the categories list.
-> 
-> 
+>
+>
 
 We want your input! If there are categories you want added, let us know! If there are articles you want added to an existing category, let us know that too! You can use the Comments section below, or write to us at [azsecinfosite@microsoft.com](mailto:azsecinfosite@microsoft.com) and we’ll incorporate your recommendations into our plans.
-

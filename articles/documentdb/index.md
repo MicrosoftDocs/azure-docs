@@ -71,7 +71,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using .NET</h3>
+                        <h3>Get started with DocumentDB using .NET</h3>
                     </div>
                 </div>
             </div>
@@ -89,7 +89,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using ASP.NET MVC</h3>
+                        <h3>Get started with DocumentDB using ASP.NET MVC</h3>
                     </div>
                 </div>
             </div>
@@ -107,7 +107,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using Node.js</h3>
+                        <h3>Get started with DocumentDB using Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -125,7 +125,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using Node.js Express</h3>
+                        <h3>Get started with DocumentDB using Node.js Express</h3>
                     </div>
                 </div>
             </div>
@@ -143,7 +143,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using a Java JSP app</h3>
+                        <h3>Get started with DocumentDB using a Java JSP app</h3>
                     </div>
                 </div>
             </div>
@@ -172,27 +172,38 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
 
 ---
 
-## Reference
-
-### Java
-[Java SDK Reference](http://azure.github.io/azure-documentdb-java)
-
-### .NET
-[.NET Managed Reference](https://msdn.microsoft.com/library/azure/dn948556)
-
-### Node
-[Node SDK Reference](http://azure.github.io/azure-documentdb-node/DocumentClient)
-
-### Python
-[Python Reference](http://azure.github.io/azure-documentdb-python/api/pydocumentdb)
-
-### SQL
-[SQL Reference](https://msdn.microsoft.com/library/azure/dn782250)
-
-### REST
-[REST API Reference](/rest/api/documentdb)
-
-[Resource provider API Reference](/rest/api/documentdbresourceprovider)
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet">.NET</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet-core">.NET Core</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Java</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-node">Node.js</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/documentdb/">REST API</a></p>
+                        <p><a href="/rest/api/documentdbresourceprovider/">Resource Provider REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 ---
 

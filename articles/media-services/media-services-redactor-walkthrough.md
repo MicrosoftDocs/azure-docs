@@ -1,23 +1,23 @@
 ---
-title: Face redaction with Azure media analytics | Microsoft Docs
-description: This topic demonstrates how to redact faces with Azure media analytics.
+title: Redact faces with Azure Media Analytics walkthrough | Microsoft Docs
+description: This topic shows step by step instructions on how to run a full redaction workflow using Azure Media Services Explorer (AMSE) and Azure Media Redactor Visualizer (open source tool).
 services: media-services
 documentationcenter: ''
-author: juliako
+author: Lichard
 manager: erikre
 editor: ''
 
-ms.assetid: 5b6d8b8c-5f4d-4fef-b3d6-dc22c6b5a0f5
+ms.assetid: d6fa21b8-d80a-41b7-80c1-ff1761bc68f2
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 11/16/2016
-ms.author: juliako;
+ms.date: 11/30/2016
+ms.author: rli; juliako;
 
 ---
-# Face redaction with Azure media analytics
+# Redact faces with Azure Media Analytics walkthrough
 
 ## Overview
 
@@ -64,13 +64,12 @@ The output will include an annotations json file with face location data, as wel
 
 	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough005.png)
 
-2. (Optional) Upload an ‘idlist.txt’ file which includes a newline delimited list of the IDs you wish to redact. 
+2. (Optional) Upload a 'Dance_idlist.txt' file which includes a newline delimited list of the IDs you wish to redact. 
 
 	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough006.png)
 
 3. (Optional) Make any edits to the annotations.json file such as increasing the bounding box boundaries. 
 4. Right click the output asset from the first pass, select the Redactor, and run with the **Redact** mode. 
-
 
 	![Face redaction](./media/media-services-redactor-walkthrough/media-services-redactor-walkthrough007.png)
 

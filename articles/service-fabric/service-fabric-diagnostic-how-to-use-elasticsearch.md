@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using Elasticsearch as a Service Fabric application trace store | Microsoft Docs
 description: Describes how Service Fabric applications can use Elasticsearch and Kibana to store, index, and search through application traces (logs)
 services: service-fabric
@@ -187,7 +187,7 @@ namespace Stateless1
                 ElasticSearchListener esListener = null;
                 if (configProvider.HasConfiguration)
                 {
-                    esListener = new ElasticSearchListener(configProvider);
+                    esListener = new ElasticSearchListener(configProvider, new FabricHealthReporter("ElasticSearchEventListener"));
                 }
 
                 // The ServiceManifest.XML file defines one or more service type names.

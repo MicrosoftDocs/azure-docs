@@ -1,4 +1,4 @@
-﻿---
+---
 title: Migrate SQL Server database to SQL Database using Deploy Database to Microsoft Azure Database Wizard | Microsoft Docs
 description: Microsoft Azure SQL Database, database migration, Microsoft Azure Database Wizard
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 91d3fd5e-d035-4c55-b1ea-a7ccc8e0f543
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -68,7 +69,7 @@ The Deploy Database to Microsoft Azure Database wizard in SQL Server Management 
 * [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
 ## Additional resources
-* [SQL Database V12](sql-database-v12-whats-new.md)
+* [SQL Database features](sql-database-features.md)
 * [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
 * [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 

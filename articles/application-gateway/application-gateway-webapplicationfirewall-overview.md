@@ -1,4 +1,4 @@
-﻿---
+---
 title: Introduction to Web Application Firewall (WAF) for Application Gateway | Microsoft Docs
 description: 'This page provides an overview of Web Application Firewall (WAF) for Application Gateway '
 documentationcenter: na
@@ -41,7 +41,6 @@ Application Gateway WAF is offered in a new SKU (WAF SKU) and comes preconfigure
 * Common Web Attacks Protection such as command injection, HTTP request smuggling, HTTP response splitting, and remote file inclusion attack
 * Protection against HTTP protocol violations
 * Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
-* HTTP DoS Protections including HTTP flooding and slow HTTP DoS prevention
 * Prevention against bots, crawlers, and scanners
 * Detection of common application misconfigurations (i.e. Apache, IIS, etc)
 

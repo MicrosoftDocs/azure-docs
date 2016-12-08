@@ -1,4 +1,4 @@
-﻿---
+---
 title: Develop U-SQL scripts using Data Lake Tools for Visual Studio | Microsoft Docs
 description: 'Learn how to install Data Lake Tools for Visual Studio, how to develop and test U-SQL scripts. '
 services: data-lake-analytics
@@ -334,7 +334,7 @@ Similar to relational database table, U-SQL allows you to create a table with a 
 The following script create a database and two tables:
 
     DROP DATABASE IF EXISTS SearchLogDb;
-    CREATE DATABASE SeachLogDb
+    CREATE DATABASE SearchLogDb;
     USE DATABASE SearchLogDb;
 
     DROP TABLE IF EXISTS SearchLog1;
