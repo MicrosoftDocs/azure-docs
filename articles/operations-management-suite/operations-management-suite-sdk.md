@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/26/2016
+ms.date: 12/08/2016
 ms.author: bwren
 
 ---
@@ -39,6 +39,9 @@ ms.author: bwren
 * [Alert API](../log-analytics/log-analytics-api-alerts.md)
 * [Log Analytics PowerShell Cmdlets](https://msdn.microsoft.com/library/mt188224.aspx)
 * [Log Analytics .NET Library](https://www.nuget.org/packages/Microsoft.Azure.Management.OperationalInsights/0.16.0-preview)
+
+## Service Map
+* [Service Map documentation](operations-management-suite-service-map.md)
 
 ## Site Recovery
 * [Site Recovery PowerShell cmdlets](https://msdn.microsoft.com/library/mt637930.aspx)
