@@ -26,7 +26,7 @@ This article explores and illustrates the different approaches available to depl
 
 We will outline a shared-nothing two-node single-master MySQL high availability solution based on DRBD, Corosync, and Pacemaker. Only one node runs MySQL at a time. Reading and writing from the DRBD resource is also limited to only one node at a time.
 
-There is no need for a VIP solution like LVS, because you will be using Microsoft Azure's Load-Balanced Sets to provide round-robin functionality and endpoint detection, removal, and graceful recovery of the VIP. The VIP is a globally routable IPv4 address assigned by Microsoft Azure when you first create the cloud service.
+There is no need for a VIP solution like LVS, because you will be using Microsoft Azure's load-balanced sets to provide round-robin functionality and endpoint detection, removal, and graceful recovery of the VIP. The VIP is a globally routable IPv4 address assigned by Microsoft Azure when you first create the cloud service.
 
 There are other possible architectures for MySQL, including NBD Cluster, Percona, and Galera, as well as several middleware solutions, including at least one available as a VM on [VM Depot](http://vmdepot.msopentech.com). As long as these solutions can replicate on unicast vs. multicast or broadcast and don't rely on shared storage or multiple network interfaces, the scenarios should be easy to deploy on Microsoft Azure.
 
@@ -35,7 +35,7 @@ These clustering architectures can be extended to other products like PostgreSQL
 ## Get ready
 You need the following resources and abilities:
 
-  - A Microsoft Azure account with a valid subscription, able to create at least two (2) VMs (XS was used in this example)
+  - A Microsoft Azure account with a valid subscription, able to create at least two VMs (XS was used in this example)
   - A network and a subnet
   - An affinity group
   - An availability set
@@ -75,31 +75,33 @@ Do not install MySQL at this time. Debian and Ubuntu installation scripts will i
 Verify (by using `/sbin/ifconfig`) that both VMs are using addresses in the 10.10.10.0/24 subnet and that they can ping each other by name. You can also use `ssh-keygen` and `ssh-copy-id` to make sure both VMs can communicate via SSH without requiring a password.
 
 ### Set up DRBD
-Create a DRBD resource that uses the underlying `/dev/sdc1` partition to produce a `/dev/drbd1` resource that can be formatted by using ext3 and used in both primary and secondary nodes. To do this, open `/etc/drbd.d/r0.res` and copy the following resource definition on both VMs:
+Create a DRBD resource that uses the underlying `/dev/sdc1` partition to produce a `/dev/drbd1` resource that can be formatted by using ext3 and used in both primary and secondary nodes.
 
-    resource r0 {
-      on `hadb01` {
-        device  /dev/drbd1;
-        disk   /dev/sdc1;
-        address  10.10.10.4:7789;
-        meta-disk internal;
-      }
-      on `hadb02` {
-        device  /dev/drbd1;
-        disk   /dev/sdc1;
-        address  10.10.10.5:7789;
-        meta-disk internal;
-      }
-    }
+1. Open `/etc/drbd.d/r0.res` and copy the following resource definition on both VMs:
 
-After doing this, initialize the resource by using `drbdadm` on both VMs:
+        resource r0 {
+          on `hadb01` {
+            device  /dev/drbd1;
+            disk   /dev/sdc1;
+            address  10.10.10.4:7789;
+            meta-disk internal;
+          }
+          on `hadb02` {
+            device  /dev/drbd1;
+            disk   /dev/sdc1;
+            address  10.10.10.5:7789;
+            meta-disk internal;
+          }
+        }
 
-    sudo drbdadm -c /etc/drbd.conf role r0
-    sudo drbdadm up r0
+2. Initialize the resource by using `drbdadm` on both VMs:
 
-On the primary VM (`hadb01`), force ownership (primary) of the DRBD resource:
+        sudo drbdadm -c /etc/drbd.conf role r0
+        sudo drbdadm up r0
 
-    sudo drbdadm primary --force r0
+3. On the primary VM (`hadb01`), force ownership (primary) of the DRBD resource:
+
+        sudo drbdadm primary --force r0
 
 If you examine the contents of /proc/drbd (`sudo cat /proc/drbd`) on both VMs, you should see `Primary/Secondary` on `hadb01` and `Secondary/Primary` on `hadb02`, consistent with the solution at this point. The 5-GB disk will be synchronized over the 10.10.10.0/24 network at no charge to customers.
 
@@ -148,7 +150,7 @@ If you don't plan to failover DRBD now, the first option is easier although argu
 
 You also need to enable networking for MySQL if you want to make queries from outside the VMs, which is the purpose of this guide. On both VMs, open `/etc/mysql/my.cnf` and go to `bind-address`. Change the address from 127.0.0.1 to 0.0.0.0. After saving the file, issue a `sudo service mysql restart` on your current primary.
 
-### Create the MySQL Load Balanced Set
+### Create the MySQL load-balanced set
 Go back to the portal, go to `hadb01`, and choose **Endpoints**. To create an  Endpoint, choose MySQL (TCP 3306) from the drop-down list and select **Create new load balanced set**. Name the load-balanced endpoint `lb-mysql`. Set **Time** to 5 seconds, minimum.
 
 After you create the endpoint, go to `hadb02`, choose **Endpoints**, and create an endpoint. Choose `lb-mysql`, then select MySQL from the drop-down list. You can also use the Azure CLI for this step.
@@ -171,19 +173,19 @@ Then, on hadb02:
 
     drbdadm primary r0 ; mount /dev/drbd1 /var/lib/mysql && service mysql start
 
-Once you failover manually, you can repeat your remote query and it should work perfectly.
+After you failover manually, you can repeat your remote query and it should work perfectly.
 
 ## Set up Corosync
 Corosync is the underlying cluster infrastructure required for Pacemaker to work. For Heartbeat (and other methodologies like Ultramonkey), Corosync is a split of the CRM functionalities, while Pacemaker remains more similar to Heartbeat in functionality.
 
 The main constraint for Corosync on Azure is that Corosync prefers multicast over broadcast over unicast communications, but Microsoft Azure networking only supports unicast.
 
-Fortunately, Corosync has a working unicast mode, and the only real constraint is that since all nodes are not communicating among themselves *automagically*, you need to define the nodes in your configuration files, including their IP addresses. We can use the Corosync example files for Unicast and change bind address, node lists, and logging directories (Ubuntu uses `/var/log/corosync` while the example files use `/var/log/cluster`), and enable quorum tools.
+Fortunately, Corosync has a working unicast mode, and the only real constraint is that since all nodes are not communicating among themselves, you need to define the nodes in your configuration files, including their IP addresses. We can use the Corosync example files for Unicast and change bind address, node lists, and logging directories (Ubuntu uses `/var/log/corosync` while the example files use `/var/log/cluster`), and enable quorum tools.
 
 > [!NOTE]
 > The following `transport: udpu` directive and the manually defined IP addresses for the nodes**.
 
-On `/etc/corosync/corosync.conf` for both nodes:
+Run the following code on `/etc/corosync/corosync.conf` for both nodes:
 
     totem {
       version: 2
@@ -251,48 +253,49 @@ When you first install Pacemaker, your configuration should be simple enough, so
     node $id="2" hadb02
       attributes standby="off"
 
-Check the configuration by running `sudo crm configure show`. Then create a file (like `/tmp/cluster.conf`) with the following resources:
+1. Check the configuration by running `sudo crm configure show`.
+2. Then create a file (like `/tmp/cluster.conf`) with the following resources:
 
-    primitive drbd_mysql ocf:linbit:drbd \
-          params drbd_resource="r0" \
-          op monitor interval="29s" role="Master" \
-          op monitor interval="31s" role="Slave"
+        primitive drbd_mysql ocf:linbit:drbd \
+              params drbd_resource="r0" \
+              op monitor interval="29s" role="Master" \
+              op monitor interval="31s" role="Slave"
 
-    ms ms_drbd_mysql drbd_mysql \
-          meta master-max="1" master-node-max="1" \
-            clone-max="2" clone-node-max="1" \
-            notify="true"
+        ms ms_drbd_mysql drbd_mysql \
+              meta master-max="1" master-node-max="1" \
+                clone-max="2" clone-node-max="1" \
+                notify="true"
 
-    primitive fs_mysql ocf:heartbeat:Filesystem \
-          params device="/dev/drbd/by-res/r0" \
-          directory="/var/lib/mysql" fstype="ext3"
+        primitive fs_mysql ocf:heartbeat:Filesystem \
+              params device="/dev/drbd/by-res/r0" \
+              directory="/var/lib/mysql" fstype="ext3"
 
-    primitive mysqld lsb:mysql
+        primitive mysqld lsb:mysql
 
-    group mysql fs_mysql mysqld
+        group mysql fs_mysql mysqld
 
-    colocation mysql_on_drbd \
-           inf: mysql ms_drbd_mysql:Master
+        colocation mysql_on_drbd \
+               inf: mysql ms_drbd_mysql:Master
 
-    order mysql_after_drbd \
-           inf: ms_drbd_mysql:promote mysql:start
+        order mysql_after_drbd \
+               inf: ms_drbd_mysql:promote mysql:start
 
-    property stonith-enabled=false
+        property stonith-enabled=false
 
-    property no-quorum-policy=ignore
+        property no-quorum-policy=ignore
 
-Load the file into the configuration (you only need to do this in one node):
+3. Load the file into the configuration (you only need to do this in one node):
 
-    sudo crm configure
-      load update /tmp/cluster.conf
-      commit
-      exit
+        sudo crm configure
+          load update /tmp/cluster.conf
+          commit
+          exit
 
-Also, make sure that Pacemaker starts at boot in both nodes:
+4. Make sure that Pacemaker starts at boot in both nodes:
 
-    sudo update-rc.d pacemaker defaults
+        sudo update-rc.d pacemaker defaults
 
-After a few seconds, and by using `sudo crm_mon –L`, verify that one of your nodes has become the master for the cluster and is running all the resources. You can use mount and ps to check that the resources are running.
+5. By using `sudo crm_mon –L`, verify that one of your nodes has become the master for the cluster and is running all the resources. You can use mount and ps to check that the resources are running.
 
 The following screenshot shows `crm_mon` with one node stopped (exit by selecting Ctrl+C):
 
