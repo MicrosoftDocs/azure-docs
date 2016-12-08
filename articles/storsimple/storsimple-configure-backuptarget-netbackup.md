@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2016
+ms.date: 12/05/2016
 ms.author: hkanna
 ---
 
@@ -72,7 +72,7 @@ StorSimple offers these benefits:
 
 -   Unique deduplication and compression algorithms that use the cloud to achieve unprecedented deduplication levels
 -   High availability
--   Geo-replication by leveraging Azure geo-replication
+-   Geo-replication by using Azure geo-replication
 -   Azure integration
 -   Data encryption in the cloud
 -   Improved disaster recovery and compliance
@@ -101,9 +101,10 @@ The following tables show the appliance model-to-architecture initial guidance.
 **StorSimple capacities for primary and secondary backups**
 
 
-| Backup scenario  | Local storage capacity                                         | Cloud storage capacity                      |
-|------------------|----------------------------------------------------------------|---------------------------------------------|
-| Primary backup   | Recent backups stored on local storage for fast recovery (RPO) | Backup history (RPO) fits in cloud capacity |
+| Backup scenario  | Local storage capacity  | Cloud storage capacity  |
+|---|---|---|
+
+| Primary backup  | Recent backups stored on local storage for fast recovery (RPO) | Backup history (RPO) fits in cloud capacity |
 | Secondary backup | Secondary copy of backup data can be stored in cloud capacity  | N/A  |
 
 ## StorSimple as a primary backup target
@@ -207,10 +208,9 @@ Set up the host backup server storage by using these guidelines:
 
 - Don't use spanned volumes (created by Windows Disk manager); they are not supported.
 - Format your volumes using NTFS with 64 KB allocation size.
-- Map the StorSimple volumes directly to the “Veeam” server.
+- Map the StorSimple volumes directly to the NetBackup server.
     - Use iSCSI for physical servers.
     - Use pass-through disks for virtual servers.
-
 
 
 ## Best practices for StorSimple and NetBackup
@@ -284,7 +284,7 @@ In the following example, we use a GFS rotation. The example assumes the followi
 
 Based on the preceding assumptions, create a 26 TiB StorSimple tiered volume for the monthly and yearly full backups. Create a 5 TiB StorSimple tiered volume for each of the incremental daily backups.
 
-| Backup type retention | Size in TiB | GFS multiplier\*                                       | Total capacity in TiB          |
+| Backup type retention | Size (TiB) | GFS multiplier\* | Total capacity (TiB)  |
 |---|---|---|---|
 | Weekly full | 1 | 4  | 4 |
 | Daily incremental | 0.5 | 20 (cycles equal number of weeks per month) | 12 (2 for additional quota) |
@@ -339,7 +339,6 @@ The following figure shows the mapping of a typical volume to a backup job. In t
 | Weekly (week 1 - 4) | Saturday | Monday - Friday |
 | Monthly  | Saturday  |   |
 | Yearly | Saturday  |   |   |
-
 
 ### Assigning StorSimple volumes to a NetBackup backup job
 
@@ -560,37 +559,36 @@ The following section describes how to create a short script to trigger and dele
 5.  In Notepad, create a new Windows PowerShell script by using the following code.
 
     Copy and paste this code snippet:
-      ```
-      Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-      Disable-AzureDataCollection
-      $ApplianceName = <myStorSimpleApplianceName>
-      $RetentionInDays = 20
-      $RetentionInDays = -$RetentionInDays
-      $Today = Get-Date
-      $ExpirationDate = $Today.AddDays($RetentionInDays)
-      Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-      Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-      $CompletedSnapshots =@()
-      $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-      Write-Host "The Expiration date is " $ExpirationDate
-      Write-Host
+    ```powershell
+    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
+    Disable-AzureDataCollection
+    $ApplianceName = <myStorSimpleApplianceName>
+    $RetentionInDays = 20
+    $RetentionInDays = -$RetentionInDays
+    $Today = Get-Date
+    $ExpirationDate = $Today.AddDays($RetentionInDays)
+    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
+    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
+    $CompletedSnapshots =@()
+    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
+    Write-Host "The Expiration date is " $ExpirationDate
+    Write-Host
 
-      ForEach ($SnapShot in $CompletedSnapshots)
-      {
-          $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-          if ($SnapshotStartTimeStamp -lt $ExpirationDate)
+    ForEach ($SnapShot in $CompletedSnapshots)
+    {
+        $SnapshotStartTimeStamp = $Snapshot.CreatedOn
+        if ($SnapshotStartTimeStamp -lt $ExpirationDate)
 
-          {
-              $SnapShotInstanceID = $SnapShot.InstanceId
-              Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-              Write-Host "Instance ID " $SnapShotInstanceID
-              Write-Host "This snpashotdate is older and needs to be deleted"
-              Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-              Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-          }
-      }
-
-      ```
+        {
+            $SnapShotInstanceID = $SnapShot.InstanceId
+            Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
+            Write-Host "Instance ID " $SnapShotInstanceID
+            Write-Host "This snpashotdate is older and needs to be deleted"
+            Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
+            Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
+        }
+    }
+    ```
       Save the PowerShell script in the same location where you saved your Azure publish settings. For example, save as  C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1.
 6.  Add the script to your backup job in NetBackup. To do this, edit your NetBackup job options pre-post commands.
 
@@ -625,3 +623,8 @@ The following documents have been referenced in this article:
 - [Using GPT drives](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 
 - [Enable and configure shadow copies for shared folders](http://technet.microsoft.com/library/cc771893.aspx)
+
+## Next steps
+
+- Learn more about how to [Restore from a backupset](storsimple-restore-from-backup-set-u2.md).
+- Learn more about how to perform [Device failover and disaster recovery](storsimple-device-failover-disaster-recovery.md).

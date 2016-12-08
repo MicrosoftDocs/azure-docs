@@ -30,8 +30,6 @@ This topic shows how to create indexing jobs with **Azure Media Indexer 2 Previe
 > 
 > Indexer 2 is not supported in Azure China and Azure Government.
 > 
-> The preview is limited to ~10 minutes of processing, but is free to all customers.
-> 
 > When indexing content, make sure to use media files that have very clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
 > 
 > 
