@@ -45,8 +45,7 @@ This article describes:
 >
 >
 
-**Points to note:
-**
+**Points to note:**
 * Throughput is calculated by using the following formula: [size of data read from source]/[Copy Activity run duration].
 * The performance reference numbers in the table were measured using [TPC-H](http://www.tpc.org/tpch/) data set in a single copy activity run.
 * To copy between cloud data stores, set **cloudDataMovementUnits** to 1 and 4 (or 8) for comparison. **parallelCopies** is not specified. See the [Parallel copy](#parallel-copy) section for details about these features.
