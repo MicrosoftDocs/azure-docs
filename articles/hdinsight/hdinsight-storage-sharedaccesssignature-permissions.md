@@ -246,4 +246,4 @@ Now that you have learned how to add limited-access storage to your HDInsight cl
 * [Use Pig with HDInsight](hdinsight-use-pig.md)
 * [Use MapReduce with HDInsight](hdinsight-use-mapreduce.md)
 
-[powershell]: ../powershell-install-configure.md
+[powershell]: /powershell/azureps-cmdlets-docs
