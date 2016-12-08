@@ -44,10 +44,10 @@ To change your subscription to a different offer, see [Switch your Azure subscri
 4. Follow the prompts to specify the recipient.
 
    ![Transfer Subscription dialog box](./media/billing-subscription-transfer/image2.PNG)
-5. The recipient automatically gets an email with a acceptance link.
+5. The recipient automatically gets an email with an acceptance link.
 
    ![Subscription transfer email to recipient](./media/billing-subscription-transfer/image3.png)
-6. The recipient clicks on the link and follows the instructions,
+6. The recipient clicks the link and follows the instructions,
    including entering their payment information.
 
    ![First subscription transfer web page](./media/billing-subscription-transfer/image4.png)
@@ -68,17 +68,14 @@ To change your subscription to a different offer, see [Switch your Azure subscri
   4. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.  
 * **Does a subscription transfer result in any service downtime?**
 
-  There is no impact to the service. Transfering the subscription cancels the
-  subscription under the current Account Administrator and creates a
-  new one under the recipient’s account, but associates the underlying
-  Azure services with the new subscription. The subscription ID
-  remains the same.
+  There is no impact to the service. Transferring the subscription cancels the
+  subscription under the current Account Administrator and creates a subscription under the recipient’s account. The new subscription is associated to the underlying Azure services. The subscription ID remains the same.
 * **How do I use this process to change the directory for subscription?**   
-  An Azure subscription is created in the directory that the Account Admin belongs to. So, in order to change the directory, just transfer the subscription to a user account in the target directory. When that user completes the steps to accept transfer, the subscription is automatically moved to the target directory.
+  An Azure subscription is created in the directory that the Account Administrator belongs to. To change the directory, transfer the subscription to a user account in the target directory. When that user completes the steps to accept transfer, the subscription is automatically moved to the target directory.
 * **If I take over billing ownership of a subscription from another
   organization, do they continue to have access to my resources?**
 
-  If the subscription is transferred to another tenant, the users associated with the previous tenant loses access to the subscription. Even if a user is not a Service Admin or Co-admin anymore, they might still have access to the subscription through other security mechanisms. These include:
+  If the subscription is transferred to another tenant, the users associated with the previous tenant lose access to the subscription. Even if a user is not a Service Admin or Co-admin anymore, they might still have access to the subscription through other security mechanisms. These include:
 
   * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and Upload a Management Certificate for Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
   * Access keys for services like Storage. For more information, see [About Azure storage accounts](storage/storage-create-storage-account.md)
@@ -104,14 +101,14 @@ To change your subscription to a different offer, see [Switch your Azure subscri
 * **Can I transfer a subscription to a user account in another
   country?**
 
-  No, transfering a subscription to a user account in another country is not supported. The recipient’s user account must be in the same country.
+  No, transferring a subscription to a user account in another country is not supported. The recipient’s user account must be in the same country.
 * **Can the recipient use a different payment method?**
 
   Yes. But the subscription billing history is split across two accounts.  
 
 * **Is the payment method impacted after I transferred an Azure subscription?**
 
-  In order to accept a subscription transfer, a credit card or similar payment method must be provided to pay for the subscription. For example, if Bob transfers a subscription to Jane and Jane accepts the transfer, Jane must also provide a payment method that she used to pay for the subscription. After the transfer is complete, Bob is no longer charged for the subscription he transferred to Jane.
+To accept a subscription transfer, a credit card, or similar payment method must be provided to pay for the subscription. For example, if Bob transfers a subscription to Jane and Jane accepts the transfer, Jane must also provide a payment method that she used to pay for the subscription. After the transfer is complete, Bob is no longer charged for the subscription he transferred to Jane.
 
 * **How do I migrate data and services for my Azure subscription to new subscription?**
 
@@ -124,7 +121,7 @@ To change your subscription to a different offer, see [Switch your Azure subscri
    * Management certificates that grant the user admin rights to subscription resources. For more information, see [Create and upload a management certificate for Azure](https://msdn.microsoft.com/library/azure/gg551722.aspx)
    * Access keys for services like Storage. For more information, see [About Azure storage accounts](storage/storage-create-storage-account.md)
    * Remote Access credentials for services like Azure Virtual Machines
-4. Update billing alerts for this subscription, at the [Azure Account Center](https://account.windowsazure.com/Subscriptions)  [Learn more](http://go.microsoft.com/fwlink/?LinkID=533292)
+4. Update billing alerts for this subscription, at the [Azure Account Center](https://account.windowsazure.com/Subscriptions). [Learn more](http://go.microsoft.com/fwlink/?LinkID=533292)
 5. If you’re working with a partner, consider updating the partner ID on this subscription. You can update the partner ID in the [Azure Account Center](https://account.windowsazure.com/Subscriptions).
 
 
