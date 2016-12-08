@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/07/2016
 ms.author: jingwang
 
 ---
@@ -47,7 +47,7 @@ The sample has the following data factory entities:
 The sample copies data from querying against an OData source to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **OData linked service**
-This example uses the Basic authentication. See [OData linked service](#odata-linked-service-properties) section for different types of authentication you can use.
+This example uses the Anonymous authentication. See [OData linked service](#odata-linked-service-properties) section for different types of authentication you can use.
 
     {
         "name": "ODataLinkedService",
