@@ -570,7 +570,7 @@ The following section illustrates how to create a short script to trigger and de
 
 It is recommended that you run your StorSimple cloud snapshot backup policy at the end of your daily backup’s job as a post-processing script. For more information on how to back up and restore your backup application environment to meet your RPO/RTO, consult with your backup architect.
 
-StorSimple as a restore source
+## StorSimple as a restore source
 ==============================
 
 Restores from a StorSimple device work as restore from any block storage device. When restoring data that is tiered to the cloud, restores occur at cloud speeds. For local data, restores occur at local disk speed of the device.
