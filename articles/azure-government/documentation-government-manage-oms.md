@@ -1,6 +1,6 @@
 ---
-title: Azure Government OMS | Microsoft Docs
-description: This article describes the Scenario of OMS applicable to US Government agencies and solution providers
+title: Azure Government Operations Management Suite | Microsoft Docs
+description: This article describes how Operations Management Suite is applicable to US Government agencies and solution providers
 services: Azure-Government
 cloud: gov
 documentationcenter: ''
@@ -9,96 +9,98 @@ manager: jobruno
 editor: ''
 ---
 
-# Azure Government Cybersecurity: Monitoring and securing your assets with Operations Management Suite (OMS)
+# Azure government cybersecurity: Monitoring and securing your assets with Operations Management Suite
 
 ## Cybersecurity in the cloud
-A crucial concern for our customers who are moving to the cloud is retaining asset management and security of the Azure Government services that they've deployed to the Cloud. Virtual machine firewalls need to be configured correctly. Virtual networks need to have the right Network Security Groups applied to them. Access to your assets needs to be locked down at the right time. All of these  necessary work streams need to be planned, designed, and provisioned to enable a secure infrastructure for your agency to use.
+A crucial concern for our customers who are moving to the cloud is retaining asset management and security of the Azure Government services that they've deployed to the cloud. Virtual machine firewalls need to be configured correctly. Virtual networks need to have the right network security groups applied to them. Access to your assets needs to be locked down at the right time. All of these necessary work streams need to be planned, designed, and provisioned to enable a secure infrastructure for your agency to use.
 
-Setting up this kind of environment can be challenging. Onboarding your fleet of servers to any monitoring service is hard to scale, and in can also be challenging to update the monitoring service. Monitoring infrastructure on different cloud providers as well as across the cloud and on-premises is difficult. Finally, keeping your monitoring up-to-date and enabling insights to monitor, detect, alert, and action against cybersecurity threats requires time, resources, and compute power.
+Setting up this kind of environment can be challenging. Onboarding your fleet of servers to any monitoring service is hard operation to scale, and it can also be challenging to update the monitoring service. Monitoring infrastructure on different cloud providers as well as across the cloud and on-premises is difficult. Finally, keeping your monitoring up-to-date and enabling insights to monitor, detect, alert, and take action against cybersecurity threats requires time, resources, and computing power.
 
-## Microsoft Operations Management Suite (OMS)
+## Microsoft Operations Management Suite
 Microsoft Operations Management Suite, now available in Azure Government, is a service that enables you to do all of these things by leveraging the power of map reduce and machine learning as a service.
 
-OMS can:
+Operations Management Suite can:
 
 * Deploy agents to individual VMs (Linux and Windows) on Azure, other cloud providers, and/or on-premises.
-* Connect your existing logs via an Azure Government Storage Account or SCOM endpoint with existing logging data.
-* Run evergreen machine learning and map reduce services that are powered by hyper-scale log search to expose threats in your environment out-of-the-box.
+* Connect your existing logs via an Azure Government Storage Account or System Center Operations Manager (SCOM) endpoint with existing logging data.
+* Run evergreen machine learning and map reduce services that are powered by hyper-scale log search to expose threats in your environment out of the box.
 
-Let's explore how we can get OMS integrated into your fleet and look at some of the out-of-box solutions that can address the previous concerns.
+Let's explore how we can get Operations Management Suite integrated into your fleet and look at some of the out-of-box solutions that can address the concerns we've described here.
 
-## Onboard servers to OMS
-The first step in integrating your cloud assets with Operations Management Suite is installing the OMS agent across log sources. For virtual machines, this is very simple because you can manually download the agent from your OMS workspace.
+## Onboard servers to Operations Management Suite
+The first step in integrating your cloud assets with Operations Management Suite is installing the Operations Management Suite agent across log sources. For virtual machines, this is very simple because you can manually download the agent from your Operations Management Suite workspace.
 
-![Figure 1: Windows Servers connected to OMS](./media/documentation-government-oms-figure1.png)
-<p align="center">Figure 1: Windows Servers connected to OMS</p>
+![Figure 1: Windows Servers connected to Operations Management Suite](./media/documentation-government-oms-figure1.png)
+<p align="center">Figure 1: Windows Servers connected to Operations Management Suite</p>
 
-You can connect Azure VMs to OMS directly through the Azure portal. For instructions, see [New ways to enable Log Analytics (OMS) on your Azure VMs](https://blogs.technet.microsoft.com/momteam/2016/02/10/new-ways-to-enable-log-analytics-oms-on-your-azure-vms/).
+You can connect Azure VMs to Operations Management Suite directly through the Azure portal. For instructions, see [New ways to enable Log Analytics on your Azure VMs](https://blogs.technet.microsoft.com/momteam/2016/02/10/new-ways-to-enable-log-analytics-oms-on-your-azure-vms/).
 
-You can also connect them programmatically or configure the OMS extension right into your Azure Resource Manager templates. See the instructions for Windows-based machines at [Connect Windows computers to Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents) and for Linux-based machines at [Connect Linux computers to Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents).
+You can also connect them programmatically or configure the Operations Management Suite extension right into your Azure Resource Manager templates. See the instructions for Windows-based machines at [Connect Windows computers to Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents) and for Linux-based machines at [Connect Linux computers to Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents).
 
-## Onboarding Storage Accounts and SCOM to OMS
-OMS can also connect to your Storage Account and/or existing System Center Operations Manager deployments to offer you operations management in hybrid scenarios (across cloud providers or in cloud/on-prem infrastructures).
+## Onboard Storage Accounts and SCOM to Operations Management Suite
+Operations Management Suite can also connect to your Storage Account and/or existing System Center Operations Manager (SCOM) deployments to offer you operations management in hybrid scenarios (across cloud providers or in cloud/on-premises infrastructures).
 
-![Figure 2: Connecting Azure Storage and SCOM to OMS](./media/documentation-government-oms-figure2.png)
-<p align="center">Figure 2: Connecting Azure Storage and SCOM to OMS</p>
+![Figure 2: Connecting Azure Storage and SCOM to Operations Management Suite](./media/documentation-government-oms-figure2.png)
+<p align="center">Figure 2: Connecting Azure Storage and SCOM to Operations Management Suite</p>
 
-OMS also supports logging information from other monitoring services like Chef or Puppet. Furthermore, for Azure deployments, we also have VMs with OMS-enabled Azure Resource Manager templates so you can deploy Compute and onboard to your OMS workspace at the same time.
+Operations Management Suite also supports logging information from other monitoring services like Chef or Puppet. Furthermore, for Azure deployments, we also have VMs with Operations Management Suite-enabled Azure Resource Manager templates so you can deploy Compute and onboard to your Operations Management Suite workspace at the same time.
 
-![Figure 3: Azure Resource Manager templates for Azure VMs with OMS extension](./media/documentation-government-oms-figure3a.png)
-![Figure 3: Azure Resource Manager templates for Azure VMs with OMS extension](./media/documentation-government-oms-figure3b.png)
-<p align="center">Figure 3: Azure Resource Manager templates for Azure VMs with OMS extension</p>
+![Figure 3: Azure Resource Manager templates for Azure VMs with Operations Management Suite extension](./media/documentation-government-oms-figure3a.png)
+![Figure 3: Azure Resource Manager templates for Azure VMs with Operations Management Suite extension](./media/documentation-government-oms-figure3b.png)
+<p align="center">Figure 3: Azure Resource Manager templates for Azure VMs with Operations Management Suite extension</p>
 
-Information on setting up OMS with your existing SCOM implementation on premises can be found [here](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-om-agents).
+Information about setting up Operations Management Suite with your existing SCOM implementation on-premises can be found in [Connect Operations Manager to Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-om-agents).
 
-## Leverage intelligence through OMS Solution Packs
-Now that you have various sources of logging data there arises a separate problem – making sense of all this data.
-OMS, at its’ core, is a log search service that lets you write powerful queries to very quickly search across thousands or even millions of logs. However, discovering the issues that you need to write queries for is very difficult.
+## Leverage intelligence through Operations Management Suite solution packs
+Now that you have various sources for logging data, you have to make sense of all this data.
 
-Enter OMS solutions – packs of queries integrated natively with OMS map reduce and machine learning tech to proactively give you insights into your OMS managed fleet.
+Operations Management Suite, at its core, is a log search service that lets you write powerful queries to very quickly search across thousands or even millions of logs. However, discovering the issues that you need to write queries for is very difficult.
 
-Along the theme of cyber security – I’ll briefly discuss three cybersecurity scenarios that OMS can solve out-of-the-box for you.
+Enter Operations Management Suite solutions. These are packs of queries that are integrated natively with Operations Management Suite map reduce and machine learning technology to proactively give you insights into your Operations Management Suite-managed fleet.
 
-###Antimalware assessment
-Antimalware Assessments gives you a pre-canned set of queries, notifications, and monitoring dashboards to give you, at glance, how well your fleet is protected against malware.
+On the theme of cyber security, I’ll briefly discuss three cybersecurity scenarios that Operations Management Suite can solve out of the box for you.
 
-This dashboard gives you 4 things:
+### Antimalware assessment
+Antimalware assessments gives you a pre-canned set of queries, notifications, and monitoring dashboards to tell you at a glance how well your fleet is protected against malware.
+
+This dashboard gives you a list of four things:
 * Any servers that have active and/or remediated threats.
-* Currently detected threats
-* Computers that aren’t being sufficiently protected. OMS does this by crawling the logs of your computers and look for any site of FWs being opened and/or improperly configured rules in common web browsers.
-* Analysis on how your protected servers are being protected. For example – by native Windows OS virus protection and/or something like
+* Currently detected threats.
+* Computers that aren’t being sufficiently protected. Operations Management Suite finds this information by crawling the logs of your computers to look for any site of FWs that are being opened, or for improperly configured rules in common web browsers.
+* Analysis of how your protected servers are being protected, for example by native Windows OS virus protection or something like
 System Center Endpoint Protection.
 
-For example, below – you can see a threat was caught and automatically triaged by Systems Center:
+For example, you can see that the following threat was caught and automatically triaged by System Center:
 
-![Figure 4: OMS Antimalware Assessment solution](./media/documentation-government-oms-figure4.png)
-<p align="center">Figure 4: OMS Antimalware Assessment solution</p>
+![Figure 4: Operations Management Suite antimalware assessment solution](./media/documentation-government-oms-figure4.png)
+<p align="center">Figure 4: Operations Management Suite Antimalware Assessment solution</p>
 
-More information on Antimalware Assessment can be found here: [https://azure.microsoft.com/en-us/documentation/articles/log-analytics-malware/](https://azure.microsoft.com/en-us/documentation/articles/log-analytics-malware/)
+More information about antimalware assessment can be found in the article [Malware assessment solution in Log Analytics](https://azure.microsoft.com/en-us/documentation/articles/log-analytics-malware/)
 
 ### Identity and access
-Another common cybersecurity scenario in the Cloud is in credential compromise. Not only does your cloud subscription have credentials – but each individual VM has a user and/or secret (usually a certificate and/or password) associated with it.
+Another common cybersecurity scenario in the cloud is in credential compromise. Not only does your cloud subscription have credentials, but each individual VM has a user and/or secret (usually a certificate or password) that's associated with it.
 
-OMS will sum and organize all login attempts in your fleet and bucket them depending on type (remote, local, username used etc.)
-For example – in the below – I can see a mass amount of unsuccessful login attempts from largely random strings as usernames. This most likely points to my computers being exposed and not properly protected by firewalls and access control lists.
+Operations Management Suite organizes all sign-in attempts in your fleet and buckets them depending on type (remote, local, username, and so on). For example, in the following example, I can see a large amount of unsuccessful sign-in attempts from largely random strings as usernames. This indicates that it's highly likely that my computers have been exposed and not properly protected by firewalls and access control lists.
 
-![Figure 5: 97.3% Logon Failed in the last 24 hours](./media/documentation-government-oms-figure5.png)
+![Figure 5: 97.3% sign-ins failed in the last 24 hours](./media/documentation-government-oms-figure5.png)
 <p align="center">Figure 5: 97.3% Logon Failed in the last 24 hours</p>
 
 ### Threat intelligence
-OMS also provides protection against malicious insider scenarios – where there’s a security compromise inside your organization and a malicious user is trying to ex-filtrate data.
+Operations Management Suite also provides protection against malicious insider scenarios, when there’s a security compromise inside your organization and a malicious user is trying to exfiltrate data.
 
-OMS Threat Intelligence looks at all your Network logs on your computer and automatically searches and notifies you on inbound/outbound network connections to known malicious IPs (for example – IP addresses on the unindexed dark net).
-For example, below – I can see there are both inbound and outbound network connections to the People’s Republic of China.
+Operations Management Suite threat intelligence looks at all the network logs on your computer and automatically searches for and notifies you about inbound/outbound network connections to known malicious IPs (for example, IP addresses on the unindexed dark net).
 
-Double clicking on the inbound tag – I can find out that a Linux VM that is being managed by OMS is making outbound connections to a known dark net IP in China.
+For example, in the following illustration, I can see that there are both inbound and outbound network connections to the People’s Republic of China.
 
-You can also setup Alerts to OMS Solutions like Threat Intelligence. Below I’ve setup an Alert so should OMS detect > 10 outbound connections to a known malicious IP it sends an alert out to me via email. I then configure that alert to fire an Azure Automation job which is setup to automatically shut down that VM.
+By double-clicking on the inbound tag, I can discover that a Linux VM that is being managed by Operations Management Suite is making outbound connections to a known dark net IP address in China.
 
-![Figure 6: OMS Alerts and Automation](./media/documentation-government-oms-figure6.png)
-<p align="center">Figure 6: OMS Alerts and Automation</p>
+You can also set up alerts to Operations Management Suite Solutions like Threat Intelligence. In the following screenshot, I've set up an alert so that if Operations Management Suite detect more than ten outbound connections to a known malicious IP address, it sends an alert out to me via email. I then configure that alert to fire an Azure Automation job, which is set up to automatically shut down that VM.
 
-This is just one example of an out-of-box OMS solution that can be applied to your fleet, whether it’s running on Azure, another cloud service provider, or on your premises.
-OMS will continue to update its machine learning to the latest threats automatically for you and we continue to roll out new Solutions to the OMS Solution Gallery as well.
+![Figure 6: Operations Management Suite alerts and automation](./media/documentation-government-oms-figure6.png)
+<p align="center">Figure 6: Operations Management Suite alerts and automation</p>
 
-For more information on OMS – please consult our documentation page here: [https://azure.microsoft.com/en-us/documentation/articles/documentation-government-overview/](https://azure.microsoft.com/en-us/documentation/articles/documentation-government-overview/)
+This is just one example of an out-of-box Operations Management Suite solution that can be applied to your fleet, whether it’s running on Azure, another cloud service provider, or on-premises.
+
+Operations Management Suite continues to update its machine learning to fight the latest threats automatically for you, and we continue to roll out new solutions to the Operations Management Suite Solution Gallery as well.
+
+For more information about Operations Management Suite, see  [our documentation page].(https://azure.microsoft.com/en-us/documentation/articles/documentation-government-overview/)
