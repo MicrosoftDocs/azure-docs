@@ -7,13 +7,13 @@ author: hkanna
 manager: matd
 editor: ''
 
-ms.assetid: 
+ms.assetid:
 ms.service: storsimple
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2016
+ms.date: 12/05/2016
 ms.author: hkanna
 ---
 
@@ -39,13 +39,13 @@ StorSimple is a great backup target for the following reasons:
 -   It automatically provides offsite storage for disaster recovery.
 
 
-## Target audience 
+## Target audience
 
 The audience for this paper includes backup administrators, storage administrators, and storage architects with knowledge of storage, Windows Server 2012 R2, Ethernet, cloud services, and NetBackup.
 
 ## Supported versions
 
--   NetBackup 7.7.x and above
+-   NetBackup 7.7.x and above.
 
 -   [StorSimple Update 3 and above](storsimple-overview.md#storsimple-workload-summary).
 
@@ -77,7 +77,7 @@ StorSimple offers the following benefits:
 
 -   High availability
 
--   Geo-replication by leveraging Azure geo-replication
+-   Geo-replication by using Azure geo-replication
 
 -   Azure integration
 
@@ -89,8 +89,10 @@ Although StorSimple presents two main deployment scenarios (primary and secondar
 
 For more information about StorSimple, see [StorSimple 8000 series: hybrid cloud storage solution](storsimple-overview.md) and review the [technical StorSimple 8000 series specifications](storsimple-technical-specifications-and-compliance.md).
 
+
 > [!IMPORTANT] 
-> StorSimple device as backup target is only supported with StorSimple 8000 Update 3 or later.
+> StorSimple device as a backup target is only supported with StorSimple 8000 Update 3 or later.
+
 
 ## Architecture overview
 
@@ -111,8 +113,8 @@ The following tables contain the appliance model-to-architecture initial guidanc
 
 | Backup scenario  | Local storage capacity                                         | Cloud storage capacity                      |
 |------------------|----------------------------------------------------------------|---------------------------------------------|
-| Primary backup   | Recent backups stored on local storage for fast recovery (RPO) | Backup history (RPO) fits in cloud capacity |
-| Secondary backup | Secondary copy of backup data can be stored in cloud capacity  |
+| Primary backup   | Recent backups stored on local storage for fast recovery (RPO). | Backup history (RPO) fits in cloud capacity. |
+| Secondary backup | Secondary copy of backup data can be stored in cloud capacity.  |
 
 ## StorSimple as a primary backup target
 
@@ -166,7 +168,7 @@ It is important to size your high-performance volume with ample space and perfor
 
 ### Secondary target restore logical steps
 
-1.  Backup server starts restoring the appropriate data from the storage repository.
+1.  Backup server starts to restores the appropriate data from the storage repository.
 
 2.  Backup agent receives the data from backup server.
 
@@ -176,7 +178,7 @@ It is important to size your high-performance volume with ample space and perfor
 
 The deployment of this solution consists of three steps: preparing the network infrastructure, deploying your StorSimple device as a backup target, and finally deploying the Veritas NetBackup. Each of these steps is discussed in detail in the following sections.
 
-### Configure the network 
+### Configure the network
 
 StorSimple as an integrated solution with the Azure cloud requires an active and working connection to the Azure cloud. This connection is used for operations such as cloud snapshots, management, metadata transfer, and to tier older, less accessed data to the Azure cloud storage.
 
@@ -217,16 +219,15 @@ In this section, we demonstrate some configuration examples. The following examp
 Ensure that the host backup server storage is configured as per the following guidelines.  
 
 - Spanned volumes (created by Windows Disk manager) are not supported.
-- Format your volumes using NTFS with 64 KB allocation size.
-- Map the StorSimple volumes directly to the “Veeam” server. 
-    - Use iSCSI in case of physical servers.
+- Format your volumes using NTFS with 64 KB allocation unit size.
+- Map the StorSimple volumes directly to the NetBackup server. 
+    - Use iSCSI for physical servers.
     - Use pass-through disks for virtual servers.
-
 
 
 ## Best practices for StorSimple and NetBackup
 
-Configure your solution as per the following guidelines. 
+Configure your solution as per the following guidelines.
 
 ### Operating system
 
@@ -247,7 +248,7 @@ Configure your solution as per the following guidelines.
     - Download: [PSEXEC – Microsoft Sysinternals](https://technet.microsoft.com/sysinternals/bb897553.aspx)
 
       - After downloading PSEXEC, run Windows PowerShell as an administrator, and type:
-            
+
             `psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable`
 
 ### StorSimple
@@ -256,7 +257,7 @@ Configure your solution as per the following guidelines.
 
 -   Isolate iSCSI and cloud traffic. Use dedicated iSCSI connections for traffic between StorSimple and backup server.
 
--   Ensure StorSimple device is a dedicated backup target. Mixed workloads are not supported as these impact your RTO/RPO.
+-   Ensure StorSimple device is a dedicated backup target. Mixed workloads are not supported as these workloads impact your RTO/RPO.
 
 ### NetBackup
 
@@ -268,7 +269,7 @@ Configure your solution as per the following guidelines.
 
 -   Backup data files should only contain data for a specific job. For example, no media appends across different jobs are allowed.
 
-Refer to NetBackup’s documentation for the latest NetBackup settings and best practices on how to implement these requirements by visiting [www.veritas.com](https://www.veritas.com).
+For more informataion, see [NetBackup’s documentation](https://www.veritas.com) for the latest NetBackup settings and best practices on how to implement these requirements.
 
 
 ## Retention policies
@@ -313,7 +314,7 @@ Based on the preceeding assumptions, create a 26 TiB StorSimple tiered volume fo
 
     ![NetBackup management console Disk pool configuration](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
-1.  Then Select your Server
+1.  Select your Server.
 
     ![NetBackup management console, select server](./media/storsimple-configure-backup-target-using-netbackup/nbimage2.png)
 
@@ -336,7 +337,7 @@ Based on the preceeding assumptions, create a 26 TiB StorSimple tiered volume fo
 
 ## StorSimple as a primary backup target
 
-> [!NOTE] 
+> [!NOTE]
 > Be aware that if you need to restore data from a backup that has been tiered to the cloud, the restore occurs at cloud speeds.
 
 In the following figure, we illustrate mapping of a typical volume to a backup job. In this case, all the weekly backups map to Saturday Full disk, and the incremental backups map to Monday-Friday Incremental disks. All the backups and restores happen from a StorSimple tiered volume.
@@ -348,7 +349,7 @@ In the following figure, we illustrate mapping of a typical volume to a backup j
 | GFS Rotation Schedule for 4 weeks, Monthly and Yearly |               |             |
 |--------------------------------------------------------------------------|---------------|-------------|
 | Frequency/Backup Type   | Full          | Incremental (Day 1 - 5)  |
-| Weekly (week 1 - 4)    | Saturday | Monday - Friday | 
+| Weekly (week 1 - 4)    | Saturday | Monday - Friday |
 | Monthly     | Saturday  |             |
 | Yearly      | Saturday  |             |
 
@@ -541,14 +542,14 @@ Given the broad range option for storage and media management that NetBackup off
 
 StorSimple cloud snapshots protect the data that resides in StorSimple device. This is equivalent to shipping tapes to an offsite facility and if using Azure geo-redundant storage (GRS), as shipping tapes to multiple sites. If a device restore was needed in a disaster, you could bring another StorSimple device online and do a failover. Following the failover, you would be able to access the data (at cloud speeds) from the most recent cloud snapshot.
 
-The following section illustrates how to create a short script to trigger and delete StorSimple cloud snapshots during backup post-processing. 
+The following section illustrates how to create a short script to trigger and delete StorSimple cloud snapshots during backup post-processing.
 
-> [!NOTE] 
+> [!NOTE]
 > Snapshots that are manually or programmatically created do not follow the StorSimple snapshot expiration policy. These must be manually or programmatically deleted.
 
 ### Start-Delete cloud snapshots with a script
 
-> [!NOTE] 
+> [!NOTE]
 > Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information on how to run a post-backup script, refer to [NetBackup documentation](https://www.veritas.com/support/article.000094423).
 
 #### Backup lifecycle
@@ -583,37 +584,37 @@ The following section illustrates how to create a short script to trigger and de
 
     Copy and paste the following code snippet:
 
-        ```
-        Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-        Disable-AzureDataCollection
-        $ApplianceName = <myStorSimpleApplianceName>
-        $RetentionInDays = 20
-        $RetentionInDays = -$RetentionInDays
-        $Today = Get-Date
-        $ExpirationDate = $Today.AddDays($RetentionInDays)
-        Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-        Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-        $CompletedSnapshots =@()
-        $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-        Write-Host "The Expiration date is " $ExpirationDate
-        Write-Host
+    ```powershell
+    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
+    Disable-AzureDataCollection
+    $ApplianceName = <myStorSimpleApplianceName>
+    $RetentionInDays = 20
+    $RetentionInDays = -$RetentionInDays
+    $Today = Get-Date
+    $ExpirationDate = $Today.AddDays($RetentionInDays)
+    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
+    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
+    $CompletedSnapshots =@()
+    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
+    Write-Host "The Expiration date is " $ExpirationDate
+    Write-Host
 
-        ForEach ($SnapShot in $CompletedSnapshots)
+    ForEach ($SnapShot in $CompletedSnapshots)
+    {
+        $SnapshotStartTimeStamp = $Snapshot.CreatedOn
+        if ($SnapshotStartTimeStamp -lt $ExpirationDate)
+
         {
-            $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-            if ($SnapshotStartTimeStamp -lt $ExpirationDate)
-
-            {
-                $SnapShotInstanceID = $SnapShot.InstanceId
-                Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-                Write-Host "Instance ID " $SnapShotInstanceID
-                Write-Host "This snpashotdate is older and needs to be deleted"
-                Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-                Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-            }
+            $SnapShotInstanceID = $SnapShot.InstanceId
+            Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
+            Write-Host "Instance ID " $SnapShotInstanceID
+            Write-Host "This snpashotdate is older and needs to be deleted"
+            Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
+            Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
         }
+    }
+    ```
 
-        ```
 6.  Add the script to your backup job in NetBackup, by editing your NetBackup job options pre-post commands
 
 > [!NOTE]
@@ -648,3 +649,10 @@ The following documents have been referenced in this article:
 - [Using GPT drives](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 
 - [Enable and configure shadow copies for shared folders](http://technet.microsoft.com/library/cc771893.aspx)
+
+## Next steps
+
+Learn more:
+
+- About how to [Restore from a backupset](storsimple-restore-from-backup-set-u2.md).
+- About how to perform [Device failover and disaster recovery](storsimple-device-failover-disaster-recovery.md).

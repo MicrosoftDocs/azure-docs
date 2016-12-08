@@ -152,7 +152,7 @@ Azure Load Balancer delivers high availability and network performance to your a
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Load Balancer REST API Reference</p>
+                        <p>Load Balancer REST API</p>
                     </div>
                 </div>
             </div>

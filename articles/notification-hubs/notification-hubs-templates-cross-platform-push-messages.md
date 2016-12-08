@@ -1,4 +1,4 @@
-﻿---
+---
 title: Templates
 description: This topic explains Templates for Azure notification hubs.
 services: notification-hubs
