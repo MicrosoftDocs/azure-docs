@@ -1,4 +1,3 @@
-
 ---
 title: Next steps for access management using groups | Microsoft Docs
 description: Advanced How-to's for managing security groups and how to use these groups to manage access to a resource.
