@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/23/2016
+ms.date: 12/07/2016
 ms.author: rclaus
 
 ---
@@ -325,9 +325,54 @@ Title: Quickstart guide for manual installation of SAP HANA on Azure VMs
 
 Summary: This quickstart guide will help to set up a single-instance SAP HANA prototype/demo system on Azure VMs by a manual installation of SAP NetWeaver 7.5 and SAP HANA SP12. The guide presumes that the reader is familiar with Azure IaaS basics like how to deploy virtual machines or virtual networks either via the Azure portal or Powershell/CLI including the option to use json templates. Furthermore it's expected that the reader is familiar with SAP HANA, SAP NetWeaver and how to install it on-premises.
 
-Updated: September 2016
+Updated: December 2016
 
 [This guide can be found here](virtual-machines-linux-sap-hana-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+## Overview and Architecture of SAP HANA on Azure (Large Instances)
+Title: Overview and Architecture of SAP HANA on Azure (Large Instances)
+
+Summary: This Architecture and Technical Deployment Guide provides information to help you deploy SAP on the new SAP HANA on Azure (Large Instances) in Azure. It is not intended to be a comprehensive guide covering specific setup of SAP solutions, but rather useful information in your initial deployment and ongoing operations. It should not replace SAP documentation related to the installation of SAP HANA (or the many SAP Support Notes that cover the topic). It gives you an overview and provides the additional detail of installing SAP HANA on Azure (Large Instances).
+
+Updated: December 2016
+
+[This guide can be found here](./linux/sap-hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+## Infrastructure and Connectivity to SAP HANA on Azure (Large Instances)
+Title: Infrastructure and Connectivity to SAP HANA on Azure (Large Instances)
+
+Summary: After the purchase of SAP HANA on Azure (Large Instances) is finalized between you and the Microsoft enterprise account team, various network configurations are required in order to ensure proper connectivity.  This document outlines the information that has to be shared with the following information is required. This document outlines what information has to be collected and what configuration scripts have to be run. 
+
+Updated: December 2016
+
+[This guide can be found here](./linux/sap-hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+## Install SAP HANA on SAP HANA on Azure (Large Instances)
+Title: Install SAP HANA on SAP HANA on Azure (Large Instances)
+
+Summary: This document outlines the setup procedures for installing SAP HANA on your Azure Large Instance.
+
+Updated: December 2016
+
+[This guide can be found here](./linux/sap-hana-overview-sap-hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+## High Availability and Disaster Recovery of SAP HANA on Azure (Large Instances)
+Title: High Availability and Disaster Recovery of SAP HANA on Azure (Large Instances)
+
+Summary: High Availability (HA) and Disaster Recovery (DR) are very important aspects of running your mission-critical SAP HANA on Azure (Large Instances) server(s). It's import to work with SAP, your system integrator, and/or Microsoft to properly architect and implement the right HA/DR strategy for you. Important considerations like Recovery Point Objective (RPO) and Recovery Time Objective (RTO), specific to your environment, must be considered.  This document explains your options for enabling your preferred level of HA and DR.
+
+Updated: December 2016
+
+[High Availability and Disaster Recovery](./linux/sap-hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+
+## Troubleshooting and Monitoring of SAP HANA on Azure (Large Instances)
+Title: Troubleshooting and Monitoring of SAP HANA on Azure (Large Instances)
+
+Summary: This guide covers information that is useful in establishing monitoring of your SAP HANA on Azure environment as well as additional troubleshooting information. 
+
+Updated: December 2016
+
+[This document can be found here](./linux/sap-hana-overview-troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Quickstart Guide for NetWeaver on SUSE Linux on Azure
 Title: Testing SAP NetWeaver on Microsoft Azure SUSE Linux VMs 
