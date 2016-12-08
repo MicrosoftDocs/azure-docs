@@ -43,36 +43,36 @@ If you need to quickly accomplish the task, the following section details the ba
 
 In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
 
-To create this custom environment, you need the latest [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using `az login`.
+To create this custom environment, you need the latest [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/en-us/cli/azure/#login).
 
-First, create the resource group. The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
+First, create the resource group with [az resource group create](https://docs.microsoft.com/en-us/cli/azure/resource/group#create). The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
 
 ```azurecli
 az resource group create -n myResourceGroup -l westeurope
 ```
 
-Create the storage account. The following example creates a storage account named `mystorageaccount`. (The storage account name must be unique, so provide your own unique name.)
+Create the storage account with [az storage account create](https://docs.microsoft.com/en-us/cli/azure/storage/account#create). The following example creates a storage account named `mystorageaccount`. (The storage account name must be unique, so provide your own unique name.)
 
 ```azurecli
 az storage account create -g myResourceGroup -l westeurope -n mystorageaccount \
   --kind Storage --sku Standard_LRS
 ```
 
-Create the virtual network. The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
+Create the virtual network with [az network vnet create](https://docs.microsoft.com/en-us/cli/azure/network/vnet#create). The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
 
 ```azurecli
 az network vnet create -g myResourceGroup -l westeurope -n myVnet \
   --address-prefix 192.168.0.0/16 --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
 ```
 
-Create a public IP. The following example creates a public IP named `myPublicIP` with the DNS name of `mypublicdns`. (The DNS name must be unique, so provide your own unique name.)
+Create a public IP with [az network public-ip create](https://docs.microsoft.com/en-us/cli/azure/network/public-ip#create). The following example creates a public IP named `myPublicIP` with the DNS name of `mypublicdns`. (The DNS name must be unique, so provide your own unique name.)
 
 ```azurecli
 az network public-ip create -g myResourceGroup -l westeurope -n myPublicIP \
   --dns-name mypublicdns --allocation-method static --idle-timeout 4
 ```
 
-Create the load balancer. The following example creates:
+Create the load balancer with [az network lb create](https://docs.microsoft.com/en-us/cli/azure/network/lb#create). The following example creates:
 
 - a load balancer named `myLoadBalancer`
 - associates the public IP
@@ -85,7 +85,7 @@ az network lb create -g myResourceGroup -l westeurope -n myLoadBalancer \
   --backend-pool-name myBackEndPool
 ```
 
-Create SSH inbound network address translation (NAT) rules for the load balancer. The following example creates two load balancer rules, `myLoadBalancerRuleSSH1` and `myLoadBalancerRuleSSH2`:
+Create SSH inbound network address translation (NAT) rules for the load balancer with [az network lb inbound-nat-rule create](https://docs.microsoft.com/en-us/cli/azure/network/lb/inbound-nat-rule#create). The following example creates two load balancer rules, `myLoadBalancerRuleSSH1` and `myLoadBalancerRuleSSH2`:
 
 ```azurecli
 az network lb inbound-nat-rule create -g myResourceGroup --lb-name myLoadBalancer \
@@ -96,14 +96,14 @@ az network lb inbound-nat-rule create -g myResourceGroup --lb-name myLoadBalance
   --frontend-ip-name myFrontEndPool
 ```
 
-Create the load balancer health probe. The following example creates a TCP probe named `myHealthProbe`:
+Create the load balancer health probe with [az network lb probe create](https://docs.microsoft.com/en-us/cli/azure/network/lb/probe#create). The following example creates a TCP probe named `myHealthProbe`:
 
 ```azurecli
 az network lb probe create -g myResourceGroup --lb-name myLoadBalancer -n myHealthProbe \
   --protocol tcp --port 80 --interval 15 --threshold 4
 ```
 
-Create the web inbound NAT rules for the load balancer. The following example creates a load balancer rule named `myLoadBalancerRuleWeb` and associates it with the `myHealthProbe` probe:
+Create the web inbound NAT rules for the load balancer with [az network lb rule create](https://docs.microsoft.com/en-us/cli/azure/network/lb/rule#create). The following example creates a load balancer rule named `myLoadBalancerRuleWeb` and associates it with the `myHealthProbe` probe:
 
 ```azurecli
 az network lb rule create -g myResourceGroup --lb-name myLoadBalancer \
@@ -112,19 +112,19 @@ az network lb rule create -g myResourceGroup --lb-name myLoadBalancer \
   --probe-name myHealthProbe
 ```
 
-Verify the load balancer, IP pools, and NAT rules:
+Verify the load balancer, IP pools, and NAT rules with [az network lb show](https://docs.microsoft.com/en-us/cli/azure/network/lb#show):
 
 ```azurecli
 az network lb show -g myResourceGroup -n myLoadBalancer
 ```
 
-Create the network security group. The following example creates a network security group named `myNetworkSecurityGroup`:
+Create the network security group with [az network nsg create(https://docs.microsoft.com/en-us/cli/azure/network/nsg#create). The following example creates a network security group named `myNetworkSecurityGroup`:
 
 ```azurecli
 az network nsg create -g myResourceGroup -l westeurope -n myNetworkSecurityGroup
 ```
 
-Add two inbound rules for the network security group. The following example creates two rules, `myNetworkSecurityGroupRuleSSH` and `myNetworkSecurityGroupRuleHTTP`:
+Add two inbound rules for the network security group with [az network nsg rule create](https://docs.microsoft.com/en-us/cli/azure/network/nsg/rule#create). The following example creates two rules, `myNetworkSecurityGroupRuleSSH` and `myNetworkSecurityGroupRuleHTTP`:
 
 ```azurecli
 az network nsg rule create -g myResourceGroup --nsg-name myNetworkSecurityGroup \
@@ -137,7 +137,7 @@ az network nsg rule create -g myResourceGroup --nsg-name myNetworkSecurityGroup 
   --destination-address-prefix '*' --destination-port-range 80 --access allow
 ```
 
-Create the first network interface card (NIC). The following example creates a NIC named `myNic1` and attaches it to the load balancer `myLoadBalancer` and appropriate pools, and also attaches it to the `myNetworkSecurityGroup`:
+Create the first network interface card (NIC) with [az network nic create](https://docs.microsoft.com/en-us/cli/azure/network/nic#create). The following example creates a NIC named `myNic1` and attaches it to the load balancer `myLoadBalancer` and appropriate pools, and also attaches it to the `myNetworkSecurityGroup`:
 
 ```azurecli
 az network nic create -g myResourceGroup -l westeurope -n myNic1 \
@@ -146,7 +146,7 @@ az network nic create -g myResourceGroup -l westeurope -n myNic1 \
   --lb-inbound-nat-rules myLoadBalancerRuleSSH1
 ```
 
-Create the second NIC. The following example creates a NIC named `myNic2`:
+Create the second NIC, again with **az network nic create**. The following example creates a NIC named `myNic2`:
 
 ```azurecli
 az network nic create -g myResourceGroup -l westeurope --name myNic2 \
@@ -155,13 +155,13 @@ az network nic create -g myResourceGroup -l westeurope --name myNic2 \
   --lb-inbound-nat-rules myLoadBalancerRuleSSH2
 ```
 
-Create the availability set. The following example creates an availability set named `myAvailabilitySet`:
+Create the availability set with [az vm availability-set create](https://docs.microsoft.com/en-us/cli/azure/vm/availability-set#create). The following example creates an availability set named `myAvailabilitySet`:
 
 ```azurecli
 az vm availability-set create -g myResourceGroup -l westeurope -n myAvailabilitySet
 ```
 
-Create the first Linux VM. The following example creates a VM named `myVM1`:
+Create the first Linux VM with [az vm create](https://docs.microsoft.com/en-us/cli/azure/vm#create). The following example creates a VM named `myVM1`:
 
 ```azurecli
 az vm create \
@@ -179,7 +179,7 @@ az vm create \
     --admin-username ops
 ```
 
-Create the second Linux VM. The following example creates a VM named `myVM2`:
+Create the second Linux VM, again with **az vm create**. The following example creates a VM named `myVM2`:
 
 ```azurecli
 az vm create \
@@ -197,14 +197,14 @@ az vm create \
     --admin-username ops
 ```
 
-Verify that everything that was built:
+Verify that everything that was built with [az vm show](https://docs.microsoft.com/en-us/cli/azure/vm#show):
 
 ```azurecli
 az vm show -g myResourceGroup -n myVM1
 az vm show -g myResourceGroup -n myVM2
 ```
 
-Export your new environment to a template to quickly re-create new instances:
+Export your new environment to a template with [az resource group export](https://docs.microsoft.com/en-us/cli/azure/resource/group#export) to quickly re-create new instances:
 
 ```azurecli
 az resource group export -n myResourceGroup > myResourceGroup.json
