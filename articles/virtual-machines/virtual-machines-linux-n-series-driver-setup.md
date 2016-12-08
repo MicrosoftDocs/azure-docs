@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 11/30/2016
+ms.date: 12/07/2016
 ms.author: danlep
 
 ---
@@ -76,6 +76,28 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 To query the GPU device state, run the [nvidia-smi](https://developer.nvidia.com/nvidia-system-management-interface) command-line utility installed with the driver. 
 
 ![NVIDIA device status](./media/virtual-machines-linux-n-series-driver-setup/smi.png)
+
+## Optional installation of NVIDIA CUDA Toolkit on Ubuntu 16.04 LTS
+
+You can optionally install NVIDIA CUDA Toolkit 8.0 on NC VMs running Ubuntu 16.04 LTS. In addition to GPU drivers, the Toolkit provides a comprehensive development environment for C and C++ developers building GPU-accelerated applications.
+
+To install the CUDA Toolkit, run commands similar to the following:
+
+```bash
+CUDA_REPO_PKG=cuda-repo-ubuntu1604_8.0.44-1_amd64.deb
+
+wget -O /tmp/${CUDA_REPO_PKG} http://developer.download.nvidia.com/compute/cuda/repos/ubuntu1604/x86_64/${CUDA_REPO_PKG} 
+
+sudo dpkg -i /tmp/${CUDA_REPO_PKG}
+
+rm -f /tmp/${CUDA_REPO_PKG}
+
+sudo apt-get update
+
+sudo apt-get install cuda-drivers
+```
+
+The installation can take several minutes.
 
 ## Next steps
 
