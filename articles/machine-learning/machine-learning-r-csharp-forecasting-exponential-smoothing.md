@@ -1,9 +1,9 @@
-﻿---
+---
 title: Forecasting-Exponential Smoothing | Microsoft Docs
 description: 'Web service: Forecasting-Exponential Smoothing'
 services: machine-learning
 documentationcenter: ''
-author: xueshanz
+author: yijichen
 manager: jhubbard
 editor: cgronlun
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2016
-ms.author: xueshzha
+ms.author: yijichen
 
 ---
 # Forecasting - Exponential Smoothing

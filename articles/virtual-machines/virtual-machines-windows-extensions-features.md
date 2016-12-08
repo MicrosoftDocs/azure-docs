@@ -156,9 +156,10 @@ For more information, see [Authoring Azure Resource Manager templates with Windo
 
 ## Securing VM extension data
 
-When running VM extension, it may be necessary to include sensitive information such as execution commands, which include credentials, storage account names, and storage account access keys. Many VM extensions include a protected configuration that encrypts this data and only decrypt the data inside the target virtual machine. When a protected setting configuration is available, it can be used with any extension deployment method. Each individual extension has a specific protected configuration schema, whichis detailed in extension-specific documentation.
+When running a VM extension, it may be necessary to include sensitive information such as credentials, storage account names, and storage account access keys. Many VM extensions include a protected configuration that encrypts data and only decrypts this data inside the target virtual machine. Each individual extension has a specific protected configuration schema, each will be detailed in extension-specific documentation.
 
-The following example depicts an instance of the Custom Script extension for Windows. In this example encryption is not used.
+The following example depicts an instance of the Custom Script extension for Windows. Notice that the command to execute includes a set of credentials. In this example, the command to execute will not be encrypted.
+
 
 ```json
 {
@@ -188,7 +189,7 @@ The following example depicts an instance of the Custom Script extension for Win
 }
 ```
 
-Moving the command to `commandToExecute` property to the protected setting secures the execution string. 
+Moving the command to execute property to the protected configuration secures the execution string.
 
 ```json
 {
@@ -273,4 +274,4 @@ An extension can also be removed using the Azure portal. To do so, select a virt
 | Custom Script Extension for Windows |Run scripts against an Azure Virtual Machine |[Custom Script Extension for Windows](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension. |[DSC Extension for Windows](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
 | Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM Access Extension |Manage users and credentials |[VM Access Extension for Windows](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Azure VM Access Extension |Manage users and credentials |[VM Access Extension for Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |

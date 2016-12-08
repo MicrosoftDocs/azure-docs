@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to sign up for, purchase, upgrade or activate an Azure subscription | Microsoft Docs
 description: Describes How to buy or sign up for an Azure subscription
 services: ''
@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/23/2016
+ms.date: 11/29/2016
 ms.author: genli
 
 ---

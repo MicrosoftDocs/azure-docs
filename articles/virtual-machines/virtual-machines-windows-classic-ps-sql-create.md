@@ -22,13 +22,14 @@ ms.author: jroth
 ## Overview
 This article provides steps for how to create a SQL Server virtual machine in Azure by using the PowerShell cmdlets.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 For the Resource Manager version of this topic, see [Provision a SQL Server virtual machine using Azure PowerShell Resource Manager](virtual-machines-windows-ps-sql-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Install and configure PowerShell:
 1. If you do not have an Azure account, visit [Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
-2. [Download and install the latest Azure PowerShell commands](../powershell-install-configure.md).
+2. [Download and install the latest Azure PowerShell commands](/powershell/azureps-cmdlets-docs).
 3. Start Windows PowerShell, and connect it to your Azure subscription with the **Add-AzureAccount** command.
    
         Add-AzureAccount

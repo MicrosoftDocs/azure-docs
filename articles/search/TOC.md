@@ -25,6 +25,8 @@
 ### [Service limits](search-limits-quotas-capacity.md)
 ### [Service scalability](search-capacity-planning.md)
 ### [Design patterns for multitenancy](search-modeling-multitenant-saas-applications.md)
+
+
 ## Develop
 ### [Upgrade the SDK](search-dotnet-sdk-migration.md)
 ### [Upgrade the REST API](search-api-migration.md)
@@ -58,17 +60,17 @@
 ### [Multi-lingual search](search-language-support.md)
 
 # Reference
-## [API versions](search-api-versions.md)
-## [Service .NET](/dotnet/api/microsoft.azure.search)
-## [Management .NET](/dotnet/api/microsoft.azure.management.search)
-## [Service REST](/rest/api/searchservice/)
-## [Service REST (Preview)](search-api-2015-02-28-preview.md)
-## [Management REST](/rest/api/searchmanagement/)
-## [Lucene query syntax](https://msdn.microsoft.com/library/azure/mt589323)
-## [Simple query syntax](https://msdn.microsoft.com/library/azure/dn798920)
+## [.NET](/dotnet/api/microsoft.azure.search)
+## [.NET Management](/dotnet/api/microsoft.azure.management.search)
+## [Java](/java/api/com.microsoft.azure.management.search)
+## [REST](/rest/api/searchservice)
+## [REST (Management)](/rest/api/searchmanagement)
 
 # Resources
 ## [Service updates](https://azure.microsoft.com/updates/?product=search)
+## Using Search APIs
+##X [API versions](search-api-versions.md)
+## [Service REST (Preview)](search-api-2015-02-28-preview.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/search/)
 ## Demo sites
 ### [Job listings app](http://aka.ms/azjobsdemo)

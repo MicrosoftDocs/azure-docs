@@ -13,13 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 12/06/2016
 ms.author: adsolank;juliako;
 
 ---
 # Indexing Media Files with Azure Media Indexer 2 Preview
 ## Overview
-The **Azure Media Indexer 2 Preview** media processor (MP) enables you to make media files and content searchable, as well as generate closed captioning tracks. Compared to the previous version of [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** performs faster indexing and offers broader language support. Supported languages include English, Spanish, French, German, Italian, Chinese, Portuguese and Arabic.
+The **Azure Media Indexer 2 Preview** media processor (MP) enables you to make media files and content searchable, as well as generate closed captioning tracks. Compared to the previous version of [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** performs faster indexing and offers broader language support. Supported languages include English, Spanish, French, German, Italian, Chinese (Mandarin, Simplified), Portuguese and Arabic.
 
 The **Azure Media Indexer 2 Preview** MP is currently in Preview.
 
@@ -29,8 +29,6 @@ This topic shows how to create indexing jobs with **Azure Media Indexer 2 Previe
 > The following considerations apply:
 > 
 > Indexer 2 is not supported in Azure China and Azure Government.
-> 
-> The preview is limited to ~10 minutes of processing, but is free to all customers.
 > 
 > When indexing content, make sure to use media files that have very clear speech (without background music, noise, effects, or microphone hiss). Some examples of appropriate content are: recorded meetings, lectures or presentations. The following content might not be suitable for indexing: movies, TV shows, anything with mixed audio and sound effects, poorly recorded content with background noise (hiss).
 > 
@@ -75,7 +73,7 @@ Azure Media Indexer 2 Preview supports speech-to-text for the following language
 
 * English [EnUs]
 * Spanish [EsEs]
-* Chinese [ZhCn]
+* Chinese (Mandarin, Simplified) [ZhCn]
 * French [FrFr]
 * German [DeDe]
 * Italian [ItIt]

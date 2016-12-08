@@ -1,10 +1,9 @@
-
 ---
 title: Validate the Azure VNET to use with Azure RemoteApp | Microsoft Docs
 description: Learn how to make sure your Azure VNET is ready to use with Azure RemoteApp
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 
 ms.assetid: b573ba02-4587-4be5-9821-27bd891a73b2
@@ -13,8 +12,8 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # Validate the Azure VNET to use with Azure RemoteApp

@@ -184,7 +184,7 @@ Azure VPN Gateway is a virtual private network (VPN) gateway used to send networ
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>VPN Gateway REST API Reference</p>
+                        <p>VPN Gateway REST API</p>
                     </div>
                 </div>
             </div>

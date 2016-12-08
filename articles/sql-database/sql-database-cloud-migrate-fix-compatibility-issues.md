@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: bba0893a-3247-406c-b155-acb4b3ef479c
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

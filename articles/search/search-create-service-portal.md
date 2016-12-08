@@ -12,7 +12,7 @@ ms.devlang: NA
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 08/29/2016
+ms.date: 11/29/2016
 ms.author: ashmaka
 
 ---
@@ -24,7 +24,7 @@ This guide assumes that you already have an Azure Subscription and can log into 
 ## Find Azure Search in the Azure Portal
 1. Go to the [Azure Portal](https://portal.azure.com/) and log in.
 2. Click on the plus sign ("+") in the top left corner.
-3. Select **Data + Storage**.
+3. Select **Web + Mobile**.
 4. Select **Azure Search**.
 
 ![](./media/search-create-service-portal/find-search.png)
@@ -64,8 +64,7 @@ After your service is provisioned, you can scale it to meet your needs. If you h
 1. Go to your Azure Search service's management blade in the Azure Portal.
 2. In the **Settings** blade, select **Scale**.
 3. You can scale your service by adding Replicas or Partitions.
-   * You cannot scale your service past 36 search units. Your total number of search units is the product of your replicas and partitions (Replicas * Partitions = Total Search Units).
-   * If you have chosen the Basic tier, you can only scale to 3 replicas. Basic services are bound to a single partition.
+   * Each tier of service has different [limits](search-limits-quotas-capacity.md) on the total number of Search Units allowed in a single service (Replicas * Partitions = Total Search Units).
 
 ![](./media/search-create-service-portal/scale-service.png)
 

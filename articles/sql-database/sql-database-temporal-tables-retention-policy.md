@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage historical data in Temporal Tables with retention policy | Microsoft Docs
 description: Learn how to use temporal retention policy to keep historical data under your control.
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 76cfa06a-e758-453e-942c-9f1ed6a38c2a
 ms.service: sql-database
+ms.custom: db development
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

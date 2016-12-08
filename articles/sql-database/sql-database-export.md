@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.date: 08/15/2016
 ms.author: sstein

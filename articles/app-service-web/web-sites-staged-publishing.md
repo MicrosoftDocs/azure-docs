@@ -1,4 +1,4 @@
-﻿---
+---
 title: Set up staging environments for web apps in Azure App Service
 description: Learn how to use staged publishing for web apps in Azure App Service.
 services: app-service
@@ -27,7 +27,7 @@ When you deploy your web app to [App Service](http://go.microsoft.com/fwlink/?Li
 * Deploying a web app to a slot first and swapping it into production ensures that all instances of the slot are warmed up before being swapped into production. This eliminates downtime when you deploy your web app. The traffic redirection is seamless, and no requests are dropped as a result of swap operations. This entire workflow can be automated by configuring [Auto Swap](#configure-auto-swap-for-your-web-app) when pre-swap validation is not needed.
 * After a swap, the slot with previously staged web app now has the previous production web app. If the changes swapped into the production slot are not as you expected, you can perform the same swap immediately to get your "last known good site" back.
 
-Each App Service plan mode supports a different number of deployment slots. To find out the number of slots your web app's mode supports, see [App Service Pricing](/pricing/details/app-service/).
+Each App Service plan mode supports a different number of deployment slots. To find out the number of slots your web app's mode supports, see [App Service Pricing](https://azure.microsoft.com/pricing/details/app-service/).
 
 * When your web app has multiple slots, you cannot change the mode.
 * Scaling is not available for non-production slots.
@@ -163,7 +163,7 @@ In the blade for a deployment slot, click **Delete** in the command bar.
 ## Azure PowerShell cmdlets for deployment slots
 Azure PowerShell is a module that provides cmdlets to manage Azure through Windows PowerShell, including support for managing web app deployment slots in Azure App Service.
 
-* For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](../powershell-install-configure.md).  
+* For information on installing and configuring Azure PowerShell, and on authenticating Azure PowerShell with your Azure subscription, see [How to install and configure Microsoft Azure PowerShell](/powershell/azureps-cmdlets-docs).  
 
 - - -
 ### Create web app
@@ -251,7 +251,7 @@ To delete a deployment slot that is no longer needed, use the **azure site delet
 ## Next Steps
 [Azure App Service Web App – block web access to non-production deployment slots](http://ruslany.net/2014/04/azure-web-sites-block-web-access-to-non-production-deployment-slots/)
 
-[Microsoft Azure Free Trial](/pricing/free-trial/)
+[Microsoft Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/)
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

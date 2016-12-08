@@ -21,7 +21,8 @@ ms.author: danlep
 # Technical articles for Windows VMs in the classic deployment model
 Find all the documentation you need to create and manage Windows-based Azure virtual machines in the classic deployment model.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Overview
 [About virtual machines](virtual-machines-windows-about.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
@@ -35,7 +36,7 @@ Find all the documentation you need to create and manage Windows-based Azure vir
 ## Environment setup
 [Free account](https://azure.microsoft.com/free/)
 
-[Install Azure PowerShell](../powershell-install-configure.md)
+[Install Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 [Install Azure CLI](../xplat-cli-install.md)
 

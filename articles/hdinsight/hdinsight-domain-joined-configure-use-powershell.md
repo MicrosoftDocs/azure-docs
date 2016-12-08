@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Domain-joined HDInsight clusters using Azure PowerShell| Microsoft Docs
 description: Learn how to set up and configure Domain-joined HDInsight clusters using Azure PowerShell
 services: hdinsight
@@ -51,7 +51,7 @@ You must have the following items to go through this tutorial:
 * Familiarize yourself with [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) its [pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) structure.
 * Ensure that your subscription is whitelisted for this public preview. You can do so by sending an email to hdipreview@microsoft.com with your subscription ID.
 * An SSL certificate that is signed by a signing authority for your domain. The certificate is required by configuring secure LDAP. Self-signed certificates cannot be used.
-* Azure PowerShell.  See [Install and configure Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell.  See [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Create an Azure classic VNet for your Azure AD.
 For the insturctions, see [here](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
@@ -180,6 +180,7 @@ Another option for creating Domain-joined HDInsight cluster is to use Azure Reso
 After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 ## Next steps
+
 * For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
-* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#a-idconnecta-connect-to-hdinsight).
+* For using SSH to connect to Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 
