@@ -363,7 +363,7 @@ Summary: High Availability (HA) and Disaster Recovery (DR) are very important as
 
 Updated: December 2016
 
-[High Availability and Disaster Recovery](./linux/sap-hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+[This document can be found here](./linux/sap-hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
 ## Troubleshooting and Monitoring of SAP HANA on Azure (Large Instances)
 Title: Troubleshooting and Monitoring of SAP HANA on Azure (Large Instances)
