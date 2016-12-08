@@ -161,8 +161,7 @@ Five of the pipelines of this factory contain
 scripts that are used to partition and aggregate the data. When noted, the scripts will be located in the [Azure
 Storage](https://azure.microsoft.com/services/storage/) account
 created during setup. Their location will be:
-demandforecasting\\\\script\\\\hive\\\\ (or https://[Your solution
-name].blob.core.windows.net/demandforecasting).
+demandforecasting\\\\script\\\\hive\\\\ (or https://[Your solution name].blob.core.windows.net/demandforecasting).
 
 Similar to the [Azure Stream Analytics](#azure-stream-analytics-1)
 queries, the
