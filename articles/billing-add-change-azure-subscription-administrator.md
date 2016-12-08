@@ -67,16 +67,17 @@ The following email address can be added as a Co-Administrator:
 * **Microsoft Account** (formerly Windows Live ID) </br>
   You can use a Microsoft Account to sign in to all consumer-oriented Microsoft products and cloud services, such as Outlook (Hotmail), Skype (MSN), OneDrive, Windows Phone, and Xbox LIVE.
 * **Organizational account**</br>
-  An organizational account is an account that is created under Azure Active Directory. The organizational account address resembles the following:
+  An organizational account is an account that is created under Azure Active Directory. The organizational account address has this format:
+  
     user@&lt;your domain&gt;.onmicrosoft.com
 
 ## Limitations and restrictions to administrator accounts
 * Each subscription is associated with an Azure AD directory (also known as the Default Directory). To find the Default Directory the subscription is associated with, go to the [Azure classic portal](https://manage.windowsazure.com/), select **Settings** > **Subscriptions**. Check the subscription ID to find the Default Directory.
-* If you are logged in with a Microsoft Account, you can only add other Microsoft Accounts or users within the Default Directory as Co-Administrator.
-* If you are logged in with an organizational account, you can add other organizational accounts in your organization as Co-Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator or Co-Administrator, but cannot add john@notcontoso.com unless john@noncontoso.com is the user in Default Directory. Users logged in with organizational accounts can continue to add Microsoft Account users as Service Administrator or Co-Administrator.
-* Now that it is possible to log into Azure with an organizational account, here are the changes to Service Administrator and Co-administrator account requirements:
+* If you are signed in with a Microsoft Account, you can only add other Microsoft Accounts or users within the Default Directory as Co-Administrator.
+* If you are signed in with an organizational account, you can add other organizational accounts in your organization as Co-Administrator. For example, abby@contoso.com can add bob@contoso.com as Service Administrator or Co-Administrator, but cannot add john@notcontoso.com unless john@noncontoso.com is the user in Default Directory. Users signed in with organizational accounts can continue to add Microsoft Account users as Service Administrator or Co-Administrator.
+* Now that it is possible to sign in to Azure with an organizational account, here are the changes to Service Administrator and Co-administrator account requirements:
 
-  | Login Method | Add Microsoft Account or users within Default Directory as CA or SA? | Add organizational account in the same organization as CA or SA? | Add organizational account in different organization as CA or SA? |
+  | Sign in Method | Add Microsoft Account or users within Default Directory as CA or SA? | Add organizational account in the same organization as CA or SA? | Add organizational account in different organization as CA or SA? |
   | --- | --- | --- | --- |
   |  Microsoft Account |Yes |No |No |
   |  Organizational Account |Yes |Yes |No |
@@ -84,7 +85,7 @@ The following email address can be added as a Co-Administrator:
 ## How to change Service Administrator for a subscription
 Only the Account Administrator can change the Service Administrator for a subscription.
 
-1. Log on into [Azure Account Center](https://account.windowsazure.com/subscriptions) by using the Account Administrator.
+1. Sign in to [Azure Account Center](https://account.windowsazure.com/subscriptions) by using the Account Administrator.
 2. Select the subscription you want to change.
 3. On the right side, click **Edit subscription** details. </br>
 
@@ -102,7 +103,7 @@ If you're not sure who the account administrator is for your subscription, use t
   1. Sign in to the [Azure portal](https://portal.azure.com).
   2. On the Hub menu, select **Subscription**.
   3. Select the subscription you want to check, and then look under **Settings**.
-  4. Select **Properties**. The account administrator of the subscription will be displayed in the **Account Admin** box.  
+  4. Select **Properties**. The account administrator of the subscription is displayed in the **Account Admin** box.  
 
 ## Learn more about resource access control and Active Directory
 * To learn more about how resource access is controlled in Microsoft Azure, see [Understanding resource access in Azure](active-directory/active-directory-understanding-resource-access.md).
