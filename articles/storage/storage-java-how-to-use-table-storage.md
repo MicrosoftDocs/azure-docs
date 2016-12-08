@@ -3,8 +3,8 @@ title: How to use Table storage from Java | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: storage
 documentationcenter: java
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 45145189-e67f-4ca6-b15d-43af7bfd3f97
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # How to use Table storage from Java

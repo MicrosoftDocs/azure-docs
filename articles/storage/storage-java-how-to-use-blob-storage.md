@@ -3,8 +3,8 @@ title: How to use Azure Blob storage (object storage) from Java | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: java
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 2e223b38-92de-4c2f-9254-346374545d32
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # How to use Blob storage from Java
@@ -29,8 +29,8 @@ This article will show you how to perform common scenarios using the Microsoft A
 
 > [!NOTE]
 > An SDK is available for developers who are using Azure Storage on Android devices. For more information, see the [Azure Storage SDK for Android][Azure Storage SDK for Android].
-> 
-> 
+>
+>
 
 [!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
 
@@ -77,8 +77,8 @@ A **CloudBlobClient** object lets you get reference objects for containers and b
 
 > [!NOTE]
 > There are additional ways to create **CloudStorageAccount** objects; for more information, see **CloudStorageAccount** in the [Azure Storage Client SDK Reference].
-> 
-> 
+>
+>
 
 [!INCLUDE [storage-container-naming-rules-include](../../includes/storage-container-naming-rules-include.md)]
 

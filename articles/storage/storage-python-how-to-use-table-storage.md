@@ -3,8 +3,8 @@ title: How to use Table storage from Python | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: storage
 documentationcenter: python
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 7ddb9f3e-4e6d-4103-96e6-f0351d69a17b
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: article
-ms.date: 10/18/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # How to use Table storage from Python

@@ -3,8 +3,8 @@ title: Introduction to Storage | Microsoft Docs
 description: An overview of Azure Storage, Microsoft's online data storage in the cloud. Learn how to use the best available cloud storage solution in your applications.
 services: storage
 documentationcenter: ''
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: a4a1bc58-ea14-4bf5-b040-f85114edc1f1
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # Introduction to Microsoft Azure Storage
@@ -72,7 +72,7 @@ For users with large amounts of unstructured object data to store in the cloud, 
 * Configuration data for cloud applications
 * Big data, such as logs and other large datasets
 
-Every blob is organized into a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the 500 TB capacity limit of the storage account.  
+Every blob is organized into a container. Containers also provide a useful way to assign security policies to groups of objects. A storage account can contain any number of containers, and a container can contain any number of blobs, up to the 500 TB capacity limit of the storage account.
 
 Blob storage offers three types of blobs, block blobs, append blobs, and page blobs (disks).
 
@@ -125,32 +125,32 @@ See [Using Shared Access Signatures (SAS)](storage-dotnet-shared-access-signatur
 ## Replication for Durability and High Availability
 The data in your Microsoft Azure storage account is always replicated to ensure durability and high availability. Replication copies your data, either within the same data center, or to a second data center, depending on which replication option you choose. Replication protects your data and preserves your application up-time in the event of transient hardware failures. If your data is replicated to a second data center, that also protects your data against a catastrophic failure in the primary location.
 
-Replication ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability. 
+Replication ensures that your storage account meets the [Service-Level Agreement (SLA) for Storage](https://azure.microsoft.com/support/legal/sla/storage/) even in the face of failures. See the SLA for information about Azure Storage guarantees for durability and availability.
 
-When you create a storage account, you can select one of the following replication options:  
+When you create a storage account, you can select one of the following replication options:
 
-* **Locally redundant storage (LRS).** Locally redundant storage maintains three copies of your data. LRS is replicated three times within a single data center in a single region. LRS protects your data from normal hardware failures, but not from the failure of a single data center.  
-  
+* **Locally redundant storage (LRS).** Locally redundant storage maintains three copies of your data. LRS is replicated three times within a single data center in a single region. LRS protects your data from normal hardware failures, but not from the failure of a single data center.
+
     LRS is offered at a discount. For maximum durability, we recommend that you use geo-redundant storage, described below.
-* **Zone-redundant storage (ZRS).** Zone-redundant storage maintains three copies of your data. ZRS is replicated three times across two to three facilities, either within a single region or across two regions, providing higher durability than LRS. ZRS ensures that your data is durable within a single region.  
-  
-    ZRS provides a higher level of durability than LRS; however, for maximum durability, we recommend that you use geo-redundant storage, described below.  
-  
+* **Zone-redundant storage (ZRS).** Zone-redundant storage maintains three copies of your data. ZRS is replicated three times across two to three facilities, either within a single region or across two regions, providing higher durability than LRS. ZRS ensures that your data is durable within a single region.
+
+    ZRS provides a higher level of durability than LRS; however, for maximum durability, we recommend that you use geo-redundant storage, described below.
+
   > [!NOTE]
   > ZRS is currently available only for block blobs, and is only supported for versions 2014-02-14 and later.
-  > 
+  >
   > Once you have created your storage account and selected ZRS, you cannot convert it to use to any other type of replication, or vice versa.
-  > 
-  > 
+  >
+  >
 * **Geo-redundant storage (GRS)**. GRS maintains six copies of your data. With GRS, your data is replicated three times within the primary region, and is also replicated three times in a secondary region hundreds of miles away from the primary region, providing the highest level of durability. In the event of a failure at the primary region, Azure Storage will failover to the secondary region. GRS ensures that your data is durable in two separate regions.
-  
+
     For information about primary and secondary pairings by region, see [Azure Regions](https://azure.microsoft.com/regions/).
-* **Read-access geo-redundant storage (RA-GRS)**. Read-access geo-redundant storage replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant storage allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable. Read-access geo-redundant storage is the default option for your storage account by default when you create it. 
-  
+* **Read-access geo-redundant storage (RA-GRS)**. Read-access geo-redundant storage replicates your data to a secondary geographic location, and also provides read access to your data in the secondary location. Read-access geo-redundant storage allows you to access your data from either the primary or the secondary location, in the event that one location becomes unavailable. Read-access geo-redundant storage is the default option for your storage account by default when you create it.
+
   > [!IMPORTANT]
   > You can change how your data is replicated after your storage account has been created, unless you specified ZRS when you created the account. However, note that you may incur an additional one-time data transfer cost if you switch from LRS to GRS or RA-GRS.
-  > 
-  > 
+  >
+  >
 
 See [Azure Storage replication](storage-redundancy.md) for additional details about storage replication options.
 

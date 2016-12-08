@@ -3,8 +3,8 @@ title: Using Shared Access Signatures (SAS) | Microsoft Docs
 description: Learn about delegating access to Azure Storage resources, including blobs, queues, tables, and files, using shared access signatures (SAS).
 services: storage
 documentationcenter: ''
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 46fd99d7-36b3-4283-81e3-f214b29f1152
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # Using Shared Access Signatures (SAS)
@@ -65,7 +65,7 @@ Version 2015-04-05 of Azure Storage introduces a new type of shared access signa
 ## How a shared access signature works
 A shared access signature is a signed URI that points to one or more storage resources and includes a token that contains a special set of query parameters. The token indicates how the resources may be accessed by the client. One of the query parameters, the signature, is constructed from the SAS parameters and signed with the account key. This signature is used by Azure Storage to authenticate the SAS.
 
-Here's an example of a SAS URI, showing the resource URI and the SAS token: 
+Here's an example of a SAS URI, showing the resource URI and the SAS token:
 
 ![sas-storage-uri][sas-storage-uri]
 
@@ -203,7 +203,7 @@ catch (StorageException e)
 When you use shared access signatures in your applications, you need to be aware of two potential risks:
 
 * If a SAS is leaked, it can be used by anyone who obtains it, which can potentially compromise your storage account.
-* If a SAS provided to a client application expires and the application is unable to retrieve a new SAS from your service, then the application's functionality may be hindered.  
+* If a SAS provided to a client application expires and the application is unable to retrieve a new SAS from your service, then the application's functionality may be hindered.
 
 The following recommendations for using shared access signatures will help balance these risks:
 
@@ -305,7 +305,7 @@ private static async Task CreateSharedAccessPolicyAsync(CloudBlobContainer conta
     // The access policy provides create, write, read, list, and delete permissions.
     SharedAccessBlobPolicy sharedPolicy = new SharedAccessBlobPolicy()
     {
-        // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request. 
+        // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request.
         // Omitting the start time for a SAS that is effective immediately helps to avoid clock skew.
         SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
         Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.List |
@@ -332,11 +332,11 @@ private static string GetContainerSasUri(CloudBlobContainer container, string st
     // If no stored policy is specified, create a new access policy and define its constraints.
     if (storedPolicyName == null)
     {
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and 
-        // to construct a shared access policy that is saved to the container's shared access policies. 
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocPolicy = new SharedAccessBlobPolicy()
         {
-            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request. 
+            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request.
             // Omitting the start time for a SAS that is effective immediately helps to avoid clock skew.
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
             Permissions = SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.List
@@ -379,11 +379,11 @@ private static string GetBlobSasUri(CloudBlobContainer container, string blobNam
     if (policyName == null)
     {
         // Create a new access policy and define its constraints.
-        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and 
-        // to construct a shared access policy that is saved to the container's shared access policies. 
+        // Note that the SharedAccessBlobPolicy class is used both to define the parameters of an ad-hoc SAS, and
+        // to construct a shared access policy that is saved to the container's shared access policies.
         SharedAccessBlobPolicy adHocSAS = new SharedAccessBlobPolicy()
         {
-            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request. 
+            // When the start time for the SAS is omitted, the start time is assumed to be the time when the storage service receives the request.
             // Omitting the start time for a SAS that is effective immediately helps to avoid clock skew.
             SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24),
             Permissions = SharedAccessBlobPermissions.Read | SharedAccessBlobPermissions.Write | SharedAccessBlobPermissions.Create

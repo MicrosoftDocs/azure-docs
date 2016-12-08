@@ -3,7 +3,7 @@ title: Manage anonymous read access to containers and blobs | Microsoft Docs
 description: Learn how to make containers and blobs available for anonymous access, and how to access them programmatically.
 services: storage
 documentationcenter: ''
-author: tamram
+author: mmacy
 manager: carmonm
 editor: tysonn
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2016
-ms.author: tamram
+ms.author: marsma
 
 ---
 # Manage anonymous read access to containers and blobs

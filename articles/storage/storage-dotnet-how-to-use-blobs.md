@@ -3,8 +3,8 @@ title: Get started with Azure Blob storage (object storage) using .NET | Microso
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 services: storage
 documentationcenter: .net
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: d18a8fc8-97cb-4d37-a408-a6f8107ea8b3
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 11/17/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 ---
 
 # Get started with Azure Blob storage using .NET

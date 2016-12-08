@@ -3,8 +3,8 @@ title: Web app with table storage (Node.js) | Microsoft Docs
 description: A tutorial that builds on the Web App with Express tutorial by adding Azure Storage services and the Azure module.
 services: cloud-services, storage
 documentationcenter: nodejs
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: e90959a2-4cb2-4b19-9bfb-aede15b18b1c
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: article
-ms.date: 11/29/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # Node.js Web Application using Storage
@@ -55,8 +55,8 @@ are then read by the Azure SDK.
 > Storage credentials are only used when the application is
 > deployed to Azure. When running in the emulator, the application
 > will use the storage emulator.
-> 
-> 
+>
+>
 
 Perform the following steps to retrieve the storage account credentials
 and add them to the web.config settings:
@@ -64,41 +64,41 @@ and add them to the web.config settings:
 1. If it is not already open, start the Azure PowerShell from the **Start** menu by expanding **All Programs, Azure**, right-click **Azure PowerShell**, and then select **Run As Administrator**.
 2. Change directories to the folder containing your application. For example, C:\\node\\tasklist\\WebRole1.
 3. From the Azure Powershell window enter the following cmdlet to retrieve the storage account information:
-   
+
     ```powershell
     PS C:\node\tasklist\WebRole1> Get-AzureStorageAccounts
     ```
-       
+
    This retrieves the list of storage accounts and account keys associated with your hosted service.
-   
+
    > [!NOTE]
    > Since the Azure SDK creates a storage account when you deploy a service, a storage account should already exist from deploying your application in the previous guides.
-   > 
-   > 
+   >
+   >
 4. Open the **ServiceDefinition.csdef** file containing the environment settings that are used when the application is deployed to Azure:
-   
+
     ```powershell
     PS C:\node\tasklist> notepad ServiceDefinition.csdef
     ```
 
 5. Insert the following block under **Environment** element, substituting {STORAGE ACCOUNT} and {STORAGE ACCESS KEY} with the account name and the primary key for the storage account you want to use for deployment:
-   
+
   <Variable name="AZURE_STORAGE_ACCOUNT" value="{STORAGE ACCOUNT}" />
   <Variable name="AZURE_STORAGE_ACCESS_KEY" value="{STORAGE ACCESS KEY}" />
-   
+
    ![The web.cloud.config file contents](./media/storage-nodejs-use-table-storage-cloud-service-app/node37.png)
 
 6. Save the file and close notepad.
 
 ### Install additional modules
 1. Use the following command to install the [azure], [node-uuid], [nconf] and [async] modules locally as well as to save an entry for them to the **package.json** file:
-   
+
   ```powershell
   PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
   ```
 
 The output of this command should appear similar to the following:
-   
+
   node-uuid@1.4.1 node_modules\node-uuid
 
   nconf@0.6.9 node_modules\nconf
@@ -123,7 +123,7 @@ In this section you will extend the basic application created by the **express**
 1. In the **WebRole1** directory, create a new directory named **models**.
 2. In the **models** directory, create a new file named **task.js**. This file will contain the model for the tasks created by your application.
 3. At the beginning of the **task.js** file, add the following code to reference required libraries:
-   
+
     ```nodejs
     var azure = require('azure-storage');
     var uuid = require('node-uuid');
@@ -131,7 +131,7 @@ In this section you will extend the basic application created by the **express**
     ```
 
 4. Next, you will add code to define and export the Task object. This object is responsible for connecting to the table.
-   
+
     ```nodejs
     module.exports = Task;
 
@@ -148,7 +148,7 @@ In this section you will extend the basic application created by the **express**
     ```
 
 5. Next, add the following code to define additional methods on the Task object, which allow interactions with data stored in the table:
-   
+
     ```nodejs
     Task.prototype = {
       find: function(query, callback) {
@@ -176,7 +176,7 @@ In this section you will extend the basic application created by the **express**
         };
 
         self.storageClient.insertEntity(self.tableName, itemDescriptor, function entityInserted(error) {
-          if(error){  
+          if(error){
             callback(error);
           }
           callback(null);
@@ -206,7 +206,7 @@ In this section you will extend the basic application created by the **express**
 ### Create the controller
 1. In the **WebRole1/routes** directory, create a new file named **tasklist.js** and open it in a text editor.
 2. Add the following code to **tasklist.js**. This loads the azure and async modules, which are used by **tasklist.js**. This also defines the **TaskList** function, which is passed an instance of the **Task** object we defined earlier:
-   
+
     ```nodejs
     var azure = require('azure-storage');
     var async = require('async');
@@ -219,7 +219,7 @@ In this section you will extend the basic application created by the **express**
     ```
 
 3. Continue adding to the **tasklist.js** file by adding the methods used to **showTasks**, **addTask**, and **completeTasks**:
-   
+
     ```nodejs
     TaskList.prototype = {
       showTasks: function(req, res) {
@@ -232,7 +232,7 @@ In this section you will extend the basic application created by the **express**
       },
 
       addTask: function(req,res) {
-        var self = this      
+        var self = this
         var item = req.body.item;
         self.task.addItem(item, function itemAdded(error) {
           if(error) {
@@ -263,13 +263,13 @@ In this section you will extend the basic application created by the **express**
       }
     }
     ```
-    
+
 4. Save the **tasklist.js** file.
 
 ### Modify app.js
-1. In the **WebRole1** directory, open the **app.js** file in a text editor. 
+1. In the **WebRole1** directory, open the **app.js** file in a text editor.
 2. At the beginning of the file, add the following to load the azure module and set the table name and partition key:
-   
+
     ```nodejs
     var azure = require('azure-storage');
     var tableName = 'tasks';
@@ -277,14 +277,14 @@ In this section you will extend the basic application created by the **express**
     ```
 
 3. In the app.js file, scroll down to where you see the following line:
-   
+
     ```nodejs
     app.use('/', routes);
     app.use('/users', users);
     ```
 
     Replace the above lines with the code shown below. This will initialize an instance of <strong>Task</strong> with a connection to your storage account. This is passed to the <strong>TaskList</strong>, which will use it to communicate with the Table service:
-   
+
     ```nodejs
     var TaskList = require('./routes/tasklist');
     var Task = require('./models/task');
@@ -295,13 +295,13 @@ In this section you will extend the basic application created by the **express**
     app.post('/addtask', taskList.addTask.bind(taskList));
     app.post('/completetask', taskList.completeTask.bind(taskList));
     ```
-    
+
 4. Save the **app.js** file.
 
 ### Modify the index view
 1. Change directories to the **views** directory and open the **index.jade** file in a text editor.
 2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
-   
+
     extends layout
 
     block content
@@ -317,7 +317,7 @@ In this section you will extend the basic application created by the **express**
             td Complete
           if tasks != []
             tr
-              td 
+              td
           else
             each task in tasks
               tr
@@ -332,13 +332,13 @@ In this section you will extend the basic application created by the **express**
         button.btn(type="submit") Update tasks
       hr
       form.well(action="/addtask", method="post")
-        label Item Name: 
+        label Item Name:
         input(name="item[name]", type="textbox")
-        label Item Category: 
+        label Item Category:
         input(name="item[category]", type="textbox")
         br
         button.btn(type="submit") Add item
-        
+
 3. Save and close **index.jade** file.
 
 ### Modify the global layout
@@ -346,7 +346,7 @@ The **layout.jade** file in the **views** directory is used as a global template
 
 1. Download and extract the files for [Twitter Bootstrap](http://getbootstrap.com/). Copy the **bootstrap.min.css** file from the **bootstrap\\dist\\css** folder to the **public\\stylesheets** directory of your tasklist application.
 2. From the **views** folder, open the **layout.jade** in your text editor and replace the contents with the following:
-   
+
     doctype html
     html
       head
@@ -358,7 +358,7 @@ The **layout.jade** file in the **views** directory is used as a global template
           div.navbar-header
             a.navbar-brand(href='/') My Tasks
         block content
-        
+
 3. Save the **layout.jade** file.
 
 ### Running the Application in the Emulator
@@ -415,21 +415,21 @@ The following steps show you how to stop and delete your application.
 
 1. In the Windows PowerShell window, stop the service deployment
    created in the previous section with the following cmdlet:
-   
+
     ```powershell
     PS C:\node\tasklist\WebRole1> Stop-AzureService
     ```
-       
+
    Stopping the service may take several minutes. When the service is stopped, you receive a message indicating that it has stopped.
 
 2. To delete the service, call the following cmdlet:
-   
+
     ```powershell
     PS C:\node\tasklist\WebRole1> Remove-AzureService contosotasklist
     ```
-       
+
    When prompted, enter **Y** to delete the service.
-   
+
    Deleting the service may take several minutes. After the service has been deleted you receive a message indicating that the service was deleted.
 
 [Node.js Web Application using Express]: http://azure.microsoft.com/develop/nodejs/tutorials/web-app-with-express/
