@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-multiple
 ms.workload: big-compute
-hms.date: 12/08/2016
+ms.date: 12/08/2016
 ms.author: danlep
 
 ---
@@ -83,7 +83,7 @@ Currently you can only automatically grow and shrink HPC Pack compute nodes that
 
     **CertificateThumbprint** - Thumbprint of the certificate you installed on the head node in Step 1.
 
-    **TenantId** - Tenant ID of your Azure Active Directory. User can get the tenant Id from Azure Active Directory portal 'Properties' page
+    **TenantId** - Tenant ID of your Azure Active Directory. You can get the Tenant ID from the Azure Active Directory portal **Properties** page.
 
     For more details about **ConfigARMAutoGrowShrinkCert.ps1**, run `Get-Help .\ConfigARMAutoGrowShrinkCert.ps1 -Detailed`.
 
