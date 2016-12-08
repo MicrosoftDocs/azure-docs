@@ -217,7 +217,7 @@ Scheduled Events could be parsed using the following data structures
 
 ```
 
-A Sample Program using the client to retrieve, handle, and acknoledge events:   
+A Sample Program using the client to retrieve, handle, and acknowledge events:   
 
 ```csharp
 public class Program
