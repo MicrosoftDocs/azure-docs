@@ -1,7 +1,7 @@
 
 ---
 title: Create a complete Linux environment using the Azure CLI 2.0 Preview | Microsoft Docs
-description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI 2.0 Preview.
+description: Create storage, a Linux VM, a virtual network and subnet, a load balancer, an NIC, a public IP, and a network security group, all from the ground up by using the Azure CLI 2.0 (Preview).
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: iainfoulds
@@ -19,7 +19,7 @@ ms.date: 12/8/2016
 ms.author: iainfou
 
 ---
-# Create a complete Linux environment by using the Azure CLI 2.0 Preview
+# Create a complete Linux environment by using the Azure CLI 2.0 (Preview)
 In this article, we build a simple network with a load balancer and a pair of VMs that are useful for development and simple computing. We walk through the process command by command, until you have two working, secure Linux VMs to which you can connect from anywhere on the Internet. Then you can move on to more complex networks and environments.
 
 Along the way, you learn about the dependency hierarchy that the Resource Manager deployment model gives you, and about how much power it provides. After you see how the system is built, you can rebuild it much more quickly by using [Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Also, after you learn how the parts of your environment fit together, creating templates to automate them becomes easier.
@@ -43,7 +43,7 @@ If you need to quickly accomplish the task, the following section details the ba
 
 In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
 
-To create this custom environment, you need the latest [Azure CLI 2.0 Preview](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
+To create this custom environment, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
 First, create the resource group with [az resource group create](/cli/azure/resource/group#create). The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
 
@@ -72,12 +72,12 @@ az network public-ip create -g myResourceGroup -l westeurope -n myPublicIP \
   --dns-name mypublicdns --allocation-method static --idle-timeout 4
 ```
 
-Create the load balancer with [az network lb create](/cli/azure/network/lb#create). The following example creates:
+Create the load balancer with [az network lb create](/cli/azure/network/lb#create). The following example:
 
-- a load balancer named `myLoadBalancer`
-- associates the public IP
-- a front-end IP pool named `mySubnetPool`
-- a back-end IP pool named `myBackEndPool`
+- creates a load balancer named `myLoadBalancer`
+- associates the public IP `myPublicIP`
+- creates a front-end IP pool named `mySubnetPool`
+- creates a back-end IP pool named `myBackEndPool`
 
 ```azurecli
 az network lb create -g myResourceGroup -l westeurope -n myLoadBalancer \
@@ -118,7 +118,7 @@ Verify the load balancer, IP pools, and NAT rules with [az network lb show](/cli
 az network lb show -g myResourceGroup -n myLoadBalancer
 ```
 
-Create the network security group with [az network nsg create(/cli/azure/network/nsg#create). The following example creates a network security group named `myNetworkSecurityGroup`:
+Create the network security group with [az network nsg create](/cli/azure/network/nsg#create). The following example creates a network security group named `myNetworkSecurityGroup`:
 
 ```azurecli
 az network nsg create -g myResourceGroup -l westeurope -n myNetworkSecurityGroup
@@ -213,7 +213,7 @@ az resource group export -n myResourceGroup > myResourceGroup.json
 ## Detailed walkthrough
 The detailed steps that follow explain what each command is doing as you build out your environment. These concepts are helpful when you build your own custom environments for development or production.
 
-Make sure that you have installed the latest [Azure CLI 2.0 Preview](/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](/cli/azure/#login).
+Make sure that you have installed the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) and logged to an Azure account in with [az login](/cli/azure/#login).
 
 In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
 
@@ -1075,7 +1075,7 @@ az resource group export -n myResourceGroup > myResourceGroup.json
 
 This command creates the `myResourceGroup.json` file in your current working directory. When you create an environment from this template, you are prompted for all the resource names, including the names for the load balancer, network interfaces, or VMs. You can populate these names in your template file by adding the `--include-parameter-default-value` parameter to the **az resource group export** command that was shown earlier. Edit your JSON template to specify the resource names, or [create a parameters.json file](../azure-resource-manager/resource-group-authoring-templates.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) that specifies the resource names.
 
-To create an environment from your template, use [az group deployment create](/cli/azure/resource/group/deployment#create) as follows:
+To create an environment from your template, use [az resource group deployment create](/cli/azure/resource/group/deployment#create) as follows:
 
 ```azurecli
 az group deployment create --resource-group myNewResourceGroup --template-file myResourceGroup.json
