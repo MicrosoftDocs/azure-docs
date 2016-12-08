@@ -46,7 +46,7 @@ For a full deployment, we strongly recommend you follow all the steps in the art
 |  **Azure requirements** |Azure account<br/><br/> Recovery services vault<br/><br/> LRS or GRS storage account in vault region<br/><br/> Standard storage account<br/><br/> Azure virtual network in vault region. [Full details](#azure-prerequisites). |
 |  **Azure limitations** |If you use GRS, you need another LRS account for logging<br/><br/> Storage accounts created in the Azure portal can't be moved across resource groups in the same, or different, subscriptions. <br/><br/> Premium storage isn't supported.<br/><br/> Azure networks used for Site Recovery can't be moved across resource groups in the same, or different, subscriptions. 
 |  **VM replication** |[VMs must comply with Azure prerequisites](site-recovery-best-practices.md#azure-virtual-machine-requirements)<br/><br/>
-|  **Replication limitations** |You can't replicate VMs running Linux with a static IP address.<br/><br/> | You can exclude specific disks from replication, but not OS disk.
+|  **Replication limitations** |You can't replicate VMs running Linux with a static IP address.<br/><br/> You can exclude specific disks from replication, but not OS disk.
 | **Deployment steps** |1) Prepare Azure (subscription, storage, network) -> 2) Prepare on-premises (VMM and network mapping) -> 3) Create Recovery Services vault -> 4) Set up VMM and Hyper-V hosts -> 5) Configure replication settings -> 6) Enable replication -> 7) Test replication and failover. |
 
 ## Site Recovery in the Azure portal
