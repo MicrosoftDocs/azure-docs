@@ -186,7 +186,8 @@ $SecurePassword = "<password>" | ConvertTo-SecureString -AsPlainText -Force
 Set-HpcTokenCache -UserName <AADUsername> -Password $SecurePassword -scheduler https://<Azure load balancer DNS name> 
 ```
 
-### Set the credentials for submitting jobs using the Azure AD account
+### Set the credentials for submitting jobs using the Azure AD account, 
+Sometimes, user may want to run the job under the HPC cluster user (for domain joined HPC cluster, run as one domain user; for non domain joined HPC cluster, run as one local user on head node)
 1. Use the following commands to set the credentials:
 
     ```powershell
@@ -212,6 +213,11 @@ Set-HpcTokenCache -UserName <AADUsername> -Password $SecurePassword -scheduler h
 
     Submit-HpcJob -Job $job -Scheduler https://<Azure load balancer DNS name> -Credential $emptycreds
     ```
-
     If `–Credential` is not specified with `Submit-HpcJob`, the job/task runs under a local mapped user as Azure AD account. (The HPC cluster creates a local user with the same name as the Azure AD account to run the task.)
+    
+3. Set extended data for AAD account, this should be useful when run MPI job on linux nodes using AAD acount
+ 3.1 Set extended data for AAD account self
+   Set-HpcJobCredential -Scheduler https://<Azure load balancer DNS name> -ExtendedData <data> -AadUser
+ 3.2 Set extended data and run as HPC cluster user
+   Set-HpcJobCredential -Credential $mycreds -Scheduler https://<Azure load balancer DNS name> -ExtendedData <data>
 
