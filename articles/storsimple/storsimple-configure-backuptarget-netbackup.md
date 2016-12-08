@@ -89,13 +89,10 @@ Although StorSimple presents two main deployment scenarios (primary and secondar
 
 For more information about StorSimple, see [StorSimple 8000 series: hybrid cloud storage solution](storsimple-overview.md) and review the [technical StorSimple 8000 series specifications](storsimple-technical-specifications-and-compliance.md).
 
-<<<<<<< HEAD
+
 > [!IMPORTANT] 
 > StorSimple device as a backup target is only supported with StorSimple 8000 Update 3 or later.
-=======
-> [!IMPORTANT]
-> StorSimple device as backup target is only supported with StorSimple 8000 Update 3 or later.
->>>>>>> 732df5b0085b7f20190c8bbf5bc08dac5f1c822b
+
 
 ## Architecture overview
 
@@ -222,17 +219,10 @@ In this section, we demonstrate some configuration examples. The following examp
 Ensure that the host backup server storage is configured as per the following guidelines.  
 
 - Spanned volumes (created by Windows Disk manager) are not supported.
-<<<<<<< HEAD
 - Format your volumes using NTFS with 64 KB allocation unit size.
 - Map the StorSimple volumes directly to the NetBackup server. 
     - Use iSCSI for physical servers.
-=======
-- Format your volumes using NTFS with 64 KB allocation size.
-- Map the StorSimple volumes directly to the “Veeam” server.
-    - Use iSCSI in case of physical servers.
->>>>>>> 732df5b0085b7f20190c8bbf5bc08dac5f1c822b
     - Use pass-through disks for virtual servers.
-
 
 
 ## Best practices for StorSimple and NetBackup
@@ -593,7 +583,6 @@ The following section illustrates how to create a short script to trigger and de
 5.  In Notepad, create a new Windows PowerShell Script and save it in the same location where you saved the Azure publish settings. For example, `C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1`.
 
     Copy and paste the following code snippet:
-<<<<<<< HEAD
 
     ```powershell
     Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
@@ -626,39 +615,6 @@ The following section illustrates how to create a short script to trigger and de
     }
     ```
 
-=======
-      ```
-      Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-      Disable-AzureDataCollection
-      $ApplianceName = <myStorSimpleApplianceName>
-      $RetentionInDays = 20
-      $RetentionInDays = -$RetentionInDays
-      $Today = Get-Date
-      $ExpirationDate = $Today.AddDays($RetentionInDays)
-      Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-      Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-      $CompletedSnapshots =@()
-      $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-      Write-Host "The Expiration date is " $ExpirationDate
-      Write-Host
-
-      ForEach ($SnapShot in $CompletedSnapshots)
-      {
-          $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-          if ($SnapshotStartTimeStamp -lt $ExpirationDate)
-
-          {
-              $SnapShotInstanceID = $SnapShot.InstanceId
-              Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-              Write-Host "Instance ID " $SnapShotInstanceID
-              Write-Host "This snpashotdate is older and needs to be deleted"
-              Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-              Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-          }
-      }
-
-      ```
->>>>>>> 732df5b0085b7f20190c8bbf5bc08dac5f1c822b
 6.  Add the script to your backup job in NetBackup, by editing your NetBackup job options pre-post commands
 
 > [!NOTE]
