@@ -17,7 +17,7 @@ ms.date: 10/05/2016
 ms.author: dobett
 
 ---
-# How to process IoT Hub device-to-cloud messages (.NET)
+# Process IoT Hub device-to-cloud messages (.NET)
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## Introduction

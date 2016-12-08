@@ -122,7 +122,7 @@ You can download the existing Azure Resource Manager template to create a virtua
 
 ## Deploy the Azure Resource Manager template by using PowerShell
 
-If you have never used Azure PowerShell, see [How to install and configure Azure PowerShell](../powershell-install-configure.md) and follow the instructions to sign into Azure and select your subscription.
+If you have never used Azure PowerShell, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) and follow the instructions to sign into Azure and select your subscription.
 
 ### Step 1
 
