@@ -213,7 +213,7 @@ az resource group export -n myResourceGroup > myResourceGroup.json
 ## Detailed walkthrough
 The detailed steps that follow explain what each command is doing as you build out your environment. These concepts are helpful when you build your own custom environments for development or production.
 
-Make sure that you have installed the latest [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/install-az-cli2) and logged to an Azur account in with `az login`.
+Make sure that you have installed the latest [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/install-az-cli2) and logged to an Azure account in with `az login`.
 
 In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
 
