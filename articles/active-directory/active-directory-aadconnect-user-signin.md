@@ -45,27 +45,27 @@ Enable on-premises multi-factor authentication solutions|||x|
 *Through a light weight connector.
 
 >[!NOTE] 
-> Pass-through authentication currently has some limitations with rich clients.  See Pass-through authentication for more details.
+> Pass-through authentication currently has some limitations with rich clients.  See [Pass-through authentication](active-directory-aadconnect-pass-through-authentication.md) for more details.
 
 ### Password synchronization
 With password synchronization, hashes of user passwords are synchronized from your on-premises Active Directory to Azure AD.  When passwords are changed or reset on premises, the new passwords are synchronized immediately to Azure AD so that your users can always use the same password for cloud resources as they do on-premises.  The passwords are never sent to Azure AD nor stored in Azure AD in clear text.  Password synchronization can be used together with password write-back to enable self service password reset in Azure AD.
 
-In addition you can also enable [single sign on (SSO)](active-directory-aadconnect-sso.md) for users on domain joined machines that are on the corporate network. With single sign on enable users only need enter a username to securely access cloud resources.
+In addition you can also enable [single sign on (SSO)](active-directory-aadconnect-sso.md) for users on domain joined machines that are on the corporate network. With single sign on, enabled users only need to enter a username to securely access cloud resources.
 
 ![Cloud](./media/active-directory-aadconnect-user-signin/passwordhash.png)
 
 [More information about password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)
 
 ### Pass-through Authentication
-With pass-through authentication the user’s password is validated against the on-premises Active Directory controller does not need to be present in Azure AD in any form. This allows for on-premises policies to be evaluate during authentication to cloud services such as logon hour restrictions. Pass-through authentication utilizes a simple agent, on a Windows Server 2012 R2 domain joined machine in the on-premises environment, that listens for pass validation requests. This agent does not require any inbound ports to be open to the internet.
+With pass-through authentication, the user’s password is validated against the on-premises Active Directory controller and the password does not need to be present in Azure AD in any form. This allows for on-premises policies to be evaluated during authentication to cloud services, such as logon hour restrictions. Pass-through authentication utilizes a simple agent on a Windows Server 2012 R2 domain joined machine in the on-premises environment, which listens for password validation requests. This agent does not require any inbound ports to be open to the Internet.
 
-In addition you can also enable single sign on for users on domain joined machines that are on the corporate network. With single sign on enable users only need enter a username to securely access cloud resources.
+In addition, you can also enable single sign on for users on domain joined machines that are on the corporate network. With single sign on, enabled users only need to enter a username to securely access cloud resources.
 ![Pass-through auth](./media/active-directory-aadconnect-user-signin/pta.png)
 
 [More information on pass-through authentication](active-directory-aadconnect-pass-through-authentication.md) and [Single sign on](active-directory-aadconnect-sso.md).
 
 ### Federation using a new or existing AD FS in Windows Server 2012 R2 farm
-With federated sign on, your users can sign on to Azure AD based services with their on-premises passwords and, while on the corporate network, without having to enter their passwords again.  The federation option with AD FS allows you to deploy a new or specify an existing AD FS in Windows Server 2012 R2 farm.  If you choose to specify an existing farm, Azure AD Connect will configure the trust between your farm and Azure AD so that your users can sign on.
+With federated sign on, your users can sign on to Azure AD based services with their on-premises passwords and, while on the corporate network, without having to even enter their passwords.  The federation option with AD FS allows you to deploy a new or specify an existing AD FS in Windows Server 2012 R2 farm.  If you choose to specify an existing farm, Azure AD Connect will configure the trust between your farm and Azure AD so that your users can sign on.
 
 <center>![Cloud](./media/active-directory-aadconnect-user-signin/federatedsignin.png)</center>
 
@@ -92,9 +92,9 @@ If you have already configured cloud sign on using an earlier version of AD FS (
 
 ## User sign-in and user principal name (UPN)
 ### Understanding user principal name
-In Active Directory, the default UPN suffix is the DNS name of the domain in which user account created. In most cases, this is the domain name registered as the enterprise domain on the Internet. However, you can add more UPN suffixes using Active Directory Domains and Trusts.
+In Active Directory, the default UPN suffix is the DNS name of the domain in which the user account was created. In most cases, this is the domain name registered as the enterprise domain on the Internet. However, you can add more UPN suffixes using Active Directory Domains and Trusts.
 
-The UPN of the user is of the format username@domai. For example, for an active directory contoso.com user John might have UPN john@contoso.com. The UPN of the user is based on RFC 822. Although UPN and email share the same format, the value of UPN for a user may or may not be equal to the email address of the user.
+The UPN of the user is of the format username@domain. For example, for an Active Directory domain named 'contoso.com', a user named John might have the UPN 'john@contoso.com'. The UPN of the user is based on RFC 822. Although UPN and email share the same format, the value of UPN for a user may or may not be equal to the email address of the user.
 
 ### User principal name in Azure AD
 Azure AD Connect wizard will use the userPrincipalName attribute or let you specify the attribute (in custom install) to be used from on-premises as the user principal name in Azure AD. This is the value that will be used for signing in to Azure AD. If the value of the user principal name attribute does not correspond to a verified domain in Azure AD, then Azure AD will replace it with a default .onmicrosoft.com value.
