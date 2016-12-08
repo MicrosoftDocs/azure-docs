@@ -27,7 +27,7 @@ This article describes how you can create a workspace and publish a web service 
    ![Multi-Geo Help image 1][1]
 3. Select the workspace, and then click **Sign-in to ML Studio**.
    ![Multi-Geo Help image 2][2]
-4. You now have a workspace in another region that you may use just like any other workspace. To switch among your workspaces, look to the upper right of your screen. Click the dropdown, select the region, and then select the workspace. Everything is local to the workspace region; for example, all of your web services created from a workspace will be in the same region the workspace is located in.
+4. You now have a workspace in another region that you may use just like any other workspace. To switch among your workspaces, look to the upper right of your screen. Click the dropdown, select the region, and then select the workspace. Everything is local to the workspace region.  For example, all of your web services created from a workspace will be in the same region the workspace is located in.
    ![Multi-Geo Help image 3][3]
 
 ## Open an experiment from Gallery
