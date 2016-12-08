@@ -17,7 +17,7 @@ ms.date: 11/17/2016
 ms.author: juanpere
 
 ---
-# How to get started with device management (.NET/Node)
+# Get started with device management (.NET/Node)
 
 [!INCLUDE [iot-hub-selector-dm-getstarted](../../includes/iot-hub-selector-dm-getstarted.md)]
 ## Introduction

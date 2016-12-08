@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: cbd67e88-08d5-40e2-a223-0fb0c718a782
 ms.service: sql-database
+ms.custom: monitor and tune; how to
 ms.devlang: NA
 ms.date: 10/12/2016
 ms.author: sstein

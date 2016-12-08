@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upgrade to Azure SQL Database V12 using the Azure portal | Microsoft Docs
 description: Explains how to upgrade to Azure SQL Database V12 including how to upgrade Web and Business databases, and how to upgrade a V11 server migrating its databases directly into an elastic database pool using the Azure portal.
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 81a59ada-c459-4437-ad25-4346b75454ac
 ms.service: sql-database
+ms.custom: V11
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

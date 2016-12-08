@@ -164,7 +164,7 @@ To create the resource group for the Pre-Production environment, type the comman
     azure group create "TestApp1-Pre-Production" "Central US"
 
 ### PowerShell
-Ensure that you have Azure PowerShell 1.01 or higher installed on a Windows computer and have connected your [Azure AD account](../active-directory/active-directory-how-subscriptions-associated-directory.md) (also called a work or school account) to your subscription as detailed in the [How to install and configure Azure PowerShell](../powershell-install-configure.md) article. From a PowerShell command prompt, type the command below to create the resource group for the Development environment.
+Ensure that you have Azure PowerShell 1.01 or higher installed on a Windows computer and have connected your [Azure AD account](../active-directory/active-directory-how-subscriptions-associated-directory.md) (also called a work or school account) to your subscription as detailed in the [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) article. From a PowerShell command prompt, type the command below to create the resource group for the Development environment.
 
     New-AzureRmResourceGroup -Name TestApp1-Development -Location "Central US"
 

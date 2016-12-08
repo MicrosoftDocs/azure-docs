@@ -27,8 +27,8 @@ It will also show you how to set breakpoints for debugging.
 
 > [!NOTE]
 > Windows Container support will be coming in a future release
-> 
-> 
+>
+>
 
 ## Prerequisites
 The following tools need to be installed.
@@ -53,18 +53,18 @@ If using Docker Toolbox, you'll need to [configure the Docker client](vs-azure-t
 To quickly iterate changes, you can start your application within a container, and continue to make changes, viewing them as you would with IIS Express.
 
 1. Set the Solution Configuration to `Debug` and press **&lt;CTRL + F5>** to build your docker image and run it locally.
-   
+
     Once the container image has been built and is running in a Docker container, Visual Studio will launch the Web app in your default browser.
     If you are using the Microsoft Edge browser or otherwise have errors, see [Troubleshooting](vs-azure-tools-docker-troubleshooting-docker-errors.md) section.
 2. Go to the About page, which is where we're going to make our changes.
 3. Return to Visual Studio and open `Views\Home\About.cshtml`.
 4. Add the following HTML content to the end of the file and save the changes.
-   
+
     ```
     <h1>Hello from a Docker Container!</h1>
     ```
 5. Viewing the output window, when the .NET build is completed and you see these lines, switch back to your browser and refresh the About page.
-   
+
    ```
    Now listening on: http://*:80
    Application started. Press Ctrl+C to shut down
@@ -76,16 +76,16 @@ Often, changes will need further inspection, leveraging the debugging features o
 
 1. Return to Visual Studio and open `Controllers\HomeController.cs`
 2. Replace the contents of the About() method with the following:
-   
+
    ```
-   string message = "Your application description page from wthin a Container";
+   string message = "Your application description page from within a Container";
    ViewData["Message"] = message;
    ````
 3. Set a breakpoint to the left of the `string message`... line.
 4. Hit **&lt;F5>** to start debugging.
 5. Navigate to the About page to hit your breakpoint.
 6. Switch to Visual Studio to view the breakpoint, and inspect the value of message.
-   
+
    ![][2]
 
 ## Summary

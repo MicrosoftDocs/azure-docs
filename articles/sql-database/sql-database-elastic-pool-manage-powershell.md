@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage an elastic database pool (PowerShell) | Microsoft Docs
 description: Learn how to use PowerShell to manage an elastic database pool.
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 61289770-69b9-4ae3-9252-d0e94d709331
 ms.service: sql-database
+ms.custom: sharded databases pool; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell
