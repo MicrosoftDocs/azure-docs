@@ -1078,7 +1078,7 @@ This command creates the `myResourceGroup.json` file in your current working dir
 To create an environment from your template, use [az resource group deployment create](/cli/azure/resource/group/deployment#create) as follows:
 
 ```azurecli
-az group deployment create --resource-group myNewResourceGroup --template-file myResourceGroup.json
+az resource group deployment create --resource-group myNewResourceGroup --template-file myResourceGroup.json
 ```
 
 You might want to read [more about how to deploy from templates](../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Learn about how to incrementally update environments, use the parameters file, and access templates from a single storage location.
