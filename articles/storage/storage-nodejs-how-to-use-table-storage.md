@@ -65,7 +65,7 @@ var azure = require('azure-storage');
 ## Set up an Azure Storage connection
 The azure module will read the environment variables AZURE\_STORAGE\_ACCOUNT and AZURE\_STORAGE\_ACCESS\_KEY, or AZURE\_STORAGE\_CONNECTION\_STRING for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **TableService**.
 
-For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure Website, see [Node.js web app using the Azure Table Service].
+For an example of setting the environment variables in the [Azure portal](https://portal.azure.com) for an Azure Website, see [Node.js web app using the Azure Table Service].
 
 ## Create a table
 The following code creates a **TableService** object and uses it to create a new table. Add the following near the top of **server.js**.
@@ -190,7 +190,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 > [!NOTE]
 > By default, updating an entity does not check to see if the data being updated has previously been modified by another process. To support concurrent updates:
 >
-> 1. Get the ETag of the object being updated. This is returned as part of the `response` for any entity related operation and can be retrieved through `response['.metadata'].etag`.
+> 1. Get the ETag of the object being updated. This is returned as part of the `response` for any entity-related operation and can be retrieved through `response['.metadata'].etag`.
 > 2. When performing an update operation on an entity, add the ETag information previously retrieved to the new entity. For example:
 >
 > `entity2['.metadata'].etag = currentEtag;`
@@ -457,7 +457,7 @@ For more information, see the following resources.
 [Azure Storage SDK for Node]: https://github.com/Azure/azure-storage-node
 [OData.org]: http://www.odata.org/
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure Portal]: portal.azure.com
+[Azure portal]: portal.azure.com
 
 [Node.js Cloud Service]: ../cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/

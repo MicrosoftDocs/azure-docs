@@ -49,7 +49,7 @@ Using your favorite text editor, add the following to the top of the Ruby file w
 require "azure"
 ```
 
-## Setup an Azure Storage Connection
+## Set up an Azure Storage Connection
 The azure module will read the environment variables **AZURE\_STORAGE\_ACCOUNT** and **AZURE\_STORAGE\_ACCESS_KEY**
 for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information before using **Azure::Blob::BlobService** with the following code:
 
@@ -71,7 +71,7 @@ To obtain these values from a classic storage account in the classic Azure porta
 1. Log in to the [classic Azure portal](https://manage.windowsazure.com).
 2. Navigate to the storage account you want to use.
 3. Click **MANAGE ACCESS KEYS** at the bottom of the navigation pane.
-4. In the pop up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one.
+4. In the pop-up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one.
 5. Click the copy icon to copy the key to the clipboard.
 
 ## Create a container
@@ -79,7 +79,7 @@ To obtain these values from a classic storage account in the classic Azure porta
 
 The **Azure::Blob::BlobService** object lets you work with containers and blobs. To create a container, use the **create\_container()** method.
 
-The following code example creates a container or print out the error if there is any.
+The following code example creates a container or prints the error if there is any.
 
 ```ruby
 azure_blob_service = Azure::Blob::BlobService.new

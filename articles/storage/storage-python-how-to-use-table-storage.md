@@ -111,7 +111,7 @@ batch.insert_entity(task11)
 table_service.commit_batch('tasktable', batch)
 ```
 
-Batches can also be used with the contex manager syntax:
+Batches can also be used with the context manager syntax:
 
 ```python
 task12 = {'PartitionKey': 'tasksSeattle', 'RowKey': '12', 'description' : 'Go grocery shopping', 'priority' : 400}

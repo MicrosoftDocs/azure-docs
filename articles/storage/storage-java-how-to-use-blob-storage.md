@@ -51,8 +51,7 @@ import com.microsoft.azure.storage.blob.*;
 ```
 
 ## Set up an Azure Storage connection string
-An Azure Storage client uses a storage connection string to store
-endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. The following example shows how you can declare a static field to hold the connection string.
+An Azure Storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the [Azure portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. The following example shows how you can declare a static field to hold the connection string.
 
 ```java
 // Define the connection-string with your values
@@ -62,7 +61,7 @@ public static final String storageConnectionString =
     "AccountKey=your_storage_account_key";
 ```
 
-In an application running within a role in Microsoft Azure, this string can be stored in the service configuration file, *ServiceConfiguration.cscfg*, and can be accessed with a call to the **RoleEnvironment.getConfigurationSettings** method. The followng example gets the connection string from a **Setting** element named *StorageConnectionString* in the service configuration file.
+In an application running within a role in Microsoft Azure, this string can be stored in the service configuration file, *ServiceConfiguration.cscfg*, and can be accessed with a call to the **RoleEnvironment.getConfigurationSettings** method. The following example gets the connection string from a **Setting** element named *StorageConnectionString* in the service configuration file.
 
 ```java
 // Retrieve storage account from connection-string.

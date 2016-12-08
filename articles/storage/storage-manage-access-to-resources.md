@@ -4,7 +4,7 @@ description: Learn how to make containers and blobs available for anonymous acce
 services: storage
 documentationcenter: ''
 author: mmacy
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: a2cffee6-3224-4f2a-8183-66ca23b2d2d7
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 12/08/2016
 ms.author: marsma
 
 ---
@@ -34,18 +34,18 @@ Containers provide the following options for managing container access:
 
 You can set container permissions in the following ways:
 
-* From the [Azure Portal](https://portal.azure.com).
+* From the [Azure portal](https://portal.azure.com).
 * Programmatically, by using the storage client library or the REST API.
 * By using PowerShell. To learn about setting container permissions from Azure PowerShell, see [Using Azure PowerShell with Azure Storage](storage-powershell-guide-full.md#how-to-manage-azure-blobs).
 
-### Setting container permissions from the Azure Portal
-To set container permissions from the [Azure Portal](https://portal.azure.com), follow these steps:
+### Setting container permissions from the Azure portal
+To set container permissions from the [Azure portal](https://portal.azure.com), follow these steps:
 
 1. Navigate to the dashboard for your storage account.
 2. Select the container name from the list. Clicking the name exposes the blobs in the chosen container
 3. Select **Access policy** from the toolbar.
 4. In the **Access type** field, select your desired level of permissions as shown in the screenshot below.
-   
+
     ![Edit Container Metadata dialog](./media/storage-manage-access-to-resources/storage-manage-access-to-resources-0.png)
 
 ### Setting container permissions programmatically using .NET

@@ -52,7 +52,7 @@ You may want to review the source code before running the application. To review
 
 Next, run the sample application:
 
-1. In Visual Studio, select **Solution Explorer** on the **View** menu. Open  the App.config file and comment out the connection string for the Azure storage emulator:
+1. In Visual Studio, select **Solution Explorer** on the **View** menu. Open the App.config file and comment out the connection string for the Azure storage emulator:
 
    `<!--<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>-->`
 
@@ -79,7 +79,7 @@ To try it, let’s create a simple Azure Storage application using one of the Az
 
     ![Azure Quick Starts][Image1]
 
-4. In Visual Studio, select **Solution Explorer** on the **View** menu. Open  the App.config file and comment out the connection string for your Azure storage account if you have already added one. Then uncomment the connection string for the Azure storage emulator:
+4. In Visual Studio, select **Solution Explorer** on the **View** menu. Open the App.config file and comment out the connection string for your Azure storage account if you have already added one. Then uncomment the connection string for the Azure storage emulator:
 
    `<add key="StorageConnectionString" value = "UseDevelopmentStorage=true;"/>`
 

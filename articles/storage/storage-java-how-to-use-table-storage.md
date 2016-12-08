@@ -46,8 +46,8 @@ import com.microsoft.azure.storage.table.*;
 import com.microsoft.azure.storage.table.TableQuery.*;
 ```
 
-## Setup an Azure storage connection string
-An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the [Azure Portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. This example shows how you can declare a static field to hold the connection string:
+## Set up an Azure storage connection string
+An Azure storage client uses a storage connection string to store endpoints and credentials for accessing data management services. When running in a client application, you must provide the storage connection string in the following format, using the name of your storage account and the Primary access key for the storage account listed in the [Azure portal](https://portal.azure.com) for the *AccountName* and *AccountKey* values. This example shows how you can declare a static field to hold the connection string:
 
 ```java
 // Define the connection-string with your values.

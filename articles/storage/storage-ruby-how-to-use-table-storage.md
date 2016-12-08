@@ -54,9 +54,9 @@ Azure.config.storage_account_name = "<your azure storage account>"
 Azure.config.storage_access_key = "<your azure storage access key>"
 ```
 
-To obtain these values from a classic or Resource Manager storage account in the Azure Portal:
+To obtain these values from a classic or Resource Manager storage account in the Azure portal:
 
-1. Log in to the [Azure Portal](https://portal.azure.com).
+1. Log in to the [Azure portal](https://portal.azure.com).
 2. Navigate to the storage account you want to use.
 3. In the Settings blade on the right, click **Access Keys**.
 4. In the Access keys blade that appears, you'll see the access key 1 and access key 2. You can use either of these.
@@ -64,14 +64,14 @@ To obtain these values from a classic or Resource Manager storage account in the
 
 To obtain these values from a classic storage account in the classic Azure portal:
 
-1. Log in to the [classic Azure portal](https://manage.windowsazure.com).
+1. Log in to the [Azure classic portal](https://manage.windowsazure.com).
 2. Navigate to the storage account you want to use.
 3. Click **MANAGE ACCESS KEYS** at the bottom of the navigation pane.
-4. In the pop up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one.
+4. In the pop-up dialog, you'll see the storage account name, primary access key and secondary access key. For access key, you can use either the primary one or the secondary one.
 5. Click the copy icon to copy the key to the clipboard.
 
 ## Create a table
-The **Azure::TableService** object lets you work with tables and entities. To create a table, use the **create\_table()** method. The following example creates a table or print out the error if there is any.
+The **Azure::TableService** object lets you work with tables and entities. To create a table, use the **create\_table()** method. The following example creates a table or prints the error if there is any.
 
 ```ruby
 azure_table_service = Azure::TableService.new

@@ -30,7 +30,7 @@ You can use Table storage to store flexible datasets, such as user data for web 
 ### About this tutorial
 This tutorial shows how to write .NET code for some common scenarios using Azure Table storage, including creating and deleting a table and inserting, updating, deleting, and querying table data.
 
-**Prerequisities:**
+**Prerequisites:**
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/en-us/visual-studio-homepage-vs.aspx)
 * [Azure Storage Client Library for .NET](https://www.nuget.org/packages/WindowsAzure.Storage/)

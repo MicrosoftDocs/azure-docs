@@ -97,8 +97,9 @@ and add them to the web.config settings:
   PS C:\node\tasklist\WebRole1> npm install azure-storage node-uuid async nconf --save
   ```
 
-The output of this command should appear similar to the following:
+  The output of this command should appear similar to the following:
 
+  ```
   node-uuid@1.4.1 node_modules\node-uuid
 
   nconf@0.6.9 node_modules\nconf
@@ -115,6 +116,7 @@ The output of this command should appear similar to the following:
   ├── node-uuid@1.4.1
   ├── xml2js@0.2.7 (sax@0.5.2)
   └── request@2.27.0 (json-stringify-safe@5.0.0, tunnel-agent@0.3.0, aws-sign@0.3.0, forever-agent@0.5.2, qs@0.6.6, oauth-sign@0.3.0, cookie-jar@0.3.0, hawk@1.0.0, form-data@0.1.3, http-signature@0.10.0)
+  ```
 
 ## Using the Table service in a node application
 In this section you will extend the basic application created by the **express** command by adding a **task.js** file which contains the model for your tasks. You will also modify the existing **app.js** and create a new **tasklist.js** file that uses the model.
@@ -302,6 +304,7 @@ In this section you will extend the basic application created by the **express**
 1. Change directories to the **views** directory and open the **index.jade** file in a text editor.
 2. Replace the contents of the **index.jade** file with the code below. This defines the view for displaying existing tasks, as well as a form for adding new tasks and marking existing ones as completed.
 
+    ```
     extends layout
 
     block content
@@ -338,6 +341,7 @@ In this section you will extend the basic application created by the **express**
         input(name="item[category]", type="textbox")
         br
         button.btn(type="submit") Add item
+    ```
 
 3. Save and close **index.jade** file.
 
@@ -385,6 +389,7 @@ Replace **myuniquename** with a unique name for this application. Replace **data
 
 After the deployment is complete, you should see a response similar to the following:
 
+```
   PS C:\node\tasklist> publish-azureserviceproject -servicename tasklist -location "West US"
   WARNING: Publishing tasklist to Microsoft Azure. This may take several minutes...
   WARNING: 2:18:42 PM - Preparing runtime deployment for service 'tasklist'
@@ -397,6 +402,7 @@ After the deployment is complete, you should see a response similar to the follo
   WARNING: 2:22:48 PM - Initializing...
   WARNING: 2:22:49 PM - Instance WebRole1_IN_0 of role WebRole1 is ready.
   WARNING: 2:22:50 PM - Created Website URL: http://tasklist.cloudapp.net/.
+```
 
 As before, because you specified the **-launch** option, the browser opens and displays your application running in Azure when publishing is completed.
 

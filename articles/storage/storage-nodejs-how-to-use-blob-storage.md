@@ -62,7 +62,7 @@ var azure = require('azure-storage');
 ## Set up an Azure Storage connection
 The Azure module will read the environment variables `AZURE_STORAGE_ACCOUNT` and `AZURE_STORAGE_ACCESS_KEY`, or `AZURE_STORAGE_CONNECTION_STRING`, for information required to connect to your Azure storage account. If these environment variables are not set, you must specify the account information when calling **createBlobService**.
 
-For an example of setting the environment variables in the [Azure Portal](https://portal.azure.com) for an Azure web app, see [Node.js web app using the Azure Table Service].
+For an example of setting the environment variables in the [Azure portal](https://portal.azure.com) for an Azure web app, see [Node.js web app using the Azure Table Service].
 
 ## Create a container
 The **BlobService** object lets you work with containers and blobs. The following code creates a **BlobService** object. Add the following near the top of **server.js**:
@@ -192,7 +192,7 @@ To append a block to an existing append blob, use the following:
 * **appendBlockFromText** - append the contents of a string to an existing append blob
 
 > [!NOTE]
-> appendFromXXX APIs will do some client-side validation to fail fast to avoid unncessary server call. appendBlockFromXXX won't.
+> appendFromXXX APIs will do some client-side validation to fail fast to avoid unnecessary server calls. appendBlockFromXXX won't.
 >
 >
 
@@ -425,7 +425,7 @@ For more information, see the following resources.
 [Node.js web app using the Azure Table Service]: ../app-service-web/storage-nodejs-use-table-storage-web-site.md
 [Build and deploy a Node.js web app to Azure using Web Matrix]: ../app-service-web/web-sites-nodejs-use-webmatrix.md
 [Using the REST API]: http://msdn.microsoft.com/library/azure/hh264518.aspx
-[Azure Portal]: https://portal.azure.com
+[Azure portal]: https://portal.azure.com
 [Build and deploy a Node.js application to an Azure Cloud Service]: ../cloud-services/cloud-services-nodejs-develop-deploy-app.md
 [Azure Storage Team Blog]: http://blogs.msdn.com/b/windowsazurestorage/
 [Azure Storage SDK for Node API Reference]: http://dl.windowsazure.com/nodestoragedocs/index.html

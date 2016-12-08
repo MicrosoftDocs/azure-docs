@@ -192,7 +192,7 @@ When you call **ListBlobs** on the _photos_ container (as in the above sample), 
     Directory: https://<accountname>.blob.core.windows.net/photos/2011/
     Block blob of length 505623: https://<accountname>.blob.core.windows.net/photos/photo1.jpg
 
-Optionally, you can set the **UseFlatBlobListing** parameter of of the **ListBlobs** method to
+Optionally, you can set the **UseFlatBlobListing** parameter of the **ListBlobs** method to
 **true**. In this case, every blob in the container is returned as a **CloudBlockBlob** object. The call to **ListBlobs** to return a flat listing looks like this:
 
 ```csharp
