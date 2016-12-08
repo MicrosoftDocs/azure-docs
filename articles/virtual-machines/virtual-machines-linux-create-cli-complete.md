@@ -43,9 +43,9 @@ If you need to quickly accomplish the task, the following section details the ba
 
 In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
 
-To create this custom environment, you need the latest [Azure CLI 2.0 Preview](https://docs.microsoft.com/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](https://docs.microsoft.com/en-us/cli/azure/#login).
+To create this custom environment, you need the latest [Azure CLI 2.0 Preview](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
-First, create the resource group with [az resource group create](https://docs.microsoft.com/en-us/cli/azure/resource/group#create). The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
+First, create the resource group with [az resource group create](/cli/azure/resource/group#create). The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
 
 ```azurecli
 az resource group create -n myResourceGroup -l westeurope
