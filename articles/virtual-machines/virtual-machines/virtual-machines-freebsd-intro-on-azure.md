@@ -77,6 +77,9 @@ After you're logged in through this user account, you can run commands as root b
 
 You can optionally obtain a root shell by using `sudo -s`.
 
+## Known issues
+There is currently an outstanding issues with FreeBSD 11.0 on Hyper-V (and Azure) that may cause VMs to fail to boot if the operating system is patched using `freebsd-update`. The [proposed patch](https://bugs.freebsd.org/bugzilla/show_bug.cgi?id=212721) is included in the FreeBSD images on the Azure Marketplace; however, it has not been merged upstream by the FreeBSD team, so running `freebsd-update` will replace the kernel with an unpatched one. It is recommended that users on Azure do not install patches for FreeBSD 11.0 until the fix is merged upstream.
+
 ## Next steps
 * Go to [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd110/) to create a FreeBSD VM.
 * If you want to bring your own FreeBSD to Azure, refer to [Create and upload a FreeBSD VHD to Azure](../virtual-machines-linux-classic-freebsd-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
