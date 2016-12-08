@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/2/2016
+ms.date: 12/05/2016
 ms.author: hkanna
 ---
 
@@ -33,7 +33,7 @@ StorSimple is a great backup target for the following reasons:
 
 -   It provides standard local storage for backup applications to use without any changes to provide a fast backup destination. StorSimple is also available for quick restore of recent backups.
 
--   Its cloud tiering is seamlessly integrated with a cloud storage account to use cost-effective Microsoft Azure storage.
+-   Its cloud tiering is seamlessly integrated with cost-effective Microsoft Azure cloud storage.
 
 -   It automatically provides offsite storage for disaster recovery.
 
@@ -351,7 +351,7 @@ Based on the preceeding assumptions, create a 26 TiB StorSimple tiered volume fo
 > [!NOTE]
 > Be aware that if you need to restore data from a backup that has been tiered to the cloud, the restore occurs at cloud speeds.
 
-In the following figure, we illustrate mapping of a typical volume to a backup job. In this case, all the weekly backups map to Saturday Full disk, and the incremental backups map to Monday-Friday Incremental disks. All the backups and restores happen from a StorSimple tiered volume.
+In the following figure, we illustrate mapping of a typical volume to a backup job. In this case, all the weekly backups map to Saturday full disk, and the incremental backups map to Monday-Friday incremental disks. All the backups and restores happen from a StorSimple tiered volume.
 
 ![Primary backup target configuration logical diagram ](./media/storsimple-configure-backup-target-using-backup-exec/primarybackuptargetdiagram.png)
 
@@ -359,8 +359,8 @@ In the following figure, we illustrate mapping of a typical volume to a backup j
 
 | GFS Rotation Schedule for 4 weeks, Monthly and Yearly |               |             |
 |--------------------------------------------------------------------------|---------------|-------------|
-| Frequency/Backup Type   | Full          | Incremental (Day 1 - 5)  |
-| Weekly (week 1 - 4)    | Saturday | Monday - Friday |
+| Frequency/Backup type   | Full          | Incremental (day 1 - 5)  |
+| Weekly (week 1 - 4)    | Saturday | Monday - Friday | 
 | Monthly     | Saturday  |             |
 | Yearly      | Saturday  |             |
 
@@ -402,45 +402,45 @@ The following sequence assumes that Backup Exec and the target host are configur
 > [!NOTE]
 > Be aware that if you need to restore data from a backup that has been tiered to the cloud, the restore occurs at cloud speeds.
 
-In this model, you must have a storage media (other than StorSimple) to serve as a temporary cache. For example, you could use a RAID volume to accommodate space, IOs, and bandwidth. We recommend using RAID 5, 50 and 10.
+In this model, you must have a storage media (other than StorSimple) to serve as a temporary cache. For example, you could use a RAID volume to accommodate space, I/O, and bandwidth. We recommend using RAID 5, 50, and 10.
 
-In the following figure, we illustrate typical short retention local (to the server) volumes and long-term retention archive volumes. In this case, all the backups run on the local (to the server) RAID volume. These backups are periodically duplicated and archived to an archive volume. It is important to size your local (to the server) RAID volume to handle the short-term retention capacity and performance requirements.
+In the following figure, we illustrate typical short-term retention local (to the server) volumes and long-term retention archive volumes. In this case, all the backups run on the local (to the server) RAID volume. These backups are periodically duplicated and archived to an archive volume. It is important to size your local (to the server) RAID volume to handle the short-term retention capacity and performance requirements.
 
 #### StorSimple as a secondary backup target GFS example
 
 ![Storsimple as secondary backup target logical diagram ](./media/storsimple-configure-backup-target-using-backup-exec/secondarybackuptargetdiagram.png)
 
-The following table illustrates how the backups should be configured to run on the local and StorSimple disks including the individual and the total capacity requirements.
+The following table illustrates how the backups should be configured to run on the local and StorSimple disks and includes the individual and the total capacity requirements.
 
 #### Backup configuration and capacity requirements
 
-| Backup type and retention                    |Configured storage| Size (TiB) | GFS multiplier | Total Capacity (TiB)        |
+| Backup type and retention                    |Configured storage| Size (TiB) | GFS multiplier | Total capacity (TiB)        |
 |----------------------------------------------|-----|----------|----------------|------------------------|
-| Week 1 (Full and incremental) |Local disk (short term)| 1        | 1              | 1           |
-| StorSimple Week 2-4           |StorSimple disk (long term) | 1        | 4              | 4                   |
-| Monthly Full                                 |StorSimple disk (long term) | 1        | 12             | 12                   |
-| Yearly Full                               |StorSimple disk (long term) | 1        | 1              | 1                   |
-|GFS Volumes Size Requirement | |          |                | 18*|
+| Week 1 (full and incremental) |Local disk (short term)| 1        | 1              | 1           |
+| StorSimple week 2-4           |StorSimple disk (long term) | 1        | 4              | 4                   |
+| Monthly full                                 |StorSimple disk (long term) | 1        | 12             | 12                   |
+| Yearly full                               |StorSimple disk (long term) | 1        | 1              | 1                   |
+|GFS volumes size requirement | |          |                | 18*|
 
-\* the total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume
+\* the total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume.
 
 
 #### GFS example schedule
 
-|GFS rotation Weekly, Monthly, and Yearly schedule|                    |                   |                   |                   |                   |                   |
+|GFS rotation weekly, monthly, and yearly schedule|                    |                   |                   |                   |                   |                   |
 |--------------------------------------------------------------------------|--------------------|-------------------|-------------------|-------------------|-------------------|-------------------|
-| Week                                                                     | Full               | Incremental Day 1        | Incremental Day 2        | Incremental Day 3        | Incremental Day 4        | Incremental Day 5        |
-| Week 1                                                                   | Local RAID Volume  | Local RAID Volume | Local RAID Volume | Local RAID Volume | Local RAID Volume | Local RAID Volume |
-| Week 2                                                                   | StorSimple Week 2-4 |                   |                   |                   |                   |                   |
-| Week 3                                                                   | StorSimple Week 2-4 |                   |                   |                   |                   |                   |
-| Week 4                                                                   | StorSimple Week 2-4 |                   |                   |                   |                   |                   |
-| Monthly                                                                  | StorSimple Monthly |                   |                   |                   |                   |                   |
-| Yearly                                                                   | StorSimple Yearly  |                   |                   |                   |                   |                   |
+| Frequency                                                                     | Full               | Incremental day 1        | Incremental day 2        | Incremental day 3        | Incremental day 4        | Incremental day 5        |
+| Week 1                                                                   | Local RAID volume  | Local RAID volume | Local RAID volume | Local RAID volume | Local RAID volume | Local RAID volume |
+| Week 2                                                                   | StorSimple week 2-4 |                   |                   |                   |                   |                   |
+| Week 3                                                                   | StorSimple week 2-4 |                   |                   |                   |                   |                   |
+| Week 4                                                                   | StorSimple week 2-4 |                   |                   |                   |                   |                   |
+| Monthly                                                                  | StorSimple monthly |                   |                   |                   |                   |                   |
+| Yearly                                                                   | StorSimple yearly  |                   |                   |                   |                   |                   |
 
 
 ### Assign StorSimple volumes to Backup Exec archive/deduplication job
 
-1.  Once the initial backup job is configured to use the RAID volume as the primary backup target, go to Veritas Backup Exec management console. Select the job that you want to archive to a StorSimple volume, right-click, and select Backup definition properties. Click **Edit**.
+1.  Once the initial backup job is configured to use the RAID volume as the primary backup target, go to Veritas Backup Exec management console. Select the job that you want to archive to a StorSimple volume, right-click, and select **Backup Definition Properties**. Click **Edit**.
 
     ![Backup Exec console, backup definitions properties tab](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 
@@ -448,7 +448,7 @@ The following table illustrates how the backups should be configured to run on t
 
     ![Backup Exec console, backup definitions add stage](./media/storsimple-configure-backup-target-using-backup-exec/image20.png)
 
-2.  In the Duplicate Options, select the appropriate **Source** and the **Schedule**.
+2.  In the **Duplicate Options**, select the appropriate **Source** and the **Schedule**.
 
     ![Backup Exec console, backup definitions properties, Duplicate Options](./media/storsimple-configure-backup-target-using-backup-exec/image21.png)
 
@@ -464,7 +464,7 @@ The following table illustrates how the backups should be configured to run on t
 
     ![Backup Exec console, backup definitions properties, Duplicate Options](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
-1.  In the Backup column, **add a new stage**. Choose the source as Incremental and the target as StorSimple volume where the incremental backup job is archived. Repeat the preceding steps.
+1.  In the **Backup** column, add a new stage. Choose the source as incremental and the target as StorSimple volume where the incremental backup job is archived. Repeat the preceding steps.
 
 ## StorSimple cloud snapshots
 
@@ -490,9 +490,9 @@ The following section illustrates how to create a short script to trigger and de
 
 -   The user account must have the necessary permissions.
 
--   A StorSimple Backup Policy with the associated StorSimple Volumes configured but not enabled.
+-   A StorSimple backup policy with the associated StorSimple volumes configured but not enabled.
 
--   StorSimple Resource Name, Registration Key, Device Name, and Backup policy ID.
+-   StorSimple resource name, registration key, device name, and backup policy ID.
 
 #### Steps:
 
@@ -506,44 +506,44 @@ The following section illustrates how to create a short script to trigger and de
 
     -   `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
 
-    Make a note of the Backup Policy ID.
+    Make a note of the backup policy ID.
 
 5.  In Notepad, create a new Windows PowerShell Script and save it in the same location where you saved the Azure publish settings. For example, `C:\\CloudSnapshot\\StorSimpleCloudSnapshot.ps1`.
 
     Copy and paste the following code snippet:
-      ```
-      Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
-      Disable-AzureDataCollection
-      $ApplianceName = <myStorSimpleApplianceName>
-      $RetentionInDays = 20
-      $RetentionInDays = -$RetentionInDays
-      $Today = Get-Date
-      $ExpirationDate = $Today.AddDays($RetentionInDays)
-      Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
-      Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
-      $CompletedSnapshots =@()
-      $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
-      Write-Host "The Expiration date is " $ExpirationDate
-      Write-Host
 
-      ForEach ($SnapShot in $CompletedSnapshots)
-      {
-          $SnapshotStartTimeStamp = $Snapshot.CreatedOn
-          if ($SnapshotStartTimeStamp -lt $ExpirationDate)
+    ```powershell
+    Import-AzurePublishSettingsFile "c:\\CloudSnapshot Snapshot\\myAzureSettings.publishsettings"
+    Disable-AzureDataCollection
+    $ApplianceName = <myStorSimpleApplianceName>
+    $RetentionInDays = 20
+    $RetentionInDays = -$RetentionInDays
+    $Today = Get-Date
+    $ExpirationDate = $Today.AddDays($RetentionInDays)
+    Select-AzureStorSimpleResource -ResourceName "myResource" –RegistrationKey
+    Start-AzureStorSimpleDeviceBackupJob –DeviceName $ApplianceName -BackupType CloudSnapshot -BackupPolicyId <BackupId> -Verbose
+    $CompletedSnapshots =@()
+    $CompletedSnapshots = Get-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName
+    Write-Host "The Expiration date is " $ExpirationDate
+    Write-Host
 
-          {
-              $SnapShotInstanceID = $SnapShot.InstanceId
-              Write-Host "This snpashotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
-              Write-Host "Instance ID " $SnapShotInstanceID
-              Write-Host "This snpashotdate is older and needs to be deleted"
-              Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
-              Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
-          }
-      }
+    ForEach ($SnapShot in $CompletedSnapshots)
+    {
+    $SnapshotStartTimeStamp = $Snapshot.CreatedOn
+    if ($SnapshotStartTimeStamp -lt $ExpirationDate)
 
-      ```
+        {
+        $SnapShotInstanceID = $SnapShot.InstanceId
+        Write-Host "This snapshotdate was created on " $SnapshotStartTimeStamp.Date.ToShortDateString()
+        Write-Host "Instance ID " $SnapShotInstanceID
+        Write-Host "This snpashotdate is older and needs to be deleted"
+        Write-host "\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#"
+        Remove-AzureStorSimpleDeviceBackup -DeviceName $ApplianceName -BackupId $SnapShotInstanceID -Force -Verbose
+        }
+    }   
+    ```
 
-1.  Add the script to your backup job in Veritas Backup Exec, by editing your Veritas Backup Exec job options pre-post commands
+1.  Add the script to your backup job in Veritas Backup Exec, by editing your Veritas Backup Exec job options pre-post commands.
 
     ![Backup Exec console, backup options, Pre/post commands tab](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
@@ -567,6 +567,7 @@ A disaster could occur due to various factors. The following table lists common 
 | Veritas Backup Exec Server failure.                                       | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [How to do a manual Backup and Restore of Backup Exec (BEDB) database](http://www.veritas.com/docs/000041083).            | The Veritas Backup Exec server needs to be rebuilt or restored at the DR site. The database needs to be restored to the most recent point. If the restored Veritas Backup Exec database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning could cause all backup sets to be scanned and pulled from cloud tier to local device tier. This makes it further time-intensive. |
 | Site failure that results in the loss of both Backup server and StorSimple. | Backup and restore operations are interrupted. | Restore StorSimple first and then Veritas Backup Exec.                                                                                                                                   | Restore StorSimple first and then Veritas Backup Exec.                                                                If there is a need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. As a result, all operations are at cloud speed rate.|
 
+
 ## References
 
 The following documents have been referenced in this article:
@@ -578,3 +579,10 @@ The following documents have been referenced in this article:
 - [Using GPT drives](http://msdn.microsoft.com/windows/hardware/gg463524.aspx#EHD)
 
 - [Enable and configure shadow copies for shared folders](http://technet.microsoft.com/library/cc771893.aspx)
+
+## Next steps
+
+Learn more:
+
+- About how to [Restore from a backupset](storsimple-restore-from-backup-set-u2.md).
+- About how to perform [Device failover and disaster recovery](storsimple-device-failover-disaster-recovery.md).
