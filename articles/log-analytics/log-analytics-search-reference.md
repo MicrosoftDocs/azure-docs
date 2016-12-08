@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 12/07/2016
 ms.author: banders
 
 ---
@@ -248,6 +248,29 @@ TimeGenerated:[NOW..NOW+1DAY]
 
 ```
 SampleValue:[0..2]
+```
+
+### Regular Expressions
+You can specify a search condition for a field with a regular expression by using the Regex keyword.
+
+**Syntax**
+
+```
+field:Regex("Regular Expression")
+```
+
+```
+field=Regex("Regular Expression")
+```
+
+**Example**
+
+```
+Computer=Regex("C.*")
+```
+
+```
+Computer=Regex("^C.*")
 ```
 
 ### Logical operators
