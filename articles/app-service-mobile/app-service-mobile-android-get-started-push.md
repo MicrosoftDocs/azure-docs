@@ -53,7 +53,7 @@ In this section, you update your client Android app to handle push notifications
 ### Verify Android SDK version
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the Manifest must conform to.
+Your next step is to install Google Play services. Google Cloud Messaging has some minimum API level requirements for development and testing, which the **minSdkVersion** property in the manifest must conform to.
 
 If you are testing with an older device, consult [Set Up Google Play Services SDK] to determine how low you can set this value, and set it appropriately.
 
@@ -72,7 +72,7 @@ Now that you completed this tutorial, consider continuing on to one of the follo
 * [Add authentication to your Android app](app-service-mobile-android-get-started-users.md).
   Learn how to add authentication to the todolist quickstart project on Android using a supported identity provider.
 * [Enable offline sync for your Android app](app-service-mobile-android-get-started-offline-data.md).
-  Learn how to add offline support your app using a Mobile App back end. With offline sync, users can interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
+  Learn how to add offline support your app using a Mobile Apps back end. With offline sync, users can interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 <!-- URLs -->
 [Android quick start]: app-service-mobile-android-get-started.md
