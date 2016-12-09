@@ -95,7 +95,7 @@ Most Linux VMs in Azure do not have a desktop environment installed by default. 
 
 The following example installs the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu VM. Commands for other distributions vary slightly (use **yum** to install on Red Hat Enterprise Linux and configure appropriate **selinux** rules, or use **zypper** to install on SUSE, for example).
 
-First, SSH to your VM. THe following example connects to the VM named `myvm.westus.cloudapp.azure.com` with the username of `ops`:
+First, SSH to your VM. The following example connects to the VM named `myvm.westus.cloudapp.azure.com` with the username of `ops`:
 
 ```bash
 ssh ops@myvm.westus.cloudapp.azure.com ~/.ssh/id_rsa.pub
