@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/07/2016
 ms.author: juliako
 
 ---
@@ -23,14 +23,14 @@ When you're delivering your streaming or video-on-demand content to customers, y
 To achieve this goal, you can:
 
 * Encode your stream to a multi-bitrate (adaptive bitrate) video stream. This will take care of quality and network conditions.
-* Use Microsoft Azure Media Services [dynamic packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream into different protocols. This will take care of streaming on different devices. Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG-DASH, and HDS (for Adobe Primetime/Access licensees only).
+* Use Microsoft Azure Media Services [dynamic packaging](media-services-dynamic-packaging-overview.md) to dynamically re-package your stream into different protocols. This will take care of streaming on different devices. Media Services supports delivery of the following adaptive bitrate streaming technologies: HTTP Live Streaming (HLS), Smooth Streaming, and MPEG-DASH.
 
 This article gives an overview of important content delivery concepts.
 
 To check known issues, see [Known issues](media-services-deliver-content-overview.md#known-issues).
 
 ## Dynamic packaging
-With the dynamic packaging that Media Services provides, you can deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG-DASH, HLS, Smooth Streaming, HDS) without having to re-package into these streaming formats. We recommend delivering your content with dynamic packaging.
+With the dynamic packaging that Media Services provides, you can deliver your adaptive bitrate MP4 or Smooth Streaming encoded content in streaming formats supported by Media Services (MPEG-DASH, HLS, Smooth Streaming,) without having to re-package into these streaming formats. We recommend delivering your content with dynamic packaging.
 
 To take advantage of dynamic packaging, you need to do the following:
 
@@ -70,7 +70,7 @@ Locators are not designed to manage per-user access control. You can give differ
 When you create a locator, there may be a 30-second delay due to required storage and propagation processes in Azure Storage.
 
 ## Adaptive streaming
-Adaptive bitrate technologies allow video player applications to determine network conditions and select from several bitrates. When network communication degrades, the client can select a lower bitrate so playback can continue with lower video quality. As network conditions improve, the client can switch to a higher bitrate with improved video quality. Azure Media Services supports the following adaptive bitrate technologies: HTTP Live Streaming (HLS), Smooth Streaming, MPEG-DASH, and HDS.
+Adaptive bitrate technologies allow video player applications to determine network conditions and select from several bitrates. When network communication degrades, the client can select a lower bitrate so playback can continue with lower video quality. As network conditions improve, the client can switch to a higher bitrate with improved video quality. Azure Media Services supports the following adaptive bitrate technologies: HTTP Live Streaming (HLS), Smooth Streaming, and MPEG-DASH.
 
 To provide users with streaming URLs, you first must create an OnDemandOrigin locator. Creating the locator gives you the base path to the asset that contains the content you want to stream. However, to be able to stream this content, you need to modify this path further. To construct a full URL to the streaming manifest file, you must concatenate the locator’s path value and the manifest (filename.ism) file name. Then append **/Manifest** and an appropriate format (if needed) to the locator path.
 
@@ -117,11 +117,6 @@ By default, Smooth Streaming manifest format contains the repeat tag (r-tag). Ho
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=fmp4-v20)
 
     http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=fmp4-v20)
-
-### HDS (for Adobe PrimeTime/Access licensees only)
-{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=f4m-f4f)
-
-    http://testendpoint-testaccount.streaming.mediaservices.windows.net/fecebb23-46f6-490d-8b70-203e86b0df58/BigBuckBunny.ism/Manifest(format=f4m-f4f)
 
 ## Progressive download
 With progressive download, you can start playing media before the entire file has been downloaded. You cannot progressively download .ism* (ismv, isma, ismt, or ismc) files.

@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 12/07/2016
 ms.author: willzhan;kilroyh;yanmf;juliako
 
 ---
@@ -82,7 +82,7 @@ The following table summarizes the native platform/native app, and browsers supp
 | **Windows 10 devices (Windows PC, Windows Tablets, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>UWP |DASH (For HLS, PlayReady is not supported)<br/><br/>DASH, Smooth Streaming (For HLS, PlayReady is not supported) |
 | **Android devices (Phone, Tablet, TV)** |Widevine |Chrome/EME |DASH |
 | **iOS (iPhone, iPad), OS X clients and Apple TV** |FairPlay |Safari 8+/EME |HLS |
-| **Plugin: Adobe Primetime** |Primetime Access |Browser plugin |HDS, HLS |
+
 
 Considering the current state of deployment for each DRM, a service will typically want to implement 2 or 3 DRMs to make sure you address all the types of endpoints in the best way.
 
