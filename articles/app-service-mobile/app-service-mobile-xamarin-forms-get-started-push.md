@@ -40,11 +40,11 @@ Complete this section to enable push notifications for the Xamarin.Forms Droid p
 ### Enable Firebase Cloud Messaging (FCM)
 [!INCLUDE [notification-hubs-enable-firebase-cloud-messaging](../../includes/notification-hubs-enable-firebase-cloud-messaging.md)]
 
-### Configure the Mobile App back end to send push requests by using FCM
+### Configure the Mobile Apps back end to send push requests by using FCM
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push.md)]
 
 ### Add push notifications to the Android project
-With the back end configured with FCM, you can add components and codes to the client to register with FCM. You can also register for push notifications with Azure Notification Hubs through the mobile app back end, and receive notifications.
+With the back end configured with FCM, you can add components and codes to the client to register with FCM. You can also register for push notifications with Azure Notification Hubs through the Mobile Apps back end, and receive notifications.
 
 1. In the **Droid** project, right-click the **Components** folder, and click **Get More Components...**. Then search for the **Google Cloud Messaging Client** component and add it to the project. This component supports push notifications for a Xamarin Android project.
 2. Open the MainActivity.cs project file, and add the following statement at the top of the file:
@@ -404,7 +404,7 @@ This section is for running the Xamarin.Forms WinApp and WinPhone81 projects for
 
     This ensures that the push notification registration is created or refreshed every time the app is launched. It's important to do this to guarantee that the WNS push channel is always active.  
 4. In Solution Explorer for Visual Studio, open the **Package.appxmanifest** file, and set **Toast Capable** to **Yes** under **Notifications**.
-5. Build the app and verify you have no errors. Your client app should now register for the template notifications from the Mobile App back end. Repeat this section for every Windows project in your solution.
+5. Build the app and verify you have no errors. Your client app should now register for the template notifications from the Mobile Apps back end. Repeat this section for every Windows project in your solution.
 
 #### Test push notifications in your Windows app
 1. In Visual Studio, right-click a Windows project, and click **Set as startup project**.
@@ -423,7 +423,7 @@ You can also continue on to one of the following tutorials:
 * [Add authentication to your app ](app-service-mobile-xamarin-forms-get-started-users.md)  
   Learn how to authenticate users of your app with an identity provider.
 * [Enable offline sync for your app](app-service-mobile-xamarin-forms-get-started-offline-data.md)  
-  Learn how to add offline support for your app by using a Mobile App back end. With offline sync, users can interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
+  Learn how to add offline support for your app by using a Mobile Apps back end. With offline sync, users can interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 <!-- Images. -->
 

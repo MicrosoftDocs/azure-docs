@@ -60,4 +60,4 @@
         }
 5. From the **Run** menu, click **Run app** to start the app and sign in with your chosen identity provider.
 
-       When you are successfully signed in, the app should run without errors, and you should be able to query the back end service and make updates to data.
+When you are successfully signed in, the app should run without errors, and you should be able to query the back-end service and make updates to data.

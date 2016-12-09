@@ -1,6 +1,6 @@
-Use the procedure that matches your back end project type&mdash;either [.NET back end](#dotnet) or [Node.js back end](#nodejs).
+Use the procedure that matches your back-end project type&mdash;either [.NET back end](#dotnet) or [Node.js back end](#nodejs).
 
-### <a name="dotnet"></a>.NET back end project
+### <a name="dotnet"></a>.NET back-end project
 1. In Visual Studio, right-click the server project, and click **Manage NuGet Packages**. Search for `Microsoft.Azure.NotificationHubs`, and then click **Install**. This installs the Notification Hubs client library.
 2. In the Controllers folder, open TodoItemController.cs and add the following `using` statements:
 
@@ -48,7 +48,7 @@ Use the procedure that matches your back end project type&mdash;either [.NET bac
 
 4. Republish the server project.
 
-### <a name="nodejs"></a>Node.js back end project
+### <a name="nodejs"></a>Node.js back-end project
 1. If you haven't already done so, [download the quickstart project](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#download-quickstart), or else use the [online editor in the Azure portal](../articles/app-service-mobile/app-service-mobile-node-backend-how-to-use-server-sdk.md#online-editor).
 2. Replace the existing code in the todoitem.js file with the following:
 

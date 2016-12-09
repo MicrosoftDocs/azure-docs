@@ -1,8 +1,8 @@
 
-The previous example showed a standard sign in, which requires the client to contact both the identity provider and the back end Azure service every time the app starts. This method is inefficient, and you can have usage-related issues if many customers try to start your app simultaneously. A better approach is to cache the authorization token returned by the Azure service, and try to use this first before using a provider-based sign in.
+The previous example showed a standard sign-in, which requires the client to contact both the identity provider and the back-end Azure service every time the app starts. This method is inefficient, and you can have usage-related issues if many customers try to start your app simultaneously. A better approach is to cache the authorization token returned by the Azure service, and try to use this first before using a provider-based sign-in.
 
 > [!NOTE]
-> You can cache the token issued by the back end Azure service regardless of whether you are using client-managed or service-managed authentication. This tutorial uses service-managed authentication.
+> You can cache the token issued by the back-end Azure service regardless of whether you are using client-managed or service-managed authentication. This tutorial uses service-managed authentication.
 >
 >
 

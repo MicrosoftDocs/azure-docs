@@ -19,7 +19,7 @@
 4. Open the file *ToDoActivity.java*, and add the following import statement:
 
         import com.microsoft.windowsazure.notifications.NotificationsManager;
-5. Add the following private variable to the class. Replace *`<PROJECT_NUMBER>`* with the Project Number assigned by Google to your app in the preceding procedure.
+5. Add the following private variable to the class. Replace *`<PROJECT_NUMBER>`* with the project number assigned by Google to your app in the preceding procedure.
 
         public static final String SENDER_ID = "<PROJECT_NUMBER>";
 6. Change the definition of *MobileServiceClient* from **private** to **public static**, so it now looks like this:
@@ -46,7 +46,7 @@
 11. Next add this member to the `MyHandler` class:
 
         public static final int NOTIFICATION_ID = 1;
-12. In the `MyHandler` class, add the following code to override the **onRegistered** method, which registers your device with the mobile service Notification Hub.
+12. In the `MyHandler` class, add the following code to override the **onRegistered** method, which registers your device with the mobile service notification hub.
 
         @Override
         public void onRegistered(Context context,  final String gcmRegistrationId) {
