@@ -150,7 +150,9 @@ You need to know your public IP address to set the firewall rule. You can get yo
 
 The following uses the [Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserverfirewallrule), and [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) cmdlets to get a reference or create a new rule. For this snippet, if the rule already exists, it only gets a reference to it and doesn't update the start and end IP addresses. You can always modify the **else** clause to use the [Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverfirewallrule) for create or update functionality.
 
-> [!NOTE] You can open the SQL Database firewall on the server to a single IP address or an entire range of addresses. Opening the firewall enables SQL administrators and users to login to any database on the server to which they have valid credentials.
+> [!NOTE] 
+> You can open the SQL Database firewall on the server to a single IP address or an entire range of addresses. Opening the firewall enables SQL administrators and users to login to any database on the server to which they have valid credentials.
+>
 
 ```
 #$serverName = "{server-name}"
@@ -198,11 +200,11 @@ $command.Connection = $connection
 $reader = $command.ExecuteReader()
 
 
-$tables = ""
+$sysObjects = ""
 while ($reader.Read()) {
-    $tables += $reader["name"] + "`n"
+    $sysObjects += $reader["name"] + "`n"
 }
-$tables
+$sysObjects
 
 $connection.Close()
 ```
@@ -211,7 +213,8 @@ $connection.Close()
 ## Create new AdventureWorksLT sample database using Azure PowerShell
 
 The following snippet imports a bacpac of the AdventureWorksLT sample database using the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport) cmdlet. The bacpac is located in Azure blob storage. After running the import cmdlet, you can monitor the progress of the import operation using the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus) cmdlet.
-The $storageUri is the URL property of the bacpac file you uploaded to the portal earlier. 
+The $storageUri is the URL property of the bacpac file you uploaded to the portal earlier, and should be similar to:
+https://{storage-account}.blob.core.windows.net/{container}/AdventureWorksLT.bacpac
 
 ```
 #$resourceGroupName = "{resource-group-name}"
@@ -270,7 +273,7 @@ Lets run a quick query against the AdventureWorksLT database to verify we can co
 #$serverAdminPassword = "{server-admin-password}"
 #$databaseName = {database-name}
 
-$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID={server-admin};Password={admin-password}" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=$serverAdmin;Password=$serverAdminPassword" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
 
 $connection = New-Object System.Data.SqlClient.SqlConnection
@@ -282,11 +285,11 @@ $command.Connection = $connection
 $reader = $command.ExecuteReader()
 
 
-$tables = ""
+$sysObjects = ""
 while ($reader.Read()) {
-    $tables += $reader["name"] + "`n"
+    $sysObjects += $reader["name"] + "`n"
 }
-$tables
+$sysObjects
 
 $connection.Close()
 ```
@@ -445,11 +448,11 @@ $command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.object
 $command.Connection = $connection
 $reader = $command.ExecuteReader()
 
-$tables = ""
+$sysObjects = ""
 while ($reader.Read()) {
-    $tables += $reader["name"] + "`n"
+    $sysObjects += $reader["name"] + "`n"
 }
-$tables
+$sysObjects
 
 $connection.Close()
 
@@ -510,11 +513,11 @@ $command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.object
 $command.Connection = $connection
 $reader = $command.ExecuteReader()
 
-$tables = ""
+$sysObjects = ""
 while ($reader.Read()) {
-    $tables += $reader["name"] + "`n"
+    $sysObjects += $reader["name"] + "`n"
 }
-$tables
+$sysObjects
 
 $connection.Close()
 
