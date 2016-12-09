@@ -122,21 +122,30 @@ You can choose any SSH tool to connect to your virtual machine. In this example,
 In this phase, you install the Java runtime environment, Tomcat, and other Tomcat components.  
 
 ### Java runtime environment
-Tomcat is written in Java. There are two kinds of Java Development Kits (JDKs) (OpenJDK and Oracle JDK), and you can choose the one you want.  
+Tomcat is written in Java. There are two kinds of Java Development Kits (JDKs), OpenJDK and Oracle JDK. You can choose the one you want.  
 
 > [!NOTE]
-> Both JDKs have almost the same code for the classes in the Java API, but the code for the virtual machine is actually different. When it comes to libraries, OpenJDK tends to use open libraries while Oracle tends to use closed ones. But Oracle JDK has more classes and some fixed bugs, and Oracle JDK is more stable than OpenJDK.
+> Both JDKs have almost the same code for the classes in the Java API, but the code for the virtual machine is different. OpenJDK tends to use open libraries, while Oracle JDK tends to use closed ones. Oracle JDK has more classes and some fixed bugs, and Oracle JDK is more stable than OpenJDK.
 
-The following commands download the different JDKs.  
+#### Install OpenJDK  
 
-open-jdk   
+Use the following command to download OpenJDK.   
 
     sudo apt-get update  
     sudo apt-get install openjdk-7-jre  
 
-oracle-jdk  
 
-* To download the JDK from the Oracle website:  
+* To create a directory to contain the JDK files:  
+
+     sudo mkdir /usr/lib/jvm  
+* To extract the JDK files into the /usr/lib/jvm/ directory:  
+
+     sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/
+
+#### Install Oracle JDK
+
+
+Use the following command to download Oracle JDK from the Oracle website.  
 
      wget --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u5-b13/jdk-8u5-linux-x64.tar.gz  
 * To create a directory to contain the JDK files:  
@@ -145,37 +154,37 @@ oracle-jdk
 * To extract the JDK files into the /usr/lib/jvm/ directory:  
 
      sudo tar -zxf jdk-8u5-linux-x64.tar.gz  -C /usr/lib/jvm/  
-* To set Oracle JDK as the default JVM:  
+* To set Oracle JDK as the default Java virtual machine:  
 
      sudo update-alternatives --install /usr/bin/java java /usr/lib/jvm/jdk1.8.0_05/bin/java 100  
      sudo update-alternatives --install /usr/bin/javac javac /usr/lib/jvm/jdk1.8.0_05/bin/javac 100  
 
-#### Test:
+#### Confirm that Java installation is successful
 You can use a command like the following to test if the Java runtime environment is installed correctly:  
 
     java -version  
 
-If you installed open-jdk, you should see a message like the following:
-![][14]
+If you installed OpenJDK, you should see a message like the following:
+![Successful OpenJDK installation message][14]
 
-If you installed oracle-jdk, you should see a message like the following:
-![][15]
+If you installed Oracle JDK, you should see a message like the following:
+![Successful Oracle JDK installation message][15]
 
-### Tomcat7
-Using the following command to install Tomcat7:  
+### Install Tomcat7
+Use the following command to install Tomcat7.  
 
     sudo apt-get install tomcat7  
 
 If you are not using Tomcat7, use the appropriate variation of this command.  
 
-#### Test:
-To check if Tomcat7 is successfully installed, browse to your Tomcat server’s DNS name (http://tomcatexample.cloudapp.net/ is the example URL in this article). If you see a page like the following, you have Tomcat7 installed correct.
-![][16]
+#### Confirm that Tomcat7 installation is successful
+To check if Tomcat7 is successfully installed, browse to your Tomcat server’s DNS name. In this article, the example URL is http://tomcatexample.cloudapp.net/ . If you see a message like the following, Tomcat7 is installed correctly.
+![Successful Tomcat7 installation message][16]
 
 ### Install other Tomcat components
-There are other optional Tomcat components that you can also install.  
+There are other optional Tomcat components that you can install.  
 
-Use the **sudo apt-cache search tomcat7** command to see all the available components. The following commands are examples to install some useful parts.  
+Use the **sudo apt-cache search tomcat7** command to see all of the available components. Use the following commands to install some useful components.  
 
     sudo apt-get install tomcat7-admin      #admin web applications
     sudo apt-get install tomcat7-user         #tools to create user instances  
@@ -201,12 +210,12 @@ To restart Tomcat services：
     sudo /etc/init.d/tomcat7 restart
 
 ### Tomcat administration
-You can edit the Tomcat user configuration file to setup your admin credentials with the following command:  
+You can edit the Tomcat user configuration file to set up your admin credentials. Use the following command:  
 
     sudo vi  /etc/tomcat7/tomcat-users.xml   
 
 Here is an example:  
-![][17]  
+![Screenshot that shows the sudo vi command output][17]  
 
 > [!NOTE]
 > Create a strong password for the admin username.  
@@ -218,44 +227,49 @@ After editing this file, you should restart Tomcat7 services with the following 
 Open your browser, and enter the URL **http://<your tomcat server DNS name>/manager/html**. For the example in this article, the URL is http://tomcatexample.cloudapp.net/manager/html.  
 
 After connecting, you should see something similar to the following:  
-![][18]
+![Screenshot of the Tomcat Web Application Manager][18]
 
 ## Common issues
 ### Can't access the virtual machine with Tomcat and Moodle from the Internet
-* **Symptom**  
+#### Symptom  
   Tomcat is running but you can’t see the Tomcat default page with your browser.
-* **Possible root case**   
+#### Possible root case   
 
-  1. The Tomcat listen port is not same as the Private Port of your virtual machine's endpoint for Tomcat traffic.  
+  * The Tomcat listen port is not the same as the Private Port of your virtual machine's endpoint for Tomcat traffic.  
 
      Check your Public Port and Private Port endpoint settings and make sure the Private Port is same as the Tomcat listen port. See Phase 1: Create an image section of this article for instructions on configuring endpoints for your virtual machine.  
 
-     To determine the Tomcat listen port, open /etc/httpd/conf/httpd.conf (Red Hat release) or /etc/tomcat7/server.xml (Debian release). By default, the Tomcat listen port is 8080. Here is an example:  
+     To determine the Tomcat listen port, open /etc/httpd/conf/httpd.conf (Red Hat release), or /etc/tomcat7/server.xml (Debian release). By default, the Tomcat listen port is 8080. Here is an example:  
 
-      <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"  URIEncoding="UTF-8"            redirectPort="8443" />  
+        <Connector port="8080" protocol="HTTP/1.1"  connectionTimeout="20000"   URIEncoding="UTF-8"            redirectPort="8443" />  
 
      If you are using a virtual machine like Debian or Ubuntu and you want to change the default port of Tomcat Listen (for example 8081), you should also open the port for the OS. First, open the Profile:  
 
-      sudo vi /etc/default/tomcat7  
+        sudo vi /etc/default/tomcat7  
 
      Then uncomment the last line and change “no” to “yes”.  
 
-      AUTHBIND=yes
+        AUTHBIND=yes
   2. The firewall has disabled the listen port of Tomcat.
 
-     If you can only see the Tomcat default page from the local host, then the problem is most likely that the port which is listened by Tomcat is blocked by the firewall. You can use the w3m tool to browse the web page. The following commands install w3m and browse to the Tomcat default page:  
+     If you can only see the Tomcat default page from the local host, then the problem is most likely that the port which is listened to by Tomcat is blocked by the firewall. You can use the w3m tool to browse the webpage. The following commands install w3m and browse to the Tomcat default page:  
 
-      sudo yum  install w3m w3m-img
-      w3m http://localhost:8080  
-* **Solution**
 
-  1. If the Tomcat listen port is not same as the Private Port of the endpoint for traffic to the virtual machine, you need change the Private Port to be the same as the Tomcat listen port.   
-  2. If the issue is caused by the firewall/iptables, add the following lines to /etc/sysconfig/iptables:  
+        sudo yum  install w3m w3m-img
+
+
+        w3m http://localhost:8080  
+#### Solution
+
+  * If the Tomcat listen port is not the same as the Private Port of the endpoint for traffic to the virtual machine, you need change the Private Port to be the same as the Tomcat listen port.   
+  2. If the issue is caused by firewall/iptables, add the following lines to /etc/sysconfig/iptables:  
 
       -A INPUT -p tcp -m tcp --dport 80 -j ACCEPT
+
       -A INPUT -p tcp -m tcp --dport 443 -j ACCEPT  
 
-     Note that the second line is only needed for https traffic.  
+     > [!NOTE]
+     > the second line is only needed for https traffic.
 
      Make sure this is above any lines that would globally restrict access, such as the following:  
 
@@ -263,34 +277,34 @@ After connecting, you should see something similar to the following:
 
      To reload the iptables, run the following command:  
 
-      service iptables restart  
+            service iptables restart  
 
      This has been tested on CentOS 6.3.
 
 ### Permission denied when upload you project files to /var/lib/tomcat7/webapps/
-* **Symptom**  
-  When you use any SFTP client (such as FileZilla) to connect to your virtual machine and navigate to /var/lib/tomcat7/webapps/ to publish your site, you get an error message similar to the following:  
+#### Symptom
+  When you use an SFTP client (such as FileZilla) to connect to your virtual machine and navigate to /var/lib/tomcat7/webapps/ to publish your site, you get an error message similar to the following:  
 
      status:    Listing directory /var/lib/tomcat7/webapps
      Command:    put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
      Error:    /var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
      Error:    File transfer failed
-* **Possible root case**
+#### Possible root case
   You have no permissions to access the /var/lib/tomcat7/webapps folder.  
-* **Solution**  
-  You need get permission from the root account. You can change the ownership of that folder from root to the username you used when provisioning the machine. Here is an example with the azureuser account name:  
+#### Solution  
+  You need get permission from the root account. You can change the ownership of that folder from root to the username you used when you provisioned the machine. Here is an example with the azureuser account name:  
 
      sudo chown azureuser -R /var/lib/tomcat7/webapps
 
   Use the -R option to apply the permissions for all files inside of a directory too.  
 
-  Note that this command also works for directories. The -R option changes the permissions for all files and directories inside of the directory. Here is an example:  
+  This command also works for directories. The -R option changes the permissions for all files and directories inside the directory. Here is an example:  
 
      sudo chown -R username:group directory  
 
-  This command changes ownership (both user and group) for all files and directories inside of directory and directory itself.  
+  This command changes ownership (both user and group) for all files and directories that are inside the directory.  
 
-  The following command only changes the permission of the folder directory but leaves the files and folders inside the directory alone.  
+  The following command only changes the permission of the folder directory. The files and folders inside the directory are not changed.  
 
      sudo chown username:group directory
 
