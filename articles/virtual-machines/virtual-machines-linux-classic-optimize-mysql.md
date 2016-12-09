@@ -25,7 +25,7 @@ There are many factors that impact MySQL performance on Azure, both in virtual h
 > Azure has two different deployment models for creating and working with resources: [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and Classic. This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For information about Linux VM optimizations with the Resource Manager model, see [Optimize your Linux VM on Azure](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Utilize RAID on an Azure virtual machine
-Storage is the key factor that impacts database performance in cloud environments.  Compared to a single disk, RAID can provide faster access via concurrency.  Refer to [Standard RAID Levels](http://en.wikipedia.org/wiki/Standard_RAID_levels) for more detail.   
+Storage is the key factor that impacts database performance in cloud environments.  Compared to a single disk, RAID can provide faster access via concurrency.  Refer to [Standard RAID levels](http://en.wikipedia.org/wiki/Standard_RAID_levels) for more information.   
 
 Disk I/O throughput and I/O response time in Azure can be improved through RAID. Our lab tests show that disk I/O throughput can be doubled and I/O response time can be reduced by half on average when the number of RAID disks is doubled (from two to four, four to eight, etc.). See [Appendix A](#AppendixA) for details.  
 
@@ -33,7 +33,7 @@ In addition to disk I/O, MySQL performance improves when you increase the RAID l
 
 You might also want to consider the chunk size. In general, when you have a larger chunk size, you get lower overhead, especially for large writes. However, when the chunk size is too large, it might add additional overhead that prevents you from taking advantage of RAID. The current default size is 512 KB, which is proven to be optimal for most general production environments. See [Appendix C](#AppendixC) for details.   
 
-There are limits on how many disks you can add for different virtual machine types. These limits are detailed in [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). You will need four attached data disks to follow the RAID example in this article, although you could choose to set up RAID with fewer disks.  
+There are limits on how many disks you can add for different virtual machine types. These limits are detailed in [Virtual machine and cloud service sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). You will need four attached data disks to follow the RAID example in this article, although you could choose to set up RAID with fewer disks.  
 
 This article assumes you have already created a Linux virtual machine and have MYSQL installed and configured. For more information on getting started, see How to install MySQL on Azure.  
 
@@ -107,18 +107,18 @@ Linux implements four types of I/O scheduling algorithms:
 * Completely fair queuing algorithm (CFQ)
 * Budget period algorithm (Anticipatory)  
 
-You can select different I/O schedulers under different scenarios to optimize performance. In a completely random access environment, there is not a significant difference between the CFQ and Deadline algorithms for performance. It is recommended to set the MySQL database environment to Deadline for stability. If there is a lot of sequential I/O, CFQ might reduce disk I/O performance.   
+You can select different I/O schedulers under different scenarios to optimize performance. In a completely random access environment, there is not a significant difference between the CFQ and Deadline algorithms for performance. We recommend that you set the MySQL database environment to Deadline for stability. If there is a lot of sequential I/O, CFQ might reduce disk I/O performance.   
 
 For SSD and other equipment, NOOP or Deadline can achieve better performance than the default scheduler.   
 
-From the kernel 2.5, the default I/O scheduling algorithm is Deadline. Beginning from the kernel 2.6.18, CFQ became the default I/O scheduling algorithm.  You can specify this setting at kernel boot time or dynamically modify this setting when the system is running.  
+Prior to the kernel 2.5, the default I/O scheduling algorithm is Deadline. Starting with the kernel 2.6.18, CFQ became the default I/O scheduling algorithm.  You can specify this setting at kernel boot time or dynamically modify this setting when the system is running.  
 
 The following example demonstrates how to check and set the default scheduler to the NOOP algorithm.  
 
 For the Debian distribution family:
 
 ### View the current I/O scheduler
-Use the following command to view the scheduler:  
+Run the following command to view the scheduler:  
 
     root@mysqlnode1:~# cat /sys/block/sda/queue/scheduler
 
@@ -127,8 +127,8 @@ You will see following output, which indicates the current scheduler:
     noop [deadline] cfq
 
 
-### Change the current device (/dev/sda) of I/O scheduling algorithm
-Use the following commands to change the current device:  
+### Change the current device (/dev/sda) of the I/O scheduling algorithm
+Run the following commands to change the current device:  
 
     azureuser@mysqlnode1:~$ sudo su -
     root@mysqlnode1:~# echo "noop" >/sys/block/sda/queue/scheduler
@@ -156,7 +156,7 @@ For the Red Hat distribution family, you need only the following command:
     echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
 ## Configure system file operations settings
-One best practice is to disable the atime logging feature on the file system. Atime is the last file access time. Whenever a file is accessed, the file system records the timestamp in the log. However, this information is rarely used. You can disable it if you don't need it, which will reduce overall disk access time.  
+One best practice is to disable the *atime* logging feature on the file system. Atime is the last file access time. Whenever a file is accessed, the file system records the timestamp in the log. However, this information is rarely used. You can disable it if you don't need it, which will reduce overall disk access time.  
 
 To disable atime logging, you need to modify the file system configuration file /etc/ fstab and add the **noatime** option.  
 
@@ -200,7 +200,7 @@ Run the following commands to update the system:
     ulimit -SHu 65536
 
 ### Ensure that the limits are updated at boot time
-Put the following startup commands in the /etc/rc.local file so it will take effect during every boot time.  
+Put the following startup commands in the /etc/rc.local file so it will take effect at boot time.  
 
     echo “ulimit -SHn 65536” >>/etc/rc.local
     echo “ulimit -SHu 65536” >>/etc/rc.local
@@ -221,7 +221,7 @@ The following configuration items are the main factors that affect MySQL perform
 * **innodb_log_file_size**: This is the redo log size. You use redo logs to ensure that write operations are fast, reliable, and recoverable after a crash. This is set to 512 MB, which will give you plenty of space for logging write operations.
 * **max_connections**: Sometimes applications do not close connections properly. A larger value will give the server more time to recycle idled connections. The maximum number of connections is 10,000, but the recommended maximum is 5,000.
 * **Innodb_file_per_table**: This setting enables or disables the ability of InnoDB to store tables in separate files. Turn on the option to ensure that several advanced administration operations can be applied efficiently. From a performance point of view, it can speed up the table space transmission and optimize the debris management performance. The recommended setting for this option is ON.</br></br>
-From MySQL 5.6, the default setting is ON, so no action is required. For earlier versions, the default setting is OFF. The setting should be changed before data is loaded, because only newly created tables are affected.</br></br>
+From MySQL 5.6, the default setting is ON, so no action is required. For earlier versions, the default setting is OFF. The setting should be changed before data is loaded, because only newly created tables are affected.
 * **innodb_flush_log_at_trx_commit**: The default value is 1, with the scope set to 0~2. The default value is the most suitable option for standalone MySQL DB. The setting of 2 enables the most data integrity and is suitable for Master in MySQL cluster. The setting of 0 allows data loss, which can affect reliability (in some cases with better performance), and is suitable for Slave in MySQL cluster.
 * **Innodb_log_buffer_size**: The log buffer allows transactions to run without having to flush the log to disk before the transactions commit. However, if there is large binary object or text field, the cache will be consumed quickly and frequent disk I/O will be triggered. It is better increase the buffer size if Innodb_log_waits state variable is not 0.
 * **query_cache_size**: The best option is to disable it from the outset. Set query_cache_size to 0 (this is the default setting in MySQL 5.6) and use other methods to speed up queries.  
@@ -234,11 +234,13 @@ The MySQL slow query log can help you identify the slow queries for MySQL. After
 By default, this is not enabled. Turning on the slow query log might consume some CPU resources. We recommend that you enable this temporarily for troubleshooting performance bottlenecks. To turn on the slow query log:
 
 1. Modify my.cnf file by adding the following lines to the end:
+
         long_query_time = 2
         slow_query_log = 1
         slow_query_log_file = /RAID0/mysql/mysql-slow.log
 
 2. Restart mysql server.
+
         service  mysql  restart
 
 3. Check whether the setting is taking effect by using the **show** command.
