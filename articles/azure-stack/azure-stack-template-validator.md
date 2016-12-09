@@ -42,8 +42,7 @@ The Azure Stack template validation files are hosted in [Azure Stack Tools](http
     foreach { Invoke-WebRequest ($uri + 'TemplateValidator/' +$_) -OutFile ($LocalPath + '\' + $_) }
 
     # Download Template Validator files
-    Invoke-WebRequest `
-    'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/CloudCapabilities/AzureRM.CloudCapabilities.psm1' ` 
+    Invoke-WebRequest ($uri + '/CloudCapabilities/AzureRM.CloudCapabilities.psm1') ` 
     -OutFile ($LocalPath + '\' + 'AzureRM.CloudCapabilities.psm1') 
 ```
 
