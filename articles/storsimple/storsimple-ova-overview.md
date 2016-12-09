@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 11/29/2016
+ms.date: 12/09/2016
 ms.author: alkohli
 ---
 # Introduction to the StorSimple Virtual Array
@@ -62,6 +62,14 @@ The following table describes some of the key benefits that the StorSimple Virtu
 | Simplified storage management |StorSimple provides centralized management in the cloud using StorSimple Device Manager to manage multiple devices. |
 | Improved disaster recovery and compliance |StorSimple facilitates faster disaster recovery by restoring the metadata immediately and restoring the data as needed. This means normal operations can continue with minimal disruption. |
 | Data mobility |Data tiered to the cloud can be accessed from other sites for recovery and migration purposes. Note that you can restore data only to the original virtual array. However, you use disaster recovery features to restore the entire virtual array to another virtual array. |
+
+## StorSimple workload summary
+
+A summary of supported StorSimple workloads is tabulated below.
+
+|Scenario     |Workload     |Supported      |Restrictions               |
+|-------------|-------------|---------------|---------------------------|
+|ROBO collaboration |File sharing     |Yes      |See [maximum limits for file server](storsimple-ova-limits.md).<br></br>See [system requirements for supported SMB versions](storsimple-ova-system-requirements.md).| All versions     |
 
 ## Workflows
 The StorSimple Virtual Array is particularly suitable for the following workflows:
