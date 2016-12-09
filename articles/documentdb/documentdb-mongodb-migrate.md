@@ -22,27 +22,25 @@ ms.author: anhoh
 To migrate data to an Azure DocumentDB account with protocol support for MongoDB, you must:
 
 * Download either *mongoimport.exe* or *mongorestore.exe* from the [MongoDB Download Center](https://www.mongodb.com/download-center).
-* Have your DocumentDB account with protocol support for MongoDB [connection string](documentdb-connect-mongodb-account.md) information.
+* Get your [MongoDB connection string](documentdb-connect-mongodb-account.md).
 
-## Things to know before Migrating
+## Before you begin
 
-1. **Increase throughput** - The duration of your data migration will be influenced by how much throughput you provision for your collections. Make sure you increase the throughput for larger data migrations. Afterwards, make sure to decrease the throughput back down to save costs. Instructions on how to increase throughput in the [Azure Portal](https://portal.azure.com) can be found in [Performance levels and pricing tiers in DocumentDB](documentdb-performance-levels.md).
+* **Increase throughput**: The duration of your data migration is influenced by how much throughput you set up for your collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure Portal](https://portal.azure.com), see [Performance levels and pricing tiers in DocumentDB](documentdb-performance-levels.md).
 
-2. **Enable SSL** - DocumentDB has strict security requirements and standards. Make sure to enable SSL when interacting with your account. The examples below include how to enable SSL for *mongoimport* and *mongorestore*.
+* **Enable SSL**: DocumentDB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. The procedures in the rest of the article include how to enable SSL for *mongoimport* and *mongorestore*.
 
-## Find your Connection Information (Host, Port, Username, and Password)
+## Find your connection string information (host, port, username, and password)
 
-1. Head over to the [Azure Portal](https://portal.azure.com).
+1. In the [Azure Portal](https://portal.azure.com), in the left pane, click the **NoSQL (DocumentDB)** entry.
 
-2. Click on the **NoSQL (DocumentDB)** entry on the Portal's left-hand resource navigation.
+2. In the **Subscriptions** pane, select your account name.
 
-3. Find and click on your **DocumentDB with protocol support for MongoDB Account Name** in the list of DocumentDB accounts.
+3. In your **Connection String** blade, click **Connection String**.
 
-4. In the newly opened Account blade, click on **Connection String** in left-hand navigation.
+    ![The Connection  Blade](./media/documentdb-mongodb-migrate/ConnectionStringBlade.png)
 
-    ![Screen shot of the Connection Blade](./media/documentdb-mongodb-migrate/ConnectionStringBlade.png)
-
-5. The **Connection String** blade will contain all the information to successfully connect to your account.
+4. The **Connection String** blade will contain all the information to successfully connect to your account.
 
 ## Import data to DocumentDB with protocol support for MongoDB with mongoimport
 
