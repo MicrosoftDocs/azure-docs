@@ -81,7 +81,8 @@ In these steps, you validate templates using the AzureRM.CloudCapabilities Power
 This example validates all the Azure Stack Quickstart templates downloaded locally, and also validates the VM sizes and extensions against Azure Stack TP2 capabilities.
 
     ```PowerShell
-    test-AzureRMTemplate -TemplatePath C:\AzureStack-QuickStart-Templates -CapabilitiesPath C:\AzureTemplateValidator\AzureStackCapabilities_TP2.json -IncludeComputeCapabilities
+    test-AzureRMTemplate -TemplatePath C:\AzureStack-QuickStart-Templates `
+    -CapabilitiesPath C:\AzureTemplateValidator\AzureStackCapabilities_TP2.json -IncludeComputeCapabilities
     ```
 
 ## Retrieve cloud capabilities
