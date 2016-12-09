@@ -31,6 +31,7 @@ The article assumes that you have already created
 ### Configuration Server Minimum Requirements
 
 [!INCLUDE [site-recovery-configuration-server-requirements](../../site-recovery-configuration-server-requirements.md)]
+
 > [!NOTE]
 > HTTPS based proxy servers are not supported by the Configuration Server.
 
