@@ -93,7 +93,7 @@ To deploy the template using PowerShell, complete the following steps:
 
 3. After the VM is deployed, connect to the VM and add the private IP addresses to the operating system you deployed by completing the steps in the [Add IP addresses to a VM operating system](#os-config) section of this article. Do not add the public IP addresses to the operating system.
 
-### Deploy using the Azure CLI
+## Deploy using the Azure CLI
 
 To deploy the template using the Azure CLI 1.0, complete the following steps:
 
