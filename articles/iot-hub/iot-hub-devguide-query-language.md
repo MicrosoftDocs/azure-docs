@@ -236,6 +236,52 @@ Currently, queries on **devices.jobs** do not support:
 * Conditions that refer to the device twin in addition to job properties as shown above;
 * Peforming aggregations, such as count, avg, group by.
 
+## Getting started with device-to-cloud message routes query expressions
+
+Using [device-to-cloud routes][lnk-devguide-messaging-routes], it is possible to configure IoT Hub to dispatch device-to-cloud messages to different endpoints based on expressions evaluated on the individual messages.
+
+The route [condition][lnk-query-expressions] use the same IoT Hub query language as conditions in twin and job queries. They are evaluated on the message properties assuming the following JSON representation:
+
+        {
+            "$messageId": "",
+            "$enqueuedTime": "",
+            "$to": "",
+            "$expiryTimeUtc": "",
+            "$correlationId": "",
+            "$userId": "",
+            "$ack": "",
+            "$connectionDeviceId": "",
+            "$connectionDeviceGenerationId": "",
+            "$connectionAuthMethod": "",
+            "$content-type": "",
+            "$content-encoding": "",
+
+            "userProperty1": "",
+            "userProperty2": ""
+        }
+
+The above representation uses `$`-prefixed properties to refer to system properties. Any other property is referred by name. If you have a user property that has the same name of a system property (e.g. `$userId`), you can access the system property by using brackets, e.g. `{$userId}`.
+Remember that property names are case insensitive.
+
+> [!NOTE]
+> All message properties are strings. The available system properties are described in the [developer guide][lnk-devguide-messaging-format].
+>
+>
+
+For instance, assuming you use a `messageType` property, you might want to route all telemetry to an endpoints, and all alerts to a different one. You would then be able to write the following expression to route the telemetry:
+
+        messageType = 'telemetry'
+
+And the following one to route the alert ones:
+
+        messageType = 'alert'
+
+Boolean expressions and functions are also supported, allowing to distinguish between severity level, for instance:
+
+        messageType = 'alerts' AND as_number(severity) <= 2
+
+Refer to the [Expression and conditions][lnk-query-expressions] section for the full list of the supported operators and functions.
+
 ## Basics of an IoT Hub query
 Every IoT Hub query consists of a SELECT and FROM clauses and by optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, for example device twins. The FROM clause indicates the document collection to be iterated on (**devices** or **devices.jobs**). Then, the filter in the WHERE clause is applied. In the case of aggregations, the results of this step are grouped as specified in the GROUP BY clause and, for each group, a row is generated as specified in the SELECT clause.
 
@@ -339,9 +385,9 @@ where:
 
 | Symbol | Definition |
 | --- | --- |
-| attribute_name |Any property of the JSON document in the FROM collection. |
-| binary_operator |Any binary operator as per Operators section. |
-| function_name| The only supported function is `is_defined()` |
+| attribute_name | Any property of the JSON document in the FROM collection. |
+| binary_operator | Any binary operator as per Operators section. |
+| function_name| Any function as per Functions section. |
 | decimal_literal |A float expressed in decimal notation. |
 | hexadecimal_literal |A number expressed by the string ‘0x’ followed by a string of hexadecimal digits. |
 | string_literal |String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes (apostrophe: ' ) or double quotes (quotation mark: "). Allowed escapes: `\'`, `\"`, `\\`, `\uXXXX` for Unicode characters defined by 4 hexadecimal digits. |
@@ -355,6 +401,54 @@ The following operators are supported:
 | Logical |AND, OR, NOT |
 | Comparison |=, !=, <, >, <=, >=, <> |
 
+### Functions
+When queries twins and jobs the only supported function is 
+
+| Function | Description |
+| -------- | ----------- |
+| IS_DEFINED(property) | Returns a Boolean indicating if the property has been assigned a value (incl `null`). |
+
+In routes conditions, the following math functions are supported:
+
+| Function | Description |
+| -------- | ----------- |
+| ABS(x) | Returns the absolute (positive) value of the specified numeric expression. |
+| EXP(x) | Returns the exponential value of the specified numeric expression (e^x). |
+| POWER(x,y) | Returns the value of the specified expression to the specified power (x^y).|
+| SQUARE(x)	| Returns the square of the specified numeric value. |
+| CEILING(x) | Returns the smallest integer value greater than, or equal to, the specified numeric expression. |
+| FLOOR(x) | Returns the largest integer less than or equal to the specified numeric expression. |
+| SIGN(x) | Returns the positive (+1), zero (0), or negative (-1) sign of the specified numeric expression.|
+| SQRT(x) | Returns the square of the specified numeric value. |
+
+In routes conditions, the following type checking and casting functions are supported:
+
+| Function | Description |
+| -------- | ----------- |
+| AS_NUMBER | Converts the input string to a number; noop if input is a number; Undefined if string does not represent a number.|
+| IS_ARRAY | Returns a Boolean value indicating if the type of the specified expression is an array. |
+| IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
+| IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. |
+| IS_NULL | Returns a Boolean value indicating if the type of the specified expression is null. |
+| IS_NUMBER | Returns a Boolean value indicating if the type of the specified expression is a number. |
+| IS_OBJECT | Returns a Boolean value indicating if the type of the specified expression is a JSON object. |
+| IS_PRIMITIVE | Returns a Boolean value indicating if the type of the specified expression is a primitive (string, Boolean, numeric or `null`). |
+| IS_STRING | Returns a Boolean value indicating if the type of the specified expression is a string. |
+
+In routes conditions, the following string functions are supported:
+
+| Function | Description |
+| -------- | ----------- |
+| CONCAT(x, …) | Returns a string that is the result of concatenating two or more string values. |
+| LENGTH(x) | Returns the number of characters of the specified string expression.|
+| LOWER(x) | Returns a string expression after converting uppercase character data to lowercase. |
+| UPPER(x) | Returns a string expression after converting lowercase character data to uppercase. |
+| SUBSTRING(string, start [, end]) | Returns part of a string expression starting at the specified character zero-based position and continues to the specified length, or to the end of the string. |
+| INDEX_OF(string, fragment) | Returns the starting position of the first occurrence of the second string expression within the first specified string expression, or -1 if the string is not found.|
+| STARTS_WITH(x, y) | Returns a Boolean indicating whether the first string expression starts with the second. |
+| ENDS_WITH(x, y) | Returns a Boolean indicating whether the first string expression ends with the second. |
+| CONTAINS(x,y) | Returns a Boolean indicating whether the first string expression contains the second. |
+
 ## Next steps
 Learn how to execute queries in your apps using [Azure IoT SDKs][lnk-hub-sdks].
 
@@ -367,5 +461,8 @@ Learn how to execute queries in your apps using [Azure IoT SDKs][lnk-hub-sdks].
 [lnk-devguide-endpoints]: iot-hub-devguide-endpoints.md
 [lnk-devguide-quotas]: iot-hub-devguide-quotas-throttling.md
 [lnk-devguide-mqtt]: iot-hub-mqtt-support.md
+[lnk-devguide-messaging-routes]: iot-hub-deviguide-messaging.md#device-to-cloud-configuration-options
+[lnk-devguide-messaging-format]: iot-hub-deviguide-messaging.md#message-format 
+
 
 [lnk-hub-sdks]: iot-hub-devguide-sdks.md
