@@ -103,4 +103,4 @@ This is just one example of an out-of-box Operations Management Suite solution t
 
 Operations Management Suite continues to update its machine learning to fight the latest threats automatically for you, and we continue to roll out new solutions to the Operations Management Suite Solution Gallery as well.
 
-For more information about Operations Management Suite, see [our documentation page](https://azure.microsoft.com/en-us/documentation/articles/documentation-government-overview/)
+For more information about Operations Management Suite, see [our documentation page](https://azure.microsoft.com/en-us/documentation/articles/documentation-government-overview/).
