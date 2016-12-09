@@ -49,7 +49,6 @@
 ### [Manage security alerts](security-center-managing-and-responding-alerts.md)
 ### [Manage security incidents](security-center-incident.md)
 ### [Azure log integration](security-center-integrating-alerts-with-log-integration.md)
-### [Vulnerability assessment](security-center-vulnerability-assessment-recommendations.md)
 ### [Types of security alerts](security-center-alerts-type.md)
 ### [Threat intelligence report](security-center-threat-report.md)
 
