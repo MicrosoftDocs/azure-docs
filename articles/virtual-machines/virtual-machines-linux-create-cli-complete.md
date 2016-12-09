@@ -60,7 +60,7 @@ az storage account create --resource-group myResourceGroup --location westeurope
 Create the virtual network with [az network vnet create](/cli/azure/network/vnet#create). The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
 
 ```azurecli
-az network vnet create --resource-group myResourceGroup --locationwesteurope --name myVnet \
+az network vnet create --resource-group myResourceGroup --location westeurope --name myVnet \
   --address-prefix 192.168.0.0/16 --subnet-name mySubnet --subnet-prefix 192.168.1.0/24
 ```
 
