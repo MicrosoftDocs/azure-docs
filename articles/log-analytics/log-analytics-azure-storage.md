@@ -27,7 +27,7 @@ There are four different ways of collecting logs and metrics for Azure services:
 4. Scripts to collect and then post data into Log Analytics (blanks in the following table and for services that are not listed)
 
 
-| Service | Resource Type | Logs | Metrics | Solution |
+| Service                 | Resource Type                           | Logs        | Metrics     | Solution |
 | --- | --- | --- | --- | --- |
 | Application gateways    | Microsoft.Network/applicationGateways   | Diagnostics | Diagnostics | Azure Networking Analytics (Preview) |
 | API Management          | Microsoft.ApiManagement/service         |             | Diagnostics | |
@@ -44,12 +44,10 @@ There are four different ways of collecting logs and metrics for Azure services:
 | Load Balancers          | Microsoft.Network/loadBalancers         | Diagnostics |             |  |
 | Logic Apps              | Microsoft.Logic/workflows <br> Microsoft.Logic/integrationAccounts | Diagnostics | Diagnostics | |
 | Network Security Groups | Microsoft.Network/networksecuritygroups | Diagnostics |             | Azure Networking Analytics (Preview) |
-| Redis Cache             | Microsoft.Cache/redis                   |             | Diagnostics | |
 | Search services         | Microsoft.Search/searchServices         | Diagnostics | Diagnostics | |
 | Service Bus namespace   | Microsoft.ServiceBus/namespaces         | Diagnostics | Diagnostics | |
 | Service Fabric          |                                         | Storage     |             | ServiceFabric Analytics (Preview) |
 | SQL (v12)               | Microsoft.Sql/servers/databases <br> Microsoft.Sql/servers/elasticPools |             | Diagnostics | |
-| Stream Analytics        | Microsoft.StreamAnalytics/streamingjobs | Diagnostics | Diagnostics | |
 | Virtual Machines        | Microsoft.Compute/virtualMachines       | Extension   | Extension <br> Diagnostics  | |
 | Virtual Machines scale sets | Microsoft.Compute/virtualMachines <br> Microsoft.Compute/virtualMachineScaleSets/virtualMachines |             | Diagnostics | |
 | Web Server farms        | Microsoft.Web/serverfarms               |             | Diagnostics | |

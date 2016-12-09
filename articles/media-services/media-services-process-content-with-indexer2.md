@@ -13,13 +13,13 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 12/07/2016
 ms.author: adsolank;juliako;
 
 ---
 # Indexing Media Files with Azure Media Indexer 2 Preview
 ## Overview
-The **Azure Media Indexer 2 Preview** media processor (MP) enables you to make media files and content searchable, as well as generate closed captioning tracks. Compared to the previous version of [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** performs faster indexing and offers broader language support. Supported languages include English, Spanish, French, German, Italian, Chinese (Mandarin, Simplified), Portuguese and Arabic.
+The **Azure Media Indexer 2 Preview** media processor (MP) enables you to make media files and content searchable, as well as generate closed captioning tracks. Compared to the previous version of [Azure Media Indexer](media-services-index-content.md), **Azure Media Indexer 2 Preview** performs faster indexing and offers broader language support. Supported languages include English, Spanish, French, German, Italian, Chinese (Mandarin, Simplified), Portuguese, Arabic, and Japanese.
 
 The **Azure Media Indexer 2 Preview** MP is currently in Preview.
 
@@ -79,8 +79,10 @@ Azure Media Indexer 2 Preview supports speech-to-text for the following language
 * Italian [ItIt]
 * Portuguese  [PtBr]
 * Arabic (Egyptian) [ArEg]
+* Japanese [JaJp]
 
 ## Sample code
+
 The following program shows how to:
 
 1. Create an asset and upload a media file into the asset.
