@@ -21,11 +21,11 @@ Microsoft Operations Management Suite, now available in Azure Government, is a s
 
 Operations Management Suite can:
 
-* Deploy agents to individual VMs (Linux and Windows) on Azure, other cloud providers, and/or on-premises.
-* Connect your existing logs via an Azure Government Storage Account or System Center Operations Manager (SCOM) endpoint with existing logging data.
+* Deploy agents to individual VMs (Linux and Windows) on Azure, other cloud providers, and on-premises.
+* Connect your existing logs via an Azure Government Storage account or System Center Operations Manager (SCOM) endpoint with existing logging data.
 * Run evergreen machine learning and map reduce services that are powered by hyper-scale log search to expose threats in your environment out of the box.
 
-Let's explore how we can get Operations Management Suite integrated into your fleet and look at some of the out-of-box solutions that can address the concerns we've described here.
+Let's explore how we can get Operations Management Suite integrated into your fleet and look at some of the out-of-box solutions that address the concerns that we've described here.
 
 ## Onboard servers to Operations Management Suite
 The first step in integrating your cloud assets with Operations Management Suite is installing the Operations Management Suite agent across log sources. For virtual machines, this is very simple because you can manually download the agent from your Operations Management Suite workspace.
@@ -37,8 +37,8 @@ You can connect Azure VMs to Operations Management Suite directly through the Az
 
 You can also connect them programmatically or configure the Operations Management Suite extension right into your Azure Resource Manager templates. See the instructions for Windows-based machines at [Connect Windows computers to Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents) and for Linux-based machines at [Connect Linux computers to Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents).
 
-## Onboard Storage Accounts and SCOM to Operations Management Suite
-Operations Management Suite can also connect to your Storage Account and/or existing System Center Operations Manager (SCOM) deployments to offer you operations management in hybrid scenarios (across cloud providers or in cloud/on-premises infrastructures).
+## Onboard storage accounts and SCOM to Operations Management Suite
+Operations Management Suite can also connect to your storage account and/or existing System Center Operations Manager (SCOM) deployments to offer you operations management in hybrid scenarios (across cloud providers or in cloud/on-premises infrastructures).
 
 ![Figure 2: Connecting Azure Storage and SCOM to Operations Management Suite](./media/documentation-government-oms-figure2.png)
 <p align="center">Figure 2: Connecting Azure Storage and SCOM to Operations Management Suite</p>
@@ -56,7 +56,7 @@ Now that you have various sources for logging data, you have to make sense of al
 
 Operations Management Suite, at its core, is a log search service that lets you write powerful queries to quickly search across thousands or even millions of logs. However, discovering the issues that you need to write queries for is difficult.
 
-Enter Operations Management Suite solutions. These are packs of queries that are integrated natively with Operations Management Suite map reduce and machine learning technology to proactively give you insights into your Operations Management Suite-managed fleet.
+Enter Operations Management Suite solutions. These are packs of queries that are natively integrated with Operations Management Suite map reduce and machine learning technology to proactively give you insights into your Operations Management Suite-managed fleet.
 
 On the theme of cyber security, I briefly discuss three cybersecurity scenarios that Operations Management Suite can solve out of the box for you.
 
@@ -75,15 +75,15 @@ For example, you can see that the following threat was caught and automatically 
 ![Figure 4: Operations Management Suite antimalware assessment solution](./media/documentation-government-oms-figure4.png)
 <p align="center">Figure 4: Operations Management Suite Antimalware Assessment solution</p>
 
-More information about antimalware assessment can be found in the article [Malware assessment solution in Log Analytics](https://azure.microsoft.com/en-us/documentation/articles/log-analytics-malware/)
+More information about antimalware assessment can be found in the article [Malware assessment solution in Log Analytics](https://azure.microsoft.com/en-us/documentation/articles/log-analytics-malware/).
 
 ### Identity and access
-Another common cybersecurity scenario in the cloud is in credential compromise. Not only does your cloud subscription have credentials, but each individual VM has a user and/or secret (usually a certificate or password) that's associated with it.
+Another common cybersecurity scenario in the cloud revolves around credential compromise. Not only does your cloud subscription have credentials, but each individual VM has a user and/or secret (usually a certificate or password) that's associated with it.
 
 Operations Management Suite organizes all sign-in attempts in your fleet and buckets them depending on type (remote, local, username, and so on). For example, in the following example, I can see a large amount of unsuccessful sign-in attempts from largely random strings as usernames. This indicates that it's highly likely that my computers have been exposed and not properly protected by firewalls and access control lists.
 
 ![Figure 5: 97.3% sign-ins failed in the last 24 hours](./media/documentation-government-oms-figure5.png)
-<p align="center">Figure 5: 97.3% Logon Failed in the last 24 hours</p>
+<p align="center">Figure 5: 97.3% sign-ins failed in the last 24 hours</p>
 
 ### Threat intelligence
 Operations Management Suite also provides protection against malicious insider scenarios, when there’s a security compromise inside your organization and a malicious user is trying to exfiltrate data.
@@ -92,9 +92,9 @@ Operations Management Suite threat intelligence looks at all the network logs on
 
 For example, in the following illustration, I can see that there are both inbound and outbound network connections to the People’s Republic of China.
 
-By double-clicking the inbound tag, I can discover that a Linux VM that is being managed by Operations Management Suite is making outbound connections to a known dark net IP address in China.
+By double-clicking the inbound tag, I discover that a Linux VM that is being managed by Operations Management Suite is making outbound connections to a known dark net IP address in China.
 
-You can also set up alerts to Operations Management Suite Solutions like Threat Intelligence. In the following screenshot, I've set up an alert so that if Operations Management Suite detects more than 10 outbound connections to a known malicious IP address, it sends an alert out to me via email. I then configure that alert to fire an Azure Automation job, which is set up to automatically shut down that VM.
+You can also set up alerts to Operations Management Suite solutions like threat intelligence. In the following screenshot, I've set up an alert so that if Operations Management Suite detects more than 10 outbound connections to a known malicious IP address, it sends an alert out to me via email. I then configure that alert to fire an Azure Automation job, which is set up to automatically shut down that VM.
 
 ![Figure 6: Operations Management Suite alerts and automation](./media/documentation-government-oms-figure6.png)
 <p align="center">Figure 6: Operations Management Suite alerts and automation</p>
@@ -103,4 +103,4 @@ This is just one example of an out-of-box Operations Management Suite solution t
 
 Operations Management Suite continues to update its machine learning to fight the latest threats automatically for you, and we continue to roll out new solutions to the Operations Management Suite Solution Gallery as well.
 
-For more information about Operations Management Suite, see [our documentation page].(https://azure.microsoft.com/en-us/documentation/articles/documentation-government-overview/)
+For more information about Operations Management Suite, see [our documentation page](https://azure.microsoft.com/en-us/documentation/articles/documentation-government-overview/)
