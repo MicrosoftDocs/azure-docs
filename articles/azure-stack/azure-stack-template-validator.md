@@ -29,7 +29,7 @@ In this document, you download the tool, build a cloud capabilities file, and ru
 ## Download the tool
 The Azure Stack template validation files are hosted in [Azure Stack Tools](https://github.com/Azure/AzureStack-Tools).  To retrieve the files, run the following PowerShell script:
 
-    ```PowerShell
+```PowerShell
     # Variables
     $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/'
     $LocalPath = 'c:\AzureRMTemplateValidator'
@@ -42,7 +42,7 @@ The Azure Stack template validation files are hosted in [Azure Stack Tools](http
 
     # Download Template Validator files
     Invoke-WebRequest 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/CloudCapabilities/AzureRM.CloudCapabilities.psm1' -OutFile ($LocalPath + '\' + 'AzureRM.CloudCapabilities.psm1') 
-    ```
+```
 
 ## Validate templates
 In these steps, you validate templates using the AzureRM.CloudCapabilities PowerShell module.  
