@@ -33,6 +33,8 @@ Azure Active Directory Role-based Access Control (RBAC) allows users to be added
 ## How to add an admin for a subscription
 **Azure portal**
 
+To add someone as an admin for a subscription in the Azure portal, you give them the owner role. The owner role can only manage the resources in the subscription that you assigned. This role does not have access privilege to other subscriptions. The owners you add through the [Azure portal](https://portal.azure.com) cannot manage resource in the [Azure classic portal](https://manage.windowsazure.com). 
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. On the Hub menu, select **Subscription** > *the subscription that you want the admin to access*.
 
@@ -44,10 +46,6 @@ Azure Active Directory Role-based Access Control (RBAC) allows users to be added
 
     ![newselectrole](./media/billing-add-change-azure-subscription-administrator/newselectrole.png)
 
-    **Note**
-
-   * The owner role can only manage the resources in the subscription that you assigned. This role does not have access privilege to other subscriptions.
-   * The owners you added through the [Azure portal](https://portal.azure.com) cannot manage resource in the [Azure classic portal](https://manage.windowsazure.com).  
 5. Type the email address of the user you want to add as owner, click the user, and then click **Select**.
 
     ![newadduser](./media/billing-add-change-azure-subscription-administrator/newadduser.png)
