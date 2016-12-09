@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 12/08/2016
 ms.author: trinadhk; jimpark; markgal;
 
 ---
@@ -89,12 +89,12 @@ While a majority of the backup time is spent in reading and copying data, there 
 * Snapshot time, which is the time taken to trigger a snapshot. Snapshots are triggered close to the scheduled backup time.
 * Queue wait time. Since the Backup service is processing backups from multiple customers, copying backup data from snapshot to the backup or Recovery Services vault might not start immediately. In times of peak load, the wait can stretch up to 8 hours due to the number of backups being processed. However, the total VM backup time will be less than 24 hours for daily backup policies.
 
-## Total Restore time
+## Total restore time
 A restore operation consists of two main sub tasks: Copying data back from vault to chosen customer storage account and creating the virtual machine. Copying data back from vault depends upon where backups are stored internally in Azure and where customer storage account is stored. Time taken to copy data depends upon:
 * Queue wait time - Since service is processing restores from multiple customers at the same time, requests for restore are put in queue.
 * Data copy time - Data is copied similar to a first backup process from vault to customer storage account. If the customer storage account to which backup service needs to write data from vault is loaded, copying time can increase. So, make sure to select a storage account which is not loaded with other application writes and reads during restore to optimize on the copy time. 
 
-## Best Practices
+## Best practices
 We suggest following these practices while configuring backups for virtual machines:
 
 * Don't schedule more than 10 classic VMs from the same cloud service to backup at the same time. We suggest staggering backup start times by an hour if you want to backup multiple VMs from same cloud service.
