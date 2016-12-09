@@ -1,5 +1,5 @@
 ---
-title: Configure StorSimple with Veritas NetBackup | Microsoft Docs
+title: StorSimple as a backup target with NetBackup | Microsoft Docs
 description: Describes the StorSimple backup target configuration with Veritas NetBackup.
 services: storsimple
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 12/05/2016
 ms.author: hkanna
 ---
 
-# Set up StorSimple with Veritas NetBackup
+# StorSimple as a backup target with NetBackup
 
 ## Overview
 
@@ -82,7 +82,7 @@ Although StorSimple presents two main deployment scenarios (primary and secondar
 For more information about StorSimple, see [StorSimple 8000 series: Hybrid cloud storage solution](storsimple-overview.md) and review the [technical StorSimple 8000 series specifications](storsimple-technical-specifications-and-compliance.md).
 
 > [!IMPORTANT]
-> Using a StorSimple device as a backup target is supported only for StorSimple 8000 Update 3 or later versions.
+> Using a StorSimple device as a backup target is supported only for StorSimple 8000 Update 3 and later versions.
 
 ## Architecture overview
 
@@ -103,27 +103,26 @@ The following tables show the appliance model-to-architecture initial guidance.
 
 | Backup scenario  | Local storage capacity  | Cloud storage capacity  |
 |---|---|---|
-
-| Primary backup  | Recent backups stored on local storage for fast recovery (RPO) | Backup history (RPO) fits in cloud capacity |
+| Primary backup  | Recent backups stored on local storage for fast recovery to meet recovery point objective (RPO) | Backup history (RPO) fits in cloud capacity |
 | Secondary backup | Secondary copy of backup data can be stored in cloud capacity  | N/A  |
 
 ## StorSimple as a primary backup target
 
-In this scenario, StorSimple volumes are presented to the backup application as the sole repository for backups. The following figure shows a solution architecture in which all backups use StorSimple tiered volumes for backups and restores.
+In this scenario, StorSimple volumes are presented to the backup application as the sole repository for backups. The next figure shows a solution architecture in which all backups use StorSimple tiered volumes for backups and restores.
 
 ![StorSimple as a primary backup target logical diagram](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetlogicaldiagram.png)
 
 ### Primary target backup logical steps
 
-1.  The backup server contacts the target backup agent, and then the backup agent transmits data to the backup server.
+1.  The backup server contacts the target backup agent, and the backup agent transmits data to the backup server.
 
 2.  The backup server writes data to the StorSimple tiered volumes.
 
 3.  The backup server updates the catalog database, and then finishes the backup job.
 
-4.  A snapshot script triggers the StorSimple Snapshot Manager (Start-Delete).
+4.  A snapshot script triggers the StorSimple snapshot manager (start or delete).
 
-5.  Based on a retention policy, the backup server deletes expired backups.
+5.  The backup server deletes expired backups based on a retention policy.
 
 ###  Primary target restore logical steps
 
@@ -139,23 +138,23 @@ In this scenario, StorSimple volumes primarily are used for long-term retention 
 
 The following figure shows an architecture in which initial backups and restores target a high-performance volume. These backups are copied and archived to a StorSimple tiered volume on a set schedule.
 
-It is important to size your high-performance volume to be able to handle the retention policy capacity and performance requirements.
+It is important to size your high-performance volume so that it can handle your retention policy capacity and performance requirements.
 
 ![StorSimple as a secondary backup target logical diagram](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
 
 ### Secondary target backup logical steps
 
-1.  The backup server contacts the target backup agent, and then the backup agent transmits data to the backup server.
+1.  The backup server contacts the target backup agent, and the backup agent transmits data to the backup server.
 
 2.  The backup server writes data to high-performance storage.
 
 3.  The backup server updates the catalog database, and then finishes the backup job.
 
-4.  Based on a retention policy, the backup server copies backups to StorSimple.
+4.  The backup server copies backups to StorSimple based on a retention policy.
 
-5.  A snapshot script triggers StorSimple Snapshot Manager (Start-Delete).
+5.  A snapshot script triggers the StorSimple snapshot manager (start or delete).
 
-6.  Based on a retention policy, the backup server deletes the expired backups.
+6.  The backup server deletes the expired backups based on a retention policy.
 
 ### Secondary target restore logical steps
 
@@ -167,11 +166,16 @@ It is important to size your high-performance volume to be able to handle the re
 
 ## Deploy the solution
 
-To deploy this solution, complete these three steps: prepare the network infrastructure, deploy your StorSimple device as a backup target, and deploy Veritas NetBackup. Each step is discussed in detail in the following sections.
+Deploying this solution requires three steps:
+* Prepare the network infrastructure.
+* Deploy your StorSimple device as a backup target.
+* Deploy Veritas NetBackup.
 
-### Configure the network
+Each step is discussed in detail in the following sections.
 
-StorSimple as an integrated solution with the Azure cloud requires an active and working connection to the Azure cloud. This connection is used for operations like cloud snapshots, management, and metadata transfer, and to tier older, less accessed data to Azure cloud storage.
+### Set up the network
+
+As an integrated solution with the Azure cloud, StorSimple requires an active and working connection to the Azure cloud. This connection is used for operations like cloud snapshots, management, and metadata transfer, and to tier older, less accessed data to Azure cloud storage.
 
 For the solution to perform optimally, we recommend that you follow these networking best practices:
 
@@ -185,7 +189,7 @@ For step-by-step StorSimple deployment guidance, see [Deploy your on-premises St
 
 ### Deploy NetBackup
 
-You'll find a step-by-step NetBackup 7.7.x deployment guidance at [NetBackup 7.7.x Documentation](https://www.veritas.com/support/article.000094423).
+For step-by-step NetBackup 7.7.x deployment guidance, see the [NetBackup 7.7.x documentation](http://www.veritas.com/docs/000094423).
 
 ## Set up the solution
 
@@ -196,17 +200,17 @@ In this section, we demonstrate some configuration examples. The following examp
 | StorSimple deployment tasks  | Additional comments |
 |---|---|
 | Deploy your on-premises StorSimple device. | Supported versions: Update 3 and later versions. |
-| Turn on the backup target. | Use these commands to turn on or turn off backup target mode, and to get status. For more information, see [connect remotely to a StorSimple](storsimple-remote-connect.md).</br> To turn on backup mode: `Set-HCSBackupApplianceMode -enable`. </br>  To turn off backup mode: `Set-HCSBackupApplianceMode -disable`. </br> To get the current state of backup mode settings: `Get-HCSBackupApplianceMode`. |
+| Turn on the backup target. | Use these commands to turn on or turn off backup target mode, and to get status. For more information, see [connect remotely to a StorSimple device](storsimple-remote-connect.md).</br> To turn on backup mode: `Set-HCSBackupApplianceMode -enable`. </br>  To turn off backup mode: `Set-HCSBackupApplianceMode -disable`. </br> To get the current state of backup mode settings: `Get-HCSBackupApplianceMode`. |
 | Create a common volume container for your volume that stores the backup data. All data in a volume container is deduplicated. | StorSimple volume containers define deduplication domains.  |
-| Create StorSimple volumes | Create volumes with sizes as close to the anticipated usage as possible, because volume size affects cloud snapshot duration time. For more information about how to size a volume, see [Retention policies](#retention-policies).</br> </br> Use StorSimple tiered volumes and select the **Use this volume for less frequently accessed archival data** check box. </br> Using locally pinned volumes only is not supported.|
+| Create StorSimple volumes. | Create volumes with sizes as close to the anticipated usage as possible, because volume size affects cloud snapshot duration time. For information about how to size a volume, read about [retention policies](#retention-policies).</br> </br> Use StorSimple tiered volumes, and select the **Use this volume for less frequently accessed archival data** check box. </br> Using only locally pinned volumes is not supported.|
 | Create a unique StorSimple backup policy for all the backup target volumes. | A StorSimple backup policy defines the volume consistency group. |
-| Disable the schedule as the snapshots. | Snapshots are triggered as a post-processing operation. |
+| Disable the schedule as the snapshots expire. | Snapshots are triggered as a post-processing operation. |
 
 ### Set up the host backup server storage
 
-Set up the host backup server storage by using these guidelines:  
+Set up the host backup server storage according to these guidelines:  
 
-- Don't use spanned volumes (created by Windows Disk manager); they are not supported.
+- Don't use spanned volumes (created by Windows Disk Management); they are not supported.
 - Format your volumes using NTFS with 64 KB allocation size.
 - Map the StorSimple volumes directly to the NetBackup server.
     - Use iSCSI for physical servers.
@@ -215,27 +219,20 @@ Set up the host backup server storage by using these guidelines:
 
 ## Best practices for StorSimple and NetBackup
 
-Configure your solution per the guidelines in the next few sections.
+Set up your solution according to the guidelines in the next few sections.
 
 ### Operating system
 
 -   Disable Windows Server encryption and deduplication for the NTFS file system.
-
 -   Disable Windows Server defragmentation on the StorSimple volumes.
-
 -   Disable Windows Server indexing on the StorSimple volumes.
-
 -   Run an antivirus scan at the source host (not against the StorSimple volumes).
-
 -   Turn off the default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Task Manager.
-
     - Turn off the Maintenance configurator in Windows Task Scheduler.
 
         Or
 
-    - Download [PSEXEC – Microsoft Sysinternals](https://technet.microsoft.com/sysinternals/bb897553.aspx).
-
-      - After you download PSEXEC, run Windows PowerShell as an administrator, and type:
+    - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run PowerShell as an administrator, and type:
       ```psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
       ```
 
@@ -249,7 +246,7 @@ Configure your solution per the guidelines in the next few sections.
 
 ### NetBackup
 
--   NetBackup database should be local to the server and not reside on a StorSimple volume.
+-   The NetBackup database should be local to the server and not reside on a StorSimple volume.
 
 -   For disaster recovery, back up the NetBackup database on a StorSimple volume.
 
@@ -257,16 +254,12 @@ Configure your solution per the guidelines in the next few sections.
 
 -   Backup data files should contain only the data for a specific job. For example, no media appends across different jobs are allowed.
 
-For the latest NetBackup settings and best practices on implementing these requirements, refer to NetBackup’s documentation at [www.veritas.com](https://www.veritas.com).
+For the latest NetBackup settings and best practices for implementing these requirements, see the NetBackup documentation at [www.veritas.com](https://www.veritas.com).
 
 
 ## Retention policies
 
-One of the most used backup retention policies is the Grandfather, Father, and Son (GFS) policy. In this policy, an incremental backup is performed daily. The full backups are done weekly and monthly. This policy results in six StorSimple tiered volumes:
-
--   One volume contains the weekly, monthly, and yearly full backups.
-
--   The other five volumes store daily incremental backups.
+One of the most common backup retention policy types is a Grandfather, Father, and Son (GFS) policy. In a GFS policy, an incremental backup is performed daily and full backups are done weekly and monthly. This policy results in six StorSimple tiered volumes: one volume contains the weekly, monthly, and yearly full backups; the other five volumes store daily incremental backups.
 
 In the following example, we use a GFS rotation. The example assumes the following:
 
@@ -293,30 +286,28 @@ Based on the preceding assumptions, create a 26 TiB StorSimple tiered volume for
 | GFS requirement |   | 38 |   |
 | Additional quota  | 4  |   | 42 total GFS requirement  |
 
-\*The GFS multiplier is the number of copies you need to protect and keep to meet your backup policies.
+\*The GFS multiplier is the number of copies you need to protect and retain to meet your backup policy requirements.
 
 ## Configure NetBackup storage
 
 
-1.  In the NetBackup Administration Console, in the tree view in the left pane, select **Devices**. In the Disk Pool Configuration Wizard, select the storage server type **AdvancedDisk**, and then click **Next**.
+1.  In the NetBackup Administration Console, select **Media and Device Management** > **Devices** > **Disk Pools**. In the Disk Pool Configuration Wizard, select the storage server type **AdvancedDisk**, and then click **Next**.
 
     ![NetBackup Administration Console: Disk Pool Configuration Wizard](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
 2.  Select your server, and then select **Next**.
 
-    ![NetBackup Administration Console: Select server](./media/storsimple-configure-backup-target-using-netbackup/nbimage2.png)
+    ![NetBackup Administration Console: Select the server](./media/storsimple-configure-backup-target-using-netbackup/nbimage2.png)
 
 3.  Select your StorSimple volume.
 
     ![NetBackup Administration Console: Select the StorSimple volume disk](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
-4.  Enter a name for your backup target, and then select **Next** > **Next** to finish the wizard.
-
-    ![NetBackup Administration Console: Name and description page](./media/storsimple-configure-backup-target-using-netbackup/nbimage4.png)
+4.  Enter a name for the backup target, and then select **Next** > **Next** to finish the wizard.
 
 5.  Review the settings, and then select **Finish**.
 
-    a.  At the end of each assignment, change the storage device settings to match those recommended in the best practices list.
+    a.  At the end of each assignment, change the storage device settings to match those recommended in [Best practices for StorSimple and NetBackup](#best-practices-for-StorSimple-and-NetBackup).
 
     b.  Repeat steps 1-4 until you are finished assigning your StorSimple volumes.
 
@@ -325,18 +316,19 @@ Based on the preceding assumptions, create a 26 TiB StorSimple tiered volume for
 ## StorSimple as a primary backup target
 
 > [!NOTE]
-> Be aware that if you need to restore data from a backup that has been tiered to the cloud, the restore occurs at cloud speeds.
+> Data restore from a backup that has been tiered to the cloud occurs at cloud speed.
 
-The following figure shows the mapping of a typical volume to a backup job. In this case, all the weekly backups map to the Saturday Full disk, and the incremental backups map to Monday-Friday Incremental disks. All the backups and restores happen from a StorSimple tiered volume.
+The following figure shows the mapping of a typical volume to a backup job. In this case, all the weekly backups map to the Saturday full disk, and the incremental backups map to Monday-Friday incremental disks. All the backups and restores are from a StorSimple tiered volume.
 
 ![Primary backup target configuration logical diagram ](./media/storsimple-configure-backup-target-using-netbackup/primarybackuptargetdiagram.png)
 
 #### StorSimple as a primary backup target Grandfather, Father, and Son (GFS) schedule example
 
-| GFS rotation schedule for four weeks, monthly, and yearly |  |  |   
+Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly:
+
+| Frequency/backup type | Full | Incremental (days 1-5)  |   
 |---|---|---|
-| Frequency/backup type | Full | Incremental (day 1 - 5)  |
-| Weekly (week 1 - 4) | Saturday | Monday - Friday |
+| Weekly (weeks 1-4) | Saturday | Monday - Friday |
 | Monthly  | Saturday  |   |
 | Yearly | Saturday  |   |   |
 
@@ -344,153 +336,151 @@ The following figure shows the mapping of a typical volume to a backup job. In t
 
 The following sequence assumes that NetBackup and the target host are configured in accordance with the NetBackup agent guidelines.
 
-1.  In the NetBackup Administration Console, right-click **Policies**, and then select **New Policy**.
+1.  In the NetBackup Administration Console, under **NetBackup Management**, right-click **Policies**, and then select **New Policy**.
 
-    ![NetBackup Administration Console, create a new policy ](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
+    ![NetBackup Administration Console: Create a new policy ](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
-2.  In the **Add a New Policy** dialog box, enter a name for your policy, and then select the **Use Policy Configuration Wizard" check box. Select **OK**.
+2.  In the **Add a New Policy** dialog box, enter a name for the policy, and then select the **Use Policy Configuration Wizard** check box. Select **OK**.
 
-    ![NetBackup Administration Console, the Add a New Policy dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
+    ![NetBackup Administration Console: Add a New Policy dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
 
-3.  Select the appropriate backup type (for example, **File Systems**), and then select **Next**.
+3.  Select the backup type you want, and then select **Next**.
 
-    ![NetBackup Administration Console, select backup type policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
+    ![NetBackup Administration Console: Select backup type policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
 
-4.  To select the policy type, select **Standard**.
+4.  To select the policy type, select **Standard**, and then select **Next**.
 
-    ![NetBackup Administration Console, new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
+    ![NetBackup Administration Console: Add a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
-5.  Select your host, select the **Detect client operating system** check box, and then select Add. Select **Next**.
+5.  Select your host, select the **Detect client operating system** check box, and then select **Add**. Select **Next**.
 
-    ![NetBackup Administration Console, list clients in new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
+    ![NetBackup Administration Console: List clients in a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
-6.  Select the drive(s) you want to back up (for example, **G:\\DataChange3\\**).
+6.  Select the drive(s) you want to back up.
 
-    ![NetBackup Administration Console, backup selections for new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage11.png)
+    ![NetBackup Administration Console: Backup selections for a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage11.png)
 
-8.  Select the frequency and retention values that meets your backup rotation requirements.
+8.  Select the frequency and retention values that meet your backup rotation requirements.
 
-    ![NetBackup Administration Console, backup frequency and rotation for new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
+    ![NetBackup Administration Console: Backup frequency and rotation for a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
 9.  Select **Next** > **Next** > **Finish**.  You can modify the schedule after the policy is created.
 
-10.  Click to expand the policy you just created, and then select **Schedules**.
+10.  Select to expand the policy you just created, and then select **Schedules**.
 
-    ![NetBackup Administration Console, schedules for new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
+    ![NetBackup Administration Console: Schedules for a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
 
-11.  Right-click Differential-Inc, select **Copy to new** (for example, Mon-inc), and then click **OK**.
+11.  Right-click **Differential-Inc**, select **Copy to new**, and then select **OK**.
 
-    ![NetBackup Administration Console, copy schedule to new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage14.png)
+    ![NetBackup Administration Console: Copy schedule to a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage14.png)
 
 12.  Right-click the newly created schedule, and then select **Change**.
 
-13.  On the **Attributes** tab,  check **Override policy storage selection**, and then select the volume where Monday incremental backups go. (In our example, **SS1**.)
+13.  On the **Attributes** tab,  select the **Override policy storage selection** check box, and then select the volume where Monday incremental backups go.
 
-    ![NetBackup Administration Console, change schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage15.png)
+    ![NetBackup Administration Console: Change schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage15.png)
 
-14.  On the **Start Window** tab, select the window for your backups. (For example, Mondays from 8 PM to 9 PM.)
+14.  On the **Start Window** tab, select the time window for your backups.
 
-    ![NetBackup Administration Console, change schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
+    ![NetBackup Administration Console: Change start window](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
 
 15.  Select **OK**.
 
-16.  Repeat steps 11-15 for each of the incremental backups. Select the appropriate volume and schedule.
+16.  Repeat steps 11-15 for each incremental backup. Select the appropriate volume and schedule for each backup you create.
 
-17.  Right-click the Differential-Inc schedule, and then delete it.
+17.  Right-click the **Differential-Inc** schedule, and delete it.
 
-18.  Modify your Full schedule to meet your backup needs.
+18.  Modify your full schedule to meet your backup needs.
 
-    ![NetBackup Administration Console, change full schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage17.png)
+    ![NetBackup Administration Console: Change full schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage17.png)
 
-19.  Change the start window. (For example, Saturday 6 AM.)
+19.  Change the start window.
 
-    ![NetBackup Administration Console, change the start window](./media/storsimple-configure-backup-target-using-netbackup/nbimage18.png)
+    ![NetBackup Administration Console: Change the start window](./media/storsimple-configure-backup-target-using-netbackup/nbimage18.png)
 
 20.  The final schedule looks like this:
 
-    ![NetBackup Administration Console, final schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage19.png)
+    ![NetBackup Administration Console: Final schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage19.png)
 
 ## StorSimple as a secondary backup target
 
 > [!NOTE]
-> Be aware that if you need to restore data from a backup that has been tiered to the cloud, the restore occurs at cloud speeds.
+>Data restored from a backup that has been tiered to the cloud occurs at cloud speed.
 
-In this model, you must have a storage media (other than StorSimple) to serve as a temporary cache. For example, you could use a RAID volume to accommodate space, IOs, and bandwidth. We recommend using RAID 5, 50, and 10.
+In this model, you must have a storage media (other than StorSimple) to serve as a temporary cache. For example, you could use a redundant array of independent disks (RAID) volume to accommodate space, input/output (I/O), and bandwidth. We recommend using RAID 5, 50, and 10.
 
-In the following figure, we illustrate typical short retention local (to the server) volumes and long-term retention archive volumes. In this case, all the backups run on the local (to the server) RAID volume. These backups are periodically duplicated and archived to an archive volume. It is important to size your local (to the server) RAID volume to handle the short-term retention capacity and performance requirements.
+The following figure shows typical short-term retention local (to the server) volumes and long-term retention archives volumes. In this scenario, all backups run on the local (to the server) RAID volume. These backups are periodically duplicated and archived to an archives volume. It is important to size your local (to the server) RAID volume so that it can handle your short-term retention capacity and performance requirements.
 
 #### StorSimple as a secondary backup target GFS example
 
 ![Storsimple as a secondary backup target logical diagram ](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetdiagram.png)
 
-The following table illustrates how the backups should be configured to run on the local and StorSimple disks including the individual and the total capacity requirements.
+The following table shows how to set up backups to run on the local and StorSimple disks. It includes individual and total capacity requirements.
 
 #### Backup configuration and capacity requirements
 
-| Backup type and retention | Configured storage | Size (TiB) | GFS multiplier | Total capacity (TiB) |
+| Backup type and retention | Configured storage | Size (TiB) | GFS multiplier | Total capacity* (TiB) |
 |---|---|---|---|---|
-| Week 1 (full and incremental) |Local disk (short term)| 1 | 1 | 1 |
-| StorSimple weeks 2-4 |StorSimple disk (long term) | 1 | 4 | 4 |
-| Monthly full |StorSimple disk (long term) | 1 | 12 | 12 |
-| Yearly full |StorSimple disk (long term) | 1 | 1 | 1 |
+| Week 1 (full and incremental) |Local disk (short-term)| 1 | 1 | 1 |
+| StorSimple weeks 2-4 |StorSimple disk (long-term) | 1 | 4 | 4 |
+| Monthly full |StorSimple disk (long-term) | 1 | 12 | 12 |
+| Yearly full |StorSimple disk (long-term) | 1 | 1 | 1 |
 |GFS volumes size requirement |  |  |  | 18*|
 
-\* the total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume
+\*Total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume.
 
 
-#### GFS example schedule
+#### GFS example schedule: GFS rotation weekly, monthly, and yearly schedule
 
-|GFS rotation Weekly, Monthly, and Yearly schedule|   |    |    |   |   |   |
+| Week | Full | Incremental Day 1 | Incremental Day 2 | Incremental Day 3 | Incremental Day 4 | Incremental Day 5 |
 |---|---|---|---|---|---|---|
-| Week | Full | Incremental day 1 | Incremental day 2 | Incremental day 3 | Incremental day 4 | Incremental Day 5 |
 | Week 1 | Local RAID volume  | Local RAID volume | Local RAID volume | Local RAID volume | Local RAID volume | Local RAID volume |
-| Week 2 | StorSimple Week 2-4 |   |   |   |   |   |
-| Week 3 | StorSimple Week 2-4 |   |   |   |   |   |
-| Week 4 | StorSimple Week 2-4 |   |   |   |   |   |
+| Week 2 | StorSimple Weeks 2-4 |   |   |   |   |   |
+| Week 3 | StorSimple Weeks 2-4 |   |   |   |   |   |
+| Week 4 | StorSimple Weeks 2-4 |   |   |   |   |   |
 | Monthly | StorSimple Monthly |   |   |   |   |   |
 | Yearly | StorSimple Yearly  |   |   |   |   |   |   |
 
 
-### Assign StorSimple volumes to a NetBackup archive/duplication job
+### Assign StorSimple volumes to a NetBackup archive and duplication job
 
-Because of the broad range of options for storage and media management that NetBackup offers, we recommend that you consult with Veritas or your NetBackup architect to properly assess the SLP requirements.
+Because NetBackup offers a wide range of options for storage and media management, we recommend that you consult with Veritas or your NetBackup architect to properly assess the your storage lifecycle policy (SLP) requirements.
 
-After you've defined the initial disk pools, you need to define three additional storage lifecycle policies:
+After you've defined the initial disk pools, you need to define three additional storage lifecycle policies, for a total of four policies:
 * LocalRAIDVolume
 * StorSimpleWeek2-4
 * StorSimpleMonthlyFulls
 * StorSimpleYearlyFulls
 
+#### To define additional storage lifecycle policies
 
-1.  In the Administration Console, under **Storage**, select **Storage Lifecycle Policies**, and then select **New Storage Lifecycle Policy**.
+1.  In the NetBackup Administration Console, select **Storage** > **Storage Lifecycle Policies** > **New Storage Lifecycle Policy**.
 
-    ![NetBackup Administration Console, storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
+    ![NetBackup Administration Console: Storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
-2.  Select a name, and then click **Add**.
+2.  Enter a name for the snapshot, and then select **Add**.
 
-    ![NetBackup Administration Console, storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage21.png)
+3.  In the **New Operation** dialog box, on the **Properties** tab, for **Operation**, select **Backup**. Select the values you want for **Destination Storage**, and **Retention type**, and **Retention period**. Select **OK**.
 
-3.  On the **Properties** tab, select **Backup**, **Destination Storage**, and the  retention you want. Click **OK**. In our case LocalRAIDVolume and one week retention.
+    ![NetBackup Administration Console: Create a storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
-    ![NetBackup Administration Console, storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
+    This defines the first backup operation and repository.
 
-4.  This defined the first backup operation/repository
+5.  Select to highlight the previous operation, and then select **Add**. In the **Change Storage Operation** dialog box, select the values you want for **Destination Storage**, **Retention type**, and **Retention period**.
 
-5.  While highlighting the previous operation, click Add, and select the Destination Storage, and proper retention. In our case from LocalRAIDVolume to StorSimpleWeek2-4, and a 1 month retention
+    ![NetBackup Administration Console: Create a new storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
 
-    ![NetBackup Administration Console, new storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
+6.  Select to highlight the previous operation, and then select **Add**. In the **New Storage Lifecycle Policy** dialog box, add monthly backups for a year.
 
-6.  While Highlighting the previous Operation select Add, now adding the monthly backups for a year
+    ![NetBackup Administration Console: Change a storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
 
-    ![NetBackup Administration Console, change storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
-
-7.  Repeat steps 5-6 until you have the appropriate SLP-retention policy.
+7.  Repeat steps 5-6 until you've created the comprehensive SLP retention policy that you need.
 
     ![NetBackup Administration Console, storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
 
-8.  Once you are done defining the appropriate SLP-Retention Policy, under Policy define a backup policy as illustrated on StorSimple as a Primary Target section.
+8.  When you are finished defining your SLP retention policy, under **Policy**, follow the steps detailed in [Assigning StorSimple volumes to a NetBackup backup job](#assigning-storsimple-volumes-to-a-NetBackup-backup-job) to define a backup policy.
 
-9.  Under the Schedules select the Full and right-click, and select Change.
+9.  Under **Schedules**, in the **Change Policy Schedule** dialog box, right-click **Full**, and then select **Change**.
 
     ![NetBackup Administration Console, change schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
 
@@ -526,7 +516,7 @@ The following section describes how to create a short script to trigger and dele
 ### Start or delete cloud snapshots by using a script
 
 > [!NOTE]
-> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information about how to run a post-backup script, see [NetBackup documentation](https://www.veritas.com/support/article.000094423).
+> Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information about how to run a post-backup script, see the [NetBackup documentation](http://www.veritas.com/docs/000094423).
 
 #### Backup lifecycle
 
@@ -597,7 +587,7 @@ The following section describes how to create a short script to trigger and dele
 
 ## StorSimple as a restore source
 
-Restores from a StorSimple work like restores from any block storage device. When restoring data that is tiered to the cloud, restores occur at cloud speeds. For local date, restores occur at the local disk speed of the device. For information about how to perform a restore, see [NetBackup documentation](https://www.veritas.com/support/article.000094423). Conform to NetBackup restore best practices.
+Restores from a StorSimple work like restores from any block storage device. When restoring data that is tiered to the cloud, restores occur at cloud speeds. For local date, restores occur at the local disk speed of the device. For information about how to perform a restore, see the [NetBackup documentation](http://www.veritas.com/docs/000094423). Conform to NetBackup restore best practices.
 
 ## StorSimple failover and disaster recovery
 
@@ -616,7 +606,7 @@ A disaster could be caused by a variety of factors. The following table lists co
 
 The following documents have been referenced in this article:
 
-- [StorSimple MPIO setup](storsimple-configure-mpio-windows-server.md)
+- [StorSimple multipath I/O setup](storsimple-configure-mpio-windows-server.md)
 
 - [Storage scenarios: Thin provisioning](http://msdn.microsoft.com/library/windows/hardware/dn265487.aspx)
 
