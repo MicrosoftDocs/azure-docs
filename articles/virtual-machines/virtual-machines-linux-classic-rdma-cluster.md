@@ -29,7 +29,7 @@ Following are methods you can use to create a Linux RDMA cluster with or without
 
 * **Azure CLI scripts**--As shown later in this article, use the [Azure Command-Line Interface](../xplat-cli-install.md) (CLI) to script the deployment of a cluster of RDMA-capable VMs. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so deploying many compute nodes might take several minutes. To enable the RDMA network connection when you use the classic deployment model, deploy the VMs in the same cloud service.
 * **Azure Resource Manager templates**--You can also use the Resource Manager deployment model to deploy a cluster of RDMA-capable VMs that connects to the RDMA network. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster. To enable the RDMA network connection when you use the Resource Manager deployment model, deploy the VMs in the same availability set.
-* **HPC Pack**--Create a Microsoft HPC Pack cluster in Azure and add RDMA-capable compute nodes that run a supported Linux distribution to access the RDMA network. See [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) for more information.
+* **HPC Pack**--Create a Microsoft HPC Pack cluster in Azure and add RDMA-capable compute nodes that run a supported Linux distribution to access the RDMA network. For more information see [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
 ## Sample deployment steps in classic model
 The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterprise Server (SLES) 12 SP1 HPC VM from the Azure Marketplace, customize it, and create a custom VM image. Then you can use the image to script the deployment of a cluster of RDMA-capable VMs.
@@ -143,7 +143,7 @@ To capture the image, first run the following command in the Linux VM. This comm
 sudo waagent -deprovision
 ```
 
-From your client computer, run the following Azure CLI commands to capture the image. See [How to capture a classic Linux virtual machine as an image](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json) for more information.  
+From your client computer, run the following Azure CLI commands to capture the image. For more information, see [How to capture a classic Linux virtual machine as an image](virtual-machines-linux-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).  
 
 ```
 azure vm shutdown <vm-name>
@@ -195,7 +195,7 @@ If you want to set up a cluster based on one of the CentOS-based HPC images in t
 
 - Intel MPI is already installed on a VM provisioned from a CentOS-based HPC image.
 - Lock memory settings are already added in the VM's /etc/security/limits.conf file.
-- Do not generate SSH keys on the VM you provision for capture. Instead, we recommend setting up user-based authentication after you deploy the cluser. See the following section.  
+- Do not generate SSH keys on the VM you provision for capture. Instead, we recommend setting up user-based authentication after you deploy the cluster. See the following section.  
 
 ### Set up passwordless SSH trust on the cluster
 On a CentOS-based HPC cluster, there are two methods for establishing trust between the compute nodes: host-based authentication and user-based authentication. Host-based authentication is outside of the scope of this article and generally must be done through an extension script during deployment. User-based authentication is convenient for establishing trust after deployment and requires the generation and sharing of SSH keys among the compute nodes in the cluster. This method is commonly known as passwordless SSH login and is required when running MPI jobs.
@@ -279,8 +279,8 @@ source /opt/intel/impi/5.0.3.048/bin64/mpivars.sh
 # source /opt/intel/impi/5.1.3.181/bin64/mpivars.sh
 ```
 
-### Run a simple MPI command
-Run a simple MPI command on one of the compute nodes to show that MPI is installed properly and can communicate between at least two compute nodes. The following **mpirun** command runs the **hostname** command on two nodes.
+### Run an MPI command
+Run an MPI command on one of the compute nodes to show that MPI is installed properly and can communicate between at least two compute nodes. The following **mpirun** command runs the **hostname** command on two nodes.
 
 ```
 mpirun -ppn 1 -n 2 -hosts <host1>,<host2> -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 hostname
