@@ -51,6 +51,11 @@ The following are specific to troubleshooting issues when debugging .NET Framewo
 3. Docker For Windows (Beta) - https://docs.docker.com/docker-for-windows/ (Version 1.12.2-beta28 7813 or later).
 4. From the Docker For Windows system tray icon, select "Switch to Windows containers."  After the machine restarts, ensure this setting is retained.
 
+### Clicking **Docker: Debug Project** results in the error,  "client version 1.22 is too old.  Minimum supported API version is 1.24, please upgrade your client to a newer version".
+
+Version 1.13-RC2-beta31 (9123) or later of Docker For Windows requires using version '2.1' of docker compose.   To fix this, change all occurrences of version '2' in the docker-compose*.yml 
+files within the project. The default templates that Visual Studio adds to the project will be updated in a future release of the tools. 
+
 ### Console output does not appear in Visual Studio's output window while debugging a console application.
 
 This is a known issue with the Visual Studio Debugger (msvsmon.exe), which is currently not designed for this scenario.  We are looking into providing support for this in
