@@ -29,7 +29,7 @@ those created in the public cloud:
 | --- | --- | --- |
 | App Service |*.azurewebsites.net |*.azurewebsites.us|
 
-Some App Service features availabe in the public cloud are not yet available 
+Some App Service features available in the public cloud are not yet available 
 in Azure Government:
 
 - App Service Environments
@@ -63,5 +63,5 @@ The following information identifies the Azure Government boundary for App Servi
 | Data entered, stored, and processed within Azure App Service can contain export controlled data. Binaries running within Azure App Service. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. SQL connection strings. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your Azure App Service. Do not enter Regulated/controlled data into the following fields: Resource groups, Resource names, Resource tags|
 
 ## Next Steps
-For supplemental information and updates subscribe to the [Microsoft Azure Government Blog.](https://blogs.msdn.microsoft.com/azuregov/)
+For supplemental information and updates, subscribe to the [Microsoft Azure Government Blog.](https://blogs.msdn.microsoft.com/azuregov/)
 
