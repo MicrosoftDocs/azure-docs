@@ -1,12 +1,6 @@
-<<<<<<< HEAD
-﻿---
+---
 title: Set up Apache Tomcat on a Linux virtual machine | Microsoft Docs
 description: Learn how to set up Apache Tomcat7 by using Azure Virtual Machines running Linux.
-=======
----
-title: Set Up Apache Tomcat on a Linux VM | Microsoft Docs
-description: Learn how to set up Apache Tomcat7 using an Azure virtual machine (VM) running Linux.
->>>>>>> a9ee8a2265fed9b3003add5edcc90020bc746075
 services: virtual-machines-linux
 documentationcenter: ''
 author: NingKuang
@@ -239,7 +233,7 @@ After connecting, you should see something similar to the following:
 ### Can't access the virtual machine with Tomcat and Moodle from the Internet
 #### Symptom  
   Tomcat is running but you can’t see the Tomcat default page with your browser.
-#### Possible root case   
+#### Possible root cause   
 
   * The Tomcat listen port is not the same as the Private Port of your virtual machine's endpoint for Tomcat traffic.  
 
@@ -295,7 +289,7 @@ After connecting, you should see something similar to the following:
      Command:    put "C:\Users\liang\Desktop\info.jsp" "info.jsp"
      Error:    /var/lib/tomcat7/webapps/info.jsp: open for write: permission denied
      Error:    File transfer failed
-#### Possible root case
+#### Possible root cause
   You have no permissions to access the /var/lib/tomcat7/webapps folder.  
 #### Solution  
   You need get permission from the root account. You can change the ownership of that folder from root to the username you used when you provisioned the machine. Here is an example with the azureuser account name:  
