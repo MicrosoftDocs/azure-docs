@@ -30,7 +30,7 @@ The requirements are:
 
 ## Quick commands
 
-If you need to quickly accomplish the task, the following section details the commands to needed. More detailed information and context for each step can be found the rest of the document, [starting here](virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#detailed-walkthrough).  
+If you need to quickly accomplish the task, the following section details the commands to needed. More detailed information and context for each step can be found the rest of the document, [starting here](virtual-machines-linux-static-dns-name-resolution-for-linux-on-azure.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#detailed-walkthrough).  
 
 Pre-Requirements: Resource Group, VNet, NSG with SSH inbound, Subnet.
 

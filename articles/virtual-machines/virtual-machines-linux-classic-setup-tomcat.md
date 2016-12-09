@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 ﻿---
 title: Set up Apache Tomcat on a Linux virtual machine | Microsoft Docs
 description: Learn how to set up Apache Tomcat7 by using Azure Virtual Machines running Linux.
+=======
+---
+title: Set Up Apache Tomcat on a Linux VM | Microsoft Docs
+description: Learn how to set up Apache Tomcat7 using an Azure virtual machine (VM) running Linux.
+>>>>>>> a9ee8a2265fed9b3003add5edcc90020bc746075
 services: virtual-machines-linux
 documentationcenter: ''
 author: NingKuang

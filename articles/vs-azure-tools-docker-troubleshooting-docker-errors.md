@@ -40,20 +40,25 @@ ERROR: for webapplication1  Cannot create container for service webapplication1:
 ```
 To resolve, right-click on the Docker for Windows system tray icon and select "Settings...".  Click the "Shared Drives" tab and share the drive letter where the project resides.
 
-### **Windows Containers** 
+### **Windows Containers**
 
 The following are specific to troubleshooting issues when debugging .NET Framework web and console applications in windows containers
 
 ### Pre-requisites
 
 1. Visual Studio 2017 RC (or later) with the .NET Core and Docker (Preview) workload installed.
-2. Windows 10 Anniversary Update with the latest windows update patches installed. 
+2. Windows 10 Anniversary Update with the latest windows update patches installed.
 3. Docker For Windows (Beta) - https://docs.docker.com/docker-for-windows/ (Version 1.12.2-beta28 7813 or later).
-4. From the Docker For Windows system tray icon, select "Switch to Windows containers."  After the machine restarts, ensure this setting is retained. 
+4. From the Docker For Windows system tray icon, select "Switch to Windows containers."  After the machine restarts, ensure this setting is retained.
+
+### Clicking **Docker: Debug Project** results in the error,  "client version 1.22 is too old.  Minimum supported API version is 1.24, please upgrade your client to a newer version".
+
+Version 1.13-RC2-beta31 (9123) or later of Docker For Windows requires using version '2.1' of docker compose.   To fix this, change all occurrences of version '2' in the docker-compose*.yml 
+files within the project. The default templates that Visual Studio adds to the project will be updated in a future release of the tools. 
 
 ### Console output does not appear in Visual Studio's output window while debugging a console application.
 
-This is a known issue with the Visual Studio Debugger (msvsmon.exe), which is currently not designed for this scenario.  We are looking into providing support for this in 
+This is a known issue with the Visual Studio Debugger (msvsmon.exe), which is currently not designed for this scenario.  We are looking into providing support for this in
 a future release.  To see output from the console application in Visual Studio, use "Docker: Start Project", which is equivalent to "Start without Debugging".
 
 ### Debugging web applications with the release configuration fails with (403) Forbidden error.
@@ -61,7 +66,7 @@ a future release.  To see output from the console application in Visual Studio, 
 To work around the issue, open the web.release.config file in the solution and comment out or delete the following lines:
 
 ```
-<compilation xdt:Transform="RemoveAttributes(debug)" /> 
+<compilation xdt:Transform="RemoveAttributes(debug)" />
 ```
 
 ### When switching to windows containers, you could potentially see an error dialog stating "Error response from daemon: i/o timeout".
@@ -71,17 +76,17 @@ This issue in Docker For Windows can be tracked at https://github.com/docker/for
 
 ## Visual Studio 2015
 
-### **Linux Containers** 
+### **Linux Containers**
 
 ### Unable to validate volume mapping
-Volume mapping is required to share the source code and binaries of your application with the app folder in the container.  Specific volume mappings are 
-contained within the docker-compose.dev.debug.yml and docker-compose.dev.release.yml files. As files are changed on your host machine, the containers 
+Volume mapping is required to share the source code and binaries of your application with the app folder in the container.  Specific volume mappings are
+contained within the docker-compose.dev.debug.yml and docker-compose.dev.release.yml files. As files are changed on your host machine, the containers
 reflect these changes in a similar folder structure.
 
-To enable volume mapping, open **Settings...** from the Docker For Windows "moby" tray icon and then select the **Shared Drives** tab.  Ensure that the drive letter, which 
+To enable volume mapping, open **Settings...** from the Docker For Windows "moby" tray icon and then select the **Shared Drives** tab.  Ensure that the drive letter, which
 hosts your project, and the drive letter where %USERPROFILE% resides are shared by checking them, and then clicking **Apply**.
 
-To test if volume mapping is functioning, once once or more drives have been shared, either Rebuild and F5 from within Visual Studio or try the following from a command prompt:
+To test if volume mapping is functioning, once or more drives have been shared, either Rebuild and F5 from within Visual Studio or try the following from a command prompt:
 
 *In a Windows command prompt*
 
@@ -100,7 +105,7 @@ docker run -it -v /c/Users/Public:/wormhole busybox
 ```
 
 You should see a directory listing from the Users/Public folder.
-If no files are displayed, and your /c/Users/Public folder isn't empty, volume mapping is not configured properly. 
+If no files are displayed, and your /c/Users/Public folder isn't empty, volume mapping is not configured properly.
 
 ```
 bin       etc       proc      sys       usr       wormhole
@@ -184,7 +189,7 @@ icon in the tray should be visible. Right click the tray icon and open **Setting
     },
     ```
 
-1. Uninstall the previous version and install Docker Tools 0.40, and then **Add->Docker Support** again from the context menu for your ASP.Net Core Web or Console Application. This adds the new required Docker artifacts back to your project. 
+1. Uninstall the previous version and install Docker Tools 0.40, and then **Add->Docker Support** again from the context menu for your ASP.Net Core Web or Console Application. This adds the new required Docker artifacts back to your project.
 
 ## An error dialog occurs when attempting to **Add->Docker Support** or Debug (F5) an ASP.NET Core Application in a container
 
@@ -199,4 +204,4 @@ We have occasionally seen after uninstalling and installing extensions, Visual S
        MEFCacheBackup
     ```
 1. Open Visual Studio
-1. Attempt the scenario again 
+1. Attempt the scenario again
