@@ -107,10 +107,7 @@ When an event is scheduled (Status = Scheduled), Azure shares the time after whi
 Once you have learned of an upcoming event and completed your logic for graceful shutdown, you can indicate Azure to move faster (when possible) by making a **POST** call 
  
 
-## Samples 
-
-
-### PowerShell Sample 
+## PowerShell Sample 
 
 The following sample reads the metadata server for scheduled events and
 record them in the Application event log before acknowledging.
@@ -146,7 +143,7 @@ for ($eventIdx=0; $eventIdx -lt $scheduledEventsResponse.Events.Length ; $eventI
 ``` 
 
 
-### C\# Sample 
+## C\# Sample 
 The code below is of a client surfacing APIs to communicate with the Metadata Service
 ```csharp
    public class ScheduledEventsClient
@@ -267,7 +264,7 @@ public class Program
 
 ```
 
-### Python Sample 
+## Python Sample 
 
 ```python
 
