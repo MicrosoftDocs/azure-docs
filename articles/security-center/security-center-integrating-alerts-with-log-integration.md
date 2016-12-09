@@ -18,15 +18,15 @@ ms.author: terrylan
 
 ---
 # Integrating Azure Security Center alerts with Azure log integration (Preview)
-Many security operations and incident response teams rely on a Security Information and Event Management (SIEM) solution as the starting point for triaging and investigating security alerts. With Azure log integration, customers can sync Security Center alerts and virtual machine security events, collected by Azure Diagnostics and Azure Audit Logs, with their log analytics or SIEM solution in near real-time.
+Many security operations and incident response teams rely on a Security Information and Event Management (SIEM) solution as the starting point for triaging and investigating security alerts. With Azure log integration, customers can sync Security Center alerts and virtual machine security events, collected by Azure Diagnostics and Azure Audit Logs, with their log analytics or SIEM solution in near real time.
 
 Azure log integration works with HP ArcSight, Splunk, IBM QRadar, and others.
 
 ## What logs can I integrate?
 Azure produces extensive logging for every service. These logs are categorized as:
 
-* **Control/Management logs** which give visibility into the Azure Resource Manager CREATE, UPDATE, and DELETE operations.
-* **Data Plane logs** which give visibility into the events raised when using an Azure resource. An example is the Windows Event log - security and application logs in a virtual machine.
+* **Control/Management logs** that give visibility into the Azure Resource Manager CREATE, UPDATE, and DELETE operations.
+* **Data Plane logs** that give visibility into the events raised when using an Azure resource. An example is the Windows Event log - security and application logs in a virtual machine.
 
 Azure log integration currently supports the integration of:
 
@@ -63,7 +63,7 @@ The Azure log integration service collects telemetry data from the machine on wh
 3. Run the **azlog authorize <SubscriptionID>** command to assign Reader access on the subscription to the service principal created in step 2. If you don’t specify a **SubscriptionID**, then the service principal is assigned the Reader role to all subscriptions to which you have access.
 
    > [!NOTE]
-   > You may see warnings if you run the **authorize** command immediately after the **createazureid** command because there is some latency between when the Azure AD account is created and when the account is available for use. If you wait about 10 seconds after running the **createazureid** command to run the **authorize** command, then you should not see these warnings.
+   > You may see warnings if you run the **authorize** command immediately after the **createazureid** command. There is some latency between when the Azure AD account is created and when the account is available for use. If you wait about 10 seconds after running the **createazureid** command to run the **authorize** command, then you should not see these warnings.
    >
    >
 4. Check the following folders to confirm that the Audit log JSON files are there:
