@@ -1,6 +1,6 @@
 ---
 title: Overview of Azure DNS | Microsoft Docs
-description: Overview of Azure DNS hosting services on Microsoft Azure. Host your domain on Microsoft Azure.
+description: Overview of DNS hosting service on Microsoft Azure. Host your domain on Microsoft Azure.
 services: dns
 documentationcenter: na
 author: georgewallace
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/16/2016
+ms.date: 12/05/2016
 ms.author: gwallace
 ---
 
