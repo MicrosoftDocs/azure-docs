@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 12/08/2016
+ms.date: 12/09/2016
 ms.author: sstein
 
 ---
@@ -55,7 +55,7 @@ When you finish this tutorial, you will have a sample database and a blank datab
 
 * You need the AdventureWorksLT sample database .bacpac file in Azure blob storage
 
-### Download the AdventureWorksLT sample database .bacpac file ad save it in Azure blob storage
+### Download the AdventureWorksLT sample database .bacpac file and save it in Azure blob storage
 
 This tutorial creates a new AdventureWorksLT database by importing a .bacpac file from Azure Storage. The first step is to get a copy of the AdventureWorksLT.bacpac, and upload it to blob storage.
 The following steps get the sample database ready to import:
@@ -128,7 +128,7 @@ $myServer
 ```
 
 
-## View the logical SQL Server properties using Azure PowerShell
+## View the logical SQL server properties using Azure PowerShell
 
 ```
 #$serverResourceGroupName = "{resource-group-name}"
