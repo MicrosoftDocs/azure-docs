@@ -57,7 +57,7 @@ Use [gulp.js](http://gulpjs.com) to automate the deployment of the sample applic
 
 Start a command prompt as an administrator. Install `gulp` by running the following command:
 
-```bash
+```cmd
 npm install -g gulp
 ```
 

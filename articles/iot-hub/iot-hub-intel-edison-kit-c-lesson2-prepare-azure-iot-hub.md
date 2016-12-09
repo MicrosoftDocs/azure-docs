@@ -32,7 +32,7 @@ In this article, you will learn:
 * How to create a device identity for Edison in your IoT hub.
 
 ## What you need
-* An Azure account
+* An Azure account. If you don't have an Azure account, create a [free Azure trial account](http://azure.microsoft.com/pricing/free-trial/) in just a few minutes.
 * You should have the Azure CLI installed.
 
 ## Create your IoT hub

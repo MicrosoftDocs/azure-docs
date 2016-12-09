@@ -22,7 +22,7 @@ ms.author: xshi
 [Azure Functions](../../articles/azure-functions/functions-overview.md) is a solution for easily running *functions* (small pieces of code) in the cloud. An Azure function app hosts the execution of your functions in Azure.
 
 ## What will you do
-Use an Azure Resource Manager template to create an Azure function app and an Azure storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage. If you have any problems, look for solutions on the [troubleshooting page][troubleshooting].
+Use an Azure Resource Manager template to create an Azure function app and an Azure storage account. The Azure function app listens to Azure IoT hub events, processes incoming messages, and writes them to Azure Table storage. The storage account is used for reading the persisted copies of messages from Azure table. If you have any problems, look for solutions on the [troubleshooting page][troubleshooting].
 
 ## What will you learn
 In this article, you will learn:

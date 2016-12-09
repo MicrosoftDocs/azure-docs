@@ -49,13 +49,13 @@ To install the Azure CLI, follow these steps:
 1. Open a Command Prompt window as an administrator.
 2. Run the following commands:
 
-   ```bash
+   ```cmd
    pip install --upgrade azure-cli
    pip install --upgrade azure-cli-iot
    ```
 3. Verify the installation by running the following command:
 
-   ```bash
+   ```cmd
    az iot -h
    ```
 

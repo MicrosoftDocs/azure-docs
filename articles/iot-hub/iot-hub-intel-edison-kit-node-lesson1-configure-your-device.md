@@ -18,7 +18,7 @@ ms.date: 11/7/2016
 ms.author: xshi
 
 ---
-# Configure your device
+# Configure your Intel Edison
 ## What you will do
 Configure Intel Edison for first-time use by assembling the board, powering it up and installing configuration tool to your desktop OS to flash Edison's firmware, set its password and connect it to Wi-Fi. If you have any problems, look for solutions on the [troubleshooting page][troubleshooting].
 
