@@ -42,7 +42,7 @@ In Express settings, the installation wizard asks for AD DS Enterprise Admin cre
 | Connect to AD DS |On-premises Active Directory credentials |Member of the Enterprise Admins (EA) group in Active Directory |<li>Creates an [account](#active-directory-account) in Active Directory and grants permissions to it. This created account is used to read and write directory information during synchronization.</li> |
 
 ### Enterprise Admin credentials
-These credentials are only used during the installation and are used after the installation has completed. It is Enterprise Admin, and not Domain Admin, to make sure the permissions in Active Directory can be set in all domains.
+These credentials are only used during the installation and are not used after the installation has completed. The Enterprise Admin, not the Domain Admin should make sure the permissions in Active Directory can be set in all domains.
 
 ### Global Admin credentials
 These credentials are only used during the installation and are not used after the installation has completed. It is used to create the [Azure AD account](#azure-ad-service-account) used for synchronizing changes to Azure AD. The account also enables sync as a feature in Azure AD.
