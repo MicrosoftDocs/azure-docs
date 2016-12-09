@@ -72,7 +72,7 @@ Now that you completed this tutorial, consider continuing on to one of the follo
 * [Add authentication to your Android app](app-service-mobile-android-get-started-users.md).
   Learn how to add authentication to the todolist quickstart project on Android using a supported identity provider.
 * [Enable offline sync for your Android app](app-service-mobile-android-get-started-offline-data.md).
-  Learn how to add offline support your app using a Mobile Apps back end. With offline sync, users can interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
+  Learn how to add offline support to your app by using a Mobile Apps back end. With offline sync, users can interact with a mobile app&mdash;viewing, adding, or modifying data&mdash;even when there is no network connection.
 
 <!-- URLs -->
 [Android quick start]: app-service-mobile-android-get-started.md
