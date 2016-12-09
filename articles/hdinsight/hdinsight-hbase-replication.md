@@ -58,7 +58,13 @@ To make it easier to configure the environments, we have created some [Azure Res
 
 ### Configure the one-vnet scenario
 
-Click the following image to create two VNets and a HBase cluster in each of the VNets. The template is stored in a public Azure Blob container. 
+Click the following image to two HBase clusters in the same VNet. The template is stored in a public Azure Blob container. 
+
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-hbase-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+
+### Configure the two-VNet in the same region scenario
+
+Click the following image to create two VNets and two HBase clusters in the same region. The template is stored in a public Azure Blob container. 
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-hbase-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -83,14 +89,13 @@ HBase replication uses IP addresses of the Zookeepers. You must configure static
 
 ### Configure the two-vnet in the same region scenario
 
-Click the following image to create two VNets and a HBase cluster in each of the VNets. The template is stored in a public Azure Blob container. 
+Click the following image to create two VNets in two different regions. The template is stored in a public Azure Blob container. 
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-hbase-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 Create a VPN gateway between the two VNets.  For the instructions, see [Create a VNet with a Site-to-Site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 HBase replication uses IP addresses of the Zookeepers. You must configure static IP addresses for the destination HBase Zookeeper nodes. To configure static IP, see the Configure the one-vnet scenario section in this article.
-
 
 ## Load test data 
 
