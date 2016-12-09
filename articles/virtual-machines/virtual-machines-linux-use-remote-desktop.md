@@ -13,21 +13,21 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 12/08/2016
 ms.author: iainfou
 
 ---
 # Install and configure Remote Desktop to connect to a Linux VM in Azure
-Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp)) for your Linux VM.
+Linux virtual machines (VMs) in Azure are usually managed from the command line using a secure shell (SSH) connection. When new to Linux, or for quick troubleshooting scenarios, the use of remote desktop may be easier. This article details how to install and configure a desktop environment ([xfce](https://www.xfce.org)) and remote desktop ([xrdp](http://www.xrdp)) for your Linux VM using the Resource Manager deployment model. You can also [perform these steps for VMs using the Classic deployment model](virtual-machines-classic-remote-desktop.md).
 
 
 ## Prerequisites
 This article requires an existing Linux VM in Azure. If you need to create a VM, use one of the following methods:
 
-- The [Azure CLI (azure.js)](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Azure CLI 2.0 Preview (az.py)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- The [Azure CLI 1.0)](virtual-machines-linux-quick-create-cli-nodejs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) or [Azure CLI 2.0 (Preview)](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 - The [Azure portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-You also need the [latest Azure CLI](../xplat-cli-install.md) installed and logged in to an [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
+You also need the latest [Azure CLI 1.0](../xplat-cli-install.md) or [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an [active Azure account](https://azure.microsoft.com/pricing/free-trial/).
 
 
 ## Quick commands
@@ -94,6 +94,16 @@ Connect to your Linux VM using your remote desktop client of choice.
 Most Linux VMs in Azure do not have a desktop environment installed by default. Linux VMs are commonly managed using SSH connections rather than a desktop environment. There are various desktop environments in Linux that you can choose. Depending on your choice of desktop environment, it may consume one to 2 GB of disk space, and take 5 to 10 minutes to install and configure all the required packages.
 
 The following example installs the lightweight [xfce4](https://www.xfce.org/) desktop environment on an Ubuntu VM. Commands for other distributions vary slightly (use `yum` to install on Red Hat Enterprise Linux and configure appropriate `selinux` rules, or use `zypper` to install on SUSE, for example).
+
+First, SSH to your VM. THe following example connects to the VM named `myvm.westus.cloudapp.azure.com` with the username of `ops`:
+
+```bash
+ssh ops@myvm.westus.cloudapp.azure.com ~/.ssh/id_rsa.pub
+```
+
+For more information on using SSH from Windows, see [How to use SSH keys with Windows](virtual-machines-linux-ssh-from-windows.md).
+
+Next, install xfce using `apt` as follows:
 
 ```bash
 sudo apt-get update
