@@ -13,15 +13,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/20/2016
+ms.date: 12/08/2016
 ms.author: ashwink
 
 ---
-# Configure a webhook on an Azure Activity Log alertS
+# Configure a webhook on an Azure Activity Log alert
 Webhooks allow you to route an Azure alert notification to other systems for post-processing or custom actions. You can use a webhook on an alert to route it to services that send SMS, log bugs, notify a team via chat/messaging services, or do any number of other actions. This article describes how to set a webhook on an Azure Activity Log alert and what the payload for the HTTP POST to a webhook looks like. For information on the setup and schema for an Azure metric alert, [see this page instead](insights-webhooks-alerts.md). You can also set up an Activity Log alert to send email when activated.
 
 > [!NOTE]
-> This feature is currently in preview, so expect variable quality and performance.
+> This feature is currently in preview and will be removed at some point in the future.
 > 
 > 
 
