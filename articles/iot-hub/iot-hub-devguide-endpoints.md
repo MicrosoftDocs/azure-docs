@@ -62,9 +62,9 @@ IoT Hub currently supports the following Azure services as additional endpoints:
 
 IoT Hub needs write access to these endpoints for message routing to work. If you configure your endpoints through the Azure portal, the necessary permissions are added for you. Make sure you configure your services to support the expected throughput. You may need to monitor your additional endpoints when you first configure your IoT solution and then make any necessary adjustments for the actual load.
 
-IoT Hub delivers each message at most once to an endpoint, therefore you do not need to configure deduplication on your Service Bus queue or topic. Sessions are ignored in queues. In partitioned queues, partition affinity guarantees message ordering.
+If a message matches multiple routes which all point to the same endpoint, IoT Hub delivers message to that endpoint only once. Therefore, you do not need to configure deduplication on your Service Bus queue or topic. In partitioned queues, partition affinity guarantees message ordering. Queues with sessions enabled are not supported as endpoints. Partitioned queues and topics with deduplication enabled are also not supported.
 
-For the limits on the number of endpoints you may add, please see [Quoatas and throttling][lnk-devguide-quotas].
+For the limits on the number of endpoints you may add, please see [Quotas and throttling][lnk-devguide-quotas].
 
 ## Field gateways
 In an IoT solution, a *field gateway* sits between your devices and your IoT Hub endpoints. It is typically located close to your devices. Your devices communicate directly with the field gateway by using a protocol supported by the devices. The field gateway connects to an IoT Hub endpoint using a protocol that is supported by IoT Hub. A field gateway can be highly specialized hardware or a low power computer running software that accomplishes the end-to-end scenario for which the gateway is intended.
