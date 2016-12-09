@@ -228,7 +228,8 @@ Set up your solution according to the guidelines in the next few sections.
         Or
 
     - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run PowerShell as an administrator, and type:
-      ```psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
+      ```powershell
+      psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
       ```
 
 ### StorSimple best practices
@@ -407,7 +408,7 @@ The following table shows how to set up backups to run on the local and StorSimp
 
 ### Backup configuration and capacity requirements
 
-| Backup type and retention | Configured storage | Size (TiB) | GFS multiplier | Total capacity* (TiB) |
+| Backup type and retention | Configured storage | Size (TiB) | GFS multiplier | Total capacity\* (TiB) |
 |---|---|---|---|---|
 | Week 1 (full and incremental) |Local disk (short-term)| 1 | 1 | 1 |
 | StorSimple weeks 2-4 |StorSimple disk (long-term) | 1 | 4 | 4 |
@@ -520,7 +521,7 @@ The following section describes how to create a short script to start and delete
 
 #### To start or delete a cloud snapshot
 
-1.  [Install Azure PowerShell](azureps-cmdlets-docs.md/#install-and-configure).
+1.  [Install Azure PowerShell](/articles/powershell-install-configure.md).
 
 2.  [Download and import publish settings and subscription information](https://msdn.microsoft.com/library/dn385850.aspx).
 
