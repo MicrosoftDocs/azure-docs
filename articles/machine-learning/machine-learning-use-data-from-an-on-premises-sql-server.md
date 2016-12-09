@@ -73,9 +73,8 @@ Consider the following when setting up and using a Data Management Gateway:
 * You need to use the Data Management Gateway for Azure Machine Learning even if you are using Azure ExpressRoute for other data. You should treat your data source as an on-premises data source (that's behind a firewall) even when you use ExpressRoute. Use the Data Management Gateway to establish connectivity between Machine Learning and the data source.
 
 You can find detailed information on installation prerequisites,
-installation steps, and troubleshooting tips in the article [Move data between on-premises sources and cloud with
-Data Management
-Gateway](../data-factory/data-factory-move-data-between-onprem-and-cloud.md).
+installation steps, and troubleshooting tips in the article [Data Management
+Gateway](../data-factory/data-factory-data-management-gateway.md).
 
 ## <span id="using-the-data-gateway-step-by-step-walk" class="anchor"><span id="_Toc450838866" class="anchor"></span></span>Ingress data from your on-premises SQL Server database into Azure Machine Learning
 In this walkthrough, you will set up a Data Management Gateway in an Azure
