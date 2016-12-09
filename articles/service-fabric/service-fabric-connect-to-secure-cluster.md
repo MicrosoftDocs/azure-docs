@@ -53,7 +53,7 @@ For connecting to a cluster secured with a self-signed certificate, use the foll
 azure servicefabric cluster connect --connection-endpoint https://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false --reject-unauthorized-false
 ```
 
-After you connect, you should be able to run other CLI commands to interact with the cluster. 
+After you connect, you should be able to [run other CLI commands](service-fabric-azure-cli.md) to interact with the cluster. 
 
 <a id="connectsecurecluster"></a>
 
