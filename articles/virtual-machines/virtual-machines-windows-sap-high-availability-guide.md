@@ -1498,13 +1498,13 @@ It's easy to test and monitor an SAP ASCS/SCS instance failover and SIOS disk re
 
 ### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> SAP ASCS/SCS Instance is Running on Cluster Node A
 
-The **SAP PR1** cluster group is running on cluster node A. For example, on **ascsha-clna**. Assign the shared disk drive S, which is part of the **SAP PR1** cluster group, and which the ASCS/SCS instance uses, to cluster node A.
+The **SAP PR1** cluster group is running on cluster node A. For example, on **pr1-ascs-0**. Assign the shared disk drive S, which is part of the **SAP PR1** cluster group, and which the ASCS/SCS instance uses, to cluster node A.
 
 ![Figure 61: Failover Cluster Manager: The SAP <*SID*> cluster group is running on cluster node A][sap-ha-guide-figure-5000]
 
 _**Figure 61:** Failover Cluster Manager: The SAP <*SID*> cluster group is running on cluster node A_
 
-By using the SIOS DataKeeper UI, you can see that the shared disk data is synchronously replicated from the source volume drive S on cluster node A to the target volume drive S on cluster node B. For example, from **ascsha-clna [10.0.0.41]** to **ascsha-clnb [10.0.0.42]**.
+By using the SIOS DataKeeper UI, you can see that the shared disk data is synchronously replicated from the source volume drive S on cluster node A to the target volume drive S on cluster node B. For example, from **pr1-ascs-0 [10.0.0.40]** to **pr1-ascs-1 [10.0.0.41]**.
 
 ![Figure 62: In SIOS DataKeeper, replicate the local volume from cluster node A to cluster node B][sap-ha-guide-figure-5001]
 
@@ -1529,17 +1529,13 @@ Move-ClusterGroup -Name $SAPClusterGroup
 - Restart cluster node A from the Azure portal (initiates an automatic failover of the SAP <*SID*> cluster group from node A to node B)  
 - Restart cluster node A by using Azure PowerShell (initiates an automatic failover of the SAP <*SID*> cluster group from node A to node B)
 
-  ```powershell
-  Restart-AzureVM -Name ascsha-clna -ServiceName ascsha-cluster
-  ```
-
-After failover, the SAP <*SID*> cluster group is running on cluster node B. For example, on **ascsha-clnb**.
+After failover, the SAP <*SID*> cluster group is running on cluster node B. For example, on **pr1-ascs-1**.
 
 ![Figure 63: In Failover Cluster Manager, the SAP <*SID*> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
 
 _**Figure 63**: In Failover Cluster Manager, the SAP <*SID*> cluster group is running on cluster node B_
 
-Now the shared disk is mounted on cluster node B. SIOS DataKeeper is replicating data from source volume drive S on cluster node B to target volume drive S on cluster node A. For example, from **ascsha-clnb [10.0.0.42]** to **ascsha-clna [10.0.0.41]**.
+Now the shared disk is mounted on cluster node B. SIOS DataKeeper is replicating data from source volume drive S on cluster node B to target volume drive S on cluster node A. For example, from **pr1-ascs-1 [10.0.0.41]** to **pr1-ascs-0 [10.0.0.40]**.
 
 ![Figure 64: SIOS DataKeeper replicates the local volume from cluster node B to cluster node A][sap-ha-guide-figure-5003]
 
@@ -1547,4 +1543,4 @@ _**Figure 64:** SIOS DataKeeper replicates the local volume from cluster node B 
 
 ##  Summary
 
-This guide gave you an overview and step by step instruction how to install an high available SAP NetWeaver system in Azure using Azure Resource Manger deployment model. 
+This guide gave you an overview and step by step instruction how to install an high available SAP NetWeaver system in Azure using Azure Resource Manger deployment model.
