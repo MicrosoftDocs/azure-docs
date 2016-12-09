@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Create a pipeline with Copy Activity using REST API | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using REST API.
 services: data-factory
@@ -45,7 +45,7 @@ This tutorial shows you how to create and monitor an Azure data factory using th
   2. Get **client ID** and **secret key**. 
   3. Get **tenant ID**. 
   4. Assign the **ADFCopyTutorialApp** application to the **Data Factory Contributor** role.  
-* Install [Azure PowerShell](../powershell-install-configure.md).  
+* Install [Azure PowerShell](/powershell/azureps-cmdlets-docs).  
 * Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
   
   1. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
@@ -81,7 +81,7 @@ Create following JSON files in the folder where curl.exe is located.
 
 ### azurestoragelinkedservice.json
 > [!IMPORTANT]
-> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#view-copy-and-regenerate-storage-access-keys).
+> Replace **accountname** and **accountkey** with name and key of your Azure storage account. To learn how to get your storage access key, see [View, copy and regenerate storage access keys](../storage/storage-create-storage-account.md#manage-your-storage-access-keys).
 > 
 > 
 
@@ -269,7 +269,7 @@ If you do not specify value for the **end** property, it is calculated as "**sta
 In the example, there are 24 data slices as each data slice is produced hourly.
 
 > [!NOTE]
-> See [Anatomy of a Pipeline](data-factory-create-pipelines.md#anatomy-of-a-pipeline) for details about JSON properties used in the preceding example.
+> See [Anatomy of a Pipeline](data-factory-create-pipelines.md) for details about JSON properties used in the preceding example.
 > 
 > 
 
@@ -492,7 +492,7 @@ In this tutorial, you used REST API to create an Azure data factory to copy data
 [azure-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [azure-portal]: http://portal.azure.com
-[download-azure-powershell]: ../powershell-install-configure.md
+[download-azure-powershell]: /powershell/azureps-cmdlets-docs
 [data-factory-introduction]: data-factory-introduction.md
 
 [image-data-factory-get-started-storage-explorer]: ./media/data-factory-copy-activity-tutorial-using-powershell/getstarted-storage-explorer.png

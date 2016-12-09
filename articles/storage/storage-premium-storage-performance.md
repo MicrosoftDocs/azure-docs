@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure Premium Storage: Design for Performance | Microsoft Docs'
 description: Design high-performance applications using Azure Premium Storage. Premium Storage offers high-performance, low-latency disk support for I/O-intensive workloads running on Azure Virtual Machines.
 services: storage
@@ -88,10 +88,10 @@ Next, measure the maximum performance requirements of your application throughou
 | Average Memory | | | |
 | Queue Depth | | | |
 
-> **Important Note:**  
+> [!NOTE]
 > You should consider scaling these numbers based on expected future growth of your application. It is a good idea to plan for growth ahead of time, because it could be harder to change the infrastructure for improving performance later.
-> 
-> 
+>
+>
 
 If you have an existing application and want to move to Premium Storage, first build the checklist above for the existing application. Then, build a prototype of your application on Premium Storage and design the application based on guidelines described in *Optimizing Application Performance* in a later section of this document. The next section describes the tools you can use to gather the performance measurements.
 
@@ -123,18 +123,18 @@ Throughout this section, refer to the application requirements checklist that yo
 ### Optimizing IOPS, Throughput and Latency at a glance
 The table below summarizes all the performance factors and the steps to optimize IOPS, Throughput and Latency. The sections following this summary will describe each factor is much more depth.
 
-|  | **IOPS** | **Throughput** | **Latency** |
+| &nbsp; | **IOPS** | **Throughput** | **Latency** |
 | --- | --- | --- | --- |
 | **Example Scenario** |Enterprise OLTP application requiring very high transactions per second rate. |Enterprise Data warehousing application processing large amounts of data. |Near real-time applications requiring instant responses to user requests, like online gaming. |
-| Performance factors | | | |
-| **IO size** |Smaller IO size yields higher IOPS. |Larger IO size to yields higher Throughput. | |
+| Performance factors | &nbsp; | &nbsp; | &nbsp; |
+| **IO size** |Smaller IO size yields higher IOPS. |Larger IO size to yields higher Throughput. | &nbsp;|
 | **VM size** |Use a VM size that offers IOPS greater than your application requirement. See VM sizes and their IOPS limits here. |Use a VM size with Throughput limit greater than your application requirement. See VM sizes and their Throughput limits here. |Use a VM size that offers scale limits greater than your application requirement. See VM sizes and their limits here. |
 | **Disk size** |Use a disk size that offers IOPS greater than your application requirement. See disk sizes and their IOPS limits here. |Use a disk size with Throughput limit greater than your application requirement. See disk sizes and their Throughput limits here. |Use a disk size that offers scale limits greater than your application requirement. See disk sizes and their limits here. |
 | **VM and Disk Scale Limits** |IOPS limit of the VM size chosen should be greater than total IOPS driven by premium storage disks attached to it. |Throughput limit of the VM size chosen should be greater than total Throughput driven by premium storage disks attached to it. |Scale limits of the VM size chosen must be greater than total scale limits of attached premium storage disks. |
-| **Disk Caching** |Enable ReadOnly Cache on premium storage disks with Read heavy operations to get higher Read IOPS. | |Enable ReadOnly Cache on premium storage disks with Ready heavy operations to get very low Read latencies. |
-| **Disk Striping** |Use multiple disks and stripe them together to get a combined higher IOPS and Throughput limit. Note that the combined limit per VM should be higher than the combined limits of attached premium disks. | | |
-| **Stripe Size** |Smaller stripe size for random small IO pattern seen in OLTP applications. E.g., use stripe size of 64KB for SQL Server OLTP application. |Larger stripe size for sequential large IO pattern seen in Data Warehouse applications. E.g., use 256KB stripe size for SQL Server Data warehouse application. | |
-| **Multithreading** |Use multithreading to push higher number of requests to Premium Storage that will lead to higher IOPS and Throughput. For example, on SQL Server set a high MAXDOP value to allocate more CPUs to SQL Server. | | |
+| **Disk Caching** |Enable ReadOnly Cache on premium storage disks with Read heavy operations to get higher Read IOPS. | &nbsp; |Enable ReadOnly Cache on premium storage disks with Ready heavy operations to get very low Read latencies. |
+| **Disk Striping** |Use multiple disks and stripe them together to get a combined higher IOPS and Throughput limit. Note that the combined limit per VM should be higher than the combined limits of attached premium disks. | &nbsp; | &nbsp; |
+| **Stripe Size** |Smaller stripe size for random small IO pattern seen in OLTP applications. E.g., use stripe size of 64KB for SQL Server OLTP application. |Larger stripe size for sequential large IO pattern seen in Data Warehouse applications. E.g., use 256KB stripe size for SQL Server Data warehouse application. | &nbsp; |
+| **Multithreading** |Use multithreading to push higher number of requests to Premium Storage that will lead to higher IOPS and Throughput. For example, on SQL Server set a high MAXDOP value to allocate more CPUs to SQL Server. | &nbsp; | &nbsp; |
 | **Queue Depth** |Larger Queue Depth yields higher IOPS. |Larger Queue Depth yields higher Throughput. |Smaller Queue Depth yields lower latencies. |
 
 ## Nature of IO Requests
@@ -157,7 +157,7 @@ If you are using an application, which allows you to change the IO size, use thi
 
 Here is an example on how you can calculate the IOPS and Throughput/Bandwidth for your application. Consider an application using a P30 disk. The maximum IOPS and Throughput/Bandwidth a P30 disk can achieve is 5000 IOPS and 200 MB per second respectively. Now, if your application requires the maximum IOPS from the P30 disk and you use a smaller IO size like 8 KB, the resulting Bandwidth you will be able to get is 40 MB per second. However, if your application requires the maximum Throughput/Bandwidth from P30 disk, and you use a larger IO size like 1024 KB, the resulting IOPS will be less, 200 IOPS. Therefore, tune the IO size such that it meets both your application’s IOPS and Throughput/Bandwidth requirement. Table below summarizes the different IO sizes and their corresponding IOPS and Throughput for a P30 disk.
 
-| **Application Requirement** | **I/O size** | **IOPS** | **Throughput/Bandwidth** |
+| Application Requirement | I/O size | IOPS | Throughput/Bandwidth |
 | --- | --- | --- | --- |
 | Max IOPS |8 KB |5,000 |40 MB per second |
 | Max Throughput |1024 KB |200 |200 MB per second |
@@ -166,10 +166,10 @@ Here is an example on how you can calculate the IOPS and Throughput/Bandwidth fo
 
 To get IOPS and Bandwidth higher than the maximum value of a single premium storage disk, use multiple premium disks striped together. For example, stripe two P30 disks to get a combined IOPS of 10,000 IOPS or a combined Throughput of 400 MB per second. As explained in the next section, you must use a VM size that supports the combined disk IOPS and Throughput.
 
-> **Note:**  
+> [!NOTE]
 > As you increase either IOPS or Throughput the other also increases, make sure you do not hit throughput or IOPS limits of the disk or VM when increasing either one.
-> 
-> 
+>
+>
 
 To witness the effects of IO size on application performance, you can run benchmarking tools on your VM and disks. Create multiple test runs and use different IO size for each run to see the impact. Refer to the [Benchmarking](#Benchmarking) section at the end of this article for more details.
 
@@ -183,7 +183,7 @@ High Scale VMs are available in different sizes with a different number of CPU c
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Local SSD = 224 GB |32 |576 GB |50,000 IOPS <br> 512 MB per second |4,000 IOPS and 33 MB per second |
 | Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Local SSD = 896 GB |64 |4224 GB |80,000 IOPS <br> 2,000 MB per second |5,000 IOPS and 50 MB per second |
 
-To view a complete list of all available Azure VM sizes, refer to [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md). Choose a VM size that can meet and scale to your desired application performance requirements. In addition to this, take into account following important considerations when choosing VM sizes.
+To view a complete list of all available Azure VM sizes, refer to [Windows VM sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [Linux VM sizes](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Choose a VM size that can meet and scale to your desired application performance requirements. In addition to this, take into account following important considerations when choosing VM sizes.
 
 *Scale Limits*  
 The maximum IOPS limits per VM and per disk are different and independent of each other. Make sure that the application is driving IOPS within the limits of the VM as well as the premium disks attached to it. Otherwise, application performance will experience throttling.
@@ -199,7 +199,7 @@ However, if you hosted the same application on Premium Storage, you will need a 
 
 Table below summarizes the cost breakdown of this scenario for Standard and Premium Storage.
 
-|  | **Standard** | **Premium** |
+| &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
 | **Cost of VM per month** |$1,570.58 (Standard\_D14) |$1,003.66 (Standard\_DS13) |
 | **Cost of Disks per month** |$1,638.40 (32 x 1 TB disks) |$544.34 (4 x P30 disks) |
@@ -207,7 +207,7 @@ Table below summarizes the cost breakdown of this scenario for Standard and Prem
 
 *Linux Distros*  
 
-With Azure Premium Storage, you get the same level of Performance for VMs running Windows and Linux. We support many flavors of Linux distros, and you can see the complete list [here](../virtual-machines/virtual-machines-linux-endorsed-distros.md). It is important to note that different distros are better suited for different types of workloads. You will see different levels of performance depending on the distro your workload is running on. Test the Linux distros with your application and choose the one that works best.
+With Azure Premium Storage, you get the same level of Performance for VMs running Windows and Linux. We support many flavors of Linux distros, and you can see the complete list [here](../virtual-machines/virtual-machines-linux-endorsed-distros.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). It is important to note that different distros are better suited for different types of workloads. You will see different levels of performance depending on the distro your workload is running on. Test the Linux distros with your application and choose the one that works best.
 
 When running Linux with Premium Storage, check the latest updates about required drivers to ensure high performance.
 
@@ -227,12 +227,12 @@ The IOPS and Throughput limits of each Premium disk size is different and indepe
 
 For example, if an application requirement is a maximum of 250 MB/sec Throughput and you are using a DS4 VM with a single P30 disk. The DS4 VM can give up to 256 MB/sec Throughput. However, a single P30 disk has Throughput limit of 200 MB/sec. Consequently, the application will be constrained at 200 MB/sec due to the disk limit. To overcome this limit, provision more than one data disks to the VM.
 
-> **Note:**  
+> [!NOTE]
 > Reads served by the cache are not included in the disk IOPS and Throughput, hence not subject to disk limits. Cache has its separate IOPS and Throughput limit per VM.
-> 
+>
 > For example, initially your reads and writes are 60MB/sec and 40MB/sec respectively. Over time, the cache warms up and serves more and more of the reads from the cache. Then, you can get higher write Throughput from the disk.
-> 
-> 
+>
+>
 
 *Number of Disks*  
 Determine the number of disks you will need by assessing application requirements. Each VM size also has a limit on the number of disks that you can attach to the VM. Typically, this is twice the number of cores. Ensure that the VM size you choose can support the number of disks needed.
@@ -244,8 +244,8 @@ High Scale VMs that leverage Azure Premium Storage have a multi-tier caching tec
 
 > [!WARNING]
 > Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it is the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting.
-> 
-> 
+>
+>
 
 To learn more about how BlobCache works, refer to the Inside [Azure Premium Storage](https://azure.microsoft.com/blog/azure-premium-storage-now-generally-available-2/) blog post.
 
@@ -288,19 +288,19 @@ On Windows, you can use Storage Spaces to stripe disks together. You must config
 
 Important: Using Server Manager UI, you can set the total number of columns up to 8 for a striped volume. When attaching more than 8 disks, use PowerShell to create the volume. Using PowerShell, you can set the number of columns equal to the number of disks. For example, if there are 16 disks in a single stripe set; specify 16 columns in the *NumberOfColumns* parameter of the *New-VirtualDisk* PowerShell cmdlet.
 
-On Linux, use the MDADM utility to stripe disks together. For detailed steps on striping disks on Linux refer to [Configure Software RAID on Linux](../virtual-machines/virtual-machines-linux-configure-raid.md).
+On Linux, use the MDADM utility to stripe disks together. For detailed steps on striping disks on Linux refer to [Configure Software RAID on Linux](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 *Stripe Size*  
 An important configuration in disk striping is the stripe size. The stripe size or block size is the smallest chunk of data that application can address on a striped volume. The stripe size you configure depends on the type of application and its request pattern. If you choose the wrong stripe size, it could lead to IO misalignment, which leads to degraded performance of your application.
 
 For example, if an IO request generated by your application is bigger than the disk stripe size, the storage system writes it across stripe unit boundaries on more than one disk. When it is time to access that data, it will have to seek across more than one stripe units to complete the request. The cumulative effect of such behavior can lead to substantial performance degradation. On the other hand, if the IO request size is smaller than stripe size, and if it is random in nature, the IO requests may add up on the same disk causing a bottleneck and ultimately degrading the IO performance.
 
-Depending on the type of workload your application is running, choose an appropriate stripe size. For random small IO requests, use a smaller stripe size. Whereas, for large sequential IO requests use a larger stripe size. Find out the stripe size recommendations for the application you will be running on Premium Storage. For SQL Server, configure stripe size of 64KB for OLTP workloads and 256KB for data warehousing workloads. See [Performance best practices for SQL Server on Azure VMs](../virtual-machines/virtual-machines-windows-sql-performance.md#disks-and-performance-considerations) to learn more.
+Depending on the type of workload your application is running, choose an appropriate stripe size. For random small IO requests, use a smaller stripe size. Whereas, for large sequential IO requests use a larger stripe size. Find out the stripe size recommendations for the application you will be running on Premium Storage. For SQL Server, configure stripe size of 64KB for OLTP workloads and 256KB for data warehousing workloads. See [Performance best practices for SQL Server on Azure VMs](../virtual-machines/virtual-machines-windows-sql-performance.md#disks-guidance) to learn more.
 
-> **Note:**  
+> [!NOTE]
 > You can stripe together a maximum of 32 premium storage disks on a DS series VM and 64 premium storage disks on a GS series VM.
-> 
-> 
+>
+>
 
 ## Multi-threading
 Azure has designed Premium Storage platform to be massively parallel. Therefore, a multi-threaded application achieves much higher performance than a single-threaded application. A multi-threaded application splits up its tasks across multiple threads and increases efficiency of its execution by utilizing the VM and disk resources to the maximum.
@@ -349,15 +349,15 @@ Benchmarking is the process of simulating different workloads on your applicatio
 
 We have used common benchmarking tools Iometer and FIO, for Windows and Linux respectively. These tools spawn multiple threads simulating a production like workload, and measure the system performance. Using the tools you can also configure parameters like block size and queue depth, which you normally cannot change for an application. This gives you more flexibility to drive the maximum performance on a high scale VM provisioned with premium disks for different types of application workloads. To learn more about each benchmarking tool visit [Iometer](http://www.iometer.org/) and [FIO](http://freecode.com/projects/fio).
 
-To follow the examples below, create a Standard DS14 VM and attach 11 Premium Storage disks to the VM. Of the 11 disks, configure 10 disks with host caching as “None” and stripe them into a volume called NoCacheWrites. Configure host caching as “ReadOnly” on the remaining disk and create a volume called CacheReads with this disk. Using this setup, you will be able to see the maximum Read and Write performance from a Standard DS14 VM. For detailed steps about creating a DS14 VM with premium disks, go to [Create and use Premium Storage account for a virtual machine data disk](storage-premium-storage.md#create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
+To follow the examples below, create a Standard DS14 VM and attach 11 Premium Storage disks to the VM. Of the 11 disks, configure 10 disks with host caching as “None” and stripe them into a volume called NoCacheWrites. Configure host caching as “ReadOnly” on the remaining disk and create a volume called CacheReads with this disk. Using this setup, you will be able to see the maximum Read and Write performance from a Standard DS14 VM. For detailed steps about creating a DS14 VM with premium disks, go to [Create and use a Premium Storage account for a virtual machine data disk](storage-premium-storage.md#quick-start-create-and-use-a-premium-storage-account-for-a-virtual-machine-data-disk).
 
 *Warming up the Cache*  
 The disk with ReadOnly host caching will be able to give higher IOPS than the disk limit. To get this maximum read performance from the host cache, first you must warm up the cache of this disk. This ensures that the Read IOs which benchmarking tool will drive on CacheReads volume actually hits the cache and not the disk directly. The cache hits result in additional IOPS from the single cache enabled disk.
 
 > **Important:**  
 > You must warm up the cache before running benchmarking, every time VM is rebooted.
-> 
-> 
+>
+>
 
 #### Iometer
 [Download the Iometer tool](http://sourceforge.net/projects/iometer/files/iometer-stable/2006-07-27/iometer-2006.07.27.win32.i386-setup.exe/download) on the VM.
@@ -391,18 +391,18 @@ To demonstrate maximum Throughput, use larger request size. Use 64K request size
 Perform the steps below to warm up cache
 
 1. Create two access specifications with values shown below,
-   
+
    | Name | Request size | Random % | Read % |
    | --- | --- | --- | --- |
    | RandomWrites\_1MB |1MB |100 |0 |
    | RandomReads\_1MB |1MB |100 |100 |
 2. Run the Iometer test for initializing cache disk with following parameters. Use three worker threads for the target volume and a queue depth of 128. Set the “Run time” duration of the test to 2hrs on the “Test Setup” tab.
-   
+
    | Scenario | Target Volume | Name | Duration |
    | --- | --- | --- | --- |
    | Initialize Cache Disk |CacheReads |RandomWrites\_1MB |2hrs |
 3. Run the Iometer test for warming up cache disk with following parameters. Use three worker threads for the target volume and a queue depth of 128. Set the “Run time” duration of the test to 2hrs on the “Test Setup” tab.
-   
+
    | Scenario | Target Volume | Name | Duration |
    | --- | --- | --- | --- |
    | Warm up Cache Disk |CacheReads |RandomReads\_1MB |2hrs |
@@ -414,11 +414,11 @@ After cache disk is warmed up, proceed with the test scenarios listed below. To 
 | Max. Read IOPS |CacheReads |RandomWrites\_8K |50,000 IOPS |
 | Max. Write IOPS |NoCacheWrites |RandomReads\_8K |64,000 IOPS |
 | Max. Combined IOPS |CacheReads |RandomWrites\_8K |100,000 IOPS |
-| NoCacheWrites |RandomReads\_8K | | |
+| NoCacheWrites |RandomReads\_8K | &nbsp; | &nbsp; |
 | Max. Read MB/sec |CacheReads |RandomWrites\_64K |524 MB/sec |
 | Max. Write MB/sec |NoCacheWrites |RandomReads\_64K |524 MB/sec |
 | Combined MB/sec |CacheReads |RandomWrites\_64K |1000 MB/sec |
-| NoCacheWrites |RandomReads\_64K | | |
+| NoCacheWrites |RandomReads\_64K | &nbsp; | &nbsp; |
 
 Below are screenshots of the Iometer test results for combined IOPS and Throughput scenarios.
 
@@ -435,7 +435,9 @@ Before you begin, [download FIO](https://github.com/axboe/fio) and install it on
 
 Run the following command for Ubuntu,
 
-        apt-get install fio
+```
+apt-get install fio
+```
 
 We will use four worker threads for driving Write operations and four worker threads for driving Read operations on the disks. The Write workers will be driving traffic on the “nocache” volume, which has 10 disks with cache set to “None”. The Read workers will be driving traffic on the “readcache” volume, which has 1 disk with cache set to “ReadOnly”.
 
@@ -472,7 +474,9 @@ Note the follow key things that are in line with the design guidelines discussed
 
 Run the following command to kick off the FIO test for 30 seconds,  
 
-    sudo fio --runtime 30 fiowrite.ini
+```
+sudo fio --runtime 30 fiowrite.ini
+```
 
 While the test runs, you will be able to see the number of write IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering its maximum write IOPS limit of 50,000 IOPS.  
     ![](media/storage-premium-storage-performance/image11.png)
@@ -510,7 +514,9 @@ Note the follow key things that are in line with the design guidelines discussed
 
 Run the following command to kick off the FIO test for 30 seconds,
 
-    sudo fio --runtime 30 fioread.ini
+```
+sudo fio --runtime 30 fioread.ini
+```
 
 While the test runs, you will be able to see the number of read IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering more than 64,000 Read IOPS. This is a combination of the disk and the cache performance.  
     ![](media/storage-premium-storage-performance/image12.png)
@@ -565,7 +571,9 @@ Note the follow key things that are in line with the design guidelines discussed
 
 Run the following command to kick off the FIO test for 30 seconds,
 
-    sudo fio --runtime 30 fioreadwrite.ini
+```
+sudo fio --runtime 30 fioreadwrite.ini
+```
 
 While the test runs, you will be able to see the number of combined read and write IOPS the VM and Premium disks are delivering. As shown in the sample below, the DS14 VM is delivering more than 100,000 combined Read and Write IOPS. This is a combination of the disk and the cache performance.  
     ![](media/storage-premium-storage-performance/image13.png)
@@ -580,6 +588,5 @@ Learn more about Azure Premium Storage:
 
 For SQL Server users, read articles on Performance Best Practices for SQL Server:
 
-* [Performance Best Practices for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-performance.md)
-* [Azure Premium Storage provides highest performance for SQL Server in Azure VM](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx) 
-
+* [Performance Best Practices for SQL Server in Azure Virtual Machines](../virtual-machines/virtual-machines-windows-sql-performance.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
+* [Azure Premium Storage provides highest performance for SQL Server in Azure VM](http://blogs.technet.com/b/dataplatforminsider/archive/2015/04/23/azure-premium-storage-provides-highest-performance-for-sql-server-in-azure-vm.aspx)

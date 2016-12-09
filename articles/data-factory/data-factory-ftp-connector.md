@@ -18,40 +18,40 @@ ms.author: spelluru
 
 ---
 # Move data from an FTP server using Azure Data Factory
-This article outlines how to use the Copy Activity in Azure Data Factory to move data from an FTP server to a supported sink data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article that presents a general overview of data movement with copy activity and the list of data stores supported as sources/sinks. 
+This article outlines how to use the Copy Activity in Azure Data Factory to move data from an FTP server to a supported sink data store. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article that presents a general overview of data movement with copy activity and the list of data stores supported as sources/sinks.
 
-Data factory currently supports only moving data from an FTP server to other data stores, but not for moving data from other data stores to an FTP server. It supports both on-premises and cloud FTP servers. 
+Data factory currently supports only moving data from an FTP server to other data stores, but not for moving data from other data stores to an FTP server. It supports both on-premises and cloud FTP servers.
 
-If you are moving data from an **on-premises** FTP server to a cloud data store (example: Azure Blob Storage), install and use Data Management Gateway. The Data Management Gateway is a client agent that is installed on your on-premises machine, which allows cloud services to connect to on-premises resource. See [Data Management Gateway](data-factory-data-management-gateway.md) for details on the gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway and using it. You use the gateway to connect to an FTP server even if the server is on an Azure IaaS virtual machine (VM). 
+If you are moving data from an **on-premises** FTP server to a cloud data store (example: Azure Blob Storage), install and use Data Management Gateway. The Data Management Gateway is a client agent that is installed on your on-premises machine, which allows cloud services to connect to on-premises resource. See [Data Management Gateway](data-factory-data-management-gateway.md) for details on the gateway. See [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for step-by-step instructions on setting up the gateway and using it. You use the gateway to connect to an FTP server even if the server is on an Azure IaaS virtual machine (VM).
 
-You can install the gateway on the same on-premises machine or the Azure IaaS VM as the FTP server. However, we recommend that you install the gateway on a separate machine or a separate Azure IaaS VM to avoid resource contention and for better performance. When you install the gateway on a separate machine, the machine should be able to access the FTP server. 
+You can install the gateway on the same on-premises machine or the Azure IaaS VM as the FTP server. However, we recommend that you install the gateway on a separate machine or a separate Azure IaaS VM to avoid resource contention and for better performance. When you install the gateway on a separate machine, the machine should be able to access the FTP server.
 
 ## Copy data wizard
-The easiest way to create a pipeline that copies data from an FTP server is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard. 
+The easiest way to create a pipeline that copies data from an FTP server is to use the Copy data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough on creating a pipeline using the Copy data wizard.
 
-The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). 
+The following examples provide sample JSON definitions that you can use to create a pipeline by using [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md) or [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) or [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md).
 
 ## Sample: Copy data from FTP server to Azure blob
-This sample shows how to copy data from an FTP server to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores) using the Copy Activity in Azure Data Factory.  
+This sample shows how to copy data from an FTP server to an Azure Blob Storage. However, data can be copied **directly** to any of the sinks stated [here](data-factory-data-movement-activities.md#supported-data-stores-and-formats) using the Copy Activity in Azure Data Factory.  
 
 The sample has the following data factory entities:
 
 * A linked service of type [FtpServer](#ftp-linked-service-properties).
-* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service-properties).
+* A linked service of type [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service).
 * An input [dataset](data-factory-create-datasets.md) of type [FileShare](#fileshare-dataset-type-properties).
 * An output [dataset](data-factory-create-datasets.md) of type [AzureBlob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties).
 * A [pipeline](data-factory-create-pipelines.md) with Copy Activity that uses [FileSystemSource](#ftp-copy-activity-type-properties) and [BlobSink](data-factory-azure-blob-connector.md#azure-blob-copy-activity-type-properties).
 
-The sample copies data from an FTP server to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples. 
+The sample copies data from an FTP server to an Azure blob every hour. The JSON properties used in these samples are described in sections following the samples.
 
 **FTP linked service**
-This example uses the basic authentication with user name and password in plain text. You can also use one of the following ways: 
+This example uses the basic authentication with user name and password in plain text. You can also use one of the following ways:
 
-* Anonymous authentication 
+* Anonymous authentication
 * Basic authentication with encrypted credentials
 * FTP over SSL/TLS (FTPS)
 
-See [FTP linked service](#ftp-linked-service-properties) section for different types of authentication you can use. 
+See [FTP linked service](#ftp-linked-service-properties) section for different types of authentication you can use.
 
     {
         "name": "FTPLinkedService",
@@ -79,7 +79,7 @@ See [FTP linked service](#ftp-linked-service-properties) section for different t
     }
 
 **FTP input dataset**
-This dataset refers to the FTP folder `mysharedfolder` and file `test.csv`. The pipeline copies the file to the destination. 
+This dataset refers to the FTP folder `mysharedfolder` and file `test.csv`. The pipeline copies the file to the destination.
 
 Setting "external": "true" informs the Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
@@ -164,7 +164,7 @@ Data is written to a new blob every hour (frequency: hour, interval: 1). The fol
 
 **Pipeline with Copy activity**
 
-The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**. 
+The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **FileSystemSource** and **sink** type is set to **BlobSink**.
 
     {
         "name": "pipeline",
@@ -276,7 +276,7 @@ The following table provides description for JSON elements specific to FTP linke
           }
     }
 
-See [Setting Credentials and Security](data-factory-move-data-between-onprem-and-cloud.md#set-credentials-and-security) for details about setting credentials for an on-premises FTP data source.
+See [Move data between on-premises sources and the cloud with Data Management Gateway](data-factory-move-data-between-onprem-and-cloud.md) for details about setting credentials for an on-premises FTP data source.
 
 [!INCLUDE [data-factory-file-share-dataset](../../includes/data-factory-file-share-dataset.md)]
 
@@ -285,7 +285,7 @@ See [Setting Credentials and Security](data-factory-move-data-between-onprem-and
 [!INCLUDE [data-factory-compression](../../includes/data-factory-compression.md)]
 
 ## FTP Copy Activity type properties
-For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities. 
+For a full list of sections & properties available for defining activities, see the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policies are available for all types of activities.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type. For Copy activity, the type properties vary depending on the types of sources and sinks.
 
@@ -299,7 +299,6 @@ Properties available in the typeProperties section of the activity on the other 
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.
 
 ## Next Steps
-See the following articles: 
+See the following articles:
 
-* [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions for creating a pipeline with a Copy Activity. 
-
+* [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions for creating a pipeline with a Copy Activity.

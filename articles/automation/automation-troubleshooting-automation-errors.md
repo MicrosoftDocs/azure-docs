@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure automation error handling | Microsoft Docs
 description: This article provides basic error handling steps to troubleshoot and fix common Azure Automation errors.
 services: automation
@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/06/2016
+ms.date: 11/21/2016
 ms.author: sngun; v-reagie
 
 ---
@@ -179,7 +179,7 @@ DSC Agent outputs “No instance found with given property values.”
 You have upgraded your WMF version and have corrupted WMI.  
 
 **Troubleshooting tips:**
-Follow the instructions in the [DSC known issues and limitations](https://msdn.microsoft.com/powershell/wmf/limitation_dsc) blog post to fix the issue.
+Follow the instructions in the [DSC known issues and limitations](https://msdn.microsoft.com/powershell/wmf/5.0/limitation_dsc) to fix the issue.
 
 ### Scenario:  Unable to use a credential in a DSC configuration
 **Error:**

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Upgrade to Azure SQL Database V12 using PowerShell | Microsoft Docs
 description: Explains how to upgrade to Azure SQL Database V12 including how to upgrade Web and Business databases, and how to upgrade a V11 server migrating its databases directly into an elastic database pool using PowerShell.
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: bb87b726-496c-4429-a43a-103a3e89abc4
 ms.service: sql-database
+ms.custom: V11
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -24,12 +25,7 @@ ms.author: sstein
 > 
 > 
 
-SQL Database V12 is the latest version so upgrading to SQL Database V12 is recommended.
-SQL Database V12 has many [advantages over the previous version](sql-database-v12-whats-new.md) including:
-
-* Increased compatibility with SQL Server.
-* Improved premium performance and new performance levels.
-* [Elastic database pools](sql-database-elastic-pool.md).
+SQL Database V12 is the latest version so upgrading to SQL Database V12 is recommended. See [Azure SQL Database features](sql-database-features.md) for a feature matrix comparing Azure SQL Database with SQL Server.
 
 This article provides directions for upgrading existing SQL Database V11 servers and databases to SQL Database V12.
 
@@ -51,7 +47,7 @@ After upgrading to V12, [service tier recommendations](sql-database-service-tier
 * **Open these ports if you have clients on an Azure VM**: If your client program connects to SQL Database V12 while your client runs on an Azure virtual machine (VM), you must open port ranges 11000-11999 and 14000-14999 on the VM. For details, see [Ports for SQL Database V12](sql-database-develop-direct-route-ports-adonet-v12.md).
 
 ## Prerequisites
-To upgrade a server to V12 with PowerShell, you need to have the latest Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+To upgrade a server to V12 with PowerShell, you need to have the latest Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Configure your credentials and select your subscription
 To run PowerShell cmdlets against your Azure subscription you must first establish access to your Azure account. Run the following and you will be presented with a sign-in screen to enter your credentials. Use the same email and password that you use to sign in to the Azure portal.

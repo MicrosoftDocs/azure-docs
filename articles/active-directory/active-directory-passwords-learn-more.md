@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Learn More: Azure AD Password Management | Microsoft Docs'
 description: Advanced topics on Azure AD Password Management, including how password writeback works, password writeback security, how the password reset portal works, and what data is used by password reset.
 services: active-directory
@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2016
+ms.date: 09/09/2016
 ms.author: asteen
 
 ---
 # Learn more about Password Management
 > [!IMPORTANT]
 > **Are you here because you're having problems signing in?** If so, [here's how you can change and reset your own password](active-directory-passwords-update-your-own-password.md).
-> 
-> 
+>
+>
 
 If you have already deployed Password Management, or are just looking to learn more about the technical nitty gritty of how it works before deploying, this section will give you a good overview of the technical concepts behind the service. We'll cover the following:
 
@@ -29,6 +29,7 @@ If you have already deployed Password Management, or are just looking to learn m
   * [How pasword writeback works](#how-password-writeback-works)
   * [Scenarios supported for password writeback](#scenarios-supported-for-password-writeback)
   * [Password writeback security model](#password-writeback-security-model)
+  * [Password writeback bandwidth usage](#password-writeback-bandwidth-usage)
 * [**How does the password reset portal work?**](#how-does-the-password-reset-portal-work)
   * [What data is used by password reset?](#what-data-is-used-by-password-reset)
   * [How to access password reset data for your users](#how-to-access-password-reset-data-for-your-users)
@@ -84,6 +85,21 @@ Password writeback is a highly secure and robust service.  In order to ensure yo
 * **Industry standard TLS** – When a password reset or change operation occurs in the cloud, we take the plaintext password and encrypt it with your public key.  We then plop that into an HTTPS message which is sent over an encrypted channel using Microsoft’s SSL certs to your service bus relay.  After that message arrives into Service Bus, your on-prem agent wakes up, authenticates to Service Bus using the strong password that had been previously generated, picks up the encrypted message, decrypts it using the private key we generated, and then attempts to set the password through the AD DS SetPassword API.  This step is what allows us to enforce your AD on-prem password policy (complexity, age, history, filters, etc) in the cloud.
 * **Message expiration policies** – Finally, if for some reason the message sits in Service Bus because your on-prem service is down, it will be timed out and removed after several minutes in order to increase security even further.
 
+### Password writeback bandwidth usage
+
+Password writeback is an extremely low bandwidth service that sends requests back to the on-premises agent only under the following circumstances:
+
+1. Two messages sent when enabling or disabling the feature through Azure AD Connect.
+2. One message is sent once every 5 minutes as a service heartbeat for as long as the service is running.
+3. Two messages are sent each time a new password is submitted, one message as a request to perform the operation, and a subsequent message which contains the result of the operation. These messages are sent in the following cirumstances.
+4. Each time a new password is submitted during a user self-service password reset.
+5. Each time a new password is submitted during a user password change operation.
+6. Each time a new password is submitted during an admin-initiated user password reset (from the Azure admin portals only)
+
+#### Message size and bandwidth considerations
+
+The size of each of the message described above is typically under 1kb, which means, even under extreme loads, the password writeback service itself will be consuming at most a few kilobits per second of bandwidth. Since each message is sent in real time, only when required by a password update operation, and since the message size is so small, the bandwidth usage of the writeback capability is effectively too small to have any real measurable impact.
+
 ## How does the password reset portal work?
 When a user navigates to the password reset portal, a workflow is kicked off to determine if that user account is valid, what organization that users belongs to, where that user’s password is managed, and whether or not the user is licensed to use the feature.  Read through the steps below to learn about the logic behind the password reset page.
 
@@ -109,8 +125,8 @@ The following table outlines where and how this data is used during password res
 
 > [!NOTE]
 > Office Phone does not appear in the registration portal because users are currently not able to edit this property in the directory.
-> 
-> 
+>
+>
 
 <table>
           <tbody><tr>
@@ -278,7 +294,7 @@ The following fields can be synchronized from on-premises:
 * Mobile Phone
 * Office Phone
 
-#### Data settable with Azure AD PowerShell
+#### Data accessible with Azure AD PowerShell
 The following fields are accessible with Azure AD PowerShell & the Graph API:
 
 * Alternate Email

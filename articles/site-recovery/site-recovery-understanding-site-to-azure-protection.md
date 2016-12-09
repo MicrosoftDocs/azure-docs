@@ -44,7 +44,7 @@ A [Hyper-V VM snapshot](https://technet.microsoft.com/library/dd560637.aspx) is 
 
 After the initial replication finishes, the **Finalize protection on the virtual machine** job configures the network and post-replication settings. While initial replication is in progress:
 
-* All changes to the disks are tracked. 
+* All changes to the disks are tracked.
 * Additional disk storage is consumed for the snapshot and Hyper-V Replica Log (HRL) files.
 
 On completion of initial replication, the Hyper-V VM snapshot is deleted. This deletion results in merging data changes after initial replication to the parent disk.
@@ -56,7 +56,7 @@ Hyper-V Replica Replication Tracker, which is part of the Hyper-V Replica Replic
 
 Each disk that's configured for replication has an associated HRL file. This log is sent to the customer's storage account after initial replication is complete. When a log is in transit to Azure, the changes in the primary are tracked in another log file in the same directory.
 
-During initial replication or delta replication, you can monitor VM replication health in the VM view, as mentioned in [Monitor replication health for virtual machine](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machine).  
+During initial replication or delta replication, you can monitor VM replication health in the VM view, as mentioned in [Monitor replication health for virtual machine](site-recovery-monitoring-and-troubleshooting.md#monitor-replication-health-for-virtual-machines).  
 
 ### Resynchronization
 A virtual machine is marked for resynchronization when both delta replication fails and full initial replication is costly in terms of network bandwidth or time. For example, when HRL file size piles up to 50 percent of the total disk size, the virtual machine is marked for resynchronization. Resynchronization minimizes the amount of data sent over the network by computing checksums of the source and target virtual machine disks and sending only the differential.
@@ -82,6 +82,5 @@ There is built-in retry logic for replication errors. This logic can be classifi
 
 ## Other references
 * [Monitor and troubleshoot protection for VMware, VMM, Hyper-V, and physical sites](site-recovery-monitoring-and-troubleshooting.md)
-* [Reaching out for Microsoft Support](site-recovery-monitoring-and-troubleshooting.md#reaching-out-for-microsoft-support)
-* [Common Azure Site Recovery errors and their resolutions](site-recovery-monitoring-and-troubleshooting.md#common-asr-errors-and-their-resolutions)
-
+* [Reaching out for Microsoft Support](site-recovery-monitoring-and-troubleshooting.md#reach-out-for-microsoft-support)
+* [Common Azure Site Recovery errors and their resolutions](site-recovery-monitoring-and-troubleshooting.md#common-azure-site-recovery-errors-and-their-resolutions)

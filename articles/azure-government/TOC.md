@@ -1,11 +1,11 @@
 # Overview
-## [What is Azure Government?](../azure-government-overview.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [What is Azure Government?](../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ## [ITAR](documentation-government-overview-itar.md)
 ## [Justice and Public Safety](documentation-government-overview-jps.md)
 ## [Department of Defense](documentation-government-overview-dod.md)
 
 # Get Started
-## [Developer guide](../azure-government-developer-guide.md?toc=%@Fazure%2fazure-government%2ftoc.json)
+## [Developer guide](../azure-government-developer-guide.md?toc=%2fazure%2fazure-government%2ftoc.json)
 
 # How To
 ## Plan
@@ -15,10 +15,11 @@
 ### [Images](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ### [Marketplace](documentation-government-manage-marketplace.md)
 ### [Marketplace for partners](documentation-government-manage-marketplace-partners.md)
+### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
+### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Subscription](documentation-government-manage-subscriptions.md)
 
 # Reference
-## [Resource Manager](documentation-government-manage-azure-resource-manager.md)
 ## [Services](documentation-government-services.md)
 ### [Compute](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
@@ -28,5 +29,5 @@
 ### [Monitoring + management](documentation-government-services-monitoringandmanagement.md)
 
 # Resources
-## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)
 ## [Pricing](https://azure.microsoft.com/pricing/)
+## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)

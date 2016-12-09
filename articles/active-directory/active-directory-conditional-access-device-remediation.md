@@ -14,12 +14,13 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/23/2016
+ms.date: 11/11/2016
 ms.author: markvi
 
 ---
 # Troubleshooting for Azure Active Directory access issues
 You try to access your organization's SharePoint Online intranet, and you get an "access denied" error message. What do you do?
+
 
 This article covers remediation steps that can help you resolve access issues with your organization's online resources.
 

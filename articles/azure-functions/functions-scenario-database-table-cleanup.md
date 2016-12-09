@@ -49,16 +49,20 @@ Now, you can add the C# function code that connects to your SQL Database.
    
     ![Create a new timer-triggered function](./media/functions-create-an-event-processing-function/functions-create-new-timer-trigger.png)
 2. In the **Code** pane in the **Develop** tab, add the following assembly references at the top of the existing function code:
-   
+	```cs
         #r "System.Configuration"
         #r "System.Data"
+	```
+
 3. Add the following `using` statements to the function:
-   
+	```cs
         using System.Configuration;
         using System.Data.SqlClient;
-        using System.Threading.Tasks; 
+        using System.Threading.Tasks;
+	```
+
 4. Replace the existing **Run** function with the following code:
-   
+	```cs
         public static async Task Run(TimerInfo myTimer, TraceWriter log)
         {
             var str = ConfigurationManager.ConnectionStrings["sqldb_connection"].ConnectionString;
@@ -74,6 +78,8 @@ Now, you can add the C# function code that connects to your SQL Database.
                 }
             }
         }
+	```
+
 5. Click **Save**, watch the **Logs** windows for the next function execution, then note the number of rows deleted from the TodoItems table.
 6. (Optional) Using the [Mobile Apps quickstart app](../app-service-mobile/app-service-mobile-ios-get-started.md), mark additional items as "completed" then return to the **Logs** window and watch the same number of rows get deleted by the function during the next execution. 
 
@@ -85,7 +91,7 @@ See these topics for more information about Azure Functions.
 * [Testing Azure Functions](functions-test-a-function.md)  
   Describes various tools and techniques for testing your functions.
 * [How to scale Azure Functions](functions-scale.md)  
-  Discusses service plans available with Azure Functions, including the Dynamic service plan, and how to choose the right plan.  
+  Discusses service plans available with Azure Functions, including the Consumption plan, and how to choose the right plan.  
 
 [!INCLUDE [Getting Started Note](../../includes/functions-get-help.md)]
 

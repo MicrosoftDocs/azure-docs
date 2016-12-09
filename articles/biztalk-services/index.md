@@ -1,23 +1,23 @@
 ---
 layout: LandingPage
 ---
-#Biztalk Services Documentation
+# Biztalk Services Documentation
 
-Biztalk Services is TBD...
+BizTalk Services provides cloud to on-premises and line-of-business application integration for SAP, Oracle EBS, SQL Server, and PeopleSoft. It lets you connect with any HTTP, FTP, SFTP, or REST data source. You can route messages by using various Azure artifacts such as Service Bus queues, Topics, SQL Database, and Blob storage.   
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/service-fabric-dotnet-getting-started/">
+        <a href="/azure/biztalk-services/biztalk-editions-feature-chart">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/biztalk-services.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Biztalk Services Getting Started Samples</h3>
+                        <h3>Learn about BizTalk Services</h3>
                     </div>
                 </div>
             </div>
@@ -31,7 +31,7 @@ Biztalk Services is TBD...
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -42,20 +42,30 @@ Biztalk Services is TBD...
         </div>
         </a>
     </li>
+    <li>
+        <a href="/azure/biztalk-services/biztalk-provision-services">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardImageOuter">
+                        <div class="cardImage">
+                            <img src="media/index/get-started.svg" alt="" />
+                        </div>
+                    </div>
+                    <div class="cardText">
+                        <h3>Get Started with BizTalk Services using the Azure Portal</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
 </ul>
 
 ---
 
-##Reference
-
-###REST
-[Biztalk Services REST API Reference](/rest/api/)
-
-###.NET
-[Biztalk Services Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
-
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/biztalk-services.pdf">
         <div class="img"></div>
         <div class="text">
             Download Biztalk Services Documentation

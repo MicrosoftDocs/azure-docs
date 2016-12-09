@@ -1,41 +1,23 @@
 ---
 layout: LandingPage
 ---
-#Windows Virtual Machine Documentation
+#Windows Virtual Machines Documentation
 
-Azure Virtual Machines (VM) is one of several types of on-demand, scalable computing resources that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
+Azure Virtual Machines (VM) is one of several types of on-demand scalable computing resources that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. An Azure VM gives you the flexibility of virtualization without having to buy and maintain the physical hardware that runs it. And, you keep control of configuration, patching, and installing the software that runs on the VM.
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-overview">
+        <a href="/azure/virtual-machines/virtual-machines-windows-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/virtual-machine.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Learn about Windows Virtual Machine</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    <li>
-        <a href="">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardImageOuter">
-                        <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
-                        </div>
-                    </div>
-                    <div class="cardText">
-                        <h3>Get started with Linux Virtual Machine</h3>
+                        <h3>Learn about Windows Virtual Machines</h3>
                     </div>
                 </div>
             </div>
@@ -49,11 +31,11 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Virtual Machine Video Library</h3>
+                        <h3>Virtual Machines Video Library</h3>
                     </div>
                 </div>
             </div>
@@ -61,17 +43,17 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-hero-tutorial">
+        <a href="/azure/virtual-machines/virtual-machines-windows-hero-tutorial?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create your first Windows virtual machine in the Azure portal</h3>
+                        <h3>Get Started with Windows VMs using the Azure portal</h3>
                     </div>
                 </div>
             </div>
@@ -79,17 +61,17 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-ps-create">
+        <a href="/azure/virtual-machines/virtual-machines-windows-ps-create?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create a VM with PowerShell</h3>
+                        <h3>Get Started with Windows VMs using PowerShell</h3>
                     </div>
                 </div>
             </div>
@@ -97,17 +79,17 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
         </a>
     </li>
     <li>
-        <a href="/azure/virtual-machines/virtual-machines-windows-dotnet-core-1-landing">
+        <a href="/azure/resource-manager-template-walkthrough?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="../media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Create and Deploy complex VM templates</h3>
+                        <h3>Get Started with Windows VMs using a Resource Manager Template</h3>
                     </div>
                 </div>
             </div>
@@ -117,39 +99,53 @@ Azure Virtual Machines (VM) is one of several types of on-demand, scalable compu
 </ul>
 
 ---
-
-##Reference
-
-###.NET
-[Virtual Machine Managed Reference API](/dotnet/api/)
-
-[Network Managed Reference API](/dotnet/api/)
-
-[Storage Managed Reference API](/dotnet/api/)
-
-###Azure CLI
-[Windows Virtual Machine using Azure CLI](/cli/azure/)
-
-###PowerShell
-[Windows Virtual Machine using PowerShell](/powershell/)
-
-###Java SDK
-[Windows Virtual Machine using Java](/java/api/)
-
-###Rest (COMPUTE)
-[Compute REST API Reference](  /rest/api/ )
-
-###REST (Network)
-[Network REST API Reference for Network](  /rest/api/)
-
-###REST (Storage)
-[Storage Machine REST API Reference](  /rest/api/)
-
-###REST (VM Scale Sets)
-[Virtual Machine Scale Sets REST API Reference](  /rest/api/)
+ 
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/cli/azure/vm">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute">.NET</a></p>
+                        <p><a href="/java/api">Java</a></p>
+                        <p><a href="https://azure.microsoft.com/en-us/develop/nodejs/#azure-sdk">Node​.js</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/ref/azure.mgmt.compute.html">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute">Compute REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 <div class="downloadHolder">
-    <a href="https://msdn.microsoft.com/">
+    <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machines/windows.pdf">
         <div class="img"></div>
         <div class="text">
             Download Windows Virtual Machine Documentation

@@ -1,14 +1,14 @@
 ---
 title: Service Bus queues, topics, and subscriptions | Microsoft Docs
 description: Overview of Service Bus messaging entities.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: a306ced4-74e9-47c6-990a-d9c47efa31d5
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

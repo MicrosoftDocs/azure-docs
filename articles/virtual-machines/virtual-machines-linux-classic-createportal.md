@@ -19,9 +19,8 @@ ms.author: cynthn
 
 ---
 # Create a custom virtual machine running Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-For information about creating a Linux VM using the Resource Manager model, see [Create a Linux VM on Azure using the Portal](virtual-machines-linux-quick-create-portal.md).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For information about creating a Linux VM using the Resource Manager model, see [Create a Linux VM on Azure using the Portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [virtual-machines-common-classic-createportal](../../includes/virtual-machines-common-classic-createportal.md)]
 

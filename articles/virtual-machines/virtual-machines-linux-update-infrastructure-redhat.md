@@ -1,4 +1,4 @@
-﻿---
+---
 title: Red Hat Update Infrastructure (RHUI) | Microsoft Docs
 description: Learn about Red Hat Update Infrastructure (RHUI) for on-demand Red Hat Enterprise Linux instances in Microsoft Azure
 services: virtual-machines-linux
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/14/2016
+ms.date: 12/01/2016
 ms.author: borisb
 
 ---
@@ -47,24 +47,28 @@ As of September 2016, Azure has a new set of Red Hat Update Infrastructure (RHUI
 
 # Azure US Government
 13.72.186.193
+
+# Azure Germany
+51.5.243.77
+51.4.228.145
 ```
 
 ### Manual update procedure to use the new Azure RHUI servers
 Download (via curl) the public key signature
 
-```
+```bash
 curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
 ```
 
 Verify the downloaded key
 
-```
+```bash
 gpg --list-packets --verbose < RPM-GPG-KEY-microsoft-azure-release
 ```
 
 Check the output, verify `keyid` and `user ID packet`:
 
-```
+```bash
 Version: GnuPG v1.4.7 (GNU/Linux)
 :public key packet:
         version 4, algo 1, created 1446074508, expires 0
@@ -88,7 +92,7 @@ Version: GnuPG v1.4.7 (GNU/Linux)
 
 Install the public key
 
-```
+```bash
 sudo install -o root -g root -m 644 RPM-GPG-KEY-microsoft-azure-release /etc/pki/rpm-gpg
 sudo rpm --import /etc/pki/rpm-gpg/RPM-GPG-KEY-microsoft-azure-release
 ```
@@ -98,25 +102,25 @@ Download, Verify, and Install Client RPM
 Download:
 For RHEL 6
 
-```
+```bash
 curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel6/rhui-azure-rhel6-2.0-2.noarch.rpm 
 ```
 
 For RHEL 7
 
-```
+```bash
 curl -o azureclient.rpm https://rhui-1.microsoft.com/pulp/repos/microsoft-azure-rhel7/rhui-azure-rhel7-2.0-2.noarch.rpm  
 ```
 
 Verify:
 
-```
+```bash
 rpm -Kv azureclient.rpm
 ```
 
 Check in output that signature of the package is OK
 
-```
+```bash
 azureclient.rpm:
     Header V3 RSA/SHA256 Signature, key ID be1229cf: OK
     Header SHA1 digest: OK (927a3b548146c95a3f6c1a5d5ae52258a8859ab3)
@@ -126,7 +130,7 @@ azureclient.rpm:
 
 Install the RPM
 
-```
+```bash
 sudo rpm -U azureclient.rpm
 ```
 
@@ -135,7 +139,7 @@ Upon completion, verify that you can access Azure RHUI form the VM
 ### All-in-one script for automating the above task
 Use the following script as needed to automate the task of updating affected VMs to the new Azure RHUI servers.
 
-```
+```sh
 # Download key
 curl -o RPM-GPG-KEY-microsoft-azure-release https://download.microsoft.com/download/9/D/9/9d945f05-541d-494f-9977-289b3ce8e774/microsoft-sign-public.asc 
 
@@ -176,7 +180,7 @@ sudo rpm -U azureclient.rpm
 [Red Hat Update Infrastructure](https://access.redhat.com/products/red-hat-update-infrastructure) offers a highly scalable solution to manage yum repository content for Red Hat Enterprise Linux cloud instances that are hosted by Red Hat-certified cloud providers. Based on the upstream Pulp project, RHUI allows cloud providers to locally mirror Red Hat-hosted repository content, create custom repositories with their own content, and make those repositories available to a large group of end users through a load-balanced content delivery system.
 
 ## Regions where RHUI is available
-RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page and Azure US Government regions. RHUI access for VMs provisioned from RHEL on-demand images is included in their price. Additional regional/national cloud availability will be updated as we expand RHEL on-demand availability in the future.
+RHUI is available in all regions where RHEL on-demand images are available. It currently includes all public regions listed on the [Azure status dashboard](https://azure.microsoft.com/status/) page, Azure US Government and Azure Germany regions. RHUI access for VMs provisioned from RHEL on-demand images is included in their price. Additional regional/national cloud availability will be updated as we expand RHEL on-demand availability in the future.
 
 > [!NOTE]
 > Access to Azure-hosted RHUI is limited to the VMs within [Microsoft Azure Datacenter IP ranges](https://www.microsoft.com/download/details.aspx?id=41653).
@@ -190,14 +194,17 @@ To unregister RHUI and reregister to your update infrastructure follow the below
 
 1. Edit /etc/yum.repos.d/rh-cloud.repo and change all `enabled=1` to `enabled=0`. For example:
    
-   # sed -i 's/enabled=1/enabled=0/g' /etc/yum.repos.d/rh-cloud.repo
+   ```bash
+   sed -i 's/enabled=1/enabled=0/g' /etc/yum.repos.d/rh-cloud.repo
+   ```
+   
 2. Edit /etc/yum/pluginconf.d/rhnplugin.conf and change `enabled=0` to `enabled=1`.
 3. Then register with the desired infrastructure, such as Red Hat Customer Portal. Follow Red Hat solution guide on [how to register and subscribe a system to the Red Hat Customer Portal](https://access.redhat.com/solutions/253273).
 
 > [!NOTE]
 > Access to the Azure-hosted RHUI is included in the RHEL Pay-As-You-Go (PAYG) image price. Unregistering a PAYG RHEL VM from the Azure-hosted RHUI does not convert the virtual machine into Bring-Your-Own-License (BYOL) type VM and hence you may be incurring double charges if you register the same VM with another source of updates. 
 > 
-> If you consistently need to use an update infrastructure other than Azure-hosted RHUI consider creating and deploying your own (BYOL-type) images as described in [Create and Upload Red Hat-based virtual machine for Azure](virtual-machines-linux-redhat-create-upload-vhd.md) article.
+> If you consistently need to use an update infrastructure other than Azure-hosted RHUI consider creating and deploying your own (BYOL-type) images as described in [Create and Upload Red Hat-based virtual machine for Azure](virtual-machines-linux-redhat-create-upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) article.
 > 
 > 
 

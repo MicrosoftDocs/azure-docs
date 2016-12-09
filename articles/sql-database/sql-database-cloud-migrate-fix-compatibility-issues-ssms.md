@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 5f7d3544-b07e-415a-a2ae-96e49bf5d756
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -41,7 +42,7 @@ Use SQL Server Management Studio to fix compatibility issues using various Trans
 * [Migrate a compatible SQL Server database to SQL Database](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
 ## Additional resources
-* [SQL Database V12](sql-database-v12-whats-new.md)
+* [SQL Database features](sql-database-features.md)
 * [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
 * [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 

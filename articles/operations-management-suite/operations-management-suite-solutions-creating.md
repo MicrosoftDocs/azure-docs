@@ -20,8 +20,8 @@ ms.author: bwren
 # Creating management solutions in Operations Management Suite (OMS) (Preview)
 > [!NOTE]
 > This is preliminary documentation for creating management solutions in OMS which are currently in preview. Any schema described below is subject to change.  
-> 
-> 
+>
+>
 
 Management solutions extend the functionality of Operations Management Suite (OMS) by providing packaged management scenarios that customers can add to their OMS workspace.  This article provides details on creating your own management solutions that you can use in your own environment or make available to customers through the community.
 
@@ -31,9 +31,9 @@ Management solutions in OMS include multiple resources supporting a particular m
 For example, a management solution might include an [Azure Automation runbook](../automation/automation-intro.md) that collects data to the Log Analytics repository using a [schedule](../automation/automation-schedules.md) and a [view](../log-analytics/log-analytics-view-designer.md) that provides various visualizations of the collected data.  The same schedule might be used by another solution.  As the management solution author, you would define all three resources but specify that the runbook and view should be automatically removed when the solution is removed.    You would also define the schedule but specify that it should remain in place if the solution were removed in case it was still in use by the other solution.
 
 ## Management solution files
-Management solutions are implemented as [Resource Management templates](../resource-manager-template-walkthrough.md).  The main task in learning how to author management solutions is learning how to [author a template](../resource-group-authoring-templates.md).  This article provides unique details of templates used for solutions and how to define typical solution resources.
+Management solutions are implemented as [Resource Management templates](../resource-manager-template-walkthrough.md).  The main task in learning how to author management solutions is learning how to [author a template](../azure-resource-manager/resource-group-authoring-templates.md).  This article provides unique details of templates used for solutions and how to define typical solution resources.
 
-The basic structure of a management solution file is the same as a [Resource Manager Template](../resource-group-authoring-templates.md#template-format) which is as follows.  Each of the following sections describes the top level elements and and their contents in a solution.  
+The basic structure of a management solution file is the same as a [Resource Manager Template](../azure-resource-manager/resource-group-authoring-templates.md#template-format) which is as follows.  Each of the following sections describes the top level elements and and their contents in a solution.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -45,11 +45,11 @@ The basic structure of a management solution file is the same as a [Resource Man
     }
 
 ## Parameters
-[Parameters](../resource-group-authoring-templates.md#parameters) are values that you require from the user when they install the management solution.  There are standard parameters that all solutions will have, and you can add additional parameters as required for your particular solution.  How users will provide parameter values when they install your solution will depend on the particular parameter and how the solution is being installed.
+[Parameters](../azure-resource-manager/resource-group-authoring-templates.md#parameters) are values that you require from the user when they install the management solution.  There are standard parameters that all solutions will have, and you can add additional parameters as required for your particular solution.  How users will provide parameter values when they install your solution will depend on the particular parameter and how the solution is being installed.
 
-When a user installs your management solution through the [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-solutions) or [Azure QuickStart templates](operations-management-suite-solutions.md#finding-and-installing-solutions) they are prompted to select an [OMS workspace and Automation account](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account).  These are used to populate the values of each of the standard parameters.  The user is not prompted to directly provide values for the standard parameters, but they are prompted to provide values for any additional parameters.
+When a user installs your management solution through the [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) or [Azure QuickStart templates](operations-management-suite-solutions.md#finding-and-installing-management-solutions) they are prompted to select an [OMS workspace and Automation account](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account).  These are used to populate the values of each of the standard parameters.  The user is not prompted to directly provide values for the standard parameters, but they are prompted to provide values for any additional parameters.
 
-When the user installs your solution [another method](operations-management-suite-solutions.md#finding-and-installing-solutions), they must provide a value for all standard parameters and all additional parameters.
+When the user installs your solution [another method](operations-management-suite-solutions.md#finding-and-installing-management-solutions), they must provide a value for all standard parameters and all additional parameters.
 
 A sample parameter is shown below.
 
@@ -75,8 +75,8 @@ The following table lists the standard parameters for all management solutions. 
 
 > [!NOTE]
 > The user interface in the Azure Marketplace and Quickstart templates is expecting the parameter names in the table.  If you use different parameter names then the user will be prompted for them, and they will not be automatically populated.
-> 
-> 
+>
+>
 
 | Parameter | Type | Description |
 |:--- |:--- |:--- |
@@ -139,22 +139,22 @@ Following is a sample parameter entity for a solution.  This includes all of the
         }
 
 
-You refer to parameter values in other elements of the solution with the syntax **parameters('parameter name')**.  For example, to access the workspace name, you would use **parameters('workspaceName')** 
+You refer to parameter values in other elements of the solution with the syntax **parameters('parameter name')**.  For example, to access the workspace name, you would use **parameters('workspaceName')**
 
 ## Variables
 The **Variables** element includes values that you will use in the rest of the management solution.  These values are not exposed to the user installing the solution.  They are intended to provide the author with a single location where they can manage values that may be used multiple times throughout the solution. You should put any values specific to your solution in variables as opposed to hardcoding them in the **resources** element.  This makes the code more readable and allows you to easily change these values in later versions.
 
 Following is an example of a **variables** element with typical parameters used in solutions.
 
-    "variables": { 
-        "SolutionVersion": "1.1", 
-        "SolutionPublisher": "Contoso", 
+    "variables": {
+        "SolutionVersion": "1.1",
+        "SolutionPublisher": "Contoso",
         "SolutionName": "My Solution",
         "LogAnalyticsApiVersion": "2015-11-01-preview",
         "AutomationApiVersion": "2015-10-31"
     },
 
-You refer to variable values through the solution with the syntax **variables('variable name')**.  For example, to access the SolutionName variable, you would use **variables('solutionName')** 
+You refer to variable values through the solution with the syntax **variables('variable name')**.  For example, to access the SolutionName variable, you would use **variables('solutionName')**
 
 ## Resources
 The **resources** element defines the different resources included in your management solution.  This will be the largest and most complex portion of the template.  Resources are defined with the following structure.  
@@ -239,7 +239,7 @@ The solution resource has the properties in the following table.  This includes 
 The example  above is for a solution with a runbook, a schedule, and view.  The schedule and runbook are *referenced* in the  **properties**  element so they are not removed when the solution is removed.  The view is *contained* so it is removed when the solution is removed.
 
 ### Plan
-The **plan** entity of the solution resource has the properties in the following table. 
+The **plan** entity of the solution resource has the properties in the following table.
 
 | Property | Description |
 |:--- |:--- |
@@ -255,11 +255,10 @@ You can get the details and samples of resources that are common to management s
 * [Automation resources](operations-management-suite-solutions-resources-automation.md)
 
 ## Testing a management solution
-Prior to deploying your management solution, it is recommended that you test it using [Test-AzureRmResourceGroupDeployment](../resource-group-template-deploy.md#deploy-with-powershell).  This will validate your solution file and help you identify any problems before attempting to deploy it.
+Prior to deploying your management solution, it is recommended that you test it using [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  This will validate your solution file and help you identify any problems before attempting to deploy it.
 
 ## Next steps
-* Learn the details of [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+* Learn the details of [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 * Search [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates) for samples of different Resource Manager templates.
 * View the details for [adding views to a management solution](operations-management-suite-solutions-resources-views.md).
 * View the details for [adding Automation resources to a management solution](operations-management-suite-solutions-resources-automation.md).
-

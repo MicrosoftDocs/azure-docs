@@ -1,6 +1,6 @@
-﻿---
-title: Instance level Public IP (ILPIP) | Microsoft Docs
-description: Understanding ILPIP (PIP) and how to manage them
+---
+title: Instance level Public IP (Classic) using PowerShell | Microsoft Docs
+description: Understanding ILPIP (PIP) and how to manage them using PowerShell.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,19 +17,11 @@ ms.date: 02/10/2016
 ms.author: jdial
 
 ---
-# Instance level public IP overview
+# Instance level public IP (Classic) overview
 An instance level public IP (ILPIP) is a public IP address that you can assign directly to your VM or role instance, rather than to the cloud service that your VM or role instance reside in. This doesn’t take the place of the VIP (virtual IP) that is assigned to your cloud service. Rather, it’s an additional IP address that you can use to connect directly to your VM or role instance.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-Learn how to [perform these steps using the Resource Manager model](virtual-network-ip-addresses-overview-arm.md). 
-
-Make sure you understand how [IP addresses](virtual-network-ip-addresses-overview-classic.md) work in Azure.
-
-> [!NOTE]
-> In the past, an ILPIP was referred to as a PIP, which stands for public IP. 
-> 
-> 
+> [!IMPORTANT]
+> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the classic deployment model. Microsoft recommends that most new deployments use Resource Manager. Make sure you understand how [IP addresses](virtual-network-ip-addresses-overview-classic.md) work in Azure.
 
 ![Difference between ILPIP and VIP](./media/virtual-networks-instance-level-public-ip/Figure1.png)
 
@@ -51,60 +43,71 @@ If you want to be able to connect to your VM or role instance by an IP address a
 * **Passive FTP** - By having an ILPIP on your VM, you can receive traffic on just about any port, you will not have to open up an endpoint to receive traffic. This enables scenarios like passive FTP where the ports are chosen dynamically.
 * **Outbound IP** - Outbound traffic originating from the VM goes out with the ILPIP as the source and this uniquely identifies the VM to external entities.
 
-## How to request an ILPIP during VM creation
+> [!NOTE]
+> In the past, an ILPIP was referred to as a PIP, which stands for public IP.
+> 
+
+## How to request an ILPIP during VM creation using PowerShell
 The PowerShell script below creates a new cloud service named *FTPService*, then retrieves an image from Azure, and creates a VM named *FTPInstance* using the retrieved image, sets the VM to use an ILPIP, and adds the VM to the new service:
 
-    New-AzureService -ServiceName FTPService -Location "Central US"
-    $image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"}
-    New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
-    | Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
-    | Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
+```powershell
+New-AzureService -ServiceName FTPService -Location "Central US"
+
+$image = Get-AzureVMImage|?{$_.ImageName -like "*RightImage-Windows-2012R2-x64*"} `
+New-AzureVMConfig -Name FTPInstance -InstanceSize Small -ImageName $image.ImageName `
+| Add-AzureProvisioningConfig -Windows -AdminUsername adminuser -Password MyP@ssw0rd!! `
+| Set-AzurePublicIP -PublicIPName ftpip | New-AzureVM -ServiceName FTPService -Location "Central US"
+```
 
 ## How to retrieve ILPIP information for a VM
 To view the ILPIP information for the VM created with the script above, run the following PowerShell command and observe the values for *PublicIPAddress* and *PublicIPName*:
 
-    Get-AzureVM -Name FTPInstance -ServiceName FTPService
+```powershell
+Get-AzureVM -Name FTPInstance -ServiceName FTPService
+```
 
-    DeploymentName              : FTPService
-    Name                        : FTPInstance
-    Label                       : 
-    VM                          : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
-    InstanceStatus              : ReadyRole
-    IpAddress                   : 100.74.118.91
-    InstanceStateDetails        : 
-    PowerState                  : Started
-    InstanceErrorCode           : 
-    InstanceFaultDomain         : 0
-    InstanceName                : FTPInstance
-    InstanceUpgradeDomain       : 0
-    InstanceSize                : Small
-    HostName                    : FTPInstance
-    AvailabilitySetName         : 
-    DNSName                     : http://ftpservice888.cloudapp.net/
-    Status                      : ReadyRole
-    GuestAgentStatus            : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
-    ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
-    PublicIPAddress             : 104.43.142.188
-    PublicIPName                : ftpip
-    NetworkInterfaces           : {}
-    ServiceName                 : FTPService
-    OperationDescription        : Get-AzureVM
-    OperationId                 : 568d88d2be7c98f4bbb875e4d823718e
-    OperationStatus             : OK
+Expected output:
+ 
+	DeploymentName              : FTPService
+	Name                        : FTPInstance
+	Label                       : 
+	VM                          : Microsoft.WindowsAzure.Commands.ServiceManagement.Model.PersistentVM
+	InstanceStatus              : ReadyRole
+	IpAddress                   : 100.74.118.91
+	InstanceStateDetails        : 
+	PowerState                  : Started
+	InstanceErrorCode           : 
+	InstanceFaultDomain         : 0
+	InstanceName                : FTPInstance
+	InstanceUpgradeDomain       : 0
+	InstanceSize                : Small
+	HostName                    : FTPInstance
+	AvailabilitySetName         : 
+	DNSName                     : http://ftpservice888.cloudapp.net/
+	Status                      : ReadyRole
+	GuestAgentStatus            : 	Microsoft.WindowsAzure.Commands.ServiceManagement.Model.GuestAgentStatus
+	ResourceExtensionStatusList : {Microsoft.Compute.BGInfo}
+	PublicIPAddress             : 104.43.142.188
+	PublicIPName                : ftpip
+	NetworkInterfaces           : {}
+	ServiceName                 : FTPService
+	OperationDescription        : Get-AzureVM
+	OperationId                 : 568d88d2be7c98f4bbb875e4d823718e
+	OperationStatus             : OK
 
 ## How to remove an ILPIP from a VM
 To remove the ILPIP added to the VM in the script above, run the following PowerShell command:
 
-    Get-AzureVM -ServiceName FTPService -Name FTPInstance `
-    | Remove-AzurePublicIP `
-    | Update-AzureVM
+```powershell
+Get-AzureVM -ServiceName FTPService -Name FTPInstance | Remove-AzurePublicIP | Update-AzureVM
+```
 
 ## How to add an ILPIP to an existing VM
 To add an ILPIP to the VM created using the script above, run the following command:
 
-    Get-AzureVM -ServiceName FTPService -Name FTPInstance `
-    | Set-AzurePublicIP -PublicIPName ftpip2 `
-    | Update-AzureVM
+```powershell
+Get-AzureVM -ServiceName FTPService -Name FTPInstance | Set-AzurePublicIP -PublicIPName ftpip2 | Update-AzureVM
+```
 
 ## How to associate an ILPIP to a VM by using a service configuration file
 You can also associate an ILPIP to a VM by using a service configuration (CSCFG) file. The sample xml below shows how to configure a cloud service to use an ILPIP named *MyPublicIP* for a role instance: 

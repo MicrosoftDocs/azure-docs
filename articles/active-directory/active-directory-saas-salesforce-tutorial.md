@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Azure Active Directory integration with Salesforce | Microsoft Docs'
 description: Learn how to use Salesforce with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
@@ -17,7 +17,7 @@ ms.date: 05/16/2016
 ms.author: asmalser-msft
 
 ---
-# Tutorial: How to integrate Salesforce with Azure Active Directory
+# Tutorial: Azure Active Directory integration with Salesforce
 This tutorial will show you how to connect your Salesforce environment to your Azure Active Directory. You will learn how to configure single sign-on to Salesforce, how to enable automated user provisioning, and how to assign users to have access to Salesforce.
 
 ## Prerequisites

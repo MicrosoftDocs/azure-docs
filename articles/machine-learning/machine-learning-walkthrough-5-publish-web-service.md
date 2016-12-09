@@ -173,13 +173,11 @@ Once you've deployed your Classic Web service, you can manage it from the [Azure
 6. Click the "default" endpoint.
 
 From here, you can do things like monitor how the Web service is doing and make performance tweaks by changing how many concurrent calls the service can handle.
-You can even publish your Web service in the Azure Marketplace.
 
 For more details, see:
 
 * [Creating Endpoints](machine-learning-create-endpoint.md)
 * [Scaling Web service](machine-learning-scaling-webservice.md)
-* [Publish Azure Machine Learning Web service to the Azure Marketplace](machine-learning-publish-web-service-to-azure-marketplace.md)
 
 **Manage a Web service in the Azure Machine Learning Web Services portal**
 

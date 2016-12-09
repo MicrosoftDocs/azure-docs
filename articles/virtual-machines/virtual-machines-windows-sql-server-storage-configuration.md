@@ -1,4 +1,4 @@
-﻿---
+---
 title: Storage configuration for SQL Server VMs | Microsoft Docs
 description: This topic describes how Azure configures storage for SQL Server VMs during provisioning (Resource Manager deployment model). It also explains how you can configure storage for your existing SQL Server VMs.
 services: virtual-machines-windows
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 08/04/2016
+ms.date: 11/11/2016
 ms.author: ninarn
 
 ---
@@ -24,13 +24,11 @@ This topic explains how Azure configures storage for your SQL Server VMs both du
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-classic deployment model.
-
 ## Prerequisites
 To use the automated storage configuration settings, your virtual machine requires the following characteristics:
 
-* Provisioned with a [SQL Server gallery image](virtual-machines-windows-sql-server-iaas-overview.md#option-1-deploy-a-sql-vm-per-minute-licensing).
-* Uses the [Resource Manager deployment model](../resource-manager-deployment-model.md).
+* Provisioned with a [SQL Server gallery image](virtual-machines-windows-sql-server-iaas-overview.md#option-1-create-a-sql-vm-with-per-minute-licensing).
+* Uses the [Resource Manager deployment model](../azure-resource-manager/resource-manager-deployment-model.md).
 * Uses [Premium Storage](../storage/storage-premium-storage.md).
 
 ## New VMs
@@ -137,9 +135,8 @@ The following table describes the three workload type options available and thei
 
 > [!NOTE]
 > You can only specify the workload type when you provision a SQL virtual machine by selecting it in the storage configuration step.
-> 
-> 
+>
+>
 
 ## Next steps
 For other topics related to running SQL Server in Azure VMs, see [SQL Server on Azure Virtual Machines](virtual-machines-windows-sql-server-iaas-overview.md).
-

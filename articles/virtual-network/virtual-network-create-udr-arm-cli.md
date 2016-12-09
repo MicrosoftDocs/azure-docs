@@ -1,6 +1,6 @@
 ---
-title: Control routing and use virtual appliances in Resource Manager using the Azure CLI | Microsoft Docs
-description: Learn how to control routing and use virtual appliances using the Azure CLI
+title: Control routing and virtual appliances using the Azure CLI | Microsoft Docs
+description: Learn how to control routing and virtual appliances using the Azure CLI.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -18,14 +18,23 @@ ms.date: 03/15/2016
 ms.author: jdial
 
 ---
-# Create User Defined Routes (UDR) in the Azure CLI
-[!INCLUDE [virtual-network-create-udr-arm-selectors-include.md](../../includes/virtual-network-create-udr-arm-selectors-include.md)]
+# Create User-Defined Routes (UDR) using the Azure CLI
+
+> [!div class="op_single_selector"]
+- [PowerShell](virtual-network-create-udr-arm-ps.md)
+- [Azure CLI](virtual-network-create-udr-arm-cli.md)
+- [Template](virtual-network-create-udr-arm-template.md)
+- [PowerShell (Classic)](virtual-network-create-udr-classic-ps.md)
+- [CLI (Classic)](virtual-network-create-udr-classic-cli.md)
+
 
 [!INCLUDE [virtual-network-create-udr-intro-include.md](../../includes/virtual-network-create-udr-intro-include.md)]
 
-[!INCLUDE [azure-arm-classic-important-include](../../includes/azure-arm-classic-important-include.md)]
+> [!IMPORTANT]
+> Before you work with Azure resources, it's important to understand that Azure currently has two deployment models: Azure Resource Manager and classic. Make sure you understand [deployment models and tools](../resource-manager-deployment-model.md) before you work with any Azure resource. You can view the documentation for different tools by clicking the tabs at the top of this article.
+>
 
-This article covers the Resource Manager deployment model. You can also [create UDRs in the classic deployment model](virtual-network-create-udr-classic-cli.md).
+This article covers the Resource Manager deployment model. You can also create UDRs in the [classic deployment model](virtual-network-create-udr-classic-cli.md).
 
 [!INCLUDE [virtual-network-create-udr-scenario-include.md](../../includes/virtual-network-create-udr-scenario-include.md)]
 
@@ -33,12 +42,14 @@ The sample Azure CLI commands below expect a simple environment already created 
 
 [!INCLUDE [azure-cli-prerequisites-include.md](../../includes/azure-cli-prerequisites-include.md)]
 
-## Create the UDR for the front end subnet
+## Create the UDR for the front-end subnet
 To create the route table and route needed for the front end subnet based on the scenario above, follow the steps below.
 
-1. Run the **`azure network route-table create`** command to create a route table for the front end subnet.
-   
-        azure network route-table create -g TestRG -n UDR-FrontEnd -l uswest
+1. Run the following command to create a route table for the front-end subnet:
+
+	```azurecli
+	azure network route-table create -g TestRG -n UDR-FrontEnd -l uswest
+	```
    
     Output:
    
@@ -46,7 +57,7 @@ To create the route table and route needed for the front end subnet based on the
         info:    Looking up route table "UDR-FrontEnd"
         info:    Creating route table "UDR-FrontEnd"
         info:    Looking up route table "UDR-FrontEnd"
-        data:    Id                              : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/TestRG/providers/Microsoft.Network/
+        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
         routeTables/UDR-FrontEnd
         data:    Name                            : UDR-FrontEnd
         data:    Type                            : Microsoft.Network/routeTables
@@ -59,9 +70,11 @@ To create the route table and route needed for the front end subnet based on the
    * **-g (or --resource-group)**. Name of the resource group where the UDR will be created. For our scenario, *TestRG*.
    * **-l (or --location)**. Azure region where the new UDR will be created. For our scenario, *westus*.
    * **-n (or --name)**. Name for the new UDR. For our scenario, *UDR-FrontEnd*.
-2. Run the **`azure network route-table route create`** command to create a route in the route table created above to send all traffic destined to the back end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4).
-   
-        azure network route-table route create -g TestRG -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -y VirtualAppliance -p 192.168.0.4
+2. Run the following command to create a route in the route table to send all traffic destined to the back-end subnet (192.168.2.0/24) to the **FW1** VM (192.168.0.4):
+
+	```azurecli
+	azure network route-table route create -g TestRG -r UDR-FrontEnd -n RouteToBackEnd -a 192.168.2.0/24 -y VirtualAppliance -p 192.168.0.4
+	```
    
     Output:
    
@@ -69,7 +82,7 @@ To create the route table and route needed for the front end subnet based on the
         info:    Looking up route "RouteToBackEnd" in route table "UDR-FrontEnd"
         info:    Creating route "RouteToBackEnd" in a route table "UDR-FrontEnd"
         info:    Looking up route "RouteToBackEnd" in route table "UDR-FrontEnd"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
+        data:    Id                              : /subscriptions/[Subscription Id]/TestRG/providers/Microsoft.Network/
         routeTables/UDR-FrontEnd/routes/RouteToBackEnd
         data:    Name                            : RouteToBackEnd
         data:    Provisioning state              : Succeeded
@@ -84,9 +97,11 @@ To create the route table and route needed for the front end subnet based on the
    * **-a (or --address-prefix)**. Address prefix for the subnet where packets are destined to. For our scenario, *192.168.2.0/24*.
    * **-y (or --next-hop-type)**. Type of object traffic will be sent to. Possible values are *VirtualAppliance*, *VirtualNetworkGateway*, *VNETLocal*, *Internet*, or *None*.
    * **-p (or --next-hop-ip-address**). IP address for next hop. For our scenario, *192.168.0.4*.
-3. Run the **`azure network vnet subnet set`** command to associate the route table created above with the **FrontEnd** subnet.
-   
-        azure network vnet subnet set -g TestRG -e TestVNet -n FrontEnd -r UDR-FrontEnd
+3. Run the following command to associate the route table created above with the **FrontEnd** subnet:
+
+	```azurecli
+	azure network vnet subnet set -g TestRG -e TestVNet -n FrontEnd -r UDR-FrontEnd
+	```
    
     Output:
    
@@ -95,19 +110,19 @@ To create the route table and route needed for the front end subnet based on the
         info:    Looking up route table "UDR-FrontEnd"
         info:    Setting subnet "FrontEnd"
         info:    Looking up the subnet "FrontEnd"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
+        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
         virtualNetworks/TestVNet/subnets/FrontEnd
         data:    Type                            : Microsoft.Network/virtualNetworks/subnets
         data:    ProvisioningState               : Succeeded
         data:    Name                            : FrontEnd
         data:    Address prefix                  : 192.168.1.0/24
         data:    Network security group          : [object Object]
-        data:    Route Table                     : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
+        data:    Route Table                     : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
         routeTables/UDR-FrontEnd
         data:    IP configurations:
-        data:      /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConf
+        data:      /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB1/ipConf
         igurations/ipconfig1
-        data:      /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2/ipConf
+        data:      /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/networkInterfaces/NICWEB2/ipConf
         igurations/ipconfig1
         data:    
         info:    network vnet subnet set command OK
@@ -116,31 +131,41 @@ To create the route table and route needed for the front end subnet based on the
    
    * **-e (or --vnet-name)**. Name of the VNet where the subnet is located. For our scenario, *TestVNet*.
 
-## Create the UDR for the back end subnet
-To create the route table and route needed for the back end subnet based on the scenario above, follow the steps below.
+## Create the UDR for the back-end subnet
+To create the route table and route needed for the back-end subnet based on the scenario above, complete the following steps:
 
-1. Run the **`azure network route-table create`** command to create a route table for the back end subnet.
-   
-        azure network route-table create -g TestRG -n UDR-BackEnd -l westus
-2. Run the **`azure network route-table route create`** command to create a route in the route table created above to send all traffic destined to the front end subnet (192.168.1.0/24) to the **FW1** VM (192.168.0.4).
-   
-        azure network route-table route create -g TestRG -r UDR-BackEnd -n RouteToFrontEnd -a 192.168.1.0/24 -y VirtualAppliance -p 192.168.0.4
-3. Run the **`azure network vnet subnet set`** command to associate the route table created above with the **BackEnd** subnet.
-   
-        azure network vnet subnet set -g TestRG -e TestVNet -n BackEnd -r UDR-BackEnd
+1. Run the following command to create a route table for the back-end subnet:
+
+	```azurecli
+	azure network route-table create -g TestRG -n UDR-BackEnd -l westus
+	```
+
+2. Run the following command to create a route in the route table to send all traffic destined to the front-end subnet (192.168.1.0/24) to the **FW1** VM (192.168.0.4):
+
+	```azurecli
+	azure network route-table route create -g TestRG -r UDR-BackEnd -n RouteToFrontEnd -a 192.168.1.0/24 -y VirtualAppliance -p 192.168.0.4
+	```
+
+3. Run the following command to associate the route table with the **BackEnd** subnet:
+
+	```azurecli
+	azure network vnet subnet set -g TestRG -e TestVNet -n BackEnd -r UDR-BackEnd
+	```
 
 ## Enable IP forwarding on FW1
-To enable IP forwarding in the NIC used by **FW1**, follow the steps below.
+To enable IP forwarding in the NIC used by **FW1**, complete the following steps:
 
-1. Run the **`azure network nic show`** command, and notice the value for **Enable IP forwarding**. It should be set to *false*.
-   
-        azure network nic show -g TestRG -n NICFW1
-   
+1. Run the command that follows and notice the value for **Enable IP forwarding**. It should be set to *false*.
+
+	```azurecli
+	azure network nic show -g TestRG -n NICFW1
+	```
+
     Output:
    
         info:    Executing command network nic show
         info:    Looking up the network interface "NICFW1"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
+        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
         networkInterfaces/NICFW1
         data:    Name                            : NICFW1
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -149,22 +174,24 @@ To enable IP forwarding in the NIC used by **FW1**, follow the steps below.
         data:    MAC address                     : 00-0D-3A-30-95-B3
         data:    Enable IP forwarding            : false
         data:    Tags                            : displayName=NetworkInterfaces - DMZ
-        data:    Virtual machine                 : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Compute/
+        data:    Virtual machine                 : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/
         virtualMachines/FW1
         data:    IP configurations:
         data:      Name                          : ipconfig1
         data:      Provisioning state            : Succeeded
-        data:      Public IP address             : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
+        data:      Public IP address             : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
         publicIPAddresses/PIPFW1
         data:      Private IP address            : 192.168.0.4
         data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
+        data:      Subnet                        : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
         virtualNetworks/TestVNet/subnets/DMZ
         data:    
         info:    network nic show command OK
-2. Run the **`azure network nic set`** command to enable IP forwarding.
-   
-        azure network nic set -g TestRG -n NICFW1 -f true
+2. Run the following command to enable IP forwarding:
+
+	```azurecli
+	azure network nic set -g TestRG -n NICFW1 -f true
+	```
    
     Output:
    
@@ -172,7 +199,7 @@ To enable IP forwarding in the NIC used by **FW1**, follow the steps below.
         info:    Looking up the network interface "NICFW1"
         info:    Updating network interface "NICFW1"
         info:    Looking up the network interface "NICFW1"
-        data:    Id                              : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
+        data:    Id                              : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
         networkInterfaces/NICFW1
         data:    Name                            : NICFW1
         data:    Type                            : Microsoft.Network/networkInterfaces
@@ -181,16 +208,16 @@ To enable IP forwarding in the NIC used by **FW1**, follow the steps below.
         data:    MAC address                     : 00-0D-3A-30-95-B3
         data:    Enable IP forwarding            : true
         data:    Tags                            : displayName=NetworkInterfaces - DMZ
-        data:    Virtual machine                 : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Compute/
+        data:    Virtual machine                 : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Compute/
         virtualMachines/FW1
         data:    IP configurations:
         data:      Name                          : ipconfig1
         data:      Provisioning state            : Succeeded
-        data:      Public IP address             : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
+        data:      Public IP address             : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
         publicIPAddresses/PIPFW1
         data:      Private IP address            : 192.168.0.4
         data:      Private IP Allocation Method  : Static
-        data:      Subnet                        : /subscriptions/628dad04-b5d1-4f10-b3a4-dc61d88cf97c/resourceGroups/TestRG/providers/Microsoft.Network/
+        data:      Subnet                        : /subscriptions/[Subscription Id]/resourceGroups/TestRG/providers/Microsoft.Network/
         virtualNetworks/TestVNet/subnets/DMZ
         data:    
         info:    network nic set command OK

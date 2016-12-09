@@ -14,18 +14,13 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/25/2016
+ms.date: 11/14/2016
 ms.author: v-livech
 
 ---
 # Create SSH keys on Linux and Mac for Linux VMs in Azure
-With an SSH keypair you can create Virtual Machines on Azure that default to using SSH keys for authentication, eliminating the need for passwords to log in.  Passwords can be guessed and open your VMs up to relentless brute force attempts to guess your password. VMs created with Azure Templates or the `azure-cli` can include your SSH public key as part of the deployment, removing a post deployment configuration.  If you are connecting to a Linux VM from Windows, see [this document.](virtual-machines-linux-ssh-from-windows.md)
+With an SSH keypair you can create Virtual Machines on Azure that default to using SSH keys for authentication, eliminating the need for passwords to log in.  Passwords can be guessed and open your VMs up to relentless brute force attempts to guess your password. VMs created with Azure Templates or the `azure-cli` can include your SSH public key as part of the deployment, removing a post deployment configuration.  If you are connecting to a Linux VM from Windows, see [Create SSH keys on Windows.](virtual-machines-linux-ssh-from-windows.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-The article requires:
-
-* an Azure account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)).
-* the [Azure CLI](../xplat-cli-install.md) logged in with `azure login`
-* the Azure CLI *must be in* Azure Resource Manager mode `azure config mode arm`
 
 ## Quick Commands
 In the following commands, replace the examples with your own choices.
@@ -244,7 +239,6 @@ When `ssh fedora22` is executed SSH first locates and loads any settings from th
 ## Next Steps
 Next up is to create Azure Linux VMs using the new SSH public key.  Azure VMs that are created with an SSH public key as the login are better secured than VMs created with the default login method, passwords.  Azure VMs created using SSH keys are by default configured with passwords disabled, avoiding brute-forced guessing attempts.
 
-* [Create a secure Linux VM using an Azure template](virtual-machines-linux-create-ssh-secured-vm-from-template.md)
-* [Create a secure Linux VM using the Azure portal](virtual-machines-linux-quick-create-portal.md)
-* [Create a secure Linux VM using the Azure CLI](virtual-machines-linux-quick-create-cli.md)
-
+* [Create a secure Linux VM using an Azure template](virtual-machines-linux-create-ssh-secured-vm-from-template.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a secure Linux VM using the Azure portal](virtual-machines-linux-quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Create a secure Linux VM using the Azure CLI](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

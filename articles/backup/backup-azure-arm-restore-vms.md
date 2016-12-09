@@ -1,6 +1,5 @@
-
 ---
-title: Restore virtual machines from backup using Azure portal | Microsoft Docs
+title: Restore virtual machines from a backup point using the Azure portal | Microsoft Docs
 description: Restore an Azure virtual machine from a recovery point using Azure portal
 services: backup
 documentationcenter: ''
@@ -15,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2016
+ms.date: 11/28/2016
 ms.author: trinadhk; jimpark;
 
 ---
@@ -29,7 +28,7 @@ ms.author: trinadhk; jimpark;
 Protect your data by taking snapshots of your data at defined intervals. These snapshots are known as recovery points, and they are stored in recovery services vaults. If or when it is necessary to repair or rebuild a VM, you can restore the VM from any of the saved recovery points. When you restore a recovery point, you return or revert the VM to the state when the recovery point was taken. This article explains how to restore a VM.
 
 > [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
+> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.
 > 
 > 
 

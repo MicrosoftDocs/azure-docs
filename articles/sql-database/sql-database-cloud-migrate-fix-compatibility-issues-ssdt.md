@@ -1,4 +1,4 @@
-﻿---
+---
 title: Fix SQL Server database compatibility issues before migration to SQL Database | Microsoft Docs
 description: Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard, SSDT
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 7ff52877-5b63-4adc-aa1a-689669a1146e
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -86,7 +87,7 @@ Use SQL Server Data Tools for Visual Studio ("SSDT") to import the database sche
 * [Newest version of SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx)
 
 ## Additional resources
-* [SQL Database V12](sql-database-v12-whats-new.md)
+* [SQL Database features](sql-database-features.md)
 * [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
 * [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 

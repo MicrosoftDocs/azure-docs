@@ -1,20 +1,20 @@
 ---
 title: Service Bus Premium and Standard Messaging pricing tiers overview | Microsoft Docs
 description: Service Bus Premium and Standard Messaging
-services: service-bus
+services: service-bus-messaging
 documentationcenter: .net
 author: djrosanova
 manager: timlt
 editor: ''
 
 ms.assetid: e211774d-821c-4d79-8563-57472d746c58
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 09/02/2016
-ms.author: darosa;sethm
+ms.author: darosa,sethm
 
 ---
 # Service Bus Premium and Standard messaging tiers

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Managing your virtual machine image on the Azure Marketplace | Microsoft Docs
 description: Detailed guide on how to manage your virtual machine image on the Azure Marketplace after initial publication.
 services: Azure Marketplace
@@ -326,5 +326,5 @@ Please follow the steps below:
 * [Troubleshooting common publishing problems in the Marketplace](marketplace-publishing-support-common-issues.md)
 * [Get support as a publisher](marketplace-publishing-get-publisher-support.md)
 * [Creating a VM image on-premises](marketplace-publishing-vm-image-creation-on-premise.md)
-* [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
+* [Create a virtual machine running Windows in the Azure preview portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 

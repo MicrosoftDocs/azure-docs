@@ -41,24 +41,24 @@ The Azure Storage table input binding enables you to use a storage table in your
 
 The Storage table input to a function uses the following JSON objects in the `bindings` array of function.json:
 
-    {
-        "name": "<Name of input parameter in function signature>",
-        "type": "table",
-        "direction": "in"
-        "tableName": "<Name of Storage table>",
-        "partitionKey": "<PartitionKey of table entity to read - see below>",
-        "rowKey": "<RowKey of table entity to read - see below>",
-        "take": "<Maximum number of entities to read in Node.js - optional>",
-        "filter": "<OData filter expression for table input in Node.js - optional>",
-        "connection": "<Name of app setting - see below>",
-    }
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "type": "table",
+    "direction": "in",
+    "tableName": "<Name of Storage table>",
+    "partitionKey": "<PartitionKey of table entity to read - see below>",
+    "rowKey": "<RowKey of table entity to read - see below>",
+    "take": "<Maximum number of entities to read in Node.js - optional>",
+    "filter": "<OData filter expression for table input in Node.js - optional>",
+    "connection": "<Name of app setting - see below>",
+}
+```
 
 Note the following: 
 
-* Use `partitionKey` and `rowKey` together to read a single entity. These properties are optional.
-* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
-  editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+* Use `partitionKey` and `rowKey` together to read a single entity. These properties are optional. 
+* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing one. You can also [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md#application-settings).  
 
 <a name="inputusage"></a>
 
@@ -113,7 +113,7 @@ See the language-specific sample that reads a single table entity.
 
 <a name="inputcsharp"></a>
 
-### Input sample in C\
+### Input sample in C# #
 ```csharp
 public static void Run(string myQueueItem, Person personEntity, TraceWriter log)
 {
@@ -131,7 +131,7 @@ public class Person
 
 <a name="inputfsharp"></a>
 
-### Input sample in F\
+### Input sample in F# #
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -163,23 +163,23 @@ The Azure Storage table output binding enables you to write entities to a Storag
 
 The Storage table output for a function uses the following JSON objects in the `bindings` array of function.json:
 
-    {
-        "name": "<Name of input parameter in function signature>",
-        "type": "table",
-        "direction": "out"
-        "tableName": "<Name of Storage table>",
-        "partitionKey": "<PartitionKey of table entity to write - see below>",
-        "rowKey": "<RowKey of table entity to write - see below>",
-        "connection": "<Name of app setting - see below>",
-    }
+```json
+{
+    "name": "<Name of input parameter in function signature>",
+    "type": "table",
+    "direction": "out",
+    "tableName": "<Name of Storage table>",
+    "partitionKey": "<PartitionKey of table entity to write - see below>",
+    "rowKey": "<RowKey of table entity to write - see below>",
+    "connection": "<Name of app setting - see below>",
+}
+```
 
 Note the following: 
 
 * Use `partitionKey` and `rowKey` together to write a single entity. These properties are optional. You can also
   specify `PartitionKey` and `RowKey` when you create the entity objects in your function code.
-* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard 
-  editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing 
-  one. To manually create this app setting, see [configure this app setting manually](). 
+* `connection` must contain the name of an app setting that contains a storage connection string. In the Azure portal, the standard editor in the **Integrate** tab configures this app setting for you when you create a Storage account or selects an existing one. You can also [configure this app setting manually](functions-how-to-use-azure-function-app-settings.md#application-settings). 
 
 <a name="outputusage"></a>
 
@@ -227,7 +227,7 @@ See the language-specific sample that creates multiple table entities.
 
 <a name="outcsharp"></a>
 
-### Output sample in C\
+### Output sample in C# #
 ```csharp
 public static void Run(string input, ICollector<Person> tableBinding, TraceWriter log)
 {
@@ -254,7 +254,7 @@ public class Person
 ```
 <a name="outfsharp"></a>
 
-### Output sample in F\
+### Output sample in F# #
 ```fsharp
 [<CLIMutable>]
 type Person = {
@@ -293,7 +293,7 @@ module.exports = function (context) {
 
 <a name="readmulti"></a>
 
-## Sample: Read multiple table entities in C
+## Sample: Read multiple table entities in C#  #
 The following *function.json* and C# code example reads entities for a partition key that is specified in the queue message.
 
 ```json

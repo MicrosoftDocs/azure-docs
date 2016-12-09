@@ -1,4 +1,4 @@
-﻿---
+---
 title: Tuning data ingestion performance for Elasticsearch on Azure | Microsoft Docs
 description: How to maximize data ingestion performance with Elasticsearch on Azure.
 services: ''
@@ -146,7 +146,7 @@ Start with a configuration that will meet your current requirements (perform ben
 described later in this document). You can scale a cluster later by adding more VMs running Elasticsearch
 nodes.
 
-[Sizes for Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md) on the Azure website documents the
+[Sizes for Virtual Machines](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) on the Azure website documents the
 various options and SKUs available for VMs.
 
 You should match the size and resources of a VM to the role that nodes running on the VM will perform.
@@ -229,7 +229,7 @@ document size in Elasticsearch against the volume of requests likely to be recei
 
 Disks based on standard storage support a maximum request rate of 500 IOPS whereas disks based on premium
 storage can operate at up to 5,000 IOPS, depending on the size of the data disks. Premium storage disks are only available for the DS and GS
-series of VMs. To find the maximum disk IOPS by VM size, see [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md). Performance on premium storage is determined by the VM size together with disk size allocation. For more information, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
+series of VMs. To find the maximum disk IOPS by VM size, see [Sizes for virtual machines in Azure](../virtual-machines/virtual-machines-linux-sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Performance on premium storage is determined by the VM size together with disk size allocation. For more information, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
 
 **Persistent data disks**
 
@@ -240,7 +240,7 @@ DS series or better. DS machines cost the same as the equivalent D-series VMs, b
 for using premium storage.
 
 In cases where the maximum transfer rate per disk is insufficient to support the expected workload,
-consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](../virtual-machines/virtual-machines-linux-configure-raid.md).
+consider either creating multiple data disks and allow Elasticsearch to [stripe data across these disks](guidance-elasticsearch-running-on-azure.md#disk-and-file-system-requirements), or implement system level [RAID 0 striping using virtual disks](../virtual-machines/virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > Experience within Microsoft has shown that using RAID 0 is particularly beneficial for

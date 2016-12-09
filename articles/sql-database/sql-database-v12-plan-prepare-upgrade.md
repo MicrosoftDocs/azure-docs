@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 8020f904-ad27-40c5-8c59-bdf2e690f77d
 ms.service: sql-database
+ms.custom: V11
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -26,7 +27,7 @@ The following table lists other Help topics for V12.
 
 | Title and link | Description of content |
 |:--- |:--- |
-| [What's new in SQL Database V12](sql-database-v12-whats-new.md) |Describes the details of how V12 brings Azure SQL Database closer to full parity with Microsoft SQL Server. |
+| [Azure SQL Database features](sql-database-features.md) |Provides a feature matrix for Azure SQL Database versus SQL Server. |
 | [Create a database in SQL Database V12](sql-database-get-started.md) |Describes how you can create a new Azure SQL database at version V12. It describes various options beyond just an empty database. |
 
 ## Plan ahead
@@ -144,9 +145,6 @@ However, to use the tools, you must first have or install their latest updates t
 > The preceding tool links were updated on or after March 2, 2015. We recommend that you use these newer updates of these tools.
 > 
 > 
-
-#### Automated Export
-Automated Export continues to be available as preview.  No client tool updates are required when using Automated Export.  If you choose to take the resulting file and import to an on-premise server, the tooling updates listed above are needed to import successfully.
 
 ### Restore to V12 of a deleted V11 database
 The following scenario explains that a deleted V11 Azure SQL database can be restored onto a V12 Azure SQL Database server.

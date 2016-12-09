@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create Hadoop, HBase, Storm, or Spark clusters on Linux in HDInsight | Microsoft Docs
 description: Learn how to create Hadoop, HBase, Storm, or Spark clusters on Linux for HDInsight using a browser, the Azure CLI, Azure PowerShell, REST, or through an SDK.
 services: hdinsight
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/18/2016
+ms.date: 12/07/2016
 ms.author: jgao
 
 ---
@@ -31,12 +31,13 @@ Currently, Azure HDInsight provides five different types of clusters, each with 
 
 | Cluster type | Functionality |
 | --- | --- |
-| Hadoop |Query and analysis (batch jobs) |
-| HBase |NoSQL data storage |
-| Storm |Real-time event processing |
-| Spark |In-memory processing, interactive queries, micro-batch stream processing |
+| [Hadoop](hdinsight-hadoop-introduction.md) |Query and analysis (batch jobs) |
+| [HBase](hdinsight-hbase-overview.md) |NoSQL data storage |
+| [Storm](hdinsight-storm-overview.md) |Real-time event processing |
+| [Spark](hdinsight-apache-spark-overview.md) |In-memory processing, interactive queries, micro-batch stream processing |
 | [Interactive Hive (Preview)](hdinsight-hadoop-use-interactive-hive.md) |In-memory caching for interactive and faster Hive queries |
-| R Server on Spark (Preview) |A variety of big data statistics, predictive modeling, and machine learning capabilities |
+| [R Server on Spark (Preview)](hdinsight-hadoop-r-server-overview.md) |A variety of big data statistics, predictive modeling, and machine learning capabilities |
+| [Kafka (Preview)](hdinsight-apache-kafka-introduction.md) | A distributed streaming platform that can be used to build real-time streaming data pipelines and applications |
 
 Each cluster type has its own number of nodes within the cluster, terminology for nodes within the cluster, and default VM size for each node type. In the following table, the number of nodes for each node type is in parentheses.
 
@@ -68,13 +69,14 @@ The following table lists the default VM sizes for HDInsight:
   | Head – Default VM size |D3 |D3 |A3 |D12 |D12 |
   | Head – Recommended VM sizes |D3, D4, D12 |D3, D4, D12 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |
   | Worker – Default VM size |D3 |D3 |D3 |Windows: D12; Linux: D4 |Windows: D12; Linux: D4 |
-  | Worker – Recommended VM sizes |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14;Linux: D4, D12, D13, D14 |Windows: D12, D13, D14;Linux: D4, D12, D13, D14 |
+  | Worker – Recommended VM sizes |D3, D4, D12 |D3, D4, D12 |D3, D4, D12 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
   | Zookeeper – Default VM size | |A2 |A2 | | |
   | Zookeeper – Recommended VM sizes | |A2, A3, A4 |A2, A3, A4 | | |
   | Edge – Default VM sizes | | | | |Windows: D12; Linux: D4 |
   | Edge – Recommended VM sizes | | | | |Windows: D12, D13, D14; Linux: D4, D12, D13, D14 |
 
-Note that Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
+> [!NOTE]
+> Head is known as *Nimbus* for the Storm cluster type. Worker is known as *Region* for the HBase cluster type and as *Supervisor* for the Storm cluster type.
 
 > [!IMPORTANT]
 > If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB of RAM.
@@ -88,7 +90,7 @@ You can add other components such as Hue or R to these basic types by using [Scr
 > 
 > 
 
-If your solution requires technologies that are spread across multiple HDInsight cluster types, you should create an Azure Virtual Network and create the required cluster types within the virtual network. This allows the clusters, and any code you deploy to them, to directly communicate with each other.
+If your solution requires technologies that are spread across multiple HDInsight cluster types, you should create an Azure Virtual Network and create the required cluster types within the virtual network. This configuration allows the clusters, and any code you deploy to them, to directly communicate with each other.
 
 For more information on using an Azure Virtual Network with HDInsight, see [Extend HDInsight with Azure Virtual Networks](hdinsight-extend-hadoop-virtual-network.md).
 
@@ -230,7 +232,7 @@ In the classic deployment model, some VM sizes are slightly different in PowerSh
 | Standard_D13_v2 |8 |56 GB |8 |Temporary (SSD) =400 GB |16 |16x500 |
 | Standard_D14_v2 |16 |112 GB |8 |Temporary (SSD) =800 GB |32 |32x500 |
 
-For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md). For information about pricing of the various sizes, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight).   
+For deployment considerations to be aware of when you're planning to use these resources, see [Sizes for virtual machines](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For information about pricing of the various sizes, see [HDInsight Pricing](https://azure.microsoft.com/pricing/details/hdinsight).   
 
 > [!IMPORTANT]
 > If you plan on having more than 32 worker nodes, either at cluster creation or by scaling the cluster after creation, then you must select a head node size with at least 8 cores and 14 GB of RAM.

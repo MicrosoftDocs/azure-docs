@@ -1,4 +1,4 @@
-﻿---
+---
 title: Connect to SQL Database using SQL Server Management Studio in Azure RemoteApp | Microsoft Docs
 description: Use this tutorial to learn how to use SQL Server Management Studio in Azure RemoteApp for security and performance when connecting to SQL Database
 services: sql-database
@@ -8,15 +8,21 @@ manager: jhubbard
 
 ms.assetid: 1052c83c-e7f5-4736-922f-216194d8874b
 ms.service: sql-database
+ms.custom: how to
 ms.workload: data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/05/2016
+ms.date: 12/01/2016
 ms.author: adhurwit
 
 ---
 # Use SQL Server Management Studio in Azure RemoteApp to connect to SQL Database
+
+> [!IMPORTANT]
+> Azure RemoteApp is being discontinued. Read the [announcement](https://go.microsoft.com/fwlink/?linkid=821148) for details.
+>
+
 ## Introduction
 This tutorial shows you how to use SQL Server Management Studio (SSMS) in Azure RemoteApp to connect to SQL Database. It walks you through the process of setting up SQL Server Management Studio in Azure RemoteApp, explains the benefits, and shows security features that you can use in Azure Active Directory.
 
@@ -67,7 +73,7 @@ To learn more about creating a Azure RemoteApp image, see: [How to create a Remo
 ### 4. Capture image
 When the VM has stopped running, find it in the current portal and capture it.
 
-To learn more about capturing an image, see [Capture an image of an Azure Windows virtual machine created with the classic deployment model](../virtual-machines/virtual-machines-windows-classic-capture-image.md)
+To learn more about capturing an image, see [Capture an image of an Azure Windows virtual machine created with the classic deployment model](../virtual-machines/virtual-machines-windows-classic-capture-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)
 
 ### 5. Add to Azure RemoteApp Template images
 In the Azure RemoteApp section of the current portal, go to the Template Images tab and click Add. In the pop-up box, select "Import an image from your Virtual Machines library" and then choose the Image that you just created.

@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Monitor performance in web applications
-*Application Insights is in preview.*
+
 
 Make sure your application is performing well, and find out quickly about any failures. [Application Insights][start] will tell you about any performance issues and exceptions, and help you find and diagnose the root causes.
 
@@ -120,7 +120,7 @@ Here are a few tips for finding and diagnosing performance issues:
 [Troubleshooting][qna] - and Q & A
 
 ## Video
-[!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
+> [!VIDEO https://channel9.msdn.com/Series/ConnectOn-Demand/222/player]
 
 
 <!--Link references-->

@@ -4,7 +4,7 @@
 > 
 > 
 
-This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Gateway SDK][lnk-gateway-sdk] architecture. The sample uses the IoT Hub Gateway SDK to build a simple gateway that logs a "hello world" message to a file every five seconds.
+This article provides a detailed walkthrough of the [Hello World sample code][lnk-helloworld-sample] to illustrate the fundamental components of the [Azure IoT Gateway SDK][lnk-gateway-sdk] architecture. The sample uses the Azure IoT Gateway SDK to build a simple gateway that logs a "hello world" message to a file every five seconds.
 
 This walkthrough covers:
 
@@ -36,7 +36,7 @@ The SDK provides an abstraction layer that enables you to build gateways to run 
 ### Messages
 Although thinking about modules passing messages to each other is a convenient way to conceptualize how a gateway functions, it does not accurately reflect what happens. Modules use a broker to communicate with each other, they publish messages to the broker (bus, pubsub, or any other messaging pattern) and then let the broker route the message to the modules connected to it.
 
-A modules uses the **Broker_Publish** function to publish a message to the broker. The broker delivers messages to a module by invoking a callback function. A message consists of a set of key/value properties and content passed as a block of memory.
+A module uses the **Broker_Publish** function to publish a message to the broker. The broker delivers messages to a module by invoking a callback function. A message consists of a set of key/value properties and content passed as a block of memory.
 
 ![The role of the Broker in the Azure IoT Gateway SDK][3]
 

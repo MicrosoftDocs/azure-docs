@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage VMs using Resource Manager and PowerShell | Microsoft Docs
 description: Manage virtual machines using Azure Resource Manager and PowerShell.
 services: virtual-machines-windows
@@ -20,7 +20,7 @@ ms.author: davidmu
 ---
 # Manage Azure Virtual Machines using Resource Manager and PowerShell
 ## Install Azure PowerShell
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 ## Set variables
 All the commands in the article require the name of the resource group where the virtual machine is located and the name of the virtual machine to manage. Replace the value of **$rgName** with the name of the resource group that contains the virtual machine. Replace the value of **$vmName** with the name of the VM. Create the variables.
@@ -180,7 +180,7 @@ It returns something like this example:
     ---------  -------------------  ----------  ------------
                               True          OK  OK
 
-See [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md) for a list of available sizes for a virtual machine.
+See [Sizes for virtual machines in Azure](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for a list of available sizes for a virtual machine.
 
 ## Add a data disk to a virtual machine
 This example shows how to add a data disk to an existing virtual machine.

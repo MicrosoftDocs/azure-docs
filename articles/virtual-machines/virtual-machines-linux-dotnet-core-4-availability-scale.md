@@ -1,4 +1,4 @@
-﻿---
+---
 title: Availability and Scale in Azure Resource Manager Templates | Microsoft Docs
 description: Azure Virtual Machine DotNet Core Tutorial
 services: virtual-machines-linux
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
 
 ---
@@ -28,7 +28,7 @@ An Availability Set logically spans Azure Virtual Machines across physical hosts
 
 Follow this link to see the JSON sample within the Resource Manager template – [Availability Set](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L387).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Compute/availabilitySets",
@@ -49,7 +49,7 @@ An Availability Set is declared as a property of a Virtual Machine resource.
 
 Follow this link to see the JSON sample within the Resource Manager template – [Availability Set association with Virtual Machine](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L313).
 
-```none
+```json
 "properties": {
   "availabilitySet": {
     "id": "[resourceId('Microsoft.Compute/availabilitySets', variables('availabilitySetName'))]"
@@ -59,14 +59,14 @@ The availability set as seen from the Azure portal. Each virtual machine and det
 
 ![Availability Set](./media/virtual-machines-linux-dotnet-core/aset.png)
 
-For in-depth information on Availability Sets, see [Manage availability of virtual machines](virtual-machines-linux-manage-availability.md). 
+For in-depth information on Availability Sets, see [Manage availability of virtual machines](virtual-machines-linux-manage-availability.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 ## Network Load Balancer
 Whereas an availability set provides application fault tolerance, a load balancer makes many instances of the application available on a single network address. Multiple instances of an application can be hosted on many virtual machines, each one connected to a load balancer. As the application is accessed, the load balancer routes the incoming request across the attached members. A Load Balancer can be added using the Visual Studio Add New Resource Wizard, or by inserting properly formatted JSON resource into the Azure Resource Manager template.
 
 Follow this link to see the JSON sample within the Resource Manager template – [Network Load Balancer](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L208).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/loadBalancers",
@@ -83,7 +83,7 @@ Because the sample application is exposed to the internet with a public IP addre
 
 Follow this link to see the JSON sample within the Resource Manager template – [Network Load Balancer association with Public IP Address](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L221).
 
-```none
+```json
 "frontendIPConfigurations": [
   {
     "properties": {
@@ -105,7 +105,7 @@ When using a load balancer, rules are configured that control how traffic is bal
 
 Follow this link to see the JSON sample within the Resource Manager template – [Load Balancer Rule](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L270).
 
-```none
+```json
 "loadBalancingRules": [
   {
     "name": "[variables('loadBalencerRule')]",
@@ -138,7 +138,7 @@ The load balancer also needs to monitor each virtual machine so that requests ar
 
 Follow this link to see the JSON sample within the Resource Manager template – [Load Balancer Probe](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L257).
 
-```none
+```json
 "probes": [
   {
     "properties": {
@@ -163,7 +163,7 @@ With the Music Store application, a port starting at 5000 is mapped to port 22 o
 
 Follow this link to see the JSON sample within the Resource Manager template – [Inbound NAT Rules](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L270). 
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/loadBalancers/inboundNatRules",
@@ -195,14 +195,14 @@ One example inbound NAT rule as seen in the Azure portal. An SSH NAT rule is cre
 
 ![Inbound NAT Rule](./media/virtual-machines-linux-dotnet-core/natrule.png)
 
-For in-depth information on the Azure Network Load Balancer, see [Load balancing for Azure infrastructure services](virtual-machines-linux-load-balance.md).
+For in-depth information on the Azure Network Load Balancer, see [Load balancing for Azure infrastructure services](virtual-machines-linux-load-balance.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Deploy multiple VMs
 Finally, for an Availability Set or Load Balancer to effectively function, multiple virtual machines are required. Multiple VMs can be deployed using the Azure Resource Manager template copy function. Using the copy function, it is not necessary to define a finite number of Virtual Machines, rather this value can be dynamically provided at the time of deployment. The copy function consumes the number of instances to created and handles deploying the proper number of virtual machines and associated resources.
 
 In the Music Store Sample template, a parameter is defined that takes in an instance count. This number is used throughout the template when creating virtual machines and related resources.
 
-```none
+```json
 "numberOfInstances": {
   "type": "int",
   "minValue": 1,
@@ -217,7 +217,7 @@ On the Virtual Machine resource, the copy loop is given a name and the number of
 
 Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine Copy Function](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L300). 
 
-```none
+```json
 "apiVersion": "2015-06-15",
 "type": "Microsoft.Compute/virtualMachines",
 "name": "[concat(variables('vmName'),copyindex())]",
@@ -232,7 +232,7 @@ The current iteration of the copy function can be accessed with the `copyIndex()
 
 Follow this link to see the JSON sample within the Resource Manager template – [Copy Index Function](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L319). 
 
-```none
+```json
 "osProfile": {
   "computerName": "[concat(parameters('vmName'),copyindex())]",
   "adminUsername": "[parameters('adminUsername')]",
@@ -257,5 +257,5 @@ For more information on the copy function, see [Create multiple instances of res
 ## Next step
 <hr>
 
-[Step 4 - Application Deployment with Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-5-app-deployment.md)
+[Step 4 - Application Deployment with Azure Resource Manager Templates](virtual-machines-linux-dotnet-core-5-app-deployment.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 

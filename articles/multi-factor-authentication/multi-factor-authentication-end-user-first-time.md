@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 11/23/2016
 ms.author: kgremban
 
 ---
@@ -43,17 +43,17 @@ Using this method requires that you install an authenticator app on your phone o
 
 1. Select **Mobile app** from the drop-down list.
 2. Select either **Receive notifications for verification** or **Use verification code**, then select **Set up**.
-   
-    ![Additional security verification screen](./media/multi-factor-authentication-end-user-first-time-mobile-app/mobileapp.png)
+
+    ![Additional security verification screen](./media/multi-factor-authentication-end-user-first-time/mobileapp.png)
 3. On your phone or tablet, open the app and select **+** to add an account. (On Android devices, select the three dots, then **Add account**.)
 4. Specify that you want to add a work or school account. The QR code scanner on your phone opens. If your camera is not working properly, you can select to enter your company information manually. For more information, see [Add an account manually](#add-an-account-manually).  
 5. Scan the QR code picture that appeared with the screen for configuring the mobile app.  Select **Done** to close the QR code screen.  
-   
-    ![QR code screen](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan2.png)
+
+    ![QR code screen](./media/multi-factor-authentication-end-user-first-time/scan2.png)
 6. When activation finishes on the phone, select **Contact me**.  This step sends either a notification or a verification code to your phone. Select **Verify**.  
 7. If your company requires a PIN for approving sign-in verification, enter it.
-   
-    ![Box for entering a PIN](./media/multi-factor-authentication-end-user-first-time-mobile-app/scan3.png)
+
+    ![Box for entering a PIN](./media/multi-factor-authentication-end-user-first-time/scan3.png)
 8. After PIN entry is complete, select **Close**. At this point, your verification should be successful.
 9. We recommend that you enter your mobile phone number in case you lose access to your mobile app. Specify your country from the drop-down list, and enter your mobile phone number in the box next to the country name. Select **Next**.
 10. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
@@ -65,14 +65,14 @@ If you want to add an account to the mobile app manually, instead of using the Q
 
 1. Select the **Enter account manually** button.  
 2. Enter the code and the URL that are provided on the same page that shows you the barcode. This info goes in the **Code** and **URL** boxes on the mobile app.
-   
-    ![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-app/barcode2.png)
+
+    ![Setup](./media/multi-factor-authentication-end-user-first-time/barcode2.png)
 3. When the activation has finished, select **Contact me**. This step sends either a notification or a verification code to your phone. Select **Verify**.
 
 ## Use your mobile phone as the contact method
 1. Select **Authentication Phone** from the drop-down list.  
-   
-    ![Setup](./media/multi-factor-authentication-end-user-first-time-mobile-phone/phone.png)  
+
+    ![Setup](./media/multi-factor-authentication-end-user-first-time/phone.png)  
 2. Choose your country from the drop-down list, and enter your mobile phone number.
 3. Select the method you would prefer to use with your mobile phone - text or call.
 4. Select **Contact me** to verify your phone number. Depending on the mode you selected, we send you a text or call you. Follow the instructions provided on the screen, then select **Verify**.
@@ -82,8 +82,8 @@ If you want to add an account to the mobile app manually, instead of using the Q
 
 ## Use your office phone as the contact method
 1. Select **Office Phone** from the drop-down  
-   
-    ![Setup](./media/multi-factor-authentication-end-user-first-time-office-phone/office.png)  
+
+    ![Setup](./media/multi-factor-authentication-end-user-first-time/office.png)  
 2. The phone number box is automatically filled with your company contact information. If the number is wrong or missing, ask your admin to make changes.
 3. Select **Contact me** to verify your phone number, and we will call your number. Follow the instructions provided on the screen, then select **Verify**.
 4. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
@@ -94,4 +94,3 @@ If you want to add an account to the mobile app manually, instead of using the Q
 * Change your preferred options and [manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)
 * Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for native device apps that don't support two-step verification.
 * Check out the [Microsoft Authenticator app](multi-factor-authentication-microsoft-authenticator.md) for fast, secure authentication even when you don't have cell service.
-

@@ -28,23 +28,23 @@ A screenshot of the completed application is below:
 ![A web browser displaying Welcome to Express in Azure](./media/cloud-services-nodejs-develop-deploy-express-app/node36.png)
 
 ## Create a Cloud Service Project
+[!INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
+
 Perform the following steps to create a new cloud service project named 'expressapp':
 
 1. From the **Start Menu** or **Start Screen**, search for **Windows PowerShell**. Finally, right-click **Windows PowerShell** and select **Run As Administrator**.
    
     ![Azure PowerShell icon](./media/cloud-services-nodejs-develop-deploy-express-app/azure-powershell-start.png)
-   
-    [!INCLUDE [install-dev-tools](../../includes/install-dev-tools.md)]
 2. Change directories to the **c:\\node** directory and then enter the following commands to create a new solution named **expressapp** and a web role named **WebRole1**:
    
         PS C:\node> New-AzureServiceProject expressapp
         PS C:\Node\expressapp> Add-AzureNodeWebRole
         PS C:\Node\expressapp> Set-AzureServiceProjectRole WebRole1 Node 0.10.21
    
-   > [!NOTE]
-   > By default, **Add-AzureNodeWebRole** uses an older version of Node.js. The **Set-AzureServiceProjectRole** statement above instructs Azure to use v0.10.21 of Node.  Note the parameters are case-sensitive.  You can verify the correct version of Node.js has been selected by checking the **engines** property in **WebRole1\package.json**.
-   > 
-   > 
+    > [!NOTE]
+    > By default, **Add-AzureNodeWebRole** uses an older version of Node.js. The **Set-AzureServiceProjectRole** statement above instructs Azure to use v0.10.21 of Node.  Note the parameters are case-sensitive.  You can verify the correct version of Node.js has been selected by checking the **engines** property in **WebRole1\package.json**.
+    > 
+    > 
 
 ## Install Express
 1. Install the Express generator by issuing the following command:
@@ -85,7 +85,7 @@ Perform the following steps to create a new cloud service project named 'express
    
        PS C:\node\expressapp\WebRole1> Start-AzureEmulator -launch
    
-   ![A web page containing welcome to express.](./media/cloud-services-nodejs-develop-deploy-express-app/node28.png)
+    ![A web page containing welcome to express.](./media/cloud-services-nodejs-develop-deploy-express-app/node28.png)
 
 ## Modifying the View
 Now modify the view to display the message "Welcome to Express in

@@ -10,11 +10,12 @@ editor: ''
 
 ms.assetid: 04c0fd7f-d260-4e43-a4f0-41cdcd5e3786
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 08/24/2016
+ms.date: 12/08/2016
 ms.author: carlrab
 
 ---
@@ -26,14 +27,30 @@ In the following tutorials, you will learn about using SQL Server Management Stu
 
 > [!IMPORTANT]
 > It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
-> 
-> 
+>
 
 | Tutorial | Description |
 | --- | --- | --- |
-| [Connect to Azure SQL Database using a server-level principal login](sql-database-get-started-security.md#connect-to-azure-sql-database-using-a-server-level-principal-login) |In this tutorial, you learn how to connect to Azure SQL Database using a server-level principal login. |
+| [Connect to Azure SQL Database using a server-level principal login](sql-database-get-started-security.md#connect-to-azure-sql-database-using-sql-server-authentication) |In this tutorial, you learn how to connect to Azure SQL Database using a SQL server-level principal login. |
 | [Connect to Azure SQL Database as a user](sql-database-get-started-security.md#connect-to-azure-sql-database-as-a-user) |In this tutorial, you will learn how to connect to an Azure SQL database using a database-level user account. |
 |  | |
+
+## Create servers, databases and server-level firewall rules
+In the following tutorials, you create servers, databases and server-level firewall rules - and learn to connect and query servers and databases.
+
+| Tutorial | Description |
+| --- | --- | --- |
+| [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) | In this tutorial, you use the Azure portal and SQL Server Management Studio to create an Azure SQL Database logical server, view its properties, create a server-level firewall, connect to the master database, create a sample database, view its properties, connect to the sample database, and create a blank database. |
+| [Get started with Azure SQL Database servers, databases, and firewall rules by using Azure PowerShell](sql-database-get-started-powershell.md) | In this tutorial, you use PowerShell to create an Azure SQL Database logical server, view its properties, create a server-level firewall, connect to the master database, create a sample database, view its properties, connect to the sample database, and create a blank database. |
+| [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md)| In this tutorial, you use the C# to create a SQL Database server, firewall rule, and SQL database. You also create an Active Directory (AD) application and the service principal needed to authenticate the C# app. |
+
+## Create servers, databases and server-level firewall rules
+In the following tutorial, you restore a database to a point in time, configure long-term backup retention, and restore a database from retention in the Azure Recovery Services vault. 
+
+| Tutorial | Description |
+| --- | --- | --- |
+| [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md) | In this tutorial, you use the Azure portal to restore a database to a point in time, configure long-term backup retention, and restore a database from retention in the Azure Recovery Services vault. |
+
 
 ## Elastic pools
 In the following tutorials, you will learn about using [elastic pools](sql-database-elastic-pool.md) to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
@@ -58,7 +75,7 @@ In the following tutorials, you will learn about using [elastic database jobs](s
 |  | |
 
 ## Elastic queries
-In the following tutorials, you will learn about running [elastic queries](sql-database-elastic-query-overview.md). 
+In the following tutorials, you will learn about running [elastic queries](sql-database-elastic-query-overview.md).
 
 | Tutorial | Description |
 | --- | --- | --- |
@@ -68,13 +85,13 @@ In the following tutorials, you will learn about running [elastic queries](sql-d
 |  | |
 
 ## Performance Optimization
-In the following tutorials, you will learn about optimizing the [performance of single databases](sql-database-performance-guidance.md). For optimizing the performance of multiple databases, see [Elastic pools](#elastic-pools).
+In the following tutorials, you will learn about optimizing the [performance of standalone databases](sql-database-performance-guidance.md). For optimizing the performance of multiple databases, see [Elastic pools](#elastic-pools).
 
 | Tutorial | Description |
 | --- | --- | --- |
 | [Change the service tier and performance level of your database](sql-database-scale-up.md#change-the-service-tier-and-performance-level-of-your-database) |In this tutorial, you learn how to scale up or scale down the performance of an Azure SQL database using service tiers. |
 | [SQL Database Advisor Query Performance Insight](sql-database-performance.md#performance-overview) |In this tutorial, you learn how to open and use SQL Database Advisor Query Performance Insight. |
-| [SQL Database Advisor performance recommendations](sql-database-advisor.md#viewing-recommendations) |In this tutorial, you learn how to view and apply SQL Database Advisor performance recommendations. |
+| [SQL Database Advisor performance recommendations](sql-database-advisor.md) |In this tutorial, you learn how to view and apply SQL Database Advisor performance recommendations. |
 | [Review top CPU consuming queries](sql-database-query-performance.md#review-top-cpu-consuming-queries) |In this tutorial, you learn how to use SQL Database Advisor Query Performance Insight to review top CPU consuming queries. |
 | [Viewing individual query details](sql-database-query-performance.md#viewing-individual-query-details) |In this tutorial, you learn how to use SQL Database Advisor Query Performance Insight to view individual query performance details. |
 |  | |
@@ -97,8 +114,8 @@ In the following tutorials, you will learn about [migrating an existing SQL Serv
 | [Import a BACPAC file into Azure SQL Database using PowerShell](sql-database-import-powershell.md) |In this tutorial, you will learn how to import a database into Azure SQL Database from a BACPAC file using PowerShell. |
 | [Archive an Azure SQL database using the Azure portal](sql-database-export.md#export-your-database) |In this tutorial, you learn how to archive an Azure SQL database to a BACPAC file using the Azure portal. |
 | [Archive an Azure SQL database using PowerShell](sql-database-export-powershell.md) |In this tutorial, you learn how to archive an Azure SQL database to a BACPAC file using PowerShell. |
-| [Copy an Azure SQL database using the Azure portal](sql-database-copy.md#copy-your-sql-database) |In this tutorial, you learn how to copy an Azure SQL database using the Azure portal. |
-| [Copy an Azure SQL database using PowerShell](sql-database-copy-powershell.md#copy-your-sql-database) |In this tutorial, you learn how to copy an Azure SQL database using PowerShell. |
+| [Copy an Azure SQL database using the Azure portal](sql-database-copy.md) |In this tutorial, you learn how to copy an Azure SQL database using the Azure portal. |
+| [Copy an Azure SQL database using PowerShell](sql-database-copy-powershell.md) |In this tutorial, you learn how to copy an Azure SQL database using PowerShell. |
 | [Copy an Azure SQL database using Transact-SQL](sql-database-copy-transact-sql.md#copy-your-sql-database) |In this tutorial, you learn how to copy an Azure SQL database using Transact-SQL. |
 |  | |
 
@@ -122,10 +139,10 @@ In the following tutorials, you will learn about [creating and managing logins a
 | --- | --- | --- |
 | [Create an Azure SQL Database server-level firewall rule using the Azure portal](sql-database-configure-firewall-settings.md) |In this tutorial, you learn how to configure a SQL Database server-level firewall using the Azure portal. |
 | [Create a database-level firewall rule using Transact-SQL](sql-database-configure-firewall-settings-tsql.md#database-level-firewall-rules) |In this tutorial, you will learn how to create a database-level firewall rule using Transact-SQL. |
-| [Manage server-level firewall rules using Transact-SQL](sql-database-configure-firewall-settings-tsql.md#manage-server-level-firewall-rules-through-transact-sql) |In this tutorial, you will learn how to manage an Azure SQL Database server-level firewall using Transact-SQL. |
-| [Manage server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md#manage-firewall-rules-using-powershell) |In this tutorial, you will learn how to manage an Azure SQL Database server-level firewall using PowerShell. |
-| [Manage server-level firewall rules using the REST API](sql-database-configure-firewall-settings-rest.md#manage-firewall-rules-using-the-service-management-rest-api) |In this tutorial, you will learn how to manage an Azure SQL Database server-level firewall using the RESET API. |
-| [Connect to Azure SQL Database using a server-level principal login](sql-database-get-started-security.md#connect-to-azure-sql-database-using-a-server-level-principal-login) |In this tutorial, you learn how to connect to Azure SQL Database using a server-level principal login. |
+| [Manage server-level firewall rules using Transact-SQL](sql-database-configure-firewall-settings-tsql.md#server-level-firewall-rules) |In this tutorial, you will learn how to manage an Azure SQL Database server-level firewall using Transact-SQL. |
+| [Manage server-level firewall rules using PowerShell](sql-database-configure-firewall-settings-powershell.md#manage-firewall-rules-by-using-powershell) |In this tutorial, you will learn how to manage an Azure SQL Database server-level firewall using PowerShell. |
+| [Manage server-level firewall rules using the REST API](sql-database-configure-firewall-settings-rest.md#manage-firewall-rules-using-the-rest-api) |In this tutorial, you will learn how to manage an Azure SQL Database server-level firewall using the RESET API. |
+| [Connect to Azure SQL Database using a server-level principal login](sql-database-get-started-security.md#connect-to-azure-sql-database-using-sql-server-authentication) |In this tutorial, you learn how to connect to Azure SQL Database using a server-level principal login. |
 | [Granting database access to a login](sql-database-manage-logins.md#granting-database-access-to-a-login() |In this tutorial, you learn how to grant database access to a server-level login. |
 | [Create new database user using SSMS](sql-database-get-started-security.md#create-new-database-user-using-ssms) |In this tutorial, you learn how to create a new database user in an existing database using SSMS. |
 | [Grant new database user db_owner permissions](sql-database-get-started-security.md#grant-new-database-user-dbowner-permissions) |In this tutorial, you learn how to grant an existing database user db_owner permissions. |
@@ -133,7 +150,7 @@ In the following tutorials, you will learn about [creating and managing logins a
 |  | |
 
 ## Data Security
-In the following tutorials, you will learn about [securing Azure SQL Database data](sql-database-security.md). 
+In the following tutorials, you will learn about [securing Azure SQL Database data](sql-database-security.md).
 
 | Tutorial | Description |
 | --- | --- | --- |
@@ -149,8 +166,8 @@ In the following tutorials, you will learn about using [Geo-Restore and Active G
 
 | Tutorial | Description |
 | --- | --- | --- |
-| [Restore an Azure SQL Database to a previous point in time with the Azure Portal](sql-database-point-in-time-restore-portal.md) |In this tutorial, you learn how to restore your database to an earlier point in time using the Azure portal. |
-| [Restore an Azure SQL Database to a previous point in time with PowerShell](sql-database-point-in-time-restore-powershell.md) |In this tutorial, you learn how to restore your database to an earlier point in time using PowerShell |
+| [Restore an Azure SQL Database to a previous point in time with the Azure Portal](sql-database-point-in-time-restore.md) |In this tutorial, you learn how to restore your database to an earlier point in time using the Azure portal. |
+| [Restore an Azure SQL Database to a previous point in time with PowerShell](sql-database-point-in-time-restore.md) |In this tutorial, you learn how to restore your database to an earlier point in time using PowerShell |
 | [Restore a deleted Azure SQL database using the Azure Portal](sql-database-restore-deleted-database-portal.md) |In this tutorial, you learn how to restore a deleted database using the Azure portal. |
 | [Restore a deleted Azure SQL database using the PowerShell](sql-database-restore-deleted-database-powershell.md) |In this tutorial, you learn how to restore a deleted database using PowerShell. |
 | [Configure Geo-Replication for Azure SQL Database using the Azure portal](sql-database-geo-replication-portal.md) |In this tutorial, you learn how to configure Active Geo-Replication using the Azure portal. |
@@ -171,4 +188,3 @@ In this tutorial, you will learn about [Data Sync](http://download.microsoft.com
 
 ## Next steps
 [Explore Azure SQL Database Solution Quick Starts](sql-database-solution-quick-starts.md)
-

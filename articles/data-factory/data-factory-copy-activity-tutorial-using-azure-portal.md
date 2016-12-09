@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Tutorial: Create a pipeline with Copy Activity using Azure portal | Microsoft Docs'
 description: In this tutorial, you create an Azure Data Factory pipeline with a Copy Activity by using the Data Factory Editor in the Azure portal.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/16/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 
 ---
@@ -65,8 +65,8 @@ In this step, you use the Azure portal to create an Azure data factory named **A
    2. Select your Azure **subscription**.
    3. For the Resource Group, do one of the following steps:
       
-      1. Select **Use existing**, and select an existing resource group from the drop-down list. 
-      2. Select **Create new**, and enter the name of a resource group.   
+      - Select **Use existing**, and select an existing resource group from the drop-down list. 
+      - Select **Create new**, and enter the name of a resource group.   
          
           Some of the steps in this tutorial assume that you use the name: **ADFTutorialResourceGroup** for the resource group. To learn about resource groups, see [Using resource groups to manage your Azure resources](../azure-resource-manager/resource-group-overview.md).  
    4. Select the **location** for the data factory. Only regions supported by the Data Factory service are shown in the drop-down list.
@@ -87,7 +87,7 @@ In this step, you use the Azure portal to create an Azure data factory named **A
    ![Data factory home page](./media/data-factory-copy-activity-tutorial-using-azure-portal/getstarted-data-factory-home-page.png)
 
 ## Create linked services
-Linked services link data stores or compute services to an Azure data factory. See [supported data stores](data-factory-data-movement-activities.md##supported-data-stores-and-formats) for all the sources and sinks supported by the Copy Activity. See [compute linked services](data-factory-compute-linked-services.md) for the list of compute services supported by Data Factory. In this tutorial, you do not use any compute service. 
+Linked services link data stores or compute services to an Azure data factory. See [supported data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats) for all the sources and sinks supported by the Copy Activity. See [compute linked services](data-factory-compute-linked-services.md) for the list of compute services supported by Data Factory. In this tutorial, you do not use any compute service. 
 
 In this step, you create two linked services: **AzureStorageLinkedService** and **AzureSqlLinkedService**. AzureStorageLinkedService linked service links an Azure Storage Account and AzureSqlLinkedService links an Azure SQL database to the **ADFTutorialDataFactory**. You create a pipeline later in this tutorial that copies data from a blob container in AzureStorageLinkedService to a SQL table in AzureSqlLinkedService.
 

@@ -34,7 +34,7 @@ Next, you need to create an app in your B2C directory. This gives Azure AD infor
 
 ## Create your policies
 In Azure AD B2C, every user experience is defined by a [policy](active-directory-b2c-reference-policies.md). This code sample contains three identity experiences: sign up, sign in, and edit profile. You need to create a policy for each type, as described in the
-[policy reference article](active-directory-b2c-reference-policies.md#how-to-create-a-sign-up-policy). When you create the three policies, be sure to:
+[policy reference article](active-directory-b2c-reference-policies.md#create-a-sign-up-policy). When you create the three policies, be sure to:
 
 * Choose either **User ID sign-up** or **Email sign-up** in the identity providers blade.
 * Choose **Display name** and other sign-up attributes in your sign-up policy.
@@ -100,7 +100,7 @@ protected async override void OnInitialized(EventArgs e)
 
     pca = new PublicClientApplication(Globals.clientId)
     {
-        // MSAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app, 
+        // MSAL implements an in-memory cache by default.  Since we want tokens to persist when the user closes the app,
         // we've extended the MSAL TokenCache and created a simple FileCache in this app.
         UserTokenCache = new FileCache(),
     };
@@ -131,7 +131,7 @@ private async void SignUp(object sender, RoutedEventArgs e)
         EditProfileButton.Visibility = Visibility.Visible;
         SignOutButton.Visibility = Visibility.Visible;
 
-        // When the request completes successfully, you can get user 
+        // When the request completes successfully, you can get user
         // information from the AuthenticationResult
         UsernameLabel.Content = result.User.Name;
 
@@ -329,4 +329,3 @@ You can experiment with your policies and observe the effects on your sample app
 For reference, the completed sample [is provided as a .zip file](https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet/archive/complete.zip). You can also clone it from GitHub:
 
 ```git clone --branch complete https://github.com/AzureADQuickStarts/B2C-NativeClient-DotNet.git```
-

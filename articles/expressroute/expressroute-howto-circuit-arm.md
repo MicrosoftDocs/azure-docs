@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and modify an ExpressRoute circuit by using Resource Manager and PowerShell | Microsoft Docs
 description: This article describes how to create, provision, verify, update, delete, and deprovision an ExpressRoute circuit.
 documentationcenter: na
@@ -20,9 +20,9 @@ ms.author: ganesr
 ---
 # Create and modify an ExpressRoute circuit
 > [!div class="op_single_selector"]
-> [Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
-> [PowerShell - Classic](expressroute-howto-circuit-classic.md)
+> * [Azure Portal - Resource Manager](expressroute-howto-circuit-portal-resource-manager.md)
+> * [PowerShell - Resource Manager](expressroute-howto-circuit-arm.md)
+> * [PowerShell - Classic](expressroute-howto-circuit-classic.md)
 > 
 > 
 
@@ -33,7 +33,7 @@ This article describes how to create an Azure ExpressRoute circuit by using Wind
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Before you begin
-* Obtain the latest version of the Azure PowerShell modules (at least version 1.0). For step-by-step guidance on how to configure your computer to use the PowerShell modules, follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* Obtain the latest version of the Azure PowerShell modules (at least version 1.0). For step-by-step guidance on how to configure your computer to use the PowerShell modules, follow the instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
 ## Create and provision an ExpressRoute circuit

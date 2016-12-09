@@ -1,4 +1,4 @@
-﻿---
+---
 title: Desired State Configuration Resource Manager Template | Microsoft Docs
 description: Resource Manager Template definition for Desired State Configuration in Azure with examples and troubleshooting
 services: virtual-machines-windows
@@ -20,7 +20,7 @@ ms.author: zachal
 
 ---
 # Windows VMSS and Desired State Configuration with Azure Resource Manager templates
-This article describes the Resource Manager template for the [Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md). 
+This article describes the Resource Manager template for the [Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 ## Template example for a Windows VM
 The following snippet goes into the Resource section of the template.
@@ -140,7 +140,7 @@ The following schema is for the settings portion of the Azure DSC extension in a
 | settings.configuration.script |string |Specifies the file name of the script that contains the definition of your DSC configuration. This script must be in the root folder of the zip file downloaded from the URL specified by the configuration.url property. This property is required if settings.configuration.url and/or settings.configuration.script are defined. |
 | settings.configuration.function |string |Specifies the name of your DSC configuration. The configuration named must be contained in the script defined by configuration.script. This property is required if settings.configuration.url and/or settings.configuration.function are defined. |
 | settings.configurationArguments |Collection |Defines any parameters you would like to pass to your DSC configuration. This property is not encrypted. |
-| settings.configurationData.url |string |Specifies the URL from which to download your configuration data (.pds1) file to use as input for your DSC configuration. If the URL provided requires a SAS token for access, you need to set the protectedSettings.configurationDataUrlSasToken property to the value of your SAS token. |
+| settings.configurationData.url |string |Specifies the URL from which to download your configuration data (.psd1) file to use as input for your DSC configuration. If the URL provided requires a SAS token for access, you need to set the protectedSettings.configurationDataUrlSasToken property to the value of your SAS token. |
 | settings.privacy.dataEnabled |string |Enables or disables telemetry collection. The only possible values for this property are **'Enable', 'Disable', '', or $null**. Leaving this property blank or null enables telemetry. The default value is ''. [More Information](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/) |
 | settings.advancedOptions.downloadMappings |Collection |Defines alternate locations from which to download the WMF. [More Information](http://blogs.msdn.com/b/powershell/archive/2015/10/21/azure-dsc-extension-2-2-amp-how-to-map-downloads-of-the-extension-dependencies-to-your-own-location.aspx) |
 | protectedSettings.configurationArguments |Collection |Defines any parameters you would like to pass to your DSC configuration. This property is encrypted. |
@@ -166,7 +166,7 @@ If the configuration needs credentials, they can be included in protectedSetting
 ```
 
 ## Example
-The following example derives from the "Getting Started" section of the [DSC Extension Handler Overview page](virtual-machines-windows-extensions-dsc-overview.md).
+The following example derives from the "Getting Started" section of the [DSC Extension Handler Overview page](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 This example uses Resource Manager templates instead of cmdlets to deploy the extension. 
 Save the "IisInstall.ps1" configuration, place it in a .ZIP file, and upload the file in an accessible URL. This example uses Azure blob storage, but it is possible to download .ZIP files from any arbitrary location.
 
@@ -294,9 +294,9 @@ Solutions:
 ## Next Steps
 Learn about DSC and virtual machine scale sets in [Using Virtual Machine Scale Sets with the Azure DSC Extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md)
 
-Find more details on [DSC's secure credential management](virtual-machines-windows-extensions-dsc-credentials.md). 
+Find more details on [DSC's secure credential management](virtual-machines-windows-extensions-dsc-credentials.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
-For more information on the Azure DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md). 
+For more information on the Azure DSC extension handler, see [Introduction to the Azure Desired State Configuration extension handler](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
 
 For more information about PowerShell DSC, [visit the PowerShell documentation center](https://msdn.microsoft.com/powershell/dsc/overview). 
 

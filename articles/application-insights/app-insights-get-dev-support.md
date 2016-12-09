@@ -1,6 +1,6 @@
 ---
 title: How to get technical support from Application Insights development team | Microsoft Docs
-description: When you have a case that requires special support from Application Insights development team, this is how you can submit the details to get support.
+description: Get help with problems with Application Insights.
 services: application-insights
 documentationcenter: ''
 author: alexbulankou
@@ -16,8 +16,8 @@ ms.date: 06/01/2016
 ms.author: albulank
 
 ---
-# How to get technical support from Application Insights development team
-When you have a technical issue with [Visual Studio Application Insights](app-insights-overview.md), here are your options for getting help:
+# Get help with Application Insights
+When you have a technical issue with [Azure Application Insights](app-insights-overview.md), here are your options for getting help:
 
 ## 1. Check the documents
 * Missing data? Check: [sampling](app-insights-sampling.md), [quotas and throttling](app-insights-pricing.md).
@@ -32,8 +32,8 @@ There are situations where you would like developers to investigate your specifi
 
 If you have a [support plan with Microsoft Azure](https://azure.microsoft.com/support/plans/) you can [open a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## 4. Contact the Application Insights team
-If you don't have a support plan, our development team is happy to offer best effort support to Application Insights customers as we prepare for the General Availability milestone. We are introducing **a new support option**: You can describe your case to us by submitting a feedback form on Azure portal and have a developer on the Application Insights team contact you back to help resolve your issue.
+## 4. Feedback to the Application Insights team
+Our development team is happy to hear about issues you might have, especially if the above solutions don't solve your problem. Please submit the feedback form on Azure portal. This will come to the attention of a developer on the Application Insights team.
 
 1. In the [Application Insights portal](https://portal.azure.com), click the smiley face at the top right corner:  
    
@@ -54,5 +54,5 @@ If you don't have a support plan, our development team is happy to offer best ef
    
     ![Submit section](./media/app-insights-get-dev-support/03.png)  
 
-An engineer on the Application Insights team will get in touch with you soon. As we are providing this service on best effort basis, no formal SLA can be given at this point.
+
 

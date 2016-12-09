@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 11/23/2016
 ms.author: jgao
 
 ---
@@ -71,7 +71,7 @@ For most people, data appears in the tabular format:
 
 In HBase which is an implementation of BigTable, the same data looks like:
 
-![HDInsight HBase bigtable data][img-hbase-sample-data-bigtable]
+![HDInsight HBase BigTable data][img-hbase-sample-data-bigtable]
 
 It will make more sense after you finish the next procedure.  
 
@@ -92,7 +92,7 @@ It will make more sense after you finish the next procedure.
         put 'Contacts', '1000', 'Office:Address', '1111 San Gabriel Dr.'
         scan 'Contacts'
    
-    ![hdinsight hadoop hbase shell][img-hbase-shell]
+    ![HDInsight Hadoop HBase shell][img-hbase-shell]
 4. Get a single row
    
         get 'Contacts', '1000'
@@ -110,16 +110,16 @@ HBase includes several methods of loading data into tables.  For more informatio
 
 A sample data file has been uploaded to a public blob container, *wasbs://hbasecontacts@hditutorialdata.blob.core.windows.net/contacts.txt*.  The content of the data file is:
 
-    8396    Calvin Raji        230-555-0191    230-555-0191    5415 San Gabriel Dr.
-    16600    Karen Wu        646-555-0113    230-555-0192    9265 La Paz
-    4324    Karl Xie        508-555-0163    230-555-0193    4912 La Vuelta
-    16891    Jonn Jackson    674-555-0110    230-555-0194    40 Ellis St.
+    8396    Calvin Raji      230-555-0191    230-555-0191    5415 San Gabriel Dr.
+    16600   Karen Wu         646-555-0113    230-555-0192    9265 La Paz
+    4324    Karl Xie         508-555-0163    230-555-0193    4912 La Vuelta
+    16891   Jonn Jackson     674-555-0110    230-555-0194    40 Ellis St.
     3273    Miguel Miller    397-555-0155    230-555-0195    6696 Anchor Drive
-    3588    Osa Agbonile    592-555-0152    230-555-0196    1873 Lion Circle
-    10272    Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
-    4868    Jose Hayes        599-555-0171    230-555-0198    793 Crawford Street
-    4761    Caleb Alexander    670-555-0141    230-555-0199    4775 Kentucky Dr.
-    16443    Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
+    3588    Osa Agbonile     592-555-0152    230-555-0196    1873 Lion Circle
+    10272   Julia Lee        870-555-0110    230-555-0197    3148 Rose Street
+    4868    Jose Hayes       599-555-0171    230-555-0198    793 Crawford Street
+    4761    Caleb Alexander  670-555-0141    230-555-0199    4775 Kentucky Dr.
+    16443   Terry Chander    998-555-0171    230-555-0200    771 Northridge Drive
 
 You can create a text file and upload the file to your own storage account if you want. For the instructions, see [Upload data for Hadoop jobs in HDInsight][hdinsight-upload-data].
 
@@ -139,11 +139,19 @@ You can create a text file and upload the file to your own storage account if yo
 ## Use Hive to query HBase
 You can query data in HBase tables by using Hive. This section creates a Hive table that maps to the HBase table and uses it to query the data in your HBase table.
 
+> [!NOTE]
+> If Hive and HBase are on different cluters in the same VNet, you need to pass zookeeper quorum while invoking the Hive shell:
+>
+>       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
+>
+>
+
 1. Open **PuTTY**, and connect to the cluster.  See the instructions in the previous procedure.
 2. Open the Hive shell.
    
        hive
-3. Run the following HiveQL script  to create an Hive Table that maps to the HBase table. Make sure that you have created the sample table referenced earlier in this tutorial by using the HBase shell before you run this statement.
+       
+3. Run the following HiveQL script  to create a Hive table that maps to the HBase table. Make sure that you have created the sample table referenced earlier in this tutorial by using the HBase shell before you run this statement.
    
         CREATE EXTERNAL TABLE hbasecontacts(rowkey STRING, name STRING, homephone STRING, officephone STRING, officeaddress STRING)
         STORED BY 'org.apache.hadoop.hive.hbase.HBaseStorageHandler'
@@ -180,7 +188,7 @@ You can query data in HBase tables by using Hive. This section creates a Hive ta
    
         curl -u <UserName>:<Password> \
         -G https://<ClusterName>.azurehdinsight.net/hbaserest/
-3. Use the following command to create a new HBase table with two column families:
+3. Use the following command to create a new HBase table with two-column families:
    
         curl -u <UserName>:<Password> \
         -X PUT "https://<ClusterName>.azurehdinsight.net/hbaserest/Contacts1/schema" \
@@ -218,53 +226,21 @@ For more information about HBase Rest, see [Apache HBase Reference Guide](https:
 ## Check cluster status
 HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI, you can request statistics or information about regions.
 
-SSH can also be used to tunnel local requests, such as web requests, to the HDInsight cluster. The request will then be routed to the requested resource as if it had originated on the HDInsight cluster head node. For more information, see [Use SSH with Linux-based Hadoop on HDInsight from Windows](hdinsight-hadoop-linux-use-ssh-windows.md#tunnel).
+**To access the HBase Master UI**
 
-**To establish an SSH tunneling session**
+1. Open the Ambari Web UI at https://&lt;Clustername>.azurehdinsight.net.
+2. Click **HBase** from the left menu.
+3. Click **Quick links** on the top of the page, point to the active Zookeeper node link, and then click **HBase Master UI**.  The UI is opened in another browser tab:
 
-1. Open **PuTTY**.  
-2. If you provided an SSH key when you created your user account during the creation process, you must perform the following step to select the private key to use when authenticating to the cluster:
-   
-    In **Category**, expand **Connection**, expand **SSH**, and select **Auth**. Finally, click **Browse** and select the .ppk file that contains your private key.
-3. In **Category**, click **Session**.
-4. From the Basic options for your PuTTY session screen, enter the following values:
-   
-   * **Host Name**: the SSH address of your HDInsight server in the Host name (or IP address) field. The SSH address is your cluster name, then **-ssh.azurehdinsight.net**. For example, *mycluster-ssh.azurehdinsight.net*.
-   * **Port**: 22. The ssh port on the primary headnode is 22.  
-5. In the **Category** section to the left of the dialog, expand **Connection**, expand **SSH**, and then click **Tunnels**.
-6. Provide the following information on the Options controlling SSH port forwarding form:
-   
-   * **Source port** - The port on the client that you wish to forward. For example, 9876.
-   * **Dynamic** - Enables dynamic SOCKS proxy routing.
-7. Click **Add** to add the settings.
-8. Click **Open** at the bottom of the dialog to open an SSH connection.
-9. When prompted, log in to the server using an SSH account. This will establish an SSH session and enable the tunnel.
+  ![HDInsight HBase HMaster UI](./media/hdinsight-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png)
 
-**To find the FQDN of the zookeepers using Ambari**
+  The HBase Master UI contains the following sections:
 
-1. Browse to https://<ClusterName>.azurehdinsight.net/.
-2. Enter your cluster user account credentials twice.
-3. From the left menu, click **zookeeper**.
-4. Click one of the three **ZooKeeper Server** links from the Summary list.
-5. Copy **Hostname**. For example, zk0-CLUSTERNAME.xxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net.
-
-**To configure a client program (Firefox) and check cluster status**
-
-1. Open Firefox.
-2. Click the **Open Menu** button.
-3. Click **Options**.
-4. Click **Advanced**, click **Network**, and then click **Settings**.
-5. Select **Manual proxy configuration**.
-6. Enter the following values:
-   
-   * **Socks Host**: localhost
-   * **Port**: Use the same port you configured in the Putty SSH tunneling.  For example, 9876.
-   * **SOCKS v5**: (selected)
-   * **Remote DNS**: (selected)
-7. Click **OK** to save the changes.
-8. Browse to http://&lt;The FQDN of a ZooKeeper>:60010/master-status.
-
-In a high availability cluster, you will find a link to the current active HBase master node that is hosting the Web UI.
+  - region servers
+  - backup masters
+  - tables
+  - tasks
+  - software attributes
 
 ## Delete the cluster
 To avoid inconsistencies, we recommend that you disable the HBase tables before you delete the cluster.

@@ -1,14 +1,14 @@
 ---
 title: Shared Access Signature Authentication with Service Bus | Microsoft Docs
 description: Details about SAS authentication with Service Bus.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: 1690eb8e-28ae-49bb-aeaa-022cda34c5a4
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -25,7 +25,7 @@ SAS authentication support is included in the Azure SDK version 2.0 and later. F
 ## Concepts
 SAS authentication in Service Bus involves the configuration of a cryptographic key with associated rights on a Service Bus resource. Clients claim access to Service Bus resources by presenting a SAS token. This token consists of the resource URI being accessed, and an expiry signed with the configured key.
 
-You can configure Shared Access Signature authorization rules on Service Bus [relays](service-bus-fundamentals-hybrid-solutions.md#relays), [queues](service-bus-fundamentals-hybrid-solutions.md#queues), [topics](service-bus-fundamentals-hybrid-solutions.md#topics), and [Event Hubs](service-bus-fundamentals-hybrid-solutions.md#event-hubs).
+You can configure Shared Access Signature authorization rules on Service Bus [relays](service-bus-fundamentals-hybrid-solutions.md#relays), [queues](service-bus-fundamentals-hybrid-solutions.md#queues), [topics](service-bus-fundamentals-hybrid-solutions.md#topics), and Event Hubs.
 
 SAS authentication uses the following elements:
 
@@ -142,14 +142,14 @@ The following code shows how to add authorization rules for a queue.
 
 ```
 // Create an instance of NamespaceManager for the operation
-NamespaceManager nsm = NamespaceManager.CreateFromConnectionString( 
+NamespaceManager nsm = NamespaceManager.CreateFromConnectionString(
     <connectionString> );
 QueueDescription qd = new QueueDescription( <qPath> );
 
 // Create a rule with send rights with keyName as "contosoQSendKey"
 // and add it to the queue description.
-qd.Authorization.Add(new SharedAccessAuthorizationRule("contosoSendKey", 
-    SharedAccessAuthorizationRule.GenerateRandomKey(), 
+qd.Authorization.Add(new SharedAccessAuthorizationRule("contosoSendKey",
+    SharedAccessAuthorizationRule.GenerateRandomKey(),
     new[] { AccessRights.Send }));
 
 // Create a rule with listen rights with keyName as "contosoQListenKey"
@@ -173,9 +173,9 @@ nsm.CreateQueue(qd);
 Applications using the Azure .NET SDK with the Service Bus .NET libraries can use SAS authorization through the [SharedAccessSignatureTokenProvider](https://msdn.microsoft.com/library/azure/microsoft.servicebus.sharedaccesssignaturetokenprovider.aspx) class. The following code illustrates the use of the token provider to send messages to a Service Bus queue.
 
 ```
-Uri runtimeUri = ServiceBusEnvironment.CreateServiceUri("sb", 
+Uri runtimeUri = ServiceBusEnvironment.CreateServiceUri("sb",
     <yourServiceNamespace>, string.Empty);
-MessagingFactory mf = MessagingFactory.Create(runtimeUri, 
+MessagingFactory mf = MessagingFactory.Create(runtimeUri,
     TokenProvider.CreateSharedAccessSignatureTokenProvider(keyName, key));
 QueueClient sendClient = mf.CreateQueueClient(qPath);
 
@@ -205,7 +205,7 @@ The following table shows the access rights required for various operations on S
 | Create a queue |Manage |Any namespace address |
 | Delete a queue |Manage |Any valid queue address |
 | Enumerate queues |Manage |/$Resources/Queues |
-| Get the queue description |Manage or Send |Any valid queue address |
+| Get the queue description |Manage |Any valid queue address |
 | Configure authorization rule for a queue |Manage |Any valid queue address |
 | Send into to the queue |Send |Any valid queue address |
 | Receive messages from a queue |Listen |Any valid queue address |
@@ -218,28 +218,23 @@ The following table shows the access rights required for various operations on S
 | Create a topic |Manage |Any namespace address |
 | Delete a topic |Manage |Any valid topic address |
 | Enumerate topics |Manage |/$Resources/Topics |
-| Get the topic description |Manage or Send |Any valid topic address |
+| Get the topic description |Manage |Any valid topic address |
 | Configure authorization rule for a topic |Manage |Any valid topic address |
 | Send to the topic |Send |Any valid topic address |
 | **Subscription** | | |
 | Create a subscription |Manage |Any namespace address |
 | Delete subscription |Manage |../myTopic/Subscriptions/mySubscription |
 | Enumerate subscriptions |Manage |../myTopic/Subscriptions |
-| Get subscription description |Manage or Listen |../myTopic/Subscriptions/mySubscription |
+| Get subscription description |Manage |../myTopic/Subscriptions/mySubscription |
 | Abandon or complete messages after receiving the message in peek-lock mode |Listen |../myTopic/Subscriptions/mySubscription |
 | Defer a message for later retrieval |Listen |../myTopic/Subscriptions/mySubscription |
 | Deadletter a message |Listen |../myTopic/Subscriptions/mySubscription |
 | Get the state associated with a topic session |Listen |../myTopic/Subscriptions/mySubscription |
 | Set the state associated with a topic session |Listen |../myTopic/Subscriptions/mySubscription |
-| **Rule** | | |
+| **Rules** | | |
 | Create a rule |Manage |../myTopic/Subscriptions/mySubscription |
 | Delete a rule |Manage |../myTopic/Subscriptions/mySubscription |
 | Enumerate rules |Manage or Listen |../myTopic/Subscriptions/mySubscription/Rules |
-| **Notification Hubs** | | |
-| Create a notification hub |Manage |Any namespace address |
-| Create or update registration for an active device |Listen or Manage |../notificationHub/tags/{tag}/registrations |
-| Update PNS information |Listen or Manage |../notificationHub/tags/{tag}/registrations/updatepnshandle |
-| Send to a notification hub |Send |../notificationHub/messages |
 
 ## Next steps
 For a high-level overview of SAS in Service Bus, see [Shared Access Signatures](service-bus-sas-overview.md).

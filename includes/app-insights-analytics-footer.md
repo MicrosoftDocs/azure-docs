@@ -3,7 +3,7 @@
 * [Overview](../articles/application-insights/app-insights-analytics.md)
 * [Tour of Analytics](../articles/application-insights/app-insights-analytics-tour.md)
   * Start here. A tutorial covering the main features.
-* [Queries](../articles/application-insights/app-insights-analytics-reference.md#queries)
+* [Queries](../articles/application-insights/app-insights-analytics-reference.md#queries-and-operators)
   * Use operators such as `where` and `count` to build queries.
 * [Aggregation](../articles/application-insights/app-insights-analytics-reference.md#aggregations)
   * Used to compute statistics over groups of records

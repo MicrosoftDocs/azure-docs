@@ -1,10 +1,10 @@
-﻿---
-title: Exploring Metrics in Application Insights | Microsoft Docs
+---
+title: Exploring Metrics in Azure Application Insights | Microsoft Docs
 description: How to interpret charts on metric explorer, and how to customize metric explorer blades.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: douge
+manager: carmonm
 
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 10/15/2016
+ms.date: 12/06/2016
 ms.author: awills
 
 ---
@@ -118,6 +118,11 @@ Is the chart too small for segmented data? Adjust its height:
 
 ![Adjust the slider](./media/app-insights-metrics-explorer/18-height.png)
 
+## Edit the chart type
+Notice that you can switch between grids and graphs:
+
+![Select a grid or graph, then choose a chart type](./media/app-insights-metrics-explorer/16-chart-grid.png)
+
 ## Filter your data
 To see just the metrics for a selected set of property values:
 
@@ -139,10 +144,7 @@ Would you like to filter telemetry on a category of your own choosing? For examp
 
 [Create your own property](app-insights-api-custom-events-metrics.md#properties). Set it in a [Telemetry Initializer](app-insights-api-custom-events-metrics.md#defaults) to have it appear in all telemetry - including the standard telemetry sent by different SDK modules.
 
-## Edit the chart type
-Notice that you can switch between grids and graphs:
 
-![Select a grid or graph, then choose a chart type](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
 ## Save your metrics blade
 When you've created some charts, save them as a favorite. You can choose whether to share it with other team members, if you use an organizational account.
@@ -169,7 +171,14 @@ Live Metrics Stream shows you your application metrics right at this very moment
 
 Unlike Metrics Explorer, Live Metrics Stream displays a fixed set of metrics. The data persists only for as long as it's on the chart, and is then discarded.
 
-Live Metrics Stream is available with Application Insights SDK for ASP.NET, version 2.1.0 or later.
+### Live failures
+
+If any failures or exceptions are logged, Live Stream picks out a sample of them. Click **Pause** to hold a specific sample, and select an event to show its details.
+
+![Sampled live failures](./media/app-insights-metrics-explorer/live-stream-failures.png)
+
+
+Live Metrics Stream is available with the latest version of [Application Insights SDK for web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/).
 
 ## Set alerts
 To be notified by email of unusual values of any metric, add an alert. You can choose either to send the email to the account administrators, or to specific email addresses.

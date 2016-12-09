@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 09/06/2016
+ms.date: 11/16/2016
 ms.author: cynthn
 
 ---
@@ -28,7 +28,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 We use a Windows Server 2012 R2 Datacenter image as an example, but that's just one of the many images Azure offers. Your image choices depend on your subscription. For example, some desktop images are available to [MSDN subscribers](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. On the hub menu, click **New** > **Virtual Machines** > **Windows Server 2012 R2 Datacenter**.
+2. On the hub menu, click **New** > **Compute** > **Windows Server 2012 R2 Datacenter**.
    
     ![Screenshot that shows the Azure VM images available in the portal](./media/virtual-machines-windows-hero-tutorial/marketplace-new.png)
 3. On the **Windows Server 2012 R2 Datacenter** blade, in **Select a deployment model**, verify that **Resource Manager** is selected. Click **Create**.
@@ -46,7 +46,7 @@ After you select the image, you can use the default settings and quickly create 
 4. When you are done, click **OK** to continue to the next section. 
    
     ![Screenshot that shows the settings on the **Basics** blade for configuring an Azure VM](./media/virtual-machines-windows-hero-tutorial/basics-blade.png)
-5. Choose a VM [size](virtual-machines-windows-sizes.md), and then click **Select** to continue. 
+5. Choose a VM [size](virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json), and then click **Select** to continue. 
    
     ![Screenshot of the Size blade that shows the Azure VM sizes that you can select](./media/virtual-machines-windows-hero-tutorial/size-blade.png)
 6. On the **Settings** blade, you can change the storage and network options. For this tutorial, accept the default settings. If you selected a virtual machine size that supports it, you can try Azure Premium Storage by selecting **Premium (SSD)** in **Disk type**. When you're done making changes, click **OK**.
@@ -73,7 +73,7 @@ After you select the image, you can use the default settings and quickly create 
    
    ![Screenshot showing a message abut verifying the identity of the VM](./media/virtual-machines-windows-hero-tutorial/cert-warning.png)
 
-If you run in to trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md).
+If you run in to trouble when you try to connect, see [Troubleshoot Remote Desktop connections to a Windows-based Azure Virtual Machine](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 You can now work with the virtual machine as you would with any other server.
 
@@ -85,7 +85,7 @@ It is a good idea to stop the VM so you don't incur charges when you aren't actu
 Click the **Start** button to restart the VM when you're ready to use it again.
 
 ## Next steps
-* You can experiment with your new VM by [installing IIS](virtual-machines-windows-hero-role.md). This tutorial also shows how to open port 80 to incoming web traffic using a network security group (NSG). 
-* You can also [create a Windows VM by using PowerShell](virtual-machines-windows-ps-create.md) or [create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md) by using the Azure CLI.
-* If you're interested in automating deployments, see [Create a Windows virtual machine by using a Resource Manager template](virtual-machines-windows-ps-template.md).
+* You can experiment with your new VM by [installing IIS](virtual-machines-windows-hero-role.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). This tutorial also shows how to open port 80 to incoming web traffic using a network security group (NSG). 
+* You can also [create a Windows VM by using PowerShell](virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) or [create a Linux virtual machine](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) by using the Azure CLI.
+* If you're interested in automating deployments, see [Create a Windows virtual machine by using a Resource Manager template](virtual-machines-windows-ps-template.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Back up a Windows server or client to Azure using the classic deployment model | Microsoft Docs
 description: Backup Windows servers or clients to Azure by creating a backup vault, downloading credentials, installing the backup agent, and completing an initial backup of your files and folders.
 services: backup
@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 11/28/2016
 ms.author: jimpark; trinadhk; markgal
 
 ---

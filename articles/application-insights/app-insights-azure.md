@@ -17,7 +17,7 @@ ms.author: awills
 
 ---
 # Application Insights for Microsoft Azure apps
-*Application Insights is in preview.*
+
 
 Detect issues, solve problems, and continuously improve your applications. Quickly diagnose any problems in your live application. Understand what your users do with it.
 

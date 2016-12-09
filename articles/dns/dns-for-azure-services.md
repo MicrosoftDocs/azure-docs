@@ -3,8 +3,8 @@ title: Using Azure DNS with other Azure services | Microsoft Docs
 description: Understanding how to use Azure DNS to resolve name for other Azure services
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: georgewallace
+manager: timlt
 editor: ''
 tags: azure dns
 
@@ -15,10 +15,10 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/21/2016
-ms.author: sewhee
-
+ms.author: gwallace
 ---
 # Using Azure DNS with other Azure services
+
 Azure DNS is a hosted DNS management and name resolution service. This allows you to create public DNS names for the other applications and services you have deployed in Azure. Creating a name for an Azure service in your custom domain is as simple as adding a record of the correct type for your service.
 
 * For dynamically allocated IP addresses, you must create a DNS CNAME record that maps to the DNS name that Azure created for your service. DNS standards prevent you from using a CNAME record for the zone apex.
