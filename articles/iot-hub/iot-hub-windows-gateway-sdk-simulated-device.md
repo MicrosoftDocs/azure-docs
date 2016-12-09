@@ -1,4 +1,4 @@
-﻿---
+---
 title: Simulate a device with the Azure IoT Gateway SDK (Windows) | Microsoft Docs
 description: How to use the Azure IoT Gateway SDK on Windows to create a simulated device that sends telemetry through a gateway to an IoT hub.
 services: iot-hub
@@ -17,7 +17,7 @@ ms.date: 08/29/2016
 ms.author: andbuc
 
 ---
-# How to use the Azure IoT Gateway SDK to send device-to-cloud messages with a simulated device (Windows)
+# Use the Azure IoT Gateway SDK to send device-to-cloud messages with a simulated device (Windows)
 [!INCLUDE [iot-hub-gateway-sdk-simulated-selector](../../includes/iot-hub-gateway-sdk-simulated-selector.md)]
 
 ## Build and run the sample

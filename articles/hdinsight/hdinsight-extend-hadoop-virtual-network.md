@@ -24,7 +24,7 @@ Azure Virtual Network allows you to extend your Hadoop solutions to incorporate 
 
 * Azure CLI 2.0 (preview): See [Install and Configure Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-az-cli2) for more information.
 
-* Azure PowerShell: See [Install and Configure Azure PowerShell](../powershell-install-configure.md) for more information.
+* Azure PowerShell: See [Install and Configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information.
 
 > [!NOTE]
 > The steps in this document require the latest version of the Azure CLI and Azure PowerShell. If you are using an older version, the commands may be different. For best results, use the previous links to install the latest versions.
@@ -241,7 +241,7 @@ You must specify the cluster name and a service and component running on the clu
 
 For example, to return the FQDN from an HDInsight Hadoop cluster, you can use one of the following methods to retrieve the data for the YARN resource manager:
 
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
   
         $ClusterDnsName = <clustername>
         $Username = <cluster admin username>
@@ -268,7 +268,7 @@ To connect to HBase remotely by using the Java API, you must determine the ZooKe
 
 To get the ZooKeeper quorum address, use one of the following methods to query the Ambari management service:
 
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
   
         $ClusterDnsName = <clustername>
         $Username = <cluster admin username>

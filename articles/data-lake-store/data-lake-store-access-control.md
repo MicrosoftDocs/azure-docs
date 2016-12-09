@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Access Control in Data Lake Store | Microsoft Docs
 description: Understand how access control in Azure Data Lake Store
 services: data-lake-store
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/01/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 
 ---
@@ -107,11 +107,11 @@ From the Data Lake Store account's **Data Explorer** blade, click **Access** to 
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-After that, from the **Access** blade, click **Simple View** to see the simpler view.
+On this blade, the top section shows an overview of what permissions you have (in the screenshot, the user is Bob). Below that, the access permissions are shown.
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Click **Advanced View** to see the more advanced view.
+Click **Advanced** to see the more advanced view where the concepts of Default ACLs, Mask, and Super-user are shown.
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 

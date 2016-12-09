@@ -105,7 +105,7 @@ The following procedure creates an HDInsight cluster.
 
     The PowerShell script only configures the cluster name and the storage account name.  You can set other values in the Resource Manager template.
 
-For more information, see  [Deploy with PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
+For more information, see  [Deploy with PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy).
 
 ## Deploy with Azure CLI
 The following sample creates a cluster and its dependent storage account and container by calling a Resource Manager template:

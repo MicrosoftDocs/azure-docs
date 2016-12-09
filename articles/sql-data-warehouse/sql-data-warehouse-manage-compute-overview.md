@@ -24,12 +24,12 @@ ms.author: barbkess
 > * [PowerShell](sql-data-warehouse-manage-compute-powershell.md)
 > * [REST](sql-data-warehouse-manage-compute-rest-api.md)
 > * [TSQL](sql-data-warehouse-manage-compute-tsql.md)
-> 
-> 
+>
+>
 
-The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale out performance while saving costs by only paying for performance when you need it. 
+The architecture of SQL Data Warehouse separates storage and compute, allowing each to scale independently. As a result, you can scale out performance while saving costs by only paying for performance when you need it.
 
-This overview describes the following performance scale-out capabilities of SQL Data Warehouse and gives recommendations on how and when to use them. 
+This overview describes the following performance scale-out capabilities of SQL Data Warehouse and gives recommendations on how and when to use them.
 
 * Scale compute power by adjusting [data warehouse units (DWUs)][data warehouse units (DWUs)]
 * Pause or resume compute resources
@@ -39,7 +39,7 @@ This overview describes the following performance scale-out capabilities of SQL 
 ## Scale performance
 In SQL Data Warehouse, you can quickly scale performance out or back by increasing or decreasing compute resources of CPU, memory, and I/O bandwidth. To scale performance, all you need to do is adjust the number of [data warehouse units (DWUs)][data warehouse units (DWUs)] that SQL Data Warehouse allocates to your database. SQL Data Warehouse quickly makes the change and handles all the underlying changes to hardware or software.
 
-Gone are the days where you need to research what type of processors, how much memory or what type of storage you need to have great performance in your data warehouse. By putting your Data Warehouse in the cloud, you no longer have to deal with low-level hardware issues. Instead, SQL Data Warehouse asks you this question: how fast do you want to analyze your data? 
+Gone are the days where you need to research what type of processors, how much memory or what type of storage you need to have great performance in your data warehouse. By putting your Data Warehouse in the cloud, you no longer have to deal with low-level hardware issues. Instead, SQL Data Warehouse asks you this question: how fast do you want to analyze your data?
 
 ### How do I scale performance?
 To elastically increase or decrease your compute power, simply change the [data warehouse units (DWUs)][data warehouse units (DWUs)] setting for your database. Performance will increase linearly as you add more DWU.  At higher DWU levels, you need to add more than 100 DWUs to notice a significant improvement in performance. To help you select meaningful jumps in DWUs, we offer the DWU levels that will give the best results.
@@ -65,7 +65,7 @@ Recommendations for finding the best DWU for your workload:
 5. Continue making adjustments until you reach an optimum performance level for your business requirements.
 
 ### When should I scale DWUs?
-When you need faster results, increase your DWUs and pay for greater performance.  When you need less compute power, decrease your DWUs and pay only for what you need. 
+When you need faster results, increase your DWUs and pay for greater performance.  When you need less compute power, decrease your DWUs and pay only for what you need.
 
 Recommendations for when to scale DWUs:
 
@@ -115,7 +115,7 @@ Please refer to the following articles to help you understand some additional ke
 <!--Article references-->
 [data warehouse units (DWUs)]: ./sql-data-warehouse-overview-what-is.md#data-warehouse-units
 
-[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-bk
+[Scale compute power with Azure portal]: ./sql-data-warehouse-manage-compute-portal.md#scale-compute-power
 [Scale compute power with PowerShell]: ./sql-data-warehouse-manage-compute-powershell.md#scale-compute-bk
 [Scale compute power with REST APIs]: ./sql-data-warehouse-manage-compute-rest-api.md#scale-compute-bk
 [Scale compute power with TSQL]: ./sql-data-warehouse-manage-compute-tsql.md#scale-compute-bk
@@ -136,7 +136,7 @@ Please refer to the following articles to help you understand some additional ke
 [Table indexing]: ./sql-data-warehouse-tables-index.md
 [Table partitioning]: ./sql-data-warehouse-tables-partition.md
 [Table statistics]: ./sql-data-warehouse-tables-statistics.md
-[Best practices]: ./sql-data-warehouse-best-practices.md 
+[Best practices]: ./sql-data-warehouse-best-practices.md
 [development overview]: ./sql-data-warehouse-overview-develop.md
 
 [SQL DB Contributor]: ../active-directory/role-based-access-built-in-roles.md#sql-db-contributor

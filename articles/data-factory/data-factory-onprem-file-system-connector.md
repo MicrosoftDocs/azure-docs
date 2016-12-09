@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move data to and from a file system | Microsoft Docs
 description: Learn how to move data to and from an on-premises file system by using Azure Data Factory.
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/01/2016
+ms.date: 12/07/2016
 ms.author: jingwang
 
 ---

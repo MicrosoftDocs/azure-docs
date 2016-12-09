@@ -228,7 +228,7 @@ Service Bus provides cloud-enabled communication with enterprise messaging and r
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Service Bus REST API Reference</p>
+                        <p>Service Bus REST API</p>
                     </div>
                 </div>
             </div>

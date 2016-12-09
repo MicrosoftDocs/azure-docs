@@ -24,7 +24,7 @@ These steps follow a fill-in-the-blanks approach for creating an Azure virtual m
 It should take about 30 minutes to do the steps in this article.
 
 ## Step 1: Install Azure PowerShell
-See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 
 ## Step 2: Create resources
 Create the resources that are needed for your new scale set.

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Deploy a Sails.js web app to Azure App Service
 description: Learn how to deploy a Node.js application Azure App Service. This tutorial shows you how to deploy a Sails.js web app.
 services: app-service\web
@@ -29,8 +29,8 @@ You should have working knowledge of Sails.js. This tutorial is not intended to 
 * [Git](http://www.git-scm.com/downloads)
 * [Azure CLI](../xplat-cli-install.md)
 * A Microsoft Azure account. If you don't have an account, you can
-  [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or
-  [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+  [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or
+  [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
 > To see Azure App Service in action before signing up for an Azure account, go to [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751). There,
