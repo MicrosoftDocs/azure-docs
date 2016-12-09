@@ -21,7 +21,7 @@ ms.author: anhoh
 # Migrate data to DocumentDB with protocol support for MongoDB
 To migrate to an Azure DocumentDB account with protocol support for MongoDB, you must:
 
-* Download either *mongoimport.exe* or *mongoexport.exe* from [MongoDB](https://www.mongodb.com/download-center)
+* Download either *mongoimport.exe* or *mongorestore.exe* from [MongoDB](https://www.mongodb.com/download-center)
 * Have your DocumentDB account with protocol support for MongoDB [connection string](documentdb-connect-mongodb-account.md) information
 
 ## Things to know before Migrating

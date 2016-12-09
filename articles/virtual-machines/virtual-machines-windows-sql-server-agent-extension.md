@@ -56,7 +56,7 @@ Requirements to use the SQL Server IaaS Agent Extension on your VM:
 
 **Azure PowerShell**:
 
-* [Download and configure the latest Azure PowerShell commands](../powershell-install-configure.md)
+* [Download and configure the latest Azure PowerShell commands](/powershell/azureps-cmdlets-docs)
 
 ## Installation
 The SQL Server IaaS Agent Extension is automatically installed when you provision one of the SQL Server virtual machine gallery images.

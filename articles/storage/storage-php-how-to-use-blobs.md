@@ -3,8 +3,8 @@ title: How to use blob storage (object storage) from PHP | Microsoft Docs
 description: Store unstructured data in the cloud with Azure Blob storage (object storage).
 documentationcenter: php
 services: storage
-author: tamram
-manager: carmonm
+author: mmacy
+manager: timlt
 editor: tysonn
 
 ms.assetid: 1af56b59-b3f0-4b46-8441-aab463ae088e
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/28/2016
-ms.author: tamram
+ms.date: 12/08/2016
+ms.author: marsma
 
 ---
 # How to use blob storage from PHP
@@ -48,9 +48,9 @@ To use the Azure blob service APIs, you need to:
 The following example shows how to include the autoloader file and reference the **ServicesBuilder** class.
 
 > [!NOTE]
-> This example (and other examples in this article) assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually, you need to reference the `WindowsAzure.php` autoloader file.
-> 
-> 
+> The examples in this article assume you have installed the PHP Client Libraries for Azure via Composer. If you installed the libraries manually, you need to reference the `WindowsAzure.php` autoloader file.
+>
+>
 
 ```php
 require_once 'vendor/autoload.php';
