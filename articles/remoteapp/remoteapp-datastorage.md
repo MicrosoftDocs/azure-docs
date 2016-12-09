@@ -1,4 +1,3 @@
-
 ---
 title: Never store sensitive data on custom images for Azure RemoteApp | Microsoft Docs
 description: Learn about the guidelines for storing data in custom images in Azure RemoteApp

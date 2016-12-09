@@ -154,7 +154,7 @@ Caching allows you to set a specific time period so that subsequent authenticati
 <center>![Cloud](./media/multi-factor-authentication-whats-next/cache.png)</center>
 
 ## Trusted IPs
-Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet. The features are available for Azure AD tenants that have Azure AD Premium, Enterprise Mobility Suite or Azure Multi-Factor Authentication licenses.
+Trusted IPs is a feature of multi-factor authentication that allows administrators of a managed or federated tenant the ability to bypass multi-factor authentication for users that are signing in from the company’s local intranet. This feature is available with the full version of Azure Multi-Factor Authentication. (For details on how to get the full version of Azure Multi-Factor Authentication, see [How to get Azure Multi-Factor Authentication](multi-factor-authentication.md#how-to-get-azure-multi-factor-authentication).)
 
 | Type of Azure AD Tenant | Available Trusted IP options |
 |:--- |:--- |
