@@ -28,6 +28,8 @@ To complete this operation, you need the following parts for your Adafruit Feath
 * The Adafruit Feather M0 WiFi board
 * A Micro B to Type A USB cable
 
+![kit][kit]
+
 You also need:
 
 * A computer running Windows, Mac, or Linux.
@@ -91,6 +93,7 @@ In this article, you’ve learned how to configure your Arduino board. The next 
 [Get the tools][get-the-tools]
 <!-- Images and links -->
 
+[kit]: media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/kit.png
 [top-micro-usb-port]: media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/top_usbport.jpg
 [computer-usb]: media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/computer_usb.jpg
 [hardware-is-ready]: media/iot-hub-adafruit-feather-m0-wifi-lessons/lesson1/hardware_ready.jpg
