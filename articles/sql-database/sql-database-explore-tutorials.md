@@ -150,8 +150,8 @@ In the following tutorials, you will learn about using [Geo-Restore and Active G
 
 | Tutorial | Description |
 | --- | --- | --- |
-| [Restore an Azure SQL Database to a previous point in time with the Azure Portal](sql-database-point-in-time-restore-portal.md) |In this tutorial, you learn how to restore your database to an earlier point in time using the Azure portal. |
-| [Restore an Azure SQL Database to a previous point in time with PowerShell](sql-database-point-in-time-restore-powershell.md) |In this tutorial, you learn how to restore your database to an earlier point in time using PowerShell |
+| [Restore an Azure SQL Database to a previous point in time with the Azure Portal](sql-database-point-in-time-restore.md) |In this tutorial, you learn how to restore your database to an earlier point in time using the Azure portal. |
+| [Restore an Azure SQL Database to a previous point in time with PowerShell](sql-database-point-in-time-restore.md) |In this tutorial, you learn how to restore your database to an earlier point in time using PowerShell |
 | [Restore a deleted Azure SQL database using the Azure Portal](sql-database-restore-deleted-database-portal.md) |In this tutorial, you learn how to restore a deleted database using the Azure portal. |
 | [Restore a deleted Azure SQL database using the PowerShell](sql-database-restore-deleted-database-powershell.md) |In this tutorial, you learn how to restore a deleted database using PowerShell. |
 | [Configure Geo-Replication for Azure SQL Database using the Azure portal](sql-database-geo-replication-portal.md) |In this tutorial, you learn how to configure Active Geo-Replication using the Azure portal. |
