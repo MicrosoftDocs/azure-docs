@@ -51,7 +51,7 @@ Before starting this tutorial, you need to complete the following tasks:
 - [Have a Visual Studio Team Services account and team project created](https://www.visualstudio.com/en-us/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services)
 - [Fork the GitHub repository to your GitHub account](https://github.com/jcorioland/MyShop/)
 
-You also need an Ubuntu (14.04 or 16.04) machine with Docker installed. This computer is used by Visual Studio Team Services during the build and release processes. 
+You also need an Ubuntu (14.04 or 16.04) machine with Docker installed. This machine is used by Visual Studio Team Services during the build and release processes. 
 One way to create this machine is to use the image available in the [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/). 
 
 ## Step 1: Configure your Visual Studio Team Services account 
@@ -60,7 +60,7 @@ In this section, you configure your Visual Studio Team Services account.
 
 ### Configure a Visual Studio Team Services Linux build agent
 
-To create new Docker images and push these images into an Azure container registry from a Visual Studio Team Services build, you need to register a Linux agent. You have these installation options:
+To create Docker images and push these images into an Azure container registry from a Visual Studio Team Services build, you need to register a Linux agent. You have these installation options:
 
 * [Deploy an agent on Linux](https://www.visualstudio.com/docs/build/admin/agents/v2-linux)
 
@@ -118,7 +118,7 @@ In this step, you set up a build definitionfor your VSTS project and define the 
 
     ![Visual Studio Team Services - New Build Definition](./media/container-service-docker-swarm-setup-ci-cd/create-build-vsts.png)
 
-3. Configure the new build with a GitHub repository source, check **Continuous integration**, and select the agent queue where you have registered your Linux agent. Click **Create** to create the build definition.
+3. Configure the new build with a GitHub repository source, check **Continuous integration**, and select the agent queue where you registered your Linux agent. Click **Create** to create the build definition.
 
     ![Visual Studio Team Services - Create Build Definition](./media/container-service-docker-swarm-setup-ci-cd/vsts-create-build-github.png)
 
@@ -183,7 +183,7 @@ Visual Studio Team Services allows you to [manage releases across environments](
 
 2. To configure the artifact source, Click **Artifacts** > **Link an artifact source**. Here, link this new release definition to the build that you defined in the previous step. By doing this, the docker-compose.yml file is available in the release process.
 
-    ![Visual Studio Team Services - Release Artefacts](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-artefacts.png) 
+    ![Visual Studio Team Services - Release Artifacts](./media/container-service-docker-swarm-setup-ci-cd/vsts-release-artefacts.png) 
 
 3. To configure the release trigger, click **Triggers** and select **Continuous Deployment**. Set the trigger on the same artifact source. This setting ensures that a new release starts as soon as the build completes successfully.
 
@@ -220,7 +220,7 @@ The release workflow is composed of two tasks that you add.
 
 ## Step 4. Test the CI/CD pipeline
 
-Now that you are done with the configuration, it's time to test this new CI/CD pipeline. The easiest way to test it is to update the source code and commit the changes into your GitHub repository. A few seconds after you push the code, you will see a new build running in Visual Studio Team Services. Once completed successfuly, a new release will be triggered and will deploy the new version of the application on the Azure Container Service cluster.
+Now that you are done with the configuration, it's time to test this new CI/CD pipeline. The easiest way to test it is to update the source code and commit the changes into your GitHub repository. A few seconds after you push the code, you will see a new build running in Visual Studio Team Services. Once completed successfully, a new release will be triggered and will deploy the new version of the application on the Azure Container Service cluster.
 
 ## Next Steps
 
