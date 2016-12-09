@@ -155,7 +155,7 @@ The message routing category tracks errors that occur during message route evalu
         "messageId": "ID of message",
         "routeName": "myroute",
         "endpointName": "myendpoint",
-        "details": "The external endpoint was disabled"
+        "details": "ExternalEndpointDisabled"
     }
 
 ## Next steps
