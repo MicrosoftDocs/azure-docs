@@ -1,10 +1,4 @@
-<<<<<<< HEAD
----
-title: Use DevOps environments effectively for your web app
-=======
-﻿---
 title: Use DevOps environments effectively for your web app | Microsoft Docs
->>>>>>> b2f293cf528e5fa772d15b0f03be3feefefd0684
 description: Learn how to use deployment slots to set up and manage multiple development environments for your application
 services: app-service\web
 documentationcenter: ''
