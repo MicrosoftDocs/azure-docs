@@ -50,7 +50,7 @@ For information on supported operating systems and installation instructions, se
 Many different VM extensions are available for use with Azure Virtual Machines. To see a complete list, run the following command with the Azure Resource Manager PowerShell module. Make sure to specify the desired location when running this command.
 
 ```powershell
-Get-AzureRmVmImagePublisher -Location myLocation | `
+Get-AzureRmVmImagePublisher -Location WestUS | `
 Get-AzureRmVMExtensionImageType | ` 
 Get-AzureRmVMExtensionImage | Select Type, Version
 ```
