@@ -26,13 +26,13 @@ To migrate data to an Azure DocumentDB account with protocol support for MongoDB
 
 ## Before you begin
 
-* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for your collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure Portal](https://portal.azure.com), see [Performance levels and pricing tiers in DocumentDB](documentdb-performance-levels.md).
+* Increase throughput: The duration of your data migration depends on the amount of throughput you set up for your collections. Be sure to increase the throughput for larger data migrations. After you've completed the migration, decrease the throughput to save costs. For more information about increasing throughput in the [Azure portal](https://portal.azure.com), see [Performance levels and pricing tiers in DocumentDB](documentdb-performance-levels.md).
 
 * Enable SSL: DocumentDB has strict security requirements and standards. Be sure to enable SSL when you interact with your account. The procedures in the rest of the article include how to enable SSL for *mongoimport* and *mongorestore*.
 
 ## Find your connection string information (host, port, username, and password)
 
-1. In the [Azure Portal](https://portal.azure.com), in the left pane, click the **NoSQL (DocumentDB)** entry.
+1. In the [Azure portal](https://portal.azure.com), in the left pane, click the **NoSQL (DocumentDB)** entry.
 2. In the **Subscriptions** pane, select your account name.
 3. In the **Connection String** blade, click **Connection String**.  
 The right pane contains all the information you need to successfully connect to your account.
@@ -41,7 +41,7 @@ The right pane contains all the information you need to successfully connect to 
 
 ## Import data to DocumentDB with protocol support for MongoDB with mongoimport
 
-To import data to your DocumentDB account, use the following template to fill in  *host*, *username*, and *password* with the values that are specific to your account.  
+To import data to your DocumentDB account, use the following template to fill in *host*, *username*, and *password* with the values that are specific to your account.  
 
 Template:
 
