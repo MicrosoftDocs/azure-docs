@@ -42,7 +42,6 @@
 
 # Reference
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell (Classic)](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
 

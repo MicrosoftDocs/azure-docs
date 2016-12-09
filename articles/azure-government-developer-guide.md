@@ -112,7 +112,7 @@ Use the following table to guide you when mapping public Microsoft Azure and SQL
 | AzureKeyVaultDnsSuffix | vault.usgovcloudapi.net |
 | AzureKeyVaultServiceEndpointResourceId | https://vault.usgovcloudapi.net |
 
-* For ARM authentication via Azure AD, please reference [Authenticating Azure Resource Manager Requests](https://msdn.microsoft.com/library/azure/dn790557.aspx)
+* For Azure Resource Manager authentication via Azure AD, please reference [Authenticating Azure Resource Manager Requests](https://msdn.microsoft.com/library/azure/dn790557.aspx)
 
 ## <a name="next"></a>Next steps
 If you are interested in learning more and about Azure Government please leverage some of the links below.
