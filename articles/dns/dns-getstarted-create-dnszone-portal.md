@@ -25,7 +25,7 @@ ms.author: gwallace
 > * [PowerShell](dns-getstarted-create-dnszone.md)
 > * [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
-This article will walk you through the steps to create a DNS zone using the Azure portal. You can also create a DNS zone using PowerShell or CLI.
+This article walks you through the steps to create a DNS zone using the Azure portal. You can also create a DNS zone using PowerShell or CLI.
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -67,7 +67,7 @@ In the lower part of the DNS Zone blade, you can see the record sets for the DNS
 
 You can test your DNS zone is present on the Azure DNS name servers by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).
 
-If you haven't yet delegated your domain to use the new zone in Azure DNS, you will need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the Azure portal:
+If you haven't yet delegated your domain to use the new zone in Azure DNS, you need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the Azure portal:
     
 ![zone](./media/dns-getstarted-create-dnszone-portal/viewzonens500.png)
 

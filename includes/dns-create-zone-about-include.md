@@ -4,7 +4,7 @@ For example, the domain 'contoso.com' may contain several DNS records, such as '
 
 When creating a DNS zone in Azure DNS:
 
-* The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation will fail.
+* The name of the zone must be unique within the resource group, and the zone must not exist already. Otherwise, the operation fails.
 * The same zone name can be reused in a different resource group or a different Azure subscription.
 * Where multiple zones share the same name, each instance is assigned different name server addresses. Only one set of addresses can be configured with the domain name registrar.
 

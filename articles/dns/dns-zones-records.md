@@ -29,7 +29,7 @@ A domain name registrar is an organization that allows you to purchase a domain 
 
 Azure DNS provides a globally distributed, high-availability name server infrastructure, which you can use to host your domain. By hosting your domains in Azure DNS, you can manage your DNS records with the same credentials, APIs, tools, billing, and support as your other Azure services.
 
-Azure DNS does not currently support purchasing of domain names. If you want to purchase a domain name, you need to use a third-party domain name registrar. The registrar will typically charge a small annual fee. The domains can then be hosted in Azure DNS for management of DNS records. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
+Azure DNS does not currently support purchasing of domain names. If you want to purchase a domain name, you need to use a third-party domain name registrar. The registrar typically charges a small annual fee. The domains can then be hosted in Azure DNS for management of DNS records. See [Delegate a Domain to Azure DNS](dns-domain-delegation.md) for details.
 
 ## DNS zones
 
@@ -51,14 +51,14 @@ An *apex* record is a DNS record at the root (or *apex*) of a DNS zone. For exam
 
 ### Record sets
 
-Sometimes you need to create more than one DNS record with a given name and type. For example, suppose the 'www.contoso.com' web site is hosted on two different IP addresses. The website requires two different A records, one for each IP address. This is an example of a record set:
+Sometimes you need to create more than one DNS record with a given name and type. For example, suppose the 'www.contoso.com' web site is hosted on two different IP addresses. The website requires two different A records, one for each IP address. Here is an example of a record set:
 
     www.contoso.com.        3600    IN    A    134.170.185.46
     www.contoso.com.        3600    IN    A    134.170.188.221
 
-Azure DNS manages all DNS records using *record sets*. A record set (also known as a *resource* record set) is the collection of DNS records in a zone that have the same name and are of the same type. Most record sets contain a single record, but examples like this one, in which a record set contains more than one record, are not uncommon.
+Azure DNS manages all DNS records using *record sets*. A record set (also known as a *resource* record set) is the collection of DNS records in a zone that have the same name and are of the same type. Most record sets contain a single record, but examples like the one above, in which a record set contains more than one record, are not uncommon.
 
-For example, suppose you have already created an A record 'www' in the zone 'contoso.com', pointing to the IP address '134.170.185.46' (the first record above).  To create the second record you would add that record to the existing record set, rather than create a new record set.
+For example, suppose you have already created an A record 'www' in the zone 'contoso.com', pointing to the IP address '134.170.185.46' (the first record above).  To create the second record you would add that record to the existing record set, rather than create an additional record set.
 
 The SOA and CNAME record types are exceptions. The DNS standards don't permit multiple records with the same name for these types, thus these record sets can only contain a single record.
 
@@ -86,7 +86,7 @@ These constraints arise from the DNS standards and are not limitations of Azure 
 
 An NS record set is created automatically at the apex of each zone (name = '@'), and is deleted automatically when the zone is deleted (it cannot be deleted separately).  You can modify the TTL of this record set, but you cannot modify the records, which are pre-configured to refer to the Azure DNS name servers assigned to the zone.
 
-You can create and delete other NS records within the zone, not at the zone apex.  This allows you to configure child zones (see [Delegating sub-domains in Azure DNS](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns).)
+You can create and delete other NS records within the zone, other than at the zone apex.  This allows you to configure child zones (see [Delegating sub-domains in Azure DNS](dns-domain-delegation.md#delegating-sub-domains-in-azure-dns).)
 
 ### SOA records
 
@@ -98,7 +98,7 @@ You can modify all properties of the SOA record except for the 'host' property, 
 
 Sender Policy Framework (SPF) records are used to specifying which email servers are permitted to send email on behalf of a given domain name.  Correct configuration of SPF records is important to prevent recipients marking your email as 'junk'.
 
-The DNS RFCs originally introduced a new 'SPF' record type to support this scenario. To support older name servers, they also permitted the use of the TXT record type to specify SPF records.  This ambiguity led to confusion, which was resolved by [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  This stated that SPF records should only be created using the TXT record type, and deprecated the SPF record type.
+The DNS RFCs originally introduced a new 'SPF' record type to support this scenario. To support older name servers, they also permitted the use of the TXT record type to specify SPF records.  This ambiguity led to confusion, which was resolved by [RFC 7208](http://tools.ietf.org/html/rfc7208#section-3.1).  This states that SPF records should only be created using the TXT record type, and that the SPF record type is deprecated.
 
 **SPF records are supported by Azure DNS and should be created using the TXT record type.** The obsolete SPF record type is not supported. When [importing a DNS zone file](dns-import-export.md), any SPF records using the SPF record type are converted to the TXT record type.
 
@@ -123,11 +123,11 @@ As an alternative to record set tags, Azure DNS supports annotating record sets 
 
 ## Etags
 
-Suppose two people or two processes try to modify a DNS record at the same time. Which one wins? And does the winner know that they've just overwritten changes created by someone else?
+Suppose two people or two processes try to modify a DNS record at the same time. Which one wins? And does the winner know that they've overwritten changes created by someone else?
 
-Azure DNS uses Etags to handle concurrent changes to the same resource safely. Etags are separate from [Azure Resource Manager 'Tags'](#tags). Each DNS resource (zone or record set) has an Etag associated with it. Whenever a resource is retrieved, its Etag is also retrieved. When updating a resource, you have the option to pass back the Etag so Azure DNS can verify that the Etag on the server matches. Since each update to a resource results in the Etag being regenerated, an Etag mismatch indicates a concurrent change has occurred. Etags are also used when creating a new resource to ensure that the resource does not already exist.
+Azure DNS uses Etags to handle concurrent changes to the same resource safely. Etags are separate from [Azure Resource Manager 'Tags'](#tags). Each DNS resource (zone or record set) has an Etag associated with it. Whenever a resource is retrieved, its Etag is also retrieved. When updating a resource, you can choose to pass back the Etag so Azure DNS can verify that the Etag on the server matches. Since each update to a resource results in the Etag being regenerated, an Etag mismatch indicates a concurrent change has occurred. Etags can also be used when creating a new resource to ensure that the resource does not already exist.
 
-By default, Azure DNS PowerShell uses Etags to block concurrent changes to zones and record sets. The optional *-Overwrite* switch can be used to suppress Etag checks, in which case any concurrent changes that have occurred will be overwritten. Similar protection is available via the Azure CLI.
+By default, Azure DNS PowerShell uses Etags to block concurrent changes to zones and record sets. The optional *-Overwrite* switch can be used to suppress Etag checks, in which case any concurrent changes that have occurred are overwritten.
 
 At the level of the Azure DNS REST API, Etags are specified using HTTP headers.  Their behavior is given in the following table:
 

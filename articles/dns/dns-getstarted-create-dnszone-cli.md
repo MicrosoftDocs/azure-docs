@@ -23,7 +23,7 @@ ms.author: gwallace
 > * [PowerShell](dns-getstarted-create-dnszone.md)
 > * [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
-This article will walk you through the steps to create a DNS zone using the cross-platform Azure CLI, which is available for Windows, Mac and Linux. You can also create a DNS zone using PowerShell or the Azure portal.
+This article walks you through the steps to create a DNS zone using the cross-platform Azure CLI, which is available for Windows, Mac and Linux. You can also create a DNS zone using PowerShell or the Azure portal.
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -33,7 +33,7 @@ This article will walk you through the steps to create a DNS zone using the cros
 Verify that you have the following items before beginning your configuration.
 
 * An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* You'll need to install the latest version of the Azure CLI, available for Windows, Linux, or MAC. More information is available at [Install the Azure CLI](../xplat-cli-install.md).
+* You need to install the latest version of the Azure CLI, available for Windows, Linux, or MAC. More information is available at [Install the Azure CLI](../xplat-cli-install.md).
 
 ## Step 1 - Sign in and create a resource group
 

@@ -21,17 +21,11 @@ ms.author: gwallace
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 > * [PowerShell](dns-operations-dnszones.md)
 
-<<<<<<< HEAD
-This article will show you how to manage your DNS zone by using PowerShell. In order to use these steps, you'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
-=======
-This article will show you how to manage your DNS zone by using PowerShell. In order to use these steps, you'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets (1.0 or later). See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
->>>>>>> refs/remotes/Microsoft/master
+This article  shows you how to manage your DNS zone by using PowerShell. To use these steps, you need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
 
-## Create a new DNS zone
+## Create a DNS zone
 
-A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet. There are examples below for creating a DNS zone with or without [Azure Resource Manager tags](dns-zones-records.md#tags).
-
-### To create a DNS zone
+A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet.
 
 The example below creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*.
 
@@ -39,9 +33,7 @@ The example below creates a DNS zone called *contoso.com* in the resource group 
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 
-### To create a DNS zone with tags
-
-The following example shows how to create a DNS zone with two tags, *project = demo* and *env = test*. 
+The following example shows how to create a DNS zone with two [Azure Resource Manager tags](dns-zones-records.md#tags), *project = demo* and *env = test*. 
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
@@ -80,13 +72,13 @@ $zoneList = Get-AzureRmDnsZone
 
 ## Update a DNS zone
 
-Changes to a DNS zone resource can be made by using `Set-AzureRmDnsZone`. This does not update any of the DNS record sets within the zone (see [How to Manage DNS records](dns-operations-recordsets.md)). It's only used to update properties of the zone resource itself. This is currently limited to the [Azure Resource Manager ‘tags’ for the zone resource](dns-zones-records.md#tags).
+Changes to a DNS zone resource can be made by using `Set-AzureRmDnsZone`. This cmdlet does not update any of the DNS record sets within the zone (see [How to Manage DNS records](dns-operations-recordsets.md)). It's only used to update properties of the zone resource itself. The writable zone properties are currently limited to the [Azure Resource Manager ‘tags’ for the zone resource](dns-zones-records.md#tags).
 
-Use one of the following two ways to update DNS zone:
+Use one of the following two ways to update a DNS zone:
 
 ### Specify the zone using the zone name and resource group
 
-This approach will replace the existing zone tags with the values specified.
+This approach replaces the existing zone tags with the values specified.
 
 ```powershell
 Set-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
@@ -110,19 +102,19 @@ $zone.Tags.Add("status","approved")
 Set-AzureRmDnsZone -Zone $zone
 ```
 
-When using `Set-AzureRmDnsZone` with a $zone object, [Etag checks](dns-zones-records.md#etags) will be used to ensure concurrent changes are not overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
+When using `Set-AzureRmDnsZone` with a $zone object, [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes are not overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
 
 ## Delete a DNS Zone
 
 DNS zones can be deleted using the `Remove-AzureRmDnsZone` cmdlet.
 
 > [!NOTE]
-> Deleting a DNS zone will also delete all DNS records within the zone. This operation cannot be undone. If the DNS zone is in use, services using the zone will fail when the zone is deleted.
+> Deleting a DNS zone also deletes all DNS records within the zone. This operation cannot be undone. If the DNS zone is in use, services using the zone will fail when the zone is deleted.
 >
 >To protect against accidental zone deletion, see [How to protect DNS zones and records](dns-protect-zones-recordsets.md).
 
 
-Use one of the following two ways to remove a DNS zone:
+Use one of the following two ways to delete a DNS zone:
 
 ### Specify the zone using the zone name and resource group name
 
@@ -132,9 +124,7 @@ Remove-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
 ### Specify the zone using a $zone object
 
-Specify the zone using a $zone object from `Get-AzureRmDnsZone`.
-
-When using `Remove-AzureRmDnsZone` with a $zone object, [Etag checks](dns-zones-records.md#etags) will be used to ensure concurrent changes are not deleted. You can use the optional `-Overwrite` switch to suppress these checks.
+You can specify the zone to be deleted using a `$zone` object returned by `Get-AzureRmDnsZone`.
 
 ```powershell
 $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
@@ -148,15 +138,15 @@ Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup | R
 
 ```
 
-As with `Set-AzureRmDnsZone`, specifying the zone using a $zone object enables Etag checks to ensure concurrent changes are not deleted. Use the `-Overwrite` switch to suppress these checks.
+As with `Set-AzureRmDnsZone`, specifying the zone using a `$zone` object enables Etag checks to ensure concurrent changes are not deleted. Use the `-Overwrite` switch to suppress these checks.
 
 ## Confirmation prompts
 
-The `New-AzureRmDnsZone`, `Set-AzureRmDnsZone` and `Remove-AzureRmDnsZone` cmdlets all support confirmation prompts.
+The `New-AzureRmDnsZone`, `Set-AzureRmDnsZone`, and `Remove-AzureRmDnsZone` cmdlets all support confirmation prompts.
 
 Both `New-AzureRmDnsZone` and `Set-AzureRmDnsZone` will prompt for confirmation if the `$ConfirmPreference` PowerShell preference variable has a value of `Medium` or lower. Due to the potentially high impact of deleting a DNS zone, the `Remove-AzureRmDnsZone` cmdlet prompts for confirmation if the `$ConfirmPreference` PowerShell variable has any value other than `None`.
 
-Since the default value for `$ConfirmPreference` is `High`, only `Remove-AzureRmDnsZone` will prompt for confirmation by default.
+Since the default value for `$ConfirmPreference` is `High`, only `Remove-AzureRmDnsZone` prompts for confirmation by default.
 
 You can override the current `$ConfirmPreference` setting using the `-Confirm` parameter. If you specify `-Confirm` or `-Confirm:$True` , the cmdlet prompts you for confirmation before it runs. If you specify `-Confirm:$False` , the cmdlet does not prompt you for confirmation. 
 

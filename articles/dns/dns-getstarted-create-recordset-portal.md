@@ -31,11 +31,11 @@ This article walks you through the process of creating records and records sets 
 
 The examples on this page all use the 'A' DNS record type. The process for other record types is similar.
 
-If your new record has the same name and type as an existing record, you will need to add it to the existing record set&mdash;see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md). If your new record has a different name and type to all existing records, you will need to create a new record set, as explained below.
+If your new record has the same name and type as an existing record, you need to add it to the existing record set&mdash;see [Manage DNS records and record sets by using the Azure portal](dns-operations-recordsets-portal.md). If your new record has a different name and type to all existing records, you need to create a new record set, as explained below.
 
 ## Create records in a new record set
 
-The following example walks you through the process of creating a record set and record by using the Azure portal. We'll use the DNS "A" record type.
+The following example walks you through the process of creating a record set and record by using the Azure portal.
 
 1. Sign in to the portal.
 2. Go to the **DNS zone** blade in which you want to create a record set.
@@ -56,7 +56,7 @@ The following example walks you through the process of creating a record set and
 
 You can test your DNS records are present on the Azure DNS name servers by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).
 
-If you haven't yet delegated your domain to use the new zone in Azure DNS, you will need to [direct the DNS query directly to one of the name servers for your zone](dns-getstarted-create-dnszone.md#test-name-servers). Be sure the substitute the correct values for your records zone into the command below.
+If you haven't yet delegated your domain to use the new zone in Azure DNS, you need to [direct the DNS query directly to one of the name servers for your zone](dns-getstarted-create-dnszone.md#test-name-servers). Be sure the substitute the correct values for your records zone into the command below.
 
     nslookup
     > set type=A

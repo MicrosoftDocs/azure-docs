@@ -27,7 +27,7 @@ This article walks you through the process of creating records and records sets 
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
 
-This section describes how to create DNS records in Azure DNS. The examples assume you have already [installed the Azure CLI, signed in, and created a DNS zone](dns-gestarted-create-dnszone-cli.md).
+This section describes how to create DNS records in Azure DNS. The examples assume you have already [installed the Azure CLI, signed in, and created a DNS zone](dns-getstarted-create-dnszone-cli.md).
 
 The examples on this page all use the 'A' DNS record type. For other record types and further details on how to manage DNS records and record sets, see [Manage DNS records and record sets by using the Azure CLI](dns-operations-recordsets-cli.md).
 
@@ -39,7 +39,7 @@ To create a record set in the apex of the zone (in this case, "contoso.com"), us
 
 ### 1. Create a record set
 
-If your new record has the same name and type as an existing record, you will need to add it to the existing record set. You can omit this step and skip to [Add records](#add-records) below. Otherwise, if your new record has a different name and type to all existing records, you will need to create a new record set.
+If your new record has the same name and type as an existing record, you need to add it to the existing record set. You can omit this step and skip to [Add records](#add-records) below. Otherwise, if your new record has a different name and type to all existing records, you need to create a new record set.
 
 You create record sets by using the `azure network dns record-set create` command. For help, see `azure network dns record-set create -h`.  
 
@@ -55,7 +55,7 @@ After completing this step, you will have an empty "www" record set. To use the 
 
 You add records to record sets by using `azure network dns record-set add-record`. For help, see `azure network dns record-set add-record -h`.
 
-The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type "A", you will only be able to specify records with the parameter `-a <IPv4 address>`. See `azure network dns record-set add-record -h` to list the parameters for other record types.
+The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type "A", you can only specify records with the parameter `-a <IPv4 address>`. See `azure network dns record-set add-record -h` to list the parameters for other record types.
 
 You can add an A record to the "www" record set created above by using the following command:
 
@@ -67,7 +67,7 @@ azure network dns record-set add-record myresourcegroup contoso.com  www A  -a 1
 
 You can test your DNS records are present on the Azure DNS name servers by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).
 
-If you haven't yet delegated your domain to use the new zone in Azure DNS, you will need to [direct the DNS query directly to one of the name servers for your zone](dns-getstarted-create-dnszone.md#test-name-servers). Be sure the substitute the correct values for your records zone into the command below.
+If you haven't yet delegated your domain to use the new zone in Azure DNS, you need to [direct the DNS query directly to one of the name servers for your zone](dns-getstarted-create-dnszone.md#test-name-servers). Be sure the substitute the correct values for your records zone into the command below.
 
     nslookup
     > set type=A

@@ -23,7 +23,7 @@ ms.author: gwallace
 > * [PowerShell](dns-getstarted-create-dnszone.md)
 > * [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
-This article will walk you through the steps to create a DNS zone using Azure PowerShell. You can also create a DNS zone using the cross-platform Azure CLI or the Azure portal.
+This article walks you through the steps to create a DNS zone using Azure PowerShell. You can also create a DNS zone using the cross-platform Azure CLI or the Azure portal.
 
 [!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
 
@@ -32,11 +32,7 @@ This article will walk you through the steps to create a DNS zone using Azure Po
 Verify that you have the following items before beginning your configuration.
 
 * An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-<<<<<<< HEAD
-* You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
-=======
-* You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets (1.0 or later). See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
->>>>>>> refs/remotes/Microsoft/master
+* You need to install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
 
 ## Step 1 - Sign in and create a resource group
 
@@ -64,7 +60,7 @@ Select-AzureRmSubscription -SubscriptionName "Replace_with_your_subscription_nam
 
 ### Create a resource group
 
-Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. However, because all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.
+Azure Resource Manager requires that all resource groups specify a location. This location is used as the default location for resources in that resource group. However, because all DNS resources are global, not regional, the choice of resource group location has no impact on Azure DNS.
 
 You can skip this step if you are using an existing resource group.
 
@@ -74,7 +70,7 @@ New-AzureRmResourceGroup -Name MyAzureResourceGroup -location "West US"
 
 ### Register resource provider
 
-The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.
+The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription must be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.
 
 ```powershell
 Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Network
@@ -128,7 +124,7 @@ Metadata          :
 
 You can test your DNS zone is present on the Azure DNS name servers by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).
 
-If you haven't yet delegated your domain to use the new zone in Azure DNS, you will need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by `Get-AzureRmDnsRecordSet` above. Be sure the substitute the correct values for your zone into the command below.
+If you haven't yet delegated your domain to use the new zone in Azure DNS, you need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by `Get-AzureRmDnsRecordSet` above. Be sure the substitute the correct values for your zone into the command below.
 
     nslookup
     > set type=SOA

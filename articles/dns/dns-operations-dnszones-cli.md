@@ -22,11 +22,11 @@ ms.author: gwallace
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 > * [PowerShell](dns-operations-dnszones.md)
 
-This guide will show how to manage your DNS zone resources using the cross-platform Azure CLI.
+This guide shows how to manage your DNS zone resources using the cross-platform Azure CLI.
 
 These instructions use Microsoft Azure CLI. Be sure to update to the latest Azure CLI to use these Azure DNS commands. You can install Azure CLI for Windows, Linux, or MAC. More information is available at [Install the Azure CLI](../xplat-cli-install.md).
 
-Azure DNS is an Azure Resource Manager-only service. It does not have an Azure Service Management ('classic') API. You will need to make sure the Azure CLI is configured to use Resource Manager mode. You can do this by using the `azure config mode arm` command.
+Azure DNS is an Azure Resource Manager-only service. It does not have a 'classic' deployment model. You need to make sure the Azure CLI is configured to use Resource Manager mode. You can do this by using the `azure config mode arm` command.
 
 If you see the message "*error: 'dns' is not an azure command*", it's most likely because you are using Azure CLI in Azure Service Management mode, not Resource Manager mode.
 
@@ -38,7 +38,7 @@ azure network dns zone -h
 azure network dns zone create -h
 ```
 
-## Create a new DNS zone
+## Create a DNS zone
 
 A DNS zone is created using the `azure network dns zone create` command. For help, see `azure network dns zone create -h`.
 
@@ -114,7 +114,7 @@ This command does not update any of the DNS record sets within the zone (see [Ho
 The following example shows how to update the tags on a DNS zone. The existing tags are replaced by the value specified.
 
 ```azurecli
-azure network dns zone set myresourcegroup contoso.com -t "team=support"
+azure network dns zone set MyResourceGroup contoso.com -t "team=support"
 ```
 
 ## Delete a DNS Zone
@@ -126,12 +126,12 @@ DNS zones can be deleted using `azure network dns zone delete`. For help, see `a
 >
 >To protect against accidental zone deletion, see [How to protect DNS zones and records](dns-protect-zones-recordsets.md).
 
-This command will prompt for confirmation. The optional `--quiet` switch (short form `-q`) suppresses this prompt.
+This command prompts for confirmation. The optional `--quiet` switch (short form `-q`) suppresses this prompt.
 
-The following example shows how to delete the zone *contoso.com* from resource group *myresourcegroup*.
+The following example shows how to delete the zone *contoso.com* from resource group *MyResourceGroup*.
 
 ```azurecli
-azure network dns zone delete myresourcegroup contoso.com
+azure network dns zone delete MyResourceGroup contoso.com
 ```
 
 ## Next steps
