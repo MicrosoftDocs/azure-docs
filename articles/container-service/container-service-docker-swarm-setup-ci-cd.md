@@ -108,7 +108,7 @@ All the configuration is done now. In the next steps, you create the CI/CD pipel
 
 ## Step 2: Create the build definition
 
-In this step, you set up a build definitionfor your VSTS roject and define the build workflow for your container images
+In this step, you set up a build definitionfor your VSTS project and define the build workflow for your container images
 
 ### Initial definition setup
 
@@ -133,11 +133,11 @@ In this step, you set up a build definitionfor your VSTS roject and define the b
 ### Define the build workflow
 The next steps define the build workflow. There are five container images to build for the *MyShop* application. Each image is built using the Dockerfile located in the project folders:
 
-    - ProductsApi
-    - Proxy
-    - RatingsApi
-    - RecommandationsApi
-    - ShopFront
+* ProductsApi
+* Proxy
+* RatingsApi
+* RecommandationsApi
+* ShopFront
 
 You need to add two Docker steps for each image, one to build the image, and one to push the image in the Azure container registry. 
 
@@ -211,12 +211,12 @@ The release workflow is composed of two tasks that you add.
     >[!IMPORTANT]
     > As shown on the preceding screen, leave the **Fail on STDERR** checkbox unchecked. This is an important setting, because `docker-compose` prints several diagnostic messages, such as containers are stopping or being deleted, on the standard error output. If you check the checkbox, Visual Studio Team Services reports that errors occurred during the release, even if all goes well.
     >
+3. Save this new release definition.
+
 
 >[!NOTE]
 >This deployment includes some downtime because we are stopping the old services and running the new one. It is possible to avoid this by doing a blue-green deployment.
 >
-
-3. Save this new release definition.
 
 ## Step 4. Test the CI/CD pipeline
 
