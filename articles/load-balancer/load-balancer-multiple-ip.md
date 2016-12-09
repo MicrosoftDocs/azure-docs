@@ -13,11 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/01/2016
+ms.date: 11/28/2016
 ms.author: annahar
 ---
 
 # Load balancing on multiple IP configurations
+
+> [!div class="op_single_selector"]
+> * [PowerShell](load-balancer-multiple-ip.md)
+> * [CLI](load-balancer-multiple-ip-cli.md)
+>
 
 This article describes how to use Azure Load Balancer with multiple IP addresses per virtual Network Interface (NIC). The support for multiple IP addresses on a NIC is a feature that is in Preview release, at this time. For more information, see the [Limitations](#limitations) section of this article. The following scenario illustrates how this feature works with Load Balancer.
 
@@ -27,7 +32,7 @@ For this scenario we have two VMs running Windows, each with a single NIC. Each 
 
 ## Limitations
 
-At this time, configuration of load balancing on secondary IP configurations is only possible using Azure PowerShell. This limitation is temporary, and may change at any time. Revisit this page to check for updates.
+At this time, configuration of load balancing on secondary IP configurations is only possible using Azure PowerShell and Azure CLI. This limitation is temporary, and may change at any time. Revisit this page to check for updates.
 
 [!INCLUDE [virtual-network-preview](../../includes/virtual-network-preview.md)]
 
@@ -37,7 +42,7 @@ To register for the preview, send an email to [Multiple IPs](mailto:MultipleIPsP
 
 Follow the steps below to achieve the scenario outlined in this article:
 
-1. Install Azure PowerShell. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
+1. Install Azure PowerShell. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for information about installing the latest version of Azure PowerShell, selecting your subscription, and signing in to your account.
 2. Create a resource group using the following settings:
 
     ```powershell
@@ -93,7 +98,7 @@ Follow the steps below to achieve the scenario outlined in this article:
     $frontendIP2 = New-AzureRmLoadBalancerFrontendIpConfig -Name fabrikamfe -PublicIpAddress $publicIP2
     ```
 
-9. Create your backend address pools, a probe, and your load balacning rules:
+9. Create your backend address pools, a probe, and your load balancing rules:
 
     ```powershell
     $beaddresspool1 = New-AzureRmLoadBalancerBackendAddressPoolConfig -Name contosopool

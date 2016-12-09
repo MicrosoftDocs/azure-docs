@@ -30,7 +30,6 @@
 
 
 ## Use Enterprise Integration Pack (EIP)
-### [Enterprise Integration Pack](../app-service-logic/app-service-logic-enterprise-integration-overview.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Integration accounts overview](../app-service-logic/app-service-logic-enterprise-integration-create-integration-account.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Agreements](../app-service-logic/app-service-logic-enterprise-integration-agreements.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [B2B processing](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -73,13 +72,11 @@
 ### [Pricing](../app-service-logic/app-service-logic-pricing.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 
 # Reference
+## [PowerShell](/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp)
 ## Schema History
 ### [GA](../app-service-logic/app-service-logic-schema-2016-04-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Preview](../app-service-logic/app-service-logic-schema-2015-08-01.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-
-## [PowerShell Cmdlets](/powershell/resourcemanager/)
-## [.NET](https://msdn.microsoft.com/library/azure/mt416943)
-## [REST API](/rest/api/logic/)
+## [REST](/rest/api/logic/)
 
 ## 2014 schema (before GA)
 ### [Azure Resource connector](../app-service-logic/app-service-logic-connector-azure-resource.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -87,7 +84,6 @@
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/logic-apps/)  
-## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps) 
+## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azurelogicapps)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-logic-apps)
-## [Service updates](https://azure.microsoft.com/updates/?product=logic-apps) 
-
+## [Service updates](https://azure.microsoft.com/updates/?product=logic-apps)

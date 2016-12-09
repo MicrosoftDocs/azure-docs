@@ -1,10 +1,10 @@
-﻿---
+---
 title: Get started with Azure DNS | Microsoft Docs
 description: Learn how to create DNS zones for Azure DNS .This is a Step by step to get your first DNS zone created to start hosting your DNS domain using PowerShell.
 services: dns
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: georgewallace
+manager: timlt
 
 ms.assetid: d78583b7-e669-435c-819b-7605cf791b0e
 ms.service: dns
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2016
-ms.author: sewhee
+ms.author: gwallace
 ---
 
 # Create a DNS zone using Powershell
@@ -57,7 +57,7 @@ Azure DNS PowerShell supports Tags on both zones and record sets specified using
 Verify that you have the following items before beginning your configuration.
 
 * An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets (1.0 or later). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+* You'll need to install the latest version of the Azure Resource Manager PowerShell cmdlets (1.0 or later). See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
 
 ## Step 1 - Sign in
 

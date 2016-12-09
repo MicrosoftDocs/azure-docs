@@ -137,5 +137,5 @@ If you are using Tez with Hive, see the following documents for debugging inform
 [hdinsight-upload-data]: hdinsight-upload-data.md
 
 
-[Powershell-install-configure]: ../powershell-install-configure.md
+[Powershell-install-configure]: /powershell/azureps-cmdlets-docs
 [powershell-here-strings]: http://technet.microsoft.com/library/ee692792.aspx

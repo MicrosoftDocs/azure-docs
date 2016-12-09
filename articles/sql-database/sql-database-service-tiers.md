@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'SQL Database performance: Service tiers | Microsoft Docs'
 description: Compare SQL Database service tiers.
 keywords: database options,database performance
@@ -6,15 +6,16 @@ services: sql-database
 documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: CarlRabeler
+editor: ''
 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/15/2016
+ms.date: 12/06/2016
 ms.author: carlrab
 
 ---
@@ -42,7 +43,7 @@ Basic, Standard, and Premium service tiers all have an uptime SLA of 99.99% and 
 ## Single database service tiers and performance levels
 For single databases, there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can quickly change the performance level of your database. See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
 
-Performance characteristics listed here apply to databases created using [SQL Database V12](sql-database-v12-whats-new.md). Regardless of the number of databases hosted, your database gets a guaranteed set of resources and the expected performance characteristics of your database are not affected.
+Performance characteristics listed here apply to databases created using [SQL Database V12](sql-database-technical-overview.md). Regardless of the number of databases hosted, your database gets a guaranteed set of resources and the expected performance characteristics of your database are not affected.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 

@@ -52,7 +52,7 @@ When you create a new storage account, you select a deployment model of Classic 
 This guide focuses on the Resource Manager model which is the recommended means for creating storage accounts. With the Resource Manager storage accounts, rather than giving access to the entire subscription, you can control access on a more finite level to the management plane using Role-Based Access Control (RBAC).
 
 ### How to secure your storage account with Role-Based Access Control (RBAC)
-Let’s talk about what RBAC is, and how you can use it. Each Azure subscription has an Azure Active Directory. Users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription that use the Resource Manager deployment model. This is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](../powershell-install-configure.md), or the [Azure Storage Resource Provider REST APIs](https://msdn.microsoft.com/library/azure/mt163683.aspx).
+Let’s talk about what RBAC is, and how you can use it. Each Azure subscription has an Azure Active Directory. Users, groups, and applications from that directory can be granted access to manage resources in the Azure subscription that use the Resource Manager deployment model. This is referred to as Role-Based Access Control (RBAC). To manage this access, you can use the [Azure portal](https://portal.azure.com/), the [Azure CLI tools](../xplat-cli-install.md), [PowerShell](/powershell/azureps-cmdlets-docs), or the [Azure Storage Resource Provider REST APIs](https://msdn.microsoft.com/library/azure/mt163683.aspx).
 
 With the Resource Manager model, you put the storage account in a resource group and control access to the management plane of that specific storage account using Azure Active Directory. For example, you can give specific users the ability to access the storage account keys, while other users can view information about the storage account, but cannot access the storage account keys.
 
@@ -86,7 +86,7 @@ Here are the main points that you need to know about using RBAC to access the ma
 * [RBAC: Built in Roles](../active-directory/role-based-access-built-in-roles.md)
   
   This article details all of the built-in roles available in RBAC.
-* [Understanding Resource Manager deployment and classic deployment](../resource-manager-deployment-model.md)
+* [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md)
   
   This article explains the Resource Manager deployment and classic deployment models, and explains the benefits of using the Resource Manager and resource groups. It explains how the Azure Compute, Network, and Storage Providers work under the Resource Manager model.
 * [Managing Role-Based Access Control with the REST API](../active-directory/role-based-access-control-manage-access-rest.md)

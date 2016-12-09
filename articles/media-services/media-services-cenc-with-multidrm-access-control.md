@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services | Microsoft Docs'
 description: Learn about how to licensing the Microsoft® Smooth Streaming Client Porting Kit.
 services: media-services
@@ -72,7 +72,7 @@ In the article, “multi-DRM” covers the following:
 
 1. Microsoft PlayReady
 2. Google Widevine
-3. Apple FairPlay (not yet supported by Azure Media Services)
+3. Apple FairPlay 
 
 The following table summarizes the native platform/native app, and browsers supported by each DRM.
 

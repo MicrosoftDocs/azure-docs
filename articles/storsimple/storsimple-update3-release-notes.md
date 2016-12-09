@@ -1,4 +1,4 @@
-﻿---
+---
 title: StorSimple 8000 Series Update 3 release notes | Microsoft Docs
 description: Describes the new features, issues, and workarounds for StorSimple 8000 Series Update 3.
 services: storsimple
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 10/14/2016
+ms.date: 11/18/2016
 ms.author: alkohli
 
 ---
@@ -36,7 +36,7 @@ The following key improvements and bug fixes have been made in Update 3.
 
 * **Automated space reclamation changes** – Starting Update 3, the space reclamation algorithms run on the standby controller of the system resulting in faster execution. For more information on the ports that are required to work with space reclamation, refer to the [StorSimple networking requirements](storsimple-system-requirements.md#networking-requirements-for-your-storsimple-device).
 * **Performance enhancements** – Update 3 has improved read-write performance to the cloud.
-* **Migration-related improvements** – In this release, several bug fixes and improvements were done for the Migration feature from 5000/7000 series devices to 8000 series devices. For more information on how to use the migration feature, go to [Migration from 5000/7000 series device to 8000 series device](https://www.microsoft.com/en-us/download/details.aspx?id=47322). 
+* **Migration-related improvements** – In this release, several bug fixes and improvements were done for the Migration feature from 5000/7000 series devices to 8000 series devices. For more information on how to use the migration feature, go to [Migration from 5000/7000 series device to 8000 series device](https://gallery.technet.microsoft.com/Azure-StorSimple-50007000-c1a0460b). 
 * **Monitoring related fixes** - In this release, bugs related to monitoring charts, service dashboard, and device dashboard were fixed.
 
 ## Issues fixed in Update 3

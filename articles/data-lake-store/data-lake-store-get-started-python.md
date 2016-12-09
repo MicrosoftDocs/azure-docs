@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 11/21/2016
+ms.date: 11/29/2016
 ms.author: nitinme
 
 ---
@@ -46,13 +46,15 @@ Learn how to use the Python SDK for Azure and Azure Data Lake Store to perform b
 
 To work with Data Lake Store using Python, you need to install two modules.
 
-* The `azure` module. This includes the Azure Data Lake Store account management operations, in addition to other Azure modules for Active Directory, etc..
-* The `azure-datalake-store` module. This includes the Azure Data Lake Store filesystem operations.
+* The `azure-mgmt-resource` module. This includes Azure modules for Active Directory, etc..
+* The `azure-mgmt-datalake-store` module. This includes the Azure Data Lake Store account management operations. For more information on this module, see [Azure Data Lake Store Management module reference](http://azure-sdk-for-python.readthedocs.io/en/latest/sample_azure-mgmt-datalake-store.html).
+* The `azure-datalake-store` module. This includes the Azure Data Lake Store filesystem operations. For more information on this module, see [Azure Data Lake Store Filesystem module reference](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Use the following commands to install the modules.
 
 ```
-pip install azure
+pip install azure-mgmt-resource
+pip install azure-mgmt-datalake-store
 pip install azure-datalake-store
 ```
 

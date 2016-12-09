@@ -1,6 +1,6 @@
 ---
-title: Process IoT Hub device-to-cloud messages using routes (.Net) | Microsoft Docs
-description: Follow this tutorial to learn useful patterns to process IoT Hub device-to-cloud messages.
+title: Process Azure IoT Hub device-to-cloud messages using routes (.Net) | Microsoft Docs
+description: How to process IoT Hub device-to-cloud messages by using routes to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -17,17 +17,18 @@ ms.date: 12/12/2016
 ms.author: dobett
 
 ---
-# Tutorial: How to process IoT Hub device-to-cloud messages using routes (.Net)
+# Process IoT Hub device-to-cloud messages using routes (.NET)
+
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## Introduction
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and an application back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
 
-This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and it shows how to use message routing to dispatch device-to-cloud messages in an easy, configuration-based way. The tutorial illustrates how to isolate messages which require immediate action from the application back end for further processing. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data point message.
+This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and shows you how to use message routing to dispatch device-to-cloud messages in an easy, configuration-based way. The tutorial illustrates how to isolate messages which require immediate action from the solution back end for further processing. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data-point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
 
-At the end of this tutorial, you run three Windows console apps:
+At the end of this tutorial, you run three .NET console apps:
 
-* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
+* **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data-point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
 * **ReadDeviceToCloudMessages** which displays the non-critical telemetry sent by your simulated device app.
 * **ReadCriticalQueue** de-queues the critical messages sent by your simulated device app from the Service Bus queue attached to the IoT hub.
 
@@ -44,7 +45,7 @@ To complete this tutorial, you need the following:
 You should have some basic knowledge of [Azure Storage] and [Azure Service Bus].
 
 ## Send interactive messages from a simulated device app
-In this section, you modify the simulated device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages which require immediate processing.
+In this section, you modify the simulated device app you created in the [Get started with IoT Hub] tutorial to occasionally send messages that require immediate processing.
 
 1. In Visual Studio, in the **SimulatedDevice** project, replace the `SendDeviceToCloudMessagesAsync` method with the following code.
    
@@ -87,7 +88,7 @@ In this section, you modify the simulated device app you created in the [Get sta
         }
     ```
    
-     This randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the application back-end. The application passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
+     This randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the solution back-end. The device app passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
 
    > [!NOTE]
    > You can use message properties to route messages for a variety of scenarios including cold-path processing, in addition to the hot path example shown here.
@@ -127,18 +128,18 @@ You can optionally read the messages from the queue endpoint by following the in
 Now you are ready to run the applications.
 
 1. In Visual Studio, in Solution Explorer, right-click your solution and select **Set StartUp Projects**. Select **Multiple startup projects**, then select **Start** as the action for the **ReadDeviceToCloudMessages**, **SimulatedDevice**, and **ReadCriticalQueue** projects.
-2. Press **F5** to start the three console applications. The **ReadDeviceToCloudMessages** application will have only non-critical messages send from the **SimulatedDevice** application, and the **ReadCriticalQueue** application  will have only critical messages.
+2. Press **F5** to start the three console apps. The **ReadDeviceToCloudMessages** app has only non-critical messages sent from the **SimulatedDevice** application, and the **ReadCriticalQueue** app has only critical messages.
    
-   ![Three console applications][50]
+   ![Three console apps][50]
 
 ## Next steps
 In this tutorial, you learned how to reliably dispatch device-to-cloud messages by using the message routing functionality of IoT Hub.
 
-The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your back end.
+The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your solution back end.
 
 To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite][lnk-suite].
 
-To learn more about developing solutions with IoT Hub, see the [IoT Hub Developer Guide].
+To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 
 To learn more about message routing in IoT Hub, see [Send and receive messages with IoT Hub][lnk-devguide-messaging].
 
@@ -157,12 +158,12 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [HDInsight (Hadoop)]: https://azure.microsoft.com/documentation/services/hdinsight/
 [Service Bus queue]: ../service-bus-messaging/service-bus-dotnet-get-started-with-queues.md
 
-[Azure IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
+[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
 
 [Azure Storage]: https://azure.microsoft.com/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
 
-[IoT Hub Developer Guide]: iot-hub-devguide.md
+[IoT Hub developer guide]: iot-hub-devguide.md
 [Get started with IoT Hub]: iot-hub-csharp-csharp-getstarted.md
 [lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot

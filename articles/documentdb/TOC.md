@@ -5,8 +5,6 @@
 ## Scenarios
 ### [Common use cases](documentdb-use-cases.md)
 ### [Going social with DocumentDB](documentdb-social-media-apps.md)
-### [Multi-tenancy](http://blogs.msdn.com/b/documentdb/archive/2014/12/03/scaling-a-multi-tenant-application-with-azure-documentdb.aspx)
-
 
 # Get Started
 ## Write your first app
@@ -20,6 +18,7 @@
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
 ## [Develop Locally](documentdb-nosql-local-emulator.md)
+### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [FAQ](documentdb-faq.md)
 
 # How To
@@ -43,7 +42,10 @@
 ### [Resource quotas](documentdb-limits.md)
 ### [Increase quotas](documentdb-increase-limits.md)
 ### [Request units](documentdb-request-units.md)
-### [Azure CLI and Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### Azure CLI
+#### [Create an account](documentdb-automation-resource-manager-cli.md)
+#### [Add or remove regions](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Firewall support](documentdb-firewall-support.md)
 ### [Supercharge your account](documentdb-supercharge-your-account.md)
 
@@ -85,18 +87,20 @@
 
 
 # Reference
-## [Java SDK](documentdb-sdk-java.md)
-## [.NET SDK](documentdb-sdk-dotnet.md)
-## [.NET Core SDK](documentdb-sdk-dotnet-core.md)
-## [.NET samples](documentdb-dotnet-samples.md)
-## [Node.js SDK](documentdb-sdk-node.md)
-## [Node.js samples](documentdb-nodejs-samples.md)
-## [Python SDK](documentdb-sdk-python.md)
-## [Python samples](documentdb-python-samples.md)
-## [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
-## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
+## [Java](documentdb-sdk-java.md)
+## [.NET](documentdb-sdk-dotnet.md)
+## [.NET Core](documentdb-sdk-dotnet-core.md)
+## [Node.js](documentdb-sdk-node.md)
+## [Python](documentdb-sdk-python.md)
 ## [REST](/rest/api/documentdb/)
 ## [REST Resource Provider](/rest/api/documentdbresourceprovider/)
+
+# Related
+## [.NET samples](documentdb-dotnet-samples.md)
+## [Node.js samples](documentdb-nodejs-samples.md)
+## [Python samples](documentdb-python-samples.md)
+## [SQL Syntax](https://msdn.microsoft.com/library/azure/dn782250.aspx)
+## [SQL grammar cheat sheet](documentdb-sql-query-cheat-sheet.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/documentdb/)

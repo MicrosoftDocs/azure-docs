@@ -1,6 +1,6 @@
 ---
-title: Process IoT Hub device-to-cloud messages (Java) | Microsoft Docs
-description: Follow this Java tutorial to learn useful patterns to process IoT Hub device-to-cloud messages.
+title: Process Azure IoT Hub device-to-cloud messages (Java) | Microsoft Docs
+description: How to process IoT Hub device-to-cloud messages by reading from the Event hubs-compatible endpoint on an IoT hub. You create a Java service app that uses an EventProcessorHost instance.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -17,13 +17,13 @@ ms.date: 12/12/2016
 ms.author: dobett
 
 ---
-# Tutorial: How to process IoT Hub device-to-cloud messages using Java
+# Process IoT Hub device-to-cloud messages (Java)
 [!INCLUDE [iot-hub-selector-process-d2c](../../includes/iot-hub-selector-process-d2c.md)]
 
 ## Introduction
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and an application back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
 
-This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and it shows how to use message routing to process device-to-cloud messages in a scalable way. The tutorial illustrates how to process messages which require immediate action from the application back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data point message.
+This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and  shows you how to use message routing to process device-to-cloud messages in a scalable way. The tutorial illustrates how to process messages which require immediate action from the solution back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data-point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
 
 At the end of this tutorial, you run three Java console apps:
 
@@ -105,7 +105,8 @@ In this section, you modify the simulated device app you created in the [Get sta
    > For the sake of simplicity, this tutorial does not implement any retry policy. In production code, you should implement a retry policy such as exponential backoff, as suggested in the MSDN article [Transient Fault Handling].
    > 
    > 
-3. To build the **simulated-device** app using Maven, execute the following command at the command-prompt in the simulated-device folder:
+
+3. To build the **simulated-device** app using Maven, execute the following command at the command prompt in the simulated-device folder:
    
     ```
     mvn clean package -DskipTests
@@ -155,6 +156,7 @@ Now you are ready to run the three applications.
    ```
    
    ![Run read-critical-messages][readqueue]
+
 3. To run the **simulated-device** app, in a command prompt or shell navigate to the simulated-device folder and execute the following command:
    
    ```
@@ -163,15 +165,16 @@ Now you are ready to run the three applications.
    
    ![Run simulated-device][simulateddevice]
 
+
 ## Next steps
 In this tutorial, you learned how to reliably dispatch device-to-cloud messages by using the message routing functionality of IoT Hub.
 
 
-The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your back end.
+The [How to send cloud-to-device messages with IoT Hub][lnk-c2d] shows you how to send messages to your devices from your solution back end.
 
 To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Suite][lnk-suite].
 
-To learn more about developing solutions with IoT Hub, see the [IoT Hub Developer Guide].
+To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide].
 
 To learn more about message routing in IoT Hub, see [Send and receive messages with IoT Hub][lnk-devguide-messaging].
 
@@ -192,12 +195,12 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [Service Bus queue]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 [lnk-sb-queues-java]: ../service-bus-messaging/service-bus-java-how-to-use-queues.md
 
-[Azure IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
+[IoT Hub developer guide - Device to cloud]: iot-hub-devguide-messaging.md
 
 [Azure Storage]: https://azure.microsoft.com/documentation/services/storage/
 [Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
 
-[IoT Hub Developer Guide]: iot-hub-devguide.md
+[IoT Hub developer guide]: iot-hub-devguide.md
 [Get started with IoT Hub]: iot-hub-java-java-getstarted.md
 [Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
 [lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/

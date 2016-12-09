@@ -18,6 +18,7 @@
 #### [Azure Storage](log-analytics-azure-storage.md)
 #### [Operations Manager](log-analytics-om-agents.md)
 #### [Configuration Manager](log-analytics-sccm.md)
+#### [OMS Gateway](log-analytics-oms-gateway.md)
 ### Data Sources
 #### [Data sources overview](log-analytics-data-sources.md)
 #### [Windows events](log-analytics-data-sources-windows-events.md)
@@ -49,6 +50,7 @@
 #### [Surface Hub](log-analytics-surface-hubs.md)
 #### [VMware](log-analytics-vmware.md)
 #### [Wire Data](log-analytics-wire-data.md)
+#### [SCOM Assessment](log-analytics-scom-assessment.md)
 ## Analyze
 ### [Dashboards](log-analytics-dashboards.md)
 ### [View Designer](log-analytics-view-designer.md)
@@ -58,6 +60,9 @@
 ### [PowerShell cmdlets](log-analytics-powershell-workspace-configuration.md)
 ### [Log Search API](log-analytics-log-search-api.md)
 ### [Alert API](log-analytics-api-alerts.md)
+
+# Reference
+## [PowerShell](/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights)
 
 # Resources
 ## [Upgrade Analytics](https://technet.microsoft.com/itpro/windows/deploy/manage-windows-upgrades-with-upgrade-analytics)

@@ -1,23 +1,24 @@
 ---
 title: Manage Azure SQL Database using the Azure Portal | Microsoft Docs
-description: Learn how to use the Azure Portal to manage a relational database in the cloud using the Azure Portal.
+description: Quick reference on how to use the Azure Portal to manage a relational database in the cloud using the Azure Portal.
 services: sql-database
 documentationcenter: ''
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
 ms.assetid: 3a56e9de-c21a-40ba-9a35-958172cb4e5b
 ms.service: sql-database
+ms.custom: how to
 ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.date: 09/19/2016
-ms.author: sstein
+ms.author: carlrab
 
 ---
-# Managing Azure SQL Databases using the Azure portal
+# Manage Azure SQL Databases using the Azure portal
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-manage-portal.md)
 > * [SSMS](sql-database-manage-azure-ssms.md)
@@ -85,8 +86,8 @@ To monitor and improve performance characteristics of a SQL database, click **Pe
 ## How do I configure Geo-Replication?
 To set up Geo-Replication for a SQL database, click **Geo-Replication** on the **SQL database** blade. For details, see [Configure Geo-Replication for Azure SQL Database with the Azure portal](sql-database-geo-replication-portal.md).
 
-## How do I failover to a geo-replicated SQL database?
-To failover to a geo-replicated secondary, click **Geo-Replication** on the **SQL database** blade, then click **Failover**. For details, see [Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal](sql-database-geo-replication-failover-portal.md).
+## How do I fail over to a geo-replicated SQL database?
+To fail over to a geo-replicated secondary, click **Geo-Replication** on the **SQL database** blade, then click **Failover**. For details, see [Initiate a planned or unplanned failover for Azure SQL Database with the Azure portal](sql-database-geo-replication-failover-portal.md).
 
 ## How do I copy a SQL database?
 To copy a SQL database, click **Copy** on the **SQL database** blade. For details, see [Copy an Azure SQL database using the Azure portal](sql-database-copy-portal.md).
@@ -99,7 +100,7 @@ To create a BACPAC of a SQL database, click **Export** on the **SQL database** b
 ![SQL database export](./media/sql-database-manage-portal/sql-database-export.png)
 
 ## How do I restore a SQL database to a previous point in time?
-To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure portal](sql-database-point-in-time-restore-portal.md).
+To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure portal](sql-database-point-in-time-restore.md).
 
 ![SQL database settings](./media/sql-database-manage-portal/sql-database-restore.png)
 

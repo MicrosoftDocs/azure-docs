@@ -1,9 +1,9 @@
-﻿---
+---
 title: Run any Windows app on any device with Azure RemoteApp | Microsoft Docs
 description: Learn how to share any Windows app with your users by using Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: mbaldwin
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: compute
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # Run any Windows app on any device with Azure RemoteApp
