@@ -28,7 +28,6 @@ In the following tutorials, you will learn about using SQL Server Management Stu
 > [!IMPORTANT]
 > It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 >
->
 
 | Tutorial | Description |
 | --- | --- | --- |
