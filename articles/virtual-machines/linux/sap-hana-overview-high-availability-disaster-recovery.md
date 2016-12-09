@@ -156,11 +156,11 @@ The following sections provide information for performing these snapshots includ
 
 ### Detailed storage snapshot steps
 
-### Step 1: Install SAP HANA HDBClient
+**Step 1: Install SAP HANA HDBClient**
 
 The Linux installed on SAP HANA on Azure (Large Instances) includes the folders and scripts necessary to execute SAP HANA storage snapshots for backup and Disaster Recovery purposes. However, it is your responsibility to install SAP HANA HDBclient while installing SAP HANA.  (Microsoft will not install the HDBclient nor SAP HANA.)
 
-### Step 2: Change /etc/ssh/ssh\_config
+**Step 2: Change /etc/ssh/ssh\_config**
 
 Change /etc/ssh/ssh\_config by adding _MACs hmac-sha1_ line as shown below.
 Edit the section below to add **MACs hmac-sha1**:
@@ -195,7 +195,7 @@ MACs hmac-sha1
 #   ProxyCommand ssh -q -W %h:%p gateway.example.com
 ```
 
-### Step 3: Create a public key
+**Step 3: Create a public key**
 
 On the first SAP HANA on Azure (Large Instances) server in each Azure region, a public key needs to be created that is used to access the storage infrastructure allowing creation of snapshots. The public key ensures a password is not required to login to the storage and that password credentials are not maintained. In Linux on the HANA Large Instances server, execute the following command to generate the public key:
 ```
@@ -209,13 +209,13 @@ Check to make sure the public key was corrected as expected by changing folders 
 
 At this point, contact SAP HANA on Azure Service Management and provide the key. They will use the public key to register it in the underlying storage infrastructure.
 
-### Step 4: Create an SAP HANA user account
+**Step 4: Create an SAP HANA user account**
 
 Create an SAP HANA user account within SAP HANA Studio for backup purposes. This account must have the following privileges: BACKUP ADMIN and CATALOG READ. In this example, the user account of SCADMIN is created.
 
 ![Creating a user in HANA Studio](./media/sap-hana-overview-high-availability-disaster-recovery/image3-creating-user.png)
 
-### Step 5: Authorize the SAPA HANA user account
+**Step 5: Authorize the SAPA HANA user account**
 
 Authorize the SAPA HANA user account (to be used by the scripts without requiring authorization every time the script is run). The SAP HANA command **hdbuserstore** allows the creation of an SAP HANA user key stored on one or more SAP HANA nodes and allows the user to access SAP HANA without having to manage passwords from within the scripting process discussed below.
 
@@ -237,7 +237,7 @@ hdbuserstore set SCADMIN02 lhanad:30115 SCADMIN <password>
 hdbuserstore set SCADMIN03 lhanad:30215 SCADMIN <password>
 ```
 
-### Step 6: Copy items from the /scripts folder
+**Step 6: Copy items from the /scripts folder**
 
 Copy either the following items from the /scripts folder, included on the gold image of the installation, to the working directory for **hdbsql**. For current HANA installs, this is /hana/shared/D01/exe/linuxx86\_64/hdb.
 ```
@@ -344,7 +344,7 @@ Or
 ./removeTestStorageSnapshot.pl <hana instance>
 ```
 
-### Step 7: Perform on-demand snapshots
+**Step 7: Perform on-demand snapshots**
 
 Perform on-demand snapshots (as well as scheduling of regular snapshots using cron) as described below, by executing the following script for scale-up configurations:
 ```
@@ -366,11 +366,9 @@ The following arguments are required:
 ```
 The execution of the script creates the storage snapshot in these three distinct phases:
 
-1.  Execute a HANA snapshot.
-
-2.  Execute a storage snapshot.
-
-3.  Remove the HANA snapshot.
+- Execute a HANA snapshot.
+- Execute a storage snapshot.
+- Remove the HANA snapshot.
 
 Execute the script by calling it from the HDB executable folder that it was copied into. It will back up at least the following volumes, but will also back up any volume that has the explicit SAP HANA instance name in the volume name.
 ```
@@ -477,121 +475,64 @@ There are some preparations you have to do before issuing the request, as shown 
 >[!NOTE]  
 >The screenshots shown below might vary based on the SAP HANA release you use.
 
-**Preparations**
+1. Decide which snapshot to restore. Only the hana/data volume would be restored unless instructed otherwise.
 
-### Step 1: Decide which snapshot to restore
-
-Decide which snapshot to restore. Only the hana/data volume would be restored unless instructed otherwise.
-
-### Step 2: Shut down the HANA instance
-
-Shut down the HANA instance.
-
+2. Shut down the HANA instance.
 ![Shut down the HANA instance](./media/sap-hana-overview-high-availability-disaster-recovery/image7-shutdown-hana.png)
 
-### Step 3: Unmount the data volumes
-
-Unmount the data volumes on each HANA database node.
-
+3. Unmount the data volumes on each HANA database node. The restore of the snapshot will fail if the data volumes are not unmounted.
 ![Unmount the data volumes on each HANA database node](./media/sap-hana-overview-high-availability-disaster-recovery/image8-unmount-data-volumes.png)
 
->[!IMPORTANT]  
->Unless the data volumes are unmounted, the restore of the snapshot will fail.
+4. Open an Azure support request to instruct the restore of a specific snapshot.
 
-### Step 4: Open an Azure support request
+    **While restoring the storage snapshot,** SAP HANA on Azure Service Management is restoring the snapshots for the volumes, might ask you to attend a conference call in order to ensure that no data is getting lost.
 
-Open an Azure support request to instruct the restore of a specific snapshot.
+    **After restoring storage snapshot,** SAP HANA on Azure Service Management will notify you when the storage snapshot has been restored. 
 
-**While restoring the storage snapshot**
-
-As SAP HANA on Azure Service Management is restoring the snapshots for the volumes, you may be asked to attend a conference call in order to ensure that no data is getting lost.
-
-**After restoring storage snapshot**
-
-The SAP HANA on Azure Service Management team will notify you when the storage snapshot has been restored. You then perform the following steps:
-
-### Step 1: Remount data volumes
-
-Once the restore process is complete, remount all data volumes.
-
+5. Once the restore process is complete, remount all data volumes.
 ![Remount all data volumes](./media/sap-hana-overview-high-availability-disaster-recovery/image9-remount-data-volumes.png)
 
-### Step 2: Select recover options within SAP HANA studio
-
-Select recover options within SAP HANA studio, if those do not automatically come up upon reconnecting to HANA DB through HANA Studio. The following example shows a restore to the last HANA snapshot. A storage snapshot embeds one HANA snapshot, and if you are restoring to last the storage snapshot, it should be the most recent HANA snapshot. (If you are restoring to older storage snapshots, you need to locate the HANA snapshot based on the time the storage snapshot was taken.)
-
+6. Select recover options within SAP HANA studio, if those do not automatically come up upon reconnecting to HANA DB through HANA Studio. The following example shows a restore to the last HANA snapshot. A storage snapshot embeds one HANA snapshot, and if you are restoring to last the storage snapshot, it should be the most recent HANA snapshot. (If you are restoring to older storage snapshots, you need to locate the HANA snapshot based on the time the storage snapshot was taken.)
 ![Select recover options within SAP HANA Studio](./media/sap-hana-overview-high-availability-disaster-recovery/image10-recover-options-a.png)
 
-### Step 3: Select the recovery type
-
-Select the recovery type **Recover the database to a specific data backup or storage snapshot**.
-
+7. Select the recovery type **Recover the database to a specific data backup or storage snapshot**.
 ![Select the recovery type Recover the database to a specific data backup or storage snapshot](./media/sap-hana-overview-high-availability-disaster-recovery/image11-recover-options-b.png)
 
-### Step 4: Choose the option Specify backup without catalog
-
-Choose the option **Specify backup without catalog**.
-
+8. Choose the option **Specify backup without catalog**.
 ![Choose the option Specify backup without catalog](./media/sap-hana-overview-high-availability-disaster-recovery/image12-recover-options-c.png)
 
-### Step 5: Choose Destination Type: Snapshot
-
-Choose **Destination Type: Snapshot**.
-
+9. Choose **Destination Type: Snapshot**.
 ![Choose Destination Type: Snapshot](./media/sap-hana-overview-high-availability-disaster-recovery/image13-recover-options-d.png)
 
-### Step 6: Click Finish
-
-Click **Finish** to start recovery process.
-
+10. Click **Finish** to start recovery process.
 ![Click Finish to start recovery process](./media/sap-hana-overview-high-availability-disaster-recovery/image14-recover-options-e.png)
 
-### Step 7: The HANA database is restored and recovered
-
-The HANA database is restored and recovered to the HANA snapshot included by the storage snapshot.
-
+11. The HANA database is restored and recovered to the HANA snapshot included by the storage snapshot.
 ![HANA database is restored and recovered to the HANA snapshot included by the storage snapshot](./media/sap-hana-overview-high-availability-disaster-recovery/image15-recover-options-f.png)
 
-### Restore to most recent state
+### Recovering to most recent state
 
-This process restores back to a HANA snapshot that is included in the storage snapshot, and then restores the transaction log backups to latest state of the database before restoring the storage snapshot.
+This process restores back to a HANA snapshot that is included in the storage snapshot,and then restores the transaction log backups to latest state of the database before restoring the storage snapshot.
 
 >[!Important] 
 >Make sure that you have a complete and contiguous chain of transaction log backups before you proceed. Without that you are not going to be able to get back to the current state of the database.
 
-Follow Steps 1 to 6 of the procedure for restoring only to your last HANA snapshot described above.
+Follow Steps 1 to 6 of the procedure for recovering to the latest HANA snapshot described above.
 
-### Step 1: Choose Recover the database to its most recent state
-
-Choose **Recover the database to its most recent state**.
-
+1. Choose **Recover the database to its most recent state**.
 ![Choose Recover the database to its most recent state](./media/sap-hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
-### Step 2: Specify the HANA log backups location
-
-Specify the location of the latest HANA log backups.
-
+2. Specify the location of the latest HANA log backups.
 ![Specify the location of the latest HANA log backups](./media/sap-hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
+The location specified needs to contain all HANA transaction log backups from the HANA snapshot to most recent state
 
->[!NOTE] 
->The location specified needs to contain all HANA transaction log backups from the HANA snapshot to most recent state.
-
-### Step 3: Choose a backup  
-
-Choose a backup as a base from which to recover the database. In our example, this is the HANA snapshot that was included in the storage snapshot. (Only one of those snapshots was done in the following screenshot.)
-
+3. Choose a backup as a base from which to recover the database. In our example, this is the HANA snapshot that was included in the storage snapshot. (Only one of those snapshots was done in the following screenshot.)
 ![Choose a backup as a base from which to recover the database](./media/sap-hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
 
-### Step 4: Deselect Use Delta Backups
-
-Deselect **Use Delta Backups** if those do not exist between the time of the HANA snapshot and the most recent state.
-
+4. Deselect **Use Delta Backups** if those do not exist between the time of the HANA snapshot and the most recent state.
 ![Deselect Use Delta Backups if those do not exist between the time of the HANA snapshot and the most recent state](./media/sap-hana-overview-high-availability-disaster-recovery/image19-recover-database-d.png)
 
-### Step 5: Click Finish
-
-Click **Finish** on the summary screen to start the restore procedure.
-
+5. Click **Finish** on the summary screen to start the restore procedure.
 ![Click Finish on the summary screen to start the restore procedure](./media/sap-hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
 To recover to a point time between the HANA snapshot (included in the storage snapshot)and one that is later than the HANA snapshot, point-in-time recovery:
