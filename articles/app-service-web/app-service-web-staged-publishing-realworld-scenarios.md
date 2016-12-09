@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 ---
 title: Use DevOps environments effectively for your web app
+=======
+﻿---
+title: Use DevOps environments effectively for your web app | Microsoft Docs
+>>>>>>> b2f293cf528e5fa772d15b0f03be3feefefd0684
 description: Learn how to use deployment slots to set up and manage multiple development environments for your application
 services: app-service\web
 documentationcenter: ''
@@ -31,10 +36,10 @@ After a production web app is up and running, the next step is to create a non-p
 To set up a staging deployment slot, see [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md). Every environment should include its own set of resources. For example, if your web app uses a database, then both production and staging web apps should use different databases. Add staging development environment resources such as database, storage, or cache to set your staging development environment.
 
 ## Examples of using multiple development environments
-Any project should follow source code management with at least two environments: development and production. If you use content management systems (CMS), application frameworks, etc., the application might not support this scenario without customization. This eventuality is true for some of the popular frameworks that are discussed in the following sections. Lots of questions come to mind when you work with CMS/frameworks, such as:
+Any project should follow source code management with at least two environments: development and production. If you use content management systems (CMSs), application frameworks, etc., the application might not support this scenario without customization. This eventuality is true for some of the popular frameworks that are discussed in the following sections. Lots of questions come to mind when you work with CMS/frameworks, such as:
 
 - How do you break the content out into different environments?
-- What files can you change without impacting framework version updates?
+- What files can you change without affecting framework version updates?
 - How do you manage configurations per environment?
 - How do you manage version updates for modules, plugins, and the core framework?
 
@@ -293,14 +298,14 @@ Make sure that you add the following app settings for your production web app an
 
     ![Production web app after swapping slots](./media/app-service-web-staged-publishing-realworld-scenarios/8afswap.png)
 
-5. When you need to roll back, you can go to the production web **App Settings**, and click the **Swap** button to swap the web app and database from production to staging slot. Remember that if database changes are included with a **Swap** operation, then the next time you deploy to your staging web app, you need to deploy the database changes to the current database for your staging web app, which could be the previous production database or the stage database.
+5. When you need to roll back, you can go to the production web **App Settings**, and click the **Swap** button to swap the web app and database from production to staging slot. Remember that if database changes are included with a **Swap** operation, then the next time you deploy to your staging web app, you need to deploy the database changes to the current database for your staging web app. The current database might be the previous production database or the stage database.
 
 #### Summary
 Following is a generalized process for any application that has a database:
 
 1. Install the application on your local environment.
 2. Include environment-specific configurations (local and Azure Web Apps).
-3. Set up your staging and production environments Web Apps.
+3. Set up your staging and production environments for Web Apps.
 4. If you have a production application already running on Azure, sync your production content (files/code and database) to local and staging environments.
 5. Develop your application on your local environment.
 6. Place your production web app under maintenance or locked mode, and sync database content from production to staging and dev environments.
@@ -324,7 +329,7 @@ Always remember to remove the `install` folder under your application, and never
 
     ![Update Connection string for staging web app with new staging database](./media/app-service-web-staged-publishing-realworld-scenarios/9umbconnstr.png)
 
-3. Click **Get Publish settings** for the deployment slot **stage**. This process will download a publish settings file that stores all the information that Visual Studio or Web Matrix requires to publish your application from local development web app to Azure web app.
+3. Click **Get Publish settings** for the deployment slot **stage**. This process will download a publish settings file that stores all the information that Visual Studio or WebMatrix requires to publish your application from the local development web app to the Azure web app.
 
     ![Get publish setting of the staging web app](./media/app-service-web-staged-publishing-realworld-scenarios/10getpsetting.png)
 4. Open your local development web app in WebMatrix or Visual Studio. This tutorial uses WebMatrix. First, you need to import the publish settings file for your staging web app.
@@ -414,22 +419,22 @@ Purchase a license for Courier2 for the `*.azurewebsites.net` domain and your cu
 To learn more about how to use Courier, review the documentation.
 
 #### How to upgrade the Umbraco CMS version
-Courier will not help you upgrade from one version of Umbraco CMS to another. When you upgrade an Umbraco CMS version, you must check for incompatibilities with your custom modules or modules from partners and the Umbraco Core libraries. Here are some best practices.
+Courier will not help you upgrade from one version of Umbraco CMS to another. When you upgrade an Umbraco CMS version, you must check for incompatibilities with your custom modules or modules from partners and the Umbraco Core libraries. Here are best practices:
 
-1. Always back up your web app and database before you upgrade. On web apps in Azure, you can set up automatic backups for your websites by using the backup feature and restore your site if needed by using the restore feature. For more details, see [How to back up your web app](web-sites-backup.md) and [How to restore your web app](web-sites-restore.md).
-2. Check if packages from partners are compatible with the version you're upgrading to. On the package's download page, review the project compatibility with Umbraco CMS version.
+* Always back up your web app and database before you upgrade. On web apps in Azure, you can set up automatic backups for your websites by using the backup feature and restore your site if needed by using the restore feature. For more details, see [How to back up your web app](web-sites-backup.md) and [How to restore your web app](web-sites-restore.md).
+* Check if packages from partners are compatible with the version you're upgrading to. On the package's download page, review the project compatibility with Umbraco CMS version.
 
 For more details about how to upgrade your web app locally, [see the general upgrade guidance](https://our.umbraco.org/documentation/getting-started/setup/upgrading/general).
 
-After your local development site is upgraded, publish the changes to the staging web app. Test your application. If all looks good, use the **Swap** button to swap your staging site to the production web app. When you use the **Swap** operation, you can view the changes that will be impacted in your web app's configuration. This **Swap** operation swaps the web apps and databases. After the **Swap**, the production web app will point to the umbraco-stage-db database, and the staging web app will point to umbraco-prod-db database.
+After your local development site is upgraded, publish the changes to the staging web app. Test your application. If all looks good, use the **Swap** button to swap your staging site to the production web app. When you use the **Swap** operation, you can view the changes that will be affected in your web app's configuration. This **Swap** operation swaps the web apps and databases. After the **Swap**, the production web app will point to the umbraco-stage-db database, and the staging web app will point to umbraco-prod-db database.
 
 ![Swap preview for deploying Umbraco CMS](./media/app-service-web-staged-publishing-realworld-scenarios/22umbswap.png)
 
-Here are advantages of swapping both the web app and database:
+Here are advantages of swapping both the web app and the database:
 
-1. You can roll back to the previous version of your web app with another **Swap** if there are any application issues.
-2. For an upgrade, you need to deploy files and databases from the staging web app to the production web app and database. Many things can go wrong when you deploy files and databases. By using the **Swap** feature of slots, we can reduce downtime during an upgrade and reduce the risk of failures that can occur when you deploy changes.
-3. You can do **A/B testing** by using the [Testing in production](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/) feature.
+* You can roll back to the previous version of your web app with another **Swap** if there are any application issues.
+* For an upgrade, you need to deploy files and databases from the staging web app to the production web app and database. Many things can go wrong when you deploy files and databases. By using the **Swap** feature of slots, we can reduce downtime during an upgrade and reduce the risk of failures that can occur when you deploy changes.
+* You can do **A/B testing** by using the [Testing in production](https://azure.microsoft.com/documentation/videos/introduction-to-azure-websites-testing-in-production-with-galin-iliev/) feature.
 
 This example shows you the flexibility of the platform where you can build custom modules similar to Umbraco Courier module to manage deployment across environments.
 
