@@ -30,7 +30,7 @@ The article assumes that you have already created
 
 ### Configuration Server Minimum Requirements
 
-[!INCLUDE [Configuration Server Requirements](../../site-recovery-configuration-server-requirements.md)]
+[!INCLUDE [site-recovery-configuration-server-requirements](../../site-recovery-configuration-server-requirements.md)]
 > [!NOTE]
 > HTTPS based proxy servers are not supported by the Configuration Server.
 
@@ -60,7 +60,7 @@ Set up the configuration server and register it in the Recovery Services vault. 
 6. On the machine you’re using as the configuration server, run **Azure Site Recovery Unified Setup** to install the configuration server, the process server, and the master target server.
 
 ### Running the Azure Site Recovery Unified Setup
-[!INCLUDE [Running the Azure Site Recovery Unified Setup](../../site-recovery-add-configuration-server.md)]
+[!INCLUDE [site-recovery-add-configuration-server](../../site-recovery-add-configuration-server.md)]
 
 ## Common issues
 
