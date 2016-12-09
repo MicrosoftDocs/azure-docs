@@ -69,9 +69,37 @@ The following steps show how to call the script action script from the Azure por
   - **Head**: (Selected. And unselect the other node types.
   - **Parameters**: 
 
-        --machine hn1 --src-cluster <primary cluster DNS name> --dst-cluster <secondary cluster DNS name> --src-ambari-password <primary cluster Ambari password> --dst-ambari-password <secondary cluster Ambari password> -copydata
+        --machine hn1 --src-cluster &lt;primary cluster DNS name> --dst-cluster &lt;secondary cluster DNS name> --src-ambari-password &lt;primary cluster Ambari password> --dst-ambari-password &lt;secondary cluster Ambari password> -copydata
 
-    Set the values in the parameters. The parameters used in the sample enables replication and copy all the HBase tables from primary cluster to the secondary cluster. Detailed explanation of parameters is provided in print_usage() section of following script: [https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh).
+    Set the values in the parameters. The parameters used in the sample enables replication and copy all the HBase tables from primary cluster to the secondary cluster. 
+    
+    
+
+
+
+    Required arguments:
+
+    |Name|Description|
+    |----|-----------|
+    |-s, --src-cluster | Specify the DNS name of the source HBase cluster. For example: -s hbsrccluster, --src-cluster=hbsrccluster |
+    |-d, --dst-cluster | Specify the DNS name of the destination (replica) HBase cluster. For example: -s dsthbcluster, --src-cluster=dsthbcluster |
+    |-sp, --src-ambari-password | Specify the admin password for Ambari of source HBase cluster. | 
+    |-dp, --dst-ambari-password | Specify the admin password for Ambari of destination HBase cluster.|
+
+    Optinal arguments:
+
+    |Name|Description|
+    |----|-----------|
+    |-su, --src-ambari-user | Specify the admin username for Ambari of source HBase cluster. The default value is *admin*. |
+    |-du, --dst-ambari-user | Specify the admin username for Ambari of destination HBase cluster. The default value is *admin*. |
+    |-t, --table-list | Specify the tables to be replicated. For example: --table-list="table1;table2;table3". If not specified, all existing HBase tables are replicated.|
+    |-m, --machine | Specify the head node where to run the script acction. The value is either hn1 or hn0. Because hn0 is usually busier, using hn1 is recommended. This option is used when running the $0 script as Script Action from HDInsight portal or Azure Powershell.|
+    |-ip | This argument is required when enabling replication between two VNets. This argument acts as a switch to utilize the static IPs of zookeeper nodes from replica cluster instead of FQDN names. The static IPs need to be pre-configured before enabling replication. |
+    |-cp, -copydata | Enable the migration of existing data on the tables where replication gets enabled. |
+    |-rpm, -replicate-phoenix-meta | Enable the replication on Phoenix system tables. NOTE: This option needs to be used with caution! It is in general advised to recreate phoenix tables on replica cluster before using this script. |
+    |-h, --help | Display's usage information. |
+  
+    Detailed explanation of parameters is provided in print_usage() section of following script: [https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh).
  
 After the script action is successfully deployed, you can use SSH to connect to the secondary HBase cluster, and verify the data has been replicated.
 
