@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
@@ -41,7 +41,9 @@ You will need to give your application permission to create resources in Azure f
 2. Right-click on the project on the left-hand side of your screen and click **Add Framework Support**. Choose **Maven** and click **OK**.
 3. Open the newly created **"pom.xml"** file and add the following snippet of text between the **\</version>** tag and the **\</project>** tag:
 
-    NOTE: This step is temporary until the Azure Data Lake Analytics SDK is available in Maven. This article will be updated once the SDK is available in Maven. All future updates to this SDK will be availble through Maven.
+    >[!NOTE]
+    >This step is temporary until the Azure Data Lake Analytics SDK is available in Maven. This article will be updated once the SDK is available in Maven. All future updates to this SDK will be availble through Maven.
+    >
 
         <repositories>
             <repository>
