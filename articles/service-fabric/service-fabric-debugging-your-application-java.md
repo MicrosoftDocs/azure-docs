@@ -25,7 +25,7 @@ ms.author: vturecek;mikhegn
 
 1. Start a local development cluster by following the steps in [Setting up your Service Fabric development environment](service-fabric-get-started-linux.md).
 
-2. Update entryPoint.sh of the service you wish to debug, so that it starts the java process with remote debug parameters. This file can be found at the following location: ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``.
+2. Update entryPoint.sh of the service you wish to debug, so that it starts the java process with remote debug parameters. This file can be found at the following location: ``ApplicationName\ServiceNamePkg\Code\entrypoint.sh``. Port 8001 is set for debugging in this example.
 
 ```sh
 java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
