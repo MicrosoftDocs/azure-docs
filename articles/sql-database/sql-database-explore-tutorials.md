@@ -85,7 +85,7 @@ In the following tutorials, you will learn about running [elastic queries](sql-d
 |  | |
 
 ## Performance Optimization
-In the following tutorials, you will learn about optimizing the [performance of single databases](sql-database-performance-guidance.md). For optimizing the performance of multiple databases, see [Elastic pools](#elastic-pools).
+In the following tutorials, you will learn about optimizing the [performance of standalone databases](sql-database-performance-guidance.md). For optimizing the performance of multiple databases, see [Elastic pools](#elastic-pools).
 
 | Tutorial | Description |
 | --- | --- | --- |
