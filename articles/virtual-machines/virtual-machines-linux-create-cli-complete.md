@@ -54,8 +54,8 @@ az resource group create --name myResourceGroup --location westeurope
 Create the storage account with [az storage account create](/cli/azure/storage/account#create). The following example creates a storage account named `mystorageaccount`. (The storage account name must be unique, so provide your own unique name.)
 
 ```azurecli
-az storage account create --resource-group myResourceGroup --location westeurope --name mystorageaccount \
-  --kind Storage --sku Standard_LRS
+az storage account create --resource-group myResourceGroup --location westeurope \
+  --name mystorageaccount --kind Storage --sku Standard_LRS
 ```
 
 Create the virtual network with [az network vnet create](/cli/azure/network/vnet#create). The following example creates a virtual network named `myVnet` and subnet named `mySubnet`:
@@ -68,8 +68,8 @@ az network vnet create --resource-group myResourceGroup --locationwesteurope --n
 Create a public IP with [az network public-ip create](/cli/azure/network/public-ip#create). The following example creates a public IP named `myPublicIP` with the DNS name of `mypublicdns`. (The DNS name must be unique, so provide your own unique name.)
 
 ```azurecli
-az network public-ip create --resource-group myResourceGroup --location westeurope --name myPublicIP \
-  --dns-name mypublicdns --allocation-method static --idle-timeout 4
+az network public-ip create --resource-group myResourceGroup --location westeurope \
+  --name myPublicIP --dns-name mypublicdns --allocation-method static --idle-timeout 4
 ```
 
 Create the load balancer with [az network lb create](/cli/azure/network/lb#create). The following example:
@@ -80,27 +80,27 @@ Create the load balancer with [az network lb create](/cli/azure/network/lb#creat
 - creates a back-end IP pool named `myBackEndPool`
 
 ```azurecli
-az network lb create --resource-group myResourceGroup --location westeurope --name myLoadBalancer \
-  --public-ip-address myPublicIP --frontend-ip-name myFrontEndPool \
-  --backend-pool-name myBackEndPool
+az network lb create --resource-group myResourceGroup --location westeurope \
+  --name myLoadBalancer --public-ip-address myPublicIP \
+  --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool
 ```
 
 Create SSH inbound network address translation (NAT) rules for the load balancer with [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#create). The following example creates two load balancer rules, `myLoadBalancerRuleSSH1` and `myLoadBalancerRuleSSH2`:
 
 ```azurecli
-az network lb inbound-nat-rule create --resource-group myResourceGroup --lb-name myLoadBalancer \
-  --name myLoadBalancerRuleSSH1 --protocol tcp --frontend-port 4222 --backend-port 22 \
-  --frontend-ip-name myFrontEndPool
-az network lb inbound-nat-rule create --resource-group myResourceGroup --lb-name myLoadBalancer \
-  --name myLoadBalancerRuleSSH2 --protocol tcp --frontend-port 4223 --backend-port 22 \
-  --frontend-ip-name myFrontEndPool
+az network lb inbound-nat-rule create --resource-group myResourceGroup \
+  --lb-name myLoadBalancer --name myLoadBalancerRuleSSH1 --protocol tcp \
+  --frontend-port 4222 --backend-port 22 --frontend-ip-name myFrontEndPool
+az network lb inbound-nat-rule create --resource-group myResourceGroup \
+  --lb-name myLoadBalancer --name myLoadBalancerRuleSSH2 --protocol tcp \
+  --frontend-port 4223 --backend-port 22 --frontend-ip-name myFrontEndPool
 ```
 
 Create the load balancer health probe with [az network lb probe create](/cli/azure/network/lb/probe#create). The following example creates a TCP probe named `myHealthProbe`:
 
 ```azurecli
-az network lb probe create --resource-group myResourceGroup --lb-name myLoadBalancer --name myHealthProbe \
-  --protocol tcp --port 80 --interval 15 --threshold 4
+az network lb probe create --resource-group myResourceGroup --lb-name myLoadBalancer \
+  --name myHealthProbe --protocol tcp --port 80 --interval 15 --threshold 4
 ```
 
 Create the web inbound NAT rules for the load balancer with [az network lb rule create](/cli/azure/network/lb/rule#create). The following example creates a load balancer rule named `myLoadBalancerRuleWeb` and associates it with the `myHealthProbe` probe:
@@ -121,20 +121,23 @@ az network lb show --resource-group myResourceGroup --name myLoadBalancer
 Create the network security group with [az network nsg create](/cli/azure/network/nsg#create). The following example creates a network security group named `myNetworkSecurityGroup`:
 
 ```azurecli
-az network nsg create --resource-group myResourceGroup --location westeurope --name myNetworkSecurityGroup
+az network nsg create --resource-group myResourceGroup --location westeurope \
+  --name myNetworkSecurityGroup
 ```
 
 Add two inbound rules for the network security group with [az network nsg rule create](/cli/azure/network/nsg/rule#create). The following example creates two rules, `myNetworkSecurityGroupRuleSSH` and `myNetworkSecurityGroupRuleHTTP`:
 
 ```azurecli
-az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup \
-  --name myNetworkSecurityGroupRuleSSH --protocol tcp --direction inbound --priority 1000 \
-  --source-address-prefix '*' --source-port-range '*' \
-  --destination-address-prefix '*' --destination-port-range 22 --access allow
-az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup \
-  --name myNetworkSecurityGroupRuleHTTP --protocol tcp --direction inbound --priority 1001 \
-  --source-address-prefix '*' --source-port-range '*' \
-  --destination-address-prefix '*' --destination-port-range 80 --access allow
+az network nsg rule create --resource-group myResourceGroup \
+  --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleSSH \
+  --protocol tcp --direction inbound --priority 1000 --source-address-prefix '*' \
+  --source-port-range '*' --destination-address-prefix '*' --destination-port-range 22 \
+  --access allow
+az network nsg rule create --resource-group myResourceGroup \
+  --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleHTTP \
+  --protocol tcp --direction inbound --priority 1001 --source-address-prefix '*' \
+  --source-port-range '*' --destination-address-prefix '*' --destination-port-range 80 \
+  --access allow
 ```
 
 Create the first network interface card (NIC) with [az network nic create](/cli/azure/network/nic#create). The following example creates a NIC named `myNic1` and attaches it to the load balancer `myLoadBalancer` and appropriate pools, and also attaches it to the `myNetworkSecurityGroup`:
@@ -158,7 +161,8 @@ az network nic create --resource-group myResourceGroup --location westeurope --n
 Create the availability set with [az vm availability-set create](/cli/azure/vm/availability-set#create). The following example creates an availability set named `myAvailabilitySet`:
 
 ```azurecli
-az vm availability-set create --resource-group myResourceGroup --location westeurope --name myAvailabilitySet
+az vm availability-set create --resource-group myResourceGroup --location westeurope \
+  --name myAvailabilitySet
 ```
 
 Create the first Linux VM with [az vm create](/cli/azure/vm#create). The following example creates a VM named `myVM1`:
@@ -197,7 +201,7 @@ az vm create \
     --admin-username ops
 ```
 
-Verify that everything that was built with [az vm show](/cli/azure/vm#show):
+Verify that everything that was built correctly with [az vm show](/cli/azure/vm#show):
 
 ```azurecli
 az vm show --resource-group myResourceGroup --name myVM1
@@ -400,8 +404,8 @@ The public IP address resource has been allocated logically, but a specific addr
 When you create a load balancer, it enables you to distribute traffic across multiple VMs. It also provides redundancy to your application by running multiple VMs that respond to user requests in the event of maintenance or heavy loads. The following example uses [az network lb create](/cli/azure/network/lb#create) to create a load balancer named `myLoadBalancer`, a front-end IP pool named `myFrontEndPool`, and hooks up the `myPublicIP` resource:
 
 ```azurecli
-az network lb create --resource-group myResourceGroup --location westeurope --name myLoadBalancer \
-  --public-ip-address myPublicIP --frontend-ip-name myFrontEndPool
+az network lb create --resource-group myResourceGroup --location westeurope \
+  --name myLoadBalancer --public-ip-address myPublicIP --frontend-ip-name myFrontEndPool
 ```
 
 Output:
@@ -489,9 +493,9 @@ Snipped output:
 To get traffic flowing through our load balancer, we need to create network address translation (NAT) rules that specify either inbound or outbound actions. You can specify the protocol to use, then map external ports to internal ports as desired. For our environment, let's create some rules that allow SSH through our load balancer to our VMs with [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule#create). We set up TCP ports 4222 and 4223 to direct to TCP port 22 on our VMs (which we create later). The following example creates a rule named `myLoadBalancerRuleSSH1` to map TCP port 4222 to port 22:
 
 ```azurecli
-az network lb inbound-nat-rule create --resource-group myResourceGroup --lb-name myLoadBalancer \
-  --name myLoadBalancerRuleSSH1 --protocol tcp --frontend-port 4222 --backend-port 22 \
-  --frontend-ip-name myFrontEndPool
+az network lb inbound-nat-rule create --resource-group myResourceGroup \
+  --lb-name myLoadBalancer --name myLoadBalancerRuleSSH1 --protocol tcp \
+  --frontend-port 4222 --backend-port 22 --frontend-ip-name myFrontEndPool
 ```
 
 Output:
@@ -519,9 +523,9 @@ Output:
 Repeat the procedure for your second NAT rule for SSH. The following example creates a rule named `myLoadBalancerRuleSSH2` to map TCP port 4223 to port 22:
 
 ```azurecli
-az network lb inbound-nat-rule create --resource-group myResourceGroup --lb-name myLoadBalancer \
-  --name myLoadBalancerRuleSSH2 --protocol tcp --frontend-port 4223 --backend-port 22 \
-  --frontend-ip-name myFrontEndPool
+az network lb inbound-nat-rule create --resource-group myResourceGroup \
+  --lb-name myLoadBalancer --name myLoadBalancerRuleSSH2 --protocol tcp \
+  --frontend-port 4223 --backend-port 22 --frontend-ip-name myFrontEndPool
 ```
 
 ## Create a load balancer health probe
@@ -557,7 +561,8 @@ Let's also go ahead and create a NAT rule for TCP port 80 for web traffic, hooki
 ```azurecli
 az network lb rule create --resource-group myResourceGroup --lb-name myLoadBalancer \
   --name myLoadBalancerRuleWeb --protocol tcp --frontend-port 80 --backend-port 80 \
-  --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool --probe-name myHealthProbe
+  --frontend-ip-name myFrontEndPool --backend-pool-name myBackEndPool \
+  --probe-name myHealthProbe
 ```
 
 Output:
@@ -723,8 +728,9 @@ az network nsg create --resource-group myResourceGroup --location westeurope \
 Let's add the inbound rule for the NSG with [az network nsg rule create](/cli/azure/network/nsg/rule#create) to allow inbound connections on port 22 (to support SSH). The following example creates a rule named `myNetworkSecurityGroupRuleSSH` to allow TCP on port 22:
 
 ```azurecli
-az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup \
-  --name myNetworkSecurityGroupRuleSSH --protocol tcp --direction inbound --priority 1000 \
+az network nsg rule create --resource-group myResourceGroup \
+  --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleSSH \
+  --protocol tcp --direction inbound --priority 1000 \
   --source-address-prefix '*' --source-port-range '*' \
   --destination-address-prefix '*' --destination-port-range 22 --access allow
 ```
@@ -732,8 +738,9 @@ az network nsg rule create --resource-group myResourceGroup --nsg-name myNetwork
 Now let's add the inbound rule for the NSG to allow inbound connections on port 80 (to support web traffic). The following example creates a rule named `myNetworkSecurityGroupRuleHTTP` to allow TCP on port 80:
 
 ```azurecli
-az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup \
-  --name myNetworkSecurityGroupRuleHTTP --protocol tcp --direction inbound --priority 1001 \
+az network nsg rule create --resource-group myResourceGroup \
+  --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRuleHTTP \
+  --protocol tcp --direction inbound --priority 1001 \
   --source-address-prefix '*' --source-port-range '*' \
   --destination-address-prefix '*' --destination-port-range 80 --access allow
 ```
@@ -905,7 +912,8 @@ The following example creates a NIC named `myNic1`:
 ```azurecli
 az network nic create --resource-group myResourceGroup --location westeurope --name myNic1 \
   --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup \
-  --lb-name myLoadBalancer --lb-address-pools myBackEndPool --lb-inbound-nat-rules myLoadBalancerRuleSSH1
+  --lb-name myLoadBalancer --lb-address-pools myBackEndPool \
+  --lb-inbound-nat-rules myLoadBalancerRuleSSH1
 ```
 
 Output:
@@ -963,7 +971,8 @@ Now we create the second NIC, hooking in to our back-end IP pool again. This tim
 ```azurecli
 az network nic create --resource-group myResourceGroup --location westeurope --name myNic2 \
   --vnet-name myVnet --subnet mySubnet --network-security-group myNetworkSecurityGroup \
-  --lb-name myLoadBalancer --lb-address-pools myBackEndPool --lb-inbound-nat-rules myLoadBalancerRuleSSH2
+  --lb-name myLoadBalancer --lb-address-pools myBackEndPool \
+  --lb-inbound-nat-rules myLoadBalancerRuleSSH2
 ```
 
 
@@ -971,7 +980,8 @@ az network nic create --resource-group myResourceGroup --location westeurope --n
 Availability sets help spread your VMs across fault domains and upgrade domains. Let's create an availability set for your VMs with [az vm availability-set create](/cli/azure/vm/availability-set#create). The following example creates an availability set named `myAvailabilitySet`:
 
 ```azurecli
-az vm availability-set create --resource-group myResourceGroup --location westeurope --name myAvailabilitySet
+az vm availability-set create --resource-group myResourceGroup --location westeurope \
+  --name myAvailabilitySet
 ```
 
 Fault domains define a grouping of virtual machines that share a common power source and network switch. By default, the virtual machines that are configured within your availability set are separated across up to three fault domains. The idea is that a hardware issue in one of these fault domains does not affect every VM that is running your app. Azure automatically distributes VMs across the fault domains when placing them in an availability set.
@@ -1078,7 +1088,8 @@ This command creates the `myResourceGroup.json` file in your current working dir
 To create an environment from your template, use [az resource group deployment create](/cli/azure/resource/group/deployment#create) as follows:
 
 ```azurecli
-az resource group deployment create --resource-group myNewResourceGroup --template-file myResourceGroup.json
+az resource group deployment create --resource-group myNewResourceGroup \
+  --template-file myResourceGroup.json
 ```
 
 You might want to read [more about how to deploy from templates](../resource-group-template-deploy-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Learn about how to incrementally update environments, use the parameters file, and access templates from a single storage location.
