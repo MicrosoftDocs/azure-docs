@@ -71,53 +71,64 @@ For further instructions you can see the [Kubernetes quick start](http://kuberne
 
 ## Connecting to a DC/OS or Swarm cluster
 
-The DC/OS and Docker Swarm clusters that are deployed by Azure Container Service expose REST endpoints. However, these endpoints are not open to the outside world. In order to manage these endpoints, you must create a Secure Shell (SSH) tunnel. After an SSH tunnel has been established, you can run commands against the cluster endpoints and view the cluster UI through a browser on your own system. This document walks you through creating an SSH tunnel from Linux, OS X, and Windows.
+The DC/OS and Docker Swarm clusters deployed by Azure Container Service provide several HTTP endpoints locally, but these are not accessible by default from the Internet. In order to use them, you must first create a Secure Shell (SSH) tunnel to an internal system. After this tunnel has been established, you can run commands which use these HTTP endpoints and view the cluster's Web interface from your local system.
+
+This document walks you through creating an SSH tunnel from Linux, OS X, and Windows clients.
 
 > [!NOTE]
-> You can create an SSH session with a cluster management system. However, we don't recommend this. Working directly on a management system exposes the risk for inadvertent configuration changes.   
+> These instructions focus on tunnelling TCP traffic over SSH. You can also start an interactive SSH session with one of the internal cluster management systems, but we don't recommend this. Working directly on an internal system risks inadvertent configuration changes.   
 > 
 > 
 
 ## Create an SSH tunnel on Linux or OS X
-The first thing that you do when you create an SSH tunnel on Linux or OS X is to locate the public DNS name of load-balanced masters. To do this, expand the resource group so that each resource is being displayed. Locate and select the public IP address of the master. This will open up a blade that contains information about the public IP address, which includes the DNS name. Save this name for later use. <br />
 
-![Public DNS name](media/pubdns.png)
+1. Get the public DNS name of the load balancer for the master group.
 
-Now open a shell and run the following command where:
+  * To do this in the portal, expand the resource group so that each resource is being displayed. Locate and select the public IP address of the master. This will open up a blade that contains information about the public IP address, which includes the DNS name. Save this name for later use. <br />
 
-**PORT** is the port of the endpoint that you want to expose. For Swarm, this is 2375. For DC/OS, use port 80.  
-**USERNAME** is the user name that was provided when you deployed the cluster.  
+  ![Public DNS name](media/pubdns.png)
+
+  * Alternatively, use the `az acs show ...` command and look for the "Master Profile:fqdn" property.
+
+2. Run the following command to create an SSH tunnel with one of the cluster
+   masters.  
+
+```bash
+ssh -fNL LOCAL_PORT:localhost:REMOTE_PORT -p 2200 [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com
+```
+
+**LOCAL_PORT** is the local TCP port to be forwarded over the tunnel.  
+**REMOTE_PORT** is the TCP port on the service side of the tunnel to connect to. For Swarm, set this to 2375. For DC/OS, set this to 80.  
+**USERNAME** is the user name that was provided when you deployed the cluster, by default "azureuser".  
 **DNSPREFIX** is the DNS prefix that you provided when you deployed the cluster.  
 **REGION** is the region in which your resource group is located.  
-**PATH_TO_PRIVATE_KEY** [OPTIONAL] is the path to the private key that corresponds to the public key you provided when you created the Container Service cluster. Use this option with the -i flag.
 
-```bash
-ssh -L PORT:localhost:PORT -f -N [USERNAME]@[DNSPREFIX]mgmt.[REGION].cloudapp.azure.com -p 2200
-```
-> The SSH connection port is 2200--not the standard port 22.
-> 
-> 
+> Note: The SSH connection port is 2200 and not the standard port 22.
+>
+>
 
 ## DC/OS tunnel
-To open a tunnel to the DC/OS-related endpoints, execute a command that is similar to the following:
+
+To open a tunnel for DC/OS endpoints, execute a command like the following:
 
 ```bash
-sudo ssh -L 80:localhost:80 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -fNL 8888:localhost:80 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
 ```
 
-You can now access the DC/OS-related endpoints at:
+You can now access the DC/OS endpoints from your local system through the following URLs:
 
-* DC/OS: `http://localhost/`
-* Marathon: `http://localhost/marathon`
-* Mesos: `http://localhost/mesos`
+* DC/OS: `http://localhost:8888/`
+* Marathon: `http://localhost:8888/marathon`
+* Mesos: `http://localhost:8888/mesos`
 
-Similarly, you can reach the rest APIs for each application through this tunnel.
+Similarly, you can reach other REST APIs for each application through this tunnel.
 
 ## Swarm tunnel
-To open a tunnel to the Swarm endpoint, execute a command that looks similar to the following:
+
+To open a tunnel to the Swarm endpoint, execute a command like the following:
 
 ```bash
-ssh -L 2375:localhost:2375 -f -N azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com -p 2200
+ssh -fNL 2375:localhost:2375 -p 2200 azureuser@acsexamplemgmt.japaneast.cloudapp.azure.com
 ```
 
 Now you can set your DOCKER_HOST environment variable as follows. You can continue to use your Docker command-line interface (CLI) as normal.
