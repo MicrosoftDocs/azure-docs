@@ -29,7 +29,7 @@ This article walks you through the process of creating records and records sets 
 
 ## Create a record set and record
 
-This section describes how to create DNS records in Azure DNS. The examples assume you have already [installed Azure PowerShell, signed in, and created a DNS zone](dns-gestarted-create-dnszone.md).
+This section describes how to create DNS records in Azure DNS. The examples assume you have already [installed Azure PowerShell, signed in, and created a DNS zone](dns-getstarted-create-dnszone.md).
 
 The examples on this page all use the 'A' DNS record type. For other record types and further details on how to manage DNS records and record sets, see [Manage DNS records and record sets by using PowerShell](dns-operations-recordsets.md).
 
