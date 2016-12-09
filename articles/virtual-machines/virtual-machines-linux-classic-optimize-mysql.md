@@ -27,19 +27,19 @@ There are many factors that impact MySQL performance on Azure, both in virtual h
 ## Utilize RAID on an Azure virtual machine
 Storage is the key factor that impacts database performance in cloud environments.  Compared to a single disk, RAID can provide faster access via concurrency.  Refer to [Standard RAID Levels](http://en.wikipedia.org/wiki/Standard_RAID_levels) for more detail.   
 
-Disk I/O throughput and I/O response time in Azure can be significantly improved through RAID. Our lab tests show that disk I/O throughput can be doubled and I/O response time can be reduced by half on average when the number of RAID disks is doubled (from two to four, four to eight, etc.). See [Appendix A](#AppendixA) for details.  
+Disk I/O throughput and I/O response time in Azure can be improved through RAID. Our lab tests show that disk I/O throughput can be doubled and I/O response time can be reduced by half on average when the number of RAID disks is doubled (from two to four, four to eight, etc.). See [Appendix A](#AppendixA) for details.  
 
 In addition to disk I/O, MySQL performance improves when you increase the RAID level.  See [Appendix B](#AppendixB) for details.  
 
-You might also want to consider the chunk size. In general when you have a larger chunk size, you will get lower overhead, especially for large writes. However, when the chunk size is too large, it might add additional overhead that prevents you from taking advantage of  RAID. The current default size is 512KB, which is proven to be optimal for most general production environments. See [Appendix C](#AppendixC) for details.   
+You might also want to consider the chunk size. In general, when you have a larger chunk size, you get lower overhead, especially for large writes. However, when the chunk size is too large, it might add additional overhead that prevents you from taking advantage of RAID. The current default size is 512 KB, which is proven to be optimal for most general production environments. See [Appendix C](#AppendixC) for details.   
 
 There are limits on how many disks you can add for different virtual machine types. These limits are detailed in [Virtual Machine and Cloud Service Sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). You will need four attached data disks to follow the RAID example in this article, although you could choose to set up RAID with fewer disks.  
 
-This article assumes you have already created a Linux virtual machine and have MYSQL installed and configured. For more information on getting started, refer to How to install MySQL on Azure.  
+This article assumes you have already created a Linux virtual machine and have MYSQL installed and configured. For more information on getting started, see How to install MySQL on Azure.  
 
 ### Set up RAID on Azure
 The following steps show how to create RAID on Azure by using the Azure classic portal. You can also set up RAID by using Windows PowerShell scripts.
-In this example we will configure RAID 0 with four disks.  
+In this example, we will configure RAID 0 with four disks.  
 
 #### Add a data disk to your virtual machine
 On the virtual machines page of the Azure classic portal, click the virtual machine to which you want to add a data disk. In this example, the virtual machine is mysqlnode1.  
@@ -60,7 +60,7 @@ And then click **Attach empty disk**.
 
 For data disks, the **Host Cache Preference** should be set to **None**.  
 
-This will add one empty disk into your virtual machine. Repeat this step three more times so that you have four data disks for RAID.  
+This adds one empty disk into your virtual machine. Repeat this step three more times so that you have four data disks for RAID.  
 
 You can see the added drives in the virtual machine by looking at the kernel message log. For example, to see this on Ubuntu, use the following command:  
 
@@ -107,7 +107,7 @@ Linux implements four types of I/O scheduling algorithms:
 * Completely fair queuing algorithm (CFQ)
 * Budget period algorithm (Anticipatory)  
 
-You can select different I/O schedulers under different scenarios to optimize performance. In a completely random access environment, there is not a big difference between the CFQ and Deadline algorithms for performance. It is generally recommended to set the MySQL database environment to Deadline for stability. If there is a lot of sequential I/O, CFQ might reduce disk I/O performance.   
+You can select different I/O schedulers under different scenarios to optimize performance. In a completely random access environment, there is not a significant difference between the CFQ and Deadline algorithms for performance. It is recommended to set the MySQL database environment to Deadline for stability. If there is a lot of sequential I/O, CFQ might reduce disk I/O performance.   
 
 For SSD and other equipment, NOOP or Deadline can achieve better performance than the default scheduler.   
 
@@ -136,7 +136,7 @@ Use the following commands to change the current device:
     root@mysqlnode1:~# update-grub
 
 > [!NOTE]
-> Setting this for /dev/sda alone is not useful. It needs to be set on all data disks where the database resides.  
+> Setting this for /dev/sda alone is not useful. It must be set on all data disks where the database resides.  
 >
 >
 
@@ -151,7 +151,7 @@ You should see the following output, indicating that grub.cfg has been rebuilt s
     Found memtest86+ image: /memtest86+.bin
     done
 
-For the Redhat distribution family, you need  only the following command:   
+For the Red Hat distribution family, you need only the following command:
 
     echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 
@@ -160,7 +160,7 @@ One best practice is to disable the atime logging feature on the file system. At
 
 To disable atime logging, you need to modify the file system configuration file /etc/ fstab and add the **noatime** option.  
 
-For example, edit  the vim /etc/fstab file, adding the noatime as shown in the following sample:  
+For example, edit the vim /etc/fstab file, adding the noatime as shown in the following sample:  
 
     # CLOUD_IMG: This file was created/modified by the Cloud Image build process
     UUID=3cc98c06-d649-432d-81df-6dcd2a584d41       /        ext4   defaults,discard        0 0
@@ -172,7 +172,7 @@ Then, remount the file system with the following command:
 
     mount -o remount /RAID0
 
-Test the modified result. Note that when you modify the test file, the access time is not updated. The following examples show what the code looks like before and after modification
+Test the modified result. When you modify the test file, the access time is not updated. The following examples show what the code looks like before and after modification
 
 Before:        
 
@@ -186,7 +186,7 @@ After:
 MySQL is high concurrency database. The default number of concurrent handles is 1024 for Linux, which is not always sufficient. Use the following steps to increase the maximum concurrent handles of the system to support high concurrency of MySQL.
 
 ### Modify the limits.conf file
-Add the following four lines in the /etc/security/limits.conf file to increase the maximum allowed concurrent handles. Note that 65536 is the maximum number that the system can support.   
+To increase the maximum allowed concurrent handles, add the following four lines in the /etc/security/limits.conf file. Note that 65536 is the maximum number that the system can support.   
 
     * soft nofile 65536
     * hard nofile 65536
@@ -223,15 +223,15 @@ The following configuration items are the main factors that affect MySQL perform
 * **Innodb_file_per_table**: This setting enables or disables the ability of InnoDB to store tables in separate files. Turn on the option to ensure that several advanced administration operations can be applied efficiently. From a performance point of view, it can speed up the table space transmission and optimize the debris management performance. The recommended setting for this option is ON.</br></br>
 From MySQL 5.6, the default setting is ON, so no action is required. For earlier versions, the default setting is OFF. The setting should be changed before data is loaded, because only newly created tables are affected.</br></br>
 * **innodb_flush_log_at_trx_commit**: The default value is 1, with the scope set to 0~2. The default value is the most suitable option for standalone MySQL DB. The setting of 2 enables the most data integrity and is suitable for Master in MySQL cluster. The setting of 0 allows data loss, which can affect reliability (in some cases with better performance), and is suitable for Slave in MySQL cluster.
-* **Innodb_log_buffer_size**: The log buffer allows transactions to run without having to flush the log to disk before the transactions commit. However, if there is large binary object or text field, the cache will be consumed very quickly and frequent disk I/O will be triggered. It is better increase the buffer size if Innodb_log_waits state variable is not 0.
-* **query_cache_size**:  The best option is to disable it from the outset. Set query_cache_size to 0 (this is now the default setting in MySQL 5.6) and use other methods to speed up queries .  
+* **Innodb_log_buffer_size**: The log buffer allows transactions to run without having to flush the log to disk before the transactions commit. However, if there is large binary object or text field, the cache will be consumed quickly and frequent disk I/O will be triggered. It is better increase the buffer size if Innodb_log_waits state variable is not 0.
+* **query_cache_size**: The best option is to disable it from the outset. Set query_cache_size to 0 (this is the default setting in MySQL 5.6) and use other methods to speed up queries.  
 
 See [Appendix D](#AppendixD) for a comparison of performance before and after the optimization.
 
 ## Turn on the MySQL slow query log for analyzing the performance bottleneck
 The MySQL slow query log can help you identify the slow queries for MySQL. After enabling the MySQL slow query log, you can use MySQL tools like **mysqldumpslow** to identify the performance bottleneck.  
 
-By default this is not enabled. Turning on the slow query log might consume some CPU resources. We recommend that you enable this temporarily for troubleshooting performance bottlenecks. To turn on the slow query log:
+By default, this is not enabled. Turning on the slow query log might consume some CPU resources. We recommend that you enable this temporarily for troubleshooting performance bottlenecks. To turn on the slow query log:
 
 1. Modify my.cnf file by adding the following lines to the end:
         long_query_time = 2
@@ -318,7 +318,7 @@ The file sizes used for this testing are 30 GB and 1 GB, respectively, with RAID
 | **innodb_log_buffer_size** |8 MB |128 MB |
 | **query_cache_size** |16 MB |0 |
 
-For more detailed [optimization configuration parameters](http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html), please refer to the [MySQL official instructions](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method).  
+For more detailed [optimization configuration parameters](http://dev.mysql.com/doc/refman/5.6/en/innodb-configuration.html), refer to the [MySQL official instructions](http://dev.mysql.com/doc/refman/5.6/en/innodb-parameters.html#sysvar_innodb_flush_method).  
 
   **Test environment**  
 
