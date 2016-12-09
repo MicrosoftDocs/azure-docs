@@ -38,10 +38,13 @@ The Azure Stack template validation files are hosted in [Azure Stack Tools](http
     New-Item $LocalPath -type directory
 
     # Download Template Validator files
-    ( 'AzureStackCapabilities_TP2.json', 'AzureRM.TemplateValidator.psm1') | foreach { Invoke-WebRequest ($uri + 'TemplateValidator/' +$_) -OutFile ($LocalPath + '\' + $_) }
+    ( 'AzureStackCapabilities_TP2.json', 'AzureRM.TemplateValidator.psm1') | `
+    foreach { Invoke-WebRequest ($uri + 'TemplateValidator/' +$_) -OutFile ($LocalPath + '\' + $_) }
 
     # Download Template Validator files
-    Invoke-WebRequest 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/CloudCapabilities/AzureRM.CloudCapabilities.psm1' -OutFile ($LocalPath + '\' + 'AzureRM.CloudCapabilities.psm1') 
+    Invoke-WebRequest `
+    'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/CloudCapabilities/AzureRM.CloudCapabilities.psm1' ` 
+    -OutFile ($LocalPath + '\' + 'AzureRM.CloudCapabilities.psm1') 
 ```
 
 ## Validate templates
@@ -57,7 +60,8 @@ In these steps, you validate templates using the AzureRM.CloudCapabilities Power
 2.  Run the template validator:
 
     ```PowerShell
-    test-azureRMTemplate -TemplatePath <path to template.json or template folder> -CapabilitiesPath <path to cloudcapabilities.json> -Verbose -Report
+    test-azureRMTemplate -TemplatePath <path to template.json or template folder> ` 
+    -CapabilitiesPath <path to cloudcapabilities.json> -Verbose -Report
     ```
 
 4.  Any template validation warnings or errors are logged to the PowerShell console, and are also logged to an HTML file in the execution directory.  
