@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
-ms.date: 12/07/2016
+ms.date: 12/08/2016
 ms.author: sstein
 
 ---
@@ -37,17 +37,35 @@ In this tutorial, you also:
 * Connect to the sample database
 * View user database properties
 
+When you finish this tutorial, you will have a sample database and a blank database running in an Azure resource group and attached to a logical server. You will also have a server-level firewall rule configured to enable the server-level principal to log in to the server from a specified IP address (or IP address range). 
 
-## Download and save the AdventureWorksLT sample database (.bacpac) to Azure blob storage
+**Time estimate:** This tutorial will take you approximately 30 minutes (assuming you already meet the prerequisites).
+
+
+> [!TIP]
+> You can perform these same tasks in a getting started tutorial by using [the Azure portal](sql-database-get-started.md).
+>
+
+
+## Prerequisites
+
+* You need an Azure account. You can [open a free Azure account](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
+
+* You must be signed in using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
+
+* You need the AdventureWorksLT sample database .bacpac file in Azure blob storage
+
+### Download the AdventureWorksLT sample database .bacpac file ad save it in Azure blob storage
 
 This tutorial creates a new AdventureWorksLT database by importing a .bacpac file from Azure Storage. The first step is to get a copy of the AdventureWorksLT.bacpac, and upload it to blob storage.
 The following steps get the sample database ready to import:
 
 1. [Download the AdventureWorksLT.bacpac](https://sqldbbacpacs.blob.core.windows.net/bacpacs/AdventureWorksLT.bacpac) and save it with a .bacpac file extension.
-2. [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) - Set *Account kind* to **Blob storage**.
-3. After creating your storage account, browse to it and create a new **Container**.
-4. Upload the .bacpac file to the blob container in your storage account You can use the **Upload** button at the top of the container in the Azure portal, or [use AzCopy](../storage/storage-use-azcopy.md#blob-upload). 
-5. After saving the AdventureWorksLT.bacpac, you need the URL and storage account key for the import code snippet later in this tutorial. Select your bacpac file and copy the URL. It will be similar to https://{storage-account-name}.blob.core.windows.net/{container-name}/AdventureWorksLT.bacpac. On the storage account page, click **Access keys**, and copy **key1**.
+2. [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account) - you can create the storage account with the default settings.
+3. Create a new **Container** by browsing to the storage account, select **Blobs**, and then click **+Container**.
+4. Upload the .bacpac file to the blob container in your storage account. You can use the **Upload** button at the top of the container page, or [use AzCopy](../storage/storage-use-azcopy.md#blob-upload). 
+5. After saving the AdventureWorksLT.bacpac, you need the URL and storage account key for the import code snippet later in this tutorial. 
+   * Select your bacpac file and copy the URL. It will be similar to https://{storage-account-name}.blob.core.windows.net/{container-name}/AdventureWorksLT.bacpac. On the storage account page, click **Access keys**, and copy **key1**.
 
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
@@ -86,8 +104,8 @@ $myResourceGroup
 
 $serverName = "{server-name}"
 $serverVersion = "12.0"
-$serverLocation = "{server-location}"
-$serverResourceGroupName = "{resource-group-name}"
+$serverLocation = $resourceGroupLocation
+$serverResourceGroupName = $resourceGroupName
 
 $serverAdmin = "{server-admin}"
 $serverAdminPassword = "{server-admin-password}"
@@ -110,11 +128,11 @@ $myServer
 ```
 
 
-## View logical SQL Server properties using Azure PowerShell
+## View the logical SQL Server properties using Azure PowerShell
 
 ```
-$resourceGroupName = "{resource-group-name}"
-$serverName = "{server-name}"
+#$serverResourceGroupName = "{resource-group-name}"
+#$serverName = "{server-name}"
 
 $myServer = Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $serverResourceGroupName 
 
@@ -132,9 +150,11 @@ You need to know your public IP address to set the firewall rule. You can get yo
 
 The following uses the [Get-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqlserverfirewallrule), and [New-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqlserverfirewallrule) cmdlets to get a reference or create a new rule. For this snippet, if the rule already exists, it only gets a reference to it and doesn't update the start and end IP addresses. You can always modify the **else** clause to use the [Set-AzureRmSqlServerFirewallRule](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverfirewallrule) for create or update functionality.
 
+> [!NOTE] You can open the SQL Database firewall on the server to a single IP address or an entire range of addresses. Opening the firewall enables SQL administrators and users to login to any database on the server to which they have valid credentials.
+
 ```
-$serverName = "{server-name}"
-$serverResourceGroupName = "{resource-group-name}"
+#$serverName = "{server-name}"
+#$serverResourceGroupName = "{resource-group-name}"
 $serverFirewallRuleName = "{server-firewall-rule-name}"
 $serverFirewallStartIp = "{server-firewall-rule-startIp}"
 $serverFirewallEndIp = "{server-firewall-rule-endIp}"
@@ -160,10 +180,12 @@ Lets run a quick query against the master database to verify we can connect to t
 
 
 ```
-$serverName = "{server-name}"
+#$serverName = "{server-name}"
+#$serverAdmin = "{server-admin}"
+#$serverAdminPassword = "{server-admin-password}"
 $databaseName = "master"
 
-$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID={server-admin};Password={admin-password}" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
+$connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=$serverAdmin;Password=$serverAdminPassword" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
 
 
@@ -189,18 +211,19 @@ $connection.Close()
 ## Create new AdventureWorksLT sample database using Azure PowerShell
 
 The following snippet imports a bacpac of the AdventureWorksLT sample database using the [New-AzureRmSqlDatabaseImport](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/new-azurermsqldatabaseimport) cmdlet. The bacpac is located in Azure blob storage. After running the import cmdlet, you can monitor the progress of the import operation using the [Get-AzureRmSqlDatabaseImportExportStatus](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabaseimportexportstatus) cmdlet.
+The $storageUri is the URL property of the bacpac file you uploaded to the portal earlier. 
 
 ```
-$resourceGroupName = "{resource-group-name}"
-$serverName = "{server-name}"
+#$resourceGroupName = "{resource-group-name}"
+#$serverName = "{server-name}"
 
-$databaseName = "{database-name}"
+$databaseName = "AdventureWorksLT"
 $databaseEdition = "Basic"
 $databaseServiceLevel = "Basic"
 
 $storageKeyType = "StorageAccessKey"
-$storageUri = "{storage-uri}"
-$storageKey = "{storage-key}"
+$storageUri = "{storage-uri}" # URL of bacpac file you uploaded to your storage account
+$storageKey = "{storage-key}" # key1 in the Access keys setting of your storage account
 
 $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
 
@@ -219,12 +242,12 @@ $importStatus
 
 ## View database properties using Azure PowerShell
 
-
+After creating the database, view some of it's properties.
 
 ```
-$resourceGroupName = "{resource-group-name}"
-$serverName = "{server-name}"
-$databaseName = "{database-name}"
+#$resourceGroupName = "{resource-group-name}"
+#$serverName = "{server-name}"
+#$databaseName = "{database-name}"
 
 $myDatabase = Get-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName
 
@@ -242,8 +265,10 @@ Write-Host "Database status: " $myDatabase.Status
 Lets run a quick query against the AdventureWorksLT database to verify we can connect. The following snippet uses the [.NET Framework Provider for SQL Server (System.Data.SqlClient)](https://msdn.microsoft.com/library/system.data.sqlclient(v=vs.110).aspx) to connect and query the database. It builds a connection string based on the variables we used in the previous snippets. Replace the placeholder with the SQL server admin password.
 
 ```
-$serverName = {server-name}
-$databaseName = {database-name}
+#$serverName = {server-name}
+#$serverAdmin = "{server-admin}"
+#$serverAdminPassword = "{server-admin-password}"
+#$databaseName = {database-name}
 
 $connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID={server-admin};Password={admin-password}" + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
@@ -264,6 +289,21 @@ while ($reader.Read()) {
 $tables
 
 $connection.Close()
+```
+
+## Create a new blank database using Azure PowerShell
+
+```
+#$resourceGroupName = {resource-group-name}
+#$serverName = {server-name}
+
+$blankDatabaseName = "blankdb"
+$blankDatabaseEdition = "Basic"
+$blankDatabaseServiceLevel = "Basic"
+
+
+$myBlankDatabase = New-AzureRmSqlDatabase -DatabaseName $blankDatabaseName -ServerName $serverName -ResourceGroupName $resourceGroupName -Edition $blankDatabaseEdition -RequestedServiceObjectiveName $blankDatabaseServiceLevel
+$myBlankDatabase
 ```
 
 
@@ -327,7 +367,6 @@ else
 $myResourceGroup
 
 
-
 # Create a new, or get existing server
 ######################################
 
@@ -354,6 +393,7 @@ else
 }
 $myServer
 
+
 # View server properties
 ##########################
 
@@ -367,7 +407,6 @@ Write-Host "Fully qualified server name: $serverName.database.windows.net"
 Write-Host "Server location: " $myServer.Location
 Write-Host "Server version: " $myServer.ServerVersion
 Write-Host "Server administrator login: " $myServer.SqlAdministratorLogin
-
 
 
 # Create or update server firewall rule
@@ -391,7 +430,6 @@ else
 $myFirewallRule
 
 
-
 # Connect to the server and master database
 ###########################################
 $databaseName = "master"
@@ -407,7 +445,6 @@ $command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.object
 $command.Connection = $connection
 $reader = $command.ExecuteReader()
 
-
 $tables = ""
 while ($reader.Read()) {
     $tables += $reader["name"] + "`n"
@@ -415,7 +452,6 @@ while ($reader.Read()) {
 $tables
 
 $connection.Close()
-
 
 
 # Create the AdventureWorksLT database from a bacpac
@@ -433,7 +469,6 @@ $storageUri = $myStorageUri
 $storageKey = $myStorageKey
 
 $importRequest = New-AzureRmSqlDatabaseImport –ResourceGroupName $resourceGroupName –ServerName $serverName –DatabaseName $databaseName –StorageKeytype $storageKeyType –StorageKey $storageKey -StorageUri $storageUri –AdministratorLogin $serverAdmin –AdministratorLoginPassword $securePassword –Edition $databaseEdition –ServiceObjectiveName $databaseServiceLevel -DatabaseMaxSizeBytes 5000000
-
 
 Do {
      $importStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $importRequest.OperationStatusLink
@@ -454,7 +489,6 @@ $databaseName = $myDatabaseName
 
 $myDatabase = Get-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName
 
-
 Write-Host "Database name: " $myDatabase.DatabaseName
 Write-Host "Server name: " $myDatabase.ServerName
 Write-Host "Creation date: " $myDatabase.CreationDate
@@ -468,7 +502,6 @@ Write-Host "Database status: " $myDatabase.Status
 
 $connectionString = "Server=tcp:" + $serverName + ".database.windows.net" + ",1433;Initial Catalog=" + $databaseName + ";Persist Security Info=False;User ID=" + $myServer.SqlAdministratorLogin + ";Password=" + $myServerAdminPassword + ";MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;"
 
-
 $connection = New-Object System.Data.SqlClient.SqlConnection
 $connection.ConnectionString = $connectionString
 $connection.Open()
@@ -477,7 +510,6 @@ $command = New-Object System.Data.SQLClient.SQLCommand("select * from sys.object
 $command.Connection = $connection
 $reader = $command.ExecuteReader()
 
-
 $tables = ""
 while ($reader.Read()) {
     $tables += $reader["name"] + "`n"
@@ -485,6 +517,18 @@ while ($reader.Read()) {
 $tables
 
 $connection.Close()
+
+
+# Create a blank database
+#########################
+
+$blankDatabaseName = "blankdb"
+$blankDatabaseEdition = "Basic"
+$blankDatabaseServiceLevel = "Basic"
+
+
+$myBlankDatabase = New-AzureRmSqlDatabase -DatabaseName $blankDatabaseName -ServerName $serverName -ResourceGroupName $resourceGroupName -Edition $blankDatabaseEdition -RequestedServiceObjectiveName $blankDatabaseServiceLevel
+$myBlankDatabase
 ```
 
 
@@ -508,7 +552,9 @@ foreach ($region in $sqlRegions)
 Remove-AzureRmResourceGroup -Name {resource-group-name}
 ```
 
-
+> [!TIP]
+> You can save some money while you are learning by deleting databases that you are not using. For Basic edition databases, you can restore them within seven days. However, do not delete the server. If you do so, you cannot recover the server or any of its deleted databases.
+>
 
 ## Next steps
 Now that you've completed this first getting started tutorial and created a database with some sample data, there are number of additional tutorials that you may wish to explore that build what you have learned in this tutorial. 
@@ -519,5 +565,6 @@ Now that you've completed this first getting started tutorial and created a data
 * If you want to move your on-premises SQL Server databases to Azure, see [Migrating a database to SQL Database](sql-database-cloud-migrate.md).
 * If you want to load some data into a new table from a CSV file by using the BCP command-line tool, see [Loading data into SQL Database from a CSV file using BCP](sql-database-load-from-csv-with-bcp.md).
 * If you want to start creating tables and other objects, see the "To create a table" topic in [Creating a table](https://msdn.microsoft.com/library/ms365315.aspx).
+
 ## Additional resources
 [What is SQL Database?](sql-database-technical-overview.md)
