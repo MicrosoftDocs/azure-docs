@@ -992,6 +992,6 @@ This feature includes matching criteria that must be met before it can be applie
 ## See also
 * [Rules Engine Reference](cdn-rules-engine-reference.md)
 * [Rules Engine Conditional Expressions](cdn-rules-engine-reference-conditional-expressions.md)
-* [Rules Engine Match Conditions](cdn-rules-engine-match-conditions.md)
+* [Rules Engine Match Conditions](cdn-rules-engine-reference-match-conditions.md)
 * [Overriding default HTTP behavior using the rules engine](cdn-rules-engine.md)
 * [Azure CDN Overview](cdn-overview.md)
