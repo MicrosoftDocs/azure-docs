@@ -46,7 +46,7 @@ IoT Hub implements device-to-cloud messaging using a streaming messaging pattern
 This implementation has the following implications:
 
 * Similarly to Event Hubs events, device-to-cloud messages are durable and retained in an IoT hub's default **messages/events** endpoint for up to seven days (see [Device-to-cloud configuration options][lnk-d2c-configuration]).
-* Like Event Hubs events, device-to-cloud messages can be at most 256 KB, and can be grouped in batches to optimize sends. Batches can be at most 256 KB, and at most 500 messages.
+* Like Event Hubs events, device-to-cloud messages can be at most 256 KB, and can be grouped in batches to optimize sends. Batches can be at most 256 KB.
 
 There are, however, a few important distinctions between IoT Hub device-to-cloud messaging and Event Hubs:
 
