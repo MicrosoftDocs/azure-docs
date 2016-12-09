@@ -29,6 +29,8 @@ Here are some of the things you can do with Diagnostic Logs:
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 * Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
 
+The storage account or event hub namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
+
 ## Diagnostic Settings
 Diagnostic Logs for non-Compute resources are configured using Diagnostic Settings. **Diagnostic Settings** for a resource control:
 
