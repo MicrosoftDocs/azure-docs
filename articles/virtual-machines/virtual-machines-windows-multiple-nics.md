@@ -26,7 +26,7 @@ You can create a virtual machine (VM) in Azure that has multiple virtual network
 > 
 
 ## Create core resources
-Make sure that you have the [latest Azure PowerShell installed and configured](../powershell-install-configure.md). Log in to your Azure account:
+Make sure that you have the [latest Azure PowerShell installed and configured](/powershell/azureps-cmdlets-docs). Log in to your Azure account:
 
 ```powershell
 Login-AzureRmAccount

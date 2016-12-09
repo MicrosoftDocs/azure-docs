@@ -57,16 +57,6 @@ From this blade you can connect to the virtual machine using remote desktop, mon
 
 ![Managing a Resource][ManageResource]
 
-## How to customize a resource blade
-Azure preconfigures the blades for your resources, but the tiles on these blades are yours to control.  You can easily go into customize mode to add, remove, resize, or re-arrange the tiles. To customize a blade, perform the following actions:
-
-1. Browse to your resource.
-2. Click the ‘…’ at the top of the blade you want to customize.
-3. Click ‘Add parts’.
-4. Start dragging and dropping parts.  
-
-![Customizing Blades][CustomizeBlades]
-
 ## How to get help
 If you ever have a problem, we’re here for you.  The portal has a help and support page that can point you in the right direction.  Depending on your [support plan](https://azure.microsoft.com/support/plans/), you can also create support tickets directly in the portal.  After creating a support ticket, you can manage the lifecycle of the ticket from within the portal. You can get to the help and support page by navigating to Browse -> Help + support.  
 
