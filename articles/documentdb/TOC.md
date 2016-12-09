@@ -53,6 +53,7 @@
 ### [SQL query](documentdb-sql-query.md)
 ### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
 ### [Performance testing](documentdb-performance-testing.md)
+### [Performance testing](documentdb-performance-testing.md)
 ### [Performance tips](documentdb-performance-tips.md)
 ### DocumentDB for MongoDB developers
 #### [Protocol support for MongoDB](documentdb-protocol-mongodb.md)
