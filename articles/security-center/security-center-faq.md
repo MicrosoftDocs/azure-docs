@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 12/09/2016
 ms.author: terrylan
 
 ---
@@ -34,6 +34,13 @@ Security Center is offered in two tiers: Free and Standard.
 The Free tier enables you to set security policies and receive security alerts, incidents, and recommendations that guide you through the process of configuring needed controls. With the Free tier you can also monitor the security state of your Azure resources and partner solutions integrated with your Azure subscription.
 
 The Standard tier provides the Free tier features plus advanced detections: threat intelligence, behavioral analysis, crash analysis, and anomaly detection. A free 90-day trial of the Standard tier is available. To upgrade, select Pricing Tier in the [security policy](security-center-policies.md#set-security-policies-for-subscriptions). See [Security Center pricing](security-center-pricing.md) to learn more.
+
+## Permissions
+Azure Security Center uses [Role-Based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md), which provides [built-in roles](../active-directory/role-based-access-built-in-roles.md) that can be assigned to users, groups, and services in Azure.
+
+Security Center assesses the configuration of your resources to identify security issues and vulnerabilities. In Security Center, you only see information related to a resource when you are assigned the role of Owner, Contributor, or Reader for the subscription or resource group that a resource belongs to.
+
+See [Permissions in Azure Security Center](security-center-permissions.md) to learn more about roles and allowed actions in Security Center.
 
 ## Data collection
 Security Center collects data from your virtual machines in order to assess their security state, provide security recommendations, and alert you to threats. When you first access Security Center, data collection is enabled on all virtual machines in your subscription. Data collection is recommended but you can opt-out by [disabling data collection](#how-do-i-disable-data-collection) in the Security Center policy.
@@ -112,18 +119,6 @@ Azure Security Center automatically collects, analyzes and fuses log data from y
 The Microsoft Security Response Center (MSRC) performs select security monitoring of the Azure network and infrastructure and receives threat intelligence and abuse complaints from third parties. When MSRC becomes aware that customer data has been accessed by an unlawful or unauthorized party or that the customer’s use of Azure does not comply with the terms for Acceptable Use, a security incident manager notifies the customer. Notification typically occurs by sending an email to the security contact(s) specified in Azure Security Center or the Azure subscription owner if a security contact is not specified.
 
 Security Center is an Azure service that continuously monitors the customer’s Azure environment and applies analytics to automatically detect a wide range of potentially malicious activity. These detections are surfaced as security alerts in the Security Center dashboard.
-
-### How are permissions handled in Azure Security Center?
-Azure Security Center supports role-based access. To learn more about role-based access control (RBAC) in Azure, see [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md).
-
-When a user opens Security Center, only recommendations and alerts that are related to resources the user has access to will be seen. This means that users will only see items related to resources where the user is assigned the role of Owner, Contributor, or Reader to the subscription or resource group that a resource belongs to.
-
-If you need to:
-
-* **Edit a security policy**, you must be an Owner or Contributor of the subscription.
-* **Apply a recommendation**, you must be an Owner or Contributor of the subscription.
-* **Have visibility into the security state across all of your subscriptions**, you must be an Owner, Contributor, or Reader (IT Admin, Security Team) of each subscription.
-* **Have visibility into the security state of your resources**, you must be a resource group Owner, Contributor, or Reader (DevOps).
 
 ### Which Azure resources are monitored by Azure Security Center?
 Azure Security Center monitors the following Azure resources:
