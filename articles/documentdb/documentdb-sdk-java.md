@@ -1,4 +1,3 @@
-
 ---
 title: DocumentDB Java API & SDK | Microsoft Docs
 description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK.
