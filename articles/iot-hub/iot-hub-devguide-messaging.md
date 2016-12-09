@@ -92,7 +92,7 @@ An IoT hub exposes the following properties to enable you to control the built-i
 
 IoT Hub also enables you to manage consumer groups on the built-in device-to-cloud receive endpoint.
 
-By default, all messages that do not explicitly match a message routing rule are written to the built-in endpoint. If you disable this, messages that do not explicitly match any message routing rules are dropped.
+By default, all messages that do not explicitly match a message routing rule are written to the built-in endpoint. If you disable this "fallback route", messages that do not explicitly match any message routing rules are dropped.
 
 You can modify all these properties, either programmatically through the [IoT Hub resource provider REST APIs][lnk-resource-provider-apis], or by using the [Azure portal][lnk-management-portal].
 
@@ -229,7 +229,7 @@ Each IoT hub exposes the following configuration options for cloud-to-device mes
 For more information, see [Create IoT hubs][lnk-portal].
 
 ## Read device-to-cloud messages
-IoT Hub exposes a built-in endpoint for your back-end services to read the device-to-cloud messages received by your hub. This endpoint is Event Hubs-compatible, which enables you to use any of the mechanisms the Event Hubs service supports for reading messages.
+IoT Hub exposes a built-in endpoint for your back-end services to read the device-to-cloud messages received by your hub, the **messages/events** endpoint. This endpoint is Event Hubs-compatible, which enables you to use any of the mechanisms the Event Hubs service supports for reading messages.
 
 You can also add custom routing endpoints to IoT Hub. IoT Hub currently supports adding Event Hubs, Service Bus queues, and Service Bus topics as custom routing endpoints. For more information about reading from those services, see: reading from [Event Hubs][lnk-getstarted-eh], reading from [Service Bus queues][lnk-getstarted-queue], reading from [Service Bus topics][lnk-getstarted-topic].
 
