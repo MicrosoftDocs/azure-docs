@@ -23,13 +23,13 @@ ms.author: dobett
 ## Introduction
 Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and an application back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
 
-This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and it shows how to use message routing to process device-to-cloud messages in a scalable way. The tutorial illustrates how to process messages which require immediate action from the application back end. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data point message.
+This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and it shows how to use message routing to dispatch device-to-cloud messages in an easy, configuration-based way. The tutorial illustrates how to isolate messages which require immediate action from the application back end for further processing. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data point message.
 
 At the end of this tutorial, you run three Windows console apps:
 
 * **SimulatedDevice**, a modified version of the app created in the [Get started with IoT Hub] tutorial, sends data point device-to-cloud messages every second, and interactive device-to-cloud messages every 10 seconds. This app uses the AMQP protocol to communicate with IoT Hub.
 * **ReadDeviceToCloudMessages** which displays the non-critical telemetry sent by your simulated device app.
-* **ReadCriticalQueue** de-queues the critical messages from the Service Bus queue attached to the IoT hub.
+* **ReadCriticalQueue** de-queues the critical messages sent by your simulated device app from the Service Bus queue attached to the IoT hub.
 
 > [!NOTE]
 > IoT Hub has SDK support for many device platforms and languages, including C, Java, and JavaScript. To learn how to replace the simulated device in this tutorial with a physical device, and how to connect devices to an IoT Hub, see the [Azure IoT Developer Center].
@@ -64,22 +64,25 @@ In this section, you modify the simulated device app you created in the [Get sta
                     windSpeed = currentWindSpeed
                 };
                 var messageString = JsonConvert.SerializeObject(telemetryDataPoint);
-                var message = new Message(Encoding.ASCII.GetBytes(messageString));
+                string levelValue;
 
                 if (rand.NextDouble() > 0.7)
                 {
-                    message = new Message(Encoding.ASCII.GetBytes("This is a critical message"));
-                    message.Properties.Add("level", "critical");
+                    messageString = "This is a critical message";
+                    levelValue = "critical";
                 }
                 else
                 {
-                    message.Properties.Add("level", "normal");
+                    levelValue = "normal";
                 }
-
+                
+                var message = new Message(Encoding.ASCII.GetBytes(messageString));
+                message.Properties.Add("level", levelValue);
+                
                 await deviceClient.SendEventAsync(message);
-                Console.WriteLine("{0} > Sending message: {1}", DateTime.Now, messageString);
+                Console.WriteLine("{0} > Sent message: {1}", DateTime.Now, messageString);
 
-                Task.Delay(1000).Wait();
+                await Task.Delay(1000);
             }
         }
     ```
@@ -99,7 +102,7 @@ In this section, you modify the simulated device app you created in the [Get sta
 ## Add a queue to your IoT hub and route messages to it
 In this section, you create a Service Bus queue, connect it to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message. For more information about how to process messages from Service Bus queues, see [Get started with queues][Service Bus queue].
 
-1. Create a Service Bus queue as described in [Get started with queues][Service Bus queue]. Make a note of hte namespace and queue name.
+1. Create a Service Bus queue as described in [Get started with queues][Service Bus queue]. The queue must be in the same subscription and region as your IoT hub. Make a note of the namespace and queue name.
 
 2. In the Azure portal, open your IoT hub and click on **Endpoints**.
     
