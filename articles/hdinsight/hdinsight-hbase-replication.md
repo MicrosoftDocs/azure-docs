@@ -49,7 +49,7 @@ There are three possible configurations:
 
 - Two HBase clusters in one Azure VNet.
 - Two HBase clusters in two different VNets in the same region.
-- Two HBase clusters in two different Vnets in two different regions.
+- Two HBase clusters in two different VNets in two different regions.
 
 To make it easier to configure the environments, we have created some [Azure Resource Manager templates](../azure-resource-manager/resource-group-overview.md). If you prefer to configure the environments using other methods, see:
 
@@ -75,7 +75,7 @@ HBase replication uses IP addresses of the Zookeepers. You must configure static
 5. Click one of the Zookeeper VMs.
 6. Click **IP configurations**.
 7. Click **ipConfig1** from the list.
-8. Click **Static**, and write down the actual IP address.  You will need the IP address when you run the script action to enable repliction.
+8. Click **Static**, and write down the actual IP address.  You will need the IP address when you run the script action to enable replication.
 
   ![HDInsight HBase Replication Zookeeper static IP](./media/hdinsight-hbase-replication/hdinsight-hbase-replication-zookeeper-static-ip.png)
 
@@ -128,7 +128,7 @@ Required arguments:
 |-sp, --src-ambari-password | Specify the admin password for Ambari of source HBase cluster. | 
 |-dp, --dst-ambari-password | Specify the admin password for Ambari of destination HBase cluster.|
 
-Optinal arguments:
+Optional arguments:
 
 |Name|Description|
 |----|-----------|
@@ -151,19 +151,19 @@ The following list shows you some general usage cases and their parameter settin
 
 1. **Enable replication on all tables between the two clusters**. This scenario does not require the copy/migration of existing data on the tables, and it does not use Phoenix tables. Use the following parameters:
 
-        -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -m hn0 
+        -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -m hn1 
  
 2. **Enable replication on specific tables**. Use the following parameters to enable replication on table1, table2 and table3:
 
-        -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -m hn0 -t "table1;table2;table3" 
+        -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -m hn1 -t "table1;table2;table3" 
  
 3. **Enable replication on specific tables and copy the existing data**. Use the following parameters to enable replication on table1, table2 and table3:
 
-        -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -m hn0 -t "table1;table2;table3" -copydata
+        -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -m hn1 -t "table1;table2;table3" -copydata
  
 4. **Enable replication on all tables with replicating phoenix metadata from source to destination**. Phoenix metadata replication is not perfect and should be enabled with caution. 
 
-        -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -m hn0 -t "table1;table2;table3" -replicate-phoenix-meta  
+        -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -m hn1 -t "table1;table2;table3" -replicate-phoenix-meta  
 
 ## Copy and migrate data
 
@@ -215,11 +215,11 @@ Detailed explanation of parameters is provided in print_usage() section of the [
         -s <source cluster DNS name> -sp Mypassword\!789 -all -m hn1
   or
 
-        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=admin --src-ambari-password=Hello\!789
+        --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=&lt;source cluster Ambari username> --src-ambari-password=&lt;source cluster Ambari password>
  
 2. **Disable replication on specified tables**(table1, table2 and table3):
   
-        -s <source cluster DNS name> -sp MyPassword\!789 -m hn1 -t "table1;table2;table3"
+        -s <source cluster DNS name> -sp &lt;source cluster Ambari password> -m hn1 -t "table1;table2;table3"
  
 ## Next Steps
 
