@@ -51,7 +51,8 @@ az network nsg rule create --resource-group myResourceGroup --nsg-name myNetwork
 Associate the Network Security Group with your VM's network interface (NIC) with [az network nic update](/cli/azure/network/nic#update). The following example associates an existing NIC named `myNic` with the Network Security Group named `myNetworkSecurityGroup`:
 
 ```azurecli
-az network nic update --resource-group myResourceGroup --name myNic --network-security-group myNetworkSecurityGroup
+az network nic update --resource-group myResourceGroup --name myNic \
+    --network-security-group myNetworkSecurityGroup
 ```
 
 Alternatively, you can associate your Network Security Group with a virtual network subnet with [az network vnet subnet update](/cli/azure/network/vnet/subnet#update) rather than just to the network interface on a single VM. The following example associates an existing subnet named `mySubnet` in the `myVnet` virtual network with the Network Security Group named `myNetworkSecurityGroup`:
