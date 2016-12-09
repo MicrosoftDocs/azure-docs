@@ -101,3 +101,11 @@ sudo mkdir -p /mnt/mymountdirectory
 ```azurecli
 sudo mount -t cifs //mystorageaccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
 ```
+
+## Persist the SMB mount through reboots
+
+Once you reboot the Linux VM, the mounted SMB share will be unmounted during shutdown.  To re-mount the SMB share on boot you must add a line to the Linux `/etc/fstab`.
+
+```bash
+//myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+```
