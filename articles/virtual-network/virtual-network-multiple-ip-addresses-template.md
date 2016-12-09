@@ -34,7 +34,7 @@ Deploying a template enables you to quickly and consistently create Azure resour
 <a name="resources"></a>Deploying the template creates the following resources:
 
 |Resource|Name|Description|
-|--|--|--|
+|---|---|---|
 |Network interface|*myNic1*|The three IP configurations described in the scenario section of this article are created and assigned to this NIC.|
 |Public IP address resource|2 are created: *myPublicIP* and *myPublicIP2*|These resources are assigned static public IP addresses and are assigned to the  *IPConfig-1* and *IPConfig-2* IP configurations described in the scenario.|
 |VM|*myVM1*|A Standard DS3 VM.|
@@ -44,7 +44,7 @@ Deploying a template enables you to quickly and consistently create Azure resour
 <a name="parameters"></a>When deploying the template, you must specify values for the following parameters:
 
 |Name|Description|
-|--|--|
+|---|---|
 |adminUsername|Admin username. The username must comply with [Azure username requirements](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-username-requirements-when-creating-a-vm).|
 |adminPassword|Admin password The password must comply with [Azure password requirements](../virtual-machines/virtual-machines-windows-faq.md#what-are-the-password-requirements-when-creating-a-vm).|
 |dnsLabelPrefix|DNS name for PublicIPAddressName1. The DNS name will resolve to one of the public IP addresses assigned to the VM. The name must be unique within the Azure region (location) you create the VM in.|
