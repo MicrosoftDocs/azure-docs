@@ -1,4 +1,4 @@
-The Configuration Server software should be deployed on a **highly available** VMware virtual machine. The  minimum hardware, software and network requirements for a configuration server is listed below
+The Configuration Server software should be deployed on a **highly available** VMware virtual machine. The follwoing table lists out the minimum hardware, software, and network requirements for a configuration server.
 
 | **Hardware** | |
 | --- |---|
@@ -7,11 +7,11 @@ The Configuration Server software should be deployed on a **highly available** V
 | Number of Disks | **3 Disks** <br> - OS Disk<br> - Process Server Cache Disk<br> - Retention Drive (for Failback)|
 | Disk Free Space (Process Server Cache) | 600 GB
 | Disk Free Space (Retention Disk) | 600 GB|
-| ** Software** | |
+| **Software** | |
 | Operating System Version | Windows Server 2012 R2 |
 | Operating System Locale | English (en-us)|
 | VMware vSphere PowerCLI Version | [PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0 "PowerCLI 6.0")| 
-| ** Network** | |
+| **Network** | |
 | Network Interface Card Type | VMXNET3 |
 | IP Address Type | Static |
 | Internet Access | The server should be able to access the following URL either directly or through a Proxy Server <br> - \*.accesscontrol.windows.net<br> - \*.backup.windowsazure.com <br>- \*.store.core.windows.net<br> - \*.blob.core.windows.net<br> - \*.hypervrecoverymanager.windowsazure.com <br> - https://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi <br>- ADD TIME SERVER URL |
