@@ -21,7 +21,7 @@ ms.author: helaw
 # Validate templates for Azure Stack
 You can use the template validation tool to check that your Azure Resource Manager templates are deployable to Azure Stack.  The tool consists of two PowerShell modules:
 
- - AzureRM.CloudCapabilities.psm1 creates a JSON file representing the services and versions of the cloud location specified.
+ - AzureRM.CloudCapabilities.psm1 creates a JSON file representing the services and versions of a cloud location.
  - AzureRM.TemplateValidator.psm1 uses a cloud capabilities JSON file to test templates for deployment in Azure Stack.
 
 In this document, you download the tool, build a cloud capabilities file, and run the validation against templates.
