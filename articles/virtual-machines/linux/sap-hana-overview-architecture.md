@@ -311,19 +311,16 @@ For a small SAP system (minimal deployment), Azure VMs host the SAP application 
   
   2. A /24 (recommended) unique CIDR block to be used for assigning the specific IP addresses needed for SAP HANA on Azure (Large Instances).
   3. One or more /24 (recommended) CIDR blocks for your Azure VNet tenant subnets. These are subnets in the customer&#39;s Azure subscription where the SAP-related Azure VMs will reside; the addresses will be allowed to access SAP HANA on Azure (Large Instances). There should be one tenant address block per subnet, and the blocks may be aggregated if they are contiguous and in the same VNet.
-  
-4. One /28 of your VNet gateway subnets (a /27 must be used if wanting P2S networking).
+  4. One /28 of your VNet gateway subnets (a /27 must be used if wanting P2S networking).
 
   - The first two ranges are needed (one per Azure subscription and region). IP address ranges stated in items 3 and 4 are required as a minimum per Azure VNet, and if multiple subnets/tenants in a VNet are desired, multiple ranges should be specified for item 3.
-
-> [!IMPORTANT] 
-> Each IP address range specified above must not overlap with any other range; each must be discrete and not a subnet of any other range. Only the address defined in items 3 and 4 should be applied to Azure VNets, all others are used for Large Instance connectivity and routing. Also, as a best practice, the Address Space address ranges should match the subnet ranges and not have empty or unassigned space. If overlaps occur between ranges defined in items 1 and 2 with ranges defined for 3 and 4, the Azure VNet will not connect to the ExpressRoute circuit.
-
 ![IP address ranges required in SAP HANA on Azure (Large Instances) minimal deployment](./media/sap-hana-overview-architecture/image5-ip-address-range-a.png)
 
   -  If configuring multiple tenant subnets in an Azure VNet:
-
 ![IP address ranges with contiguous address space for Azure VNet](./media/sap-hana-overview-architecture/image6-ip-address-range-b.png)
+
+> [!IMPORTANT] 
+> Each IP address range specified above must not overlap with any other range; each must be discrete and not a subnet of any other range. Only the address defined in items 3 and 4 should be applied to Azure VNets, all others are used for Large Instance connectivity and routing. Also, as a best practice, the Address Space address ranges should match the subnet ranges and not have empty or unassigned space. If overlaps occur between ranges defined in items 1 and 2 with ranges defined for 3 and 4, the Azure VNet will not connect to the ExpressRoute circuit.
 
 - An Express Route circuit is created by Microsoft between your Azure subscription and the Large Instance stamp.
 - Create a network tenant on the Large Instance stamp.
@@ -341,10 +338,10 @@ There are two important network routing considerations for SAP HANA on Azure (La
 
 1. SAP HANA on Azure (Large Instances) can only be accessed by Azure VMs in the dedicated ExpressRoute connection; not directly from on-premises. So administration clients and any applications needing direct access, such as SAP Solution Manager running on-premises, cannot connect to the SAP HANA database.
 
+2. SAP HANA on Azure (Large Instances) has an assigned IP address from a defined NAT pool. This IP address is accessible through the Azure subscription and ExpressRoute. Because the IP address is part of a NAT pool, you will need to perform additional networking configuration within the environment. See the related article on SAP HANA Installation for details.
+
 > [!NOTE] 
 > If you need to connect to SAP HANA on Azure (Large Instances) in a _data warehouse_ scenario, where applications and/or end users need to connect to the SAP HANA database (running directly), another networking component must be used: a reverse-proxy to route data, to and from. For example, F5 BIG-IP with Traffic Manager deployed in Azure as a virtual firewall/traffic routing solution.
-
-2. SAP HANA on Azure (Large Instances) has an assigned IP address from a defined NAT pool. This IP address is accessible through the Azure subscription and ExpressRoute. Because the IP address is part of a NAT pool, you will need to perform additional networking configuration within the environment. See the related article on SAP HANA Installation for details.
 
 ### Leveraging in multiple regions
 
