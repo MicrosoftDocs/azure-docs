@@ -19,7 +19,7 @@ ms.author: genli
 
 ---
 # How to add or change Azure administrator roles
- Account Administrator, Service Administrator, and Co-administrator are the three kinds of administrator roles in Microsoft Azure. To view and edit the Azure account information, you must sign in to the [Account Center](https://account.windowsazure.com/Home/Index) as the account administrator. The following table describes the difference between these three administrative roles.
+ Account Administrator, Service Administrator, and Co-administrator are the three kinds of administrator roles in Microsoft Azure. To view the billing information and manage the subscriptions, you must sign in to the [Account Center](https://account.windowsazure.com/Home/Index) as the account administrator. The following table describes the difference between these three administrative roles.
 
 | Administrative role | Limit | Description |
 | --- | --- | --- |
