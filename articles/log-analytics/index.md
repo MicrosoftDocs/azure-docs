@@ -64,7 +64,7 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
 
 ---
 
-## Automation
+## Reference
 
 <ul class="panelContent cardsW">
     <li>
