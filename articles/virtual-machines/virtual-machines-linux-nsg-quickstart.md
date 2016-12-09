@@ -36,16 +36,18 @@ In the following examples, replace example parameter names with your own values.
 Create the network security group with [az network nsg create](/cli/azure/network/nsg#create). The following example creates a network security group named `myNetworkSecurityGroup` in the `westus` location:
 
 ```azurecli
-az network nsg create --resource-group myResourceGroup --location westus --name myNetworkSecurityGroup
+az network nsg create --resource-group myResourceGroup --location westus \
+    --name myNetworkSecurityGroup
 ```
 
 Add a rule with [az network nsg rule create](/cli/azure/network/nsg/rule#create) to allow HTTP traffic to your webserver (or adjust for your own scenario, such as SSH access or database connectivity). The following example creates a rule named `myNetworkSecurityGroupRule` to allow TCP traffic on port 80:
 
 ```azurecli
-az network nsg rule create --resource-group myResourceGroup --nsg-name myNetworkSecurityGroup \
-  --name myNetworkSecurityGroupRule --protocol tcp --direction inbound --priority 1000 \
-  --source-address-prefix '*' --source-port-range '*' \
-  --destination-address-prefix '*' --destination-port-range 80 --access allow
+az network nsg rule create --resource-group myResourceGroup \
+    --nsg-name myNetworkSecurityGroup --name myNetworkSecurityGroupRule \
+    --protocol tcp --direction inbound --priority 1000 \
+    --source-address-prefix '*' --source-port-range '*' \
+    --destination-address-prefix '*' --destination-port-range 80 --access allow
 ```
 
 Associate the Network Security Group with your VM's network interface (NIC) with [az network nic update](/cli/azure/network/nic#update). The following example associates an existing NIC named `myNic` with the Network Security Group named `myNetworkSecurityGroup`:
