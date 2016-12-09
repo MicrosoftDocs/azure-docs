@@ -14,7 +14,7 @@ editor: ''
 ## Cybersecurity in the cloud
 A crucial concern for our customers who are moving to the cloud is retaining asset management and security of the Azure Government services that they've deployed to the cloud. Virtual machine firewalls need to be configured correctly. Virtual networks need to have the right network security groups applied to them. Access to your assets needs to be locked down at the right time. All these necessary work streams need to be planned, designed, and provisioned to enable a secure infrastructure for your agency to use.
 
-Setting up this kind of environment can be challenging. Onboarding your fleet of servers to any monitoring service is hard operation to scale, and it can also be challenging to update the monitoring service. Monitoring infrastructure on different cloud providers as well as across the cloud and on-premises is difficult. Finally, keeping your monitoring up-to-date and enabling insights to monitor, detect, alert, and counter cybersecurity threats requires time, resources, and computing power.
+Setting up this kind of environment can be challenging. Onboarding your fleet of servers to any monitoring service is a hard operation to scale, and it can also be challenging to update the monitoring service. Monitoring infrastructure on different cloud providers as well as across the cloud and on-premises is difficult. Finally, keeping your monitoring up-to-date and enabling Azure Application Insights to monitor, detect, alert, and counter cybersecurity threats requires time, resources, and computing power.
 
 ## Microsoft Operations Management Suite
 Microsoft Operations Management Suite, now available in Azure Government, is a service that enables you to do all these things by leveraging the power of map reduce and machine learning as a service.
@@ -27,7 +27,7 @@ Operations Management Suite can:
 
 Let's explore how we can get Operations Management Suite integrated into your fleet and look at some of the out-of-box solutions that address the concerns that we've described here.
 
-## Onboard servers to Operations Management Suite
+## Onboarding servers to Operations Management Suite
 The first step in integrating your cloud assets with Operations Management Suite is installing the Operations Management Suite agent across log sources. For virtual machines, this is very simple because you can manually download the agent from your Operations Management Suite workspace.
 
 ![Figure 1: Windows Servers connected to Operations Management Suite](./media/documentation-government-oms-figure1.png)
@@ -37,7 +37,7 @@ You can connect Azure VMs to Operations Management Suite directly through the Az
 
 You can also connect them programmatically or configure the Operations Management Suite extension right into your Azure Resource Manager templates. See the instructions for Windows-based machines at [Connect Windows computers to Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-windows-agents) and for Linux-based machines at [Connect Linux computers to Log Analytics](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-linux-agents).
 
-## Onboard storage accounts and SCOM to Operations Management Suite
+## Onboarding storage accounts and SCOM to Operations Management Suite
 Operations Management Suite can also connect to your storage account and/or existing System Center Operations Manager (SCOM) deployments to offer you operations management in hybrid scenarios (across cloud providers or in cloud/on-premises infrastructures).
 
 ![Figure 2: Connecting Azure Storage and SCOM to Operations Management Suite](./media/documentation-government-oms-figure2.png)
@@ -67,8 +67,7 @@ This dashboard gives you a list of four things:
 * Any servers that have active and/or remediated threats.
 * Currently detected threats.
 * Computers that aren’t being sufficiently protected. Operations Management Suite finds this information by crawling the logs of your computers to look for any site of FWs that are being opened, or for improperly configured rules in common web browsers.
-* Analysis of how your protected servers are being protected, for example by native Windows OS virus protection or something like
-System Center Endpoint Protection.
+* Analysis of how your protected servers are being protected, for example by native Windows OS virus protection or a solution such as System Center Endpoint Protection.
 
 For example, you can see that the following threat was caught and automatically triaged by System Center:
 
@@ -90,7 +89,7 @@ Operations Management Suite also provides protection against malicious insider s
 
 Operations Management Suite threat intelligence looks at all the network logs on your computer and automatically searches for and notifies you about inbound/outbound network connections to known malicious IPs (for example, IP addresses on the unindexed dark net).
 
-For example, in the following illustration, I can see that there are both inbound and outbound network connections to the People’s Republic of China.
+For example, in the following screenshot, I can see that there are both inbound and outbound network connections to the People’s Republic of China.
 
 By double-clicking the inbound tag, I discover that a Linux VM that is being managed by Operations Management Suite is making outbound connections to a known dark net IP address in China.
 
