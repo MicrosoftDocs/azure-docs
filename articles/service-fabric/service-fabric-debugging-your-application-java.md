@@ -1,6 +1,6 @@
 ---
-title: Debug your application in Visual Studio | Microsoft Docs
-description: Improve the reliability and performance of your services by developing and debugging them in Visual Studio on a local development cluster.
+title: Debug your Azure Service Fabric Application in Eclipse| Microsoft Docs
+description: Improve the reliability and performance of your services by developing and debugging them in Eclipse on a local development cluster.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -30,6 +30,7 @@ ms.author: vturecek;mikhegn
 ```sh
 java -Xdebug -Xrunjdwp:transport=dt_socket,address=8001,server=y,suspend=y -Djava.library.path=$LD_LIBRARY_PATH -jar myapp.jar
 ```
+
 3. Update the Application Manifest by setting the instance count or the replica count for the service that is being debugged to 1. This setting avoids conflicts for the port that is used for debugging. For example, for stateless services, set ``InstanceCount="1"`` and for stateful services set the target and min replica set sizes to 1 as follows: `` TargetReplicaSetSize="1" MinReplicaSetSize="1"``.
 
 4. Deploy the application.
@@ -45,6 +46,7 @@ Port: 8001
 
 If the application is crashing, you may also want to enable coredumps. Execute ``ulimit -c`` in a shell and if it returns 0, then coredumps are not enabled. To enable unlimited coredumps, execute the following command: ``ulimit -c unlimited``. You can also verify the status using the command ``ulimit -a``.  If you wanted to update the coredump generation path, execute ``echo '/tmp/core_%e.%p' | sudo tee /proc/sys/kernel/core_pattern``. 
 
-## Next steps
-*[Collect logs using Linux Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md)
-*[Monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
+### Next steps
+
+* [Collect logs using Linux Azure Diagnostics](service-fabric-diagnostics-how-to-setup-lad.md).
+* [Monitor and diagnose services locally](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md).
