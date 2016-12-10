@@ -147,9 +147,10 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [50]: ./media/iot-hub-csharp-csharp-process-d2c/run1.png
 [10]: ./media/iot-hub-csharp-csharp-process-d2c/create-identity-csharp1.png
 
-[30]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue2.png
-[31]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue3.png
-[32]: ./media/iot-hub-csharp-csharp-process-d2c/createqueue4.png
+[30]: ./media/iot-hub-csharp-csharp-process-d2c/click-endpoints.png
+[31]: ./media/iot-hub-csharp-csharp-process-d2c/endpoint-creation.png
+[32]: ./media/iot-hub-csharp-csharp-process-d2c/route-creation.png
+[33]: ./media/iot-hub-csharp-csharp-process-d2c/fallback-route.png
 
 <!-- Links -->
 
