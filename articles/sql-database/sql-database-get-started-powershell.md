@@ -20,7 +20,7 @@ ms.author: sstein
 
 ---
 
-# SQL Database tutorial: Get started with Azure SQL Database servers, databases, and firewall rules by using Azure PowerShell
+# Get started with Azure SQL Database servers, databases, and firewall rules by using Azure PowerShell
 
 In this getting-started tutorial, you learn how to use PowerShell to:
 

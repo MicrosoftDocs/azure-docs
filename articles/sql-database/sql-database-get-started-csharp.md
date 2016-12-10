@@ -19,13 +19,7 @@ ms.date: 10/04/2016
 ms.author: sstein
 
 ---
-# Try SQL Database: Use C# to create a SQL database with the SQL Database Library for .NET
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-get-started.md)
-> * [C#](sql-database-get-started-csharp.md)
-> * [PowerShell](sql-database-get-started-powershell.md)
-> 
-> 
+# Use C# to create a SQL database with the SQL Database Library for .NET
 
 Learn how to use C# to create an Azure SQL database with the [Microsoft Azure SQL Management Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). This article describes how to create a single database with SQL and C#. To create elastic database pools, see [Create an Elastic database pool](sql-database-elastic-pool-create-csharp.md).
 
