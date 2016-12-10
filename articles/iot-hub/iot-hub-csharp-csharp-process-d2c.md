@@ -121,8 +121,41 @@ In this section, you create a Service Bus queue, connect it to your IoT hub, and
     
     ![Fallback route][33]
 
-## (Optional) Read from the queue endpoint
-You can optionally read the messages from the queue endpoint by following the instructions at [Get started with queues][Service Bus queue]. Name your project **ReadCriticalQueue**.
+## Read from the queue endpoint
+In this section, you read the messages from the queue endpoint.
+
+1. In the current Visual Studio solution, create a Visual C# Windows project by using the **Console Application** project template. Name the project **ReadCriticalQueue**.
+
+2. In Solution Explorer, right-click the **ReadCriticalQueue** project, and then click **Manage NuGet Packages**. This operation displays the **NuGet Package Manager** window.
+
+3. Search for **WindowsAzure.ServiceBus**, click **Install**, and accept the terms of use. This operation downloads, installs, and adds a reference to the Azure Service Bus, with all its dependencies.
+
+4. Add the following **using** statements at the top of the **Program.cs** file:
+   
+    ```
+    using System.IO;
+    using Microsoft.ServiceBus.Messaging;
+    ```
+
+5. Finally, add the following lines to the **Main** method. Substitute the connection string with **Listen** permissions for the queue:
+   
+    ```
+    Console.WriteLine("Receive critical messages. Ctrl-C to exit.\n");
+    var connectionString = "{service bus listen string}";
+    var queueName = "{queue name}";
+    
+    var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
+
+    client.OnMessage(message =>
+        {
+            Stream stream = message.GetBody<Stream>();
+            StreamReader reader = new StreamReader(stream, Encoding.ASCII);
+            string s = reader.ReadToEnd();
+            Console.WriteLine(String.Format("Message body: {0}", s));
+        });
+        
+    Console.ReadLine();
+    ```
 
 ## Run the applications
 Now you are ready to run the applications.
