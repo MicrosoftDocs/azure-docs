@@ -37,9 +37,7 @@ The article assumes that you have already created
 
 ## Choose your protection goals
 
-Select what you want to replicate and where you want to replicate to.
-
-1. In the **Recovery Services vaults** blade, select your vault.
+1. In the Azure Portal browse to **Recovery Services vaults** blade and  select your vault.
 2. In the Resource Menu of the vault click on **Getting Started**, click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
     ![Choose goals](./media/site-recovery-vmware-to-azure/choose-goals.png)
@@ -48,7 +46,12 @@ Select what you want to replicate and where you want to replicate to.
     ![Choose goals](./media/site-recovery-vmware-to-azure/choose-goals2.png)
 
 ## Set up the source environment
-Set up the configuration server and register it in the Recovery Services vault. If you're replicating VMware VMs specify the VMware account you're using for automatic discovery.
+Setting up the source environment involved two main activities
+
+1. Installing and Registering a Configuration Server with Site Recovery Service.
+2. Discovering your on-premises virtual machines by connecting Azure Site Recovery to your on-premises  VMware vCenter or vSphere EXSi hosts.
+
+### Step 1 : Install & Register a Configuration Server
 
 1. Click **Step 1: Prepare Infrastructure** > **Source**. In **Prepare source**, if you don’t have a configuration server click **+Configuration server** to add one.
 
@@ -60,8 +63,23 @@ Set up the configuration server and register it in the Recovery Services vault. 
 	![Set up source](./media/site-recovery-vmware-to-azure/set-source2.png)
 6. On the machine you’re using as the configuration server, run **Azure Site Recovery Unified Setup** to install the configuration server, the process server, and the master target server.
 
-### Running the Azure Site Recovery Unified Setup
+#### Running the Azure Site Recovery Unified Setup
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
+
+> [!NOTE]
+> The Configuration Server can be installed via command line. For details read more on [installing Configuration Server using Command line tools](http://aka.ms/installconfigsrv).
+
+#### Add the VMware account for automatic discovery
+
+[!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
+
+### Step 2 : Discover virtual machines
+To allow Azure Site Recovery to discover virtual machines running in your on-premises environment you need to connect your VMware vCenter Server or vSphere ESXi hosts with Site Recovery.
+
+Click on the **+vCenter** button to start connecting a VMware vCenter server or a VMware vSphere ESXi host.
+
+[!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
+
 
 ## Common issues
 
