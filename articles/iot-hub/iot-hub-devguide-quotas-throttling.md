@@ -36,7 +36,7 @@ The following is the list of enforced throttles. Values refer to an individual h
 | Device connections | Max of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
 | Device-to-cloud sends | Max of 100/sec or 12/sec/unit <br/> For example, two S1 units are 2\*12 = 24/sec, but you have at least 100/sec across your units. With nine S1 units, you have 108/sec (9\*12) across your units. | 120/sec/unit | 6000/sec/unit |
 | Cloud-to-device sends | 100/min/unit | 100/min/unit | 5000/min/unit |
-| Cloud-to-device receives <br/> (only when devices uses HTTP)| 1000/min/unit | 1000/min/unit| 50000/min/unit |
+| Cloud-to-device receives <br/> (only when device uses HTTP)| 1000/min/unit | 1000/min/unit| 50000/min/unit |
 | File upload | 100 file upload notifications/min/unit | 100 file upload notifications/min/unit | 5000 file upload notifications/min/unit |
 | Direct methods | 10/sec/unit | 30/sec/unit | 1500/sec/unit | 
 | Device twin reads | 10/sec | Maximum of 10/sec or 1/sec/unit | 50/sec/unit |

@@ -115,7 +115,7 @@ In this section, you modify the simulated device app you created in the [Get sta
 ## Add a queue to your IoT hub and route messages to it
 In this section, you create a Service Bus queue, connect it to your IoT hub, and configure your IoT hub to send messages to the queue based on the presence of a property on the message. For more information about how to process messages from Service Bus queues, see [Get started with queues][Service Bus queue].
 
-1. Create a Service Bus queue as described in [Get started with queues][Service Bus queue]. Make a note of hte namespace and queue name.
+1. Create a Service Bus queue as described in [Get started with queues][Service Bus queue]. Make a note of the namespace and queue name.
 
 2. In the Azure portal, open your IoT hub and click on **Endpoints**.
     

@@ -22,7 +22,7 @@ Welcome to Azure IoT Hub. This article provides an overview of Azure IoT Hub and
 
 * Provides multiple device-to-cloud and cloud-to-device communication options, including one-way messaging, file transfer, and request-reply methods.
 * Provides built-in declarative message routing to other Azure services.
-* Provides a queriable storage for device metadata and synchronized state information.
+* Provides a queryable store for device metadata and synchronized state information.
 * Enables secure communications and access control using per-device security keys or X.509 certificates.
 * Provides extensive monitoring for device connectivity and device identity management events.
 * Includes device libraries for the most popular languages and platforms.
