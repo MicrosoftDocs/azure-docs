@@ -542,7 +542,7 @@ To recover to a point time between the HANA snapshot (included in the storage sn
 
 ## Monitoring snapshot execution
 
-The execution of Storage Snapshots needs to be monitored by you. The script that executes a storage snapshot will write output into a file, and it will save in the same location as the Perl scripts. A separate file for each snapshot will be written. The output of that file shows clearly the different phases the snapshot script will execute, which are:
+The execution of Storage Snapshots needs to be monitored by you. The script that executes a storage snapshot writes output into a file, and saves in the same location as the Perl scripts. A separate file is written for each snapshot. The output of that file shows clearly the different phases the snapshot script will execute, which are:
 
 - Finding the volumes that need to create a snapshot.
 - Finding the snapshots taken from these volumes.
