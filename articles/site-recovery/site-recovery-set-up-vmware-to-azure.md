@@ -47,7 +47,7 @@ Select what you want to replicate and where you want to replicate to.
 
     ![Choose goals](./media/site-recovery-vmware-to-azure/choose-goals2.png)
 
-## Step 2: Set up the source environment
+## Set up the source environment
 Set up the configuration server and register it in the Recovery Services vault. If you're replicating VMware VMs specify the VMware account you're using for automatic discovery.
 
 1. Click **Step 1: Prepare Infrastructure** > **Source**. In **Prepare source**, if you don’t have a configuration server click **+Configuration server** to add one.
