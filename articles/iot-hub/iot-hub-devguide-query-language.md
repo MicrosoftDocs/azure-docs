@@ -243,28 +243,14 @@ Using [device-to-cloud routes][lnk-devguide-messaging-routes], it is possible to
 The route [condition][lnk-query-expressions] use the same IoT Hub query language as conditions in twin and job queries. They are evaluated on the message properties assuming the following JSON representation:
 
         {
-            "$messageId": "",
-            "$enqueuedTime": "",
-            "$to": "",
-            "$expiryTimeUtc": "",
-            "$correlationId": "",
-            "$userId": "",
-            "$ack": "",
-            "$connectionDeviceId": "",
-            "$connectionDeviceGenerationId": "",
-            "$connectionAuthMethod": "",
-            "$content-type": "",
-            "$content-encoding": "",
-
             "userProperty1": "",
             "userProperty2": ""
         }
 
-The above representation uses `$`-prefixed properties to refer to system properties. Any other property is referred by name. If you have a user property that has the same name of a system property (e.g. `$userId`), you can access the system property by using brackets, e.g. `{$userId}`.
 Remember that property names are case insensitive.
 
 > [!NOTE]
-> All message properties are strings. The available system properties are described in the [developer guide][lnk-devguide-messaging-format].
+> All message properties are strings. System properties, as described in the [developer guide][lnk-devguide-messaging-format], will be available soon.
 >
 >
 
