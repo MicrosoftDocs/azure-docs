@@ -38,11 +38,11 @@ After the purchase of SAP HANA on Azure (Large Instances) is finalized between y
 - Azure subscription number for the Azure subscription to which SAP HANA on Azure HANA Large Instances will be directly connected
 - SAP HANA SID name for the SAP HANA instance (required to create the necessary SAP HANA-related disk volumes)
 
-After you provide the information, Microsoft will provision SAP HANA on Azure (Large Instances).
+After you provide the information, Microsoft provisions SAP HANA on Azure (Large Instances).
 
-Networking setup information will then be provided to you for:
+Networking setup information is then provided to you for:
 
-- Connecting your Azure VNet(s) to the ExpressRoute circuit that will connect Azure VNets to HANA Large Instances
+- Connecting your Azure VNet(s) to the ExpressRoute circuit that connects Azure VNets to HANA Large Instances
   - For Azure Resource Manager:
      - Authorization key(s)
      - ExpressRoute PeerID
@@ -77,7 +77,7 @@ If a gateway already exists, check whether it is an ExpressRoute gateway or not.
 
 - Use either the (new) [Azure Portal](https://portal.azure.com/) or PowerShell to create an ExpressRoute VPN gateway connected to your VNet.
   - If you use Azure Portal, add a new **Virtual Network Gateway** and then select **ExpressRoute** as the gateway type.
-  - If you chose PowerShell instead, first download and use the latest [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) to ensure an optimal experience. The following commands will create an ExpressRoute gateway. The text preceded by a _$_ are user defined variables that need to be updated with your specific information.
+  - If you chose PowerShell instead, first download and use the latest [Azure PowerShell SDK](https://azure.microsoft.com/downloads/) to ensure an optimal experience. The following commands create an ExpressRoute gateway. The text preceded by a _$_ are user defined variables that need to be updated with your specific information.
 
 ```
 # These Values should already exist, update to match your environment
@@ -146,7 +146,7 @@ To create an additional subnet from the Azure portal, see the article [Create a 
 
 ## Adding VNets
 
-After initially connecting one or more Azure VNets, you might want to add additional ones that access SAP HANA on Azure (Large Instances). First, submit an Azure support request, in that request you will need to provide both the specific information identifying the particular Azure deployment, and the IP address space ranges for the tenant subnet(s) and the gateway subnet(s) of the additional Azure VNets. SAP HANA on Azure Service Management will then provide the necessary information you need to connect the additional VNets and ExpressRoute.
+After initially connecting one or more Azure VNets, you might want to add additional ones that access SAP HANA on Azure (Large Instances). First, submit an Azure support request, in that request include both the specific information identifying the particular Azure deployment, and the IP address space ranges for the tenant subnet(s) and the gateway subnet(s) of the additional Azure VNets. SAP HANA on Azure Service Management then provides the necessary information you need to connect the additional VNets and ExpressRoute.
 
 Steps to add a new Azure VNet:
 
@@ -157,7 +157,7 @@ Steps to add a new Azure VNet:
 
 ## Increasing ExpressRoute circuit bandwidth
 
-Consult with SAP HANA on Azure Service Management. If you are advised to increase the bandwidth of the SAP HANA on Azure (Large Instances) ExpressRoute circuit, create an Azure support request.  (You can request an increase for a single circuit bandwidth up to a maximum of 10 Gbps.)  You will receive notification after the operation is complete; no additional action needed to enable this higher speed in Azure.
+Consult with SAP HANA on Azure Service Management. If you are advised to increase the bandwidth of the SAP HANA on Azure (Large Instances) ExpressRoute circuit, create an Azure support request. (You can request an increase for a single circuit bandwidth up to a maximum of 10 Gbps.) You then receive notification after the operation is complete; no additional action needed to enable this higher speed in Azure.
 
 ## Adding an additional ExpressRoute circuit
 
@@ -173,7 +173,7 @@ While there isn&#39;t yet specific, dedicated Azure.com guidance on removing sub
 
 ## Deleting a VNet
 
-Use either the Azure Portal, PowerShell or CLI when deleting a VNet. SAP HANA on Azure Service Management will remove the existing authorizations on the SAP HANA on Azure (Large Instances) ExpressRoute circuit and remove the IP address ranges (both the tenant and gateway ranges) for the communication with HANA Large Instances.
+Use either the Azure Portal, PowerShell or CLI when deleting a VNet. SAP HANA on Azure Service Management removes the existing authorizations on the SAP HANA on Azure (Large Instances) ExpressRoute circuit and remove the IP address ranges (both the tenant and gateway ranges) for the communication with HANA Large Instances.
 
 Once the VNet has been removed, open an Azure support request to provide the IP address space ranges to be removed.
 

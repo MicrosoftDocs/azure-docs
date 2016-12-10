@@ -18,7 +18,7 @@ ms.author: rclaus
 ---
 # High Availability and Disaster Recovery of SAP HANA on Azure (Large Instances)
 
-High Availability (HA) and Disaster Recovery (DR) are very important aspects of running your mission-critical SAP HANA on Azure (Large Instances) server(s). It's import to work with SAP, your system integrator, and/or Microsoft to properly architect and implement the right HA/DR strategy for you. Important considerations like Recovery Point Objective (RPO) and Recovery Time Objective (RTO), specific to your environment, must be considered.
+High Availability (HA) and Disaster Recovery (DR) are important aspects of running your mission-critical SAP HANA on Azure (Large Instances) server(s). It's import to work with SAP, your system integrator, and/or Microsoft to properly architect and implement the right HA/DR strategy for you. Important considerations like Recovery Point Objective (RPO) and Recovery Time Objective (RTO), specific to your environment, must be considered.
 
 ## High Availability
 
@@ -39,7 +39,7 @@ For more information on SAP HANA High Availability, see the following SAP inform
 
 ## Disaster Recovery
 
-SAP HANA on Azure (Large Instances) is offered in two Azure regions in a geo-political region. Between the two Large Instance stamps of two different regions is a direct network connectivity for the purpose of replicating data for the Disaster Recovery case. The replication of the data is storage infrastructure based. The replication of the data is not done by default—it is done for customer configurations that ordered Disaster Recovery.
+SAP HANA on Azure (Large Instances) is offered in two Azure regions in a geo-political region. Between the two Large Instance stamps of two different regions is a direct network connectivity for replicating data during Disaster Recovery. The replication of the data is storage infrastructure based. The replication of the data is not done by default—it is done for customer configurations that ordered Disaster Recovery.
 
 However, to take advantage of the Disaster Recovery, you need to start to design the network connectivity to the two different Azure regions accordingly. This means you would need an ExpressRoute circuit connecting from on-premises in your main Azure region, and another circuit connecting from on-premises into your DR region. This measure would cover a situation in which a complete Azure region, including MSEE location, has an issue.
 
@@ -49,7 +49,7 @@ The figure below shows the optimal configuration for Disaster Recovery:
 
 ![Optimal configuration for Disaster Recovery](./media/sap-hana-overview-high-availability-disaster-recovery/image1-optimal-configuration.png)
 
-The optimal case for a DR configuration of the network is to have two ExpressRoute circuits from on-premises to the two different Azure regions. One circuit would go to region #1, that runs a production instance. The second ExpressRoute circuit would go to region #2, that runs some non-production HANA instances. This will cover the circumstance of a whole Azure region, including MSEE and Large Instance stamp, going off the grid.
+The optimal case for a DR configuration of the network is to have two ExpressRoute circuits from on-premises to the two different Azure regions. One circuit goes to region #1, running a production instance. The second ExpressRoute circuit goes to region #2, running some non-production HANA instances (this is important in case an entire Azure region, including MSEE and Large Instance stamp, goes off the grid).
 
 As a second measure, all the different VNets are connected to the different ExpressRoute circuits connecting to SAP HANA on Azure (Large Instances). You can bypass the location where an MSEE is failing, or you can lower RPO for Disaster Recovery, as you will see later.
 
@@ -74,7 +74,7 @@ The RPO achieved with this configuration is between 60–90 minutes. To achieve 
 - From that VM, copy the backup to a VM which is in a VNet in the DR region.
 - Keep the transaction log backups in that region in the VM.
 
-In case of disaster, after the DR profile has been deployed on an actual server, copy the transaction log backups from the VM into the SAP HANA on Azure (Large Instances) that is now the primary in the DR region, and restore those backups. This is possible because the state of HANA the on DR disks is that of a HANA snapshot. This is the offset point for further restores of transaction log backups.
+In case of disaster, after the DR profile has been deployed on an actual server, copy the transaction log backups from the VM in to the SAP HANA on Azure (Large Instances) that is now the primary in the DR region, and restore those backups. This is possible because the state of HANA the on DR disks is that of a HANA snapshot. This is the offset point for further restores of transaction log backups.
 
 ## Backup and restore
 
@@ -99,7 +99,7 @@ There are two backup and restore options for SAP HANA on Azure (Large Instances)
 The storage infrastructure underlying SAP HANA on Azure (Large Instances) supports the notion of a storage snapshot of volumes. Both backup and restoration of a particular volume is supported with the following considerations:
 
 - Instead of database backups, storage volume snapshots are taken on a frequent basis.
-- The storage snapshot initiates a SAP HANA snapshot before executing the storage snapshot. This HANA snapshot will be the point to set up eventual log restores after recovery of the storage snapshot.
+- The storage snapshot initiates an SAP HANA snapshot before executing the storage snapshot. This HANA snapshot will be the point to set up eventual log restores after recovery of the storage snapshot.
 - At the point where the storage snapshot is executed successfully, the SAP HANA snapshot will be deleted.
 - Log backups are taken frequently and stored in the log backup volume or in Azure.
 - If the database must be restored to a certain point in time, a request is made to Microsoft Azure Support (production outage) or SAP HANA on Azure Service Management to restore to a certain storage snapshot (for example, a planned restore of a sandbox system to its original state).
@@ -512,7 +512,7 @@ There are some preparations you have to do before issuing the request, as shown 
 
 ### Recovering to most recent state
 
-This process restores back to a HANA snapshot that is included in the storage snapshot,and then restores the transaction log backups to latest state of the database before restoring the storage snapshot.
+This process restores back to a HANA snapshot that is included in the storage snapshot, and then restores the transaction log backups to latest state of the database before restoring the storage snapshot.
 
 >[!Important] 
 >Make sure that you have a complete and contiguous chain of transaction log backups before you proceed. Without that you are not going to be able to get back to the current state of the database.
@@ -522,9 +522,8 @@ Follow Steps 1 to 6 of the procedure for recovering to the latest HANA snapshot 
 1. Choose **Recover the database to its most recent state**.
 ![Choose Recover the database to its most recent state](./media/sap-hana-overview-high-availability-disaster-recovery/image16-recover-database-a.png)
 
-2. Specify the location of the latest HANA log backups.
+2. Specify the location of the latest HANA log backups. The location specified needs to contain all HANA transaction log backups from the HANA snapshot to most recent state.
 ![Specify the location of the latest HANA log backups](./media/sap-hana-overview-high-availability-disaster-recovery/image17-recover-database-b.png)
-The location specified needs to contain all HANA transaction log backups from the HANA snapshot to most recent state
 
 3. Choose a backup as a base from which to recover the database. In our example, this is the HANA snapshot that was included in the storage snapshot. (Only one of those snapshots was done in the following screenshot.)
 ![Choose a backup as a base from which to recover the database](./media/sap-hana-overview-high-availability-disaster-recovery/image18-recover-database-c.png)
@@ -535,7 +534,7 @@ The location specified needs to contain all HANA transaction log backups from th
 5. Click **Finish** on the summary screen to start the restore procedure.
 ![Click Finish on the summary screen to start the restore procedure](./media/sap-hana-overview-high-availability-disaster-recovery/image20-recover-database-e.png)
 
-To recover to a point time between the HANA snapshot (included in the storage snapshot)and one that is later than the HANA snapshot, point-in-time recovery:
+To recover to a point time between the HANA snapshot (included in the storage snapshot) and one that is later than the HANA snapshot, point-in-time recovery:
 
 - Make sure that you have all transaction log backups from the HANA snapshot to the time you want to recover.
 - Choose **Recover the database to the following point in time** (see _Restore to most recent state_, Step 1).
