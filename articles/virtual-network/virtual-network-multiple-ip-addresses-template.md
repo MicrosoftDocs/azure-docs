@@ -1,5 +1,5 @@
 ---
-title: Multiple IP addresses for virtual machines - Template | Microsoft Docs
+title: Multiple IP addresses for Azure virtual machines - Template | Microsoft Docs
 description: Learn how to assign multiple IP addresses to a virtual machine using an Azure Resource Manager template.
 documentationcenter: ''
 author: jimdial
