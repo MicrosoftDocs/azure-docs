@@ -100,11 +100,11 @@ Now that you have selected the restore point, choose a configuration for your re
    * Restore backed up disks
 
    ### Restore full virtual machine
-   On the **Restore configuration** blade,enter or select values for each of the following fields:
+   On the **Restore configuration** blade, enter or select values for each of the following fields:
    
    * **Restore Type** - Create virtual machine. 
    * **Virtual machine name** - Provide a name for the VM. The name must be unique to the resource group (for a Resource Manager-deployed VM) or cloud service (for a Classic VM). You cannot replace the virtual machine if it already exists in the subscription.
-   * **Resource group** - Use an existing resource group, or create a new one. If you are restoring a Classic VM, use this field to specify the name of a new cloud service. If you are create a new resource group/cloud service, the name must be globally unique. Typically, the cloud service name is associated with a public-facing URL - for example: [cloudservice].cloudapp.net. If you attempt to use a name for the cloud resource group/cloud service that has already been used, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information, see [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+   * **Resource group** - Use an existing resource group, or create a new one. If you are restoring a Classic VM, use this field to specify the name of a new cloud service. If you are creating a new resource group/cloud service, the name must be globally unique. Typically, the cloud service name is associated with a public-facing URL - for example: [cloudservice].cloudapp.net. If you attempt to use a name for the cloud resource group/cloud service that has already been used, Azure assigns the resource group/cloud service the same name as the VM. Azure displays resource groups/cloud services and VMs not associated with any affinity groups. For more information, see [How to migrate from Affinity Groups to a Regional Virtual Network (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
    * **Virtual Network** - Select the virtual network (VNET) when creating the VM. The field provides all VNETs associated with the subscription. Resource group of the VM is displayed in parentheses.
    * **Subnet** - If the VNET has subnets, the first subnet is selected by default. If there are additional subnets, select the desired subnet.
    * **Storage account** - This menu lists the storage accounts in the same location as the Recovery Services vault. When choosing a storage account, select an account that shares the same location as the Recovery Services vault. Storage accounts that are Zone redundant are not supported. If there are no storage accounts with the same location as the Recovery Services vault, you must create one before starting the restore operation. The storage account's replication type is mentioned in parentheses.
@@ -115,7 +115,7 @@ Now that you have selected the restore point, choose a configuration for your re
      > 
      
    ### Restore backed up disks
-   If you would like to customize the virtual machine you would like to create from backed up disks than what is present in restore configuration blade, select **Restore disks** as value for **Restore Type**. This choice will ask for a storage account(same restrictions apply as Restore full virtual machine storage account selection) whre disks from backups are copied to. You can [use the restored disks to attach to an existing virtual machine](../virtual-machines/virtual-machines-windows-attach-disk-portal.md) or [create a new virtual machine from restored disks.](./backup-azure-vms-automation.md#restore-an-azure-vm)
+   If you would like to customize the virtual machine you would like to create from backed up disks than what is present in restore configuration blade, select **Restore disks** as value for **Restore Type**. This choice asks for a storage account(same restrictions apply as Restore full virtual machine storage account selection) where disks from backups are copied to. You can [use the restored disks to attach to an existing virtual machine](../virtual-machines/virtual-machines-windows-attach-disk-portal.md) or [create a new virtual machine from restored disks.](./backup-azure-vms-automation.md#restore-an-azure-vm)
 
 3. On the **Restore configuration** blade, click **OK** to finalize the restore configuration.
 4. On the **Restore** blade, click **Restore** to trigger the restore operation.
@@ -146,16 +146,16 @@ To view the operation while it is processing, or to view when it completed, open
     ![list of VMs in vault](./media/backup-azure-arm-restore-vms/restore-job-in-progress.png)
     
 ## Post-Restore steps
-If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password will be blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/virtual-machines-linux-classic-reset-access.md). We recommend using SSH keys on these distributions to avoid resetting password post restore. 
+If you are using a cloud-init based Linux distribution such as Ubuntu, for security reasons, password is blocked post restore. Please use VMAccess extension on the restored VM to [reset the password](../virtual-machines/virtual-machines-linux-classic-reset-access.md). We recommend using SSH keys on these distributions to avoid resetting password post restore. 
 
-## Backup for Restored VMs
-If you have restored VM to same Resource Group with the same name as originally backed up VM, backup will continue on the VM post restore. If you have either restored Vm to a different Resource group or specified a different name for restored VM, this will be treated as a new VM and you need to setup backup for restored VM.
+## Backup for restored VMs
+If you have restored VM to same Resource Group with the same name as originally backed up VM, backup continues on the VM post restore. If you have either restored VM to a different Resource group or specified a different name for restored VM, this is treated as a new VM and you need to setup backup for restored VM.
 
-## Restoring a VM during Azure DataCenter Disaster
-Azure Backup allows restoring backed up VMs to the paired data center in case the primary data center where VMs are running experiences disaster and you configured Backup vault to be geo-redundant. During such scenarios, you need to select a storage account which is present in paired data center and rest of the restore process remains same. Azure Backup uses Compute service from paired geo to create the restored virtual machine. 
+## Restoring a VM during Azure dataCenter disaster
+Azure Backup allows restoring backed up VMs to the paired data center in case the primary data center where VMs are running experiences disaster and you configured Backup vault to be geo-redundant. During such scenarios, you need to select a storage account, which is present in paired data center and rest of the restore process remains same. Azure Backup uses Compute service from paired geo to create the restored virtual machine. 
 
 ## Restoring VMs with special network configurations
-It is possible to backup and restore VMs with the following special network configurations. However, these configurations require some special consideration while going through the restore process.
+It is possible to back up and restore VMs with the following special network configurations. However, these configurations require some special consideration while going through the restore process.
 
 * VMs under load balancer (internal and external)
 * VMs with multiple reserved IPs
