@@ -203,6 +203,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
 
 [IoT Hub developer guide]: iot-hub-devguide.md
+[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Get started with IoT Hub]: iot-hub-java-java-getstarted.md
 [Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
 [lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
