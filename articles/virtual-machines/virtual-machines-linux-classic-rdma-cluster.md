@@ -35,7 +35,7 @@ Following are methods you can use to create a Linux RDMA cluster with or without
 The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterprise Server (SLES) 12 SP1 HPC VM from the Azure Marketplace, customize it, and create a custom VM image. Then you can use the image to script the deployment of a cluster of RDMA-capable VMs.
 
 > [!TIP]
-> Use similar steps to deploy a cluster of RDMA-capable VMs based on other supported HPC images in the Azure Marketplace. Some steps may differ slightly, as noted. For example, Intel MPI is included and configured in only some of these images. And if you deploy an SLES 12 HPC VM instead of an SLES 12 SP1 HPC VM, you need to update the RDMA drivers. For more information, see [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12).
+> Use similar steps to deploy a cluster of RDMA-capable VMs based on other supported HPC images in the Azure Marketplace. Some steps might differ slightly, as noted. For example, Intel MPI is included and configured in only some of these images. And if you deploy an SLES 12 HPC VM instead of an SLES 12 SP1 HPC VM, you need to update the RDMA drivers. For more information, see [About the A8, A9, A10, and A11 compute-intensive instances](virtual-machines-linux-a8-a9-a10-a11-specs.md#rdma-driver-updates-for-sles-12).
 >
 >
 
@@ -46,7 +46,7 @@ The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterpr
 * **Cores quota**--You might need to increase the quota of cores to deploy a cluster of compute-intensive VMs. For example, you need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the H-series. To request a quota increase, [open an online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
 * **Azure CLI**--[Install](../xplat-cli-install.md) the Azure CLI and [connect to your Azure subscription](../xplat-cli-connect.md) from the client computer.
 
-### Provision a SLES 12 SP1 HPC VM
+### Provision an SLES 12 SP1 HPC VM
 After signing in to Azure with the Azure CLI, run `azure config list` to confirm that the output shows Service Management mode. If it does not, set the mode by running this command:
 
     azure config mode asm
@@ -76,14 +76,14 @@ Where:
 * The SLES 12 SP1 image name currently can be `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824` or `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-priority-v20160824` for SUSE priority support (additional charges apply).
 
 ### Customize the VM
-After the VM completes provisioning, SSH to the VM using the VM's external IP address (or DNS name) and the external port number you configured, and customize it. For connection details, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Perform commands as the user you configured on the VM, unless root access is required to complete a step.
+After the VM completes provisioning, SSH to the VM by using the VM's external IP address (or DNS name) and the external port number you configured, and customize it. For connection details, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Perform commands as the user you configured on the VM, unless root access is required to complete a step.
 
 > [!IMPORTANT]
-> Microsoft Azure does not provide root access to Linux VMs. To gain administrative access when connected as a user to the VM, run commands using `sudo`.
+> Microsoft Azure does not provide root access to Linux VMs. To gain administrative access when connected as a user to the VM, run commands by using `sudo`.
 >
 >
 
-* **Updates**--Install updates using zypper. You might also want to install NFS utilities.
+* **Updates**--Install updates by using zypper. You might also want to install NFS utilities.
 
   > [!IMPORTANT]
   > In a SLES 12 SP1 HPC VM, we recommend that you don't apply kernel updates, which can cause issues with the Linux RDMA drivers.
@@ -92,7 +92,7 @@ After the VM completes provisioning, SSH to the VM using the VM's external IP ad
 * **Intel MPI**--Complete the installation of Intel MPI on the SLES 12 SP1 HPC VM by running the following command:
 
         sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
-* **Lock memory**--For MPI codes to lock the memory available for RDMA, add or change the following settings in the /etc/security/limits.conf file (You need root access to edit this file.).
+* **Lock memory**--For MPI codes to lock the memory available for RDMA, add or change the following settings in the /etc/security/limits.conf file. You need root access to edit this file.
 
     ```
     <User or group name> hard    memlock <memory required for your application in KB>
@@ -101,7 +101,7 @@ After the VM completes provisioning, SSH to the VM using the VM's external IP ad
     ```
 
   > [!NOTE]
-  > For testing purposes, you can also set memlock to unlimited. For example: `<User or group name>    hard    memlock unlimited`. For more information, see [Best Known Methods for Setting Locked Memory Size](https://software.intel.com/en-us/blogs/2014/12/16/best-known-methods-for-setting-locked-memory-size).
+  > For testing purposes, you can also set memlock to unlimited. For example: `<User or group name>    hard    memlock unlimited`. For more information, see [Best known methods for setting locked memory size](https://software.intel.com/en-us/blogs/2014/12/16/best-known-methods-for-setting-locked-memory-size).
   >
   >
 * **SSH keys for SLES VMs**--Generate SSH keys to establish trust for your user account among the compute nodes in the SLES cluster when running MPI jobs. If you deployed a CentOS-based HPC VM, don't follow this step. See instructions later in this article to set up passwordless SSH trust among the cluster nodes after you capture the image and deploy the cluster.
@@ -134,7 +134,7 @@ After the VM completes provisioning, SSH to the VM using the VM's external IP ad
   > Configuring `StrictHostKeyChecking no` can create a potential security risk when a specific IP address or range is not specified.
   >
   >
-* **Applications**--Install any applications you need on this VM or perform other customizations before you capture the image.
+* **Applications**--Install any applications you need or perform other customizations before you capture the image.
 
 ### Capture the image
 To capture the image, first run the following command in the Linux VM. This command deprovisions the VM but maintains user accounts and SSH keys that you set up.
@@ -195,12 +195,12 @@ If you want to set up a cluster based on one of the CentOS-based HPC images in t
 
 - Intel MPI is already installed on a VM provisioned from a CentOS-based HPC image.
 - Lock memory settings are already added in the VM's /etc/security/limits.conf file.
-- Do not generate SSH keys on the VM you provision for capture. Instead, we recommend setting up user-based authentication after you deploy the cluster. See the following section.  
+- Do not generate SSH keys on the VM you provision for capture. Instead, we recommend setting up user-based authentication after you deploy the cluster. For more information, see the following section.  
 
 ### Set up passwordless SSH trust on the cluster
 On a CentOS-based HPC cluster, there are two methods for establishing trust between the compute nodes: host-based authentication and user-based authentication. Host-based authentication is outside of the scope of this article and generally must be done through an extension script during deployment. User-based authentication is convenient for establishing trust after deployment and requires the generation and sharing of SSH keys among the compute nodes in the cluster. This method is commonly known as passwordless SSH login and is required when running MPI jobs.
 
-A sample script contributed from the community is available on [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) to enable easy user authentication on a CentOS-based HPC cluster. Download and use this script using the following steps. You can also modify this script or use any other method to establish passwordless SSH authentication between the cluster compute nodes.
+A sample script contributed from the community is available on [GitHub](https://github.com/tanewill/utils/blob/master/user_authentication.sh) to enable easy user authentication on a CentOS-based HPC cluster. Download and use this script by using the following steps. You can also modify this script or use any other method to establish passwordless SSH authentication between the cluster compute nodes.
 
     wget https://raw.githubusercontent.com/tanewill/utils/master/ user_authentication.sh
 
@@ -285,7 +285,7 @@ Run an MPI command on one of the compute nodes to show that MPI is installed pro
 ```
 mpirun -ppn 1 -n 2 -hosts <host1>,<host2> -env I_MPI_FABRICS=shm:dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 hostname
 ```
-Your output should list the names of all the nodes that you passed as input for `-hosts`. For example, an **mpirun** command with two nodes returns output similar to the following:
+Your output should list the names of all the nodes that you passed as input for `-hosts`. For example, an **mpirun** command with two nodes returns output like the following:
 
 ```
 cluster11
@@ -299,7 +299,7 @@ The following Intel MPI command runs a pingpong benchmark to verify the cluster 
 mpirun -hosts <host1>,<host2> -ppn 1 -n 2 -env I_MPI_FABRICS=dapl -env I_MPI_DAPL_PROVIDER=ofa-v2-ib0 -env I_MPI_DYNAMIC_CONNECTION=0 IMB-MPI1 pingpong
 ```
 
-On a working cluster with two nodes, you should see output similar to the following. On the Azure RDMA network, expect latency at or below 3 microseconds for message sizes up to 512 bytes.
+On a working cluster with two nodes, you should see output like the following. On the Azure RDMA network, expect latency at or below 3 microseconds for message sizes up to 512 bytes.
 
 ```
 #------------------------------------------------------------
@@ -368,6 +368,6 @@ On a working cluster with two nodes, you should see output similar to the follow
 
 
 ## Next steps
-* Try deploying and running your Linux MPI applications on your Linux cluster.
+* Deploy and run your Linux MPI applications on your Linux cluster.
 * See the [Intel MPI Library documentation](https://software.intel.com/en-us/articles/intel-mpi-library-documentation/) for guidance on Intel MPI.
-* Try a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) to create an Intel Lustre cluster by using a CentOS-based HPC image. For details, see this [blog post](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).
+* Try a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/intel-lustre-clients-on-centos) to create an Intel Lustre cluster by using a CentOS-based HPC image. For details, see [Deploying Intel Cloud Edition for Lustre on Microsoft Azure](https://blogs.msdn.microsoft.com/arsen/2015/10/29/deploying-intel-cloud-edition-for-lustre-on-microsoft-azure/).
