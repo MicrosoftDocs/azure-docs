@@ -1,6 +1,6 @@
 ---
 title: Planning your VM backup infrastructure in Azure | Microsoft Docs
-description: Important considerations when planning to backup virtual machines in Azure
+description: Important considerations when planning to back up virtual machines in Azure
 services: backup
 documentationcenter: ''
 author: markgalioto
@@ -100,12 +100,12 @@ We suggest following these practices while configuring backups for virtual machi
 * Don't schedule more than 10 classic VMs from the same cloud service to back up at the same time. We suggest staggering backup start times by an hour if you want to back up multiple VMs from same cloud service.
 * Do not schedule more than 40 VMs to back up at the same time.
 * Schedule VM backups during non-peak hours so the backup service uses IOPS for transferring data from the customer storage account to the backup or Recovery Services vault.
-* Make sure that a policy is applied on VMs spread across different storage accounts. We suggest no more than 20 total disks from a single storage account be protected by same backup schedule. If you have greater than 20 disks in a storage account, spread those VMs across multiple policies to get the required IOPS during the transfer phase of the backup process.
+* Make sure that a policy is applied on VMs spread across different storage accounts. We suggest no more than 20 total disks from a single storage account be protected by the same backup schedule. If you have greater than 20 disks in a storage account, spread those VMs across multiple policies to get the required IOPS during the transfer phase of the backup process.
 * Do not restore a VM running on Premium storage to same storage account. If the restore operation process coincides with the backup operation, it reduces the available IOPS for backup.
 * We recommend running each Premium VM on a distinct premium storage account to ensure optimal backup performance.
 
 ## Data encryption
-Azure Backup does not encrypt data as a part of the backup process. However, you can encrypt data within the VM and backup the protected data seamlessly (read more about [backup of encrypted data](backup-azure-vms-encryption.md)).
+Azure Backup does not encrypt data as a part of the backup process. However, you can encrypt data within the VM and back up the protected data seamlessly (read more about [backup of encrypted data](backup-azure-vms-encryption.md)).
 
 ## How are protected instances calculated?
 Azure virtual machines that are backed up through Azure Backup are subject to [Azure Backup pricing](https://azure.microsoft.com/pricing/details/backup/). The Protected Instances calculation is based on the *actual* size of the virtual machine, which is the sum of all the data in the virtual machine--excluding the “resource disk”.
@@ -131,7 +131,7 @@ The billing for a specified virtual machine will be discontinued only if the pro
 If you have questions, or if there is any feature that you would like to see included, [send us feedback](http://aka.ms/azurebackup_feedback).
 
 ## Next steps
-* [Backup virtual machines](backup-azure-vms.md)
+* [Back up virtual machines](backup-azure-vms.md)
 * [Manage virtual machine backup](backup-azure-manage-vms.md)
 * [Restore virtual machines](backup-azure-restore-vms.md)
 * [Troubleshoot VM backup issues](backup-azure-vms-troubleshoot.md)
