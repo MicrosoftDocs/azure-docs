@@ -45,8 +45,8 @@ Examine the serial output to determine why your VM is not able to boot correctly
 
 The following example gets the serial output from the VM named `myVM` in the resource group named `myResourceGroup`:
 
-```azurecli
-azure vm get-serial-output --resource-group myResourceGroup --name myVM
+```powershell
+Get-AzureRmVMBootDiagnosticsData -ResourceGroupName myResourceGroup -Name myVM -LocalPath C:\Users\ops\
 ```
 
 Review the serial output to determine why the VM is failing to boot. If the serial output isn't providing any indication, you may need to review log files in `/var/log` once you have the virtual hard disk connected to a troubleshooting VM.
@@ -123,39 +123,6 @@ Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
         -LocalPath "C:\Users\iainfou\Documents\myVMRecovery.rdp"
     ```
 
-    If this disk is the first data disk attached to your troubleshooting VM, the disk is likely connected to `/dev/sdc`. Use `dmseg` to view attached disks:
-
-    ```bash
-    dmesg | grep SCSI
-    ```
-
-    The output is similar to the following example:
-
-    ```bash
-    [    0.294784] SCSI subsystem initialized
-    [    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
-    [    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
-    [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
-    [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
-    ```
-
-    In the preceding example, the OS disk is at `/dev/sda` and the temporary disk provided for each VM is at `/dev/sdb`. If you had multiple data disks, they should be at `/dev/sdd`, `/dev/sde`, and so on.
-
-2. Create a directory to mount your existing virtual hard disk. The following example creates a directory named `troubleshootingdisk`:
-
-    ```bash
-    sudo mkdir /mnt/troubleshootingdisk
-    ```
-
-3. If you have multiple partitions on your existing virtual hard disk, mount the required partition. The following example mounts the first primary partition at `/dev/sdc1`:
-
-    ```bash
-    sudo mount /dev/sdc1 /mnt/troubleshootingdisk
-    ```
-
-    > [!NOTE]
-    > Best practice is to mount data disks on VMs in Azure using the universally unique identifier (UUID) of the virtual hard disk. For this short troubleshooting scenario, mounting the virtual hard disk using the UUID is not necessary. However, under normal use, editing `/etc/fstab` to mount virtual hard disks using device name rather than UUID may cause the VM to fail to boot.
-
 
 ## Fix issues on original virtual hard disk
 With the existing virtual hard disk mounted, you can now perform any maintenance and troubleshooting steps as needed. Once you have addressed the issues, continue with the following steps.
@@ -164,40 +131,14 @@ With the existing virtual hard disk mounted, you can now perform any maintenance
 ## Unmount and detach original virtual hard disk
 Once your errors are resolved, you unmount and detach the existing virtual hard disk from your troubleshooting VM. You cannot use your virtual hard disk with any other VM until the lease attaching the virtual hard disk to the troubleshooting VM is released.
 
-1. From the SSH session to your troubleshooting VM, unmount the existing virtual hard disk. Change out of the parent directory for your mount point first:
+1. Unmount data disk on your recovery VM.
 
-    ```bash
-    cd /
-    ```
+2. Remove the virtual hard disk from the troubleshooting VM.
 
-    Now unmount the existing virtual hard disk. The following example unmounts the device at `/dev/sdc1`:
-
-    ```bash
-    sudo umount /dev/sdc1
-    ```
-
-2. Now detach the virtual hard disk from the VM. Exit the SSH session to your troubleshooting VM. In the Azure CLI, first list the attached data disks to your troubleshooting VM. The following example lists the data disks attached to the VM named `myVMRecovery` in the resource group named `myResourceGroup`:
-
-    ```azurecli
-    azure vm disk list --resource-group myResourceGroup --vm-name myVMRecovery
-    ```
-
-    Note the `Lun` value for your existing virtual hard disk. The following example command output shows the existing virtual disk attached at LUN 0:
-
-    ```azurecli
-    info:    Executing command vm disk list
-    + Looking up the VM "myVMRecovery"
-    data:    Name              Lun  DiskSizeGB  Caching  URI
-    data:    ------            ---  ----------  -------  ------------------------------------------------------------------------
-    data:    myVM              0                None     https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
-    info:    vm disk list command OK
-    ```
-
-    Detach the data disk from your VM using the applicable `Lun` value:
-
-    ```azurecli
-    azure vm disk detach --resource-group myResourceGroup --vm-name myVMRecovery \
-        --lun 0
+    ```powershell
+    $myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myVMRecovery"
+    Remove-AzureRmVMDataDisk -VM $myVM-Name "DataDisk"
+    Update-AzureRmVM -ResourceGroup "myResourceGroup" -VM $myVM
     ```
 
 
@@ -208,41 +149,24 @@ To create a VM from your original virtual hard disk, use [this Azure Resource Ma
 
 The template deploys a VM into an existing virtual network, using the VHD URL from the earlier command. The following example deploys the template to the resource group named `myResourceGroup`:
 
-```azurecli
-azure group deployment create --resource-group myResourceGroup --name myDeployment \
-    --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-existing-vnet/azuredeploy.json
+```powershell
+New-AzureRmResourceGroupDeployment -Name myDeployment -ResourceGroupName myResourceGroup `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-vm-specialized-vhd-existing-vnet/azuredeploy.json
 ```
 
-Answer the prompts for the template such as VM name (`myDeployedVM` the following example), OS type (`Windows`), and VM size (`Standard_DS1_v2`). The `osDiskVhdUri` is the same as previously used when attaching the existing virtual hard disk to the troubleshooting VM. An example of the command output and prompts is as follows:
-
-```azurecli
-info:    Executing command group deployment create
-info:    Supply values for the following parameters
-vmName:  myDeployedVM
-osType:  Linux
-osDiskVhdUri:  https://mystorageaccount.blob.core.windows.net/vhds/myVM201610292712.vhd
-vmSize:  Standard_DS1_v2
-existingVirtualNetworkName:  myVnet
-existingVirtualNetworkResourceGroup:  myResourceGroup
-subnetName:  mySubnet
-dnsNameForPublicIP:  mypublicipdeployed
-+ Initializing template configurations and parameters
-+ Creating a deployment
-info:    Created template deployment "mydeployment"
-+ Waiting for deployment to complete
-+
-```
+Answer the prompts for the template such as VM name (`myDeployedVM` the following example), OS type (`Windows`), and VM size (`Standard_DS1_v2`). The `osDiskVhdUri` is the same as previously used when attaching the existing virtual hard disk to the troubleshooting VM.
 
 
 ## Re-enable boot diagnostics
 
 When you create your VM from the existing virtual hard disk, boot diagnostics may not automatically be enabled. The following example enables the diagnostic extension on the VM named `myDeployedVM` in the resource group named `myResourceGroup`:
 
-```azurecli
-azure vm enable-diag --resource-group myResourceGroup --name myDeployedVM
+```powershell
+$myVM = Get-AzureRmVM -ResourceGroupName "myResourceGroup" -Name "myDeployedVM"
+Set-AzureRmVMBootDiagnostics -ResourceGroupName myResourceGroup -VM $myVM -Enable
 ```
 
 ## Next steps
 If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](virtual-machines-windows-troubleshoot-rdp-connection?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](virtual-machines-windows-troubleshoot-app-connection?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-For more information about using Resource Manager, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information about using Resource Manager, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
