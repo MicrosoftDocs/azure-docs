@@ -50,21 +50,15 @@ Your developer account should be accessed primarily from trusted PCs. This is cr
 For more information on additional developer account guidelines and security, click [here](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### Instructions
-1. Create a distribution list (DL) or security group (SG) within your company's domain. Using a DL allows multiple people to receive email notifications that are important for reporting of payout information. It also ensures that ownership of the Microsoft account can be transferred and isn’t tied to a single individual.
-   Follow the instructions given below.
-
-   1. Add your onboarding team to the DL.
-   2. Ensure that the DL/SG is an active email address and is able to receive emails because the payment, tax information, and reporting will be routed through this account.
-   3. We recommend using something like marketplace@partnercompany.com as the email address for the DL/SG.
-2. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to an existing account.
-3. Register the DL created in step 1 as a Microsoft account by using the link [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Follow the instructions below.
+1. Open a new Chrome Incognito or Internet Explorer InPrivate browsing session to ensure that you’re not signed in to an existing account.
+2. Register the email (per the guidelines above e.g. windowsapp@fabrikam.com) as a Microsoft account by using the link [https://signup.live.com/signup.aspx](https://signup.live.com/signup.aspx). Follow the instructions below.
 
    1. During registering your account as a Microsoft account, you need to provide a valid phone number for the system to send you an account verification code as a text message or an automated call.
    2. During registering your account as a Microsoft account, you need to provide a valid email id for receiving an automated email for account verification.
-4. Verify the email address sent to the DL.
-5. You’re now ready to use the new Microsoft account in the Microsoft Developer Center.
+3. Verify the email address sent to the DL.
+4. You’re now ready to use the new Microsoft account in the Microsoft Developer Center.
 
-## 2. Create your Microsoft Developer Center account
+## 2. Register your account in Microsoft Developer Center
 The Microsoft Developer Center is used to register the company information once. The registrant must be a valid representative of the company, and must provide their personal information as a way to validate their identity. The person registering must use a Microsoft account that is shared for the company, **and the same account must be used in the Azure Publishing Portal.** You should check to make sure your company does not already have a Microsoft Developer Center account before you attempt to create one. During the process, we will collect company address information, bank account information, and tax information. These are typically obtainable from finance or business contacts.
 
 > [!IMPORTANT]
