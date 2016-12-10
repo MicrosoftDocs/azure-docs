@@ -457,7 +457,7 @@ Follow the steps below to configure the cluster.
 5. Finally, you add the remaining nodes to the cluster. In the browser tree, right-click **Cluster1.corp.contoso.com** and click **Add Node**, as shown below.
    
     ![Add Node to the Cluster](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784634.png)
-6. In the **Add Node Wizard**, click **Next**. In the **Select Servers** page, add **sqlserver-1** and **cluster-fsw** to the list by typing the server name in **Enter server name** and then clicking **Add**. When you are done, click **Next**.
+6. In the **Add Node Wizard**, click **Next**. In the **Select Servers** page, add **sqlserver-1** to the list by typing the server name in **Enter server name** and then clicking **Add**. When you are done, click **Next**.
 7. In the **Validation Warning** page, click **No** (in a production scenario you should perform the validation tests). Then, click **Next**.
 8. In the **Confirmation** page, click **Next** to add the nodes.
    

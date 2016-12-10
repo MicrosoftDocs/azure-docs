@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Azure Diagnostic Logs | Microsoft Docs
 description: Learn what Azure Diagnostic Logs are and how you can use them to understand events occurring within an Azure resource.
 author: johnkemnetz
@@ -28,6 +28,8 @@ Here are some of the things you can do with Diagnostic Logs:
 * Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 * Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+
+The storage account or event hub namespace does not have to be in the same subscription as the resource emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ## Diagnostic Settings
 Diagnostic Logs for non-Compute resources are configured using Diagnostic Settings. **Diagnostic Settings** for a resource control:
@@ -90,11 +92,6 @@ To enable sending of Diagnostic Logs to a Log Analytics workspace, use this comm
 
     Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
 
-> [!NOTE]
-> The WorkspaceId parameter is not available in the October release. It will become available in the November release.
-> 
-> 
-
 You can obtain your Log Analytics workspace ID in the Azure portal.
 
 You can combine these parameters to enable multiple output options.
@@ -117,11 +114,6 @@ The Service Bus Rule ID is a string with this format: `{service bus resource ID}
 To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
     azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
-
-> [!NOTE]
-> The workspaceId parameter is not available in the October release. It will become available in the November release.
-> 
-> 
 
 You can obtain your Log Analytics workspace ID in the Azure portal.
 

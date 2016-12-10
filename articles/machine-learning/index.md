@@ -106,7 +106,7 @@ Azure Machine Learning provides tools to model predictive analytics as well as a
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Machine Learning REST API Reference</p>
+                        <p>Machine Learning REST API</p>
                     </div>
                 </div>
             </div>

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of the Azure Activity Log | Microsoft Docs
 description: Learn what the Azure Activity Log is and how you can use it to understand events occurring within your Azure subscription.
 author: johnkemnetz
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 12/09/2016
 ms.author: johnkem
 
 ---
@@ -35,6 +35,8 @@ Here are some of the things you can do with the Activity Log:
 * [Save it to a **Storage Account** for archival or manual inspection](monitoring-archive-activity-log.md). You can specify the retention time (in days) using **Log Profiles**.
 * Analyze it in PowerBI using the [**PowerBI content pack**](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/).
 * [Stream it to an **Event Hub**](monitoring-stream-activity-logs-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
+
+The storage account or event hub namespace does not have to be in the same subscription as the subscription emitting logs as long as the user who configures the setting has appropriate RBAC access to both subscriptions.
 
 ## Export the Activity Log with Log Profiles
 A **Log Profile** controls how your Activity Log is exported. Using a Log Profile, you can configure:

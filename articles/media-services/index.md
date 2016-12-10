@@ -193,7 +193,7 @@ You can build end-to-end workflows entirely using Media Services. You can also c
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Media Services REST API Reference</p>
+                        <p>Media Services REST API</p>
                     </div>
                 </div>
             </div>

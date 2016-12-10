@@ -1,4 +1,4 @@
-﻿---
+---
 title: Multi-tenant applications with elastic database tools and row-level security
 description: Learn how to use elastic database tools together with row-level security to build an application with a highly scalable data tier on Azure SQL Database that supports multi-tenant shards.
 metakeywords: azure sql database elastic tools multi tenant row level security rls
@@ -9,6 +9,7 @@ author: tmullaney
 
 ms.assetid: e72d3cfe-e9be-4326-b776-9c6d96c0a18e
 ms.service: sql-database
+ms.custom: shared databases; app development; auth and access
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na

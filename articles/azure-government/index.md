@@ -8,7 +8,7 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="../azure-government-overview?toc=%2fazure%2fazure-government%2ftoc.json">
+        <a href="../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -57,7 +57,7 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Azure Government REST API Reference</p>
+                        <p>Azure Government REST API</p>
                     </div>
                 </div>
             </div>
