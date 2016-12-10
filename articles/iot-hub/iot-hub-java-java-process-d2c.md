@@ -184,8 +184,10 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [readd2c]: ./media/iot-hub-java-java-process-d2c/runprocessinteractive.png
 [readqueue]: ./media/iot-hub-java-java-process-d2c/runprocessd2c.png
 
-[30]: ./media/iot-hub-java-java-process-d2c/createqueue2.png
-[31]: ./media/iot-hub-java-java-process-d2c/createqueue3.png
+[30]: ./media/iot-hub-java-java-process-d2c/click-endpoints.png
+[31]: ./media/iot-hub-java-java-process-d2c/endpoint-creation.png
+[32]: ./media/iot-hub-java-java-process-d2c/route-creation.png
+[33]: ./media/iot-hub-java-java-process-d2c/fallback-route.png
 
 <!-- Links -->
 
@@ -201,6 +203,7 @@ To learn more about message routing in IoT Hub, see [Send and receive messages w
 [Azure Service Bus]: https://azure.microsoft.com/documentation/services/service-bus/
 
 [IoT Hub developer guide]: iot-hub-devguide.md
+[lnk-devguide-messaging]: iot-hub-devguide-messaging.md
 [Get started with IoT Hub]: iot-hub-java-java-getstarted.md
 [Azure IoT Developer Center]: https://azure.microsoft.com/develop/iot
 [lnk-service-fabric]: https://azure.microsoft.com/documentation/services/service-fabric/
