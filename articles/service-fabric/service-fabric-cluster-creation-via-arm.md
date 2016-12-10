@@ -1,4 +1,4 @@
-
+﻿
 ---
 title: Create a secure Service Fabric cluster using Azure Resource Manager | Microsoft Docs
 description: This article describes how to set up a secure Service Fabric cluster in Azure using Azure Resource Manager, Azure Key Vault, and Azure Active Directory (AAD) for client authentication.
@@ -6,7 +6,7 @@ services: service-fabric
 documentationcenter: .net
 author: chackdan
 manager: timlt
-editor: chackdan
+editor: vturecek
 
 ms.assetid: 15d0ab67-fc66-4108-8038-3584eeebabaa
 ms.service: service-fabric
@@ -14,8 +14,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/08/2016
-ms.author: chackdan
+ms.date: 09/25/2016
+ms.author: vturecek
 
 ---
 # Create a Service Fabric cluster in Azure using Azure Resource Manager
@@ -25,11 +25,9 @@ ms.author: chackdan
 >
 >
 
-This is a step-by-step guide that walks you through the steps of setting up a secure Azure Service Fabric cluster in Azure using Azure Resource Manager. We realize that the document is long, however please do follow all the steps, unless you are already familiar with the steps and content.
+This is a step-by-step guide that walks you through the steps of setting up a secure Azure Service Fabric cluster in Azure using Azure Resource Manager. This guide walks you through the following steps:
 
-This guide walks you through the following steps:
-
-* Set up Key Vault to and upload certificates for cluster and application security.
+* Set up Key Vault to manage keys for cluster and application security.
 * Create a secured cluster in Azure with Azure Resource Manager.
 * Authenticate users with Azure Active Directory (AAD) for cluster management.
 
@@ -63,46 +61,34 @@ The following diagram illustrates the relationship between Key Vault, a Service 
 ![Certificate installation][cluster-security-cert-installation]
 
 ### Create a Resource Group
-The first step is to create a resource group specifically for Key Vault. Putting Key Vault into its own resource group is recommended. This allows you to remove the compute and storage resource groups, including the the resource group that has your Service Fabric cluster without losing your keys and secrets. The resource group that has your Key Vault **must be in the same region** as the cluster that is using it. 
-
-If you plan to deploy clusters in multiple regions, it is suggested that you name the resource group and the keyvault is a way that the name tells you which region it belongs to.  
+The first step is to create a resource group specifically for Key Vault. Putting Key Vault into its own resource group is recommended. This allows you to remove the compute and storage resource groups, including the the resource group that has your Service Fabric cluster without losing your keys and secrets. The resource group that has your Key Vault must be in the same region as the cluster that is using it.
 
 ```powershell
 
-    New-AzureRmResourceGroup -Name westus-mykeyvault -Location 'West US'
-```
-You should see an output like this.
-
-```powershell
-
+    New-AzureRmResourceGroup -Name mycluster-keyvault -Location 'West US'
     WARNING: The output object type of this cmdlet is going to be modified in a future release.
 
-    ResourceGroupName : westus-mykeyvault
+    ResourceGroupName : mycluster-keyvault
     Location          : westus
     ProvisioningState : Succeeded
     Tags              :
-    ResourceId        : /subscriptions/<guid>/resourceGroups/westus-mykeyvault
+    ResourceId        : /subscriptions/<guid>/resourceGroups/mycluster-keyvault
 
 ```
-<a id="new-key-vault"></a>
 
-### Create a new Key Vault
-Create a Key Vault in the new resource group. The Key Vault **must be enabled for deployment** to allow the compute resource provider to get certificates from it and install on Virtual Machine Instances:
+### Create Key Vault
+Create a Key Vault in the new resource group. The Key Vault **must be enabled for deployment** to allow the Service Fabric resource provider to get certificates from it and install on cluster nodes:
 
 ```powershell
 
-    New-AzureRmKeyVault -VaultName 'mywestusvault' -ResourceGroupName 'westus-mykeyvault' -Location 'West US' -EnabledForDeployment
+    New-AzureRmKeyVault -VaultName 'myvault' -ResourceGroupName 'mycluster-keyvault' -Location 'West US' -EnabledForDeployment
 
-```
-You should see an output like this.
 
-```powershell
-
-    Vault Name                       : mywestusvault
-    Resource Group Name              : westus-mykeyvault
+    Vault Name                       : myvault
+    Resource Group Name              : mycluster-keyvault
     Location                         : West US
-    Resource ID                      : /subscriptions/<guid>/resourceGroups/westus-mykeyvault/providers/Microsoft.KeyVault/vaults/mywestusvault
-    Vault URI                        : https://mywestusvault.vault.azure.net
+    Resource ID                      : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
+    Vault URI                        : https://myvault.vault.azure.net
     Tenant ID                        : <guid>
     SKU                              : Standard
     Enabled For Deployment?          : False
@@ -119,22 +105,20 @@ You should see an output like this.
 
     Tags                             :
 ```
-<a id="existing-key-vault"></a>
 
-## Use an exisiting Key Vault
+If you have an existing Key Vault, you can enable it for deployment using Azure CLI:
 
-If you have an existing Key Vault, and you want to use it, you must enable it for deployment. The Key Vault **must be enabled for deployment** to allow the compute resource provider to get certificates from it and install on cluster nodes:
-
-```powershell
-
-Set-AzureRmKeyVaultAccessPolicy -VaultName 'ContosoKeyVault' -EnabledForDeployment
-
+```cli
+> azure login
+> azure account set "your account"
+> azure config mode arm
+> azure keyvault list
+> azure keyvault set-policy --vault-name "your vault name" --enabled-for-deployment true
 ```
 
 <a id="add-certificate-to-key-vault"></a>
 
 ## Add certificates to Key Vault
-
 Certificates are used in Service Fabric to provide authentication and encryption to secure various aspects of a cluster and its applications. For more information on how certificates are used in Service Fabric, see [Service Fabric cluster security scenarios][service-fabric-cluster-security].
 
 ### Cluster and server certificate (required)
@@ -147,7 +131,7 @@ To serve these purposes, the certificate must meet the following requirements:
 
 * The certificate must contain a private key.
 * The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
-* The certificate's subject name must match the domain used to access the Service Fabric cluster. This matching is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA,  the certificate's subject name must match the custom domain name used for your cluster.
+* The certificate's subject name must match the domain used to access the Service Fabric cluster. This matchng is required to provide SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must acquire a custom domain name for your cluster. When you request a certificate from a CA,  the certificate's subject name must match the custom domain name used for your cluster.
 
 ### Application certificates (optional)
 Any number of additional certificates can be installed on a cluster for application security purposes. Before creating your cluster, consider the application security scenarios that require a certificate to be installed on the nodes, such as:
@@ -156,139 +140,49 @@ Any number of additional certificates can be installed on a cluster for applicat
 * Encryption of data across nodes during replication
 
 ### Formatting certificates for Azure resource provider use
-Private key files (.pfx) can be added and used directly through Key Vault. However, the Azure compute resource provider requires keys to be stored in a special JSON format that includes the .pfx as a base-64 encoded string and the private key password. To accommodate these requirements, keys must be placed in a JSON string and then stored as *secrets* in Key Vault.
+Private key files (.pfx) can be added and used directly through Key Vault. However, the Azure resource provider requires keys to be stored in a special JSON format that includes the .pfx as a base-64 encoded string and the private key password. To accommodate these requirements, keys must be placed in a JSON string and then stored as *secrets* in Key Vault.
 
 To make this process easier, a PowerShell module is [available on GitHub][service-fabric-rp-helpers]. Follow these steps to use the module:
 
 1. Download the entire contents of the repo into a local directory.
-2. Navigate to the local directory 
-2. Import the ServiceFabricRPHelpers module in your PowerShell window:
+2. Import the module in your PowerShell window:
 
-```powershell
-
- Import-Module "C:\..\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
-
-```
+   ```powershell
+   PS C:\Users\vturecek> Import-Module "C:\users\vturecek\Documents\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1"
+   ```
 
 The `Invoke-AddCertToKeyVault` command in this PowerShell module automatically formats a certificate private key into a JSON string and uploads it to Key Vault. Use it to add the cluster certificate and any additional application certificates to Key Vault. Repeat this step for any additional certificates you want to install in your cluster.
 
-#### uploading an existing certificate 
-
 ```powershell
-
- Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName westus-mykeyvault -Location "West US" -VaultName mywestusvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
-
-```
-
-if you get errors like the following, it usually means that you have a resource URL conflict, so change the keyvault name.
-
-<p><font color="red">
-Set-AzureKeyVaultSecret : The remote name could not be resolved: 'westuskv.vault.azure.net'
-At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
-+ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
-+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzureKeyVaultSecret], WebException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.KeyVault.SetAzureKeyVaultSecret
-    
-</font></p>
-
-Once the command executes to the end. You should see an output like this.
-
-```
+ Invoke-AddCertToKeyVault -SubscriptionId <guid> -ResourceGroupName mycluster-keyvault -Location "West US" -VaultName myvault -CertificateName mycert -Password "<password>" -UseExistingCertificate -ExistingPfxFilePath "C:\path\to\mycertkey.pfx"
 
     Switching context to SubscriptionId <guid>
-    Ensuring ResourceGroup westus-mykeyvault in West US
+    Ensuring ResourceGroup mycluster-keyvault in West US
     WARNING: The output object type of this cmdlet is going to be modified in a future release.
-    Using existing valut mywestusvault in West US
+    Using existing valut myvault in West US
     Reading pfx file from C:\path\to\key.pfx
-    Writing secret to mywestusvault in vault mywestusvault
+    Writing secret to myvault in vault myvault
 
 
 Name  : CertificateThumbprint
-Value : E21DBC64B183B5BF355C34C46E03409FEEAEF58D
+Value : <value>
 
 Name  : SourceVault
-Value : /subscriptions/<guid>/resourceGroups/westus-mykeyvault/providers/Microsoft.KeyVault/vaults/mywestusvault
+Value : /subscriptions/<guid>/resourceGroups/mycluster-keyvault/providers/Microsoft.KeyVault/vaults/myvault
 
 Name  : CertificateURL
-Value : https://mywestusvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
+Value : https://myvault.vault.azure.net:443/secrets/mycert/4d087088df974e869f1c0978cb100e47
 
 ```
 
-**Take note of the three strings above - CertificateThumbprint, SourceVault and CertificateURL.** You need these to set up a secure service fabric cluster and for any application certificates that you may be using for application security. If you do not save the three strings somewhere, it is very difficult to get them by quering the keyvault later.
-
-
-<a id="add-self-signed-certificate-to-key-vault"></a>
-
-#### creating a self-signed certificate and uploading to the keyvault
-
-Skip this step, if you already have uploaded your certs to the keyvault, this step is to generate a new self signed cert and upload it you your keyvault. Change the parmaters below and run the script. it should prompt you for a certificate password.  
-
-```powershell
-
-$ResouceGroup = "chackowestuskv"
-$VName = "chackokv2"
-$SubID = "6c653126-e4ba-42cd-a1dd-f7bf96ae7a47"
-$locationRegion = "westus" 
-$newCertName = "chackotestcertificate1"
-$dnsName = "www.mycluster.westus.mydomain.com" #The certificate's subject name must match the domain used to access the Service Fabric cluster.
-$localCertPath = "C:\MyCertificates" # location where you want the .PFX to be stored
-
- Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
-
-```
-if you get errors like the following, it usually means that you have a resource URL conflict, so change the keyvault name, RG name etc.
-
-<p><font color="red">
-Set-AzureKeyVaultSecret : The remote name could not be resolved: 'westuskv.vault.azure.net'
-At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
-+ $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
-+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    + CategoryInfo          : CloseError: (:) [Set-AzureKeyVaultSecret], WebException
-    + FullyQualifiedErrorId : Microsoft.Azure.Commands.KeyVault.SetAzureKeyVaultSecret
-    
-</font></p>
-
-If all goes well, You should see an output like this.
-
-```
-PS C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers> Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -Password $certPassword -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
-Switching context to SubscriptionId 6c343126-e4ba-52cd-a1dd-f8bf96ae7a47
-Ensuring ResourceGroup chackowestuskv in westus
-WARNING: The output object type of this cmdlet will be modified in a future release.
-Creating new vault westuskv1 in westus
-Creating new self signed certificate at C:\MyCertificates\chackonewcertificate1.pfx
-Reading pfx file from C:\MyCertificates\chackonewcertificate1.pfx
-Writing secret to chackonewcertificate1 in vault westuskv1
-
-
-Name  : CertificateThumbprint
-Value : 96BB3CC234F9D43C25D4B547sd8DE7B569F413EE
-
-Name  : SourceVault
-Value : /subscriptions/6c653126-e4ba-52cd-a1dd-f8bf96ae7a47/resourceGroups/chackowestuskv/providers/Microsoft.KeyVault/vaults/westuskv1
-
-Name  : CertificateURL
-Value : https://westuskv1.vault.azure.net:443/secrets/chackonewcertificate1/ee247291e45d405b8c8bbf81782d12bd
-
-```
-
-**Take note of the three strings above - CertificateThumbprint, SourceVault and CertificateURL.** You need these to set up a secure service fabric cluster and for any application certificates that you may be using for application security. If you do not save the three strings somewhere, it is very difficult to get them by quering the keyvault later.
-
-
-
- At this point, you should now have the following already setup and ready to go in Azure:
+The preceding strings are all the Key Vault prerequisites for configuring a Service Fabric cluster Resource Manager template that installs certificates for node authentication, management endpoint security and authentication, and any additional application security features that use X.509 certificates. At this point, you should now have the following setup in Azure:
 
 * Key Vault resource group
-* Key Vault and its URL (called Source vault in the above powershell output).
-* Cluster server authentication certificate and its URL in keyvault
-* Application certificates and there URL in keyvault
-
-
-<a id="add-AAD-for-client"></a>
+  * Key Vault
+    * Cluster server authentication certificate
+    * Application certificates
 
 ## Set up Azure Active Directory for client authentication
-
 AAD enables organizations (known as tenants) to manage user access to applications, which are divided into applications with a web-based login UI and applications with a native client experience. In this document, we assume that you have already created a tenant. If not, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
 
 A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you create two AAD applications to control access to the cluster, one web application and one native application.
