@@ -64,16 +64,16 @@ The following steps illustrate how to create a blob container.
 
 1. Open the `BlobsController.cs` file.
 
-1. Add a method called **AddBlobContainer** that returns an **ActionResults**.
+1. Add a method called **CreateBlobContainer** that returns an **ActionResults**.
 
-        public ActionResult AddBlobContainer()
+        public ActionResult CreateBlobContainer()
         {
 			// The code in this section should go here.
 
             return View();
         }
  
-1. Within the **AddBlobContainer** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Within the **CreateBlobContainer** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
@@ -96,14 +96,16 @@ The following steps illustrate how to create a blob container.
 
 1. In the **Solution Explorer**, expand the **Views** folder, right-click **Blobs**, and from the context menu, select **Add->View**.
 
-1. On the **Add View** dialog, enter **AddBlobContainer** for the view name, and select **Add**.
+1. On the **Add View** dialog, enter **CreateBlobContainer** for the view name, and select **Add**.
 
-1. Open `AddBlobContainer.cshtml`, and modify it so that it looks like the following.
+1. Open `CreateBlobContainer.cshtml`, and modify it so that it looks like the following.
 
 		@{
 		    ViewBag.Title = "Add Blob Container";
 		}
 		
+		<h2>Create Blob Container results</h2>
+
 		Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
@@ -112,8 +114,9 @@ The following steps illustrate how to create a blob container.
 
 		<li>@Html.ActionLink("Create Blob Container", "AddBlobContainer", "Blobs")</li>
 
-1. Run the application, and select **Create Blob Container**. 
+1. Run the application, and select **Create Blob Container**. You will see results similar to those shown in the following screen shot. 
   
+	![Create blob container](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container.png)
 
 
 ## Upload a blob into a blob container
