@@ -37,7 +37,19 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
-1. Numbering test
+### Create an MVC controller 
+
+1. In the **Solution Explorer**, right-click **Controllers**, and, from the context menu, select **Add->Controller**.
+
+	![Add a controller to an ASP.NET MVC app](./media/vs-storage-aspnet-getting-started-blobs/add-controller-menu.png)
+
+1. On the **Add Scaffold** dialog, select **MVC 5 Controller - Empty**, and select **Add**.
+
+	![Specify MVC controller type](./media/vs-storage-aspnet-getting-started-blobs/add-controller.png)
+
+1. On the **Add Controller** dialog, name the controller *BlobsController*, and select **Add**.
+
+	![Name the MVC controller](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
 
 ## Create a blob container
 
