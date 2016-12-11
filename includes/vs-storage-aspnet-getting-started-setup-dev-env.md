@@ -20,7 +20,7 @@ This section walks you setting up your development environment, including creati
 
 1. Select **OK**.
 
-## Use Connected Services to connect to an Azure storage account
+### Use Connected Services to connect to an Azure storage account
 
 1. In the **Solution Explorer**, right-click the project, and from the context menu, select **Add->Connected Service**.
 

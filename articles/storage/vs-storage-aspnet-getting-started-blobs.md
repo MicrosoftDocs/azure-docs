@@ -51,33 +51,70 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
 
 	![Name the MVC controller](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
 
-## Create a blob container
+1. Add the following *using* directives to the `BlobsController.cs` file.
 
-The following steps illustrate how to programmatically create a blob container. In an ASP.NET MVC app, the code would go in a controller.
-
-1. Add the following *using* directives: 
-   
         using Microsoft.Azure;
         using Microsoft.WindowsAzure.Storage;
         using Microsoft.WindowsAzure.Storage.Auth;
         using Microsoft.WindowsAzure.Storage.Blob;
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+## Create a blob container
+
+The following steps illustrate how to create a blob container.
+
+1. Open the `BlobsController.cs` file.
+
+1. Add a method called **AddBlobContainer** that returns an **ActionResults**.
+
+        public ActionResult AddBlobContainer()
+        {
+			// The code in this section should go here.
+
+            return View();
+        }
+ 
+1. Within the **AddBlobContainer** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
    
-3. Get a **CloudBlobClient** object represents a blob service client.
+1. Get a **CloudBlobClient** object represents a blob service client.
    
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-4. Get a **CloudBlobContainer** object that represents a reference to the desired blob container name. The **CloudBlobClient.GetContainerReference** method does not make a request against blob storage. The reference is returned whether or not the blob container exists. (Change *<blob-container-name>* to the name you want to give the new blob container.)  
+1. Get a **CloudBlobContainer** object that represents a reference to the desired blob container name. The **CloudBlobClient.GetContainerReference** method does not make a request against blob storage. The reference is returned whether or not the blob container exists. (Change *&lt;blob-container-name>* to the name you want to give the new blob container.)  
    
         CloudBlobContainer container = blobClient.GetContainerReference(<blob-container-name>);
 
-5. Call the **CloudBlobContainer.CreateIfNotExists** method to create the container if it does not yet exist.
+1. Call the **CloudBlobContainer.CreateIfNotExists** method to create the container if it does not yet exist. The **CloudBlobContainer.CreateIfNotExists** method returns **true** if the container does not exist, and is successfully created; otherwise, **false** is returned.    
 
-    	container.CreateIfNotExists();
+    	ViewBag.Success = container.CreateIfNotExists();
+
+1. Update the **ViewBag** with the name of the blob container.
+
+		ViewBag.BlobContainerName = container.Name;
+
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Blobs**, and from the context menu, select **Add->View**.
+
+1. On the **Add View** dialog, enter **AddBlobContainer** for the view name, and select **Add**.
+
+1. Open `AddBlobContainer.cshtml`, and modify it so that it looks like the following.
+
+		@{
+		    ViewBag.Title = "Add Blob Container";
+		}
+		
+		Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
+
+		<li>@Html.ActionLink("Create Blob Container", "AddBlobContainer", "Blobs")</li>
+
+1. Run the application, and select **Create Blob Container**. 
+  
+
 
 ## Upload a blob into a blob container
 
