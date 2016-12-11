@@ -27,7 +27,7 @@ Metrics are enabled by default. You can view IoT Hub metrics from the Azure port
 2. Open the blade of your IoT hub. From there, click **Metrics**.
    
     ![][1]
-3. From the metrics blade you can view the metrics for your IoT hub and create custom views of your metrics. You can choose to send your metrics data to an Event Hubs endpoint or an Azure Storage account by clicking **Diagnostics settings**.
+3. From the metrics blade, you can view the metrics for your IoT hub and create custom views of your metrics. You can choose to send your metrics data to an Event Hubs endpoint or an Azure Storage account by clicking **Diagnostics settings**.
    
     ![][2]
 

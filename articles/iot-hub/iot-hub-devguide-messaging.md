@@ -129,7 +129,7 @@ Each cloud-to-device message is targeted at a single device by setting the **to*
 > 
 
 ### Message lifecycle
-To guarantee  at least once message delivery, IoT Hub persists cloud-to-device messages in per-device queues. Devices must explicitly acknowledge *completion* for IoT Hub to remove them from the queue. This guarantees resiliency against connectivity and device failures.
+To guarantee at least once message delivery, IoT Hub persists cloud-to-device messages in per-device queues. Devices must explicitly acknowledge *completion* for IoT Hub to remove them from the queue. This guarantees resiliency against connectivity and device failures.
 
 The following diagram shows the lifecycle state graph for a cloud-to-device message.
 
@@ -299,7 +299,7 @@ IoT Hub measures message size in a protocol-agnostic way, considering only the a
 * The size in bytes of all the values of the message system properties, plus
 * The size in bytes of all user property names and values.
 
-Note that property names and values are limited to ASCII characters, so the the length of the strings equals the size in bytes.
+Note that property names and values are limited to ASCII characters, so the length of the strings equals the size in bytes.
 
 ## Communication protocols
 IoT Hub allows devices to use [MQTT][lnk-mqtt], MQTT over WebSockets, [AMQP][lnk-amqp], AMQP over WebSockets, and HTTP protocols for device-side communications. The following table provides the high-level recommendations for your choice of protocol:
@@ -352,7 +352,7 @@ Other reference topics in the IoT Hub developer guide include:
 
 * [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service apps that interact with IoT Hub.
+* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you can use when you develop both device and service apps that interact with IoT Hub.
 * [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 

@@ -34,8 +34,8 @@ The following is a description of the endpoints:
   * *Send device-to-cloud messages*. Use this endpoint to [send device-to-cloud messages][lnk-d2c].
   * *Receive cloud-to-device messages*. A device uses this endpoint to receive targeted [cloud-to-device messages][lnk-c2d].
   * *Initiate file uploads*. A device uses this endpoint to receive an Azure Storage SAS URI from IoT Hub to [upload a file][lnk-upload].
-  * *Retrieve and update device twin properties*. A device uses this endpoints to access its [device twin][lnk-twins]'s properties.
-  * *Receive direct methods requests*. A device uses this endpoints to listen to [direct methods][lnk-methods]'s requests.
+  * *Retrieve and update device twin properties*. A device uses this endpoint to access its [device twin][lnk-twins]'s properties.
+  * *Receive direct methods requests*. A device uses this endpoint to listen to [direct methods][lnk-methods]'s requests.
     
     These endpoints are exposed using [MQTT v3.1.1][lnk-mqtt], HTTP 1.1, and [AMQP 1.0][lnk-amqp] protocols. Note that AMQP is also available over [WebSockets][lnk-websockets] on port 443.
     
@@ -67,7 +67,7 @@ If a message matches multiple routes which all point to the same endpoint, IoT H
 For the limits on the number of endpoints you may add, please see [Quotas and throttling][lnk-devguide-quotas].
 
 ## Field gateways
-In an IoT solution, a *field gateway* sits between your devices and your IoT Hub endpoints. It is typically located close to your devices. Your devices communicate directly with the field gateway by using a protocol supported by the devices. The field gateway connects to an IoT Hub endpoint using a protocol that is supported by IoT Hub. A field gateway can be highly specialized hardware or a low power computer running software that accomplishes the end-to-end scenario for which the gateway is intended.
+In an IoT solution, a *field gateway* sits between your devices and your IoT Hub endpoints. It is typically located close to your devices. Your devices communicate directly with the field gateway by using a protocol supported by the devices. The field gateway connects to an IoT Hub endpoint using a protocol that is supported by IoT Hub. A field gateway can be highly specialized hardware or a low-power computer running software that accomplishes the end-to-end scenario for which the gateway is intended.
 
 You can use the [Azure IoT Gateway SDK][lnk-gateway-sdk] to implement a field gateway. This SDK offers specific functionality such as the ability to multiplex the communication from multiple devices onto the same connection to IoT Hub.
 
