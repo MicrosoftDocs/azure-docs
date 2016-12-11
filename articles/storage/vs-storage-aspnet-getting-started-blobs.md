@@ -82,9 +82,9 @@ The following steps illustrate how to create a blob container.
    
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-1. Get a **CloudBlobContainer** object that represents a reference to the desired blob container name. The **CloudBlobClient.GetContainerReference** method does not make a request against blob storage. The reference is returned whether or not the blob container exists. (Change *&lt;blob-container-name>* to the name you want to give the new blob container.)  
+1. Get a **CloudBlobContainer** object that represents a reference to the desired blob container name. The **CloudBlobClient.GetContainerReference** method does not make a request against blob storage. The reference is returned whether or not the blob container exists. 
    
-        CloudBlobContainer container = blobClient.GetContainerReference(<blob-container-name>);
+        CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
 
 1. Call the **CloudBlobContainer.CreateIfNotExists** method to create the container if it does not yet exist. The **CloudBlobContainer.CreateIfNotExists** method returns **true** if the container does not exist, and is successfully created; otherwise, **false** is returned.    
 
@@ -112,11 +112,11 @@ The following steps illustrate how to create a blob container.
 
 1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
 
-		<li>@Html.ActionLink("Create Blob Container", "AddBlobContainer", "Blobs")</li>
+		<li>@Html.ActionLink("Create Blob Container", "CreateBlobContainer", "Blobs")</li>
 
 1. Run the application, and select **Create Blob Container**. You will see results similar to those shown in the following screen shot. 
   
-	![Create blob container](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container.png)
+	![Create blob container](./media/vs-storage-aspnet-getting-started-blobs/results.png)
 
 
 ## Upload a blob into a blob container
