@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 12/11/2016
 ms.author: b-hoedid
 
 ---
@@ -260,14 +260,14 @@ The .NET SDK provides the `CreateChangeFeedQuery` and `ChangeFeedOptions` helper
         Dictionary<string, string> checkpoints)
     {
         List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-        FeedResponse<PartitionKeyRange> response;
+        FeedResponse<PartitionKeyRange> pkRangesResponse;
 
         do
         {
-            response = await client.ReadPartitionKeyRangeFeedAsync(collection);
-            partitionKeyRanges.AddRange(response);
+            pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(collection);
+            partitionKeyRanges.AddRange(pkRangesResponse);
         }
-        while (response.ResponseContinuation != null);
+        while (pkRangesResponse.ResponseContinuation != null);
 
         foreach (PartitionKeyRange pkRange in partitionKeyRanges)
         {
@@ -288,13 +288,12 @@ The .NET SDK provides the `CreateChangeFeedQuery` and `ChangeFeedOptions` helper
             {
                 FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
 
-                foreach (DeviceReading changedDocument in 
-                    readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))
+                foreach (DeviceReading changedDocument in readChangesResponse)
                 {
                     Console.WriteLine(changedDocument.Id);
                 }
 
-                checkpoints[pkRange.Id] = response.ResponseContinuation;
+                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
             }
         }
 
