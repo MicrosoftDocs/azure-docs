@@ -22,16 +22,22 @@ ms.author: tarcher
 
 ## Overview
 
-Azure blob storage is a service for storing large amounts of unstructured data that can be accessed via HTTP or HTTPS. A single blob can be any size. Blobs can be things like images, audio and video files, raw data, and document files. 
+Azure blob storage is a service that stores unstructured data in the cloud as objects/blobs. Blob storage can store any type of text or binary data, such as a document, media file, or application installer. Blob storage is also referred to as object storage.
 
-Just as files live in folders, blobs live in blob containers. For example, you could have a storage account called *Scrapbook* with two blob containers: *images* and *audio*. Once the blob containers are created, you would then upload your blobs into the appropriate blob container.   
+This tutorial shows how to write ASP.NET code for some common scenarios using Azure blob storage. Scenarios include  creating a blob container, and uploading, listing, downloading, and deleting blobs.
 
-This article describes how to programmatically manage Azure blob storage entities, performing
-common tasks such as creating a blob container, and uploading, listing, downloading, and deleting blobs. 
+##Prerequisites
 
-> [!NOTE]
-> 
-> The code sections in this article assume that you have already connected to an Azure storage account using Connected Services. Connected Services is configured by opening the Visual Studio Solution Explorer, right-clicking the project, and from the context menu, selecting the **Add->Connected Service** option. From there, follow the dialog's instructions to connect to the desired Azure storage account.      
+* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
+
+[!INCLUDE [storage-blob-concepts-include](../../includes/storage-blob-concepts-include.md)]
+
+[!INCLUDE [storage-create-account-include](../../includes/vs-storage-aspnet-getting-started-create-azure-account.md)]
+
+[!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
+
+1. Numbering test
 
 ## Create a blob container
 
