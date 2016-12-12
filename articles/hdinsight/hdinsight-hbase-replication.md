@@ -49,7 +49,7 @@ There are three possible configurations:
 
 - Two HBase clusters in one Azure VNet.
 - Two HBase clusters in two different VNets in the same region.
-- Two HBase clusters in two different VNets in two different regions.
+- Two HBase clusters in two different VNets in two different regions (geo-replication).
 
 To make it easier to configure the environments, we have created some [Azure Resource Manager templates](../azure-resource-manager/resource-group-overview.md). If you prefer to configure the environments using other methods, see:
 
@@ -64,9 +64,9 @@ Click the following image to two HBase clusters in the same VNet. The template i
 
 ### Configure the two-VNet in the same region scenario
 
-Click the following image to create two VNets and two HBase clusters in the same region. The template is stored in a public Azure Blob container. 
+Click the following image to create two VNets with VNet peering and two HBase clusters in the same region. The template is stored in a public Azure Blob container. 
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-hbase-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-replication-with-two-vnets-peering-in-one-region.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 This scenario requires [VNet peering](../virtual-network/virtual-network-peering-overview.md). VNet peering is enabled by the template.   
 
@@ -87,11 +87,11 @@ HBase replication uses IP addresses of the Zookeepers. You must configure static
 
 9. Repeat step 6 to set the static IP address for the other two Zookeeper nodes.
 
-### Configure the two-vnet in the same region scenario
+### Configure the two-vnet in two different region scenario
 
 Click the following image to create two VNets in two different regions. The template is stored in a public Azure Blob container. 
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-hbase-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-geo-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 Create a VPN gateway between the two VNets.  For the instructions, see [Create a VNet with a Site-to-Site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
