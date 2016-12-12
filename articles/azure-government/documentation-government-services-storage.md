@@ -22,6 +22,12 @@ ms.author: ryansoc
 ## Azure Storage
 For details on this service and how to use it, see [Azure Storage public documentation](../storage/index.md).
 
+## Storage Service Availability by Azure Government Region
+| Service Type | USGov Virginia | USGov Iowa
+| --- | --- | --- |
+| <a href="https://docs.microsoft.com/en-us/azure/storage/storage-blob-storage-tiers/">Hot/Cool Blob Storage</a> |NA |NA | 
+| <a href="https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption">Storage Service Encryption</a> |GA | GA 
+
 ### Variations
 The URLs for storage accounts in Azure Government are different:
 
@@ -30,6 +36,7 @@ The URLs for storage accounts in Azure Government are different:
 | Blob Storage |*.blob.core.windows.net |*.blob.core.usgovcloudapi.net |
 | Queue Storage |*.queue.core.windows.net |*.queue.core.usgovcloudapi.net |
 | Table Storage |*.table.core.windows.net |*.table.core.usgovcloudapi.net |
+| File Storage |*.file.core.windows.net |*.file.core.usgovcloudapi.net | 
 
 > [!NOTE]
 > All of your scripts and code needs to account for the appropriate endpoints.  See [Configure Azure Storage Connection Strings](../storage/storage-configure-connection-string.md). 
@@ -39,6 +46,8 @@ The URLs for storage accounts in Azure Government are different:
 For more information on APIs see the <a href="https://msdn.microsoft.com/en-us/library/azure/mt616540.aspx"> Cloud Storage Account Constructor</a>.
 
 The endpoint suffix to use in these overloads is core.usgovcloudapi.net
+
+<a href="http://storageexplorer.com/">Azure Storage Explorer</a> currently doesn't support sign in with account in Azure Government. Use an account name and key to connect to an Azure Atorage Account.
 
 ### Considerations
 The following information identifies the Azure Government boundary for Azure Storage:
