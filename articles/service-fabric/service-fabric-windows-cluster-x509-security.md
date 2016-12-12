@@ -1,5 +1,5 @@
 ---
-title: Secure a standalone cluster | Microsoft Docs
+title: Secure a cluster on Windows using certificates | Microsoft Docs
 description: This article describes how to secure communication within the standalone or private cluster as well as between clients and the cluster.
 services: service-fabric
 documentationcenter: .net
