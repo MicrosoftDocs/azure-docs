@@ -25,7 +25,7 @@ The infrastructure for your application is typically made up of many components 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=azure-resource-manager">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -116,7 +116,7 @@ The infrastructure for your application is typically made up of many components 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -131,7 +131,7 @@ The infrastructure for your application is typically made up of many components 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

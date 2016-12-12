@@ -64,52 +64,31 @@ Cognitive Services (Preview) is a series of APIs which can be used to enable nat
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell Reference</p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
     <li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Cognitive Services Managed Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="/rest/api/cognitiveservices">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Cognitive Services REST API</p>
+                        <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/">REST API Reference</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
