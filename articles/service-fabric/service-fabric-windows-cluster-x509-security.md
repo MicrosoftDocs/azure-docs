@@ -65,7 +65,8 @@ To start with, [download the standalone cluster package](service-fabric-cluster-
         }
     }
 
-This section describes the certificates that you need for securing your standalone Windows cluster. To enable certificate-based security set the values of **ClusterCredentialType** and **ServerCredentialType** to *X509*.
+This section describes the certificates that you need for securing your standalone Windows cluster. If you are specifying a cluster certificate, set the value of **ClusterCredentialType** to _**X509**_. If you are specifying server certificate for outside connections, set the **ServerCredentialType** to _**X509**_. Although not mandatory, we recommend to have both these certificates for a properly secured cluster. If you set these values to *X509* then you must also specify the corresponding certificates or Service Fabric will throw an exception. In some scenarios, you may only want to specify the _ClientCertificateThumbprints_ or _ReverseProxyCertificate_. In those scenarios, you need not set _ClusterCredentialType_ or _ServerCredentialType_ to _X509_.
+
 
 > [!NOTE]
 > A [thumbprint](https://en.wikipedia.org/wiki/Public_key_fingerprint) is the primary identity of a certificate. Read [How to retrieve thumbprint of a certificate](https://msdn.microsoft.com/library/ms734695.aspx) to find out the thumbprint of the certificates that you create.
@@ -182,9 +183,9 @@ For clusters that are running production workloads, you should use a [Certificat
 For clusters that you use for test purposes, you can choose to use a self-signed certificate.
 
 ## Optional: Create a self-signed certificate
-One way to create a self-signed cert that can be secured correctly is to use the *CertSetup.ps1* script in the Service Fabric SDK folder in the directory *C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure*. Edit this file to change the default name of the certificate (look for the value `CN=ServiceFabricDevClusterCert`). Run this script as `.\CertSetup.ps1 -Install`.
+One way to create a self-signed cert that can be secured correctly is to use the *CertSetup.ps1* script in the Service Fabric SDK folder in the directory *C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure*. Edit this file to change the default name of the certificate (look for the value *CN=ServiceFabricDevClusterCert*). Run this script as `.\CertSetup.ps1 -Install`.
 
-Now export the certificate to a PFX file with a protected password. First get the thumbprint of the certificate. Run the certmgr.exe application. Navigate to the **Local Computer\Personal** folder and find the certificate you just created. Double-click the certificate to open it, select the *Details* tab and scroll down to the *Thumbprint* field. Copy the thumbprint value into the PowerShell command below, removing the spaces.  Change the `String` value to a suitable secure password to protect it and run the PowerShell:
+Now export the certificate to a PFX file with a protected password. First get the thumbprint of the certificate. From the *Start* menu, run the *Manage computer certificates*. Navigate to the **Local Computer\Personal** folder and find the certificate you just created. Double-click the certificate to open it, select the *Details* tab and scroll down to the *Thumbprint* field. Copy the thumbprint value into the PowerShell command below, after removing the spaces.  Change the `String` value to a suitable secure password to protect it and run the following in PowerShell:
 
 ```   
 $pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
@@ -211,7 +212,7 @@ Once you have certificate(s), you can install them on the cluster nodes. Your no
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. Next you need to set the access control on this certificate so that the Service Fabric process, which runs under the Network Service account, can use it by running the following script. Provide the thumbprint of the certificate and "NETWORK SERVICE" for the service account. You can check that the ACLs on the certificate are correct by opening the certificate in the certmgr.exe tool and looking at *All Tasks* > *Manage Private Keys*.
+3. Now set the access control on this certificate so that the Service Fabric process, which runs under the Network Service account, can use it by running the following script. Provide the thumbprint of the certificate and "NETWORK SERVICE" for the service account. You can check that the ACLs on the certificate are correct by opening the certificate in *Start* > *Manage computer certificates* and looking at *All Tasks* > *Manage Private Keys*.
    
     ```
     param
@@ -267,7 +268,7 @@ Connect-ServiceFabricCluster $ConnectArgs
 You can then run other PowerShell commands to work with this cluster. For example, `Get-ServiceFabricNode` to show a list of nodes on this secure cluster.
 
 
-To remove the cluster, connect to the node on the cluster where you downloaded the Service Fabric package, open a command line and navigate to the package folder, and run the following command:
+To remove the cluster, connect to the node on the cluster where you downloaded the Service Fabric package, open a command line and navigate to the package folder. Now run the following command:
 
 ```
 .\RemoveServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
