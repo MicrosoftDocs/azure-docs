@@ -13,10 +13,11 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: ms.date: 12/07/2016
+ms.date: 12/11/2016
 ms.author: juliako
 
 ---
+
 # Get started with delivering content on demand using .NET SDK
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
