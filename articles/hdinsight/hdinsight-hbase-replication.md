@@ -56,11 +56,11 @@ To make it easier to configure the environments, we have created some [Azure Res
 - [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
 - [Create HBase clusters in Azure Virtual Network](hdinsight-hbase-provision-vnet.md).
 
-### Configure the one-vnet scenario
+### Configure the one-VNet scenario
 
 Click the following image to two HBase clusters in the same VNet. The template is stored in a public Azure Blob container. 
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-hbase-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 ### Configure the two-VNet in the same region scenario
 
