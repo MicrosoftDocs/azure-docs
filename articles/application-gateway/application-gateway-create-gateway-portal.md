@@ -4,7 +4,7 @@ description: Learn how to create an Application Gateway by using the portal
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 
 ---
@@ -26,8 +26,6 @@ ms.author: gwallace
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
 Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 

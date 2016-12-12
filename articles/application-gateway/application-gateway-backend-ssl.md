@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/10/2016
+ms.date: 12/12/2016
 ms.author: amsriva
 
 ---
 # Enabling SSL Policy and end to end SSL on Application Gateway
 
-## Overview
-
 Application gateway supports SSL termination at the gateway, after which traffic typically flows unencrypted to the backend servers. This allows web servers to be unburdened from costly encryption/decryption overhead. However for some customers unencrypted communication to the backend servers is not an acceptable option. This could be due to security/compliance requirements or the application may only accept secure connection. For such applications, application gateway now supports end to end SSL encryption.
+
+## Overview
 
 End to end SSL allows you to securely transmit sensitive data to the backend encrypted still taking advantage of the benefits of Layer 7 load balancing features which application gateway provides, such as cookie affinity, URL-based routing, support for routing based on sites or ability to inject X-Forwarded-* headers.
 

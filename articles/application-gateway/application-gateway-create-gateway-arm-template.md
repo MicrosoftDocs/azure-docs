@@ -4,7 +4,7 @@ description: This page provides instructions to create an Azure application gate
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 8192ee25-d9f0-4b32-a45e-1d74629c54e5
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 
 ---
@@ -25,8 +25,6 @@ ms.author: gwallace
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
 Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
@@ -47,8 +45,6 @@ In this scenario you will:
 
 > [!NOTE]
 > Those settings are the parameters for this template. To customize the template, you can change rules, the listener, and the SSL that opens the azuredeploy.json.
-> 
-> 
 
 ![Scenario](./media/application-gateway-create-gateway-arm-template/scenario.png)
 
@@ -76,19 +72,18 @@ You can download the existing Azure Resource Manager template to create a virtua
 
     > [!IMPORTANT]
     >Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
-    >
-    >
 
 6. Check the content under **resources** and notice the following:
-   
-   * **type**. Type of resource being created by the template. In this case, the type is **Microsoft.Network/applicationGateways**, which represents an application gateway.
-   * **name**. Name for the resource. Notice the use of **[parameters('applicationGatewayName')]**, which means that the name is provided as input by you or by a parameter file during deployment.
+
+   * **type**. Type of resource being created by the template. In this case, the type is `Microsoft.Network/applicationGateways`, which represents an application gateway.
+   * **name**. Name for the resource. Notice the use of `[parameters('applicationGatewayName')]`, which means that the name is provided as input by you or by a parameter file during deployment.
    * **properties**. List of properties for the resource. This template uses the virtual network and public IP address during application gateway creation.
+
 7. Navigate back to [https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create/](https://github.com/Azure/azure-quickstart-templates/blob/master/101-application-gateway-create).
 8. Click **azuredeploy-paremeters.json**, and then click **RAW**.
 9. Save the file to a local folder on your computer.
 10. Open the file that you saved and edit the values for the parameters. Use the following values to deploy the application gateway described in our scenario.
-   
+
     ```json
         {
         "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",

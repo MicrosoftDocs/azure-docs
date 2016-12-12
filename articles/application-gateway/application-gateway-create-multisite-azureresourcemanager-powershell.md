@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/12/2016
 ms.author: amsriva
 
 ---
@@ -22,8 +22,6 @@ ms.author: amsriva
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-create-multisite-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-create-multisite-azureresourcemanager-powershell.md)
-> 
-> 
 
 Multiple site hosting allows you to deploy more than one web application on the same application gateway. It relies on presence of host header in the incoming HTTP request, to determine which listener would receive traffic. The listener then directs traffic to appropriate backend pool as configured in the rules definition of the gateway. In SSL enabled web applications, application gateway relies on the Server Name Indication (SNI) extension to choose the correct listener for the web traffic. A common use for multiple site hosting is to load balance requests for different web domains to different back-end server pools. Similarly multiple subdomains of the same root domain could also be hosted on the same application gateway.
 
@@ -81,7 +79,7 @@ Get-AzureRmSubscription
 Choose which of your Azure subscriptions to use.
 
 ```powershell
-Select-AzureRmSubscription -SubscriptionName "Name of subscription"
+Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
 ```
 
 ### Step 4
@@ -104,8 +102,6 @@ In the example above, we created a resource group called **appgw-RG** with a loc
 
 > [!NOTE]
 > If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Visit [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
-> 
-> 
 
 ## Create a virtual network and subnets
 
