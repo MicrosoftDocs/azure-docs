@@ -1,6 +1,6 @@
 ---
-title: Create an SSH public and private keypair for Linux VMs | Microsoft Docs
-description: Create an SSH public and private keypair for Linux VMs.
+title: Create an SSH public and private key pair for Linux VMs | Microsoft Docs
+description: Create an SSH public and private key pair for Linux VMs.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -19,9 +19,9 @@ ms.author: v-livech
 
 ---
 
-# Create an SSH public and private keypair for Linux VMs
+# Create an SSH public and private key pair for Linux VMs
 
-This article shows you how to generate a SSH public and private keypair to use with Linux VMs.  With an SSH keypair, you can create Virtual Machines on Azure that default to using SSH keys for authentication, eliminating the need for passwords to log in.  Passwords can be guessed, and open your VMs up to relentless brute force attempts to guess your password. VMs created with Azure Templates or the `azure-cli` can include your SSH public key as part of the deployment, removing a post deployment configuration step of disabling password logins for SSH.
+This article shows you how to generate a SSH public and private key pair to use with Linux VMs.  With an SSH key pair, you can create Virtual Machines on Azure that default to using SSH keys for authentication, eliminating the need for passwords to log in.  Passwords can be guessed, and open your VMs up to relentless brute force attempts to guess your password. VMs created with Azure Templates or the `azure-cli` can include your SSH public key as part of the deployment, removing a post deployment configuration step of disabling password logins for SSH.
 
 ## Quick Commands
 
@@ -94,7 +94,7 @@ Azure requires at least 2048-bit, ssh-rsa format public and private keys. To cre
 
 ## Using ssh-keygen
 
-This command creates a password secured (encrypted) SSH Keypair using 2048-bit RSA and it is commented to easily identify it.  
+This command creates a password secured (encrypted) SSH key pair using 2048-bit RSA and it is commented to easily identify it.  
 
 Start by changing directories, so that all your ssh keys are created in that directory.
 
