@@ -75,7 +75,7 @@ You can use these AS2 tracking schemas in your Azure integration account to help
 | outgoingHeaders |Dictionary of JToken | Outgoing AS2 message header details. (Optional) |
 | isNrrEnabled | Boolean | Use default value if the value is not known. (Mandatory) |
 | isMdnExpected | Boolean | Use default value if the value is not known. (Mandatory) |
-| mdnType | Enum | Allowed values are NotConfigured, Sync, and Async. (Mandatory) |
+| mdnType | Enum | Allowed values are **NotConfigured**, **Sync**, and **Async**. (Mandatory) |
 
 ## AS2 MDN tracking schema
 ````java
