@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/08/2016
+ms.date: 12/09/2016
 ms.author: rnagpal
 
 ---
@@ -49,7 +49,7 @@ ms.author: rnagpal
 ## Release Notes
 
 ### <a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
-* Support for new classes and methods to process the change feed of documents within a collection.
+* Support for new classes and methods to process the [change feed](documentdb-change-feed.md) of documents within a collection.
 * Support for cross-partition query continuation and some perf improvements for cross-partition queries.
 * Addition of CreateDatabaseIfNotExistsAsync and CreateDocumentCollectionIfNotExistsAsync methods.
 * LINQ support for system functions: IsDefined, IsNull and IsPrimitive.
