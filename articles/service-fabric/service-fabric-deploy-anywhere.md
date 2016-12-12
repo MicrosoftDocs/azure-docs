@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/22/2016
+ms.date: 12/06/2016
 ms.author: chackdan
 
 ---
@@ -27,7 +27,7 @@ Creating a cluster on Azure is done either via a Resource Model template or the 
 You are able to create clusters on VMs running these operating systems:
 
 * Windows Server 2012 R2
-* Windows Server 2016 (After it is announced as generally available)
+* Windows Server 2016 
 * Linux Ubuntu 16.04 (in public preview) 
 
 ## Create Service Fabric standalone clusters on-premise or with any cloud provider
@@ -50,7 +50,7 @@ The process for creating a Service Fabric cluster on-premises is similar to the 
 You are able to create clusters on VMs or computers running these operating systems:
 
 * Windows Server 2012 R2
-* Windows Server 2016 (After it is announced as generally available)
+* Windows Server 2016 
 * Linux ( coming soon)
 
 ## Advantages of Service Fabric clusters on Azure over standalone Service Fabric clusters created on-premises
