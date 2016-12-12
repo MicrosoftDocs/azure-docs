@@ -1,16 +1,16 @@
-The Configuration Server software should be deployed on a **highly available** VMware virtual machine. The follwoing table lists out the minimum hardware, software, and network requirements for a configuration server.
+The Configuration Server software should be deployed on a **highly available** VMware virtual machine. The following table lists out the minimum hardware, software, and network requirements for a configuration server.
 
 | **Hardware** | |
 | --- |---|
 | Number of CPU Cores| 8 Cores |
-| RAM| 12 GB| 
+| RAM| 12 GB|
 | Number of Disks | **3 Disks** <br> - OS Disk<br> - Process Server Cache Disk<br> - Retention Drive (for Failback)|
 | Disk Free Space (Process Server Cache) | 600 GB
 | Disk Free Space (Retention Disk) | 600 GB|
 | **Software** | |
 | Operating System Version | Windows Server 2012 R2 |
 | Operating System Locale | English (en-us)|
-| VMware vSphere PowerCLI Version | [PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0 "PowerCLI 6.0")| 
+| VMware vSphere PowerCLI Version | [PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0 "PowerCLI 6.0")|
 | **Network** | |
 | Network Interface Card Type | VMXNET3 |
 | IP Address Type | Static |
