@@ -134,20 +134,27 @@ On your Overview blade, scroll down and click the  **Servers** tile. You'll see 
 ### Customize performance counter collection
 To disable collection of the standard set of performance counters, add the following code under the root node of the ApplicationInsights.xml file:
 
+```XML
+
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
+```
 
 ### Collect additional performance counters
 You can specify additional performance counters to be collected.
 
 #### JMX counters (exposed by the Java Virtual Machine)
+
+```XML
+
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
         <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
       </Jmx>
     </PerformanceCounters>
+```
 
 * `displayName` – The name displayed in the Application Insights portal.
 * `objectName` – The JMX object name.
@@ -160,12 +167,15 @@ You can specify additional performance counters to be collected.
 #### Windows performance counters
 Each [Windows performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
 
+```XML
+
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
         <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
       </Windows>
     </PerformanceCounters>
+```
 
 * displayName – The name displayed in the Application Insights portal.
 * categoryName – The performance counter category (performance object) with which this performance counter is associated.
