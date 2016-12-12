@@ -57,9 +57,10 @@ The following HDInsight features are not currently available in Azure Government
 
 
 The URLs for Log Analytics are different in Azure Government:
+
 | Service Type | Azure Public | Azure Government |
 | --- | --- | --- |
-| HDInsight Cluster |\*.azurehdinsight.net |\*.azurehdinsight.us |
+| HDInsight Cluster | \*.azurehdinsight.net | \*.azurehdinsight.us |
 
 For more information, see [Azure HDInsight public documentation](../hdinsight/hdinsight-hadoop-introduction.md).
 
