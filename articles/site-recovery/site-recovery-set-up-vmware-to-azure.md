@@ -63,6 +63,7 @@ Setting up the source environment involved two main activities
 6. On the machine you’re using as the configuration server, run **Azure Site Recovery Unified Setup** to install the configuration server, the process server, and the master target server.
 
 #### Running the Azure Site Recovery Unified Setup
+
 > [!TIP] Configuration Server registration will fail if the time on your computers **System Clock** ahead or behind **local time** by more than five minutes. Synchronize your System Clock with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
