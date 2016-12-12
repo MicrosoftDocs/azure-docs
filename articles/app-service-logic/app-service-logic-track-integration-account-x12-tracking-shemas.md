@@ -58,8 +58,8 @@ You can use these X12 tracking schemas in your Azure integration account to help
 
 | Property | Type | Description |
 | --- | --- | --- |
-| senderPartnerName | String | X12 message send partner name. (Optional) |
-| receiverPartnerName | String | X12 message receive partner name. (Optional) |
+| senderPartnerName | String | X12 message sender's partner name. (Optional) |
+| receiverPartnerName | String | X12 message receiver's partner name. (Optional) |
 | senderQualifier | String | Send partner qualifier. (Mandatory) |
 | senderIdentifier | String | Send partner identifier. (Mandatory) |
 | receiverQualifier | String | Receive partner qualifier. (Mandatory) |
@@ -69,7 +69,7 @@ You can use these X12 tracking schemas in your Azure integration account to help
 | interchangeControlNumber | String | Interchange control number. (Optional) |
 | functionalGroupControlNumber | String | Functional control number. (Optional) |
 | transactionSetControlNumber | String | Transaction set control number. (Optional) |
-| CorrelationMessageId | String | Correlation message ID. A combination of {AgreementName}*{GroupControlNumber}*{TransactionSetControlNumber}. (Optional) |
+| CorrelationMessageId | String | Correlation message ID. A combination of {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (Optional) |
 | messageType | String | Transaction set or document type. (Optional) |
 | isMessageFailed | Boolean | Whether the X12 message failed. (Mandatory) |
 | isTechnicalAcknowledgmentExpected | Boolean | Whether the technical acknowledgement is configured in the X12 agreement. (Mandatory) |
@@ -130,9 +130,9 @@ You can use these X12 tracking schemas in your Azure integration account to help
 | respondingtransactionSetControlNumber | String | Responding transaction set control number. (Optional) |
 | respondingTransactionSetId | String | Responding transaction set ID, which maps to AK201 in the acknowledgement. (Optional) |
 | statusCode | Boolean | Transaction set acknowledgement status code. (Mandatory) |
-| segmentsCount | Enum | Acknowledgement status code. Allowed values are **Accepted**, **Rejected**, and **AcceptedWithErrors*. (Mandatory) |
-| processingStatus | Enum | Processing status of the acknowledgement. Allowed values are **Received**, **Generated**, and **Sent*. (Mandatory) |
-| CorrelationMessageId | String | Correlation message ID. A combination of {AgreementName}*{GroupControlNumber}*{TransactionSetControlNumber}. (Optional) |
+| segmentsCount | Enum | Acknowledgement status code. Allowed values are **Accepted**, **Rejected**, and **AcceptedWithErrors**. (Mandatory) |
+| processingStatus | Enum | Processing status of the acknowledgement. Allowed values are **Received**, **Generated**, and **Sent**. (Mandatory) |
+| CorrelationMessageId | String | Correlation message ID. A combination of {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (Optional) |
 | isMessageFailed | Boolean | Whether the X12 message failed. (Mandatory) |
 | ak2Segment | String | Acknowledgement for a transaction set within the received functional group. (Optional) |
 | ak3Segment | String | Reports errors in a data segment. (Optional) |
@@ -231,8 +231,8 @@ You can use these X12 tracking schemas in your Azure integration account to help
 | isaSegment | String | ISA segment for the technical acknowledgement that's received from partners. (Optional) |
 | respondingInterchangeControlNumber |String | Interchange control number for the technical acknowledgement that's received from partners. (Optional) |
 | isMessageFailed | Boolean | Whether the X12 message failed. (Mandatory) |
-| statusCode | Enum | Interchange acknowledgement status code. Allowed values are **Accepted**, **Rejected**, and **AcceptedWithErrors*. (Mandatory) |
-| processingStatus | Enum | Acknowledgement status. Allowed values are **Received**, **Generated**, and **Sent*. (Mandatory) |
+| statusCode | Enum | Interchange acknowledgement status code. Allowed values are **Accepted**, **Rejected**, and **AcceptedWithErrors**. (Mandatory) |
+| processingStatus | Enum | Acknowledgement status. Allowed values are **Received**, **Generated**, and **Sent**. (Mandatory) |
 | ta102 | String | Interchange date. (Optional) |
 | ta103 | String | Interchange time. (Optional) |
 | ta105 | String | Interchange note code. (Optional) |
