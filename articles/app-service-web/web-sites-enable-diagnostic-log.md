@@ -82,7 +82,7 @@ While all three storage locations provide the same basic information for logged 
 > Information stored in **table storage** or **blob  storage** can only be accessed using a storage client or an application that can directly work with these storage systems. For example, Visual Studio 2013 contains a Storage Explorer that can be used to explore table or blob storage, and HDInsight can access data stored in blob storage. You can also write an application that accesses Azure Storage by using one of the [Azure SDKs](/downloads/#).
 >
 > [!NOTE]
-> Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> Diagnostics can also be enabled from Azure PowerShell using the **Set-AzureWebsite** cmdlet. If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -113,7 +113,7 @@ To download the log files, start a new instance of Azure PowerShell and use the 
 This will save the logs for the web app specified by the **-Name** parameter to a file named **logs.zip** in the current directory.
 
 > [!NOTE]
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -170,7 +170,7 @@ To filter specific log types, such as HTTP, use the **-Path** parameter. For exa
 To see a list of available paths, use the -ListPath parameter.
 
 > [!NOTE]
-> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](/develop/nodejs/how-to-guides/powershell-cmdlets/).
+> If you have not installed Azure PowerShell, or have not configured it to use your Azure Subscription, see [How to Use Azure PowerShell](https://azure.microsoft.com/develop/nodejs/how-to-guides/powershell-cmdlets/).
 >
 >
 
@@ -271,7 +271,7 @@ The web server logs are formatted using the [W3C extended log file format](http:
 >
 
 ## <a name="nextsteps"></a> Next steps
-* [How to Monitor Web Apps](/manage/services/web-sites/how-to-monitor-websites/)
+* [How to Monitor Web Apps](https://azure.microsoft.com/manage/services/web-sites/how-to-monitor-websites/)
 * [Troubleshooting Azure web apps in Visual Studio](web-sites-dotnet-troubleshoot-visual-studio.md)
 * [Analyze web app Logs in HDInsight](http://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
 

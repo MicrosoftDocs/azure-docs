@@ -439,7 +439,7 @@ For information on using SQL Database and MySQL:
 * [Django and MySQL on Azure with Python Tools for Visual Studio]
 * [Django and SQL Database on Azure with Python Tools for Visual Studio]
 
-For more information, see the [Python Developer Center](/develop/python/).
+For more information, see the [Python Developer Center](https://azure.microsoft.com/develop/python/).
 
 ## What's changed
 * For a guide to the change from Websites to App Service see: [Azure App Service and Its Impact on Existing Azure Services](http://go.microsoft.com/fwlink/?LinkId=529714)

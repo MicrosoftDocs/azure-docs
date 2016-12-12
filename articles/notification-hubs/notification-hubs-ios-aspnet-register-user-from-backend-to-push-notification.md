@@ -103,7 +103,7 @@ This topic shows you how to request push notification registration with Azure No
     This sets the device token for the request.
    
    > [!NOTE]
-   > At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs](/manage/services/notification-hubs/get-started-notification-hubs-ios/) tutorial, you must comment-out or remove that call.
+   > At this point, there should not be any other code in this method. If you already have a call to the **registerNativeWithDeviceToken** method that was added when you completed the [Get Started with Notification Hubs](https://azure.microsoft.com/manage/services/notification-hubs/get-started-notification-hubs-ios/) tutorial, you must comment-out or remove that call.
    > 
    > 
 8. In the PushToUserAppDelegate.m file, add the following handler method:

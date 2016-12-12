@@ -192,7 +192,7 @@ In this tutorial, you've seen how to create a simple web application and deploy 
 
 * Monitor and manage your web app in the [Azure portal](https://portal.azure.com/). 
   
-    For more information, see [an overview of the Azure portal](/services/management-portal/) and [Configure web apps in Azure App Service](web-sites-configure.md).
+    For more information, see [an overview of the Azure portal](https://azure.microsoft.com/services/management-portal/) and [Configure web apps in Azure App Service](web-sites-configure.md).
 * Deploy an existing web project to a new web app, using Visual Studio
   
     Right-click the project in **Solution Explorer**, and then click **Publish**. Choose **Microsoft Azure App Service** as the publish target, and then click **New**. The dialogs are then the same as what you've seen in this tutorial.

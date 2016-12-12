@@ -39,7 +39,7 @@ The completed application writes a short "hello world" string to the browser.
 
 ![A browser displaying the 'Hello World' message.][helloworld-completed]
 
-For tutorials and sample code with more complex Node.js applications, or for other topics about how to use Node.js in Azure, see the [Node.js Developer Center](/develop/nodejs/).
+For tutorials and sample code with more complex Node.js applications, or for other topics about how to use Node.js in Azure, see the [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/).
 
 > [!NOTE]
 > To complete this tutorial, you need a Microsoft Azure account. If you don't have an account, you can [activate your Visual Studio subscriber benefits](/en-us/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F) or [sign up for a free trial](/en-us/pricing/free-trial/?WT.mc_id=A261C142F).
@@ -185,7 +185,7 @@ If you encounter problems with your application after it has been deployed to Az
 
 This article uses the Azure Portal to create a web app. You can also use the [Azure Command-Line Interface](../xplat-cli-install.md) or [Azure PowerShell](/powershell/azureps-cmdlets-docs) to perform the same operations.
 
-For more information about how to develop Node.js applications on Azure, see the [Node.js Developer Center](/develop/nodejs/).
+For more information about how to develop Node.js applications on Azure, see the [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/).
 
 [helloworld-completed]: ./media/web-sites-nodejs-develop-deploy-mac/helloazure.png
 [helloworld-localhost]: ./media/web-sites-nodejs-develop-deploy-mac/helloworldlocal.png

@@ -253,5 +253,5 @@ Once this command completes, refresh the web page and you will see the changes. 
 ## Next Steps
 This article showed how to take a Node.js application and deploy it to Linux virtual machines running in Azure. To learn more about Linux virtual machines in Azure, see [Introduction to Linux on Azure](/documentation/articles/virtual-machines-linux-introduction/).
 
-For more information about how to develop Node.js applications on Azure, see the [Node.js Developer Center](/develop/nodejs/).
+For more information about how to develop Node.js applications on Azure, see the [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/).
 

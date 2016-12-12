@@ -41,7 +41,7 @@ Troubleshooting can be divided into three distinct tasks, in sequential order:
 2. [Collect data](#collect)
 3. [Mitigate the issue](#mitigate)
 
-[App Service Web Apps](/services/app-service/web/) gives you various options at each step.
+[App Service Web Apps](https://azure.microsoft.com/services/app-service/web/) gives you various options at each step.
 
 <a name="observe" />
 
@@ -83,7 +83,7 @@ You can also monitor your application performance by leveraging *site extensions
 
 Each App Service web app provides an extensible management end point that allows you to leverage a powerful set of tools deployed as site extensions. These tools range from source code editors like [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx) to management tools for connected resources such as a MySQL database connected to a web app.
 
-[Azure Application Insights](/services/application-insights/) and [New Relic](/marketplace/partners/newrelic/newrelic/) are two of the performance monitoring site extensions that are available. To use New Relic, you install an agent at runtime. To use Azure Application Insights, you rebuild your code with an SDK, and you can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail.
+[Azure Application Insights](https://azure.microsoft.com/services/application-insights/) and [New Relic](https://azure.microsoft.com/marketplace/partners/newrelic/newrelic/) are two of the performance monitoring site extensions that are available. To use New Relic, you install an agent at runtime. To use Azure Application Insights, you rebuild your code with an SDK, and you can also install an extension that provides access to additional data. The SDK lets you write code to monitor the usage and performance of your app in more detail.
 
 To use Application Insights, see [Monitor performance in web applications](../application-insights/app-insights-web-monitor-performance.md).
 

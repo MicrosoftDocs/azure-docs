@@ -32,7 +32,7 @@ In this tutorial, you will learn how to create an App Service web app in the [Az
 ## Prerequisites
 To complete this tutorial, you'll need the following products. All are available in free versions, so you can start developing for Azure entirely for free.
 
-* **Azure subscription** - For a free subscription, see [Azure Free Trial](/pricing/free-trial/).
+* **Azure subscription** - For a free subscription, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 * **Visual Studio 2013** - To download a free trial version of Visual Studio 2013, see [Visual Studio Downloads](http://www.visualstudio.com/downloads/download-visual-studio-vs). Install this before continuing.
 * **Microsoft .NET Framework 3.5 Service Pack 1** - If your operating system is Windows 8.1, Windows Server 2012 R2, Windows 8, Windows Server 2012, Windows 7, or Windows Server 2008 R2, you can enable this in Control Panel > Programs and Features > Turn Windows features on or off. Otherwise, you can download it from the [Microsoft Download Center](http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=22).
 * **SQL Server 2014 Express with Tools** - download Microsoft SQL Server Express for free at the [Microsoft Web Platform Database page](http://www.microsoft.com/web/platform/database.aspx). Choose the **Express** (not LocalDB) version. The **Express with Tools** version includes SQL Server Management Studio, which you will use in this tutorial.
@@ -267,7 +267,7 @@ You have now created and deployed an ASP.NET web application that uses a hybrid 
 
 [Josh Twist introduces hybrid connections (Channel 9 video)](http://channel9.msdn.com/Shows/Azure-Friday/Josh-Twist-introduces-hybrid-connections)
 
-[Hybrid Connections overview](/services/biztalk-services/)
+[Hybrid Connections overview](https://azure.microsoft.com/services/biztalk-services/)
 
 [BizTalk Services: Dashboard, Monitor, Scale, Configure, and Hybrid Connection tabs](../biztalk-services/biztalk-dashboard-monitor-scale-tabs.md)
 

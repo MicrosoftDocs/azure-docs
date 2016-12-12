@@ -286,7 +286,7 @@ string on the Laravel forums will show you that it is due to not setting the APP
 Learn how to add data to your app by [creating a MySQL database in Azure](../store-php-create-mysql-database.md). Also,
 check out more helpful links for PHP in Azure below:
 
-* [PHP Developer Center](/develop/php/).
+* [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 * [Create a web app from the Azure Marketplace](app-service-web-create-web-app-from-marketplace.md)
 * [Configure PHP in Azure App Service Web Apps](web-sites-php-configure.md)
 * [Convert WordPress to Multisite in Azure App Service](web-sites-php-convert-wordpress-multisite.md)

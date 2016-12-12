@@ -257,7 +257,7 @@ project. You can enable composer.json processing during `git push` by enabling t
     ![Composer Extension Success][composer-extension-success]
 
 ## Next steps
-For more information, see the [PHP Developer Center](/develop/php/).
+For more information, see the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 <!-- URL List -->
 

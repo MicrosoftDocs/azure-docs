@@ -113,10 +113,10 @@ To create a CNAME record, you must add a new entry in the DNS table for your cus
 1. Use one of these methods to find the **.azurewebsite.net** domain name assigned to your website.
    
    * Login to the [Azure Management Portal][portal], select your website, select **Dashboard**, and then find the **Site URL** entry in the **quick glance** section.
-   * Install and configure [Azure Powershell](/manage/install-and-configure-windows-powershell/), and then use the following command:
+   * Install and configure [Azure Powershell](https://azure.microsoft.com/manage/install-and-configure-windows-powershell/), and then use the following command:
      
            get-azurewebsite yoursitename | select hostnames
-   * Install and configure the [Azure Command Line Interface](/manage/install-and-configure-cli/), and then use the following command:
+   * Install and configure the [Azure Command Line Interface](https://azure.microsoft.com/manage/install-and-configure-cli/), and then use the following command:
      
            azure site domain list yoursitename
      
@@ -156,7 +156,7 @@ After the CNAME record for domain name has propagated, you must associate it wit
 
 **To add a domain name using the command-line tools**
 
-Install and configure the [Azure Command-Line Interface](/manage/install-and-configure-cli/), and then use the following command:
+Install and configure the [Azure Command-Line Interface](https://azure.microsoft.com/manage/install-and-configure-cli/), and then use the following command:
 
     azure site domain add customdomain yoursitename
 
@@ -246,7 +246,7 @@ After the **awverify** CNAME record for domain name has propagated, you can then
 
 **To add a domain name using the Azure Command-Line Interface (Azure CLI)**
 
-Install and configure the [Azure CLI](/manage/install-and-configure-cli/), and then use the following command:
+Install and configure the [Azure CLI](https://azure.microsoft.com/manage/install-and-configure-cli/), and then use the following command:
 
     azure site domain add customdomain yoursitename
 
@@ -279,8 +279,8 @@ Once configuration has completed, the custom domain name will be listed in the *
 > 
 
 ## Next steps
-* [How to manage web sites](/manage/services/web-sites/how-to-manage-websites/)
-* [Configure an SSL certificate for Web Sites](/develop/net/common-tasks/enable-ssl-web-site/)
+* [How to manage web sites](https://azure.microsoft.com/manage/services/web-sites/how-to-manage-websites/)
+* [Configure an SSL certificate for Web Sites](https://azure.microsoft.com/develop/net/common-tasks/enable-ssl-web-site/)
 
 <!-- Bookmarks -->
 

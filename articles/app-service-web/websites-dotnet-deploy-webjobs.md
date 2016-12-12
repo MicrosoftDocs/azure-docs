@@ -111,7 +111,7 @@ The **Add Azure WebJob** dialog enables you to enter WebJob name and scheduling 
 
 The fields in this dialog correspond to fields on the **New Job** dialog of the Azure Portal. For more information, see [Run Background tasks with WebJobs](web-sites-create-web-jobs.md).
 
-For a scheduled WebJob (not for continuous WebJobs), Visual Studio creates an [Azure Scheduler](/services/scheduler/) job collection if one doesn't exist yet, and it creates a job in the collection:
+For a scheduled WebJob (not for continuous WebJobs), Visual Studio creates an [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) job collection if one doesn't exist yet, and it creates a job in the collection:
 
 * The scheduler job collection is named *WebJobs-{regionname}* where *{regionname}* refers to the region the web app is hosted in. For example: WebJobs-WestUS.
 * The scheduler job is named *{webappname}-{webjobname}*. For example: MyWebApp-MyWebJob. 

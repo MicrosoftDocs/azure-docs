@@ -41,7 +41,7 @@ See the [getting started page](sql-database-get-started.md) to learn how to crea
 * [Proof of concept connecting to SQL using Java](https://msdn.microsoft.com/library/mt720656.aspx)
 
 ## Next steps
-* Visit the [Java Developer Center](/develop/java/).
+* Visit the [Java Developer Center](https://azure.microsoft.com/develop/java/).
 * Review the [SQL Database Development Overview](sql-database-develop-overview.md)
 * More information on the [Microsoft JDBC Driver for SQL Server](https://msdn.microsoft.com/library/mt484311.aspx)
 

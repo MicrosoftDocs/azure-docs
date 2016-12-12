@@ -33,7 +33,7 @@ approach has the following advantages:
   your time on providing functionality in your app.
 * [Azure AD Graph API](http://msdn.microsoft.com/library/azure/hh974476.aspx) enables access to directory data 
   from your Azure app.
-* Provides SSO to [all applications supported by Azure Active Directory](/marketplace/active-directory/), 
+* Provides SSO to [all applications supported by Azure Active Directory](https://azure.microsoft.com/marketplace/active-directory/), 
   including Office 365, Dynamics CRM Online, Microsoft Intune, and thousands of non-Microsoft cloud applications. 
 * Azure Active Directory supports role-based access control. You can use the [Authorize(Roles="X")] pattern 
   with minimal changes to your code.

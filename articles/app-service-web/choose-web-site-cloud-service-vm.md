@@ -28,7 +28,7 @@ Service Fabric is a good choice if you’re creating a new app or re-writing an 
 If you have an existing application that would require substantial modifications to run in App Service or Service Fabric, you could choose Virtual Machines in order to simplify migrating to the cloud. However, correctly configuring, securing, and maintaining VMs requires much more time and IT expertise compared to Azure App Service and Service Fabric. If you are considering Azure Virtual Machines, make sure you take into account the ongoing maintenance effort required to patch, update, and manage your VM environment. Azure Virtual Machines is Infrastructure-as-a-Service (IaaS), while App Service and Service Fabric are Platform-as-a-Service (Paas). 
 
 ## <a name="features"></a>Feature Comparison
-The following table compares the capabilities of App Service, Cloud Services, Virtual Machines, and Service Fabric to help you make the best choice. For current information about the SLA for each option, see [Azure Service Level Agreements](/support/legal/sla/).
+The following table compares the capabilities of App Service, Cloud Services, Virtual Machines, and Service Fabric to help you make the best choice. For current information about the SLA for each option, see [Azure Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
 | Feature | App Service (web apps) | Cloud Services (web roles) | Virtual Machines | Service Fabric | Notes |
 | --- | --- | --- | --- | --- | --- |
@@ -51,8 +51,8 @@ The following table compares the capabilities of App Service, Cloud Services, Vi
 | Visual Studio integration |X |X |X |X | |
 | Remote Debugging |X |X |X | | |
 | Deploy code with TFS |X |X |X |X | |
-| Network isolation with [Azure Virtual Network](/services/virtual-network/) |X |X |X |X |See also [Azure Websites Virtual Network Integration](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
-| Support for [Azure Traffic Manager](/services/traffic-manager/) |X |X |X |X | |
+| Network isolation with [Azure Virtual Network](https://azure.microsoft.com/services/virtual-network/) |X |X |X |X |See also [Azure Websites Virtual Network Integration](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/) |
+| Support for [Azure Traffic Manager](https://azure.microsoft.com/services/traffic-manager/) |X |X |X |X | |
 | Integrated Endpoint Monitoring |X |X |X | | |
 | Remote desktop access to servers | |X |X |X | |
 | Install any custom MSI | |X |X |X |Service Fabric allows you to host any executable file as a [guest executable](../service-fabric/service-fabric-deploy-existing-app.md) or you can install any app on the VMs. |
@@ -139,7 +139,7 @@ If your open source framework is supported on App Service, the languages and fra
 If your open source framework is not supported on App Service, you can run it on one of the other Azure web hosting options. With Virtual Machines, you install and configure the software on the machine image, which can be Windows or Linux-based.
 
 ### <a id="lob"></a>I have a line-of-business application that needs to connect to the corporate network
-If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Service Fabric, and Virtual Machines using the [Azure Virtual Network service](/services/virtual-network/). On App Service you can use the [VNET integration feature](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), which allows your Azure applications to run as if they were on your corporate network.
+If you want to create a line-of-business application, your website might require direct access to services or data on the corporate network. This is possible on App Service, Service Fabric, and Virtual Machines using the [Azure Virtual Network service](https://azure.microsoft.com/services/virtual-network/). On App Service you can use the [VNET integration feature](https://azure.microsoft.com/blog/2014/09/15/azure-websites-virtual-network-integration/), which allows your Azure applications to run as if they were on your corporate network.
 
 ### <a id="mobile"></a>I want to host a REST API or web service for mobile clients
 HTTP-based web services enable you to support a wide variety of clients, including mobile clients. Frameworks like ASP.NET Web API integrate with Visual Studio to make it easier to create and consume REST services.  These services are exposed from a web endpoint, so it is possible to use any web hosting technique on Azure to support this scenario. However, App Service is a great choice for hosting REST APIs. With App Service, you can:

@@ -32,7 +32,7 @@ You'll learn:
 * How to create a web app in Azure App Service that is based on the template.
 * How to configure Azure App Service settings for the new web app and database.
 
-The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. The web apps are built on a wide range of popular frameworks, such as [PHP](/develop/nodejs/) in this WordPress example, [.NET](/develop/net/), [Node.js](/develop/nodejs/), [Java](/develop/java/), and [Python](/develop/python/), to name a few. To create a web app from the Azure Marketplace the only software you need is the browser that you use for the [Azure Portal](https://portal.azure.com/). 
+The Azure Marketplace makes available a wide range of popular web apps developed by Microsoft, third party companies, and open source software initiatives. The web apps are built on a wide range of popular frameworks, such as [PHP](https://azure.microsoft.com/develop/nodejs/) in this WordPress example, [.NET](https://azure.microsoft.com/develop/net/), [Node.js](https://azure.microsoft.com/develop/nodejs/), [Java](https://azure.microsoft.com/develop/java/), and [Python](https://azure.microsoft.com/develop/python/), to name a few. To create a web app from the Azure Marketplace the only software you need is the browser that you use for the [Azure Portal](https://portal.azure.com/). 
 
 The WordPress site that you deploy in this tutorial uses MySQL for the database. If you wish to instead use SQL Database for the database, see [Project Nami](http://projectnami.org/). **Project Nami** is also available through the Marketplace.
 
@@ -85,7 +85,7 @@ The WordPress site that you deploy in this tutorial uses MySQL for the database.
 ## Launch and manage your WordPress web app
 1. When the web app creation is finished, navigate in the Azure Portal to the resource group in which you created the application, and you can see the web app and the database.
    
-    The extra resource with the light bulb icon is [Application Insights](/services/application-insights/), which provides monitoring services for your web app.
+    The extra resource with the light bulb icon is [Application Insights](https://azure.microsoft.com/services/application-insights/), which provides monitoring services for your web app.
 2. In the **Resource group** blade, click the web app line.
    
     ![Configure web app](./media/web-sites-php-web-site-gallery/resourcegroup.png)
@@ -101,7 +101,7 @@ The WordPress site that you deploy in this tutorial uses MySQL for the database.
     ![WordPress site](./media/web-sites-php-web-site-gallery/wpdashboard.png)
 
 ## Next steps
-You've seen how to create and deploy a PHP web app from the gallery. For more information about using PHP in Azure, see the [PHP Developer Center](/develop/php/).
+You've seen how to create and deploy a PHP web app from the gallery. For more information about using PHP in Azure, see the [PHP Developer Center](https://azure.microsoft.com/develop/php/).
 
 For more information about how to work with App Service Web Apps, see the links on the left side of the page (for wide browser windows) or at the top of the page (for narrow browser windows). 
 
