@@ -84,7 +84,8 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
 
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
-<li><div class="cardSize">
+<li>
+	<div class="cardSize"><p />
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
@@ -97,7 +98,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
     </div>
 </li>
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
@@ -113,7 +114,7 @@ Azure DNS (Domain Name System) is a service for DNS domains provide name resolut
     </div>
 </li>
 <li>
-    <div class="cardSize"><p />
+    <div class="cardSize">
         <div class="cardPadding">
             <div class="card">
                 <div class="cardText">
