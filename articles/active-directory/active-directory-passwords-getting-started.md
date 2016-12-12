@@ -246,7 +246,7 @@ Now that you have the Azure AD Connect tool downloaded, you are ready to enable 
 > 
 
 #### Verify that the configuration was successful
->Once the configuration succeeds, you will see the message Password reset write-back is enabled in the Windows PowerShell window, or a success message in the configuration UI.
+Once the configuration succeeds, you will see the message Password reset write-back is enabled in the Windows PowerShell window, or a success message in the configuration UI.
 
 You can also verify the service was installed correctly by opening Event Viewer, navigating to the application event log, and looking for event **31005 - OnboardingEventSuccess** from the source **PasswordResetService**.
 
