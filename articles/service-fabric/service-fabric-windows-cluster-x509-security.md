@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/08/2016
+ms.date: 12/06/2016
 ms.author: dkshir
 
 ---
@@ -40,20 +40,26 @@ To start with, [download the standalone cluster package](service-fabric-cluster-
                 "ThumbprintSecondary": "[Thumbprint]",
                 "X509StoreName": "My"
             },
-            "ClientCertificateThumbprints": [{
-                "CertificateThumbprint": "[Thumbprint]",
-                "IsAdmin": false
-            }, {
-                "CertificateThumbprint": "[Thumbprint]",
-                "IsAdmin": true
-            }],
-            "ClientCertificateCommonNames": [{
-                "CertificateCommonName": "[CertificateCommonName]",
-                "CertificateIssuerThumbprint" : "[Thumbprint]",
-                "IsAdmin": true
-            }]
-            "HttpApplicationGatewayCertificate":{
+            "ClientCertificateThumbprints": [
+                {
+                    "CertificateThumbprint": "[Thumbprint]",
+                    "IsAdmin": false
+                }, 
+                {
+                    "CertificateThumbprint": "[Thumbprint]",
+                    "IsAdmin": true
+                }
+            ],
+            "ClientCertificateCommonNames": [
+                {
+                    "CertificateCommonName": "[CertificateCommonName]",
+                    "CertificateIssuerThumbprint" : "[Thumbprint]",
+                    "IsAdmin": true
+                }
+            ]
+            "ReverseProxyCertificate":{
                 "Thumbprint": "[Thumbprint]",
+                "ThumbprintSecondary": "[Thumbprint]",
                 "X509StoreName": "My"
             }
         }
@@ -74,7 +80,7 @@ The following table lists the certificates that you will need on your cluster se
 | ServerCertificate |This certificate is presented to the client when it tries to connect to this cluster. For convenience, you can choose to use the same certificate for *ClusterCertificate* and *ServerCertificate*. You can use two different server certificates, a primary and a secondary for upgrade. Set the thumbprint of the primary certificate in the **Thumbprint** section and that of the secondary in the **ThumbprintSecondary** variables. |
 | ClientCertificateThumbprints |This is a set of certificates that you want to install on the authenticated clients. You can have a number of different client certificates installed on the machines that you want to allow access to the cluster. Set the thumbprint of each certificate in the **CertificateThumbprint** variable. If you set the **IsAdmin** to *true*, then the client with this certificate installed on it can do administrator management activities on the cluster. If the **IsAdmin** is *false*, the client with this certificate can only perform the actions allowed for user access rights, typically read-only. For more information on roles read [Role based access control (RBAC)](service-fabric-cluster-security.md#role-based-access-control-rbac) |
 | ClientCertificateCommonNames |Set the common name of the first client certificate for the **CertificateCommonName**. The **CertificateIssuerThumbprint** is the thumbprint for the issuer of this certificate. Read [Working with certificates](https://msdn.microsoft.com/library/ms731899.aspx) to know more about common names and the issuer. |
-| HttpApplicationGatewayCertificate |This is an optional certificate that can be specified if you want to secure your Http Application Gateway. Make sure reverseProxyEndpointPort is set in nodeTypes if you are using this certificate. |
+| ReverseProxyCertificate |This is an optional certificate that can be specified if you want to secure your [Reverse Proxy](service-fabric-reverseproxy.md). Make sure reverseProxyEndpointPort is set in nodeTypes if you are using this certificate. |
 
 Here is example cluster configuration where the Cluster, Server, and Client certificates have been provided.
 
@@ -91,16 +97,16 @@ Here is example cluster configuration where the Cluster, Server, and Client cert
         "faultDomain": "fd:/dc1/r0",
         "upgradeDomain": "UD0"
     }, {
-      "nodeName": "vm1",
-              "metadata": "Replace the localhost with valid IP address or FQDN",
+        "nodeName": "vm1",
+        "metadata": "Replace the localhost with valid IP address or FQDN",
         "iPAddress": "10.7.0.4",
         "nodeTypeRef": "NodeType0",
         "faultDomain": "fd:/dc1/r1",
         "upgradeDomain": "UD1"
     }, {
         "nodeName": "vm2",
-      "iPAddress": "10.7.0.6",
-              "metadata": "Replace the localhost with valid IP address or FQDN",
+        "iPAddress": "10.7.0.6",
+        "metadata": "Replace the localhost with valid IP address or FQDN",
         "nodeTypeRef": "NodeType0",
         "faultDomain": "fd:/dc1/r2",
         "upgradeDomain": "UD2"
@@ -139,7 +145,9 @@ Here is example cluster configuration where the Cluster, Server, and Client cert
         "nodeTypes": [{
             "name": "NodeType0",
             "clientConnectionEndpointPort": "19000",
-            "clusterConnectionEndpoint": "19001",
+            "clusterConnectionEndpointPort": "19001",
+            "leaseDriverEndpointPort": "19002",
+            "serviceConnectionEndpointPort": "19003",
             "httpGatewayEndpointPort": "19080",
             "applicationPorts": {
                 "startPort": "20001",
@@ -174,9 +182,9 @@ For clusters that are running production workloads, you should use a [Certificat
 For clusters that you use for test purposes, you can choose to use a self-signed certificate.
 
 ## Optional: Create a self-signed certificate
-One way to create a self-signed cert that can be secured correctly is to use the *CertSetup.ps1* script in the Service Fabric SDK folder in the directory *C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure*. Edit this file and use this to create a certificate with a suitable name.
+One way to create a self-signed cert that can be secured correctly is to use the *CertSetup.ps1* script in the Service Fabric SDK folder in the directory *C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure*. Edit this file to change the default name of the certificate name, look for the value `CN=ServiceFabricDevClusterCert`. Run this script as `.\CertSetup.ps1 -Install`.
 
-Now export the certificate to a PFX file with a protected password. First you need to get the thumbprint of the certificate. Run the certmgr.exe application. Navigate to the **Local Computer\Personal** folder and find the certificate you just created. Double-click the certificate to open it, select the *Details* tab and scroll down to the *Thumbprint* field. Copy the thumbprint value into the PowerShell command below, removing the spaces.  Change the *$pswd* value to a suitability secure password to protect it and run the PowerShell:
+Now export the certificate to a PFX file with a protected password. First get the thumbprint of the certificate. Run the certmgr.exe application. Navigate to the **Local Computer\Personal** folder and find the certificate you just created. Double-click the certificate to open it, select the *Details* tab and scroll down to the *Thumbprint* field. Copy the thumbprint value into the PowerShell command below, removing the spaces.  Change the `String` value to a suitable secure password to protect it and run the PowerShell:
 
 ```   
 $pswd = ConvertTo-SecureString -String "1234" -Force –AsPlainText
@@ -203,7 +211,7 @@ Once you have certificate(s), you can install them on the cluster nodes. Your no
     $PfxFilePath ="C:\mypfx.pfx"
     Import-PfxCertificate -Exportable -CertStoreLocation Cert:\LocalMachine\My -FilePath $PfxFilePath -Password (ConvertTo-SecureString -String $pswd -AsPlainText -Force)
     ```
-3. Next you need to set the access control on this certificate so that the Service Fabric process, which runs under the Network Service account, can use it by running the following script. Provide the thumbprint of the certificate and "NETWORK SERVICE" for the service account. You can check that the ACLs on the certificate are correct using the certmgr.exe tool and looking at the Manage Private Keys on the cert.
+3. Next you need to set the access control on this certificate so that the Service Fabric process, which runs under the Network Service account, can use it by running the following script. Provide the thumbprint of the certificate and "NETWORK SERVICE" for the service account. You can check that the ACLs on the certificate are correct by opening the certificate in the certmgr.exe tool and looking at *All Tasks* > *Manage Private Keys*.
    
     ```
     param
@@ -246,7 +254,7 @@ Once you have certificate(s), you can install them on the cluster nodes. Your no
 After configuring the **security** section of the **ClusterConfig.X509.MultiMachine.json** file, you can proceed to [Create your cluster](service-fabric-cluster-creation-for-windows-server.md#createcluster) section to configure the nodes and create the standalone cluster. Remember to use the **ClusterConfig.X509.MultiMachine.json** file while creating the cluster. For example, your command might look like the following:
 
 ```
-.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json -MicrosoftServiceFabricCabFilePath .\MicrosoftAzureServiceFabric.cab -AcceptEULA $true
+.\CreateServiceFabricCluster.ps1 -ClusterConfigFilePath .\ClusterConfig.X509.MultiMachine.json
 ```
 
 Once you have the secure standalone Windows cluster successfully running, and have setup the authenticated clients to connect to it, follow the section [Connect to a secure cluster using PowerShell](service-fabric-connect-to-secure-cluster.md#connectsecurecluster) to connect to it. For example:
