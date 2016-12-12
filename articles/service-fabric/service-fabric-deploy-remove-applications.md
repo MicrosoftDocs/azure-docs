@@ -206,14 +206,13 @@ PS D:\temp>
 ### Copy-ServiceFabricApplicationPackage asks for an ImageStoreConnectionString
 The Service Fabric SDK environment should already have the correct defaults set up. But if needed, the ImageStoreConnectionString for all commands should match the value that the Service Fabric cluster is using. You can find this in the cluster manifest retrieved through the [Get-ServiceFabricClusterManifest](https://docs.microsoft.com/powershell/servicefabric/vlatest/get-servicefabricclustermanifest) command:
 
-```
-PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType
-
-cmdlet Copy-ServiceFabricApplicationPackage at command pipeline position 1
-Supply values for the following parameters:
-ImageStoreConnectionString:
-
+```powershell
 PS D:\temp> Get-ServiceFabricClusterManifest
+```
+
+The ImageStoreConnectionString is found in the cluster manifest:
+
+```xml
 <ClusterManifest xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Name="Server-Default-SingleNode" Version="1.0" xmlns="http://schemas.microsoft.com/2011/01/fabric">
 
     [...]
@@ -223,11 +222,6 @@ PS D:\temp> Get-ServiceFabricClusterManifest
     </Section>
 
     [...]
-
-PS D:\temp> Copy-ServiceFabricApplicationPackage .\MyApplicationType -ImageStoreConnectionString file:D:\ServiceFabric\Data\ImageStore
-Copy application package succeeded
-
-PS D:\temp>
 ```
 
 ## Next steps
