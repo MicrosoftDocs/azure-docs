@@ -18,7 +18,7 @@ ms.author: elioda
 
 ---
 
-# Pricing information
+# Azure IoT Hub pricing information
 
 [Azure IoT Hub pricing][lnk-pricing] provides the general information on different SKUs and pricing for IoT Hub. This article contains additional details on how the various IoT Hub functionalities are metered as messages by IoT Hub.
 

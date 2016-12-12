@@ -59,6 +59,7 @@ This IoT Hub developer guide includes the following articles:
 [devguide-sdks]: iot-hub-devguide-sdks.md
 [devguide-mqtt]: iot-hub-mqtt-support.md
 [devguide-glossary]: iot-hub-devguide-glossary.md
+[devguide-pricing]: iot-hub-devguide-pricing.md
 [lnk-c2d-guidance]: iot-hub-devguide-c2d-guidance.md
 [lnk-d2c-guidance]: iot-hub-devguide-d2c-guidance.md
 

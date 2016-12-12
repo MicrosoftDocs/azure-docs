@@ -17,7 +17,7 @@ ms.date: 12/12/2016
 ms.author: nberdy
 
 ---
-# Operations monitoring
+# IoT Hub operations monitoring
 IoT Hub operations monitoring enables you to monitor the status of operations on your IoT hub in real time. IoT Hub tracks events across several categories of operations. You can opt into sending events from one or more categories to an endpoint of your IoT hub for processing. You can monitor the data for errors or set up more complex processing based on data patterns.
 
 IoT Hub monitors six categories of events:

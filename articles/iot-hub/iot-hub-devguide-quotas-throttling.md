@@ -17,7 +17,8 @@ ms.date: 12/12/2016
 ms.author: dobett
 
 ---
-# Reference - Quotas and throttling
+# Reference - IoT Hub quotas and throttling
+
 ## Quotas and throttling
 Each Azure subscription can have at most 10 IoT hubs, and at most 1 Free hub.
 
