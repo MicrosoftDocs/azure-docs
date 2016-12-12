@@ -1,5 +1,3 @@
-The Configuration Server software should be deployed on a **highly available** VMware virtual machine. The following table lists out the minimum hardware, software, and network requirements for a configuration server.
-
 | **Hardware** | |
 | --- |---|
 | Number of CPU Cores| 8 Cores |
