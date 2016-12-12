@@ -1,4 +1,4 @@
-﻿---
+---
 title: Security architecture overview | Microsoft Docs
 description: The article provides a security architecture overview of Azure and a curated list of related articles.
 services: security
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/16/2016
+ms.date: 11/16/2016
 ms.author: yurid
 
 ---

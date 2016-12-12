@@ -21,16 +21,17 @@ ms.author: garye;bradsev
 # Import your training data into Azure Machine Learning Studio from various data sources
 To use your own data in Machine Learning Studio to develop and train a predictive analytics solution, you can: 
 
-* upload data from a **local file** ahead of time from your hard drive to create a dataset module in your workspace.  
-* access data from one of several **online data sources** while your experiment is running using the [Import Data][import-data] module. 
-* use data from another Azure Machine learning experiment saved as a **dataset**. 
+* upload data from a **local file** ahead of time from your hard drive to create a dataset module in your workspace
+* access data from one of several **online data sources** while your experiment is running using the [Import Data][import-data] module 
+* use data from another Azure Machine learning **experiment** saved as a dataset
+* use data from an on-premises **SQL Server database**
+
+Each of these options is described in one of the topics on the menu below. These topics show you how to import data from these various data sources to use in Machine Learning Studio. 
 
 [!INCLUDE [import-data-into-aml-studio-selector](../../includes/machine-learning-import-data-into-aml-studio.md)]
 
-Each of these options are described in one of the topics on the menu above. These topic shows you how to import data from these various data sources to use in Machine Learning Studio. 
-
 > [!NOTE]
-> There are a number of sample datasets available in Machine Learning Studio that you can use for this purpose. For information on these, see [Use the sample datasets in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)).
+> There are a number of sample datasets available in Machine Learning Studio that you can use for training data. For information on these, see [Use the sample datasets in Azure Machine Learning Studio](machine-learning-use-sample-datasets.md)).
 > 
 > 
 

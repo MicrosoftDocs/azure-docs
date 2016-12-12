@@ -13,17 +13,19 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 10/27/2016
+ms.date: 12/09/2016
 ms.author: rnagpal
 
 ---
 # DocumentDB APIs and SDKs
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-sdk-dotnet.md)
+> * [.NET Core](documentdb-sdk-dotnet-core.md)
 > * [Node.js](documentdb-sdk-node.md)
 > * [Java](documentdb-sdk-java.md)
 > * [Python](documentdb-sdk-python.md)
-> * [REST](https://go.microsoft.com/fwlink/?LinkId=402413)
+> * [REST](https://docs.microsoft.com/en-us/rest/api/documentdb/)
+> * [REST Resource Provider](https://docs.microsoft.com/rest/api/documentdbresourceprovider/)
 > * [SQL](https://msdn.microsoft.com/library/azure/dn782250.aspx)
 > 
 > 
@@ -45,10 +47,14 @@ ms.author: rnagpal
 </table></br>
 
 ## Release Notes
-> [!IMPORTANT]
-> Starting with version 1.9.2 release, you may receive System.NotSupportedException when querying partitioned collections. To avoid this error, ensure that your host process is 64-bit. For Executable projects, this can be done by unchecking the "Prefer 32-bit" option in the project properties window, on the Build tab.
-> 
-> 
+
+### <a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
+* Support for new classes and methods to process the [change feed](documentdb-change-feed.md) of documents within a collection.
+* Support for cross-partition query continuation and some perf improvements for cross-partition queries.
+* Addition of CreateDatabaseIfNotExistsAsync and CreateDocumentCollectionIfNotExistsAsync methods.
+* LINQ support for system functions: IsDefined, IsNull and IsPrimitive.
+* Fix for automatic binplacing of Microsoft.Azure.Documents.ServiceInterop.dll and DocumentDB.Spatial.Sql.dll assemblies to application’s bin folder when using the Nuget package with projects that have project.json tooling.
+* Support for emitting client side ETW traces which could be helpful in debugging scenarios.
 
 ### <a name="1.10.0"/>[1.10.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.10.0)
 * Added direct connectivity support for partitioned collections.
@@ -190,6 +196,7 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
+| [1.11.0](#1.11.0) |December 08, 2016 |--- |
 | [1.10.0](#1.10.0) |September 27, 2016 |--- |
 | [1.9.5](#1.9.5) |September 01, 2016 |--- |
 | [1.9.4](#1.9.4) |August 24, 2016 |--- |

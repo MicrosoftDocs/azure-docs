@@ -1,9 +1,9 @@
-﻿---
+---
 title: 'Azure AD Connect: Version Release History | Microsoft Docs'
 description: This topic lists all releases of Azure AD Connect and Azure AD Sync
 services: active-directory
 documentationcenter: ''
-author: AndKjell
+author: billmath
 manager: femila
 editor: ''
 
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/01/2016
+ms.date: 12/07/2016
 ms.author: billmath
 
 ---
@@ -24,11 +24,48 @@ This article is designed to help you keep track of the versions that have been r
 
 This is list of related topics:
 
-| Topic |
-| --- | --- |
-| Steps to upgrade from Azure AD Connect |
-| Required permissions |
-| Download |
+
+Topic |  
+--------- | --------- |
+Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
+Required permissions | For permissions required to apply an update, see [accounts and permissions](./connect/active-directory-aadconnect-accounts-permissions.md#upgrade)
+Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1.1.371.0
+Released: 2016 December
+
+**Fixed issue:**
+
+* Azure AD Connect installation or upgrade fails if Port 9090 is not opened for outbound connection.
+
+## 1.1.370.0
+Released: 2016 December
+
+**New Features:**
+
+* Pass-through Authentication (Preview).
+
+
+**Known Issues:**
+
+* Port 9090 must be open outbound to complete installation.
+
+>[!NOTE]
+>This build will not be available to customers through the Azure AD Connect Auto Upgrade feature.
+
+## 1.1.343.0
+Released: 2016 November
+
+**Fixed issues:**
+
+* Sometimes, installing Azure AD Connect fails because it is unable to create a local service account whose password meets the level of complexity specified by the organization's password policy.
+* Fixed an issue where join rules are not re-evaluated when an object in the connector space simultaneously becomes out-of-scope for one join rule and become in-scope for another. This can happen if you have two or more join rules whose join conditions are mutually exclusive.
+* Fixed an issue where inbound synchronization rules (from Azure AD) which do not contain join rules are not processed if they have lower precedence values than those containing join rules.
+
+**Improvements:**
+
+* Added support for installing Azure AD Connect on Windows Server 2016 standard or better.
+* Added support for using SQL Server 2016 as the remote database for Azure AD Connect.
 
 ## 1.1.281.0
 Released: 2016 August

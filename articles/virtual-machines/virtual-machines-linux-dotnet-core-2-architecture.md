@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/21/2016
+ms.date: 11/21/2016
 ms.author: nepeters
 
 ---
@@ -30,7 +30,7 @@ A virtual machine can be added to a template using the Visual Studio Add New Res
 
 Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine JSON](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L295).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Compute/virtualMachines",
@@ -65,7 +65,7 @@ Storage accounts have many storage options and capabilities. For the context of 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Storage Account](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L109).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Storage/storageAccounts",
@@ -84,7 +84,7 @@ A storage account is associate with a virtual machine inside the Resource Manage
 
 Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine and Storage Account association](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L341).
 
-```none
+```json
 "osDisk": {
   "name": "osdisk",
   "vhd": {
@@ -110,7 +110,7 @@ If a virtual machine requires internal networking such as the ability to communi
 
 Follow this link to see the JSON sample within the Resource Manager template – [Virtual Network and Subnets](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L136).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/virtualNetworks",
@@ -152,7 +152,7 @@ From the Azure portal, the virtual network looks like the following image. Notic
 
  Follow this link to see the JSON sample within the Resource Manager template – [Network Interface](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L166).
 
-```none
+```json
 {
   "apiVersion": "2015-06-15",
   "type": "Microsoft.Network/networkInterfaces",
@@ -201,7 +201,7 @@ Each virtual machine resource includes a network profile. The network interface 
 
 Follow this link to see the JSON sample within the Resource Manager template – [Virtual Machine Network Profile](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L350).
 
-```none
+```json
 "networkProfile": {
   "networkInterfaces": [
     {
@@ -224,7 +224,7 @@ An Azure SQL database can be added using the Visual Studio Add New Resource wiza
 
 Follow this link to see the JSON sample within the Resource Manager template – [Azure SQL DB](https://github.com/Microsoft/dotnet-core-sample-templates/blob/master/dotnet-core-music-linux/azuredeploy.json#L401).
 
-```none
+```json
 {
   "apiVersion": "2014-04-01-preview",
   "type": "Microsoft.Sql/servers",

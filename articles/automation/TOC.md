@@ -1,14 +1,11 @@
 # Overview
 ## [What is Azure Automation?](automation-intro.md)
 ## [Security in Azure Automation](automation-security-overview.md)
-
 # Get started
 ## [Create runbook](automation-first-runbook-graphical.md)
 ## [Create PowerShell runbook](automation-first-runbook-textual-powershell.md)
 ## [Create PowerShell Workflow runbook](automation-first-runbook-textual.md)
 ## [Manage role-based access control](automation-role-based-access-control.md)
-
-
 # How to
 ## Create runbooks
 ### [Runbook types](automation-runbook-types.md)
@@ -55,30 +52,27 @@
 ### [Start/stop VM with JSON Tags](automation-scenario-start-stop-vm-wjson-tags.md)
 ### [Remove Resource Group](automation-scenario-remove-resourcegroup.md)
 ### [Start/stop VMs during off-hours](automation-solution-vm-management.md)
-
+### [Source Control Integration with GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md)
 ## [Monitor](automation-manage-send-joblogs-log-analytics.md)
-
 ## Migrate
 ### [Migrate from Orchestrator](automation-orchestrator-migration.md)
 ### [Move Automation Account](automation-migrate-account-subscription.md)
-
 ## Troubleshoot
 ### [Troubleshoot common errors](automation-troubleshooting-automation-errors.md)
 ### [Runbook job suspended](automation-troubleshooting-hrw-runbook-terminates-suspended.md)
-
 # Reference
-## [Release notes](https://azure.microsoft.com/updates/?product=automation)
-## [PowerShell cmdlets](https://msdn.microsoft.com/library/azure/dn690262)
-## [Resource Manager REST API](https://msdn.microsoft.com/library/azure/mt662285.aspx)
-## [Classic Deployment Rest](https://msdn.microsoft.com/library/azure/mt163781)
-
+## [PowerShell](/powershell/resourcemanager/azurerm.automation/v2.3.0/azurerm.automation)
+## [PowerShell (Classic)](/powershell/servicemanagement/azure.automation/v3.1.0/azure.automation)
+## [.NET](/dotnet/api/microsoft.azure.management.automation)
+## [REST](https://msdn.microsoft.com/library/azure/mt662285.aspx)
+## [REST (Classic)](https://msdn.microsoft.com/library/azure/mt163781)
 # Resources
+## [Release notes](https://azure.microsoft.com/updates/?product=automation)
 ## [Pricing](https://azure.microsoft.com/pricing/details/automation/)  
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureautomation)  
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-automation)
-## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=automation) 
-## [Service updates](https://azure.microsoft.com/updates/?product=automation) 
-## [Azure Automation training](https://www.microsoftvirtualacademy.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323)
+## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=automation)
+## [Service updates](https://azure.microsoft.com/updates/?product=automation)
+## [Azure Automation training](https://mva.microsoft.com/en-US/training-courses/automating-the-cloud-with-azure-automation-8323?l=C6mIpCay_4804984382)
 ## [Learning path](https://azure.microsoft.com/documentation/learning-paths/automation/)
 ## [Automation introduction video](https://azure.microsoft.com/documentation/videos/azure-automation-101-with-powershell-and-eamon-o-reilly/)
-

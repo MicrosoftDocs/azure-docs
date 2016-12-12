@@ -53,7 +53,7 @@ Prerequisites
 2. Create a script called **sender.py**. This script will send 200 events to your Event Hub. They are simple environmental readings sent in JSON.
 3. Paste the following code into sender.py:
    
-   ```
+   ```python
    import uuid
    import datetime
    import random
@@ -79,7 +79,7 @@ Prerequisites
 2. Create a script called **archivereader.py**. This script will read the archive files and create a file per device to write the data only for that device.
 3. Paste the following code into archivereader.py:
    
-   ```
+   ```python
    import os
    import string
    import json

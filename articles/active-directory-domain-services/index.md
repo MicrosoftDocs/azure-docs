@@ -77,8 +77,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
             </div>
         </div>
         </a>
-    </li>
-    <li>
+    </li>    
     <li>
         <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-enableaadds">
         <div class="cardSize">
@@ -97,6 +96,7 @@ Azure AD Domain Services (DS) provides managed domain services such as domain jo
         </div>
         </a>
     </li>
+    <li>
         <a href="/azure/active-directory-domain-services/active-directory-ds-getting-started-dns">
         <div class="cardSize">
             <div class="cardPadding">

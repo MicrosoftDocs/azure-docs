@@ -20,9 +20,9 @@ ms.author: cherylmc
 ---
 # Create and modify routing for an ExpressRoute circuit
 > [!div class="op_single_selector"]
-> [Azure Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
-> [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
-> [PowerShell - Classic](expressroute-howto-routing-classic.md)
+> * [Azure Portal - Resource Manager](expressroute-howto-routing-portal-resource-manager.md)
+> * [PowerShell - Resource Manager](expressroute-howto-routing-arm.md)
+> * [PowerShell - Classic](expressroute-howto-routing-classic.md)
 > 
 > 
 

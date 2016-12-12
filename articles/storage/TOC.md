@@ -43,33 +43,25 @@
 ### [C++](storage-c-plus-plus-how-to-use-files.md)
 ### [Python](storage-python-how-to-use-file-storage.md)
 
-
-
 # How To
-
 ## [Create a storage account](storage-create-storage-account.md)
-
 ## Use blobs
 ### [Service overview](https://msdn.microsoft.com/library/dd179376.aspx)
 ### [Hot and cool tiers](storage-blob-storage-tiers.md)
 ### [Custom domains](storage-custom-domain-name.md)
 ### [Anonymous access to blobs](storage-manage-access-to-resources.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=blob)
-
 ## Use queues
 ### [Concepts](https://msdn.microsoft.com/library/dd179353.aspx)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=queue)
-
 ## Use tables
 ### [Overview](https://msdn.microsoft.com/library/dd179463.aspx)
 ### [Table design guide](storage-table-design-guide.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=table)
-
 ## Use files
 ### [Overview](https://msdn.microsoft.com/en-us/library/dn166972.aspx)
 ### [Troubleshoot Azure Files](storage-troubleshoot-file-connection-problems.md)
 ### [Samples](https://azure.microsoft.com/documentation/samples/?service=storage&term=file)
-
 ## Use Virtual Machine Disks
 ### Premium Storage
 #### [High-performance storage for VM workloads](storage-premium-storage.md)
@@ -77,24 +69,20 @@
 #### [Design for high performance](storage-premium-storage-performance.md)
 ### Standard Storage
 #### [Back up VM disks with incremental snapshots](storage-incremental-snapshots.md)
-
 ## Plan and design
 ### [Replication](storage-redundancy.md)
 ### [Scalability and performance targets](storage-scalability-targets.md)
 ### [Performance and scalability checklist](storage-performance-checklist.md)
 ### [Concurrency](storage-concurrency.md)
-
 ## Develop
 ### [Samples](storage-samples.md)
 ### [Configure connection strings](storage-configure-connection-string.md)
 ### [Use the Storage Emulator](storage-use-emulator.md)
 ### [Set and retrieve properties and metadata](storage-properties-metadata.md)
-
 ## Manage
 ### [PowerShell](storage-powershell-guide-full.md)
 ### [Azure CLI](storage-azure-cli.md)
 ### [Azure Automation](automation-manage-storage.md)
-
 ## Secure
 ### [Security guide](storage-security-guide.md)
 ### [Encryption for data at rest](storage-service-encryption.md)
@@ -102,10 +90,9 @@
 ### [Shared access signatures (SAS)](storage-dotnet-shared-access-signature-part-1.md)
 ### [Tutorial: Encrypt and decrypt blobs using Azure Key Vault](storage-encrypt-decrypt-blobs-key-vault.md)
 ### Client-side encryption
-#### [Azure Key Vault](storage-client-side-encryption.md)
+#### [.NET](storage-client-side-encryption.md)
 #### [Java](storage-client-side-encryption-java.md)
 #### [Python](storage-client-side-encryption-python.md)
-
 ## Monitor and troubleshoot
 ### Metrics and logging
 #### [Storage Analytics](storage-analytics.md)
@@ -117,29 +104,29 @@
 #### [In a classic deployment](storage-cannot-delete-storage-account-container-vhd.md)
 ### [Troubleshoot File storage](storage-troubleshoot-file-connection-problems.md)
 ### [Disaster recovery guidance](storage-disaster-recovery-guidance.md)
-
 ## Transfer Data
 ### [Move data to and from Storage](storage-moving-data.md)
 ### [AzCopy command-line utility](storage-use-azcopy.md)
 ### [Import/Export service for Blob storage](storage-import-export-service.md)
 
-
-
 # Reference
-## [PowerShell](/powershell/storage/)
+## [PowerShell](/powershell/storage)
 ## [Azure CLI](/cli/azure/storage)
-## [Java](/java/api/)
-
 ## .NET
-### [Blob, queue, table, and file](https://msdn.microsoft.com/library/azure/mt347887.aspx)
-### [Resource provider](/dotnet/api/)
-### [Data movement](/dotnet/api/)
-
+### [Resource manager](/dotnet/api/microsoft.azure.management.storage)
+### [Data movement](https://msdn.microsoft.com/en-us/library/azure/mt684990.aspx)
+### [Blobs, Queues, Tables, and Files](https://msdn.microsoft.com/library/azure/mt347887.aspx)
+## [Java](/java/api/)
+## [Node.js](http://azure.github.io/azure-storage-node)
+## [Ruby](http://azure.github.io/azure-storage-ruby)
+## [Python](https://azure-storage.readthedocs.io/en/latest/index.html)
+## [C++](http://azure.github.io/azure-storage-cpp)
+## [iOS](https://github.com/Azure/azure-storage-ios)
+## [Android](http://azure.github.io/azure-storage-android)
 ## REST
-### [Blob, queue, table, and file](/rest/api/storageservices/fileservices/azure-storage-services-rest-api-reference)
-### [Resource provider](/rest/api/storagerp/)
+### [Blobs, Queues, Tables, and Files](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
+### [Resource provider](/rest/api/storagerp)
 ### [Import/export](/rest/api/storageservices/importexport/storage-import-export-service-rest-api-reference)
-
 
 # Related
 ## Classic Portal
@@ -147,8 +134,6 @@
 ### [Enable and view metrics](storage-enable-and-view-metrics-classic-portal.md)
 ### [Monitor, diagnose, and troubleshoot](storage-monitoring-diagnosing-troubleshooting-classic-portal.md)
 ### [Troubleshooting tutorial](storage-e2e-troubleshooting-classic-portal.md)
-
-
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/storage/blobs/)

@@ -1,6 +1,6 @@
 ## Create an Event Hub
 1. Log on to the [Azure portal][Azure portal], and click **New** at the top left of the screen.
-2. Click **Data + Analytics**, then click **Event Hubs**.
+2. Click **Internet of Things**, then click **Event Hubs**.
    
     ![](./media/event-hubs-create-event-hub/create-event-hub9.png)
 3. In the **Create namespace** blade, enter a namespace name. The system immediately checks to see if the name is available.

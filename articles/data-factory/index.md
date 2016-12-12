@@ -81,17 +81,47 @@ Azure Data Factory is a cloud-based data integration service that automates the 
 </ul>
 
 ---
-
-## Reference
-
-### PowerShell
-[Azure PowerShell Reference](/powershell/azureps-cmdlets-docs)
-
-### .NET
-[Data Factory Managed Reference](/dotnet/api)
-
-### REST
-[Data Factory REST API Reference](/rest/api/datafactory)
+ 
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.datafactories.models">.NET</a></p>
+                        <p><a href="/azure/data-factory/data-factory-sdks">Azure Data Factory Developer Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/datafactory/">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 ---
 

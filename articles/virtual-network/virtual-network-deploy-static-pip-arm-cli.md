@@ -1,10 +1,10 @@
 ---
 title: Create a VM with a static public IP using the Azure CLI | Microsoft Docs
-description: Learn how to create a VM with a static public IP address through Azure Resource Manager using the Azure CLI.
+description: Learn how to create a VM with a static public IP address using the Azure CLI | Resource Manager.
 services: virtual-network
 documentationcenter: na
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -20,12 +20,17 @@ ms.author: jdial
 ---
 # Create a VM with a static public IP using the Azure CLI
 
-[!INCLUDE [virtual-network-deploy-static-pip-arm-selectors-include.md](../../includes/virtual-network-deploy-static-pip-arm-selectors-include.md)]
+> [!div class="op_single_selector"]
+- [Azure portal](virtual-network-deploy-static-pip-arm-portal.md)
+- [PowerShell](virtual-network-deploy-static-pip-arm-ps.md)
+- [Azure CLI](virtual-network-deploy-static-pip-arm-cli.md)
+- [Template](virtual-network-deploy-static-pip-arm-template.md)
+- [PowerShell (Classic)](virtual-networks-reserved-public-ip.md)
 
 [!INCLUDE [virtual-network-deploy-static-pip-intro-include.md](../../includes/virtual-network-deploy-static-pip-intro-include.md)]
 
 > [!NOTE]
-> Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the classic deployment model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using the Resource Manager deployment model, which Microsoft recommends for most new deployments instead of the classic deployment model.
 
 [!INCLUDE [virtual-network-deploy-static-pip-scenario-include.md](../../includes/virtual-network-deploy-static-pip-scenario-include.md)]
 

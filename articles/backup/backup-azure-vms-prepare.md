@@ -14,7 +14,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/26/2016
+ms.date: 11/28/2016
 ms.author: trinadhk; jimpark; markgal;
 
 ---
@@ -35,7 +35,7 @@ If you know these conditions already exist in your environment then proceed to t
 
 ## Limitations when backing up and restoring a VM
 > [!NOTE]
-> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../resource-manager-deployment-model.md). The following list provides the limitations when deploying in the classic model.
+> Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). The following list provides the limitations when deploying in the classic model.
 >
 >
 

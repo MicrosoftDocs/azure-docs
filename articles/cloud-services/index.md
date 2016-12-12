@@ -82,14 +82,35 @@ Cloud Services is an example of a Platform-as-a-Service (PaaS) implementation. I
 
 ---
 
-##Reference
-
-###REST
-[Cloud Services REST API Reference](https://msdn.microsoft.com/library/azure/ee460812)
-
-###.Schemas
-[Cloud Services Definition Schema](https://msdn.microsoft.com/en-us/library/azure/ee758711)
-[Cloud Services Configuration Schema](https://msdn.microsoft.com/en-us/library/azure/ee758710)
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758711">.csdef XMLSchema</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee758710">.cscfg XMLSchema</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/ee460812">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/cloud-services.pdf">

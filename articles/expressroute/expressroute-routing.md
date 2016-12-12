@@ -1,4 +1,4 @@
-﻿---
+---
 title: Routing requirements for ExpressRoute | Microsoft Docs
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/19/2016
+ms.date: 12/06/2016
 ms.author: osamazia
 
 ---
@@ -127,37 +127,39 @@ You can purchase more than one ExpressRoute circuit per geopolitical region. Hav
 
 Microsoft will tag prefixes advertised through public peering and Microsoft peering with appropriate BGP community values indicating the region the prefixes are hosted in. You can rely on the community values to make appropriate routing decisions to offer [optimal routing to customers](expressroute-optimize-routing.md).
 
-| **Geopolitical Region** | **Microsoft Azure region** | **BGP community value** |
-| --- | --- | --- |
-| **North America** | | |
-| East US |12076:51004 | |
-| East US 2 |12076:51005 | |
-| West US |12076:51006 | |
-| West US 2 |12076:51026 | |
-| West Central US |12076:51027 | |
-| North Central US |12076:51007 | |
-| South Central US |12076:51008 | |
-| Central US |12076:51009 | |
-| Canada Central |12076:51020 | |
-| Canada East |12076:51021 | |
-| **South America** | | |
-| Brazil South |12076:51014 | |
-| **Europe** | | |
-| North Europe |12076:51003 | |
-| West Europe |12076:51002 | |
-| **Asia Pacific** | | |
-| East Asia |12076:51010 | |
-| Southeast Asia |12076:51011 | |
-| **Japan** | | |
-| Japan East |12076:51012 | |
-| Japan West |12076:51013 | |
-| **Australia** | | |
-| Australia East |12076:51015 | |
-| Australia Southeast |12076:51016 | |
-| **India** | | |
-| India South |12076:51019 | |
-| India West |12076:51018 | |
-| India Central |12076:51017 | |
+| **Microsoft Azure region** | **BGP community value** |
+| --- | --- |
+| **North America** | |
+| East US |12076:51004 |
+| East US 2 |12076:51005 |
+| West US |12076:51006 |
+| West US 2 |12076:51026 |
+| West Central US |12076:51027 |
+| North Central US |12076:51007 |
+| South Central US |12076:51008 |
+| Central US |12076:51009 |
+| Canada Central |12076:51020 |
+| Canada East |12076:51021 |
+| **South America** | |
+| Brazil South |12076:51014 |
+| **Europe** | |
+| North Europe |12076:51003 |
+| West Europe |12076:51002 |
+| UK South | 12076:51024 |
+| UK West | 12076:51025 |
+| **Asia Pacific** | |
+| East Asia |12076:51010 |
+| Southeast Asia |12076:51011 |
+| **Japan** | |
+| Japan East |12076:51012 |
+| Japan West |12076:51013 |
+| **Australia** | |
+| Australia East |12076:51015 |
+| Australia Southeast |12076:51016 |
+| **India** | |
+| India South |12076:51019 |
+| India West |12076:51018 |
+| India Central |12076:51017 |
 
 All routes advertised from Microsoft will be tagged with the appropriate community value. 
 
@@ -170,16 +172,32 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 
 | **Service** | **BGP community value** |
 | --- | --- |
-| **Exchange** |12076:5010 |
-| **SharePoint** |12076:5020 |
-| **Skype For Business** |12076:5030 |
-| **CRM Online** |12076:5040 |
-| **Other Office 365 Services** |12076:5100 |
+| Exchange Online |12076:5010 |
+| SharePoint Online |12076:5020 |
+| Skype For Business Online |12076:5030 |
+| CRM Online |12076:5040 |
+| Other Office 365 Online services |12076:5100 |
 
 > [!NOTE]
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
 > 
 > 
+
+| **National Clouds Azure Region**| **BGP community value** |
+| --- | --- |
+| **US Government** |  |
+| US Gov Iowa | 12076:51109 |
+| US Gov Virginia | 12076:51105 |
+
+
+| **Service in National Clouds** | **BGP community value** |
+| --- | --- |
+| **US Government** |  |
+| Exchange Online |12076:5110 |
+| SharePoint Online |12076:5120 |
+| Skype For Business Online |12076:5130 |
+| CRM Online |12076:5140 |
+| Other Office 365 Online services |12076:5200 |
 
 ## Next steps
 * Configure your ExpressRoute connection.

@@ -1,4 +1,3 @@
-﻿
 ---
 title: List of Ports and URLs to whitelist for Azure RemoteApp Deployed in customer virtual network | Microsoft Docs
 description: Learn which ports and URLs you'll need to configure for communication through Azure RemoteApp.
@@ -14,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/16/2016
-ms.author: elizapo
+ms.author: mbaldwin
 
 ---
 # List of Ports and URLs to permit access for Azure RemoteApp Deployed in customer Virtual Network

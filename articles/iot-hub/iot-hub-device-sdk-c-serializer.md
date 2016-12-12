@@ -1,6 +1,6 @@
-﻿---
+---
 title: Azure IoT device SDK for C - Serializer | Microsoft Docs
-description: Learn more about using the Serializer library in the Azure IoT device SDK for C
+description: How to use the Serializer library in the Azure IoT device SDK for C to create device apps that communicate with an IoT hub.
 services: iot-hub
 documentationcenter: ''
 author: olivierbloch
@@ -17,7 +17,7 @@ ms.date: 09/06/2016
 ms.author: obloch
 
 ---
-# Microsoft Azure IoT device SDK for C – more about serializer
+# Azure IoT device SDK for C – more about serializer
 The [first article](iot-hub-device-sdk-c-intro.md) in this series introduced the **Azure IoT device SDK for C**. The next article provided a more detailed description of the [**IoTHubClient**](iot-hub-device-sdk-c-iothubclient.md). This article completes coverage of the SDK by providing a more detailed description of the remaining component: the **serializer** library.
 
 The introductory article described how to use the **serializer** library to send events to and receive messages from IoT Hub. In this article, we extend that discussion by providing a more complete explanation of how to model your data with the **serializer** macro language. The article also includes more detail about how the library serializes messages (and in some cases how you can control the serialization behavior). We'll also describe some parameters you can modify that determine the size of the models you create.
@@ -26,7 +26,7 @@ Finally, the article revisits some topics covered in previous articles such as m
 
 Everything described in this article is based on the **serializer** SDK samples. If you want to follow along, see the **simplesample\_amqp** and **simplesample\_http** applications included in the Azure IoT device SDK for C.
 
-You can find the **Azure IoT device SDK for C** in the [Microsoft Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) GitHub repository and view details of the API in the [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
+You can find the **Azure IoT device SDK for C** in the [Azure IoT SDKs](https://github.com/Azure/azure-iot-sdks) GitHub repository and view details of the API in the [C API reference](http://azure.github.io/azure-iot-sdks/c/api_reference/index.html).
 
 ## The modeling language
 The [introductory article](iot-hub-device-sdk-c-intro.md) in this series introduced the **Azure IoT device SDK for C** modeling language through the example provided in the **simplesample\_amqp** application:
@@ -657,7 +657,7 @@ This article describes in detail the unique aspects of the **serializer** librar
 
 This also concludes the three-part series on how to develop applications with the **Azure IoT device SDK for C**. This should be enough information to not only get you started but give you a thorough understanding of how the APIs work. For additional information, there are a few samples in the SDK not covered here. Otherwise, the [SDK documentation](https://github.com/Azure/azure-iot-sdks) is a good resource for additional information.
 
-To learn more about developing for IoT Hub, see the [IoT Hub SDKs][lnk-sdks].
+To learn more about developing for IoT Hub, see the [Azure IoT SDKs][lnk-sdks].
 
 To further explore the capabilities of IoT Hub, see:
 

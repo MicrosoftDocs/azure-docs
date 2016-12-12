@@ -26,8 +26,6 @@ This article shows how to resize a Linux VM using the [Azure CLI][azure-cli].
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 
-classic deployment model.
-
 ## Resize a Linux VM
 To resize a VM, perform the following steps.
 

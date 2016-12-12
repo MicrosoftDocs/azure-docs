@@ -85,7 +85,7 @@ The following Log Analytics features behave differently in Azure Government:
   3. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to Import an Operations Manager Management Pack](http://technet.microsoft.com/library/hh212691.aspx) on the Microsoft TechNet website.
   4. To connect Operations Manager to Log Analytics, follow the steps in [Connect Operations Manager to Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
-## Frequently asked questions
+### Frequently asked questions
 * Can I migrate data from Log Analytics in Microsoft Azure to Azure Government?
   * No. It is not possible to move data or your workspace from Microsoft Azure to Azure Government.
 * Can I switch between Microsoft Azure and Azure Government workspaces from the Operations Management Suite Log Analytics portal?

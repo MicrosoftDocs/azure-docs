@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage Azure SQL Database with PowerShell | Microsoft Docs
 description: Azure SQL Database management with PowerShell.
 services: sql-database
@@ -9,11 +9,12 @@ editor: monicar
 
 ms.assetid: 3f21ad5e-ba99-4010-b244-5e5815074d31
 ms.service: sql-database
+ms.custom: how to
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 11/15/2016
 ms.author: sstein
 
 ---
@@ -59,7 +60,7 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
  -ResourceGroupName $resourceGroupName -ServerVersion $sqlServerVersion
 ```
 
-For more information, see [What is SQL Database](sql-database-technical-overview.md). For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+For more information about servers, see [SQL Database features](sql-database-features.md). For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
 
 ## How do I create a SQL database server firewall rule?
 To create a firewall rule to access the server, use the [New-AzureRmSqlServerFirewallRule](https://msdn.microsoft.com/library/azure/mt603860\(v=azure.300\).aspx) cmdlet. Run the following command, replacing the start and end IP addresses with valid values for your client. The resource group, and server must already exist in your subscription.
@@ -149,7 +150,7 @@ Remove-AzureRmSqlDatabase -DatabaseName $databaseName `
  -ServerName $sqlServerName -ResourceGroupName $resourceGroupName
 ```
 
-## How do I create a SQL database server?
+## How do I delete a SQL database server?
 To delete a SQL database server, use the [Remove-AzureRmSqlServer](https://msdn.microsoft.com/library/azure/mt603488\(v=azure.300\).aspx) cmdlet.
 
 ```

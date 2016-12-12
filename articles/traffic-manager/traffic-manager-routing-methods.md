@@ -3,8 +3,8 @@ title: Traffic Manager - traffic routing methods | Microsoft Docs
 description: This articles will help you understand the different traffic routing methods used by Traffic Manager
 services: traffic-manager
 documentationcenter: ''
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 editor: ''
 
 ms.assetid: db1efbf6-6762-4c7a-ac99-675d4eeb54d0
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Traffic Manager traffic-routing methods

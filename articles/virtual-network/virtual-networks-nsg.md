@@ -1,6 +1,6 @@
 ---
 title: Network Security Groups | Microsoft Docs
-description: Learn about the distributed firewall in Azure using Network Security Groups (NSGs), and how to use NSGs to isolate and control traffic flow within your virtual networks (VNets).
+description: Learn how to isolate and control traffic flow within your virtual networks using the distributed firewall in Azure using Network Security Groups.
 services: virtual-network
 documentationcenter: na
 author: jimdial
@@ -17,8 +17,9 @@ ms.date: 02/11/2016
 ms.author: jdial
 
 ---
-# What is a Network Security Group (NSG)?
-Network security group (NSG) contains a list of Access Control List (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
+# Network security groups
+
+A network security group (NSG) contains a list of access control list (ACL) rules that allow or deny network traffic to your VM instances in a Virtual Network. NSGs can be associated with either subnets or individual VM instances within that subnet. When a NSG is associated with a subnet, the ACL rules apply to all the VM instances in that subnet. In addition, traffic to an individual VM can be restricted further by associating a NSG directly to that VM.
 
 > [!NOTE]
 > Azure has two different deployment models for creating and working with resources:  [Resource Manager and classic](../resource-manager-deployment-model.md). This article covers using both models, but Microsoft recommends that most new deployments use the Resource Manager model.

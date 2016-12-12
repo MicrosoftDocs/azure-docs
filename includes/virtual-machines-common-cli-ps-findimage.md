@@ -127,7 +127,7 @@ Now you can choose precisely the image you want to use. To create a virtual mach
 
 ## PowerShell
 > [!NOTE]
-> Install and configure the [latest Azure PowerShell](../articles/powershell-install-configure.md). If you are using Azure PowerShell modules below 1.0, you still use the following commands but you must first `Switch-AzureMode AzureResourceManager`. 
+> Install and configure the [latest Azure PowerShell](/powershell/azureps-cmdlets-docs). If you are using Azure PowerShell modules below 1.0, you still use the following commands but you must first `Switch-AzureMode AzureResourceManager`. 
 > 
 > 
 

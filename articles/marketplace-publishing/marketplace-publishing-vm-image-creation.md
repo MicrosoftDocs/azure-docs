@@ -140,7 +140,7 @@ To download a remote desktop file to a local machine, use the [Get-AzureRemoteDe
     ![drawing][img-portal-vm-rdp]
 6. The cmdlet to download the RDP file for the created VM to the administrator's local desktop is as follows.
    
-        Get‐AzureRemoteDesktopFile ‐ServiceName “baseimagevm‐6820cq00” ‐Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
+        Get-AzureRemoteDesktopFile -ServiceName “baseimagevm-6820cq00” -Name “BaseImageVM” –LocalPath “C:\Users\Administrator\Desktop\BaseImageVM.rdp”
 
 More information about RDP can be found on MSDN in the article [Connect to an Azure VM with RDP or SSH](http://msdn.microsoft.com/library/azure/dn535788.aspx).
 
@@ -184,7 +184,7 @@ To learn more about VM images, review the following blog posts:
 * [About VM images in Azure](https://msdn.microsoft.com/library/azure/dn790290.aspx)
 
 ### Set up the necessary tools, PowerShell and Azure CLI
-* [How to setup PowerShell](../powershell-install-configure.md)
+* [How to setup PowerShell](/powershell/azureps-cmdlets-docs)
 * [How to setup Azure CLI](../xplat-cli-install.md)
 
 ### 4.1 Create a user VM image
@@ -222,11 +222,11 @@ To deploy a VM from a user VM image, you can use the current [Azure portal](http
 
 To deploy a large VM from the generalized VM image just created, you can use the following cmdlets.
 
-    $img = Get‐AzureVMImage ‐ImageName "myVMImage"
+    $img = Get-AzureVMImage -ImageName "myVMImage"
     $user = "user123"
     $pass = "adminPassword123"
-    $myVM = New‐AzureVMConfig ‐Name "VMImageVM" ‐InstanceSize "Large" ‐ImageName $img.ImageName | Add‐AzureProvisioningConfig ‐Windows ‐AdminUsername $user ‐Password $pass
-    New‐AzureVM ‐ServiceName "VMImageCloudService" ‐VMs $myVM ‐Location "West US" ‐WaitForBoot
+    $myVM = New-AzureVMConfig -Name "VMImageVM" -InstanceSize "Large" -ImageName $img.ImageName | Add-AzureProvisioningConfig -Windows -AdminUsername $user -Password $pass
+    New-AzureVM -ServiceName "VMImageCloudService" -VMs $myVM -Location "West US" -WaitForBoot
 
 > [!IMPORTANT]
 > Please refer [Troubleshooting common issues encountered during VHD creation] for additional assistance.

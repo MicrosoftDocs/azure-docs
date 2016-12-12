@@ -82,14 +82,48 @@ API Management helps organizations publish APIs to external, partner and interna
 
 ---
 
-## Reference
-
-### PowerShell
-[API Management Resource Manager PowerShell cmdlet](/powershell/azureps-cmdlets-docs)
-
-
-### REST
-[API Management REST API Reference](/rest/api/apimanagement/)
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt613507">Classic PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/apimanagement/">REST API</a></p>
+                        <p><a href="/rest/api/apimanagement/ApiManagementREST/API-Management-REST">REST API (original)</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Other</h3>
+                        <p><a href="https://msdn.microsoft.com/library/azure/dn894081">Policies</a></p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/mt697540">Templates</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 ---
 

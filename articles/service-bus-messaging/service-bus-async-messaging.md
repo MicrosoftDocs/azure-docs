@@ -1,14 +1,14 @@
 ---
 title: Service Bus asynchronous messaging | Microsoft Docs
 description: Description of Service Bus asynchronous messaging.
-services: service-bus
+services: service-bus-messaging
 documentationcenter: na
 author: sethmanheim
 manager: timlt
 editor: ''
 
 ms.assetid: f1435549-e1f2-40cb-a280-64ea07b39fc7
-ms.service: service-bus
+ms.service: service-bus-messaging
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

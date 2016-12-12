@@ -2,7 +2,7 @@
 layout: LandingPage
 ---
 
-#Azure Container Service Documentation
+# Azure Container Service Documentation
 
 Azure Container Service makes it simple for you to create, configure, and manage a cluster of virtual machines that are preconfigured to run containerized applications. Container Service uses an optimized configuration of popular open-source scheduling and orchestration tools. This lets you use your existing skills or draw upon a large and growing body of community expertise to deploy and manage container-based applications on Microsoft Azure.
 
@@ -47,17 +47,45 @@ Azure Container Service makes it simple for you to create, configure, and manage
 
 ---
 
-##Reference
-
-###PowerShell
-[Azure PowerShell](/powershell/azureps-cmdlets-docs)
-
-###.NET
-[.NET Service Managedment Reference API](/dotnet/api/)
-
-###REST (Compute) 
-[Compute REST API Reference](/rest/api/)  
-
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute">PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.compute.models">.NET</a></p>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute/containerservices">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/container-service.pdf">

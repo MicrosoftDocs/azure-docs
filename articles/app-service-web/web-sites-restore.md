@@ -65,7 +65,7 @@ backups to be performed than **Standard** tier.
 2. Select the storage account that contains the backup that you want to download or delete.
    
     The blade for the storage account will be displayed.
-3. In the storage accountn blade, select the container you want
+3. In the storage account blade, select the container you want
    
     ![View Containers][ViewContainers]
 4. Select backup file you want to download or delete.

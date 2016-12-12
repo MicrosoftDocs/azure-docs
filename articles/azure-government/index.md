@@ -8,8 +8,7 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/azure-government/documentation-government-overview/">
-
+        <a href="../azure-government-overview.md?toc=%2fazure%2fazure-government%2ftoc.json">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -48,13 +47,39 @@ Microsoft Azure Government delivers a cloud platform built upon the foundational
 
 ---
 
-##Reference
+## Reference
 
-###REST
-[Azure Government REST API Reference](/rest/api/)
-
-###.NET
-[Azure Government Managed Reference](https://msdn.microsoft.com/library/azure/mt416943)
+<ul class="panelContent cardsW">
+    <li>
+        <a href="/rest/api/">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p>Azure Government REST API</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	 <li>
+        <a href="https://msdn.microsoft.com/library/azure/mt416943">
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>.NET</h3>
+                        <p>Azure Government Managed Reference</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </a>
+    </li>
+	</ul>
+	
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/azure-government.pdf">

@@ -1,9 +1,6 @@
 ---
 layout: LandingPage
 ---
----
-layout: LandingPage
----
 # Analysis Services Documentation
 
 Built on the proven analytics engine in Microsoft SQL Server Analysis Services, Azure Analysis Services provides enterprise-grade data modeling in the cloud.
@@ -16,7 +13,7 @@ Built on the proven analytics engine in Microsoft SQL Server Analysis Services, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/analysis-services.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -34,7 +31,7 @@ Built on the proven analytics engine in Microsoft SQL Server Analysis Services, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/video-library.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -52,7 +49,7 @@ Built on the proven analytics engine in Microsoft SQL Server Analysis Services, 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/placeholder.svg" alt="" />
+                            <img src="media/index/tutorial.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -63,6 +60,48 @@ Built on the proven analytics engine in Microsoft SQL Server Analysis Services, 
         </div>
         </a>
     </li>    
+</ul>
+
+---
+
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager">Azure PowerShell</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/azure/analysis-services/analysis-services-datasource">Datasource connections</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/analysisservices/">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
 </ul>
 
 ---

@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: bba0893a-3247-406c-b155-acb4b3ef479c
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -43,7 +44,7 @@ Use the [SQL Azure Migration wizard](http://sqlazuremw.codeplex.com/) CodePlex t
 * [Migrate a compatible SQL Server database to SQL Database](sql-database-cloud-migrate.md#migrate-a-compatible-sql-server-database-to-sql-database)
 
 ## Additional resources
-* [SQL Database V12](sql-database-v12-whats-new.md)
+* [SQL Database features](sql-database-features.md)
 * [Transact-SQL partially or unsupported functions](sql-database-transact-sql-information.md)
 * [Migrate non-SQL Server databases using SQL Server Migration Assistant](http://blogs.msdn.com/b/ssma/)
 

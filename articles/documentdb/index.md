@@ -67,11 +67,11 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDb using .NET</h3>
+                        <h3>Get started with DocumentDB using .NET</h3>
                     </div>
                 </div>
             </div>
@@ -85,11 +85,11 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using ASP.NET MVC</h3>
+                        <h3>Get started with DocumentDB using ASP.NET MVC</h3>
                     </div>
                 </div>
             </div>
@@ -103,11 +103,11 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDb using Node.js</h3>
+                        <h3>Get started with DocumentDB using Node.js</h3>
                     </div>
                 </div>
             </div>
@@ -121,11 +121,11 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using Node.js Express</h3>
+                        <h3>Get started with DocumentDB using Node.js Express</h3>
                     </div>
                 </div>
             </div>
@@ -139,11 +139,11 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get Started with DocumentDB using a Java JSP app</h3>
+                        <h3>Get started with DocumentDB using a Java JSP app</h3>
                     </div>
                 </div>
             </div>
@@ -157,7 +157,7 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/article.svg" alt="" />
+                            <img src="media/index/get-started.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -172,18 +172,40 @@ Azure DocumentDB is a fully managed NoSQL database service built for fast and pr
 
 ---
 
-##Reference
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet">.NET</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-dotnet-core">.NET Core</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Java</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-node">Node.js</a></p>
+                        <p><a href="/azure/documentdb/documentdb-sdk-java">Python</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/documentdb/">REST API</a></p>
+                        <p><a href="/rest/api/documentdbresourceprovider/">Resource Provider REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
-###.NET
-[.NET Managed Reference](/dotnet/api)
-
-### Java
-[Java SDK Reference](/java/api)
-
-###REST
-[DocumentDB REST API Reference](https://msdn.microsoft.com/library/azure/dn781481)
-
-
+---
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/documentdb.pdf">

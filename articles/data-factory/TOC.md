@@ -9,14 +9,14 @@
 # Get Started
 ## [Tutorial: Create a pipeline to copy data](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 ### [Copy Wizard](data-factory-copy-data-wizard-tutorial.md)
-### [Azure Portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
+### [Azure portal](data-factory-copy-activity-tutorial-using-azure-portal.md)
 ### [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md)
 ### [PowerShell](data-factory-copy-activity-tutorial-using-powershell.md)
 ### [Azure Resource Manager template](data-factory-copy-activity-tutorial-using-azure-resource-manager-template.md)
 ### [REST API](data-factory-copy-activity-tutorial-using-rest-api.md)
 ### [.NET API](data-factory-copy-activity-tutorial-using-dotnet-api.md)
 ## [Tutorial: Create a pipeline to transform data](data-factory-build-your-first-pipeline.md)
-### [Azure Portal](data-factory-build-your-first-pipeline-using-editor.md)
+### [Azure portal](data-factory-build-your-first-pipeline-using-editor.md)
 ### [Visual Studio](data-factory-build-your-first-pipeline-using-vs.md)
 ### [PowerShell](data-factory-build-your-first-pipeline-using-powershell.md)
 ### [Azure Resource Manager template](data-factory-build-your-first-pipeline-using-arm.md)
@@ -81,13 +81,14 @@
 ### [Troubleshoot issues with using Data Management Gateway](data-factory-troubleshoot-gateway-issues.md)
 
 # Reference
-## [Release notes for Data Management Gateway](data-factory-gateway-release-notes.md)
+## [PowerShell](/powershell/resourcemanager/azurerm.datafactories/v2.3.0/azurerm.datafactories)
+## [.NET](/dotnet/api/microsoft.azure.management.datafactories.models)
 ## [Azure Data Factory Developer Reference](data-factory-sdks.md)
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
-## [.NET](/dotnet/api/)
 ## [REST](/rest/api/datafactory/)
 
 # Resources
+## [Release notes for Data Management Gateway](data-factory-gateway-release-notes.md)
+## [Learning path](https://azure.microsoft.com/documentation/learning-paths/data-factory)
 ## [Case Studies](data-factory-customer-case-studies.md)
 ### [Product Recommendations](data-factory-product-reco-usecase.md)
 ### [Customer Profiling](data-factory-customer-profiling-usecase.md)
@@ -98,4 +99,3 @@
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-data-factory)
 ## [Videos](https://azure.microsoft.com/documentation/videos/index/?services=data-factory)
 ## [Request a feature](https://feedback.azure.com/forums/270578-azure-data-factory)
-## [Index to all articles](data-factory-alltopcat.md)

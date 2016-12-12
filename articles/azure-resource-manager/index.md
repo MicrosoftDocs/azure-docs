@@ -99,29 +99,50 @@ The infrastructure for your application is typically made up of many components 
 </ul>
 
 ---
-
-##Reference
-
-###PowerShell
-[PowerShell cmdlets](/powershell/azureps-cmdlets-docs/)
-
-###Azure CLI
-[Install the Azure CLI](/cli/azure/install-az-cli2)
-
-###.NET
-[Manage Azure resources and resource groups with .NET](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/)
-
-###Java
-[Getting Started with Resources - Manage Resource - in Java](https://azure.microsoft.com/en-us/documentation/samples/resources-java-manage-resource/)
-
-###Node.js
-[Manage Azure resources and resource groups with Node.js](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-resources-and-groups/)
-
-###Python
-[Manage Azure resources and resource groups with Python](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-resources-and-groups/)
-
-###Ruby
-[Manage Azure resources and resource groups with Ruby](https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/)
+ 
+<h2>Reference</h2>
+<ul class="panelContent cardsW">
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="/cli/azure/resource">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
+                        <p><a href="https://github.com/Azure/azure-resource-manager-schemas">Template schemas</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+    <li>
+        <div class="cardSize"><p />
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/resources/">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </li>
+</ul>
 
 ---
 <div class="downloadHolder">
