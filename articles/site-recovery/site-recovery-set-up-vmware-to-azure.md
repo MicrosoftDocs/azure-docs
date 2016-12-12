@@ -24,12 +24,12 @@ This article describes how to set up your on-premises environment to start repli
 
 The article assumes that you have already created
 1. A Recovery Services Vault [Azure Portal](http://portal.azure.com "Azure Portal").
-2. A dedicated account in your VMware vCenter that can be used for automatic discovery
+2. A dedicated account in your VMware vCenter that can be used for [automatic discovery](./site-recovery-vmware-to-azure.md#vmware-account-permissions)
 3. A virtual machine to install the Configuration Server. This virtual machine should meet the  minimum recommendations mentioned in the below table.
 
 
 ### Configuration Server Minimum Requirements
-
+The Configuration Server software should be deployed on a **highly available** VMware virtual machine. The following table lists out the minimum hardware, software, and network requirements for a configuration server.
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-server-requirements.md)]
 
 > [!NOTE]
@@ -64,6 +64,8 @@ Setting up the source environment involved two main activities
 6. On the machine you’re using as the configuration server, run **Azure Site Recovery Unified Setup** to install the configuration server, the process server, and the master target server.
 
 #### Running the Azure Site Recovery Unified Setup
+> [!TIP] Configuration Server registration will fail if the time on your computers **System Clock** ahead or behind **local time** by more than five minutes. Please synchronize your System Clock with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
+
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
@@ -82,9 +84,21 @@ Click on the **+vCenter** button to start connecting a VMware vCenter server or 
 
 
 ## Common issues
+### Installation issues
+| Sample Error Message | Recommended Action |
+|---------------|--------------------|
 
-To be added
+
+### Registration Failures
+Registration failures can be debugged by reviewing the logs in the  **%ProgramData%\ASRLogs** folder
+
+| Sample Error Message | Recommended Action |
+|---------------|--------------------|
+|**09:20:06**:InnerException.Type: SrsRestApiClientLib.AcsException,InnerException.<br>Message: ACS50008: SAML token is invalid.<br>Trace ID: 1921ea5b-4723-4be7-8087-a75d3f9e1072<br>Correlation ID: 62fea7e6-2197-4be4-a2c0-71ceb7aa2d97><br>Timestamp: **2016-12-12 14:50:08Z<br>** | Ensure that the time on your **System Clock** is not more than 15 minutes ahead/behind the **local time**. Rerun the installer to complete the registration.|
+|**09:35:27** :DRRegistrationException while trying to get all disaster recovery vault for the selected certificate: : Threw Exception.Type:Microsoft.DisasterRecovery.Registration.DRRegistrationException, Exception.Message: ACS50008: SAML token is invalid.<br>Trace ID: e5ad1af1-2d39-4970-8eef-096e325c9950<br>Correlation ID: abe9deb8-3e64-464d-8375-36db9816427a<br>Timestamp: **2016-05-19 01:35:39Z**<br> | Ensure that the time on your **System Clock** is not more than 15 minutes ahead/behind the **local time**. Rerun the installer to complete the registration.|
+|06:28:45:Failed to create certificate<br>06:28:45:Setup cannot proceed. A certificate required to authenticate to Site Recovery cannot be created. Rerun Setup| Ensure you are running setup as a **Local Administrator** |
+
+
 
 ## Next steps
-
-To be added
+Next step involves in [setting up your target environment](./site-recovery-vmware-to-azure.md#step-3-set-up-the-target-environment) in Azure.
