@@ -60,7 +60,7 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
 
 ## Create a blob container
 
-The following steps illustrate how to create a blob container.
+A blob container is a nested hierarchy of blobs and folders. The following steps illustrate how to create a blob container.
 
 1. Open the `BlobsController.cs` file.
 
@@ -68,7 +68,7 @@ The following steps illustrate how to create a blob container.
 
         public ActionResult CreateBlobContainer()
         {
-			// The code in this section should go here.
+			// The code in this section goes here.
 
             return View();
         }
@@ -118,44 +118,67 @@ The following steps illustrate how to create a blob container.
   
 	![Create blob container](./media/vs-storage-aspnet-getting-started-blobs/results.png)
 
-	As mentioned previously, the **CloudBlobContainer.CreateIfNotExists** method returns **true** only when the container doesn't exist and is created. Therefore, if you run the app when the container exists, the method will return **false**. To run the app multiple times, you must delete the container before running the app again. Deleting the container can be done via the **CloudBlobContainer.Delete** method. You can also delete the container using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md).  
-
+	As mentioned previously, the **CloudBlobContainer.CreateIfNotExists** method returns **true** only when the container doesn't exist and is created. Therefore, if you run the app when the container exists, the method will return **false**. To run the app multiple times, you must delete the container before running the app again. Deleting the container can be done via the **CloudBlobContainer.Delete** method. You can also delete the container using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## Upload a blob into a blob container
 
-The following steps illustrate how to programmatically upload a blob to a blob container. In an ASP.NET MVC app, the code would go in a controller.
+1. Open the `BlobsController.cs` file.
 
-1. Add the following *using* directives: 
-   
-        using Microsoft.Azure;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Auth;
-        using Microsoft.WindowsAzure.Storage.Blob;
+1. Add a method called **UploadBlob** that returns an **ActionResults**.
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+        public EmptyResult UploadBlob()
+        {
+			// The code in this section goes here.
+
+            return new EmptyResult();
+        }
+ 
+1. Within the **UploadBlob** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
    
-3. Get a **CloudBlobClient** object represents a blob service client.
+1. Get a **CloudBlobClient** object represents a blob service client.
    
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-4. Get a **CloudBlobContainer** object that represents a reference to the desired blob container name. (Change *<blob-container-name>* to the name of the blob container into which you are uploading the blob.)
+1. Get a **CloudBlobContainer** object that represents a reference to the blob container name. 
    
-        CloudBlobContainer container = blobClient.GetContainerReference(<blob-container-name>);
+        CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
 
-5. As explained in the article, [Get started with Azure Blob storage using .NET](./storage-dotnet-how-to-use-blobs.md#blob-service-concepts), Azure storage supports different blob types. To retrieve a reference to a page blob, call the **CloudBlobContainer.GetPageBlobReference** method. To retrieve a reference to a block blob, call the **CloudBlobContainer.GetBlockBlobReference** method. Usually, block blob is the recommended type to use. (Change *<blob-name>* to the name you want to give the blob once uploaded.)
+1. As explained earlier, Azure storage supports different blob types. To retrieve a reference to a page blob, call the **CloudBlobContainer.GetPageBlobReference** method. To retrieve a reference to a block blob, call the **CloudBlobContainer.GetBlockBlobReference** method. Usually, block blob is the recommended type to use. (Change *<blob-name>* to the name you want to give the blob once uploaded.)
 
         CloudBlockBlob blob = container.GetBlockBlobReference(<blob-name>);
 
-6. Once you have a blob reference, you can upload any data stream to it by calling the blob reference object's **UploadFromStream** method. The **UploadFromStream** method creates the blob if it doesn't exist,
-or overwrites it if it does exist. (Change *<file-to-upload>* to a fully qualified path to the file you want to upload.)
+1. Once you have a blob reference, you can upload any data stream to it by calling the blob reference object's **UploadFromStream** method. The **UploadFromStream** method creates the blob if it doesn't exist,
+or overwrites it if it does exist. (Change *&lt;file-to-upload>* to a fully qualified path to the file you want to upload.)
 
-	    using (var fileStream = System.IO.File.OpenRead(<file-to-upload>)
+	    using (var fileStream = System.IO.File.OpenRead(<file-to-upload>))
 	    {
-	        blockBlob.UploadFromStream(fileStream);
+	        blob.UploadFromStream(fileStream);
 	    }
+
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Blobs**, and from the context menu, select **Add->View**.
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
+
+		<li>@Html.ActionLink("Upload blob", "UploadBlob", "Blobs")</li>
+
+1. Run the application, and select **Upload blob**.  
+  
+The next section will illustrate how to list the blobs in a blob container. 	
+
+
+
+
+
+
+
+
+
+
 
 ## List the blobs in a blob container
 
