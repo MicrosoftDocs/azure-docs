@@ -104,7 +104,7 @@ Cognitive Services (Preview) is a series of APIs which can be used to enable nat
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Cognitive Services REST API Reference</p>
+                        <p>Cognitive Services REST API</p>
                     </div>
                 </div>
             </div>

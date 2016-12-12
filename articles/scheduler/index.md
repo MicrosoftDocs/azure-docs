@@ -102,7 +102,7 @@ Azure Scheduler allows you to declaratively describe actions to run in the cloud
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Scheduler REST API Reference</p>
+                        <p>Scheduler REST API</p>
                     </div>
                 </div>
             </div>

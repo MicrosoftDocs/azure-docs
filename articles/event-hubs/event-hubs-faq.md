@@ -1,6 +1,6 @@
 ---
 title: Event Hubs frequently asked questions (FAQ) | Microsoft Docs
-description: Event Hubs FAQ.
+description: Event Hubs FAQ
 services: event-hubs
 documentationcenter: na
 author: sethmanheim
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/01/2016
+ms.date: 12/07/2016
 ms.author: sethm
 
 ---

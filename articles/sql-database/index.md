@@ -152,7 +152,7 @@ Azure SQL Database is a relational database service in the cloud with mission-cr
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>SQL Database REST API Reference</p>
+                        <p>SQL Database REST API</p>
                     </div>
                 </div>
             </div>

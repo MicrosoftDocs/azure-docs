@@ -1,4 +1,4 @@
-﻿---
+---
 title: Forward job status and job streams from Automation to Log Analytics (OMS) | Microsoft Docs
 description: This article demonstrates how to send job status and runbook job streams to Microsoft Operations Management Suite Log Analytics to deliver additional insight and management.
 services: automation
@@ -41,7 +41,7 @@ To start sending your Automation logs to Log Analytics, you must have the follow
    > The Storage account *must* be in the same region as the Automation account.
    >
    >
-3. Azure PowerShell with version 1.0.8 or newer of the Operational Insights cmdlets. For information about this release and how to install it, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+3. Azure PowerShell with version 1.0.8 or newer of the Operational Insights cmdlets. For information about this release and how to install it, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 4. Azure Diagnostic and Log Analytics PowerShell.  For further information about this release and how to install it, see [Azure Diagnostic and Log Analytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/0.1).  
 5. Download the PowerShell script **Enable-AzureDiagnostics.ps1** from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/1.0/DisplayScript). This script will configure the following:
    * A storage account to hold the runbook job status and stream data for an Automation account that you specify.

@@ -261,12 +261,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>CDN</p>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                         <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="/azure/expressroute/">
                                                 <img src="media/index/ExpressRoute.svg" alt="" />
@@ -496,12 +496,12 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                 <p>Scheduler</p>
                                             </a>
                                         </li>
-                                        <li>
+                                        <!-- <li>
                                             <a href="/azure/traffic-manager/">
                                                 <img src="media/index/TrafficManager.svg" alt="" />
                                                 <p>Traffic Manager</p>
                                             </a>
-                                        </li>
+                                        </li> -->
                                         <li>
                                             <a href="/azure/monitoring-and-diagnostics/">
                                                 <img src="media/index/AzureMonitoring.svg" alt="" />
@@ -956,7 +956,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="/azure/traffic-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -974,7 +974,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="/azure/expressroute/">
                                     <div class="cardSize">
@@ -2256,7 +2256,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                     </div>
                                 </a>
                             </li>
-                            <li>
+                            <!-- <li>
                                 <a href="/azure/traffic-manager/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
@@ -2274,7 +2274,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                         </div>
                                     </div>
                                 </a>
-                            </li>
+                            </li> -->
                             <li>
                                 <a href="/azure/monitoring-and-diagnostics/">
                                     <div class="cardSize">

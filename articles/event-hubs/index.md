@@ -122,7 +122,7 @@ Event Hubs is a highly scalable data ingress service that can ingest millions of
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Event Hubs REST API Reference</p>
+                        <p>Event Hubs REST API</p>
                     </div>
                 </div>
             </div>

@@ -167,7 +167,7 @@ An Azure Virtual Network (VNet) is a logical representation of your own network 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Virtual Network REST API Reference</p>
+                        <p>Virtual Network REST API</p>
                     </div>
                 </div>
             </div>
