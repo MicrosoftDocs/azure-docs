@@ -42,7 +42,7 @@ The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterpr
 ### Prerequisites
 * **Client computer**--You need a Mac, Linux, or Windows-based client computer to communicate with Azure. These steps assume you are using a Linux client.
 * **Azure subscription**--If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options.
-* **VM size availability**--Currently the following instance sizes are RDMA capable: H16r, H16mr, A8, and A9. Check [Products available by region](https://azure.microsoft.com/regions/services/) for availability in Azure regions.
+* **VM size availability**--The following instance sizes are RDMA capable: H16r, H16mr, A8, and A9. Check [Products available by region](https://azure.microsoft.com/regions/services/) for availability in Azure regions.
 * **Cores quota**--You might need to increase the quota of cores to deploy a cluster of compute-intensive VMs. For example, you need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the H-series. To request a quota increase, [open an online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
 * **Azure CLI**--[Install](../xplat-cli-install.md) the Azure CLI and [connect to your Azure subscription](../xplat-cli-connect.md) from the client computer.
 
@@ -76,7 +76,7 @@ Where:
 * The SLES 12 SP1 image name currently can be `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824` or `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-priority-v20160824` for SUSE priority support (additional charges apply).
 
 ### Customize the VM
-After the VM completes provisioning, SSH to the VM by using the VM's external IP address (or DNS name) and the external port number you configured, and customize it. For connection details, see [How to Log on to a Virtual Machine Running Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Perform commands as the user you configured on the VM, unless root access is required to complete a step.
+After the VM finishes provisioning, SSH to the VM by using the VM's external IP address (or DNS name) and the external port number you configured, and then customize it. For connection details, see [How to log on to a virtual machine running Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Perform commands as the user you configured on the VM, unless root access is required to complete a step.
 
 > [!IMPORTANT]
 > Microsoft Azure does not provide root access to Linux VMs. To gain administrative access when connected as a user to the VM, run commands by using `sudo`.
@@ -114,7 +114,7 @@ After the VM completes provisioning, SSH to the VM by using the VM's external IP
 
         cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
 
-    In the ~/.ssh directory, edit or create the Config file. Provide the IP address range of the private network that you plan to use in Azure (10.32.0.0/16 in this example):
+    In the ~/.ssh directory, edit or create the config file. Provide the IP address range of the private network that you plan to use in Azure (10.32.0.0/16 in this example):
 
         host 10.32.0.*
         StrictHostKeyChecking no
@@ -137,7 +137,7 @@ After the VM completes provisioning, SSH to the VM by using the VM's external IP
 * **Applications**--Install any applications you need or perform other customizations before you capture the image.
 
 ### Capture the image
-To capture the image, first run the following command in the Linux VM. This command deprovisions the VM but maintains user accounts and SSH keys that you set up.
+To capture the image, first run the following command on the Linux VM. This command deprovisions the VM but maintains user accounts and SSH keys that you set up.
 
 ```
 sudo waagent -deprovision
