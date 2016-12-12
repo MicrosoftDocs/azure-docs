@@ -331,7 +331,8 @@ When set to true, this setting configures the live encoder to insert a slate ima
 Optional. Specifies the Asset Id of the Media Services Asset which contains the slate image. Default is null. 
 
 >
->[!NOTE] Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). 
+>[!NOTE] 
+>Before creating the Channel, the slate image with the following constraints should be uploaded as a dedicated asset (no other files should be in this asset). 
 
 * At most 1920x1080 in resolution.
 * At most 3 Mbytes in size.
