@@ -23,22 +23,21 @@ This article describes how to set up your on-premises environment to start repli
 ## Prerequisites
 
 The article assumes that you have already created
-1. A Recovery Services Vault [Azure Portal](http://portal.azure.com "Azure Portal").
+1. A Recovery Services Vault [Azure portal](http://portal.azure.com "Azure portal").
 2. A dedicated account in your VMware vCenter that can be used for [automatic discovery](./site-recovery-vmware-to-azure.md#vmware-account-permissions)
-3. A virtual machine to install the Configuration Server. This virtual machine should meet the  minimum recommendations mentioned in the below table.
-
+3. A virtual machine to install the Configuration Server.
 
 ### Configuration Server Minimum Requirements
 The Configuration Server software should be deployed on a **highly available** VMware virtual machine. The following table lists out the minimum hardware, software, and network requirements for a configuration server.
 [!INCLUDE [site-recovery-configuration-server-requirements](../../includes/site-recovery-configuration-server-requirements.md)]
 
 > [!NOTE]
-> HTTPS based proxy servers are not supported by the Configuration Server.
+> HTTPS-based proxy servers are not supported by the Configuration Server.
 
 ## Choose your protection goals
 
-1. In the Azure Portal browse to **Recovery Services vaults** blade and  select your vault.
-2. In the Resource Menu of the vault click on **Getting Started**, click **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
+1. In the Azure Portal browse to **Recovery Services** vaults blade, and select your vault.
+2. In the Resource Menu of the vault click **Getting Started** > **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
     ![Choose goals](./media/site-recovery-vmware-to-azure/choose-goals.png)
 3. In **Protection goal**, select **To Azure**, and select **Yes, with VMware vSphere Hypervisor**. Then click **OK**.
@@ -49,36 +48,36 @@ The Configuration Server software should be deployed on a **highly available** V
 Setting up the source environment involved two main activities
 
 1. Installing and Registering a Configuration Server with Site Recovery Service.
-2. Discovering your on-premises virtual machines by connecting Azure Site Recovery to your on-premises  VMware vCenter or vSphere EXSi hosts.
+2. Discovering your on-premises virtual machines by connecting Azure Site Recovery to your on-premises VMware vCenter or vSphere EXSi hosts
 
-### Step 1 : Install & Register a Configuration Server
+### Step 1: Install & Register a Configuration Server
 
 1. Click **Step 1: Prepare Infrastructure** > **Source**. In **Prepare source**, if you don’t have a configuration server click **+Configuration server** to add one.
 
     ![Set up source](./media/site-recovery-vmware-to-azure/set-source1.png)
 2. In the **Add Server** blade, check that **Configuration Server** appears in **Server type**.
 4. Download the Site Recovery Unified Setup installation file.
-5. Download the vault registration key. You need this when you run Unified Setup. The key is valid for 5 days after you generate it.
+5. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for **five** days after you generate it.
 
 	![Set up source](./media/site-recovery-vmware-to-azure/set-source2.png)
 6. On the machine you’re using as the configuration server, run **Azure Site Recovery Unified Setup** to install the configuration server, the process server, and the master target server.
 
 #### Running the Azure Site Recovery Unified Setup
-> [!TIP] Configuration Server registration will fail if the time on your computers **System Clock** ahead or behind **local time** by more than five minutes. Please synchronize your System Clock with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
+> [!TIP] Configuration Server registration will fail if the time on your computers **System Clock** ahead or behind **local time** by more than five minutes. Synchronize your System Clock with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
 > [!NOTE]
-> The Configuration Server can be installed via command line. For details read more on [installing Configuration Server using Command line tools](http://aka.ms/installconfigsrv).
+> The Configuration Server can be installed via command line. Read more on [installing Configuration Server using Command-line tools](http://aka.ms/installconfigsrv).
 
 #### Add the VMware account for automatic discovery
 
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
-### Step 2 : Discover virtual machines
-To allow Azure Site Recovery to discover virtual machines running in your on-premises environment you need to connect your VMware vCenter Server or vSphere ESXi hosts with Site Recovery.
+### Step 2: Discover virtual machines
+To allow Azure Site Recovery to discover virtual machines running in your on-premises environment, you need to connect your VMware vCenter Server or vSphere ESXi hosts with Site Recovery
 
-Click on the **+vCenter** button to start connecting a VMware vCenter server or a VMware vSphere ESXi host.
+Click the +vCenter button to start connecting a VMware vCenter server or a VMware vSphere ESXi host.
 
 [!INCLUDE [site-recovery-add-vcenter](../../includes/site-recovery-add-vcenter.md)]
 
@@ -90,7 +89,7 @@ Click on the **+vCenter** button to start connecting a VMware vCenter server or 
 
 
 ### Registration Failures
-Registration failures can be debugged by reviewing the logs in the  **%ProgramData%\ASRLogs** folder
+Registration failures can be debugged by reviewing the logs in the **%ProgramData%\ASRLogs** folder
 
 | Sample Error Message | Recommended Action |
 |---------------|--------------------|
