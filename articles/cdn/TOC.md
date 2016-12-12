@@ -50,10 +50,6 @@
 ## [REST](/rest/api/cdn/)
 
 # Resources
-## [Rules Engine Syntax](cdn-rules-engine-reference.md)
-### [Rules Engine Conditional Expressions](cdn-rules-engine-reference-conditional-expressions.md)
-### [Rules Engine Match Conditions](cdn-rules-engine-reference-match-conditions.md)
-### [Rules Engine Features](cdn-rules-engine-reference-features.md)
 ## [Azure CDN POP Locations](cdn-pop-locations.md)
 ## [Service updates](https://azure.microsoft.com/updates/?product=cdn)
 ## [Pricing](https://azure.microsoft.com/pricing/details/cdn/)
