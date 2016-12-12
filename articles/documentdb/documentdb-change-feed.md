@@ -14,12 +14,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 11/30/2016
+ms.date: 12/11/2016
 ms.author: b-hoedid
 
 ---
 # Working with the ChangeFeed support in Azure DocumentDB
-[Azure DocumentDB](documentdb-introduction.md) is a fast and flexible NoSQL database service that is used for storing high-volume transactional and operational data with predictable single-digit millisecond latency for reads and writes. This makes it well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to track changes made to DocumentDB data, and update materialized views, perform real-time analytics, archive data to cold storage, and trigger notifications on certain events based on these changes. DocumentDB's **ChangeFeed support** allows you to build efficient and scalable solutions for each of these patterns.
 [Azure DocumentDB](documentdb-introduction.md) is a fast and flexible NoSQL database service that is used for storing high-volume transactional and operational data with predictable single-digit millisecond latency for reads and writes. This makes it well-suited for IoT, gaming, retail, and operational logging applications. A common design pattern in these applications is to track changes made to DocumentDB data, and update materialized views, perform real-time analytics, archive data to cold storage, and trigger notifications on certain events based on these changes. DocumentDB's **ChangeFeed support** allows you to build efficient and scalable solutions for each of these patterns.
 
 With ChangeFeed support, DocumentDB provides a sorted list of documents within a DocumentDB collection in the order in which they were modified. This feed can be used to listen for modifications to data within the collection and perform actions such as:
@@ -60,7 +59,9 @@ DocumentDB provides the ability to incrementally read updates made to a Document
 * Changes are available in chunks of partition key ranges. This capability allows changes from large collections to be processed in parallel by multiple consumers/servers.
 * Applications can request for multiple ChangeFeeds simultaneously on the same collection.
 
-DocumentDB's Change Feed is enabled by default for all accounts, and does not incur any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change feed, just like any other operation from DocumentDB. The change feed includes inserts and update operations made to documents within the collection. You can capture deletes by setting a "soft-delete" flag within your documents in place of deletes. Alternatively, you can set a finite expiration period for your documents via the [TTL capability](documentdb-time-to-live.md), for example, 24 hours and use the value of that property to capture deletes. With this solution, you have to process changes within a shorter time interval than the TTL expiration period. 
+DocumentDB's Change Feed is enabled by default for all accounts, and does not incur any additional costs on your account. You can use your [provisioned throughput](documentdb-request-units.md) in your write region or any [read region](documentdb-distribute-data-globally.md) to read from the change feed, just like any other operation from DocumentDB. The change feed includes inserts and update operations made to documents within the collection. You can capture deletes by setting a "soft-delete" flag within your documents in place of deletes. Alternatively, you can set a finite expiration period for your documents via the [TTL capability](documentdb-time-to-live.md), for example, 24 hours and use the value of that property to capture deletes. With this solution, you have to process changes within a shorter time interval than the TTL expiration period. The change feed is available for each partition key range within the document collection, and thus can be distributed across one or more consumers for parallel processing. 
+
+![Distributed processing of DocumentDB change feed](./media/documentdb-change-feed/changefeedvisual.png)
 
 In the following section, we describe how to access the change feed using the DocumentDB REST API and SDKs.
 
@@ -261,14 +262,14 @@ The .NET SDK provides the `CreateChangeFeedQuery` and `ChangeFeedOptions` helper
         Dictionary<string, string> checkpoints)
     {
         List<PartitionKeyRange> partitionKeyRanges = new List<PartitionKeyRange>();
-        FeedResponse<PartitionKeyRange> response;
+        FeedResponse<PartitionKeyRange> pkRangesResponse;
 
         do
         {
-            response = await client.ReadPartitionKeyRangeFeedAsync(collection);
-            partitionKeyRanges.AddRange(response);
+            pkRangesResponse = await client.ReadPartitionKeyRangeFeedAsync(collection);
+            partitionKeyRanges.AddRange(pkRangesResponse);
         }
-        while (response.ResponseContinuation != null);
+        while (pkRangesResponse.ResponseContinuation != null);
 
         foreach (PartitionKeyRange pkRange in partitionKeyRanges)
         {
@@ -289,13 +290,12 @@ The .NET SDK provides the `CreateChangeFeedQuery` and `ChangeFeedOptions` helper
             {
                 FeedResponse<DeviceReading> readChangesResponse = query.ExecuteNextAsync<DeviceReading>().Result;
 
-                foreach (DeviceReading changedDocument in 
-                    readChangesResponse.AsEnumerable().Where(d => d.MetricType == "Temperature" && d.MetricValue > 1000L))
+                foreach (DeviceReading changedDocument in readChangesResponse)
                 {
                     Console.WriteLine(changedDocument.Id);
                 }
 
-                checkpoints[pkRange.Id] = response.ResponseContinuation;
+                checkpoints[pkRange.Id] = readChangesResponse.ResponseContinuation;
             }
         }
 
@@ -327,5 +327,6 @@ You can also filter the change feed using client side logic to selectively proce
 In this article, we provided a walkthrough of DocumentDB's ChangeFeed support, and how to track changes made to DocumentDB data using the DocumentDB REST API and/or SDKs. 
 
 ## Next steps
+* Try the [DocumentDB Change feed code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples/ChangeFeed)
 * Learn more about [DocumentDB's resource model and hierarchy](documentdb-resources.md)
 * Get started coding with the [DocumentDB SDKs](documentdb-sdk-dotnet.md) or the [REST API](https://msdn.microsoft.com/library/azure/dn781481.aspx)
