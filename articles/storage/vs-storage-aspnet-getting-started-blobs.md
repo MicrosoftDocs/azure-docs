@@ -101,10 +101,10 @@ The following steps illustrate how to create a blob container.
 1. Open `CreateBlobContainer.cshtml`, and modify it so that it looks like the following.
 
 		@{
-		    ViewBag.Title = "Add Blob Container";
+		    ViewBag.Title = "Create blob container";
 		}
 		
-		<h2>Create Blob Container results</h2>
+		<h2>Create blob container results</h2>
 
 		Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
 
@@ -112,7 +112,7 @@ The following steps illustrate how to create a blob container.
 
 1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
 
-		<li>@Html.ActionLink("Create Blob Container", "CreateBlobContainer", "Blobs")</li>
+		<li>@Html.ActionLink("Create blob container", "CreateBlobContainer", "Blobs")</li>
 
 1. Run the application, and select **Create Blob Container**. You will see results similar to those shown in the following screen shot. 
   
