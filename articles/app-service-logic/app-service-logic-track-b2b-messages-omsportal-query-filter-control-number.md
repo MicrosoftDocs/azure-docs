@@ -1,6 +1,6 @@
 ---
-title: Track B2B messages in the Operations Management Suite portal | Microsoft Docs
-description: Learn how to track B2B messages in the Operations Management Suite portal.
+title: Track B2B messages in the Operations Management Suite portal by using a query | Microsoft Docs
+description: Learn how to track B2B messages in the Operations Management Suite portal by using a query.
 author: padmavc
 manager: erikre
 editor: ''
