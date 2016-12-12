@@ -109,3 +109,9 @@ Once you reboot the Linux VM, the mounted SMB share will be unmounted during shu
 ```bash
 //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
+
+## Next Steps
+
+- [Using cloud-init to customize a Linux VM during creation](virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Add a disk to a Linux VM](virtual-machines-linux-add-disk?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Encrypt disks on a Linux VM using the Azure CLI](virtual-machines-linux-encrypt-disks?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
