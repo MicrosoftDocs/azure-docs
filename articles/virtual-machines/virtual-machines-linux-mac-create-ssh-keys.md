@@ -21,7 +21,7 @@ ms.author: v-livech
 
 # Create an SSH public and private key pair for Linux VMs
 
-This article shows you how to generate a SSH public and private key pair to use with Linux VMs.  With an SSH key pair, you can create Virtual Machines on Azure that default to using SSH keys for authentication, eliminating the need for passwords to log in.  Passwords can be guessed, and open your VMs up to relentless brute force attempts to guess your password. VMs created with Azure Templates or the `azure-cli` can include your SSH public key as part of the deployment, removing a post deployment configuration step of disabling password logins for SSH.
+This article shows you how to generate an SSH public and private key pair to use with Linux VMs.  With an SSH key pair, you can create Virtual Machines on Azure that default to using SSH keys for authentication, eliminating the need for passwords to log in.  Passwords can be guessed, and open your VMs up to relentless brute force attempts to guess your password. VMs created with Azure Templates or the `azure-cli` can include your SSH public key as part of the deployment, removing a post deployment configuration step of disabling password logins for SSH.
 
 ## Quick Commands
 
@@ -78,7 +78,7 @@ Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
 $
 ```
 
-This is successful if you are not prompted for a SSH private key password, or a login password to the VM.
+This is successful if you are not prompted for an SSH private key password, or a login password to the VM.
 
 ## Detailed Walkthrough
 
