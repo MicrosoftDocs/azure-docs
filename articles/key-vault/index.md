@@ -25,7 +25,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=key-vault">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=key-vault">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -116,7 +116,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -131,7 +131,7 @@ Azure Key Vault helps safeguard cryptographic keys and secrets used by cloud app
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

@@ -80,7 +80,7 @@ Azure Container Registry (preview) is a private registry for hosting container i
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
