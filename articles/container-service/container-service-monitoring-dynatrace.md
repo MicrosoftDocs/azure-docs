@@ -1,6 +1,6 @@
 ---
-title: Monitor an Azure Container Service cluster with Dynatrace | Microsoft Docs
-description: Monitor an Azure Container Service cluster with Dynatrace.
+title: Monitor an Azure Container Service DC/OS cluster with Dynatrace | Microsoft Docs
+description: Monitor an Azure Container Service DC/OS cluster with Dynatrace. Deploy the Dynatrace OneAgent by using the DC/OS dashboard.
 services: container-service
 documentationcenter: ''
 author: MartinGoodwell
@@ -22,13 +22,13 @@ ms.author: t-ribhat
 # Monitor an Azure Container Service cluster with Dynatrace SaaS/Managed
 In this article, we will deploy the Dynatrace OneAgent to all the agent nodes in your Azure Container Service cluster. You need an account with Dynatrace SaaS/Managed for this configuration. 
 
-## Prerequisites 
-[Deploy](container-service-deployment.md) and [connect](container-service-connect.md) a cluster configured by Azure Container Service. Explore the [Marathon UI](container-service-mesos-marathon-ui.md). Go to [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) to set up a Dynatrace SaaS account.  
-
 ## Dynatrace SaaS/Managed
-Dynatrace is cloud-native monitoring for highly dynamic container and cluster environments. Dynatrace allows you to better optimize your container deployments and memory allocations by using real-time usage data. Dynatrace is the only solution capable of automatically pinpointing application and infrastructure issues in seconds using artificial intelligence.
+Dynatrace is a cloud-native monitoring solution for highly dynamic container and cluster environments. It allows you to better optimize your container deployments and memory allocations by using real-time usage data. It is capable of automatically pinpointing application and infrastructure issues by providing automated baselining, problem correlation, and root-cause detection.
 
 ![Dynatrace UI](./media/container-service-monitoring-dynatrace/dynatrace.png)
+
+## Prerequisites 
+[Deploy](container-service-deployment.md) and [connect](container-service-connect.md) to a cluster configured by Azure Container Service. Explore the [Marathon UI](container-service-mesos-marathon-ui.md). Go to [https://www.dynatrace.com/trial/](https://www.dynatrace.com/trial/) to set up a Dynatrace SaaS account.  
 
 ## Configure a Dynatrace deployment with Marathon
 These steps will show you how to configure and deploy Dynatrace applications to your cluster with Marathon.
