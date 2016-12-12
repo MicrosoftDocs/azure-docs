@@ -79,7 +79,7 @@ Each resource provider offers a set of resources and operations for working with
 
 Before getting started with deploying your resources, you should gain an understanding of the available resource providers. Knowing the names of resource providers and resources helps you define resources you want to deploy to Azure.
 
-You can see all resource providers through the portal. In the blade for you subscription, select **Resource providers**:
+You can see all resource providers through the portal. In the blade for your subscription, select **Resource providers**:
 
 ![view resource providers](./media/resource-group-overview/view-resource-providers.png)
 
