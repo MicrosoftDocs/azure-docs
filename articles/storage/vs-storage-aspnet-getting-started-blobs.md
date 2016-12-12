@@ -118,6 +118,8 @@ The following steps illustrate how to create a blob container.
   
 	![Create blob container](./media/vs-storage-aspnet-getting-started-blobs/results.png)
 
+	As mentioned previously, the **CloudBlobContainer.CreateIfNotExists** method returns **true** only when the container doesn't exist and is created. Therefore, if you run the app when the container exists, the method will return **false**. To run the app multiple times, you must delete the container before running the app again. Deleting the container can be done via the **CloudBlobContainer.Delete** method. You can also delete the container using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../articles/vs-azure-tools-storage-manage-with-storage-explorer.md).  
+
 
 ## Upload a blob into a blob container
 
