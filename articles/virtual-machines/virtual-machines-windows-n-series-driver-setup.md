@@ -28,19 +28,19 @@ For basic specs, storage capacities, and disk details, see [Sizes for virtual ma
 
 ## Supported GPU drivers
 
-Connect by Remote Desktop to each N-series VM. Download and install the supported driver for your Windows operating system. 
+Connect by Remote Desktop to each N-series VM. Download, extract, and install the supported driver for your Windows operating system. 
 
 ### NVIDIA GRID drivers for NV VMs
 
-* [Windows Server 2016](https://go.microsoft.com/fwlink/?linkid=836843)
+* [Windows Server 2016](https://go.microsoft.com/fwlink/?linkid=836843) (.zip)
 
-* [Windows Server 2012 R2](https://go.microsoft.com/fwlink/?linkid=836844)
+* [Windows Server 2012 R2](https://go.microsoft.com/fwlink/?linkid=836844) (.zip)
 
 ### NVIDIA Tesla drivers for NC VMs
 
-* [Windows Server 2016](https://go.microsoft.com/fwlink/?linkid=836841)
+* [Windows Server 2016](https://go.microsoft.com/fwlink/?linkid=836841) (.zip)
 
-* [Windows Server 2012 R2](https://go.microsoft.com/fwlink/?linkid=836842)
+* [Windows Server 2012 R2](https://go.microsoft.com/fwlink/?linkid=836842) (.zip)
 
 
 
