@@ -25,19 +25,19 @@ This article explains of how to debug your models in Microsoft Azure Machine Lea
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
-## Train Model Module  produces an error
+## Train Model Module produces an error
 ![image1](./media/machine-learning-debug-models/train_model-1.png)
 
-The [Train Model][train-model] Module expects the following 2 inputs:
+The [Train Model][train-model] Module expects the following two inputs:
 
 1. The type of Classification/Regression Model from the collection of models provided by Azure Machine Learning
 2. The training data with a specified Label column. The Label column specifies the variable to predict. The rest of the columns included are assumed to be Features.
 
-This module  produces an error in the following cases:
+This module produces an error in the following cases:
 
 1. The Label column is specified incorrectly because either more than one column is selected as the Label or an incorrect column index is selected. For example, the second case would apply if a column index of 30 was used with an input dataset which had only 25 columns.
-2. The dataset does not contain any Feature columns. For example, if the input dataset has only 1 column, which is marked as the Label column, there would be no features with which to build the model. In this case, the [Train Model][train-model] module will  produce an error.
-3. The input dataset (Features or Label) contain Infinity as a value.
+2. The dataset does not contain any Feature columns. For example, if the input dataset has only one column, which is marked as the Label column, there would be no features with which to build the model. In this case, the [Train Model][train-model] module produces an error.
+3. The input dataset (Features or Label) contains Infinity as a value.
 
 ## Score Model Module does not produce correct results
 ![image2](./media/machine-learning-debug-models/train_test-2.png)
@@ -51,9 +51,9 @@ The [Score Model][score-model] module requires two inputs:
 
 It may happen that even though the experiment succeeds, the [Score Model][score-model] module produces incorrect results. Several scenarios may cause this to happen:
 
-1. If the specified Label is categorical and a regression model is trained on the data, an incorrect output would be produced by the [Score Model][score-model] module. This is because regression requires a continuous response variable. In this case it would be more suitable to use a classification model. 
-2. Similarly, if a classification model is trained on a dataset having floating point numbers in the Label column, it may produce undesirable results. This is because classification requires a discrete response variable that only allows values that range over a finite and usually somewhat small set of classes.
-3. If the scoring dataset does not contain all the features used to train the model, the [Score Model][score-model] will produce an error.
+1. If the specified Label is categorical and a regression model is trained on the data, an incorrect output would be produced by the [Score Model][score-model] module. This is because regression requires a continuous response variable. In this case, it would be more suitable to use a classification model. 
+2. Similarly, if a classification model is trained on a dataset having floating point numbers in the Label column, it may produce undesirable results. This is because classification requires a discrete response variable that only allows values that range over a finite, and usually somewhat small, set of classes.
+3. If the scoring dataset does not contain all the features used to train the model, the [Score Model][score-model] produces an error.
 4. If a row in the scoring dataset contains a missing value or an infinite value for any of its features, the [Score Model][score-model] will not produce any output corresponding to that row.
 5. The [Score Model][score-model] may produce identical outputs for all rows in the scoring dataset. This could occur, for example, when attempting classification using Decision Forests if the minimum number of samples per leaf node is chosen to be more than the number of training examples available.
 
