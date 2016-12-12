@@ -182,7 +182,7 @@ For clusters that are running production workloads, you should use a [Certificat
 For clusters that you use for test purposes, you can choose to use a self-signed certificate.
 
 ## Optional: Create a self-signed certificate
-One way to create a self-signed cert that can be secured correctly is to use the *CertSetup.ps1* script in the Service Fabric SDK folder in the directory *C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure*. Edit this file to change the default name of the certificate name, look for the value `CN=ServiceFabricDevClusterCert`. Run this script as `.\CertSetup.ps1 -Install`.
+One way to create a self-signed cert that can be secured correctly is to use the *CertSetup.ps1* script in the Service Fabric SDK folder in the directory *C:\Program Files\Microsoft SDKs\Service Fabric\ClusterSetup\Secure*. Edit this file to change the default name of the certificate (look for the value `CN=ServiceFabricDevClusterCert`). Run this script as `.\CertSetup.ps1 -Install`.
 
 Now export the certificate to a PFX file with a protected password. First get the thumbprint of the certificate. Run the certmgr.exe application. Navigate to the **Local Computer\Personal** folder and find the certificate you just created. Double-click the certificate to open it, select the *Details* tab and scroll down to the *Thumbprint* field. Copy the thumbprint value into the PowerShell command below, removing the spaces.  Change the `String` value to a suitable secure password to protect it and run the PowerShell:
 
@@ -264,9 +264,7 @@ $ConnectArgs = @{  ConnectionEndpoint = '10.7.0.5:19000';  X509Credential = $Tru
 Connect-ServiceFabricCluster $ConnectArgs
 ```
 
-You can then run other PowerShell commandlets to work with this cluster. For example, `Get-ServiceFabricNode` to show a list of nodes on this secure cluster.
-
-If you are logged on to one of the machines in the cluster and you wanted to get the list of nodes in that cluster, you can simply use `Connect-ServiceFabricCluster` since this already has the certificate installed locally, followed by the `Get-ServiceFabricNode`.
+You can then run other PowerShell commands to work with this cluster. For example, `Get-ServiceFabricNode` to show a list of nodes on this secure cluster.
 
 
 To remove the cluster, connect to the node on the cluster where you downloaded the Service Fabric package, open a command line and navigate to the package folder, and run the following command:
