@@ -122,7 +122,7 @@ azure network application-gateway create -n AdatumAppGateway -l eastus -g Adatum
 > For a list of parameters that can be provided during creation run the following command: **azure network application-gateway create --help**.
 
 This example creates a basic application gateway with default settings for the listener, backend pool, backend http settings, and rules. It also configures SSL offload. You can modify these settings to suit your deployment once the provisioning is successful.
-If you already have your web application defined with the the backend pool in the preceding steps, once created, load balancing begins.
+If you already have your web application defined with the backend pool in the preceding steps, once created, load balancing begins.
 
 ## Next steps
 

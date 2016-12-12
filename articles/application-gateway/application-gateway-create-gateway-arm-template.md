@@ -73,7 +73,7 @@ You can download the existing Azure Resource Manager template to create a virtua
     > [!IMPORTANT]
     >Azure Resource Manager templates maintained in GitHub can change over time. Make sure that you check the template before using it.
 
-6. Check the content under **resources** and notice the following:
+6. Check the content under **resources** and notice the following properties:
 
    * **type**. Type of resource being created by the template. In this case, the type is `Microsoft.Network/applicationGateways`, which represents an application gateway.
    * **name**. Name for the resource. Notice the use of `[parameters('applicationGatewayName')]`, which means that the name is provided as input by you or by a parameter file during deployment.
@@ -159,7 +159,7 @@ New-AzureRmResourceGroupDeployment -Name TestAppgatewayDeployment -ResourceGroup
 
 ## Deploy the Azure Resource Manager template by using the Azure CLI
 
-To deploy the Azure Resource Manager template you downloaded by using Azure CLI, follow the steps below:
+To deploy the Azure Resource Manager template you downloaded by using Azure CLI, follow the following steps:
 
 ### Step 1
 
@@ -167,13 +167,13 @@ If you have never used Azure CLI, see [Install and configure the Azure CLI](../x
 
 ### Step 2
 
-Run the **azure config mode** command to switch to Resource Manager mode, as shown below.
+Run the **azure config mode** command to switch to Resource Manager mode, as shown in the following code snippet.
 
 ```azurecli
 azure config mode arm
 ```
 
-Here is the expected output for the command above:
+Here is the expected output for the preceding command:
 
 ```azurecli
 info:    New mode is arm
@@ -181,7 +181,7 @@ info:    New mode is arm
 
 ### Step 3
 
-If necessary, run the **azure group create** command to create a new resource group, as shown below. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
+If necessary, run the **azure group create** command to create a new resource group, as shown in the following code snippet. Notice the output of the command. The list shown after the output explains the parameters used. For more information about resource groups, visit [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md).
 
 ```azurecli
 azure group create -n appgatewayRG -l eastus
@@ -193,7 +193,7 @@ azure group create -n appgatewayRG -l eastus
 
 ### Step 4
 
-Run the **azure group deployment create** cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified above. The list shown after the output explains the parameters used.
+Run the **azure group deployment create** cmdlet to deploy the new virtual network by using the template and parameter files you downloaded and modified in the preceding step. The list shown after the output explains the parameters used.
 
 ```azurecli
 azure group deployment create -g appgatewayRG -n TestAppgatewayDeployment -f C:\ARM\azuredeploy.json -e C:\ARM\azuredeploy-parameters.json
@@ -229,7 +229,7 @@ On the Custom deployment blade, click **Create**.
 
 ## Providing certificate data to Resource Manager templates
 
-When using SSL with a template the certificate needs to be provided in a base64 string instead of being uploaded. To convert a .pfx or .cer to a base64 string run the following PowerShell command. This will convert the certificate to a base64 string which can be provided to the template. The expected output is a string that can be stored in a variable and pasted in the template.
+When using SSL with a template, the certificate needs to be provided in a base64 string instead of being uploaded. To convert a .pfx or .cer to a base64 string run the following PowerShell command. This snippet converts the certificate to a base64 string, which can be provided to the template. The expected output is a string that can be stored in a variable and pasted in the template.
 
 ```powershell
 [System.Convert]::ToBase64String([System.IO.File]::ReadAllBytes("<certificate path and name>.pfx"))

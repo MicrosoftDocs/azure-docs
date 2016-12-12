@@ -35,12 +35,12 @@ In the following example, application gateway is serving traffic for contoso.com
 
 ## Before you begin
 
-This scenario adds multi-site support to an existing application gateway. In order to complete this scenario scenario an existing application gateway needs to be available to configure. Visit [Create an application gateway by using the portal](application-gateway-create-gateway-portal.md) to learn how to create a basic application gateway in the portal.
+This scenario adds multi-site support to an existing application gateway. To complete this scenario, an existing application gateway needs to be available to configure. Visit [Create an application gateway by using the portal](application-gateway-create-gateway-portal.md) to learn how to create a basic application gateway in the portal.
 
 The following are the steps needed to update the application gateway:
 
 1. Create back-end pools to use for each site.
-2. Create a new listener for each site application gateway will support.
+2. Create a listener for each site application gateway supports.
 3. Create rules to map each listener with the appropriate back-end.
 
 ## Requirements
@@ -54,7 +54,7 @@ The following are the steps needed to update the application gateway:
 
 ## Create back-end pools for each site
 
-A back-end pool for each site that application gateway will support is needed, in this case 2 will be created, one for contoso11.com and one for fabrikam11.com.
+A back-end pool for each site that application gateway supports is needed, in this case 2 are be created, one for contoso11.com and one for fabrikam11.com.
 
 ### Step 1
 
@@ -86,7 +86,7 @@ Click **Listeners** on the existing application gateway and click **Multi-site**
 
 ### Step 2
 
-Fill out the information for the listener, In this example SSL termination is configured, create a new frontend port. Upload the .pfx certificate to be used for SSL termination. The only difference on this blade compared to the standard basic listener blade is the hostname.
+Fill out the information for the listener. In this example SSL termination is configured, create a new frontend port. Upload the .pfx certificate to be used for SSL termination. The only difference on this blade compared to the standard basic listener blade is the hostname.
 
 ![listener properties blade][2]
 
@@ -97,7 +97,7 @@ Click **Multi-site** and create another listener as described in the previous st
 ![listener properties blade][3]
 
 > [!NOTE]
-> Creation of listeners in the Azure portal for application gateway is a long running task, it may take some time to create the two listeners in this scenario. When complete the listeners show in the portal as seen in the following image.
+> Creation of listeners in the Azure portal for application gateway is a long running task, it may take some time to create the two listeners in this scenario. When complete the listeners show in the portal as seen in the following image:
 
 ![listener overview][4]
 
@@ -115,11 +115,11 @@ Fill out the rules blade as seen in the following image. Choosing the first list
 
 ### Step 3
 
-Click **Basic rule** to create the 2nd rule. Fill out the form with the second listener and second backend pool and click **OK** to save.
+Click **Basic rule** to create the second rule. Fill out the form with the second listener and second backend pool and click **OK** to save.
 
 ![add basic rule blade][10]
 
-This completes configuring an existing application gateway with multi-site support through the Azure portal.
+This scenario completes configuring an existing application gateway with multi-site support through the Azure portal.
 
 ## Next steps
 
