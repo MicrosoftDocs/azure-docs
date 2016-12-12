@@ -47,7 +47,7 @@ For more information on APIs see the <a href="https://msdn.microsoft.com/en-us/l
 
 The endpoint suffix to use in these overloads is core.usgovcloudapi.net
 
-<a href="http://storageexplorer.com/">Azure Storage Explorer</a> currently doesn't support sign in with account in Azure Government. Use an account name and key to connect to an Azure Atorage Account.
+<a href="http://storageexplorer.com/">Azure Storage Explorer</a> currently doesn't support sign in with account in Azure Government. Use an account name and key to connect to an Azure Storage Account.
 
 ### Considerations
 The following information identifies the Azure Government boundary for Azure Storage:
