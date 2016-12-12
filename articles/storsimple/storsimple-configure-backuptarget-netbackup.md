@@ -516,7 +516,7 @@ The following section describes how to create a short script to start and delete
 
 ### To start or delete a cloud snapshot
 
-1.  [Install Azure PowerShell](/articles/powershell-install-configure.md).
+1.  [Install Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/#install-and-configure).
 
 2.  [Download and import publish settings and subscription information](https://msdn.microsoft.com/library/dn385850.aspx).
 
