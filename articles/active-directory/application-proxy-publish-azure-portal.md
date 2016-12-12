@@ -55,7 +55,7 @@ Azure AD Application Proxy helps you support remote workers by publishing on-pre
 
      - Azure Active Directory: Application Proxy redirects users to sign in with Azure AD, which authenticates their permissions for the directory and application.
      - Passthrough: Users don't have to authenticate to access the application.
-   - **Translate URL in Headers?**: Choose whether to tranlate the URL in the headers, or keep the original.
+   - **Translate URL in Headers?**: Choose whether to translate the URL in the headers, or keep the original.
    - **Connector Group**: Connectors process the remote access to your application, and connector groups help you organize connectors and apps by region, network, or purpose.
 
 8. Select **Save**.
