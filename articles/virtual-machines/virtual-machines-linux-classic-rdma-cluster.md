@@ -131,7 +131,7 @@ After the VM finishes provisioning, SSH to the VM by using the VM's external IP 
     ```
 
   > [!NOTE]
-  > Configuring `StrictHostKeyChecking no` can create a potential security risk when a specific IP address or range is not specified.
+  > Configuring `StrictHostKeyChecking no` can create a potential security risk when a specific IP address or range is not specified. 
   >
   >
 * **Applications**--Install any applications you need or perform other customizations before you capture the image.
