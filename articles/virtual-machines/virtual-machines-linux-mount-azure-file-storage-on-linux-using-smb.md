@@ -104,7 +104,7 @@ sudo mount -t cifs //mystorageaccount.file.core.windows.net/mystorageshare /mnt/
 
 ## Persist the SMB mount through reboots
 
-Once you reboot the Linux VM, the mounted SMB share will be unmounted during shutdown.  To re-mount the SMB share on boot you must add a line to the Linux `/etc/fstab`.  Linux uses the `fstab` file to list what filesystems it needs to mount during bootup.  Adding the SMB share will ensure that the Azure File Storage share is a permanently mounted filesystem for the Linux VM.  Adding the SMB share to a new via is also possible by adding it to `cloud-init`.
+Once you reboot the Linux VM, the mounted SMB share will be unmounted during shutdown.  To re-mount the SMB share on boot you must add a line to the Linux `/etc/fstab`.  Linux uses the `fstab` file to list what filesystems it needs to mount during bootup.  Adding the SMB share will ensure that the Azure File Storage share is a permanently mounted filesystem for the Linux VM.  Adding the Azure File Storage SMB share to a new VM is possible using `cloud-init`.
 
 ```bash
 //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
