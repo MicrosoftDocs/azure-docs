@@ -257,7 +257,7 @@ After you have enabled Password Writeback, you need to make sure the machine run
 
 #### Why do I need to do this?
 
-In order for Password Writeback function properly, the machine running Azure AD Connect needs to be able to establish outbound HTTPS connections to **.servicebus.windows.net* and specific IP address used by Azure, as defined in the [Microsoft Azure Datacenter IP Ranges list](https://www.microsoft.com/download/details.aspx?id=41653).
+In order for Password Writeback to function properly, the machine running Azure AD Connect needs to be able to establish outbound HTTPS connections to **.servicebus.windows.net* and specific IP address used by Azure, as defined in the [Microsoft Azure Datacenter IP Ranges list](https://www.microsoft.com/download/details.aspx?id=41653).
 
 For Azure AD Connect tool versions 1.0.8667.0 and above:
 
@@ -275,16 +275,16 @@ For Azure AD Connect tool versions 1.0.8667.0 and above:
 		- Allow all outbound HTTPS connections to *.servicebus.windows.net
 		- Allow all outbound HTTPS connections to all IPs in the Microsoft Azure Datacenter IP Ranges list and keep this configuration updated weekly.
 
->[!NOTE]
->If you have configured Password Writeback by following the instructions above and do not see any errors in the Azure AD Connect event log, but and you're getting connectivity errors when testing, then it may be the case that a networking appliance in your environment is blocking HTTPS connections to IP addresses. For example, while a connection to *https://*.servicebus.windows.net* is allowed, a connection to a specific IP address within that range may be blocked. To resolve this, you'll need to either configure your networking environment to allow all outbound HTTPS connections over port 443 to any URL or IP address (Option 1 above), or work with your networking team to explicitly allow HTTPS connections to specific IP addresses (Option 2 above).
+> [!NOTE]
+> If you have configured Password Writeback by following the instructions above and do not see any errors in the Azure AD Connect event log, but you're getting connectivity errors when testing, then it may be the case that a networking appliance in your environment is blocking HTTPS connections to IP addresses. For example, while a connection to *https://*.servicebus.windows.net* is allowed, a connection to a specific IP address within that range may be blocked. To resolve this, you'll need to either configure your networking environment to allow all outbound HTTPS connections over port 443 to any URL or IP address (Option 1 above), or work with your networking team to explicitly allow HTTPS connections to specific IP addresses (Option 2 above).
 
 **For older versions:**
 
 - Allow outbound TCP connections over port 443, 9350-9354 and port 5671 
 - Allow outbound connections to *https://ssprsbprodncu-sb.accesscontrol.windows.net/*
 
->[!NOTE] If you are on a version of Azure AD Connect prior to 1.0.8667.0, Microsoft highly recommends you upgrade to the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594), which includes a number of writeback networking enhancements to make configuration easier.
->
+> [!NOTE]
+> If you are on a version of Azure AD Connect prior to 1.0.8667.0, Microsoft highly recommends you upgrade to the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594), which includes a number of writeback networking enhancements to make configuration easier.
 
 Once the network appliances have been configured, reboot the machine running Azure AD Connect tool.
 
