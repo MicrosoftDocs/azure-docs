@@ -19,7 +19,7 @@ ms.author: nitinme
 ---
 # Access control in Azure Data Lake Store
 
-Data Lake Store implements an access control model that derives from HDFS, and in turn, from the POSIX access control model. This article summarizes the basics of the access control model for Data Lake Store. To learn more about the HDFS access control model see [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
+Data Lake Store implements an access control model that derives from HDFS, which in turn derives from the POSIX access control model. This article summarizes the basics of the access control model for Data Lake Store. To learn more about the HDFS access control model see [HDFS Permissions Guide](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsPermissionsGuide.html).
 
 ## Access control lists on files and folders
 
