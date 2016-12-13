@@ -99,6 +99,7 @@ it is created within.
 
 In general, avoid having any special characters (`-` or `_`) as the first or last character in any name. These characters will cause most validation rules to fail.
 
+> [!div class="mx-codeBreakAll"]
 | Category | Service or Entity | Scope | Length | Casing | Valid Characters | Suggested Pattern | Example |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Resource Group |Resource Group |Global |1-64 |Case insensitive |Alphanumeric, underscore, and hyphen |`<service short name>-<environment>-rg` |`profx-prod-rg` |
