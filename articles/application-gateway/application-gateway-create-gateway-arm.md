@@ -138,7 +138,7 @@ Create a public IP resource **publicIP01** in resource group **appgw-rg** for th
 $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name publicIP01 -location "West US" -AllocationMethod Dynamic
 ```
 
-## Create an application gateway configuration object
+## Create the application gateway configuration objects
 
 You have to set up all configuration items before creating the application gateway. The following steps create the configuration items that are needed for an application gateway resource.
 
@@ -216,8 +216,6 @@ Create an application gateway with all configuration items from the preceding st
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
-
-### Step 9
 
 Retrieve DNS and VIP details of the application gateway from the public IP resource attached to the application gateway.
 
