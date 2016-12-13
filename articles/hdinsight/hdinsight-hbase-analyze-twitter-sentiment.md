@@ -1072,76 +1072,76 @@ In this section, you will create an ASP.NET MVC web application to read the real
 1. From **Solution Explorer**, expand **TweetSentimentWeb**, expand **Views**, expand **Shared**, and then double-click _**Layout.cshtml**.
 2. Replace the content with the following:
    
-        <!DOCTYPE html>
-        <html>
-        <head>
-            <meta charset="utf-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>@ViewBag.Title</title>
-            @Styles.Render("~/Content/css")
-            @Scripts.Render("~/bundles/modernizr")
-            <!-- Bing Maps -->
-            <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&mkt=en-gb"></script>
-            <!-- Spatial Dashboard JavaScript -->
-            <script src="~/Scripts/twitterStream.js" type="text/javascript"></script>
-        </head>
-        <body onload="initialize()">
-            <div class="navbar navbar-inverse navbar-fixed-top">
-                <div class="container">
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <div class="navbar-collapse collapse">
-                        <div class="row">
-                            <ul class="nav navbar-nav col-lg-5">
-                                <li class="col-lg-12">
-                                    <div class="navbar-form">
-                                        <input id="searchbox" type="search" class="form-control">
-                                        <button type="button" id="searchBtn" class="btn btn-primary">Go</button>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title</title>
+        @Styles.Render("~/Content/css")
+        @Scripts.Render("~/bundles/modernizr")
+        <!-- Bing Maps -->
+        <script type="text/javascript" src="http://ecn.dev.virtualearth.net/mapcontrol/mapcontrol.ashx?v=7.0&mkt=en-gb"></script>
+        <!-- Spatial Dashboard JavaScript -->
+        <script src="~/Scripts/twitterStream.js" type="text/javascript"></script>
+    </head>
+    <body onload="initialize()">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <div class="row">
+                        <ul class="nav navbar-nav col-lg-5">
+                            <li class="col-lg-12">
+                                <div class="navbar-form">
+                                    <input id="searchbox" type="search" class="form-control">
+                                    <button type="button" id="searchBtn" class="btn btn-primary">Go</button>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav col-lg-7">
+                            <li>
+                                <div class="navbar-form">
+                                    <div class="btn-group" data-toggle="buttons-radio">
+                                        <button type="button" id="positiveBtn" class="btn btn-primary">Positive</button>
+                                        <button type="button" id="neutralBtn" class="btn btn-primary">Neutral</button>
+                                        <button type="button" id="negativeBtn" class="btn btn-primary">Negative</button>
                                     </div>
-                                </li>
-                            </ul>
-                            <ul class="nav navbar-nav col-lg-7">
-                                <li>
-                                    <div class="navbar-form">
-                                        <div class="btn-group" data-toggle="buttons-radio">
-                                            <button type="button" id="positiveBtn" class="btn btn-primary">Positive</button>
-                                            <button type="button" id="neutralBtn" class="btn btn-primary">Neutral</button>
-                                            <button type="button" id="negativeBtn" class="btn btn-primary">Negative</button>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li><span id="statustext" class="navbar-text"></span></li>
-                            </ul>
-                        </div>
+                                </div>
+                            </li>
+                            <li><span id="statustext" class="navbar-text"></span></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <div class="map_container">
-                @RenderBody()
-            </div>
-            @Scripts.Render("~/bundles/jquery")
-            @Scripts.Render("~/bundles/bootstrap")
-            @RenderSection("scripts", required: false)
-        </body>
-        </html>
+        </div>
+        <div class="map_container">
+            @RenderBody()
+        </div>
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @RenderSection("scripts", required: false)
+    </body>
+    </html>
 
 **To modify the Index.cshtml**
 
 1. From **Solution Explorer**, expand **TweetSentimentWeb**, expand **Views**, expand **Home**, and then double-click **Index.cshtml**.
 2. Replace the content with the following:
    
-        @{
-            ViewBag.Title = "Tweet Sentiment";
-        }
-   
-        <div class="map_container">
-            <div id="map_canvas"/>
-        </div>
+    @{
+        ViewBag.Title = "Tweet Sentiment";
+    }
+    
+    <div class="map_container">
+        <div id="map_canvas"/>
+    </div>
 
 **To modify the site.css file**
 
