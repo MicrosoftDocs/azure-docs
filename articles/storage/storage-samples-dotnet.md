@@ -21,7 +21,7 @@ ms.author: seguler
 
 The following table provides a quick overview of our sample repository and the methods covered in each sample.
 
-Please visit our [Get started with Azure Storage in five minutes](storage-getting-started-guide.md) if you want to find out how to get started with the Azure Storage Client Library for .NET.
+Visit our [Get started with Azure Storage in five minutes](storage-getting-started-guide.md) if you want to find out how to get started with the Azure Storage Client Library for .NET.
 
 <table style="font-size:160%"> 
 	<thead> 
@@ -42,7 +42,7 @@ Please visit our [Get started with Azure Storage in five minutes](storage-gettin
 			<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web Application</a></td>
 		</tr> 
 		<tr> 
-			<td>Client Side Encryption</td>
+			<td>Client-Side Encryption</td>
 			<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/BlobGettingStarted/Program.cs">Blob Encryption Samples</a></td>
 		</tr> 
 		<tr> 
@@ -140,8 +140,8 @@ Please visit our [Get started with Azure Storage in five minutes](storage-gettin
 			<td><a href="https://github.com/Azure-Samples/storage-queue-dotnet-getting-started/blob/master/QueueStorage/GettingStarted.cs">Getting Started with Azure Queue Service in .NET</a></td> 
 		</tr> 
 		<tr> 
-			<td>Client Side Encryption</td> 
-			<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/QueueGettingStarted/Program.cs">Azure Storage .NET Queue Client Side Encryption</a></td> 
+			<td>Client-Side Encryption</td> 
+			<td><a href="https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/QueueGettingStarted/Program.cs">Azure Storage .NET Queue Client-Side Encryption</a></td> 
 		</tr> 
 		<tr> 
 			<td>Create Queues</td> 
@@ -193,7 +193,7 @@ Please visit our [Get started with Azure Storage in five minutes](storage-gettin
 			<td><a href="https://github.com/Azure-Samples/storage-table-dotnet-getting-started/blob/master/TableStorage/AdvancedSamples.cs">Getting Started with Azure Table Storage in .NET</a></td> 
 		</tr> 
 		<tr> 
-			<td>Update Entitiy</td> 
+			<td>Update Entity</td> 
 			<td><a href="https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114/sourcecode?fileId=123913&pathId=50196262">Managing Concurrency using Azure Storage - Sample Application</a></td> 
 		</tr> 
 		
