@@ -82,7 +82,7 @@ In the POSIX-style model that's used by Data Lake Store, permissions for an item
 
 ## Common scenarios related to permissions
 
-Following are some common scenarios to help you understand what permissions are needed to perform certain operations on a Data Lake Store account.
+Following are some common scenarios to help you understand which permissions are needed to perform certain operations on a Data Lake Store account.
 
 ### Permissions needed to read a file
 
@@ -125,7 +125,7 @@ From the **Data Explorer** blade of the Data Lake Store account, click **Access*
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-On this blade, the top section shows an overview of what permissions you have (in the screenshot, the user is Bob). Following that, the access permissions are shown. After that, from the **Access** blade, click **Simple View** to see the simpler view.
+On this blade, the top section shows an overview of which permissions you have (in the screenshot, the user is Bob). Following that, the access permissions are shown. After that, from the **Access** blade, click **Simple View** to see the simpler view.
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
@@ -148,7 +148,7 @@ In Azure, a Data Lake Store account has several Azure roles, including:
 * Readers
 
 Everyone in the **Owners** role for a Data Lake Store account is automatically a super user for that account. To learn more about Role-Based Access Control (RBAC), see [Role-based access control](../active-directory/role-based-access-control-configure.md).
-If you would like to create a custom RBAC role that has super user permissions. It needs to have the following permissions:
+If you would like to create a custom RBAC role that has super user permissions, it needs to have the following permissions:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
 
@@ -217,7 +217,7 @@ When a new file or folder is created under an existing folder, the Default ACL o
 - A child folder’s Default ACL and Access ACL
 - A child file's Access ACL (files do not have a Default ACL)
 
-### A child file or folder's Access ACL
+### The Access ACL of a child file or folder
 
 When a child file or folder is created, the parent's Default ACL is copied as the Access ACL of the child file or folder. Also, if **other** user has RWX permissions in the parent's default ACL, it is removed from the child item's Access ACL.
 
@@ -240,7 +240,7 @@ Following are some advanced topics to help you understand how ACLs are determine
 
 In a POSIX-compliant system, the general concept is that umask is a 9-bit value on the parent folder that's used to transform the permission for **owning user**, **owning group**, and **other** on the Access ACL of a new child file or folder. The bits of a umask identify which bits to turn off in the child item’s Access ACL. Thus it is used to selectively prevent the propagation of permissions for **owning user**, **owning group**, and **other**.
 
-In an HDFS system, the umask is typically a site-wide configuration option that is controlled by administrators. Data Lake Store uses an **account-wide umask** that cannot be changed. The following table shows Data Lake Store's umask.
+In an HDFS system, the umask is typically a sitewide configuration option that is controlled by administrators. Data Lake Store uses an **account-wide umask** that cannot be changed. The following table shows Data Lake Store's umask.
 
 | User group  | Setting | Effect on new child item's Access ACL |
 |------------ |---------|---------------------------------------|
@@ -273,10 +273,10 @@ Here are some questions that come up often about ACLs in Data Lake Store.
 
 No. Access control via ACLs is always on for a Data Lake Store account.
 
-### What permissions are required to recursively delete a folder and its contents?
+### Which permissions are required to recursively delete a folder and its contents?
 
-* The parent folder must have **Write + Execute**.
-* The folder to be deleted, and every folder within it, requires **Read + Write + Execute**.
+* The parent folder must have **Write + Execute** permissions.
+* The folder to be deleted, and every folder within it, requires **Read + Write + Execute** permissions.
 
 > [!NOTE]
 > Deleting the files in folders does not require Write permissions for those files. Also, the Root folder "/" can **never** be deleted.
@@ -289,7 +289,7 @@ The creator of a file or folder becomes the owner.
 
 ### Which group is set as the owning group of a file or folder at creation?
 
-It is copied from the owning group of the parent folder under which the new file or folder is created.
+The owning group is copied from the owning group of the parent folder under which the new file or folder is created.
 
 ### I am the owning user of a file but I don’t have the RWX permissions I need. What do I do?
 
