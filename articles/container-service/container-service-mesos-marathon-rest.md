@@ -3,7 +3,7 @@ title: Azure Container Service container management through the REST API | Micro
 description: Deploy containers to an Azure Container Service Mesos cluster by using the Marathon REST API.
 services: container-service
 documentationcenter: ''
-author: neilpeterson
+author: dlepow
 manager: timlt
 editor: ''
 tags: acs, azure-container-service
@@ -16,7 +16,7 @@ ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/13/2016
-ms.author: timlt
+ms.author: danlep
 
 ---
 # Container management through the REST API
