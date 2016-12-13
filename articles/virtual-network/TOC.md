@@ -77,6 +77,8 @@
 #### Multiple IP addresses
 ##### [Azure portal](virtual-network-multiple-ip-addresses-portal.md)
 ##### [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)
+##### [CLI](virtual-network-multiple-ip-addresses-cli.md)
+##### [Template](virtual-network-multiple-ip-addresses-template.md)
 
 ### Connectivity scenarios
 #### [Virtual network (VNet) to VNet](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
