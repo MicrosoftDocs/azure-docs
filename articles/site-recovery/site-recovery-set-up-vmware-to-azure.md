@@ -67,11 +67,13 @@ Setting up the source environment involved two main activities
 
 #### Running the Azure Site Recovery Unified Setup
 
-> [!TIP] Configuration Server registration will fail if the time on your computers **System Clock** ahead or behind **local time** by more than five minutes. Synchronize your System Clock with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
+> [!TIP]
+> Configuration Server registration will fail if the time on your computers **System Clock** ahead or behind **local time** by more than five minutes. Synchronize your System Clock with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
-> [!NOTE] The Configuration Server can be installed via command line. Read more on [installing Configuration Server using Command-line tools](http://aka.ms/installconfigsrv).
+> [!NOTE]
+> The Configuration Server can be installed via command line. Read more on [installing Configuration Server using Command-line tools](http://aka.ms/installconfigsrv).
 
 #### Add the VMware account for automatic discovery
 
@@ -90,4 +92,4 @@ Click the +vCenter button to start connecting a VMware vCenter server or a VMwar
 
 
 ## Next steps
-Next step involves in [setting up your target environment](./site-recovery-vmware-to-azure.md#step-3-set-up-the-target-environment) in Azure.
+Next step involves [setting up your target environment](./site-recovery-vmware-to-azure.md#step-3-set-up-the-target-environment) in Azure.
