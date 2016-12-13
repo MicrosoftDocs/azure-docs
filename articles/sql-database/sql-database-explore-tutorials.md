@@ -44,7 +44,7 @@ In the following tutorials, you create servers, databases and server-level firew
 | [Get started with Azure SQL Database servers, databases, and firewall rules by using Azure PowerShell](sql-database-get-started-powershell.md) | In this tutorial, you use PowerShell to create an Azure SQL Database logical server, view its properties, create a server-level firewall, connect to the master database, create a sample database, view its properties, connect to the sample database, and create a blank database. |
 | [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md)| In this tutorial, you use the C# to create a SQL Database server, firewall rule, and SQL database. You also create an Active Directory (AD) application and the service principal needed to authenticate the C# app. |
 
-## Create servers, databases and server-level firewall rules
+## Backup and recovery
 In the following tutorial, you restore a database to a point in time, configure long-term backup retention, and restore a database from retention in the Azure Recovery Services vault. 
 
 | Tutorial | Description |

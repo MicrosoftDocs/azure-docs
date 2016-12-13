@@ -4,7 +4,7 @@ description: A checklist of proven practices for use with Azure Storage in devel
 services: storage
 documentationcenter: ''
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 959d831b-a4fd-4634-a646-0d2c0c462ef8
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/03/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---

@@ -4,7 +4,7 @@ description: Details the many methods of securing Azure Storage, including but n
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 6f931d94-ef5a-44c6-b1d9-8a3c9c327fb2
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---
