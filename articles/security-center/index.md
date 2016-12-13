@@ -25,7 +25,7 @@ Security Center helps you prevent, detect, and respond to threats with increased
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=security-center">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=security-center">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -63,26 +63,23 @@ Security Center helps you prevent, detect, and respond to threats with increased
 </ul>
 
 ---
-## Reference
 
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-US/library/mt704034(Azure.100)">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Security Center REST API</p>
+                        <p><a href="https://msdn.microsoft.com/library/mt704034(Azure.100).aspx">REST API Reference</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-<ul>	
+</ul>	
 
----
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/security-center.pdf">
         <div class="img"></div>

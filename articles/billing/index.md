@@ -64,22 +64,33 @@ Customers and partners require the ability to accurately predict and manage thei
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://msdn.microsoft.com/en-us/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>REST API</p>
+                        <p><a href="https://msdn.microsoft.com/library/azure/1ea5b323-54bb-423d-916f-190de96c6a3c">REST API Reference</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
+    </li>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Other</h3>
+                        <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-overview">API Overview</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudcruiser">Partner solution: Cloud Cruiser</a></p>
+                        <p><a href="https://docs.microsoft.com/azure/billing-usage-rate-card-partner-solution-cloudyn">Partner solution: Cloudyn</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 
