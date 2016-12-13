@@ -63,40 +63,6 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
 
 ---
 
-## Reference
-
-<ul class="panelContent cardsW">
-    <li>
-        <a href="/powershell/azureps-cmdlets-docs">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-
-    <li>
-        <a href="/rest/api/CDN">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>REST API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-</ul>---
-
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>

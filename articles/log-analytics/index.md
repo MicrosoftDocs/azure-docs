@@ -64,12 +64,7 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
 
 ---
 
-<<<<<<< HEAD
 <h2>Reference</h2>
-=======
-## Reference
-
->>>>>>> refs/remotes/Microsoft/master
 <ul class="panelContent cardsW">
     <li>
         <div class="cardSize">
