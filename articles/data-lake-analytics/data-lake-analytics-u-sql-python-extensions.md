@@ -20,7 +20,7 @@ ms.author: saveenr
 
 # Tutorial: Get started with extending U-SQL with Python
 
-Python Extensions for U-SQL enable developers to perform massively parallel execution of Python code. The example below illustrates the basic steps:
+Python Extensions for U-SQL enable developers to perform massively parallel execution of Python code. The following example  illustrates the basic steps:
 
 * Use the REFERENCE ASSEMBLY statement to enable Python extensions for the U-SQL Script
 * Using the REDUCE operation to partition the input data on a key
