@@ -115,7 +115,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -132,7 +132,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
