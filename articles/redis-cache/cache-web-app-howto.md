@@ -84,7 +84,7 @@ In this section of the tutorial, you'll create the basic application that reads 
 2. Enter `Team` for the class name and click **Add**.
    
     ![Add model class][cache-model-add-class-dialog]
-3. Replace the `using` statements at the top of the `Team.cs` file with the following using statements.
+3. Replace the `using` statements at the top of the `Team.cs` file with the following `using` statements.
 
 	```c#
 	using System;
@@ -177,7 +177,6 @@ In this section of the tutorial, you'll create the basic application that reads 
 
     After adding this, the `connectionStrings` section should look like the following example.
 
-
 	```xml
 	<connectionStrings>
 	    <add name="DefaultConnection" connectionString="Data Source=(LocalDb)\MSSQLLocalDB;AttachDbFilename=|DataDirectory|\aspnet-ContosoTeamStats-20160216120918.mdf;Initial Catalog=aspnet-ContosoTeamStats-20160216120918;Integrated Security=True"
@@ -200,7 +199,7 @@ In this section of the tutorial, you'll create the basic application that reads 
 5. In **Solution Explorer**, expand **Global.asax** and double-click **Global.asax.cs** to open it.
    
     ![Global.asax.cs][cache-global-asax]
-6. Add the following two using statements at the top of the file under the other using statements.
+6. Add the following two `using` statements at the top of the file under the other `using` statements.
 
 	```c#
 	using System.Data.Entity;
@@ -270,7 +269,7 @@ In this section of the tutorial, you'll configure the sample application to stor
 3. In **Solution Explorer**, expand the **Controllers** folder and double-click **TeamsController.cs** to open it.
    
     ![Teams controller][cache-teamscontroller]
-4. Add the following two using statements to **TeamsController.cs**.
+4. Add the following two `using` statements to **TeamsController.cs**.
 
 	```c#   
 	using System.Configuration;
@@ -325,14 +324,14 @@ In this sample, team statistics can be retrieved from the database or from the c
 > 
 > 
 
-1. Add the following using statements to the `TeamsController.cs` file at the top with the other using statements.
+1. Add the following `using` statements to the `TeamsController.cs` file at the top with the other `using` statements.
 
 	```c#   
 	using System.Diagnostics;
 	using Newtonsoft.Json;
 	```
 
-2. Replace the current `public ActionResult Index()` method with the following implementation.
+2. Replace the current `public ActionResult Index()` method implementation with the following implementation.
 
     ```c#
     // GET: Teams
@@ -410,7 +409,6 @@ In this sample, team statistics can be retrieved from the database or from the c
     }
     ```
 
-
     The `RebuildDB` method reinitializes the database with the default set of teams, generates statistics for them, and clears the now outdated data from the cache.
 
     ```c#
@@ -426,9 +424,7 @@ In this sample, team statistics can be retrieved from the database or from the c
     }
     ```
 
-
     The `ClearCachedTeams` method removes any cached team statistics from the cache.
-
 
     ```c#
     void ClearCachedTeams()
@@ -485,9 +481,7 @@ In this sample, team statistics can be retrieved from the database or from the c
     }
     ```
 
-
     The `GetFromSortedSet` method reads the team statistics from a cached sorted set. If there is a cache miss, the team statistics are read from the database and stored in the cache as a sorted set.
-
 
     ```c#
     List<Team> GetFromSortedSet()
@@ -527,7 +521,6 @@ In this sample, team statistics can be retrieved from the database or from the c
 
     The `GetFromSortedSetTop5` method reads the top 5 teams from the cached sorted set. It starts by checking the cache for the existence of the `teamsSortedSet` key. If this key is not present, the `GetFromSortedSet` method is called to read the team statistics and store them in the cache. Next the cached sorted set is queried for the top 5 teams which are returned.
 
-
     ```c#
     List<Team> GetFromSortedSetTop5()
     {
@@ -555,7 +548,6 @@ In this sample, team statistics can be retrieved from the database or from the c
         return teams;
     }
     ```
-
 
 ### Update the Create, Edit, and Delete methods to work with the cache
 The scaffolding code that was generated as part of this sample includes methods to add, edit, and delete teams. Anytime a team is added, edited, or removed, the data in the cache becomes outdated. In this section you'll modify these three methods to clear the cached teams so that the cache won't be out of sync with the database.
