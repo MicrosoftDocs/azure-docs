@@ -1,4 +1,4 @@
-﻿---
+---
 title: Protect SQL Server with SQL Server disaster recovery and Azure Site Recovery | Microsoft Docs
 description: This article describes how to replicate SQL Server using Azure Site Recovery of SQL Server disaster capabilities.
 services: site-recovery
@@ -13,7 +13,7 @@ ms.workload: backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/13/2016
 ms.author: raynew
 
 ---
@@ -194,7 +194,16 @@ For the environments that are not managed by a VMM Server or a Configuration Ser
 
      $context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
      Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
+
 3. Create an Azure automation runbook to invoke the scripts on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](site-recovery-runbook-automation.md) about using automation runbooks in recovery plans.
+
+4. SQL AlwaysOn doesn’t natively support Test Failover. Therefore the recommended way to do this as follows:
+	1. Setup Azure Backup on virtual machine that hosts Availability Group replica. 
+	1. Before triggering Test Failover of the recovery plan, recover the virtual machine from the backup taken in Step-1
+	1. Where SQLAzureVM-Test is name of the virtual machine created by restoring from backup in Step-2
+	1. Do TFO of the Recovery Plan
+
+
 
      workflow SQLAvailabilityGroupFailover
      {
@@ -220,9 +229,26 @@ For the environments that are not managed by a VMM Server or a Configuration Ser
 
           if ($Using:RecoveryPlanContext.FailoverType -eq "Test")
                 {
-                #Skipping TFO in this version.
-                #We will update the script in a follow-up post with TFO support
-                Write-output "tfo: Skipping SQL Failover";
+                    Write-output "tfo"
+                    
+                    Write-Output "Creating ILB"
+                    Add-AzureInternalLoadBalancer -InternalLoadBalancerName SQLAGILB -SubnetName Subnet-1 -ServiceName SQLAzureVM-Test -StaticVNetIPAddress #IP
+                    Write-Output "ILB Created"
+
+                    Write-Output "Adding SQL AG Endpoint"
+                    Get-AzureVM -ServiceName "SQLAzureVM-Test" -Name "SQLAzureVM-Test"| Add-AzureEndpoint -Name sqlag -LBSetName sqlagset -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName SQLAGILB | Update-AzureVM
+                    Write-Output "Added Endpoint"
+        
+                    $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test" 
+                       
+                    Write-Output "UnInstalling custom script extension"
+                    Set-AzureVMCustomScriptExtension -Uninstall -ReferenceName CustomScriptExtension -VM $VM |Update-AzureVM 
+                    Write-Output "Installing custom script extension"
+                    Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $vm -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM   
+                    
+                    Write-output "Starting AG Failover"
+                    Set-AzureVMCustomScriptExtension -VM $VM -FileUri $sasuri -Run "AGFailover.ps1" -Argument "-Path sqlserver:\sql\sqlazureVM\default\availabilitygroups\testag"  | Update-AzureVM
+                    Write-output "Completed AG Failover"
                 }
           else
                 {
@@ -233,7 +259,7 @@ For the environments that are not managed by a VMM Server or a Configuration Ser
 
                 Write-Output "Installing custom script extension"
                 #Install the Custom Script Extension on teh SQL Replica VM
-                Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.3| Update-AzureVM;
+                Set-AzureVMExtension -ExtensionName CustomScriptExtension -VM $VM -Publisher Microsoft.Compute -Version 1.*| Update-AzureVM;
 
                 Write-output "Starting AG Failover";
                 #Execute the SQL Failover script
