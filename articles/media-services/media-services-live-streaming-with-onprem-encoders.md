@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
 ms.date: 10/12/2016
-ms.author: cenkdin;juliako
+ms.author: cenkd;juliako
 
 ---
 # Live streaming with on-premise encoders that create multi-bitrate streams
