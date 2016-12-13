@@ -23,13 +23,8 @@ The following table provides a quick overview of our sample repository and the m
 
 Visit our [Get started with Azure Storage in five minutes](storage-getting-started-guide.md) if you want to find out how to get started with the Azure Storage Client Library for .NET.
 
-<table style="font-size:110%"> 
-	<thead> 
-		<tr > 
-			<th style="font-size:130%">Endpoint</th> 
-			<th style="font-size:130%">Scenario</th> 
-			<th style="font-size:130%">Sample Name</th> 
-		</tr> 
+
+<table style="font-size:110%"><thead><tr><th style="font-size:130%">Endpoint</th><th style="font-size:130%">Scenario</th><th style="font-size:130%">Sample Name</th></tr> 
 	</thead> 
 	<tbody> 
 		<tr> 
