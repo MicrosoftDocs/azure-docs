@@ -1,6 +1,6 @@
 ---
-title: Developer guide - file upload | Microsoft Docs
-description: Azure IoT Hub developer guide - uploading files from a device to IoT Hub
+title: Understand Azure IoT Hub  file upload | Microsoft Docs
+description: Developer guide - use the file upload feature of IoT Hub to manage uploading files from a device to an Azure storage blob container.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: dobett
 
 ---
-# Upload files from a device
+# File uploads with IoT Hub
 ## Overview
 As detailed in the [IoT Hub endpoints][lnk-endpoints] article, devices can initiate file uploads by sending a notification through a device-facing endpoint (**/devices/{deviceId}/files**).  When a device notifies IoT Hub of a completed upload, IoT Hub generates file upload notifications that you can receive through a service-facing endpoint (**/messages/servicebound/filenotifications**) as messages.
 
@@ -124,16 +124,16 @@ Each IoT hub exposes the following configuration options for file upload notific
 | **fileNotifications.maxDeliveryCount** |Maximum delivery count for the file upload notification queue. |1 to 100. Default: 100. |
 
 ## Additional reference material
-Other reference topics in the Developer Guide include:
+Other reference topics in the IoT Hub developer guide include:
 
-* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
+* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
+* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service apps that interact with IoT Hub.
 * [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
-Now you have learned how to upload files from devices using IoT Hub, you may be interested in the following Developer Guide topics:
+Now you have learned how to upload files from devices using IoT Hub, you may be interested in the following IoT Hub developer guide topics:
 
 * [Manage device identities in IoT Hub][lnk-devguide-identities]
 * [Control access to IoT Hub][lnk-devguide-security]

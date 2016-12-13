@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: azure-government
-ms.date: 09/29/2016
+ms.date: 11/18/2016
 ms.author: ryansoc
 
 ---
@@ -23,16 +23,18 @@ ms.author: ryansoc
 For details on this service and how to use it, see [Azure Virtual Machines Sizes](../virtual-machines/virtual-machines-windows-sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
 ### Variations
-The following VM SKUs are generally available (GA) in Azure Government:
+The products (VMs) are available in Azure Government:
 
-| VM SKU | US Gov VA | US Gov IA | Notes |
-| --- | --- | --- | --- |
-| A |GA |GA |None |
-| Dv1 |GA |- |None |
-| DSv1 |GA |- |None |
-| Dv2 |GA |GA |15 is coming soon |
-| F |GA |GA |None |
-| G |Planned |- |None |
+| Products (VMs) | US Gov VA | US Gov IA |
+| --- | --- | --- |
+| A0-A7 |Y |Y |
+| D-series |Y |N |
+| Dv2-series |Y |Y |
+| DS-series |Y |N |
+| F-series |Y |Y |
+| FS-series |N |N |
+| G-series |Y |N |
+| GS-series |Y |N |
 
 ### Data Considerations
 The following information identifies the Azure Government boundary for Azure Virtual Machines:

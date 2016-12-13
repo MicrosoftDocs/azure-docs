@@ -25,7 +25,7 @@ Application Insights is an extensible Application Performance Management (APM) s
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=application-insights">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=application-insights">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -117,67 +117,37 @@ Application Insights is an extensible Application Performance Management (APM) s
 </ul>
 
 ---
-
-## Reference
-
+ 
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="https://docs.microsoft.com/java/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Application Insights Java API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.applicationinsights">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p>
+                        <p><a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">JavaScript</a></p>
+                        <p><a href="/azure/application-insights/app-insights-analytics-reference">Analytics reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	 <li>
-        <a href="https://docs.microsoft.com/dotnet/api/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Application Insights Managed Reference API</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="https://dev.applicationinsights.io/">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	 <li>
-        <a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>JavaScript</h3>
-                        <p>Application Insights JS API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-	 <li>
-        <a href="https://dev.applicationinsights.io/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Application Insights REST API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-    </ul>
+</ul>
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/application-insights.pdf">

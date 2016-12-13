@@ -18,7 +18,7 @@ The following diagram shows a typical IoT solution architecture. The diagram doe
 > 
 
 ### Device connectivity
-In this IoT solution architecture, devices send telemetry, such as sensor readings from a pumping station, to a cloud endpoint for storage and processing. In a predictive maintenance scenario, the back end might use the stream of sensor data to determine when a specific pump requires maintenance. Devices can also receive and respond to cloud-to-device commands by reading messages from a cloud endpoint. For example, in the predictive maintenance scenario the solution back end might send commands to other pumps in the pumping station to begin rerouting flows just before maintenance is due to start to make sure the maintenance engineer can get started when she arrives.
+In this IoT solution architecture, devices send telemetry, such as sensor readings from a pumping station, to a cloud endpoint for storage and processing. In a predictive maintenance scenario, the solution back end might use the stream of sensor data to determine when a specific pump requires maintenance. Devices can also receive and respond to cloud-to-device messages by reading messages from a cloud endpoint. For example, in the predictive maintenance scenario the solution back end might send messages to other pumps in the pumping station to begin rerouting flows just before maintenance is due to start to make sure the maintenance engineer can get started when she arrives.
 
 One of the biggest challenges facing IoT projects is how to reliably and securely connect devices to the solution back end. IoT devices have different characteristics as compared to other clients such as browsers and mobile apps. IoT devices:
 
@@ -42,9 +42,9 @@ In the cloud, an IoT solution back end is where most of the data processing occu
 * Provides device registration capabilities that enable you to provision devices and to control which devices are permitted to connect to your infrastructure.
 * Enables you to track the state of your devices and monitor their activities.
 
-In the predictive maintenance scenario, the solution back end stores historical telemetry data. The back end can use this data to use to identify patterns that indicate maintenance is due on a specific pump.
+In the predictive maintenance scenario, the solution back end stores historical telemetry data. The solution back end can use this data to use to identify patterns that indicate maintenance is due on a specific pump.
 
-IoT solutions can include automatic feedback loops. For example, an analytics module in the back end can identify from telemetry that the temperature of a specific device is above normal operating levels. The solution can then send a command to the device, instructing it to take corrective action.
+IoT solutions can include automatic feedback loops. For example, an analytics module in the solution back end can identify from telemetry that the temperature of a specific device is above normal operating levels. The solution can then send a command to the device, instructing it to take corrective action.
 
 ### Presentation and business connectivity
 The presentation and business connectivity layer allows end users to interact with the IoT solution and the devices. It enables users to view and analyze the data collected from their devices. These views can take the form of dashboards or BI reports that can display both historical data or near real-time data. For example, an operator can check on the status of particular pumping station and see any alerts raised by the system. This layer also allows integration of the IoT solution back end with existing line-of-business applications to tie into enterprise business processes or workflows. For example, the predictive maintenance solution can integrate with a scheduling system that books an engineer to visit a pumping station when the solution identifies a pump in need of maintenance.

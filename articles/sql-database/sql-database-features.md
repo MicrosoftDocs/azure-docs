@@ -9,12 +9,13 @@ editor: ''
 
 ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016
-ms.author: carlrab
+ms.author: carlrab; jognanay
 
 ---
 # Azure SQL Database features
@@ -23,7 +24,7 @@ This topic provides an overview of the Azure SQL Database logical servers and da
 ## What is an Azure SQL Database logical server?
 An Azure SQL Database logical server acts as a central administrative point for multiple databases. In SQL Database, a server is a logical construct that is distinct from a SQL Server instance that you may be familiar with in the on-premises world. Specifically, the SQL Database service makes no guarantees regarding location of the databases in relation to their logical servers, and exposes no instance-level access or features. For more information about Azure SQL logical servers, see [Logical servers](sql-database-server-overview.md). 
 
-## What is Azure SQL database?
+## What is an Azure SQL database?
 Each database in Azure SQL Database is associated with a logical server. The database can be:
 
 - A single database with its [own set of resources](sql-database-what-is-a-dtu.md#what-are-database-transaction-units-dtus) (DTUs)
@@ -65,7 +66,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | Change tracking | [Supported](https://msdn.microsoft.com/library/bb933875.aspx) | [Supported](https://msdn.microsoft.com/library/bb933875.aspx) |
 | Collation statements | [Supported](https://msdn.microsoft.com/library/ff848763.aspx) | [Supported](https://msdn.microsoft.com/library/ff848763.aspx) |
 | Columnstore indexes | [Supported](https://msdn.microsoft.com/library/gg492088.aspx) | [Premium edition only](https://msdn.microsoft.com/library/gg492088.aspx) |
-| Common language runtime (CLR) | [Supported](https://msdn.microsoft.com/library/ms131102.aspx) | [Supported](https://msdn.microsoft.com/library/ms131102.aspx) |
+| Common language runtime (CLR) | [Supported](https://msdn.microsoft.com/library/ms131102.aspx) | Not supported |
 | Contained databases | [Supported](https://msdn.microsoft.com/library/ff929071.aspx) | Built-in |
 | Contained users | [Supported](https://msdn.microsoft.com/library/ff929188.aspx) | [Supported](sql-database-manage-logins.md#non-administrator-users) |
 | Control of flow language keywords | [Supported](https://msdn.microsoft.com/library/ms174290.aspx) | [Supported](https://msdn.microsoft.com/library/ms174290.aspx) |
@@ -119,7 +120,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | Security statements | [Supported](https://msdn.microsoft.com/library/ff848791.aspx) | [Some](https://msdn.microsoft.com/library/ff848791.aspx) |
 | Semantic search | [Supported](https://msdn.microsoft.com/library/gg492075.aspx) | Not supported |
 | Sequence numbers | [Supported](https://msdn.microsoft.com/library/ff878058.aspx) | [Supported](https://msdn.microsoft.com/library/ff878058.aspx) |
-| Service Broker | [Supported](https://msdn.microsoft.com/library/bb522893.aspx) | [Inside database only](https://msdn.microsoft.com/library/bb522893.aspx) |
+| Service Broker | [Supported](https://msdn.microsoft.com/library/bb522893.aspx) | Not supported |
 | Server configuration options | [Supported](https://msdn.microsoft.com/library/ms189631.aspx) | Not supported - see [Database configuration options](https://msdn.microsoft.com/library/mt629158.aspx) |
 | Set statements | [Supported](https://msdn.microsoft.com/library/ms190356.aspx) | [Most](https://msdn.microsoft.com/library/ms190356.aspx) 
 | Spatial | [Supported](https://msdn.microsoft.com/library/bb933790.aspx) | [Supported](https://msdn.microsoft.com/library/bb933790.aspx) |
@@ -128,7 +129,7 @@ We continue to add features to V12. So we encourage you to visit our Service Upd
 | SQL Server Integration Services (SSIS) | [Supported](https://msdn.microsoft.com/library/ms141026.aspx) | Not supported - see [Azure Data Factory](https://azure.microsoft.com/services/data-factory/) |
 | SQL Server PowerShell | [Supported](https://msdn.microsoft.com/library/hh245198.aspx) | [Supported](https://msdn.microsoft.com/library/hh245198.aspx) |
 | SQL Server Profiler | [Supported](https://msdn.microsoft.com/library/ms181091.aspx) | Not supported - see [Extended events](https://msdn.microsoft.com/library/ms181091.aspx) |
-| SQL Server Replication | [Supported](https://msdn.microsoft.com/library/ms151198.aspx) | [Transactional replication subscriber only](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
+| SQL Server Replication | [Supported](https://msdn.microsoft.com/library/ms151198.aspx) | [Transactional and snapshot replication subscriber only](sql-database-cloud-migrate-compatible-using-transactional-replication.md) |
 | SQL Server Reporting Services (SSRS) | [Supported](https://msdn.microsoft.com/library/ms159106.aspx) | Not supported |
 | Stored procedures | [Supported](https://msdn.microsoft.com/library/ms190782.aspx) | [Supported](https://msdn.microsoft.com/library/ms190782.aspx) |
 | System stored functions | [Supported](https://msdn.microsoft.com/library/ff848780.aspx) | [Some](https://msdn.microsoft.com/library/ff848780.aspx) |

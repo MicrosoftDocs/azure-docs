@@ -49,7 +49,7 @@ When referencing an endpoint of type 'AzureEndpoints' for a Web App, Traffic Man
 
 These instructions use Microsoft Azure PowerShell. The following article explains how to install and configure Azure PowerShell.
 
-* [How to install and configure Azure PowerShell](../powershell-install-configure.md)
+* [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 The examples in this article assume that you have an existing resource group. You can create a resource group using the following command:
 

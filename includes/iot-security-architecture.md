@@ -203,7 +203,7 @@ Here are some examples of threats in this category:
 **Denial of Service:** an attacker may jam the broadcast signal and deny information distribution
 
 #### Storage
-Every device and field gateway has some form of storage (temporary for queuing the data, os image storage).
+Every device and field gateway has some form of storage (temporary for queuing the data, operating system (OS) image storage).
 
 | **Component** | **Threat** | **Mitigation** | **Risk** | **Implementation** |
 | --- | --- | --- | --- | --- |

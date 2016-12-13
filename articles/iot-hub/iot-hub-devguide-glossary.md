@@ -1,6 +1,6 @@
 ---
-title: Developer guide - glossary | Microsoft Docs
-description: A glossary of common terms relating to IoT Hub
+title: Azure IoT Hub glossary | Microsoft Docs
+description: Developer guide - a glossary of common terms relating to Azure IoT Hub.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -39,7 +39,7 @@ There are _service SDKs_ available for multiple languages that enable you to cre
 The [Microsoft Azure portal](https://portal.azure.com) is a central place where you can provision and manage your Azure resources. It organizes its content using _blades_. In some of the IoT Hub tutorials, you may be asked to use the [Azure classic portal](https://manage.windowsazure.com).
 
 ## Azure PowerShell
-[Azure PowerShell](../powershell-install-configure.md) is a collection of cmdlets you can use to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform.
+[Azure PowerShell](/powershell/azureps-cmdlets-docs) is a collection of cmdlets you can use to manage Azure with Windows PowerShell. You can use the cmdlets to create, test, deploy, and manage solutions and services delivered through the Azure platform.
 
 ## Azure Resource Manager
 [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) enables you to work with the resources in your solution as a group. You can deploy, update, or delete the resources for your solution in a single, coordinated operation.
@@ -60,7 +60,9 @@ A cloud gateway enables connectivity for devices that cannot connect directly to
 Refers to messages sent from an IoT hub to a connected device. Often, these messages are commands that instruct the device to take an action. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
 ## Connection string
-You use connection strings in your app code to encapsulate the information required to connect to an endpoint. A connection string typically includes the address of the endpoint and security information, but the format of the connection string varies across services.
+You use connection strings in your app code to encapsulate the information required to connect to an endpoint. A connection string typically includes the address of the endpoint and security information, but connection string formats vary across services. There are two types of connection string associated with the IoT Hub service:
+- *Device connection strings* enable devices to connect to the device-facing endpoints on an IoT hub.
+- *IoT Hub connection strings* enable back-end apps to connect to the service-facing endpoints on an IoT hub.
 
 ## Custom gateway
 A gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). You can use the [Azure IoT Gateway SDK](#azure-iot-gateway-sdk) to build custom gateways that implement custom logic to handle messages and custom protocol conversions.
@@ -75,7 +77,7 @@ In the context of a [device twin](iot-hub-devguide-device-twins.md), desired con
 In the context of a [device twin](iot-hub-devguide-device-twins.md), desired properties is a subsection of the device twin that is used with [reported properties](#reported-properties) to synchronize device configuration or condition. Desired properties can only be set by a [back-end app](#back-end-app) and are observed by the [device app](#device-app).
 
 ## Device-to-cloud
-Refers to messages sent from a connected device to [IoT Hub](#iot-hub). These messages may be [data point](#data-point-message) or [interactive](#interactive-message) messages. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
+Refers to messages sent from a connected device to [IoT Hub](#iot-hub). These messages may be [data-point](#data-point-message) or [interactive](#interactive-message) messages. For more information, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
 ## Device
 In the context of IoT, a device is typically a small-scale, standalone computing device that may collect data or control other devices. For example, a device might be an environmental monitoring device, or a controller for the watering and ventilation systems in a greenhouse. The [device catalog](https://catalog.azureiotsuite.com/) provides a list of hardware devices certified to work with [IoT Hub](#iot-hub).
@@ -144,13 +146,13 @@ A gateway enables connectivity for devices that cannot connect directly to [IoT 
 The [identity registry](iot-hub-devguide-identity-registry.md) is the built-in component of an IoT hub that stores information about the individual devices permitted to connect to an IoT hub.
 
 ## Interactive message
-An interactive message is a [cloud-to-device](#cloud-to-device) message that triggers an immediate action in the application back end. For example, a device might send an alarm about a failure that should be automatically logged into a CRM system.
+An interactive message is a [cloud-to-device](#cloud-to-device) message that triggers an immediate action in the solution back end. For example, a device might send an alarm about a failure that should be automatically logged into a CRM system.
 
 ## IoT Hub
 IoT Hub is a fully managed Azure service that enables reliable and secure bidirectional communications between millions of devices and a solution back end. For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Using your [Azure subscription](#subscription), you can create IoT hubs to handle your IoT messaging workloads.
 
 ## IoT Hub metrics
-[IoT Hub metrics](iot-hub-metrics.md) give you data about the state of the IoT hubs in your [Azure subscription](#subscription). Metrics enable you to assess the overall health of the service and the devices connected to it. Metrics can help you see what is going on with your IoT hub and investigate root-cause issues without needing to contact Azure support.
+[IoT Hub metrics](iot-hub-metrics.md) give you data about the state of the IoT hubs in your [Azure subscription](#subscription). IoT Hub metrics enable you to assess the overall health of the service and the devices connected to it. IoT Hub metrics can help you see what is going on with your IoT hub and investigate root-cause issues without needing to contact Azure support.
 
 ## IoT Hub query language
 The [IoT Hub query language](iot-hub-devguide-query-language.md) is a SQL-like language that enables you to query your [jobs](#job) and device twins.
@@ -222,7 +224,7 @@ An Azure subscription is where billing takes place. Each Azure resource you crea
 In the context of a [device twin](iot-hub-devguide-device-twins.md), system properties are read-only and include information regarding the device usage such as last activity time and connection state.
 
 ## Tags
-In the context of a [device twin](iot-hub-devguide-device-twins.md), tags are device metadata stored and retrieved by the application back end in the form of a JSON document. Tags are not visible to apps on a device.
+In the context of a [device twin](iot-hub-devguide-device-twins.md), tags are device metadata stored and retrieved by the solution back end in the form of a JSON document. Tags are not visible to apps on a device.
 
 ## Telemetry
 Devices collect telemetry data, such as wind speed or temperature, and use [data-point messages](#data-point-messages) to send the telemetry to an IoT hub.

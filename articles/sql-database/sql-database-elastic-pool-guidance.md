@@ -9,11 +9,12 @@ editor: ''
 
 ms.assetid: 3d3941d5-276c-4fd2-9cc1-9fe8b1e4c96c
 ms.service: sql-database
+ms.custom: sharded databases pool; app development
 ms.devlang: NA
 ms.date: 08/08/2016
 ms.author: sstein
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 
 ---

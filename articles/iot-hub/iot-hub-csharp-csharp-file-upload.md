@@ -1,6 +1,6 @@
 ---
-title: Upload files from devices using IoT Hub | Microsoft Docs
-description: Follow this tutorial to learn how to upload files from devices using Azure IoT Hub with C#.
+title: Upload files from devices using Azure IoT Hub | Microsoft Docs
+description: How to upload files from a device to the cloud using Azure IoT device SDK for .NET. Uploaded files are stored in an Azure storage blob container.
 services: iot-hub
 documentationcenter: .net
 author: fsautomata
@@ -17,17 +17,16 @@ ms.date: 11/16/2016
 ms.author: elioda
 
 ---
-# Tutorial: How to upload files from devices to the cloud with IoT Hub
+# Upload files from devices to the cloud with IoT Hub
 ## Introduction
-
-Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and an application back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub. The [Process Device-to-Cloud messages] tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. Examples include large files that contain images, videos, vibration data sampled at high frequency, or that contain some form of preprocessed data. These files are typically batch processed in the cloud using tools such as [Azure Data Factory] or the [Hadoop] stack. When file uploads from a device are preferred to sending events, you can still use IoT Hub security and reliability functionality.
+Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Previous tutorials ([Get started with IoT Hub] and [Send Cloud-to-Device messages with IoT Hub]) illustrate the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub, and the [Process Device-to-Cloud messages] tutorial describes a way to reliably store device-to-cloud messages in Azure blob storage. However, in some scenarios you cannot easily map the data your devices send into the relatively small device-to-cloud messages that IoT Hub accepts. Examples include large files that contain images, videos, vibration data sampled at high frequency, or that contain some form of preprocessed data. These files are typically batch processed in the cloud using tools such as [Azure Data Factory] or the [Hadoop] stack. When file uploads from a device are preferred to sending events, you can still use IoT Hub security and reliability functionality.
 
 This tutorial builds on the code in the [Send Cloud-to-Device messages with IoT Hub] tutorial to show you how to use the file upload capabilities of IoT Hub. It shows you how to:
 
 - Securely provide a device with an Azure blob URI for uploading a file.
 - Use the IoT Hub file upload notifications to trigger processing the file in your app back end.
 
-At the end of this tutorial you run two Windows console applications:
+At the end of this tutorial you run two .NET console apps:
 
 * **SimulatedDevice**, a modified version of the app created in the [Send Cloud-to-Device messages with IoT Hub] tutorial. This app uploads a file to storage using a SAS URI provided by your IoT hub.
 * **ReadFileUploadNotification**, which receives file upload notifications from your IoT hub.
@@ -74,7 +73,7 @@ In this section, you modify the simulated device app you created in [Send Cloud-
             Console.WriteLine("Time to upload file: {0}ms\n", watch.ElapsedMilliseconds);
         }
    
-    The `UploadToBlobAsync` method takes in the file name and stream source of the file to be uploaded and handles the upload to storage. The console application displays the time it takes to upload the file.
+    The `UploadToBlobAsync` method takes in the file name and stream source of the file to be uploaded and handles the upload to storage. The console app displays the time it takes to upload the file.
 5. Add the following method in the **Main** method, right before the `Console.ReadLine()` line:
    
         SendToBlobAsync();
@@ -85,7 +84,7 @@ In this section, you modify the simulated device app you created in [Send Cloud-
 > 
 
 ## Receive a file upload notification
-In this section, you write a Windows console app that receives file upload notification messages from IoT Hub.
+In this section, you write a .NET console app that receives file upload notification messages from IoT Hub.
 
 1. In the current Visual Studio solution, create a Visual C# Windows project by using the **Console Application** project template. Name the project **ReadFileUploadNotification**.
    
@@ -95,7 +94,8 @@ In this section, you write a Windows console app that receives file upload notif
     This action displays the Manage NuGet Packages window.
 3. Search for `Microsoft.Azure.Devices`, click **Install**, and accept the terms of use. 
    
-    This action downloads, installs, and adds a reference to the [Azure IoT - Service SDK NuGet package] in the **ReadFileUploadNotification** project.
+    This action downloads, installs, and adds a reference to the [Azure IoT service SDK NuGet package] in the **ReadFileUploadNotification** project.
+
 4. In the **Program.cs** file, add the following statements at the top of the file:
    
         using Microsoft.Azure.Devices;
@@ -171,7 +171,7 @@ To further explore the capabilities of IoT Hub, see:
 [Transient Fault Handling]: https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx
 [Azure Storage]: ../storage/storage-create-storage-account.md#create-a-storage-account
 [lnk-configure-upload]: iot-hub-configure-file-upload.md
-[Azure IoT - Service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
+[Azure IoT service SDK NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.Devices/
 [lnk-free-trial]: http://azure.microsoft.com/pricing/free-trial/
 
 [lnk-create-hub]: iot-hub-rm-template-powershell.md

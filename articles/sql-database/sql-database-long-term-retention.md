@@ -1,4 +1,4 @@
-﻿---
+---
 title: Storing Azure SQL Database Backups for up to 10 years | Microsoft Docs
 description: Learn how Azure SQL Database supports storing backups for up to 10 years.
 keywords: ''
@@ -10,6 +10,7 @@ editor: ''
 
 ms.assetid: 66fdb8b8-5903-4d3a-802e-af08d204566e
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -30,7 +31,7 @@ The **Long-Term Backup Retention** feature enables you to store your Azure SQL D
 
 ## How does SQL Database Long-Term Retention work?
 
-Long-term retention of backups allows you to associate an Azure SQL Database server with a Azure Recovery Services vault. 
+Long-term retention of backups allows you to associate an Azure SQL Database server with an Azure Recovery Services vault. 
 
 * The vault must be created in the same Azure subscription that created the SQL server and in the same geographic region and resource group. 
 * You then configure a retention policy for any database. The policy causes the weekly full database backups be copied to the Recovery Services vault and retained for the specified retention period (up to 10 years). 
@@ -65,6 +66,14 @@ After the Azure SQL Database server is registered to the vault, you are charged 
 
 On the Azure SQL Database server blade, you can configure long-term retention and, if necessary, create an Azure Recovery Services vault.
 
+- To configure long-term retention of automated backups in an Azure Recovery Services vault, see [configure long-term backup retention](sql-database-configure-long-term-retention.md)
+- To recover a database from a backup in long-term retention, see [recover from a backup in long-term retention](sql-database-restore-from-long-term-retention.md)
+- To view backups in the Azure Recovery Services vault, see [view backups in long-term retention](sql-database-view-backups-in-vault.md)
+
+> [!TIP]
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
+>
+
 ## Configuring Long-Term Retention using PowerShell
 
 Use the following steps to configure long-term retention using PowerShell.
@@ -98,7 +107,7 @@ Use the following steps to configure long-term retention using PowerShell.
    #for your database you can select any policy created in the vault with which your server is registered
    Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName 'RG1' –ServerName 'Server1' -DatabaseName 'DB1' -State 'enabled' -ResourceId $policy.Id
    ```
-5. List the server associated with the vault. Each server is associated with a specific container in the vault. You can list the registered servers by running the following commands.
+5. List the server associated with the vault. Each server is associated with a specific container in the vault. You can list the registered servers by running the following commands:
    
    ```
    #each server has an associated container in the vault
@@ -189,14 +198,14 @@ To manually remove backups from the vault.
 ## Long-Term Retention FAQ:
 
 1. Q: Can I manually delete specific backups in the vault?
-   A: Not at this point in time, the vault will automatically clean up backups when the retention has expired.
+   A: Not at this point in time, the vault automatically cleans up backups when the retention period has expired.
 2. Q: Can I register my server to store Backups to more than one vault?
-   A: No, today you can only store backups to 1 vault at a time.
+   A: No, today you can only store backups to one vault at a time.
 3. Q: Can I have a vault and server in different subscriptions?
    A: No, currently the vault and server must be in both the same subscription and resource group.
 4. Q: Can I use a vault I created in a different region than my server’s region?
    A: No, the vault and server must be in the same region to minimize the copy time and avoid the traffic charges.
-5. Q: How many databases can I store in 1 vault?
+5. Q: How many databases can I store in one vault?
    A: Currently we only support up to 1000 databases per vault. 
 6. Q. How many vaults can I create per subscription?
    A. You can create up to 25 vaults per subscription.
@@ -205,14 +214,14 @@ To manually remove backups from the vault.
 8. Q: Does long-term retention work with Elastic Database Pools?
    A: Yes. Any database in the pool can be configured with the retention policy.
 9. Q: Can I choose the time at which the backup is created?
-   A: No, SQL Database controls the backups schedule in order to minimize the performance impact on your databases.
-10. Q: I have TDE enabled for my database. Will I be able to restore it from the vault? 
+   A: No, SQL Database controls the backups schedule to minimize the performance impact on your databases.
+10. Q: I have TDE enabled for my database. Can I use TDE with the vault? 
    A. Yes, TDE is supported. You can restore the database from the vault even if the original database no longer exists.
 11. Q. What happens with the backups in the vault if my subscription is suspended? 
-   A. If your subscription is suspended, we retain the existing databases and backups but the new backups will not be copied to the vault. After you re-active the subscription the service will resume copying backups to the vault. Your vault will become accessible to the restore operations using the backups that had been copied there before the subscription was suspended. 
-12. Q: Can I get access to the SQL Database backup files so I can download / restore to SQL Server ?
-   A: No, not at this time.
-13. Q: Is it possible to have multiple Schedules (Daily , Weekly, Monthly , Yearly) within a SQL Retention Policy.
+   A. If your subscription is suspended, we retain the existing databases and backups but the new backups are not be copied to the vault. After you reactivate the subscription, the service resumes copying backups to the vault. Your vault become accessibles to the restore operations using the backups that had been copied there before the subscription was suspended. 
+12. Q: Can I get access to the SQL Database backup files so I can download / restore to SQL Server?
+   A: No, not currently.
+13. Q: Is it possible to have multiple Schedules (Daily, Weekly, Monthly, Yearly) within a SQL Retention Policy.
    A: No, this is only available for Virtal Machine backups at this time.
 
 ## Next steps

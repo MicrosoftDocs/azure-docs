@@ -1,6 +1,6 @@
-﻿---
-title: Import export of IoT Hub device identities | Microsoft Docs
-description: Concepts and .NET code snippets for bulk management of IoT Hub device identities
+---
+title: Import export of Azure IoT Hub device identities | Microsoft Docs
+description: How to use the Azure IoT service SDK to perform bulk operations against the identity registry to import and export device identities. Import operations enable you to create, update, and delete device identities in bulk.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -17,7 +17,7 @@ ms.date: 10/05/2016
 ms.author: dobett
 
 ---
-# Bulk management of IoT Hub device identities
+# Manage your IoT Hub device identities in bulk
 Each IoT hub has an identity registry you can use to create per-device resources in the service, such as a queue that contains in-flight cloud-to-device messages. The identity registry also enables you to control access to the device-facing endpoints. This article describes how to import and export device identities in bulk to and from an identity registry.
 
 Import and export operations take place in the context of *Jobs* that enable you to execute bulk service operations against an IoT hub.
@@ -27,7 +27,7 @@ The **RegistryManager** class includes the **ExportDevicesAsync** and **ImportDe
 ## What are Jobs?
 Identity registry operations use the **Job** system when the operation:
 
-* Has a potentially long execution time compared to standard runtime operations, or
+* Has a potentially long execution time compared to standard run-time operations, or
 * Returns a large amount of data to the user.
 
 In these cases, instead of a single API call waiting or blocking on the result of the operation, the operation asynchronously creates a **Job** for that IoT hub. The operation then immediately returns a **JobProperties** object.
@@ -339,12 +339,12 @@ static string GetContainerSasUri(CloudBlobContainer container)
 ## Next steps
 In this article, you learned how to perform bulk operations against the identity registry in an IoT hub. Follow these links to learn more about managing Azure IoT Hub:
 
-* [Usage metrics][lnk-metrics]
+* [IoT Hub metrics][lnk-metrics]
 * [Operations monitoring][lnk-monitor]
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Developer guide][lnk-devguide]
+* [IoT Hub developer guide][lnk-devguide]
 * [Simulating a device with the IoT Gateway SDK][lnk-gateway]
 
 [lnk-metrics]: iot-hub-metrics.md

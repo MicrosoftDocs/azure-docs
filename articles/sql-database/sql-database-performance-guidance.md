@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure SQL Database and performance for single databases | Microsoft Docs
 description: This article can help you determine which service tier to choose for your application. It also recommends ways to tune your application to get the most from Azure SQL Database.
 services: sql-database
@@ -9,11 +9,12 @@ editor: ''
 
 ms.assetid: dd8d95fa-24b2-4233-b3f1-8e8952a7a22b
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 09/13/2016
+ms.date: 12/06/2016
 ms.author: carlrab
 
 ---

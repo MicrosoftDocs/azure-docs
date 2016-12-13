@@ -170,7 +170,7 @@ Azure Stream Analytics is a fully managed real-time event processing engine that
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Stream Analytics REST API Reference</p>
+                        <p>Stream Analytics REST API</p>
                     </div>
                 </div>
             </div>

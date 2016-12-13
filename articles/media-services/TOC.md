@@ -195,11 +195,13 @@
 ### [Retry logic](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Reference
-## [Release notes](media-services-release-notes.md)
-## [.NET](media-services-dotnet-how-to-use.md)
-## [REST](media-services-rest-how-to-use.md)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell (Service Management)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](/rest/api/media)
 
 # Resources
+## [Release notes](media-services-release-notes.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services Community](media-services-community.md)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=media-services)

@@ -3,12 +3,13 @@ title: 'Overview: management tools for SQL Database | Microsoft Docs'
 description: Compares tools and options for managing Azure SQL Database
 services: sql-database
 documentationcenter: ''
-author: carlrabeler
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
 ms.assetid: 37767380-975f-4dee-a28d-80bc2036dda3
 ms.service: sql-database
+ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na

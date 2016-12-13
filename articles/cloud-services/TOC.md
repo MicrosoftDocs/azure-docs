@@ -64,6 +64,13 @@
 #### [Classic portal](cloud-services-how-to-scale.md)
 ### [Use Python to manage Azure Resources](cloud-services-python-how-to-use-service-management.md)
 
+### [Guest OS patches](cloud-services-guestos-msrc-releases.md)
+### Guest OS retirement
+#### [Retirement policy](cloud-services-guestos-retirement-policy.md)
+#### [Family 1 retirement notice](cloud-services-guestos-family1-retirement.md)
+### [Guest OS release news](cloud-services-guestos-update-matrix.md)
+### [Cloud Services Role config XPath cheat sheet](cloud-services-role-config-xpath.md)
+
 ## Manage certificates
 ### [Cloud Services and management certificates](cloud-services-certs-create.md)
 ### Configure SSL 
@@ -101,12 +108,6 @@
 ## [.csdef XMLSchema](https://msdn.microsoft.com/library/azure/ee758711)
 ## [.cscfg XMLSchema](https://msdn.microsoft.com/library/azure/ee758710)
 ## [REST](https://msdn.microsoft.com/library/azure/ee460812)
-## [Guest OS patches](cloud-services-guestos-msrc-releases.md)
-## Guest OS retirement
-### [Retirement policy](cloud-services-guestos-retirement-policy.md)
-### [Family 1 retirement notice](cloud-services-guestos-family1-retirement.md)
-## [Guest OS release news](cloud-services-guestos-update-matrix.md)
-## [Cloud Services Role config XPath cheat sheet](cloud-services-role-config-xpath.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/cloud-services/)

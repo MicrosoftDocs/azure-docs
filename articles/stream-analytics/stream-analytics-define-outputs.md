@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Stream Analytics outputs: Options for storage, analysis | Microsoft Docs'
 description: Learn about targeting Stream Analytics data outputs options including Power BI for analysis results.
 keywords: data transformation, analysis results, data storage options
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/23/2016
+ms.date: 12/05/2016
 ms.author: jeffstok
 
 ---
@@ -208,6 +208,37 @@ For a walk-through of configuring a Power BI output and dashboard, please see th
 > Do not explicitly create the dataset and table in the Power BI dashboard. The dataset and table will be automatically populated when the job is started and the job starts pumping output into Power BI. Note that if the job query doesn’t generate any results, the dataset and table will not be created. Also be aware that if Power BI already had a dataset and table with the same name as the one provided in this Stream Analytics job, the existing data will be overwritten.
 > 
 > 
+
+### Schema Creation
+Azure Stream Analytics creates a Power BI dataset and table on behalf of the user if one does not already exist. In all other cases, the table is updated with new values.Currently, there is a the limitation that only one table can exist within a dataset.
+
+### Data type conversion from ASA to Power BI
+Azure Stream Analytics updates the data model dynamically at runtime if the output schema changes. Column name changes, column type changes, and the addition or removal of columns are all tracked.
+
+This table covers the data type conversions from [Stream Analytics data types](https://msdn.microsoft.com/library/azure/dn835065.aspx) to Power BIs [Entity Data Model (EDM) types](https://powerbi.microsoft.com/documentation/powerbi-developer-walkthrough-push-data/) if a POWER BI dataset and table do not exist.
+
+
+From Stream Analytics | To Power BI
+-----|-----|------------
+bigint | Int64
+nvarchar(max) | String
+datetime | Datetime
+float | Double
+Record array | String type, Constant value “IRecord” or “IArray”
+
+### Schema Update
+Stream Analytics infers the data model schema based on the first set of events in the output. Later, if necessary, the data model schema is updated to accommodate incoming events that may not fit into the original schema.
+
+The `SELECT *` query should be avoided to prevent dynamic schema update across rows. In addition to potential performance implications, it could also result in indeterminacy of the time taken for the results. The exact fields that need to be shown on Power BI dashboard should be selected. Additionally, the data values should be compliant with the chosen data type.
+
+
+Previous/Current | Int64 | String | Datetime | Double
+-----------------|-------|--------|----------|-------
+Int64 | Int64 | String | String | Double
+Double | Double | String | String | Double
+String | String | String | String |  | String | 
+Datetime | String | String |  Datetime | String
+
 
 ### Renew Power BI Authorization
 You will need to re-authenticate your Power BI account if its password has changed since your job was created or last authenticated. If Multi-Factor Authentication (MFA) is configured on your Azure Active Directory (AAD) tenant you will also need to renew Power BI authorization every 2 weeks. A symptom of this issue is no job output and an "Authenticate user error" in the Operation Logs:

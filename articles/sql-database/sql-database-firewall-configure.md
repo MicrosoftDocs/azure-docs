@@ -11,8 +11,9 @@ tags: ''
 
 ms.assetid: ac57f84c-35c3-4975-9903-241c8059011e
 ms.service: sql-database
+ms.custom: auth and access
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/23/2016

@@ -37,7 +37,7 @@ In this article, you will learn:
 * An active Azure subscription. If you don't have an account, you can create a [free trial account](http://azure.microsoft.com/pricing/free-trial/) in just a few minutes.
 
 ## Install the Azure CLI
-The Azure CLI provides a multiplatform command-line experience for Azure, enabling you to work directly from your command line to provision and manage resources.
+The Azure CLI provides a multiplatform command-line experience for Azure, enabling you to work directly from your command-line to provision and manage resources.
 
 To install the latest Azure CLI, follow these steps:
 

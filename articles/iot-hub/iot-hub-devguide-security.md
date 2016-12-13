@@ -1,6 +1,6 @@
-﻿---
-title: Developer guide - control access to IoT Hub | Microsoft Docs
-description: Azure IoT Hub developer guide - how to control access to IoT Hub and manage security
+---
+title: Understand Azure IoT Hub security | Microsoft Docs
+description: Developer guide - how to control access to IoT Hub for device apps and back-end apps. Includes information about security tokens and support for X.509 certificates.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -42,13 +42,13 @@ You can grant [permissions](#iot-hub-permissions) in the following ways:
   * **device**: Policy with DeviceConnect permission.
   * **registryRead**: Policy with RegistryRead permission.
   * **registryReadWrite**: Policy with RegistryRead and RegistryWrite permissions.
-* **Per-device security credentials**. Each IoT Hub contains an [identity registry][lnk-identity-registry]. For each device in this registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
+  * **Per-device security credentials**. Each IoT Hub contains an [identity registry][lnk-identity-registry]. For each device in this identity registry, you can configure security credentials that grant **DeviceConnect** permissions scoped to the corresponding device endpoints.
 
 For example, in a typical IoT solution:
 
 * The device management component uses the *registryReadWrite* policy.
 * The event processor component uses the *service* policy.
-* The runtime device business logic component uses the *service* policy.
+* The run-time device business logic component uses the *service* policy.
 * Individual devices connect using credentials stored in the IoT hub's identity registry.
 
 ## Authentication
@@ -85,7 +85,7 @@ HTTP implements authentication by including a valid token in the **Authorization
 Username (DeviceId is case-sensitive):
 `iothubname.azure-devices.net/DeviceId`
 
-Password (Generate SAS token with Device Explorer): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
+Password (Generate SAS token with the [device explorer][lnk-device-explorer] tool): `SharedAccessSignature sr=iothubname.azure-devices.net%2fdevices%2fDeviceId&sig=kPszxZZZZZZZZZZZZZZZZZAhLT%2bV7o%3d&se=1487709501`
 
 > [!NOTE]
 > The [Azure IoT SDKs][lnk-sdks] automatically generate tokens when connecting to the service. In some cases, the Azure IoT SDKs do not support all the protocols or all the authentication methods.
@@ -93,7 +93,7 @@ Password (Generate SAS token with Device Explorer): `SharedAccessSignature sr=io
 > 
 
 ### Special considerations for SASL PLAIN
-When using SASL PLAIN with AMQP, a client connecting to an IoT hub can use a single token for each TCP connection. When the token expires, the TCP connection disconnects from the service and triggers a reconnect. This behavior, while not problematic for an application back-end component, is very damaging for a device-side application for the following reasons:
+When using SASL PLAIN with AMQP, a client connecting to an IoT hub can use a single token for each TCP connection. When the token expires, the TCP connection disconnects from the service and triggers a reconnect. This behavior, while not problematic for an back-end app, is very damaging for a device app for the following reasons:
 
 * Gateways usually connect on behalf of many devices. When using SASL PLAIN, they have to create a distinct TCP connection for each device connecting to an IoT hub. This scenario considerably increases the consumption of power and networking resources, and increases the latency of each device connection.
 * Resource-constrained devices are adversely affected by the increased use of resources to reconnect after each token expiration.
@@ -122,7 +122,7 @@ These are the expected values:
 | Value | Description |
 | --- | --- |
 | {signature} |An HMAC-SHA256 signature string of the form: `{URL-encoded-resourceURI} + "\n" + expiry`. **Important**: The key is decoded from base64 and used as key to perform the HMAC-SHA256 computation. |
-| {resourceURI} |URI prefix (by segment) of the endpoints that can be accessed with this token, starting with hostname of the IoT hub (no protocol). For example, `myHub.azure-devices.net/devices/device1` |
+| {resourceURI} |URI prefix (by segment) of the endpoints that can be accessed with this token, starting with host name of the IoT hub (no protocol). For example, `myHub.azure-devices.net/devices/device1` |
 | {expiry} |UTF8 strings for number of seconds since the epoch 00:00:00 UTC on 1 January 1970. |
 | {URL-encoded-resourceURI} |Lower case URL-encoding of the lower case resource URI |
 | {policyName} |The name of the shared access policy to which this token refers. Absent in the case of tokens referring to device-registry credentials. |
@@ -181,7 +181,7 @@ As a comparison, the equivalent Python code to generate a security token is:
 > 
 > 
 
-### Use SAS tokens in a device client
+### Use SAS tokens in a device app
 There are two ways to obtain **DeviceConnect** permissions with IoT Hub with security tokens: use a [symmetric device key from the identity registry](#use-a-symmetric-key-in-the-identity-registry), or use a [shared access key](#use-a-shared-access-policy).
 
 Remember that all functionality accessible from devices is exposed by design on endpoints with prefix `/devices/{deviceId}`.
@@ -208,7 +208,7 @@ For example, a token created to access all device functionality should have the 
 * no policy name,
 * any expiration time.
 
-An example using the Node function above would be:
+An example using the Node.js function above would be:
 
     var endpoint ="myhub.azure-devices.net/devices/device1";
     var deviceKey ="...";
@@ -220,7 +220,7 @@ The result, which grants access to all functionality for device1, would be:
     SharedAccessSignature sr=myhub.azure-devices.net%2fdevices%2fdevice1&sig=13y8ejUk2z7PLmvtwR5RqlGBOVwiq7rQR3WZ5xZX3N4%3D&se=1456971697
 
 > [!NOTE]
-> It is possible to generate a SAS token using the .NET tool [Device Explorer][lnk-device-explorer].
+> It is possible to generate a SAS token using the .NET [device explorer][lnk-device-explorer] tool.
 > 
 > 
 
@@ -241,7 +241,7 @@ As an example, a token service using the pre-created shared access policy called
 * policy name: `device`,
 * any expiration time.
 
-An example using the Node function above would be:
+An example using the Node.js function above would be:
 
     var endpoint ="myhub.azure-devices.net/devices/device1";
     var policyName = 'device';
@@ -321,7 +321,7 @@ RegistryManager registryManager = RegistryManager.CreateFromConnectionString(dev
 await registryManager.AddDeviceAsync(device);
 ```
 
-### Use an X.509 certificate during runtime operations
+### Use an X.509 certificate during run-time operations
 The [Azure IoT device SDK for .NET][lnk-client-sdk] (version 1.0.11+) supports the use of X.509 certificates.
 
 ### C\# Support
@@ -373,19 +373,19 @@ The following table lists the permissions you can use to control access to your 
 | **RegistryRead** |Grants read access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. |
 | **RegistryReadWrite** |Grants read and write access to the identity registry. For more information, see [Identity registry][lnk-identity-registry]. |
 | **ServiceConnect** |Grants access to cloud service-facing communication and monitoring endpoints. For example, it grants permission to back-end cloud services to receive device-to-cloud messages, send cloud-to-device messages, and retrieve the corresponding delivery acknowledgments. |
-| **DeviceConnect** |Grants access to device-facing communication endpoints. For example, it grants permission to send device-to-cloud messages and receive cloud-to-device messages. This permission is used by devices. |
+| **DeviceConnect** |Grants access to device-facing endpoints. For example, it grants permission to send device-to-cloud messages and receive cloud-to-device messages. This permission is used by devices. |
 
 ## Additional reference material
-Other reference topics in the Developer Guide include:
+Other reference topics in the IoT Hub developer guide include:
 
-* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
+* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
+* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service apps that interact with IoT Hub.
 * [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
-Now you have learned how to control access IoT Hub, you may be interested in the following Developer Guide topics:
+Now you have learned how to control access IoT Hub, you may be interested in the following IoT Hub developer guide topics:
 
 * [Use device twins to synchronize state and configurations][lnk-devguide-device-twins]
 * [Invoke a direct method on a device][lnk-devguide-directmethods]

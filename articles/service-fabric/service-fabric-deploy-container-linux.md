@@ -26,7 +26,7 @@ ms.author: msfussell
 
 This article walks you through building containerized services in Docker containers on Linux.
 
-Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. These are called containerized services.
+Service Fabric has several container capabilities that help you with building applications that are composed of microservices that are containerized. These services are called containerized services.
 
 The capabilities include;
 
@@ -44,9 +44,9 @@ A Service Fabric application can contain one or more containers, each with a spe
 
 ## Create the application
 1. In a terminal, type **yo azuresfguest**.
-2. For the framework choose **Container** .
-3. Name your application e.g. SimpleContainerApp
-4. Provide the URL for the container image from a DockerHub repo. This takes the form [repo]/[image name]
+2. For the framework, choose **Container**.
+3. Name your application - for example, SimpleContainerApp
+4. Provide the URL for the container image from a DockerHub repo. The image parameter takes the form [repo]/[image name]
 
 ![Service Fabric Yeoman generator for containers][sf-yeoman]
 
@@ -70,6 +70,14 @@ Once the application is built, you can deploy it to the local cluster using the 
     ```bash
     ./uninstall.sh
     ```
+
+## Adding more services to an existing application
+
+To add another container service to an application already created using `yo`, perform the following steps: 
+1. Change directory to the root of the existing application.  For example, `cd ~/YeomanSamples/MyApplication`, if `MyApplication` is the application created by Yeoman.
+2. Run `yo azuresfguest:AddService`
+
+
 
 ## Next steps
 * [Overview of Service Fabric and containers](service-fabric-containers-overview.md)

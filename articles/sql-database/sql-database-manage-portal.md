@@ -3,12 +3,13 @@ title: Manage Azure SQL Database using the Azure Portal | Microsoft Docs
 description: Quick reference on how to use the Azure Portal to manage a relational database in the cloud using the Azure Portal.
 services: sql-database
 documentationcenter: ''
-author: carlrabeler
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
 ms.assetid: 3a56e9de-c21a-40ba-9a35-958172cb4e5b
 ms.service: sql-database
+ms.custom: how to
 ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
@@ -99,7 +100,7 @@ To create a BACPAC of a SQL database, click **Export** on the **SQL database** b
 ![SQL database export](./media/sql-database-manage-portal/sql-database-export.png)
 
 ## How do I restore a SQL database to a previous point in time?
-To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure portal](sql-database-point-in-time-restore-portal.md).
+To restore a SQL database, click **Restore** on the **SQL database** blade. For details, see [Restore an Azure SQL Database to a previous point in time with the Azure portal](sql-database-point-in-time-restore.md).
 
 ![SQL database settings](./media/sql-database-manage-portal/sql-database-restore.png)
 

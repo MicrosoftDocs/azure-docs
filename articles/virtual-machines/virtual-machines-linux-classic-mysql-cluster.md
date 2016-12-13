@@ -1,4 +1,4 @@
-﻿---
+---
 title: Clusterize MySQL with load-balanced sets | Microsoft Docs
 description: Setup a load-balanced, high availability Linux MySQL cluster created with the classic deployment model on Azure
 services: virtual-machines-linux
@@ -19,9 +19,8 @@ ms.author: jparrel
 
 ---
 # Using load-balanced sets to clusterize MySQL on Linux
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
-
-For a Resource Manager template to deploy a MySQL cluster, see [here](https://azure.microsoft.com/documentation/templates/mysql-replication/).
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For a Resource Manager template to deploy a MySQL cluster, see [here](https://azure.microsoft.com/documentation/templates/mysql-replication/).
 
 The purpose of this article is to explore and illustrate the different approaches available to deploy highly available Linux-based services on Microsoft Azure, exploring MySQL Server high availability as a primer. A video illustrating this approach is available on [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
@@ -138,7 +137,8 @@ If you don't plan to failover DRBD now, the first option is easier although argu
     INSERT INTO things VALUES (1, "Yet another entity");
     GRANT ALL ON things.\* TO root;
 
-**Warning**: this last statement effectively disables authentication for the root user in this table. This should be replaced by your production-grade GRANT statements and is included only for illustrative purposes.
+> [!WARNING]
+> This last statement effectively disables authentication for the root user in this table. This should be replaced by your production-grade GRANT statements and is included only for illustrative purposes.
 
 You also need to enable networking for MySQL if you want to make queries from outside the VMs, which is the purpose of this guide. On both VMs, open `/etc/mysql/my.cnf` and browse to `bind-address`, changing it from 127.0.0.1 to 0.0.0.0. After saving the file, issue a `sudo service mysql restart` on your current primary.
 
@@ -174,7 +174,8 @@ The main constraint for Corosync on Azure is that Corosync prefers multicast ove
 
 Fortunately, Corosync has a working unicast mode and the only real constraint is that, since all nodes are not communicating among themselves *automagically*, you need to define the nodes in your configuration files, including their IP addresses. We can use the Corosync example files for Unicast and just change bind address, node lists and logging directory (Ubuntu uses `/var/log/corosync` while the example files use `/var/log/cluster`) and enabling quorum tools.
 
-**Note the `transport: udpu` directive below and the manually defined IP addresses for the nodes**.
+> [!NOTE]
+> The `transport: udpu` directive below and the manually defined IP addresses for the nodes**.
 
 On `/etc/corosync/corosync.conf` for both nodes:
 
@@ -311,7 +312,8 @@ Sample code for the resource available on [GitHub](https://github.com/bureado/az
       property stonith-enabled=true \
       commit
 
-**Note:** the script doesn't perform up/down checks. The original SSH resource had 15 ping checks but recovery time for an Azure VM might be more variable.
+> [!NOTE]
+> The script doesn't perform up/down checks. The original SSH resource had 15 ping checks but recovery time for an Azure VM might be more variable.
 
 ## Limitations
 The following limitations apply:

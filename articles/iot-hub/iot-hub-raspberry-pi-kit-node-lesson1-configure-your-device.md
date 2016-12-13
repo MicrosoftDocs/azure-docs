@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure your device | Microsoft Docs
 description: Configure Raspberry Pi 3 for first-time use and install the Raspbian OS, a free operating system that is optimized for the Raspberry Pi hardware.
 services: iot-hub
@@ -47,7 +47,7 @@ To complete this operation, you need the following parts from your Raspberry Pi 
 You also need:
 
 * A wired or wireless connection for Pi to connect to.
-* A USB-SD adapter or miniSD card to burn the OS image onto the microSD card.
+* A USB-SD adapter or miniSD card to burn the operating system image onto the microSD card.
 * A computer running Windows, Mac, or Linux. The computer is used to install Raspbian on the microSD card.
 * An Internet connection to download the necessary tools and software.
 

@@ -17,7 +17,7 @@ ms.date: 09/14/2016
 ms.author: bradsev
 
 ---
-# Move Data to and from Azure Blob Storage using Python
+# Move data to and from Azure Blob Storage using Python
 This topic describes how to list, upload, and download blobs using the Python API. With the Python API provided in Azure SDK, you can:
 
 * Create a container

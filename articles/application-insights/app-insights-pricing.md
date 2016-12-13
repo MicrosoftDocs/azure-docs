@@ -104,6 +104,32 @@ To discover the actual sampling rate no matter where it has been applied, use an
 
 In each retained record, `itemCount` indicates the number of original records that it represents, equal to 1 + the number of  previous discarded records. 
 
+## Which pricing plan should I choose?
+
+Unless you need the advanced features offered by the Enterprise plan, the Basic plan is simpler and slightly more cost-effective. You get a free data allowance per app per month, and then a charge per additional GB of telemetry sent by your app. 
+
+## Nodes in the Enterprise plan
+
+If you choose the Enterprise price plan, part of your bill is calculated from the number of nodes that are sending data to Application Insights.
+
+A node is a server that hosts your application. It can be a virtual machine, or a Platform-as-a-Service instance, or a physical machine. 
+
+Developer workstations that run your application during debugging are not included in the node count. Client apps that run in browsers or mobile devices are not included.
+
+Nodes are counted in every hour. Although node prices are quoted per month, prices are actually charged per hour, so that you will be charged less for a node that sends telemetry for only some hours of the month.
+
+If your application scales with varying load to use more or less server instances, then the Application Insights Enterprise plan charges will scale up and down as well.
+
+Nodes may be shared between apps. For example, if you have three applications running on two VMs, and the Application Insights resources for these applications are in the same subscription and in the Enterprise plan, then the number of nodes found in this subscription is two.
+
+The data allowance of 200MB per node per day is pooled between nodes in the same subscription. If you have two nodes that host apps in the Enterprise plan, that send data for 16 hours and 20 hours in a day, then the data allowance for that day is ((16+20)/24)*200MB = 300MB. If, at the end of that day, your apps in the Enterprise plan have sent more than 300MB, then you will be charged at the per-GB rate for the excess.
+
+The Enterprise plan's allowance is not shared with applications for which you have chosen the Basic plan.
+
+## Transition from the old pricing tiers
+
+Existing applications can continue to use the old pricing tiers until February 2017. A that time, most applications will be automatically moved to the Basic plan. Those that are using continuous export or the connector for OMS Log Analytics will be moved to the Enterprise plan.
+
 
 ## Limits summary
 [!INCLUDE [application-insights-limits](../../includes/application-insights-limits.md)]

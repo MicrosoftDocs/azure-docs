@@ -1,4 +1,4 @@
-﻿---
+---
 title: Learn about the latest Azure Guest OS Releases | Microsoft Docs
 description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
 services: cloud-services
@@ -132,7 +132,7 @@ Supports .NET 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-3.44_201610-01 |Nov 16 2016 |Post 3.46 |TBD |
+| WA-GUEST-OS-3.44_201610-02 |Nov 16 2016 |Post 3.46 |TBD |
 | WA-GUEST-OS-3.43_201609-01 |Oct 13 2016 |Post 3.45 |TBD |
 | WA-GUEST-OS-3.42_201608-01 |Sept 13 2016 |Post 3.44 |TBD |
 | WA-GUEST-OS-3.41_201607-01 |Aug 8 2016 |Nov 13 2016 |TBD |
@@ -165,7 +165,7 @@ Supports .NET 3.5, 4.0, 4.5, 4.5.1, 4.5.2
 
 | Configuration String | Release date | Disable date | Expired date |
 | --- | --- | --- | --- |
-| WA-GUEST-OS-2.56_201610-01 |Nov 16 2016 |Post 2.58 |TBD |
+| WA-GUEST-OS-2.56_201610-02 |Nov 16 2016 |Post 2.58 |TBD |
 | WA-GUEST-OS-2.55_201609-01 |Oct 13 2016 |Post 2.57 |TBD |
 | WA-GUEST-OS-2.54_201608-01 |Sept 13 2016 |Post 2.56 |TBD |
 | WA-GUEST-OS-2.53_201607-01 |Aug 8 2016 |Nov 13 2016 |TBD |

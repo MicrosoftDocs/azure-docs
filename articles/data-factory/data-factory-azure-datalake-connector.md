@@ -1,4 +1,4 @@
-﻿---
+---
 title: Move data to/from Azure Data Lake Store | Microsoft Docs
 description: Learn how to move data to/from Azure Data Lake Store using Azure Data Factory
 services: data-factory
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/01/2016
 ms.author: jingwang
 
 ---
@@ -564,4 +564,7 @@ Properties available in the typeProperties section of the activity on the other 
 [!INCLUDE [data-factory-column-mapping](../../includes/data-factory-column-mapping.md)]
 
 ## Performance and Tuning
+
+Depending on whether initial data movement is planned with a big volume of historical data or incremental production data load, Azure Data Factory has options to improve the performance of those tasks. The concurrency parameter is a part of the **Copy Activity** and defines how many different activity windows will be processed in parallel. The **parallelCopies** parameter defines the parallelism for the single activity run. It is important to consider using these parameters when designing data movement pipelines with Azure Data Factory to achieve the best throughput.
+
 See [Copy Activity Performance & Tuning Guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) in Azure Data Factory and various ways to optimize it.

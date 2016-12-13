@@ -1,6 +1,6 @@
 ---
-title: Developer guide - identity registry | Microsoft Docs
-description: Azure IoT Hub developer guide - description of the identity registry and how to use it to manage your devices
+title: Understand the Azure IoT Hub identity registry | Microsoft Docs
+description: Developer guide - description of the IoT Hub identity registry and how to use it to manage your devices. Includes information about the import and export of device identities in bulk.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -17,11 +17,11 @@ ms.date: 09/30/2016
 ms.author: dobett
 
 ---
-# Manage device identities in IoT Hub
+# Identity registry
 ## Overview
 Every IoT hub has an identity registry that stores information about the devices that are permitted to connect to the IoT hub. Before a device can connect to an IoT hub, there must be an entry for that device in the IoT hub's identity registry. A device must also authenticate with the IoT hub based on credentials stored in the identity registry.
 
-At a high level, the identity registry is a REST-capable collection of device identity resources. When you add an entry to the registry, IoT Hub creates a set of per-device resources in the service such as the queue that contains in-flight cloud-to-device messages.
+At a high level, the identity registry is a REST-capable collection of device identity resources. When you add an entry to the identity registry, IoT Hub creates a set of per-device resources in the service such as the queue that contains in-flight cloud-to-device messages.
 
 ### When to use
 Use the identity registry when you need to provision devices that connect to you IoT hub and when you need to control per-device access to the device-facing endpoints in your hub.
@@ -63,7 +63,7 @@ An IoT solution typically has a separate solution-specific store that contains a
 > 
 
 ## Disable devices
-You can disable devices by updating the **status** property of an identity in the registry. Typically, you use this property in two scenarios:
+You can disable devices by updating the **status** property of an identity in the identity registry. Typically, you use this property in two scenarios:
 
 * During a provisioning orchestration process. For more information, see [Device Provisioning][lnk-guidance-provisioning].
 * If, for any reason, you consider a device is compromised or has become unauthorized.
@@ -121,16 +121,16 @@ Device identities are represented as JSON documents with the following propertie
 > 
 
 ## Additional reference material
-Other reference topics in the Developer Guide include:
+Other reference topics in the IoT Hub developer guide include:
 
-* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for runtime and management operations.
+* [IoT Hub endpoints][lnk-endpoints] describes the various endpoints that each IoT hub exposes for run-time and management operations.
 * [Throttling and quotas][lnk-quotas] describes the quotas that apply to the IoT Hub service and the throttling behavior to expect when you use the service.
-* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service applications that interact with IoT Hub.
+* [Azure IoT device and service SDKs][lnk-sdks] lists the various language SDKs you an use when you develop both device and service apps that interact with IoT Hub.
 * [IoT Hub query language for device twins and jobs][lnk-query] describes the IoT Hub query language you can use to retrieve information from IoT Hub about your device twins and jobs.
 * [IoT Hub MQTT support][lnk-devguide-mqtt] provides more information about IoT Hub support for the MQTT protocol.
 
 ## Next steps
-Now you have learned how to use the IoT Hub identity registry, you may be interested in the following Developer Guide topics:
+Now you have learned how to use the IoT Hub identity registry, you may be interested in the following IoT Hub developer guide topics:
 
 * [Control access to IoT Hub][lnk-devguide-security]
 * [Use device twins to synchronize state and configurations][lnk-devguide-device-twins]
