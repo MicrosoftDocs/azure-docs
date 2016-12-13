@@ -264,15 +264,15 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
 1.  In the NetBackup Administration Console, select **Media and Device Management** > **Devices** > **Disk Pools**. In the Disk Pool Configuration Wizard, select the storage server type **AdvancedDisk**, and then select **Next**.
 
-    ![NetBackup Administration Console: Disk Pool Configuration Wizard](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
+    ![NetBackup Administration Console, Disk Pool Configuration Wizard](./media/storsimple-configure-backup-target-using-netbackup/nbimage1.png)
 
 2.  Select your server, and then select **Next**.
 
-    ![NetBackup Administration Console: Select the server](./media/storsimple-configure-backup-target-using-netbackup/nbimage2.png)
+    ![NetBackup Administration Console, select the server](./media/storsimple-configure-backup-target-using-netbackup/nbimage2.png)
 
 3.  Select your StorSimple volume.
 
-    ![NetBackup Administration Console: Select the StorSimple volume disk](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
+    ![NetBackup Administration Console, select the StorSimple volume disk](./media/storsimple-configure-backup-target-using-netbackup/nbimage3.png)
 
 4.  Enter a name for the backup target, and then select **Next** > **Next** to finish the wizard.
 
@@ -282,7 +282,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
 7. Repeat steps 1-6 until you are finished assigning your StorSimple volumes.
 
-    ![NetBackup Administration Console: Disk configuration](./media/storsimple-configure-backup-target-using-netbackup/nbimage5.png)
+    ![NetBackup Administration Console, disk configuration](./media/storsimple-configure-backup-target-using-netbackup/nbimage5.png)
 
 ## StorSimple as a primary backup target
 
@@ -311,51 +311,51 @@ The following sequence assumes that NetBackup and the target host are configured
 
 1.  In the NetBackup Administration Console, select **NetBackup Management**, right-click **Policies**, and then select **New Policy**.
 
-    ![NetBackup Administration Console: Create a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
+    ![NetBackup Administration Console, create a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage6.png)
 
 2.  In the **Add a New Policy** dialog box, enter a name for the policy, and then select the **Use Policy Configuration Wizard** check box. Select **OK**.
 
-    ![NetBackup Administration Console: Add a New Policy dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
+    ![NetBackup Administration Console, Add a New Policy dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage7.png)
 
 3.  In the Backup Policy Configuration Wizard, elect the backup type you want, and then select **Next**.
 
-    ![NetBackup Administration Console: Select backup type](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
+    ![NetBackup Administration Console, select backup type](./media/storsimple-configure-backup-target-using-netbackup/nbimage8.png)
 
 4.  To set the policy type, select **Standard**, and then select **Next**.
 
-    ![NetBackup Administration Console: Select policy type](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
+    ![NetBackup Administration Console, select policy type](./media/storsimple-configure-backup-target-using-netbackup/nbimage9.png)
 
 5.  Select your host, select the **Detect client operating system** check box, and then select **Add**. Select **Next**.
 
-    ![NetBackup Administration Console: List clients in a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
+    ![NetBackup Administration Console, list clients in a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage10.png)
 
 6.  Select the drive(s) you want to back up.
 
-    ![NetBackup Administration Console: Backup selections for a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage11.png)
+    ![NetBackup Administration Console, backup selections for a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage11.png)
 
 7.  Select the frequency and retention values that meet your backup rotation requirements.
 
-    ![NetBackup Administration Console: Backup frequency and rotation for a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
+    ![NetBackup Administration Console, backup frequency and rotation for a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
 
 8.  Select **Next** > **Next** > **Finish**.  You can modify the schedule after the policy is created.
 
 9.  Select to expand the policy you just created, and then select **Schedules**.
 
-    ![NetBackup Administration Console: Schedules for a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
+    ![NetBackup Administration Console, schedules for a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage13.png)
 
 10.  Right-click **Differential-Inc**, select **Copy to new**, and then select **OK**.
 
-    ![NetBackup Administration Console: Copy schedule to a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage14.png)
+    ![NetBackup Administration Console, copy schedule to a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage14.png)
 
 11.  Right-click the newly created schedule, and then select **Change**.
 
 12.  On the **Attributes** tab, select the **Override policy storage selection** check box, and then select the volume where Monday incremental backups go.
 
-    ![NetBackup Administration Console: Change schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage15.png)
+    ![NetBackup Administration Console, change schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage15.png)
 
 13.  On the **Start Window** tab, select the time window for your backups.
 
-    ![NetBackup Administration Console: Change start window](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
+    ![NetBackup Administration Console, change start window](./media/storsimple-configure-backup-target-using-netbackup/nbimage16.png)
 
 14.  Select **OK**.
 
@@ -365,15 +365,15 @@ The following sequence assumes that NetBackup and the target host are configured
 
 17.  Modify your Full schedule to meet your backup needs.
 
-    ![NetBackup Administration Console: Change full schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage17.png)
+    ![NetBackup Administration Console, change full schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage17.png)
 
 18.  Change the start window.
 
-    ![NetBackup Administration Console: Change the start window](./media/storsimple-configure-backup-target-using-netbackup/nbimage18.png)
+    ![NetBackup Administration Console, change the start window](./media/storsimple-configure-backup-target-using-netbackup/nbimage18.png)
 
 19.  The final schedule looks like this:
 
-    ![NetBackup Administration Console: Final schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage19.png)
+    ![NetBackup Administration Console, final schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage19.png)
 
 ## StorSimple as a secondary backup target
 
@@ -428,41 +428,41 @@ After you've defined the initial disk pools, you need to define three additional
 
 1.  In the NetBackup Administration Console, select **Storage** > **Storage Lifecycle Policies** > **New Storage Lifecycle Policy**.
 
-    ![NetBackup Administration Console: New storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
+    ![NetBackup Administration Console, new storage lifecycle policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage20.png)
 
 2.  Enter a name for the snapshot, and then select **Add**.
 
 3.  In the **New Operation** dialog box, on the **Properties** tab, for **Operation**, select **Backup**. Select the values you want for **Destination storage**, and **Retention type**, and **Retention period**. Select **OK**.
 
-    ![NetBackup Administration Console: New Operation dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
+    ![NetBackup Administration Console, New Operation dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage22.png)
 
     This defines the first backup operation and repository.
 
 4.  Select to highlight the previous operation, and then select **Add**. In the **Change Storage Operation** dialog box, select the values you want for **Destination storage**, **Retention type**, and **Retention period**.
 
-    ![NetBackup Administration Console: Change Storage Operation dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
+    ![NetBackup Administration Console,Change Storage Operation dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage23.png)
 
 5.  Select to highlight the previous operation, and then select **Add**. In the **New Storage Lifecycle Policy** dialog box, add monthly backups for a year.
 
-    ![NetBackup Administration Console: New Storage Lifecycle Policy dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
+    ![NetBackup Administration Console, New Storage Lifecycle Policy dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage24.png)
 
 6.  Repeat steps 4-5 until you've created the comprehensive SLP retention policy that you need.
 
-    ![NetBackup Administration Console: Add policies in the New Storage Lifecycle Policy dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
+    ![NetBackup Administration Console, Add policies in the New Storage Lifecycle Policy dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage25.png)
 
 7.  When you are finished defining your SLP retention policy, under **Policy**, define a backup policy by following the steps detailed in [Assigning StorSimple volumes to a NetBackup backup job](#assigning-storsimple-volumes-to-a-netbackup-backup-job).
 
 8.  Under **Schedules**, in the **Change Schedule** dialog box, right-click **Full**, and then select **Change**.
 
-    ![NetBackup Administration Console: Change Schedule dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
+    ![NetBackup Administration Console, Change Schedule dialog box](./media/storsimple-configure-backup-target-using-netbackup/nbimage26.png)
 
 9.  Select the **Override policy storage selection** check box, and then select the SLP retention policy that you created in steps 1-6.
 
-    ![NetBackup Administration Console: Override policy storage selection](./media/storsimple-configure-backup-target-using-netbackup/nbimage27.png)
+    ![NetBackup Administration Console, override policy storage selection](./media/storsimple-configure-backup-target-using-netbackup/nbimage27.png)
 
 10.  Select **OK**, and then repeat for the incremental backup schedule.
 
-    ![NetBackup Administration Console: Change Schedule dialog box for incremental backups](./media/storsimple-configure-backup-target-using-netbackup/nbimage28.png)
+    ![NetBackup Administration Console, Change Schedule dialog box for incremental backups](./media/storsimple-configure-backup-target-using-netbackup/nbimage28.png)
 
 
 | Backup type retention | Size (TiB) | GFS multiplier\* | Total capacity (TiB)  |
@@ -502,12 +502,7 @@ The following section describes how to create a short script to start and delete
 
 ### To start or delete a cloud snapshot
 
-<<<<<<< HEAD
-1.  [Install Azure PowerShell](/articles/powershell-install-configure.md).
-=======
 1.  [Install Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/#install-and-configure).
-
->>>>>>> 0197e497be573245a49922c2459f9f0245a46191
 2.  [Download and import publish settings and subscription information](https://msdn.microsoft.com/library/dn385850.aspx).
 3.  In the Azure classic portal, get the resource name and [registration key for your StorSimple Manager service](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 4.  On the server that runs the script, run PowerShell as an administrator. Type this command:
