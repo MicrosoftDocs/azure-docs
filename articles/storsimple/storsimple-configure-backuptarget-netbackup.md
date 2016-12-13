@@ -21,7 +21,7 @@ ms.author: hkanna
 
 ## Overview
 
-Azure StorSimple is a hybrid cloud storage solution from Microsoft. StorSimple addresses the complexities of exponential data growth by using an Azure storage account as an extension of the on-premises solution, and automatically tiering data across on-premises storage and cloud storage.
+Azure StorSimple is a hybrid cloud storage solution from Microsoft. StorSimple addresses the complexities of exponential data growth by using an Azure Storage account as an extension of the on-premises solution, and automatically tiering data across on-premises storage and cloud storage.
 
 In this article, we discuss StorSimple integration with Veritas NetBackup, and best practices for integrating both solutions. We also make recommendations on how to set up Veritas NetBackup to best integrate with StorSimple. We defer to Veritas best practices, backup architects, and administrators for the best way to set up Veritas NetBackup to meet individual backup requirements and service-level agreements (SLAs).
 
@@ -42,7 +42,7 @@ The information in this article will be most helpful to backup administrators, s
 StorSimple is a good choice for a backup target because:
 
 -   it provides standard, local storage for backup applications to use as a fast backup destination, without any changes. You also can use StorSimple for a quick restore of recent backups.
--   its cloud tiering is seamlessly integrated with an Azure cloud storage account to use cost-effective Azure storage.
+-   its cloud tiering is seamlessly integrated with an Azure cloud storage account to use cost-effective Azure Storage.
 -   it automatically provides offsite storage for disaster recovery.
 
 ## Key concepts
@@ -53,7 +53,6 @@ StorSimple is designed to provide storage to applications that operate on a well
 
 **StorSimple tiering**
 ![StorSimple tiering diagram](./media/storsimple-configure-backup-target-using-netbackup/image1.jpg)
-
 
 With this architecture in mind, you will find that StorSimple is ideally suited to operate as a backup target. You can use StorSimple to:
 -   perform your most frequent restores from the local working set of data.
@@ -109,21 +108,15 @@ In this scenario, StorSimple volumes are presented to the backup application as 
 ### Primary target backup logical steps
 
 1.  The backup server contacts the target backup agent, and the backup agent transmits data to the backup server.
-
 2.  The backup server writes data to the StorSimple tiered volumes.
-
 3.  The backup server updates the catalog database, and then finishes the backup job.
-
 4.  A snapshot script triggers the StorSimple snapshot manager (start or delete).
-
 5.  The backup server deletes expired backups based on a retention policy.
 
 ### Primary target restore logical steps
 
 1.  The backup server starts restoring the appropriate data from the storage repository.
-
 2.  The backup agent receives the data from the backup server.
-
 3.  The backup server finishes the restore job.
 
 ## StorSimple as a secondary backup target
@@ -132,30 +125,23 @@ In this scenario, StorSimple volumes primarily are used for long-term retention 
 
 The following figure shows an architecture in which initial backups and restores target a high-performance volume. These backups are copied and archived to a StorSimple tiered volume on a set schedule.
 
-It is important to size your high-performance volume so that it can handle your retention policy capacity and performance requirements.
+It's important to size your high-performance volume so that it can handle your retention policy capacity and performance requirements.
 
 ![StorSimple as a secondary backup target logical diagram](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetlogicaldiagram.png)
 
 ### Secondary target backup logical steps
 
 1.  The backup server contacts the target backup agent, and the backup agent transmits data to the backup server.
-
 2.  The backup server writes data to high-performance storage.
-
 3.  The backup server updates the catalog database, and then finishes the backup job.
-
 4.  The backup server copies backups to StorSimple based on a retention policy.
-
 5.  A snapshot script triggers the StorSimple snapshot manager (start or delete).
-
 6.  The backup server deletes the expired backups based on a retention policy.
 
 ### Secondary target restore logical steps
 
 1.  The backup server starts restoring the appropriate data from the storage repository.
-
 2.  The backup agent receives the data from the backup server.
-
 3.  The backup server finishes the restore job.
 
 ## Deploy the solution
@@ -169,11 +155,11 @@ Each step is discussed in detail in the following sections.
 
 ### Set up the network
 
-As an integrated solution with the Azure cloud, StorSimple requires an active and working connection to the Azure cloud. This connection is used for operations like cloud snapshots, management, and metadata transfer, and to tier older, less accessed data to Azure cloud storage.
+Because StorSimple is a solution that's integrated with the Azure cloud, StorSimple requires an active and working connection to the Azure cloud. This connection is used for operations like cloud snapshots, data management, and metadata transfer, and to tier older, less accessed data to Azure cloud storage.
 
 For the solution to perform optimally, we recommend that you follow these networking best practices:
 
--   The link that connects the StorSimple tiering to Azure must meet your bandwidth requirements by applying the proper the Quality of Service (QoS) level to your infrastructure switches to match your recovery point objective (RPO) and recovery time objective (RTO) SLAs.
+-   The link that connects the StorSimple tiering to Azure must meet your bandwidth requirements. To achieve this, apply the proper Quality of Service (QoS) level to your infrastructure switches to match your recovery point objective (RPO) and recovery time objective (RTO) SLAs.
 
 -   Maximum Azure Blob storage access latencies should be around 80 ms.
 
@@ -234,7 +220,7 @@ Set up your solution according to the guidelines in the next few sections.
 ### StorSimple best practices
 
 -   Be sure that the StorSimple device is updated to [Update 3 or later](storsimple-install-update-3.md).
--   Isolate iSCSI and cloud traffic. Use dedicated iSCSI connections for traffic between StorSimple and backup server.
+-   Isolate iSCSI and cloud traffic. Use dedicated iSCSI connections for traffic between StorSimple and the backup server.
 -   Be sure that your StorSimple device is a dedicated backup target. Mixed workloads are not supported because they affect your RTO and RPO.
 
 ### NetBackup best practices
@@ -251,7 +237,7 @@ For the latest NetBackup settings and best practices for implementing these requ
 
 One of the most common backup retention policy types is a Grandfather, Father, and Son (GFS) policy. In a GFS policy, an incremental backup is performed daily and full backups are done weekly and monthly. This policy results in six StorSimple tiered volumes: one volume contains the weekly, monthly, and yearly full backups; the other five volumes store daily incremental backups.
 
-In the following example, we use a GFS rotation. The example assumes the following:
+In the next example, we use a GFS rotation. The example assumes the following:
 
 -   Non-deduped or compressed data is used.
 -   Full backups are 1 TiB each.
@@ -375,7 +361,7 @@ The following sequence assumes that NetBackup and the target host are configured
 
 15.  Repeat steps 10-14 for each incremental backup. Select the appropriate volume and schedule for each backup you create.
 
-16.  Right-click the **Differential-Inc** schedule, and delete it.
+16.  Right-click the **Differential-Inc** schedule, and then delete it.
 
 17.  Modify your Full schedule to meet your backup needs.
 
@@ -396,13 +382,13 @@ The following sequence assumes that NetBackup and the target host are configured
 
 In this model, you must have a storage media (other than StorSimple) to serve as a temporary cache. For example, you could use a redundant array of independent disks (RAID) volume to accommodate space, input/output (I/O), and bandwidth. We recommend using RAID 5, 50, and 10.
 
-The following figure shows typical short-term retention local (to the server) volumes and long-term retention archives volumes. In this scenario, all backups run on the local (to the server) RAID volume. These backups are periodically duplicated and archived to an archives volume. It is important to size your local (to the server) RAID volume so that it can handle your short-term retention capacity and performance requirements.
+The next figure shows typical short-term retention local (to the server) volumes and long-term retention archives volumes. In this scenario, all backups run on the local (to the server) RAID volume. These backups are periodically duplicated and archived to an archives volume. It is important to size your local (to the server) RAID volume so that it can handle your short-term retention capacity and performance requirements.
 
 ### StorSimple as a secondary backup target GFS example
 
 ![StorSimple as a secondary backup target logical diagram](./media/storsimple-configure-backup-target-using-netbackup/secondarybackuptargetdiagram.png)
 
-The following table shows how to set up backups to run on the local and StorSimple disks. It includes individual and total capacity requirements.
+The next table shows how to set up backups to run on the local and StorSimple disks. It includes individual and total capacity requirements.
 
 ### Backup configuration and capacity requirements
 
@@ -498,7 +484,7 @@ The following section describes how to create a short script to start and delete
 > [!NOTE]
 > Snapshots that are manually or programmatically created do not follow the StorSimple snapshot expiration policy. These snapshots must be manually or programmatically deleted.
 
-### Start or delete cloud snapshots by using a script
+### Start and delete cloud snapshots by using a script
 
 > [!NOTE]
 > Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information about how to run a post-backup script, see the [NetBackup documentation](http://www.veritas.com/docs/000094423).
@@ -517,17 +503,13 @@ The following section describes how to create a short script to start and delete
 ### To start or delete a cloud snapshot
 
 1.  [Install Azure PowerShell](/articles/powershell-install-configure.md).
-
 2.  [Download and import publish settings and subscription information](https://msdn.microsoft.com/library/dn385850.aspx).
-
 3.  In the Azure classic portal, get the resource name and [registration key for your StorSimple Manager service](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-
 4.  On the server that runs the script, run PowerShell as an administrator. Type this command:
 
     `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
 
     Note the backup policy ID.
-
 5.  In Notepad, create a new PowerShell script by using the following code.
 
     Copy and paste this code snippet:
@@ -562,11 +544,10 @@ The following section describes how to create a short script to start and delete
     }
     ```
       Save the PowerShell script to the same location where you saved your Azure publish settings. For example, save as C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1.
-
 6.  Add the script to your backup job in NetBackup. To do this, edit your NetBackup job options pre- and post-processing commands.
 
 > [!NOTE]
-> We recommend that you run your StorSimple cloud snapshot backup policy as a post-processing script at the end of your daily backup’s job. For more information about how to back up and restore your backup application environment to help you meet your RPO and RTO, please consult with your backup architect.
+> We recommend that you run your StorSimple cloud snapshot backup policy as a post-processing script at the end of your daily backup job. For more information about how to back up and restore your backup application environment to help you meet your RPO and RTO, please consult with your backup architect.
 
 ## StorSimple as a restore source
 
@@ -582,7 +563,7 @@ A disaster could be caused by a variety of factors. The following table lists co
 | Scenario | Impact | How to recover | Notes |
 |---|---|---|---|
 | StorSimple appliance failure | Backup and restore operations are interrupted. | Replace the failed appliance and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery.md). | If you need to perform a restore after appliance recovery, full data working sets are retrieved from the cloud to the new appliance. All operations are at cloud speeds. The indexing and cataloging rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local appliance tier, which might be a time-consuming process. |
-| NetBackup server failure | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore. | You must rebuild or restore the NetBackup server at the disaster recovery site. Restore the database to the most recent point. If the restored NetBackup database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local device tier. This makes it further time-sensitive. |
+| NetBackup server failure | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore. | You must rebuild or restore the NetBackup server at the disaster recovery site. Restore the database to the most recent point. If the restored NetBackup database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local device tier. This makes it further time-intensive. |
 | Site failure that results in the loss of both the backup server and StorSimple | Backup and restore operations are interrupted. | Restore StorSimple first, and then restore NetBackup. | Restore StorSimple first, and then restore NetBackup. If you need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. |
 
 ## References
