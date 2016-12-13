@@ -33,7 +33,7 @@ This article describes how to create an Azure ExpressRoute circuit by using Wind
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Before you begin
-* Obtain the latest version of the Azure PowerShell modules (at least version 1.0). For step-by-step guidance on how to configure your computer to use the PowerShell modules, follow the instructions in [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* Obtain the latest version of the Azure PowerShell modules (at least version 1.0). For step-by-step guidance on how to configure your computer to use the PowerShell modules, follow the instructions in [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Review the [prerequisites](expressroute-prerequisites.md) and [workflows](expressroute-workflows.md) before you begin configuration.
 
 ## Create and provision an ExpressRoute circuit

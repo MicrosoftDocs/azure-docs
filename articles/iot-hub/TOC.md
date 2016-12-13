@@ -102,9 +102,10 @@
 ### [Security architecture](iot-hub-security-architecture.md)
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
 ## Gateway SDK
-### [Simulate a device with the Gateway SDK tutorial (Linux)](iot-hub-linux-gateway-sdk-simulated-device.md)
-### [Simulate a device with the Gateway SDK tutorial (Windows)](iot-hub-windows-gateway-sdk-simulated-device.md)
-### [Send messages from a real device with the Gateway SDK tutorial](iot-hub-gateway-sdk-physical-device.md)
+### Simulate a device with the Gateway SDK
+#### [Linux](iot-hub-linux-gateway-sdk-simulated-device.md)
+#### [Windows](iot-hub-windows-gateway-sdk-simulated-device.md)
+### [Send messages from a real device with the Gateway SDK](iot-hub-gateway-sdk-physical-device.md)
 
 # Reference
 ## [Azure CLI](https://docs.microsoft.com/cli/azure)

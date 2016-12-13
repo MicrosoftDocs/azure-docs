@@ -1,4 +1,4 @@
-﻿---
+---
 title: API versions of Azure Search | Microsoft Docs
 description: Version policy for Azure Search REST APIs and the client library in the .NET SDK.
 services: search
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 11/28/2016
 ms.author: brjohnst
 ---
 
@@ -25,15 +25,16 @@ As a rule, we try to publish new versions only when necessary, since it can invo
 We follow the same rule for SDK updates. The Azure Search SDK follows the [semantic versioning](http://semver.org/) rules, which means that its version has three parts: major, minor, and build number (for example, 1.1.0). We will release a new major version of the SDK only in case of changes that break backward compatibility. For non-breaking feature updates, we will increment the minor version, and for bug fixes we will only increase the build version.
 
 ## Snapshot of current versions
-Below is a snapshot of the current versions of all programming interfaces to Azure Search. Roadmaps and other details can be found in subsequent sections of this document.
+Below is a snapshot of the current versions of all programming interfaces to Azure Search.
 
 | Interfaces | Most recent major version | Status |
 | --- | --- | --- |
-| [.NET SDK](https://msdn.microsoft.com/library/azure/dn951165.aspx) |1.1 |Generally Available, released February 2016 |
-| [.NET SDK Preview](https://msdn.microsoft.com/library/mt761536%28v=azure.103%29.aspx) |2.0-preview |Preview, released August 2016 |
-| [Service REST API](https://msdn.microsoft.com/library/azure/dn798935.aspx) |2016-09-01 |Generally Available |
+| [.NET SDK](https://aka.ms/search-sdk) |3.0 |Generally Available, released November 2016 |
+| [.NET SDK Preview](https://aka.ms/search-sdk-preview) |2.0-preview |Preview, released August 2016 |
+| [Service REST API](https://docs.microsoft.com/rest/api/searchservice/) |2016-09-01 |Generally Available |
 | [Service REST API Preview](search-api-2015-02-28-preview.md) |2015-02-28-Preview |Preview |
-| [Management REST API](https://msdn.microsoft.com/library/azure/dn832684.aspx) |2015-08-19 |Generally Available |
+| [.NET Management SDK](https://aka.ms/search-mgmt-sdk) |2015-08-19 |Generally Available |
+| [Management REST API](https://docs.microsoft.com/rest/api/searchmanagement/) |2015-08-19 |Generally Available |
 
 For the REST APIs, including the `api-version` on each call is required. This makes it easy to target a specific version, such as a preview API. The following example illustrates how the `api-version` parameter is specified:
 
@@ -42,22 +43,9 @@ For the REST APIs, including the `api-version` on each call is required. This ma
 > [!NOTE]
 > Although each request has an `api-version`, we recommend that you use the same version for all API requests. This is especially true when new API versions introduce attributes or operations that are not recognized by previous versions. Mixing API versions can have unintended consequences and should be avoided.
 >
-> The Service REST API and Management REST API are versioned independently of each other. Any similarity in version numbers is co-incidental.
->
->
+> The Service REST API and Management REST API are versioned independently of each other. Any similarity in version numbers is coincidental.
 
 Generally available (or GA) APIs can be used in production and are subject to Azure service level agreements. Preview versions have experimental features that are not always migrated to a GA version. **We strongly advise against using preview APIs in production applications.**
-
-## SDK version roadmap
-Each version of the .NET SDK targets a particular version of the Service REST API. Features are rolled out in the REST API first, and then implemented in the SDK.
-
-The .NET SDK is now generally available and work is already underway on the next version. The following table looks ahead to future versions of the SDK so that you have an idea of what’s coming up next.
-
-| .NET SDK version | REST API version | Features | ETA |
-| --- | --- | --- | --- |
-| 1.1 |2015-02-28 |Lucene query syntax |February 2016 |
-| 2.0-preview |2015-02-28-Preview |Custom analyzers, Azure Blob and Table indexers, Field mappings, ETags |August 2016 |
-| 3.x |2016-09-01 |Same as 2.0-preview, minus Blob Indexer support for CSV and JSON files |November 2016 |
 
 ## About Preview and Generally Available versions
 Azure Search always pre-releases experimental features through the REST API first, then through prerelease versions of the .NET SDK.

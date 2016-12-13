@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create, configure, and deploy a PHP web app to Azure
 description: A tutorial that shows how to make a PHP (Laravel) web app run in Azure App Service. Learn how to configure Azure App Service to meet the requirements of the PHP framework you choose.
 services: app-service\web
@@ -46,8 +46,8 @@ You can apply what you learn here to other PHP web apps that you deploy to Azure
 * Install [Azure CLI](../xplat-cli-install.md)
 * Install [Git](http://www.git-scm.com/downloads)
 * Get a Microsoft Azure account. If you don't have an account, you can 
-  [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
-  [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+  [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or 
+  [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
 > See a web app in action. [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) immediately and create a short-lived starter app—no credit 

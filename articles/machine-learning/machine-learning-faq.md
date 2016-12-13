@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Machine Learning FAQ | Microsoft Docs
 description: 'Azure Machine Learning introduction: FAQ covering billing, capabilities, and limitations of a cloud service for streamlined predictive modeling.'
 keywords: machine learning introduction,predictive modeling,what is machine learning
@@ -330,7 +330,7 @@ For additional billing and pricing information, see [Machine Learning Pricing](h
 
  Azure Machine Learning has a free subscription option (see [Machine Learning Pricing](https://azure.microsoft.com/pricing/details/machine-learning/) for details), and Machine Learning Studio has an 8-hour quick evaluation trial available (log in to [Machine Learning Studio](https://studio.azureml.net/?selectAccess=true&o=2) for this trial).
 
- In addition, when you sign up for an Azure free trial, you can try any Azure services for a month. To learn more about the Azure free trial, visit [Azure Free Trial FAQ](/pricing/free-trial-faq/).
+ In addition, when you sign up for an Azure free trial, you can try any Azure services for a month. To learn more about the Azure free trial, visit [Azure Free Trial FAQ](https://azure.microsoft.com/pricing/free-trial-faq/).
 
 **What is a transaction?**
 

@@ -1,4 +1,3 @@
-﻿
 ---
 title: How to use Azure RemoteApp with Office 365 user accounts | Microsoft Docs
 description: Learn how to use Azure RemoteApp with my Office 365 user accounts
@@ -13,8 +12,8 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # How to use Azure RemoteApp with Office 365 user accounts

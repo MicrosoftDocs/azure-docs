@@ -1,9 +1,9 @@
-﻿---
+---
 title: How to choose machine learning algorithms | Microsoft Docs
 description: How to choose Azure Machine Learning algorithms for supervised and unsupervised learning in clustering, classification, or regression experiments.
 services: machine-learning
 documentationcenter: ''
-author: brohrer
+author: garyericson
 manager: jhubbard
 editor: cgronlun
 tags: ''
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 08/09/2016
-ms.author: brohrer;garye
+ms.author: garye
 
 ---
 # How to choose algorithms for Microsoft Azure Machine Learning

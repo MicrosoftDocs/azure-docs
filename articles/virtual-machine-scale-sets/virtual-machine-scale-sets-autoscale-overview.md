@@ -1,4 +1,4 @@
-﻿---
+---
 title: Automatic scaling and virtual machine scale sets | Microsoft Docs
 description: Learn about using diagnostics and autoscale resources to automatically scale virtual machines in a scale set.
 services: virtual-machine-scale-sets

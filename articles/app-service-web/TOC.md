@@ -247,9 +247,9 @@
 ### [Troubleshoot web app performance issues](app-service-web-troubleshoot-performance-degradation.md)
 
 # Reference
-## [Azure CLI](/cli/azure/)
-## [Java](/java/api/)
+## [Azure CLI 2.0 preview](/cli/azure/appservice)
 ## [.NET](/dotnet/api)
+## [Java](/java/api/)
 ## [REST](/rest/api/appservice)
 
 # Related

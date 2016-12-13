@@ -1,4 +1,4 @@
-﻿---
+---
 title: Migrate your existing Azure SQL Data Warehouse to premium storage | Microsoft Docs
 description: Instructions for migrating an existing SQL Data Warehouse to premium storage
 services: sql-data-warehouse
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 11/27/2016
+ms.date: 11/29/2016
 ms.author: rortloff;barbkess
 
 ---
@@ -28,10 +28,10 @@ If you created a DW before the dates below, you are currently using Standard Sto
 | **Region** | **DW Created Before This Date** |
 |:--- |:--- |
 | Australia East |Premium Storage Not Yet Available |
-| China East |November 10, 2016 |
-| China North |November 10, 2016 |
-| Germany Central |November 18, 2016 |
-| Germany Northeast |November 18, 2016 |
+| China East |November 1, 2016 |
+| China North |November 1, 2016 |
+| Germany Central |November 1, 2016 |
+| Germany Northeast |November 1, 2016 |
 | India West |Premium Storage Not Yet Available |
 | Japan West |Premium Storage Not Yet Available |
 | North Central US |November 10, 2016 |
