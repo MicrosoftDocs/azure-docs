@@ -4,7 +4,7 @@ description: Join the Azure DocumentDB community to build relationships, showcas
 services: documentdb
 documentationcenter: ''
 author: aliuy
-manager: johnmac
+manager: jhubbard
 editor: mimig
 
 ms.assetid: cfdf15da-3ddc-43a1-af64-789eea5f6ddd
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 11/30/2016
+ms.date: 12/13/2016
 ms.author: andrl
 
 ---
