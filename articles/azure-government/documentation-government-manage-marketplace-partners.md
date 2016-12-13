@@ -59,7 +59,7 @@ RPs in Azure & API version
   | Microsoft.OSTCExtensions/LinuxDiagnostic | 2.0.9005; 2.1.9005; 2.2.9005; 2.3.9011 |
   | Microsoft.Powershell/DSC | 2.19.0.0 |
 
-  Note: If you put locations in for a list of allowed values, you will need to periodically update it as new regions are added.  
+  [!NOTE] If you put locations in for a list of allowed values, you will need to periodically update it as new regions are added.  
 
 
 ## Publishing
