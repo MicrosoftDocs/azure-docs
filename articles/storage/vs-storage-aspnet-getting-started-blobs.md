@@ -284,33 +284,38 @@ and adds the name (or URI in the case of a **CloudBlobDirectory**) to a list tha
 
 ## Download blobs
 
-The following steps illustrate how to programmatically download a blob and either persist it to local storage or read the contents into a string. In an ASP.NET MVC app, the code would go in a controller.
+The following steps illustrate how to download a blob and either persist it to local storage or read the contents into a string. The sample code references the *test-blob-container* created in the section, [Create a blob container](#create-a-blob-container).
 
-1. Add the following *using* directives: 
-   
-        using Microsoft.Azure;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Auth;
-        using Microsoft.WindowsAzure.Storage.Blob;
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+
+
+
+
+
+
+
+
+
+ 
+
+1. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
    
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
    
-3. Get a **CloudBlobClient** object represents a blob service client.
+1. Get a **CloudBlobClient** object represents a blob service client.
    
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-4. Get a **CloudBlobContainer** object that represents a reference to the desired blob container name. (Change *<blob-container-name>* to the name of the blob container from which you are downloading the blob.)
+1. Get a **CloudBlobContainer** object that represents a reference to the desired blob container name. (Change *<blob-container-name>* to the name of the blob container from which you are downloading the blob.)
    
         CloudBlobContainer container = blobClient.GetContainerReference(<blob-container-name>);
 
-5. Get a blob reference object by calling **CloudBlobContainer.GetBlockBlobReference** or **CloudBlobContainer.GetPageBlobReference** method. (Change *<blob-name>* to the name of the blob you are downloading.)
+1. Get a blob reference object by calling **CloudBlobContainer.GetBlockBlobReference** or **CloudBlobContainer.GetPageBlobReference** method. (Change *<blob-name>* to the name of the blob you are downloading.)
 
 	    CloudBlockBlob blob = container.GetBlockBlobReference(<blob-name>);
 
-6. To download a blob, use the **CloudBlockBlob.DownloadToStream** or **CloudPageBlob.DownloadToStream** method, depending on the blob type. The following code snippet uses the **CloudBlockBlob.DownloadToStream** method to transfer a blob's contents to a stream object that is then persisted to a local file. (Change *<local-file-name>* to the fully qualified file name representing where you want the blob downloaded.) 
+1. To download a blob, use the **CloudBlockBlob.DownloadToStream** or **CloudPageBlob.DownloadToStream** method, depending on the blob type. The following code snippet uses the **CloudBlockBlob.DownloadToStream** method to transfer a blob's contents to a stream object that is then persisted to a local file. (Change *<local-file-name>* to the fully qualified file name representing where you want the blob downloaded.) 
 
 	    using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
 	    {
@@ -325,6 +330,8 @@ The following steps illustrate how to programmatically download a blob and eithe
 	        blob.DownloadToStream(memoryStream);
 	        contents = System.Text.Encoding.UTF8.GetString(memoryStream.ToArray());
 	    }
+
+
 
 ## Delete blobs
 
