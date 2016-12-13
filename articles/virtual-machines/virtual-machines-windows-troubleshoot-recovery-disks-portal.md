@@ -19,7 +19,7 @@ ms.author: iainfou
 ---
 
 # Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using the Azure portal
-If your Windows virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid application update that prevents that VM from being able to boot successfully. This article details how to use the Azure portal to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
+If your Windows virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid application update that prevents the VM from being able to boot successfully. This article details how to use the Azure portal to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
 
 ## Recovery process overview
 The troubleshooting process is as follows:
@@ -38,7 +38,7 @@ Select your VM in the portal and then scroll down to the **Support + Troubleshoo
 
 ![Viewing VM boot diagnostics console logs](./media/virtual-machines-windows-troubleshoot-recovery-disks/screenshot-error.png)
 
-You can also click **Screenshot** across the top of the boot to download a capture of the VM screenshot.
+You can also click **Screenshot** to download a capture of the VM screenshot.
 
 
 ## View existing virtual hard disk details
@@ -123,7 +123,7 @@ Once your errors are resolved, detach the existing virtual hard disk from your t
 
     ![Set the data disk as offline in Server Manager](./media/virtual-machines-windows-troubleshoot-recovery-disks/server-manager-set-disk-offline.png)
 
-3. Now detach the virtual hard disk from the VM. Select your VM in the portal and click **Disks**. Select your existing virtual hard disk and then click **Detach**:
+3. Now detach the virtual hard disk from the VM. Select your VM in the Azure portal and click **Disks**. Select your existing virtual hard disk and then click **Detach**:
 
     ![Detach existing virtual hard disk](./media/virtual-machines-windows-troubleshoot-recovery-disks/detach-disk.png)
 
