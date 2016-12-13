@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
-ms.date: 11/17/2016
+ms.date: 12/12/2016
 ms.author: iainfou
 
 ---
 
 # Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using the Azure portal
-If your Windows virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid entry in `/etc/fstab` that prevents the VM from being able to boot successfully. This article details how to use the Azure portal to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
+If your Windows virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid application update that prevents that VM from being able to boot successfully. This article details how to use the Azure portal to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
 
 ## Recovery process overview
 The troubleshooting process is as follows:
@@ -32,13 +32,13 @@ The troubleshooting process is as follows:
 
 
 ## Determine boot issues
-Examine the boot diagnostics and VM screenshot to determine why your VM is not able to boot correctly. A common example would be an invalid entry in `/etc/fstab`, or an underlying virtual hard disk being deleted or moved.
+Examine the boot diagnostics and VM screenshot to determine why your VM is not able to boot correctly. A common example would be an invalid application update, or an underlying virtual hard disk being deleted or moved.
 
-Select your VM in the portal and then scroll down to the **Support + Troubleshooting** section. Click **Boot diagnostics** to view the console messages streamed from your VM. Review the console logs to see if you can determine why the VM is encountering an issue. The following example shows a VM stuck in maintenance mode that requires manual interaction:
+Select your VM in the portal and then scroll down to the **Support + Troubleshooting** section. Click **Boot diagnostics** to view the screenshot to see if you can determine why the VM is encountering an issue. The following example shows a VM waiting on stopping servies:
 
-![Viewing VM boot diagnostics console logs](./media/virtual-machines-windows-troubleshoot-recovery-disks/boot-diagnostics-error.png)
+![Viewing VM boot diagnostics console logs](./media/virtual-machines-windows-troubleshoot-recovery-disks/screenshot-error.png)
 
-You can also click **Screenshot** across the top of the boot diagnostics log to download a capture of the VM screenshot.
+You can also click **Screenshot** across the top of the boot to download a capture of the VM screenshot.
 
 
 ## View existing virtual hard disk details
@@ -95,58 +95,35 @@ For the next few steps, you use another VM for troubleshooting purposes. You att
 
 ## Mount the attached data disk
 
-1. SSH to your troubleshooting VM using the appropriate credentials. If this disk is the first data disk attached to your troubleshooting VM, it is likely connected to `/dev/sdc`. Use `dmseg` to list attached disks:
+1. Open a Remote Dekstop connection to your VM. Select your VM in the portal and click **Connect**. Download and open the RDP connection file. Enter your credentials to log in to your VM as follows:
 
-    ```bash
-    dmesg | grep SCSI
-    ```
-    The output is similar to the following example:
+    ![Log in to your VM using Remote Desktop](./media/virtual-machines-windows-troubleshoot-recovery-disks/open-remote-desktop.png)
 
-    ```bash
-    [    0.294784] SCSI subsystem initialized
-    [    0.573458] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 252)
-    [    7.110271] sd 2:0:0:0: [sda] Attached SCSI disk
-    [    8.079653] sd 3:0:1:0: [sdb] Attached SCSI disk
-    [ 1828.162306] sd 5:0:0:0: [sdc] Attached SCSI disk
-    ```
+2. Open **Server Manager**, then select **File and Storage Services**. 
 
-    In the preceding example, the OS disk is at `/dev/sda` and the temporary disk provided for each VM is at `/dev/sdb`. If you had multiple data disks, they should be at `/dev/sdd`, `/dev/sde`, and so on.
+    ![Select File and Storage Services within Server Manager](./media/virtual-machines-windows-troubleshoot-recovery-disks/server-manager-select-storage.png)
 
-2. Create a directory to mount your existing virtual hard disk. The following example creates a directory named `troubleshootingdisk`:
+3. The data disk is automatically detected and attached. To see a list of the connected disks, select **Disks**. You can select your data disk to view volume information, including the drive letter. The following example shows the data disk attached and using **F:**:
 
-    ```bash
-    sudo mkdir /mnt/troubleshootingdisk
-    ```
-
-3. If you have multiple partitions on your existing virtual hard disk, mount the required partition. The following example mounts the first primary partition at `/dev/sdc1`:
-
-    ```bash
-    sudo mount /dev/sdc1 /mnt/troubleshootingdisk
-    ```
-
-    > [!NOTE]
-    > Best practice is to mount data disks on VMs in Azure using the universally unique identifier (UUID) of the virtual hard disk. For this short troubleshooting scenario, mounting the virtual hard disk using the UUID is not necessary. However, under normal use, editing `/etc/fstab` to mount virtual hard disks using device name rather than UUID may cause the VM to fail to boot.
+    ![Disk attached and volume information in Server Manager](./media/virtual-machines-windows-troubleshoot-recovery-disks/server-manager-disk-attached.png)
 
 
 ## Fix issues on original virtual hard disk
 With the existing virtual hard disk mounted, you can now perform any maintenance and troubleshooting steps as needed. Once you have addressed the issues, continue with the following steps.
 
+
 ## Unmount and detach original virtual hard disk
 Once your errors are resolved, detach the existing virtual hard disk from your troubleshooting VM. You cannot use your virtual hard disk with any other VM until the lease attaching the virtual hard disk to the troubleshooting VM is released.
 
-1. From the SSH session to your troubleshooting VM, unmount the existing virtual hard disk. Change out of the parent directory for your mount point first:
+1. From the RDP session to your VM, open **Server Manager**, then select **File and Storage Services**:
 
-    ```bash
-    cd /
-    ```
+    ![Select File and Storage Services in Server Manager](./media/virtual-machines-windows-troubleshoot-recovery-disks/server-manager-select-storage.png)
 
-    Now unmount the existing virtual hard disk. The following example unmounts the device at `/dev/sdc1`:
+2. Select **Disks** and then select your data disk. Right-click on your data disk and select **Take Offline**:
 
-    ```bash
-    sudo umount /dev/sdc1
-    ```
+    ![Set the data disk as offline in Server Manager](./media/virtual-machines-windows-troubleshoot-recovery-disks/server-manager-set-disk-offline.png)
 
-2. Now detach the virtual hard disk from the VM. Select your VM in the portal and click **Disks**. Select your existing virtual hard disk and then click **Detach**:
+3. Now detach the virtual hard disk from the VM. Select your VM in the portal and click **Disks**. Select your existing virtual hard disk and then click **Detach**:
 
     ![Detach existing virtual hard disk](./media/virtual-machines-windows-troubleshoot-recovery-disks/detach-disk.png)
 
@@ -168,6 +145,6 @@ When you create your VM from the existing virtual hard disk, boot diagnostics ma
 ![Update boot diagnostics settings](./media/virtual-machines-windows-troubleshoot-recovery-disks/reenable-boot-diagnostics.png)
 
 ## Next steps
-If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](virtual-machines-windows-troubleshoot-rdp-connection?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](virtual-machines-windows-troubleshoot-app-connection?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+If you are having issues connecting to your VM, see [Troubleshoot RDP connections to an Azure VM](virtual-machines-windows-troubleshoot-rdp-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). For issues with accessing applications running on your VM, see [Troubleshoot application connectivity issues on a Windows VM](virtual-machines-windows-troubleshoot-app-connection.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
-For more information about using Resource Manager, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information about using Resource Manager, see [Azure Resource Manager overview](../azure-resource-manager/resource-group-overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
