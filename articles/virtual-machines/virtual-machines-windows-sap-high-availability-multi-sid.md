@@ -454,7 +454,7 @@ You have already configured a WSFC that is used for one SAP ASCS/SCS instance, a
 
 ![High-availability SAP ASCS/SCS instance][sap-ha-guide-figure-6001]
 
-## Target Architecture
+## Target architecture
 
 Our goal is that you can install multiple SAP ABAP ASCS or SAP Java SCS clustered instances in the same WSFC cluster, as illustrated in the following diagram:
 
@@ -626,20 +626,20 @@ The preceding process is described in detail in the main [guide for high-availab
 
 ### Deploy VMs for SAP application servers and DBMS cluster
 
-To finalize infrastructure preparation for the second SAP system, you must do the following:
+To finalize infrastructure preparation for the second SAP system, do the following:
 
-* Deploy dedicated VMs for SAP application servers and put them in own dedicated availability group
-* Deploy dedicated VMs for DBMS cluster and put them in own dedicated availability group
+* Deploy dedicated VMs for SAP application servers and put them in their own dedicated availability group.
+* Deploy dedicated VMs for the DBMS cluster and put them in their own dedicated availability group.
 
 
 ## Install the second SAP SID2 NetWeaver system
 
-The complete process of installing a second SAP **SID2** system is described in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9].
+The complete process of installing a second SAP SID2 system is described in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9].
 
 The high-level procedure is as follows:
 
 1. [Install the SAP first cluster node][sap-ha-guide-9.1.2].  
- Install SAP with a high-availability ASCS/SCS instance on the **EXISTING WSFC cluster node 1**.
+ Install SAP with a high-availability ASCS/SCS instance on the existing WSFC cluster node 1.
 
 2. [Modify the SAP profile of the ASCS/SCS instance][sap-ha-guide-9.1.3].
 
