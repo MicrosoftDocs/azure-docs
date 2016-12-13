@@ -502,7 +502,12 @@ The following section describes how to create a short script to start and delete
 
 ### To start or delete a cloud snapshot
 
+<<<<<<< HEAD
 1.  [Install Azure PowerShell](/articles/powershell-install-configure.md).
+=======
+1.  [Install Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/#install-and-configure).
+
+>>>>>>> 0197e497be573245a49922c2459f9f0245a46191
 2.  [Download and import publish settings and subscription information](https://msdn.microsoft.com/library/dn385850.aspx).
 3.  In the Azure classic portal, get the resource name and [registration key for your StorSimple Manager service](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
 4.  On the server that runs the script, run PowerShell as an administrator. Type this command:
