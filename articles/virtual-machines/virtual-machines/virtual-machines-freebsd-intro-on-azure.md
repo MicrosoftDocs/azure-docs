@@ -63,6 +63,7 @@ The [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/C
 * Convert Windows-style newline in shell and Python scripts automatically.
 * Remove BOM in shell and Python scripts automatically.
 * Protect sensitive data in CommandToExecute.
+
 [!NOTE] FreeBSD virtual machine only supports CustomScript version 1.x so far. 
 
 ## Authentication: user names, passwords, and SSH keys
