@@ -54,7 +54,7 @@ The following Site Recovery features are not currently available in Azure Govern
 
 * Azure Resource Manager site recovery vaults
 
-| Site Recovery | Classic | ARM | 
+| Site Recovery | Classic | Resource Manager | 
 | --- | --- | --- |
 | VMWare/Physical  | GA | Planned |
 | Hyper-V | GA | Planned |
