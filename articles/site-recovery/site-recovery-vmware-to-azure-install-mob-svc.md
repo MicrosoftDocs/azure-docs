@@ -16,7 +16,7 @@ ms.date: 12/9/2016
 ms.author: anoopkv
 
 # Set up the source environment (VMware to Azure)
-This article describes the different ways in which you can install Mobility Services on your VMware Virtual machines or Phsysical Servers that you plan to protect using Azure Site Recovery.
+This article describes the different ways in which you can install Mobility Services on your VMware Virtual machines or Physical Servers that you plan to protect using Azure Site Recovery.
 
 ## Install Mobility Service using Push Install from Azure Site Recovery
 
