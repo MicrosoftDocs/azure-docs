@@ -13,25 +13,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/22/2016
+ms.date: 12/13/2016
 ms.author: seanmck
 
 ---
 # Visualize your cluster with Service Fabric Explorer
 Service Fabric Explorer is a web-based tool for inspecting and managing applications and nodes in an Azure Service Fabric cluster. Service Fabric Explorer is hosted directly within the cluster, so it is always available, regardless of where your cluster is running.
 
+## Video tutorial
+
 Watch the following Microsoft Virtual Academy video to learn how to use Service Fabric Explorer:
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965">
-<img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244">
-</a></center>
+
+[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965")
 
 ## Connect to Service Fabric Explorer
 If you have followed the instructions to [prepare your development environment](service-fabric-get-started.md), you can launch Service Fabric Explorer on your local cluster by navigating to http://localhost:19080/Explorer.
 
 > [!NOTE]
 > If you are using Internet Explorer with Service Fabric Explorer to manage a remote cluster, you need to configure some Internet Explorer settings. To ensure that all information loads correctly, go to **Tools** > **Compatibility View Settings** and uncheck **Display intranet sites in Compatibility View**.
-> 
-> 
+>
+>
 
 ## Understand the Service Fabric Explorer layout
 You can navigate through Service Fabric Explorer by using the tree on the left. At the root of the tree, the cluster dashboard provides an overview of your cluster, including a summary of application and node health.
@@ -68,8 +69,8 @@ For example, to delete an application instance, simply choose the application fr
 
 > [!TIP]
 > You can perform the same actions by clicking the ellipsis next to each element.
-> 
-> 
+>
+>
 
 The following table lists the actions available for each entity:
 
@@ -88,8 +89,8 @@ Since many actions are destructive, you may be asked to confirm your intent befo
 
 > [!TIP]
 > Every action that can be performed through Service Fabric Explorer can also be performed through PowerShell or a REST API, to enable automation.
-> 
-> 
+>
+>
 
 You can also use Service Fabric Explorer to create new application instances for a given application type and version. Choose the application type in the tree view, then click the **Create app instance** link next to the version you'd like in the right pane.
 
@@ -97,8 +98,8 @@ You can also use Service Fabric Explorer to create new application instances for
 
 > [!NOTE]
 > Application instances created through Service Fabric Explorer cannot currently be parameterized. They are created using default parameter values.
-> 
-> 
+>
+>
 
 ## Connect to a remote Service Fabric cluster
 Since Service Fabric Explorer is web-based and runs within the cluster, it is accessible from any browser, as long as you know the cluster's endpoint and have sufficient permissions to access it.
@@ -108,7 +109,7 @@ In order to reach Service Fabric Explorer for a given cluster, simply point your
 
 http://&lt;your-cluster-endpoint&gt;:19080/Explorer
 
-The full URL is also available in the cluster essentials pane of the Azure portal.
+For Azure clusters, the full URL is also available in the cluster essentials pane of the Azure portal.
 
 ### Connect to a secure cluster
 You can control client access to your Service Fabric cluster either with certificates or using Azure Active Directory (AAD).
