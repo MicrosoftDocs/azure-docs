@@ -196,9 +196,11 @@ One way to create an X.509 certificate is by using the Certificate Creation Tool
 2. Open/run the jar file. It requires the [Java Runtime Environment](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html).
 3. Click **Next** twice.
 4. Specify a path where you have the write permission, and then click **Next**.
-    >[AZURE.NOTE] The default installation folder is in the C:\Program Files\squirrel-sql-3.6 folder.  In order to write to this path, the installer must be granted the administrator privilege. You can open a command prompt as administrator, navigate to Java's bin folder, and then run
-    >
-    >     java.exe -jar [the path of the SQuirreL jar file]
+
+  > [!NOTE]
+  > The default installation folder is in the C:\Program Files\squirrel-sql-3.6 folder.  In order to write to this path, the installer must be granted the administrator privilege. You can open a command prompt as administrator, navigate to Java's bin folder, and then run:
+  >
+  >     java.exe -jar [the path of the SQuirreL jar file]
 5. Click **OK** to confirm creating the target directory.
 6. The default setting is to install the Base and Standard packages.  Click **Next**.
 7. Click **Next** twice, and then click **Done**.
