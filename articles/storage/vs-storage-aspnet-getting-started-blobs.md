@@ -64,7 +64,7 @@ A blob container is a nested hierarchy of blobs and folders. The following steps
 
 1. Open the `BlobsController.cs` file.
 
-1. Add a method called **CreateBlobContainer** that returns an **ActionResults**.
+1. Add a method called **CreateBlobContainer** that returns an **ActionResult**.
 
         public ActionResult CreateBlobContainer()
         {
@@ -122,9 +122,11 @@ A blob container is a nested hierarchy of blobs and folders. The following steps
 
 ## Upload a blob into a blob container
 
+Once you've [created a blob container](#create-a-blob-container), you can upload files into that container. This section walks you through how to upload a local file to a blob container. The steps assume you've created a blob container named *test-blob-container*. You'll need to change that to the name of your blob container. 
+
 1. Open the `BlobsController.cs` file.
 
-1. Add a method called **UploadBlob** that returns an **ActionResults**.
+1. Add a method called **UploadBlob** that returns an **EmptyResult**.
 
         public EmptyResult UploadBlob()
         {
@@ -170,41 +172,35 @@ or overwrites it if it does exist. (Change *&lt;file-to-upload>* to a fully qual
   
 The next section will illustrate how to list the blobs in a blob container. 	
 
-
-
-
-
-
-
-
-
-
-
 ## List the blobs in a blob container
 
-The following steps illustrate how to programmatically list all the blobs in a blob container. In an ASP.NET MVC app, the code would go in a controller.
+This section illustrates how to list the blobs in a blob container. The sample code references the *test-blob-container* created in the section, [Create a blob container](#create-a-blob-container).
 
-1. Add the following *using* directives: 
-   
-        using Microsoft.Azure;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Auth;
-        using Microsoft.WindowsAzure.Storage.Blob;
+1. Open the `BlobsController.cs` file.
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Add a method called **ListBlobs** that returns an **ActionResult**.
+
+        public ActionResult ListBlobs()
+        {
+			// The code in this section goes here.
+
+            return View();
+        }
+ 
+1. Within the **ListBlobs** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
            CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
    
-3. Get a **CloudBlobClient** object represents a blob service client.
+1. Get a **CloudBlobClient** object represents a blob service client.
    
         CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
 
-4. Get a **CloudBlobContainer** object that represents a reference to the desired blob container name. (Change *<blob-container-name>* to the name of the blob container whose blobs you want to list.)
+1. Get a **CloudBlobContainer** object that represents a reference to the blob container name. 
    
-        CloudBlobContainer container = blobClient.GetContainerReference(<blob-container-name>);
+        CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
 
-5. To list the blobs in a blob container, use the **CloudBlobContainer.ListBlobs** method. The **CloudBlobContainer.ListBlobs** method returns an **IListBlobItem** object that you cast to a **CloudBlockBlob**,
+1. To list the blobs in a blob container, use the **CloudBlobContainer.ListBlobs** method. The **CloudBlobContainer.ListBlobs** method returns an **IListBlobItem** object that you cast to a **CloudBlockBlob**,
 **CloudPageBlob**, or **CloudBlobDirectory** object. The following code snippet enumerates
 all the blobs in a blob container, casting the returned object to the appropriate object based on its type,
 and adds the name (or URI in the case of a **CloudBlobDirectory**) to a list that can be displayed.
@@ -230,6 +226,8 @@ and adds the name (or URI in the case of a **CloudBlobDirectory**) to a list tha
             }
         }
 
+		return View(blobs);
+
 	In addition to blobs, blob containers can contain directories. Let's suppose you run the preceding code against a blob container called *myblobs* with the following hierarchy:
 
 		foo.png
@@ -253,6 +251,36 @@ and adds the name (or URI in the case of a **CloudBlobDirectory**) to a list tha
 		foo.png
 		dir1/bar.png
 		dir2/baz.png
+
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Blobs**, and from the context menu, select **Add->View**.
+
+1. On the **Add View** dialog, enter **ListBlobs** for the view name, and select **Add**.
+
+1. Open `ListBlobs.cshtml`, and modify it so that it looks like the following.
+
+		@model List<string>
+		@{
+		    ViewBag.Title = "List blobs";
+		}
+		
+		<h2>List blobs</h2>
+		
+		<ul>
+		    @foreach (var item in Model)
+		    {
+		    <li>@item</li>
+		    }
+		</ul>
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
+
+		<li>@Html.ActionLink("List blobs", "ListBlobs", "Blobs")</li>
+
+1. Run the application, and select **List blobs**. You will see results similar to those shown in the following screen shot. 
+  
+	![Blob listing](./media/vs-storage-aspnet-getting-started-blobs/listblobs.png)
 
 ## Download blobs
 
