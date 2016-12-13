@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/13/2016
 ms.author: piyushjo
 
 ---
@@ -28,9 +28,8 @@ Click to see the [SDK Content](mobile-engagement-ios-sdk-content.md)
 3. Tag plan implementation: [How to use the advanced Mobile Engagement tagging API in your iOS app](mobile-engagement-ios-use-engagement-api.md)
 
 ## Release notes
-### 4.0.0 (09/12/2016)
-* Fixed notification not actioned on iOS 10 devices.
-* Deprecate XCode 7.
+### 4.0.1 (12/13/2016)
+* Improved log delivery in background.
 
 For earlier version please see the [complete release notes](mobile-engagement-ios-release-notes.md)
 
