@@ -1,4 +1,4 @@
-﻿---
+---
 title: Use Job Browser and Job View for Azure Data Lake Analytics jobs | Microsoft Docs
 description: 'Learn how to use Job Browser and Job View for Azure Data Lake Analytics jobs. '
 services: data-lake-analytics
@@ -176,4 +176,5 @@ Job Detail shows the detailed information of the job, including Script, Resource
 * To log diagnostics information, see [Accessing diagnostics logs for Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * To see a more complex query, see [Analyze Website logs using Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
 * To use vertex execution view, see [Use the Vertex Execution View in Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
+* To learn Data Lake Tools for Visual Studio code, see [Use the Azure Data Lake Tools for Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 

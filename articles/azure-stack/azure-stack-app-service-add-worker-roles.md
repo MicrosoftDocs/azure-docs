@@ -87,7 +87,7 @@ Once the deployment has completed, the following configuration is required to su
 7. Restart the VM from the portal.
 
 > [!NOTE]
-> Note: These are minimum requirements for App Service on Azure Stack. They are the default settings of the Windows 2012 R2 image included with Azure Stack. The instructions have been provided for future reference, and for those using a different image.
+> These are minimum requirements for App Service on Azure Stack. They are the default settings of the Windows 2012 R2 image included with Azure Stack. The instructions have been provided for future reference, and for those using a different image.
 > 
 > 
 

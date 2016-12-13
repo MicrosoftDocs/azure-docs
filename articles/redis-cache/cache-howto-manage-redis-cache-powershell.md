@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: cache-redis
 ms.devlang: na
 ms.topic: article
-ms.date: 10/25/2016
+ms.date: 11/28/2016
 ms.author: sdanie
 
 ---
@@ -35,7 +35,6 @@ If you have already installed Azure PowerShell, you must have Azure PowerShell v
 
     Get-Module azure | format-table version
 
-[!INCLUDE [powershell-preview](../../includes/powershell-preview-inline-include.md)]
 
 First, you must log in to Azure with this command.
 

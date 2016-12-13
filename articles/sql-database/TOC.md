@@ -12,7 +12,7 @@
 ### [Builds multitenant apps](sql-database-build-multi-tenant-apps.md)
 ### [Secures and protects](sql-database-helps-secures-and-protects.md)
 ### [Works in your environment](sql-database-works-in-your-environment.md)
-## Comparisions
+## Comparisons
 ### [SQL Database versus SQL on a VM](sql-database-paas-vs-sql-server-iaas.md)
 ### [T-SQL differences](sql-database-transact-sql-information.md)
 ### [SQL versus NoSQL](../documentdb/documentdb-nosql-vs-sql.md)
@@ -22,6 +22,7 @@
 ## Security
 ### [Azure Security Center for Azure SQL Database](https://azure.microsoft.com/documentation/articles/security-center-sql-database/)
 ### [SQL Security Center](https://msdn.microsoft.com/library/azure/bb510589)
+
 # Get Started
 ## Databases and servers
 ### Single databases
@@ -111,7 +112,7 @@
 ### Learn
 #### [Overview](sql-database-business-continuity.md)
 #### [Database backups](sql-database-automated-backups.md)
-#### [Long term retention](sql-database-long-term-retention.md) 
+#### [Long-term retention](sql-database-long-term-retention.md)
 #### [Database recovery using backups](sql-database-recovery-using-backups.md)
 #### [Authentication requirements for disaster recovery](sql-database-geo-replication-security-config.md)
 #### [Business continuity design scenarios](sql-database-designing-cloud-solutions-for-disaster-recovery.md)
@@ -160,7 +161,7 @@
 #### [Connect with Visual Studio](sql-database-connect-query.md)
 #### [Build a client application](https://www.microsoft.com/sql-server/developer-get-started)
 #### [Work with error messages](sql-database-develop-error-messages.md)
-### Customer mplementations of software as a service
+### Customer implementations of software as a service
 #### [Daxko/CSI Software](sql-database-implementation-daxko.md)
 #### [GEP](sql-database-implementation-gep.md)
 #### [SnelStart](sql-database-implementation-snelstart.md)
@@ -173,7 +174,7 @@
 #### [JSON data](sql-database-json-features.md)
 #### [In-Memory](sql-database-in-memory.md)
 ### Do
-#### [SQL Sserver development](https://msdn.microsoft.com/library/ms179422.aspx)
+#### [SQL Server development](https://msdn.microsoft.com/library/ms179422.aspx)
 ## Monitoring and Tuning
 ### Learn
 #### [Single databases](sql-database-single-database-monitor.md)
@@ -184,11 +185,12 @@
 ## SQL Database V11
 ### [Web and business edition sunset](sql-database-web-business-sunset-faq.md)
 ### [Service tier advisor](sql-database-service-tier-advisor.md)
-### [Elastic pool assessement tool](sql-database-elastic-pool-database-assessment-powershell.md)
+### [Elastic pool assessment tool](sql-database-elastic-pool-database-assessment-powershell.md)
 ### [Upgrade to V12](sql-database-v12-plan-prepare-upgrade.md)
 #### [Upgrade using the Azure portal](sql-database-upgrade-server-portal.md)
 #### [Upgrade using PowerShell](sql-database-upgrade-server-powershell.md)
 #### [Pricing tier recommendations](sql-database-service-tier-advisor.md)
+
 # How To
 ## Create and manage
 ### Servers and databases
@@ -210,7 +212,7 @@
 #### [Split merge security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
 #### [Working with Dapper](sql-database-elastic-scale-working-with-dapper.md)
 #### [Use entity framework](sql-database-elastic-scale-use-entity-framework-applications-visual-studio.md)
-#### [Data dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
+#### [Data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 #### [Multitenant row level security](sql-database-elastic-tools-multi-tenant-row-level-security.md)
 #### [Manage credentials](sql-database-elastic-scale-manage-credentials.md)
 #### [Deploy a split-merge service](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
@@ -220,7 +222,7 @@
 #### [Azure AD authentication](sql-database-aad-authentication.md)
 #### [Multi-factor authentication](sql-database-ssms-mfa-authentication.md)
 ### Firewall rules
-#### [Azure Portal](sql-database-configure-firewall-settings.md)
+#### [Azure portal](sql-database-configure-firewall-settings.md)
 #### [PowerShell](sql-database-configure-firewall-settings-powershell.md)
 #### [REST API](sql-database-configure-firewall-settings-rest.md)
 #### [T-SQL](sql-database-configure-firewall-settings-tsql.md)
@@ -287,7 +289,7 @@
 ### [Moving data between scaled-out cloud databases](sql-database-elastic-scale-overview-split-and-merge.md)
 ## Query
 ### [SQL Server Management Studio](sql-database-connect-query-ssms.md)
-### [Muiltishard querying](sql-database-elastic-scale-multishard-querying.md)
+### [Multishard querying](sql-database-elastic-scale-multishard-querying.md)
 ### Cross-database queries
 #### [Overview](sql-database-elastic-query-overview.md)
 #### [Cross database querying with different schemas](sql-database-elastic-query-vertical-partitioning.md)
@@ -315,7 +317,6 @@
 #### [Azure portal](sql-database-geo-replication-failover-portal.md)
 #### [PowerShell](sql-database-geo-replication-failover-powershell.md)
 #### [T-SQL](sql-database-geo-replication-failover-transact-sql.md)
-
 ## Troubleshoot
 ### [Connection issues](sql-database-troubleshoot-common-connection-issues.md)
 ### [Transient connection error](sql-database-troubleshoot-connection.md)
@@ -325,26 +326,26 @@
 
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs/)
-## [PowerShell classic](/powershell/servicemanagement/)
-## [Java](/java/api/)
-## [.NET](/dotnet/api/)
+## [PowerShell](/powershell/resourcemanager/azurerm.sql/v2.3.0/azurerm.sql)
+## [PowerShell (Elastic DB)](/powershell/elasticdatabasejobs/v0.8.33/elasticdatabasejobs)
+## [.NET](https://docs.microsoft.com)
+## [Java](/java/api/com.microsoft.azure.management.sql)
+## [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+## [Python](https://msdn.microsoft.com/library/mt652092.aspx)
+## [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+## [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
 ## [T-SQL](https://msdn.microsoft.com/library/azure/bb510741.aspx)
-## [Azure SQL Database Cmdlets](/powershell/resourcemanager/AzureRM.Sql/v1.0.12/AzureRM.Sql)
-## [SQL Server Cmdlets](https://msdn.microsoft.com/library/mt740629.aspx)
 ## [REST](/rest/api/sql/)
 
+# Related
 ## SQL Database Management Library
-### [SQL Database Management Library Reference](https://msdn.microsoft.com/library/azure/mt349017.aspx)
 ### [Get the SQL Database Management Library package](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql)
 ## [SQL Server Drivers](https://msdn.microsoft.com/library/mt654049.aspx)
 ### [ADO.NET](https://msdn.microsoft.com/library/mt657768.aspx)
 ### [JDBC](https://msdn.microsoft.com/library/mt484311.aspx)
-### [Node.js](https://msdn.microsoft.com/library/mt652093.aspx)
+
 ### [ODBC](https://msdn.microsoft.com/library/mt654048.aspx)
-### [PHP](https://msdn.microsoft.com/library/dn865013.aspx)
-### [Python](https://msdn.microsoft.com/library/mt652092.aspx)
-### [Ruby](https://msdn.microsoft.com/library/mt691981.aspx)
+
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/details/sql-database/)
@@ -358,5 +359,3 @@
 ## [BCP](https://msdn.microsoft.com/library/ms162802.aspx)
 ## [SQLCMD](https://msdn.microsoft.com/library/ms162773.aspx)
 ## [SqlPackage](https://msdn.microsoft.com/hh550080.aspx)
-
-

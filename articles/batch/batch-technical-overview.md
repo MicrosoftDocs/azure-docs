@@ -74,7 +74,7 @@ Your applications and services can issue direct REST API calls, use one or more 
 ### Batch resource management
 In addition to the client APIs, you can also use the following to manage resources within your Batch account.
 
-* [Batch PowerShell cmdlets][batch_ps]: The Azure Batch cmdlets in the [Azure PowerShell](../powershell-install-configure.md) module enable you to manage Batch resources with PowerShell.
+* [Batch PowerShell cmdlets][batch_ps]: The Azure Batch cmdlets in the [Azure PowerShell](/powershell/azureps-cmdlets-docs) module enable you to manage Batch resources with PowerShell.
 * [Azure CLI](../xplat-cli-install.md): The Azure Command-Line Interface (Azure CLI) is a cross-platform toolset that provides shell commands for interacting with many Azure services, including Batch.
 * [Batch Management .NET](batch-management-dotnet.md) client library: Also available via [NuGet][api_net_mgmt_nuget], you can use the Batch Management .NET client library to programmatically manage Batch accounts, quotas, and application packages. Reference for the management library is on [MSDN][api_net_mgmt].
 

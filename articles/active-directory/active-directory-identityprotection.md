@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory Identity Protection | Microsoft Docs
 description: Learn how Azure AD Identity Protection enables you to limit the ability of an attacker to exploit a compromised identity or device and to secure an identity or a device that was previously suspected or known to be compromised.
 services: active-directory
@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 11/30/2016
 ms.author: markvi
 
 ---
@@ -52,7 +52,7 @@ But Azure Active Directory Identity Protection is more than a monitoring and rep
 
 ## Detection and Risk
 ### Risk events
-Risk events are events that were flagged as suspicious by Identity Protection, and indicate that an identity may have been compromised. For a complete list of risk events, see [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md).
+Risk events are events that were flagged as suspicious by Identity Protection, and indicate that an identity may have been compromised. For a complete list of risk events, see [Types of risk events detected by Azure Active Directory](active-directory-identityprotection-risk-events-types.md).
 
 ### Risk level
 The Risk level for a risk event is an indication (High, Medium, or Low) of the severity of the risk event. The risk level helps Identity Protection users prioritize the actions they must take to reduce the risk to their organization. The severity of the risk event represents the strength of the signal as a predictor of identity compromise, combined with the amount of noise that it typically introduces.
@@ -342,7 +342,7 @@ For an overview of the related user experience, see:
 
 ## Next steps
 * [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
-* [Types of risk events detected by Azure Active Directory Identity Protection](active-directory-identityprotection-risk-events-types.md)
+* [Types of risk events detected by Azure Active Directory](active-directory-identityprotection-risk-events-types.md)
 * [Vulnerabilities detected by Azure Active Directory Identity Protection](active-directory-identityprotection-vulnerabilities.md)
 * [Azure Active Directory Identity Protection notifications](active-directory-identityprotection-notifications.md)
 * [Azure Active Directory Identity Protection playbook](active-directory-identityprotection-playbook.md)

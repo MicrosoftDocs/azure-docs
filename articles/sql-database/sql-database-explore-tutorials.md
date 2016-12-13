@@ -10,11 +10,12 @@ editor: ''
 
 ms.assetid: 04c0fd7f-d260-4e43-a4f0-41cdcd5e3786
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
-ms.date: 08/24/2016
+ms.date: 12/08/2016
 ms.author: carlrab
 
 ---
@@ -27,13 +28,29 @@ In the following tutorials, you will learn about using SQL Server Management Stu
 > [!IMPORTANT]
 > It is recommended that you always use the latest version of Management Studio to remain synchronized with updates to Microsoft Azure and SQL Database. [Update SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx).
 >
->
 
 | Tutorial | Description |
 | --- | --- | --- |
-| [Connect to Azure SQL Database using a server-level principal login](sql-database-get-started-security.md#connect-to-azure-sql-database-using-sql-server-authentication) |In this tutorial, you learn how to connect to Azure SQL Database using a server-level principal login. |
+| [Connect to Azure SQL Database using a server-level principal login](sql-database-get-started-security.md#connect-to-azure-sql-database-using-sql-server-authentication) |In this tutorial, you learn how to connect to Azure SQL Database using a SQL server-level principal login. |
 | [Connect to Azure SQL Database as a user](sql-database-get-started-security.md#connect-to-azure-sql-database-as-a-user) |In this tutorial, you will learn how to connect to an Azure SQL database using a database-level user account. |
 |  | |
+
+## Create servers, databases and server-level firewall rules
+In the following tutorials, you create servers, databases and server-level firewall rules - and learn to connect and query servers and databases.
+
+| Tutorial | Description |
+| --- | --- | --- |
+| [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) | In this tutorial, you use the Azure portal and SQL Server Management Studio to create an Azure SQL Database logical server, view its properties, create a server-level firewall, connect to the master database, create a sample database, view its properties, connect to the sample database, and create a blank database. |
+| [Get started with Azure SQL Database servers, databases, and firewall rules by using Azure PowerShell](sql-database-get-started-powershell.md) | In this tutorial, you use PowerShell to create an Azure SQL Database logical server, view its properties, create a server-level firewall, connect to the master database, create a sample database, view its properties, connect to the sample database, and create a blank database. |
+| [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md)| In this tutorial, you use the C# to create a SQL Database server, firewall rule, and SQL database. You also create an Active Directory (AD) application and the service principal needed to authenticate the C# app. |
+
+## Backup and recovery
+In the following tutorial, you restore a database to a point in time, configure long-term backup retention, and restore a database from retention in the Azure Recovery Services vault. 
+
+| Tutorial | Description |
+| --- | --- | --- |
+| [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md) | In this tutorial, you use the Azure portal to restore a database to a point in time, configure long-term backup retention, and restore a database from retention in the Azure Recovery Services vault. |
+
 
 ## Elastic pools
 In the following tutorials, you will learn about using [elastic pools](sql-database-elastic-pool.md) to manage the performance goals for multiple databases that have widely varying and unpredictable usage patterns.
@@ -68,7 +85,7 @@ In the following tutorials, you will learn about running [elastic queries](sql-d
 |  | |
 
 ## Performance Optimization
-In the following tutorials, you will learn about optimizing the [performance of single databases](sql-database-performance-guidance.md). For optimizing the performance of multiple databases, see [Elastic pools](#elastic-pools).
+In the following tutorials, you will learn about optimizing the [performance of standalone databases](sql-database-performance-guidance.md). For optimizing the performance of multiple databases, see [Elastic pools](#elastic-pools).
 
 | Tutorial | Description |
 | --- | --- | --- |
@@ -149,8 +166,8 @@ In the following tutorials, you will learn about using [Geo-Restore and Active G
 
 | Tutorial | Description |
 | --- | --- | --- |
-| [Restore an Azure SQL Database to a previous point in time with the Azure Portal](sql-database-point-in-time-restore-portal.md) |In this tutorial, you learn how to restore your database to an earlier point in time using the Azure portal. |
-| [Restore an Azure SQL Database to a previous point in time with PowerShell](sql-database-point-in-time-restore-powershell.md) |In this tutorial, you learn how to restore your database to an earlier point in time using PowerShell |
+| [Restore an Azure SQL Database to a previous point in time with the Azure Portal](sql-database-point-in-time-restore.md) |In this tutorial, you learn how to restore your database to an earlier point in time using the Azure portal. |
+| [Restore an Azure SQL Database to a previous point in time with PowerShell](sql-database-point-in-time-restore.md) |In this tutorial, you learn how to restore your database to an earlier point in time using PowerShell |
 | [Restore a deleted Azure SQL database using the Azure Portal](sql-database-restore-deleted-database-portal.md) |In this tutorial, you learn how to restore a deleted database using the Azure portal. |
 | [Restore a deleted Azure SQL database using the PowerShell](sql-database-restore-deleted-database-powershell.md) |In this tutorial, you learn how to restore a deleted database using PowerShell. |
 | [Configure Geo-Replication for Azure SQL Database using the Azure portal](sql-database-geo-replication-portal.md) |In this tutorial, you learn how to configure Active Geo-Replication using the Azure portal. |

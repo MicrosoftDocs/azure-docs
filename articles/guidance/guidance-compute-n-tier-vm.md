@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/20/2016
+ms.date: 11/22/2016
 ms.author: mwasson
 
 ---
@@ -37,13 +37,11 @@ This article outlines a set of proven practices for running Windows virtual mach
 
 ## Architecture diagram
 
-This article discusses a three-tier application that includes the following:
+There are many ways to implement an N-tier architecture. For the most part, the differences shouldn't matter for the purposes of these recommendations. This article describes a typical 3-tier web application:
 
 * **Web tier.** Handles incoming HTTP requests. Responses are returned through this tier.
 * **Business tier.** Implements business processes and other functional logic for the system.
 * **Database tier.** Provides persistent data storage, using [SQL Server Always On Availability Groups][sql-alwayson] for high availability.
-
-There are many ways to implement a three-tier architecture, but a general discussion of three-tier architectures is beyond the scope of this document. These recommendations and considerations apply to most three-tier architectures. 
 
 > A Visio document that includes this architecture diagram is available for download from the [Microsoft download center][visio-download]. This diagram is on the "Compute - multi tier (Windows)" page.
 > 
@@ -51,24 +49,24 @@ There are many ways to implement a three-tier architecture, but a general discus
 
 ![[0]][0]
 
-* **Availability sets.** Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier. This approach is required to reach the availability [SLA][vm-sla] for VMs.
+* **Availability sets.** Create an [availability set][azure-availability-sets] for each tier, and provision at least two VMs in each tier. This is required to reach the availability [SLA][vm-sla] for VMs.
 * **Subnets.** Create a separate subnet for each tier. Specify the address range and subnet mask using [CIDR] notation. 
 * **Load balancers.** Use an [Internet-facing load balancer][load-balancer-external] to distribute incoming Internet traffic to the web tier, and an [internal load balancer][load-balancer-internal] to distribute network traffic from the web tier to the business tier.
 * **Jumpbox.** Also called a [bastion host]. A secure VM on the network that administrators use to connect to the other VMs. The jumpbox has an NSG that allows remote traffic only from public IP addresses on a safe list. The NSG should permit remote desktop (RDP) traffic.
 * **Monitoring.** Monitoring software such as [Nagios], [Zabbix], or [Icinga] can give you insight into response time, VM uptime, and the overall health of your system. Install the monitoring software on a VM that's placed in a separate management subnet.
 * **NSGs.** Use [network security groups][nsg] (NSGs) to restrict network traffic within the VNet. For example, in the 3-tier architecture shown here, the database tier does not accept traffic from the web front end, only from the business tier and the management subnet.
 * **SQL Server Always On Availability Group.** Provides high availability at the data tier, by enabling replication and failover.
-* **Active Directory Domain Services (AD DS) Servers**. Active Directory Domain Services (AD DS) stores directory data and manages communication between users and domains, including user logon processes, authentication, and directory searches. An Active Directory domain controller is a server that is running AD DS. Prior to Windows Server 2016, Always On Availability Groups must be joined to a domain. This is because Availability Groups depend on Windows Server Failover Cluster (WSFC) technology. Windows Server 2016 introduces the ability to create a Failover Cluster without Active Directory. For more information, see [What's new in Failover Clustering in Windows Server 2016][wsfc-whats-new]
+* **Active Directory Domain Services (AD DS) Servers**. Prior to Windows Server 2016, SQL Server Always On Availability Groups must be joined to a domain. This is because Availability Groups depend on Windows Server Failover Cluster (WSFC) technology. Windows Server 2016 introduces the ability to create a Failover Cluster without Active Directory, in which case the AD DS servers are not required for this architecture. For more information, see [What's new in Failover Clustering in Windows Server 2016][wsfc-whats-new].
 
 ## Recommendations
 
-Azure offers many different resources and resource types, and this reference architecture can be deployed in many different ways. To deploy this architecture as illustrated in the figure above, see the [solution deployment](#solution-deployment) section at the end of this document for more information. If you choose to create your own architecture you should follow these recommendations unless you have a specific requirement that a recommendation does not fit.
+The following recommendations apply for most scenarios. Follow these recommendations unless you have a specific requirement that overrides them. 
 
 ### VNet / Subnets
 
-When you create the VNet, determine how many IP addresses your resources in each subnet require. Specify a subnet mask and a VNet address range large enough for the required IP addresses using [CIDR] notation. Use an address space that falls within the standard [private IP address blocks][private-ip-space], which are 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.
+When you create the VNet, determine how many IP addresses your resources in each subnet require. Specify a subnet mask and a VNet address range large enough for the required IP addresses, using [CIDR] notation. Use an address space that falls within the standard [private IP address blocks][private-ip-space], which are 10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16.
 
-Choose an address range that does not overlap with your on-premise network, in case you need to set up a gateway between the VNet and your on-premise network later. Once you create the VNet, you can't change the address range.
+Choose an address range that does not overlap with your on-premises network, in case you need to set up a gateway between the VNet and your on-premise network later. Once you create the VNet, you can't change the address range.
 
 Design subnets with functionality and security requirements in mind. All VMs within the same tier or role should go into the same subnet, which can be a security boundary. For more information about designing VNets and subnets, see [Plan and design Azure Virtual Networks][plan-network].
 
@@ -85,7 +83,7 @@ Use NSG rules to restrict traffic between tiers. For example, in the 3-tier arch
 5. Add a rule that allows RDP traffic from the jumpbox subnet. This rule lets administrators connect to the database tier from the jumpbox.
    
    > [!NOTE]
-   > An NSG has [default rules][nsg-rules] that allow any inbound traffic from within the VNet. These rules can't be deleted, but you can override them by creating higher priority rules.
+   > An NSG has default rules that allow any inbound traffic from within the VNet. These rules can't be deleted, but you can override them by creating higher priority rules.
    > 
    > 
 
@@ -97,11 +95,11 @@ The internal load balancer distributes network traffic from the web tier to the 
 
 ### SQL Server Always On Availability Groups
 
-We recommend [Always On Availability Groups][sql-alwayson] for SQL Server high availability. Always On Availability Groups require a domain controller. All nodes in the availability group must be in the same AD domain.
+We recommend [Always On Availability Groups][sql-alwayson] for SQL Server high availability. Prior to Windows Server 2016, Always On Availability Groups require a domain controller, and all nodes in the availability group must be in the same AD domain.
 
 Other tiers connect to the database through an [availability group listener][sql-alwayson-listeners]. The listener enables a SQL client to connect without knowing the name of the physical instance of SQL Server. VMs that access the database must be joined to the domain. The client (in this case, another tier) uses DNS to resolve the listener's virtual network name into IP addresses.
 
-Configure SQL Server Always On Availability Groups as follows:
+Configure the SQL Server Always On Availability Group as follows:
 
 1. Create a Windows Server Failover Clustering (WSFC) cluster, a SQL Server Always On Availability Group, and a primary replica. For more information, see [Getting Started with Always On Availability Groups][sql-alwayson-getting-started]. 
 2. Create an internal load balancer with a static private IP address.
@@ -113,33 +111,27 @@ Configure SQL Server Always On Availability Groups as follows:
   > 
   > 
 
-When a SQL client tries to connect, the load balancer routes the connection request to the primary replica. If there is a failover to another replica, the load balancer automatically routes subsequent requests to a new primary replica. For more information, see [Configure load balancer for SQL always on][sql-alwayson-ilb].
+When a SQL client tries to connect, the load balancer routes the connection request to the primary replica. If there is a failover to another replica, the load balancer automatically routes subsequent requests to a new primary replica. For more information, see [Configure an ILB listener for SQL Server Always On Availability Groups][sql-alwayson-ilb].
 
 During a failover, existing client connections are closed. After the failover completes, new connections will be routed to the new primary replica.
 
-If your app makes significantly more reads than writes, you can offload some of the read-only queries to a secondary replica. See [Using a Listener to Connect to a Read-Only Secondary Replica (Read-Only Routing)][sql-alwayson-read-only-routing].
+If your application makes significantly more reads than writes, you can offload some of the read-only queries to a secondary replica. See [Using a Listener to Connect to a Read-Only Secondary Replica (Read-Only Routing)][sql-alwayson-read-only-routing].
 
-Test your deployment by [forcing a manual failover][sql-alwayson-force-failover].
+Test your deployment by [forcing a manual failover][sql-alwayson-force-failover] of the availability group.
 
 ### Jumpbox
 
-Do not allow RDP access from the public Internet to the VMs that run the application workload. Instead, all RDP/SSH access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows RDP traffic from the Internet, but only from known, safe IP addresses.
-
-Place the jumpbox in the same VNet as the other VMs, but in a separate management subnet.
-
-Create a [public IP address] for the jumpbox.
-
 The jumpbox will have minimal performance requirements, so select a small VM size for the jumpbox such as Standard A1. 
 
-Configure the NSGs for the web tier, business tier, and database tier subnets to allow administrative (RDP) traffic to pass through from the management subnet.
+Create a [public IP address] for the jumpbox. Place the jumpbox in the same VNet as the other VMs, but in a separate management subnet.
 
-To secure the jumpbox, create an NSG and apply it to the jumpbox subnet. Add an NSG rule that allows RDP connections only from a safe set of public IP addresses.
+Do not allow RDP access from the public Internet to the VMs that run the application workload. Instead, all RDP access to these VMs must come through the jumpbox. An administrator logs into the jumpbox, and then logs into the other VM from the jumpbox. The jumpbox allows RDP traffic from the Internet, but only from known, safe IP addresses.
 
-The NSG can be attached either to the subnet or to the jumpbox NIC. In this case, we recommend attaching it to the NIC, so RDP traffic is permitted only to the jumpbox, even if you add other VMs to the same subnet.
+To secure the jumpbox, create an NSG and apply it to the jumpbox subnet. Add an NSG rule that allows RDP connections only from a safe set of public IP addresses. The NSG can be attached either to the subnet or to the jumpbox NIC. In this case, we recommend attaching it to the NIC, so RDP traffic is permitted only to the jumpbox, even if you add other VMs to the same subnet.
+
+Configure the NSGs for the other subnets to allow RDP traffic from the management subnet.
 
 ## Availability considerations
-
-Put each tier or VM role into a separate availability set. 
 
 At the database tier, having multiple VMs does not automatically translate into a highly available database. For a relational database, you will typically need to use replication and failover to achieve high availability. For SQL Server, we recommend using [Always On Availability Groups][sql-alwayson]. 
 
@@ -149,7 +141,7 @@ If you need higher availability than the [Azure SLA for VMs][vm-sla] provides, r
 
 Encrypt sensitive data at rest and use [Azure Key Vault][azure-key-vault] to manage the database encryption keys. Key Vault can store encryption keys in hardware security modules (HSMs). For more information, see [Configure Azure Key Vault Integration for SQL Server on Azure VMs][sql-keyvault] It's also recommended to store application secrets, such as database connection strings, in Key Vault.
 
-Consider adding a network virtual appliance (NVA) to create a DMZ between the Internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks such as acting as a firewall, inspecting packets, auditing, custom routing, or a variety of other operations. For more information, see [Implementing a DMZ between Azure and the Internet][dmz].
+Consider adding a network virtual appliance (NVA) to create a DMZ between the Internet and the Azure virtual network. NVA is a generic term for a virtual appliance that can perform network-related tasks, such as firewall, packet inspection, auditing, and custom routing. For more information, see [Implementing a DMZ between Azure and the Internet][dmz].
 
 ## Scalability considerations
 
@@ -161,7 +153,7 @@ Simplify management of the entire system by using centralized administration too
 
 ## Solution deployment
 
-A deployment for a reference architecture that implements these recommendations is available on [Github][github-folder]. This reference architecture includes a web tier, business tier, a data tier, as well as a jumpbox VM and Active Directory domain controllers. The reference architecture is deployed in three stages. Follow the directions below: 
+A deployment for this reference architecture is available on [GitHub][github-folder]. The reference architecture is deployed in three stages. To deploy the architecture, follow these steps: 
 
 1. Right click the button below and select "open in new tab" or "open in new window" to begin the first stage of the deployment.  
    [!["Deploy To Azure"][1]][2]
@@ -195,11 +187,9 @@ A deployment for a reference architecture that implements these recommendations 
 9. Check Azure portal notification for a message that the third stage of the deployment is complete.
 10. The parameter files include a hard-coded administrator user names and passwords, and it is strongly recommended that you immediately change both on all the VMs. Click on each VM in the Azure portal then click on **Reset password** in the **Support + troubleshooting** blade. Select **Reset password** in the **Mode** dropdown box, then select a new **User name** and **Password**. Click the **Update** button to save the new user name and password. 
 
-For information on additional ways to deploy this reference architecture, see the readme file in the [guidance-single-vm][github-folder] Github folder. 
-
 ## Next steps
 
-To achieve high availability for this reference architecture, [deploy to multiple regions][multi-dc].
+To achieve high availability for this reference architecture, deploy to multiple regions. For more information, see [Running Windows VMs in multiple regions for high availability][multi-dc].
 
 <!-- links -->
 
@@ -224,7 +214,6 @@ To achieve high availability for this reference architecture, [deploy to multipl
 [n-tier]: guidance-compute-n-tier-vm.md
 [naming conventions]: guidance-naming-conventions.md
 [nsg]: ../virtual-network/virtual-networks-nsg.md
-[nsg-rules]: ../best-practices-resource-manager-security.md#network-security-groups
 [operations-management-suite]: https://www.microsoft.com/en-us/server-cloud/operations-management-suite/overview.aspx
 [plan-network]: ../virtual-network/virtual-network-vnet-plan-design-arm.md
 [private-ip-space]: https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces

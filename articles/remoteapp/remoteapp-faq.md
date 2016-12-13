@@ -3,7 +3,7 @@ title: Azure RemoteApp FAQ | Microsoft Docs
 description: Learn answers to the most frequently asked questions about Azure RemoteApp.
 services: remoteapp
 documentationcenter: ''
-author: lizap
+author: msmbaldwin
 manager: swadhwa
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2016
-ms.author: elizapo
+ms.date: 11/23/2016
+ms.author: mbaldwin
 
 ---
 # Azure RemoteApp FAQ

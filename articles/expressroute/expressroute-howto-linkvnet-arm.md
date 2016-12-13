@@ -33,7 +33,7 @@ This article will help you link virtual networks (VNets) to Azure ExpressRoute c
 [!INCLUDE [vpn-gateway-clasic-rm](../../includes/vpn-gateway-classic-rm-include.md)]
 
 ## Configuration prerequisites
-* You need the latest version of the Azure PowerShell modules (at least version 1.0). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+* You need the latest version of the Azure PowerShell modules (at least version 1.0). See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
 * You need to review the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.
 * You must have an active ExpressRoute circuit. 
   * Follow the instructions to [create an ExpressRoute circuit](expressroute-howto-circuit-arm.md) and have the circuit enabled by your connectivity provider. 

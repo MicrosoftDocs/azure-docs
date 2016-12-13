@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Active Directory developer's guide | Microsoft Docs
 description: This article provides a comprehensive guide to developer-oriented resources for Azure Active Directory.
 services: active-directory
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 10/24/2016
+ms.date: 12/09/2016
 ms.author: mbaldwin
 
 ---
@@ -55,6 +55,7 @@ These articles describe how to perform specific tasks by using Azure Active Dire
 
 * [Get an Azure AD tenant](active-directory-howto-tenant.md)
 * [Sign in any Azure AD user using the multi-tenant application pattern](active-directory-devhowto-multi-tenant-overview.md)
+* [Authenticate a service/daemon application using a certificate](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential/)
 * Enable cross-app SSO using ADAL, on [Android](active-directory-sso-android.md) and on [iOS](active-directory-sso-ios.md) devices
 * [Make your application AppSource Certified for Azure AD](active-directory-devhowto-appsource-certified.md)
 * [List your application in the Azure AD application gallery](active-directory-app-gallery-listing.md)

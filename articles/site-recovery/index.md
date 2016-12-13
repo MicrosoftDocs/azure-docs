@@ -84,7 +84,7 @@ Azure Site Recovery contributes to your business continuity and disaster recover
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Site Recovery REST API Reference</p>
+                        <p>Site Recovery REST API</p>
                     </div>
                 </div>
             </div>

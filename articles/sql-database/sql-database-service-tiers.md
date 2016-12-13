@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'SQL Database performance: Service tiers | Microsoft Docs'
 description: Compare SQL Database service tiers.
 keywords: database options,database performance
@@ -6,15 +6,16 @@ services: sql-database
 documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: CarlRabeler
+editor: ''
 
 ms.assetid: f5c5c596-cd1e-451f-92a7-b70d4916e974
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/15/2016
+ms.date: 12/06/2016
 ms.author: carlrab
 
 ---

@@ -26,7 +26,7 @@ If you have been facing difficulties troubleshooting Remote Desktop (RDP) connec
 > 
 
 ## Using Azure PowerShell
-Make sure you have the latest Azure PowerShell 1.x installed on your machine. For more information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+Make sure you have the latest Azure PowerShell 1.x installed on your machine. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 Use this Azure PowerShell command to redeploy your virtual machine:
 

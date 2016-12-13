@@ -3,8 +3,8 @@ title: Azure Resource Manager support for Traffic Manager | Microsoft Docs
 description: Using PowerShell for Traffic Manager with Azure Resource Manager
 services: traffic-manager
 documentationcenter: na
-author: sdwheeler
-manager: carmonm
+author: kumudd
+manager: timlt
 
 ms.assetid: bc247448-1d2e-4104-ac03-42b59ebde065
 ms.service: traffic-manager
@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/11/2016
-ms.author: sewhee
+ms.author: kumud
 ---
 
 # Azure Resource Manager support for Azure Traffic Manager
@@ -49,7 +49,7 @@ When referencing an endpoint of type 'AzureEndpoints' for a Web App, Traffic Man
 
 These instructions use Microsoft Azure PowerShell. The following article explains how to install and configure Azure PowerShell.
 
-* [How to install and configure Azure PowerShell](../powershell-install-configure.md)
+* [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
 
 The examples in this article assume that you have an existing resource group. You can create a resource group using the following command:
 

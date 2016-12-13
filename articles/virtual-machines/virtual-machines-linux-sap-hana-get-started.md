@@ -195,7 +195,7 @@ SAP Note SAP HANA DB : Recommended OS settings for SLES 12 / SLES for SAP Applic
 One additional topic reagrding page-cache related to running SAP HANA on SLES can be found
 [here](https://www.suse.com/documentation/sles_for_sap/singlehtml/sles_for_sap_guide/sles_for_sap_guide.html#sec.s4s.configure.page-cache) in chapter 6.1 Kernel: Page-Cache Limit
 
-There is also a SAP Note regarding the page-cache limit [SAP Note 1557506](https://service.sap.com/sap/support/notes/1557506)
+There is also a SAP Note regarding the page-cache limit [SAP Note 1557506](https://launchpad.support.sap.com/#/notes/1557506)
 
 SLES 12 has a new tool which replaces the old sapconf utility. It's "tuned-adm" and there is a special
 SAP HANA profile available. One can find more details about this tool following the two links below.

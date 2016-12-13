@@ -33,8 +33,8 @@ You will:
 * [Git](http://www.git-scm.com/downloads).
 * [Azure CLI](../xplat-cli-install.md).
 * A Microsoft Azure account. If you don't have an account, you can 
-  [sign up for a free trial](/pricing/free-trial/?WT.mc_id=A261C142F) or 
-  [activate your Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
+  [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or 
+  [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
 
 > [!NOTE]
 > You can [Try App Service](http://go.microsoft.com/fwlink/?LinkId=523751) without an Azure account. Create a starter app and play with

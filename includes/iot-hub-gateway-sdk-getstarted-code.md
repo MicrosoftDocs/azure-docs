@@ -62,15 +62,15 @@ Each module must specify a:
 * **name**: a unique name for the module.
 * **loader**: a loader which knows how to load the desired module.  Loaders are an extension 
 point for loading different types of modules. We provide loaders for use with modules written 
-in native C, Node.js, Java, and .Net. The Hello World sample only uses the "native" loader since 
-all the modules in this sample are dynamic libraries written in C. Please refer to the [Node](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), 
-[Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample), or [.Net](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) 
+in native C, Node.js, Java, and .NET. The Hello World sample only uses the "native" loader since 
+all the modules in this sample are dynamic libraries written in C. Please refer to the [Node.js](https://github.com/Azure/azure-iot-gateway-sdk/blob/develop/samples/nodejs_simple_sample/), 
+[Java](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/java_sample), or [.NET](https://github.com/Azure/azure-iot-gateway-sdk/tree/develop/samples/dotnet_binding_sample) 
 samples for more information on using modules written in different languages.
     * **name**: name of the loader used to load the module.  
     * **entrypoint**: the path to the library containing the module. For Linux this is a .so 
     file, on Windows this is a .dll file. Note that this entry point is specific to the type of 
     loader being used. For example, the Node.js loader's entry point is a .js file, the Java 
-    loader's entry point is a classpath + class name, and the .Net loader's entry point is an 
+    loader's entry point is a classpath + class name, and the .NET loader's entry point is an 
     assembly name + class name.
 
 * **args**: any configuration information the module needs.

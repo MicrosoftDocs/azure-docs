@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: f6e6ff3b-6b60-43c1-afe9-575991e38237
 ms.service: sql-database
+ms.custom: sharded databases pool; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: csharp

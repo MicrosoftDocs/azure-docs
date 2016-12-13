@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 11/28/2016
 ms.author: tomfitz
 
 ---
 # Defining dependencies in Azure Resource Manager templates
 For a given resource, there can be other resources that must exist before the resource is deployed. For example, a SQL server must exist before attempting to deploy a SQL database. You define this relationship by marking one resource as dependent on the other resource. Typically, you define a dependency with the **dependsOn** element, but you can also define it through the **reference** function. 
 
-Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources are not dependent on each other, Resource Manager deploys them in parallel.
+Resource Manager evaluates the dependencies between resources, and deploys them in their dependent order. When resources are not dependent on each other, Resource Manager deploys them in parallel. You only need to define dependencies for resources that are deployed in the same template. 
 
 ## dependsOn
 Within your template, the dependsOn element enables you to define one resource as a dependent on one or more resources. Its value can be a comma-separated list of resource names. 
@@ -37,13 +37,20 @@ The following example shows a virtual machine scale set that depends on a load b
       },
       "dependsOn": [
         "storageLoop",
-        "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
-        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+        "[variables('loadBalancerName')]",
+        "[variables('virtualNetworkName')]"
       ],
       ...
     }
 
-To define a dependency between a resource and resources that are created through a copy loop, set the dependsOn element to name of the loop. For an example, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+In the preceding example, a dependency is included on the resources that are created through a copy loop named **storageLoop**. For an example, see [Create multiple instances of resources in Azure Resource Manager](resource-group-create-multiple.md).
+
+When defining dependencies, you can include the resource provider namespace and resource type to avoid ambiguity. For example, to clarify a load balancer and virtual network that may have the same names as other resources, use the following format:
+
+    "dependsOn": [
+      "[concat('Microsoft.Network/loadBalancers/', variables('loadBalancerName'))]",
+      "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]"
+    ] 
 
 While you may be inclined to use dependsOn to map relationships between your resources, it's important to understand why you're doing it because it can impact the performance of your deployment. For example, to document how resources are interconnected, dependsOn is not the right approach. You cannot query which resources were defined in the dependsOn element after deployment. By using dependsOn, you potentially impact deployment time because Resource Manager does not deploy in parallel two resources that have a dependency. To document relationships between resources, instead use [resource linking](resource-group-link-resources.md).
 

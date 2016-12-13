@@ -45,7 +45,7 @@
 ## [Develop with Language Understanding Intelligent Service](https://www.luis.ai/Help/)
 
 # Reference
-## [PowerShell cmdlets](https://docs.microsoft.com/powershell/azureps-cmdlets-docs)
+## [PowerShell](/powershell/resourcemanager/azurerm.cognitiveservices/v0.4.1/azurerm.cognitiveservices)
 ## [REST](https://docs.microsoft.com/rest/api/cognitiveservices/)
 
 # Resources 

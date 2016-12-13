@@ -1,4 +1,4 @@
-﻿---
+---
 title: Recovering data from another Azure Backup Server in the backup vault | Microsoft Docs
 description: Recover the data you've protected to an Azure Backup vault from any Azure Backup Server registered to that vault.
 services: backup
@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/08/2016
+ms.date: 11/28/2016
 ms.author: giridham;jimpark;trinadhk;markgal
 
 ---
