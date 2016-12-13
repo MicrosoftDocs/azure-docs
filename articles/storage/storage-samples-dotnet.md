@@ -19,11 +19,8 @@ ms.author: seguler
 ---
 # Azure Storage Samples using .NET
 
-The following table provides a quick overview of our sample repository and the methods covered in each sample.
-
-Visit our [Get started with Azure Storage in five minutes](storage-getting-started-guide.md) if you want to find out how to get started with the Azure Storage Client Library for .NET.
-
-<table><thead><tr><th style="font-size:110%">Endpoint</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Sample Name</th></tr> 
+The following table provides a quick overview of our sample repository and the methods covered in each sample. If you want to find out how to get started with the Azure Storage Client Library, visit our [Get started with Azure Storage in five minutes](storage-getting-started-guide.md) guide.
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">Endpoint</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Sample Name</th></tr> 
 	</thead> 
 	<tbody> 
 		<tr> 
@@ -194,16 +191,9 @@ Visit our [Get started with Azure Storage in five minutes](storage-getting-start
 	</tbody> 
 </table>
 <br/>
-## Azure Code Sample Library
-The [Azure Code Sample Library](https://azure.microsoft.com/documentation/samples/?service=storage) includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
-
-## .NET samples by API
-To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from NuGet. The .NET storage client library is also available in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
-
-* [Getting Started with Azure Blob Service in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
-* [Getting Started with Azure Queue Service in .NET](https://azure.microsoft.com/documentation/samples/storage-queue-dotnet-getting-started/)
-* [Getting Started with Azure Table Service in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
-* [Getting Started with Azure File Service in .NET](https://azure.microsoft.com/documentation/samples/storage-file-dotnet-getting-started/)
-* [Azure Blob Storage Photo Gallery Web Application](https://azure.microsoft.com/documentation/samples/storage-blobs-dotnet-webapp/)
-* [Managing concurrency using Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
+### Getting started samples
+* [Getting Started with Azure Blob Service in .NET](storage-dotnet-how-to-use-blobs.md)
+* [Getting Started with Azure Queue Service in .NET](storage-dotnet-how-to-use-queues.md)
+* [Getting Started with Azure Table Service in .NET](storage-dotnet-how-to-use-tables.md)
+* [Getting Started with Azure File Service in .NET](storage-dotnet-how-to-use-files.md)
 
