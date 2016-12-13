@@ -1,6 +1,6 @@
 ---
-title: Create an SSH public and private key pair for Linux VMs | Microsoft Docs
-description: Create an SSH public and private key pair for Linux VMs.
+title: Create an SSH key pair for Linux VMs | Microsoft Docs
+description: Securely create an SSH public and private key pair for Linux VMs.
 services: virtual-machines-linux
 documentationcenter: ''
 author: vlivech
@@ -90,7 +90,7 @@ This article creates *ssh-rsa* formatted key files, which are recommended for de
 
 ## Disable SSH passwords by using SSH keys
 
-Azure requires at least 2048-bit, ssh-rsa format public and private keys. To create the keys use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When an Azure VM is created, the public key is copied to `~/.ssh/authorized_keys`.  SSH keys in `~/.ssh/authorized_keys` are used to challenge the client to match the corresponding private key on an SSH login connection.  When an Azure Linux VM is created using SSH keys for authentication, Azure configures the SSHD server to not allow password logins, only SSH keys.  Therefore, creating Azure Linux VMs with SSH keys, deploys the VM secure by default and save the typical post deployment configuration step of disabling passwords in the `sshd_config` config file.
+Azure requires at least 2048-bit, ssh-rsa format public and private keys. To create the keys use `ssh-keygen`, which asks a series of questions and then writes a private key and a matching public key. When an Azure VM is created, the public key is copied to `~/.ssh/authorized_keys`.  SSH keys in `~/.ssh/authorized_keys` are used to challenge the client to match the corresponding private key on an SSH login connection.  When an Azure Linux VM is created using SSH keys for authentication, Azure configures the SSHD server to not allow password logins, only SSH keys.  Therefore, by creating Azure Linux VMs with SSH keys, you can help secure the VM deployment and save yourself the typical post-deployment configuration step of disabling passwords in the sshd_config config file.
 
 ## Using ssh-keygen
 
