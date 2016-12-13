@@ -17,33 +17,18 @@ ms.date: 12/12/2016
 ms.author: seguler
 
 ---
-# Azure Storage samples
-## Overview
-Use the links below to view and download working Azure Storage samples that use .NET.
+# Azure Storage Samples using .NET
 
-## Azure Code Sample Library
-The [Azure Code Sample Library](https://azure.microsoft.com/documentation/samples/?service=storage) includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
+The following table provides a quick overview of our sample repository and the methods covered in each sample.
 
-## Getting started samples
-* [Get started with Azure Storage in five minutes](storage-getting-started-guide.md)
-* [Visual Studio Quick Starts for Azure Storage](https://github.com/Azure/azure-storage-net/tree/master/Samples/GettingStarted/VisualStudioQuickStarts)
+Please visit our [Get started with Azure Storage in five minutes](storage-getting-started-guide.md) if you want to find out how to get started with the Azure Storage Client Library for .NET.
 
-## .NET samples by API
-To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from NuGet. The .NET storage client library is also available in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
-
-* [Getting Started with Azure Blob Service in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
-* [Getting Started with Azure Queue Service in .NET](https://azure.microsoft.com/documentation/samples/storage-queue-dotnet-getting-started/)
-* [Getting Started with Azure Table Service in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
-* [Getting Started with Azure File Service in .NET](https://azure.microsoft.com/documentation/samples/storage-file-dotnet-getting-started/)
-* [Azure Blob Storage Photo Gallery Web Application](https://azure.microsoft.com/documentation/samples/storage-blobs-dotnet-webapp/)
-* [Managing concurrency using Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
-
-<table style="font-size:12px"> 
+<table style="font-size:160%"> 
 	<thead> 
 		<tr > 
-			<th style="font-size:12px">Endpoint</th> 
-			<th style="font-size:12px">Scenario</th> 
-			<th style="font-size:12px">Sample Name</th> 
+			<th style="font-size:180%">Endpoint</th> 
+			<th style="font-size:180%">Scenario</th> 
+			<th style="font-size:180%">Sample Name</th> 
 		</tr> 
 	</thead> 
 	<tbody> 
@@ -214,4 +199,17 @@ To explore the .NET samples, download the [.NET Storage Client Library](https://
 		
 	</tbody> 
 </table>
+<br/>
+## Azure Code Sample Library
+The [Azure Code Sample Library](https://azure.microsoft.com/documentation/samples/?service=storage) includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
+
+## .NET samples by API
+To explore the .NET samples, download the [.NET Storage Client Library](https://www.nuget.org/packages/WindowsAzure.Storage/) from NuGet. The .NET storage client library is also available in the [Azure SDK for .NET](https://azure.microsoft.com/downloads/).
+
+* [Getting Started with Azure Blob Service in .NET](https://azure.microsoft.com/documentation/samples/storage-blob-dotnet-getting-started/)
+* [Getting Started with Azure Queue Service in .NET](https://azure.microsoft.com/documentation/samples/storage-queue-dotnet-getting-started/)
+* [Getting Started with Azure Table Service in .NET](https://azure.microsoft.com/documentation/samples/storage-table-dotnet-getting-started/)
+* [Getting Started with Azure File Service in .NET](https://azure.microsoft.com/documentation/samples/storage-file-dotnet-getting-started/)
+* [Azure Blob Storage Photo Gallery Web Application](https://azure.microsoft.com/documentation/samples/storage-blobs-dotnet-webapp/)
+* [Managing concurrency using Azure Storage](https://code.msdn.microsoft.com/Managing-Concurrency-using-56018114)
 
