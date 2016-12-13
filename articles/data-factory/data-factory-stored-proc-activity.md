@@ -239,7 +239,7 @@ Now, let’s consider adding another column named ‘Scenario’ in the table co
 
     CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable2(Id);
 
-**Stored proceduere:**
+**Stored procedure:**
 
 	CREATE PROCEDURE sp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
 
