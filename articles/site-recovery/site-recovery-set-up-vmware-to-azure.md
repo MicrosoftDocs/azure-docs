@@ -42,10 +42,10 @@ The Configuration Server software should be deployed on a **highly available** V
 1. In the Azure portal browse to **Recovery Services** vaults blade, and select your vault.
 2. In the Resource Menu of the vault click **Getting Started** > **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
-    ![Choose goals](./media/site-recovery-vmware-to-azure/choose-goals.png)
+    ![Choose goals](./media/site-recovery-set-up-vmware-to-azure/choose-goals.png)
 3. In **Protection goal**, select **To Azure**, and select **Yes, with VMware vSphere Hypervisor**. Then click **OK**.
 
-    ![Choose goals](./media/site-recovery-vmware-to-azure/choose-goals2.png)
+    ![Choose goals](./media/site-recovery-set-up-vmware-to-azure/choose-goals2.png)
 
 ## Set up the source environment
 Setting up the source environment involved two main activities
@@ -57,12 +57,12 @@ Setting up the source environment involved two main activities
 
 1. Click **Step 1: Prepare Infrastructure** > **Source**. In **Prepare source**, if you don’t have a configuration server click **+Configuration server** to add one.
 
-    ![Set up source](./media/site-recovery-vmware-to-azure/set-source1.png)
+    ![Set up source](./media/site-recovery-set-up-vmware-to-azure/set-source1.png)
 2. In the **Add Server** blade, check that **Configuration Server** appears in **Server type**.
 4. Download the Site Recovery Unified Setup installation file.
 5. Download the vault registration key. You need the registration key when you run Unified Setup. The key is valid for **five** days after you generate it.
 
-	![Set up source](./media/site-recovery-vmware-to-azure/set-source2.png)
+	![Set up source](./media/site-recovery-set-up-vmware-to-azure/set-source2.png)
 6. On the machine you’re using as the configuration server, run **Azure Site Recovery Unified Setup** to install the configuration server, the process server, and the master target server.
 
 #### Running the Azure Site Recovery Unified Setup
@@ -79,7 +79,7 @@ Setting up the source environment involved two main activities
 
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
-### Step 2: Discover virtual machines
+### Step 2: Add a vCenter 
 To allow Azure Site Recovery to discover virtual machines running in your on-premises environment, you need to connect your VMware vCenter Server or vSphere ESXi hosts with Site Recovery
 
 Click the +vCenter button to start connecting a VMware vCenter server or a VMware vSphere ESXi host.
