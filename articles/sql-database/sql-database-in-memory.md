@@ -138,9 +138,9 @@ If the query returns **1**, In-Memory OLTP is supported in this database.
 
 ## A. Install the In-Memory OLTP sample
 
-You can create the AdventureWorksLT [V12] sample database by a few clicks in the [Azure portal](https://portal.azure.com/). Then the steps in this section explain how you can enrich your AdventureWorksLT database with In-Memory OLTP objects, and demonstrate performance benefits.
+You can create the AdventureWorksLT [V12] sample database with a few clicks in the [Azure portal](https://portal.azure.com/). Then, the steps in this section explain how you can enrich your AdventureWorksLT database with In-Memory OLTP objects and also demonstrate performance benefits.
 
-A more simplistic, but more visually appealing performance demo for In-Memory OLTP can be found here:
+For a more simplistic, but more visually appealing performance demo for In-Memory OLTP, see:
 
 - Release: [in-memory-oltp-demo-v1.0](https://github.com/Microsoft/sql-server-samples/releases/tag/in-memory-oltp-demo-v1.0)
 - Source code: [in-memory-oltp-demo-source-code](https://github.com/Microsoft/sql-server-samples/tree/master/samples/features/in-memory/ticket-reservations)
@@ -148,15 +148,15 @@ A more simplistic, but more visually appealing performance demo for In-Memory OL
 #### Installation steps
 
 1. In the [Azure portal](https://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database.
- - For detailed instructions, you can see [Create your first Azure SQL database](sql-database-get-started.md).
+ - For detailed instructions, you see [Create your first Azure SQL database](sql-database-get-started.md).
 
 2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
 3. Copy the [In-Memory OLTP Transact-SQL script](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) to your clipboard.
- - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database you created in step 1.
+ - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database that you created in step 1.
 
 4. Paste the T-SQL script into SSMS, and then execute the script.
- - Crucial is the `MEMORY_OPTIMIZED = ON` clause CREATE TABLE statements, as in:
+ - The `MEMORY_OPTIMIZED = ON` clause CREATE TABLE statements are crucial. For example:
 
 
 ```
@@ -178,9 +178,9 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
 
-A result of **0** means In-Memory is not supported, and 1 means it is supported. To diagnose the problem:
+A result of **0** means that In-Memory isn't supported, and **1** means that it is supported. To diagnose the problem:
 
-- Ensure the database is at the Premium service tier.
+- Ensure that the database is at the Premium service tier.
 
 
 #### About the created memory-optimized items
@@ -194,12 +194,12 @@ A result of **0** means In-Memory is not supported, and 1 means it is supported.
 - Demo.DemoSalesOrderDetailSeed
 
 
-You can inspect memory-optimized tables through the **Object Explorer** in SSMS by:
+You can inspect memory-optimized tables through the **Object Explorer** in SSMS:
 
-- Right-click **Tables** > **Filter** > **Filter Settings** > **Is Memory Optimized** equals 1.
+- Right-click **Tables** > **Filter** > **Filter Settings** > **Is Memory Optimized**. The value equals 1.
 
 
-Or you can query the catalog views such as:
+Or you can query the catalog views, such as:
 
 
 ```
@@ -209,7 +209,7 @@ SELECT is_memory_optimized, name, type_desc, durability_desc
 ```
 
 
-**Natively compiled stored procedure**: SalesLT.usp_InsertSalesOrder_inmem can be inspected through a catalog view query:
+**Natively compiled stored procedure**: You can inspect SalesLT.usp_InsertSalesOrder_inmem through a catalog view query:
 
 
 ```
@@ -229,22 +229,22 @@ The only difference between the following two *stored procedures* is that the fi
 - SalesLT**.**usp_InsertSalesOrder**_ondisk**
 
 
-In this section, you see how to use the handy **ostress.exe** utility to execute the two stored procedures at stressful levels. You can compare how long it takes the two stress runs to complete.
+In this section, you see how to use the handy **ostress.exe** utility to execute the two stored procedures at stressful levels. You can compare how long it takes for the two stress runs to complete.
 
 
-When you run ostress.exe, we recommend that you pass parameter values designed to both:
+When you run ostress.exe, we recommend that you pass parameter values designed for both of these:
 
 - Run a large number of concurrent connections, by using -n100.
 - Have each connection loop hundreds of times, by using -r500.
 
 
-However, you might want to start with much smaller values like -n10 and -r50 to ensure the everything is working.
+However, you might want to start with much smaller values like -n10 and -r50 to ensure that everything is working.
 
 
 ### Script for ostress.exe
 
 
-This section displays the T-SQL script that is embedded in our ostress.exe command line. The script uses items that were created by the T-SQL script you installed earlier.
+This section displays the T-SQL script that is embedded in our ostress.exe command line. The script uses items that were created by the T-SQL script that you installed earlier.
 
 
 The following script inserts a sample sales order with five line items into the following memory-optimized *tables*:
@@ -277,20 +277,21 @@ end
 ```
 
 
-To make the *_ondisk* version of the preceding T-SQL for ostress.exe, you would simply replace both occurrences of the *_inmem* substring with *_ondisk*. These replaces affect the names of tables and stored procedures.
+To make the *_ondisk* version of the preceding T-SQL for ostress.exe, you would simply replace both occurrences of the *_inmem* substring with *_ondisk*. These replacements affect the names of tables and stored procedures.
 
 
 ### Install RML utilities and ostress
 
 
-Ideally you would plan to run ostress.exe on an Azure VM. You would create an [Azure Virtual Machine](https://azure.microsoft.com/documentation/services/virtual-machines/) in the same Azure geographic region where your AdventureWorksLT database resides. But you can run ostress.exe on your laptop instead.
+Ideally, you would plan to run ostress.exe on an Azure VM. You would create an [Azure virtual machine](https://azure.microsoft.com/documentation/services/virtual-machines/) in the same Azure geographic region where your AdventureWorksLT database resides. But you can run ostress.exe on your laptop instead.
 
 
 On the VM, or on whatever host you choose, install the Replay Markup Language (RML) utilities, which include ostress.exe.
 
-- See the ostress.exe discussion in [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
- - Or see [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
- - Or see [Blog for installing ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
+For more information, see:
+- The ostress.exe discussion in [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
+- [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
+- The [blog for installing ostress.exe](http://blogs.msdn.com/b/psssql/archive/2013/10/29/cumulative-update-2-to-the-rml-utilities-for-microsoft-sql-server-released.aspx).
 
 
 
@@ -309,7 +310,7 @@ whereas for SQL 2016+
 ### Run the *_inmem* stress workload first
 
 
-You can use an *RML Cmd Prompt* window to run our ostress.exe command line. The command line parameters direct ostress to:
+You can use an *RML Cmd Prompt* window to run our ostress.exe command line. The command-line parameters direct ostress to:
 
 - Run 100 connections concurrently (-n100).
 - Have each connection run the T-SQL script 50 times (-r50).
@@ -323,7 +324,7 @@ ostress.exe -n100 -r50 -S<servername>.database.windows.net -U<login> -P<password
 To run the preceding ostress.exe command line:
 
 
-1. Reset the database data content by running the following command in SSMS, to delete all the data that was inserted by any previous runs:
+1. Reset the database data content by running the following command in SSMS to delete all the data that was inserted by any previous runs:
 ```
 EXECUTE Demo.usp_DemoReset;
 ```
@@ -349,7 +350,7 @@ When ostress.exe completes, it writes the run duration as its final line of outp
 After you have the result from the *_inmem* run, perform the following steps for the *_ondisk* run:
 
 
-1. Reset the database by running the following command in SSMS, to delete all the data that was inserted by the previous run:
+1. Reset the database by running the following command in SSMS to delete all the data that was inserted by the previous run:
 ```
 EXECUTE Demo.usp_DemoReset;
 ```
