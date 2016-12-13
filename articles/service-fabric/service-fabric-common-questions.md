@@ -42,7 +42,7 @@ In the interim, the only safe option is to perform OS updates manually, one node
 
 The minimum supported size for a Service Fabric cluster running production workloads is 5 nodes. For dev/test scenarios, we support 3 node clusters.
 
-To understand why these minimums exist, it is important to understand that the Service Fabric cluster itself runs a number of stateful services, including the naming service and the failover manager. These services, which keep track of what services have been deployed to the cluster and where they're currently hosted, depend on the strong consistency inherent in the Service Fabric data model. That strong consistency, in turn, depends on the ability to acquire a "quorum" for any given update to the state of those services, where a quorum represents a strict majority of the replicas (N/2 +1) for a given service.
+To understand why these minimums exist, it is important to understand that the Service Fabric cluster itself runs a number of stateful services, including the naming service and the failover manager. These services, which keep track of what services have been deployed to the cluster and where they're currently hosted, depend on the strong consistency inherent in the Service Fabric data model. That strong consistency, in turn, depends on the ability to acquire a *quorum* for any given update to the state of those services, where a quorum represents a strict majority of the replicas (N/2 +1) for a given service.
 
 With that background, let's examine some possible cluster configurations:
 
@@ -83,7 +83,11 @@ Actors are designed to be independent units of state and compute, so it is not r
 
 Reliable services are typically partitioned, so the amount you can store is only limited by the number of machines you have in the cluster, and the amount of memory available on those machines.
 
-As an example, suppose that you have a reliable collection in a service with 100 partitions and 3 replicas, storing objects that average 1kb in size. Now suppose that you have a 10 machine cluster with 16gb of memory per machine. For simplicity and to be very conservative, assume that the operating system and system services, the Service Fabric runtime, and your services consume 6gb of that, leaving 10gb available. That means you have a total of 100gb available to store your objects across the cluster, keeping in mind that each object will be stored three times (one primary and two replicas). Given that, you would have sufficient memory for approximately 35 million objects in your collection. Note that this calculation assumes:
+As an example, suppose that you have a reliable collection in a service with 100 partitions and 3 replicas, storing objects that average 1kb in size. Now suppose that you have a 10 machine cluster with 16gb of memory per machine. For simplicity and to be very conservative, assume that the operating system and system services, the Service Fabric runtime, and your services consume 6gb of that, leaving 10gb available per machine, or 100gb for the cluster.
+
+Keeping in mind that each object must be stored three times (one primary and two replicas), you would have sufficient memory for approximately 35 million objects in your collection when operating at full capacity. However, we recommend being resilient to the simultaneous loss of a failure domain and an upgrade domain, which represents about 1/3 of capacity, and would reduce the number to roughly 20 million.
+
+Note that this calculation also assumes:
 
 - That the distribution of data across the partitions is roughly uniform or that you're [reporting load metrics to the cluster resource manager](service-fabric-cluster-resource-manager-metrics.md). By default, Service Fabric will load balance based on replica count. In our example above, that would put 10 primary replicas and 20 secondary replicas on each node in the cluster. That works well for load that is evenly distributed across the partitions. If load is not even, you must report load so that the resource manager can pack smaller replicas together and allow larger replicas to consume more memory on an individual node.
 
