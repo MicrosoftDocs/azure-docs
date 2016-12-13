@@ -19,7 +19,7 @@ ms.author: iainfou
 ---
 
 # Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using the Azure portal
-If your Windows virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be an invalid application update that prevents the VM from being able to boot successfully. This article details how to use the Azure portal to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
+If your Windows virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use the Azure portal to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
 
 ## Recovery process overview
 The troubleshooting process is as follows:
@@ -32,9 +32,9 @@ The troubleshooting process is as follows:
 
 
 ## Determine boot issues
-To determine why your VM is not able to boot correctly, examine the boot diagnostics VM screenshot. A common example would be an invalid application update, or an underlying virtual hard disk being deleted or moved.
+To determine why your VM is not able to boot correctly, examine the boot diagnostics VM screenshot. A common example would be a failed application update, or an underlying virtual hard disk being deleted or moved.
 
-Select your VM in the portal and then scroll down to the **Support + Troubleshooting** section. Click **Boot diagnostics** to view the screenshot to see if you can determine why the VM is encountering an issue. The following example shows a VM waiting on stopping services:
+Select your VM in the portal and then scroll down to the **Support + Troubleshooting** section. Click **Boot diagnostics** to view the screenshot. Note any specific error messages or error codes to help determine why the VM is encountering an issue. The following example shows a VM waiting on stopping services:
 
 ![Viewing VM boot diagnostics console logs](./media/virtual-machines-windows-troubleshoot-recovery-disks/screenshot-error.png)
 
