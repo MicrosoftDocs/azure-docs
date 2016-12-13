@@ -32,9 +32,9 @@ The troubleshooting process is as follows:
 
 
 ## Determine boot issues
-Examine the boot diagnostics and VM screenshot to determine why your VM is not able to boot correctly. A common example would be an invalid application update, or an underlying virtual hard disk being deleted or moved.
+To determine why your VM is not able to boot correctly, examine the boot diagnostics VM screenshot. A common example would be an invalid application update, or an underlying virtual hard disk being deleted or moved.
 
-Select your VM in the portal and then scroll down to the **Support + Troubleshooting** section. Click **Boot diagnostics** to view the screenshot to see if you can determine why the VM is encountering an issue. The following example shows a VM waiting on stopping servies:
+Select your VM in the portal and then scroll down to the **Support + Troubleshooting** section. Click **Boot diagnostics** to view the screenshot to see if you can determine why the VM is encountering an issue. The following example shows a VM waiting on stopping services:
 
 ![Viewing VM boot diagnostics console logs](./media/virtual-machines-windows-troubleshoot-recovery-disks/screenshot-error.png)
 
@@ -95,7 +95,7 @@ For the next few steps, you use another VM for troubleshooting purposes. You att
 
 ## Mount the attached data disk
 
-1. Open a Remote Dekstop connection to your VM. Select your VM in the portal and click **Connect**. Download and open the RDP connection file. Enter your credentials to log in to your VM as follows:
+1. Open a Remote Desktop connection to your VM. Select your VM in the portal and click **Connect**. Download and open the RDP connection file. Enter your credentials to log in to your VM as follows:
 
     ![Log in to your VM using Remote Desktop](./media/virtual-machines-windows-troubleshoot-recovery-disks/open-remote-desktop.png)
 
