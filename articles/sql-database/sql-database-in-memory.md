@@ -36,7 +36,7 @@ The following video explains potential performance gains with In-Memory technolo
 Azure SQL Database has the following In-Memory technologies:
 
 - *In-Memory OLTP* increases throughput and reduces latency for transaction processing. Scenarios that benefit from In-Memory OLTP are: high-throughput transaction processing such as trading and gaming, data ingestion from events or IoT devices, caching, data load, and temporary table and table variable scenarios.
-- *Clustered columnstore indexes* reduce storage footprints (up to 10 times) and improve performance for reporting and analytics queries. You can use it with fact tables in your data marts to fit more data in your database and improve performance. Also, use it with historical data in your operational database to archive and be able to query up to 10 times more data.
+- *Clustered columnstore indexes* reduce your storage footprint (up to 10 times) and improve performance for reporting and analytics queries. You can use it with fact tables in your data marts to fit more data in your database and improve performance. Also, use it with historical data in your operational database to archive and be able to query up to 10 times more data.
 - *Nonclustered columnstore indexes* for HTAP help you to gain real-time insights into your business through querying the operational database directly, without the need to run an expensive Extract, Transform and Load (ETL) process and wait for the data warehouse to be populated. Nonclustered columnstore indexes allow very fast execution of analytics queries on the OLTP database, while reducing the impact on the operational workload.
 - In-Memory OLTP and columnstore can also be combined. You can have a memory-optimized table with a columnstore index, which allows you to both perform very fast transaction processing and run analytics queries very quickly on the same data.
 
@@ -67,51 +67,50 @@ In-depth videos about the technologies:
 
 ### Data size and storage cap for In-Memory OLTP
 
-In-Memory OLTP includes memory-optimized tables, which are used for storing user data. These tables are required to fit in memory. Since you do manage memory directly in the SQL Database service, we have a concept of quota for user data, referred to as *In-Memory OLTP Storage*.
+In-Memory OLTP includes memory-optimized tables, which are used for storing user data. These tables are required to fit in memory. Because you manage memory directly in the SQL Database service, we have a concept of a quota for user data, referred to as *In-Memory OLTP storage*.
 
-Each supported standalone  database pricing tier and each elastic pool pricing tier includes a certain amount of In-Memory OLTP Storage. At the time of writing you get a gigabyte of storage for every 125 DTUs or eDTUs.
+Each supported standalone database pricing tier and each elastic pool pricing tier includes a certain amount of In-Memory OLTP storage. At the time of writing, you get a gigabyte of storage for every 125 DTUs or eDTUs.
 
-[SQL Database Service Tiers](sql-database-service-tiers.md) has the official list of In-Memory OLTP storage available for each supported standalone database and elastic pool pricing tier.
+The [SQL Database service tiers](sql-database-service-tiers.md) article has the official list of In-Memory OLTP storage that is available for each supported standalone database and elastic pool pricing tier.
 
 The following counts towards your In-Memory OLTP storage cap:
 
-- Active user data rows in memory-optimized tables and table variables. Note that old row versions do not count toward the cap.
+- Active user data rows in memory-optimized tables and table variables. Note that old row versions don't count toward the cap.
 - Indexes on memory-optimized tables.
 - Operational overhead of ALTER TABLE operations.
 
-If you hit the cap you will receive an out-of-quota error and will no longer be able to insert or update data. Mitigation is to delete data or increase the pricing tier of the database or pool.
+If you hit the cap, you will receive an out-of-quota error and will no longer be able to insert or update data. To mitigate this, delete data or increase the pricing tier of the database or pool.
 
+For details about monitoring In-Memory OLTP storage utilization and configuring alerts when you almost hit the cap, see:
 
-For details about monitoring In-Memory OLTP storage utilization and configuring alerts when almost hitting the cap see:
-
-- [Monitor In-Memory Storage](sql-database-in-memory-oltp-monitoring.md)
+- [Monitor In-Memory storage](sql-database-in-memory-oltp-monitoring.md)
 
 #### Note about elastic pools
 
-With elastic pools the In-Memory OLTP Storage is shared across all databases in the pool, thus the usage in one database can potentially impact other databases. Two mitigations for this are:
+With elastic pools, the In-Memory OLTP storage is shared across all databases in the pool. Therefore, the usage in one database can potentially impact other databases. Two mitigations for this are:
 
-- Configure Max-eDTU for databases that is lower than the eDTU count for the pool as a whole. This caps the In-Memory OLTP Storage utilization in any database in the pool to the size corresponding to the eDTU count.
-- Configure Min-eDTU greater than 0. This guarantees that each database in the pool has the amount of In-Memory OLTP Storage available corresponding to the configured Min-eDTU.
+- Configure a Max-eDTU for databases that is lower than the eDTU count for the pool as a whole. This caps the In-Memory OLTP storage utilization in any database in the pool to the size that corresponds to the eDTU count.
+- Configure a Min-eDTU greater than 0. This guarantees that each database in the pool has the amount of available In-Memory OLTP storage that corresponds to the configured Min-eDTU.
 
 ### Data size and storage for Columnstore indexes
 
-Columnstore indexes are not required to fit in memory. Therefore the only cap on the size of the indexes is the maximum overall database size, which is documented in the [SQL Database Service Tiers](sql-database-service-tiers.md) article.
+Columnstore indexes aren't required to fit in memory. Therefore, the only cap on the size of the indexes is the maximum overall database size, which is documented in the [SQL Database service tiers](sql-database-service-tiers.md) article.
 
-When using Clustered Columnstore Indexes, columnar compression is used for the base table storage. This can significantly reduce the storage footprint of your user data, meaning that you can fit more data in the database. And this can be further increased with [columnar archival compression](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). The amount of compression you can achieve depends on the nature of the data, but 10X compression is not uncommon.
+When you use clustered columnstore indexes, columnar compression is used for the base table storage. This can significantly reduce the storage footprint of your user data, which means that you can fit more data in the database. And this can be further increased with [columnar archival compression](https://msdn.microsoft.com/library/cc280449.aspx#Using Columnstore and Columnstore Archive Compression). The amount of compression that you can achieve depends on the nature of the data, but 10 times the compression is not uncommon.
 
-For example, if you have a database with max size 1 terabyte (TB), and you achieve 10X compression using columnstore, you can fit a total of 10TB of user data in the database.
+For example, if you have a database with maximum size of 1 terabyte (TB) and you achieve 10 times the compression by using columnstore, you can fit a total of 10 TB of user data in the database.
 
-When using Nonclustered Columnstore Indexes, the base table is still stored in traditional rowstore format, therefore the storage savings are not as big as with Clustered Columnstore. However, if you are replacing a number of traditional nonclustered indexes with a single columnstore index, you can still see an overall saving in storage footprint for the table.
+When you use nonclustered columnstore indexes, the base table is still stored in the traditional rowstore format. Therefore, the storage savings aren't as big as with clustered columnstore. However, if you're replacing a number of traditional nonclustered indexes with a single columnstore index, you can still see an overall savings in the storage footprint for the table.
 
-## Moving databases using In-Memory technologies between pricing tiers
+## Moving databases that use In-Memory technologies between pricing tiers
 
-Increasing the pricing tier for a database that uses In-Memory technologies does not need any special considerations, since higher pricing tiers always have more functionality and more resources. Decreasing the pricing tier can have implications for your database, especially when moving from Premium to Standard or Basic and when moving a database leveraging In-Memory OLTP to a lower Premium tier. The same considerations apply when lowering the pricing tier of an elastic pool, or moving databases with In-Memory technologies into a Standard or Basic elastic pool.
+You don't need to have special considerations for increasing the pricing tier for a database that uses In-Memory technologies because higher pricing tiers always have more functionality and more resources. Decreasing the pricing tier can have implications for your database. This is especially true when you're moving from Premium to Standard or Basic, and when you're moving a database that uses In-Memory OLTP to a lower Premium tier. The same considerations apply when you're lowering the pricing tier of an elastic pool or moving databases with In-Memory technologies into a Standard or Basic elastic pool.
 
 ### In-Memory OLTP
 
-*Downgrade to Basic/Standard.* In-Memory OLTP is not supported in databases in the Standard or Basic tier. In addition, it is not possible to move a database that has any In-Memory OLTP objects to the Standard or Basic tier.
+*Downgrading to Basic/Standard*: In-Memory OLTP isn't supported in databases in the Standard or Basic tier. In addition, it isn't possible to move a database that has any In-Memory OLTP objects to the Standard or Basic tier.
 
-- Before downgrading the database to Standard/Basic, remove all memory-optimized table and table types, as well as all natively compiled T-SQL modules.
+- Before you downgrade the database to Standard/Basic, remove all memory-optimized tables and table types, as well as all natively compiled T-SQL modules.
 
 There is a programmatic way to understand whether a given database supports In-Memory OLTP. You can execute the following Transact-SQL query:
 
@@ -122,15 +121,15 @@ SELECT DatabasePropertyEx(DB_NAME(), 'IsXTPSupported');
 If the query returns **1**, In-Memory OLTP is supported in this database.
 
 
-*Downgrade to lower Premium tier.* Data in memory-optimized tables must fit within the In-Memory OLTP storage associated with the pricing tier of the database or available in the elastic pool. If you try to lower the pricing tier or move the database into a pool that does not have enough available In-Memory OLTP storage, the operation will fail.
+*Downgrading to a lower Premium tier*: Data in memory-optimized tables must fit within the In-Memory OLTP storage that is associated with the pricing tier of the database or available in the elastic pool. If you try to lower the pricing tier or move the database into a pool that doesn't have enough available In-Memory OLTP storage, the operation will fail.
 
-### Columnstore Indexes
+### Columnstore indexes
 
-*Downgrade to Basic/Standard.* Columnstore indexes are not supported in databases in the Standard or Basic tier. When downgrading a database to Standard/Basic, columnstore indexes will become unavailable. If you use a Clustered columnstore index, this means the table as a whole becomes unavailable.
+*Downgrading to Basic/Standard*: Columnstore indexes aren't supported in databases in the Standard or Basic tier. When you downgrade a database to Standard/Basic, columnstore indexes will become unavailable. If you use a clustered columnstore index, this means that the table as a whole becomes unavailable.
 
-- Before downgrading the database to Standard/Basic, drop all clustered columnstore indexes.
+- Before you downgrade the database to Standard/Basic, drop all clustered columnstore indexes.
 
-*Downgrade to lower Premium tier.* This will succeed as long as the database as a whole fits within the max database size for the target pricing tier or available storage in the elastic pool. There is no specific impact from the Columnstore indexes.
+*Downgrading to a lower Premium tier*: This will succeed as long as the database as a whole fits within the max database size for the target pricing tier or available storage in the elastic pool. There is no specific impact from the columnstore indexes.
 
 
 <a id="install_oltp_manuallink" name="install_oltp_manuallink"></a>
