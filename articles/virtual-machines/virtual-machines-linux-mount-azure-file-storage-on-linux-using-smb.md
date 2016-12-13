@@ -30,7 +30,7 @@ This article shows how to utilize the Azure File Storage service on a Linux VM u
 
 If you need to quickly accomplish the task, the following section details the  commands needed. More detailed information and context for each step can be found the rest of the document, [starting here](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough).
 
-Prerequisite: Resource Group, VNet, NSG with SSH inbound, Subnet, Azure Storage Account, Azure File Storage share, and a Linux VM. Replace any examples with your own settings.
+Prerequisites: Resource Group, VNet, NSG with SSH inbound, Subnet, Azure Storage Account, Azure Storage Account keys, Azure File Storage share, and a Linux VM. Replace any examples with your own settings.
 
 Create a directory for the local mount
 
@@ -61,20 +61,20 @@ For this detailed walkthrough, we create the prerequisites needed to first creat
 ## Create the Azure Storage account
 
 ```azurecli
-azure storage account create mystorageaccount \
+azure storage account create myStorageAccount \
 --sku-name lrs \
 --kind storage \
 -l westus \
--g bmwrg
+-g myResourceGroup
 ```
 
 ## Show the Storage account keys
 
-The Azure Storage Account keys are created in pairs, when the storage account is deployed.  The storage account keys are created in pairs so that the keys can be rotated without any service interruption.  Once you rotate keys to the second key in the pair, you create a new key pair.  New storage account keys are always created in pairs, ensuring you always have at least one unused storage key ready to rotate to.
+The Azure Storage Account keys are created in pairs, when the storage account is created.  The storage account keys are created in pairs so that the keys can be rotated without any service interruption.  Once you rotate keys to the second key in the pair, you create a new key pair.  New storage account keys are always created in pairs, ensuring you always have at least one unused storage key ready to rotate to.
 
 ```azurecli
-azure storage account keys list mystorageaccount \
---resource-group myRG
+azure storage account keys list myStorageAccount \
+--resource-group myResourceGroup
 ```
 
 ## Create the Azure File Storage Share
@@ -84,7 +84,7 @@ Create the File Storage share, which contains the SMB share.  The quota is alway
 ```azurecli
 azure storage share create mystorageshare \
 --quota 10 \
---account-name mystorageaccount \
+--account-name myStorageAccount \
 --account-key nPOgPR<--snip-->4Q==
 ```
 
@@ -99,7 +99,7 @@ sudo mkdir -p /mnt/mymountdirectory
 ## Mount the SMB share
 
 ```azurecli
-sudo mount -t cifs //mystorageaccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=mystorageaccount,password=mystorageaccountkey,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //myStorageAccount.file.core.windows.net/mystorageshare /mnt/mymountdirectory -o vers=3.0,username=myStorageAccount,password=myStorageAccountkey,dir_mode=0777,file_mode=0777
 ```
 
 ## Persist the SMB mount through reboots
