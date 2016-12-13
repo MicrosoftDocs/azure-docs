@@ -27,9 +27,9 @@ For details on this service and how to use it, see [Azure Storage public documen
 | Service | USGov Virginia | USGov Iowa |
 | --- | --- | --- |
 | [Blob Storage] (../storage/storage-introduction.md#blob-storage) |GA |GA |
-| [Table Storage] (../storage/storage-import-export-service.md#table-storage) |GA  |GA |
-| [Queue Storage] (../storage/storage-import-export-service.md#queue-storage) |GA | GA |
-| [File Storage] (../storage/storage-import-export-service.md#File-storage) |GA |GA |
+| [Table Storage] (../storage/storage-introduction.md#table-storage) |GA  |GA |
+| [Queue Storage] (../storage/storage-introduction.md#queue-storage) |GA | GA |
+| [File Storage] (../storage/storage-introduction.md#File-storage) |GA |GA |
 | [Hot/Cool Blob Storage] (../storage/storage-blob-storage-tiers.md) |NA |NA |
 | [Storage Service Encryption] (../storage/storage-service-encryption.md) |GA |GA |
 | [Premium Storage] (../storage/storage-premium-storage.md) (includes DS-series VMs) |GA |NA |
