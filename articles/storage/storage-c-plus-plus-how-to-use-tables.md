@@ -1,4 +1,4 @@
----
+﻿---
 title: How to use Table storage (C++) | Microsoft Docs
 description: Store structured data in the cloud using Azure Table storage, a NoSQL data store.
 services: storage
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/16/2016
-ms.author: dineshmm
+ms.author: dineshm
 
 ---
 # How to use Table storage from C++

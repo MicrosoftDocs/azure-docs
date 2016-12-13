@@ -1,4 +1,4 @@
----
+﻿---
 title: Client-Side Encryption with Java for Microsoft Azure Storage | Microsoft Docs
 description: The Azure Storage Client Library for Java supports client-side encryption and integration with Azure Key Vault for maximum security for your Azure Storage applications.
 services: storage
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2016
-ms.author: dineshmm
+ms.author: dineshm
 
 ---
 # Client-Side Encryption and Azure Key Vault with Java for Microsoft Azure Storage
