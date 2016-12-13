@@ -1,4 +1,3 @@
-
 ---
 title: Estimate Azure RemoteApp network bandwidth usage | Microsoft Docs
 description: Learn about the network bandwidth requirements for your Azure RemoteApp collections and apps.

@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
+ms.custom: sharded databases pool; how to
 ms.devlang: NA
 ms.date: 11/17/2016
 ms.author: ninarn
@@ -57,20 +58,21 @@ You can go to a particular pool to see its resource utilization. By default, the
 
 You can edit the chart and the metric blade to display other metrics such as CPU percentage, data IO percentage, and log IO percentage used.
 
-2. On the metric blade, click **Edit**.
+1. On the metric blade, click **Edit**.
 
 	![Click edit][6]
 
-- In the **Edit Chart** blade, select a new time range (past hour, today, or past week), or click **custom** to select any date range in the last two weeks. Select the chart type (bar or line), then select the resources to monitor.
+2. In the **Edit Chart** blade, select a new time range (past hour, today, or past week), or click **custom** to select any date range in the last two weeks. Select the chart type (bar or line), then select the resources to monitor.
 
-> [!Note]
-> Only metrics with the same unit of measure can be displayed in the chart at the same time. For example, if you select "eDTU percentage" then you will only be able to select other metrics with percentage as the unit of measure.
->
->
+   > [!Note]
+   > Only metrics with the same unit of measure can be displayed in the chart at the same time. For example, if you select "eDTU percentage" then you will only be able to select other metrics with percentage as the unit of measure.
+   >
 
 	![Click edit](./media/sql-database-elastic-pool-manage-portal/edit-chart.png)
 
-- Then click **OK**.
+    
+
+3. Then click **OK**.
 
 
 ## Elastic database monitoring
