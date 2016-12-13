@@ -1,6 +1,6 @@
 ---
-title: Copy files to an Azure Linux VM using SCP | Microsoft Docs
-description: Copy files to an Azure Linux VM using SCP.
+title: Moving files to and from a Linux VM using SCP | Microsoft Docs
+description: Securly moving files to and from a Linux VM using SCP and an SSH key pair.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: vlivech
@@ -19,9 +19,9 @@ ms.author: v-livech
 
 ---
 
-# Copy files to an Azure Linux VM using SCP
+# Moving files to and from a Linux VM using SCP
 
-This article shows how to copy files from your workstation up to an Azure Linux VM, or from the Azure Linux VM down to your workstation, using Secure Copy (SCP).  For SSH authentication, usernames and passwords can be used but SSH public and private key authentication are strongly recommended as a security best practice.  
+This article shows how to copy files from your workstation up to an Azure Linux VM, or from the Azure Linux VM down to your workstation, using Secure Copy (SCP).  For an example, we are moving Azure configuration files up to a Linux VM and pulling down a log file directory, both using SCP and SSH keys.  For SSH authentication, usernames and passwords can be used but SSH public and private key authentication are strongly recommended as a security best practice.  
 
 For this article, the requirements are:
 
