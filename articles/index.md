@@ -1629,7 +1629,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#iot">Internet of Things</a>
                         <ul id="iot" class="cardsA">
                             <li>
-                                <a href="https://azure.microsoft.com/en-us/develop/iot/">
+                                <a href="https://azure.microsoft.com/develop/iot/">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2043,7 +2043,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                         <a href="#devtools">Developer Tools</a>
                         <ul id="devtools" class="cardsA">
                             <li>
-                                <a href="https://www.visualstudio.com/en-us/docs/overview">
+                                <a href="https://www.visualstudio.com/docs/overview">
                                     <div class="cardSize">
                                         <div class="cardPadding">
                                             <div class="card">
@@ -2719,7 +2719,7 @@ description: Learn how to build and manage powerful applications using Microsoft
                                                     <a href="http://storageexplorer.com/">Storage Explorer</a>
                                                 </h3>
                                                 <p>
-                                                    <a href="https://azure.microsoft.com/en-us/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Get Started</a>
+                                                    <a href="https://azure.microsoft.com/documentation/articles/vs-azure-tools-storage-manage-with-storage-explorer/">Get Started</a>
                                                 </p>
                                                 <p>
                                                      <a  href="http://go.microsoft.com/fwlink/?LinkId=722418">Download for Linux</a>
