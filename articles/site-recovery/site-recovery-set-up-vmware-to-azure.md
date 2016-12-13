@@ -86,7 +86,7 @@ Click the +vCenter button to start connecting a VMware vCenter server or a VMwar
 ## Common issues
 ### Installation issues
 | Sample Error Message | Recommended Action |
-|---------------|--------------------|
+|---------------|---------------------------|
 
 
 ### Registration Failures
