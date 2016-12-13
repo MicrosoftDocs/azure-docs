@@ -56,8 +56,7 @@ Visual Studio 2015 (requires Visual Studio 2015 Update 2 or later):
 > [!WARNING]
 > Customers have reported errors during installation when using these launch links, or when these links were used in Chrome browser. These are known issues in Web Platform Installer which are being addressed.  As a workaround, please try the following:
 >- Launch the above links in Internet Explorer or Edge browsers, or
->- Launch Web Platform Installer from the Start menu, search for "Service Fabric", and install the SDK, or
->- Download the installers directly from the download center (links are provided in the [SDK release notes](https://blogs.msdn.microsoft.com/azureservicefabric/2016/11/21/release-of-sdk-2-3-311-and-runtime-5-3-311-for-windows/)).
+>- Launch Web Platform Installer from the Start menu, search for "Service Fabric", and install the SDK
 > 
 > We apologize for the inconvenience. 
 
