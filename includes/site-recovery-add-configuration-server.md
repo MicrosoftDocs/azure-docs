@@ -29,14 +29,14 @@
 9. In **Install Location**, select where you want to install the binaries and store the cache. You can select a drive that has at least 5 GB of storage available but we recommend a cache drive with at least 600 GB of free space.
 
     ![Install location](./media/site-recovery-add-configuration-server/combined-wiz8.png)
-10. In **Network Selection**, specify the listener (network adapter and SSL port) on which the configuration server sends and receives replication data. Port 9443 is the default port used sending and receiving replication traffic, but this can be modified to suite your envrionment's requirements. In addition to the port 9443, we also open port 443 which is used by a web server to orchestrate replication operations. Port 443 shouldn't be used for receiving replication traffic.
+10. In **Network Selection**, specify the listener (network adapter and SSL port) on which the configuration server sends and receives replication data. Port 9443 is the default port used sending and receiving replication traffic, but you can modify this port number to suite your environment's requirements. In addition to the port 9443, we also open port 443, which is used by a web server to orchestrate replication operations. Do not use Port 443 for sending or receiving replication traffic.
 
     ![Network selection](./media/site-recovery-add-configuration-server/combined-wiz9.png)
 
 
 
-1. In **Summary**, review the information and click **Install**. When installation finishes a passphrase is generated. You need it when you enable replication so copy it and keep it in a secure location.
+1. In **Summary**, review the information and click **Install**. When installation finishes, a passphrase is generated. You need it when you enable replication so copy it and keep it in a secure location.
 
 	![Summary](./media/site-recovery-add-configuration-server/combined-wiz10.png)
 
-3. After registration finishes the server is displayed in the **Settings** > **Servers** blade in the vault.
+3. After registration finishes, the server is displayed in the **Settings** > **Servers** blade in the vault.
