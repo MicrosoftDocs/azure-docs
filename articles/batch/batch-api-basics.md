@@ -105,7 +105,7 @@ When you create a pool, you can specify the following attributes:
 
     When selecting a compute node size, consider the characteristics and requirements of the applications you'll run on the nodes. Aspects like whether the application is multithreaded and how much memory it consumes can help determine the most suitable and cost-effective node size. It's typical to select a node size assuming one task will run on a node at a time. However, it is possible to have multiple tasks (and therefore multiple application instances) [run in parallel](batch-parallel-node-tasks.md) on compute nodes during job execution. In this case, it is common to choose a larger node size to accommodate the increased demand of parallel task execution. See [Task scheduling policy](#task-scheduling-policy) for more information.
 
-    All of the nodes in a pool are the same size. If intend to run applications with differing system requirements and/or load levels, we recommend that you use separate pools.
+    All of the nodes in a pool are the same size. If you intend to run applications with differing system requirements and/or load levels, we recommend that you use separate pools.
 * **Target number of nodes**
 
     This is the number of compute nodes that you want to deploy in the pool. This is referred to as a *target* because, in some situations, your pool might not reach the desired number of nodes. A pool might not reach the desired number of nodes if it reaches the [core quota](batch-quota-limit.md#batch-account-quotas) for your Batch account--or if there is an auto-scaling formula that you have applied to the pool that limits the maximum number of nodes (see the following "Scaling policy" section).
