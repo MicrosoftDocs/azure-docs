@@ -242,7 +242,7 @@ In this tutorial you learned how to create an HBase cluster. To learn more, see:
 
 * [Get started with HDInsight](hdinsight-hadoop-linux-tutorial-get-started.md)
 * [Use empty edge nodes in HDInsight](hdinsight-apps-use-edge-node.md)
-* [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md)
+* [Configure HBase replication in HDInsight](hdinsight-hbase-replication.md)
 * [Create Hadoop clusters in HDInsight](hdinsight-provision-clusters.md)
 * [Get started using HBase with Hadoop in HDInsight](hdinsight-hbase-tutorial-get-started.md)
 * [Analyze Twitter sentiment with HBase in HDInsight](hdinsight-hbase-analyze-twitter-sentiment.md)

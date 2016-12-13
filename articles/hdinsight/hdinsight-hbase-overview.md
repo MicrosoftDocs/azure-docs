@@ -51,7 +51,7 @@ The canonical use case for which BigTable (and by extension, HBase) was created 
 ## <a name="next-steps"></a>Next steps
 * [Get started using HBase with Hadoop in HDInsight][hbase-get-started]
 * [Provision HDInsight clusters on Azure Virtual Network][hbase-provision-vnet]
-* [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md)
+* [Configure HBase replication in HDInsight](hdinsight-hbase-replication.md)
 * [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment]
 * [Use Maven to build Java applications that use HBase with HDInsight (Hadoop)][hbase-build-java-maven]
 
