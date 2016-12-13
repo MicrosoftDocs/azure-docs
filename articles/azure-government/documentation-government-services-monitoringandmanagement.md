@@ -62,11 +62,14 @@ The following Site Recovery features are not currently available in Azure Govern
 
 Notes: Table applies to VA and Iowa. 
 
-The URLs for ASR  are different in Azure Government:
+The following URLs for ASR  are different in Azure Government:
 
 | Azure Public | Azure Government | Notes |
 | --- | --- | --- |
-| Add Public Endpoint | https://pod01-srs1.ugv.hypervrecoverymanager.windowsazure.us</Endpoint> | usgoveast  |
+| *.hypervrecoverymanager.windowsazure.com | *.hypervrecoverymanager.windowsazure.us | Access to the Site Recovery Service |
+| *. backup.windowsazure.com  | *.backup.windowsazure.us | Access to Protection Service |
+| *.blob.core.windows.net | *.blob.core.usgovcloudapi.net | For storing the VM Snapshots |
+| http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | http://cdn.mysql.com/archives/mysql-5.5/mysql-5.5.37-win32.msi | To download MySQL |
 
 
 
