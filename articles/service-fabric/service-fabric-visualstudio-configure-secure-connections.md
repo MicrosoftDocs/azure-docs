@@ -50,7 +50,7 @@ The **Select Service Fabric Cluster** dialog box automatically validates the clu
    
    Here’s an example for connecting to an x509 certificate-based secure cluster:
    
-   ```
+   ```xml
    <ClusterConnectionParameters
    ConnectionEndpoint="mycluster.westus.cloudapp.azure.com:19000"
    X509Credential="true"
