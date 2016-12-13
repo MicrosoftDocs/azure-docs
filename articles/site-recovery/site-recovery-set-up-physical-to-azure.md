@@ -21,7 +21,7 @@ ms.author: anoopkv
 > * [Physical Servers](./site-recovery-set-up-physical-to-azure.md)
 
 # Set up the source environment (Physical Server to Azure)
-This article describes how to set up your on-premises environment to start replicating physical servers running Windows or Linux into Azure..
+This article describes how to set up your on-premises environment to start replicating physical servers running Windows or Linux into Azure.
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ The following table lists out the minimum hardware, software, and network requir
 
 ## Choose your protection goals
 
-1. In the Azure Portal browse to **Recovery Services** vaults blade, and select your vault.
+1. In the Azure portal browse to **Recovery Services** vaults blade, and select your vault.
 2. In the Resource Menu of the vault click **Getting Started** > **Site Recovery** > **Step 1: Prepare Infrastructure** > **Protection goal**.
 
     ![Choose goals](./media/site-recovery-set-up-physical-to-azure/choose-goals.png)
@@ -61,7 +61,7 @@ The following table lists out the minimum hardware, software, and network requir
 #### Running the Azure Site Recovery Unified Setup
 
 > [!TIP]
-> Configuration Server registration will fail if the time on your computers **System Clock** ahead or behind **local time** by more than five minutes. Synchronize your System Clock with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
+> Configuration Server registration fails if the time on your computers System Clock ahead or behind local time by more than five minutes.  Synchronize your System Clock with a [Time Server](https://technet.microsoft.com/windows-server-docs/identity/ad-ds/get-started/windows-time-service/windows-time-service) before starting the installation.
 
 [!INCLUDE [site-recovery-add-configuration-server](../../includes/site-recovery-add-configuration-server.md)]
 
