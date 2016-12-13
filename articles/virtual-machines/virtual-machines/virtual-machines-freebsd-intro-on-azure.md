@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/27/2016
+ms.date: 12/13/2016
 ms.author: kyliel
 
 ---
@@ -63,6 +63,7 @@ The [CustomScript](https://github.com/Azure/azure-linux-extensions/tree/master/C
 * Convert Windows-style newline in shell and Python scripts automatically.
 * Remove BOM in shell and Python scripts automatically.
 * Protect sensitive data in CommandToExecute.
+[!NOTE] FreeBSD virtual machine only supports CustomScript version 1.x so far. 
 
 ## Authentication: user names, passwords, and SSH keys
 When you're creating a FreeBSD virtual machine by using the Azure portal, you must provide a user name, password, or SSH public key.
