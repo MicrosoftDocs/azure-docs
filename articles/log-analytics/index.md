@@ -64,22 +64,24 @@ Log Analytics is a service in Operations Management Suite (OMS) that helps you c
 
 ---
 
+<<<<<<< HEAD
+<h2>Reference</h2>
+=======
 ## Reference
 
+>>>>>>> refs/remotes/Microsoft/master
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell Reference</p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.operationalinsights/v2.3.0/azurerm.operationalinsights">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 
