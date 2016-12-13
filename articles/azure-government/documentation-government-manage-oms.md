@@ -16,15 +16,6 @@ A crucial aspect for our customers moving to the Cloud is retaining asset manage
 
 Setting up such an environment can be challenging. Onboarding your fleet of servers to any monitoring service is hard to scale as well as update. Monitoring infrastructure on different cloud providers as well as across the Cloud and on-premises is difficult. Lastly keeping your monitoring up to date and enabling insights to monitor, detect, alert, and action against cybersecurity threats requires time, resources, and compute power.
 
-| VM SKU | US Gov VA | US Gov IA | Notes |
-| --- | --- | --- | --- |
-| A |GA |GA |None |
-| Dv1 |GA |- |None |
-| DSv1 |GA |- |None |
-| Dv2 |GA |GA |15 is coming soon |
-| F |GA |GA |None |
-| G |Planned |- |None |
-
 ## Microsoft Operations Management Suite (OMS)
 Microsoft Operations Management Suite – now available in Azure Government – is a service that enables you to do all of these things leveraging the power of map reduce and machine learning as a service. OMS can:
 * Deploy agents to individual VMS (Linux and Windows) on Azure, other cloud providers, and/or on-premises.
