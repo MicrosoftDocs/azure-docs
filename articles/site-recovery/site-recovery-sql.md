@@ -204,6 +204,11 @@ For the environments that are not managed by a VMM Server or a Configuration Ser
 	1. Do TFO of the Recovery Plan
 
 
+> [!NOTE]
+> The script below assumes that the SQL Availability Group is hosted in a Classic Azure virtual machine.
+> 
+> 
+
 
      workflow SQLAvailabilityGroupFailover
      {
