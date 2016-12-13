@@ -30,7 +30,7 @@ To prepare one or more hard drives for an import job, follow these steps:
   
 -   Copy the data to each of your hard drives  
   
- For a sample workflow, see [Sample Workflow to Prepare Hard Drives for an Import Job](../importexport/Sample-Workflow-to-Prepare-Hard-Drives-for-an-Import-Job.md).  
+ For a sample workflow, see [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md).  
   
 ##  <a name="PrepareHardDrives_IdentifytheDatatoBeImported"></a> Identify the Data to Be Imported  
  The first step to creating an import job is to determine which directories and files you are going to import. This can be a list of directories, a list of unique files, or a combination of those two. When a directory is included, all files in the directory and its subdirectories will be part of the import job.  
@@ -174,7 +174,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> /AbortSession
 ## See Also  
  [Setting Up the Azure Import-Export Tool](storage-import-export-tool-setup-v1.md)   
  [Setting Properties and Metadata during the Import Process](storage-import-export-tool-setting-properties-metadata-import-v1.md)  
- [Sample Workflow to Prepare Hard Drives for an Import Job](../importexport/Sample-Workflow-to-Prepare-Hard-Drives-for-an-Import-Job.md)   
+ [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)   
  [Quick Reference for Frequently Used Commands](storage-import-export-tool-quick-reference-v1.md)    
  [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
  [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   
