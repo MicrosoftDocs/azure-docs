@@ -23,10 +23,17 @@ ms.author: ryansoc
 For details on this service and how to use it, see [Azure Storage public documentation](../storage/index.md).
 
 ## Storage Service Availability by Azure Government Region
-| Service Type | USGov Virginia | USGov Iowa
+
+| Service | USGov Virginia | USGov Iowa |
 | --- | --- | --- |
-| <a href="https://docs.microsoft.com/en-us/azure/storage/storage-blob-storage-tiers/">Hot/Cool Blob Storage</a> |NA |NA | 
-| <a href="https://docs.microsoft.com/en-us/azure/storage/storage-service-encryption">Storage Service Encryption</a> |GA | GA 
+| [Blob Storage] (../storage/storage-introduction.md#blob-storage) |GA |GA |
+| [Table Storage] (../storage/storage-import-export-service.md#table-storage) |GA  |GA |
+| [Queue Storage] (../storage/storage-import-export-service.md#queue-storage) |GA | GA |
+| [File Storage] (../storage/storage-import-export-service.md#File-storage) |GA |GA |
+| [Hot/Cool Blob Storage] (../storage/storage-blob-storage-tiers.md) |NA |NA |
+| [Storage Service Encryption] (../storage/storage-service-encryption.md) |GA |GA |
+| [Premium Storage] (../storage/storage-premium-storage.md) (includes DS-series VMs) |GA |NA |
+| [Blob Import/Export] (../storage/storage-import-export-service.md) (Classic only) |GA |GA |
 
 ### Variations
 The URLs for storage accounts in Azure Government are different:
@@ -55,15 +62,6 @@ The following information identifies the Azure Government boundary for Azure Sto
 | Regulated/controlled data permitted | Regulated/controlled data not permitted |
 | --- | --- |
 | Data entered, stored, and processed within an Azure Storage product can contain export controlled data. Static authenticators, such as passwords and smartcard PINs for access to Azure platform components. Private keys of certificates used to manage Azure platform components. Other security information/secrets, such as certificates, encryption keys, master keys, and storage keys stored in Azure services. |Azure Storage metadata is not permitted to contain export controlled data. This metadata includes all configuration data entered when creating and maintaining your storage product.  Do not enter Regulated/controlled data into the following fields:  Resource groups, Deployment names, Resource names, Resource tags |
-
-## Premium Storage
-For details on this service and how to use it, see [Premium Storage: High-Performance Storage for Azure Virtual Machine Workloads](../storage/storage-premium-storage.md).
-
-### Variations
-Premium Storage is generally available in the USGov Virginia. This includes DS-series Virtual Machines.
-
-### Considerations
-The same storage data considerations listed above apply to premium storage accounts.
 
 ## Next Steps
 For supplemental information and updates subscribe to the
