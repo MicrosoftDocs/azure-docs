@@ -42,7 +42,7 @@ Visual Studio is used to author and deploy Azure Resource Manage templates in Az
 
 ## Connect to Azure Stack
 
-1.	Open Visual Studio.
+1.	Launch Visual Studio.
 
 2.  From the **Edit** menu, select **Cloud Explorer** and a new pane will open.
 
