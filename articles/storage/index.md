@@ -98,7 +98,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -119,7 +119,7 @@ Azure Storage is the cloud storage solution for modern applications that rely on
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

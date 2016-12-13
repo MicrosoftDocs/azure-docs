@@ -121,7 +121,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
 <h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -137,7 +137,7 @@ App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Creat
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
