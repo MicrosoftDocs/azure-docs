@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/09/2016
+ms.date: 12/13/2016
 ms.author: ryanwi
 
 ---
@@ -42,18 +42,30 @@ The following operating system versions are supported for development:
 > 
 
 ## Install the runtime, SDK, and tools
-The Web Platform Installer offers two configurations for Service Fabric development:
+The Web Platform Installer offers two configurations for Service Fabric development.
 
-* [Install the Service Fabric runtime, SDK, and tools for Visual Studio 2015 (Requires Visual Studio 2015 Update 2 or later)][full-bundle-vs2015]
+Visual Studio 2017 (Azure Development and Management Workload should be installed):
+
+* [Install the Service Fabric runtime and SDK (no Visual Studio tools)][core-sdk]
+
+Visual Studio 2015 (requires Visual Studio 2015 Update 2 or later):
+
+* [Install the Service Fabric runtime, SDK, and tools)][full-bundle-vs2015]
 * [Install the Service Fabric runtime and SDK only (no Visual Studio tools)][core-sdk]
 
 > [!WARNING]
 > Customers have reported errors during installation when using these launch links, or when these links were used in Chrome browser. These are known issues in Web Platform Installer which are being addressed.  As a workaround, please try the following:
 >- Launch the above links in Internet Explorer or Edge browsers, or
->- Launch Web Platform Installer from the Start menu, search for "Service Fabric", and install the SDK, or
->- Download the installers directly from the download center (links are provided in the [SDK release notes](https://blogs.msdn.microsoft.com/azureservicefabric/2016/11/21/release-of-sdk-2-3-311-and-runtime-5-3-311-for-windows/)).
+>- Launch Web Platform Installer from the Start menu, search for "Service Fabric", and install the SDK
 > 
 > We apologize for the inconvenience. 
+
+The current versions are:
+* Service Fabric SDK 2.4.145
+* Service Fabric runtime 5.4.145
+* Visual Studio 2015 tools 1.4.41209
+
+For a list of supported versions, see [Service Fabric support](service-fabric-support.md)
 
 ## Enable PowerShell script execution
 Service Fabric uses Windows PowerShell scripts for creating a local development cluster and for deploying applications from Visual Studio. By default, Windows blocks these scripts from running. To enable them, you must modify your PowerShell execution policy. Open PowerShell as an administrator and enter the following command:
@@ -71,6 +83,7 @@ Now that you've finished setting up your development environment, start building
 * [Check out the Service Fabric code samples on GitHub](https://aka.ms/servicefabricsamples)
 * [Visualize your cluster by using Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * [Follow the Service Fabric learning path to get a broad introduction to the platform](https://azure.microsoft.com/documentation/learning-paths/service-fabric/)
+* Learn about [Service Fabric support options](service-fabric-support.md)
 
 [1]: http://azure.microsoft.com/en-us/campaigns/service-fabric/ "Service Fabric campaign page"
 [2]: http://go.microsoft.com/fwlink/?LinkId=517106 "VS RC"
