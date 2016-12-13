@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/17/2016
-ms.author: dineshm
+ms.author: dineshmm
 
 ---
 # List Azure Storage Resources in C++
