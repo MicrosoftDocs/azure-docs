@@ -41,7 +41,7 @@ mkdir -p /mnt/mymountpoint
 Mount the Azure File Storage SMB share to the mountpoint
 
 ```bash
-sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename ./mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
+sudo mount -t cifs //myaccountname.file.core.windows.net/mysharename /mymountpoint -o vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
 ```
 
 To persist the mount after a reboot, add a line to the `/etc/fstab`
