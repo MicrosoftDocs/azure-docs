@@ -26,7 +26,7 @@ Visual Studio is used to author and deploy Azure Resource Manage templates in Az
 
 2.	Download and install the [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).             
 
-3.	From Web Platform Installer, search for  **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6**, then click **Add**, and **Install** at the bottom of the screen.
+3.	In Web Platform Installer, search for **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6**, then click **Add**, and **Install** at the bottom of the screen.
 
     ![Screenshot of WebPI install steps](./media/azure-stack-install-visual-studio/image3.png) 
 
@@ -34,7 +34,7 @@ Visual Studio is used to author and deploy Azure Resource Manage templates in Az
 
       ![Screenshot of add/remove programs interface for Azure PowerShell](./media/azure-stack-install-visual-studio/image1.png) 
 
-5.	Open the Web Platform Installer, search for  **Microsoft Azure PowerShell - Azure Stack Technical Preview 2**  and then install.
+5.	Open the Web Platform Installer, search for **Microsoft Azure PowerShell - Azure Stack Technical Preview 2** and then install.
 
     ![Screenshot of add/remove programs interface for Azure PowerShell](./media/azure-stack-install-visual-studio/image2.png)
 
@@ -44,9 +44,9 @@ Visual Studio is used to author and deploy Azure Resource Manage templates in Az
 
 1.	Launch Visual Studio.
 
-2.  From the **Edit** menu, select **Cloud Explorer** and a new pane will open.
+2.  From the **Edit** menu, select **Cloud Explorer**.
 
-3.  Select **Add Account** and login with your Azure AD credentials.  
+3.  In the new pane, select **Add Account** and login with your Azure AD credentials.  
 
 4.  Once logged in, you can [deploy templates](azure-stack-deploy-template-visual-studio.md) or browse available resource types and resource groups to create your own templates.  
 
