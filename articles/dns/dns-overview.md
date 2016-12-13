@@ -29,5 +29,5 @@ Azure DNS does not currently support purchasing of domain names. If you want to 
 
 ### Next steps
 
-[Create a DNS zone](dns-getstarted-create-dnszone-portal.md)
+[Create a DNS zone](./dns-getstarted-create-dnszone-portal.md)
 
