@@ -47,7 +47,7 @@ For all scenarios in this topic, the following tasks are required:
 | Apps | Support |
 | --- | --- |
 | Word / Excel / PowerPoint |![Check][1] |
-| OneNote |Coming soon |
+| OneNote |![Check][1] |
 | OneDrive |![Check][1] |
 | Outlook |![Check][1] |
 | Yammer |![Check][1] |
