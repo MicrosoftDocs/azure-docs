@@ -456,7 +456,7 @@ You have already configured a WSFC that is used for one SAP ASCS/SCS instance, a
 
 ## Target Architecture
 
-The goal is that you can install multiple SAP ABAP ASCS or SAP Java SCS clustered instances in the same WSFC cluster, as illustrated in the following diagram:
+Our goal is that you can install multiple SAP ABAP ASCS or SAP Java SCS clustered instances in the same WSFC cluster, as illustrated in the following diagram:
 
 ![Multiple SAP ASCS/SCS clustered instances in Azure][sap-ha-guide-figure-6002]
 
@@ -494,7 +494,7 @@ To prepare your infrastructure, you can install an additional SAP ASCS/SCS insta
 > [!NOTE]
 > For SAP ASCS/SCS cluster instances, each IP address requires a unique probe port. For example, if one IP address on an Azure internal load balancer uses probe port 62300, no other IP address on that load balancer can use probe port 62300.
 >
->For our purposes, because probe port 62300 is already reserved, we’ll use probe port 62350.
+>For our purposes, because probe port 62300 is already reserved, we are using probe port 62350.
 
 You can install additional SAP ASCS/SCS instances in the existing WSFC cluster with two nodes:
 
@@ -505,42 +505,42 @@ You can install additional SAP ASCS/SCS instances in the existing WSFC cluster w
 
 ### Create a virtual host name for the clustered SAP ASCS/SCS instance on the DNS server
 
-Create a DNS entry for the virtual host name of the ASCS/SCS instance with following parameters:
+You can create a DNS entry for the virtual host name of the ASCS/SCS instance by using the following parameters:
 
-| New SAP ASCS/SCS Virtual Host Name | Associated IP Address |
+| New SAP ASCS/SCS virtual host name | Associated IP address |
 | --- | --- | --- |
 |pr5-sap-cl |10.0.0.50 |
 
-![Figure 4: Define the DNS entry for the new additional SAP ASCS/SCS cluster virtual name and TCP/IP address][sap-ha-guide-figure-6004]
+The new host name and IP address are displayed in the DNS Manager, as shown in the following screenshot:
 
-_**Figure 4:** Define the DNS entry for the new additional SAP ASCS/SCS cluster virtual name and TCP/IP address_
+![DNS Manager list highlighting the defined DNS entry for the new SAP ASCS/SCS cluster virtual name and TCP/IP address][sap-ha-guide-figure-6004]
 
-The procedure how to create an DNS entry is  also described in detail in the main [SAP NetWeaver on Windows virtual machines (VMs) - High-Availability Guide][sap-ha-guide-9.1.1].
+The procedure for creating a DNS entry is also described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9.1.1].
 
 > [!NOTE]
-> Remember that the new IP address that you assign to the virtual host name of the additional ASCS/SCS instance must be the same as the new IP address that you assigned to SAP Azure load balancer.
+> The new IP address that you assign to the virtual host name of the additional ASCS/SCS instance must be the same as the new IP address that you assigned to the SAP Azure load balancer.
 >
->In our concrete case that is the 10.0.0.50 IP address.
+>In our scenario, the IP address is 10.0.0.50.
 
-### Add an IP address to an existing Azure Internal Load Balancer with PowerShell
+### Add an IP address to an existing Azure internal load balancer by using PowerShell
 
-To use more than one SAP ASCS/SCS instance in the same WSFC cluster, use PowerShell to add an additional IP address to an existing Azure internal load balancer. Each IP address requires its own load balancing rules, probe port, frontend IP pool and backend pool.
+To create more than one SAP ASCS/SCS instance in the same WSFC cluster, use PowerShell to add an IP address to an existing Azure internal load balancer. Each IP address requires its own load-balancing rules, probe port, front-end IP pool, and back-end pool.
 
-The following script adds a new IP address to an existing load balancer. Update the PowerShell variables for your environment. The script will create all needed load balancing rules for all SAP ASCS /SCS ports.
+The following script adds a new IP address to an existing load balancer. Update the PowerShell variables for your environment. The script will create all required load-balancing rules for all SAP ASCS/SCS ports.
 
 ```powershell
 
 # Login-AzureRmAccount
 # Select-AzureRmSubscription -SubscriptionId <xxxxxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx>
 Clear-Host
-$ResourceGroupName = "SAP-MULTI-SID-Landscape"      # Existing Resource group name
-$VNetName = "pr2-vnet"                        # Existing Virtual network name
-$SubnetName = "Subnet"                        # Existing Subnet name
+$ResourceGroupName = "SAP-MULTI-SID-Landscape"      # Existing resource group name
+$VNetName = "pr2-vnet"                        # Existing virtual network name
+$SubnetName = "Subnet"                        # Existing subnet name
 $ILBName = "pr2-lb-ascs"                      # Existing ILB name                      
 $ILBIP = "10.0.0.50"                          # New IP address
-$VMNames = "pr2-ascs-0","pr2-ascs-1"          # Existing cluster Virtual machine names
-$SAPInstanceNumber = 50                       # SAP ASCS/SCS Instance Number - must be unique value per cluster
-[int]$ProbePort = "623$SAPInstanceNumber"     # Probe port - MUST be unique value per IP and load balancer
+$VMNames = "pr2-ascs-0","pr2-ascs-1"          # Existing cluster virtual machine names
+$SAPInstanceNumber = 50                       # SAP ASCS/SCS instance number - must be a unique value for each cluster
+[int]$ProbePort = "623$SAPInstanceNumber"     # Probe port - must be a unique value for each IP and load balancer
 
 $ILB = Get-AzureRmLoadBalancer -Name $ILBName -ResourceGroupName $ResourceGroupName
 
@@ -548,29 +548,27 @@ $count = $ILB.FrontendIpConfigurations.Count + 1
 $FrontEndConfigurationName ="lbFrontendASCS$count"
 $LBProbeName = "lbProbeASCS$count"
 
-# Get the Azure VNet and Subnet
+# Get the Azure VNet and subnet
 $VNet = Get-AzureRmVirtualNetwork -Name $VNetName -ResourceGroupName $ResourceGroupName
 $Subnet = Get-AzureRmVirtualNetworkSubnetConfig -VirtualNetwork $VNet -Name $SubnetName
 
-# Add Second Frontend and Probe config
+# Add second front-end and probe configuration
 Write-Host "Adding new front end IP Pool '$FrontEndConfigurationName' ..." -ForegroundColor Green
 $ILB | Add-AzureRmLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -PrivateIpAddress $ILBIP -SubnetId $Subnet.Id
 $ILB | Add-AzureRmLoadBalancerProbeConfig -Name $LBProbeName  -Protocol Tcp -Port $Probeport -ProbeCount 2 -IntervalInSeconds 10  | Set-AzureRmLoadBalancer
 
-#Get new updated config
+# Get new updated configuration
 $ILB = Get-AzureRmLoadBalancer -Name $ILBname -ResourceGroupName $ResourceGroupName
 # Get new updated LP FrontendIP COnfig
 $FEConfig = Get-AzureRmLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -LoadBalancer $ILB
 $HealthProbe  = Get-AzureRmLoadBalancerProbeConfig -Name $LBProbeName -LoadBalancer $ILB
 
-# Add new backend config into existign ILB
+# Add new back-end configuration into existing ILB
 $BackEndConfigurationName  = "backendPoolASCS$count"
 Write-Host "Adding new backend Pool '$BackEndConfigurationName' ..." -ForegroundColor Green
 $BEConfig = Add-AzureRmLoadBalancerBackendAddressPoolConfig -Name $BackEndConfigurationName -LoadBalancer $ILB | Set-AzureRmLoadBalancer
 
-
-
-#Get new updated config
+# Get new updated config
 $ILB = Get-AzureRmLoadBalancer -Name $ILBname -ResourceGroupName $ResourceGroupName
 
 # Assign VM NICs to backend pool
@@ -586,7 +584,7 @@ foreach($VMName in $VMNames){
 }
 
 
-# Create Load Balancing Rules
+# Create load-balancing rules
 $Ports = "445","32$SAPInstanceNumber","33$SAPInstanceNumber","36$SAPInstanceNumber","39$SAPInstanceNumber","5985","81$SAPInstanceNumber","5$SAPInstanceNumber`13","5$SAPInstanceNumber`14","5$SAPInstanceNumber`16"
 $ILB = Get-AzureRmLoadBalancer -Name $ILBname -ResourceGroupName $ResourceGroupName
 $FEConfig = get-AzureRMLoadBalancerFrontendIpConfig -Name $FrontEndConfigurationName -LoadBalancer $ILB
@@ -607,85 +605,67 @@ $ILB | Set-AzureRmLoadBalancer
 
 Write-Host "Succesfully added new IP '$ILBIP' to the internal load balancer '$ILBName'!" -ForegroundColor Green
 
-
 ```
+After the script has run, the results are displayed in the Azure portal, as shown in the following screenshot:
 
-After the script is finished, you’ll be able to see the results in the Azure portal.
+![New front-end IP pool in the Azure portal][sap-ha-guide-figure-6005]
 
-![Figure 5: New frontend IP pool in Azure port][sap-ha-guide-figure-6005]
+### Add disks to cluster machines, and configure the SIOS cluster share disk
 
-_**Figure 5:** New frontend IP pool in Azure port_
+You must add a new cluster share disk for each additional SAP ASCS/SCS instance. For Windows Server 2012 R2, the WSFC cluster share disk currently in use is the SIOS DataKeeper software solution.
 
-### Add Additional Disks to Cluster Machines, and Configure SIOS Cluster Share Disk
+Do the following:
+* Add an additional disk or disks (which you need to stripe) of the same size to each of the cluster nodes, and format them.
+* Configure storage replication with SIOS DataKeeper.
 
-You need a new cluster share disk for a new additional SAP ASCS/SCS instance. For Windows Server 2012 R2 WSFC cluster share disk currently is used SIOS DataKeeper software solution.
+This procedure assumes that you have already installed SIOS DataKeeper on the WSFC cluster machines. If you have done so, you need only to configure replication between them.
 
-Therefore:
--	Add additional disk (or more disks which you need to stripe) with the same size to each of the cluster nodes, and format them.
--	Configure storage replication with SIOS DataKeeper.
+The preceding process is described in detail in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-8.12.3.3].  
 
-It is assumed you already have installed SIOS DataKeeper on the WSFC cluster machines, therefore you only have to configure replication between them.
+![DataKeeper synchronous mirroring for the new SAP ASCS/SCS share disk][sap-ha-guide-figure-6006]
 
-All this is described in detail in the main [SAP NetWeaver on Windows virtual machines (VMs) - High-Availability Guide][sap-ha-guide-8.12.3.3].  
+### Deploy VMs for SAP application servers and DBMS cluster
 
-![Figure 6: DataKeeper synchronous mirroring for the new SAP ASCS/SCS share disk is active][sap-ha-guide-figure-6006]
+To finalize infrastructure preparation for the second SAP system, you must do the following:
 
-_**Figure 6:** DataKeeper synchronous mirroring for the new SAP ASCS/SCS share disk is active_
-
-### Deploy VMs for SAP Application Servers and DBMS Cluster
-
-To finalize infrastructure preparation for the second SAP system you need to:
-
-- Deploy dedicated VMs for SAP application servers and put them in own dedicated availability group
-- Deploy dedicated VMs for DBMS cluster and put them in own dedicated availability group
+* Deploy dedicated VMs for SAP application servers and put them in own dedicated availability group
+* Deploy dedicated VMs for DBMS cluster and put them in own dedicated availability group
 
 
-## Install the Second SAP SID2 NetWeaver System
+## Install the second SAP SID2 NetWeaver system
 
-Now you can install second SAP **SID2** system.
+The complete process of installing a second SAP **SID2** system is described in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9].
 
-The complete procedure is described in the main [SAP NetWeaver on Windows virtual machines (VMs) - High-Availability Guide][sap-ha-guide-9].
+The high-level procedure is as follows:
 
-High-level procedure description is following:
+1. [Install the SAP first cluster node][sap-ha-guide-9.1.2].  
+ Install SAP with a high-availability ASCS/SCS instance on the **EXISTING WSFC cluster node 1**.
 
-- [Install the SAP first cluster node][sap-ha-guide-9.1.2]
+2. [Modify the SAP profile of the ASCS/SCS instance][sap-ha-guide-9.1.3].
 
-    Install SAP with a high-availability ASCS/SCS instance on the **EXISTING WSFC cluster node 1**.
+3. [Configure a probe port][sap-ha-guide-9.1.4].  
+ Configure an SAP cluster resource SAP-SID2-IP probe port by using PowerShell. Execute this configuration on one of the SAP ASCS/SCS cluster nodes.
 
-- [Modify the SAP profile of the ASCS/SCS Instance][sap-ha-guide-9.1.3]
+4. [Install the database instance][sap-ha-guide-9.2].  
+ Install DBMS on a dedicated WSFC cluster.
 
-- [Configure a probe port][sap-ha-guide-9.1.4]
+5. [Install the second cluster node][sap-ha-guide-9.3].  
+ Install SAP with a high-availability ASCS/SCS instance on the existing WSFC cluster node 2.
 
-    Configure an SAP cluster resource **SAP-SID2-IP** probe port using PowerShell. Execute this on one of the SAP ASCS/SCS cluster nodes.
+6. Open Windows Firewall ports for the SAP ASCS/SCS instance and ProbePort.  
+ On both cluster nodes that are used for SAP ASCS/SCS instances, open all the Windows Firewall ports that are used by SAP ASCS/SCS. These ports are listed in [the guide][sap-ha-guide-8.8].  
+ Also open the Azure internal load balancer probe port, which is 62350 in our scenario.
 
-- [Install the database instance][sap-ha-guide-9.2]
+7. [Change the start type of the SAP ERS Windows service instance][sap-ha-guide-9.4].
 
-    Install DBMS on a **dedicated WSFC cluster**.
+8. [Install the SAP primary application server][sap-ha-guide-9.5] on the new dedicated VM.
 
-- [Install the second cluster node][sap-ha-guide-9.3]
+9. [Install the SAP additional application server][sap-ha-guide-9.6] on the new dedicated VM.
 
-    Install SAP with a high-availability ASCS/SCS instance on the **EXISTING WSFC cluster node 2**.
+10. [Test the SAP ASCS/SCS instance failover and SIOS replication][sap-ha-guide-10].
 
-- **Open Windows Firewall Ports of SAP ASCS /SCS Instance and ProbePort**
-
-    On both cluster nodes used for SAP ASCS/SCS instance, open all the Windows firewall ports used by SAP ASCS/SCS ports. These ports are listed [here][sap-ha-guide-8.8].
-
-    Also, open the Azure internal load balancer probe port, which is in our case 62350.
-
-- [Change the start type of the SAP ERS Windows service instance][sap-ha-guide-9.4]
-
-- [Install the SAP Primary Application Server][sap-ha-guide-9.5]
-
-    Install SAP primary application server on **new dedicated VM**.
-
-- [Install the SAP Additional Application Server][sap-ha-guide-9.6]
-
-    Install SAP SID2 additional application server on **new dedicated VM**.
-
-- [Test the SAP ASCS/SCS instance failover and SIOS replication][sap-ha-guide-10]
-
-## Next Steps
+## Additional resources
 
 - [Networking Limits - Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Multiple VIPs for Azure Load Balancer][load-balancer-multivip-overview]
-- [Main High-availability SAP NetWeaver on Windows virtual machines guide][sap-ha-guide]
+- [Guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide]
