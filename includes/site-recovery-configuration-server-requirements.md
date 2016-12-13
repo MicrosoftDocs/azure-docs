@@ -9,6 +9,7 @@
 | Operating System Version | Windows Server 2012 R2 |
 | Operating System Locale | English (en-us)|
 | VMware vSphere PowerCLI Version | [PowerCLI 6.0](https://developercenter.vmware.com/tool/vsphere_powercli/6.0 "PowerCLI 6.0")|
+| Windows Server Roles | **Active Directory Domain Services** Role should not be enabled <br> **Internet Information Service** should not be enabled |
 | **Network** | |
 | Network Interface Card Type | VMXNET3 |
 | IP Address Type | Static |
