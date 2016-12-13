@@ -52,11 +52,11 @@ Every file and folder has distinct permissions for these identities:
 * Named groups
 * All other users
 
-The identities of users and groups are Azure Active Directory (Azure AD) identities, so unless otherwise noted, a "user", in the context of Data Lake Store can either mean an Azure AD user or an Azure AD security group.
+The identities of users and groups are Azure Active Directory (Azure AD) identities, so unless otherwise noted, a "user,"" in the context of Data Lake Store, can either mean an Azure AD user or an Azure AD security group.
 
 ## Permissions
 
-The permissions on a filesystem object are **Read**, **Write**, and **Execute** and they can be used on files and folders as shown in the following table.
+The permissions on a filesystem object are **Read**, **Write**, and **Execute**, and they can be used on files and folders as shown in the following table.
 
 |            |    File     |   Folder |
 |------------|-------------|----------|
@@ -88,8 +88,8 @@ Following are some common scenarios to help you understand what permissions are 
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-3.png)
 
-* For the file to be read, the caller needs **Read** permissions
-* For all the folders in the folder structure that contain the file, the caller needs **Execute** permissions
+* For the file to be read, the caller needs **Read** permissions.
+* For all the folders in the folder structure that contain the file, the caller needs **Execute** permissions.
 
 ### Permissions needed to append to a file
 
@@ -102,13 +102,13 @@ Following are some common scenarios to help you understand what permissions are 
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-5.png)
 
-* For the parent folder, the caller needs **Write + Execute** permissions
-* For all the other folders, in the file’s path the caller needs **Execute** permissions
+* For the parent folder, the caller needs **Write + Execute** permissions.
+* For all the other folders, in the file’s path the caller needs **Execute** permissions.
 
 
 
 > [!NOTE]
-> Write permissions on the file is not required to delete the file as long as the above two conditions are true.
+> Write permissions on the file are not required to delete it as long as the previous two conditions are true.
 >
 >
 
@@ -129,7 +129,7 @@ On this blade, the top section shows an overview of what permissions you have (i
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Click **Advanced View** to see the more advanced view, where the concepts of Default ACLs, mask, and super user are shown..
+Click **Advanced View** to see the more advanced view, where the concepts of Default ACLs, mask, and super user are shown.
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -137,7 +137,7 @@ Click **Advanced View** to see the more advanced view, where the concepts of Def
 
 A super user has the most rights of all the users in the Data Lake Store. A super user:
 
-* Has RWX Permissions to **all** file and folders
+* Has RWX Permissions to **all** files and folders
 * Can change the permissions on any file or folder
 * Can change the owning user or owning group of any file or folder
 
@@ -148,7 +148,7 @@ In Azure, a Data Lake Store account has several Azure roles, including:
 * Readers
 
 Everyone in the **Owners** role for a Data Lake Store account is automatically a super user for that account. To learn more about Role-Based Access Control (RBAC) see [Role-based access control](../active-directory/role-based-access-control-configure.md).
-If you would like to create a custom RBAC role that has super user permissions. It needs to have these permissions:
+If you would like to create a custom RBAC role that has super user permissions. It needs to have the following permissions:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
 
@@ -161,7 +161,7 @@ The user who created the item is automatically the owning user of the item. An o
 * Change the owning group of a file that is owned, as long as the owning user is also a member of the target group
 
 > [!NOTE]
-> The owning user **can not** change the owning user of another owned file. Only super users can change the owning user of a file or folder.
+> The owning user **cannot** change the owning user of another owned file. Only super users can change the owning user of a file or folder.
 >
 >
 
@@ -187,13 +187,13 @@ The following illustration represents the access check algorithm for Data Lake S
 
 ## The mask and "effective permissions"
 
-The **mask** is an RWX value that is used to limit access for **named users**, the **owning group**, and **named groups** when you're performing the Access Check algorithm. Here are the key concepts for the mask.
+The **mask** is an RWX value that is used to limit access for **named users**, the **owning group**, and **named groups** when you're performing the access check algorithm. Here are the key concepts for the mask.
 
-* The mask creates "effective permissions". That is, it modifies the permissions at the time of Access Check.
+* The mask creates "effective permissions". That is, it modifies the permissions at the time of access check.
 * The mask can be directly edited by file owner and any super users.
-* The mask has the ability to remove permissions to create the effective permission. The mask **can not** add permissions to the effective permission.
+* The mask has the ability to remove permissions to create the effective permission. The mask **cannot** add permissions to the effective permission.
 
-Let us look at some examples. In the following example, the mask is set to **RWX**, which means that the mask does not remove any permissions. Note that the effective permissions for the named user, owning group, and named group are not altered during the access check.
+Let's look at some examples. In the following example, the mask is set to **RWX**, which means that the mask does not remove any permissions. Note that the effective permissions for the named user, owning group, and named group are not altered during the access check.
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
 
@@ -206,7 +206,7 @@ For reference, here is where the mask for a file or folder appears in the Azure 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
 
 > [!NOTE]
-> For a new Data Lake Store account, the mask for the Access ACL and Default ACL of the root folder ("/") are defaulted to RWX.
+> For a new Data Lake Store account, the mask for the Access ACL and Default ACL of the root folder ("/") defaults to RWX.
 >
 >
 
@@ -228,7 +228,7 @@ In most scenarios, the previous information is all you should need to know about
 
 ### A child folder's Default ACL
 
-When a child folder is created under a parent folder, the parent folder's Default ACL is copied over, as is, to the child folder's Default ACL.
+When a child folder is created under a parent folder, the parent folder's Default ACL is copied over as is to the child folder's Default ACL.
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-acls-child-items-2.png)
 
@@ -238,7 +238,7 @@ Following are some advanced topics to help you understand how ACLs are determine
 
 ### Umask’s role in creating the Access ACL for new files and folders
 
-In a POSIX-compliant system, the general concept is that umask is a 9-bit value on the parent folder that's used to transform the permission for **owning user**, **owning group**, and **other** on a new child file or folder's Access ACL. The bits of a umask identify which bits to turn off in the child item’s Access ACL. Thus it is used to selectively prevent the propagation of permissions for **owning user**, **owning group**, and **other**.
+In a POSIX-compliant system, the general concept is that umask is a 9-bit value on the parent folder that's used to transform the permission for **owning user**, **owning group**, and **other** on the Access ACL of a new child file or folder. The bits of a umask identify which bits to turn off in the child item’s Access ACL. Thus it is used to selectively prevent the propagation of permissions for **owning user**, **owning group**, and **other**.
 
 In an HDFS system, the umask is typically a site-wide configuration option that is controlled by administrators. Data Lake Store uses an **account-wide umask** that cannot be changed. The following table shows Data Lake Store's umask.
 
@@ -297,9 +297,9 @@ The owning user can simply change the permissions of the file to give themselves
 
 ### When I look at ACLs in the Azure portal I see user names but through APIs I see GUIDs, why is that?
 
-Entries in the ACLs are stored as GUIDs that corresponds to users in Azure Active Directory (AAD). The APIs return the GUIDs as-is. The Azure portal tries to make ACLs easier to use by translating the GUIDs into friendly names when possible.
+Entries in the ACLs are stored as GUIDs that correspond to users in Azure Active Directory (Azure AD). The APIs return the GUIDs as is. The Azure portal tries to make ACLs easier to use by translating the GUIDs into friendly names when possible.
 
-### Why do I sometimes see GUIDs in the ACLs when using the Azure portal?
+### Why do I sometimes see GUIDs in the ACLs when I'm using the Azure portal?
 
 A GUID is shown when the user doesn't exist in Azure AD anymore. Usually this happens when the user has left the company or if their account has been deleted in Azure AD.
 
@@ -313,8 +313,8 @@ No.
 |------|------|
 | The **mask** property is available on every file and folder. | The **umask** is a property of the Data Lake Store account. So, there is only a single umask in the Data Lake Store.    |
 | The mask property on a file or folder can be altered by the owning user or owning group of a file or a super user. | The umask property cannot be modified by any user, even a super user. It is an unchangeable, constant value.|
-| The mask property is used during the Access Check algorithm at runtime to determine if a user has the right to perform on operation on a file or folder. The role of the mask is to create "effective permissions" at the time of access check. | The umask is not used during Access Check at all. The umask is used to determine the Access ACL of new child items of a folder. |
-| The mask is a 3-bit RWX value that applies to named user, named group, and owning user at the time of access check.| The umask is a 9- bit value that applies to the owning user, owning group, and **other** of a new child.|
+| The mask property is used during the access check algorithm at runtime to determine if a user has the right to perform on operation on a file or folder. The role of the mask is to create "effective permissions" at the time of access check. | The umask is not used during access check at all. The umask is used to determine the Access ACL of new child items of a folder. |
+| The mask is a 3-bit RWX value that applies to named user, named group, and owning user at the time of access check.| The umask is a 9-bit value that applies to the owning user, owning group, and **other** of a new child.|
 
 ### Where can I learn more about POSIX access control model?
 
