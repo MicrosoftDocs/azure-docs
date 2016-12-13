@@ -18,7 +18,7 @@ ms.author: antonba
 
 ---
 # How to use Azure API Management with virtual networks
-Azure Virtual Networks (VNETs) allow you to place any of your Azure resources in a non-internet routeable network that you control access to. These networks can then be connected to your on premise networks using a variety of VPN technologies. To learn more about Azure Virtual Networks start with the information here: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
+Azure Virtual Networks (VNETs) allow you to place any of your Azure resources in a non-internet routeable network that you control access to. These networks can then be connected to your on-premise networks using various VPN technologies. To learn more about Azure Virtual Networks start with the information here: [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
 
 Azure API Management can be connected to a virtual network (VNET) so it can access backend services within the network and so that the developer portal and API gateway are accessible within the network.
 
@@ -28,7 +28,7 @@ Azure API Management can be connected to a virtual network (VNET) so it can acce
 > 
 
 ## <a name="enable-vpn"> </a>Enable VNET connection
-> VNET connectivity is only available in the **Premium** and **Developer** tiers. To switch between the tiers, open your API Management service in the Azure Portal and then open the **Scale and pricing** tab. Under the **Pricing tier** section select the Premium tier and click Save.
+> VNET connectivity is only available in the **Premium** and **Developer** tiers. To switch between the tiers, open your API Management service in the Azure Portal and then open the **Scale and pricing** tab. Under the **Pricing tier** section, select the Premium or Developer tier and click Save.
 > 
 > 
 
@@ -49,7 +49,7 @@ Select the desired access type:
 You will now see a list of all regions where your API Management service is provisioned. Select a VNET and subnet for every region. The list is populated with both classic and ARM virtual networks available in your Azure subscriptions that are setup in the region you are configuring.
 
 > [!IMPORTANT]
-> When deploying an Azure API Management to an ARM VNet, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management to an ARM VNet subnet that contains other resources, the deployment fails.
+> When deploying an Azure API Management instance to an ARM VNet, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to an ARM VNet subnet that contains other resources, the deployment will fail.
 > 
 > 
 
@@ -57,9 +57,9 @@ You will now see a list of all regions where your API Management service is prov
 
 Click **Save** at the top of the screen. 
 
-> You will not be able to perform management operations on the API Management service while it is updating. The API Management gateway and developer portal will remain available.
-> Note that the VIP address of the API Management instance is likely to change each time VNET is enabled or disabled.
-> 
+> [!NOTE]
+> The VIP address of the API Management instance will change each time VNET is enabled or disabled.  
+> The VIP address will also change when API Management is moved from **External** to **Internal** or vice-versa
 > 
 
 ## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell commandlets
@@ -75,11 +75,11 @@ After your API Management service is connected to the VNET, accessing backend se
 ![Add API from VPN][api-management-setup-vpn-add-api]
 
 ## <a name="network-configuration-issues"> </a>Common Network Configuration Issues
-Below are a list of common misconfiguration issues while deploying API Management service into a Virtual Network.
+Following is a list of common misconfiguration issues that can occur while deploying API Management service into a Virtual Network.
 
-* **Custom DNS server setup** : API Management service depends on a number of Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to be able to resolve hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup. See the ports table below and other network requirements for reference.
+* **Custom DNS server setup**: The API Management service depends on a several Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup. See the ports table below and other network requirements for reference.
 
-* **Ports required for API Management** : Inbound and Outbound traffic into the Subnet in which API Management is deployment can be controlled using [Network Security Group](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/). If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
+* **Ports required for API Management**: Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using [Network Security Group](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/). If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
 
 When an API Management service instance is hosted in a VNET, the ports in the following table are used.
 
@@ -96,9 +96,9 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 | * / * | Inbound |TCP |Azure Infrastructure Load Balancer | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK |External & Internal |
 | * / * | Outbound |TCP |Azure Infrastructure Load Balancer | VIRTUAL_NETWORK / AZURE_LOAD_BALANCER |External & Internal |
 
-* **SSL functionality** : To enable SSL certificate chain building and validation API Management service needs Outbound network connectivity to ocsp.msocsp.com, mscrl.microsoft.com and crl.microsoft.com.
+* **SSL functionality**: To enable SSL certificate chain building and validation the API Management service needs Outbound network connectivity to ocsp.msocsp.com, mscrl.microsoft.com and crl.microsoft.com.
 
-* **Express Route Setup** : A common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution is to define one (or more) user-defined routes ([UDRs]((../virtual-network/virtual-networks-udr-overview.md))) on the subnet that contains the Azure API Management. A UDR defines subnet-specific routes that will be honored instead of the default route.
+* **Express Route Setup**: A common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution is to define one (or more) user-defined routes ([UDRs][UDR Reference]) on the subnet that contains the Azure API Management. A UDR defines subnet-specific routes that will be honored instead of the default route.
   If possible, it is recommended to use the following configuration:
  * The ExpressRoute configuration advertises 0.0.0.0/0 and by default force tunnels all outbound traffic on-premises.
  * The UDR applied to the subnet containing the Azure API Management defines 0.0.0.0/0 with a next hop type of Internet.
@@ -116,7 +116,8 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 
 ## <a name="related-content"> </a>Related content
-* [Create a virtual network with a site-to-site VPN connection using the Azure Portal][Create a virtual network with a site-to-site VPN connection using the Azure Portal]
+* [Connecting a virtual Network to backend using Vpn Gateway][Different topologies to connect to Vpn Gateway]
+* [Connecting virtual Network from different deployment models][Connect Virtual Network with different deployment models]
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
@@ -129,6 +130,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 [Connect to a web service behind VPN]: #connect-vpn
 [Related content]: #related-content
 
-
-[Create a virtual network with a site-to-site VPN connection using the Azure Portal]: ../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md
+[Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site
+[Connect Virtual Network with different deployment models]: ../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md
+[UDR Reference]: ../virtual-network/virtual-networks-udr-overview.md
 [How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
