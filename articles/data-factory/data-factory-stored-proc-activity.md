@@ -85,6 +85,7 @@ The following walkthrough provides step-by-step instructions for invoking a stor
 7. Select **Pin to dashboard** so that you can see the data factory on the dashboard next time you log in.
 8. Click **Create** on the **New data factory** blade.
 9. You see the data factory being created in the **dashboard** of the Azure portal. After the data factory has been created successfully, you see the data factory page, which shows you the contents of the data factory.
+
    ![Data Factory home page](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### Create an Azure SQL linked service
