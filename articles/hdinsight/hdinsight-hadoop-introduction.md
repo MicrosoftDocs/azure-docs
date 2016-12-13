@@ -35,7 +35,7 @@ For big data to provide actionable intelligence or insight, you must collect rel
 HDInsight is a cloud distribution on Microsoft Azure of the rapidly expanding Apache Hadoop technology stack for big data analysis. It includes implementations of Apache Spark, HBase, Kafka, Storm, Pig, Hive, Interactive Hive, Sqoop, Oozie, Ambari, and so on. HDInsight also integrates with business intelligence (BI) tools such as Power BI, Excel, SQL Server Analysis Services, and SQL Server Reporting Services.
 
 ### Hadoop, HBase, Spark, Kafka, Interactive Hive, Storm, customized, and other clusters
-Get a quick overview of the cluster configurations HDInsight provides:
+HDInsight offers the following cluster configurations:
 * Apache Hadoop
 * Apache Spark
 * Apache HBase
