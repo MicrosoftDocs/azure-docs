@@ -27,11 +27,11 @@ When the Microsoft Azure Import/Export service processes drives associated with 
   
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath /waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
   
- See [Import-Export Service Log File Format](../importexport/Import-Export-Service-Log-File-Format.md) for the format of copy logs and the full list of status codes.  
+ See [Import-Export Service Log File Format](storage-import-export-file-format-log.md) for the format of copy logs and the full list of status codes.  
   
 ## See Also  
- [Setting Up the Azure Import-Export Tool](../importexport/Setting-Up-the-Azure-Import-Export-Tool.md)   
- [Preparing Hard Drives for an Import Job](../importexport/Preparing-Hard-Drives-for-an-Import-Job.md)   
- [Repairing an Import Job](../importexport/Repairing-an-Import-Job.md)   
- [Repairing an Export Job](../importexport/Repairing-an-Export-Job.md)   
- [Troubleshooting the Azure Import-Export Tool](../importexport/Troubleshooting-the-Azure-Import-Export-Tool.md)
+ [Setting Up the Azure Import-Export Tool](storage-import-export-tool-setup-v1.md)   
+ [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+ [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   
+ [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)   
+ [Troubleshooting the Azure Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md)

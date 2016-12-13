@@ -24,7 +24,7 @@ The Microsoft Azure Import/Export tool returns error messages if it runs into is
 ## A copy session fails, what I should do?  
  When a copy session fails, there are two options:  
   
- If the error is retryable, for example if the network share was offline for a short period and now is back online, you can resume the copy session. If the error is not retryable, for example if you specified the wrong source file directory in the command line parameters, you need to abort the copy session. See [Preparing Hard Drives for an Import Job](../importexport/Preparing-Hard-Drives-for-an-Import-Job.md) for more information about resuming and aborting copy sessions.  
+ If the error is retryable, for example if the network share was offline for a short period and now is back online, you can resume the copy session. If the error is not retryable, for example if you specified the wrong source file directory in the command line parameters, you need to abort the copy session. See [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md) for more information about resuming and aborting copy sessions.  
   
 ## I can’t resume or abort a copy session.  
  If the copy session is the first copy session for a drive, then the error message should state: "The first copy session cannot be resumed or aborted." In this case, you can delete the old journal file and rerun the command.  
@@ -35,8 +35,8 @@ The Microsoft Azure Import/Export tool returns error messages if it runs into is
  The journal file for a drive contains the complete information of copying data to this drive, and it is needed to add more files to the drive and will be used to create an import job. If the journal file is lost, you will have to redo all the copy sessions for the drive.  
   
 ## See Also  
- [Setting Up the Azure Import-Export Tool](../importexport/Setting-Up-the-Azure-Import-Export-Tool.md)   
- [Preparing Hard Drives for an Import Job](../importexport/Preparing-Hard-Drives-for-an-Import-Job.md)   
- [Reviewing Job Status with Copy Log Files](../importexport/Reviewing-Job-Status-with-Copy-Log-Files.md)   
- [Repairing an Import Job](../importexport/Repairing-an-Import-Job.md)   
- [Repairing an Export Job](../importexport/Repairing-an-Export-Job.md)
+ [Setting Up the Azure Import-Export Tool](storage-import-export-tool-setup-v1.md)   
+ [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+ [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
+ [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   
+ [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)

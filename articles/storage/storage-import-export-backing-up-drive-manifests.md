@@ -24,4 +24,4 @@ Drive manifests can be automatically backed up to blobs by setting the `BackupDr
  You can retrieve the URI of the backup drive manifests for a job by calling the [Get Job](../importexport/Get-Job3.md) operation. The blob URI is returned in the `ManifestUri` property for each drive.  
   
 ## See Also  
- [Using the Import/Export Service REST API](../importexport/Using-the-Azure-Import-Export-Service-REST-API.md)
+ [Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)

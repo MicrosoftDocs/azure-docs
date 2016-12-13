@@ -25,7 +25,7 @@ translation.priority.mt:
   - zh-tw
 ---
 # Quick Reference for Frequently Used Commands for Import Jobs
-This section provides a quick references for some frequently used commands. For detailed usage, see [Preparing Hard Drives for an Import Job](../importexport/Preparing-Hard-Drives-for-an-Import-Job.md).  
+This section provides a quick references for some frequently used commands. For detailed usage, see [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md).  
   
 ## Copy a Single Directory to a Hard Drive  
  Here is a sample command to copy a single source directory to a hard drive that hasn’t been yet been encrypted with BitLocker:  

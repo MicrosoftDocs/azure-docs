@@ -35,19 +35,19 @@ See [Using the Microsoft Azure Import/Export Service to Transfer Data to Blob St
  Requests to the Import/Export service must conform to the versioning guidelines described in [Service Management Versioning](assetId:///bb009293-529c-4793-b925-0f8701f337d2). All requests must specify the `x-ms-version` header and set its value to `2014-05-01`or `2014-11-01`.  
   
 ## In This Section  
-[Creating an Import Job](import-export-creating-an-import-job.md)  
+[Creating an Import Job](storage-import-export-creating-an-import-job.md)  
   
-[Creating an Export Job](import-export-creating-an-export-job.md)  
+[Creating an Export Job](storage-import-export-creating-an-export-job.md)  
   
-[Retrieving State Information for a Job](import-export-retrieving-state-info-for-a-job.md)  
+[Retrieving State Information for a Job](storage-import-export-retrieving-state-info-for-a-job.md)  
   
-[Enumerating Jobs](import-export-enumerating-jobs.md)  
+[Enumerating Jobs](storage-import-export-enumerating-jobs.md)  
   
-[Cancelling and Deleting Jobs](import-export-cancelling-and-deleting-Jobs.md)  
+[Cancelling and Deleting Jobs](storage-import-export-cancelling-and-deleting-jobs.md)  
   
-[Backing Up Drive Manifests](import-export-backing-Up-drive-manifests.md)  
+[Backing Up Drive Manifests](storage-import-export-backing-up-drive-manifests.md)  
   
-[Diagnostics and Error Recovery for Import-Export Jobs](import-export-diagnostics-and-error-recovery.md)  
+[Diagnostics and Error Recovery for Import-Export Jobs](storage-import-export-diagnostics-and-error-recovery.md)  
   
 ## See Also  
  [Storage Import/Export REST](/rest/api/storageservices/importexport/Storage-Import-Export-Service-REST-API-Reference.md)

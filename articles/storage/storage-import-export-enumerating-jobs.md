@@ -30,4 +30,4 @@ To enumerate all jobs in a subscription, call the [List Jobs](../importexport/Li
 -   The time the job was created  
   
 ## See Also  
- [Using the Import/Export Service REST API](../importexport/Using-the-Azure-Import-Export-Service-REST-API.md)
+ [Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)

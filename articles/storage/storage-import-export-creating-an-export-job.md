@@ -82,7 +82,7 @@ Creating an export job for the Microsoft Azure Import/Export service using the R
 -   The list of blobs (or blob prefixes) to be exported.  
   
 ## Shipping Your Drives  
- Next, use the Azure Import/Export tool to determine the number of drives you need to send, based on the blobs you have selected to be exported and the drive size. See the [Azure Import-Export Tool Reference](../importexport/Azure-Import-Export-Tool-Reference.md) for details.  
+ Next, use the Azure Import/Export tool to determine the number of drives you need to send, based on the blobs you have selected to be exported and the drive size. See the [Azure Import-Export Tool Reference](storage-import-export-tool-how-to-v1.md) for details.  
   
  Package the drives in a single package and ship them to the address obtained in the earlier step. Note the tracking number of your package for the next step.  
   
@@ -96,4 +96,4 @@ Creating an export job for the Microsoft Azure Import/Export service using the R
  After your export job has been processed, your drives will be returned to you with your encrypted data. You can retrieve the BitLocker key for each of the drives by calling the [Get Job](../importexport/Get-Job3.md) operation. You can then unlock the drive using the key. The drive manifest file on each drive contains the list of files on the drive, as well as the original blob address for each file.  
   
 ## See Also  
- [Using the Import/Export Service REST API](../importexport/Using-the-Azure-Import-Export-Service-REST-API.md)
+ [Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)

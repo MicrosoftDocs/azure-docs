@@ -71,4 +71,4 @@ Number of drives needed:        3
 ```  
   
 ## See Also  
- [Azure Import-Export Tool Reference](../importexport/Azure-Import-Export-Tool-Reference.md)
+ [Azure Import-Export Tool Reference](storage-import-export-tool-how-to-v1.md)

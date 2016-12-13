@@ -79,7 +79,7 @@ WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bob
 ## Using RepairExport to Validate Drive Contents  
  You can also use Azure Import/Export with the **RepairExport** option to validate the contents on the drive are correct. The manifest file on each export drive contains MD5s for the contents of the drive.  
   
- The Azure Import/Export service can also save the manifest files to a storage account during the export process. The location of the manifest files is available via the [Get Job](../importexport/Get-Job3.md) operation when the job has completed. See [Import-Export Service Manifest File Format](../importexport/Import-Export-Service-Manifest-File-Format.md) for more information about the format of a drive manifest file.  
+ The Azure Import/Export service can also save the manifest files to a storage account during the export process. The location of the manifest files is available via the [Get Job](../importexport/Get-Job3.md) operation when the job has completed. See [Import-Export Service Manifest File Format](storage-import-export-file-format-metadata-and-properties.md) for more information about the format of a drive manifest file.  
   
  The following example shows how to run the Azure Import/Export tool with the **/ManifestFile** and **/CopyLogFile** parameters:  
   
@@ -145,8 +145,8 @@ WAImportExport.exe RepairExport /r:C:\WAImportExport\9WM35C3U.rep /d:G:\ /sn:bob
  Any component failing the verification will be downloaded by the tool and rewritten to the same file on the drive.  
   
 ## See Also  
- [Setting Up the Azure Import-Export Tool](../importexport/Setting-Up-the-Azure-Import-Export-Tool.md)   
- [Preparing Hard Drives for an Import Job](../importexport/Preparing-Hard-Drives-for-an-Import-Job.md)   
- [Reviewing Job Status with Copy Log Files](../importexport/Reviewing-Job-Status-with-Copy-Log-Files.md)   
- [Repairing an Import Job](../importexport/Repairing-an-Import-Job.md)   
- [Troubleshooting the Azure Import-Export Tool](../importexport/Troubleshooting-the-Azure-Import-Export-Tool.md)
+ [Setting Up the Azure Import-Export Tool](storage-import-export-tool-setup-v1.md)   
+ [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+ [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
+ [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   
+ [Troubleshooting the Azure Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md)
