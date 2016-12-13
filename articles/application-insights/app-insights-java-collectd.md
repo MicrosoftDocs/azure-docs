@@ -54,6 +54,7 @@ On your Linux server machines:
 
 Here's part of a sample configuration file:
 
+```
     ...
     # collectd plugins
     LoadPlugin cpu
@@ -80,7 +81,8 @@ Here's part of a sample configuration file:
       # Other plugin configurations ...
       ...
     </Plugin>
-.   ...
+    ...
+```
 
 Configure other [collectd plugins](https://collectd.org/wiki/index.php/Table_of_Plugins), which can collect various data from different sources.
 

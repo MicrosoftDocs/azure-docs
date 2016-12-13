@@ -51,6 +51,8 @@ Create ApplicationInsights.xml in the folder in which you added the SDK. Put int
 
 Substitute the instrumentation key that you got from the Azure portal.
 
+```XML
+
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 
@@ -80,7 +82,7 @@ Substitute the instrumentation key that you got from the Azure portal.
 
       </TelemetryInitializers>
     </ApplicationInsights>
-
+```
 
 * The instrumentation key is sent along with every item of telemetry and tells Application Insights to display it in your resource.
 * The HTTP Request component is optional. It automatically sends telemetry about requests and response times to the portal.
@@ -90,6 +92,8 @@ Substitute the instrumentation key that you got from the Azure portal.
 Locate and open the web.xml file in your project, and merge the following snippet of code under the web-app node, where your application filters are configured.
 
 To get the most accurate results, the filter should be mapped before all other filters.
+
+```XML
 
     <filter>
       <filter-name>ApplicationInsightsWebFilter</filter-name>
@@ -101,6 +105,7 @@ To get the most accurate results, the filter should be mapped before all other f
        <filter-name>ApplicationInsightsWebFilter</filter-name>
        <url-pattern>/*</url-pattern>
     </filter-mapping>
+```
 
 ## 5. Check firewall exceptions
 You might need to [set exceptions to send outgoing data](app-insights-ip-addresses.md).
