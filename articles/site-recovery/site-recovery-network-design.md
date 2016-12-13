@@ -1,4 +1,4 @@
-﻿---
+---
 title: Designing your network infrastructure for disaster recovery | Microsoft Docs
 description: This article discusses network design considerations for Azure Site Recovery
 services: site-recovery
@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 09/19/2016
+ms.date: 12/9/2016
 ms.author: pratshar
 
 ---
-# Designing your network infrastructure for disaster recovery
+# Designing your network for disaster recovery
 This article is directed to IT professionals who are responsible for architecting, implementing, and supporting business continuity and disaster recovery (BCDR) infrastructure, and who want to leverage Microsoft Azure Site Recovery (ASR) to support and enhance their BCDR services. This paper discusses practical considerations for System Center Virtual Machine Manager server deployment, the pros and cons of stretched subnets vs. subnet failover, and how to structure disaster recovery to virtual sites in Microsoft Azure.
 
 ## Overview

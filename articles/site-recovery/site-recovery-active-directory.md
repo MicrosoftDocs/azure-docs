@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/16/2016
+ms.date: 12/9/2016
 ms.author: pratshar
 
 ---
@@ -80,9 +80,13 @@ Most applications also require the presence of a domain controller and a DNS ser
 > 
 > 
 
-1. On the domain controller virtual machine run a test failover of it in the isolated network. Use latest available application consistent recovery point of the domain controller virtual machine to do the test failover. 
+1. On the domain controller virtual machine run a test failover of it in the isolated network. Use latest available **application consistent** recovery point of the domain controller virtual machine to do the test failover. 
 2. Run a test failover for the application recovery plan.
 3. After testing is complete, mark the test failover job of domain controller virtual machine and of the recovery plan 'Complete' on the **Jobs** tab in the Site Recovery portal.
+
+### Removing reference to other domain controllers
+When you are doing a test failover, you will not bring all of the domain controllers in the test network. To remove the reference of other domain controllers that exist in your production environment you will need to [seize FSMO Active Directory roles and do metadata cleanup](http://aka.ms/ad_seize_fsmo) for missing domain controllers. 
+
 
 ### DNS and domain controller on different machines
 If DNS isn't on the same virtual machine as the domain controller you’ll need to create a DNS VM for the test failover. If they're on the same VM, you can skip this section.
