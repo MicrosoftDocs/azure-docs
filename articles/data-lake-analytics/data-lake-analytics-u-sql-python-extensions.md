@@ -25,7 +25,7 @@ Python Extensions for U-SQL enable developers to perform massively parallel exec
 * Use the REFERENCE ASSEMBLY statement to enable Python extensions for the U-SQL Script
 * Using the REDUCE operation to partition the input data on a key
 * The Python extensions for U-SQL include a built-in reducer (Extension.Python.Reducer) that runs Python code on each vertex assigned to the reducer
-* The U-SQL script contains the embedded Python code that has a usqlml_main function accepts a pandas DataFrame as input and returns a pandas DataFrame as output.
+* The U-SQL script contains the embedded Python code that has a function called usqlml_main that accepts a pandas DataFrame as input and returns a pandas DataFrame as output.
 
 --
 
