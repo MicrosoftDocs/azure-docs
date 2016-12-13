@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Spring CM | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with SpringCM | Microsoft Docs'
 description: Learn how to use Spring CM with Azure Active Directory to enable single sign-on, automated provisioning, and more!
 services: active-directory
 author: jeevansd
@@ -16,7 +16,7 @@ ms.date: 12/12/2016
 ms.author: jeedes
 
 ---
-# Tutorial: Azure Active Directory integration with Spring CM
+# Tutorial: Azure Active Directory integration with SpringCM
 The objective of this tutorial is to show how to set up single sign-on between Azure Active Directory and SpringCM.
 
 The scenario outlined in this tutorial assumes that you already have the following items:
@@ -67,7 +67,7 @@ The objective of this section is to outline how to enable the application integr
 This section outlines how to enable users to authenticate to SpringCM with their account in Azure Active Directory, using federation based on the SAML protocol.
 
 ### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **SpringCM** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **SpringCM** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure single Sign-On](./media/active-directory-saas-spring-cm-tutorial/IC797047.png "Configure single Sign-On")
 

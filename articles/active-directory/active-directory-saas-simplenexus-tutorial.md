@@ -109,12 +109,13 @@ To test your configuration, you need to grant the Azure AD users you want to all
 
 ### To assign users to SimpleNexus, perform the following steps:
 1. In the Azure classic portal, create a test account.
-2. On the **SimpleNexus **application integration page, click **Assign users**.
+2. On the **SimpleNexus** application integration page, click **Assign users**.
    
-   ![Assign Users](./media/active-directory-saas-simplenexus-tutorial/IC785901.png "Assign Users")
+    ![Assign Users](./media/active-directory-saas-simplenexus-tutorial/IC785901.png "Assign Users")
+
 3. Select your test user, click **Assign**, and then click **Yes** to confirm your assignment.
    
-   ![Yes](./media/active-directory-saas-simplenexus-tutorial/IC767830.png "Yes")
+    ![Yes](./media/active-directory-saas-simplenexus-tutorial/IC767830.png "Yes")
 
 If you want to test your single sign-on settings, open the Access Panel. For more details about the Access Panel, see [Introduction to the Access Panel](active-directory-saas-access-panel-introduction.md).
 

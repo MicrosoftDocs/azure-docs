@@ -68,7 +68,7 @@ The objective of this section is to outline how to enable the application integr
 The objective of this section is to outline how to enable users to authenticate to SmarterU with their account in Azure AD using federation based on the SAML protocol.
 
 ### To configure single sign-on, perform the following steps:
-1. In the Azure classic portal, on the **SmarterU** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On ** dialog.
+1. In the Azure classic portal, on the **SmarterU** application integration page, click **Configure single sign-on** to open the **Configure Single Sign On** dialog.
    
     ![Configure Single Sign-On](./media/active-directory-saas-smarteru-tutorial/IC777323.png "Configure Single Sign-On")
 
@@ -138,7 +138,7 @@ To test your configuration, you need to grant the Azure AD users you want to all
 ### To assign users to SmarterU, perform the following steps:
 1. In the Azure classic portal, create a test account.
 
-2. On the **SmarterU **application integration page, click **Assign users**.
+2. On the **SmarterU** application integration page, click **Assign users**.
    
     ![Assign Users](./media/active-directory-saas-smarteru-tutorial/IC777330.png "Assign Users")
 

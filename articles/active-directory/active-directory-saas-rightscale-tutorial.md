@@ -79,7 +79,6 @@ To configure the integration of RightScale into Azure AD, you need to add RightS
 
 7. In the results pane, select **RightScale**, and then click **Complete** to add the application.
    
-    ![Selecting the app in the gallery](./media/active-directory-saas-rightscale-tutorial/tutorial_rightscale_02.png)
 
 ## Configuring and testing Azure AD single sign-on
 The objective of this section is to show you how to configure and test Azure AD single sign-on with RightScale based on a test user called "Britta Simon".

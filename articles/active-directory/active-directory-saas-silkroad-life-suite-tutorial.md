@@ -101,7 +101,8 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 1. Sign-on to your SilkRoad company site as administrator. 
 
-    > [AZURE.NOTE] To obtain access to the SilkRoad Life Suite Authentication application for configuring federation with Microsoft Azure AD, please contact SilkRoad Support or your SilkRoad Services representative.
+    > [!NOTE] 
+    > To obtain access to the SilkRoad Life Suite Authentication application for configuring federation with Microsoft Azure AD, please contact SilkRoad Support or your SilkRoad Services representative.
 
 1. Go to **Service Provider**, and then click **Federation Details**. 
    
@@ -249,10 +250,10 @@ The objective of this section is to create a user called Britta Simon in SilkRoa
 
 **To create a user called Britta Simon in SilkRoad Life Suite, perform the following steps:**
 
-1. Ask your SilkRoad Life Suite support team to create a user that has as **SSO ID** attribute the same value as the **emailaddress** of Britta Simon in Azure AD.
+- Ask your SilkRoad Life Suite support team to create a user that has as **SSO ID** attribute the same value as the **emailaddress** of Britta Simon in Azure AD.
 
 ### Assigning the Azure AD test user
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to SilkRoad Life Suite.
+The objective of this section is to enable Britta Simon to use Azure single sign-on by granting her access to SilkRoad Life Suite.
 
 ![Assign User][200] 
 
