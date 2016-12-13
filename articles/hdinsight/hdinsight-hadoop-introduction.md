@@ -45,6 +45,7 @@ Get a quick overview of the cluster configurations HDInsight provides:
 * Apache Storm
 * [Custom clusters with script actions](hdinsight-hadoop-customize-cluster-linux.md).
 
+Descriptions of cluster technologies:
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Provides reliable data storage with [HDFS](#hdfs), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
 * **[Apache Spark](http://spark.apache.org/)**: A parallel processing framework that supports in-memory processing to boost the performance of big-data analysis applications, Spark works for SQL, streaming data, and machine learning. See [Overview: What is Apache Spark in HDInsight?](hdinsight-apache-spark-overview.md)
 * **[Apache HBase](http://hbase.apache.org/)**: A NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data - potentially billions of rows times millions of columns. See [Overview of HBase on HDInsight](hdinsight-hbase-overview.md).
