@@ -75,7 +75,7 @@ Where the values of this string are available in the Connection String blade sho
 
 For example, consider the account shown in the Connection String Information above.  A valid connection string is:
 
-    mongodb://contoso123:<password>@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
+    mongodb://contoso123:0Fc3IolnL12312asdfawejunASDF@asdfYXX2t8a97kghVcUzcDv98hawelufhawefafnoQRGwNj2nMPL1Y9qsIr9Srdw==@anhohmongo.documents.azure.com:10250/mydatabase?ssl=true
 
 ## Next steps
 * Learn how to [use MongoChef](documentdb-mongodb-mongochef.md) with a DocumentDB account with protocol support for MongoDB.
