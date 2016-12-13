@@ -56,7 +56,7 @@ Azure File storage offers file shares in the cloud using the standard SMB protoc
 
 Moving files from a VM to an SMB mount hosted on Azure File Storage is a great way to debug logs as that same SMB share can be locally mounted to your Mac, Linux, or Windows workstation.  SMB would not be the best solution to stream Linux or application logs in real time as the SMB protocol is not built for logging duties as heavy as that.  A dedicated unified logging layer tool like Fluentd would be a better choice over SMB to collect Linux and application logging output.
 
-For this detailed walkthrough, we will create the prerequisites needed to first create the Azure File Storage share and then mount it via SMB on a Linux VM.
+For this detailed walkthrough, we create the prerequisites needed to first create the Azure File Storage share, and then mount it via SMB on a Linux VM.
 
 ## Create the Azure Storage account
 
@@ -79,7 +79,7 @@ azure storage account keys list mystorageaccount \
 
 ## Create the Azure File Storage Share
 
-Create the File Storage share which contains the SMB share.  The quota is always in GigaBytes (GBs).
+Create the File Storage share, which contains the SMB share.  The quota is always in GigaBytes (GBs).
 
 ```azurecli
 azure storage share create mystorageshare \
@@ -104,7 +104,7 @@ sudo mount -t cifs //mystorageaccount.file.core.windows.net/mystorageshare /mnt/
 
 ## Persist the SMB mount through reboots
 
-Once you reboot the Linux VM, the mounted SMB share is unmounted during shutdown.  To re-mount the SMB share on boot, you must add a line to the Linux `/etc/fstab`.  Linux uses the `fstab` file to list what filesystems it needs to mount during bootup.  Adding the SMB share ensures that the Azure File Storage share is a permanently mounted filesystem for the Linux VM.  Adding the Azure File Storage SMB share to a new VM is possible using `cloud-init`.
+Once you reboot the Linux VM, the mounted SMB share is unmounted during shutdown.  To remount the SMB share on boot, you must add a line to the Linux `/etc/fstab`.  Linux uses the `fstab` file to list what filesystems it needs to mount during bootup.  Adding the SMB share ensures that the Azure File Storage share is a permanently mounted filesystem for the Linux VM.  Adding the Azure File Storage SMB share to a new VM is possible using `cloud-init`.
 
 ```bash
 //myaccountname.file.core.windows.net/mysharename /mymountpoint cifs vers=3.0,username=myaccountname,password=StorageAccountKeyEndingIn==,dir_mode=0777,file_mode=0777
