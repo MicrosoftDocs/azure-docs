@@ -33,7 +33,7 @@ SSH keys are by default kept in the `.ssh` directory.
 cd ~/.ssh/
 ```
 
-If you do not have a `~/.ssh` directory the `ssh-keygen` command will create it for you with the correct permissions.
+If you do not have a `~/.ssh` directory, the `ssh-keygen` command creates it for you with the correct permissions.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "ahmet@myserver"
@@ -78,7 +78,7 @@ Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
 $
 ```
 
-This is successful if you are not prompted for an SSH private key password, or a login password to the VM.
+SSH is successful configured if you are not prompted for an SSH private key password, or a login password to the VM.
 
 ## Detailed Walkthrough
 
@@ -102,7 +102,7 @@ Start by changing directories, so that all your ssh keys are created in that dir
 cd ~/.ssh
 ```
 
-If you do not have a `~/.ssh` directory the `ssh-keygen` command will create it for you with the correct permissions.
+If you do not have a `~/.ssh` directory, the `ssh-keygen` command creates it for you with the correct permissions.
 
 ```bash
 ssh-keygen -t rsa -b 2048 -C "myusername@myserver"
@@ -233,7 +233,7 @@ This SSH config gives you sections for each server to enable each to have its ow
 
 ### Config file explained
 
-`Host` = the name of the host being called on the terminal.  `ssh fedora22` tells `SSH` to use the values in the settings block labeled `Host fedora22`  NOTE: This can be any label that is logical for your usage and does not represent the actual hostname of any server.
+`Host` = the name of the host being called on the terminal.  `ssh fedora22` tells `SSH` to use the values in the settings block labeled `Host fedora22`  NOTE: Host can be any label that is logical for your usage and does not represent the actual hostname of any server.
 
 `Hostname 102.160.203.241` = the IP address or DNS name for the server being accessed.
 
