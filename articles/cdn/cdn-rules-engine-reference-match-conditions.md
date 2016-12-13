@@ -1,5 +1,5 @@
 ---
-title: Rules Engine | Microsoft Docs
+title: Rules Engine Match Conditions| Microsoft Azure Docs
 description: This topic describes Rules engine match conditions and features
 services: cdn
 documentationcenter: ''
@@ -17,9 +17,10 @@ ms.date: 07/29/2016
 ms.author: rli
 
 ---
-This topic lists detailed descriptions of the available Match Conditions for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
 #Match conditions
+This topic lists detailed descriptions of the available Match Conditions for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
+
 The second part of a rule is the match condition. A match condition identifies specific types of requests for which a set of features will be performed.
 
 For example, it may be used to filter requests for content at a particular location, requests generated from a particular IP address or country, or by header information.
@@ -113,7 +114,7 @@ URL Query Regex | Identifies requests that contain the specified query string pa
 URL Query Wildcard | Compares the specified value(s) against the request's query string.
 
 
-## See also
+## Next steps
 * [Azure CDN Overview](cdn-overview.md)
 * [Rules Engine Reference](cdn-rules-engine-reference.md)
 * [Rules Engine Conditional Expressions](cdn-rules-engine-reference-conditional-expressions.md)

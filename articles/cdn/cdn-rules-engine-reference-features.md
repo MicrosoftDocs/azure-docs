@@ -1,5 +1,5 @@
 ---
-title: Rules Engine | Microsoft Docs
+title: Rules Engine Features | Microsoft Azure Docs
 description: This topic describes Rules engine match conditions and features
 services: cdn
 documentationcenter: ''
@@ -17,9 +17,10 @@ ms.date: 07/29/2016
 ms.author: rli
 
 ---
-This topic lists detailed descriptions of the available features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
 # Features
+This topic lists detailed descriptions of the available features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
+
 The third part of a rule is the feature. A feature defines the type of action that will be applied to the type of request identified by a set of match conditions.
 
 ## Access
@@ -989,7 +990,7 @@ This feature includes matching criteria that must be met before it can be applie
 - URL Query Wildcard
 
 
-## See also
+## Next Steps
 * [Rules Engine Reference](cdn-rules-engine-reference.md)
 * [Rules Engine Conditional Expressions](cdn-rules-engine-reference-conditional-expressions.md)
 * [Rules Engine Match Conditions](cdn-rules-engine-reference-match-conditions.md)

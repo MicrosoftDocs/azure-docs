@@ -1,5 +1,5 @@
 ---
-title: Rules Engine | Microsoft Docs
+title: Rules Engine Reference | Microsoft Azure Docs
 description: This topic describes Rules engine match conditions and features
 services: cdn
 documentationcenter: ''
@@ -17,6 +17,7 @@ ms.date: 07/29/2016
 ms.author: rli
 
 ---
+# Rules Engine
 This topic lists detailed descriptions of the available match conditions and features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
 The HTTP Rules Engine is designed to be the final authority on how specific types of requests are processed by the CDN.
@@ -28,12 +29,12 @@ The HTTP Rules Engine is designed to be the final authority on how specific type
 - Redirect requests.
 - Store custom log data.
 
-# Terminology
+## Terminology
 A rule is defined through the use of [**conditional expressions**](cdn-rules-engine-reference-conditional-expressions.md), [**matches**](cdn-rules-engine-reference-match-conditions.md), and [**features**](cdn-rules-engine-reference-features.md). These elements are highlighted in the following illustration.
 
  ![CDN match condition](./media/cdn-rules-engine-reference/cdn-rules-engine-terminology.png)
 
-# Syntax
+## Syntax
 
 The manner in which special characters will be treated varies according to how a match condition or feature handles text values. A match condition or feature may interpret text in one of the following ways:
 
@@ -41,12 +42,12 @@ The manner in which special characters will be treated varies according to how a
 2. [**Wildcard Values**](#wildcard-values)
 3. [**Regular Expressions**](#regular-expressions)
 
-## Literal Values
+### Literal Values
 Text that is interpreted as a literal value will treat all special characters, with the exception of the % symbol, as a part of the value that must be matched. In other words, a literal match condition set to `\'*'\` will only be satisfied when that exact value (i.e., `\'*'\`) is found.
  
 A percentage symbol is used to indicate URL encoding (e.g., `%20`).
 
-## Wildcard Values
+### Wildcard Values
 Text that is interpreted as a wildcard value will assign additional meaning to special characters. The following table describes how the following set of characters will be interpreted.
 
 Character | Description
@@ -57,7 +58,7 @@ Character | Description
 Space | A space character indicates that a match condition may be satisfied by either of the specified values or patterns.
 'value' | A single quote does not have special meaning. However, a set of single quotes is used to indicate that a value should be treated as a literal value. It can be used in the following ways:<br><br/>- It allows a match condition to be satisfied whenever the specified value matches any portion of the comparison value.  For example, `'ma'` would match any of the following strings: <br/><br/>/business/**ma**rathon/asset.htm<br/>**ma**p.gif<br/>/business/template.**ma**p<br /><br />- It allows a special character to be specified as a literal character. For example, you may specify a literal space character by enclosing a space character within a set of single quotes (i.e., `' '` or `'sample value'`).<br/>- It allows a blank value to be specified. Specify a blank value by specifying a set of single quotes (i.e., '').<br /><br/>**Important:**<br/>- If the specified value does not contain a wildcard, then it will automatically be considered a literal value. This means that it is not necessary to specify a set of single quotes.<br/>- If a backslash does not escape another character in this table, then it will be ignored when specified within a set of single quotes.<br/>- Another way to specify a special character as a literal character is to escape it using a backslash (i.e., `\`).
 
-## Regular Expressions
+### Regular Expressions
 
 Regular expressions define a pattern that will be searched for within a text value. Regular expression notation defines specific meanings to a variety of symbols. The following table indicates how special characters are treated by match conditions and features that support regular expressions.
 
@@ -70,7 +71,7 @@ Space | A space character is typically treated as a literal character.
 'value' | Single quotes are treated as literal characters. A set of single quotes does not have special meaning.
 
 
-## See also
+## Next steps
 * [Rules Engine Match Conditions](cdn-rules-engine-reference-match-conditions.md)
 * [Rules Engine Conditional Expressions](cdn-rules-engine-reference-conditional-expressions.md)
 * [Rules Engine Features](cdn-rules-engine-reference-features.md)

@@ -1,5 +1,5 @@
 ---
-title: Rules Engine | Microsoft Docs
+title: Rules Engine Conditional Expressions | Microsoft Azure Docs
 description: This topic describes Rules engine match conditions and features
 services: cdn
 documentationcenter: ''
@@ -17,9 +17,10 @@ ms.date: 07/29/2016
 ms.author: rli
 
 ---
-This topic lists detailed descriptions of the Conditional Expressions for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
 # Conditional Expressions
+This topic lists detailed descriptions of the Conditional Expressions for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
+
 The first part of a rule is the Conditional Expression.
 
 Conditional Expression | Description
@@ -35,7 +36,7 @@ ELSE IF| An ELSE IF expression specifies an alternative condition that must be m
    > A subsequent rule may override the actions specified by a previous rule. 
    > Example: A catch-all rule secures all requests via Token-Based Authentication. Another rule may be created directly below it to make an exception for certain types of requests.
 
-## See also
+### Next steps
 * [Azure CDN Overview](cdn-overview.md)
 * [Rules Engine Reference](cdn-rules-engine-reference.md)
 * [Rules Engine Match Conditions](cdn-rules-engine-reference-match-conditions.md)
