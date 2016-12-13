@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/12/2016
+ms.date: 12/13/2016
 ms.author: cephalin
 
 ---
@@ -59,7 +59,7 @@ Let's deploy a web app to Azure App Service.
 1. Open a new Windows command prompt, PowerShell window, Linux shell, or OS X terminal. Run `git --version` and `azure --version` to verify that Git and Azure CLI
    are installed on your machine.
    
-    ![Test installation of CLI tools for your first web app in Azure](./media/app-service-web-get-started/1-test-tools.png)
+    ![Test installation of CLI tools for your first web app in Azure](./media/app-service-web-get-started/1-test-tools-2.0.png)
    
     If you haven't installed the tools, see [Prerequisites](#Prerequisites) for download links.
 
@@ -69,7 +69,7 @@ Let's deploy a web app to Azure App Service.
    
     Follow the help message to continue the login process.
    
-    ![Log in to Azure to create your first web app](./media/app-service-web-get-started/3-azure-login.png)
+    ![Log in to Azure to create your first web app](./media/app-service-web-get-started/3-azure-login-2.0.png)
 
 3. Set the deployment user for App Service. You will deploy code using these credentials later.
    
@@ -78,7 +78,7 @@ Let's deploy a web app to Azure App Service.
 3. Create a new [resource group](../azure-resource-manager/resource-group-overview.md). For this first App Service tutorial, you don't really need to know
 what it is.
 
-        az resource group create --location "<location>" --name my-first-app-group
+        az group create --location "<location>" --name my-first-app-group
 
     To see what possible values you can use for `<location>`, use the `az appservice list-locations` CLI command.
 
