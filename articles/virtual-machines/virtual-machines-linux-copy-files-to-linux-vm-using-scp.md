@@ -21,7 +21,7 @@ ms.author: v-livech
 
 # Moving files to and from a Linux VM using SCP
 
-This article shows how to copy files from your workstation up to an Azure Linux VM, or from the Azure Linux VM down to your workstation, using Secure Copy (SCP).  For an example, we are moving Azure configuration files up to a Linux VM and pulling down a log file directory, both using SCP and SSH keys.  For SSH authentication, usernames and passwords can be used but SSH public and private key authentication are strongly recommended as a security best practice.  
+This article shows how to move files from your workstation up to an Azure Linux VM, or from an Azure Linux VM down to your workstation, using Secure Copy (SCP).  For an example, we are moving Azure configuration files up to a Linux VM and pulling down a log file directory, both using SCP and SSH keys.   
 
 For this article, the requirements are:
 
@@ -45,9 +45,13 @@ scp user@host:directory/file targetfile
 
 ## Detailed walkthrough
 
-SCP uses SSH for the transport layer.  By using SSH for the transport, SSH handles the authentication on the destination host while also moving the file in an encrypted tunnel provided by default with SSH.  
+Moving files back and forth between your workstation and a Linux VM, quickly and securely, is a critical part of managing your Azure infrastructure.  For this article we walk through using SCP, a tool built on top of SSH, and included in the default Bash shell of Linux, Mac and Windows.
 
-For security and convenience, SSH public and private keys are the best way to authenticate the SCP connection.  Once SSH has authenticated the connection, SCP then begins the process of copying the file.  Using a properly configured `~/.ssh/config` and SSH public and private keys, the SCP connection can be established without using a username and just using a server name.  For more information on configuring your `~/.ssh/config` and SSH public and private keys, follow this article, [Create SSH keys on Linux and Mac for Linux VMs in Azure](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+## SSH key pair authentication
+
+SCP uses SSH for the transport layer.  By using SSH for the transport, SSH handles the authentication on the destination host while also moving the file in an encrypted tunnel provided by default with SSH.  For SSH authentication, usernames and passwords can be used but SSH public and private key authentication are strongly recommended as a security best practice. Once SSH has authenticated the connection, SCP then begins the process of copying the file.  Using a properly configured `~/.ssh/config` and SSH public and private keys, the SCP connection can be established without using a username and just using a server name.  If you only have one SSH key, SCP will look for it in the `~/.ssh/` directory, and use it by default to login to the VM.
+
+For more information on configuring your `~/.ssh/config` and SSH public and private keys, follow this article, [Create SSH keys](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## SCP a file to a Linux VM
 
