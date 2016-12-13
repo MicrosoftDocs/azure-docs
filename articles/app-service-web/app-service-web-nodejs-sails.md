@@ -123,7 +123,7 @@ Next, create the App Service resource in Azure and deploy your Sails.js app to i
 3. Create a [resource group](../azure-resource-manager/resource-group-overview.md) with a name. For this PHP tutorial, you don't really need to know
 what it is.
 
-        az resource group create --location "<location>" --name my-sailsjs-app-group
+        az group create --location "<location>" --name my-sailsjs-app-group
 
     To see what possible values you can use for `<location>`, use the `az appservice list-locations` CLI command.
 

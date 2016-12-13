@@ -114,7 +114,7 @@ You can complete the task using one of the following CLI versions:
 3. Create a new [resource group](../azure-resource-manager/resource-group-overview.md). For this PHP tutorial, you don't really need to know
 what it is.
 
-        az resource group create --location "<location>" --name my-nodejs-app-group
+        az group create --location "<location>" --name my-nodejs-app-group
 
     To see what possible values you can use for `<location>`, use the `az appservice list-locations` CLI command.
 
