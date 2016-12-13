@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 09/30/2016
+ms.date: 12/13/2016
 ms.author: sdanie
 
 ---
@@ -119,7 +119,9 @@ In Managed Cache Service, connections to the cache were handled by the `DataCach
 
 Add the following using statement to the top of any file from which you want to access the cache.
 
-    using StackExchange.Redis
+```c#
+using StackExchange.Redis
+```
 
 If this namespace doesn’t resolve, be sure that you have added the StackExchange.Redis NuGet package as described in [Configure the cache clients](cache-dotnet-how-to-use-azure-redis-cache.md#configure-the-cache-clients).
 
