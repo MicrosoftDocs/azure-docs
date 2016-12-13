@@ -181,9 +181,9 @@ Here is a full example of integration:
 
 ### Resolve UNUserNotificationCenter delegate conflicts
 
-*If neither your application or one of your third party libraries implements a UNUserNotificationCenterDelegate then you can skip this part.*
+*If neither your application or one of your third party libraries implements a `UNUserNotificationCenterDelegate` then you can skip this part.*
 
-A UNUserNotificationCenter delegate is used by the SDK to monitor the life cycle of Engagement notifications on devices running on iOS 10 or greater. The SDK has its own implementation of the UNUserNotificationCenterDelegate protocol but there can be only one UNUserNotificationCenter delegate per application. Any other delegate added to the UNUserNotificationCenter object will conflict with the Engagement one. If the SDK detects your or any other third party's delegate then it will not use its own implementation to give you a chance to resolve the conflicts. You will have to add the Engagement logic to your own delegate in order to resolve the conflicts.
+A `UNUserNotificationCenter` delegate is used by the SDK to monitor the life cycle of Engagement notifications on devices running on iOS 10 or greater. The SDK has its own implementation of the `UNUserNotificationCenterDelegate` protocol but there can be only one `UNUserNotificationCenter` delegate per application. Any other delegate added to the `UNUserNotificationCenter` object will conflict with the Engagement one. If the SDK detects your or any other third party's delegate then it will not use its own implementation to give you a chance to resolve the conflicts. You will have to add the Engagement logic to your own delegate in order to resolve the conflicts.
 
 There are two ways to achieve this.
 
@@ -243,7 +243,7 @@ Or proposal 2, by inheriting from the `AEUserNotificationHandler` class
 > [!NOTE]
 > You can determine whether a notification comes from Engagement or not by passing its `userInfo` dictionary to the Agent `isEngagementPushPayload:` class method.
 
-Make sure that the UNUserNotificationCenter object's delegate is set to your delegate within either the `application:willFinishLaunchingWithOptions:` or the `application:didFinishLaunchingWithOptions:` method of your application delegate.
+Make sure that the `UNUserNotificationCenter` object's delegate is set to your delegate within either the `application:willFinishLaunchingWithOptions:` or the `application:didFinishLaunchingWithOptions:` method of your application delegate.
 For instance, if you implemented the above proposal 1:
 
       - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
