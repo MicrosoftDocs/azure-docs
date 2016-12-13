@@ -243,9 +243,9 @@ Examples:
 ```  
   
 ## See Also  
- [Preparing Hard Drives for an Import Job](../importexport/Preparing-Hard-Drives-for-an-Import-Job.md)   
- [Previewing Drive Usage for an Export Job](../importexport/Previewing-Drive-Usage-for-an-Export-Job.md)   
- [Reviewing Job Status with Copy Log Files](../importexport/Reviewing-Job-Status-with-Copy-Log-Files.md)   
- [Repairing an Import Job](../importexport/Repairing-an-Import-Job.md)   
- [Repairing an Export Job](../importexport/Repairing-an-Export-Job.md)   
- [Troubleshooting the Azure Import-Export Tool](../importexport/Troubleshooting-the-Azure-Import-Export-Tool.md)
+ [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+ [Previewing Drive Usage for an Export Job](storage-import-export-tool-previewing-drive-usage-export-v1.md)   
+ [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
+ [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)   
+ [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)   
+ [Troubleshooting the Azure Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md)

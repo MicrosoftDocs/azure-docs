@@ -87,4 +87,4 @@ You can call the [Get Job](../importexport/Get-Job3.md) operation to retrieve in
  When a job or drive fails to progress normally through its expected life cycle, the job or drive will be moved into a `Faulted` state. At that point, the operations team will contact the customer by email or phone. Once the issue is resolved, the faulted job or drive will be taken out of the `Faulted` state and moved into the appropriate state.  
   
 ## See Also  
- [Using the Import/Export Service REST API](../importexport/Using-the-Azure-Import-Export-Service-REST-API.md)
+ [Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)

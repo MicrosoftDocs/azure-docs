@@ -66,4 +66,4 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
 ```  
   
 ## See Also  
- [Import-Export Service Metadata and Properties File Format](../importexport/Import-Export-Service-Metadata-and-Properties-File-Format.md)
+ [Import-Export Service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md)

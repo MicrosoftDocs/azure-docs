@@ -151,5 +151,5 @@ WAImportExport.exe PrepImport /j:SecondDrive.jrn /id:BlueRayIso /srcfile:K:\Temp
  Once the copy sessions have completed, you can disconnect the two drives from the copy computer and ship them to the appropriate Windows Azure data center. You'll upload the two journal files, `FirstDrive.jrn` and `SecondDrive.jrn`, when you create the import job in the [Windows Azure Management Portal](https://manage.windowsazure.com/).  
   
 ## See Also  
- [Preparing Hard Drives for an Import Job](../importexport/Preparing-Hard-Drives-for-an-Import-Job.md)   
- [Quick Reference for Frequently Used Commands](../importexport/Quick-Reference-for-Frequently-Used-Commands-for-Import-Jobs.md)
+ [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+ [Quick Reference for Frequently Used Commands](storage-import-export-tool-quick-reference-v1.md) 

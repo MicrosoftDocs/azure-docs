@@ -99,8 +99,8 @@ WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bo
  After making the necessary files available to the tool, or updating the path map file, you can rerun the tool to complete the import process.  
   
 ## See Also  
- [Setting Up the Azure Import-Export Tool](../importexport/Setting-Up-the-Azure-Import-Export-Tool.md)   
- [Preparing Hard Drives for an Import Job](../importexport/Preparing-Hard-Drives-for-an-Import-Job.md)   
- [Reviewing Job Status with Copy Log Files](../importexport/Reviewing-Job-Status-with-Copy-Log-Files.md)   
- [Repairing an Export Job](../importexport/Repairing-an-Export-Job.md)   
- [Troubleshooting the Azure Import-Export Tool](../importexport/Troubleshooting-the-Azure-Import-Export-Tool.md)
+ [Setting Up the Azure Import-Export Tool](storage-import-export-tool-setup-v1.md)   
+ [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+ [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
+ [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)   
+ [Troubleshooting the Azure Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md)

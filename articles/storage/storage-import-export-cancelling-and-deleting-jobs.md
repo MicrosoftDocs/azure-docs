@@ -28,4 +28,4 @@ You can request that a job be cancelled before it is in the `Packaging` state by
  To delete a job, call the [Delete Job](../importexport/Delete-Job1.md) operation before the job has shipped (*i.e.*, while the job is in the `Creating` state). You can also delete a job when it is in the `Completed` state. After a job has been deleted, its information and status are no longer accessible via the REST API or the Azure Management Portal.  
   
 ## See Also  
- [Using the Import/Export Service REST API](../importexport/Using-the-Azure-Import-Export-Service-REST-API.md)
+ [Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)
