@@ -40,7 +40,7 @@ In the interim, the only safe option is to perform OS updates manually, one node
 
 ### What is the minimum size of a Service Fabric cluster? Why can't it be smaller?
 
-The minimum supported size for a Service Fabric cluster running production workloads is 5 nodes. For dev/test scenarios, we support 3 node clusters, although these must be provisioned from the command line or PowerShell using an ARM template, as they cannot be created using the Azure portal.
+The minimum supported size for a Service Fabric cluster running production workloads is 5 nodes. For dev/test scenarios, we support 3 node clusters.
 
 To understand why these minimums exist, it is important to understand that the Service Fabric cluster itself runs a number of stateful services, including the naming service and the failover manager. These services, which keep track of what services have been deployed to the cluster and where they're currently hosted, depend on the strong consistency inherent in the Service Fabric data model. That strong consistency, in turn, depends on the ability to acquire a "quorum" for any given update to the state of those services, where a quorum represents a strict majority of the replicas (N/2 +1) for a given service.
 
