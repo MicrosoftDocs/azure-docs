@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2016
+ms.date: 12/12/2016
 ms.author: cephalin
 
 ---
@@ -209,10 +209,12 @@ Remove-AzureRmResource -ResourceGroupName [resource group name] -ResourceType Mi
 <a name="CLI"></a>
 
 ## Azure Command-Line Interface (Azure CLI) commands for Deployment Slots
-The Azure CLI provides cross-platform commands for working with Azure, including support for managing Web App deployment slots.
+The Azure CLI provides cross-platform commands for working with Azure, including support for managing App Service deployment slots.
 
 * For instructions on installing and configuring the Azure CLI, including information on how to connect Azure CLI to your Azure subscription, see [Install and Configure the Azure CLI](../xplat-cli-install.md).
 * To list the commands available for Azure App Service in the Azure CLI, call `azure site -h`.
+
+>[AZURE.NOTE] For [Azure CLI 2.0 (Preview)](https://github.com/Azure/azure-cli) commands for deployment slots, see [az appservice web deployment slot](/cli/azure/appservice/web/deployment/slot).
 
 - - -
 ### azure site list

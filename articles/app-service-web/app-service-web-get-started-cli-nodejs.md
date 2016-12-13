@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/12/2016
+ms.date: 10/13/2016
 ms.author: cephalin
 
 ---
@@ -42,7 +42,7 @@ You can complete the task using one of the following CLI versions:
 
 ## Prerequisites
 * [Git](http://www.git-scm.com/downloads).
-* [Azure CLI 2.0 Preview](/cli/azure/install-az-cli2).
+* [Azure CLI](../xplat-cli-install.md).
 * A Microsoft Azure account. If you don't have an account, you can 
   [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or 
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
@@ -62,39 +62,23 @@ Let's deploy a web app to Azure App Service.
     ![Test installation of CLI tools for your first web app in Azure](./media/app-service-web-get-started/1-test-tools.png)
    
     If you haven't installed the tools, see [Prerequisites](#Prerequisites) for download links.
-
 2. Log in to Azure like this:
    
-        az login
+        azure login
    
     Follow the help message to continue the login process.
    
     ![Log in to Azure to create your first web app](./media/app-service-web-get-started/3-azure-login.png)
-
-3. Set the deployment user for App Service. You will deploy code using these credentials later.
+3. Change Azure CLI into ASM mode, then set the deployment user for App Service. You will deploy code using the credentials later.
    
-        az appservice web deployment user set --user-name <username> --password <password>
+        azure config mode asm
+        azure site deployment user set --username <username> --pass <password>
 
-3. Create a new [resource group](../azure-resource-manager/resource-group-overview.md). For this first App Service tutorial, you don't really need to know
-what it is.
-
-        az resource group create --location "<location>" --name my-first-app-group
-
-    To see what possible values you can use for `<location>`, use the `az appservice list-locations` CLI command.
-
-3. Create a new "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). For this first App Service tutorial, just 
-know that you won't be charged for web apps in this plan.
-
-        az appservice plan create --name my-free-appservice-plan --resource-group my-first-app-group --sku FREE
-
-4. Create a new web app with a unique name in `<app_name>`.
-
-        az appservice web create --name <app_name> --resource-group my-first-app-group --plan my-free-appservice-plan
-
-4. Next, you get sample code you want to deploy. Change to a working directory (`CD`) and clone the sample app like this:
+4. Change to a working directory (`CD`) and clone the sample app like this:
    
-        cd <working_directory>
         git clone <github_sample_url>
+   
+    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started/2-clone-sample.png)
    
     For *&lt;github_sample_url>*, use one of the following URLs, depending on the framework that you like:
    
@@ -105,27 +89,20 @@ know that you won't be charged for web apps in this plan.
    * Java: [https://github.com/Azure-Samples/app-service-web-java-get-started.git](https://github.com/Azure-Samples/app-service-web-java-get-started.git)
    * Python (Django): [https://github.com/Azure-Samples/app-service-web-python-get-started.git](https://github.com/Azure-Samples/app-service-web-python-get-started.git)
 
-    ![Clone the app sample code for your first web app in Azure](./media/app-service-web-get-started/2-clone-sample.png)
-   
 5. Change to the repository of your sample app. For example:
    
         cd app-service-web-html-get-started
 
-5. Configure local Git deployment for your App Service web app with the following command:
-
-        az appservice web source-control config-local-git --name <app_name> --resource-group my-first-app-group
-
-    You will get a JSON output like this, which means that the remote Git repository is configured:
-
-        {
-        "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
-        }
-
-6. Add the URL in the JSON as a Git remote for your local repository (called `azure` for simplicity).
-
-        git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
+6. Create the App Service app resource in Azure with a unique app name and the deployment user you configured earlier. When you're prompted, specify the number of the desired region.
    
-7. Deploy your sample code to the `azure` Git remote. When prompted, use the deployment credentials you configured earlier.
+        azure site create <app_name> --git --gitusername <username>
+   
+    ![Create the Azure resource for your first web app in Azure](./media/app-service-web-get-started/4-create-site.png)
+   
+    Your app is created in Azure now. Also, your current directory is Git-initialized and connected to the new App Service app as a Git remote.
+    You can browse to the app URL (http://&lt;app_name>.azurewebsites.net) to see the beautiful default HTML page, but let's actually get your code there now.
+
+7. Deploy your sample code to your Azure app like you would push any code with Git. When prompted, use the password you configured earlier.
    
         git push azure master
    
@@ -140,13 +117,11 @@ know that you won't be charged for web apps in this plan.
 Congratulations, you have deployed your app to Azure App Service.
 
 ## See your app running live
+To see your app running live in Azure, run this command from any directory in your repository:
 
-To see your app running live in Azure, run this command:
-
-    az appservice web browse --name <app_name> --resource-group my-first-app-group
+    azure site browse
 
 ## Make updates to your app
-
 You can now use Git to push from your project (repository) root anytime to make an update to the live site. You do it the same way as when you deployed your code
 the first time. For example, every time you want to push a new change that you've tested locally, just run the following commands from your project 
 (repository) root:
@@ -156,7 +131,6 @@ the first time. For example, every time you want to push a new change that you'v
     git push azure master
 
 ## Next steps
-
 Find the preferred development and deployment steps for your language framework:
 
 > [!div class="op_single_selector"]

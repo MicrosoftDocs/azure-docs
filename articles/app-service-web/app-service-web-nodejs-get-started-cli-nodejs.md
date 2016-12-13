@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: get-started-article
-ms.date: 12/12/2016
+ms.date: 12/13/2016
 ms.author: cephalin
 
 ---
@@ -40,7 +40,7 @@ You can complete the task using one of the following CLI versions:
 * [Bower]
 * [Yeoman]
 * [Git]
-* [Azure CLI 2.0 Preview](/cli/azure/install-az-cli2)
+* [Azure CLI]
 * A Microsoft Azure account. If you don't have an account, you can [sign up for a free trial] or [activate your Visual Studio subscriber benefits].
 
 > [!NOTE]
@@ -49,11 +49,10 @@ You can complete the task using one of the following CLI versions:
 > 
 > 
 
-## Create and configure a simple Node.js app for Azure
+## Create and deploy a simple Node.js web app
 1. Open the command-line terminal of your choice and install the [Express generator for Yeoman].
    
         npm install -g generator-express
-
 2. `CD` to a working directory and generate an express app using the following syntax:
    
         yo express
@@ -67,13 +66,28 @@ You can complete the task using one of the following CLI versions:
     `? Select a css preprocessor to use (Sass Requires Ruby):` **None**  
     `? Select a database to use:` **None**  
     `? Select a build tool to use:` **Grunt**
-
 3. `CD` to the root directory of your new app and start it to make sure it runs in your development environment:
    
         npm start
    
     In your browser, navigate to <http://localhost:3000> to make sure that you can see the Express home page. Once you've verified your app runs properly, use `Ctrl-C` to stop it.
+4. Change into ASM mode and log in to Azure (you need [Azure CLI](#prereq)):
+   
+        azure config mode asm
+        azure login
+   
+    Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
 
+
+3. Set the deployment user for App Service. You will deploy code using the credentials later.
+   
+        azure site deployment user set --username <username> --pass <password>
+
+5. Make sure you're still in the root directory of your app, then create the App Service app resource in Azure with a unique app name with the next command. For example: http://{appname}.azurewebsites.net
+   
+        azure site create --git {appname}
+   
+    Follow the prompt to select an Azure region to deploy to. 
 6. Open the ./config/config.js file from the root of your application and change the production port to `process.env.port`; your `production` property in the `config` object should look like the following example:
    
         production: {
@@ -92,64 +106,17 @@ You can complete the task using one of the following CLI versions:
         "engines": {
             "node": "6.9.1"
         }, 
-
-8. Save your changes, then initialize a Git repository in the root of your application and commit your code:
+8. Save your changes, then use git to deploy your app to Azure. When prompted, use the user credentials you created earlier.
    
         git add .
         git add -f config
         git commit -m "{your commit message}"
-
-## Deploy your Node.js app to Azure
-
-1. Log in to Azure (you need [Azure CLI 2.0 Preview](#prereq)):
-   
-        az login
-   
-    Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
-
-3. Set the deployment user for App Service. You will deploy code using these credentials later.
-   
-        az appservice web deployment user set --user-name <username> --password <password>
-
-3. Create a new [resource group](../azure-resource-manager/resource-group-overview.md). For this PHP tutorial, you don't really need to know
-what it is.
-
-        az resource group create --location "<location>" --name my-nodejs-app-group
-
-    To see what possible values you can use for `<location>`, use the `az appservice list-locations` CLI command.
-
-3. Create a new "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md). For this PHP tutorial, just 
-know that you won't be charged for web apps in this plan.
-
-        az appservice plan create --name my-nodejs-appservice-plan --resource-group my-nodejs-app-group --sku FREE
-
-4. Create a new web app with a unique name in `<app_name>`.
-
-        az appservice web create --name <app_name> --resource-group my-nodejs-app-group --plan my-nodejs-appservice-plan
-
-5. Configure local Git deployment for your new web app with the following command:
-
-        az appservice web source-control config-local-git --name <app_name> --resource-group my-nodejs-app-group
-
-    You will get a JSON output like this, which means that the remote Git repository is configured:
-
-        {
-        "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
-        }
-
-6. Add the URL in the JSON as a Git remote for your local repository (called `azure` for simplicity).
-
-        git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
-   
-7. Deploy your sample code to the `azure` Git remote. When prompted, use the deployment credentials you configured earlier.
-
         git push azure master
    
     The Express generator already provides a .gitignore file, so your `git push` doesn't consume bandwidth trying to upload the node_modules/ directory.
-
 9. Finally, launch your live Azure app in the browser:
    
-        az appservice web browse --name <app_name> --resource-group my-nodejs-app-group
+        azure site browse
    
     You should now see your Node.js web app running live in Azure App Service.
    
@@ -159,9 +126,9 @@ know that you won't be charged for web apps in this plan.
 To make updates to your Node.js web app running in App Service, just run `git add`, `git commit`, and `git push` like you did when you first deployed your web app.
 
 ## How App Service deploys your Node.js app
-Azure App Service uses [iisnode] to run Node.js apps. Azure CLI 2.0 Preview and the Kudu engine (Git deployment) work together to give you a streamlined experience when you develop and deploy Node.js apps from the command line. 
+Azure App Service uses [iisnode] to run Node.js apps. The Azure CLI and the Kudu engine (Git deployment) work together to give you a streamlined experience when you develop and deploy Node.js apps from the command line. 
 
-* You can create an iisnode.yml file in your root directory and use it to customize iisnode properties. All configurable settings are documented [here](https://github.com/tjanczuk/iisnode/blob/master/src/samples/configuration/iisnode.yml).
+* `azure site create --git` recognizes the common Node.js pattern of server.js or app.js and creates an iisnode.yml in your root directory. You can use this file to customize iisnode.
 * At `git push azure master`, Kudu automates the following deployment tasks:
   
   * If package.json is in the repository root, run `npm install --production`.
@@ -213,7 +180,7 @@ To read iisnode logs, follow these steps.
 > 
 > 
 
-1. Open the iisnode.yml file that Azure CLI 2.0 Preview provides.
+1. Open the iisnode.yml file that the Azure CLI provides.
 2. Set the two following parameters: 
    
         loggingEnabled: true
@@ -277,6 +244,7 @@ To enable Node-Inspector, follow these steps:
 
 <!-- URL List -->
 
+[Azure CLI]: ../xplat-cli-install.md
 [Azure App Service]: ../app-service/app-service-value-prop-what-is.md
 [activate your Visual Studio subscriber benefits]: http://go.microsoft.com/fwlink/?LinkId=623901
 [Bower]: http://bower.io/

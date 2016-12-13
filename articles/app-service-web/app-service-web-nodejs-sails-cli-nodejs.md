@@ -43,7 +43,7 @@ You can complete the task using one of the following CLI versions:
 * [Node.js](https://nodejs.org/)
 * [Sails.js](http://sailsjs.org/get-started)
 * [Git](http://www.git-scm.com/downloads)
-* [Azure CLI 2.0 Preview](/cli/azure/install-az-cli2)
+* [Azure CLI](../xplat-cli-install.md)
 * A Microsoft Azure account. If you don't have an account, you can
   [sign up for a free trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F) or
   [activate your Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F).
@@ -54,19 +54,55 @@ You can complete the task using one of the following CLI versions:
 > 
 > 
 
-## Step 1: Create and configure a Sails.js app locally
+## Step 1: Create a Sails.js app locally
 First, quickly create a default Sails.js app in your development environment by following these steps:
 
 1. Open the command-line terminal of your choice and `CD` to a working directory.
 2. Create a Sails.js app and run it:
 
-        sails new <app_name>
-        cd <app_name>
+        sails new <appname>
+        cd <appname>
         sails lift
 
     Make sure you can navigate to the default home page at http://localhost:1377.
 
-1. Next, enable logging for Azure. In your root directory, create a file called `iisnode.yml` and add the following two lines:
+## Step 2: Create the Azure app resource
+Next, create the App Service resource in Azure. You're going to deploy your Sails.js app to it later.
+
+1. log in to Azure like so:
+2. In the same terminal, change into ASM mode and log in to Azure:
+
+        azure config mode asm
+        azure login
+
+    Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
+
+3. Set the deployment user for App Service. You will deploy code using the credentials later.
+   
+        azure site deployment user set --username <username> --pass <password>
+
+3. Make sure you're still in the root directory of your Sails.js project. Create the App Service app resource in Azure with a unique
+   app name with the next command. Your web app's URL is http://&lt;appname>.azurewebsites.net.
+
+        azure site create --git <appname>
+
+    Follow the prompt to select an Azure region to deploy to. Once the App Service app resource is created:
+
+   * Sails.js app is Git-initialized,
+   * Your local Git-initialized repository is connected to the new App Service app as a Git remote, aptly named "azure", and
+   * And iisnode.yml file is created in your root directory. You can use this file to configure [iisnode](https://github.com/tjanczuk/iisnode),
+     which App Service uses to run Node.js apps.
+
+## Step 3: Configure and deploy your Sails.js app
+ Working with a Sails.js app in App Service consists of three main steps:
+
+* Configure your app for it to run in App Service
+* Deploy it to App Service
+* Read stderr and stdout logs to troubleshoot any deployment issues
+
+Follow these steps:
+
+1. Open the new iisnode.yml file in your root directory and add the following two lines:
 
         loggingEnabled: true
         logDirectory: iisnode
@@ -74,9 +110,7 @@ First, quickly create a default Sails.js app in your development environment by 
     Logging is now enabled for the [iisnode](https://github.com/tjanczuk/iisnode) server that Azure App Service uses to run Node.js apps. 
     For more information on how this works, see
     [Get stdout and stderr logs from iisnode](app-service-web-nodejs-get-started.md#iisnodelog).
-
-2. Next, configure the Sails.js app to use Azure environment variables. Open config/env/production.js to configure your production environment, 
-and set `port` and `hookTimeout`:
+2. Open config/env/production.js to configure your production environment, and set `port` and `hookTimeout`:
 
         module.exports = {
 
@@ -92,73 +126,24 @@ and set `port` and `hookTimeout`:
     You can find documentation for these configuration settings in the
     [Sails.js Documentation](http://sailsjs.org/documentation/reference/configuration/sails-config).
 
-4. Next, hardcode the Node.js version you want to use. In package.json, add the following `engines` property to set the Node.js version to one that we want.
+4. In package.json, add the following `engines` property to set the Node.js version to one that we want.
 
         "engines": {
             "node": "6.9.1"
         },
+5. Save your changes and test your changes to make sure that your app still runs locally. To do this, delete the
+   `node_modules` folder and then run:
 
-5. Finally, initialize a Git repository and commit your files. In the application root (where package.json is), run the following Git commands:
+        npm install
+        sails lift
+6. Now, use git to deploy your app to Azure:
 
-        git init
         git add .
         git commit -m "<your commit message>"
-
-Your code is ready to be deployed. 
-
-## Step 2: Create an Azure app and deploy Sails.js
-
-Next, create the App Service resource in Azure and deploy your Sails.js app to it.
-
-1. log in to Azure like so:
-
-        az login
-
-    Follow the prompt to continue the login in a browser with a Microsoft account that has your Azure subscription.
-
-3. Set the deployment user for App Service. You will deploy code using these credentials later.
-   
-        az appservice web deployment user set --user-name <username> --password <password>
-
-3. Create a [resource group](../azure-resource-manager/resource-group-overview.md) with a name. For this PHP tutorial, you don't really need to know
-what it is.
-
-        az resource group create --location "<location>" --name my-sailsjs-app-group
-
-    To see what possible values you can use for `<location>`, use the `az appservice list-locations` CLI command.
-
-3. Create a "FREE" [App Service plan](../app-service/azure-web-sites-web-hosting-plans-in-depth-overview.md) with a name. For this PHP tutorial, just 
-know that you won't be charged for web apps in this plan.
-
-        az appservice plan create --name my-sailsjs-appservice-plan --resource-group my-sailsjs-app-group --sku FREE
-
-4. Create a new web app with a unique name in `<app_name>`.
-
-        az appservice web create --name <app_name> --resource-group my-sailsjs-app-group --plan my-sailsjs-appservice-plan
-
-## Step 3: Configure and deploy your Sails.js app
-
-1. Configure local Git deployment for your new web app with the following command:
-
-        az appservice web source-control config-local-git --name <app_name> --resource-group my-sailsjs-app-group
-
-    You will get a JSON output like this, which means that the remote Git repository is configured:
-
-        {
-        "url": "https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git"
-        }
-
-6. Add the URL in the JSON as a Git remote for your local repository (called `azure` for simplicity).
-
-        git remote add azure https://<deployment_user>@<app_name>.scm.azurewebsites.net/<app_name>.git
-   
-7. Deploy your sample code to the `azure` Git remote. When prompted, use the deployment credentials you configured earlier.
-
         git push azure master
-
 7. Finally, just launch your live Azure app in the browser:
 
-        az appservice web browse --name <app_name> --resource-group my-sailsjs-app-group
+        azure site browse
 
     You should now see the same Sails.js home page.
 
@@ -167,7 +152,7 @@ know that you won't be charged for web apps in this plan.
 ## Troubleshoot your deployment
 If your Sails.js application fails for some reason in App Service, find the stderr logs to help troubleshoot it.
 For more information, see [Get stdout and stderr logs from iisnode](app-service-web-nodejs-get-started.md#get-stdout-and-stderr-logs-from-iisnode).
-If the app has started successfully, the stdout log should show you the familiar message:
+If it has started successfully, the stdout log should show you the familiar message:
 
                    .-..-.
     
@@ -218,11 +203,11 @@ but you need the name of the database when you connect from Sails.js.
 4. For each environment variable (`process.env.*`), you need to set it in App Service. To do this, run the following commands
    from your terminal. Use the connection information for your DocumentDB database.
 
-        az appservice web config appsettings update --settings dbuser="<database user>" --name <app_name> --resource-group my-sailsjs-app-group
-        az appservice web config appsettings update --settings dbpassword="<database password>" --name <app_name> --resource-group my-sailsjs-app-group
-        az appservice web config appsettings update --settings dbhost="<database hostname>" --name <app_name> --resource-group my-sailsjs-app-group
-        az appservice web config appsettings update --settings dbport="<database port>" --name <app_name> --resource-group my-sailsjs-app-group
-        az appservice web config appsettings update --settings dbname="<database name>" --name <app_name> --resource-group my-sailsjs-app-group
+        azure site appsetting add dbuser="<database user>"
+        azure site appsetting add dbpassword="<database password>"
+        azure site appsetting add dbhost="<database hostname>"
+        azure site appsetting add dbport="<database port>"
+        azure site appsetting add dbname="<database name>"
 
     Putting your settings in Azure app settings keeps sensitive data out of your source control (Git). Next, you will
     configure your development environment to use the same connection information.
@@ -254,7 +239,7 @@ but you need the name of the database when you connect from Sails.js.
             migrate: 'alter'
         },
 
-    `migrate: 'alter'` lets you use database migration features to create and update database collections or tables
+    `migrate: 'alter'` lets you use database migration features to create and update your database collections or tables
     easily. However, `migrate: 'safe'` is used for your Azure (production) environment because Sails.js
     does not allow you to use `migrate: 'alter'` in a production environment (see
     [Sails.js Documentation](http://sailsjs.org/documentation/concepts/models-and-orm/model-settings)).
@@ -266,12 +251,12 @@ but you need the name of the database when you connect from Sails.js.
          sails lift
 
     The `mywidget` model generated by this command is empty, but we can use it to show that we have database connectivity.
-    When you run `sails lift`, it creates the missing collections and tables for the models your app uses.
+    When you run `sails lift`, it creates the missing collections or tables for the models your app uses.
 9. Access the blueprint API you just created in the browser. For example:
 
         http://localhost:1337/mywidget/create
 
-    The API should return the created entry back to you in the browser window, which means that your collection is created
+    The API should return the created entry back to you in the browser window, which means that your database is created
     successfully.
 
         {"id":1,"createdAt":"2016-09-23T13:32:00.000Z","updatedAt":"2016-09-23T13:32:00.000Z"}
@@ -280,8 +265,7 @@ but you need the name of the database when you connect from Sails.js.
          git add .
          git commit -m "<your commit message>"
          git push azure master
-         az appservice web browse --name <app_name> --resource-group my-sailsjs-app-group
-
+         azure site browse
 11. Access the blueprint API of your Azure web app. For example:
 
          http://<appname>.azurewebsites.net/mywidget/create
