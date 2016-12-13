@@ -518,7 +518,6 @@ In this sample, team statistics can be retrieved from the database or from the c
     }
     ```
 
-
     The `GetFromSortedSetTop5` method reads the top 5 teams from the cached sorted set. It starts by checking the cache for the existence of the `teamsSortedSet` key. If this key is not present, the `GetFromSortedSet` method is called to read the team statistics and store them in the cache. Next the cached sorted set is queried for the top 5 teams which are returned.
 
     ```c#
