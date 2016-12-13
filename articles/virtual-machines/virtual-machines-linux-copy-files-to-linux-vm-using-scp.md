@@ -1,6 +1,6 @@
 ---
 title: Moving files to and from a Linux VM using SCP | Microsoft Docs
-description: Securly moving files to and from a Linux VM using SCP and an SSH key pair.
+description: Securely moving files to and from a Linux VM using SCP and an SSH key pair.
 services: virtual-machines-linux
 documentationcenter: virtual-machines
 author: vlivech
