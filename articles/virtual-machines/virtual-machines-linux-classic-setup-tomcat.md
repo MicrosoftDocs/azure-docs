@@ -61,7 +61,7 @@ Follow these steps to generate the SSH authentication key.
 
 ### Step 2: Create the image in the Azure portal
 1. In the [portal](https://portal.azure.com/), click **New** in the task bar to create an image. Then choose the Linux image that is based on your needs. The following example uses the Ubuntu 14.04 image.
-![Screenshot of the portal that shows the **New** button][3]
+![Screenshot of the portal that shows the New button][3]
 
 2. For **Host Name**, specify the name for the URL that you and Internet clients will use to access this virtual machine. Define the last part of the DNS name, for example, tomcatdemo. Azure will then generate the URL as tomcatdemo.cloudapp.net.  
 
