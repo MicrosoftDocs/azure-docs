@@ -28,7 +28,7 @@ This article shows how to utilize the Azure File Storage service on a Linux VM u
 
 ## Quick Commands
 
-If you need to quickly accomplish the task, the following section details the  commands needed. More detailed information and context for each step can be found the rest of the document, [starting here](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb#detailed-walkthrough).
+If you need to quickly accomplish the task, the following section details the  commands needed. More detailed information and context for each step can be found the rest of the document, [starting here](virtual-machines-linux-mount-azure-file-storage-on-linux-using-smb.md#detailed-walkthrough).
 
 Prerequisite: Resource Group, VNet, NSG with SSH inbound, Subnet, Azure Storage Account, Azure File Storage share, and a Linux VM. Replace any examples with your own settings.
 
@@ -112,6 +112,6 @@ Once you reboot the Linux VM, the mounted SMB share is unmounted during shutdown
 
 ## Next Steps
 
-- [Using cloud-init to customize a Linux VM during creation](virtual-machines-linux-using-cloud-init?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Add a disk to a Linux VM](virtual-machines-linux-add-disk?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Encrypt disks on a Linux VM using the Azure CLI](virtual-machines-linux-encrypt-disks?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Using cloud-init to customize a Linux VM during creation](virtual-machines-linux-using-cloud-init.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Add a disk to a Linux VM](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Encrypt disks on a Linux VM using the Azure CLI](virtual-machines-linux-encrypt-disks.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
