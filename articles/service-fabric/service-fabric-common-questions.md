@@ -13,7 +13,7 @@
    ms.topic="article"
    ms.tgt_pltfrm="NA"
    ms.workload="NA"
-   ms.date="12/09/2016"
+   ms.date="12/12/2016"
    ms.author="seanmck"/>
 
 # Commonly asked Service Fabric questions
@@ -42,7 +42,7 @@ In the interim, the only safe option is to perform OS updates manually, one node
 
 The minimum supported size for a Service Fabric cluster running production workloads is 5 nodes. For dev/test scenarios, we support 3 node clusters, although these must be provisioned from the command line or PowerShell using an ARM template, as they cannot be created using the Azure portal.
 
-To understand why these minimums exist, it is important to understand that the Service Fabric cluster itself runs a number of stateful services, including the naming service and the failover manager. These services, which keep track of what services have been deployed to the cluster and where they're currently hosted, depend on the strong consistency inherent in the Service Fabric data model. That strong consistency, in turn, depends on the ability to acquire a "quorum" for any given update to the state of those services, where a quorum represents a strict majority of the replicas for a given service.
+To understand why these minimums exist, it is important to understand that the Service Fabric cluster itself runs a number of stateful services, including the naming service and the failover manager. These services, which keep track of what services have been deployed to the cluster and where they're currently hosted, depend on the strong consistency inherent in the Service Fabric data model. That strong consistency, in turn, depends on the ability to acquire a "quorum" for any given update to the state of those services, where a quorum represents a strict majority of the replicas (N/2 +1) for a given service.
 
 With that background, let's examine some possible cluster configurations:
 
@@ -50,13 +50,13 @@ With that background, let's examine some possible cluster configurations:
 
 **2 nodes**: a quorum for a service deployed across 2 nodes (N = 2) is 2 (2/2 + 1 = 2). Thus, as soon as a single replica is lost, it is impossible to create a quorum. Since performing a service upgrade requires temporarily taking down a replica, this is not a useful configuration.
 
-**3 nodes**: with 3 nodes, the requirement to create a quorum is still 2 nodes (3/2 + 1 = 2). This means that you can lose an individual node and still maintain quorum.
+**3 nodes**: with 3 nodes (N=3), the requirement to create a quorum is still 2 nodes (3/2 + 1 = 2). This means that you can lose an individual node and still maintain quorum.
 
-The 3 node cluster configuration is supported for dev/test because you can safely perform upgrades and survive individual node failures, as long as they don't happen simultaneously. For production workloads, you must be resilient to such a simultaneous failure.
+The 3 node cluster configuration is supported for dev/test because you can safely perform upgrades and survive individual node failures, as long as they don't happen simultaneously. For production workloads, you must be resilient to such a simultaneous failure, so 5 nodes are required.
 
 ### Can I turn off my cluster at night/weekends to save costs?
 
-In general, no. Service Fabric stores state on ephemeral disks, meaning that if the virtual machine is moved to a different host, the data will not move with it. In normal operation, that is not a problem as the new node will be brought up to date by other nodes. However, if you stop all nodes and restart them later, there is a significant possibility that most of the nodes start on new hosts and thus the system is unable to recover.
+In general, no. Service Fabric stores state on local, ephemeral disks, meaning that if the virtual machine is moved to a different host, the data will not move with it. In normal operation, that is not a problem as the new node will be brought up to date by other nodes. However, if you stop all nodes and restart them later, there is a significant possibility that most of the nodes start on new hosts and make the system unable to recover.
 
 If you would like to create clusters for testing your application before it is deployed, we recommend that you dynamically create those clusters as part of your [continuous integration/continuous deployment pipeline](service-fabric-continuous-integration.md).
 
@@ -64,11 +64,13 @@ If you would like to create clusters for testing your application before it is d
 
 ### What's the best way to query data across partitions of a Reliable Collection?
 
-Reliable collections depend on partitioning to enable scale out for greater performance and throughput. That means that the state for a given service may be spread across 10s or 100s of machines. In order to perform operations over that full data set, you have a few options:
+Reliable collections depend on [partitioning](service-fabric-concepts-partitioning.md) to enable scale out for greater performance and throughput. That means that the state for a given service may be spread across 10s or 100s of machines. In order to perform operations over that full data set, you have a few options:
 
 - Create a service that queries all partitions of another service to pull in the required data.
 - Create a service that can receive data from all partitions of another service.
 - Periodically push data from each service to an external store. This approach is only appropriate if the queries you're performing are not part of your core business logic.
+
+In general, if you find yourself performing such cross-partition queries frequently, you should probably reconsider whether reliable collections are appropriate for your scenario, since they are most effective when data is sufficiently independent to be naturally partitioned.
 
 ### What's the best way to query data across my actors?
 
@@ -87,7 +89,7 @@ As with reliable collections, there is no fixed limit on the amount of data that
 
 ### How does Service Fabric relate to containers?
 
-Containers offer a simple way to package services and their dependencies such that they run consistently in all environments and can operate in an isolated fashion on a single machine. Service Fabric offers a way to deploy and manage services, including services that have been packaged in a container.
+Containers offer a simple way to package services and their dependencies such that they run consistently in all environments and can operate in an isolated fashion on a single machine. Service Fabric offers a way to deploy and manage services, including [services that have been packaged in a container](service-fabric-containers-overview.md).
 
 ## Next steps
 
