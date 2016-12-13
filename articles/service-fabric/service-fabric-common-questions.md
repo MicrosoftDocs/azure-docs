@@ -81,17 +81,19 @@ Actors are designed to be independent units of state and compute, so it is not r
 
 ### How much data can I store in a Reliable Collection?
 
-Reliable collections are typically partitioned, so the amount you can store is only limited by the number of machines you have in the cluster, and the amount of memory available on those machines.
+Reliable services are typically partitioned, so the amount you can store is only limited by the number of machines you have in the cluster, and the amount of memory available on those machines.
 
-As an example, suppose that you have a reliable collection with 100 partitions and 3 replicas, storing objects that average 1kb in size. Now suppose that you have a 10 machine cluster with 16gb of memory per machine. For simplicity and to be very conserative, assume that the operating system and system services, the Service Fabric runtime, and your services consume 6gb of that, leaving 10gb available. That means you have a total of 100gb available to store your objects across the cluster, keeping in mind that each object will be stored three times (one primary and two replicas). Given that, you would have sufficient memory for approximately 35 million objects in your collection. Note that this calculation assumes two things:
+As an example, suppose that you have a reliable collection in a service with 100 partitions and 3 replicas, storing objects that average 1kb in size. Now suppose that you have a 10 machine cluster with 16gb of memory per machine. For simplicity and to be very conservative, assume that the operating system and system services, the Service Fabric runtime, and your services consume 6gb of that, leaving 10gb available. That means you have a total of 100gb available to store your objects across the cluster, keeping in mind that each object will be stored three times (one primary and two replicas). Given that, you would have sufficient memory for approximately 35 million objects in your collection. Note that this calculation assumes:
 
 - That the distribution of data across the partitions is roughly uniform or that you're [reporting load metrics to the cluster resource manager](service-fabric-cluster-resource-manager-metrics.md). By default, Service Fabric will load balance based on replica count. In our example above, that would put 10 primary replicas and 20 secondary replicas on each node in the cluster. That works well for load that is evenly distributed across the partitions. If load is not even, you must report load so that the resource manager can pack smaller replicas together and allow larger replicas to consume more memory on an individual node.
 
-- That the reliable collection in question is the only one storing state in the cluster. Since you can deploy multiple services to a cluster, you need to be mindful of the resources that each will need to run and manage its state.
+- That the reliable service in question is the only one storing state in the cluster. Since you can deploy multiple services to a cluster, you need to be mindful of the resources that each will need to run and manage its state.
+
+- That the cluster itself is not growing or shrinking. If you add more machines, Service Fabric will rebalance your replicas to leverage the additional capacity until the number of machines surpasses the number of partitions in your service, since an individual replica cannot span machines. By contrast, if you reduce the size of the cluster by removing machines, your replicas will be packed more tightly and have less overall capacity.
 
 ### How much data can I store in an actor?
 
-As with reliable collections, the amount of data that you can store in an actor service is only limited by the total disk space and memory available across the nodes in your cluster. However, individual actors are most effective when they are used to encapsulate a small amount of state and associated business logic. As a general rule, an individual actor should have state that is measured in kilobytes.
+As with reliable services, the amount of data that you can store in an actor service is only limited by the total disk space and memory available across the nodes in your cluster. However, individual actors are most effective when they are used to encapsulate a small amount of state and associated business logic. As a general rule, an individual actor should have state that is measured in kilobytes.
 
 ### How does Service Fabric relate to containers?
 
