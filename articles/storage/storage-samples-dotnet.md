@@ -19,8 +19,8 @@ ms.author: seguler
 ---
 # Azure Storage Samples using .NET
 
-The following table provides a quick overview of our sample repository and the methods covered in each sample. If you want to find out how to get started with the Azure Storage Client Library, visit our [Get started with Azure Storage in five minutes](storage-getting-started-guide.md) guide.
-<table style="font-size:90%"><thead><tr><th style="font-size:110%">Endpoint</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Sample Name</th></tr></thead><tbody> 
+The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on links to view the corresponding sample code in Github.
+<table style="font-size:90%"><thead><tr><th style="font-size:110%">Endpoint</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Sample Code</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
 <td>Append Blob</td> 
@@ -56,7 +56,7 @@ The following table provides a quick overview of our sample repository and the m
 </tr> 
 <tr> 
 <td>Container ACL/Metadata/Properties</td>
-<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web Application</a> <br/> <a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Getting Started with Blobs</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs">Azure Blob Storage Photo Gallery Web Application</a></td>
 </tr> 
 <tr> 
 <td>Get Page Ranges</td>
@@ -76,7 +76,7 @@ The following table provides a quick overview of our sample repository and the m
 </tr>
 <tr> 
 <td>SAS</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Getting Started with Blobs</a> <br/><a href="https://github.com/Azure-Samples/storage-dotnet-sas-getting-started/blob/master/SasTutorial/Program.cs">Getting Started with Shared Access Signature</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs">Getting Started with Blobs</a></td>
 </tr> 	
 <tr> 
 <td>Service Properties</td>
@@ -84,7 +84,7 @@ The following table provides a quick overview of our sample repository and the m
 </tr> 			
 <tr> 
 <td>Snapshot Blob</td>
-<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs">Getting Started with Blobs</a><br/><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">Backup Azure Virtual Machine Disks with Incremental Snapshots</a></td>
+<td><a href="https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs">Backup Azure Virtual Machine Disks with Incremental Snapshots</a></td>
 </tr> 
 <tr> 
 <td rowspan="9"><b>File</b></td>
@@ -188,7 +188,12 @@ The following table provides a quick overview of our sample repository and the m
 </tbody> 
 </table>
 <br/>
-### Getting started samples
+###Azure Code Sample Library
+To view the complete sample library, please go to (The Azure Code Sample Library)[https://azure.microsoft.com/en-us/resources/samples/?service=storage] which includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
+
+### Getting started guides
+Check out our guides below if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
+
 * [Getting Started with Azure Blob Service in .NET](storage-dotnet-how-to-use-blobs.md)
 * [Getting Started with Azure Queue Service in .NET](storage-dotnet-how-to-use-queues.md)
 * [Getting Started with Azure Table Service in .NET](storage-dotnet-how-to-use-tables.md)
