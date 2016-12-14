@@ -2,11 +2,9 @@
 title: Release notes for Data Management Gateway | Microsoft Docs
 description: Data Management Gateway tory release notes
 services: data-factory
-documentationcenter: ''
 author: spelluru
 manager: jhubbard
 editor: monicar
-
 ms.assetid: 14762e82-76d9-41c4-ba9f-14a54da29c36
 ms.service: data-factory
 ms.workload: data-services
@@ -15,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2016
 ms.author: spelluru
-
+published: true
 ---
 # Release notes for Data Management Gateway
 One of the challenges for modern data integration is to seamlessly move data to and from on-premises to cloud. Data Factory makes this integration seamless with Data Management Gateway, which is an agent that you can install on-premises to enable hybrid data movement.
@@ -25,7 +23,17 @@ See the following articles for detailed information about Data Management Gatewa
 * [Data Management Gateway](data-factory-data-management-gateway.md)
 * [Move data between on-premises and cloud using Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md) 
 
-## CURRENT VERSION (2.4.6151.1)
+## CURRENT VERSION (2.5.6164.1)
+### Enhancements
+- Improved and more robust Gateway registration experience- Now you can track progress status during the Gateway registration process, which makes the registration experience more responsive.
+- Improvement in Gateway Restore Process- You can still recover gateway even if you do not have the gateway backup file with this update. This would require you to reset Linked Service credentials in Portal.
+- Bug fix.
+
+
+
+## Earlier versions
+
+## 2.4.6151.1
 
 ### What’s new
 
@@ -36,10 +44,7 @@ See the following articles for detailed information about Data Management Gatewa
 - Improved and more robust Gateway registration experience.
 - Support auto detection of QuoteChar configuration for Text format in copy wizard, and improve the overall format detection accuracy.
 
-
-## Earlier versions
-
-### 2.3.6100.2
+## 2.3.6100.2
 
 - Support firstRowAsHeader and SkipLineCount auto detection in copy wizard for text files in on-premises File system and HDFS.
 - Enhance the stability of network connection between gateway and Service Bus
@@ -168,5 +173,4 @@ See the following articles for detailed information about Data Management Gatewa
 * Requires .NET Framework 4.5.1 as a prerequisite during setup.
 
 ### 1.0.5144.2
-* No changes that affect Azure Data Factory scenarios. 
-
+* No changes that affect Azure Data Factory scenarios.
