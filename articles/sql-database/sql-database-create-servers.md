@@ -59,7 +59,7 @@ $sqlServer = New-AzureRmSqlServer -ServerName $sqlServerName `
 ```
 
 > [!TIP]
-> For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md#create-a-sql-database-powershell-script).
+> For a sample script, see [Create a SQL database PowerShell script](sql-database-get-started-powershell.md).
 >
 
 ## Additional resources
