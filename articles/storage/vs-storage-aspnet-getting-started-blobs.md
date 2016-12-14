@@ -284,11 +284,11 @@ and adds the name (or URI in the case of a **CloudBlobDirectory**) to a list tha
 
 	As you can see, the list includes only the top-level entities; not the nested ones (*bar.png* and *baz.png*). In order to list all the entities within a blob container, you must call the **CloudBlobContainer.ListBlobs** method and pass **true** for the **useFlatBlobListing** parameter.    
 
-        ```csharp
-        ...
-		foreach (IListBlobItem item in container.ListBlobs(useFlatBlobListing:true))
-		...
-        ```
+    ```csharp
+    ...
+	foreach (IListBlobItem item in container.ListBlobs(useFlatBlobListing:true))
+	...
+    ```
 
 	Setting the **useFlatBlobListing** parameter to **true** returns a flat listing of all entities in the blob container, and yields the following results:
 
