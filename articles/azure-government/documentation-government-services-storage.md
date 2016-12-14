@@ -22,7 +22,7 @@ ms.author: ryansoc
 ## Azure Storage
 For details on this service and how to use it, see [Azure Storage public documentation](../storage/index.md).
 
-## Storage Service Availability by Azure Government Region
+### Storage Service Availability by Azure Government Region
 
 | Service | USGov Virginia | USGov Iowa |
 | --- | --- | --- |
