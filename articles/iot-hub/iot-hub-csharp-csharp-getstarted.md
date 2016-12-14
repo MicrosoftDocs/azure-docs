@@ -20,7 +20,7 @@ ms.author: dobett
 # Get started with Azure IoT Hub (.NET)
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
-At the end of this tutorial, you have three .NET console apps:
+At the end of this tutorial, you should have three .NET console apps:
 
 * **CreateDeviceIdentity**, which creates a device identity and associated security key to connect your simulated device app.
 * **ReadDeviceToCloudMessages**, which displays the telemetry sent by your simulated device app.
