@@ -17,7 +17,7 @@
     HostName={your IoT Hub hostname};DeviceId={your device id};SharedAccessKey={your device key}
     ```
    
-    If your IoT Hub hostname is **contoso** and your device id is **mydevice**, your connection string looks like the following:
+    If your IoT Hub hostname is **contoso** and your device id is **mydevice**, your connection string looks like the following snippet:
    
     ```
     var connectionString = "HostName=contoso.azure-devices.net;DeviceId=mydevice;SharedAccessKey=2s ... =="

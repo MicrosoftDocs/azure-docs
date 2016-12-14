@@ -53,7 +53,7 @@ When you update an existing rule or define a new rule in the solution portal, bo
 
 The following steps show you how to modify the RemoteMonitoring Visual Studio solution to include a new rule that uses the **ExternalTemperature** telemetry sent from the simulated device:
 
-1. If you have not aleady done so, clone the **azure-iot-remote-monitoring** repository to a suitable location on your local machine using the following Git command:
+1. If you have not already done so, clone the **azure-iot-remote-monitoring** repository to a suitable location on your local machine using the following Git command:
 
     ```
     git clone https://github.com/Azure/azure-iot-remote-monitoring.git
