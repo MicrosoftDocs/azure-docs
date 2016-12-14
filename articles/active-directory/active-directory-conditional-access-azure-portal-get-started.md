@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/18/2016
+ms.date: 12/14/2016
 ms.author: markvi
 
 ---
@@ -28,7 +28,7 @@ This topic provides you with instructions for testing a conditional access based
 
 ## Scenario description
 
-One common requirement in many organizations is to only require multi-factor authentication for access to apps that is not performed from the corporate intranet. With Azyre Active Directory, you can easily accomplish this goal by configuring a location-based conditional access policy. This topic provides you with detailed instructions for configuring a related policy. The policy leverages [Trusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) to distinguish between access attempts made from the corporate's intranet and all other locations.
+One common requirement in many organizations is to only require multi-factor authentication for access to apps that is not performed from the corporate intranet. With Azure Active Directory, you can easily accomplish this goal by configuring a location-based conditional access policy. This topic provides you with detailed instructions for configuring a related policy. The policy leverages [Trusted IPs](../multi-factor-authentication/multi-factor-authentication-whats-next.md#trusted-ips) to distinguish between access attempts made from the corporate's intranet and all other locations.
 
 
 ## Prerequisites
@@ -38,6 +38,8 @@ The scenario outlined in this topic assumes that you are familiar with the conce
 To test this scenario, you need to:
 
 - Create a test user 
+
+- Assign an Azure AD Premium license to the test user
 
 - Configure a managed app and assign your test user to it
 

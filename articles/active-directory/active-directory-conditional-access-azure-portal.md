@@ -27,12 +27,12 @@ ms.author: markvi
 
 The behavior outlined in this topic is currently in [preview](active-directory-preview-explainer.md).
 
-In a mobile first, cloud first world, Azure Active Directory enables your users to access your apps and services from everywhere using a variety of devices with a single sign-on operation. With the proliferation of devices and trends like bring your own device, as well as bring your own application or SaaS applications into the enterprise, perhaps the toughest challenge for the IT professional is to accomplish two major goals at the same time: 
+In a mobile first, cloud first world Azure Active Directory enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices (including BYoD), work off corporate networks, and 3rd party SaaS apps, the IT professional must accomplish two major goals at the same time:
 
-- Empower the end users to be able to do what they want to do
+- Empower the end users
 - Protect the corporate assets at any time
 
-While providing your users with a broad range of options to access your corporate assets helps to improve productivity, it can become a nightmare to IT admins that are in charge of protecting your assets. Azure Active Directory enables you to configure **who** can access your managed apps; however, what if you have good reasons to limit the access options under certain conditions? What if you even have conditions under which you want to block access to certain apps even for the *right people*? For example, it might be OK for you if the right people are accessing certain apps from a trusted network; however you might not want that they are accessing these apps from a network you don't trust.  
+Providing your users with a broad range of options to access your corporate assets helps to improve productivity. it can become a nightmare to IT admins that are in charge of protecting your assets. Azure Active Directory enables you to configure **who** can access your managed apps; however, what if you have good reasons to limit the access options under certain conditions? What if you even have conditions under which you want to block access to certain apps even for the *right people*? For example, it might be OK for you if the right people are accessing certain apps from a trusted network; however you might not want that they are accessing these apps from a network you don't trust.  
 
 Conditional access is a capability of Azure Active Directory that enables you to address these questions using a policy-based approach. A policy-based approach simplifies your configuration experience because it follows the way you think about your access requirements.  
 Typically, you define your access requirements using statements that are based on the following pattern:
@@ -107,9 +107,8 @@ By selecting cloud apps, you define the scope of cloud apps your policy applies 
 	![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
 
 
-### Access Conditions
+### Conditions
 
-With access conditions, you cover how access to your cloud apps is performed.  
 In the current implementation of Azure Active Directory, you can define conditions for the following areas:
 
 
@@ -142,6 +141,21 @@ If you need to configure a location condition that applies to all connections ma
 
 - Including **All locations**
 - Excluding **All trusted IPs** 
+
+What happens if you have policies in the Azure classic portal and Azure portal configured? 
+In this case, both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met.
+
+What happens if I have multiple policies for the same user configured?
+For every sign-in, Azure Active Directory evaluates all policies and ensures that all requirements are met before granted access to the user.
+
+## Using conditional access with Intune
+
+If you are using Intune in your environment, you can immediately start using the conditional access policy interface in the Azure console.
+
+### Only trusted devices can access Office 365 services
+
+Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services.  This means  that mobile devices are enrolled with Intune and meet compliance policy requirements, and that Windows PCs are joined to an on-premises domain.  A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with  with Conditional Access. 
+
 
 
 
