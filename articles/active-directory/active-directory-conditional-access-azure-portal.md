@@ -71,7 +71,7 @@ The current implementation of Azure Active Directory, enables you to configure t
 
 - **Multi-factor Authentication** - You can require strong authentication through multi-factor authentication. You can use multi-factor authentication with Azure Multi-Factor Authentication or by using an on-premises multi-factor authentication provider, combined with Active Directory Federation Services (AD FS). Using multi-factor authentication helps protect resources from being accessed by an unauthorized user who might have gained access to the credentials of a valid user.
 
-- **Compliant device** - You can set conditional access policies at the device level. You might set up a policy to only enable computers that are domain-joined, or mobile devices that are enrolled in a mobile device management application, can access your organization's resources. For example, you can use Intune to check device compliance, and then report it to Azure AD for enforcement when the user attempts to access an application. For detailed guidance about how to use Intune to protect apps and data, see Protect apps and data with Microsoft Intune. You also can use Intune to enforce data protection for lost or stolen devices. For more information, see Help protect your data with full or selective wipe using Microsoft Intune.
+- **Compliant device** - You can set conditional access policies at the device level. You might set up a policy to only enable computers that are compliant <NEEDS FIX>, or mobile devices that are enrolled in a mobile device management application, can access your organization's resources. For example, you can use Intune to check device compliance, and then report it to Azure AD for enforcement when the user attempts to access an application. For detailed guidance about how to use Intune to protect apps and data, see Protect apps and data with Microsoft Intune. You also can use Intune to enforce data protection for lost or stolen devices. For more information, see Help protect your data with full or selective wipe using Microsoft Intune.
 
 - **Domain joined device** – You can require the device you have used to connect to Azure Active Directory to be a domain joined device. This policy applies to Windows desktops, laptops, and enterprise tablets. For more information about how to set up automatic registration of domain-joined devices with Azure AD, see [Automatic device registration with Azure Active Directory for Windows domain-joined devices](active-directory-conditional-access-automatic-device-registration.md).
 
@@ -131,6 +131,8 @@ Legacy authentication refers to clients using basic authentication such as older
 
 ## What you should know
 
+Do I need to assign 
+
 When configuring a conditional access policy, you should at least assign one group to it. A conditional access policy that has no users and groups assigned, is never triggered.
 
 When you intend to assign several users and groups to a policy, you should start small by assigning only one user or group, and then test your configuration. If your policy works as expected, you can then add additional assignments to it.  
@@ -142,19 +144,64 @@ If you need to configure a location condition that applies to all connections ma
 - Including **All locations**
 - Excluding **All trusted IPs** 
 
-What happens if you have policies in the Azure classic portal and Azure portal configured? 
+**What happens if you have policies in the Azure classic portal and Azure portal configured?**  
 In this case, both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met.
 
-What happens if I have multiple policies for the same user configured?
+**What happens if you have policies in the Intune Silverlight portal and the Azure Portal?**
+In this case, both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met. 
+
+**What happens if I have multiple policies for the same user configured?**  
 For every sign-in, Azure Active Directory evaluates all policies and ensures that all requirements are met before granted access to the user.
 
-## Using conditional access with Intune
 
-If you are using Intune in your environment, you can immediately start using the conditional access policy interface in the Azure console.
+**How does conditional access work in conjunction with Exchange ActiveSync?**
+ 
+Exchange ActiveSync only works with Exchange Online as the cloud app. So, ensure that Exchange Online is the only cloud app selected.
+
+It only supports “Require compliant device” control. 
+
+Exchange ActiveSync does not support all conditions. The only supported condition for Exchange ActiveSync scenario is client apps. Rest of the conditions are not supported with Exchange ActiveSync.
+
+To create policies for Exchange ActiveSync, follow the steps below:
+
+1.	Define the name for the policy
+2.	Select users
+3.	Select cloud apps
+4.	Select client apps condition and set it to Exchange ActiveSync
+5.	Select “Require compliant device” as a control
+6.	Set Enable to “Yes”
+7.	Click “Create”
+
+
+
+## Common scenarios
+
+### Require mfa for an app
+
+Salesforce is sensitive app and requires more security than other apps
+
+
+### Require mfa when not on trusted network 
+
+
+
+
+
+
+
 
 ### Only trusted devices can access Office 365 services
 
-Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services.  This means  that mobile devices are enrolled with Intune and meet compliance policy requirements, and that Windows PCs are joined to an on-premises domain.  A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with  with Conditional Access. 
+
+If you are using Intune in your environment, you can immediately start using the conditional access policy interface in the Azure console.
+
+
+Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services. Trusted device means that mobile devices are enrolled with Intune and meet the device compliance policies in Intune. , and that Windows PCs are joined to an on-premises domain.  A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with  with Conditional Access. 
+
+
+
+
+
 
 
 
