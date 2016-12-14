@@ -34,7 +34,7 @@ You can call the [Get Job](../importexport/Get-Job3.md) operation to retrieve in
 ## Job States  
  The table and the state diagram below describe the states that a job transitions through during its life cycle. The current state of the job can be determined by calling the `Get Job` operation.  
   
- ![JobStates](../importexport/media/JobStates.png "JobStates")  
+ ![JobStates](./media/storage-import-export-retrieving-state-info-for-a-job/JobStates.png "JobStates")  
   
  The following table describes each state that a job may pass through.  
   
@@ -60,11 +60,11 @@ You can call the [Get Job](../importexport/Get-Job3.md) operation to retrieve in
 |`Creating / Shipping/ Transferring`|A drive that does not appear in the list of drives to be imported is included in the shipping package.|The extra drives will not be processed, and will be returned to the customer when the job is completed.|  
   
 ## Drive States  
- The table and the diagram below describe the life cycle of an individual drive as it transitions through an import or export job. You can retrieve the current drive state by calling the `Get Job` operation and inspecting the `State` element of the `DriveList` property.  
+The table and the diagram below describe the life cycle of an individual drive as it transitions through an import or export job. You can retrieve the current drive state by calling the `Get Job` operation and inspecting the `State` element of the `DriveList` property.  
   
- ![DriveStates](../importexport/media/DriveStates.png "DriveStates")  
+![DriveStates](./media/storage-import-export-retrieving-state-info-for-a-job/DriveStates.png "DriveStates")  
   
- The following table describes each state that a drive may pass through.  
+The following table describes each state that a drive may pass through.  
   
 |Drive State|Description|  
 |-----------------|-----------------|  
@@ -76,7 +76,7 @@ You can call the [Get Job](../importexport/Get-Job3.md) operation to retrieve in
 |`CompletedMoreInfo`|A drive will move to the `CompletedMoreInfo` state when the service has encountered some issues while copying data either from or to the drive. The information can include errors, warnings, or informational messages about overwriting blobs.|  
 |`ShippedBack`|The drive will move to the `ShippedBack` state when it has been shipped from the data center back to the return address.|  
   
- The following table describes the drive failure states and the actions taken for each state.  
+The following table describes the drive failure states and the actions taken for each state.  
   
 |Drive State|Event|Resolution / Next step|  
 |-----------------|-----------|-----------------------------|  
@@ -84,7 +84,7 @@ You can call the [Get Job](../importexport/Get-Job3.md) operation to retrieve in
 |`N/A`|A drive that is not part of any job arrives at the data center as part of another job.|The drive will be marked as an extra drive and will be returned to the customer when the job associated with the original package is completed.|  
   
 ## Faulted States  
- When a job or drive fails to progress normally through its expected life cycle, the job or drive will be moved into a `Faulted` state. At that point, the operations team will contact the customer by email or phone. Once the issue is resolved, the faulted job or drive will be taken out of the `Faulted` state and moved into the appropriate state.  
+When a job or drive fails to progress normally through its expected life cycle, the job or drive will be moved into a `Faulted` state. At that point, the operations team will contact the customer by email or phone. Once the issue is resolved, the faulted job or drive will be taken out of the `Faulted` state and moved into the appropriate state.  
   
 ## See Also  
- [Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)
+[Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)

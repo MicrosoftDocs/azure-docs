@@ -21,11 +21,11 @@ ms.author: renash
 # Import-Export Service Manifest File Format
 The drive manifest file describes the mapping between blobs in Azure Blob storage and files on drive comprising an import or export job. For an import operation, the manifest file is created as a part of the drive preparation process, and is stored on the drive before the drive is sent to the Azure data center. During an export operation, the manifest is created and stored on the drive by the Azure Import/Export service.  
   
- For both import and export jobs, the drive manifest file is stored on the import or export drive; it is not transmitted to the service via any API operation.  
+For both import and export jobs, the drive manifest file is stored on the import or export drive; it is not transmitted to the service via any API operation.  
   
- The following describes the general format of a drive manifest file:  
+The following describes the general format of a drive manifest file:  
   
-```  
+```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <DriveManifest Version="2014-11-01">  
   <Drive>  
@@ -86,9 +86,9 @@ block-list ::=
       [<Block Offset="block-offset" Length="block-length" [Id="block-id"]   
        Hash="md5-hash"/>]  
     </BlockList>  
-```  
-  
- The data elements and attributes of the drive manifest XML format are specified in the following table.  
+```
+
+The data elements and attributes of the drive manifest XML format are specified in the following table.  
   
 |XML Element|Type|Description|  
 |-----------------|----------|-----------------|  
@@ -128,4 +128,4 @@ block-list ::=
 |`Blob/PropertiesPath/@Hash`|Attribute, String|Specifies the Base16-encoded MD5 hash of the blob's properties file.|  
   
 ## See Also  
- [Storage Import/Export REST](../importexport/Storage-Import-Export-Service-REST-API-Reference.md)
+[Storage Import/Export REST](../importexport/Storage-Import-Export-Service-REST-API-Reference.md)

@@ -32,28 +32,26 @@ Before you create an export job, you need to choose a set of blobs that are to b
 |**/ExportBlobListFile:**<ExportBlobListFile\>|Required. Path to the XML file containing list of blob paths or blob path prefixes for the blobs to be exported. The file format used in the `BlobListBlobPath` element in the [Put Job](../importexport/Put-Job.md) operation of the Import/Export Service REST API.|  
 |**/DriveSize:**<DriveSize\>|Required. The size of drives to use for an export job, *e.g.*, 500GB, 1.5TB.|  
   
- The following example demonstrates the `PreviewExport` command:  
+The following example demonstrates the `PreviewExport` command:  
   
 ```  
-WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB  
-  
+WAImportExport.exe PreviewExport /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /ExportBlobListFile:C:\WAImportExport\mybloblist.xml /DriveSize:500GB    
 ```  
   
- The export blob list file may contain blob names and blob prefixes, as shown here:  
+The export blob list file may contain blob names and blob prefixes, as shown here:  
   
-```  
+```xml 
 <?xml version="1.0" encoding="utf-8"?>  
 <BlobList>  
 <BlobPath>pictures/animals/koala.jpg</BlobPath>  
 <BlobPathPrefix>/vhds/</BlobPathPrefix>  
 <BlobPathPrefix>/movies/</BlobPathPrefix>  
 </BlobList>  
+```
+
+The Azure Import/Export tool lists all blobs to be exported and calculates how to pack them into drives of the specified size, taking into account any necessary overhead, then estimates the number of drives needed to hold the blobs and drive usage information.  
   
-```  
-  
- The Azure Import/Export tool lists all blobs to be exported and calculates how to pack them into drives of the specified size, taking into account any necessary overhead, then estimates the number of drives needed to hold the blobs and drive usage information.  
-  
- Here is an example of the output, with informational logs omitted:  
+Here is an example of the output, with informational logs omitted:  
   
 ```  
 Number of unique blob paths/prefixes:   3  
@@ -66,9 +64,8 @@ Number of blobs that cannot be exported:        2
 Number of drives needed:        3  
         Drive #1:       blobs = 1, occupied space = 454.74 GB  
         Drive #2:       blobs = 3, occupied space = 441.37 GB  
-        Drive #3:       blobs = 2, occupied space = 131.28 GB  
-  
+        Drive #3:       blobs = 2, occupied space = 131.28 GB    
 ```  
   
 ## See Also  
- [Azure Import-Export Tool Reference](storage-import-export-tool-how-to-v1.md)
+[Azure Import-Export Tool Reference](storage-import-export-tool-how-to-v1.md)

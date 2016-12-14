@@ -23,11 +23,11 @@ For each drive processed, the Azure Import/Export service creates an error log i
   
  By default, logs are written to a container named `waimportexport`. You can specify a different name by setting the `ImportExportStatesPath` property when calling the `Put Job` or `Update Job Properties` operations. The logs are stored as block blobs with the following naming convention: `waies/jobname_driveid_timestamp_logtype.xml`.  
   
- You can retrieve the URI of the logs for a job by calling the [Get Job](../importexport/Get-Job3.md) operation. The URI for the verbose log is returned in the `VerboseLogUri` property for each drive, while the URI for the error log is returned in the `ErrorLogUri` property.  
+You can retrieve the URI of the logs for a job by calling the [Get Job](../importexport/Get-Job3.md) operation. The URI for the verbose log is returned in the `VerboseLogUri` property for each drive, while the URI for the error log is returned in the `ErrorLogUri` property.  
   
- You can use the logging data to identify the following issues:  
+You can use the logging data to identify the following issues:  
   
- **Drive Errors**  
+**Drive Errors**  
   
 -   Errors in accessing or reading the manifest file  
   
@@ -35,7 +35,7 @@ For each drive processed, the Azure Import/Export service creates an error log i
   
 -   Drive read/write errors  
   
- **Blob Errors**  
+**Blob Errors**  
   
 -   Incorrect or conflicting blob or names  
   
@@ -51,7 +51,7 @@ For each drive processed, the Azure Import/Export service creates an error log i
   
 -   Incorrect schema for the blob properties and/or metadata files  
   
- There may be cases where some parts of an import or export job do not complete successfully, while the overall job still completes. In this case, you can either upload or download the missing pieces of the data over network, or you can create a new job to transfer the data. See the [Azure Import-Export Tool Reference](storage-import-export-tool-how-to-v1.md) to learn how to repair the data over network.  
+There may be cases where some parts of an import or export job do not complete successfully, while the overall job still completes. In this case, you can either upload or download the missing pieces of the data over network, or you can create a new job to transfer the data. See the [Azure Import-Export Tool Reference](storage-import-export-tool-how-to-v1.md) to learn how to repair the data over network.  
   
 ## See Also  
- [Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)
+[Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)

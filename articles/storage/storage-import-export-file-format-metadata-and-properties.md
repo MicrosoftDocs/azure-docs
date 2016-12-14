@@ -21,16 +21,16 @@ ms.author: renash
 You can specify metadata and properties for one or more blobs as part of an import job or an export job. To set metadata or properties for blobs being created as part of an import job, you provide a metadata or properties file on the hard drive containing the data to be imported. For an export job, metadata and properties are written to a metadata or properties file that is included on the hard drive returned to you.  
   
 ## Metadata File Format  
- The format of a metadata file is as follows:  
+The format of a metadata file is as follows:  
   
-```  
+```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Metadata>  
 [<metadata-name-1>metadata-value-1</metadata-name-1>]  
 [<metadata-name-2>metadata-value-2</metadata-name-2>]  
 . . .  
 </Metadata>  
-```  
+```
   
 |XML Element|Type|Description|  
 |-----------------|----------|-----------------|  
@@ -38,9 +38,9 @@ You can specify metadata and properties for one or more blobs as part of an impo
 |`metadata-name`|String|Optional. The XML element specifies the name of the metadata for the blob, and its value specifies the value of the metadata setting.|  
   
 ## Properties File Format  
- The format of a properties file is as follows:  
+The format of a properties file is as follows:  
   
-```  
+```xml
 <?xml version="1.0" encoding="UTF-8"?>  
 <Properties>  
 [<Last-Modified>date-time-value</Last-Modified>]  
@@ -52,7 +52,7 @@ You can specify metadata and properties for one or more blobs as part of an impo
 [<Content-Language>content-language</Content-Language>]  
 [<Cache-Control>cache-control</Cache-Control>]  
 </Properties>  
-```  
+```
   
 |XML Element|Type|Description|  
 |-----------------|----------|-----------------|  

@@ -27,9 +27,9 @@ The Microsoft Azure Import/Export service may fail to copy some of your files or
   
 -   The storage account key changed while the file was being transferred.  
   
- You can run the Microsoft Azure Import/Export tool with the import job’s copy log files, and the tool will upload the missing files (or parts of a file) to your Windows Azure storage account to complete import job.  
+You can run the Microsoft Azure Import/Export tool with the import job’s copy log files, and the tool will upload the missing files (or parts of a file) to your Windows Azure storage account to complete import job.  
   
- The command for repairing an import job is **RepairImport**. The following parameters can be specified:  
+The command for repairing an import job is **RepairImport**. The following parameters can be specified:  
   
 |||  
 |-|-|  
@@ -44,15 +44,15 @@ The Microsoft Azure Import/Export service may fail to copy some of your files or
 |**/PathMapFile:**<DrivePathMapFile\>|**Optional.** Path to a text file that can be used to resolve ambiguities if you have multiple files with the same name that you were importing in the same job. The first time the tool is run, it can populate this file with all of the ambiguous names. Subsequent runs of the tool will use this file to resolve the ambiguities.|  
   
 ## Using the RepairImport Command  
- To repair import data by streaming the data over the network, you must specify the directories that contain the original files you were importing using the `/d` parameter. You must also specify the copy log file that you downloaded from your storage account. A typical command line to repair an import job with partial failures looks like:  
+To repair import data by streaming the data over the network, you must specify the directories that contain the original files you were importing using the `/d` parameter. You must also specify the copy log file that you downloaded from your storage account. A typical command line to repair an import job with partial failures looks like:  
   
 ```  
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log  
 ```  
   
- The following is an example of a copy log file. In this case, one 64K piece of a file was corrupted on the drive that was shipped for the import job. Since this is the only failure indicated, the rest of the blobs in the job were successfully imported.  
+The following is an example of a copy log file. In this case, one 64K piece of a file was corrupted on the drive that was shipped for the import job. Since this is the only failure indicated, the rest of the blobs in the job were successfully imported.  
   
-```  
+```xml
 <?xml version="1.0" encoding="utf-8"?>  
 <DriveLog>  
  <DriveId>9WM35C2V</DriveId>  
@@ -67,40 +67,40 @@ WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bo
  </Blob>  
  <Status>CompletedWithErrors</Status>  
 </DriveLog>  
-```  
+```
   
- When this copy log is passed to the Azure Import/Export tool, the tool will try to finish the import for this file by copying the missing contents across the network. Following the example above, the tool will look for the original file `\animals\koala.jpg` within the two directories `C:\Users\bob\Pictures` and `X:\BobBackup\photos`. If the file `C:\Users\bob\Pictures\animals\koala.jpg` exists, the Azure Import/Export tool will copy the missing range of data to the corresponding blob `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
+When this copy log is passed to the Azure Import/Export tool, the tool will try to finish the import for this file by copying the missing contents across the network. Following the example above, the tool will look for the original file `\animals\koala.jpg` within the two directories `C:\Users\bob\Pictures` and `X:\BobBackup\photos`. If the file `C:\Users\bob\Pictures\animals\koala.jpg` exists, the Azure Import/Export tool will copy the missing range of data to the corresponding blob `http://bobmediaaccount.blob.core.windows.net/pictures/animals/koala.jpg`.  
   
 ## Resolving Conflicts When Using RepairImport  
- In some situations, the tool may not be able to find or open the necessary file for one of the following reasons: the file could not be found, the file is not accessible, the file name is ambiguous, or the content of the file is no longer correct.  
+In some situations, the tool may not be able to find or open the necessary file for one of the following reasons: the file could not be found, the file is not accessible, the file name is ambiguous, or the content of the file is no longer correct.  
   
- An ambiguous error could occur if the tool is trying to locate `\animals\koala.jpg` and there is a file with that name under both `C:\Users\bob\pictures` and `X:\BobBackup\photos`. That is, both `C:\Users\bob\pictures\animals\koala.jpg` and `X:\BobBackup\photos\animals\koala.jpg` exist on the import job drives.  
+An ambiguous error could occur if the tool is trying to locate `\animals\koala.jpg` and there is a file with that name under both `C:\Users\bob\pictures` and `X:\BobBackup\photos`. That is, both `C:\Users\bob\pictures\animals\koala.jpg` and `X:\BobBackup\photos\animals\koala.jpg` exist on the import job drives.  
   
- The `/PathMapFile` option will allow you to resolve these errors. You can specify the name of the file which will contains the list of files that the tool was not able to correctly identify. The following is an example command line that would populate `9WM35C2V_pathmap.txt`:  
+The `/PathMapFile` option will allow you to resolve these errors. You can specify the name of the file which will contains the list of files that the tool was not able to correctly identify. The following is an example command line that would populate `9WM35C2V_pathmap.txt`:  
   
-```  
+```
 WAImportExport.exe RepairImport /r:C:\WAImportExport\9WM35C2V.rep /d:C:\Users\bob\Pictures;X:\BobBackup\photos /sn:bobmediaaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\WAImportExport\9WM35C2V.log /PathMapFile:C:\WAImportExport\9WM35C2V_pathmap.txt  
-```  
+```
   
- The tool will then write the problematic file paths to `9WM35C2V_pathmap.txt`, one on each line. For instance, the file may contain the following entries after running the command:  
-  
-```  
+The tool will then write the problematic file paths to `9WM35C2V_pathmap.txt`, one on each line. For instance, the file may contain the following entries after running the command:  
+ 
+```
 \animals\koala.jpg  
 \animals\kangaroo.jpg  
-```  
+```
   
  For each file in the list, you should attempt to locate and open the file to ensure it is available to the tool. If you wish to tell the tool explicitly where to find a file, you can modify the path map file and add the path to each file on the same line, separated by a tab character:  
   
-```  
-\animals\koala.jpg      C:\Users\bob\Pictures\animals\koala.jpg  
+```
+\animals\koala.jpg           C:\Users\bob\Pictures\animals\koala.jpg  
 \animals\kangaroo.jpg        X:\BobBackup\photos\animals\kangaroo.jpg  
-```  
+```
   
- After making the necessary files available to the tool, or updating the path map file, you can rerun the tool to complete the import process.  
+After making the necessary files available to the tool, or updating the path map file, you can rerun the tool to complete the import process.  
   
 ## See Also  
- [Setting Up the Azure Import-Export Tool](storage-import-export-tool-setup-v1.md)   
- [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
- [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
- [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)   
- [Troubleshooting the Azure Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md)
+[Setting Up the Azure Import-Export Tool](storage-import-export-tool-setup-v1.md)   
+[Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)   
+[Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)   
+[Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)   
+[Troubleshooting the Azure Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md)
