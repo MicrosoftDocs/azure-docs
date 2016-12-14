@@ -61,7 +61,7 @@ When [Attaching to an external storage account] (../vs-azure-tools-storage-manag
 >
 
 > [!NOTE]
-> If error 53 "The network path was not found." is returned, while [Mounting the file share] (../storage/storage-dotnet-how-to-use-files.md#mount-the-file-share-using-the-persisted-credentials). It could be due to firewall blocking the outbound port. Try mounting the file share on VM that's in the same Azure Subscription as storage account.
+> If error 53 "The network path was not found." is returned, while [Mounting the file share] (../storage/storage-dotnet-how-to-use-files.md#mount-the-file-share). It could be due to firewall blocking the outbound port. Try mounting the file share on VM that's in the same Azure Subscription as storage account.
 >
 >
 
