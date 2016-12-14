@@ -33,7 +33,7 @@ In this graphic, colors of the database represent schemas. Databases with the sa
 
 1. A set of **Azure SQL databases** are hosted on Azure using sharding architecture.
 2. The **Elastic Database client library** is used to manage a shard set.
-3. A subset of the databases are put into an **Elastic Database pool**. (See [What is a pool?](sql-database-elastic-pool.md)).
+3. A subset of the databases are put into an **elastic pool**. (See [What is a pool?](sql-database-elastic-pool.md)).
 4. An **Elastic Database job** runs scheduled or ad-hoc T-SQL scripts against all databases.
 5. The **split-merge tool** is used to move data from one shard to another.
 6. The **Elastic Database query** allows you to write a query that spans all databases in the shard set.
@@ -90,7 +90,7 @@ For a sample app that demonstrates the client library, see [Get started with Ela
 
 To convert existing databases to use the tools, see [Migrate existing databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md).
 
-To see the specifics of the Elastic Database pool, see [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md), or create a new pool with the [tutorial](sql-database-elastic-pool-create-portal.md).  
+To see the specifics of the elastic pool, see [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md), or create a new pool with the [tutorial](sql-database-elastic-pool-create-portal.md).  
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 
