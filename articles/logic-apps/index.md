@@ -25,7 +25,7 @@ Logic Apps is a design tool for modeling and automating processes into workflows
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=app-service">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=app-service">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -100,52 +100,44 @@ Logic Apps is a design tool for modeling and automating processes into workflows
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/resourcemanager/">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Logic Apps PowerShell Cmdlets</p>
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.logicapp/v2.3.0/azurerm.logicapp">PowerShell</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-<li>
-        <a href="https://msdn.microsoft.com/library/azure/mt416943">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Logic Apps Managed Reference</p>
-                    </div>
+                        <h3>Schema History</h3>
+                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2016-04-01?toc=%2fazure%2flogic-apps%2ftoc.json">GA</a></p>
+                        <p><a href="/azure/app-service-logic/app-service-logic-schema-2015-08-01?toc=%2fazure%2flogic-apps%2ftoc.json">Preview</a></p>
+                   </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
-
-	<li>
-        <a href="/rest/api/logic/">
+    <li>
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Logic Apps REST API</p>
+                        <p><a href="/rest/api/logic/">REST API Reference</a></p>
                     </div>
                 </div>
             </div>
         </div>
-        </a>
     </li>
 </ul>
 

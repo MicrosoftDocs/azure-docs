@@ -25,7 +25,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=automation">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=automation">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -135,7 +135,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -147,7 +147,7 @@ Azure Automation provides a way for users to automate the manual, long-running, 
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">

@@ -20,7 +20,7 @@ ms.author: sstein
 
 ---
 
-# SQL Database tutorial: Get started with Azure SQL Database servers, databases, and firewall rules by using Azure PowerShell
+# Get started with Azure SQL Database servers, databases, and firewall rules by using Azure PowerShell
 
 In this getting-started tutorial, you learn how to use PowerShell to:
 
@@ -28,8 +28,9 @@ In this getting-started tutorial, you learn how to use PowerShell to:
 * Create an Azure SQL logical server
 * View Azure SQL server properties
 * Create a server-level firewall rule
-* Create the AdventureWorksLT sample database
+* Create the AdventureWorksLT sample database as a standalone database
 * View AdventureWorksLT sample database properties
+* Create a blank standalone database
 
 In this tutorial, you also:
 
