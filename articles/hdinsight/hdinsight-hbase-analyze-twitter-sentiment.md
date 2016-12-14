@@ -25,6 +25,7 @@ Social websites are one of the major driving forces for big data adoption. Publi
 ![HDInsight HBase Analyze Twitter sentiment][img-app-arch]
 
 * The streaming application
+
   * get geo-tagged tweets in real time by using the Twitter streaming API
   * evaluate the sentiment of these tweets
   * store the sentiment information in HBase by using the Microsoft HBase SDK
