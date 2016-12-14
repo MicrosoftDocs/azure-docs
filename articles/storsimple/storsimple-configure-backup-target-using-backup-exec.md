@@ -23,13 +23,13 @@ ms.author: hkanna
 
 Azure StorSimple is a hybrid cloud storage solution from Microsoft. StorSimple addresses the complexities of exponential data growth by using an Azure Storage account as an extension of the on-premises solution, and automatically tiering data across on-premises storage and cloud storage.
 
-In this article, we discuss StorSimple integration with Veritas Backup Exec and best practices for integrating both solutions. We also make recommendations on how to set up Veritas Backup Exec to best integrate with StorSimple. We defer to Veritas best practices, backup architects, and administrators for the best way to configure Veritas Backup Exec to meet individual backup requirements and service-level agreements (SLAs).
+In this article, we discuss StorSimple integration with Veritas Backup Exec and best practices for integrating both solutions. We also make recommendations on how to set up Backup Exec to best integrate with StorSimple. We defer to Veritas best practices, backup architects, and administrators for the best way to configure Backup Exec to meet individual backup requirements and service-level agreements (SLAs).
 
 Although we illustrate configuration steps and key concepts, this article is by no means a step-by-step configuration or installation guide. We assume that the basic components and infrastructure are in working order and ready to support the concepts that we describe.
 
 ### Who should read this?
 
-The information in this article will be most helpful to backup administrators, storage administrators, and storage architects who have knowledge of storage, Windows Server 2012 R2, Ethernet, cloud services, and Veritas Backup Exec.
+The information in this article will be most helpful to backup administrators, storage administrators, and storage architects who have knowledge of storage, Windows Server 2012 R2, Ethernet, cloud services, and Backup Exec.
 
 ## Supported versions
 
@@ -73,7 +73,7 @@ StorSimple offers these benefits:
 -   Data encryption in the cloud
 -   Improved disaster recovery and compliance
 
-Although StorSimple presents two main deployment scenarios (primary and secondary backup target), fundamentally, it's a plain, block storage device. StorSimple does all the compression and deduplication. It seamlessly sends and retrieves data between the cloud and the application and file system.
+Although StorSimple presents two main deployment scenarios (primary backup target and secondary backup target), fundamentally, it's a plain, block storage device. StorSimple does all the compression and deduplication. It seamlessly sends and retrieves data between the cloud and the application and file system.
 
 For more information about StorSimple, see [StorSimple 8000 series: Hybrid cloud storage solution](storsimple-overview.md). Also, you can review the [technical StorSimple 8000 series specifications](storsimple-technical-specifications-and-compliance.md).
 
@@ -150,7 +150,7 @@ It is important to size your high-performance volume so that it can handle your 
 Deploying this solution requires three steps:
 1. Prepare the network infrastructure.
 2. Deploy your StorSimple device as a backup target.
-3. Deploy Veritas Backup Exec.
+3. Deploy Backup Exec.
 
 Each step is discussed in detail in the following sections.
 
@@ -167,9 +167,9 @@ For the solution to perform optimally, we recommend that you follow these networ
 
 For a step-by-step StorSimple deployment guidance, see [Deploy your on-premises StorSimple device](storsimple-deployment-walkthrough-u2.md).
 
-### Deploy Veritas Backup Exec
+### Deploy Backup Exec
 
-For Veritas Backup Exec installation best practices, see [Best practices for Backup Exec installation](https://www.veritas.com/support/en_US/article.000068207).
+For Backup Exec installation best practices, see [Best practices for Backup Exec installation](https://www.veritas.com/support/en_US/article.000068207).
 
 ## Set up the solution
 
@@ -208,7 +208,7 @@ Set up your solution according to the guidelines in the following sections.
 -   Run an antivirus scan at the source host (not against the StorSimple volumes).
 -   Turn off the default [Windows Server maintenance](https://msdn.microsoft.com/library/windows/desktop/hh848037.aspx) in Task Manager. Do this in one of the following ways:
    - Turn off the Maintenance configurator in Windows Task Scheduler.
-   - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run PowerShell as an administrator, and type:
+   - Download [PsExec](https://technet.microsoft.com/sysinternals/bb897553.aspx) from Windows Sysinternals. After you download PsExec, run Azure PowerShell as an administrator, and type:
       ```powershell
       psexec \\%computername% -s schtasks /change /tn “MicrosoftWindowsTaskSchedulerMaintenance Configurator" /disable
       ```
@@ -230,7 +230,7 @@ Set up your solution according to the guidelines in the following sections.
 -   Disable job verification. If necessary, verification should be scheduled after the latest backup job. It is important to understand that this job affects your backup window.
 -   Select **Storage** > **Your disk** > **Details** > **Properties**. Turn off **Pre-allocate disk space**.
 
-For the latest Veritas Backup Exec settings and best practices for implementing these requirements, see [www.veritas.com](https://www.veritas.com).
+For the latest Backup Exec settings and best practices for implementing these requirements, see [www.veritas.com](https://www.veritas.com).
 
 ## Retention policies
 
@@ -257,11 +257,11 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 | Additional quota  | 4  |   | 42 total GFS requirement  |
 \* The GFS multiplier is the number of copies you need to protect and retain to meet your backup policy requirements.
 
-## Set up Veritas Backup Exec storage
+## Set up Backup Exec storage
 
 ### To set up Backup Exec storage
 
-1.  In the Backup Exec management console, select **Storage** > **Configure Storage** > **Disk-Based Storage**. Select **Next**.
+1.  In the Backup Exec management console, select **Storage** > **Configure Storage** > **Disk-Based Storage** > **Next**.
 
     ![Backup Exec management console, configure storage page](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 
@@ -285,20 +285,20 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
     ![Backup Exec management console, storage configuration summary page](./media/storsimple-configure-backup-target-using-backup-exec/image11.png)
 
-7.  At the end of each volume assignment, change the storage device settings to match those recommended in [Best practices for StorSimple and Backup Exec](#best-practices-for-storsimple-and-backup-exec).
+7.  At the end of each volume assignment, change the storage device settings to match those recommended at [Best practices for StorSimple and Backup Exec](#best-practices-for-storsimple-and-backup-exec).
 
     ![Backup Exec management console, storage device settings page](./media/storsimple-configure-backup-target-using-backup-exec/image12.png)
 
-8.  Repeat the preceding steps until you are finished assigning your StorSimple volumes to Backup Exec.
+8.  Repeat steps 1-7 until you are finished assigning your StorSimple volumes to Backup Exec.
 
-## StorSimple as a primary backup target
+## Set up StorSimple as a primary backup target
 
 > [!NOTE]
 > Data restore from a backup that has been tiered to the cloud occurs at cloud speeds.
 
 The following figure shows the mapping of a typical volume to a backup job. In this case, all the weekly backups map to the Saturday full disk, and the incremental backups map to Monday-Friday incremental disks. All the backups and restores are from a StorSimple tiered volume.
 
-![Primary backup target configuration logical diagram ](./media/storsimple-configure-backup-target-using-backup-exec/primarybackuptargetdiagram.png)
+![Primary backup target configuration logical diagram](./media/storsimple-configure-backup-target-using-backup-exec/primarybackuptargetdiagram.png)
 
 ### StorSimple as a primary backup target GFS schedule example
 
@@ -311,9 +311,11 @@ Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly
 | Yearly | Saturday  |   |   |
 
 
-### Assigning StorSimple volumes to a Veritas Backup Exec backup job.
+### Assigning StorSimple volumes to a Backup Exec backup job
 
 The following sequence assumes that Backup Exec and the target host are configured in accordance with the Backup Exec agent guidelines.
+
+#### To assign StorSimple volumes to a Backup Exec backup job
 
 1.  In the Backup Exec management console, select **Host** > **Backup** > **Backup to Disk**.
 
@@ -321,29 +323,29 @@ The following sequence assumes that Backup Exec and the target host are configur
 
 2.  In the **Backup Definition Properties** dialog box, under **Backup**, select **Edit**.
 
-    ![Backup Definition Properties window, select Edit](./media/storsimple-configure-backup-target-using-backup-exec/image15.png)
+    ![Backup Exec management console, Backup Definition Properties dialog box](./media/storsimple-configure-backup-target-using-backup-exec/image15.png)
 
-3.  Set up your full and incremental backups so that they meet your RPO and RTO requirements and conform to the Veritas best practices.
+3.  Set up your full and incremental backups so that they meet your RPO and RTO requirements and conform to Veritas best practices.
 
-4.  In the **Backup Options** dialog  box, select **Storage**.
+4.  In the **Backup Options** dialog box, select **Storage**.
 
-    ![Backup Options Storage tab](./media/storsimple-configure-backup-target-using-backup-exec/image16.png)
+    ![Backup Exec management console, Backup Options Storage dialog box](./media/storsimple-configure-backup-target-using-backup-exec/image16.png)
 
 5.  Assign corresponding StorSimple volumes to your backup schedule.
 
     > [!NOTE]
     > **Compression** and **Encryption type** are set to **None**.
 
-6.  Under **Verify**, select the **Do not verify data for this job** check box. This could affect StorSimple tiering.
+6.  Under **Verify**, select the **Do not verify data for this job** check box. Using this option could affect StorSimple tiering.
 
     > [!NOTE]
     > Defragmentation, indexing, and background verification negatively affect the StorSimple tiering.
 
-    ![Backup Options verify settings](./media/storsimple-configure-backup-target-using-backup-exec/image17.png)
+    ![Backup Exec management console, Backup Options verify settings](./media/storsimple-configure-backup-target-using-backup-exec/image17.png)
 
-7.  After you have set up the rest of your backup options to meet your requirements, select **OK** to finish.
+7.  When you've set up the rest of your backup options to meet your requirements, select **OK** to finish.
 
-## StorSimple as a secondary backup target
+## Set up StorSimple as a secondary backup target
 
 > [!NOTE]
 >Data restores from a backup that has been tiered to the cloud occur at cloud speeds.
@@ -354,7 +356,7 @@ The following figure shows typical short-term retention local (to the server) vo
 
 #### StorSimple as a secondary backup target GFS example
 
-![StorSimple as secondary backup target logical diagram ](./media/storsimple-configure-backup-target-using-backup-exec/secondarybackuptargetdiagram.png)
+![StorSimple as secondary backup target logical diagram](./media/storsimple-configure-backup-target-using-backup-exec/secondarybackuptargetdiagram.png)
 
 The following table shows how to set up backups to run on the local and StorSimple disks. It includes individual and total capacity requirements.
 
@@ -384,33 +386,33 @@ The following table shows how to set up backups to run on the local and StorSimp
 
 ### Assign StorSimple volumes to a Backup Exec archive and deduplication job
 
-### To assign StorSimple volumes to a Backup Exec archive and duplication job
+#### To assign StorSimple volumes to a Backup Exec archive and duplication job
 
-1.  In the Backup Exec management console, right-click the job that you want to archive to a StorSimple volume, and then select **Backup Definition Properties**. Select **Edit**.
+1.  In the Backup Exec management console, right-click the job that you want to archive to a StorSimple volume, and then select **Backup Definition Properties** > **Edit**.
 
-    ![Backup Exec console, backup definitions properties tab](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
+    ![Backup Exec management console, Backup Definition Properties tab](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 
-2.  Select **Add Stage** and from the drop-down list, select **Duplicate to Disk**, and then select **Edit**.
+2.  Select **Add Stage** > **Duplicate to Disk** > **Edit**.
 
-    ![Backup Exec console, backup definitions add stage](./media/storsimple-configure-backup-target-using-backup-exec/image20.png)
+    ![Backup Exec management console, add stage](./media/storsimple-configure-backup-target-using-backup-exec/image20.png)
 
 3.  In the **Duplicate Options** dialog box, select the values that you want to use for **Source** and **Schedule**.
 
-    ![Backup Exec console, backup definitions properties, Duplicate Options](./media/storsimple-configure-backup-target-using-backup-exec/image21.png)
+    ![Backup Exec management console, backup definitions properties and duplicate options](./media/storsimple-configure-backup-target-using-backup-exec/image21.png)
 
 4.  In the **Storage** drop-down list, select the StorSimple volume where you want the archive job to store the data.
 
-    ![Backup Exec console, backup definitions properties, Duplicate Options](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
+    ![Backup Exec management console, backup definitions properties and duplicate options](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
 5.  Select **Verify**, and then select the **Do not verify data for this job** check box.
 
-    ![Backup Exec console, backup definitions properties, Duplicate Options](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
+    ![Backup Exec management console, backup definitions properties and duplicate options](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
 6.  Select **OK**.
 
-    ![Backup Exec console, backup definitions properties, Duplicate Options](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
+    ![Backup Exec management console, backup definitions properties and duplicate options](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
-7.  In the **Backup** column, add a new stage. For the source, use **incremental**. For the target, choose the StorSimple volume where the incremental backup job is archived. Repeat the preceding steps.
+7.  In the **Backup** column, add a new stage. For the source, use **incremental**. For the target, choose the StorSimple volume where the incremental backup job is archived. Repeat steps 1-6.
 
 ## StorSimple cloud snapshots
 
