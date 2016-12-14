@@ -95,16 +95,16 @@ If your certificate has Certificate Authorities (CAs), you need to add the --ca-
 ```
 If you have multiple CAs, use a comma as the delimiter.
 
-If your Common Name in the certificate does not match the connection endpoint, you could use the parameter `--strict-ssl` to bypass the verification as shown in the following command: 
+If your Common Name in the certificate does not match the connection endpoint, you could use the parameter `--strict-ssl-false` to bypass the verification as shown in the following command: 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --strict-ssl-false 
 ```
 
-If you would like to skip the CA verification, you could add the --reject-unauthorized parameter as shown in the following command: 
+If you would like to skip the CA verification, you could add the --reject-unauthorized-false parameter as shown in the following command: 
 
 ```
-azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized false 
+azure servicefabric cluster connect --connection-endpoint http://ip:19080 --client-key-path /tmp/key --client-cert-path /tmp/cert --reject-unauthorized-false 
 ```
 
 After you connect, you should be able to run other CLI commands to interact with the cluster. 
