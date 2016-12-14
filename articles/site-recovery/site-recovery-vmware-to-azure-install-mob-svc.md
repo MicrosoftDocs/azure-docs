@@ -1,3 +1,4 @@
+---
 title: Set up the source environment (VMware to Azure)
 description: This article describes how to set up your on-premises environment to start replicating VMware virtual machines into Azure.
 services: site-recovery
@@ -14,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: backup-recovery
 ms.date: 12/9/2016
 ms.author: anoopkv
+---
 
 # Set up the source environment (VMware to Azure)
 This article describes the different ways in which you can install Mobility Services on your VMware Virtual machines or Physical Servers that you plan to protect using Azure Site Recovery.
