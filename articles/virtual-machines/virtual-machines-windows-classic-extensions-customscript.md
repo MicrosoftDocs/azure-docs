@@ -102,4 +102,4 @@ Set-AzureVMCustomScriptExtension -Uninstall | Update-AzureVM
 
 ### Use the Custom Script extension with templates
 
-To learn about how to use the Custom Script extension with Azure Resource Manager templates, see [Using the Custom Script extension for Windows VMs with Azure Resource Manager templates](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+To learn about how to use the Custom Script extension with Azure Resource Manager templates, see [Using the Custom Script extension for Windows VMs with Azure Resource Manager templates](virtual-machines-windows-extensions-customscript?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
