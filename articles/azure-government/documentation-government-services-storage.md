@@ -24,16 +24,16 @@ For details on this service and how to use it, see [Azure Storage public documen
 
 ### Storage Service Availability by Azure Government Region
 
-| Service | USGov Virginia | USGov Iowa |
-| --- | --- | --- |
+| Service | USGov Virginia | USGov Iowa | Notes
+| --- | --- | --- | --- |
 | [Blob Storage] (../storage/storage-introduction.md#blob-storage) |GA |GA |
 | [Table Storage] (../storage/storage-introduction.md#table-storage) |GA  |GA |
 | [Queue Storage] (../storage/storage-introduction.md#queue-storage) |GA | GA |
 | [File Storage] (../storage/storage-introduction.md#file-storage) |GA |GA |
 | [Hot/Cool Blob Storage] (../storage/storage-blob-storage-tiers.md) |NA |NA |
 | [Storage Service Encryption] (../storage/storage-service-encryption.md) |GA |GA |
-| [Premium Storage] (../storage/storage-premium-storage.md) (includes DS-series VMs) |GA |NA |
-| [Blob Import/Export] (../storage/storage-import-export-service.md) (Classic only) |GA |GA |
+| [Premium Storage] (../storage/storage-premium-storage.md) |GA |NA | Includes DS-series Virtual Machines. |
+| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA | Only classic storage accounts are supported at this time. |
 
 ### Variations
 The URLs for storage accounts in Azure Government are different:
@@ -54,7 +54,16 @@ For more information on APIs see the <a href="https://msdn.microsoft.com/en-us/l
 
 The endpoint suffix to use in these overloads is core.usgovcloudapi.net
 
-<a href="http://storageexplorer.com/">Azure Storage Explorer</a> currently doesn't support sign in with account in Azure Government. Use an account name and key to connect to an Azure Storage Account.
+> [!NOTE]
+> [Microsoft Azure Storage Explorer] (../../vs-azure-tools-storage-manage-with-storage-explorer.md) currently doesn't support [Connecting to an Azure Subscription] (../../vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-an-azure-subscription) in Azure Government. Use other methods of [Connecting to a storage account] (../../vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service).
+When [Attaching to an external storage account] (../../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-to-an-external-storage-account), at **step 3**, select **Other (specify below)** as Storage endpoint domain: and specify **core.usgovcloudapi.net** for Azure Government.
+>
+>
+
+> [!NOTE]
+> If getting error 53 "The network path was not found." while [Mounting the file share] (../storage/storage-dotnet-how-to-use-files.md#mount-the-file-share-using-the-persisted-credentials), it could be due to firewall blocking the outbound port, try mounting the file share on VM that's in the same Azure Subscription as storage account.
+>
+>
 
 ### Considerations
 The following information identifies the Azure Government boundary for Azure Storage:
