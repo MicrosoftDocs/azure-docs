@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 12/14/2016
 ms.author: vakarand
 
 ---
@@ -89,6 +89,10 @@ When you remove an agent from a server, the server is not automatically removed 
 
 If you reimaged a server or created a new server with the same details(such as machine name) and  did not remove the already registered server from the Azure AD Connect Health portal, installed the agent on the new server, you may see two entries with the same name.  
 In this case, you should delete the entry belonging to the older server manually. The data for this server should be out-of-date.
+
+**Q: Why do I not see performance counters information for my Domain Controller? 
+
+If the NTDS performance counters are not loaded/enabled on the Domain Controller, Azure AD Connect Health will not be able to collect and display performance counters for that particular DC. If there exists a Data Freshness alert for the impacted DC, where the missing data type is "perfcounter" then please follow the steps included in the alert details in order to troubleshoot the missing performance counters. 
 
 ## Related links
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
