@@ -87,14 +87,14 @@ When DocumentDB stores documents, it distributes them evenly among partitions ba
 ## Single Partition and Partitioned Collections
 DocumentDB supports the creation of both single-partition and partitioned collections. 
 
-* **Partitioned collections** can span multiple partitions and support very large amounts of storage and throughput. You must specify a partition key for the collection.
+* **Partitioned collections** can span multiple partitions and support unlimited storage and throughput. You must specify a partition key for the collection.
 * **Single-partition collections** have lower price options and the ability to query and perform transactions across all collection data. They have the scalability and storage limits of a single partition. You do not have to specify a partition key for these collections. 
 
 ![Partitioned collections in DocumentDB][2] 
 
 For scenarios that do not need large volumes of storage or throughput, single partition collections are a good fit. Note that single-partition collections have the scalability and storage limits of a single partition, i.e. up to 10 GB of storage and up to 10,000 request units per second. 
 
-Partitioned collections can support very large amounts of storage and throughput. The default offers however are configured to store up to 250 GB of storage and scale up to 250,000 request units per second. If you need higher storage or throughput per collection, please contact [Azure Support](documentdb-increase-limits.md) to have these increased for your account.
+Partitioned collections can support unlimited storage and throughput.
 
 The following table lists differences in working with a single-partition and partitioned collections:
 
@@ -123,7 +123,7 @@ The following table lists differences in working with a single-partition and par
         <tr>
             <td valign="top"><p>Maximum Storage</p></td>
             <td valign="top"><p>10 GB</p></td>
-            <td valign="top"><p>Unlimited (250 GB by default)</p></td>
+            <td valign="top"><p>Unlimited</p></td>
         </tr>
         <tr>
             <td valign="top"><p>Minimum Throughput</p></td>
@@ -133,7 +133,7 @@ The following table lists differences in working with a single-partition and par
         <tr>
             <td valign="top"><p>Maximum Throughput</p></td>
             <td valign="top"><p>10,000 request units per second</p></td>
-            <td valign="top"><p>Unlimited (250,000 request units per second by default)</p></td>
+            <td valign="top"><p>Unlimited</p></td>
         </tr>
         <tr>
             <td valign="top"><p>API versions</p></td>
