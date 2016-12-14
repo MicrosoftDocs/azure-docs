@@ -19,7 +19,7 @@ ms.author: renash
 ---
 
 # Retrieving State Information for a Job
-You can call the [Get Job](../importexport/Get-Job3) operation to retrieve information about both import and export jobs. The information returned includes:  
+You can call the [Get Job](/rest/api/storageservices/importexport/Get-Job3) operation to retrieve information about both import and export jobs. The information returned includes:  
   
 -   The current status of the job.  
   
@@ -34,7 +34,7 @@ You can call the [Get Job](../importexport/Get-Job3) operation to retrieve infor
 ## Job States  
  The table and the state diagram below describe the states that a job transitions through during its life cycle. The current state of the job can be determined by calling the `Get Job` operation.  
   
- ![JobStates](../importexport/media/JobStates.png "JobStates")  
+ ![JobStates](/rest/api/storageservices/importexport/media/JobStates.png "JobStates")  
   
  The following table describes each state that a job may pass through.  
   
@@ -62,7 +62,7 @@ You can call the [Get Job](../importexport/Get-Job3) operation to retrieve infor
 ## Drive States  
  The table and the diagram below describe the life cycle of an individual drive as it transitions through an import or export job. You can retrieve the current drive state by calling the `Get Job` operation and inspecting the `State` element of the `DriveList` property.  
   
- ![DriveStates](../importexport/media/DriveStates.png "DriveStates")  
+ ![DriveStates](/rest/api/storageservices/importexport/media/DriveStates.png "DriveStates")  
   
  The following table describes each state that a drive may pass through.  
   
