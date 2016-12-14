@@ -27,7 +27,7 @@ In this getting-started tutorial, you learn how to use the Azure portal to:
 * Create an Azure SQL logical server
 * View Azure SQL logical server properties
 * Create a server-level firewall rule
-* Create the Adventure Works LT sample database
+* Create the Adventure Works LT sample database as a standalone database
 * View Adventure Works LT sample database properties in Azure
 
 In this tutorial, you also use the most recent version of SQL Server Management Studio to:
@@ -205,7 +205,7 @@ Using your [existing subscription](https://account.windowsazure.com/Home/Index),
     ![server credentials](./media/sql-database-get-started/server-credentials.png)
 
     > [!NOTE]
-    > When adding a database to a server, it can be added as a single database (this is the default) or to a SQL elastic pool. For more information on elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
+    > When adding a database to a server, it can be added as a standalone database (this is the default) or added to an elastic pool. For more information on elastic pools, see [Elastic pools](sql-database-elastic-pool.md).
     >
 
 7. Under Pricing tier, change the pricing tier to **Basic** (you can increase the pricing tier later if desired, but for learning purposes, we recommend you use the lowest cost tier).
