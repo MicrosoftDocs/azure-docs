@@ -109,9 +109,8 @@ the Storage Explorer (Preview) asks for an account key, you'll enter (or paste) 
 
    ![Connect to Azure storage option][23]
 2. On the **Connect to Azure Storage** dialog, specify the account key ("key 1" value from the Azure portal), and then select **Next**.
-> [!NOTE]: You can enter Storage Connection string from a storage account on national Azure. For example, enter connection strings similar to the following to connect to Azure Black Forest storage accounts:
-> DefaultEndpointsProtocol=https;AccountName=cawatest03;AccountKey=<storage_account_key>;EndpointSuffix=core.cloudapi.de;
-> You can get the connection string from Azure portal in the same way as described in the **Get the storage account credentials** section
+> [!NOTE]:
+> You can enter Storage Connection string from a storage account on national Azure. For example, enter connection strings similar to the following to connect to Azure Black Forest storage accounts: DefaultEndpointsProtocol=https;AccountName=cawatest03;AccountKey=<storage_account_key>;EndpointSuffix=core.cloudapi.de; You can get the connection string from Azure portal in the same way as described in the **Get the storage account credentials** section
 >
 >
 
