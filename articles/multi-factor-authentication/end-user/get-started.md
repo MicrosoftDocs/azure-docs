@@ -40,9 +40,9 @@ Select one of the topics below to get started.
 
 | Topic | Description |
 |:--- |:--- |
-| [Setup Experience](../multi-factor-authentication-end-user-first-time.md) |Describes the process of setting up multi-factor authentication for the first time. |
-| [Sign-in experience](../multi-factor-authentication-end-user-signin.md) |Shows what you can expect from signing in using the various methods such as phone or app. |
-| [Changing your settings](../multi-factor-authentication-end-user-manage-settings.md) |Shows you how you can change your settings such as phone number or preferred enrollment method. |
-| [Help with app passwords](../multi-factor-authentication-end-user-app-passwords.md) |Find information on creating and using app passwords. |
-| [Use the mobile app](../multi-factor-authentication-microsoft-authenticator.md) |The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
+| [Setup Experience](first-time-setup.md) |Describes the process of setting up multi-factor authentication for the first time. |
+| [Sign-in experience](signin-walkthrough.md) |Shows what you can expect from signing in using the various methods such as phone or app. |
+| [Changing your settings](manage-settings.md) |Shows you how you can change your settings such as phone number or preferred enrollment method. |
+| [Help with app passwords](app-passwords.md) |Find information on creating and using app passwords. |
+| [Use the mobile app](authenticator-app-how-to.md) |The Microsoft Authenticator app is available for [Windows Phone](http://go.microsoft.com/fwlink/?Linkid=825071), [Android](http://go.microsoft.com/fwlink/?Linkid=825072), and [IOS](http://go.microsoft.com/fwlink/?Linkid=825073). |
 

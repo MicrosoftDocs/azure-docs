@@ -88,7 +88,6 @@ Much of this information can be found on your sign-in page. When you don't verif
 Including this information helps us to solve your problem as quickly as possible.
 
 ## Related topics
-* [Azure Multi-Factor Authentication FAQ](multi-factor-authentication-faq.md)  
 * [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) for Microsoft accounts
-* [Having trouble with two-step verification?](multi-factor-authentication-end-user-troubleshoot.md)
+* [Having trouble with two-step verification?](troubleshoot.md)
 

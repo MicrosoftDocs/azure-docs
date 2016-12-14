@@ -19,7 +19,7 @@ ms.author: kgremban
 
 ---
 # Manage your settings for two-step verification
-This article answers questions about how to update settings for two-step verification or multi-factor authentication. If you are having issues signing in to your account, refer to [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md) for troubleshooting help.
+This article answers questions about how to update settings for two-step verification or multi-factor authentication. If you are having issues signing in to your account, refer to [Having trouble with two-step verification](troubleshoot.md) for troubleshooting help.
 
 ## Where to find the settings page
 Depending on how your company set up Azure Multi-Factor Authentication, there are a few places where you can change your settings like your phone number.
@@ -39,7 +39,7 @@ If your IT admin sent out a specific URL or steps to manage two-step verificatio
 It is important to configure a secondary authentication phone number.  Because your primary phone number and your mobile app are probably on the same phone, the secondary phone number is the only way you will be able to get back into your account if your phone is lost or stolen.
 
 > [!NOTE]
-> If you don't have access to your primary phone number, and need help getting in to your account, see our help topics in [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md).
+> If you don't have access to your primary phone number, and need help getting in to your account, see our help topics in [Having trouble with two-step verification](troubleshoot.md).
 >
 >
 
@@ -56,8 +56,8 @@ It is important to configure a secondary authentication phone number.  Because y
 3. Select **Save** and your changes are finished.  
 
 ## How do I clean up Microsoft Authenticator from my old device and move to a new one?
-When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. For more information, see [Microsoft Authenticator](multi-factor-authentication-microsoft-authenticator.md).
+When you uninstall the app from your device or reset the device, it does not remove the activation on the back end. For more information, see [Microsoft Authenticator](authenticator-app-how-to.md).
 
 ## Next steps
-* Get troubleshooting tips and help on [Having trouble with two-step verification](multi-factor-authentication-end-user-troubleshoot.md)
-* Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for any apps that don't support two-step verification.
+* Get troubleshooting tips and help on [Having trouble with two-step verification](troubleshoot.md)
+* Set up [app passwords](app-passwords.md) for any apps that don't support two-step verification.
