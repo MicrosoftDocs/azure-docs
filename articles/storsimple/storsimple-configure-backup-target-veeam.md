@@ -29,7 +29,7 @@ Although we illustrate configuration steps and key concepts, this article is by 
 
 ### Who should read this?
 
-The information in this article will be most helpful to backup administrators, storage administrators, and storage architects with knowledge of storage, Windows Server 2012 R2, Ethernet, cloud services, and Veeam.
+The information in this article will be most helpful to backup administrators, storage administrators, and storage architects who have knowledge of storage, Windows Server 2012 R2, Ethernet, cloud services, and Veeam.
 
 ### Supported versions
 
@@ -48,7 +48,7 @@ StorSimple is a good choice for a backup target because:
 
 ## Key concepts
 
-As with any other solution, a careful assessment of the solution’s storage performance, SLAs, rate of change, and capacity growth needs is critical to success. The main idea is that by introducing a cloud tier, your access times and throughputs to the cloud play a fundamental role in the ability of StorSimple to do its job.
+As with any storage solution, a careful assessment of the solution’s storage performance, SLAs, rate of change, and capacity growth needs is critical to success. The main idea is that by introducing a cloud tier, your access times and throughputs to the cloud play a fundamental role in the ability of StorSimple to do its job.
 
 StorSimple is designed to provide storage to applications that operate on a well-defined working set of data (hot data). In this model, the working set of data is stored on the local tiers, and the remaining nonworking/cold/archived set of data is tiered to the cloud. This model is represented in the following figure. The nearly flat green line represents the data stored on the local tiers of the StorSimple device. The red line represents the total amount of data stored on the StorSimple solution across all tiers. The space between the flat green line and the exponential red curve represents the total amount of data stored in the cloud.
 
@@ -152,7 +152,7 @@ It is important to size your high-performance volume so that it can handle your 
 Deploying the solution requires three steps:
 1. Prepare the network infrastructure.
 2. Deploy your StorSimple device as a backup target.
-3. Deploy the Veeam software.
+3. Deploy Veeam.
 
 Each step is discussed in detail in the following sections.
 
@@ -200,7 +200,7 @@ Set up the host backup server storage according to these guidelines:
 
 ## Best practices for StorSimple and Veeam
 
-Set up your solution according to the guidelines in the next few sections.
+Set up your solution according to the guidelines in the following few sections.
 
 ### Operating system best practices
 
@@ -297,12 +297,12 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
     A repository is added to the Veeam server.
 
-## StorSimple as a primary backup target
+## Set up StorSimple as a primary backup target
 
 > [!IMPORTANT]
 > Data restore from a backup that has been tiered to the cloud occurs at cloud speeds.
 
-The following figure shows a mapping of a typical volume to a backup job. In this case, all the weekly backups map to the Saturday full disk, and the incremental backups map to Monday-Friday incremental disks. All the backups and restores happen from a StorSimple tiered volume.
+The following figure shows the mapping of a typical volume to a backup job. In this case, all the weekly backups map to the Saturday full disk, and the incremental backups map to Monday-Friday incremental disks. All the backups and restores are from a StorSimple tiered volume.
 
 ![Primary backup target configuration logical diagram](./media/storsimple-configure-backup-target-using-veeam/primarybackuptargetdiagram.png)
 
@@ -317,13 +317,13 @@ Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly
 | Yearly | Saturday  |   |   |
 
 
-### Assigning StorSimple volumes to a Veeam backup job
+### Assign StorSimple volumes to a Veeam backup job
 
 For primary backup target scenario, create a daily job with your primary Veeam StorSimple volume. For a secondary backup target scenario, create a daily job by using Direct Attached Storage (DAS), Network Attached Storage (NAS), or Just a Bunch of Disks (JBOD) storage.
 
 #### To assign StorSimple volumes to a Veeam backup job
 
-1.  In the Veeam Backup and Replication console, go to **Backup
+1.  In the Veeam Backup and Replication console, select **Backup
 & Replication**. Right-click **Backup**, and then select **VMware** or **Hyper-V**, depending on your environment.
 
     ![Veeam management console, new backup job](./media/storsimple-configure-backup-target-using-veeam/veeamimage8.png)
@@ -358,15 +358,20 @@ For primary backup target scenario, create a daily job with your primary Veeam S
 
     ![Veeam management console, new backup job schedule page](./media/storsimple-configure-backup-target-using-veeam/veeamimage15.png)
 
-## StorSimple as a secondary backup target
+## Set up StorSimple as a secondary backup target
 
 > [!NOTE]
 > Data restores from a backup that has been tiered to the cloud occur at cloud speeds.
 
 In this model, you must have a storage media (other than StorSimple) to serve as a temporary cache. For example, you could use a redundant array of independent disks (RAID) volume to accommodate space, input/output (I/O), and bandwidth. We recommend using RAID 5, 50 and 10.
 
-The following figure shows typical short-term retention local (to the server) volumes and long-term retention archive volumes. In this scenario, all the backups run on the local (to the server) RAID volume. These backups are periodically duplicated and archived to an archive volume. It is important to size your local (to the server) RAID volume so that it can handle your short-term retention capacity and performance requirements.
+The following figure shows typical short-term retention local (to the server) volumes and long-term retention archive volumes. In this scenario, all backups run on the local (to the server) RAID volume. These backups are periodically duplicated and archived to an archive volume. It is important to size your local (to the server) RAID volume so that it can handle your short-term retention capacity and performance requirements.
 
+![StorSimple as secondary backup target logical diagram](./media/storsimple-configure-backup-target-using-veeam/secondarybackuptargetdiagram.png)
+
+### StorSimple as a secondary backup target GFS example
+
+The following table shows how to set up backups to run on the local and StorSimple disks. It includes individual and total capacity requirements.
 
 | Backup type and retention | Configured storage | Size (TiB) | GFS multiplier | Total capacity\* (TiB) |
 |---|---|---|---|---|
@@ -377,9 +382,8 @@ The following figure shows typical short-term retention local (to the server) vo
 |GFS volumes size requirement |  |  |  | 18*|
 \* Total capacity includes 17 TiB of StorSimple disks and 1 TiB of local RAID volume.
 
-![StorSimple as secondary backup target logical diagram](./media/storsimple-configure-backup-target-using-veeam/secondarybackuptargetdiagram.png)
 
-#### GFS example schedule
+### GFS example schedule
 
 GFS rotation weekly, monthly, and yearly schedule
 
@@ -392,13 +396,11 @@ GFS rotation weekly, monthly, and yearly schedule
 | Monthly | StorSimple monthly |   |   |   |   |   |
 | Yearly | StorSimple yearly  |   |   |   |   |   |   |
 
-
-
-### Assigning StorSimple volumes to a Veeam copy job
+### Assign StorSimple volumes to a Veeam copy job
 
 #### To assign StorSimple volumes to a Veeam copy job
 
-1.  In the Veeam Backup and Replication console, go to **Backup
+1.  In the Veeam Backup and Replication console, select **Backup
 & Replication**. Right-click **Backup**, and then select **VMware** or **Hyper-V**, depending on your environment.
 
     ![Veeam management console, new backup copy job page](./media/storsimple-configure-backup-target-using-veeam/veeamimage16.png)
@@ -448,7 +450,7 @@ The following section describes how to create a short script to start and delete
 > Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information about how to run a post-backup script, see the Veeam documentation.
 
 
-#### Backup lifecycle
+### Backup lifecycle
 
 ![Backup lifecycle diagram](./media/storsimple-configure-backup-target-using-veeam/backuplifecycle.png)
 
@@ -530,7 +532,7 @@ With Veeam, you get fast, granular, file-level recovery through StorSimple via t
 > [!NOTE]
 > For backup target scenarios, StorSimple Cloud Appliance is not supported as a restore target.
 
-A disaster could be caused by various factors. The following table lists common disaster recovery scenarios.
+A disaster could be caused by a variety of factors. The following table lists common disaster recovery scenarios.
 
 | Scenario | Impact | How to recover | Notes |
 |---|---|---|---|
