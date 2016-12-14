@@ -32,7 +32,7 @@ On the **Resources security health** tile, you can monitor the security state of
 
 ![Resources security health tile](./media/security-center-monitoring/security-center-monitoring-fig1-new4.png)
 
-If Security Center identifies a vulnerability that needs to be addressed, such as a virtual machine that has missing security updates or a subnet without a [network security group](../virtual-network/virtual-networks-nsg.md), it will be listed here.
+If Security Center identifies a vulnerability that needs to be addressed, such as a virtual machine that has missing security updates or a subnet without a [network security group](/virtual-network/virtual-networks-nsg.md), it will be listed here.
 
 ### Monitor virtual machines
 When you click **Virtual machines** in the **Resources security health** tile, the **Virtual machines** blade that opens shows more details about onboarding, prevention steps, and a list of all virtual machines that Security Center monitors as shown in the following screenshot.
@@ -159,7 +159,7 @@ This table is sorted (virtual machines and subnets) by severity:
 * Orange: Medium priority and should be addressed as soon as possible
 * Green (last one): Healthy state
 
-In this topology view, the first level has [virtual networks](../virtual-network/virtual-networks-overview.md), [virtual network gateways](../vpn-gateway/vpn-gateway-site-to-site-create.md), and [virtual networks (classic)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets, and the third level has the virtual machines that belong to those subnets. The right column has the current status of the network security group for those resources, as shown in the following example:
+In this topology view, the first level has [virtual networks](../virtual-network/virtual-networks-overview.md), [virtual network gateways](/vpn-gateway/vpn-gateway-site-to-site-create.md), and [virtual networks (classic)](/virtual-network/virtual-networks-create-vnet-classic-pportal.md). The second level has subnets, and the third level has the virtual machines that belong to those subnets. The right column has the current status of the network security group for those resources, as shown in the following example:
 
 ![Status of the network security group in Networking topology section](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
 
