@@ -34,6 +34,7 @@
 #### [Azure Blob Storage](data-factory-azure-blob-connector.md)
 #### [Azure Data Lake Store](data-factory-azure-datalake-connector.md)
 #### [Azure DocumentDB](data-factory-azure-documentdb-connector.md)
+#### [Azure Search](data-factory-azure-search-connector.md)
 #### [Azure SQL Database](data-factory-azure-sql-connector.md)
 #### [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
 #### [Azure Table Storage](data-factory-azure-table-connector.md)
