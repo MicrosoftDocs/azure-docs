@@ -17,7 +17,7 @@ ms.date: 11/23/2016
 ms.author: dobett
 
 ---
-# How to get started with Azure IoT Hub (Java)
+# Get started with Azure IoT Hub (Java)
 [!INCLUDE [iot-hub-selector-get-started](../../includes/iot-hub-selector-get-started.md)]
 
 At the end of this tutorial, you have three Java console apps:

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Resource Balancer cluster description | Microsoft Docs
 description: Describing a Service Fabric cluster by specifying fault domains, upgrade domains, node properties, and node capacities to the Cluster Resource Manager.
 services: service-fabric

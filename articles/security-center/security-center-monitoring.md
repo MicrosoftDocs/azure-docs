@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/06/2016
+ms.date: 12/14/2016
 ms.author: yurid
 
 ---
@@ -190,7 +190,7 @@ To enable auditing, select **ON** under the **Auditing** option.
 
 ### Monitor applications
 
-If your Azure workload has applications located in [virtual machines (created through Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) with exposed web ports (TCP ports 80 and 443), Security Center can monitor those to identify potential security issues and recommend remediation steps. When you click the **Applications** tile, the **Applications** blade opens with a series of recommendations in the **Prevention steps** section. It also shows the application breakdown per host/virtual IP as shown in the following screenshot.
+If your Azure workload has applications located in [virtual machines (created through Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) with exposed web ports (TCP ports 80 and 443), Security Center can monitor those to identify potential security issues and recommend remediation steps. When you click the **Applications** tile, the **Applications** blade opens with a series of recommendations in the **Application recommendations** section. It also shows the application breakdown per host/virtual IP as shown in the following screenshot.
 
 ![Applications security health](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
 

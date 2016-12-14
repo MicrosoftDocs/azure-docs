@@ -1227,7 +1227,7 @@ In this tutorial, you learned how to get tweets, analyze the sentiment of tweets
 [twitter-statuses-filter]: https://dev.twitter.com/docs/api/1.1/post/statuses/filter
 
 [powershell-start]: http://technet.microsoft.com/library/hh847889.aspx
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [powershell-script]: http://technet.microsoft.com/library/ee176949.aspx
 
 [hdinsight-provision]: hdinsight-provision-clusters.md

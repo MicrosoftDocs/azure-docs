@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Geo-Replication for Azure SQL Database with Transact-SQL | Microsoft Docs
 description: Configure Geo-Replication for Azure SQL Database using Transact-SQL
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: d94d89a6-3234-46c5-8279-5eb8daad10ac
 ms.service: sql-database
+ms.custom: business continuity; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -49,16 +50,16 @@ To configure Active Geo-Replication using Transact-SQL, you need the following:
 > 
 
 ## Add secondary database
-You can use the **ALTER DATABASE** statement to create a geo-replicated secondary database on a partner server. You execute this statement on the master database of the server containing the database to be replicated. The geo-replicated database (the "primary database") will have the same name as the database being replicated and will, by default, have the same service level as the primary database. The secondary database can be readable or non-readable, and can be a single database or an elastic databbase. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
-After the secondary database is created and seeded, data will begin replicating asynchronously from the primary database. The steps below describe how to configure Geo-Replication using Management Studio. Steps to create non-readable and readable secondaries, either with a single database or an elastic database, are provided.
+You can use the **ALTER DATABASE** statement to create a geo-replicated secondary database on a partner server. You execute this statement on the master database of the server containing the database to be replicated. The geo-replicated database (the "primary database") will have the same name as the database being replicated and will, by default, have the same service level as the primary database. The secondary database can be readable or non-readable, and can be a standalone database or in an elastic pool. For more information, see [ALTER DATABASE (Transact-SQL)](https://msdn.microsoft.com/library/mt574871.aspx) and [Service Tiers](sql-database-service-tiers.md).
+After the secondary database is created and seeded, data will begin replicating asynchronously from the primary database. The steps below describe how to configure Geo-Replication using Management Studio. Steps to create non-readable and readable secondaries, either as a standalone database or in an elastic pool, are provided.
 
 > [!NOTE]
 > If a database exists on the specified partner server with the same name as the primary database the command will fail.
 > 
 > 
 
-### Add non-readable secondary (single database)
-Use the following steps to create a non-readable secondary as a single database.
+### Add non-readable secondary (standalone database)
+Use the following steps to create a non-readable secondary as a standalone database.
 
 1. Using version 13.0.600.65 or later of SQL Server Management Studio.
    
@@ -73,8 +74,8 @@ Use the following steps to create a non-readable secondary as a single database.
            ADD SECONDARY ON SERVER <MySecondaryServer1> WITH (ALLOW_CONNECTIONS = NO);
 4. Click **Execute** to run the query.
 
-### Add readable secondary (single database)
-Use the following steps to create a readable secondary as a single database.
+### Add readable secondary (standalone database)
+Use the following steps to create a readable secondary as a standalone database.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
@@ -84,8 +85,8 @@ Use the following steps to create a readable secondary as a single database.
            ADD SECONDARY ON SERVER <MySecondaryServer2> WITH (ALLOW_CONNECTIONS = ALL);
 4. Click **Execute** to run the query.
 
-### Add non-readable secondary (elastic database)
-Use the following steps to create a non-readable secondary as an elastic database.
+### Add non-readable secondary (elastic pool)
+Use the following steps to create a non-readable secondary in an elastic pool.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.
@@ -96,8 +97,8 @@ Use the following steps to create a non-readable secondary as an elastic databas
            , SERVICE_OBJECTIVE = ELASTIC_POOL (name = MyElasticPool1));
 4. Click **Execute** to run the query.
 
-### Add readable secondary (elastic database)
-Use the following steps to create a readable secondary as an elastic database.
+### Add readable secondary (elastic pool)
+Use the following steps to create a readable secondary in an elastic pool.
 
 1. In Management Studio, connect to your Azure SQL Database logical server.
 2. Open the Databases folder, expand the **System Databases** folder, right-click on **master**, and then click **New Query**.

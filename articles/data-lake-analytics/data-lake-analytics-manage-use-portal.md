@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/06/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
@@ -153,7 +153,9 @@ For information on creating Azure Active Directory users and security groups, Se
 3. From the **User** blade, click **Add**.
 4. Select a role and add a user, and then click **OK**.
 
-**Note: If this user or security group needs to submit jobs, they need to be given permission on the Data Lake Store as well. For more information, see [Secure data stored in Data Lake Store](../data-lake-store/data-lake-store-secure-data.md).**
+>[!NOTE]
+>If this user or security group needs to submit jobs, they need to be given permission on the Data Lake Store as well. For more information, see [Secure data stored in Data Lake Store](../data-lake-store/data-lake-store-secure-data.md)
+>
 
 <!-- ################################ -->
 <!-- ################################ -->

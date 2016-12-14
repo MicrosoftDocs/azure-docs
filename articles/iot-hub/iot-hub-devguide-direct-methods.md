@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: nberdy
 
 ---
-# Understand direct methods
+# Direct methods
 ## Overview
 IoT Hub gives you ability to invoke direct methods on devices from the cloud. Direct methods represent a request-reply interaction with a device similar to an HTTP call in that they succeed or fail immediately (after a user-specified timeout). This is useful for scenarios where the course of immediate action is different depending on whether the device was able to respond, such as sending an SMS wake-up to a device if a device is offline (SMS being more expensive than a method call).
 

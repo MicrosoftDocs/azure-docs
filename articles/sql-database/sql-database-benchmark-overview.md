@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure SQL Database benchmark overview
 description: This topic describes the Azure SQL Database Benchmark used in measuring the performance of Azure SQL Database.
 services: sql-database
@@ -128,4 +128,4 @@ The Azure SQL Database Benchmark measures the relative performance of Azure SQL 
 
 [Service tiers and performance levels](sql-database-service-tiers.md)
 
-[Performance guidance for single databases](sql-database-performance-guidance.md)
+[Performance guidance for standalone databases](sql-database-performance-guidance.md)
