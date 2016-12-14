@@ -23,12 +23,12 @@ This FAQ answers questions about Azure AD Connect Health. This FAQ covers questi
 ## General Questions
 **Q: I manage multiple Azure AD directories. How do I switch to the one with Azure Active Directory Premium?**
 
-You can switch between different Azure AD tenants by selecting the currently signed in User Name on the top right corner and choosing the appropriate account. If the account is not listed here, select Sign out and then use the global admin credentials of the Directory that has Azure Active Directory Premium enabled to sign in.
+To switch between different Azure AD tenants, select the currently signed in User Name on the top right corner and choose the appropriate account from the list. If the desired account is not listed, sign out and then sign in using the global admin credentials of the Directory that has Azure Active Directory Premium enabled.
 
 ## Installation Questions
 **Q: What is the impact of installing the Azure AD Connect Health Agent on individual servers?**
 
-Installing the Azure AD Connect Health Agents on AD FS servers, Web Application Proxy servers, Azure AD Connect (sync) servers and Domain Controllers has minimal impact with respect to the CPU, memory consumption, network bandwidth and storage.
+Installing Azure AD Connect Health Agents on servers (AD FS, Web Application Proxy, Azure AD Connect and Domain Controllers) has minimal impact regarding CPU, memory consumption, network bandwidth, and storage.
 
 The following numbers are an approximation:
 
@@ -41,7 +41,7 @@ The following numbers are an approximation:
 > 
 
 * Local buffer storage for Azure AD Connect Health Agents: ~20 MB
-* For AD FS servers, it is recommended to provision 1024 MB (1 GB) of disk space for the AD FS Audit Channel. This helps Azure AD Connect Health Agents to process all the audit data before it is overwritten.
+* For AD FS servers, it is recommended to provision 1024 MB (1 GB) of disk space for the AD FS Audit Channel. This disk space helps Azure AD Connect Health Agents to process all the audit data before it is overwritten.
 
 **Q: Will I have to reboot my servers during the installation of the Azure AD Connect Health Agents?**
 
