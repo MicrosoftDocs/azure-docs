@@ -11,7 +11,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2016
+ms.date: 12/14/2016
 ms.author: awills
 
 ---
@@ -31,10 +31,10 @@ There are three situations where importing to Analytics is useful:
 
 Sending data to your data source is very easy. 
 
-1. (One time) Define the schema of your data as a 'data source'.
+1. (One time) Define the schema of your data in a 'data source'.
 2. (Periodically) Upload your data to Azure storage, and call the REST API to notify us that new data is waiting for ingestion. Within a few minutes the data is available for query in Analytics.
 
-The frequency of the upload is defined by you and how fast would you like your data to be available for queries. It is more efficient to upload data in larger chunks.
+The frequency of the upload is defined by you and how fast would you like your data to be available for queries. It is more efficient to upload data in larger chunks, but not larger than 1GB.
 
 > [!NOTE]
 > *Got lots of data sources to analyze?* [*Consider using* logstash *to ship your data into Application Insights.*](https://github.com/Microsoft/logstash-output-application-insights)
@@ -71,8 +71,8 @@ Before you can import data, you need to define a *data source,* which specifies 
 
 2. Follow the instructions to upload a sample data file.
 
- * The first row of the sample should be column headers.
- * The sample should include at least 20 rows of data.
+ * The first row of the sample can be column headers. (You can change the field names in the next step.)
+ * The sample should include at least 10 rows of data.
 
 3. Review the schema that the wizard has inferred from your sample. You can adjust the inferred types of the columns if necessary.
 
@@ -127,7 +127,7 @@ The placeholders are:
 
 * `Blob URI with Shared Access Key`: You get this from the procedure for creating a key. It is specific to the blob.
 * `Data source name`: The name you gave to your data source. The data in this blob should conform to the schema you defined for this source.
-* `DateTime`: The time at which the request is submitted, UTC, in ISO format (like "2016-01-01 13:45").
+* `DateTime`: The time at which the request is submitted, UTC. We accept the following formats: ISO8601 (like "2016-01-01 13:45:01"); RFC822  ("Wed, 14 Dec 16 14:57:01 +0000"); RFC850 ("Wednesday, 14-Dec-16 14:57:00 UTC"); RFC1123 ("Wed, 14 Dec 2016 14:57:00 +0000").
 * `Instrumentation key` of your Application Insights resource.
 
 The data is available in Analytics after a few minutes.
