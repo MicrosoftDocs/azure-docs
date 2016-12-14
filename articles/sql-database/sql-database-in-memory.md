@@ -364,7 +364,7 @@ EXECUTE Demo.usp_DemoReset;
 
 #### Expected comparison results
 
-Our In-Memory tests have shown a **9 times** performance improvement for this simplistic workload, with ostress running on an Azure VM in the same Azure region as the database.
+Our In-Memory tests have shown a **nine times** performance improvement for this simplistic workload, with ostress running on an Azure VM in the same Azure region as the database.
 
 
 
@@ -376,10 +376,10 @@ Our In-Memory tests have shown a **9 times** performance improvement for this si
 ## B. Install the In-Memory Analytics sample
 
 
-In this section, you compare the IO and Statistics results when using a columnstore index versus a traditional b-tree index.
+In this section, you compare the IO and Statistics results when you're using a columnstore index versus a traditional b-tree index.
 
 
-For real-time analytics on an OLTP workload, it is often best to use a NONclustered columnstore index. For details see [Columnstore Indexes Described](http://msdn.microsoft.com/library/gg492088.aspx).
+For real-time analytics on an OLTP workload, it's often best to use a nonclustered columnstore index. For details, see [Columnstore Indexes Described](http://msdn.microsoft.com/library/gg492088.aspx).
 
 
 
@@ -391,36 +391,36 @@ For real-time analytics on an OLTP workload, it is often best to use a NONcluste
  - Choose any Premium service tier.
 
 2. Copy the [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) to your clipboard.
- - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database you created in step 1.
- - The script creates the Dimension table, and two fact tables. The fact tables are populated with 3.5 million rows each.
+ - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database that you created in step 1.
+ - The script creates the Dimension table and two fact tables. The fact tables are populated with 3.5 million rows each.
  - The script might take 15 minutes to complete.
 
 3. Paste the T-SQL script into SSMS, and then execute the script.
- - Crucial is the **COLUMNSTORE** keyword on a **CREATE INDEX** statement, as in:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
+ - The **COLUMNSTORE** keyword in the **CREATE INDEX** statement is crucial, as in:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
 4. Set AdventureWorksLT to compatibility level 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
- - Level 130 is not directly related to In-Memory features. But level 130 generally provides faster query performance than does 120.
+ - Level 130 is not directly related to In-Memory features. But level 130 generally provides faster query performance than 120.
 
 
-#### Crucial tables and columnstore indexes
+#### Key tables and columnstore indexes
 
 
-- dbo.FactResellerSalesXL_CCI is a table that has a clustered **columnstore** index, which has advanced compression at the *data* level.
+- dbo.FactResellerSalesXL_CCI is a table that has a clustered columnstore index, which has advanced compression at the *data* level.
 
 - dbo.FactResellerSalesXL_PageCompressed is a table that has an equivalent regular clustered index, which is compressed only at the *page* level.
 
 
-#### Crucial queries to compare the columnstore index
+#### Key queries to compare the columnstore index
 
 
-[Here](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) are several T-SQL query types you can run to see performance improvements. From Step 2 in the T-SQL script, there is a pair of queries that are of direct interest. The two queries differ only on one line:
+There are [several T-SQL query types that you can run](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) to see performance improvements. In Step 2 in the T-SQL script, pay attention to this pair of queries. They differ only on one line:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
 - `FROM FactResellerSalesXL_CCI a`
 
 
-A clustered columnstore index is on the FactResellerSalesXL\_CCI table.
+A clustered columnstore index is in the FactResellerSalesXL\_CCI table.
 
 The following T-SQL script excerpt prints statistics for IO and TIME for the query of each table.
 
@@ -461,8 +461,8 @@ SET STATISTICS TIME OFF
 GO
 
 
--- This is the same Prior query on a table with a Clustered Columnstore index CCI
--- The comparison numbers are even more dramatic the larger the table is, this is a 11 million row table only.
+-- This is the same Prior query on a table with a clustered columnstore index CCI
+-- The comparison numbers are even more dramatic the larger the table is - this is an 11 million row table only
 SET STATISTICS IO ON
 SET STATISTICS TIME ON
 GO
@@ -487,7 +487,7 @@ SET STATISTICS TIME OFF
 GO
 ```
 
-In a database with the P2 pricing tier you can expect about 9X perf gain for this query from using the clustered columnstore index compared with the traditional index. With P15 you can expect about 57X perf gain from columnstore.
+In a database with the P2 pricing tier, you can expect about nine times the performance gain for this query from using the clustered columnstore index compared with the traditional index. With P15, you can expect about 57 times the performance gain from columnstore.
 
 
 
@@ -495,34 +495,34 @@ In a database with the P2 pricing tier you can expect about 9X perf gain for thi
 
 - [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](http://msdn.microsoft.com/library/mt694156.aspx)
 
-- [Use In-Memory OLTP in an existing Azure SQL Application.](sql-database-in-memory-oltp-migration.md)
+- [Use In-Memory OLTP in an existing Azure SQL application.](sql-database-in-memory-oltp-migration.md)
 
-- [Monitor In-Memory OLTP Storage](sql-database-in-memory-oltp-monitoring.md) for In-Memory OLTP.
+- [Monitor In-Memory OLTP storage](sql-database-in-memory-oltp-monitoring.md) for In-Memory OLTP.
 
 
 ## Additional resources
 
 #### Deeper information
 
-- [Learn how Quorum doubles key database’s workload while lowering DTU by 70% with In-Memory OLTP in SQL Database](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database)
+- [Learn how Quorum doubles key database’s workload while lowering DTU by 70% with In-Memory OLTP in SQL Database](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
 
-- [Learn about In-Memory OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
+- [Learn about In-Memory OLTP](http://msdn.microsoft.com/library/dn133186.aspx).
 
-- [Learn about Columnstore Indexes](https://msdn.microsoft.com/library/gg492088.aspx)
+- [Learn about columnstore indexes](https://msdn.microsoft.com/library/gg492088.aspx).
 
-- [Learn about Real-Time Operational Analytics](http://msdn.microsoft.com/library/dn817827.aspx)
+- [Learn about real-time operational analytics](http://msdn.microsoft.com/library/dn817827.aspx).
 
-- White paper on [Common Workload Patterns and Migration Considerations](http://msdn.microsoft.com/library/dn673538.aspx), which describes workload patterns where In-Memory OLTP commonly provides significant performance gains.
+- See the white paper [Common Workload Patterns and Migration Considerations](http://msdn.microsoft.com/library/dn673538.aspx), which describes workload patterns where In-Memory OLTP commonly provides significant performance gains.
 
 #### Application design
 
 - [In-Memory OLTP (In-Memory Optimization)](http://msdn.microsoft.com/library/dn133186.aspx)
 
-- [Use In-Memory OLTP in an existing Azure SQL Application.](sql-database-in-memory-oltp-migration.md)
+- [Use In-Memory OLTP in an existing Azure SQL application](sql-database-in-memory-oltp-migration.md)
 
 #### Tools
 
-- [Azure Portal](https://portal.azure.com/)
+- [Azure portal](https://portal.azure.com/)
 
 - [SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx)
 
