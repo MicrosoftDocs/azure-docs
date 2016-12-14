@@ -71,9 +71,9 @@ Let's go through these steps.
 
        The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
      
-       ```
-       azure ad sp create -a <AppId>
-       ```
+     ```
+     azure ad sp create -a <AppId>
+     ```
      
      If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
      
@@ -113,21 +113,21 @@ Now, you need to log in as the application to perform operations.
    
      Which returns:
    
-     ```
-     info:    Executing command account show
-     data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
-     data:    ID                          : {guid}
-     data:    State                       : Enabled
-     data:    Tenant ID                   : {guid}
-     data:    Is Default                  : true
-     ...
-     ```
+   ```
+   info:    Executing command account show
+   data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
+   data:    ID                          : {guid}
+   data:    State                       : Enabled
+   data:    Tenant ID                   : {guid}
+   data:    Is Default                  : true
+   ...
+   ```
    
      If you need to get the tenant id of another subscription, use the following command:
    
-     ```
-     azure account show -s {subscription-id}
-     ```
+   ```
+   azure account show -s {subscription-id}
+   ```
 2. If you need to retrieve the client id to use for logging in, use:
    
    ```
@@ -136,20 +136,20 @@ Now, you need to log in as the application to perform operations.
    
      The value to use for logging in is the guid listed in the service principal names.
    
-     ```
-     [
-       {
-         "objectId": "ff863613-e5e2-4a6b-af07-fff6f2de3f4e",
-         "objectType": "ServicePrincipal",
-         "displayName": "exampleapp",
-         "appId": "7132aca4-1bdb-4238-ad81-996ff91d8db4",
-         "servicePrincipalNames": [
-           "https://www.contoso.org/example",
-           "7132aca4-1bdb-4238-ad81-996ff91d8db4"
-         ]
-       }
-     ]
-     ```
+   ```
+   [
+     {
+       "objectId": "ff863613-e5e2-4a6b-af07-fff6f2de3f4e",
+       "objectType": "ServicePrincipal",
+       "displayName": "exampleapp",
+       "appId": "7132aca4-1bdb-4238-ad81-996ff91d8db4",
+       "servicePrincipalNames": [
+         "https://www.contoso.org/example",
+         "7132aca4-1bdb-4238-ad81-996ff91d8db4"
+       ]
+     }
+   ]
+   ```
 3. Log in as the service principal.
    
    ```
@@ -158,10 +158,10 @@ Now, you need to log in as the application to perform operations.
    
     You are prompted for the password. Provide the password you specified when creating the AD application.
    
-    ```
-    info:    Executing command login
-    Password: ********
-    ```
+   ```
+   info:    Executing command login
+   Password: ********
+   ```
 
 You are now authenticated as the service principal for the service principal that you created.
 
@@ -205,9 +205,9 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
      
        The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
      
-       ```
-       azure ad sp create -a <AppId>
-       ```
+     ```
+     azure ad sp create -a <AppId>
+     ```
      
      If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
      
@@ -243,21 +243,21 @@ Now, you need to log in as the application to perform operations.
    
      Which returns:
    
-     ```
-     info:    Executing command account show
-     data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
-     data:    ID                          : {guid}
-     data:    State                       : Enabled
-     data:    Tenant ID                   : {guid}
-     data:    Is Default                  : true
-     ...
-     ```
+   ```
+   info:    Executing command account show
+   data:    Name                        : Windows Azure MSDN - Visual Studio Ultimate
+   data:    ID                          : {guid}
+   data:    State                       : Enabled
+   data:    Tenant ID                   : {guid}
+   data:    Is Default                  : true
+   ...
+   ```
    
      If you need to get the tenant id of another subscription, use the following command:
    
-     ```
-     azure account show -s {subscription-id}
-     ```
+   ```
+   azure account show -s {subscription-id}
+   ```
 2. To retrieve the certificate thumbprint and remove unneeded characters, use:
    
    ```
@@ -266,9 +266,9 @@ Now, you need to log in as the application to perform operations.
    
      Which returns a thumbprint value similar to:
    
-     ```
-     30996D9CE48A0B6E0CD49DBB9A48059BF9355851
-     ```
+   ```
+   30996D9CE48A0B6E0CD49DBB9A48059BF9355851
+   ```
 3. If you need to retrieve the client id to use for logging in, use:
    
    ```
@@ -277,20 +277,20 @@ Now, you need to log in as the application to perform operations.
    
      The value to use for logging in is the guid listed in the service principal names.
      
-     ```
-     [
-       {
-         "objectId": "7dbc8265-51ed-4038-8e13-31948c7f4ce7",
-         "objectType": "ServicePrincipal",
-         "displayName": "exampleapp",
-         "appId": "4fd39843-c338-417d-b549-a545f584a745",
-         "servicePrincipalNames": [
-           "https://www.contoso.org/example",
-           "4fd39843-c338-417d-b549-a545f584a745"
-         ]
-       }
-     ]
-     ```
+   ```
+   [
+     {
+       "objectId": "7dbc8265-51ed-4038-8e13-31948c7f4ce7",
+       "objectType": "ServicePrincipal",
+       "displayName": "exampleapp",
+       "appId": "4fd39843-c338-417d-b549-a545f584a745",
+       "servicePrincipalNames": [
+         "https://www.contoso.org/example",
+         "4fd39843-c338-417d-b549-a545f584a745"
+       ]
+     }
+   ]
+   ```
 4. Log in as the service principal.
    
    ```
@@ -298,6 +298,23 @@ Now, you need to log in as the application to perform operations.
    ```
 
 You are now authenticated as the service principal for the Active Directory application that you created.
+
+## Change credentials
+
+To change the credentials for an AD app, either because of a security compromise or a credential expiration, use `azure ad app set`.
+
+To change a password, use:
+
+```
+azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --password p@ssword
+```
+
+To change a certificate value, use:
+
+```
+azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-value <certificate data>
+```
+
 
 ## Sample applications
 The following sample applications show how to log in as the service principal.

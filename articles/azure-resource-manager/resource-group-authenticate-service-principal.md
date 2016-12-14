@@ -53,7 +53,7 @@ In this section, you perform the steps to:
 * create the service principal
 * assign the Reader role to the service principal
 
-To quickly perform these steps, see the following cmdlets. 
+To quickly perform these steps, see the following cmdlets:
 
 ```powershell
 $app = New-AzureRmADApplication -DisplayName "{app-name}" -HomePage "https://{your-domain}/{app-name}" -IdentifierUris "https://{your-domain}/{app-name}" -Password "{your-password}"
@@ -197,21 +197,21 @@ The version of PowerShell available with Windows 10 and Windows Server 2016 Tech
 
 * If you have **Windows 10 or Windows Server 2016 Technical Preview**, run the following command to create a self-signed certificate: 
    
-   ```powershell
-   $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
-   ```
+  ```powershell
+  $cert = New-SelfSignedCertificate -CertStoreLocation "cert:\CurrentUser\My" -Subject "CN=exampleapp" -KeySpec KeyExchange
+  ```
 * If you **do not have Windows 10 or Windows Server 2016 Technical Preview**, you need to download the [Self-signed certificate generator](https://gallery.technet.microsoft.com/scriptcenter/Self-signed-certificate-5920a7c6/) from Microsoft Script Center. Extract its contents and import the cmdlet you need.
 
-   ```powershell  
-   # Only run if you could not use New-SelfSignedCertificate
-   Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
-   ```
+  ```powershell  
+  # Only run if you could not use New-SelfSignedCertificate
+  Import-Module -Name c:\ExtractedModule\New-SelfSignedCertificateEx.ps1
+  ```
   
      Then, generate the certificate.
   
-   ```powershell
-   $cert = New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
-   ```
+  ```powershell
+  $cert = New-SelfSignedCertificateEx -Subject "CN=exampleapp" -KeySpec "Exchange" -FriendlyName "exampleapp"
+  ```
 
 You have your certificate and can proceed with creating your AD app.
 
@@ -298,6 +298,28 @@ Add-AzureRmAccount -ServicePrincipal -CertificateThumbprint $cert.Thumbprint -Ap
 ```
 
 You are now authenticated as the service principal for the Active Directory application that you created.
+
+## Change credentials
+
+To change the credentials for an AD app, either because of a security compromise or a credential expiration, use the `Remove-AzureRmADAppCredential` and `New-AzureRmADAppCredential` cmdlets.
+
+To remove all the credentials for an application, use:
+
+```powershell
+Remove-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -All
+```
+
+To add a password, use:
+
+```powershell
+New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -Password p@ssword!
+```
+
+To add a certificate value, create a self-signed certificate as shown in this topic. Then, use:
+
+```powershell
+New-AzureRmADAppCredential -ApplicationId 8bc80782-a916-47c8-a47e-4d76ed755275 -CertValue $keyValue -EndDate $cert.NotAfter -StartDate $cert.NotBefore
+```
 
 ## Sample applications
 The following sample applications show how to log in as the service principal.
