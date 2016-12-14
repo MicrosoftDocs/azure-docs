@@ -95,7 +95,7 @@ The following steps provide guidance on how to install Visual Studio Community 2
 8.  Open Visual Studio and validate you can connect to the Azure Stack environment / get templates / etc.
 
 
-## SQL Server
+## <a name="SQL-Server"></a>SQL Server
 
 By default, the App Service on Azure Stack installer is set to use the SQL Server that is installed along with the Azure Stack SQL Resource Provider. When you install the SQL Server Resource Provider (SQL RP), ensure you take note of the database administrator username and password. You need both when you install App Service on Azure Stack.
 >[!NOTE]
