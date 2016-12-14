@@ -9,7 +9,7 @@
 1. Click on the tile for your solution with **Provisioning** status.
 2. Notice the **Provisioning states** as Azure services are deployed in your Azure subscription.
 3. Once provisioning completes, the status changes to **Ready**.
-4. Click on the tile and you'll see the details of your solution in the right-hand pane.
+4. Click on the tile to see the details of your solution in the right-hand pane.
 
 > [!NOTE]
 > If you are encountering issues deploying the pre-configured solution, take a look at [Permissions on the azureiotsuite.com site][lnk-permissions] and the [FAQ][lnk-faq]. If the issues persist, please create a service ticket on the [portal][lnk-portal].
