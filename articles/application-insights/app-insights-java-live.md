@@ -30,13 +30,13 @@ You'll need a subscription to [Microsoft Azure](https://azure.com).
 
 ## 1. Get an Application Insights instrumentation key
 1. Sign in to the [Microsoft Azure portal](https://portal.azure.com)
-2. Create a new Application Insights resource
-   
-    ![Click + and choose Application Insights](./media/app-insights-java-live/01-create.png)
-3. Set the application type to Java web application.
+2. Create a new Application Insights resource and set the application type to Java web application.
    
     ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-live/02-create.png)
-4. Find the instrumentation key of the new resource. You'll need to paste this key into your code project shortly.
+
+    The resource is created in a few seconds.
+
+4. Open the new resource and get its instrumentation key. You'll need to paste this key into your code project shortly.
    
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-live/03-key.png)
 
