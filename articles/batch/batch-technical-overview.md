@@ -3,7 +3,7 @@ title: Azure Batch service basics | Microsoft Docs
 description: Learn about using the Azure Batch service for large-scale parallel and HPC workloads
 services: batch
 documentationcenter: ''
-author: mmacy
+author: tamram
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/22/2016
-ms.author: marsma
+ms.author: tamram
 
 ---
 # Basics of Azure Batch
