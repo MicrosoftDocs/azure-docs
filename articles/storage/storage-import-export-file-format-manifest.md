@@ -97,7 +97,7 @@ block-list ::=
 |`Drive`|Nested XML element|Contains the manifest for each drive.|  
 |`DriveId`|String|The unique drive identifier for the drive. The drive identifier is found by querying the drive for its serial number. The drive serial number is usually printed on the outside of the drive as well. The `DriveID` element must appear before any `BlobList` element in the manifest file.|  
 |`StorageAccountKey`|String|Required for import jobs if and only if `ContainerSas` is not specified. The account key for the Azure storage account associated with the job.<br /><br /> This element is omitted from the manifest for an export operation.|  
-|`ContainerSas`|String|Required for import jobs if and only if `StorageAccountKey` is not specified. The container SAS for accessing the blobs associated with the job. See [Put Job](../importexport/Put-Job.md) for its format.This element is omitted from the manifest for an export operation.|  
+|`ContainerSas`|String|Required for import jobs if and only if `StorageAccountKey` is not specified. The container SAS for accessing the blobs associated with the job. See [Put Job](../importexport/Put-Job) for its format.This element is omitted from the manifest for an export operation.|  
 |`ClientCreator`|String|Specifies the client which created the XML file. This value is not interpreted by the Import/Export service.|  
 |`BlobList`|Nested XML element|Contains a list of blobs that are part of the import or export job. Each blob in a blob list shares the same metadata and properties.|  
 |`BlobList/MetadataPath`|String|Optional. Specifies the relative path of a file on the disk that contains the default metadata that will be set on blobs in the blob list for an import operation. This metadata can be optionally overridden on a blob-by-blob basis.<br /><br /> This element is omitted from the manifest for an export operation.|  
@@ -128,4 +128,4 @@ block-list ::=
 |`Blob/PropertiesPath/@Hash`|Attribute, String|Specifies the Base16-encoded MD5 hash of the blob's properties file.|  
   
 ## See Also  
- [Storage Import/Export REST](../importexport/Storage-Import-Export-Service-REST-API-Reference.md)
+ [Storage Import/Export REST](../importexport/Storage-Import-Export-Service-REST-API-Reference)

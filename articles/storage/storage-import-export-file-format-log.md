@@ -25,7 +25,7 @@ When the Microsoft Azure Import/Export service performs an action on a drive as 
   
 -   The error log is always generated in the event of an error.  
   
--   The verbose log is not enabled by default, but may be enabled by setting the `EnableVerboseLog` property on a [Put Job](../importexport/Put-Job.md) or [Update Job Properties](../importexport/Update-Job-Properties.md) operation.  
+-   The verbose log is not enabled by default, but may be enabled by setting the `EnableVerboseLog` property on a [Put Job](../importexport/Put-Job) or [Update Job Properties](../importexport/Update-Job-Properties) operation.  
   
 ## Log File Location  
  The logs are written to block blobs in the container or virtual directory specified by the `ImportExportStatesPath` setting, which you can set on a `Put Job` operation. The location to which the logs are written depends on how authentication is specified for the job, together with the value specified for `ImportExportStatesPath`. Authentication for the job may be specified via a storage account key, or a container SAS (shared access signature).  
@@ -41,7 +41,7 @@ When the Microsoft Azure Import/Export service performs an action on a drive as 
 |Container SAS|Default value|A virtual directory named `waimportexport`, which is the default name, beneath the container specified in the SAS.<br /><br /> For example, if the SAS specified for the job is  `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, then the log location would be `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport`|  
 |Container SAS|User-specified value|A virtual directory named by the user, beneath the container specified in the SAS.<br /><br /> For example, if the SAS specified for the job is  `https://myaccount.blob.core.windows.net/mylogcontainer?sv=2012-02-12&se=2015-05-22T06%3A54%3A55Z&sr=c&sp=wl&sig=sigvalue`, and the specified virtual directory is named `mylogblobs`, then the log location would be `https://myaccount.blob.core.windows.net/mylogcontainer/waimportexport/mylogblobs`.|  
   
- You can retrieve the URl for the error and verbose logs by calling the [Get Job](../importexport/Get-Job3.md) operation. The logs are available after processing of the drive is complete.  
+ You can retrieve the URl for the error and verbose logs by calling the [Get Job](../importexport/Get-Job3) operation. The logs are available after processing of the drive is complete.  
   
 ## Log File Format  
  The format for both logs is the same: a blob containing XML descriptions of the events that occurred while copying blobs between the hard drive and the customer's account.  
@@ -356,4 +356,4 @@ properties-status ::=
 ```  
   
 ## See Also  
- [Storage Import/Export REST](../importexport/Storage-Import-Export-Service-REST-API-Reference.md)
+ [Storage Import/Export REST](../importexport/Storage-Import-Export-Service-REST-API-Reference)

@@ -19,7 +19,7 @@ ms.author: renash
 ---
 
 # Retrieving State Information for a Job
-You can call the [Get Job](../importexport/Get-Job3.md) operation to retrieve information about both import and export jobs. The information returned includes:  
+You can call the [Get Job](../importexport/Get-Job3) operation to retrieve information about both import and export jobs. The information returned includes:  
   
 -   The current status of the job.  
   
