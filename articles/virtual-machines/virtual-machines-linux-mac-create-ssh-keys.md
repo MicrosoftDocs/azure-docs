@@ -70,15 +70,15 @@ Last login: Tue April 12 07:07:09 2016 from 66.215.22.201
 $
 ```
 
-SSH is successful configured if you are not prompted for an SSH private key password, or a login password to the VM.
+SSH is successfully configured if you are not prompted for an SSH private key password, or a login password to the VM.
 
 ## Detailed Walkthrough
 
 Using SSH public and private keys is the easiest way to log in to your Linux servers. [Public-key cryptography](https://en.wikipedia.org/wiki/Public-key_cryptography) provides a much more secure way to log in to your Linux or BSD VM in Azure than passwords, which can be brute-forced far more easily.
 
-Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.  The SSH private key should have a [very secure password](https://www.xkcd.com/936/)(source:[xkcd.com](https://xkcd.com)) to safeguard it.  This password is just to access the private SSH key and **is not** the user account password.  When you add a password to your SSH key, it encrypts the private key using 128-bit AES, so that the private key is useless without the password to decrypt it.  If an attacker stole your private key and that key did not have a password, they would be able to use that private key to log in to any servers that have the corresponding public key.  If a private key is password protected it cannot be used by that attacker, providing an additional layer of security for your infrastructure on Azure.
+Your public key can be shared with anyone; but only you (or your local security infrastructure) possess your private key.  The SSH private key should have a [very secure password](https://www.xkcd.com/936/) (source:[xkcd.com](https://xkcd.com)) to safeguard it.  This password is just to access the private SSH key and **is not** the user account password.  When you add a password to your SSH key, it encrypts the private key using 128-bit AES, so that the private key is useless without the password to decrypt it.  If an attacker stole your private key and that key did not have a password, they would be able to use that private key to log in to any servers that have the corresponding public key.  If a private key is password protected it cannot be used by that attacker, providing an additional layer of security for your infrastructure on Azure.
 
-This article creates *ssh-rsa* formatted key files, which are recommended for deployments on the Resource Manager.  *ssh-rsa* keys are required on the [portal](https://portal.azure.com) for both Classic and Resource Manager deployments.
+This article creates *ssh-rsa* formatted key files, which are recommended for deployments on the Resource Manager.  *ssh-rsa* keys are required on the [portal](https://portal.azure.com) for both classic and Resource Manager deployments.
 
 ## Disable SSH passwords by using SSH keys
 
@@ -111,7 +111,7 @@ ssh-keygen \
 
 ## Classic portal and X.509 certs
 
-If you are using the Azure [Classic portal](https://manage.windowsazure.com/), it requires X.509 certs for the SSH keys.  No other types of SSH public keys will work, they must be X.509 certs.
+If you are using the Azure [classic portal](https://manage.windowsazure.com/), it requires X.509 certs for the SSH keys.  No other types of SSH public keys are allowed, they *must* be X.509 certs.
 
 To create an X.509 cert from your existing SSH-RSA private key:
 
@@ -126,7 +126,7 @@ openssl req -x509 \
 
 ## Classic deploy using `asm`
 
-If you are using the classic deploy model (Azure Service Management CLI `asm`), you can use an SSH-RSA public key or a RFC4716 formatted key in a pem container.  A SSH-RSA public key is what was created earlier in this article using `ssh-keygen`.
+If you are using the classic deploy model (Azure service management CLI `asm`), you can use an SSH-RSA public key or an RFC4716 formatted key in a pem container.  The SSH-RSA public key is what was created earlier in this article using `ssh-keygen`.
 
 To create a RFC4716 formatted key from an existing SSH public key:
 
