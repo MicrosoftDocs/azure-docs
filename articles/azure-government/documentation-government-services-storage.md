@@ -33,7 +33,7 @@ For details on this service and how to use it, see [Azure Storage public documen
 | [Hot/Cool Blob Storage] (../storage/storage-blob-storage-tiers.md) |NA |NA |
 | [Storage Service Encryption] (../storage/storage-service-encryption.md) |GA |GA |
 | [Premium Storage] (../storage/storage-premium-storage.md) |GA |NA | Includes DS-series Virtual Machines. |
-| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA | Only classic storage accounts are supported at this time. |
+| [Blob Import/Export] (../storage/storage-import-export-service.md) |GA |GA | Only classic storage accounts are supported currently. |
 
 ### Variations
 The URLs for storage accounts in Azure Government are different:
@@ -61,7 +61,7 @@ When [Attaching to an external storage account] (../../vs-azure-tools-storage-ma
 >
 
 > [!NOTE]
-> If getting error 53 "The network path was not found.", while [Mounting the file share] (../storage/storage-dotnet-how-to-use-files.md#mount-the-file-share-using-the-persisted-credentials), it could be due to firewall blocking the outbound port. Try mounting the file share on VM that's in the same Azure Subscription as storage account.
+> If getting error 53 "The network path was not found.", while [Mounting the file share] (../storage/storage-dotnet-how-to-use-files.md#mount-the-file-share-using-the-persisted-credentials). It could be due to firewall blocking the outbound port. Try mounting the file share on VM that's in the same Azure Subscription as storage account.
 >
 >
 
