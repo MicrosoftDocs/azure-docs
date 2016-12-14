@@ -53,11 +53,11 @@ Notice the question mark next to the data type in the **Duration** field. It mea
 
 In the script, you'll find the following concepts and keywords:
 
-* Rowset variables: Each query expression that produces a rowset can be assigned to a variable. U-SQL follows the T-SQL variable naming pattern, for example, @searchlog in the script.
+* Rowset variables: Each query expression that produces a rowset can be assigned to a variable. U-SQL follows the T-SQL variable naming pattern (@searchlog, for example) in the script.
  >[!NOTE]
  >The assignment does not force execution. It merely names the expression and lets you build up more complex expressions.
-* EXTRACT: This keyword lets you define a schema on read. The schema is specified by a column name and C# type name pair per column. The schema uses a so-called Extractor, for example, Extractors.Tsv() to extract tsv files. You can develop custom extractors.
-* OUTPUT: This keyword takes a rowset and serializes it. Outputters.Csv() outputs a comma-separated file into the specified location. You can also develop custom Outputters.
+* EXTRACT: This keyword lets you define a schema on read. The schema is specified by a column name and C# type name pair per column. The schema uses a so-called extractor (Extractors.Tsv(), for example) to extract TSV files. You can develop custom extractors.
+* OUTPUT: This keyword takes a rowset and serializes it. Outputters.Csv() outputs a comma-separated file into the specified location. You can also develop custom outputters.
  >[!NOTE]
  >The two paths are relative paths. You can also use absolute paths. For example:    
  >     adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
