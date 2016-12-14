@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 8d78da13-43fe-4447-92e0-0a41d0321fd4
 ms.service: sql-database
-ms.custom: migrate and move; how to
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell

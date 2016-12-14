@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 3a56e9de-c21a-40ba-9a35-958172cb4e5b
 ms.service: sql-database
-ms.custom: how to
+ms.custom: overview
 ms.devlang: NA
 ms.workload: data-management
 ms.topic: article

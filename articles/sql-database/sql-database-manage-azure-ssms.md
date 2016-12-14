@@ -9,7 +9,7 @@ editor: tysonn
 
 ms.assetid: da6f3608-5993-4134-a497-ff2811e9f31f
 ms.service: sql-database
-ms.custom: how to
+ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
