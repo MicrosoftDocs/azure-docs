@@ -4,7 +4,7 @@ description: This page provides an overview of the Application Gateway service f
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: b37a2473-4f0e-496b-95e7-c0594e96f83e
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 
 ---
@@ -73,8 +73,6 @@ The following table shows an average performance throughput for each application
 
 > [!NOTE]
 > These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests, these values are only provided for capacity planning guidance.
->
->
 
 ## Health monitoring
 

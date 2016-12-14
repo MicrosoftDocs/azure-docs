@@ -6,7 +6,7 @@ description: Learn about the monitoring capabilities in Azure Application Gatewa
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -16,10 +16,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 
 ---
+
 # Application Gateway health monitoring overview
 
 Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes. Application gateway sends the health probes with the same port that is defined in the back-end HTTP settings. This ensures that the probe is testing the same port that customers would be using to connect to the backend.
@@ -47,8 +48,6 @@ If the default probe check fails for server A, the application gateway removes i
 
 > [!NOTE]
 > The port will always be the same port as the back-end HTTP settings.
-> 
-> 
 
 The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes as described in the following steps.
 
@@ -73,8 +72,6 @@ The following table provides definitions for the properties of a custom health p
 > [!IMPORTANT]
 > If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 > For reference a custom probe is sent to \<protocol\>://\<host\>:\<port\>\<path\>. The port used will be the same port as defined in the back-end HTTP settings.
-> 
-> 
 
 ## Next steps
 After learning about Application Gateway health monitoring, you can configure a [custom health probe](application-gateway-create-probe-portal.md) in the Azure portal or a [custom health probe](application-gateway-create-probe-ps.md) using PowerShell and the Azure Resource Manager deployment model.

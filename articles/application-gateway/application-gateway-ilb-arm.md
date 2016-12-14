@@ -4,7 +4,7 @@ description: This page provides instructions to create, configure, start, and de
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 75cfd5a2-e378-4365-99ee-a2b2abda2e0d
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 
 ---
@@ -22,8 +22,6 @@ ms.author: gwallace
 > [!div class="op_single_selector"]
 > * [Azure Classic PowerShell](application-gateway-ilb.md)
 > * [Azure Resource Manager PowerShell](application-gateway-ilb-arm.md)
-> 
-> 
 
 Azure Application Gateway can be configured with an Internet-facing VIP or with an internal endpoint that is not exposed to the Internet, also known as an internal load balancer (ILB) endpoint. Configuring the gateway with an ILB is useful for internal line-of-business applications that are not exposed to the Internet. It's also useful for services and tiers within a multi-tier application that sit in a security boundary that is not exposed to the Internet but still require round-robin load distribution, session stickiness, or Secure Sockets Layer (SSL) termination.
 
@@ -73,11 +71,11 @@ Check the subscriptions for the account.
 Get-AzureRmSubscription
 ```
 
-You are prompted to authenticate with your credentials.<BR>
+You are prompted to authenticate with your credentials.
 
 ### Step 3
 
-Choose which of your Azure subscriptions to use. <BR>
+Choose which of your Azure subscriptions to use.
 
 ```powershell
 Select-AzureRmSubscription -Subscriptionid "GUID of subscription"
@@ -191,13 +189,10 @@ This configures the instance size of the application gateway.
 
 > [!NOTE]
 > The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Standard_Small, Standard_Medium, and Standard_Large.
-> 
-> 
 
 ## Create an application gateway by using New-AzureApplicationGateway
 
 Creates an application gateway with all configuration items from the steps above. In this example, the application gateway is called "appgwtest".
-
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
@@ -253,8 +248,6 @@ Successful OK                   055f3a96-8681-2094-a304-8d9a11ad8301
 
 > [!NOTE]
 > The **-force** switch can be used to suppress the remove confirmation message.
-> 
-> 
 
 To verify that the service has been removed, you can use the `Get-AzureRmApplicationGateway` cmdlet. This step is not required.
 
