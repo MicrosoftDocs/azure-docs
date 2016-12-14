@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 09/26/2016
-ms.author: milangada;cenkdin;juliako
+ms.author: milanga;cenkdin;juliako
 
 ---
 # Update Media Services after rolling storage access keys
@@ -100,20 +100,20 @@ Note that when you update (or recreate) a SAS locator, the URL will always chang
 
 The .NET example below shows how to recreate a locator with the same ID.
 
-private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
-{
-// Save properties of existing locator.
-var asset = locator.Asset;
-var accessPolicy = locator.AccessPolicy;
-var locatorId = locator.Id;
-var startDate = locator.StartTime;
-var locatorType = locator.Type;
-var locatorName = locator.Name;
+    private static ILocator RecreateLocator(CloudMediaContext context, ILocator locator)
+    {
+    // Save properties of existing locator.
+    var asset = locator.Asset;
+    var accessPolicy = locator.AccessPolicy;
+    var locatorId = locator.Id;
+    var startDate = locator.StartTime;
+    var locatorType = locator.Type;
+    var locatorName = locator.Name;
 
-// Delete old locator.
-locator.Delete();
+    // Delete old locator.
+    locator.Delete();
 
-if (locator.ExpirationDateTime <= DateTime.UtcNow)
+    if (locator.ExpirationDateTime <= DateTime.UtcNow)
         {
             throw new Exception(String.Format(
                 "Cannot recreate locator Id={0} because its locator expiration time is in the past",

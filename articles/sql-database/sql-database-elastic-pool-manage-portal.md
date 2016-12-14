@@ -1,6 +1,6 @@
 ---
-title: Monitor and manage an elastic database pool with the Azure portal | Microsoft Docs
-description: Learn how to use the Azure portal and SQL Database's built-in intelligence to manage, monitor, and right-size a scalable elastic database pool to optimize database performance and manage cost.
+title: Monitor and manage an elastic pool with the Azure portal | Microsoft Docs
+description: Learn how to use the Azure portal and SQL Database's built-in intelligence to manage, monitor, and right-size a scalable elastic pool to optimize database performance and manage cost.
 keywords: ''
 services: sql-database
 documentationcenter: ''
@@ -19,7 +19,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 
 ---
-# Monitor and manage an elastic database pool with the Azure portal
+# Monitor and manage an elastic pool with the Azure portal
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-elastic-pool-manage-portal.md)
 > * [PowerShell](sql-database-elastic-pool-manage-powershell.md)
@@ -175,13 +175,13 @@ You can add or remove databases from an existing pool. The databases can be in o
 
 ## Change performance settings of a pool
 
-As you monitor the resource utilization of a pool, you may discover that some adjustments are needed. Maybe the pool needs a change in the performance or storage limits. Possibly you want to change the database settings in the pool. You can change the setup of the pool at any time to get the best balance of performance and cost. See [When should an elastic database pool be used?](sql-database-elastic-pool-guidance.md) for more information.
+As you monitor the resource utilization of a pool, you may discover that some adjustments are needed. Maybe the pool needs a change in the performance or storage limits. Possibly you want to change the database settings in the pool. You can change the setup of the pool at any time to get the best balance of performance and cost. See [When should an elastic pool be used?](sql-database-elastic-pool-guidance.md) for more information.
 
 **To change the eDTUs or storage limits per pool, and eDTUs per database:**
 
 1. Open the **Configure pool** blade.
 
-    Under **Elastic database pool settings**, use either slider to change the pool settings.
+    Under **elastic pool settings**, use either slider to change the pool settings.
 
     ![Elastic pool resource utilization](./media/sql-database-elastic-pool-manage-portal/resize-pool.png)
 
@@ -206,10 +206,10 @@ See [Scaling out with Azure SQL Database](sql-database-elastic-scale-introductio
 ## Additional resources
 
 - [SQL Database elastic pool](sql-database-elastic-pool.md)
-- [Create an elastic database pool with the portal](sql-database-elastic-pool-create-csharp.md)
-- [Create an elastic database pool with PowerShell](sql-database-elastic-pool-create-powershell.md)
-- [Create an elastic database pool with C#](sql-database-elastic-pool-create-csharp.md)
-- [Price and performance considerations for elastic database pools](sql-database-elastic-pool-guidance.md)
+- [Create an elastic pool with the portal](sql-database-elastic-pool-create-csharp.md)
+- [Create an elastic pool with PowerShell](sql-database-elastic-pool-create-powershell.md)
+- [Create an elastic pool with C#](sql-database-elastic-pool-create-csharp.md)
+- [Price and performance considerations for elastic pools](sql-database-elastic-pool-guidance.md)
 
 
 <!--Image references-->

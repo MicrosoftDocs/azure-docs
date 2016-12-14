@@ -39,15 +39,15 @@ The Feature Topic is a one-pager (ok, sometimes longer) that explains a capabili
 It is a "learning" topic, not an action topic.
 
 DO explain this:
-    â€¢ Definition of the feature terminology.  i.e., What is a database backup?
-    â€¢ Characteristics and capabilities of the feature. (How the feature works)
-    â€¢ Common uses with links to overview topics that recommend when to use the feature.
-    â€¢ Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
-    â€¢ Next Steps with links to related overviews, features, and tasks.
+    • Definition of the feature terminology.  i.e., What is a database backup?
+    • Characteristics and capabilities of the feature. (How the feature works)
+    • Common uses with links to overview topics that recommend when to use the feature.
+    • Reference specifications (Limitations and Restrictions, Permissions, General Remarks, etc.)
+    • Next Steps with links to related overviews, features, and tasks.
 
 DON'T explain this:
-    â€¢ How to steps for using the feature (Tasks)
-    â€¢ How to solve business problems that incorporate the feature (Overviews)
+    • How to steps for using the feature (Tasks)
+    • How to solve business problems that incorporate the feature (Overviews)
 
 GUIDELINES for the H1 
 
@@ -55,7 +55,7 @@ GUIDELINES for the H1
 
     To help people understand this is a learning topic and not an action topic, start the title with "Learn about ... "
 
-    Heading must use an industry standard term. If your feature is a proprietary name like "Elastic database pools", use a synonym. For example:    "Learn about elastic database pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
+    Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example:    "Learn about elastic pools for multi-tenant databases". In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
 
 GUIDELINES for introduction
 
@@ -115,6 +115,10 @@ You can use these backups to:
 * Restore a database from a specific backup stored in your Azure Recovery Services vault. This allows you to restore an old version of the database to satisfy a compliance request or to run an old version of the application. See [Long-term retention](sql-database-long-term-retention.md).
 * To perform a restore, see [restore database from backups](sql-database-recovery-using-backups.md).
 
+> [!TIP]
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
+>
+
 <!----------------- 
     Explains first component of the backup feature
 ------------------>
@@ -165,8 +169,12 @@ If you delete a database, SQL Database keeps the backups in the same way it woul
 ## How to extend the backup retention period?
 If your application requires that the backups are available for longer period of time you can extend the built-in retention period by configuring the Long-term backup retention policy for individual databases (LTR policy). This allows you to extend the built-it retention period from 35 days to up to 10 years. For more information, see [Long-term retention](sql-database-long-term-retention.md).
 
-Once you add the LTR policy to a database using Azure Portal or API, the weekly full database backups will be automatically copied to your own Azure Backup Service Vault. If your database is encrypted with TDE the backups are automatically encrypted at rest.  The Services Vault will automatically delete your expired backups based on their timestamp and the LTR policy.  So you donâ€™t need to manage the backup schedule or worry about the cleanup of the old files. 
-The restore API supports backups stored in the vault as long as the vault is in the same subscription as your SQL database. You can use Portal or PowerShell to access these backups.
+Once you add the LTR policy to a database using Azure portal or API, the weekly full database backups will be automatically copied to your own Azure Backup Service Vault. If your database is encrypted with TDE the backups are automatically encrypted at rest.  The Services Vault will automatically delete your expired backups based on their timestamp and the LTR policy.  So you don’t need to manage the backup schedule or worry about the cleanup of the old files. 
+The restore API supports backups stored in the vault as long as the vault is in the same subscription as your SQL database. You can use the Aure portal or PowerShell to access these backups.
+
+> [!TIP]
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
+>
 
 <!-------------------
 OPTIONAL section
@@ -212,5 +220,8 @@ GUIDELINES for Next Steps
 --------------------->
 
 ## Next steps
-Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).
 
+- Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).
+- To restore to a point in time, see [restore database to a point in time](sql-database-point-in-time-restore.md).
+- To view the oldest restore point from the service-generated backups of a database, see [view oldest restore point](sql-database-view-oldest-restore-point.md)
+- To configure long-term retention of automated backups in an Azure Recovery Services vault, see [configure long-term backup retention](sql-database-configure-long-term-retention.md)

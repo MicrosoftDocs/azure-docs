@@ -253,12 +253,40 @@ You can also verify the service was installed correctly by opening Event Viewer,
   ![][023]
 
 ### Step 3: Configure your firewall
-After you have enabled Password Writeback in the Azure AD Connect tool, you will need to make sure the service can connect to the cloud.
+After you have enabled Password Writeback, you need to make sure the machine running Azure AD Connect can reach Microsoft cloud services to receive password writeback requests. This step involves updating the connection rules in your network appliances (proxy servers, firewalls etc.) to allow outbound connections to certain Microsoft-owned URLs and IP addresses over specific network ports. These changes may vary based on the version of Azure AD Connect tool. For more context, you can read more about [how password writeback works](active-directory-passwords-learn-more.md#how-password-writeback-works) and [the password writeback security model](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
-1. Once installation is complete, if you are blocking unknown outbound connections in your environment, you will also need to add the following rules to your firewall. Make sure you reboot your AAD Connect machine after making these changes:
-   * Allow outbound connections over port 443 TCP
-   * Allow outbound connections to https://ssprsbprodncu-sb.accesscontrol.windows.net/
-   * When using a proxy or having general connectivity issues, allow outbound connections over port 9350-9354 and port 5671 TCP
+#### Why do I need to do this?
+
+In order for Password Writeback to function properly, the machine running Azure AD Connect needs to be able to establish outbound HTTPS connections to **.servicebus.windows.net* and specific IP address used by Azure, as defined in the [Microsoft Azure Datacenter IP Ranges list](https://www.microsoft.com/download/details.aspx?id=41653).
+
+For Azure AD Connect tool versions 1.0.8667.0 and above:
+
+- **Option 1:** Allow all outbound HTTPS connections over port 443 (using URL or IP Address).
+	- When to use this:
+		- Use this option if you want the most straightforward configuration that does not need to be updated as Azure Datacenter IP ranges change over time.
+	- Steps required:
+		- Allow all outbound HTTPS connections over port 443 using URL or IP address.
+<br><br>
+- **Option 2:** Allow outbound HTTPS connections to specific IP ranges and URLs
+	- When to use this:
+		- Use this option if you are in a restricted network environment, or do not otherwise feel comfortable with allowing outbound connections.
+		- In this configuration, for password writeback to continue to work, you'll need to ensure your networking appliances stay updated weekly with the latest IPs from the Microsoft Azure Datacenter IP Ranges list. These IP ranges are available as an XML file which is updated every Wednesday (Pacific Time) and put into effect the following Monday (Pacific Time).
+	- Steps required:
+		- Allow all outbound HTTPS connections to *.servicebus.windows.net
+		- Allow all outbound HTTPS connections to all IPs in the Microsoft Azure Datacenter IP Ranges list and keep this configuration updated weekly.
+
+> [!NOTE]
+> If you have configured Password Writeback by following the instructions above and do not see any errors in the Azure AD Connect event log, but you're getting connectivity errors when testing, then it may be the case that a networking appliance in your environment is blocking HTTPS connections to IP addresses. For example, while a connection to *https://*.servicebus.windows.net* is allowed, a connection to a specific IP address within that range may be blocked. To resolve this, you'll need to either configure your networking environment to allow all outbound HTTPS connections over port 443 to any URL or IP address (Option 1 above), or work with your networking team to explicitly allow HTTPS connections to specific IP addresses (Option 2 above).
+
+**For older versions:**
+
+- Allow outbound TCP connections over port 443, 9350-9354 and port 5671 
+- Allow outbound connections to *https://ssprsbprodncu-sb.accesscontrol.windows.net/*
+
+> [!NOTE]
+> If you are on a version of Azure AD Connect prior to 1.0.8667.0, Microsoft highly recommends you upgrade to the [latest version of Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594), which includes a number of writeback networking enhancements to make configuration easier.
+
+Once the network appliances have been configured, reboot the machine running Azure AD Connect tool.
 
 ### Step 4: Set up the appropriate Active Directory permissions
 For every forest that contains users whose passwords will be reset, if X is the account that was specified for that forest in the configuration wizard (during initial configuration), then X must be given the **Reset Password**, **Change Password**, **Write Permissions** on `lockoutTime`, and **Write Permissions** on `pwdLastSet`, extended rights on the root object of each domain in that forest. The right should be marked as inherited by all user objects.  
