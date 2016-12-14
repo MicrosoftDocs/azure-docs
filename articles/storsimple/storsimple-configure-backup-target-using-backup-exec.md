@@ -1,5 +1,5 @@
 ---
-title: StorSimple as a backup target with Veritas Backup Exec | Microsoft Docs
+title: StorSimple as a backup target with Backup Exec | Microsoft Docs
 description: Describes the StorSimple backup target configuration with Veritas Backup Exec.
 services: storsimple
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 12/05/2016
 ms.author: hkanna
 ---
 
-# StorSimple as a backup target with Veritas Backup Exec
+# StorSimple as a backup target with Backup Exec
 
 ## Overview
 
@@ -148,9 +148,9 @@ It is important to size your high-performance volume so that it can handle your 
 ## Deploy the solution
 
 Deploying this solution requires three steps:
-* Prepare the network infrastructure.
-* Deploy your StorSimple device as a backup target.
-* Deploy Veritas Backup Exec.
+1. Prepare the network infrastructure.
+2. Deploy your StorSimple device as a backup target.
+3. Deploy Veritas Backup Exec.
 
 Each step is discussed in detail in the following sections.
 
@@ -190,13 +190,13 @@ In this section, we demonstrate some configuration examples. The following examp
 
 Set up the host backup server storage according to these guidelines:  
 
-- Don't use spanned volumes (created by Windows Disk Management); they are not supported.
+- Don't use spanned volumes (created by Windows Disk Management); spanned disks are not supported.
 - Format your volumes using NTFS with 64-KB allocation size.
 - Map the StorSimple volumes directly to the Backup Exec server.
     - Use iSCSI for physical servers.
     - Use pass-through disks for virtual servers.
 
-## Best practices for StorSimple and Veritas Backup Exec
+## Best practices for StorSimple and Backup Exec
 
 Set up your solution according to the guidelines in the following sections.
 
@@ -219,13 +219,13 @@ Set up your solution according to the guidelines in the following sections.
   -   Isolate iSCSI and cloud traffic. Use dedicated iSCSI connections for traffic between StorSimple and backup server.
   -   Be sure that your StorSimple device is a dedicated backup target. Mixed workloads are not supported because they affect your RTO and RPO.
 
-### Veritas Backup Exec best practices
+### Backup Exec best practices
 
--   Veritas Backup Exec must be installed on a local drive of the server and not on a StorSimple volume.
--   Set the Veritas Backup Exec Storage **concurrent write operations** to the maximum allowed.
-    -   Veritas Backup Exec Storage **block and buffer size** should be set at 512 KB.
-    -   Veritas Backup Exec Storage **buffered read and write** should be turned on.
--   Veritas Backup Exec full and incremental backups are supported. We do not recommend synthetic and differential backups.
+-   Backup Exec must be installed on a local drive of the server, and not on a StorSimple volume.
+-   Set the Backup Exec storage **concurrent write operations** to the maximum allowed.
+    -   Set the Backup Exec storage **block and buffer size** to 512 KB.
+    -   Turn on Backup Exec storage **buffered read and write**.
+-   StorSimple supports Backup Exec full and incremental backups. We recommend that you not use synthetic and differential backups.
 -   Backup data files should contain data only for a specific job. For example, no media appends across different jobs are allowed.
 -   Disable job verification. If necessary, verification should be scheduled after the latest backup job. It is important to understand that this job affects your backup window.
 -   Select **Storage** > **Your disk** > **Details** > **Properties**. Turn off **Pre-allocate disk space**.
@@ -259,37 +259,37 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
 ## Set up Veritas Backup Exec storage
 
-### To set up Veritas Backup Exec storage
+### To set up Backup Exec storage
 
-1.  In the Veritas Backup Exec management console, select **Storage** > **Configure Storage** > **Disk-Based Storage**. Select **Next**.
+1.  In the Backup Exec management console, select **Storage** > **Configure Storage** > **Disk-Based Storage**. Select **Next**.
 
-    ![Veritas Backup Exec management console, configure storage page](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
+    ![Backup Exec management console, configure storage page](./media/storsimple-configure-backup-target-using-backup-exec/image4.png)
 
-2.  Select **Disk Storage**, and then click **Next**.
+2.  Select **Disk Storage**, and then select **Next**.
 
-    ![Veritas Backup Exec management console, select storage page](./media/storsimple-configure-backup-target-using-backup-exec/image5.png)
+    ![Backup Exec management console, select storage page](./media/storsimple-configure-backup-target-using-backup-exec/image5.png)
 
 3.  Enter a representative name, for example, **Saturday Full**, and a description. Select **Next**.
 
-    ![Veritas Backup Exec management console, name and description page](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
+    ![Backup Exec management console, name and description page](./media/storsimple-configure-backup-target-using-backup-exec/image7.png)
 
 4.  Select the disk where you want to create the disk storage device, and then select **Next**.
 
-    ![Veritas Backup Exec management console, storage disk selection page](./media/storsimple-configure-backup-target-using-backup-exec/image9.png)
+    ![Backup Exec management console, storage disk selection page](./media/storsimple-configure-backup-target-using-backup-exec/image9.png)
 
 5.  Increment the number of write operations to **16**, and then select **Next**.
 
-    ![Veritas Backup Exec management console, concurrent write operations settings page](./media/storsimple-configure-backup-target-using-backup-exec/image10.png)
+    ![Backup Exec management console, concurrent write operations settings page](./media/storsimple-configure-backup-target-using-backup-exec/image10.png)
 
 6.  Review the settings, and then select **Finish**.
 
-    ![Veritas Backup Exec management console, storage configuration summary page](./media/storsimple-configure-backup-target-using-backup-exec/image11.png)
+    ![Backup Exec management console, storage configuration summary page](./media/storsimple-configure-backup-target-using-backup-exec/image11.png)
 
 7.  At the end of each volume assignment, change the storage device settings to match those recommended in [Best practices for StorSimple and Backup Exec](#best-practices-for-storsimple-and-backup-exec).
 
-    ![Veritas Backup Exec management console, storage device settings page](./media/storsimple-configure-backup-target-using-backup-exec/image12.png)
+    ![Backup Exec management console, storage device settings page](./media/storsimple-configure-backup-target-using-backup-exec/image12.png)
 
-8.  Repeat the preceding steps until you are finished assigning your StorSimple volumes to Veritas Backup Exec.
+8.  Repeat the preceding steps until you are finished assigning your StorSimple volumes to Backup Exec.
 
 ## StorSimple as a primary backup target
 
@@ -300,7 +300,7 @@ The following figure shows the mapping of a typical volume to a backup job. In t
 
 ![Primary backup target configuration logical diagram ](./media/storsimple-configure-backup-target-using-backup-exec/primarybackuptargetdiagram.png)
 
-### StorSimple as a primary backup target Grandfather, Father, and Son (GFS) schedule example
+### StorSimple as a primary backup target GFS schedule example
 
 Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly:
 
@@ -315,33 +315,33 @@ Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly
 
 The following sequence assumes that Backup Exec and the target host are configured in accordance with the Backup Exec agent guidelines.
 
-1.  In the Veritas Backup Exec management console, go to **Host &gt; Backup &gt; Backup to Disk &gt;**.
+1.  In the Backup Exec management console, select **Host** > **Backup** > **Backup to Disk**.
 
-    ![Veritas Backup Exec management console, select host, backup, Backup to disk](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
+    ![Backup Exec management console, select host, backup, and backup to disk](./media/storsimple-configure-backup-target-using-backup-exec/image14.png)
 
-2.  In the Backup Definition Properties window, select **Edit** (under Backup).
+2.  In the **Backup Definition Properties** dialog box, under **Backup**, select **Edit**.
 
-    ![Backup Definition Properties window select Edit](./media/storsimple-configure-backup-target-using-backup-exec/image15.png)
+    ![Backup Definition Properties window, select Edit](./media/storsimple-configure-backup-target-using-backup-exec/image15.png)
 
-3.  Configure your full and incremental backups so that they meet your RPO/RTO requirements and conform to the Veritas best practices.
+3.  Set up your full and incremental backups so that they meet your RPO and RTO requirements and conform to the Veritas best practices.
 
-4.  On the Backup Options window, select **Storage**.
+4.  In the **Backup Options** dialog  box, select **Storage**.
 
-    ![Backup options storage tab](./media/storsimple-configure-backup-target-using-backup-exec/image16.png)
+    ![Backup Options Storage tab](./media/storsimple-configure-backup-target-using-backup-exec/image16.png)
 
 5.  Assign corresponding StorSimple volumes to your backup schedule.
 
     > [!NOTE]
     > **Compression** and **Encryption type** are set to **None**.
 
-6.  Under **Verify**, select the **Do not verify data for this job** as this may affect StorSimple tiering.
+6.  Under **Verify**, select the **Do not verify data for this job** check box. This could affect StorSimple tiering.
 
     > [!NOTE]
     > Defragmentation, indexing, and background verification negatively affect the StorSimple tiering.
 
     ![Backup Options verify settings](./media/storsimple-configure-backup-target-using-backup-exec/image17.png)
 
-7.  After you have configured the rest of your backup options to meet your requirements, select **OK** to finish.
+7.  After you have set up the rest of your backup options to meet your requirements, select **OK** to finish.
 
 ## StorSimple as a secondary backup target
 
@@ -386,31 +386,31 @@ The following table shows how to set up backups to run on the local and StorSimp
 
 ### To assign StorSimple volumes to a Backup Exec archive and duplication job
 
-1.  Once the initial backup job is configured to use the RAID volume as the primary backup target, go to Veritas Backup Exec management console. Select the job that you want to archive to a StorSimple volume, right-click, and select **Backup Definition Properties**. Click **Edit**.
+1.  In the Backup Exec management console, right-click the job that you want to archive to a StorSimple volume, and then select **Backup Definition Properties**. Select **Edit**.
 
     ![Backup Exec console, backup definitions properties tab](./media/storsimple-configure-backup-target-using-backup-exec/image19.png)
 
-2.  Select **Add Stage** and from the dropdown list, select **Duplicate to Disk**. Click **Edit**.
+2.  Select **Add Stage** and from the drop-down list, select **Duplicate to Disk**, and then select **Edit**.
 
     ![Backup Exec console, backup definitions add stage](./media/storsimple-configure-backup-target-using-backup-exec/image20.png)
 
-3.  In the **Duplicate Options**, select the appropriate **Source** and the **Schedule**.
+3.  In the **Duplicate Options** dialog box, select the values that you want to use for **Source** and **Schedule**.
 
     ![Backup Exec console, backup definitions properties, Duplicate Options](./media/storsimple-configure-backup-target-using-backup-exec/image21.png)
 
-4.  From the **Storage** dropdown list, select the StorSimple volume where you want the archive job to store the data. In this case, the source is set to **Full** and target is set to the StorSimple full archive volume.
+4.  In the **Storage** drop-down list, select the StorSimple volume where you want the archive job to store the data.
 
     ![Backup Exec console, backup definitions properties, Duplicate Options](./media/storsimple-configure-backup-target-using-backup-exec/image22.png)
 
-5.  Go to **Verify** and select **Do not verify data for this job**.
+5.  Select **Verify**, and then select the **Do not verify data for this job** check box.
 
     ![Backup Exec console, backup definitions properties, Duplicate Options](./media/storsimple-configure-backup-target-using-backup-exec/image23.png)
 
-6.  Click **OK**.
+6.  Select **OK**.
 
     ![Backup Exec console, backup definitions properties, Duplicate Options](./media/storsimple-configure-backup-target-using-backup-exec/image24.png)
 
-7.  In the **Backup** column, add a new stage. Choose the source as incremental and the target as StorSimple volume where the incremental backup job is archived. Repeat the preceding steps.
+7.  In the **Backup** column, add a new stage. For the source, use **incremental**. For the target, choose the StorSimple volume where the incremental backup job is archived. Repeat the preceding steps.
 
 ## StorSimple cloud snapshots
 
@@ -439,10 +439,10 @@ The following section describes how to create a short script to start and delete
 
 ### To start or delete a cloud snapshot
 
-1.  [Install Azure PowerShell](/articles/powershell-install-configure.md).
+1.  [Install Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/).
 2.  [Download and import publish settings and subscription information](https://msdn.microsoft.com/library/dn385850.aspx).
 3.  In the Azure classic portal, get the resource name and [registration key for your StorSimple Manager service](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-4.  On the server that runs the script, run Windows PowerShell as an administrator. Type this command:
+4.  On the server that runs the script, run PowerShell as an administrator. Type this command:
 
     `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
 
@@ -481,8 +481,7 @@ The following section describes how to create a short script to start and delete
     }
     ```
       Save the PowerShell script to the same location where you saved your Azure publish settings. For example, save as C:\CloudSnapshot\StorSimpleCloudSnapshot.ps1.
-
-6.  Add the script to your backup job in Veritas Backup Exec by editing your Veritas Backup Exec job options pre-post commands.
+6.  Add the script to your backup job in Backup Exec by editing your Backup Exec job options pre-processing and post-processing commands.
 
     ![Backup Exec console, backup options, pre- and post-processing commands tab](./media/storsimple-configure-backup-target-using-backup-exec/image25.png)
 
@@ -491,7 +490,7 @@ The following section describes how to create a short script to start and delete
 
 ## StorSimple as a restore source
 
-Restores from a StorSimple device work like restores from any block storage device. Restores of data that is tiered to the cloud occurs at cloud speeds. For local data, restores occur at the local disk speed of the device. For information about how to perform a restore, see the Veritas Backup Exec documentation. We recommend that you conform to Veritas Backup Exec restore best practices.
+Restores from a StorSimple device work like restores from any block storage device. Restores of data that is tiered to the cloud occurs at cloud speeds. For local data, restores occur at the local disk speed of the device. For information about how to perform a restore, see the Backup Exec documentation. We recommend that you conform to Backup Exec restore best practices.
 
 ## StorSimple failover and disaster recovery
 
@@ -503,8 +502,8 @@ A disaster could be caused by a variety of factors. The following table lists co
 | Scenario | Impact | How to recover | Notes |
 |---|---|---|---|
 | StorSimple appliance failure | Backup and restore operations are interrupted. | Replace the failed appliance and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery.md). | If you need to perform a restore after appliance recovery, full data working sets are retrieved from the cloud to the new appliance. All operations are at cloud speeds. The indexing and cataloging rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local appliance tier, which might be a time-consuming process. |
-| Veritas Backup Exec server failure | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [How to do a manual Backup and Restore of Backup Exec (BEDB) database](http://www.veritas.com/docs/000041083). | You must rebuild or restore the Veritas Backup Execserver at the disaster recovery site. Restore the database to the most recent point. If the restored Veritas Backup Exec database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local device tier. This makes it further time-intensive. |
-| Site failure that results in the loss of both the backup server and StorSimple | Backup and restore operations are interrupted. | Restore StorSimple first, and then restore Veritas Backup Exec. | Restore StorSimple first, and then restore Veritas Backup Exec. If you need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. |
+| Backup Exec server failure | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [How to do a manual Backup and Restore of Backup Exec (BEDB) database](http://www.veritas.com/docs/000041083). | You must rebuild or restore the Backup Exec server at the disaster recovery site. Restore the database to the most recent point. If the restored Backup Exec database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local device tier. This makes it further time-intensive. |
+| Site failure that results in the loss of both the backup server and StorSimple | Backup and restore operations are interrupted. | Restore StorSimple first, and then restore Backup Exec. | Restore StorSimple first, and then restore Backup Exec. If you need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. |
 
 ## References
 
