@@ -88,7 +88,7 @@ Click the +vCenter button to start connecting a VMware vCenter server or a VMwar
 
 
 ## Common issues
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)
+[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 
 ## Next steps
