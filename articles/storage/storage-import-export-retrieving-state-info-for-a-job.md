@@ -19,7 +19,7 @@ ms.author: renash
 ---
 
 # Retrieving State Information for a Job
-You can call the [Get Job](../importexport/Get-Job3.md) operation to retrieve information about both import and export jobs. The information returned includes:  
+You can call the [Get Job](/rest/api/storageservices/importexport/Get-Job3) operation to retrieve information about both import and export jobs. The information returned includes:  
   
 -   The current status of the job.  
   
@@ -29,14 +29,14 @@ You can call the [Get Job](../importexport/Get-Job3.md) operation to retrieve in
   
 -   URIs for blobs containing error logs and verbose logging information (if enabled).  
   
- The following sections explain the information returned by the `Get Job` operation.  
+The following sections explain the information returned by the `Get Job` operation.  
   
 ## Job States  
- The table and the state diagram below describe the states that a job transitions through during its life cycle. The current state of the job can be determined by calling the `Get Job` operation.  
+The table and the state diagram below describe the states that a job transitions through during its life cycle. The current state of the job can be determined by calling the `Get Job` operation.  
   
- ![JobStates](./media/storage-import-export-retrieving-state-info-for-a-job/JobStates.png "JobStates")  
+![JobStates](./media/storage-import-export-retrieving-state-info-for-a-job/JobStates.png "JobStates")  
   
- The following table describes each state that a job may pass through.  
+The following table describes each state that a job may pass through.  
   
 |Job State|Description|  
 |---------------|-----------------|  
@@ -47,9 +47,9 @@ You can call the [Get Job](../importexport/Get-Job3.md) operation to retrieve in
 |`Completed`|After all drives have been shipped back to the customer, if the job has completed without errors, then the job will be set to the `Completed` state. The job will be automatically deleted after 90 days in the `Completed` state.|  
 |`Closed`|After all drives have been shipped back to the customer, if there have been any errors during the processing of the job, then the job will be set to the `Closed` state. The job will be automatically deleted after 90 days in the `Closed` state.|  
   
- You can cancel a job only at certain states. A cancelled job skips the data copy step, but otherwise it follows the same state transitions as a job that was not cancelled.  
+You can cancel a job only at certain states. A cancelled job skips the data copy step, but otherwise it follows the same state transitions as a job that was not cancelled.  
   
- The following table describes errors that can occur for each job state, as well as the effect on the job when an error occurs.  
+The following table describes errors that can occur for each job state, as well as the effect on the job when an error occurs.  
   
 |Job State|Event|Resolution / Next Steps|  
 |---------------|-----------|------------------------------|  
@@ -62,7 +62,11 @@ You can call the [Get Job](../importexport/Get-Job3.md) operation to retrieve in
 ## Drive States  
 The table and the diagram below describe the life cycle of an individual drive as it transitions through an import or export job. You can retrieve the current drive state by calling the `Get Job` operation and inspecting the `State` element of the `DriveList` property.  
   
+<<<<<<< HEAD
 ![DriveStates](./media/storage-import-export-retrieving-state-info-for-a-job/DriveStates.png "DriveStates")  
+=======
+ ![DriveStates](/rest/api/storageservices/importexport/media/DriveStates.png "DriveStates")  
+>>>>>>> 7b70736ddda63f965cfc83dccf31da7101ed601d
   
 The following table describes each state that a drive may pass through.  
   

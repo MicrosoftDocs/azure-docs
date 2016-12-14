@@ -56,11 +56,11 @@ Creating an import job for the Microsoft Azure Import/Export service using the R
 -   A listing of the action to take if a blob that is being uploaded has the same name as an existing blob in the container. Possible options are: a) overwrite the blob with the file b) keep the existing blob and skip uploading the file, c) append a suffix to the name so that it does not conflict with other files.  
   
 ## Obtaining Your Shipping Location  
- Before creating an import job, you need to obtain a shipping location name and address by calling the [List Locations](../importexport/List-Locations2.md) operation. `List Locations` will return a list of locations and their mailing addresses based on the location of your storage account. You can select a location from the returned list and ship your hard drives to that address. Note that `List Locations` returns only one possible shipping location.  
+ Before creating an import job, you need to obtain a shipping location name and address by calling the [List Locations](/rest/api/storageservices/importexport/List-Locations2) operation. `List Locations` will return a list of locations and their mailing addresses based on the location of your storage account. You can select a location from the returned list and ship your hard drives to that address. Note that `List Locations` returns only one possible shipping location.  
   
  Follow the steps below to obtain the shipping location:  
   
--   Identify the name of the location of your storage account. This value can be found under the **Location** field on the storage account’s **Dashboard** in the classic portal or queried for by using the service management API operation [Get Storage Account Properties](../fileservices/Get%20Storage%20Account%20Properties1.md).  
+-   Identify the name of the location of your storage account. This value can be found under the **Location** field on the storage account’s **Dashboard** in the classic portal or queried for by using the service management API operation [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).  
   
 -   Retrieve a list of locations that are available to process this storage account by calling the `List Locations` operation with the query parameter `originlocation=<location-name>`. The list returned will contain one or more locations to which you can ship your drives.  
   
@@ -70,7 +70,7 @@ Creating an import job for the Microsoft Azure Import/Export service using the R
 >  `List Locations` either returns one possible location, or none. If no locations are returned, the service is not yet available for your storage account.  
   
 ## Creating the Import Job  
- To create the import job, call the [Put Job](../importexport/Put-Job.md) operation. You will need to provide the following information:  
+ To create the import job, call the [Put Job](/rest/api/storageservices/importexport/Put-Job) operation. You will need to provide the following information:  
   
 -   A name for the job.  
   
@@ -101,7 +101,7 @@ Creating an import job for the Microsoft Azure Import/Export service using the R
 >  You must ship your drives via a supported carrier service, which will provide a tracking number for your package.  
   
 ## Updating the Import Job with Your Shipping Information  
- After you have your tracking number, call the [Update Job Properties](../importexport/Update-Job-Properties.md) operation to update the shipping carrier name, the tracking number for the job, and the carrier account number for return shipping. You can optionally specify the number of drives and the shipping date as well.  
+ After you have your tracking number, call the [Update Job Properties](/rest/api/storageservices/importexport/Update-Job-Properties) operation to update the shipping carrier name, the tracking number for the job, and the carrier account number for return shipping. You can optionally specify the number of drives and the shipping date as well.  
   
 ## See Also  
  [Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)

@@ -57,4 +57,4 @@ WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:dvd /srcfile:d:\dvd\favorite
 ```  
   
 ## See Also  
- [Sample Workflow to Prepare Hard Drives for an Import Job](../importexport/Sample-Workflow-to-Prepare-Hard-Drives-for-an-Import-Job.md)
+ [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow-v1.md)

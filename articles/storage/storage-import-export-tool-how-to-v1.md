@@ -35,4 +35,4 @@ You use the Microsoft Azure Import/Export tool to prepare hard drives for an imp
  [Troubleshooting the Azure Import-Export Tool](storage-import-export-tool-troubleshooting-v1.md)  
   
 ## See Also  
- [Storage Import/Export REST](../importexport/Storage-Import-Export-Service-REST-API-Reference.md)
+ [Storage Import/Export REST](/rest/api/storageservices/importexport/Storage-Import-Export-Service-REST-API-Reference)

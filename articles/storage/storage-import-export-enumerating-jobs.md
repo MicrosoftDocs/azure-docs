@@ -19,7 +19,7 @@ ms.author: renash
 ---
 
 # Enumerating Jobs
-To enumerate all jobs in a subscription, call the [List Jobs](../importexport/List-Jobs3.md) operation. `List Jobs` returns a list of jobs as well as the following attributes:  
+To enumerate all jobs in a subscription, call the [List Jobs](/rest/api/storageservices/importexport/List-Jobs3) operation. `List Jobs` returns a list of jobs as well as the following attributes:  
   
 -   The type of job (Import or Export)  
   

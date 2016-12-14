@@ -19,11 +19,11 @@ ms.author: renash
 ---
 
 # Diagnostics and Error Recovery for Import-Export Jobs
-For each drive processed, the Azure Import/Export service creates an error log in the associated storage account. You can also enable verbose logging by setting the `EnableVerboseLog` property to `true` when calling the [Put Job](../importexport/Put-Job.md) or [Update Job Properties](../importexport/Update-Job-Properties.md) operations.  
+For each drive processed, the Azure Import/Export service creates an error log in the associated storage account. You can also enable verbose logging by setting the `EnableVerboseLog` property to `true` when calling the [Put Job](/rest/api/storageservices/importexport/Put-Job) or [Update Job Properties](/rest/api/storageservices/importexport/Update-Job-Properties) operations.  
   
  By default, logs are written to a container named `waimportexport`. You can specify a different name by setting the `ImportExportStatesPath` property when calling the `Put Job` or `Update Job Properties` operations. The logs are stored as block blobs with the following naming convention: `waies/jobname_driveid_timestamp_logtype.xml`.  
   
-You can retrieve the URI of the logs for a job by calling the [Get Job](../importexport/Get-Job3.md) operation. The URI for the verbose log is returned in the `VerboseLogUri` property for each drive, while the URI for the error log is returned in the `ErrorLogUri` property.  
+ You can retrieve the URI of the logs for a job by calling the [Get Job](/rest/api/storageservices/importexport/Get-Job3) operation. The URI for the verbose log is returned in the `VerboseLogUri` property for each drive, while the URI for the error log is returned in the `ErrorLogUri` property.  
   
 You can use the logging data to identify the following issues:  
   
