@@ -109,20 +109,32 @@ ssh-keygen \
 
 `-C "myusername@myserver"` = a comment appended to the end of the public key file to easily identify it.  Normally an email is used as the comment but you can use whatever works best for your infrastructure.
 
-### Using PEM keys
+## Classic portal and X.509 certs
 
-If you are using the classic deploy model (Azure Service Management CLI `asm`), you might need to use an RFC4716 formatted SSH key in a PEM container, to access your Linux VMs.  Here is how to create a RFC4716 key from an existing SSH Public key.
+If you are using the Azure [Classic portal](https://manage.windowsazure.com/), it requires X.509 certs for the SSH keys.  No other types of SSH public keys will work, they must be X.509 certs.
 
-To create an RFC4716 format public key file from an existing SSH-RSA format public key file:
+To create an X.509 cert from your existing SSH-RSA private key:
 
 ```bash
-ssh-keygen -f ~/.ssh/id_rsa.pub -e -m RFC4716 > ~/.ssh/id_ssh2.pem
+openssl req -x509 \
+-key ~/.ssh/id_rsa \
+-nodes \
+-days 365 \
+-newkey rsa:2048 \
+-out ~/.ssh/id_rsa.pem
 ```
 
-If you are using the classic deploy model on the Azure Classic portal, you will need a X.509 cert.  Here is how to create a X.509 cert from an existing SSH private key.
+## Classic deploy using `asm`
+
+If you are using the classic deploy model (Azure Service Management CLI `asm`), you can use an SSH-RSA public key or a RFC4716 formatted key in a pem container.  A SSH-RSA public key is what was created earlier in this article using `ssh-keygen`.
+
+To create a RFC4716 formatted key from an existing SSH public key:
 
 ```bash
-openssl req -x509 -key ~/.ssh/id_rsa -nodes -days 365 -newkey rsa:2048 -out ~/.ssh/id_rsa.pem
+ssh-keygen \
+-f ~/.ssh/id_rsa.pub \
+-e \
+-m RFC4716 > ~/.ssh/id_ssh2.pem
 ```
 
 ## Example of ssh-keygen
