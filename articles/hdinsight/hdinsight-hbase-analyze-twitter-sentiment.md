@@ -631,7 +631,7 @@ In this section, you will create an ASP.NET MVC web application to read the real
         *
         * Requirements:
         * The heatmap layer itself is created dynamically on the client-side using
-        * the HTML5 <canvas> element, and therefore requires a browser that supports
+        * the HTML5 &lt;canvas> element, and therefore requires a browser that supports
         * this element. It has been tested on IE9, Firefox 3.6/4 and 
         * Chrome 10 browsers. If you can confirm whether it works on other browsers or
         * not, I'd love to hear from you!
@@ -642,7 +642,6 @@ In this section, you will create an ASP.NET MVC web application to read the real
         * - An array or Microsoft.Maps.Location items
         * - Optional parameters to customise the appearance of the layer
         *  (Radius,, Unit, Intensity, and ColourGradient), and a callback function
-        *
         */
 
         var HeatMapLayer = function (map, locations, options) {
