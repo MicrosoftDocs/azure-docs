@@ -35,18 +35,8 @@ For big data to provide actionable intelligence or insight, you must collect rel
 HDInsight is a cloud distribution on Microsoft Azure of the rapidly expanding Apache Hadoop technology stack for big data analysis. It includes implementations of Apache Spark, HBase, Kafka, Storm, Pig, Hive, Interactive Hive, Sqoop, Oozie, Ambari, and so on. HDInsight also integrates with business intelligence (BI) tools such as Power BI, Excel, SQL Server Analysis Services, and SQL Server Reporting Services.
 
 ### Hadoop, HBase, Spark, Kafka, Interactive Hive, Storm, customized, and other clusters
-HDInsight offers the following cluster configurations:
-* Apache Hadoop
-* Apache Spark
-* Apache HBase
-* R Server
-* Apache Storm
-* Interactive Hive (preview)
-* Apache Kafka (preview)
-* Domain-joined clusters (preview)
-* [Custom clusters with script actions](hdinsight-hadoop-customize-cluster-linux.md).
+HDInsight offers the following cluster types:
 
-Descriptions of cluster technologies:
 * **[Apache Hadoop](https://wiki.apache.org/hadoop)**: Provides reliable data storage with [HDFS](#hdfs), and a simple [MapReduce](#mapreduce) programming model to process and analyze data in parallel.
 * **[Apache Spark](http://spark.apache.org/)**: A parallel processing framework that supports in-memory processing to boost the performance of big-data analysis applications, Spark works for SQL, streaming data, and machine learning. See [Overview: What is Apache Spark in HDInsight?](hdinsight-apache-spark-overview.md)
 * **[Apache HBase](http://hbase.apache.org/)**: A NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semi-structured data - potentially billions of rows times millions of columns. See [Overview of HBase on HDInsight](hdinsight-hbase-overview.md).
@@ -55,9 +45,10 @@ Descriptions of cluster technologies:
 * **[Apache Interactive Hive preview (AKA: Live Long and Process)](https://cwiki.apache.org/confluence/display/Hive/LLAP)**: In-memory caching for interactive and faster Hive queries. See [Use Interactive Hive in HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-hadoop-use-interactive-hive).
 * **[Apache Kafka preview](https://kafka.apache.org/)**: An open-source platform used for building streaming data pipelines and applications. Kafka also provides message-queue functionality that allows you to publish and subscribe to data streams. See [Introduction to Apache Kafka on HDInsight](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-apache-kafka-introduction).
 * **[Domain-joined clusters preview](https://docs.microsoft.com/en-us/azure/hdinsight/hdinsight-domain-joined-introduction)**: A cluster joined to an Active Directory domain so that you can control access and provide governance for data.
+* **[Custom clusters with script actions](hdinsight-hadoop-customize-cluster-linux.md)**: Clusters with scripts that run during provisioning and install additional components.
 
 ### Example customization scripts
-Script Actions are scripts that run during cluster provisioning, and can be used to install additional components on the cluster. For Linux-based clusters, these are Bash scripts.
+Script actions are Bash scripts on Linux that run during cluster provisioning, and can be used to install additional components on the cluster.
 
 The following example scripts are provided by the HDInsight team:
 
@@ -90,7 +81,7 @@ The following components and utilities are included on HDInsight clusters.
 >
 
 ### <a name="ambari"></a>Ambari
-Apache Ambari is for provisioning, managing and monitoring Apache Hadoop clusters. It includes an intuitive collection of operator tools and a robust set of APIs that hide the complexity of Hadoop, simplifying the operation of clusters. Linux-based HDInsight clusters provide both the Ambari web UI and the Ambari REST API, while Windows-based clusters provide a subset of the REST API. Ambari Views on HDInsight clusters allow plug-in UI capabilities.
+Apache Ambari is for provisioning, managing and monitoring Apache Hadoop clusters. It includes an intuitive collection of operator tools and a robust set of APIs that hide the complexity of Hadoop, simplifying the operation of clusters. HDInsight clusters on Linux provide both the Ambari web UI and the Ambari REST API, while clusters on Windows provide a subset of the REST API. Ambari Views on HDInsight clusters allow plug-in UI capabilities.
 
 See [Manage HDInsight clusters using Ambari](hdinsight-hadoop-manage-ambari.md) (Linux only), [Monitor Hadoop clusters in HDInsight using the Ambari API](hdinsight-monitor-use-ambari-api.md), and <a target="_blank" href="https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md">Apache Ambari API reference</a>.
 
@@ -203,8 +194,8 @@ Familiar business intelligence (BI) tools - such as Excel, PowerPivot, SQL Serve
 
 These BI tools can help in your big-data analysis:
 
-* [Connect Excel to Hadoop with Power Query](hdinsight-connect-excel-power-query.md): Learn how to connect Excel to the Azure Storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. Windows workstation required. Works with Windows- or Linux-based cluster.
-* [Connect Excel to Hadoop with the Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md): Learn how to import data from HDInsight with the Microsoft Hive ODBC Driver. Windows workstation required. Works with Windows- or Linux-based cluster.
+* [Connect Excel to Hadoop with Power Query](hdinsight-connect-excel-power-query.md): Learn how to connect Excel to the Azure Storage account that stores the data associated with your HDInsight cluster by using Microsoft Power Query for Excel. Windows workstation required. Works with clusters on Linux or Windows.
+* [Connect Excel to Hadoop with the Microsoft Hive ODBC Driver](hdinsight-connect-excel-hive-odbc-driver.md): Learn how to import data from HDInsight with the Microsoft Hive ODBC Driver. Windows workstation required. Works with clusters on Linux or Windows.
 * [Microsoft Cloud Platform](http://www.microsoft.com/server-cloud/solutions/business-intelligence/default.aspx): Learn about Power BI for Office 365, download the SQL Server trial, and set up SharePoint Server 2013 and SQL Server BI.
 * [SQL Server Analysis Services](http://msdn.microsoft.com/library/hh231701.aspx).
 * [SQL Server Reporting Services](http://msdn.microsoft.com/library/ms159106.aspx).
