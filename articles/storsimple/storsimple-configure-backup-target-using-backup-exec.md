@@ -23,7 +23,7 @@ ms.author: hkanna
 
 Azure StorSimple is a hybrid cloud storage solution from Microsoft. StorSimple addresses the complexities of exponential data growth by using an Azure Storage account as an extension of the on-premises solution, and automatically tiering data across on-premises storage and cloud storage.
 
-In this article, we discuss StorSimple integration with Veritas Backup Exec and best practices for integrating both solutions. We also make recommendations on how to set up Backup Exec to best integrate with StorSimple. We defer to Veritas best practices, backup architects, and administrators for the best way to configure Backup Exec to meet individual backup requirements and service-level agreements (SLAs).
+In this article, we discuss StorSimple integration with Veritas Backup Exec and best practices for integrating both solutions. We also make recommendations on how to set up Backup Exec to best integrate with StorSimple. We defer to Veritas best practices, backup architects, and administrators for the best way to set up Backup Exec to meet individual backup requirements and service-level agreements (SLAs).
 
 Although we illustrate configuration steps and key concepts, this article is by no means a step-by-step configuration or installation guide. We assume that the basic components and infrastructure are in working order and ready to support the concepts that we describe.
 
@@ -110,7 +110,7 @@ In this scenario, StorSimple volumes are presented to the backup application as 
 1.  The backup server contacts the target backup agent, and the backup agent transmits data to the backup server.
 2.  The backup server writes data to the StorSimple tiered volumes.
 3.  The backup server updates the catalog database, and then finishes the backup job.
-4.  A snapshot script triggers the StorSimple snapshot manager (start or delete).
+4.  A snapshot script triggers the StorSimple cloud snapshot manager (start or delete).
 5.  The backup server deletes expired backups based on a retention policy.
 
 
@@ -136,8 +136,8 @@ It is important to size your high-performance volume so that it can handle your 
 2.  The backup server writes data to high-performance storage.
 3.  The backup server updates the catalog database, and then finishes the backup job.
 4.  The backup server copies backups to StorSimple based on a retention policy.
-5.  A snapshot script triggers the StorSimple snapshot manager (start or delete).
-6.  The backup server deletes the expired backups based on a retention policy.
+5.  A snapshot script triggers the StorSimple cloud snapshot manager (start or delete).
+6.  The backup server deletes expired backups based on a retention policy.
 
 ### Secondary target restore logical steps
 
@@ -147,7 +147,7 @@ It is important to size your high-performance volume so that it can handle your 
 
 ## Deploy the solution
 
-Deploying this solution requires three steps:
+Deploying the solution requires three steps:
 1. Prepare the network infrastructure.
 2. Deploy your StorSimple device as a backup target.
 3. Deploy Backup Exec.
@@ -156,11 +156,11 @@ Each step is discussed in detail in the following sections.
 
 ### Set up the network
 
-As an integrated solution with the Azure cloud, StorSimple requires an active and working connection to the Azure cloud. This connection is used for operations like cloud snapshots, management, and metadata transfer, and to tier older, less accessed data to Azure cloud storage.
+Because StorSimple is a solution that's integrated with the Azure cloud, StorSimple requires an active and working connection to the Azure cloud. This connection is used for operations like cloud snapshots, management, and metadata transfer, and to tier older, less accessed data to Azure cloud storage.
 
 For the solution to perform optimally, we recommend that you follow these networking best practices:
 
--   The link that connects the StorSimple tiering to Azure must meet your bandwidth requirements. Achieve this by applying the proper Quality of Service (QoS) level to your infrastructure switches to match your RPO and recovery time objective (RTO) SLAs.
+-   The link that connects your StorSimple tiering to Azure must meet your bandwidth requirements. To achieve this, apply the necessary Quality of Service (QoS) level to your infrastructure switches to match your RPO and recovery time objective (RTO) SLAs.
 -   Maximum Azure Blob storage access latencies should be around 80 ms.
 
 ### Deploy StorSimple
@@ -311,7 +311,7 @@ Here's an example of a GFS rotation schedule for four weeks, monthly, and yearly
 | Yearly | Saturday  |   |   |
 
 
-### Assigning StorSimple volumes to a Backup Exec backup job
+### Assign StorSimple volumes to a Backup Exec backup job
 
 The following sequence assumes that Backup Exec and the target host are configured in accordance with the Backup Exec agent guidelines.
 
@@ -354,7 +354,7 @@ In this model, you must have a storage media (other than StorSimple) to serve as
 
 The following figure shows typical short-term retention local (to the server) volumes and long-term retention archives volumes. In this scenario, all backups run on the local (to the server) RAID volume. These backups are periodically duplicated and archived to an archives volume. It is important to size your local (to the server) RAID volume so that it can handle your short-term retention capacity and performance requirements.
 
-#### StorSimple as a secondary backup target GFS example
+### StorSimple as a secondary backup target GFS example
 
 ![StorSimple as secondary backup target logical diagram](./media/storsimple-configure-backup-target-using-backup-exec/secondarybackuptargetdiagram.png)
 
@@ -423,7 +423,7 @@ The following section describes how to create a short script to start and delete
 > [!NOTE]
 > Snapshots that are manually or programmatically created do not follow the StorSimple snapshot expiration policy. These snapshots must be manually or programmatically deleted.
 
-### Start or delete cloud snapshots by using a script
+### Start and delete cloud snapshots by using a script
 
 > [!NOTE]
 > Carefully assess the compliance and data retention repercussions before you delete a StorSimple snapshot. For more information about how to run a post-backup script, see the [Backup Exec documentation](https://www.veritas.com/support/en_US/15047.html).
@@ -503,7 +503,7 @@ A disaster could be caused by a variety of factors. The following table lists co
 
 | Scenario | Impact | How to recover | Notes |
 |---|---|---|---|
-| StorSimple appliance failure | Backup and restore operations are interrupted. | Replace the failed appliance and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery.md). | If you need to perform a restore after appliance recovery, full data working sets are retrieved from the cloud to the new appliance. All operations are at cloud speeds. The indexing and cataloging rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local appliance tier, which might be a time-consuming process. |
+| StorSimple device failure | Backup and restore operations are interrupted. | Replace the failed device and perform [StorSimple failover and disaster recovery](storsimple-device-failover-disaster-recovery.md). | If you need to perform a restore after device recovery, full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. The indexing and cataloging rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local device tier, which might be a time-consuming process. |
 | Backup Exec server failure | Backup and restore operations are interrupted. | Rebuild the backup server and perform database restore as detailed in [How to do a manual Backup and Restore of Backup Exec (BEDB) database](http://www.veritas.com/docs/000041083). | You must rebuild or restore the Backup Exec server at the disaster recovery site. Restore the database to the most recent point. If the restored Backup Exec database is not in sync with your latest backup jobs, indexing and cataloging is required. This index and catalog rescanning process could cause all backup sets to be scanned and pulled from the cloud tier to the local device tier. This makes it further time-intensive. |
 | Site failure that results in the loss of both the backup server and StorSimple | Backup and restore operations are interrupted. | Restore StorSimple first, and then restore Backup Exec. | Restore StorSimple first, and then restore Backup Exec. If you need to perform a restore after device recovery, the full data working sets are retrieved from the cloud to the new device. All operations are at cloud speeds. |
 
