@@ -79,7 +79,7 @@ Setting up the source environment involved two main activities
 
 [!INCLUDE [site-recovery-add-vcenter-account](../../includes/site-recovery-add-vcenter-account.md)]
 
-### Step 2: Add a vCenter 
+### Step 2: Add a vCenter
 To allow Azure Site Recovery to discover virtual machines running in your on-premises environment, you need to connect your VMware vCenter Server or vSphere ESXi hosts with Site Recovery
 
 Click the +vCenter button to start connecting a VMware vCenter server or a VMware vSphere ESXi host.

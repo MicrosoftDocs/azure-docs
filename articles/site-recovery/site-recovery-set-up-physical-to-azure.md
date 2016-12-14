@@ -71,7 +71,7 @@ The following table lists out the minimum hardware, software, and network requir
 
 ## Common issues
 
-[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)
+[!INCLUDE [site-recovery-vmware-to-azure-install-register-issues](../../includes/site-recovery-vmware-to-azure-install-register-issues.md)]
 
 
 ## Next steps
