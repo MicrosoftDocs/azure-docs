@@ -6,7 +6,7 @@ documentationcenter: ''
 author: lbrader
 manager: christb
 
-ms.assetid: 
+ms.assetid:
 ms.service: multiple
 ms.workload: na
 ms.tgt_pltfrm: na
@@ -19,16 +19,15 @@ ms.author: lbrader
 
 # Microsoft Azure for AWS Professionals
 
-Because Azure and AWS built their capabilities independently over time, each
-have important implementation and design differences that can make it difficult
-for users familiar with one platform to understand and use the capabilities of
-the other.
+This article helps Amazon Web Services (AWS) professionals understand Microsoft Azure cloud services.
 
-This document will discuss how accounts and resources are organized in Azure,
-how available solutions are structured, and how the major services map between
-AWS and Azure. Its goal is to make getting started with Azure easier for AWS
-professionals by clarifying the key similarities and differences between the two
-platforms.
+You'll learn:
+* How accounts and resources are organized in Azure.
+* How available solutions are structured in Azure.
+* How the major AWS services correspond to Azure services.
+
+Because Azure and AWS built their capabilities independently over time, each
+have important implementation and design differences. Whether you are planning a migration to Azure or a multicloud implementation with AWS and Azure, this article makes it easier to get started with Azure by clarifying the key similarities and differences between the two platforms.
 
 ## Overview
 
@@ -256,7 +255,7 @@ creating a full copy of your solution in both regions.
 
 ## Services
 
-Consult the [complete AWS and Azure service comparison matrix](https://aka.ms/azure4aws-services) for a full listing of how all services map between platforms. 
+Consult the [complete AWS and Azure service comparison matrix](https://aka.ms/azure4aws-services) for a full listing of how all services map between platforms.
 
 Note that not all Azure products and
 services are available in all regions. Consult the [Products by
@@ -321,7 +320,7 @@ Autoscaling in Azure is handled by two services:
 -   [App Service
     Autoscale](https://azure.microsoft.com/documentation/articles/web-sites-scale/) - provides the capability to autoscale Azure App Service solutions.
 
-#### Other compute services 
+#### Other compute services
 
 Azure offers several compute services that do not have direct equivalents in
 AWS:
@@ -536,13 +535,13 @@ Networks](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf
 
 ### Application and messaging services
 
-#### Simple Email Service 
+#### Simple Email Service
 
 AWS provides the Simple Email Service (SES) for sending notification,
 transactional, or marketing emails. In Azure third party solutions like
 [Sendgrid](https://sendgrid.com/partners/azure/) provide email services.
 
-#### Simple Queueing Service 
+#### Simple Queueing Service
 
 AWS Simple Queueing Service (SQS) provides a messaging system for connecting
 applications, services, and devices within the AWS platform. Azure has two
@@ -576,7 +575,7 @@ testing resources for Linux and Windows environments.
 -   [How to use Service Bus
     queues](https://azure.microsoft.com/documentation/articles/service-bus-nodejs-how-to-use-queues/)
 
-### Analytics and big data 
+### Analytics and big data
 
 [The Cortana Intelligence
 Suite](https://azure.microsoft.com/suites/cortana-intelligence-suite/) is
@@ -658,7 +657,7 @@ services are needed for those delivery types.
 -   [Monitoring and diagnostics
     guidance](https://azure.microsoft.com/documentation/articles/best-practices-monitoring/)
 
-## Next steps 
+## Next steps
 
 -   [Complete AWS and Azure service comparison
     matrix](https://aka.ms/azure4aws-services)
