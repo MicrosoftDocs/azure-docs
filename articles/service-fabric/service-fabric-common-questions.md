@@ -88,7 +88,7 @@ Reliable services are typically partitioned, so the amount you can store is only
 
 As an example, suppose that you have a reliable collection in a service with 100 partitions and 3 replicas, storing objects that average 1kb in size. Now suppose that you have a 10 machine cluster with 16gb of memory per machine. For simplicity and to be very conservative, assume that the operating system and system services, the Service Fabric runtime, and your services consume 6gb of that, leaving 10gb available per machine, or 100gb for the cluster.
 
-Keeping in mind that each object must be stored three times (one primary and two replicas), you would have sufficient memory for approximately 35 million objects in your collection when operating at full capacity. However, we recommend being resilient to the simultaneous loss of a failure domain and an upgrade domain, which represents about 1/3 of capacity, and would reduce the number to roughly 20 million.
+Keeping in mind that each object must be stored three times (one primary and two replicas), you would have sufficient memory for approximately 35 million objects in your collection when operating at full capacity. However, we recommend being resilient to the simultaneous loss of a failure domain and an upgrade domain, which represents about 1/3 of capacity, and would reduce the number to roughly 23 million.
 
 Note that this calculation also assumes:
 
