@@ -1,6 +1,6 @@
 ---
-title: Use the sample data sets in Machine Learning Studio | Microsoft Docs
-description: Descriptions of the data sets used in sample models included in ML Studio. You can use these sample data sets for your experiments.
+title: Use the sample datasets in Machine Learning Studio | Microsoft Docs
+description: Descriptions of the datasets used in sample models included in Machine Learning Studio. You can use these sample datasets for your experiments.
 services: machine-learning
 documentationcenter: ''
 author: garyericson
@@ -13,25 +13,20 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/14/2016
 ms.author: garye
 
 ---
-# Use the sample data sets in Azure Machine Learning Studio
+# Use the sample datasets in Azure Machine Learning Studio
 [top]: #machine-learning-sample-datasets
 
-When you create a new workspace in Azure Machine Learning, a number of sample data sets and experiments are included by default. Many of these sample data sets are used by the sample models in the [Azure Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/), and others are included as examples of various types of data typically used in machine learning.
+When you create a new workspace in Azure Machine Learning, a number of sample datasets and experiments are included by default. Many of these sample datasets are used by the sample models in the [Azure Cortana Intelligence Gallery](http://gallery.cortanaintelligence.com/), and others are included as examples of various types of data typically used in machine learning.
 
-Some of these data sets are available in Azure Blob storage. For these data sets the table below provides a direct link. You can use these data sets in your experiments by using the [Import Data][import-data] module.
+Some of these datasets are available in Azure Blob storage. For these datasets the table below provides a direct link. You can use these datasets in your experiments by using the [Import Data][import-data] module.
 
-The rest of these sample data sets are listed under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in ML Studio.
-You can use any of these data sets in your own experiment by dragging it to your experiment canvas.
+The rest of these sample datasets are available in your workspace under **Saved Datasets** in the module palette to the left of the experiment canvas when you open or create a new experiment in Machine Learning Studio.
+You can use any of these datasets in your own experiment by dragging it to your experiment canvas.
 
-<!--
-For a list of sample experiments available in ML Studio, see [Machine Learning Sample Experiments][sample-experiments].
-
-[sample-experiments]: machine-learning-sample-experiments.md
--->
 
 [!INCLUDE [machine-learning-free-trial](../../includes/machine-learning-free-trial.md)]
 
@@ -151,7 +146,7 @@ A collection of simulated energy profiles, based on 12 different building shapes
 <tr ID=flight-delays-data>
   <td valign=top>Flight Delays Data</td>
   <td valign=top>
-Passenger flight on-time performance data taken from the TranStats data collection of the U.S. Department of Transportation (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).<p> </p>The dataset covers the time period April-October 2013. Before uploading to Azure ML Studio, the dataset was processed as follows:<ul><li>The dataset was filtered to cover only the 70 busiest airports in the continental US</li><li>Cancelled flights were labeled as delayed by more than 15 minutes</li><li>Diverted flights were filtered out</li><li>The following columns were selected: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled</li></ul>
+Passenger flight on-time performance data taken from the TranStats data collection of the U.S. Department of Transportation (<a href="http://www.transtats.bts.gov/DL_SelectFields.asp?Table_ID=236&DB_Short_Name=On-Time">On-Time</a>).<p> </p>The dataset covers the time period April-October 2013. Before uploading to Azure Machine Learning Studio, the dataset was processed as follows:<ul><li>The dataset was filtered to cover only the 70 busiest airports in the continental US</li><li>Cancelled flights were labeled as delayed by more than 15 minutes</li><li>Diverted flights were filtered out</li><li>The following columns were selected: Year, Month, DayofMonth, DayOfWeek, Carrier, OriginAirportID, DestAirportID, CRSDepTime, DepDelay, DepDel15, CRSArrTime, ArrDelay, ArrDel15, Cancelled</li></ul>
 </td>
 </tr>
 
@@ -186,7 +181,7 @@ The dataset contains information about movies that were rated in Twitter tweets:
 <tr>
   <td valign=top>Iris two class data</td>
   <td valign=top>
-This is perhaps the best known database to be found in the pattern recognition literature. The data set is relatively small, containing 50 examples each of petal measurements from three iris varieties.<p> </p><b>Usage:</b> Predict the iris type from the measurements.  <p> </p><b>Related Research:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
+This is perhaps the best known database to be found in the pattern recognition literature. The dataset is relatively small, containing 50 examples each of petal measurements from three iris varieties.<p> </p><b>Usage:</b> Predict the iris type from the measurements.  <p> </p><b>Related Research:</b> Fisher, R.A. (1988). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science
   </td>
 </tr>
 
@@ -214,21 +209,21 @@ A subset of data from the National Institute of Diabetes and Digestive and Kidne
 <tr>
   <td valign=top>Restaurant customer data</td>
   <td valign=top>
-A set of metadata about customers, including demographics and preferences.<p> </p><b>Usage:</b> Use this dataset, in combination with the other two restaurant data sets, to train and test a recommender system. <p> </p><b>Related Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+A set of metadata about customers, including demographics and preferences.<p> </p><b>Usage:</b> Use this dataset, in combination with the other two restaurant datasets, to train and test a recommender system. <p> </p><b>Related Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Restaurant feature data</td>
   <td valign=top>
-A set of metadata about restaurants and their features, such as food type, dining style, and location.<p> </p><b>Usage:</b> Use this dataset, in combination with the other two restaurant data sets, to train and test a recommender system. <p> </p><b>Related Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+A set of metadata about restaurants and their features, such as food type, dining style, and location.<p> </p><b>Usage:</b> Use this dataset, in combination with the other two restaurant datasets, to train and test a recommender system. <p> </p><b>Related Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
 <tr>
   <td valign=top>Restaurant ratings</td>
   <td valign=top>
-Contains ratings given by users to restaurants on a scale from 0 to 2.<p> </p><b>Usage:</b> Use this dataset, in combination with the other two restaurant data sets, to train and test a recommender system. <p> </p><b>Related Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
+Contains ratings given by users to restaurants on a scale from 0 to 2.<p> </p><b>Usage:</b> Use this dataset, in combination with the other two restaurant datasets, to train and test a recommender system. <p> </p><b>Related Research:</b> Bache, K. and Lichman, M. (2013). UCI Machine Learning Repository <a href="http://archive.ics.uci.edu/ml">http://archive.ics.uci.edu/ml</a>. Irvine, CA: University of California, School of Information and Computer Science.
   </td>
 </tr>
 
@@ -249,14 +244,14 @@ Records of high energy gamma particle bursts along with background noise, both s
 <tr ID=weather-dataset>
   <td valign=top>Weather Dataset</td>
   <td valign=top>
-Hourly land-based weather observations from NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">merged data from 201304 to 201310</a>).<p> </p>The weather data covers observations made from airport weather stations, covering the time period April-October 2013. Before uploading to Azure ML Studio, the dataset was processed as follows:<ul><li>Weather station IDs were mapped to corresponding airport IDs</li><li>Weather stations not associated with the 70 busiest airports were filtered out</li><li>The Date column was split into separate Year, Month, and Day columns</li><li>The following columns were selected: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li></ul>
+Hourly land-based weather observations from NOAA (<a href="http://cdo.ncdc.noaa.gov/qclcd_ascii/, merged data from 201304 to 201310">merged data from 201304 to 201310</a>).<p> </p>The weather data covers observations made from airport weather stations, covering the time period April-October 2013. Before uploading to Azure Machine Learning Studio, the dataset was processed as follows:<ul><li>Weather station IDs were mapped to corresponding airport IDs</li><li>Weather stations not associated with the 70 busiest airports were filtered out</li><li>The Date column was split into separate Year, Month, and Day columns</li><li>The following columns were selected: AirportID, Year, Month, Day, Time, TimeZone, SkyCondition, Visibility, WeatherType, DryBulbFarenheit, DryBulbCelsius, WetBulbFarenheit, WetBulbCelsius, DewPointFarenheit, DewPointCelsius, RelativeHumidity, WindSpeed, WindDirection, ValueForWindCharacter, StationPressure, PressureTendency, PressureChange, SeaLevelPressure, RecordType, HourlyPrecip, Altimeter</li></ul>
   </td>
 </tr>
 
 <tr ID=wikipedia-sp-500-dataset>
   <td valign=top>Wikipedia SP 500 Dataset</td>
   <td valign=top>
-Data is derived from Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) based on articles of each S&P 500 company, stored as XML data.<p> </p>Before uploading to Azure ML Studio, the dataset was processed as follows:<ul><li>Extract text content for each specific company</li><li>Remove wiki formatting</li><li>Remove non-alphanumeric characters</li><li>Convert all text to lowercase</li><li>Known company categories were added</li></ul><p> </p>Note that for some companies an article could not be found, so the number of records is less than 500.
+Data is derived from Wikipedia (<a href="http://www.wikipedia.org/">http://www.wikipedia.org/</a>) based on articles of each S&P 500 company, stored as XML data.<p> </p>Before uploading to Azure Machine Learning Studio, the dataset was processed as follows:<ul><li>Extract text content for each specific company</li><li>Remove wiki formatting</li><li>Remove non-alphanumeric characters</li><li>Convert all text to lowercase</li><li>Known company categories were added</li></ul><p> </p>Note that for some companies an article could not be found, so the number of records is less than 500.
   </td>
 </tr>
 
@@ -303,7 +298,7 @@ Topic assignments for news articles in the RCV1-V2 Reuters news dataset. A news 
 <tr ID=student-performance>
   <td valign=top><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td valign=top>
-This data comes from the KDD Cup 2010 Student performance evaluation challenge (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). The data used is the Algebra_2008_2009 training set (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Challenge data set from KDD Cup 2010 Educational Data Mining Challenge. Find it at <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> or <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.<p> </p>The dataset was downloaded and stored in Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) and contains log files from a student tutoring system. The supplied features include problem ID and its brief description, student ID, timestamp, and how many attempts the student made before solving the problem in the right way. The original dataset has 8.9M records, this dataset has been down-sampled to the first 100K rows. The dataset has 23 tab-separated columns of various types: numeric, categorical, and timestamp.
+This data comes from the KDD Cup 2010 Student performance evaluation challenge (<a href="http://www.kdd.org/kdd-cup-2010-student-performance-evaluation">student performance evaluation</a>). The data used is the Algebra_2008_2009 training set (Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. Challenge dataset from KDD Cup 2010 Educational Data Mining Challenge. Find it at <a href="http://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a> or <a href="http://www.kdd.org/sites/default/files/kddcup/site/2010/files/algebra_2008_2009.zip">algebra_2008_2009.zip</a>.<p> </p>The dataset was downloaded and stored in Azure Blob storage (<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>) and contains log files from a student tutoring system. The supplied features include problem ID and its brief description, student ID, timestamp, and how many attempts the student made before solving the problem in the right way. The original dataset has 8.9M records, this dataset has been down-sampled to the first 100K rows. The dataset has 23 tab-separated columns of various types: numeric, categorical, and timestamp.
 
   </td>
 </tr>
