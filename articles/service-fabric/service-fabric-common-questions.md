@@ -1,21 +1,22 @@
-   ---
-   title: Common questions about Microsoft Azure Service Fabric | Microsoft Docs
-   description: Frequently asked questions about Service Fabric and their answers
-   services: service-fabric
-   documentationcenter: .net
-   author: seanmck
-   manager: timlt
-   editor: ''
+ ---
+ title: Common questions about Microsoft Azure Service Fabric | Microsoft Docs
+ description: Frequently asked questions about Service Fabric and their answers
+ services: service-fabric
+ documentationcenter: .net
+ author: seanmck
+ manager: timlt
+ editor: ''
 
-   ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
-   ms.service: service-fabric
-   ms.devlang: dotnet
-   ms.topic: article
-   ms.tgt_pltfrm: na
-   ms.workload: na
-   ms.date: 12/14/2016
-   ms.author: seanmck
-   ---
+ ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
+ ms.service: service-fabric
+ ms.devlang: dotnet
+ ms.topic: article
+ ms.tgt_pltfrm: na
+ ms.workload: na
+ ms.date: 12/14/2016
+ ms.author: seanmck
+ 
+ ---
 
 
 # Commonly asked Service Fabric questions
@@ -42,19 +43,19 @@ In the interim, the only safe option is to perform OS updates manually, one node
 
 ### What is the minimum size of a Service Fabric cluster? Why can't it be smaller?
 
-The minimum supported size for a Service Fabric cluster running production workloads is 5 nodes. For dev/test scenarios, we support 3 node clusters.
+The minimum supported size for a Service Fabric cluster running production workloads is five nodes. For dev/test scenarios, we support three node clusters.
 
 To understand why these minimums exist, it is important to understand that the Service Fabric cluster itself runs a number of stateful services, including the naming service and the failover manager. These services, which keep track of what services have been deployed to the cluster and where they're currently hosted, depend on the strong consistency inherent in the Service Fabric data model. That strong consistency, in turn, depends on the ability to acquire a *quorum* for any given update to the state of those services, where a quorum represents a strict majority of the replicas (N/2 +1) for a given service.
 
 With that background, let's examine some possible cluster configurations:
 
-**1 node**: this option does not provide high availability since the loss of the single node for any reason means the loss of the entire cluster.
+**One node**: this option does not provide high availability since the loss of the single node for any reason means the loss of the entire cluster.
 
-**2 nodes**: a quorum for a service deployed across 2 nodes (N = 2) is 2 (2/2 + 1 = 2). Thus, as soon as a single replica is lost, it is impossible to create a quorum. Since performing a service upgrade requires temporarily taking down a replica, this is not a useful configuration.
+**Two nodes**: a quorum for a service deployed across two nodes (N = 2) is 2 (2/2 + 1 = 2). Thus, as soon as a single replica is lost, it is impossible to create a quorum. Since performing a service upgrade requires temporarily taking down a replica, this is not a useful configuration.
 
-**3 nodes**: with 3 nodes (N=3), the requirement to create a quorum is still 2 nodes (3/2 + 1 = 2). This means that you can lose an individual node and still maintain quorum.
+**Three nodes**: with three nodes (N=3), the requirement to create a quorum is still two nodes (3/2 + 1 = 2). This means that you can lose an individual node and still maintain quorum.
 
-The 3 node cluster configuration is supported for dev/test because you can safely perform upgrades and survive individual node failures, as long as they don't happen simultaneously. For production workloads, you must be resilient to such a simultaneous failure, so 5 nodes are required.
+The three node cluster configuration is supported for dev/test because you can safely perform upgrades and survive individual node failures, as long as they don't happen simultaneously. For production workloads, you must be resilient to such a simultaneous failure, so five nodes are required.
 
 ### Can I turn off my cluster at night/weekends to save costs?
 
