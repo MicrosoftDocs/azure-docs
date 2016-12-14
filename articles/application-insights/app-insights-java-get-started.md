@@ -246,7 +246,7 @@ When viewing the properties of a request, you can see the telemetry events assoc
 ![](./media/app-insights-java-get-started/7-instance.png)
 
 ### Analytics: Powerful query language
-As you accumulate more data, you can run queries both to aggregate data and to find individual instances. [Analytics]() is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
+As you accumulate more data, you can run queries both to aggregate data and to find individual instances. [Analytics](app-insights-analytics.md) is a powerful tool for both for understanding performance and usage, and for diagnostic purposes.
 
 ![Example of Analytics](./media/app-insights-java-get-started/025.png)
 
