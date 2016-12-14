@@ -100,7 +100,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 * **SSL functionality**: To enable SSL certificate chain building and validation the API Management service needs Outbound network connectivity to ocsp.msocsp.com, mscrl.microsoft.com and crl.microsoft.com.
 
-* **Express Route Setup**: A common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution is to define one (or more) user-defined routes ([UDRs][UDR Reference]) on the subnet that contains the Azure API Management. A UDR defines subnet-specific routes that will be honored instead of the default route.
+* **Express Route Setup**: A common customer configuration is to define their own default route (0.0.0.0/0) which forces outbound Internet traffic to instead flow on-premises. This traffic flow invariably breaks connectivity with Azure API Management because the outbound traffic is either blocked on-premises, or NAT'd to an unrecognizable set of addresses that no longer work with various Azure endpoints. The solution is to define one (or more) user-defined routes ([UDRs][UDRs]) on the subnet that contains the Azure API Management. A UDR defines subnet-specific routes that will be honored instead of the default route.
   If possible, it is recommended to use the following configuration:
  * The ExpressRoute configuration advertises 0.0.0.0/0 and by default force tunnels all outbound traffic on-premises.
  * The UDR applied to the subnet containing the Azure API Management defines 0.0.0.0/0 with a next hop type of Internet.
@@ -135,6 +135,6 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 [Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site
 [Connecting virtual Network from different deployment models]: ../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md
-[UDR Reference]: ../virtual-network/virtual-networks-udr-overview.md
+[UDRs]: ../virtual-network/virtual-networks-udr-overview.md
 [How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md
