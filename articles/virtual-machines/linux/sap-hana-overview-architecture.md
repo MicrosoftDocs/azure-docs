@@ -194,10 +194,7 @@ These are the requirements for running SAP HANA on Azure (Larger Instances).
 
 **Network Connectivity:**
 
-- Azure ExpressRoute. Preferably a 1 Gbps connection speed for high-speed connectivity between on-premises network and the SAP application landscape deployed in Azure.
-
-> [!NOTE] 
-> The ExpressRoute connection between Azure and SAP HANA on Azure (Large Instances) is included in the price of HANA Large Instances, so no action is required for this specific connectivity.
+- Azure ExpressRoute between on-premises to Azure: Make sure to order at leat a 1 Gbps connection from your ISP to connect your on-premises datacenter to Azure
 
 **Operating System:**
 
