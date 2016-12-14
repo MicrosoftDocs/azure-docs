@@ -81,7 +81,7 @@ Following is a list of common misconfiguration issues that can occur while deplo
 
 * **Custom DNS server setup**: The API Management service depends on several Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup. See the ports table below and other network requirements for reference.
 
-* **Ports required for API Management**: Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using [Network Security Group](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/). If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
+* **Ports required for API Management**: Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using [Network Security Group][Network Security Group]. If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
 
 When an API Management service instance is hosted in a VNET, the ports in the following table are used.
 
@@ -119,7 +119,8 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 ## <a name="related-content"> </a>Related content
 * [Connecting a virtual Network to backend using Vpn Gateway][Different topologies to connect to Vpn Gateway]
-* [Connecting virtual Network from different deployment models][Connect Virtual Network with different deployment models]
+* [Connecting virtual Network from different deployment models][Connecting virtual Network from different deployment models]
+* [How to use the API Inspector to trace calls in Azure API Management][How to use the API Inspector to trace calls in Azure API Management]
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
@@ -133,6 +134,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 [Related content]: #related-content
 
 [Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site
-[Connect Virtual Network with different deployment models]: ../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md
+[Connecting virtual Network from different deployment models]: ../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md
 [UDR Reference]: ../virtual-network/virtual-networks-udr-overview.md
 [How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
+[Network Security Group]: ../virtual-network/virtual-networks-nsg.md
