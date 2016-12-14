@@ -23,14 +23,15 @@ Azure Virtual Networks (VNETs) allow you to place any of your Azure resources in
 Azure API Management can be connected to a virtual network (VNET) so it can access backend services within the network and so that the developer portal and API gateway are accessible within the network.
 
 > [!NOTE]
-> Azure API Management supports both classic and ARM VNets.
+> Azure API Management supports both classic and Azure Resource Manager VNets.
 > 
 > 
 
 ## <a name="enable-vpn"> </a>Enable VNET connection
-> VNET connectivity is only available in the **Premium** and **Developer** tiers. To switch between the tiers, open your API Management service in the Azure Portal and then open the **Scale and pricing** tab. Under the **Pricing tier** section, select the Premium or Developer tier and click Save.
-> 
-> 
+> VNET connectivity is available in the **Premium** and **Developer** tiers. To switch between the tiers, open your API Management 
+> service in the Azure Portal and then open the **Scale and pricing** tab. Under the **Pricing tier** section, select the Premium or 
+> Developer tier and click Save.
+>
 
 To enable VNET connectivity, open your API Management service in the Azure Portal and open the **Virtual network** page.
 
@@ -46,10 +47,10 @@ Select the desired access type:
 
 ![Private peering][api-management-vnet-private]
 
-You will now see a list of all regions where your API Management service is provisioned. Select a VNET and subnet for every region. The list is populated with both classic and ARM virtual networks available in your Azure subscriptions that are setup in the region you are configuring.
+You will now see a list of all regions where your API Management service is provisioned. Select a VNET and subnet for every region. The list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are setup in the region you are configuring.
 
 > [!IMPORTANT]
-> When deploying an Azure API Management instance to an ARM VNet, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to an ARM VNet subnet that contains other resources, the deployment will fail.
+> When deploying an Azure API Management instance to an Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to an Resource Manager VNET subnet that contains other resources, the deployment will fail.
 > 
 > 
 
@@ -62,8 +63,8 @@ Click **Save** at the top of the screen.
 > The VIP address will also change when API Management is moved from **External** to **Internal** or vice-versa
 > 
 
-## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell commandlets
-You can also enable VNET connectivity using the PowerShell commandlets
+## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
+You can also enable VNET connectivity using the PowerShell cmdlets
 
 * **Create an API Management service inside a VNET**: Use the cmdlet [New-AzureRmApiManagement](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/new-azurermapimanagement) to create a new Azure API Management service into a VNET.
 
@@ -83,7 +84,7 @@ Following is a list of common misconfiguration issues that can occur while deplo
 
 When an API Management service instance is hosted in a VNET, the ports in the following table are used.
 
-| Source / destination Port(s) | Direction | Transport protocol | Purpose | Source / destination | Access type |
+| Source / Destination Port(s) | Direction | Transport protocol | Purpose | Source / Destination | Access type |
 | --- | --- | --- | --- | --- | --- |
 | 80, 443 / 80, 443 |Inbound |TCP |Client communication to API Management |INTERNET / VIRTUAL_NETWORK |External |
 | * / 3443 |Inbound |TCP |Management endpoint |INTERNET / VIRTUAL_NETWORK |External & Internal |
@@ -112,7 +113,7 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 * The subnet and the API Management service must be in the same subscription.
 * A subnet containing API Management instances cannot be moved across subscriptions.
 * When using an internal virtual network, only an internal IP address will be available from the range stated in [RFC 1918](https://tools.ietf.org/html/rfc1918), a public IP address cannot be provided.
-* For multi-region API Management deployments with Internal virtual networks configured, users are responsible for managing their own load balancing as they own the DNS.
+* For multi-region API Management deployments, with Internal virtual networks configured, users are responsible for managing their own load balancing as they own the DNS.
 
 
 ## <a name="related-content"> </a>Related content
