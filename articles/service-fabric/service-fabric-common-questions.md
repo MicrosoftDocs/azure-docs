@@ -1,20 +1,22 @@
-<properties
-   pageTitle="Common questions about Service Fabric | Microsoft Azure"
-   description="Frequently asked Service Fabric questions and their answers"
-   services="service-fabric"
-   documentationCenter=".net"
-   authors="seanmck"
-   manager="timlt"
-   editor=""/>
+   ---
+   title: Common questions about Microsoft Azure Service Fabric | Microsoft Docs
+   description: Frequently asked questions about Service Fabric and their answers
+   services: service-fabric
+   documentationcenter: .net
+   author: seanmck
+   manager: timlt
+   editor: ''
 
-<tags
-   ms.service="service-fabric"
-   ms.devlang="dotnet"
-   ms.topic="article"
-   ms.tgt_pltfrm="NA"
-   ms.workload="NA"
-   ms.date="12/13/2016"
-   ms.author="seanmck"/>
+   ms.assetid: 5a179703-ff0c-4b8e-98cd-377253295d12
+   ms.service: service-fabric
+   ms.devlang: dotnet
+   ms.topic: article
+   ms.tgt_pltfrm: na
+   ms.workload: na
+   ms.date: 12/14/2016
+   ms.author: seanmck
+   ---
+
 
 # Commonly asked Service Fabric questions
 
