@@ -119,8 +119,8 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 
 ## <a name="related-content"> </a>Related content
 * [Connecting a virtual Network to backend using Vpn Gateway][Different topologies to connect to Vpn Gateway]
-* [Connecting virtual Network from different deployment models][Connecting virtual Network from different deployment models]
-* [How to use the API Inspector to trace calls in Azure API Management][How to use the API Inspector to trace calls in Azure API Management]
+* [Connecting virtual Network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
+* [How to use the API Inspector to trace calls in Azure API Management](api-management-howto-api-inspector.md)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png
 [api-management-setup-vpn-select]: ./media/api-management-using-with-vnet/api-management-using-vnet-type.png
@@ -134,7 +134,5 @@ When an API Management service instance is hosted in a VNET, the ports in the fo
 [Related content]: #related-content
 
 [Different topologies to connect to Vpn Gateway]: ../vpn-gateway/vpn-gateway-about-vpngateways.md#site-to-site-and-multi-site
-[Connecting virtual Network from different deployment models]: ../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md
 [UDRs]: ../virtual-network/virtual-networks-udr-overview.md
-[How to use the API Inspector to trace calls in Azure API Management]: api-management-howto-api-inspector.md
 [Network Security Group]: ../virtual-network/virtual-networks-nsg.md
