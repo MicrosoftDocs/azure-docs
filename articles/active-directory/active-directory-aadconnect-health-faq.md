@@ -87,12 +87,12 @@ You need to have TCP/UDP ports 443 and 5671 open for the Azure AD Connect Health
 
 When you remove an agent from a server, the server is not automatically removed from the Azure AD Connect Portal.  If you manually removed an agent from a server or removed the server itself, you need to manually delete the server entry from the Azure AD Connect Health portal. For more information, go to [delete a server or service instance.](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance)
 
-If you reimaged a server or created a new server with the same details(such as machine name) and did not remove the already registered server from the Azure AD Connect Health portal, installed the agent on the new server, you may see two entries with the same name.  
+Two matching entries may exist, if you reimaged a server or created a new one with the same details (such as machine name) and did not first remove the registered server from the Azure AD Connect Health portal, prior to installing the agent on the new server.
 In this case, you should delete the entry belonging to the older server manually. The data for this server should be out-of-date.
 
 **Q: Why do I not see performance counters information for my Domain Controller?**
 
-If the NTDS performance counters are not loaded/enabled on the Domain Controller, Azure AD Connect Health will be unable to collect and display performance counters for that particular DC. If there exists a Data Freshness alert for the impacted DC, where the missing data type is "perfcounter" then follow the steps included in the alert details, to troubleshoot the missing performance counters. 
+If the NTDS performance counters are not loaded/enabled on the Domain Controller, Azure AD Connect Health is unable to collect and display performance counters for that particular DC. If Data Freshness alert exists for the impacted DC and the missing data type is PERFCOUNTER, follow the steps included in the alert details for troubleshooting missing performance counters. 
 
 ## Related links
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
