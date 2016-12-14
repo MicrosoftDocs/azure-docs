@@ -19,9 +19,9 @@ ms.author: renash
 ---
 
 # Backing Up Drive Manifests
-Drive manifests can be automatically backed up to blobs by setting the `BackupDriveManifest` property to `true` in the [Put Job](../importexport/Put-Job.md) or [Update Job Properties](../importexport/Update-Job-Properties.md) operations. By default the drive manifests are not backed up. The drive manifest backups are stored as block blobs in a container within the storage account associated with the job. By default, the container name is `waimportexport`, but you can specify a different name in the `ImportExportStatesPath` property when calling the `Put Job` or `Update Job Properties` operations. The backup manifest blob are named in the following format: `waies/jobname_driveid_timestamp_manifest.xml`.  
+Drive manifests can be automatically backed up to blobs by setting the `BackupDriveManifest` property to `true` in the [Put Job](/rest/api/storageservices/importexport/Put-Job) or [Update Job Properties](/rest/api/storageservices/importexport/Update-Job-Properties) operations. By default the drive manifests are not backed up. The drive manifest backups are stored as block blobs in a container within the storage account associated with the job. By default, the container name is `waimportexport`, but you can specify a different name in the `ImportExportStatesPath` property when calling the `Put Job` or `Update Job Properties` operations. The backup manifest blob are named in the following format: `waies/jobname_driveid_timestamp_manifest.xml`.  
   
- You can retrieve the URI of the backup drive manifests for a job by calling the [Get Job](../importexport/Get-Job3.md) operation. The blob URI is returned in the `ManifestUri` property for each drive.  
+ You can retrieve the URI of the backup drive manifests for a job by calling the [Get Job](/rest/api/storageservices/importexport/Get-Job3) operation. The blob URI is returned in the `ManifestUri` property for each drive.  
   
 ## See Also  
  [Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)
