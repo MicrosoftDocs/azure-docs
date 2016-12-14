@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 10/31/2016
-ms.author: markusvi
+ms.author: markvi
 
 ---
 # Azure Active Directory FAQ

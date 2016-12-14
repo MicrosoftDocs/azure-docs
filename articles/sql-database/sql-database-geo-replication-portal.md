@@ -48,7 +48,7 @@ The following steps create a new secondary database in a geo-replication partner
 
 To add a secondary database, you must be the subscription owner or co-owner.
 
-The secondary database has the same name as the primary database and has, by default, the same service level. The secondary database can be a single database or an elastic database. For more information, see [Service tiers](sql-database-service-tiers.md).
+The secondary database has the same name as the primary database and has, by default, the same service level. The secondary database can be a standalone database or a database in an elastic pool. For more information, see [Service tiers](sql-database-service-tiers.md).
 After the secondary is created and seeded, data begins replicating from the primary database to the new secondary database.
 
 > [!NOTE]
@@ -64,7 +64,7 @@ After the secondary is created and seeded, data begins replicating from the prim
 3. Select or configure the server and pricing tier for the secondary database.
    
     ![Configure secondary](./media/sql-database-geo-replication-portal/create-secondary.png)
-4. Optionally, you can add a secondary database to an elastic database pool. To create the secondary database in a pool, click **Elastic database pool** and select a pool on the target server. A pool must already exist on the target server. This workflow does not create a pool.
+4. Optionally, you can add a secondary database to an elastic pool. To create the secondary database in a pool, click **elastic pool** and select a pool on the target server. A pool must already exist on the target server. This workflow does not create a pool.
 5. Click **Create** to add the secondary.
 6. The secondary database is created and the seeding process begins.
    
