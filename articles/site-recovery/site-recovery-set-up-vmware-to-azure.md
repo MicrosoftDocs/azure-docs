@@ -16,7 +16,7 @@ ms.workload: backup-recovery
 ms.date: 12/9/2016
 ms.author: anoopkv
 ---
-> [div class="op_single_selector"]
+> [!div class="op_single_selector"]
 > * [VMware Virtual Machines](./site-recovery-set-up-vmware-to-azure.md)
 > * [Physical Servers](./site-recovery-set-up-physical-to-azure.md)
 
