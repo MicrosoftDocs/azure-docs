@@ -38,6 +38,8 @@ Make a note of the solution name you chose for your deployment. You need this so
 
 [!INCLUDE [iot-suite-send-external-temperature](../../includes/iot-suite-send-external-temperature.md)]
 
+You can stop the Node.js console app when you have verified that it is sending **ExternalTemperature** telemetry to the preconfigured solution. Keep the console window open because you run this Node.js console app again after you add the custom rule to the solution.
+
 ## Rule storage locations
 
 Information about rules is persisted in two locations:
@@ -45,7 +47,7 @@ Information about rules is persisted in two locations:
 * **DeviceRulesNormalizedTable** table – This table stores a normalized reference to the rules defined by the solution portal. When the solution portal displays device rules, it queries this table for the rule definitions.
 * **DeviceRules** blob – This blob stores all the rules defined for all registered devices and is defined as a reference input to the Azure Stream Analytics jobs.
  
-When you update an existing rule or define a new rule in the solution portal, both the table and blob are updated to reflect the changes. The rule definition displayed in the portal comes from the table store, and the rule definition referenced by the ASA jobs comes from the blob. 
+When you update an existing rule or define a new rule in the solution portal, both the table and blob are updated to reflect the changes. The rule definition displayed in the portal comes from the table store, and the rule definition referenced by the Stream Analytics jobs comes from the blob. 
 
 ## Update the RemoteMonitoring Visual Studio solution
 
@@ -122,15 +124,15 @@ You can now deploy the updated solution to your Azure subscription.
 
 ## Update the Stream Analytics job
 
-When the deployment is complete, you can update the Azure Stream Analytics job to use the new rule definitions.
+When the deployment is complete, you can update the Stream Analytics job to use the new rule definitions.
 
 1. In the Azure portal, navigate to the resource group that contains your preconfigured solution resources. This resource group has the same name you specified for the solution during the deployment.
 
-2. Navigate to the -Rules Azure Stream Analytics job. 
+2. Navigate to the {deployment name}-Rules Stream Analytics job. 
 
-3. Click **Stop** to stop the Azure Stream Analytics job from running. (You must wait for the streaming job to stop, before you can edit the query).
+3. Click **Stop** to stop the Stream Analytics job from running. (You must wait for the streaming job to stop before you can edit the query).
 
-4. Click **Query**. Edit the query to include the **SELECT** statement for **ExternalTemperature**. The following sample shows the complete query:
+4. Click **Query**. Edit the query to include the **SELECT** statement for **ExternalTemperature**. The following sample shows the complete query with the new **SELECT** statement:
 
     ```
     WITH AlarmsData AS 
@@ -185,23 +187,33 @@ When the deployment is complete, you can update the Azure Stream Analytics job t
     FROM AlarmsData
     ```
 
+5. Click **Save** to change the updated rule query.
+
+6. Click **Start** to start the Stream Analytics job running again.
+
 ## Add your new rule in the dashboard
 
 You can now add the **ExternalTemperature** rule to a device in the solution dashboard.
 
-1. Navigate to the solution portal with an Administrator role.
+1. Navigate to the solution portal.
 
 2. Navigate to the **Devices** panel.
 
-3. Locate the device you created in the Dynamic Telemetry tutorial that sends **ExternalTemperature** telemetry and on the **Device Details** panel, select **Add Rule**.
+3. Locate the custom device you created that sends **ExternalTemperature** telemetry and on the **Device Details** panel, click **Add Rule**.
 
-4. Select **ExternalTemperature > 10**.
+4. Select **ExternalTemperature** in **Data Field**.
 
-5. Notice that the **Alarm History** table shows new alarms when the new rule is triggered. 
+5. Set **Threshold** to 56. Then click **Save and view rules**.
+
+6. Return to the dashboard to view the alarm history.
+
+7. In the console window you left open, start the Node.js console app to begin sending **ExternalTemperature** telemetry data.
+
+8. Notice that the **Alarm History** table shows new alarms when the new rule is triggered.
  
 ## Additional information
 
-Changing the operator (>) is more complex and goes beyond the steps outlined above. While you can change the ASA job to use whatever operator you like, reflecting that operator in the solution portal is a more complex task. 
+Changing the operator **>** is more complex and goes beyond the steps outlined in this tutorial. While you can change the Stream Analytics job to use whatever operator you like, reflecting that operator in the solution portal is a more complex task. 
 
 ## Next steps
 Now that you've seen how to create custom rules, you can learn more about the preconfigured solutions:
