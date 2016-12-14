@@ -46,6 +46,10 @@ Once you have determined the minimum service tier, you are ready to determine th
 
 After initially picking a performance level, you can and then scale the [individual database](sql-database-scale-up.md) or your [elastic pool](sql-database-elastic-pool-manage-portal.md#change-performance-settings-of-a-pool) up or down dynamically based on actual experience. For migration scenarios, you can also use the [DTU Calculator](http://dtucalculator.azurewebsites.net/) to approximate the number of DTUs needed. 
 
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-dynamically-scale-up-or-scale-down]
+>
+
 ## Standalone database service tiers and performance levels
 For standalone databases, there are multiple performance levels within each service tier. You have the flexibility to choose the level that best meets your workload’s demands. If you need to scale up or down, you can easily change the tiers of your database. See [Changing Database Service Tiers and Performance Levels](sql-database-scale-up.md) for details.
 
