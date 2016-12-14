@@ -21,7 +21,7 @@ ms.author: mahender
 
 ## Creating custom APIs for PowerApps
 
-[PowerApps](https://powerapps.com) is a solution that enables users to quickly create applications using the skills they already have. PowerApps comes with a variety of built-in connectors to data sources such as Office 365, Dynamics 365, Salesforce, and more. PowerApps users also need to be able to leverage data sources and APIs being built by their organization. To learn more about PowerApps, see the [PowerApps Guided Learning](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/).
+[PowerApps](https://powerapps.com) is a service for building and using custom business apps that connect to your data and works across platforms – without having to write a single line of code.  PowerApps comes with a variety of built-in connectors to data sources such as Office 365, Dynamics 365, Salesforce, and more. PowerApps users also need to be able to leverage data sources and APIs being built by their organization. To learn more about PowerApps, see the [PowerApps Guided Learning](https://powerapps.microsoft.com/guided-learning/learning-introducing-powerapps/).
 
 [Azure App Service](https://azure.microsoft.com/services/app-service/) is a platform-as-a-service offering that allows developers to quickly and easily build enterprise-grade web, mobile, and API applications. Developers that want to expose their APis more broadly within the organization may want to make their APIs available to PowerApps users. To learn more about App Service, see [What is App Service?](https://docs.microsoft.com/azure/app-service/app-service-value-prop-what-is)
 
@@ -29,7 +29,7 @@ This topic will show you how to expose an API built with Azure App Service to Po
 
 ## Sharing an API definition
 
-APIs are often described using an [Open API document](https://www.openapis.org/) (sometimes referred to as a "Swagger" document). This contains all of the information about what operations are available, and how the data should be structured. PowerApps can create custom connectors for any Open API 2.0 document. Once a connector is created, it can be used exactly the same as one of the built-in connectors, and can quickly be integrated into an application.
+APIs are often described using an [Open API document](https://www.openapis.org/) (sometimes referred to as a "Swagger" document). This contains all of the information about what operations are available and how the data should be structured. PowerApps can create custom connectors for any Open API 2.0 document. Once a connector is created, it can be used exactly the same as one of the built-in connectors and can quickly be integrated into an application.
 
 Azure App Service has [built-in support](../app-service-api/app-service-api-metadata) for creating, hosting, and managing an Open API document. In order to create a custom connector for an App Service application, two steps will be needed:
 
