@@ -166,7 +166,7 @@ In this topology view, the first level has [virtual networks](../virtual-network
 The bottom part of this blade has the recommendations for this virtual machine, which is similar to what is described previously. You can click a recommendation to learn more or apply the needed security control or configuration.
 
 ### Monitor data
-When you click **Data** in the **Resources security health** tile, the **Data Resources** blade opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+When you click **Data** in the **Resources security health** tile, the **Data Resources** blade opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read Enable encryption for Azure storage account in Azure Security Center.
 
 ![Data Resources](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
