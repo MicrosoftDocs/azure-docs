@@ -13,12 +13,12 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/19/2016
+ms.date: 12/12/2016
 ms.author: bradsev;garye
 
 ---
 # How to evaluate model performance in Azure Machine Learning
-This topic demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio and provides a brief explanation of the metrics available for this task. Three common supervised learning scenarios are presented: 
+This article demonstrates how to evaluate the performance of a model in Azure Machine Learning Studio and provides a brief explanation of the metrics available for this task. Three common supervised learning scenarios are presented: 
 
 * regression
 * binary classification 
