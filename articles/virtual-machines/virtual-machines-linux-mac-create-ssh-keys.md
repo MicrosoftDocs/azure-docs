@@ -56,7 +56,7 @@ Add the newly created key to `ssh-agent`:
 ssh-add ~/.ssh/id_rsa
 ```
 
-Copy the SSH public key to your Linux VM:
+If you have already created a VM you can install the new SSH public key to your Linux VM with:
 
 ```bash
 ssh-copy-id -i ~/.ssh/id_rsa.pub ahmet@myserver
@@ -187,7 +187,7 @@ Key Password:
 
 To avoid typing your private key file password with every SSH login, you can use `ssh-agent` to cache your private key file password. If you are using a Mac, the OSX Keychain securely stores the private key passwords when you invoke `ssh-agent`.
 
-First verify that `ssh-agent` is running
+Verify and use ssh-agent and ssh-add to inform the SSH system about the key files so that the passphrase will not need to be used interactively.
 
 ```bash
 eval "$(ssh-agent -s)"
@@ -200,6 +200,13 @@ ssh-add ~/.ssh/id_rsa
 ```
 
 The private key password is now stored in `ssh-agent`.
+
+## Using `ssh-copy-id` to install the new key
+If you have already created a VM you can install the new SSH public key to your Linux VM with:
+
+```bash
+ssh-copy-id -i ~/.ssh/id_rsa.pub ahmet@myserver
+```
 
 ## Create and configure an SSH config file
 
