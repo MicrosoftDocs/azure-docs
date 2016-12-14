@@ -253,7 +253,7 @@ You can also verify the service was installed correctly by opening Event Viewer,
   ![][023]
 
 ### Step 3: Configure your firewall
-After you have enabled Password Writeback, you need to make sure the machine running Azure AD Connect can reach Microsoft cloud services to receive password writeback requests. This step involves updating the connection rules in your network appliances (proxy servers, firewalls etc.) to allow outbound connections to certain Microsoft-owned URLs and IP addresses over specific network ports. These changes may vary based on the version of Azure AD Connect tool. For more context, you can read more about [how password writeback works](active-directory-passwords-learn-more.md#how-password-writeback-works) and [the password writeback security model](active-directory-passwords-learn-more#password-writeback-security-model).
+After you have enabled Password Writeback, you need to make sure the machine running Azure AD Connect can reach Microsoft cloud services to receive password writeback requests. This step involves updating the connection rules in your network appliances (proxy servers, firewalls etc.) to allow outbound connections to certain Microsoft-owned URLs and IP addresses over specific network ports. These changes may vary based on the version of Azure AD Connect tool. For more context, you can read more about [how password writeback works](active-directory-passwords-learn-more.md#how-password-writeback-works) and [the password writeback security model](active-directory-passwords-learn-more.md#password-writeback-security-model).
 
 #### Why do I need to do this?
 
