@@ -28,12 +28,13 @@ Azure API Management can be connected to a virtual network (VNET) so it can acce
 > 
 
 ## <a name="enable-vpn"> </a>Enable VNET connection
+> [!NOTE]
 > VNET connectivity is available in the **Premium** and **Developer** tiers. To switch between the tiers, open your API Management 
-> service in the Azure Portal and then open the **Scale and pricing** tab. Under the **Pricing tier** section, select the Premium or 
+> service in the Azure portal and then open the **Scale and pricing** tab. Under the **Pricing tier** section, select the Premium or 
 > Developer tier and click Save.
 >
 
-To enable VNET connectivity, open your API Management service in the Azure Portal and open the **Virtual network** page.
+To enable VNET connectivity, open your API Management service in the Azure portal and open the **Virtual network** page.
 
 ![Virtual network menu of API Management][api-management-using-vnet-menu]
 
@@ -50,7 +51,7 @@ Select the desired access type:
 You will now see a list of all regions where your API Management service is provisioned. Select a VNET and subnet for every region. The list is populated with both classic and Resource Manager virtual networks available in your Azure subscriptions that are setup in the region you are configuring.
 
 > [!IMPORTANT]
-> When deploying an Azure API Management instance to an Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to an Resource Manager VNET subnet that contains other resources, the deployment will fail.
+> When deploying an Azure API Management instance to a Resource Manager VNET, the service must be in a dedicated subnet that contains no other resources except for Azure API Management instances. If an attempt is made to deploy an Azure API Management instance to a Resource Manager VNET subnet that contains other resources, the deployment will fail.
 > 
 > 
 
@@ -66,7 +67,7 @@ Click **Save** at the top of the screen.
 ## <a name="enable-vnet-powershell"> </a>Enable VNET connection using PowerShell cmdlets
 You can also enable VNET connectivity using the PowerShell cmdlets
 
-* **Create an API Management service inside a VNET**: Use the cmdlet [New-AzureRmApiManagement](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/new-azurermapimanagement) to create a new Azure API Management service into a VNET.
+* **Create an API Management service inside a VNET**: Use the cmdlet [New-AzureRmApiManagement](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/new-azurermapimanagement) to create an Azure API Management service inside a VNET.
 
 * **Deploy an existing API Management service inside a VNET**: Use the cmdlet [Update-AzureRmApiManagementDeployment](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.apimanagement/v3.1.0/update-azurermapimanagementdeployment) to move an existing Azure API Management service inside a Virtual Network.
 
@@ -78,7 +79,7 @@ After your API Management service is connected to the VNET, accessing backend se
 ## <a name="network-configuration-issues"> </a>Common Network Configuration Issues
 Following is a list of common misconfiguration issues that can occur while deploying API Management service into a Virtual Network.
 
-* **Custom DNS server setup**: The API Management service depends on a several Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup. See the ports table below and other network requirements for reference.
+* **Custom DNS server setup**: The API Management service depends on several Azure services. When API Management is hosted in a VNET with a custom DNS server, it needs to resolve the hostnames of those Azure services. Please follow [this](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-using-your-own-dns-server) guidance on custom DNS setup. See the ports table below and other network requirements for reference.
 
 * **Ports required for API Management**: Inbound and Outbound traffic into the Subnet in which API Management is deployed can be controlled using [Network Security Group](https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/). If any of these ports are unavailable, API Management may not operate properly and may become inaccessible. Having one or more of these ports blocked is another common misconfiguration issue when using API Management with a VNET.
 
