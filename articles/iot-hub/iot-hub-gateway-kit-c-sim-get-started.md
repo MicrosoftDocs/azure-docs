@@ -25,7 +25,7 @@ ms.author: xshi
 > * [SensorTag](iot-hub-gateway-kit-c-get-started.md)
 > * [Simulated Device](iot-hub-gateway-kit-c-sim-get-started.md)
 
-In this tutorial, you begin by learning the basics of working with [IoT Gateway Starter Kit](https://aka.ms/gateway-kit). You will be working with Intel NUC that's running Wind River Linux. You will learn how to seamleesly connect your devices to the cloud by using [Azure IoT Hub](iot-hub-what-is-iot-hub.md).
+In this tutorial, you begin by learning the basics of working with [IoT Gateway Starter Kit](https://aka.ms/gateway-kit). You will be working with Intel NUC that's running Wind River Linux. You will learn how to seamleesly connect your devices to the cloud by using Azure IoT Hub.
 
 ***
 **Don't have a kit yet?:** Click [here](https://aka.ms/gateway-kit).
