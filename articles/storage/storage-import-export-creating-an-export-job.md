@@ -55,7 +55,7 @@ Creating an export job for the Microsoft Azure Import/Export service using the R
   
  Follow the steps below to obtain the shipping location:  
   
--   Identify the name of the location of your storage account. This value can be found under the **Location** field on the storage account’s **Dashboard** in the classic portal or queried for by using the service management API operation [Get Storage Account Properties](../fileservices/Get%20Storage%20Account%20Properties1.md).  
+-   Identify the name of the location of your storage account. This value can be found under the **Location** field on the storage account’s **Dashboard** in the classic portal or queried for by using the service management API operation [Get Storage Account Properties](/rest/api/storagerp/storageaccounts#StorageAccounts_GetProperties).  
   
 -   Retrieve a list of locations that are available to process this storage account by calling the `List Locations` operation with the query parameter `originlocation=<location-name>`. The list returned will contain one or more locations to which you can ship your drives.  
   

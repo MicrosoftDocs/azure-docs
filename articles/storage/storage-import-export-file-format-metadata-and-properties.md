@@ -66,4 +66,4 @@ You can specify metadata and properties for one or more blobs as part of an impo
 |`Content-Language`|String|Optional. The blob's content language.|  
 |`Cache-Control`|String|Optional. The cache control string for the blob.|  
   
- See [Set Blob Properties](../fileservices/Set%20Blob%20Properties.md), [Set Blob Metadata](../fileservices/Set%20Blob%20Metadata.md), and [Setting and Retrieving Properties and Metadata for Blob Resources](../fileservices/Setting%20and%20Retrieving%20Properties%20and%20Metadata%20for%20Blob%20Resources.md) for detailed rules about setting blob metadata and properties.
+ See [Set Blob Properties](/rest/api/storageservices/fileservices/set-blob-properties), [Set Blob Metadata](/rest/api/storageservices/fileservices/set-blob-metadata), and [Setting and Retrieving Properties and Metadata for Blob Resources](/rest/api/storageservices/fileservices/setting-and-retrieving-properties-and-metadata-for-blob-resources) for detailed rules about setting blob metadata and properties.
