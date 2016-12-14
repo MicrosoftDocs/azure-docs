@@ -150,16 +150,10 @@ It is important to size your high-performance volume so that it can handle your 
 ## Deploy the solution
 
 Deploying the solution requires three steps:
-<<<<<<< HEAD
+
 1. Prepare the network infrastructure.
 2. Deploy your StorSimple device as a backup target.
 3. Deploy Veeam.
-=======
-
-1.  Prepare the network infrastructure.
-2.  Deploy your StorSimple device as a backup target.
-3.  Deploy the Veeam software.
->>>>>>> 7ff1202faa8329a8d8330840562376a5786b7811
 
 Each step is discussed in detail in the following sections.
 
