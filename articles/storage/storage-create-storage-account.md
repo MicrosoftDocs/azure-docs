@@ -4,7 +4,7 @@ description: Create a new storage account, manage your account access keys, or d
 services: storage
 documentationcenter: ''
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 87c37da0-6cc6-4d88-a330-ef2896a1531d
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/26/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---

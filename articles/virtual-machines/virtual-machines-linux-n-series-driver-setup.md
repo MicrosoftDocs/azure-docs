@@ -33,9 +33,9 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 
 ### NVIDIA Tesla drivers for NC VMs
 
-* [Ubuntu 16.04 LTS](https://go.microsoft.com/fwlink/?linkid=836899)
+* [Ubuntu 16.04 LTS](https://go.microsoft.com/fwlink/?linkid=836899) (.run self-extracting installer)
 
-## Driver installation on Ubuntu 16.04 LTS
+## Tesla driver installation on Ubuntu 16.04 LTS
 
 1. Make an SSH connection to the Azure N-series VM.
 
@@ -48,10 +48,10 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
 
     ![lspci command output](./media/virtual-machines-linux-n-series-driver-setup/lspci.png)
 
-3. Download the self-extracting .run file to your system. For example:
+3. Download the .run file for the driver for your distribution. The following example command downloads the Ubuntu 16.04 LTS Tesla driver to the /tmp directory:
 
     ```bash
-    wget -O /tmp/NVIDIA-Linux-x86_64-367.48.run <download URL>
+    wget -O /tmp/NVIDIA-Linux-x86_64-367.48.run https://go.microsoft.com/fwlink/?linkid=836899
     ```
 
 4. If you need to install `gcc` and `make` on your system (required for the Tesla drivers), type the following:
@@ -62,7 +62,7 @@ For N-series VM specs, storage capacities, and disk details, see [Sizes for virt
     sudo apt install make
     ```
 
-4. Change to the directory containing the driver package and run commands similar to the following:
+4. Change to the directory containing the driver installer and run commands similar to the following:
 
     ```bash
     chmod +x NVIDIA-Linux-x86_64-367.48.run
