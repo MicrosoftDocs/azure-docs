@@ -27,7 +27,7 @@ By using In-Memory technologies in Azure SQL Database, you can achieve performan
 
 In-Memory technologies are available in all databases in the Premium tier, including databases in Premium elastic pools.
 
-The following video explains potential performance gains with In-Memory technologies in Azure SQL Database. Remember that the performance gain that you see always depends on many factors, including the nature of the workload and data, access pattern of the database, an so on.
+The following video explains potential performance gains with In-Memory technologies in Azure SQL Database. Remember that the performance gain that you see always depends on many factors, including the nature of the workload and data, access pattern of the database, and so on.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-In-Memory-Technologies/player]
 >
@@ -36,7 +36,7 @@ The following video explains potential performance gains with In-Memory technolo
 Azure SQL Database has the following In-Memory technologies:
 
 - *In-Memory OLTP* increases throughput and reduces latency for transaction processing. Scenarios that benefit from In-Memory OLTP are: high-throughput transaction processing such as trading and gaming, data ingestion from events or IoT devices, caching, data load, and temporary table and table variable scenarios.
-- *Clustered columnstore indexes* reduce your storage footprint (up to 10 times) and improve performance for reporting and analytics queries. You can use it with fact tables in your data marts to fit more data in your database and improve performance. Also, use it with historical data in your operational database to archive and be able to query up to 10 times more data.
+- *Clustered columnstore indexes* reduce your storage footprint (up to 10 times) and improve performance for reporting and analytics queries. You can use it with fact tables in your data marts to fit more data in your database and improve performance. Also, you can use it with historical data in your operational database to archive query up to 10 times more data.
 - *Nonclustered columnstore indexes* for HTAP help you to gain real-time insights into your business through querying the operational database directly, without the need to run an expensive Extract, Transform and Load (ETL) process and wait for the data warehouse to be populated. Nonclustered columnstore indexes allow very fast execution of analytics queries on the OLTP database, while reducing the impact on the operational workload.
 - In-Memory OLTP and columnstore can also be combined. You can have a memory-optimized table with a columnstore index, which allows you to both perform very fast transaction processing and run analytics queries very quickly on the same data.
 
@@ -92,7 +92,7 @@ With elastic pools, the In-Memory OLTP storage is shared across all databases in
 - Configure a Max-eDTU for databases that is lower than the eDTU count for the pool as a whole. This caps the In-Memory OLTP storage utilization in any database in the pool to the size that corresponds to the eDTU count.
 - Configure a Min-eDTU greater than 0. This guarantees that each database in the pool has the amount of available In-Memory OLTP storage that corresponds to the configured Min-eDTU.
 
-### Data size and storage for Columnstore indexes
+### Data size and storage for columnstore indexes
 
 Columnstore indexes aren't required to fit in memory. Therefore, the only cap on the size of the indexes is the maximum overall database size, which is documented in the [SQL Database service tiers](sql-database-service-tiers.md) article.
 
@@ -138,7 +138,7 @@ If the query returns **1**, In-Memory OLTP is supported in this database.
 
 ## A. Install the In-Memory OLTP sample
 
-You can create the AdventureWorksLT [V12] sample database with a few clicks in the [Azure portal](https://portal.azure.com/). Then, the steps in this section explain how you can enrich your AdventureWorksLT database with In-Memory OLTP objects and also demonstrate performance benefits.
+You can create the AdventureWorksLT [V12] sample database with a few clicks in the [Azure portal](https://portal.azure.com/). Then, the steps in this section explain how you can enrich your AdventureWorksLT database with In-Memory OLTP objects and demonstrate performance benefits.
 
 For a more simplistic, but more visually appealing performance demo for In-Memory OLTP, see:
 
