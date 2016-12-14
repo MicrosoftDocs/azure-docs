@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/28/2016
-ms.author: saurabhsensharma;markgal;jimpark;nkolli;trinadhk
+ms.author: saurse;markgal;jimpark;nkolli;trinadhk
 
 ---
 # Deploy and manage backup to Azure for Windows Server/Windows Client using PowerShell

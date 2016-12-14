@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 07/06/2016
-ms.author: suchiagicha
+ms.author: suchia
 
 ---
 # Help secure communication for services in Azure Service Fabric
