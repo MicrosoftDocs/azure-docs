@@ -128,8 +128,6 @@ Application Insights is an extensible Application Performance Management (APM) s
                         <h3>Languages</h3>
                         <p><a href="/dotnet/api/microsoft.applicationinsights">.NET</a></p>
                         <p><a href="/java/api/com.microsoft.applicationinsights">Java</a></p>
-                        <p><a href="https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md">JavaScript</a></p>
-                        <p><a href="/azure/application-insights/app-insights-analytics-reference">Analytics reference</a></p>
                     </div>
                 </div>
             </div>
