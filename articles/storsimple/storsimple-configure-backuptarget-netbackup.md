@@ -281,7 +281,7 @@ Based on the preceding assumptions, create a 26-TiB StorSimple tiered volume for
 
     ![NetBackup Administration Console, disk configuration](./media/storsimple-configure-backup-target-using-netbackup/nbimage5.png)
 
-## StorSimple as a primary backup target
+## Set up StorSimple as a primary backup target
 
 > [!NOTE]
 > Data restores from a backup that has been tiered to the cloud occur at cloud speeds.
@@ -333,7 +333,7 @@ The following sequence assumes that NetBackup and the target host are configured
 7.  Select the frequency and retention values that meet your backup rotation requirements.
 
     ![NetBackup Administration Console, backup frequency and rotation for a new policy](./media/storsimple-configure-backup-target-using-netbackup/nbimage12.png)
-
+e
 8.  Select **Next** > **Next** > **Finish**.  You can modify the schedule after the policy is created.
 
 9.  Select to expand the policy you just created, and then select **Schedules**.
@@ -372,7 +372,7 @@ The following sequence assumes that NetBackup and the target host are configured
 
     ![NetBackup Administration Console, final schedule](./media/storsimple-configure-backup-target-using-netbackup/nbimage19.png)
 
-## StorSimple as a secondary backup target
+## Set up StorSimple as a secondary backup target
 
 > [!NOTE]
 >Data restores from a backup that has been tiered to the cloud occur at cloud speeds.
