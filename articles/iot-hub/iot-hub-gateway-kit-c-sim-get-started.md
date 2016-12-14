@@ -101,3 +101,6 @@ Go to [Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-sim
 
 ## Toubleshooting
 If you have any problems during the lessons, look for solutions in the [Troubleshooting](iot-hub-gateway-kit-c-sim-troubleshooting.md) article.
+
+## Explore more
+Visit the [Intel IoT Gateway Kit developer zone](https://software.intel.com/en-us/iot/hardware/gateways/dev-kit) to learn more.

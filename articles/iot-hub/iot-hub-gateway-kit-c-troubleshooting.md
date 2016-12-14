@@ -96,7 +96,7 @@ When the debug engine is ready, you should see `Debugger listening on port 5858`
    }
    ```
 
-![1](./media/iot-hub-gateway-intel-nuc-troubleshooting/1.png)
+![Remote Debugging Configuration](./media/iot-hub-gateway-kit-lessons/troubleshooting/remote_debugging_configuration.png)
 
 ### Attach to the remote application
 
@@ -104,7 +104,7 @@ Click the green **Start Debugging** (F5) button to start debugging.
 
 Read [JavaScript in VS Code](https://code.visualstudio.com/docs/languages/javascript#_debugging) to learn more about the debugger.
 
-![2](./media/iot-hub-gateway-intel-nuc-troubleshooting/2.png)
+![Debugging BLE Sample](./media/iot-hub-gateway-kit-lessons/troubleshooting/debugging_ble_sample.png)
 
 ## Azure CLI issues
 
