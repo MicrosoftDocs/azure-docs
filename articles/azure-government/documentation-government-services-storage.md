@@ -55,8 +55,8 @@ For more information on APIs see the <a href="https://msdn.microsoft.com/en-us/l
 The endpoint suffix to use in these overloads is core.usgovcloudapi.net
 
 > [!NOTE]
-> [Microsoft Azure Storage Explorer] (../vs-azure-tools-storage-explorer-blobs.md) currently doesn't support [Connecting to an Azure Subscription] (../vs-azure-tools-storage-explorer-blobs.md#connect-to-an-azure-subscription) in Azure Government. Use other methods of [Connecting to a storage account] (../vs-azure-tools-storage-explorer-blobs.md#connect-to-a-storage-account-or-service).
-When [Attaching to an external storage account] (../vs-azure-tools-storage-explorer-blobs.md#attach-to-an-external-storage-account), at **step 3**, select **Other (specify below)** as Storage endpoint domain and specify **core.usgovcloudapi.net** for Azure Government.
+> [Microsoft Azure Storage Explorer] (../vs-azure-tools-storage-manage-with-storage-explorer.md) currently doesn't support [Connecting to an Azure Subscription] (../vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-an-azure-subscription) by adding an account in Azure Government. Use other methods of [Connecting to a storage account] (../vs-azure-tools-storage-manage-with-storage-explorer.md#connect-to-a-storage-account-or-service).
+When [Attaching to an external storage account] (../vs-azure-tools-storage-manage-with-storage-explorer.md#attach-to-an-external-storage-account), at **step 3**, select **Other (specify below)** as Storage endpoint domain and specify **core.usgovcloudapi.net** for Azure Government.
 >
 >
 
