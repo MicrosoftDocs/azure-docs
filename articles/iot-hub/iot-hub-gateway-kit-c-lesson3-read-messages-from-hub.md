@@ -1,5 +1,5 @@
 ---
-title: Read messages from your IoT hub | Microsoft Docs
+title: Read messages from your Azure IoT hub | Microsoft Docs
 description: Run a sample code on your host computer to read the messages from your IoT hub.
 services: iot-hub
 documentationcenter: ''

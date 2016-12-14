@@ -1,5 +1,5 @@
 ---
-title: Run a sample app to receive SensorTag data | Microsoft Docs
+title: Run a sample app to receive SensorTag data and send it to Azure IoT Hub | Microsoft Docs
 description: Run a BLE sample application to receive data from BLE SensorTag and from your IoT hub.
 services: iot-hub
 documentationcenter: ''
