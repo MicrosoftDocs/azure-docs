@@ -36,6 +36,12 @@ You can use different types of logs in Azure to manage and troubleshoot applicat
 > [!WARNING]
 > Logs are only available for resources deployed in the Resource Manager deployment model. You cannot use logs for resources in the classic deployment model. For a better understanding of the two models, reference the [Understanding Resource Manager deployment and classic deployment](../azure-resource-manager/resource-manager-deployment-model.md) article.
 
+For Logs there are three different options to choose for storing your logs.
+
+* Storage account - Storage accounts are best used for logs when logs will be stored for a longer duration and reviewed when needed.
+* Event hubs - Event hubs are a great option for integrating with other SEIM tools to get alerts on your resources
+* Log analytics - Log analytics is best used for general real time monitoring of your application or looking at trends.
+
 ## Enable logging with PowerShell
 
 Activity logging is automatically enabled for every Resource Manager resource. You must enable access and performance logging to start collecting the data available through those logs. To enable logging, see the following steps:
@@ -56,8 +62,6 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
     
 > [!TIP] 
 >Activity logs do not require a separate storage account. The use of storage for access and performance logging incurs service charges.
-> 
-> 
 
 ## Enable logging with Azure portal
 
