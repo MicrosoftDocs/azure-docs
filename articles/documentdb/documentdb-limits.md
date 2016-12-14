@@ -13,14 +13,11 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/18/2016
+ms.date: 12/13/2016
 ms.author: arramac
 
 ---
 # Default quotas for DocumentDB
-The following table describes the default quotas for Azure DocumentDB database resources. 
-
-[!INCLUDE [azure-documentdb-limits](../../includes/azure-documentdb-limits.md)]
 
 Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits.md). Quota increases may take up to 24 hours to complete after receiving the required information. 
 
