@@ -1,5 +1,5 @@
 ---
-title: Intro to Hadoop - What is Hadoop on HDInsight? | Microsoft Docs
+title: What is Hadoop? Intro to Azure HDInsight | Microsoft Docs
 description: Get an introduction to the Hadoop ecosystem and components on HDInsight. HDInsight includes Hadoop, Spark, HBase, and more for big data processing and analysis.
 keywords: big data analysis,introduction to hadoop,what is hadoop,hadoop technology stack,hadoop ecosystem
 services: hdinsight
