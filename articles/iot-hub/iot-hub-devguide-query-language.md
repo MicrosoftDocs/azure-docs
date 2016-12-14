@@ -24,7 +24,7 @@ IoT Hub provides a powerful SQL-like language to retrieve information regarding 
 * An introduction to the major features of the IoT Hub query language, and
 * The detailed description of the language.
 
-## Getting started with device twin queries
+## Get started with device twin queries
 [Device twins][lnk-twins] can contain arbitrary JSON objects as both tags and properties. IoT Hub allows to query device twins as a single JSON document containing all device twin information.
 Assume, for instance, that your IoT hub device twins have the following structure:
 
@@ -169,7 +169,7 @@ It is important to note that the query object exposes multiple **next\***, depen
 ### Limitations
 Currently, comparisons are supported only between primitive types (no objects), for instance `... WHERE properties.desired.config = properties.reported.config` is supported only if those properties have primitive values.
 
-## Getting started with jobs queries
+## Get started with jobs queries
 [Jobs][lnk-jobs] provide a way to execute operations on sets of devices. Each device twin contains the information of the jobs of which it is part in a collection called **jobs**.
 Logically,
 
@@ -236,11 +236,11 @@ Currently, queries on **devices.jobs** do not support:
 * Conditions that refer to the device twin in addition to job properties as shown above;
 * Peforming aggregations, such as count, avg, group by.
 
-## Getting started with device-to-cloud message routes query expressions
+## Get started with device-to-cloud message routes query expressions
 
-Using [device-to-cloud routes][lnk-devguide-messaging-routes], it is possible to configure IoT Hub to dispatch device-to-cloud messages to different endpoints based on expressions evaluated on the individual messages.
+Using [device-to-cloud routes][lnk-devguide-messaging-routes], you can configure IoT Hub to dispatch device-to-cloud messages to different endpoints based on expressions evaluated against individual messages.
 
-The route [condition][lnk-query-expressions] use the same IoT Hub query language as conditions in twin and job queries. They are evaluated on the message properties assuming the following JSON representation:
+The route [condition][lnk-query-expressions] use the same IoT Hub query language as conditions in twin and job queries. Route conditions are evaluated on the message properties assuming the following JSON representation:
 
         {
             "userProperty1": "",
@@ -250,23 +250,23 @@ The route [condition][lnk-query-expressions] use the same IoT Hub query language
 Remember that property names are case insensitive.
 
 > [!NOTE]
-> All message properties are strings. System properties, as described in the [developer guide][lnk-devguide-messaging-format], will be available soon.
+> All message properties are strings. System properties, as described in the [developer guide][lnk-devguide-messaging-format], are currently not available to use in queries.
 >
 >
 
-For instance, assuming you use a `messageType` property, you might want to route all telemetry to an endpoints, and all alerts to a different one. You would then be able to write the following expression to route the telemetry:
+For example, if you use a `messageType` property, you might want to route all telemetry to one endpoint, and all alerts to another endpoint. You can write the following expression to route the telemetry:
 
         messageType = 'telemetry'
 
-And the following one to route the alert ones:
+And the following expression to route the alert messages:
 
         messageType = 'alert'
 
-Boolean expressions and functions are also supported, allowing to distinguish between severity level, for instance:
+Boolean expressions and functions are also supported. This enables you to distinguish between severity level, for example:
 
         messageType = 'alerts' AND as_number(severity) <= 2
 
-Refer to the [Expression and conditions][lnk-query-expressions] section for the full list of the supported operators and functions.
+Refer to the [Expression and conditions][lnk-query-expressions] section for the full list of supported operators and functions.
 
 ## Basics of an IoT Hub query
 Every IoT Hub query consists of a SELECT and FROM clauses and by optional WHERE and GROUP BY clauses. Every query is run on a collection of JSON documents, for example device twins. The FROM clause indicates the document collection to be iterated on (**devices** or **devices.jobs**). Then, the filter in the WHERE clause is applied. In the case of aggregations, the results of this step are grouped as specified in the GROUP BY clause and, for each group, a row is generated as specified in the SELECT clause.
@@ -371,9 +371,9 @@ where:
 
 | Symbol | Definition |
 | --- | --- |
-| attribute_name | Any property of the JSON document in the FROM collection. |
-| binary_operator | Any binary operator as per Operators section. |
-| function_name| Any function as per Functions section. |
+| attribute_name | Any property of the JSON document in the **FROM** collection. |
+| binary_operator | Any binary operator listed in the [Operators](#operators) section. |
+| function_name| Any function listed in the [Functions](#functions) section. |
 | decimal_literal |A float expressed in decimal notation. |
 | hexadecimal_literal |A number expressed by the string ‘0x’ followed by a string of hexadecimal digits. |
 | string_literal |String literals are Unicode strings represented by a sequence of zero or more Unicode characters or escape sequences. String literals are enclosed in single quotes (apostrophe: ' ) or double quotes (quotation mark: "). Allowed escapes: `\'`, `\"`, `\\`, `\uXXXX` for Unicode characters defined by 4 hexadecimal digits. |
@@ -388,7 +388,7 @@ The following operators are supported:
 | Comparison |=, !=, <, >, <=, >=, <> |
 
 ### Functions
-When queries twins and jobs the only supported function is 
+When querying twins and jobs the only supported function is:
 
 | Function | Description |
 | -------- | ----------- |
@@ -411,7 +411,7 @@ In routes conditions, the following type checking and casting functions are supp
 
 | Function | Description |
 | -------- | ----------- |
-| AS_NUMBER | Converts the input string to a number; noop if input is a number; Undefined if string does not represent a number.|
+| AS_NUMBER | Converts the input string to a number; `noop` if input is a number; `Undefined` if string does not represent a number.|
 | IS_ARRAY | Returns a Boolean value indicating if the type of the specified expression is an array. |
 | IS_BOOL | Returns a Boolean value indicating if the type of the specified expression is a Boolean. |
 | IS_DEFINED | Returns a Boolean indicating if the property has been assigned a value. |
