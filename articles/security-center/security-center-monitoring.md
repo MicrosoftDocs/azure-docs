@@ -1,4 +1,4 @@
-﻿---
+---
 title: Security health monitoring in Azure Security Center | Microsoft Docs
 description: This article helps you to get started with monitoring capabilities in Azure Security Center.
 services: security-center
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2016
+ms.date: 12/06/2016
 ms.author: yurid
 
 ---
@@ -166,15 +166,15 @@ In this topology view, the first level has [virtual networks](../virtual-network
 The bottom part of this blade has the recommendations for this virtual machine, which is similar to what is described previously. You can click a recommendation to learn more or apply the needed security control or configuration.
 
 ### Monitor data
-When you click **Data** in the **Resources security health** tile, the **SQL** blade opens with recommendations for issues such as auditing and transparent data encryption not being enabled. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database.
+When you click **Data** in the **Resources security health** tile, the **Data Resources** blade opens with recommendations for SQL and Storage. It also has [recommendations](security-center-sql-service-recommendations.md) for the general health state of the database. For more information about storage encryption, read [Enable encryption for Azure storage account in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
 
-![SQL resource health](./media/security-center-monitoring/security-center-monitoring-fig13-ga.png)
+![Data Resources](./media/security-center-monitoring/security-center-monitoring-fig13-ga-new.png)
 
-You can click any recommendation and get more details about further action to resolve an issue. The following example shows the expansion of the **Database Auditing not enabled** recommendation.
+Under **SQL Recommendations**, You can click any recommendation and get more details about further action to resolve an issue. The following example shows the expansion of the **Database Auditing & Threat detection on SQL databases** recommendation.
 
-![Details about a SQL recommendation](./media/security-center-monitoring/security-center-monitoring-fig14-ga.png)
+![Details about a SQL recommendation](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
 
-The **Enable Auditing on SQL databases** blade has the following information:
+The **Enable Auditing & Threat detection on SQL databases** blade has the following information:
 
 * A list of SQL databases
 * The server on which they are located
@@ -182,13 +182,14 @@ The **Enable Auditing on SQL databases** blade has the following information:
 * The current state
 * The severity of the issue
 
-When you click the database to address this recommendation, the **Auditing & Threat detection** blade opens as shown in the following screenshot.
+When you click the database to address this recommendation, the **Auditing & Threat detection** blade opens as shown in the following screen.
 
 ![Auditing & Threat detection blade](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
 
 To enable auditing, select **ON** under the **Auditing** option.
 
 ### Monitor applications
+
 If your Azure workload has applications located in [virtual machines (created through Azure Resource Manager)](../azure-resource-manager/resource-manager-deployment-model.md) with exposed web ports (TCP ports 80 and 443), Security Center can monitor those to identify potential security issues and recommend remediation steps. When you click the **Applications** tile, the **Applications** blade opens with a series of recommendations in the **Prevention steps** section. It also shows the application breakdown per host/virtual IP as shown in the following screenshot.
 
 ![Applications security health](./media/security-center-monitoring/security-center-monitoring-fig16-ga.png)
