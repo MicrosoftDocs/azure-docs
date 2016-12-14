@@ -45,13 +45,9 @@ Storage Explorer (Preview) provides a myriad ways to connect to storage accounts
 
     ![Azure account settings][0]
 2. The left pane will now display all the Microsoft accounts you've logged into. To connect to another account, select **Add an account**, and follow the dialogs to sign in with a Microsoft account that is associated with at least one active Azure subscription.
-
 > [!NOTE]
 >Connecting to national Azure such as Black Forest Azure, Fairfax Azure and Mooncake Azure via sign-in is currently not supported. See **Attach or detach an external storage account** section for how to connect to national Azure storage accounts.
->
->
 
-    ![Add an account][1]
 3. Once you successfully sign in with a Microsoft account, the left pane will populate with the Azure subscriptions associated with that account. Select the Azure subscriptions with which you want to work, and then select **Apply**. (Selecting **All subscriptions** toggles selecting all or none of the listed Azure subscriptions.)
 
     ![Select Azure subscriptions][3]
@@ -112,8 +108,8 @@ the Storage Explorer (Preview) asks for an account key, you'll enter (or paste) 
 > [!NOTE]
 > You can enter Storage Connection string from a storage account on national Azure. For example, enter connection strings similar to the following to connect to Azure Black Forest storage accounts: DefaultEndpointsProtocol=https;AccountName=cawatest03;AccountKey=<storage_account_key>;EndpointSuffix=core.cloudapi.de; You can get the connection string from Azure portal in the same way as described in the **Get the storage account credentials** section
 
-
    ![Connect to Azure storage dialog][24]
+
 3. In the **Attach External Storage** dialog, enter the storage account name in the **Account name** box, specify any other desired settings, and select **Next** when done.
 
    ![Attach external storage dialog][8]
