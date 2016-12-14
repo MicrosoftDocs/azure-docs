@@ -6,8 +6,8 @@
 # Get started
 ## [Create a logic app](../app-service-logic/app-service-logic-create-a-logic-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Use logic app features](../app-service-logic/app-service-logic-use-logic-app-features.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Templates Overview](../app-service-logic/app-service-logic-use-logic-app-templates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-## [Create a custom template](../app-service-logic/app-service-logic-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [Templates overview](../app-service-logic/app-service-logic-use-logic-app-templates.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+## [Create an app using a template](../app-service-logic/app-service-logic-arm-provision.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Examples and scenarios](../app-service-logic/app-service-logic-examples-and-scenarios.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [Service Bus scenario](../app-service-logic/app-service-logic-scenario-function-sb-trigger.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ## [B2B processing](../app-service-logic/app-service-logic-enterprise-integration-b2b.md?toc=%2fazure%2flogic-apps%2ftoc.json)
@@ -16,7 +16,7 @@
 # How To
 ## Build
 ### [Create a connector](../app-service-logic/app-service-logic-create-api-app.md?toc=%2fazure%2flogic-apps%2ftoc.json)
-### [Use File System Connector](../app-service-logic/app-service-logic-use-file-connector.md?toc=%2fazure%2flogic-apps%2ftoc.json)
+### [Use File System connector](../app-service-logic/app-service-logic-use-file-connector.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Visual Studio tools](../app-service-logic/app-service-logic-deploy-from-vs.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Using Azure functions](../app-service-logic/app-service-logic-azure-functions.md?toc=%2fazure%2flogic-apps%2ftoc.json)
 ### [Logic apps as callable endpoints](../app-service-logic/app-service-logic-http-endpoint.md?toc=%2fazure%2flogic-apps%2ftoc.json)

@@ -13,7 +13,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
-ms.author: jtuliani
+ms.author: jonatul
 ---
 
 # Create DNS zones and record sets using the .NET SDK
