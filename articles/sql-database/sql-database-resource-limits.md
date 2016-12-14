@@ -5,7 +5,7 @@ services: sql-database
 documentationcenter: na
 author: CarlRabeler
 manager: jhubbard
-editor: monicar
+editor: ''
 
 ms.assetid: 884e519f-23bb-4b73-a718-00658629646a
 ms.service: sql-database
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-management
-ms.date: 11/15/2016
+ms.date: 12/06/2016
 ms.author: carlrab
 
 ---
@@ -48,7 +48,7 @@ For a standalone database, the limits of a database are defined by the database 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 
 ### Elastic pools
-[Elastic pools](sql-database-elastic-pool.md) share resources across databases in the pool. The following table describes the characteristics of Basic, Standard, and Premium elastic database pools.
+[Elastic pools](sql-database-elastic-pool.md) share resources across databases in the pool. The following table describes the characteristics of Basic, Standard, and Premium elastic pools.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Introducing the Service Fabric Cluster Resource Manager | Microsoft Docs
 description: An introduction to the Service Fabric Cluster Resource Manager.
 services: service-fabric

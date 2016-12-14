@@ -88,6 +88,7 @@ This tutorial shows how to create a simple [Node.js] application and deploy it t
 8. Save your changes, then use git to deploy your app to Azure:
    
         git add .
+        git add -f config
         git commit -m "{your commit message}"
         git push azure master
    

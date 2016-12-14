@@ -19,24 +19,19 @@ ms.author: manayar
 ---
 # Multi-tenant support in Azure Site Recovery for replicating VMware virtual machines to Azure through the CSP Program
 
-Azure Site Recovery supports multi-tenant environments for tenant subscriptions created and managed through the CSP program. This article details the guidance for implementing and managing multi-tenant VMware-to-Azure scenarios.
+Azure Site Recovery supports multi-tenant environments for tenant subscriptions. Multi-tenancy is also supported for tenant subscriptions created and managed through the CSP program. This article details the guidance for implementing and managing multi-tenant VMware-to-Azure scenarios. Creating and managing tenant subscriptions through CSP is also detailed.
 
 Note that this guidance draws heavily from the existing documentation for replicating VMware virtual machines to Azure. This guidance should be used in conjunction with that [documentation](site-recovery-vmware-to-azure.md).
-
-## CSP program overview
-Microsoft’s Cloud Solution Provider (CSP) [program](https://partner.microsoft.com/en-US/cloud-solution-provider) fosters better-together stories with partners for offering all Microsoft cloud services including O365, EMS, and Microsoft Azure. It enables our partners to own the end-to-end relationship with customers and become the primary relationship contact point. Through CSP, a partner can deploy Azure subscriptions for customers, and combine these subscriptions with their own value-added customized offerings. 
-
-In the case of Azure Site Recovery, partners can manage the complete Disaster Recovery solution for customers directly through CSP or use CSP to set up the Azure Site Recovery environments and let customers manage their own DR needs in a self-service manner. In both scenarios, the partner is the liaison between Azure Site Recovery and final customers, and the partner services the customer relationship and bills customers for Azure Site Recovery usage.
 
 ## Multi-tenant environments
 There are three major multi-tenant models:
 
-1.	Shared Hosting Services Provider (HSP) – Here the partner owns the physical infrastructure and uses shared resources (vCenter, datacenters, physical storage, etc.) to host multiple tenants’ VMs on the same infrastructure. DR management can be provided by partner as a managed service or be owned by the tenant as a self-service DR solution.
-2.	Dedicated Hosting Services Provider – Here the partner owns the physical infrastructure but uses dedicated resources (multiple vCenters, physical datastores, etc) to host each tenant’s VMs on separate infrastructure. DR management can again be managed by partner or self-service by the tenant.
-3.	Managed Services Provider (MSP) – Here the customer owns the physical infrastructure that hosts the VMs and the partners provides DR enablement and management.
+1.	**Shared Hosting Services Provider (HSP)** – Here the partner owns the physical infrastructure and uses shared resources (vCenter, datacenters, physical storage, etc.) to host multiple tenants’ VMs on the same infrastructure. DR management can be provided by partner as a managed service or be owned by the tenant as a self-service DR solution.
+2.	**Dedicated Hosting Services Provider** – Here the partner owns the physical infrastructure but uses dedicated resources (multiple vCenters, physical datastores, etc) to host each tenant’s VMs on separate infrastructure. DR management can again be managed by partner or self-service by the tenant.
+3.	**Managed Services Provider (MSP)** – Here the customer owns the physical infrastructure that hosts the VMs and the partners provides DR enablement and management.
 
 ## Shared hosting multi-tenant guidance
-This guidance covers the shared hosting scenario in detail. The other two scenarios are subsets of the shared hosting scenario and use the same principles. The differences are described at the end of the guidance.
+This guidance covers the shared hosting scenario in detail. The other two scenarios are subsets of the shared hosting scenario and use the same principles. The differences are described at the end of the shared hosting guidance.
 
 The basic requirement in a multi-tenant scenario is isolating the different tenants that is, one tenant should not be able to observe what another tenant has hosted. In a completely partner-managed environment, this requirement is not as important as it for a self-service environment, where it can be critical. This guidance assumes that tenant isolation is required.
 
@@ -92,6 +87,34 @@ The vCenter account access procedure is as follows:
 | Tenant VMs | Azure_Site_Recovery | Ensure that any new tenant VMs of a particular tenant also get this access else they will not be discoverable through the Azure portal. |
 
 The vCenter account access is now complete. This fulfills the minimum permissions requirement to complete failback operations. Note that these access permissions can also be used with your existing policies. Just modify your existing permissions set to include role permissions from point 2 detailed above.
+
+To restrict DR operations till the failover state that is, without failback capabilities, follow the above procedure but instead of assigning 'Azure_Site_Recovery' role to the vCenter access account, assign just a 'Read-Only' role to that account. This permission-set allows VM replication and failover and does not allow failback. Note that everything else in the above process remains as-is. Every permission is still assigned at the object level only and not propagated to child objects, to ensure tenant-isolation and restrict VM discovery.
+
+## Other multi-tenant environments
+
+The above guidance described in detail how to set up a multi-tenant environment for a shared hosting solution. The other two major solutions are dedicated hosting and managed service. The architecture for these is as below: 
+
+### Dedicated hosting solution
+
+![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/dedicated-hosting-scenario.png)
+
+**Figure 2: Dedicated hosting scenario with multiple vCenters**
+
+The architectural difference here is that each tenant’s infrastructure is provisioned for that tenant only. The hosting provider still needs to follow the CSP steps detailed for shared hosting but does not need to worry about tenant isolation since tenants are isolated through separate vCenters. CSP provisioning remains unchanged.
+
+### Managed service solution
+
+![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)
+
+**Figure 3: Managed service scenario with multiple vCenters**
+
+The architectural difference here is that each tenant’s infrastructure is also physically separate from other tenants. This scenario usually exists when the tenant owns the infrastructure and just wants a solution provider to manage DR. The partner again needs to follow the CSP steps detailed for shared hosting but does not need to worry about tenant isolation since tenants are physically isolated through different infrastructures. CSP provisioning remains unchanged.
+
+
+## CSP program overview
+Microsoft’s Cloud Solution Provider (CSP) [program](https://partner.microsoft.com/en-US/cloud-solution-provider) fosters better-together stories with partners for offering all Microsoft cloud services including O365, EMS, and Microsoft Azure. It enables our partners to own the end-to-end relationship with customers and become the primary relationship contact point. Through CSP, a partner can deploy Azure subscriptions for customers, and combine these subscriptions with their own value-added customized offerings. 
+
+In the case of Azure Site Recovery, partners can manage the complete Disaster Recovery solution for customers directly through CSP or use CSP to set up the Azure Site Recovery environments and let customers manage their own DR needs in a self-service manner. In both scenarios, the partner is the liaison between Azure Site Recovery and final customers, and the partner services the customer relationship and bills customers for Azure Site Recovery usage.
 
 ## Creating and managing tenant accounts
 
@@ -169,22 +192,3 @@ A partner can also add a new user to the tenant subscription through the CSP por
 	For most management operations, the Contributor role is sufficient. A user with this access level can do everything on a subscription except change access levels (for which an Owner level access is required). You can also fine-tune the access levels as required.
 
 
-## Other multi-tenant environments
-
-The above guidance described in detail how to set up a multi-tenant environment for a shared hosting solution. The other two major solutions are dedicated hosting and managed service. The architecture for these is as below: 
-
-### Dedicated hosting solution
-
-![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/dedicated-hosting-scenario.png)
-
-**Figure 2: Dedicated hosting scenario with multiple vCenters**
-
-The architectural difference here is that each tenant’s infrastructure is provisioned for that tenant only. The hosting provider still needs to follow the CSP steps detailed for shared hosting but does not need to worry about tenant isolation since tenants are isolated through separate vCenters. CSP provisioning remains unchanged.
-
-### Managed service solution
-
-![architecture-shared-hsp](./media/site-recovery-multi-tenant-support-vmware-using-csp/managed-service-scenario.png)
-
-**Figure 3: Managed service scenario with multiple vCenters**
-
-The architectural difference here is that each tenant’s infrastructure is also physically separate from other tenants. This scenario usually exists when the tenant owns the infrastructure and just wants a solution provider to manage DR. The partner again needs to follow the CSP steps detailed for shared hosting but does not need to worry about tenant isolation since tenants are physically isolated through different infrastructures. CSP provisioning remains unchanged.

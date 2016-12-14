@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: multiple
-ms.date: 08/15/2016
+ms.date: 11/11/2016
 ms.author: tarcher
 
 ---
@@ -304,7 +304,7 @@ To get help for functions you can use at the Windows PowerShell command prompt, 
 | Function name | Description |
 | --- | --- |
 | Add-AzureSQLDatabase |Creates a new Azure SQL database. |
-| Add-AzureSQLDatabases |Creates Azure SQL databases from the values in the JSON configuation file that Visual Studio generates. |
+| Add-AzureSQLDatabases |Creates Azure SQL databases from the values in the JSON configuration file that Visual Studio generates. |
 | Add-AzureVM |Creates a Azure virtual machine and returns the URL of the deployed VM. The function sets up the prerequisites and then calls the **New-AzureVM** function (Azure module) to create a new virtual machine. |
 | Add-AzureVMEndpoints |Adds new input endpoints to a virtual machine and returns the virtual machine with the new endpoint. |
 | Add-AzureVMStorage |Creates a new Azure storage account in the current subscription. The name of the account begins with "devtest" followed by a unique alphanumeric string. The function returns the name of the new storage account. You must specify either a location or an affinity group for the new storage account. |
@@ -340,4 +340,3 @@ To get help for functions you can use at the Windows PowerShell command prompt, 
 
 ## Next steps
 Learn more about PowerShell scripting by reading [Scripting with Windows PowerShell](https://technet.microsoft.com/library/bb978526.aspx) and see other Azure PowerShell scripts at the [Script Center](https://azure.microsoft.com/documentation/scripts/).
-

@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/30/2016
+ms.date: 12/12/2016
 ms.author: spelluru
 
 ---
@@ -30,35 +30,32 @@ ms.author: spelluru
 >
 >
 
-You can use the SQL Server Stored Procedure activity in a Data Factory [pipeline](data-factory-create-pipelines.md) to invoke a stored procedure in one of the following data stores:
+You use data transformation activities in a Data Factory [pipeline](data-factory-create-pipelines.md) to transform and process raw data into predictions and insights. The Stored Procedure Activity is one of the transformation activities that Data Factory supports. This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
 
-* Azure SQL Database
-* Azure SQL Data Warehouse  
-* SQL Server Database in your enterprise or an Azure VM. You need to install Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects on-premises data sources/data sources hosed in Azure VMs to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway.
+You can use the Stored Procedure Activity to invoke a stored procedure in one of the following data stores: Azure SQL Database, Azure SQL Data Warehouse, SQL Server Database in your enterprise or on an Azure virtual machine (VM).  If you are using SQL Server, you must install Data Management Gateway on the same machine that hosts the database or on a separate machine to avoid competing for resources with the database. Data Management Gateway is a software that connects data sources on-premises/on Azure VM with cloud services in a secure and managed way. See [Data Management Gateway](data-factory-data-management-gateway.md) article for details.
 
-This article builds on the [data transformation activities](data-factory-data-transformation-activities.md) article, which presents a general overview of data transformation and the supported transformation activities.
+The following walkthrough provides step-by-step instructions for invoking a stored procedure in an Azure SQL database from a Data Factory pipeline by using the stored procedure activity. 
 
 ## Walkthrough
 ### Sample table and stored procedure
 1. Create the following **table** in your Azure SQL Database using SQL Server Management Studio or any other tool you are comfortable with. The datetimestamp column is the date and time when the corresponding ID is generated.
 
-        CREATE TABLE dbo.sampletable
-        (
-            Id uniqueidentifier,
-            datetimestamp nvarchar(127)
-        )
-        GO
+	```
+    CREATE TABLE dbo.sampletable
+    (
+        Id uniqueidentifier,
+        datetimestamp nvarchar(127)
+    )
+    GO
 
-        CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
-        GO
-
+    CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable(Id);
+    GO
+	```
     Id is the unique identified and the datetimestamp column is the date and time when the corresponding ID is generated.
-    ![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
+    
+	![Sample data](./media/data-factory-stored-proc-activity/sample-data.png)
 
-   > [!NOTE]
-   > This sample uses Azure SQL Database but works in the same manner for Azure SQL Data Warehouse and SQL Server Database.
-   >
-   >
+	This sample uses Azure SQL Database but works in the same manner for Azure SQL Data Warehouse and SQL Server Database.For SQL Server database, you must install a [Data Management Gateway](data-factory-data-management-gateway.md).
 2. Create the following **stored procedure** that inserts data in to the **sampletable**.
 
         CREATE PROCEDURE sp_sample @DateTime nvarchar(127)
@@ -71,8 +68,6 @@ This article builds on the [data transformation activities](data-factory-data-tr
 
    > [!IMPORTANT]
    > **Name** and **casing** of the parameter (DateTime in this example) must match that of parameter specified in the pipeline/activity JSON. In the stored procedure definition, ensure that **@** is used as a prefix for the parameter.
-   >
-   >
 
 ### Create a data factory
 1. Log in to [Azure portal](https://portal.azure.com/).
@@ -90,6 +85,7 @@ This article builds on the [data transformation activities](data-factory-data-tr
 7. Select **Pin to dashboard** so that you can see the data factory on the dashboard next time you log in.
 8. Click **Create** on the **New data factory** blade.
 9. You see the data factory being created in the **dashboard** of the Azure portal. After the data factory has been created successfully, you see the data factory page, which shows you the contents of the data factory.
+
    ![Data Factory home page](media/data-factory-stored-proc-activity/data-factory-home-page.png)
 
 ### Create an Azure SQL linked service
@@ -196,6 +192,8 @@ Now, let's create a pipeline with a SqlServerStoredProcedure activity.
 >
 
 ## JSON format
+Here is the JSON format for defining a Stored Procedure Activity:
+
     {
         "name": "SQLSPROCActivity",
         "description": "description",
@@ -216,10 +214,10 @@ Now, let's create a pipeline with a SqlServerStoredProcedure activity.
 ## JSON properties
 | Property | Description | Required |
 | --- | --- | --- |
-| name |Name of the activity |Yes |
+| name | Name of the activity |Yes |
 | description |Text describing what the activity is used for |No |
-| type |SqlServerStoredProcedure |Yes |
-| inputs |Optional. If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. |No |
+| type | Must be set to: **SqlServerStoredProcedure** | Yes |
+| inputs | Optional. If you do specify an input dataset, it must be available (in ‘Ready’ status) for the stored procedure activity to run. The input dataset cannot be consumed in the stored procedure as a parameter. It is only used to check the dependency before starting the stored procedure activity. |No |
 | outputs |You must specify an output dataset for a stored procedure activity. Output dataset specifies the **schedule** for the stored procedure activity (hourly, weekly, monthly, etc.). <br/><br/>The output dataset must use a **linked service** that refers to an Azure SQL Database or an Azure SQL Data Warehouse or a SQL Server Database in which you want the stored procedure to run. <br/><br/>The output dataset can serve as a way to pass the result of the stored procedure for subsequent processing by another activity ([chaining activities](data-factory-scheduling-and-execution.md#run-activities-in-a-sequence)) in the pipeline. However, Data Factory does not automatically write the output of a stored procedure to this dataset. It is the stored procedure that writes to a SQL table that the output dataset points to. <br/><br/>In some cases, the output dataset can be a **dummy dataset**, which is used only to specify the schedule for running the stored procedure activity. |Yes |
 | storedProcedureName |Specify the name of the stored procedure in the Azure SQL database or Azure SQL Data Warehouse that is represented by the linked service that the output table uses. |Yes |
 | storedProcedureParameters |Specify values for stored procedure parameters. If you need to pass null for a parameter, use the syntax: "param1": null (all lower case). See the following sample to learn about using this property. |No |
@@ -229,16 +227,30 @@ Now, let’s consider adding another column named ‘Scenario’ in the table co
 
 ![Sample data 2](./media/data-factory-stored-proc-activity/sample-data-2.png)
 
-    CREATE PROCEDURE sp_sample @DateTime nvarchar(127) , @Scenario nvarchar(127)
+**Table:**
+
+    CREATE TABLE dbo.sampletable2
+    (
+        Id uniqueidentifier,
+        datetimestamp nvarchar(127),
+		scenario nvarchar(127)
+    )
+    GO
+
+    CREATE CLUSTERED INDEX ClusteredID ON dbo.sampletable2(Id);
+
+**Stored procedure:**
+
+	CREATE PROCEDURE sp_sample2 @DateTime nvarchar(127) , @Scenario nvarchar(127)
 
     AS
 
     BEGIN
-        INSERT INTO [sampletable]
+        INSERT INTO [sampletable2]
         VALUES (newid(), @DateTime, @Scenario)
     END
 
-Now, pass the Scenario parameter and the value from the stored procedure activity. The typeProperties section in the preceding sample looks like the following snippet:
+Now, pass the **Scenario** parameter and the value from the stored procedure activity. The **typeProperties** section in the preceding sample looks like the following snippet:
 
     "typeProperties":
     {
@@ -249,3 +261,53 @@ Now, pass the Scenario parameter and the value from the stored procedure activit
             "Scenario": "Document sample"
         }
     }
+
+**Data Factory dataset:**
+
+	{
+	    "name": "sprocsampleout2",
+	    "properties": {
+	        "published": false,
+	        "type": "AzureSqlTable",
+	        "linkedServiceName": "AzureSqlLinkedService",
+	        "typeProperties": {
+	            "tableName": "sampletable2"
+	        },
+	        "availability": {
+	            "frequency": "Hour",
+	            "interval": 1
+	        }
+	    }
+	}
+
+**Data Factory pipeline**
+
+	{
+	    "name": "SprocActivitySamplePipeline2",
+	    "properties": {
+	        "activities": [
+	            {
+	                "type": "SqlServerStoredProcedure",
+	                "typeProperties": {
+	                    "storedProcedureName": "sp_sample2",
+	                    "storedProcedureParameters": {
+	                        "DateTime": "$$Text.Format('{0:yyyy-MM-dd HH:mm:ss}', SliceStart)",
+	                        "Scenario": "Document sample"
+	                    }
+	                },
+	                "outputs": [
+	                    {
+	                        "name": "sprocsampleout2"
+	                    }
+	                ],
+	                "scheduler": {
+	                    "frequency": "Hour",
+	                    "interval": 1
+	                },
+	                "name": "SprocActivitySample"
+	            }
+	        ],
+	        "start": "2016-10-02T00:00:00Z",
+	        "end": "2016-10-02T05:00:00Z"
+	    }
+	}
