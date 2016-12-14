@@ -66,13 +66,13 @@ Let's go through these steps.
    * To create the AD application separately, provide the name of the app, a home page URI, identifier URIs, and a password, as shown in the following command:
      
      ```
-     azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p <Your_Password>
+     azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example -p {Your_Password}
      ```
 
        The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
      
      ```
-     azure ad sp create -a <AppId>
+     azure ad sp create -a {AppId}
      ```
      
      If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
@@ -195,18 +195,18 @@ To complete these steps, you must have [OpenSSL](http://www.openssl.org/) instal
    * To create the AD application and service principal in one step, provide the name of the app and the certificate data, as shown in the following command:
      
      ```
-     azure ad sp create -n exampleapp --cert-value <certificate data>
+     azure ad sp create -n exampleapp --cert-value {certificate data}
      ```
    * To create the AD application separately, provide the name of the app, a home page URI, identifier URIs, and the certificate data, as shown in the following command:
      
      ```
-     azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example --cert-value <certificate data>
+     azure ad app create -n exampleapp --home-page http://www.contoso.org --identifier-uris https://www.contoso.org/example --cert-value {certificate data}
      ```
      
        The preceding command returns an AppId value. To create a service principal, provide that value as a parameter in the following command:
      
      ```
-     azure ad sp create -a <AppId>
+     azure ad sp create -a {AppId}
      ```
      
      If your account does not have the [required permissions](#required-permissions) on the Active Directory, you see an error message indicating "Authentication_Unauthorized" or "No subscription found in the context".
@@ -312,7 +312,7 @@ azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --password
 To change a certificate value, use:
 
 ```
-azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-value <certificate data>
+azure ad app set --applicationId 4fd39843-c338-417d-b549-a545f584a745 --cert-value {certificate data}
 ```
 
 
