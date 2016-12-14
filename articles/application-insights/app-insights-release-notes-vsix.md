@@ -13,7 +13,7 @@ ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
 ms.date: 06/09/2016
-ms.author: acearun
+ms.author: aruna
 
 ---
 # Release Notes for Developer Analytics Tools

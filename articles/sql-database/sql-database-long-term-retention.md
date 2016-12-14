@@ -211,7 +211,7 @@ To manually remove backups from the vault.
    A. You can create up to 25 vaults per subscription.
 7. Q. How many databases can I configure per day per vault?
    A. You can only set up 200 databases per day per vault.
-8. Q: Does long-term retention work with Elastic Database Pools?
+8. Q: Does long-term retention work with elastic pools?
    A: Yes. Any database in the pool can be configured with the retention policy.
 9. Q: Can I choose the time at which the backup is created?
    A: No, SQL Database controls the backups schedule to minimize the performance impact on your databases.
