@@ -17,7 +17,7 @@ ms.date: 12/06/2016
 ms.author: hkanna
 ---
 
-# StorSimple as backup target with Veeam
+# StorSimple as a backup target with Veeam
 
 ## Overview
 
@@ -150,9 +150,16 @@ It is important to size your high-performance volume so that it can handle your 
 ## Deploy the solution
 
 Deploying the solution requires three steps:
+<<<<<<< HEAD
 1. Prepare the network infrastructure.
 2. Deploy your StorSimple device as a backup target.
 3. Deploy Veeam.
+=======
+
+1.  Prepare the network infrastructure.
+2.  Deploy your StorSimple device as a backup target.
+3.  Deploy the Veeam software.
+>>>>>>> 7ff1202faa8329a8d8330840562376a5786b7811
 
 Each step is discussed in detail in the following sections.
 
@@ -464,17 +471,13 @@ The following section describes how to create a short script to start and delete
 ### To start or delete a cloud snapshot
 
 1. [Install Azure PowerShell](https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs/).
-
 2. [Download and import publish settings and subscription information](https://msdn.microsoft.com/library/dn385850.aspx).
-
 3. In the Azure classic portal, get the resource name and [registration key for your StorSimple Manager service](storsimple-deployment-walkthrough-u2.md#step-2-get-the-service-registration-key).
-
 4. On the server that runs the script, run PowerShell as an administrator. Type this command:
 
     `Get-AzureStorSimpleDeviceBackupPolicy –DeviceName <device name>`
 
     Note the backup policy ID.
-
 5. In Notepad, create a new PowerShell script by using the following code.
 
     Copy and paste this code snippet:
@@ -510,7 +513,7 @@ The following section describes how to create a short script to start and delete
     ```
 6. To add the script to your backup job, edit your Veeam job advanced options.
 
-![Veeam backup advanced settings scripts tab](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
+    ![Veeam backup advanced settings scripts tab](./media/storsimple-configure-backup-target-using-veeam/veeamimage22.png)
 
 We recommend that you run your StorSimple cloud snapshot backup policy as a post-processing script at the end of your daily backup job. For more information about how to back up and restore your backup application environment to help you meet your RPO and RTO, please consult with your backup architect.
 
