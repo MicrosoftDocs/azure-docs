@@ -78,7 +78,6 @@ Before you can import data, you need to define a *data source,* which specifies 
 
 4. Select a Timestamp. All data in Analytics must have a timestamp field. It must have type `datetime`, but it doesn't have to be named 'timestamp'. If your data has a column containing a date and time in ISO format, choose this as the timestamp column. Otherwise, choose "as data arrived", and the import process will add a timestamp field.
 
-
     ![Review the schema](./media/app-insights-analytics-import/data-source-review-schema.png)
 
 5. Create the data source.
