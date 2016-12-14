@@ -64,7 +64,10 @@ To use the Azure Command-Line Interface, you must have **Node.js** installed on 
    
         azure site show {app-name}
 
->[!NOTE] The [Azure CLI 2.0 (Preview)](https://github.com/Azure/azure-cli) commands that are equivalent to the above are:
+> [!NOTE] 
+> The [Azure CLI 2.0 (Preview)](https://github.com/Azure/azure-cli) commands that are equivalent to the above are:
+>
+>
 
     az login
     az appservice web config update --php-version {5.5 | 5.6 | 7.0} -g {resource-group-name} -n {app-name}

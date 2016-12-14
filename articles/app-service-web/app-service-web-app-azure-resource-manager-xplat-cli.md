@@ -24,7 +24,7 @@ ms.author: aelnably
 
 With the release of Microsoft Azure Cross-platform Command-Line Tools version 0.10.5, new commands have been added. These commands give the user the ability to use Azure Resource Manager-based PowerShell commands to manage App Service.
 
-To learn about managing Resource Groups, see [Use the Azure CLI to manage Azure resources and resource groups](../xplat-cli-azure-resource-manager.md). 
+To learn about managing Resource Groups, see [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/xplat-cli-azure-resource-manager.md). 
 
 >[AZURE.NOTE] Also, try out [Azure CLI 2.0 (Preview)](https://github.com/Azure/azure-cli), a next-generation CLI written in Python for the resource management deployment model.
 
@@ -169,6 +169,6 @@ To delete hostname bindings, use:
     azure webapp config hostnames delete --name ContosoWebApp --resource-group ContosoAzureResourceGroup --hostname www.contoso.com
 
 ### Next Steps
-* To learn about Azure Resource Manager CLI support, see [Use the Azure CLI to manage Azure resources and resource groups.](../xplat-cli-azure-resource-manager.md)
+* To learn about Azure Resource Manager CLI support, see [Use the Azure CLI to manage Azure resources and resource groups.](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
 * To learn about managing App Service using PowerShell, see [Using Azure Resource Manager-Based PowerShell to Manage Azure Web Apps.](app-service-web-app-azure-resource-manager-powershell.md)
 * To learn about Azure App Service on Linux, see [Introduction to App Service on Linux](app-service-linux-intro.md)
