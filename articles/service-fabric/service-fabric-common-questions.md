@@ -92,7 +92,7 @@ Keeping in mind that each object must be stored three times (one primary and two
 
 Note that this calculation also assumes:
 
-- That the distribution of data across the partitions is roughly uniform or that you're [reporting load metrics to the cluster resource manager](service-fabric-cluster-resource-manager-introduction.md). By default, Service Fabric will load balance based on replica count. In our example above, that would put 10 primary replicas and 20 secondary replicas on each node in the cluster. That works well for load that is evenly distributed across the partitions. If load is not even, you must report load so that the resource manager can pack smaller replicas together and allow larger replicas to consume more memory on an individual node.
+- That the distribution of data across the partitions is roughly uniform or that you're reporting load metrics to the cluster resource manager. By default, Service Fabric will load balance based on replica count. In our example above, that would put 10 primary replicas and 20 secondary replicas on each node in the cluster. That works well for load that is evenly distributed across the partitions. If load is not even, you must report load so that the resource manager can pack smaller replicas together and allow larger replicas to consume more memory on an individual node.
 
 - That the reliable service in question is the only one storing state in the cluster. Since you can deploy multiple services to a cluster, you need to be mindful of the resources that each will need to run and manage its state.
 
