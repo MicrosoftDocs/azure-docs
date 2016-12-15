@@ -204,7 +204,7 @@ For the environments that are not managed by a VMM Server or a Configuration Ser
 
 
 > [!NOTE]
-> The script below assumes that the SQL Availability Group is hosted in a Classic Azure virtual machine. And the name of restored virtual machine in Step-2 is SQLAzureVM-Test. 
+> The script below assumes that the SQL Availability Group is hosted in a Classic Azure virtual machine and the name of restored virtual machine in Step-2 is SQLAzureVM-Test. 
 > 
 > 
 
