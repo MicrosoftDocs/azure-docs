@@ -73,7 +73,7 @@ To see the IP addresses of the servers in a Client Group, select the group.  The
 ![Client group properties](media/oms-service-map/client-group-properties.png)
 
 ## Server Port Groups
-Server Port Groups are boxes that represent server ports on servers that do not have Dependency Agents.  The box will list the server port along with a count of the number of servers with connections on that port.  Expand the box to see the individual servers and connections.  If there is only one server in the box, the name or IP address will be listed.
+Server Port Groups are boxes that represent server ports on servers that do not have Dependency Agents.  The box will list the server port along with a count of the number of servers with connections to that port.  Expand the box to see the individual servers and connections.  If there is only one server in the box, the name or IP address will be listed.
 
 ![Server port groups](media/oms-service-map/server-port-groups.png)
 
