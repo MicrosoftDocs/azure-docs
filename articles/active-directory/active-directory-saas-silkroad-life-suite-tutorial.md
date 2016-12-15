@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/19/2016
+ms.date: 12/12/2016
 ms.author: jeedes
 
 ---
@@ -57,19 +57,25 @@ To configure the integration of SilkRoad Life Suite into Azure AD, you need to a
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**. 
    
     ![Active Directory][1]
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Applications][2]
+
 4. Click **Add** at the bottom of the page.
    
     ![Applications][3]
+
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
    
     ![Applications][4]
+
 6. In the search box, type **SilkRoad Life Suite**.
    
     ![Applications][5]
+
 7. In the results pane, select **SilkRoad Life Suite**, and then click **Complete** to add the application.
    
     ![Applications][50]
@@ -95,21 +101,25 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
 
 1. Sign-on to your SilkRoad company site as administrator. 
 
-    > [AZURE.NOTE] To obtain access to the SilkRoad Life Suite Authentication application for configuring federation with Microsoft Azure AD, please contact SilkRoad Support or your SilkRoad Services representative.
-
+    > [!NOTE] 
+    > To obtain access to the SilkRoad Life Suite Authentication application for configuring federation with Microsoft Azure AD, please contact SilkRoad Support or your SilkRoad Services representative.
 
 1. Go to **Service Provider**, and then click **Federation Details**. 
    
     ![Azure AD Single Sign-On][10] 
+
 2. Click **Download Federation Metadata**, and then save the metadata file on your computer.
    
     ![Azure AD Single Sign-On][11] 
+
 3. In the Azure classic portal, on the **SilkRoad Life Suite** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
    
     ![Configure Single Sign-On][6] 
+
 4. On the **How would you like users to sign on to SilkRoad Life Suite** page, select **Azure AD Single Sign-On**, and then click **Next**.
    
     ![Azure AD Single Sign-On][7] 
+
 5. On the **Configure App Settings** dialog page, perform the following steps:
    
     ![Azure AD Single Sign-On][8] 
@@ -125,6 +135,7 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     d. Paste the value into the **Reply URL** textbox.
    
     e. Click **Next**.
+
 6. On the **Configure single sign-on at SilkRoad Life Suite** page, perform the following steps:
    
     ![Azure AD Single Sign-On][9] 
@@ -132,12 +143,15 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     a. Click Download certificate, and then save the file on your computer.
    
     b. Click **Next**.
+
 7. In your **SilkRoad** application, click **Authentication Sources**.
    
     ![Azure AD Single Sign-On][12] 
+
 8. Click **Add Authentication Source**. 
    
     ![Azure AD Single Sign-On][13] 
+
 9. In the **Add Authentication Source** section, perform the following steps: 
    
     ![Azure AD Single Sign-On][14] 
@@ -145,9 +159,11 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
     a. Under **Option 2 - Metadata File**, click **Browse** to upload the downloaded metadata file.
    
     b. Click **Create Identity Provider using File Data**.
+
 10. In the **Authentication Sources** section, click **Edit**. 
     
      ![Azure AD Single Sign-On][15] 
+
 11. On the **Edit Authentication Source** dialog, perform the following steps: 
     
      ![Azure AD Single Sign-On][16] 
@@ -159,12 +175,15 @@ The objective of this section is to enable Azure AD single sign-on in the Azure 
      c. In the **IdP Name** textbox, type a name that is specific to your configuration (e.g.: *Azure SP*).
     
      d. Click **Save**.
+
 12. Disable all other authentication sources. 
     
      ![Azure AD Single Sign-On][17]
+
 13. In the Azure classic portal, on the **Single sign-on confirmation** page, click **Next**.  
     
      ![Azure AD Single Sign-On][18]
+
 14. On the **Single sign-on confirmation** page, click **Complete**.
     
      ![Azure AD Single Sign-On][19]
@@ -179,13 +198,17 @@ The objective of this section is to create a test user in the Azure classic port
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_09.png)  
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To display the list of users, in the menu on the top, click **Users**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_03.png) 
+
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**. 
    
     ![Creating an Azure AD test user](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_04.png) 
+
 5. On the **Tell us about this user** dialog page, perform the following steps: 
    
     ![Creating an Azure AD test user](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_05.png)  
@@ -195,21 +218,25 @@ The objective of this section is to create a test user in the Azure classic port
     b. In the User Name **textbox**, type **BrittaSimon**.
    
     c. Click **Next**.
+
 6. On the **User Profile** dialog page, perform the following steps: 
    
-   ![Creating an Azure AD test user](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png) 
+    ![Creating an Azure AD test user](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
-   e. Click **Next**.
+    d. In the **Role** list, select **User**.
+
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_07.png) 
+
 8. On the **Get temporary password** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-silkroad-life-suite-tutorial/create_aaduser_08.png) 
@@ -223,10 +250,10 @@ The objective of this section is to create a user called Britta Simon in SilkRoa
 
 **To create a user called Britta Simon in SilkRoad Life Suite, perform the following steps:**
 
-1. Ask your SilkRoad Life Suite support team to create a user that has as **SSO ID** attribute the same value as the **emailaddress** of Britta Simon in Azure AD.
+- Ask your SilkRoad Life Suite support team to create a user that has as **SSO ID** attribute the same value as the **emailaddress** of Britta Simon in Azure AD.
 
 ### Assigning the Azure AD test user
-The objective of this section is to enabling Britta Simon to use Azure single sign-on by granting her access to SilkRoad Life Suite.
+The objective of this section is to enable Britta Simon to use Azure single sign-on by granting her access to SilkRoad Life Suite.
 
 ![Assign User][200] 
 
@@ -235,13 +262,17 @@ The objective of this section is to enabling Britta Simon to use Azure single si
 1. On the Azure classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Assign User][201] 
+
 2. In the applications list, select **SilkRoad Life Suite**.
    
     ![Assign User][202] 
+
 3. In the menu on the top, click **Users**.
    
     ![Assign User][203] 
+
 4. In the Users list, select **Britta Simon**.
+
 5. In the toolbar on the bottom, click **Assign**.
    
     ![Assign User][205]
