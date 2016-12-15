@@ -54,7 +54,7 @@ You must have the following items to go through this tutorial:
 * Azure PowerShell.  See [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Create an Azure classic VNet for your Azure AD.
-For the insturctions, see [here](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
+For the instructions, see [here](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
 
 ## Create and configure Azure AD and Azure AD DS.
 For the instructions, see [here](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad).

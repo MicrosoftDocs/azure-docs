@@ -140,7 +140,7 @@ You can create a text file and upload the file to your own storage account if yo
 You can query data in HBase tables by using Hive. This section creates a Hive table that maps to the HBase table and uses it to query the data in your HBase table.
 
 > [!NOTE]
-> If Hive and HBase are on different cluters in the same VNet, you need to pass zookeeper quorum while invoking the Hive shell:
+> If Hive and HBase are on different clusters in the same VNet, you need to pass zookeeper quorum while invoking the Hive shell:
 >
 >       hive --hiveconf hbase.zookeeper.quorum=zk0-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk1-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net,zk2-xxxx.xxxxxxxxxxxxxxxxxxxxxxx.cx.internal.cloudapp.net --hiveconf zookeeper.znode.parent=/hbase-unsecure  
 >
