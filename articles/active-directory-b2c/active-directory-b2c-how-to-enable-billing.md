@@ -17,6 +17,8 @@ ms.author: joroja
 
 ---
 # Linking an Azure Subscription to an Azure B2C tenant to pay for usage charges
+> [!IMPORTANT]
+> Coming soon. This feature is not available for all B2C tenants.
 
 Ongoing usage charges for Azure Active Directory B2C (or Azure AD B2C) are billed to an Azure Subscription. It is necessary for the tenant administrator to explicitly link the Azure AD B2C tenant to an Azure subscription after creating the B2C tenant itself.  This link is achieved by creating an Azure AD "B2C Tenant" resource in the target Azure subscription. Many B2C tenants can be linked to a single Azure subscription along with other Azure resources (for example, VMs, Data storage, LogicApps)
 
