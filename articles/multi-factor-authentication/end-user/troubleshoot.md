@@ -14,7 +14,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 12/15/2016
 ms.author: kgremban
 
 ---
@@ -24,7 +24,7 @@ This article discusses some issues that you may experience with two-step verific
 ## I lost my phone or it was stolen
 There are two ways to get back in to your account. The first is to sign in using your alternate authentication phone number, if you have set one up. The second is to ask your administrator to clear your settings.
 
-If your phone was lost or stolen, we also recommend that you have your administrator reset your app passwords and clear any remembered devices. If your admin isn't sure how to accomplish this, point them to this article: [Manage users and devices](../multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords).
+If your phone was lost or stolen, we also recommend that you have your administrator reset your app passwords and clear any remembered devices. If your admin isn't sure how to accomplish this, point them to this article: [Manage users and devices](../multi-factor-authentication-manage-users-and-devices.md).
 
 ### Use an alternate phone number
 If you have set up multiple verification options, including a secondary phone number or an authenticator app on a different device, you can use one of these to sign in.
@@ -65,7 +65,7 @@ If you don’t have another method configured, contact your admin and ask them t
 If you often have delays due to bad cell signal, we recommend you use the [Microsoft Authenticator app](authenticator-app-how-to.md) on your smartphone. The app can generate random security codes that you use to sign in, and these codes don't require any cell signal or internet connection.
 
 ## App passwords are not working
-First, make sure that you have entered the app password correctly.  If it is still not working try signing-in and [create a new app password](app-passwords.md).  If this does not work, contact your administrator and have them [delete your existing app passwords](../multi-factor-authentication-manage-users-and-devices.md#delete-users-existing-app-passwords) and then you can create a new one.
+First, make sure that you have entered the app password correctly.  If it is still not working try signing-in and [create a new app password](app-passwords.md).  If this does not work, contact your administrator and have them [delete your existing app passwords](../multi-factor-authentication-manage-users-and-devices.md) and then you can create a new one.
 
 ## I didn't find an answer to my problem.
 If you've tried these troubleshooting steps but are still running into problems, contact your administrator or the person who set up multi-factor authentication for you. They should be able to assist you.
