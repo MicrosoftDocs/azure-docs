@@ -27,14 +27,14 @@ ms.author: markvi
 
 The behavior outlined in this topic is currently in [preview](active-directory-preview-explainer.md).
 
-In a mobile first, cloud first world Azure Active Directory enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices (including BYoD), work off corporate networks, and 3rd party SaaS apps, the IT professional must accomplish two major goals at the same time:
+In a mobile first, cloud first world, Azure Active Directory enables single sign-on to devices, apps, and services from anywhere. With the proliferation of devices (including BYOD), work off corporate networks, and 3rd party SaaS apps, IT professionals are faced with two opposing goals:
 
-- Empower the end users
+- Empower the end users to be productive wherever and whenever
 - Protect the corporate assets at any time
 
-Providing your users with a broad range of options to access your corporate assets helps to improve productivity. it can become a nightmare to IT admins that are in charge of protecting your assets. Azure Active Directory enables you to configure **who** can access your managed apps; however, what if you have good reasons to limit the access options under certain conditions? What if you even have conditions under which you want to block access to certain apps even for the *right people*? For example, it might be OK for you if the right people are accessing certain apps from a trusted network; however you might not want that they are accessing these apps from a network you don't trust.  
+To improve productivity, Azure Active Directory provides your users with a broad range of options to access your corporate assets. With application access management, Azure Active Directory enables you to ensure that only *the right people* can access your applications. What if you want to have more control over how the right people are accessing your resources under certain conditions? What if you even have conditions under which you want to block access to certain apps even for the *right people*? For example, it might be OK for you if the right people are accessing certain apps from a trusted network; however you might not want that they are accessing these apps from a network you don't trust. You can address these questions using conditional access. 
 
-Conditional access is a capability of Azure Active Directory that enables you to address these questions using a policy-based approach. A policy-based approach simplifies your configuration experience because it follows the way you think about your access requirements.  
+Conditional access is a capability of Azure Active Directory that enables you to enforce controls on the access to apps in your environment based on specific conditions. With controls, you can either tie additional requirements to the access or you can block it. The implementation of conditional access is based on policies. A policy-based approach simplifies your configuration experience because it follows the way you think about your access requirements.  
 Typically, you define your access requirements using statements that are based on the following pattern:
 
 ![Control](./media/active-directory-conditional-access-azure-portal/10.png)
@@ -52,8 +52,6 @@ In the context of Azure Active Directory conditional access,
 
 ![Control](./media/active-directory-conditional-access-azure-portal/11.png)
 
-
-
 The combination of a condition statement with your controls represents a conditional access policy.
 
 ![Control](./media/active-directory-conditional-access-azure-portal/12.png)
@@ -69,9 +67,9 @@ The current implementation of Azure Active Directory, enables you to configure t
 
 ![Control](./media/active-directory-conditional-access-azure-portal/05.png)
 
-- **Multi-factor Authentication** - You can require strong authentication through multi-factor authentication. You can use multi-factor authentication with Azure Multi-Factor Authentication or by using an on-premises multi-factor authentication provider, combined with Active Directory Federation Services (AD FS). Using multi-factor authentication helps protect resources from being accessed by an unauthorized user who might have gained access to the credentials of a valid user.
+- **Multi-factor Authentication** - You can require strong authentication through multi-factor authentication. As provider, you can use Azure Multi-Factor or an on-premises multi-factor authentication provider, combined with Active Directory Federation Services (AD FS). Using multi-factor authentication helps protect resources from being accessed by an unauthorized user who might have gained access to the credentials of a valid user.
 
-- **Compliant device** - You can set conditional access policies at the device level. You might set up a policy to only enable computers that are compliant <NEEDS FIX>, or mobile devices that are enrolled in a mobile device management application, can access your organization's resources. For example, you can use Intune to check device compliance, and then report it to Azure AD for enforcement when the user attempts to access an application. For detailed guidance about how to use Intune to protect apps and data, see Protect apps and data with Microsoft Intune. You also can use Intune to enforce data protection for lost or stolen devices. For more information, see Help protect your data with full or selective wipe using Microsoft Intune.
+- **Compliant device** - You can set conditional access policies at the device level. You might set up a policy to only enable computers that are compliant, or mobile devices that are enrolled in a mobile device management application, can access your organization's resources. For example, you can use Intune to check device compliance, and then report it to Azure AD for enforcement when the user attempts to access an application. For detailed guidance about how to use Intune to protect apps and data, see Protect apps and data with Microsoft Intune. You also can use Intune to enforce data protection for lost or stolen devices. For more information, see Help protect your data with full or selective wipe using Microsoft Intune.
 
 - **Domain joined device** – You can require the device you have used to connect to Azure Active Directory to be a domain joined device. This policy applies to Windows desktops, laptops, and enterprise tablets. For more information about how to set up automatic registration of domain-joined devices with Azure AD, see [Automatic device registration with Azure Active Directory for Windows domain-joined devices](active-directory-conditional-access-automatic-device-registration.md).
 
@@ -148,32 +146,30 @@ If you need to configure a location condition that applies to all connections ma
 - Excluding **All trusted IPs** 
 
 ### What happens if you have policies in the Azure classic portal and Azure portal configured?  
-In this case, both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met.
+Both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met.
 
 ### What happens if you have policies in the Intune Silverlight portal and the Azure Portal?
-In this case, both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met. 
+Both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met. 
 
 ### What happens if I have multiple policies for the same user configured?  
 For every sign-in, Azure Active Directory evaluates all policies and ensures that all requirements are met before granted access to the user.
 
 
-## Does conditional access work with Exchange ActiveSync?
+### Does conditional access work with Exchange ActiveSync?
  
-Exchange ActiveSync only works with Exchange Online as the cloud app. In the related conditional access policy, you need to make sure that Exchange Online is the only selected cloud app.
+You can use Exchange ActiveSync in a conditional access policy; however the support for this scenario is limited.
 
-This scenario only supports “Require compliant device” control. 
+The following limitations apply to a policy that has Exchange ActiveSync included:
 
-Exchange ActiveSync does not support all conditions. The only supported condition for Exchange ActiveSync scenario is client apps. Rest of the conditions are not supported with Exchange ActiveSync.
+- As **cloud apps** assignment, you have just **Exchange Online** selected.
 
-To create policies for Exchange ActiveSync, do:
+- If you need to set a **control**, you can only select **Require compliant device**. 
 
-1.	Enter a name for the policy.
-2.	Select users.
-3.	Select cloud apps.
-4.	Select client apps condition and, then set it to Exchange ActiveSync.
-5.	Select **Require compliant device** as a control.
-6.	Set Enable to **Yes**.
-7.	Click **Create**.
+	![Grant](./media/active-directory-conditional-access-azure-portal/22.png)
+
+- If you need to configure a **condition**, you can only configure **client apps**.   
+
+	![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
 
 
 
@@ -183,22 +179,22 @@ To create policies for Exchange ActiveSync, do:
 
 Many environments have apps requiring a higher level of protection than the others.
 This is, for example, the case for apps that have access to sensitive data. 
-If you want to add another layer of protection to these apps, you can configure a conditional access policy that requires multi-factor authentication when accessing these apps.
+If you want to add another layer of protection to these apps, you can configure a conditional access policy that requires multi-factor authentication when users are accessing these apps.
 
 
 ### Requiring multi-factor authentication for access from networks that are not trusted
 
 This scenario is similar to the previous scenario because it adds a requirement for multi-factor authentication.
 However, the main difference is the condition for this requirement.  
-While the focus of the previous scenario was on "*sensitve*" apps, the focus of this scenario is on trusted locations.  
-In other words, you might have a requirement for multi-factor authentication if the app is accessed by a user from a network you don't trust. 
+While the focus of the previous scenario was on apps with access to sensitve data, the focus of this scenario is on trusted locations.  
+In other words, you might have a requirement for multi-factor authentication if an app is accessed by a user from a network you don't trust. 
 
 
 ### Only trusted devices can access Office 365 services
 
 If you are using Intune in your environment, you can immediately start using the conditional access policy interface in the Azure console.
 
-Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services. This means that mobile devices are enrolled with Intune and meet compliance policy requirements, and that Windows PCs are joined to an on-premises domain.  A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with  with Conditional Access. 
+Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services. This means that mobile devices are enrolled with Intune and meet compliance policy requirements, and that Windows PCs are joined to an on-premises domain. A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with  with Conditional Access. 
 
 ## Next steps
 
