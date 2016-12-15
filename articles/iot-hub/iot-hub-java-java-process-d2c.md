@@ -1,6 +1,6 @@
 ---
 title: Process Azure IoT Hub device-to-cloud messages (Java) | Microsoft Docs
-description: How to process IoT Hub device-to-cloud messages by reading from the Event hubs-compatible endpoint on an IoT hub. You create a Java service app that uses an EventProcessorHost instance.
+description: How to process IoT Hub device-to-cloud messages by using routing rules and additional endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: java
 author: dominicbetts
@@ -121,15 +121,15 @@ In this section, you create a Service Bus queue, connect it to your IoT hub, and
     
     ![Endpoints in IoT hub][30]
 
-3. In the endpoints blade, click on **Add** at the top to add your queue to your IoT hub. Name the endpoint "CriticalQueue" and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. When you are done, click **Save** at the bottom.
+3. In the **Endpoints** blade, click on **Add** at the top to add your queue to your IoT hub. Name the endpoint **CriticalQueue** and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. When you are done, click **Save** at the bottom.
     
     ![Adding an endpoint][31]
     
-4. Now click on **Routes** in your IoT Hub. Click on **Add** at the top of the blade to create a rule which routes messages to the queue you just added. Select **DeviceTelemetry** as the source of data. Enter `level="critical"` as the condition, and choose the queue you just added as an endpoint as the route endpoint. When you are done, click **Save** at the bottom.
+4. Now click **Routes** in your IoT Hub. Click on **Add** at the top of the blade to create a routing rule that routes messages to the queue you just added. Select **DeviceTelemetry** as the source of data. Enter `level="critical"` as the condition, and choose the queue you just added as an additional endpoint as the routing rule endpoint. When you are done, click **Save** at the bottom.
     
     ![Adding a route][32]
     
-    Make sure the fallback route is set to ON. This is the default configuration of the IoT hub.
+    Make sure the fallback route is set to **ON**. This is the default configuration of the IoT hub.
     
     ![Fallback route][33]
 
@@ -137,7 +137,7 @@ In this section, you create a Service Bus queue, connect it to your IoT hub, and
 3. Add the following class-level variable to the **App** class. Replace **{yourstorageaccountconnectionstring}** with the Azure Storage account connection string you made a note of previously in the [Provision an Azure Storage account and a Service Bus queue](#provision-an-azure-storage-account-and-a-service-bus-queue) section:
 
 ## (Optional) Read from the queue endpoint
-You can optionally read the messages from the queue endpoint by following the instructions at [Get started with queues][lnk-sb-queues-java]. Name the app **read-critical-queue**.
+You can optionally read the messages from the queue endpoint by following the instructions in [Get started with queues][lnk-sb-queues-java]. Name the app **read-critical-queue**.
 
 ## Run the applications
 Now you are ready to run the three applications.

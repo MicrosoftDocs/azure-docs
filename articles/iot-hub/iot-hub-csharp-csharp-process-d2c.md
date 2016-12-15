@@ -1,6 +1,6 @@
 ---
 title: Process Azure IoT Hub device-to-cloud messages using routes (.Net) | Microsoft Docs
-description: How to process IoT Hub device-to-cloud messages by using routes to dispatch messages to other back-end services.
+description: How to process IoT Hub device-to-cloud messages by using routing rules and additional endpoints to dispatch messages to other back-end services.
 services: iot-hub
 documentationcenter: .net
 author: dominicbetts
@@ -24,7 +24,7 @@ ms.author: dobett
 ## Introduction
 Azure IoT Hub is a fully managed service that enables reliable and secure bi-directional communications between millions of devices and a solution back end. Other tutorials ([Get started with IoT Hub] and [Send cloud-to-device messages with IoT Hub][lnk-c2d]) show you how to use the basic device-to-cloud and cloud-to-device messaging functionality of IoT Hub.
 
-This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and shows you how to use message routing to dispatch device-to-cloud messages in an easy, configuration-based way. The tutorial illustrates how to isolate messages which require immediate action from the solution back end for further processing. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data-point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
+This tutorial builds on the code shown in the [Get started with IoT Hub] tutorial, and shows you how to use routing rules to dispatch device-to-cloud messages in an easy, configuration-based way. The tutorial illustrates how to isolate messages which require immediate action from the solution back end for further processing. For example, a device might send an alarm message that triggers inserting a ticket into a CRM system. By contrast, data-point messages simply feed into an analytics engine. For example, temperature telemetry from a device that is to be stored for later analysis is a data-point message.
 
 At the end of this tutorial, you run three .NET console apps:
 
@@ -91,7 +91,7 @@ In this section, you modify the simulated device app you created in the [Get sta
      This randomly adds the property `"level": "critical"` to messages sent by the device, which simulates a message that requires immediate action by the solution back-end. The device app passes this information in the message properties, instead of in the message body, so that IoT Hub can route the message to the proper message destination.
 
    > [!NOTE]
-   > You can use message properties to route messages for a variety of scenarios including cold-path processing, in addition to the hot path example shown here.
+   > You can use message properties to route messages for a variety of scenarios including cold-path processing, in addition to the hot-path example shown here.
    > 
    > 
    
@@ -109,15 +109,15 @@ In this section, you create a Service Bus queue, connect it to your IoT hub, and
     
     ![Endpoints in IoT hub][30]
 
-3. In the endpoints blade, click on **Add** at the top to add your queue to your IoT hub. Name the endpoint "CriticalQueue" and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. When you are done, click **Save** at the bottom.
+3. In the **Endpoints** blade, click on **Add** at the top to add your queue to your IoT hub. Name the endpoint **CriticalQueue** and use the drop-downs to select **Service Bus queue**, the Service Bus namespace in which your queue resides, and the name of your queue. When you are done, click **Save** at the bottom.
     
     ![Adding an endpoint][31]
     
-4. Now click on **Routes** in your IoT Hub. Click on **Add** at the top of the blade to create a rule which routes messages to the queue you just added. Select **DeviceTelemetry** as the source of data. Enter `level="critical"` as the condition, and choose the queue you just added as an endpoint as the route endpoint. When you are done, click **Save** at the bottom.
+4. Now click **Routes** in your IoT Hub. Click on **Add** at the top of the blade to create a routing rule which routes messages to the queue you just added. Select **DeviceTelemetry** as the source of data. Enter `level="critical"` as the condition, and choose the queue you just added as an additional endpoint as the routing rule endpoint. When you are done, click **Save** at the bottom.
     
     ![Adding a route][32]
     
-    Make sure the fallback route is set to ON. This is the default configuration of the IoT hub.
+    Make sure the fallback route is set to **ON**. This is the default configuration of the IoT hub.
     
     ![Fallback route][33]
 

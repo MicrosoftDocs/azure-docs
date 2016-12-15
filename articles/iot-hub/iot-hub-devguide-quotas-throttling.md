@@ -68,7 +68,7 @@ IoT Hub enforces other limits on its different functionalities.
 | File upload URIs | 10000 SAS URIs can be out for a storage account at one time. <br/> 10 SAS URIs/device can be out at one time. |
 | Jobs | Job history is retained up to 30 days <br/> Max concurrent jobs is 1 (for Free and S1, 5 (for S2), 10 (for S3). |
 | Additional endpoints | Paid SKU hubs may have 10 additional endpoints. Free SKU hubs may have one additional endpoint. |
-| Message routing rules | Paid SKU hubs may have 100 routing rules. Free SKU hubs may have 5 routing rules. |
+| Message routing rules | Paid SKU hubs may have 100 routing rules. Free SKU hubs may have five routing rules. |
 
 ## Next steps
 Other reference topics in this IoT Hub developer guide include:

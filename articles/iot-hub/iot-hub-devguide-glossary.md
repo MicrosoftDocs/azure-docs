@@ -20,6 +20,9 @@ ms.author: dobett
 # Glossary of IoT Hub terms
 This article lists some of the common terms used in the IoT Hub articles.
 
+## Additional endpoints
+You can create additional [endpoints](iot-hub-devguide-endpoints.md) on an IoT hub to deliver messages dispatched by a [routing rule](#routing-rule). Additional endpoints connect directly to an Event hub, a Service Bus queue, or a Service Bus topic.
+
 ## Advanced Message Queueing Protocol
 [Advanced Message Queueing Protocol (AMQP)](https://www.amqp.org/) is one of the messaging protocols that [IoT Hub](#iot-hub) supports for communicating with devices. For more information about the messaging protocols that IoT Hub supports, see [Send and receive messages with IoT Hub](iot-hub-devguide-messaging.md).
 
@@ -52,6 +55,9 @@ The [Microsoft Azure portal](https://portal.azure.com) is a central place where 
 
 ## Back-end app
 In the context of [IoT Hub](#iot-hub), a back-end app is an app that connects to one of the service-facing endpoints on an IoT hub. For example, a back-end app might retrieve [device-to-cloud](#device-to-cloud)messages or manage the [identity registry](#identity-registry). Typically, a back-end app runs in the cloud, but in many of the tutorials the back-end apps are console apps running on your local development machine.
+
+## Built-in endpoints
+Every IoT hub includes a built-in [endpoint](iot-hub-devguide-endpoints.md) that is Event Hubs-compatible. You can use any mechanism that works with Event Hubs to read device-to-cloud messages from this endpoint.
 
 ## Cloud gateway
 A cloud gateway enables connectivity for devices that cannot connect directly to [IoT Hub](#iot-hub). A cloud gateway is hosted in the cloud in contrast to a [field gateway](#field-gateway) that runs local to your devices. A typical use case for a cloud gateway is to implement protocol translation for your devices.
@@ -125,7 +131,7 @@ Device twin synchronization uses the [desired properties](#desired-properties) i
 A [direct method](iot-hub-devguide-direct-methods.md) is a way for you to trigger a method to execute on a device by invoking an API on your IoT hub.
 
 ## Endpoint
-An IoT hub exposes multiple [endpoints](iot-hub-devguide-endpoints.md) that enable your apps to connect to the IoT hub. There are device-facing endpoints that enable devices to perform operations such as sending [device-to-cloud](#device-to-cloud) messages and receiving [cloud-to-device](#cloud-to-device) messages. There are service-facing endpoints that enable [back-end apps](#back-end-app) to perform operations such as [device identity](#device-identity) management and device twin management.
+An IoT hub exposes multiple [endpoints](iot-hub-devguide-endpoints.md) that enable your apps to connect to the IoT hub. There are device-facing endpoints that enable devices to perform operations such as sending [device-to-cloud](#device-to-cloud) messages and receiving [cloud-to-device](#cloud-to-device) messages. There are service-facing management endpoints that enable [back-end apps](#back-end-app) to perform operations such as [device identity](#device-identity) management and device twin management. There are service-facing [built-in endpoints](#built-in-endpoints) for reading device-to-cloud messages. You can create [additional endpoints](#additional-endpoints) to receive device-to-cloud messages dispatched by a [routing rule](#routing-rule).
 
 ## Event Hubs service
 [Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is a highly scalable data ingress service that can ingest millions of events per second. The service enable you to process and analyze the massive amounts of data produced by your connected devices and applications. For a comparison with the IoT Hub service, see [Comparison of Azure IoT Hub and Azure Event Hubs](iot-hub-compare-event-hubs.md).
@@ -201,6 +207,9 @@ In the context of a [device twin](iot-hub-devguide-device-twins.md), reported pr
 
 ## Retry policy
 You use a retry policy to handle [transient errors](https://msdn.microsoft.com/library/hh680901(v=pandp.50).aspx) when you connect to a cloud service.
+
+## Routing rules
+You configure [routing rules](iot-hub-devguide-messaging.md#device-to-cloud-configuration-options) in your IoT hub to route device-to-cloud messages to a [built-in endpoint](#built-in-endpoints) or to [additional endpoints](#additional-endpoints) for processing by your solution back end.
 
 ## SASL PLAIN
 SASL PLAIN is a protocol that the [AMQP](#advanced-message-queue-protocol) protocol uses to transfer security tokens.
