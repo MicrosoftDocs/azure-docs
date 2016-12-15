@@ -692,11 +692,17 @@ This **Deploy to Azure** button uses the [Create a Web App plus Redis Cache plus
 
 Clicking the **Deploy to Azure** button takes you to the Azure portal and initiates the process of creating the resources described by the template.
 
+
+### Custom deployment Parameters
+
 ![Deploy to Azure][cache-deploy-to-azure-step-1]
 
 1. On the **Custom deployment** blade, select the Azure subscription to use, and select an existing resource group or create a new one, and specify the resource group location.
 2. On the **Parameters** blade, specify an administrator account name (**ADMINISTRATORLOGIN** - don't use **admin**), administrator login password (**ADMINISTRATORLOGINPASSWORD**), and database name (**DATABASENAME**). The other parameters are configured for a free App Service hosting plan, and lower cost options for the SQL Database and Azure Redis Cache, which don't come with a free tier.
 3. Change any of the other settings if desired, or keep the defaults, and click **OK**.
+
+
+### Custom deployment Purchase
 
 ![Deploy to Azure][cache-deploy-to-azure-step-2]
 
