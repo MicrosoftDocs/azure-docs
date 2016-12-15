@@ -74,9 +74,9 @@ This article provides you an example of how you can use System Center Configurat
   ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)   
 | **Parameter Name** | **Value** |
 |--|--|
-| **Name** | Install Microsoft Azure Mobility Service (Windows) |
-| ** Command line** | install.bat |
-| ** Program can run** | Whether or not a user is logged on |
+| Name | Install Microsoft Azure Mobility Service (Windows) |
+| Command line | install.bat |
+| Program can run | Whether or not a user is logged on |
 
 9. In the next page, select the target operating systems. Mobility Service can be installed only on Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2.
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2.png)   
@@ -156,9 +156,9 @@ Mobility Service gets installed on the Windows Server Device Collection as per t
   ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)   
 | **Parameter Name** | **Value** |
 |--|--|
-| **Name** | Install Microsoft Azure Mobility Service (Linux) |
-| ** Command line** | ./install_linux.sh |
-| ** Program can run** | Whether or not a user is logged on |
+| Name | Install Microsoft Azure Mobility Service (Linux) |
+| Command line | ./install_linux.sh |
+| Program can run | Whether or not a user is logged on |
 
 9. In the next page, select the **This program can run on any platform**
   ![sccm-package-properties-page2](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-page2-linux.png)   
