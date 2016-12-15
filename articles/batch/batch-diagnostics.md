@@ -3,7 +3,7 @@ title: Azure Batch diagnostic logging | Microsoft Docs
 description: Record and analyze diagnostic log events for Azure Batch account resources like pools and tasks.
 services: batch
 documentationcenter: ''
-author: mmacy
+author: tamram
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 10/12/2016
-ms.author: marsma
+ms.author: tamram
 
 ---
 # Azure Batch diagnostic logging

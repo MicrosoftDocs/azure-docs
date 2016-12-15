@@ -1,4 +1,4 @@
-﻿---
+---
 title: Forecasting-Exponential Smoothing | Microsoft Docs
 description: 'Web service: Forecasting-Exponential Smoothing'
 services: machine-learning
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2016
+ms.date: 12/13/2016
 ms.author: yijichen
 
 ---

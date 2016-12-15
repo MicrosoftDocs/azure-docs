@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Try SQL Database: Use C# to create a SQL database | Microsoft Docs'
 description: Try SQL Database for developing SQL and C# apps, and create an Azure SQL Database with C# using the SQL Database Library for .NET.
 keywords: try sql, sql c#
@@ -19,15 +19,9 @@ ms.date: 10/04/2016
 ms.author: sstein
 
 ---
-# Try SQL Database: Use C# to create a SQL database with the SQL Database Library for .NET
-> [!div class="op_single_selector"]
-> * [Azure portal](sql-database-get-started.md)
-> * [C#](sql-database-get-started-csharp.md)
-> * [PowerShell](sql-database-get-started-powershell.md)
-> 
-> 
+# Use C# to create a SQL database with the SQL Database Library for .NET
 
-Learn how to use C# to create an Azure SQL database with the [Microsoft Azure SQL Management Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). This article describes how to create a single database with SQL and C#. To create elastic database pools, see [Create an Elastic database pool](sql-database-elastic-pool-create-csharp.md).
+Learn how to use C# to create an Azure SQL database with the [Microsoft Azure SQL Management Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). This article describes how to create a standalone database with SQL and C#. To create elastic pools, see [Create an elastic pool](sql-database-elastic-pool-create-csharp.md).
 
 The Azure SQL Database Management Library for .NET provides an [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 

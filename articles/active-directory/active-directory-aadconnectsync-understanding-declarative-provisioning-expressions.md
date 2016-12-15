@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure AD Connect sync: Understanding Declarative Provisioning Expressions | Microsoft Docs'
 description: Explains the declarative provisioning expressions.
 services: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2016
-ms.author: markusvi;andkjell
+ms.author: markvi;andkjell
 
 ---
 # Azure AD Connect sync: Understanding Declarative Provisioning Expressions

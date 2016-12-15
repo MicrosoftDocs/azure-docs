@@ -25,7 +25,7 @@ The infrastructure for your application is typically made up of many components 
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=azure-resource-manager">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=azure-resource-manager">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -99,109 +99,50 @@ The infrastructure for your application is typically made up of many components 
 </ul>
 
 ---
-
-## Reference
-
+ 
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
     <li>
-        <a href="/powershell/azureps-cmdlets-docs">
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>PowerShell cmdlets</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources">PowerShell</a></p>
+                        <p><a href="/cli/azure/resource">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	 <li>
-        <a href="/cli/azure">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Azure CLI</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">.NET</a></p>
+                        <p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p>
+                        <p><a href="http://azure-sdk-for-python.readthedocs.io/en/latest/resourcemanagement.html">Python</a></p>
+                        <p><a href="https://github.com/Azure/azure-resource-manager-schemas">Template schemas</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	 <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-dotnet-resources-and-groups/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>.NET</h3>
-                        <p>Manage Azure resources and resource groups with .NET</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+    <li>
+        <div class="cardSize">
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/resources/">REST API</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	 <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resources-java-manage-resource/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Java</h3>
-                        <p>Getting Started with Resources - Manage Resource - in Java</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-	 <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-node-resources-and-groups/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Node.js</h3>
-                        <p>Manage Azure resources and resource groups with Node.js</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-	 <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-python-resources-and-groups/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Python</h3>
-                        <p>Manage Azure resources and resource groups with Python</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-	 <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/samples/resource-manager-ruby-resources-and-groups/">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Ruby</h3>
-                        <p>Manage Azure resources and resource groups with Ruby</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-	</ul>
+</ul>
 
 ---
 <div class="downloadHolder">

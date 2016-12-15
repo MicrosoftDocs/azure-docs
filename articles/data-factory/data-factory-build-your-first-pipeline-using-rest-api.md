@@ -1,4 +1,4 @@
-﻿---
+---
 title: Build your first data factory (REST) | Microsoft Docs
 description: In this tutorial, you create a sample Azure Data Factory pipeline using Data Factory REST API.
 services: data-factory
@@ -37,13 +37,13 @@ In this article, you use Data Factory REST API to create your first Azure data f
   1. Create a Web application named **ADFGetStartedApp** in Azure Active Directory.
   2. Get **client ID** and **secret key**.
   3. Get **tenant ID**.
-  4. Assign the **ADFGetStartedApp** application to the **Data Factory Contributor** role.  
-* Install [Azure PowerShell](../powershell-install-configure.md).  
+  4. Assign the **ADFGetStartedApp** application to the **Data Factory Contributor** role.
+* Install [Azure PowerShell](/powershell/azureps-cmdlets-docs).
 * Launch **PowerShell** and run the following command. Keep Azure PowerShell open until the end of this tutorial. If you close and reopen, you need to run the commands again.
-  1. Run **Login-AzureRmAccount** and enter the user name and password that you use to sign in to the Azure portal.  
+  1. Run **Login-AzureRmAccount** and enter the user name and password that you use to sign in to the Azure portal.
   2. Run **Get-AzureRmSubscription** to view all the subscriptions for this account.
   3. Run **Get-AzureRmSubscription -SubscriptionName NameOfAzureSubscription | Set-AzureRmContext** to select the subscription that you want to work with. Replace **NameOfAzureSubscription** with the name of your Azure subscription.
-* Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell:  
+* Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell:
 
        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
 
@@ -58,10 +58,10 @@ Create following JSON files in the folder where curl.exe is located.
 >
 >
 
-    {  
-        "name": "FirstDataFactoryREST",  
+    {
+        "name": "FirstDataFactoryREST",
         "location": "WestUS"
-    }  
+    }
 
 ### azurestoragelinkedservice.json
 > [!IMPORTANT]
@@ -235,7 +235,7 @@ In the activity JSON, you specify that the Hive script runs on the compute speci
 In Azure PowerShell, execute the following commands after replacing the values with your own:
 
 > [!IMPORTANT]
-> See [Prerequisites](#prerequisites) section for instructions on getting client ID, client secret, tenant ID, and subscription ID.   
+> See [Prerequisites](#prerequisites) section for instructions on getting client ID, client secret, tenant ID, and subscription ID.
 >
 >
 
@@ -269,13 +269,13 @@ In this step, you create an Azure Data Factory named **FirstDataFactoryREST**. A
 2. Run the command by using **Invoke-Command**.
 
         $results = Invoke-Command -scriptblock $cmd;
-3. View the results. If the data factory has been successfully created, you see the JSON for the data factory in the **results**; otherwise, you see an error message.  
+3. View the results. If the data factory has been successfully created, you see the JSON for the data factory in the **results**; otherwise, you see an error message.
 
         Write-Host $results
 
 Note the following points:
 
-* The name of the Azure Data Factory must be globally unique. If you see the error in results: **Data factory name “FirstDataFactoryREST” is not available**, do the following steps:  
+* The name of the Azure Data Factory must be globally unique. If you see the error in results: **Data factory name “FirstDataFactoryREST” is not available**, do the following steps:
   1. Change the name (for example, yournameFirstDataFactoryREST) in the **datafactory.json** file. See [Data Factory - Naming Rules](data-factory-naming-rules.md) topic for naming rules for Data Factory artifacts.
   2. In the first command where the **$cmd** variable is assigned a value, replace FirstDataFactoryREST with the new name and run the command.
   3. Run the next two commands to invoke the REST API to create the data factory and print the results of the operation.
@@ -311,7 +311,7 @@ In this step, you link your Azure Storage account to your data factory. With thi
         Write-Host $results
 
 ### Create Azure HDInsight linked service
-In this step, you link an on-demand HDInsight cluster to your data factory. The HDInsight cluster is automatically created at runtime and deleted after it is done processing and idle for the specified amount of time. You could use your own HDInsight cluster instead of using an on-demand HDInsight cluster. See [Compute Linked Services](data-factory-compute-linked-services.md) for details.  
+In this step, you link an on-demand HDInsight cluster to your data factory. The HDInsight cluster is automatically created at runtime and deleted after it is done processing and idle for the specified amount of time. You could use your own HDInsight cluster instead of using an on-demand HDInsight cluster. See [Compute Linked Services](data-factory-compute-linked-services.md) for details.
 
 1. Assign the command to variable named **cmd**.
 
@@ -319,12 +319,12 @@ In this step, you link an on-demand HDInsight cluster to your data factory. The 
 2. Run the command by using **Invoke-Command**.
 
         $results = Invoke-Command -scriptblock $cmd;
-3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.  
+3. View the results. If the linked service has been successfully created, you see the JSON for the linked service in the **results**; otherwise, you see an error message.
 
         Write-Host $results
 
 ## Create datasets
-In this step, you create datasets to represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.   
+In this step, you create datasets to represent the input and output data for Hive processing. These datasets refer to the **StorageLinkedService** you have created earlier in this tutorial. The linked service points to an Azure Storage account and datasets specify container, folder, file name in the storage that holds input and output data.
 
 ### Create input dataset
 In this step, you create the input dataset to represent input data stored in the Azure Blob storage.
@@ -338,20 +338,22 @@ In this step, you create the input dataset to represent input data stored in the
 3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
 
         Write-Host $results
-   ### Create output dataset
-   In this step, you create the output dataset to represent output data stored in the Azure Blob storage.
-4. Assign the command to variable named **cmd**.
+
+### Create output dataset
+In this step, you create the output dataset to represent output data stored in the Azure Blob storage.
+
+1. Assign the command to variable named **cmd**.
 
         $cmd = {.\curl.exe -X PUT -H "Authorization: Bearer $accessToken" -H "Content-Type: application/json" --data "@outputdataset.json" https://management.azure.com/subscriptions/$subscription_id/resourcegroups/$rg/providers/Microsoft.DataFactory/datafactories/$adf/datasets/AzureBlobOutput?api-version=2015-10-01};
-5. Run the command by using **Invoke-Command**.
+2. Run the command by using **Invoke-Command**.
 
         $results = Invoke-Command -scriptblock $cmd;
-6. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
+3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
 
         Write-Host $results
 
 ## Create pipeline
-In this step, you create your first pipeline with a **HDInsightHive** activity. Input slice is available monthly (frequency: Month, interval: 1), output slice is produced monthly, and the scheduler property for the activity is also set to monthly. The settings for the output dataset and the activity scheduler must match. Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset.  
+In this step, you create your first pipeline with a **HDInsightHive** activity. Input slice is available monthly (frequency: Month, interval: 1), output slice is produced monthly, and the scheduler property for the activity is also set to monthly. The settings for the output dataset and the activity scheduler must match. Currently, output dataset is what drives the schedule, so you must create an output dataset even if the activity does not produce any output. If the activity doesn't take any input, you can skip creating the input dataset.
 
 Confirm that you see the **input.log** file in the **adfgetstarted/inputdata** folder in the Azure blob storage, and run the following command to deploy the pipeline. Since the **start** and **end** times are set in the past and **isPaused** is set to false, the pipeline (activity in the pipeline) runs immediately after you deploy.
 
@@ -361,7 +363,7 @@ Confirm that you see the **input.log** file in the **adfgetstarted/inputdata** f
 2. Run the command by using **Invoke-Command**.
 
         $results = Invoke-Command -scriptblock $cmd;
-3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.  
+3. View the results. If the dataset has been successfully created, you see the JSON for the dataset in the **results**; otherwise, you see an error message.
 
         Write-Host $results
 4. Congratulations, you have successfully created your first pipeline using Azure PowerShell!
@@ -383,7 +385,7 @@ In this step, you use Data Factory REST API to monitor slices being produced by 
 
 
 > [!IMPORTANT]
-> Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.  
+> Creation of an on-demand HDInsight cluster usually takes sometime (approximately 20 minutes). Therefore, expect the pipeline to take **approximately 30 minutes** to process the slice.
 >
 >
 
@@ -396,10 +398,10 @@ Run the Invoke-Command and the next one until you see the slice in **Ready** sta
 >
 >
 
-You can also use Azure portal to monitor slices and troubleshoot any issues. See [Monitor pipelines using Azure portal](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) details.  
+You can also use Azure portal to monitor slices and troubleshoot any issues. See [Monitor pipelines using Azure portal](data-factory-build-your-first-pipeline-using-editor.md#monitor-pipeline) details.
 
 ## Summary
-In this tutorial, you created an Azure data factory to process data by running Hive script on a HDInsight hadoop cluster. You used the Data Factory Editor in the Azure portal to do the following steps:  
+In this tutorial, you created an Azure data factory to process data by running Hive script on a HDInsight hadoop cluster. You used the Data Factory Editor in the Azure portal to do the following steps:
 
 1. Created an Azure **data factory**.
 2. Created two **linked services**:

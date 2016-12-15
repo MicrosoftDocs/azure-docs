@@ -1,4 +1,4 @@
-﻿---
+---
 title: Monitor access and performance logs and Metrics for Application Gateway | Microsoft Docs
 description: Learn how to enable and manage Access and Performance logs for Application Gateway
 services: application-gateway
@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2016
-ms.author: amitsriva
+ms.author: amsriva
 
 ---
 # Diagnostics Logging and Metrics for Application Gateway
