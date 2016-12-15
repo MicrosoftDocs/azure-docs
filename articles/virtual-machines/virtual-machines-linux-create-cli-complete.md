@@ -221,7 +221,7 @@ Make sure that you have installed the latest [Azure CLI 2.0 (Preview)](/cli/azur
 In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
 
 ## Create resource groups and choose deployment locations
-Azure resource groups are logical deployment entities that contain configuration information and metadata to enable the logical management of resource deployments. Create the resource group with [az  group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
+Azure resource groups are logical deployment entities that contain configuration information and metadata to enable the logical management of resource deployments. Create the resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
 
 ```azurecli
 az group create --name myResourceGroup --location westeurope
