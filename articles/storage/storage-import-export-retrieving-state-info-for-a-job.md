@@ -62,11 +62,7 @@ The following table describes errors that can occur for each job state, as well 
 ## Drive States  
 The table and the diagram below describe the life cycle of an individual drive as it transitions through an import or export job. You can retrieve the current drive state by calling the `Get Job` operation and inspecting the `State` element of the `DriveList` property.  
   
-<<<<<<< HEAD
 ![DriveStates](./media/storage-import-export-retrieving-state-info-for-a-job/DriveStates.png "DriveStates")  
-=======
- ![DriveStates](/rest/api/storageservices/importexport/media/DriveStates.png "DriveStates")  
->>>>>>> 7b70736ddda63f965cfc83dccf31da7101ed601d
   
 The following table describes each state that a drive may pass through.  
   
