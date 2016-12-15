@@ -12,7 +12,7 @@ ms.assetid: c561f600-a292-4e3b-b1d4-8ab89b81db48
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/08/2016
