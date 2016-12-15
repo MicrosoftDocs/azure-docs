@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.date: 11/17/2016
 ms.author: ninarn
 ms.workload: data-management
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 
 ---
