@@ -13,7 +13,7 @@ ms.devlang: java
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/23/2016
+ms.date: 12/15/2016
 ms.author: dobett
 
 ---
@@ -24,7 +24,7 @@ At the end of this tutorial, you have three Java console apps:
 
 * **create-device-identity**, which creates a device identity and associated security key to connect your simulated device app.
 * **read-d2c-messages**, which displays the telemetry sent by your simulated device app.
-* **simulated-device**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second using the AMQP protocol.
+* **simulated-device**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second using the MQTT protocol.
 
 > [!NOTE]
 > The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both apps to run on devices and your solution back end.
@@ -310,12 +310,12 @@ In this section, you create a Java console app that simulates a device that send
    
     ```
     private static String connString = "HostName={youriothubname}.azure-devices.net;DeviceId=myFirstJavaDevice;SharedAccessKey={yourdevicekey}";
-    private static IotHubClientProtocol protocol = IotHubClientProtocol.AMQPS;
+    private static IotHubClientProtocol protocol = IotHubClientProtocol.MQTT;
     private static String deviceId = "myFirstJavaDevice";
     private static DeviceClient client;
     ```
    
-    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. You can use either the HTTP or AMQP protocol to communicate with IoT Hub.
+    This sample app uses the **protocol** variable when it instantiates a **DeviceClient** object. You can use either the MQTT, AMQP, or HTTP protocol to communicate with IoT Hub.
 8. Add the following nested **TelemetryDataPoint** class inside the **App** class to specify the telemetry data your device sends to your IoT hub:
    
     ```

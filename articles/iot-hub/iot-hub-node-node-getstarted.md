@@ -13,7 +13,7 @@ ms.devlang: javascript
 ms.topic: hero-article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2016
+ms.date: 12/15/2016
 ms.author: dobett
 
 ---
@@ -24,7 +24,7 @@ At the end of this tutorial, you have three Node.js console apps:
 
 * **CreateDeviceIdentity.js**, which creates a device identity and associated security key to connect your simulated device app.
 * **ReadDeviceToCloudMessages.js**, which displays the telemetry sent by your simulated device app.
-* **SimulatedDevice.js**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second using the AMQP protocol.
+* **SimulatedDevice.js**, which connects to your IoT hub with the device identity created earlier, and sends a telemetry message every second using the MQTT protocol.
 
 > [!NOTE]
 > The article [Azure IoT SDKs][lnk-hub-sdks] provides information about the Azure IoT SDKs that you can use to build both applications to run on devices and your solution back end.
@@ -173,10 +173,10 @@ In this section, you create a Node.js console app that simulates a device that s
     ```
     npm init
     ```
-2. At your command prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-amqp** package:
+2. At your command prompt in the **simulateddevice** folder, run the following command to install the **azure-iot-device** Device SDK package and **azure-iot-device-mqtt** package:
    
     ```
-    npm install azure-iot-device azure-iot-device-amqp --save
+    npm install azure-iot-device azure-iot-device-mqtt --save
     ```
 3. Using a text editor, create a new **SimulatedDevice.js** file in the **simulateddevice** folder.
 4. Add the following `require` statements at the start of the **SimulatedDevice.js** file:
@@ -184,7 +184,7 @@ In this section, you create a Node.js console app that simulates a device that s
     ```
     'use strict';
    
-    var clientFromConnectionString = require('azure-iot-device-amqp').clientFromConnectionString;
+    var clientFromConnectionString = require('azure-iot-device-mqtt').clientFromConnectionString;
     var Message = require('azure-iot-device').Message;
     ```
 5. Add a **connectionString** variable and use it to create a **Client** instance. Replace **{youriothostname}** with the name of the IoT hub you created the *Create an IoT Hub* section. Replace **{yourdevicekey}** with the device key value you generated in the *Create a device identity* section:
