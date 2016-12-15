@@ -50,17 +50,19 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 1. Sign in to [https://portal.azure.com](https://portal.azure.com).
 2. Click **HDInsight Clusters** from the left menu to list the existing clusters.
 3. Click the cluster name. If the cluster list is long, you can use filter on the top of the page.
-4. Double-click a cluster from the list to show the details.
-   
-    **Menu and essentials**:
+4. Click a cluster from the list to see the overview page:
    
     ![Azure portal HDInsight cluster essentials](./media/hdinsight-administer-use-portal-linux/hdinsight-essentials.png)
    
-   * **Settings** and **All Settings**: Displays the **Settings** blade for the cluster, which allows you to access detailed configuration information for the cluster.
+    **Menu**:
+
    * **Dashboard**, **Cluster Dashboard** and **URL: These are all ways to access the cluster dashboard, which is Ambari Web for Linux-based clusters.
    * **Secure Shell**: Shows the instructions to connect to the cluster using Secure Shell (SSH) connection.
    * **Scale Cluster**: Allows you to change the number of worker nodes for this cluster.
    * **Delete**: Deletes the cluster.
+
+   ** Quick Links**
+   
    * **Quickstart (![cloud and thunderbolt icon = quickstart](./media/hdinsight-administer-use-portal-linux/quickstart.png))**: Displays information that will help you get started using HDInsight.
    * **Users (![users icon](./media/hdinsight-administer-use-portal-linux/users.png))**: Allows you to set permissions for *portal management* of this cluster for other users on your Azure subscription.
      
