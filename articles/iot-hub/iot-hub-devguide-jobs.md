@@ -56,14 +56,22 @@ The following is the HTTP 1.1 request details for executing a [direct method][ln
         cloudToDeviceMethod: {
             methodName: '<methodName>',
             payload: <payload>,                 
-            timeoutInSeconds: methodTimeoutInSeconds 
+            responseTimeoutInSeconds: methodTimeoutInSeconds 
         },
         queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
     ```
+The query condition can also be on a single device Id or on a list of device Ids as shown below
+
+**Examples**
+```
+queryCondition = "deviceId='MyDevice1'";
+queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
+queryCondition = "deviceId IN ['MyDevice1']
+```
+
 
 ## Jobs to update device twin properties
 The following is the HTTP 1.1 request details for updating device twin properties using a job:
@@ -80,7 +88,6 @@ The following is the HTTP 1.1 request details for updating device twin propertie
         type: 'scheduleTwinUpdate', 
         updateTwin: <patch>                 // Valid JSON object
         queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
-        deviceIds: '<queryOrDevices>',      // if the queryOrDevices parameter is an array
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
