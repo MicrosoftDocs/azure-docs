@@ -15,7 +15,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/10/2016
+ms.date: 12/14/2016
 ms.author: sstein
 
 ---
@@ -58,9 +58,9 @@ In this section of the tutorial, you view information about the oldest restore p
 ```
 # Get available restore points
 
-$resourceGroupName = "ssteinrg12091603"
-$serverName = "ssteinsrv12091603"
-$databaseName = "AdventureWorksLT"
+$resourceGroupName = "{resource-group-name}"
+$serverName = "{server-name}"
+$databaseName = "{database-name}"
 
 $databaseToRestore = Get-AzureRmSqlDatabase -ResourceGroupName $resourceGroupName -ServerName $serverName -DatabaseName $databaseName
 
@@ -85,13 +85,13 @@ In this section of the tutorial, you restore the database to a new database as o
 
 #$resourceGroupName = {resource-group-name}
 #$serverName = {server-name}
-$newRestoredDatabaseName = "AWLT4"
-$localTimeToRestoreTo = "12/9/2016 12:00:00 PM"
+$newRestoredDatabaseName = "{new-database-name}"
+$localTimeToRestoreTo = "{12/9/2016 12:00:00 PM}" # change to a valid restore point for your database
 $restorePointInTime = (Get-Date $localTimeToRestoreTo).ToUniversalTime()
 $newDatabaseEdition = "Basic"
 $newDatabaseServiceLevel = "Basic"
 
-Write-Host "Restoring database '$databaseName' to its state at '$restorePointInTime(UTC)', to a new database named '$newRestoredDatabaseName'."
+Write-Host "Restoring database '$databaseName' to its state at:"(Get-Date $restorePointInTime).ToLocalTime()", to a new database named '$newRestoredDatabaseName'."
 
 $restoredDb = Restore-AzureRmSqlDatabase -FromPointInTimeBackup -PointInTime $restorePointInTime -ResourceGroupName $resourceGroupName `
  -ServerName $serverName -TargetDatabaseName $newRestoredDatabaseName -Edition $newDatabaseEdition -ServiceObjectiveName $newDatabaseServiceLevel `
@@ -117,37 +117,41 @@ In this section of the tutorial, you [configure an Azure Recovery Services vault
 >
 
 ```
+# Create a recovery services vault
+
 #$resourceGroupName = {resource-group-name}
 #$serverName = {server-name}
 $serverLocation = (Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName).Location
-$recoveryServiceVaultName = "{vault-name}"
+$recoveryServiceVaultName = "{new-vault-name}"
 
 $vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $ResourceGroupName -Location $serverLocation 
 Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
 ```
 
-### Set your vault to the server containing the databases you want to retain
+### Set your server to use the recovery vault you just created for its long-term retention backups
 
 
 ```
+# Set your server to use the vault to for long-term backup retention 
+
 Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName –ResourceId $vault.Id
 ```
 
 ### Create a retention policy
 
-You can create multiple retention policies for each vault and then apply the desired policy to specific databases
+You can create multiple retention policies for each vault and then apply the desired policy to specific databases. Note that some cmdlets require that you set the vault context prior to running.
 
 ```
-# Retrieve the default retention policy object for the AzureSQLServer workload type
+# Retrieve the default retention policy for the AzureSQLDatabase workload type
 $retentionPolicy = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType AzureSQLDatabase
 
 # Set the retention value to two years
 $retentionPolicy.RetentionDurationType = "Years"
 $retentionPolicy.RetentionCount = 2
 
-$retentionPolicyName = "ssteinRetentionPolicy"
+$retentionPolicyName = "2YearRetentionPolicy"
 
-# Register the policy for use with any SQL database
+# Set the vault context to the vault you are creating the policy for
 Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # Create the new policy
@@ -159,10 +163,8 @@ $policy
 ### Configure a database to use the previously defined retention policy
 
 ```
-# Enable long-term retention
+# Enable long-term retention for a specific SQL database
 $policyState = "enabled"
-
-#for your database you can select any policy created in the vault with which your server is registered
 Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName $resourceGroupName –ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
 ```
 
@@ -175,12 +177,43 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName $resour
 
 In this section of the tutorial, you view information about your database backups in [long-term backup retention](sql-database-long-term-retention.md). 
 
+```
+#$resourceGroupName = "{resource-group-name}"
+#$serverName = "{server-name}"
+$databaseNeedingRestore = $databaseName
+
+# Set the vault context to the vault we want to restore from
+#$vault = Get-AzureRmRecoveryServicesVault -ResourceGroupName $resourceGroupName
+Set-AzureRMRecoveryServicesVaultContext -Vault $vault
+
+# the following commands find the container associated with the server 'myserver' under resource group 'myresourcegroup'
+$container = Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName $vault.Name
+
+# Get the long-term retention metadata associated with a specific database
+$item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQLDatabase -Name $databaseNeedingRestore
+
+
+# Get all available backups for the previously indicated database
+# Optionally, set the -StartDate and -EndDate parameters to return backups within a specific time period
+$availableBackups = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $item
+```
 
 
 ## Restore a database from a backup in long-term backup retention
 
 In this section of the tutorial, you restore the database to a new database from a backup in the Azure Recovery Services vault.
 
+```
+# This command restores the most recent backup: $availableBackups[0]
+#$resourceGroupName = "{resource-group-name}"
+#$serverName = "{server-name}"
+$restoredDatabaseName = "{new-database-name}"
+$edition = "Basic"
+$performanceLevel = "Basic"
+
+$restoredDB = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceId $availableBackups[0].Id -ResourceGroupName $resourceGroupName `
+ -ServerName $serverName -TargetDatabaseName $restoredDatabaseName -Edition $edition -ServiceObjectiveName $performanceLevel
+```
 
 
 > [!NOTE]
