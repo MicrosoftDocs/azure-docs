@@ -2,7 +2,7 @@
 layout: LandingPage
 +toc_rel: breadcrumb.json
 ---
-#Virtual Network Documentation
+# Virtual Network Documentation
 
 An Azure Virtual Network (VNet) is a logical representation of your own network in the cloud.  With VNet you can fully control elements of the network and segment your VNet into subnets and use it to launch Azure Virtual Machines or Cloud Services.  Additionally, you can connect the VNet to you on-premises network using one of the connectivity options available in Azure, expanding your network to the cloud while keeping control over resources.
 

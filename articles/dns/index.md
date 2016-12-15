@@ -1,7 +1,7 @@
 ---
 layout: LandingPage
 ---
-#DNS Documentation
+# DNS Documentation
 
 Azure DNS (Domain Name System) is a service for DNS domains provide name resolution using Microsoft Azure infrastructure.  By hosting your domains in Azure, you can manage your DNS records using the same credentials, APIs, tools, and billing as your other Azure services.
 

@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 12/12/2016
 ms.author: awills
 
 ---
@@ -36,7 +36,7 @@ You only have to do this one time per machine. This step installs a toolkit whic
 1. In Eclipse, click Help, Install New Software.
    
     ![Help, Install New Software](./media/app-insights-java-eclipse/0-plugin.png)
-2. The SDK is in http://dl.windowsazure.com/eclipse, under Azure Toolkit. 
+2. The SDK is in http://dl.microsoft.com/eclipse, under Azure Toolkit. 
 3. Uncheck **Contact all update sites...**
    
     ![For Application Insights SDK, clear Contact all update sites](./media/app-insights-java-eclipse/1-plugin.png)
@@ -45,12 +45,10 @@ Follow the remaining steps for each Java project.
 
 ## Create an Application Insights resource in Azure
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Create a new Application Insights resource.  
+2. Create a new Application Insights resource. Set the application type to Java web application.  
    
     ![Click + and choose Application Insights](./media/app-insights-java-eclipse/01-create.png)  
-3. Set the application type to Java web application.  
-   
-    ![Fill a name, choose Java web app, and click Create](./media/app-insights-java-eclipse/02-create.png)  
+
 4. Find the instrumentation key of the new resource. You'll need to paste this into your code project shortly.  
    
     ![In the new resource overview, click Properties and copy the Instrumentation Key](./media/app-insights-java-eclipse/03-key.png)  
@@ -136,20 +134,27 @@ On your Overview blade, scroll down and click the  **Servers** tile. You'll see 
 ### Customize performance counter collection
 To disable collection of the standard set of performance counters, add the following code under the root node of the ApplicationInsights.xml file:
 
+```XML
+
     <PerformanceCounters>
        <UseBuiltIn>False</UseBuiltIn>
     </PerformanceCounters>
+```
 
 ### Collect additional performance counters
 You can specify additional performance counters to be collected.
 
 #### JMX counters (exposed by the Java Virtual Machine)
+
+```XML
+
     <PerformanceCounters>
       <Jmx>
         <Add objectName="java.lang:type=ClassLoading" attribute="TotalLoadedClassCount" displayName="Loaded Class Count"/>
         <Add objectName="java.lang:type=Memory" attribute="HeapMemoryUsage.used" displayName="Heap Memory Usage-used" type="composite"/>
       </Jmx>
     </PerformanceCounters>
+```
 
 * `displayName` – The name displayed in the Application Insights portal.
 * `objectName` – The JMX object name.
@@ -162,12 +167,15 @@ You can specify additional performance counters to be collected.
 #### Windows performance counters
 Each [Windows performance counter](https://msdn.microsoft.com/library/windows/desktop/aa373083.aspx) is a member of a category (in the same way that a field is a member of a class). Categories can either be global, or can have numbered or named instances.
 
+```XML
+
     <PerformanceCounters>
       <Windows>
         <Add displayName="Process User Time" categoryName="Process" counterName="%User Time" instanceName="__SELF__" />
         <Add displayName="Bytes Printed per Second" categoryName="Print Queue" counterName="Bytes Printed/sec" instanceName="Fax" />
       </Windows>
     </PerformanceCounters>
+```
 
 * displayName – The name displayed in the Application Insights portal.
 * categoryName – The performance counter category (performance object) with which this performance counter is associated.
