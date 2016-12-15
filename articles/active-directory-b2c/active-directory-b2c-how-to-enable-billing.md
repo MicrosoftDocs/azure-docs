@@ -24,15 +24,15 @@ Ongoing usage charges for Azure Active Directory B2C (or Azure AD B2C) are bille
 
 
 > [!IMPORTANT]
-> The latest information on usage billing and pricing for B2C is at the following page. [Azure AD B2C Pricing](
+> The latest information on usage billing and pricing for B2C is at the following page: [Azure AD B2C Pricing](
 https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
 ## Step 1 - Create an Azure AD B2C Tenant
 
 B2C tenant creation must be completed first. Skip this step if you have already created your target B2C Tenant. [Get started with Azure AD B2C](https://azure.microsoft.com/documentation/articles/active-directory-b2c-get-started/)
 
-## Step 2 - Open Azure portal in the Azure AD Tenant trusted by your Azure subscription
-Navigate to portal.azure.com. Switch to the Azure AD Tenant that shows the Azure subscription you would like to use. This  Azure AD tenant is different from the B2C tenant. Within the Azure portal, click the account name on the upper right of the dashboard to select the Azure AD Tenant.    An Azure subscription is needed to proceed. [Get an Azure Subscription](https://account.windowsazure.com/signup?showCatalog=True)
+## Step 2 - Open Azure portal in the Azure AD Tenant that shows your Azure subscription
+Navigate to portal.azure.com. Switch to the Azure AD Tenant that shows the Azure subscription you would like to use. This Azure AD tenant is different from the B2C tenant. Within the Azure portal, click the account name on the upper right of the dashboard to select the Azure AD Tenant. An Azure subscription is needed to proceed. [Get an Azure Subscription](https://account.windowsazure.com/signup?showCatalog=True)
 
 ![Switching to your Azure AD Tenant](./media/active-directory-b2c-how-to-enable-billing/SelectAzureADTenant.png)
 
@@ -48,7 +48,7 @@ The Azure AD B2C Resource create dialog covers the following parameters:
 
 2. Azure AD B2C Resource name - is preselected to match the domain name of the B2C Tenant
 
-3. Subscription - An active Azure subscription in which the current user is an administrator or a co-administrator.  Multiple Azure AD B2C Tenants may be added to one Azure subscription
+3. Subscription - An active Azure subscription in which you are an administrator or a co-administrator.  Multiple Azure AD B2C Tenants may be added to one Azure subscription
 
 4. Resource Group and Resource Group location - This artifact helps you organize multiple Azure resources.  This choice has no impact on your B2C tenant location, performance, or billing status
 
