@@ -62,7 +62,7 @@ Get-AzureApplicationGateway AppGwTest
 > 
 > 
 
-*VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These are created once the gateway is in the running state.
+*VirtualIPs* and *DnsName* are shown as blank because the gateway has not started yet. These values are created once the gateway is in the running state.
 
 ## Configure an application gateway
 
@@ -142,7 +142,7 @@ Copy the following text to Notepad.
 
 Edit the values between the parentheses for the configuration items. Save the file with extension .xml.
 
-The following example shows how to use a configuration file to set up the application gateway, to load balance HTTP traffic on public port 80 and send network traffic to back-end port 80 between two IP addresses by using a custom probe.
+The following example shows how to use a configuration file to set up the application gateway to load balance HTTP traffic on public port 80 and send network traffic to back-end port 80 between two IP addresses by using a custom probe.
 
 > [!IMPORTANT]
 > The protocol item Http or Https is case-sensitive.
@@ -158,7 +158,7 @@ The configuration parameters are:
 * **Timeout** - Defines the probe time-out for an HTTP response check.
 * **UnhealthyThreshold** - The number of failed HTTP responses needed to flag the back-end instance as *unhealthy*.
 
-The probe name is referenced in the <BackendHttpSettings> configuration to assign which back-end pool uses custom probe settings.
+The probe name is referenced in the \<BackendHttpSettings\> configuration to assign which back-end pool uses custom probe settings.
 
 ## Add a custom probe configuration to an existing application gateway
 
@@ -166,7 +166,7 @@ Changing the current configuration of an application gateway requires three step
 
 ### Step 1
 
-Get the XML file by using `Get-AzureApplicationGatewayConfig`. This exports the configuration XML to be modified to add a probe setting.
+Get the XML file by using `Get-AzureApplicationGatewayConfig`. This cmdlet exports the configuration XML to be modified to add a probe setting.
 
 ```powershell
 Get-AzureApplicationGatewayConfig -Name "<application gateway name>" -Exporttofile "<path to file>"
@@ -207,7 +207,7 @@ Save the XML file.
 
 ### Step 3
 
-Update the application gateway configuration with the new XML file by using `Set-AzureApplicationGatewayConfig`. This updates your application gateway with the new configuration.
+Update the application gateway configuration with the new XML file by using `Set-AzureApplicationGatewayConfig`. This cmdlet updates your application gateway with the new configuration.
 
 ```powershell
 Set-AzureApplicationGatewayConfig -Name "<application gateway name>" -Configfile "<path to file>"
