@@ -100,7 +100,7 @@ In this section, you use a Resource Manager template to create HDInsight cluster
 4. Check **I agree to the terms and conditions stated above**, and then click  **Purchase** to create the cluster with the edge node.
 
 ## Access an edge node
-The edge node ssh endpoint is <EdgeNodeName>.<ClusterName>-ssh.azurehdinsight.net:22.  For example, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
+The edge node ssh endpoint is &lt;EdgeNodeName>.&lt;ClusterName>-ssh.azurehdinsight.net:22.  For example, new-edgenode.myedgenode0914-ssh.azurehdinsight.net:22.
 
 The edge node appears as an application on the Azure portal.  The portal gives you the information to access the edge node using SSH.
 
