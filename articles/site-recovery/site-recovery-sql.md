@@ -185,26 +185,27 @@ For the environments that are not managed by a VMM Server or a Configuration Ser
 
 1. Create a local file for the script to fail over an availability group. This sample script specifies a path to the availability group on the Azure replica and fails it over to that replica instance. This script will be run on the SQL Server replica virtual machine by passing is with the custom script extension.
 
-     Param(
-     [string]$SQLAvailabilityGroupPath
-     )
-     import-module sqlps
-     Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
+    	Param(
+   		[string]$SQLAvailabilityGroupPath
+    	)
+    	import-module sqlps
+    	Switch-SqlAvailabilityGroup -Path $SQLAvailabilityGroupPath -AllowDataLoss -force
+
 2. Upload the script to a blob in an Azure storage account. Use this example:
 
-     $context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
-     Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
+    	$context = New-AzureStorageContext -StorageAccountName "Account" -StorageAccountKey "Key"
+    	Set-AzureStorageBlobContent -Blob "AGFailover.ps1" -Container "script-container" -File "ScriptLocalFilePath" -context $context
 
 3. Create an Azure automation runbook to invoke the scripts on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](site-recovery-runbook-automation.md) about using automation runbooks in recovery plans.
 
 4. **Test Failover**: SQL AlwaysOn doesn’t natively support Test Failover. Therefore the recommended way to do it as follows:
 	1. Setup [Azure Backup](../backup/backup-azure-vms.md) on virtual machine that hosts Availability Group replica in Azure. 
 	1. Before triggering test failover of the recovery plan, recover the virtual machine from the backup taken in Step-1
-	1. Do test failover of the tecovery plan
+	1. Do test failover of the recovery plan
 
 
 > [!NOTE]
-> The script below assumes that the SQL Availability Group is hosted in a Classic Azure virtual machine and the name of restored virtual machine in Step-2 is SQLAzureVM-Test. 
+> The script below assumes that the SQL Availability Group is hosted in a Classic Azure virtual machine and the name of restored virtual machine in Step-2 is SQLAzureVM-Test. Modify the script based on the name you use for the recovered virtual machine.
 > 
 > 
 
@@ -239,8 +240,10 @@ For the environments that are not managed by a VMM Server or a Configuration Ser
                     Add-AzureInternalLoadBalancer -InternalLoadBalancerName SQLAGILB -SubnetName Subnet-1 -ServiceName SQLAzureVM-Test -StaticVNetIPAddress #IP
                     Write-Output "ILB Created"
 
+					#Update the script with name of the virtual machine recovered using Azure Backup
                     Write-Output "Adding SQL AG Endpoint"
                     Get-AzureVM -ServiceName "SQLAzureVM-Test" -Name "SQLAzureVM-Test"| Add-AzureEndpoint -Name sqlag -LBSetName sqlagset -Protocol tcp -LocalPort 1433 -PublicPort 1433 -ProbePort 59999 -ProbeProtocol tcp -ProbeIntervalInSeconds 10 -InternalLoadBalancerName SQLAGILB | Update-AzureVM
+
                     Write-Output "Added Endpoint"
         
                     $VM = Get-AzureVM -Name "SQLAzureVM-Test" -ServiceName "SQLAzureVM-Test" 
