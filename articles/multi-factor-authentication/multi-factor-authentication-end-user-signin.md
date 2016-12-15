@@ -1,3 +1,3 @@
 ---
-redirect_url: ./end-user/signin
+redirect_url: ./end-user/signin-walkthrough
 ---
