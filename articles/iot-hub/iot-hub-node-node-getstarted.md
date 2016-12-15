@@ -41,7 +41,7 @@ To complete this tutorial, you need the following:
 You have now created your IoT hub. You have the IoT Hub host name and the IoT Hub connection string that you need to complete the rest of this tutorial.
 
 ## Create a device identity
-In this section, you create a Node.js console app that creates a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. Refer to the **Identity Registry** section of the [IoT Hub developer guide][lnk-devguide-identity] for more information. When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
+In this section, you create a Node.js console app that creates a device identity in the identity registry in your IoT hub. A device cannot connect to IoT hub unless it has an entry in the identity registry. For more information, see the **Identity Registry** section of the [IoT Hub developer guide][lnk-devguide-identity]. When you run this console app, it generates a unique device ID and key that your device can use to identify itself when it sends device-to-cloud messages to IoT Hub.
 
 1. Create a new empty folder called **createdeviceidentity**. In the **createdeviceidentity** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
    
@@ -98,7 +98,7 @@ In this section, you create a Node.js console app that creates a device identity
 9. Make a note of the **Device ID** and **Device key**. You need these values later when you create an application that connects to IoT Hub as a device.
 
 > [!NOTE]
-> The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub. It stores device IDs and keys to use as security credentials and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. Refer to [IoT Hub developer guide][lnk-devguide-identity] for more information.
+> The IoT Hub identity registry only stores device identities to enable secure access to the IoT hub. It stores device IDs and keys to use as security credentials and an enabled/disabled flag that you can use to disable access for an individual device. If your application needs to store other device-specific metadata, it should use an application-specific store. For more information, see the [IoT Hub developer guide][lnk-devguide-identity].
 > 
 > 
 
@@ -110,7 +110,7 @@ In this section, you create a Node.js console app that reads device-to-cloud mes
 > 
 > 
 
-1. Create a new empty folder called **readdevicetocloudmessages**. In the **readdevicetocloudmessages** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+1. Create an empty folder called **readdevicetocloudmessages**. In the **readdevicetocloudmessages** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
    
     ```
     npm init
@@ -146,7 +146,7 @@ In this section, you create a Node.js console app that reads device-to-cloud mes
       console.log('');
     };
     ```
-7. Add the following code to create the **EventHubClient**, open the connection to your IoT Hub, and create a receiver for each partition. This application uses a filter when it creates a receiver so that the receiver only reads messages sent to IoT Hub after the receiver starts running. This filter is useful in a test environment so you see just the current set of messages. In a production environment, your code should make sure that it processes all the messages - see the [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial for more information:
+7. Add the following code to create the **EventHubClient**, open the connection to your IoT Hub, and create a receiver for each partition. This application uses a filter when it creates a receiver so that the receiver only reads messages sent to IoT Hub after the receiver starts running. This filter is useful in a test environment so you see just the current set of messages. In a production environment, your code should make sure that it processes all the messages. For more information, see the [How to process IoT Hub device-to-cloud messages][lnk-process-d2c-tutorial] tutorial:
    
     ```
     var client = EventHubClient.fromConnectionString(connectionString);
@@ -168,7 +168,7 @@ In this section, you create a Node.js console app that reads device-to-cloud mes
 ## Create a simulated device app
 In this section, you create a Node.js console app that simulates a device that sends device-to-cloud messages to an IoT hub.
 
-1. Create a new empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
+1. Create an empty folder called **simulateddevice**. In the **simulateddevice** folder, create a package.json file using the following command at your command prompt. Accept all the defaults:
    
     ```
     npm init
@@ -178,7 +178,7 @@ In this section, you create a Node.js console app that simulates a device that s
     ```
     npm install azure-iot-device azure-iot-device-mqtt --save
     ```
-3. Using a text editor, create a new **SimulatedDevice.js** file in the **simulateddevice** folder.
+3. Using a text editor, create a **SimulatedDevice.js** file in the **simulateddevice** folder.
 4. Add the following `require` statements at the start of the **SimulatedDevice.js** file:
    
     ```
@@ -204,7 +204,7 @@ In this section, you create a Node.js console app that simulates a device that s
       };
     }
     ```
-7. Create a callback and use the **setInterval** function to send a new message to your IoT hub every second:
+7. Create a callback and use the **setInterval** function to send a message to your IoT hub every second:
    
     ```
     var connectCallback = function (err) {
