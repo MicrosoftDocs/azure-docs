@@ -17,8 +17,11 @@
 ### [Monitor with OMS (DC/OS)](container-service-monitoring-oms.md)
 ### [Monitor with Datadog (DC/OS)](container-service-monitoring.md)
 ### [Monitor with Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
+### [Monitor with Dynatrace (DC/OS)](container-service-monitoring-dynatrace.md)
 ## [Manage with Kubernetes](container-service-kubernetes-walkthrough.md)
-## [Manage with Docker Swarm](container-service-docker-swarm.md)
+## Manage with Docker Swarm
+### [Container management - Docker and Docker Compose](container-service-docker-swarm.md)
+### [Container management - Docker Swarm continuous integration](container-service-docker-swarm-setup-ci-cd.md)
 # Reference
 ## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
