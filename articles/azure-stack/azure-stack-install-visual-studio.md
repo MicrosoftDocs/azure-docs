@@ -1,5 +1,5 @@
 ---
-title: Install Visual Studio for Azure Stack | Microsoft Docs
+title: Install Visual Studio and connect to Azure Stack | Microsoft Docs
 description: Learn the steps required to install Visual Studio and connect to Azure Stack
 services: azure-stack
 documentationcenter: ''
@@ -18,27 +18,29 @@ ms.author: helaw
 
 ---
 
-# Install Visual Studio for Azure Stack
-Visual Studio is used to author and deploy Azure Resource Manage templates in Azure Stack.  Use the following steps to install the versions supported with Azure Stack TP2.  
+# Install Visual Studio and connect to Azure Stack
+You can use Visual Studio to author and deploy Azure Resource Manager [templates](azure-stack-arm-templates.md) in Azure Stack.  Use the following steps to install the supported version for Azure Stack TP2.  
+
+## Before you begin
+ - These steps will perform a new installation of Visual Studio 2015 Community Edition.  Read more about [coexistence](https://msdn.microsoft.com/library/ms246609.aspx) between other Visual Studio versions.
+ - You can install on [MAS-CON01](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or install on a workstation that has [VPN](azure-stack-connect-azure-stack.md#connect-with-vpn) connectivity to Azure Stack.
 
 ## Install Visual Studio
-1.	Make sure you are connected to Azure Stack.  You can [RDP](azure-stack-connect-azure-stack.md#connect-with-remote-desktop) to MAS-CON01 VM, or you can use [VPN](azure-stack-connect-azure-stack.md#connect-with-vpn) to connect from a workstation.
+1.	Download and run the [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).             
 
-2.	Download and install the [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).             
+2.	Search for **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6**, then click **Add**, and **Install** at the bottom of the screen.
 
-3.	In Web Platform Installer, search for **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6**, then click **Add**, and **Install** at the bottom of the screen.
+    ![Screenshot of WebPI install steps](./media/azure-stack-install-visual-studio/image1.png) 
 
-    ![Screenshot of WebPI install steps](./media/azure-stack-install-visual-studio/image3.png) 
+3.	Uninstall the **Microsoft Azure PowerShell** that is installed as part of the Azure SDK.
 
-4.	Using Add/Remove Programs from Control Panel, uninstall the **Microsoft Azure PowerShell** that is installed as part of the Azure SDK.
+      ![Screenshot of add/remove programs interface for Azure PowerShell](./media/azure-stack-install-visual-studio/image2.png) 
 
-      ![Screenshot of add/remove programs interface for Azure PowerShell](./media/azure-stack-install-visual-studio/image1.png) 
+4.	Open the Web Platform Installer, search for **Microsoft Azure PowerShell - Azure Stack Technical Preview 2** and then install.
 
-5.	Open the Web Platform Installer, search for **Microsoft Azure PowerShell - Azure Stack Technical Preview 2** and then install.
+    ![Screenshot of add/remove programs interface for Azure PowerShell](./media/azure-stack-install-visual-studio/image3.png)
 
-    ![Screenshot of add/remove programs interface for Azure PowerShell](./media/azure-stack-install-visual-studio/image2.png)
-
-6.	After the installation completes, restart the machine where tools were installed.
+5.	Restart the operating system once the installation completes.
 
 ## Connect to Azure Stack
 
@@ -46,13 +48,11 @@ Visual Studio is used to author and deploy Azure Resource Manage templates in Az
 
 2.  From the **Edit** menu, select **Cloud Explorer**.
 
-3.  In the new pane, select **Add Account** and login with your Azure AD credentials.  
-
-4.  Once logged in, you can [deploy templates](azure-stack-deploy-template-visual-studio.md) or browse available resource types and resource groups to create your own templates.  
-
+3.  In the new pane, select **Add Account** and sign in with your Azure AD credentials.  
     ![Screenshot of Cloud Explorer once logged in and connected to Azure Stack](./media/azure-stack-install-visual-studio/image6.png)
+
+Once logged in, you can [deploy templates](azure-stack-deploy-template-visual-studio.md) or browse available resource types and resource groups to create your own templates.  
 
 ## Next Steps
 
- - [Deploy templates with Visual Studio](azure-stack-deploy-template-visual-studio.md)
-
+ - [Develop templates for Azure Stack](azure-stack-develop-templates.md)
