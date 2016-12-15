@@ -172,14 +172,14 @@ To use pscp from [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/downl
   export KUBECONFIG=`pwd`/config
   kubectl get nodes
   ```
-# Learning More
+## Learning More
 
-## Azure Container Service
+### Azure Container Service
 
 1. [Azure Container Service documentation](https://azure.microsoft.com/en-us/documentation/services/container-service/)
 2. [Azure Container Service Open Source Engine](https://github.com/azure/acs-engine)
 
-## Kubernetes Community Documentation
+### Kubernetes Community Documentation
 
 1. [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) - shows you how to deploy, scale, update, and debug containerized applications.
 2. [Kubernetes Userguide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
