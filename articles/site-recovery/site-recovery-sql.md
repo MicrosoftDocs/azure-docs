@@ -200,12 +200,11 @@ For the environments that are not managed by a VMM Server or a Configuration Ser
 4. **Test Failover**: SQL AlwaysOn doesn’t natively support Test Failover. Therefore the recommended way to do it as follows:
 	1. Setup [Azure Backup](../backup/backup-azure-vms) on virtual machine that hosts Availability Group replica in Azure. 
 	1. Before triggering test failover of the recovery plan, recover the virtual machine from the backup taken in Step-1
-	1. The script below assumes that SQLAzureVM-Test is name of the restored virtual machine created in Step-2
 	1. Do test failover of the tecovery plan
 
 
 > [!NOTE]
-> The script below assumes that the SQL Availability Group is hosted in a Classic Azure virtual machine.
+> The script below assumes that the SQL Availability Group is hosted in a Classic Azure virtual machine. And the name of restored virtual machine in Step-2 is SQLAzureVM-Test. 
 > 
 > 
 
