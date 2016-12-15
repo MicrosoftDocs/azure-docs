@@ -91,7 +91,7 @@ New-AzureRmResourceGroup -Name appgw-rg -location "West US"
 
 Azure Resource Manager requires that all resource groups specify a location. This is used as the default location for resources in that resource group. Make sure that all commands to create an application gateway uses the same resource group.
 
-In the example above, we created a resource group called "appgw-rg" and location "West US".
+In the preceding example, we created a resource group called "appgw-rg" and location "West US".
 
 ## Create a virtual network and a subnet for the application gateway
 
@@ -103,7 +103,7 @@ The following example shows how to create a virtual network by using Resource Ma
 $subnetconfig = New-AzureRmVirtualNetworkSubnetConfig -Name subnet01 -AddressPrefix 10.0.0.0/24
 ```
 
-This assigns the address range 10.0.0.0/24 to a subnet variable to be used to create a virtual network.
+This step assigns the address range 10.0.0.0/24 to a subnet variable to be used to create a virtual network.
 
 ### Step 2
 
@@ -111,7 +111,7 @@ This assigns the address range 10.0.0.0/24 to a subnet variable to be used to cr
 $vnet = New-AzureRmVirtualNetwork -Name appgwvnet -ResourceGroupName appgw-rg -Location "West US" -AddressPrefix 10.0.0.0/16 -Subnet $subnetconfig
 ```
 
-This creates a virtual network named "appgwvnet" in resource group "appgw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24.
+This step creates a virtual network named "appgwvnet" in resource group "appgw-rg" for the West US region using the prefix 10.0.0.0/16 with subnet 10.0.0.0/24.
 
 ### Step 3
 
@@ -119,7 +119,7 @@ This creates a virtual network named "appgwvnet" in resource group "appgw-rg" fo
 $subnet = $vnet.subnets[0]
 ```
 
-This assigns the subnet object to variable $subnet for the next steps.
+This step assigns the subnet object to variable $subnet for the next steps.
 
 ## Create an application gateway configuration object
 
@@ -129,7 +129,7 @@ This assigns the subnet object to variable $subnet for the next steps.
 $gipconfig = New-AzureRmApplicationGatewayIPConfiguration -Name gatewayIP01 -Subnet $subnet
 ```
 
-This creates an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
+This step creates an application gateway IP configuration named "gatewayIP01". When Application Gateway starts, it picks up an IP address from the subnet configured and route network traffic to the IP addresses in the back-end IP pool. Keep in mind that each instance takes one IP address.
 
 ### Step 2
 
@@ -137,7 +137,7 @@ This creates an application gateway IP configuration named "gatewayIP01". When A
 $pool = New-AzureRmApplicationGatewayBackendAddressPool -Name pool01 -BackendIPAddresses 134.170.185.46, 134.170.188.221,134.170.185.50
 ```
 
-This configures the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. You replace the IP addresses above to add your own application IP address endpoints.
+This step configures the back-end IP address pool named "pool01" with IP addresses "134.170.185.46, 134.170.188.221,134.170.185.50". Those are the IP addresses that receive the network traffic that comes from the front-end IP endpoint. You replace the preceding IP addresses to add your own application IP address endpoints.
 
 ### Step 3
 
@@ -145,7 +145,7 @@ This configures the back-end IP address pool named "pool01" with IP addresses "1
 $poolSetting = New-AzureRmApplicationGatewayBackendHttpSettings -Name poolsetting01 -Port 80 -Protocol Http -CookieBasedAffinity Disabled
 ```
 
-This configures application gateway setting "poolsetting01" for the load balanced network traffic in the back-end pool.
+This step configures application gateway setting "poolsetting01" for the load balanced network traffic in the back-end pool.
 
 ### Step 4
 
@@ -153,7 +153,7 @@ This configures application gateway setting "poolsetting01" for the load balance
 $fp = New-AzureRmApplicationGatewayFrontendPort -Name frontendport01  -Port 80
 ```
 
-This configures the front-end IP port named "frontendport01" for the ILB.
+This step configures the front-end IP port named "frontendport01" for the ILB.
 
 ### Step 5
 
@@ -161,7 +161,7 @@ This configures the front-end IP port named "frontendport01" for the ILB.
 $fipconfig = New-AzureRmApplicationGatewayFrontendIPConfig -Name fipconfig01 -Subnet $subnet
 ```
 
-This creates the front-end IP configuration called "fipconfig01" and associates it with a private IP from the current virtual network subnet.
+This step creates the front-end IP configuration called "fipconfig01" and associates it with a private IP from the current virtual network subnet.
 
 ### Step 6
 
@@ -169,7 +169,7 @@ This creates the front-end IP configuration called "fipconfig01" and associates 
 $listener = New-AzureRmApplicationGatewayHttpListener -Name listener01  -Protocol Http -FrontendIPConfiguration $fipconfig -FrontendPort $fp
 ```
 
-This creates the listener called "listener01" and associates the front-end port to the front-end IP configuration.
+This step creates the listener called "listener01" and associates the front-end port to the front-end IP configuration.
 
 ### Step 7
 
@@ -177,7 +177,7 @@ This creates the listener called "listener01" and associates the front-end port 
 $rule = New-AzureRmApplicationGatewayRequestRoutingRule -Name rule01 -RuleType Basic -BackendHttpSettings $poolSetting -HttpListener $listener -BackendAddressPool $pool
 ```
 
-This creates the load balancer routing rule called "rule01" that configures the load balancer behavior.
+This step creates the load balancer routing rule called "rule01" that configures the load balancer behavior.
 
 ### Step 8
 
@@ -185,24 +185,24 @@ This creates the load balancer routing rule called "rule01" that configures the 
 $sku = New-AzureRmApplicationGatewaySku -Name Standard_Small -Tier Standard -Capacity 2
 ```
 
-This configures the instance size of the application gateway.
+This step configures the instance size of the application gateway.
 
 > [!NOTE]
 > The default value for *InstanceCount* is 2, with a maximum value of 10. The default value for *GatewaySize* is Medium. You can choose between Standard_Small, Standard_Medium, and Standard_Large.
 
 ## Create an application gateway by using New-AzureApplicationGateway
 
-Creates an application gateway with all configuration items from the steps above. In this example, the application gateway is called "appgwtest".
+Creates an application gateway with all configuration items from the preceding steps. In this example, the application gateway is called "appgwtest".
 
 ```powershell
 $appgw = New-AzureRmApplicationGateway -Name appgwtest -ResourceGroupName appgw-rg -Location "West US" -BackendAddressPools $pool -BackendHttpSettingsCollection $poolSetting -FrontendIpConfigurations $fipconfig  -GatewayIpConfigurations $gipconfig -FrontendPorts $fp -HttpListeners $listener -RequestRoutingRules $rule -Sku $sku
 ```
 
-This creates an application gateway with all configuration items from the steps above. In the example, the application gateway is called "appgwtest".
+This step creates an application gateway with all configuration items from the preceding steps. In the example, the application gateway is called "appgwtest".
 
 ## Delete an application gateway
 
-To delete an application gateway, you'll need to do the following in order:
+To delete an application gateway, you need to do the following steps in order:
 
 1. Use the `Stop-AzureRmApplicationGateway` cmdlet to stop the gateway.
 2. Use the `Remove-AzureRmApplicationGateway` cmdlet to remove the gateway.

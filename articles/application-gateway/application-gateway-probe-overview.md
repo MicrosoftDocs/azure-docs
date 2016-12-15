@@ -1,5 +1,3 @@
-
-
 ---
 title: Health monitoring overview for Azure Application Gateway | Microsoft Docs
 description: Learn about the monitoring capabilities in Azure Application Gateway
@@ -23,7 +21,7 @@ ms.author: gwallace
 
 # Application Gateway health monitoring overview
 
-Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes. Application gateway sends the health probes with the same port that is defined in the back-end HTTP settings. This ensures that the probe is testing the same port that customers would be using to connect to the backend.
+Azure Application Gateway by default monitors the health of all resources in its back-end pool and automatically removes any resource considered unhealthy from the pool. Application Gateway continues to monitor the unhealthy instances and adds them back to the healthy back-end pool once they become available and respond to health probes. Application gateway sends the health probes with the same port that is defined in the back-end HTTP settings. This configuration ensures that the probe is testing the same port that customers would be using to connect to the backend.
 
 ![application gateway probe example][1]
 
@@ -31,7 +29,7 @@ In addition to using default health probe monitoring, you can also customize the
 
 ## Default health probe
 
-An application gateway automatically configures a default health probe when you don't set up any custom probe configuration. The monitoring behavior works by making an HTTP request to the IP addresses configured for the back-end pool. For default probes if the backend http settings are configured for HTTPS, the probe will use https as well to test health of the backends.
+An application gateway automatically configures a default health probe when you don't set up any custom probe configuration. The monitoring behavior works by making an HTTP request to the IP addresses configured for the back-end pool. For default probes if the backend http settings are configured for HTTPS, the probe uses HTTPS as well to test health of the backends.
 
 For example: You configure your application gateway to use back-end servers A, B, and C to receive HTTP network traffic on port 80. The default health monitoring tests the three servers every 30 seconds for a healthy HTTP response. A healthy HTTP response has a [status code](https://msdn.microsoft.com/library/aa287675.aspx) between 200 and 399.
 
@@ -47,9 +45,9 @@ If the default probe check fails for server A, the application gateway removes i
 | Unhealthy threshold |3 |Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
 > [!NOTE]
-> The port will always be the same port as the back-end HTTP settings.
+> The port is the same port as the back-end HTTP settings.
 
-The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes as described in the following steps.
+The default probe looks only at http://127.0.0.1:\<port\> to determine health status. If you need to configure the health probe to go to a custom URL or modify any other settings, you must use custom probes as described in the following steps:
 
 ## Custom health probe
 
@@ -62,11 +60,11 @@ The following table provides definitions for the properties of a custom health p
 | Probe property | Description |
 | --- | --- |
 | Name |Name of the probe. This name is used to refer to the probe in back-end HTTP settings. |
-| Protocol |Protocol used to send the probe. The probe will use the protocol defined in the back-end HTTP settings |
-| Host |Host name to send the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This is different from VM host name. |
+| Protocol |Protocol used to send the probe. The probe uses the protocol defined in the back-end HTTP settings |
+| Host |Host name to send the probe. Applicable only when multi-site is configured on Application Gateway, otherwise use '127.0.0.1'. This value is different from VM host name. |
 | Path |Relative path of the probe. The valid path starts from '/'. |
-| Interval |Probe interval in seconds. This is the time interval between two consecutive probes. |
-| Time-out |Probe time-out in seconds. The probe is marked as failed if a valid response is not received within this time-out period. |
+| Interval |Probe interval in seconds. This value is the time interval between two consecutive probes. |
+| Time-out |Probe time-out in seconds. If a valid response is not received within this time-out period, the probe is marked as failed.  |
 | Unhealthy threshold |Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
 > [!IMPORTANT]

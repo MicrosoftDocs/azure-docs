@@ -50,7 +50,7 @@ Application Gateway is useful for:
 * Applications that support websocket traffic
 * Protecting web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
 
-Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer. Traffic manager can be used to complete the scenario as seen in the following image, where Traffic Manager provides redirection and availability,of traffic to multiple application gateway resources in different regions, while application gateway provides cross region layer 7 load balancing. An example of this scenario can be found at: [Using load balancing services in the Azure cloud](../traffic-manager/traffic-manager-load-balancing-azure.md)
+Application Gateway load balancing as an Azure-managed service allows the provisioning of a layer 7 load balancer behind the Azure software load balancer. Traffic manager can be used to complete the scenario as seen in the following image, where Traffic Manager provides redirection and availability of traffic to multiple application gateway resources in different regions, while application gateway provides cross region layer 7 load balancing. An example of this scenario can be found at: [Using load balancing services in the Azure cloud](../traffic-manager/traffic-manager-load-balancing-azure.md)
 
 ![traffic manager and application gateway scenario](./media/application-gateway-introduction/tm-lb-ag-scenario.png)
 
@@ -72,7 +72,7 @@ The following table shows an average performance throughput for each application
 | 100K |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
-> These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests, these values are only provided for capacity planning guidance.
+> These values are approximate values for an application gateway throughput. The actual throughput depends on various environment details, such as average page size, location of back-end instances, and processing time to serve a page. For exact performance numbers, you should run your own tests. These values are only provided for capacity planning guidance.
 
 ## Health monitoring
 
