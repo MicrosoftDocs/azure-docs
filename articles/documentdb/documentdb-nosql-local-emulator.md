@@ -119,9 +119,9 @@ From the installation location, you can use the command-line to start and stop t
 
 ### Command-line Syntax
 
-    DocumentDB.LocalEmulator.exe [/shutdown] [/datapath] [/port] [/mongoport] [/directports] [/key] [/?]
+    DocumentDB.Emulator.exe [/shutdown] [/datapath] [/port] [/mongoport] [/directports] [/key] [/?]
 
-To view the list of options, type `DocumentDB.LocalEmulator.exe /?` at the command prompt.
+To view the list of options, type `DocumentDB.Emulator.exe /?` at the command prompt.
 
 <table>
 <tr>
@@ -133,61 +133,61 @@ To view the list of options, type `DocumentDB.LocalEmulator.exe /?` at the comma
 <tr>
   <td>[No arguments]</td>
   <td>Starts up the DocumentDB Emulator with default settings</td>
-  <td>DocumentDB.LocalEmulator.exe</td>
+  <td>DocumentDB.Emulator.exe</td>
   <td></td>
 </tr>
 <tr>
   <td>Shutdown</td>
   <td>Shuts down the DocumentDB Emulator</td>
-  <td>DocumentDB.LocalEmulator.exe /Shutdown</td>
+  <td>DocumentDB.Emulator.exe /Shutdown</td>
   <td></td>
 </tr>
 <tr>
   <td>Help</td>
   <td>Displays the list of command-line arguments</td>
-  <td>DocumentDB.LocalEmulator.exe /?</td>
+  <td>DocumentDB.Emulator.exe /?</td>
   <td></td>
 </tr>
 <tr>
   <td>Datapath</td>
   <td>Specifies the path in which to store data files</td>
-  <td>DocumentDB.LocalEmulator.exe /datapath=&lt;datapath&gt;</td>
+  <td>DocumentDB.Emulator.exe /datapath=&lt;datapath&gt;</td>
   <td>&lt;datapath&gt;: An accessible path</td>
 </tr>
 <tr>
   <td>Port</td>
   <td>Specifies the port number to use for the emulator.  Default is 8081</td>
-  <td>DocumentDB.LocalEmulator.exe /port=&lt;port&gt;</td>
+  <td>DocumentDB.Emulator.exe /port=&lt;port&gt;</td>
   <td>&lt;port&gt;: Single port number</td>
 </tr>
 <tr>
   <td>MongoPort</td>
   <td>Specifies the port number to use for MongoDB compatibility API. Default is 10250</td>
-  <td>DocumentDB.LocalEmulator.exe /mongoport=&lt;mongoport&gt;</td>
+  <td>DocumentDB.Emulator.exe /mongoport=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: Single port number</td>
 </tr>
 <tr>
   <td>DirectPorts</td>
   <td>Specifies the ports to use for direct connectivity. Defaults are 10251,10252,10253,10254</td>
-  <td>DocumentDB.LocalEmulator.exe /directports:&lt;directports&gt;</td>
+  <td>DocumentDB.Emulator.exe /directports:&lt;directports&gt;</td>
   <td>&lt;directports&gt;: Comma-delimited list of 4 ports</td>
 </tr>
 <tr>
   <td>Key</td>
   <td>Authorization key for the emulator. Key must be the base-64 encoding of a 64-byte vector</td>
-  <td>DocumentDB.LocalEmulator.exe /key:&lt;key&gt;</td>
+  <td>DocumentDB.Emulator.exe /key:&lt;key&gt;</td>
   <td>&lt;key&gt;: Key must be the base-64 encoding of a 64-byte vector</td>
 </tr>
 <tr>
   <td>EnableThrottling</td>
   <td>Specifies that request throttling behavior is enabled</td>
-  <td>DocumentDB.LocalEmulator.exe /enablethrottling</td>
+  <td>DocumentDB.Emulator.exe /enablethrottling</td>
   <td></td>
 </tr>
 <tr>
   <td>DisableThrottling</td>
   <td>Specifies that request throttling behavior is disabled</td>
-  <td>DocumentDB.LocalEmulator.exe /disablethrottling</td>
+  <td>DocumentDB.Emulator.exe /disablethrottling</td>
   <td></td>
 </tr>
 </table>
