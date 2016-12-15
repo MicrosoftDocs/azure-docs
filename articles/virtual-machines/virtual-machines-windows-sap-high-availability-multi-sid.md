@@ -1,6 +1,6 @@
 
 ---
-title: Configure Additional SAP ASCS/SCS Instance into an Existing Cluster configuration to create an SAP Multi-SID configuration - Azure Resource Manager | Microsoft Docs
+title: Configure an additional SAP ASCS/SCS instance into an existing cluster to create an SAP multi-SID configuration - Azure Resource Manager | Microsoft Docs
 description: High-availability guide for SAP NetWeaver Multi-SID on Windows Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -440,11 +440,11 @@ ms.author: goraco
 [xplat-cli-azure-resource-manager]:../xplat-cli-azure-resource-manager.md
 
 
-In September 2016, Microsoft released a feature that lets you manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. This functionality that already exists in external Azure Load Balancer.
+In September 2016, Microsoft released a feature that lets you manage multiple virtual IP addresses by using an [Azure internal load balancer][load-balancer-multivip-overview]. This functionality already exists in external Azure Load Balancer.
 
 If you have an SAP deployment, you can use an internal load balancer to create a Windows cluster configuration for SAP ASCS/SCS, as documented in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide].
 
-This article focuses on how to move from a single ASCS/SCS installation, as described in the article so far, to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster. In this way, you will have configured an SAP multi-SID cluster.
+This article focuses on how to move from a single ASCS/SCS installation to an SAP multi-SID configuration by installing additional SAP ASCS/SCS clustered instances into an existing Windows Server Failover Clustering (WSFC) cluster. When this process is completed, you will have configured an SAP multi-SID cluster.
 
 > [!NOTE]
 > This feature is available only in the Azure Resource Manager deployment model.
@@ -454,9 +454,9 @@ You have already configured a WSFC that is used for one SAP ASCS/SCS instance, a
 
 ![High-availability SAP ASCS/SCS instance][sap-ha-guide-figure-6001]
 
-## Target architecture
+## Target Architecture
 
-Our goal is that you can install multiple SAP ABAP ASCS or SAP Java SCS clustered instances in the same WSFC cluster, as illustrated in the following diagram:
+The goal is to install multiple SAP ABAP ASCS or SAP Java SCS clustered instances in the same WSFC cluster, as illustrated in the following diagram:
 
 ![Multiple SAP ASCS/SCS clustered instances in Azure][sap-ha-guide-figure-6002]
 
@@ -626,20 +626,20 @@ The preceding process is described in detail in the main [guide for high-availab
 
 ### Deploy VMs for SAP application servers and DBMS cluster
 
-To finalize infrastructure preparation for the second SAP system, do the following:
+To finalize infrastructure preparation for the second SAP system, you must do the following:
 
-* Deploy dedicated VMs for SAP application servers and put them in their own dedicated availability group.
-* Deploy dedicated VMs for the DBMS cluster and put them in their own dedicated availability group.
+* Deploy dedicated VMs for SAP application servers and put them in own dedicated availability group
+* Deploy dedicated VMs for DBMS cluster and put them in own dedicated availability group
 
 
 ## Install the second SAP SID2 NetWeaver system
 
-The complete process of installing a second SAP SID2 system is described in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9].
+The complete process of installing a second SAP **SID2** system is described in the main [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide-9].
 
 The high-level procedure is as follows:
 
 1. [Install the SAP first cluster node][sap-ha-guide-9.1.2].  
- Install SAP with a high-availability ASCS/SCS instance on the existing WSFC cluster node 1.
+ Install SAP with a high-availability ASCS/SCS instance on the **EXISTING WSFC cluster node 1**.
 
 2. [Modify the SAP profile of the ASCS/SCS instance][sap-ha-guide-9.1.3].
 
