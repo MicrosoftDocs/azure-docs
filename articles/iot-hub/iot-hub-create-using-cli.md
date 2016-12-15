@@ -30,7 +30,7 @@ You can complete the task using one of the following CLI versions:
 * [Azure CLI (azure.js)](iot-hub-create-using-cli-nodejs.md) – the CLI for the classic and resource management deployment models.
 * Azure CLI 2.0 (Preview) (az.py) - the next generation CLI for the resource management deployment model as described in this article.
 
-To complete this tutorial you need the following:
+To complete this tutorial, you need the following:
 
 * An active Azure account. If you don't have an account, you can create a [free account][lnk-free-trial] in just a couple of minutes.
 * [Azure CLI 2.0 (Preview)][lnk-CLI-install].
@@ -65,7 +65,7 @@ Sign in to your Azure account and configure the Azure CLI to work with IoT Hub r
     az component update --add iot
     ```
 
-4. You must register the IoT provider before you can deploy IoT resources. Run the following [command to register the IoT provider][lnk-az-register-command]:
+4. Register the IoT provider before you can deploy IoT resources. Run the following [command to register the IoT provider][lnk-az-register-command]:
     
     ```azurecli
     az provider register -namespace Microsoft.Devices
@@ -93,7 +93,7 @@ Use the Azure CLI to create a resource group and then add an IoT hub.
     ```
 
 > [!NOTE]
-> The name of your IoT hub must be globally unique. The previous command creates an IoT hub in the S1 pricing tier for which you are billed. For more infomation, see [Azure IoT Hub pricing][lnk-iot-pricing].
+> The name of your IoT hub must be globally unique. The previous command creates an IoT hub in the S1 pricing tier for which you are billed. For more information, see [Azure IoT Hub pricing][lnk-iot-pricing].
 >
 >
 
@@ -114,13 +114,13 @@ az group delete --name {your resource group name}
 ```
 
 ## Next steps
-To learn more about developing for IoT Hub, see the following:
+To learn more about developing for IoT Hub, see the following articles:
 
 * [IoT Hub developer guide][lnk-devguide]
 
 To further explore the capabilities of IoT Hub, see:
 
-* [Using the Azure Portal to manage IoT Hub][lnk-portal]
+* [Using the Azure portal to manage IoT Hub][lnk-portal]
 
 <!-- Links -->
 [lnk-free-trial]: https://azure.microsoft.com/pricing/free-trial/
