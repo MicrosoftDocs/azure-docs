@@ -19,7 +19,7 @@ ms.author: juluk
 
 ---
 # Deploy LAMP Stack on Azure
-This article will walk you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You will need an Azure Account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md) that is [connected to your Azure account](../xplat-cli-connect.md).
+This article walks you through how to deploy an Apache web server, MySQL, and PHP (the LAMP stack) on Azure. You need an Azure Account ([get a free trial](https://azure.microsoft.com/pricing/free-trial/)) and the [Azure CLI](../xplat-cli-install.md) that is [connected to your Azure account](../xplat-cli-connect.md).
 
 There are two methods for installing LAMP covered in this article:
 
@@ -40,7 +40,7 @@ user@ubuntu$ sudo apt-get install apache2 mysql-server php5 php5-mysql
 ```
 
 ## Deploy LAMP on new VM Walkthrough
-You can start by creating a new [resource group](../azure-resource-manager/resource-group-overview.md) that will contain the VM:
+You can start by creating a [resource group](../azure-resource-manager/resource-group-overview.md) that will contain the new VM:
 
     $ azure group create uniqueResourceGroup westus
     info:    Executing command group create
@@ -96,15 +96,15 @@ You should see a response prompting some more inputs:
 You have now created a Linux VM with LAMP already installed on it. If you wish, you can verify the install by jumping down to [Verify LAMP Successfully Installed].
 
 ## Deploy LAMP on existing VM Walkthrough
-If you need help creating a Linux VM you can head [here to learn how to create a Linux VM](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-Next, you will need to SSH into the Linux VM. If you need help with creating an SSH key you can head [here to learn how to create an SSH key on Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-If you have an SSH key already, go ahead and SSH into your Linux VM with `ssh username@uniqueDNS`.
+If you need help creating a Linux VM, you can head [here to learn how to create a Linux VM](virtual-machines-linux-quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Next, you need to SSH into the Linux VM. If you need help with creating an SSH key you can head [here to learn how to create an SSH key on Linux/Mac](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+If you have an SSH key already, go ahead and SSH from your command line into your Linux VM with `ssh exampleUsername@exampleDNS`.
 
 Now that you are working within your Linux VM, we will walk through installing the LAMP stack on Debian-based distributions. The exact commands might differ for other Linux distros.
 
 #### Installing on Debian/Ubuntu
-You will need the following packages installed: `apache2`, `mysql-server`, `php5`, and `php5-mysql`. You can install these by directly grabbing these packages or using Tasksel. Instructions for both options are listed below.
-Before installing you will need to download and update package lists.
+You need the following packages installed: `apache2`, `mysql-server`, `php5`, and `php5-mysql`. You can install these packages by directly grabbing these packages or using Tasksel. Instructions for both options are listed below.
+Before installing you need to download and update package lists.
 
     user@ubuntu$ sudo apt-get update
 
@@ -119,7 +119,7 @@ Alternatively you can download Tasksel, a Debian/Ubuntu tool that installs multi
     user@ubuntu$ sudo apt-get install tasksel
     user@ubuntu$ sudo tasksel install lamp-server
 
-After running the either of the above options you will be prompted to install these packages and a number of other dependencies. Press 'y' and then 'Enter' to continue, and follow any other prompts to set an administrative password for MySQL. This will install the minimum required PHP extensions needed to use PHP with MySQL. 
+After running either of the above options, you will be prompted to install these packages and various other dependencies. Press 'y' and then 'Enter' to continue, and follow any other prompts to set an administrative password for MySQL. This installs the minimum required PHP extensions needed to use PHP with MySQL. 
 
 ![][1]
 
@@ -143,12 +143,12 @@ Within the GNU Nano text editor, add the following lines:
 
 Then save and exit the text editor.
 
-Restart Apache with this command so all new installs will take effect.
+Restart Apache with this command so all new installs take effect.
 
     user@ubuntu$ sudo service apache2 restart
 
 ## Verify LAMP Successfully Installed
-Now you can check the PHP info page you just created in your browser by going to http://youruniqueDNS/info.php, it should look similar to this.
+Now you can check the PHP info page you created by opening a browser and going to http://youruniqueDNS/info.php. It should look similar to this.
 
 ![][2]
 
