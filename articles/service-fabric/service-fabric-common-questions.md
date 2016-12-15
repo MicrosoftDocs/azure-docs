@@ -72,7 +72,6 @@ Reliable collections are typically [partitioned](service-fabric-concepts-partiti
 - Create a service that can receive data from all partitions of another service.
 - Periodically push data from each service to an external store. This approach is only appropriate if the queries you're performing are not part of your core business logic.
 
-In general, if you find yourself performing such cross-partition queries frequently, you should probably reconsider whether reliable collections are appropriate for your scenario, since they are most effective when data is sufficiently independent to be naturally partitioned.
 
 ### What's the best way to query data across my actors?
 
