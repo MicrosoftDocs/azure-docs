@@ -189,7 +189,7 @@ The following table provides an overview of our samples repository and the scena
 </table>
 <br/>
 ###Azure Code Sample Library
-To view the complete sample library, go to (The Azure Code Sample Library)[https://azure.microsoft.com/en-us/resources/samples/?service=storage], which includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
+To view the complete sample library, go to [The Azure Code Sample Library](https://azure.microsoft.com/en-us/resources/samples/?service=storage), which includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
 
 [!INCLUDE [storage-dotnet-samples-include](../../includes/storage-dotnet-samples-include.md)]
 
