@@ -13,7 +13,7 @@ ms.devlang: rest-api
 ms.workload: search
 ms.topic: article
 ms.tgt_pltfrm: na
-ms.date: 10/27/2016
+ms.date: 12/15/2016
 ms.author: eugenesh
 ---
 
