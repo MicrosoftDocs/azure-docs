@@ -134,8 +134,8 @@
 ### [Process with Hyperlapse](media-services-hyperlapse-content.md)
 ### [Process with Face Detector](media-services-face-and-emotion-detection.md)
 ### [Process with Motion Detector](media-services-motion-detection.md)
-### [Process with Face redaction](media-services-face-redaction.md)
-#### [Face redaction walkthrough](media-services-redactor-walkthrough.md)
+### [Process with Face Redactor](media-services-face-redaction.md)
+#### [Face Redactor walkthrough](media-services-redactor-walkthrough.md)
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
 
