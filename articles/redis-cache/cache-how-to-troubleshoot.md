@@ -120,7 +120,7 @@ This is a difficult one to measure. You basically have to instrument your client
 #### Problem
 I expected for certain data to be in my Azure Redis Cache instance but it didn't seem to be there.
 
-##### Resolution
+#### Resolution
 See [What happened to my data in Redis?](https://gist.github.com/JonCole/b6354d92a2d51c141490f10142884ea4#file-whathappenedtomydatainredis-md) for possible causes and resolutions.
 
 ## Server side troubleshooting
