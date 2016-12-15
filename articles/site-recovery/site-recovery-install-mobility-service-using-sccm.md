@@ -188,7 +188,7 @@ Mobility Service gets installed on the Windows Server Device Collection as per t
 
 Mobility Service gets installed on the Linux Server Device Collection as per the schedule you configured.
 
-Once the Mobility Service gets installed you can start enabling protection for these servers.
+Once the Mobility Service gets, installed you can start enabling protection for these servers.
 
 ## Next steps
 Enable protection
