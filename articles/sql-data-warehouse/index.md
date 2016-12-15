@@ -1,6 +1,6 @@
 ---
 layout: LandingPage
-description:Learn how to use SQL Data Warehouse, combining SQL Server with massively parallel processing. Documentation shows how to load, analyze, manage, and export data.
+description: Learn how to use SQL Data Warehouse, combining SQL Server with massively parallel processing. Documentation shows how to load, analyze, manage, and export data.
 ---
 
 # SQL Data Warehouse Documentation
