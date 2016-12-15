@@ -157,7 +157,7 @@ In this case, both policies are enforced by Azure Active Directory and the user 
 For every sign-in, Azure Active Directory evaluates all policies and ensures that all requirements are met before granted access to the user.
 
 
-### Does conditional access work with Exchange ActiveSync?
+## Does conditional access work with Exchange ActiveSync?
  
 Exchange ActiveSync only works with Exchange Online as the cloud app. In the related conditional access policy, you need to make sure that Exchange Online is the only selected cloud app.
 
