@@ -28,7 +28,7 @@ The Microsoft Azure Import/Export tool is the drive preparation and repair tool 
 
 ## Prerequisites
 
- If you are preparing drives for an import job, you will need to meet the following prerequisites:
+If you are **preparing drives** for an import job, you will need to meet the following prerequisites:
 
 * You must have an active Azure subscription.
 * Your subscription must include a storage account with enough available space to store the files you are going to import.
@@ -39,18 +39,20 @@ The Microsoft Azure Import/Export tool is the drive preparation and repair tool 
 * You will need one or more empty 3.5-inch SATA hard drives connected to the copy machine.
 * The files you plan to import must be accessible from the copy machine, whether they are on a network share or a local hard drive.
 
-If you are attempting to repair an import that has partially failed, you will need:
+If you are attempting to **repair an import** that has partially failed, you will need:
 
 * The copy log files
 * The storage account key
 
-If you are attempting to repair an export that has partially failed, you will need:
+If you are attempting to **repair an export**  that has partially failed, you will need:
 
 * The copy log files
 * The manifest files (optional)
 * The storage account key
 
 ## Installing the Azure Import/Export tool
+
+First, [download the Azure Import/Export tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) and extract it to a directory on your computer, for example `c:\WAImportExport`.
 
 The Azure Import/Export tool consists of the following files:
 
@@ -64,7 +66,7 @@ The Azure Import/Export tool consists of the following files:
 * WAImportExportCore.dll
 * WAImportExportRepair.dll
 
-Copy these files to a working directory, for example, `c:\WAImportExport`. Next, open a command-line window in Administrator mode, and set the above directory as current directory.
+Next, open a Command Prompt window in **Administrator mode**, and change into the directory containing the extracted files.
 
 To output help for the command, run the tool without parameters:
 
@@ -211,9 +213,10 @@ Examples:
 ```
 
 ## See Also
- [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md)
- [Previewing Drive Usage for an Export Job](storage-import-export-tool-previewing-drive-usage-export-v1.md)
- [Reviewing Job Status with Copy Log Files](storage-import-export-tool-reviewing-job-status-v1.md)
- [Repairing an Import Job](storage-import-export-tool-repairing-an-import-job-v1.md)
- [Repairing an Export Job](storage-import-export-tool-repairing-an-export-job-v1.md)
- [Troubleshooting the Azure Import/Export tool](storage-import-export-tool-troubleshooting-v1.md)
+
+* [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import-v1.md)
+* [Previewing drive usage for an export job](storage-import-export-tool-previewing-drive-usage-export-v1.md)
+* [Reviewing job status with copy log files](storage-import-export-tool-reviewing-job-status-v1.md)
+* [Repairing an import job](storage-import-export-tool-repairing-an-import-job-v1.md)
+* [Repairing an export job](storage-import-export-tool-repairing-an-export-job-v1.md)
+* [Troubleshooting the Azure Import/Export tool](storage-import-export-tool-troubleshooting-v1.md)
