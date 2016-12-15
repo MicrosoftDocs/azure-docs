@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Single Sign-on | Microsoft Docs'
 description: This topic provides you with the information you need to know about how single sign on from an on-premises Active Directory (AD) to cloud-based Azure Active Directory (Azure AD) and connected services.
 services: active-directory
@@ -72,7 +72,7 @@ Single sign on is an opportunistic feature, which means that if it fails for som
 ## Enabling SSO with Pass-through Authentication or Password Hash Sync
 Azure AD Connect provides a simple process to enable single sign on with Pass-through authentication or Password hash sync.  You will need to ensure that you have domain administrator rights to one of the domains within each forest you synchronize to allow the configuration of the Kerberos service principal names (SPNs) on the machine account.  The username and password are not stored in Azure AD Connect or Azure AD and are used only for this operation.
 
-When installing Azure AD Connect select a custom installation so that you are able to configure single sign on on the user sign-in page. For more details, see [Custom installation of Azure AD Connect](connect\active-directory-aadconnect-get-started-custom.md).
+When installing Azure AD Connect select a custom installation so that you are able to configure single sign on on the user sign-in page. For more details, see [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso3.png)
 

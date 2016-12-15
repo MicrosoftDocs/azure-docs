@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD federation compatibility list
 description: This page has non-Microsoft identity providers that can be used to implement single sign-on.
 services: active-directory
@@ -74,7 +74,7 @@ The following is the scenario support matrix for this sign-on experience:
 | Email-rich clients such as Outlook and ActiveSync |Supported |None |
 | Modern Applications using ADAL such as Office 2016 |Supported |None |
 
-For more information about using Azure Active Directory with AD FS see [Active Directory Federation Services (ADFS)](connect/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+For more information about using Azure Active Directory with AD FS see [Active Directory Federation Services (ADFS)](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 
 For more information about using Azure Active Directory with Password sync see [Azure AD Connect](active-directory-aadconnect.md).
 

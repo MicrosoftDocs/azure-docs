@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Pass-through authentication | Microsoft Docs'
 description: This topic provides you with the information you need to know about how Azure AD pass-through authentications works with on-premises Active Directory (AD) to provide access to Azure Active Directory (Azure AD) and connected services.
 services: active-directory
@@ -85,7 +85,7 @@ Before you can enable and use Azure AD pass-through authentication, you need to 
 If your firewall enforces traffic according to originating users, open these ports for traffic coming from Windows services running as a Network Service. Also, make sure to enable port 8080 for NT Authority\System.
 
 ## Enabling Pass-through authentication
-Azure AD pass-through authentication is enabled via Azure AD Connect.  Enabling pass-through authentication will deploy the first connector on the same server as the Azure AD connect.  When installing Azure AD Connect select a custom installation and select Pass-through authentication on the sign in options page. For more details, see [Custom installation of Azure AD Connect](connect\active-directory-aadconnect-get-started-custom.md).
+Azure AD pass-through authentication is enabled via Azure AD Connect.  Enabling pass-through authentication will deploy the first connector on the same server as the Azure AD connect.  When installing Azure AD Connect select a custom installation and select Pass-through authentication on the sign in options page. For more details, see [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 ![Single sign-on](./media/active-directory-aadconnect-sso/sso3.png)
 

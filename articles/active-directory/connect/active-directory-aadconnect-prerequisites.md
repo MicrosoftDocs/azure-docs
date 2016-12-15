@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Prerequisites and hardware | Microsoft Docs'
 description: This topic describes the pre-requisites and the hardware requirements for Azure AD Connect
 services: active-directory
@@ -54,7 +54,7 @@ Before you install Azure AD Connect, there are a few things that you need.
 ### Accounts
 * An Azure AD Global Administrator account for the Azure AD directory you wish to integrate with. This must be a **school or organization account** and cannot be a **Microsoft account**.
 * If you use express settings or upgrade from DirSync, then you must have an Enterprise Administrator account for your local Active Directory.
-* [Accounts in Active Directory](connect/active-directory-aadconnect-accounts-permissions.md) if you use the custom settings installation path.
+* [Accounts in Active Directory](active-directory-aadconnect-accounts-permissions.md) if you use the custom settings installation path.
 
 ### Azure AD Connect server configuration
 * If your global administrators have MFA enabled, then the URL **https://secure.aadcdn.microsoftonline-p.com** must be in the trusted sites list. You are prompted to add this to the trusted sites list if it is not added before you are prompted for an MFA challenge. You can use Internet Explorer to add it to your trusted sites.
@@ -79,7 +79,7 @@ Before you install Azure AD Connect, there are a few things that you need.
     </system.net>
 ```
 
-* If your proxy server requires authentication, then the [service account](connect/active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) must be located in the domain and you must use the customized settings installation path to specify a [custom service account](connect/active-directory-aadconnect-get-started-custom.md#install-required-components). You also need a different change to machine.config. With this change in machine.config the installation wizard and sync engine respond to authentication requests from the proxy server. In all installation wizard pages, excluding the **Configure** page, the signed in user's credentials are used. On the **Configure** page at the end of the installation wizard, the context is switched to the [service account](connect/active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) that was created by you. The machine.config section should look like this.
+* If your proxy server requires authentication, then the [service account](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) must be located in the domain and you must use the customized settings installation path to specify a [custom service account](active-directory-aadconnect-get-started-custom.md#install-required-components). You also need a different change to machine.config. With this change in machine.config the installation wizard and sync engine respond to authentication requests from the proxy server. In all installation wizard pages, excluding the **Configure** page, the signed in user's credentials are used. On the **Configure** page at the end of the installation wizard, the context is switched to the [service account](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts) that was created by you. The machine.config section should look like this.
 
 ```
     <system.net>

@@ -47,7 +47,7 @@ Of these, the following table is the absolute bare minimum to be able to connect
 | \*.microsoftonline.com |HTTPS/443 |Used to configure your Azure AD directory and import/export data. |
 
 ## Errors in the wizard
-The installation wizard is using two different security contexts. On the page **Connect to Azure AD** it is using the currently signed in user. On the page **Configure** it is changing to the [account running the service for the sync engine](connect/active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). The proxy configurations we make are global to the machine so if there is an issue, the issue will most likely appear already at the **Connect to Azure AD** page in the wizard.
+The installation wizard is using two different security contexts. On the page **Connect to Azure AD** it is using the currently signed in user. On the page **Configure** it is changing to the [account running the service for the sync engine](active-directory-aadconnect-accounts-permissions.md#azure-ad-connect-sync-service-accounts). The proxy configurations we make are global to the machine so if there is an issue, the issue will most likely appear already at the **Connect to Azure AD** page in the wizard.
 
 These are the most common errors you will see in the installation wizard.
 
@@ -164,7 +164,7 @@ Authentication was successful, but Azure AD PowerShell has an authentication pro
 Authentication was successful. You are not a global administrator.
 
 ### PrivilegedIdentityManagement
-Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. See [Privileged Identity Management](active-directory-privileged-identity-management-getting-started.md) for more information.
+Authentication was successful. Privileged identity management has been enabled and you are currently not a global administrator. See [Privileged Identity Management](../active-directory-privileged-identity-management-getting-started.md) for more information.
 
 ### CompanyInfoUnavailable
 Authentication was successful. Could not retrieve company information from Azure AD.

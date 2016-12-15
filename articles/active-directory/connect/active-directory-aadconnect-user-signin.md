@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: User Sign In | Microsoft Docs'
 description: Azure AD Connect user sign in for custom settings.
 services: active-directory
@@ -82,7 +82,7 @@ If you are deploying a new farm or using an existing farm:
 * Local administrator credentials on any workgroup (non-domain joined) servers on which you intend to deploy the Web Application Proxy role.
 * The machine on which you execute the wizard must be able to connect to any other machines on which you want to install AD FS or Web Application Proxy via Windows Remote Management.
 
-[Configuring SSO with AD FS](connect/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
+[Configuring SSO with AD FS](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs)
 
 #### Sign on using an earlier version of AD FS or a third party solution
 If you have already configured cloud sign on using an earlier version of AD FS (such as AD FS 2.0) or a third party federation provider, you can choose to skip user sign in configuration via Azure AD Connect.  This will enable you to get the latest synchronization and other capabilities of Azure AD Connect while still using your existing solution for sign on.
@@ -139,7 +139,7 @@ For the information below, let us assume that we are concerned with the UPN suff
 | Verified |In this case we have a custom domain contoso.com already added and verified in Azure AD for the UPN suffix. Users will be able to use their on-premises user principal name, e.g. user@contoso.com, to sign-in to Azure after they are synced to Azure AD |
 
 ###### AD FS Federation
-You cannot create a federation with the default .onmicrosoft.com domain in Azure AD, or an unverified custom domain in Azure AD. When you are running the Azure AD Connect wizard, if you select an unverified domain to create a federation with then Azure AD Connect will prompt you with necessary records to be created where your DNS is hosted for the domain. For more information see [here](connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
+You cannot create a federation with the default .onmicrosoft.com domain in Azure AD, or an unverified custom domain in Azure AD. When you are running the Azure AD Connect wizard, if you select an unverified domain to create a federation with then Azure AD Connect will prompt you with necessary records to be created where your DNS is hosted for the domain. For more information see [here](active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation).
 
 If you selected User sign-in option as "Federation with AD FS", then you must have a custom domain to continue with creating a federation in Azure AD. For our discussion, this means that we should have a custom domain contoso.com added in Azure AD directory.
 

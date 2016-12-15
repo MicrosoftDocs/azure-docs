@@ -94,5 +94,5 @@ This table describes the following outbound ports and protocols that are require
 | Azure Service Bus |5671 (TCP/UDP) |Outbound |
 
 ### 7b - Endpoints for Azure AD Connect Health agent for (AD FS/Sync) and Azure AD
-For a list of endpoints, see [the Requirements section for the Azure AD Connect Health agent](active-directory-aadconnect-health-agent-install.md#requirements).
+For a list of endpoints, see [the Requirements section for the Azure AD Connect Health agent](../connect-health/active-directory-aadconnect-health-agent-install.md#requirements).
 

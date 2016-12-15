@@ -1,4 +1,4 @@
----
+﻿---
 title: Monitor your on-premises identity infrastructure in the cloud.
 description: This is the Azure AD Connect Health page that describes what it is and why you would use it.
 services: active-directory
@@ -76,7 +76,7 @@ The following video provides an overview of Azure AD Connect Health for AD DS
 ## Get started with Azure AD Connect Health
 It is very easy to get started with Azure AD Connect Health. Follow the steps below:
 
-1. [Get Azure AD Premium](active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/)
+1. [Get Azure AD Premium](../active-directory-get-started-premium.md) or [start a trial](https://azure.microsoft.com/trial/get-started-active-directory/)
 2. [Download and Install Azure AD Connect Health agents](#download-and-install-azure-ad-connect-health-agent) on your identity servers.
 3. View Azure AD Connect Health dashboard at [https://aka.ms/aadconnecthealth](https://aka.ms/aadconnecthealth)
 

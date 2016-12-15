@@ -7,7 +7,7 @@
 #### [Declarative Provisioning Expressions](active-directory-aadconnectsync-understanding-declarative-provisioning-expressions.md)
 ### [Default configuration](active-directory-aadconnectsync-understanding-default-configuration.md)
 ## [What is Azure AD Connect and Federation?](active-directory-aadconnectfed-whatis.md)
-## [What is Azure AD Connect Health?](active-directory-aadconnect-health.md)
+
 
 # Get started
 ## [Prerequisites](active-directory-aadconnect-prerequisites.md)
@@ -16,9 +16,7 @@
 ### [Custom settings](active-directory-aadconnect-get-started-custom.md)
 ### [Upgrade from DirSync](active-directory-aadconnect-dirsync-upgrade-get-started.md)
 ### [Upgrade from a previous version](active-directory-aadconnect-upgrade-previous-version.md)
-## [Install Azure AD Connect Health Agent](active-directory-aadconnect-health-agent-install.md)
-## [Using Azure AD Connect Health with AD FS](active-directory-aadconnect-health-adfs.md)
-## [Using Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md)
+
 
 # How to
 ## Plan and design
@@ -53,9 +51,6 @@
 ## Manage Federation Services
 ### [Manage and customize](active-directory-aadconnect-federation-management.md)
 
-## Manage Azure AD Connect Health
-### [Operations](active-directory-aadconnect-health-operations.md)
-### [Azure AD Connect Health and AD DS](active-directory-aadconnect-health-adds.md)
 
 ## Troubleshoot
 ### [Connectivity](active-directory-aadconnect-troubleshoot-connectivity.md)

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Configure filtering | Microsoft Docs'
 description: Explains how to configure filtering in Azure AD Connect sync.
 services: active-directory
@@ -74,7 +74,7 @@ After you have completed all your filtering changes, don't forget to come back a
 ## Filtering Options
 The following filtering configuration types can be applied to the Directory Synchronization tool:
 
-* [**Group based**](connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): Filtering based on a single group can only be configured on initial install using the installation wizard. It is not further covered in this topic.
+* [**Group based**](active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups): Filtering based on a single group can only be configured on initial install using the installation wizard. It is not further covered in this topic.
 * [**Domain-based**](#domain-based-filtering): This option enables you to select which domains that synchronize to Azure AD. It also allows you to add and remove domains from the sync engine configuration if you make changes to your on-premises infrastructure after you installed Azure AD Connect sync.
 * [**Organizational-Unit–based**](#organizational-unitbased-filtering):  This filtering option enables you to select which OUs synchronize to Azure AD. This option is for all object types in selected OUs.
 * [**Attribute–based**](#attribute-based-filtering): This option allows you to filter objects based on attribute values on the objects. You can also have different filters for different object types.
@@ -84,7 +84,7 @@ You can use multiple filtering options at the same time. For example, you can us
 ## Domain-based filtering
 This section provides you with the steps to configure your domain filter. If you have added or removed domains in your forest after you have installed Azure AD Connect, you also have to update the filtering configuration.
 
-The preferred way to change domain-based filtering is by running the installation wizard and change [domain and OUs filtering](connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). The installation wizard is automating all the tasks documented in this topic.
+The preferred way to change domain-based filtering is by running the installation wizard and change [domain and OUs filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). The installation wizard is automating all the tasks documented in this topic.
 
 You should only follow these steps if you for some reason are unable to run the installation wizard.
 
@@ -145,7 +145,7 @@ To close the **Configure Run Profiles** dialog, click **OK**.
 * To complete the configuration, [Apply and verify changes](#apply-and-verify-changes).
 
 ## Organizational-unit–based filtering
-The preferred way to change OU-based filtering is by running the installation wizard and change [domain and OUs filtering](connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). The installation wizard is automating all the tasks documented in this topic.
+The preferred way to change OU-based filtering is by running the installation wizard and change [domain and OUs filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). The installation wizard is automating all the tasks documented in this topic.
 
 You should only follow these steps if you for some reason are unable to run the installation wizard.
 

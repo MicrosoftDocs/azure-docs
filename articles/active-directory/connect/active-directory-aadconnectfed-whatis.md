@@ -28,8 +28,8 @@ This topic is the home for information on Federation related functionalities for
 | **Azure AD Connect user sign-in options** | |
 | [Understanding User sign-in options](active-directory-aadconnect-user-signin.md) |Description of various user sign-in options and how they affect Azure sign-in user experience |
 | **AD FS installation using Azure AD Connect** | |
-| [Pre-requisites](connect/active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |Pre-requisites for a successful AD FS installation via Azure AD Connect |
-| [Configure AD FS farm](connect/active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |How to install a new AD FS farm using Azure AD Connect |
+| [Pre-requisites](active-directory-aadconnect-get-started-custom.md#ad-fs-configuration-pre-requisites) |Pre-requisites for a successful AD FS installation via Azure AD Connect |
+| [Configure AD FS farm](active-directory-aadconnect-get-started-custom.md#configuring-federation-with-ad-fs) |How to install a new AD FS farm using Azure AD Connect |
 | **Modifying the AD FS configuration** | |
 | [Repairing the trust](active-directory-aadconnect-federation-management.md#repairthetrust) |How to repair current trust between on-premises AD FS and Office 365 / Azure |
 | [Adding a new AD FS server](active-directory-aadconnect-federation-management.md#addadfsserver) |Expanding AD FS farm with additional AD FS server post initial installation |

@@ -46,7 +46,7 @@ This group will be represented as a distribution group in on-premises AD DS. You
 > 
 
 ## Next steps
-Continue your [Custom installation of Azure AD Connect](connect/active-directory-aadconnect-get-started-custom.md).
+Continue your [Custom installation of Azure AD Connect](active-directory-aadconnect-get-started-custom.md).
 
 Learn more about [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md).
 

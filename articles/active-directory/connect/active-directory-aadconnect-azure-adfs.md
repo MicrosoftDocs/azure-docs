@@ -1,4 +1,4 @@
----
+﻿---
 title: Active Directory Federation Services in Azure | Microsoft Docs
 description: In this document you will learn how to deploy AD FS in Azure for high availablity.
 keywords: deploy AD FS in azure, deploy azure adfs, azure adfs, azure ad fs,deploy adfs, deploy ad fs, adfs in azure, deploy adfs in azure, deploy AD FS in azure, adfs azure, introduction to AD FS, Azure, AD FS in Azure, iaas, ADFS, move adfs to azure
@@ -364,5 +364,5 @@ You can use an existing virtual network or create a new VNET while deploying thi
 ## Next steps
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
 * [Configuring and managing your AD FS using Azure AD Connect](active-directory-aadconnectfed-whatis.md)
-* [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+* [High availability cross-geographic AD FS deployment in Azure with Azure Traffic Manager](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 

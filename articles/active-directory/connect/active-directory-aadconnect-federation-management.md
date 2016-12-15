@@ -1,4 +1,4 @@
----
+﻿---
 title: Active Directory Federation Services Management and customization with Azure AD Connect | Microsoft Docs
 description: AD FS management with Azure AD Connect and customization of user AD FS sign-in experience with Azure AD Connect and PowerShell.
 keywords: AD FS,ADFS,AD FS management, AAD Connect, Connect, sign-in, AD FS customization, repair trust, O365, federation, relying party
@@ -118,7 +118,7 @@ It's easy to add a domain to be federated with Azure AD by using Azure AD Connec
 4. On the next page, the wizard will provide a list of Azure AD domains with which you can federate your on-premises directory. Choose the domain from the list.
    ![Azure AD domain](media\\active-directory-aadconnect-federation-management\\AdditionalDomain4.PNG)
 
-    After you choose the domain, the wizard will provide you with appropriate information regarding further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that is not yet verified in Azure AD, the wizard will provide you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](active-directory-add-domain.md) for more details.
+    After you choose the domain, the wizard will provide you with appropriate information regarding further actions that the wizard will take and the impact of the configuration. In some cases, if you select a domain that is not yet verified in Azure AD, the wizard will provide you with information to help you verify the domain. See [Add your custom domain name to Azure Active Directory](../active-directory-add-domain.md) for more details.
 5. Click **Next**, and the **Ready to configure** page will show the list of actions that Azure AD Connect will perform. Click **Install** to finish the configuration.
    ![Ready to configure](media\\active-directory-aadconnect-federation-management\\AdditionalDomain5.PNG)
 

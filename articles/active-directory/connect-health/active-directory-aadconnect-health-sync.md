@@ -106,8 +106,8 @@ Following data is available in the detailed view for each error
 This capability is coming soon. Stay tuned for more updates.
 
 ## Related links
-* [Troubleshooting Errors during synchronization](active-directory-aadconnect-troubleshoot-sync-errors.md)
-* [Duplicate Attribute Resiliency](active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
+* [Troubleshooting Errors during synchronization](../connect/active-directory-aadconnect-troubleshoot-sync-errors.md)
+* [Duplicate Attribute Resiliency](../connect/active-directory-aadconnectsyncservice-duplicate-attribute-resiliency.md)
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)
 * [Azure AD Connect Health Agent Installation](active-directory-aadconnect-health-agent-install.md)
 * [Azure AD Connect Health Operations](active-directory-aadconnect-health-operations.md)

@@ -48,10 +48,10 @@ Click **Previous** to go back. If you select **Exit**, you close the installatio
 ## Customize synchronization options
 This option is used to make changes to the sync configuration. You see a subset of options from the custom configuration installation path. You see this option even if you used express installation initially.
 
-* [Add more directories](connect/active-directory-aadconnect-get-started-custom.md#connect-your-directories). For removing a directory, see [Delete a Connector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
-* [Change Domain and OU filtering](connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
+* [Add more directories](active-directory-aadconnect-get-started-custom.md#connect-your-directories). For removing a directory, see [Delete a Connector](active-directory-aadconnectsync-service-manager-ui-connectors.md#delete).
+* [Change Domain and OU filtering](active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering).
 * Remove Group filtering.
-* [Change optional features](connect/active-directory-aadconnect-get-started-custom.md#optional-features).
+* [Change optional features](active-directory-aadconnect-get-started-custom.md#optional-features).
 
 The other options from the initial installation cannot be changed and are not available. These options are:
 

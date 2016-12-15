@@ -1,4 +1,4 @@
----
+﻿---
 title: Azure AD Connect Health Operations.
 description: This article describes additional operations that can be performed once you have deployed Azure AD Connect Health.
 services: active-directory
@@ -85,7 +85,7 @@ When deleting a service instance, be aware of the following:
 [//]: # (Start of RBAC section)
 ## Manage Access With Role Based Access Control
 ### Overview
-[Role Based Access Control](role-based-access-control-configure.md) for Azure AD Connect Health provides access Azure AD Connect Health service to users and/or groups outside of global administrators. This is achieved by assigning roles to the intended users and\or groups and provides a mechanism to limit the global administrators within your directory.
+[Role Based Access Control](../role-based-access-control-configure.md) for Azure AD Connect Health provides access Azure AD Connect Health service to users and/or groups outside of global administrators. This is achieved by assigning roles to the intended users and\or groups and provides a mechanism to limit the global administrators within your directory.
 
 #### Roles
 Azure AD Connect Health supports the following built-in roles.

@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect: Enabling device writeback | Microsoft Docs'
 description: This document details how to enable device writeback using Azure AD Connect
 services: active-directory
@@ -27,7 +27,7 @@ The following documentation provides information on how to enable the device wri
 
 * Enable conditional access based on devices to ADFS (2012 R2 or higher) protected applications (relying party trusts).
 
-This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on conditional access, see [Managing Risk with Conditional Access](active-directory-conditional-access.md) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](https://msdn.microsoft.com/library/azure/dn788908.aspx).
+This provides additional security and assurance that access to applications is granted only to trusted devices. For more information on conditional access, see [Managing Risk with Conditional Access](../active-directory-conditional-access.md) and [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](https://msdn.microsoft.com/library/azure/dn788908.aspx).
 
 > [!IMPORTANT]
 > <li>Devices must be located in the same forest as the users. Since devices must be written back to a single forest, this feature does not currently support a deployment with multiple user forests.</li>
@@ -77,7 +77,7 @@ Use the following procedure to enable device writeback in Azure AD Connect.
    ![Custom install Device Writeback optional features](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback3.png)
 3. On the writeback page, you will see the supplied domain as the default Device writeback forest.
    ![Custom Install device writeback target forest](./media/active-directory-aadconnect-feature-device-writeback/devicewriteback4.png)
-4. Complete the installation of the Wizard with no additional configuration changes. If needed, refer to [Custom installation of Azure AD Connect.](connect/active-directory-aadconnect-get-started-custom.md)
+4. Complete the installation of the Wizard with no additional configuration changes. If needed, refer to [Custom installation of Azure AD Connect.](active-directory-aadconnect-get-started-custom.md)
 
 ## Enable conditional access
 Detailed instructions to enable this scenario are available within [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](https://msdn.microsoft.com/library/azure/dn788908.aspx).
@@ -132,7 +132,7 @@ Verify configuration in Active Directory:
 ![Troubleshoot, verify permissions on Device Registration Configuration](./media/active-directory-aadconnect-feature-device-writeback/troubleshoot6.png)
 
 ## Additional Information
-* [Managing Risk With Conditional Access](active-directory-conditional-access.md)
+* [Managing Risk With Conditional Access](../active-directory-conditional-access.md)
 * [Setting up On-premises Conditional Access using Azure Active Directory Device Registration](https://msdn.microsoft.com/library/azure/dn788908.aspx)
 
 ## Next steps

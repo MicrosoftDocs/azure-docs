@@ -1,4 +1,4 @@
----
+﻿---
 title: 'Azure AD Connect sync: Attributes synchronized to Azure Active Directory | Microsoft Docs'
 description: Lists the attributes that are synchronized to Azure Active Directory.
 services: active-directory
@@ -25,7 +25,7 @@ The attributes are grouped by the related Azure AD app.
 A common question is *what is the list of minimum attributes to synchronize*. The default and recommended approach is to keep the default attributes so a full GAL (Global Address List) can be constructed in the cloud and to get all features in Office 365 workloads. In some cases, there are some attributes that your organization does not want synchronized to the cloud since these attributes contain sensitive or PII (Personally identifiable information) data, like in this example:  
 ![bad attributes](./media/active-directory-aadconnectsync-attributes-synchronized/badextensionattribute.png)
 
-In this case, start with the list of attributes in this topic and identify those attributes that would contain sensitive or PII data and cannot be synchronized. Then deselect those attributes during installation using [Azure AD app and attribute filtering](connect/active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
+In this case, start with the list of attributes in this topic and identify those attributes that would contain sensitive or PII data and cannot be synchronized. Then deselect those attributes during installation using [Azure AD app and attribute filtering](active-directory-aadconnect-get-started-custom.md#azure-ad-app-and-attribute-filtering).
 
 > [!WARNING]
 > When deselecting attributes, you should be cautious and only deselect those attributes absolutely not possible to synchronize. Unselecting other attributes might have a negative impact on features.
