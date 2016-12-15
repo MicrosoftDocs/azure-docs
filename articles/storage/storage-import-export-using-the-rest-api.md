@@ -1,6 +1,6 @@
 ---
-title: Using the Azure Import-Export Service REST API | Microsoft Docs
-description: Learn how to use the Azure Import-Export Service REST API
+title: Using the Azure Import/Export service REST API | Microsoft Docs
+description: Learn how to use the Azure Import/Export service REST API
 author: renashahmsft
 manager: aungoo
 editor: tysonn
@@ -17,15 +17,15 @@ ms.date: 12/16/2016
 ms.author: renash
 
 ---
-# Using the Azure Import-Export Service REST API
+# Using the Azure Import/Export service REST API
 
-The Microsoft Azure Import/Export Service exposes a REST API to enable programmatic control of import/export jobs. You can use the REST API to perform all of the import/export operations that you can perform with the [Azure portal](https://portal.azure.com/). Additionally, you can use the REST API to perform certain granular operations, such as querying the percentage completion of a job, which are not currently available in the classic portal.
+The Microsoft Azure Import/Export service exposes a REST API to enable programmatic control of import/export jobs. You can use the REST API to perform all of the import/export operations that you can perform with the [Azure portal](https://portal.azure.com/). Additionally, you can use the REST API to perform certain granular operations, such as querying the percentage completion of a job, which are not currently available in the classic portal.
 
-See [Using the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](storage-import-export-service.md) for an overview of the Import/Export service and a tutorial that demonstrates how to use the classic portal to create and manage import and export jobs.
+See [Using the Microsoft Azure Import/Export service to Transfer Data to Blob Storage](storage-import-export-service.md) for an overview of the Import/Export service and a tutorial that demonstrates how to use the classic portal to create and manage import and export jobs.
 
 ## Service endpoints
 
-The Azure Import/Export Service is a resource provider for Azure Resource Manager and provides a set of REST APIs at the following HTTPS endpoint for managing import/export jobs:
+The Azure Import/Export service is a resource provider for Azure Resource Manager and provides a set of REST APIs at the following HTTPS endpoint for managing import/export jobs:
 
 ```
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group>/providers/Microsoft.ImportExport/jobs/<job-name>

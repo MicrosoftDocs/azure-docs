@@ -1,6 +1,6 @@
 ---
 title: Canceling and deleting Azure Import/Export service jobs | Microsoft Docs
-description: Learn how to cancel and delete jobs for the Microsoft Azure Import/Export Service
+description: Learn how to cancel and delete jobs for the Microsoft Azure Import/Export service
 author: renashahmsft
 manager: aungoo
 editor: tysonn
@@ -26,4 +26,4 @@ You can request that a job be cancelled before it is in the `Packaging` state by
  To delete a job, call the [Delete Job](/rest/api/storageservices/importexport/Delete-Job1) operation before the job has shipped (*i.e.*, while the job is in the `Creating` state). You can also delete a job when it is in the `Completed` state. After a job has been deleted, its information and status are no longer accessible via the REST API or the Azure portal.
 
 ## See Also
- [Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)
+ [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)

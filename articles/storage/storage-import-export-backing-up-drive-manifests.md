@@ -1,6 +1,6 @@
 ---
 title: Backing up Azure Import/Export drive manifests | MicrosoftDocs
-description: Learn how to have your drive manifests for the Microsoft Azure Import/Export Service backed-up automatically.
+description: Learn how to have your drive manifests for the Microsoft Azure Import/Export service backed-up automatically.
 author: renashahmsft
 manager: aungoo
 editor: tysonn
@@ -24,4 +24,4 @@ Drive manifests can be automatically backed-up to blobs by setting the `BackupDr
  You can retrieve the URI of the backup drive manifests for a job by calling the [Get Job](/rest/api/storageservices/importexport/Get-Job3) operation. The blob URI is returned in the `ManifestUri` property for each drive.
 
 ## See Also
- [Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)
+ [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)

@@ -1,6 +1,6 @@
 ---
 title: Retrieving state information for an Azure Import/Export service job | MicrosoftDocs
-description: Learn how to obtain state information for Microsoft Azure Import/Export Service jobs
+description: Learn how to obtain state information for Microsoft Azure Import/Export service jobs
 author: renashahmsft
 manager: aungoo
 editor: tysonn
@@ -88,4 +88,4 @@ The following table describes the drive failure states and the actions taken for
 When a job or drive fails to progress normally through its expected life cycle, the job or drive will be moved into a `Faulted` state. At that point, the operations team will contact the customer by email or phone. Once the issue is resolved, the faulted job or drive will be taken out of the `Faulted` state and moved into the appropriate state.
 
 ## See Also
-[Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)
+[Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)

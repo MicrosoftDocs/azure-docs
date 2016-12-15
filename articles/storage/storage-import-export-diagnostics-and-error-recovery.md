@@ -54,4 +54,4 @@ You can use the logging data to identify the following issues:
 There may be cases where some parts of an import or export job do not complete successfully, while the overall job still completes. In this case, you can either upload or download the missing pieces of the data over network, or you can create a new job to transfer the data. See the [Azure Import-Export Tool Reference](storage-import-export-tool-how-to-v1.md) to learn how to repair the data over network.
 
 ## See Also
-[Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)
+[Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)

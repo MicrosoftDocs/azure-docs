@@ -1,6 +1,6 @@
 ---
-title: Creating an Import Job for the Azure Import/Export Service | Microsoft Docs
-description: Learn how to create an import for the Microsoft Azure Import-Export Service
+title: Creating an Import Job for the Azure Import/Export service | Microsoft Docs
+description: Learn how to create an import for the Microsoft Azure Import/Export service
 author: renashahmsft
 manager: aungoo
 editor: tysonn
@@ -31,7 +31,7 @@ Creating an import job for the Microsoft Azure Import/Export service using the R
 
 -   Updating the import job with the shipping details.
 
- See [Using the Microsoft Azure Import/Export Service to Transfer Data to Blob Storage](storage-import-export-service.md) for an overview of the Import/Export service and a tutorial that demonstrates how to use the [Azure  portal](https://portal.azure.com/) to create and manage import and export jobs.
+ See [Using the Microsoft Azure Import/Export service to Transfer Data to Blob Storage](storage-import-export-service.md) for an overview of the Import/Export service and a tutorial that demonstrates how to use the [Azure  portal](https://portal.azure.com/) to create and manage import and export jobs.
 
 ## Preparing drives with the Azure Import/Export Tool
 
@@ -102,4 +102,4 @@ You must ship your drives to the address that you obtained from the previous ste
 After you have your tracking number, call the [Update Job Properties](/rest/api/storageservices/importexport/Update-Job-Properties) operation to update the shipping carrier name, the tracking number for the job, and the carrier account number for return shipping. You can optionally specify the number of drives and the shipping date as well.
 
 ## See Also
-[Using the Import/Export Service REST API](storage-import-export-using-the-rest-api.md)
+[Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)
