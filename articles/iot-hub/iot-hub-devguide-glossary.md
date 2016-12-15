@@ -134,7 +134,7 @@ A [direct method](iot-hub-devguide-direct-methods.md) is a way for you to trigge
 An IoT hub exposes multiple [endpoints](iot-hub-devguide-endpoints.md) that enable your apps to connect to the IoT hub. There are device-facing endpoints that enable devices to perform operations such as sending [device-to-cloud](#device-to-cloud) messages and receiving [cloud-to-device](#cloud-to-device) messages. There are service-facing management endpoints that enable [back-end apps](#back-end-app) to perform operations such as [device identity](#device-identity) management and device twin management. There are service-facing [built-in endpoints](#built-in-endpoints) for reading device-to-cloud messages. You can create [additional endpoints](#additional-endpoints) to receive device-to-cloud messages dispatched by a [routing rule](#routing-rule).
 
 ## Event Hubs service
-[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is a highly scalable data ingress service that can ingest millions of events per second. The service enable you to process and analyze the massive amounts of data produced by your connected devices and applications. For a comparison with the IoT Hub service, see [Comparison of Azure IoT Hub and Azure Event Hubs](iot-hub-compare-event-hubs.md).
+[Event Hubs](../event-hubs/event-hubs-what-is-event-hubs.md) is a highly scalable data ingress service that can ingest millions of events per second. The service enables you to process and analyze the massive amounts of data produced by your connected devices and applications. For a comparison with the IoT Hub service, see [Comparison of Azure IoT Hub and Azure Event Hubs](iot-hub-compare-event-hubs.md).
 
 ## Event Hub-compatible endpoint
 To read [device-to-cloud](#device-to-cloud) messages sent to your IoT hub, you can connect to an endpoint on your hub and use any Event Hub-compatible method to read those messages. Event Hub-compatible methods include using the [Event Hubs SDKs](../event-hubs/event-hubs-programming-guide.md) and [Azure Stream Analytics](../stream-analytics/stream-analytics-introduction.md).
@@ -152,7 +152,7 @@ A gateway enables connectivity for devices that cannot connect directly to [IoT 
 The [identity registry](iot-hub-devguide-identity-registry.md) is the built-in component of an IoT hub that stores information about the individual devices permitted to connect to an IoT hub.
 
 ## Interactive message
-An interactive message is a [cloud-to-device](#cloud-to-device) message that triggers an immediate action in the solution back end. For example, a device might send an alarm about a failure that should be automatically logged into a CRM system.
+An interactive message is a [cloud-to-device](#cloud-to-device) message that triggers an immediate action in the solution back end. For example, a device might send an alarm about a failure that should be automatically logged in to a CRM system.
 
 ## IoT Hub
 IoT Hub is a fully managed Azure service that enables reliable and secure bidirectional communications between millions of devices and a solution back end. For more information, see [What is Azure IoT Hub?](iot-hub-what-is-iot-hub.md) Using your [Azure subscription](#subscription), you can create IoT hubs to handle your IoT messaging workloads.
@@ -197,7 +197,7 @@ A protocol gateway is typically deployed in the cloud and provides protocol tran
 There are various [quotas](iot-hub-devguide-quotas-throttling.md) that apply to your use of [IoT Hub](#iot-hub), many of the quotas vary based on the tier of the IoT hub. [IoT Hub](#iot-hub) also applies [throttles](iot-hub-devguide-quotas-throttling.md) to your use of the service at run time.
 
 ## Reported configuration
-In the context of a [device twin](iot-hub-devguide-device-twins.md), reported configuration refers to the complete set of properties and metadata in the device twin that should be reported by the device to the solution back end.
+In the context of a [device twin](iot-hub-devguide-device-twins.md), reported configuration refers to the complete set of properties and metadata in the device twin that should be reported to the solution back end.
 
 ## Reported properties
 In the context of a [device twin](iot-hub-devguide-device-twins.md), reported properties is a subsection of the device twin used with [desired properties](#desired-properties) to synchronize device configuration or condition. Reported properties can only be set by the [device app](#device-app) and can be read and queried by a [back-end app](#back-end-app).

@@ -51,7 +51,7 @@ This implementation has the following implications:
 There are, however, a few important distinctions between IoT Hub device-to-cloud messaging and Event Hubs:
 
 * As explained in the [Control access to IoT Hub][lnk-devguide-security] section, IoT Hub allows per-device authentication and access control.
-* IoT Hub allows you to create up to ten additional endpoints. Messages are delivered to the endpoints based on routes configured on your IoT hub.
+* IoT Hub allows you to create up to 10 additional endpoints. Messages are delivered to the endpoints based on routes configured on your IoT hub.
 * IoT Hub allows millions of simultaneously connected devices (see [Quotas and throttling][lnk-quotas]), while Event Hubs is limited to 5000 AMQP connections per namespace.
 * IoT Hub does not allow arbitrary partitioning using a **PartitionKey**. Device-to-cloud messages are partitioned based on their originating **deviceId**.
 * Scaling IoT Hub is slightly different than scaling Event Hubs. For more information, see [Scaling IoT Hub][lnk-guidance-scale].
@@ -74,10 +74,10 @@ For more information about the best way to process this kind of message, see the
 
 IoT Hub enables you to route messages to IoT Hub endpoints based on message properties. Routing rules give you the flexibility to send messages where they need to go without the need to stand up additional services to process messages or to write additional code. Each routing rule you configure has the following properties:
 
-* **Name**. This is a unique name that identifies the rule.
-* **Source**. This represents the origin of the data stream to be acted upon. For example, device telemetry.
-* **Condition**. This is the query expression for the routing rule that is run against the message's properties and used to determine whether or not it is a match for the endpoint. For more information about constructing a route condition, see the [Reference - query language for device twins and jobs][lnk-devguide-query-language].
-* **Endpoint**. The name of the endpoint where IoT Hub sends messages which match the condition. Endpoints should be in the same region as the IoT hub, otherwise you may be charged for cross-region writes.
+* **Name**. The unique name that identifies the rule.
+* **Source**. The origin of the data stream to be acted upon. For example, device telemetry.
+* **Condition**. The query expression for the routing rule that is run against the message's properties and used to determine whether it is a match for the endpoint. For more information about constructing a route condition, see the [Reference - query language for device twins and jobs][lnk-devguide-query-language].
+* **Endpoint**. The name of the endpoint where IoT Hub sends messages that match the condition. Endpoints should be in the same region as the IoT hub, otherwise you may be charged for cross-region writes.
 
 A single message may match the condition on multiple routing rules, in which case IoT Hub delivers the message to the endpoint associated with each matched rule. IoT Hub also automatically deduplicates message delivery, so if a message matches multiple rules that all have the same destination, it is only written to that destination once.
 
@@ -240,7 +240,7 @@ When you use the [Azure Service Bus SDK for .NET][lnk-servicebus-sdk] or the [Ev
 When you use SDKs (or product integrations) that are unaware of IoT Hub, you must retrieve an Event Hub-compatible endpoint and Event Hub-compatible name from the IoT Hub settings in the [Azure portal][lnk-management-portal]:
 
 1. In the IoT hub blade, click **Endpoints**.
-2. In the **Built-in endpoints** section, click on **Events**. The blade contains the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, **Partitions**, **Retention time**, and **Consumer groups**.
+2. In the **Built-in endpoints** section, click **Events**. The blade contains the following values: **Event Hub-compatible endpoint**, **Event Hub-compatible name**, **Partitions**, **Retention time**, and **Consumer groups**.
    
     ![Device-to-cloud settings][img-eventhubcompatible]
 
@@ -331,7 +331,7 @@ Consider the following points when you choose your protocol for device-side comm
 ## Port numbers
 Devices can communicate with IoT Hub in Azure using various protocols. Typically, the choice of protocol is driven by the specific requirements of the solution. The following table lists the outbound ports that must be open for a device to be able to use a specific protocol:
 
-| Protocol | Port(s) |
+| Protocol | Port |
 | --- | --- |
 | MQTT |8883 |
 | MQTT over WebSockets |443 |

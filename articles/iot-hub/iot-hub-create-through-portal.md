@@ -83,7 +83,7 @@ You can change the settings of an existing IoT hub after it is created from the 
 **Shared access policies**: These policies define the permissions for devices and services to connect to IoT Hub. You can access these policies by clicking **Shared access policies** under **General**. In this blade, you can either modify existing policies or add a new policy.
 
 ### Create a policy
-* Click **Add** to open a blade. Here you can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following figure.
+* Click **Add** to open a blade. Here you can enter the new policy name and the permissions that you want to associate with this policy, as shown in the following figure:
   
     There are several permissions that can be associated with these shared policies. The first two policies, **Registry read** and **Registry write**, grant read and write access rights to the device identity store or the identity registry. Choosing the write option automatically chooses the read option as well.
   
@@ -128,7 +128,7 @@ Click **Routes** to manage how IoT Hub dispatches your device-to-cloud messages.
 
 ![][14]
 
-You can add routes to your IoT hub by clicking **Add** at the top of the **Routes*** blade,entering the required information, and clicking **OK**. Your route is then listed in the main **Routes** blade. You can edit a route by clicking it in the list of routes. To enable a route, click it in the list of routes and set the **Enabled** toggle to **Off**. Click **OK** at the bottom of the blade to save the change.
+You can add routes to your IoT hub by clicking **Add** at the top of the **Routes*** blade, entering the required information, and clicking **OK**. Your route is then listed in the main **Routes** blade. You can edit a route by clicking it in the list of routes. To enable a route, click it in the list of routes and set the **Enabled** toggle to **Off**. Click **OK** at the bottom of the blade to save the change.
 
 ![][15]
 
