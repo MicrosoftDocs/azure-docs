@@ -1,6 +1,6 @@
 ﻿---
-title: Migrate your existing Azure SQL Data Warehouse to premium storage | Microsoft Docs
-description: Instructions for migrating an existing SQL Data Warehouse to premium storage
+title: Migrate your existing data warehouse to premium storage | Microsoft Docs
+description: Instructions for migrating an existing data warehouse to premium storage
 services: sql-data-warehouse
 documentationcenter: NA
 author: happynicolle
@@ -49,14 +49,14 @@ Microsoft is taking the following steps to complete the migration (these do not 
 1. Microsoft renames “MyDW” to “MyDW_DO_NOT_USE_[Timestamp]”
 2. Microsoft pauses “MyDW_DO_NOT_USE_[Timestamp].” During this time, a backup is taken. You may see multiple pauses and resumes if we encounter any issues during this process.
 3. Microsoft creates a new data warehouse named “MyDW” on premium storage from the backup taken in step 2. “MyDW” will not appear until after the restore is complete.
-4. Once the restore is complete, “MyDW” returns to the same data warehouse units and state (paused or active) that it was before the migration.
-5. Once the migration is complete, Microsoft deletes “MyDW_DO_NOT_USE_[Timestamp]”.
+4. After the restore is complete, “MyDW” returns to the same data warehouse units and state (paused or active) that it was before the migration.
+5. After the migration is complete, Microsoft deletes “MyDW_DO_NOT_USE_[Timestamp]”.
 
 > [!NOTE]
 > The following settings do not carry over as part of the migration:
 >
 > * Auditing at the database level needs to be re-enabled.
-> * Firewall rules at the database level need to be re-added. Firewall rules at the server level are not impacted.
+> * Firewall rules at the database level need to be re-added. Firewall rules at the server level are not affected.
 >
 >
 
@@ -78,7 +78,7 @@ Automatic migrations occur between 6:00 PM and 6:00 AM (local time per region) d
 If you would like to control when your downtime will occur, you can use the following steps to migrate an existing data warehouse on standard storage to premium storage. If you choose this option, you must complete the self-migration before the automatic migration begins in that region. This ensures that you avoid any risk of the automatic migration causing a conflict (refer to the [automatic migration schedule][automatic migration schedule]).
 
 ### Self-migration instructions
-To migrate your data warehouse yourself, use the backup and restore features. The restore portion of the migration is expected to take around one hour per TB of storage per data warehouse. If you want to keep the same name once migration is complete, follow the [steps to rename during migration][steps to rename during migration].
+To migrate your data warehouse yourself, use the backup and restore features. The restore portion of the migration is expected to take around one hour per TB of storage per data warehouse. If you want to keep the same name after migration is complete, follow the [steps to rename during migration][steps to rename during migration].
 
 1. [Pause][Pause] your data warehouse. This takes an automatic backup.
 2. [Restore][Restore] from your most recent snapshot.
