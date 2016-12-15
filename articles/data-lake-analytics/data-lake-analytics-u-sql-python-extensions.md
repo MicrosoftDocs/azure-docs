@@ -1,5 +1,5 @@
 ---
-title: Extend U-SQL scripts with Python | Microsoft Docs
+title: Extend U-SQL scripts with Python in Azure Data Lake Analytics | Microsoft Docs
 description: 'Learn how to run Python code in U-SQL Scripts'
 services: data-lake-analytics
 documentationcenter: ''
