@@ -157,11 +157,11 @@ In this case, both policies are enforced by Azure Active Directory and the user 
 For every sign-in, Azure Active Directory evaluates all policies and ensures that all requirements are met before granted access to the user.
 
 
-### How does conditional access work in conjunction with Exchange ActiveSync?
+### Does conditional access work with Exchange ActiveSync?
  
-Exchange ActiveSync only works with Exchange Online as the cloud app. So, ensure that Exchange Online is the only cloud app selected.
+Exchange ActiveSync only works with Exchange Online as the cloud app. In the related conditional access policy, you need to make sure that Exchange Online is the only selected cloud app.
 
-It only supports “Require compliant device” control. 
+This scenario only supports “Require compliant device” control. 
 
 Exchange ActiveSync does not support all conditions. The only supported condition for Exchange ActiveSync scenario is client apps. Rest of the conditions are not supported with Exchange ActiveSync.
 
