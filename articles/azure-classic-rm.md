@@ -7,6 +7,7 @@ author: telmosampaio
 manager: carmonm
 editor: ''
 tags: azure-resource-manager,azure-service-management
+redirect_url: ./azure-resource-manager/resource-manager-deployment-model.md
 
 ms.assetid: 18a235d8-38ac-4886-9e56-b3855c73ffff
 ms.service: virtual-network
@@ -15,6 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/11/2016
+
 ms.author: telmos
 
 ---
