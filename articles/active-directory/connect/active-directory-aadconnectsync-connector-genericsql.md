@@ -76,7 +76,7 @@ The database should support one of these authentication methods:
 
 * **Windows authentication**: The authenticating database uses the Windows credentials to verify the user. The user name/password specified is used to authenticate with the database. This account needs permissions to the database.
 * **SQL authentication**: The authenticating database uses the user name/password defined one the Connectivity screen to connect to the database. If you store the user name/pasword in the DSN file, the credentials provided on the Connectivity screen have precedence.
-* **Azure SQL Database authentication**: For more information, see [Connect to SQL Database By Using Azure Active Directory Authentication](../sql-database/sql-database-aad-authentication.md).
+* **Azure SQL Database authentication**: For more information, see [Connect to SQL Database By Using Azure Active Directory Authentication](../../sql-database/sql-database-aad-authentication.md).
 
 **DN is Anchor**: If you select this option, the DN is also used as the anchor attribute. It can be used for a simple implementation but also has the following limitation:
 

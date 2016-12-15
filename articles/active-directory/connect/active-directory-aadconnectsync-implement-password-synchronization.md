@@ -69,7 +69,7 @@ Your current cloud service session is not immediately affected by a synchronized
 > 
 
 ### How password synchronization works with Azure AD Domain Services
-You can also use the password synchronization feature to synchronize your on-premises passwords to the [Azure AD Domain Services](../active-directory-domain-services/active-directory-ds-overview.md). This scenario allows the Azure AD Domain Services to authenticate your users in the cloud with all the methods available in your on-premises AD. The experience of this scenario is similar to using the Active Directory Migration Tool (ADMT) in an on-premises environment.
+You can also use the password synchronization feature to synchronize your on-premises passwords to the [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). This scenario allows the Azure AD Domain Services to authenticate your users in the cloud with all the methods available in your on-premises AD. The experience of this scenario is similar to using the Active Directory Migration Tool (ADMT) in an on-premises environment.
 
 ### Security considerations
 When synchronizing passwords, the plain-text version of your password is not exposed to the password synchronization feature, to Azure AD, or any of the associated services.

@@ -26,7 +26,7 @@ Azure AD Connect will integrate your on-premises directories with Azure Active D
 > 
 > 
 
-![What is Azure AD Connect](./media/active-directory-arch.png)
+![What is Azure AD Connect](media/active-directory-aadconnect/arch.png)
 
 ## Why use Azure AD Connect
 Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources. Users and organizations can take advantage of the following:
