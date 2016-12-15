@@ -1,6 +1,6 @@
 ---
 layout: LandingPage
-description : Learn how to use Data Factory to set up automated data pipelines to and from on-premises and cloud sources in order to move and process data for analysis.
+description: Learn how to use Data Factory to set up automated data pipelines to and from on-premises and cloud sources in order to move and process data for analysis.
 ---
 # Azure Data Factory Documentation
 
