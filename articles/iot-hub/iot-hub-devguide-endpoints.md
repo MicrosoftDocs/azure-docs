@@ -42,7 +42,7 @@ The following is a description of the endpoints:
     The device twins and methods endpoints are available only using [MQTT v3.1.1][lnk-mqtt].
 * **Service endpoints**. Each IoT hub exposes a set of endpoints your solution back end can use to communicate with your devices. These endpoints are currently only exposed using the [AMQP][lnk-amqp] protocol, except for the method invocation endpoint that is exposed via HTTP 1.1.
   
-  * *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs]. A back-end service can use it to read the [device-to-cloud messages][lnk-d2c] sent by your devices. You can create additional endpoints to your IoT hub in addition to this built-in endpoint.
+  * *Receive device-to-cloud messages*. This endpoint is compatible with [Azure Event Hubs][lnk-event-hubs]. A back-end service can use it to read the [device-to-cloud messages][lnk-d2c] sent by your devices. You can create additional endpoints on your IoT hub in addition to this built-in endpoint.
   * *Send cloud-to-device messages and receive delivery acknowledgments*. These endpoints enable your solution back end to send reliable [cloud-to-device messages][lnk-c2d], and to receive the corresponding delivery or expiration acknowledgments.
   * *Receive file notifications*. This messaging endpoint allows you to receive notifications of when your devices successfully upload a file. 
   * *Direct method invocation*. This endpoint allows a back-end service to invoke a [direct method][lnk-methods] on a device.
@@ -60,7 +60,7 @@ IoT Hub currently supports the following Azure services as additional endpoints:
 * Service Bus Queues
 * Service Bus Topics
 
-IoT Hub needs write access to these endpoints for message routing to work. If you configure your endpoints through the Azure portal, the necessary permissions are added for you. Make sure you configure your services to support the expected throughput. You may need to monitor your additional endpoints when you first configure your IoT solution and then make any necessary adjustments for the actual load.
+IoT Hub needs write access to these service endpoints for message routing to work. If you configure your endpoints through the Azure portal, the necessary permissions are added for you. Make sure you configure your services to support the expected throughput. You may need to monitor your additional endpoints when you first configure your IoT solution and then make any necessary adjustments for the actual load.
 
 If a message matches multiple routes that all point to the same endpoint, IoT Hub delivers message to that endpoint only once. Therefore, you do not need to configure deduplication on your Service Bus queue or topic. In partitioned queues, partition affinity guarantees message ordering. Queues with sessions enabled are not supported as endpoints. Partitioned queues and topics with deduplication enabled are also not supported.
 

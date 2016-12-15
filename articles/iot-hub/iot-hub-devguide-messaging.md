@@ -45,7 +45,7 @@ IoT Hub implements device-to-cloud messaging using a streaming messaging pattern
 
 This implementation has the following implications:
 
-* Like Event Hubs events, device-to-cloud messages are durable and retained in an IoT hub's default **messages/events** endpoint for up to seven days (see [Device-to-cloud configuration options][lnk-d2c-configuration]).
+* Like Event Hubs events, device-to-cloud messages are durable and retained in an IoT hub's default **messages/events** endpoint for up to seven days.
 * Like Event Hubs events, device-to-cloud messages can be at most 256 KB, and can be grouped in batches to optimize sends. Batches can be at most 256 KB.
 
 There are, however, a few important distinctions between IoT Hub device-to-cloud messaging and Event Hubs:
@@ -58,7 +58,7 @@ There are, however, a few important distinctions between IoT Hub device-to-cloud
 
 For details about how to use device-to-cloud messaging, see [Azure IoT SDKs][lnk-sdks].
 
-For details about how to set up message routing, see the [Device-to-cloud configuration options](#device-to-cloud-configuration-options).
+For details about how to set up message routing, see [Routing rules](#routing-rules).
 
 > [!NOTE]
 > When using HTTP to send device-to-cloud messages, property names and values can only contain ASCII alphanumeric characters, plus ``{'!', '#', '$', '%, '&', "'", '*', '*', '+', '-', '.', '^', '_', '`', '|', '~'}``.
@@ -70,7 +70,7 @@ Often, in addition to telemetry data points, devices send messages and requests 
 
 For more information about the best way to process this kind of message, see the [Tutorial: How to process IoT Hub device-to-cloud messages][lnk-d2c-tutorial] tutorial.
 
-### Device-to-cloud configuration options
+### Routing rules
 
 IoT Hub enables you to route messages to IoT Hub endpoints based on message properties. Routing rules give you the flexibility to send messages where they need to go without the need to stand up additional services to process messages or to write additional code. Each routing rule you configure has the following properties:
 
@@ -83,7 +83,7 @@ A single message may match the condition on multiple routing rules, in which cas
 
 For more information about creating additional endpoints in IoT Hub, see [IoT Hub endpoints][lnk-devguide-endpoints].
 
-#### Built-in endpoint: messages/events
+### Built-in endpoint: messages/events
 
 An IoT hub exposes the following properties to enable you to control the built-in messaging endpoint **messages/events**.
 
@@ -409,7 +409,6 @@ If you would like to try out some of the concepts described in this article, you
 [lnk-compatible-endpoint]: iot-hub-devguide-messaging.md#read-device-to-cloud-messages
 [lnk-protocols]: iot-hub-devguide-messaging.md#communication-protocols
 [lnk-message-format]: iot-hub-devguide-messaging.md#message-format
-[lnk-d2c-configuration]: iot-hub-devguide-messaging.md#device-to-cloud-configuration-options
 [lnk-device-properties]: iot-hub-devguide-identity-registry.md#device-identity-properties
 [lnk-ttl]: iot-hub-devguide-messaging.md#message-expiration-time-to-live
 [lnk-c2d-configuration]: iot-hub-devguide-messaging.md#cloud-to-device-configuration-options
