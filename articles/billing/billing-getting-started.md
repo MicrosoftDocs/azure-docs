@@ -20,7 +20,7 @@ ms.author: jlian
 ---
 # Getting started with Azure billing and cost management
 
-After you sign up for Azure, there are several things you can do to get better idea of your spend. In the Azure Portal, you can see your current spend and burn rate. You can also download past invoices and detail usage files. As an advanced user, you should check out the billing API and resource tagging functionality. 
+After you sign up for Azure, there are several things you can do to get better idea of your spend. In the Azure portal, you can see your current spend and burn rate. You can also download past invoices and detail usage files. As an advanced user, you should check out the billing API and resource tagging functionality. 
 
 If you're on Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship then information in this article may not apply to you. Talk to your account manager or Azure partner to get started.
 
@@ -109,7 +109,7 @@ Depending on your use case, you could configure auto-shutdown for your VMs in th
 
 ### View your cost breakdown and burn rate regularly
 
-After you get your services running, you should regularly check how much they're costing you. You can see the current spend and burn rate in Azure Portal. 
+After you get your services running, you should regularly check how much they're costing you. You can see the current spend and burn rate in Azure portal. 
 
 1. Visit the [Subscriptions blade in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
 
