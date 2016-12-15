@@ -58,7 +58,7 @@ The following is the HTTP 1.1 request details for executing a [direct method][ln
             payload: <payload>,                 
             responseTimeoutInSeconds: methodTimeoutInSeconds 
         },
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        
     }
@@ -87,7 +87,7 @@ The following is the HTTP 1.1 request details for updating device twin propertie
         jobId: '<jobId>',
         type: 'scheduleTwinUpdate', 
         updateTwin: <patch>                 // Valid JSON object
-        queryCondition: '<queryOrDevices>', // if the queryOrDevices parameter is a string
+        queryCondition: '<queryOrDevices>', // query condition
         startTime: <jobStartTime>,          // as an ISO-8601 date string
         maxExecutionTimeInSeconds: <maxExecutionTimeInSeconds>        // format TBD
     }
