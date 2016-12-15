@@ -22,7 +22,7 @@ ms.author: tvoellm
 
 [**Download the Emulator**](https://aka.ms/documentdb-emulator)
 
-The Azure DocumentDB Emulator provides a local environment that emulates the Azure DocumentDB service for development purposes including its use of SSL connections. This post demonstrates how to export the SSL certificates for use in languages and runtimes that do not integrate with the Windows Certificate Store such as Java which uses its own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) and Python which uses [socket wrappers](https://docs.python.org/2/library/ssl.html). You can read more about the emulator in the "[Use the Azure DocumentDB Emulator for development and testing](./documentdb-nosql-local-emulator.md)" post.
+The Azure DocumentDB Emulator provides a local environment that emulates the Azure DocumentDB service for development purposes including its use of SSL connections. This post demonstrates how to export the SSL certificates for use in languages and runtimes that do not integrate with the Windows Certificate Store such as Java which uses its own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) and Python which uses [socket wrappers](https://docs.python.org/2/library/ssl.html). You can read more about the emulator in [Use the Azure DocumentDB Emulator for development and testing](./documentdb-nosql-local-emulator.md).
 
 # Certification rotation
 
