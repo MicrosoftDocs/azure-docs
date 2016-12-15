@@ -249,7 +249,7 @@ Click **Settings** > **Deployment slots** > **Add** to create a deployment slot 
 3. Update the connection strings for your stage deployment slot to point to the new database, `wordpress-stage-db`. Your production web app, `wordpressprodapp`, and staging web app, `wordpressprodapp-stage`, must point to different databases.
 
 #### Configure environment-specific app settings
-Developers can store key/value string pairs in Azure as part of the configuration information, called **App Settings**, that's associated with a web app. At runtime, Web Apps automatically retrieve these values and make them available to code that's running in your web app. From a security perspective, that is a nice side benefit because sensitive information, such as database connection strings that include passwords, never show up as clear text in a file such as `wp-config.php`.
+Developers can store key/value string pairs in Azure as part of the configuration information, called **App Settings**, that's associated with a web app. At runtime, web apps automatically retrieve these values and make them available to code that's running in your web app. From a security perspective, that is a nice side benefit because sensitive information, such as database connection strings that include passwords, never show up as clear text in a file such as `wp-config.php`.
 
 This process, which is explained in the following paragraphs, is useful because it includes both file changes and database changes for the WordPress app:
 
