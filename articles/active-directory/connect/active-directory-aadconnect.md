@@ -26,24 +26,24 @@ Azure AD Connect will integrate your on-premises directories with Azure Active D
 > 
 > 
 
-![What is Azure AD Connect](./media/active-directory-aadarch.png)
+![What is Azure AD Connect](./media/active-directory-arch.png)
 
 ## Why use Azure AD Connect
 Integrating your on-premises directories with Azure AD makes your users more productive by providing a common identity for accessing both cloud and on-premises resources. Users and organizations can take advantage of the following:
 
 * Users can use a single identity to access on-premises applications and cloud services such as Office 365.
 * Single tool to provide an easy deployment experience for synchronization and sign-in.
-* Provides the newest capabilities for your scenarios. Azure AD Connect replaces older versions of identity integration tools such as DirSync and Azure AD Sync. For more information, see [Hybrid Identity directory integration tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md).
+* Provides the newest capabilities for your scenarios. Azure AD Connect replaces older versions of identity integration tools such as DirSync and Azure AD Sync. For more information, see [Hybrid Identity directory integration tools comparison](../active-directory-hybrid-identity-design-considerations-tools-comparison.md).
 
 ### How Azure AD Connect works
-Azure Active Directory Connect is made up of three primary components: the synchronization services, the optional Active Directory Federation Services component, and the monitoring component named [Azure AD Connect Health](active-directory-aadconnect-health.md).
+Azure Active Directory Connect is made up of three primary components: the synchronization services, the optional Active Directory Federation Services component, and the monitoring component named [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 <center>![Azure AD Connect Stack](./media/active-directory-aadconnect-how-it-works/AADConnectStack2.png)
 </center>
 
 * Synchronization - This component is responsible for creating users, groups, and other objects. It is also responsible for making sure identity information for your on-premises users and groups is matching the cloud.
 * AD FS - Federation is an optional part of Azure AD Connect and can be used to configure a hybrid environment using an on-premises AD FS infrastructure. This can be used by organizations to address complex deployments, such as domain join SSO, enforcement of AD sign-in policy, and smart card or 3rd party MFA.
-* Health Monitoring - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. For additional information, see [Azure Active Directory Connect Health](active-directory-aadconnect-health.md).
+* Health Monitoring - Azure AD Connect Health can provide robust monitoring and provide a central location in the Azure portal to view this activity. For additional information, see [Azure Active Directory Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 ## Install Azure AD Connect
 You can find the download for Azure AD Connect on [Microsoft Download Center](http://go.microsoft.com/fwlink/?LinkId=615771).
@@ -85,7 +85,7 @@ Azure AD Connect comes with several features you can optionally turn on or are e
 
 [Password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md) synchronizes the password hash in Active Directory to Azure AD. The  end-user can use the same password on-premises and in the cloud but only manage it in one location. Since it uses your on-premises Active Directory as the authority, you can also use your own password policy.
 
-[Password writeback](active-directory-passwords-getting-started.md) will allow your users to change and reset their passwords in the cloud and have your on-premises password policy applied.
+[Password writeback](../active-directory-passwords-getting-started.md) will allow your users to change and reset their passwords in the cloud and have your on-premises password policy applied.
 
 [Device writeback](active-directory-aadconnect-feature-device-writeback.md) will allow a device registered in Azure AD to be written back to on-premises Active Directory so it can be used for conditional access.
 
@@ -98,7 +98,7 @@ The [prevent accidental deletes](active-directory-aadconnectsync-feature-prevent
 | --- | --- |
 |Configure filtering | [Azure AD Connect sync: Configure filtering](active-directory-aadconnectsync-configure-filtering.md)|
 |Password synchronization | [Azure AD Connect sync: Implement password synchronization](active-directory-aadconnectsync-implement-password-synchronization.md)|
-|Password writeback | [Getting started with password management](active-directory-passwords-getting-started.md)|
+|Password writeback | [Getting started with password management](../active-directory-passwords-getting-started.md)|
 |Device writeback | [Enabling device writeback in Azure AD Connect](active-directory-aadconnect-feature-device-writeback.md)|
 |Prevent accidental deletes | [Azure AD Connect sync: Prevent accidental deletes](active-directory-aadconnectsync-feature-prevent-accidental-deletes.md)|
 |Automatic upgrade | [Azure AD Connect: Automatic upgrade](active-directory-aadconnect-feature-automatic-upgrade.md)|
@@ -139,10 +139,10 @@ if your ADFS server has not been configured to automatically update certificates
 |Topic |Link|  
 | --- | --- |
 |Version history | [Version history](active-directory-aadconnect-version-history.md)|
-|Compare DirSync, Azure ADSync, and Azure AD Connect | [Directory integration tools comparison](active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
+|Compare DirSync, Azure ADSync, and Azure AD Connect | [Directory integration tools comparison](../active-directory-hybrid-identity-design-considerations-tools-comparison.md)|
 |Non-ADFS compatibility list for Azure AD | [Azure AD federation compatibility list](active-directory-aadconnect-federation-compatibility.md)|
 |Attributes synchronized | [Attributes synchronized](active-directory-aadconnectsync-attributes-synchronized.md)|
-|Monitoring using Azure AD Connect Health | [Azure AD Connect Health](active-directory-aadconnect-health.md)|
+|Monitoring using Azure AD Connect Health | [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)|
 |Frequently Asked Questions | [Azure AD Connect FAQ](active-directory-aadconnect-faq.md)|
 
 **Additional Resources**
