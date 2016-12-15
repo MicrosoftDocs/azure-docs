@@ -27,19 +27,25 @@ described below.
 
 ## Connecting to a Kubernetes cluster.
 To connect to a Kubernetes cluster, you need to have the `kubectl` command line tool installed.  The easiest way to install this
-tool is to use the Azure 2.0 `az` command line tool.
+tool is to use the Azure 2.0 [`az` command line tool.](https://github.com/azure/azure-cli#install-with-pip)
 
 ```console
-az acs kubernetes install cli [--install-location=/some/directory]
+# Linux or OS X
+az acs kubernetes install-cli [--install-location=/some/directory/kubectl]
+
+# Windows
+az acs kubernetes install-cli [--install-location=C:\some\directory\kubectl.exe]
 ```
 
 Alternately, you can download the client directly from the [releases page](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG.md#downloads-for-v146)
+
+### Installing kubectl credentials
 
 Once you have `kubectl` installed, you need to copy the cluster credentials to your machine.  The easiest way to do
 this is again the `az` command line tool:
 
 ```console
-az acs kubernetes get-credentials --dns-prefix=<some-prefix> --location=<some-location>
+az acs kubernetes get-credentials --resource-group=<cluster-resource-group> --name=<cluster-name>
 ```
 
 This will download the cluster credentials into `$HOME/.kube/config` where `kubectl` expects it to be located.
@@ -52,6 +58,15 @@ scp azureuser@<master-dns-name>:.kube/config $HOME/.kube/config
 ```
 
 If you are on Windows you will need to use Bash on Ubuntu on Windows or the Putty 'pscp' tool.
+
+These commands assume that you have an appropriate SSH key in `$HOME/.ssh/id_rsa`. See these 
+instructions for [OS X and Linux] (https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-mac-create-ssh-keys)
+or [Windows](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-ssh-from-windows)
+for more information.  If this isn't working, you may need to 
+[reset your SSH keys](https://docs.microsoft.com/en-us/azure/virtual-machines/virtual-machines-linux-troubleshoot-ssh-connection)
+
+
+### Using kubectl
 
 Once you have `kubectl` configured, you can test this by listing the nodes in your cluster:
 
