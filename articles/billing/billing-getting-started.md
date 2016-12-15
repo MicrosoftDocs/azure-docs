@@ -20,7 +20,7 @@ ms.author: jlian
 ---
 # Getting started with Azure billing and cost management
 
-After you sign up for Azure, there are several things you can do to get better idea of your spend. In the Azure portal you can see your current spend and burn rate. You can also download past invoices and detail usage files if you'd like to analyze a bit further. If you're an advanced user, then check out the billing API and resource tagging functionality. 
+After you sign up for Azure, there are several things you can do to get better idea of your spend. In the Azure Portal, you can see your current spend and burn rate. You can also download past invoices and detail usage files. As an advanced user, you should check out the billing API and resource tagging functionality. 
 
 If you're on Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship then information in this article may not apply to you. Talk to your account manager or Azure partner to get started.
 
@@ -38,9 +38,9 @@ To learn more about pricing, see the [pricing FAQ](https://azure.microsoft.com/p
 
 <!-- This is very hard to explain! -->
 
-To manage billing, you have to the be the Account Administrator (AA). The AA is the person who went through the sign-up process. See [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) to learn more about administrator roles.
+To manage billing, you have to be the Account Administrator (AA). The AA is the person who went through the sign-up process. See [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) to learn more about administrator roles.
 
-To see if you're the AA, Go the [Subscriptions blade in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and look at the list of subscriptions you have access to. Look under **My Role**. If it says *Account admin*, then you're set. If it says something else like *Owner*, then you don't have full privileges.
+To see if you're the AA, go to the [Subscriptions blade in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and look at the list of subscriptions you have access to. Look under **My Role**. If it says *Account admin*, then you're set. If it says something else like *Owner*, then you don't have full privileges.
 
 ![You should see your role in the Subscriptions view in the Azure portal](./media/billing-getting-started/sub-blade-view.PNG)
 
@@ -50,16 +50,16 @@ If your AA is absent and you need to manage billing, [contact support](https://p
 
 ### See if you have a spending limit on 
 
-If you're on a *credit offer* - [monthly Azure credit via Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or other benefits -  then the spending limit is turned on for you by default. This way if you're just trying things out, you will never actually get charged. To learn more, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/)
+If you're on a *credit offer* - [monthly Azure credit via Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or other benefits - then the spending limit is turned on for you by default. This way, when you spend all your credits, your credit card doesn't get charged. To learn more, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/)
 
 > [!WARNING] 
-> once you hit your spending limit, we disable you (Your VMs will get deallocated)! If you don't want to get disabled then you must turn off the spending limit so any overage gets charged onto a credit card on file. 
+> once you hit your spending limit, we disable you (your VMs get deallocated)! If you don't want to get disabled, then you must turn off the spending limit so any overage gets charged onto a credit card on file. 
 
-To see if you've got spending limit on, go to the [Subscriptions view in the Account Center](https://account.windowsazure.com/Subscriptions). You'll see a banner like this if your spending limit is on:
+To see if you've got spending limit on, go to the [Subscriptions view in the Account Center](https://account.windowsazure.com/Subscriptions). A banner appears if your spending limit is on:
 
 ![You should see a warning about spending limit being on in the Account Center](./media/billing-getting-started/spending-limit-banner.PNG)
 
-Click the banner and follow the prompts to remove the spending limit.
+To remove the spending limit, click the banner and follow prompts.
 
 ### Set up billing alerts
 
@@ -86,11 +86,11 @@ Typically when you add a service in the Azure portal there's a view that shows y
 
 ### Add tags to your resources to group your billing data
 
-You can use tags to group billing data for supported services. For example, if you are running several VMs for different teams, then you can use tags to categorize costs by cost center (HR, marketing, finance) or runtime environment (production, pre-production, test). 
+You can use tags to group billing data for supported services. For example, if you are running several VMs for different teams, then you can use tags to categorize costs by cost center (HR, marketing, finance) or environment (production, pre-production, test). 
 
 ![Use tags in to group your resources](./media/billing-getting-started/tags.PNG)
 
-It will show up in your [usage CSV](#invoice-and-usage) later:
+They show up in your [usage CSV](#invoice-and-usage) later:
 
 ![Tags can be found in the usage CSV](./media/billing-getting-started/csv.png)
 
@@ -103,7 +103,7 @@ Depending on your use case, you could configure auto-shutdown for your VMs in th
 ![Set up auto-shutdown in the portal](./media/billing-getting-started/auto-shutdown.PNG)
 
 > [!NOTE]
-> This is not the same as shutting it down inside the VM (like using Windows power options). It will stop and deallocate your VMs in order to stop billing. See pricing FAQ for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/) VMs.
+> This shutdown is not the same as shutting down inside the VM (like using Windows power options). It stops and deallocates your VMs to stop billing. See pricing FAQ for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/) VMs.
 
 ## Ways to view and analyze your costs
 
@@ -115,13 +115,13 @@ After you get your services running, you should regularly check how much they're
 
 2. Select your subscription you want to see. You might only have one to select.
 
-3. You should see the cost breakdown and burn rate in the popup blade. It may not be supported for your offer (a warning would be displayed near the top). Please wait 24 hours for the data to populate.
+3. You should see the cost breakdown and burn rate in the popup blade. It may not be supported for your offer (a warning would be displayed near the top). Wait 24 hours for the data to populate.
     
     ![See the burn rate and breakdown in the Azure portal](./media/billing-getting-started/burn-rate.PNG)
 
 4. You could pin the view to your dashboard.
 
-We recommend to check this against the estimates found earlier. If it's wildly out of expectations, then double check the pricing plan (A1 vs A0 VM, for example) you've selected for your services. 
+We recommend checking what you see here against the estimates found earlier. If it's wildly out of expectations, then double check the pricing plan (A1 vs A0 VM, for example) you've selected for your services. 
 
 ## <a name="invoice-and-usage"></a> Download invoice and detail usage after your first billing period
 
