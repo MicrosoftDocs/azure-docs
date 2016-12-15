@@ -1,5 +1,5 @@
 ---
-title: Rules Engine Features | Microsoft Azure Docs
+title: Azure Content Delivery Network Rules Engine Features | Microsoft Docs
 description: This topic describes Rules engine match conditions and features
 services: cdn
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: rli
 
 ---
 
-# Features
+# Features for Azure Content Delivery Network  (CDN) Rules Engine
 This topic lists detailed descriptions of the available features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
 The third part of a rule is the feature. A feature defines the type of action that will be applied to the type of request identified by a set of match conditions.

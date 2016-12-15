@@ -1,5 +1,5 @@
 ---
-title: Rules Engine Conditional Expressions | Microsoft Azure Docs
+title: Azure Content Delivery Network Rules Engine Conditional Expressions | Microsoft  Docs
 description: This topic describes Rules engine match conditions and features
 services: cdn
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: rli
 
 ---
 
-# Conditional Expressions
+# Conditional Expressions for Azure Content Delivery Network (CDN) Rules Engine
 This topic lists detailed descriptions of the Conditional Expressions for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
 The first part of a rule is the Conditional Expression.

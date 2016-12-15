@@ -1,5 +1,5 @@
 ---
-title: Rules Engine Match Conditions| Microsoft Azure Docs
+title: Azure Content Delivery Network Rules Engine Match Conditions| Microsoft Docs
 description: This topic describes Rules engine match conditions and features
 services: cdn
 documentationcenter: ''
@@ -18,7 +18,7 @@ ms.author: rli
 
 ---
 
-#Match conditions
+#Match Conditions for Azure Content Delivery Network (CDN) Rules Engine
 This topic lists detailed descriptions of the available Match Conditions for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
 The second part of a rule is the match condition. A match condition identifies specific types of requests for which a set of features will be performed.
@@ -33,7 +33,8 @@ The Always match condition is designed to apply a default set of features to all
 
 The Device match condition identifies requests made from a mobile device based on its properties.  Mobile device detection is achieved through [WURFL](http://wurfl.sourceforge.net/).  WURFL capabilities and their CDN Rules Engine variables are listed below.
 
-> [AZURE.TIP] The variables below are supported in the **Modify Client Request Header** and **Modify Client Response Header** features.
+> [!NOTE] 
+> The variables below are supported in the **Modify Client Request Header** and **Modify Client Response Header** features.
 
 Capability | Variable | Description | Sample Value(s)
 -----------|----------|-------------|----------------

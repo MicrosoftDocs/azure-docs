@@ -1,5 +1,5 @@
 ---
-title: Rules Engine Reference | Microsoft Azure Docs
+title: Azure Content Delivery Network Rules Engine Rules Engine Reference | Microsoft Docs
 description: This topic describes Rules engine match conditions and features
 services: cdn
 documentationcenter: ''
@@ -17,7 +17,7 @@ ms.date: 07/29/2016
 ms.author: rli
 
 ---
-# Rules Engine
+# Azure Content Delivery Network Rules Engine
 This topic lists detailed descriptions of the available match conditions and features for Azure Content Delivery Network (CDN) [Rules Engine](cdn-rules-engine.md).
 
 The HTTP Rules Engine is designed to be the final authority on how specific types of requests are processed by the CDN.
