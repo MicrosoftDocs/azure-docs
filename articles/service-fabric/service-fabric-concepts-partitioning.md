@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/22/2016
-ms.author: msfussell
+ms.author: mfussell
 
 ---
 # Partition Service Fabric reliable services
