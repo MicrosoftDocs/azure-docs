@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/18/2016
+ms.date: 12/15/2016
 ms.author: markvi
 
 ---
@@ -131,11 +131,14 @@ Legacy authentication refers to clients using basic authentication such as older
 
 ## What you should know
 
-Do I need to assign 
+### Do I need to assign a user to my policy?
 
 When configuring a conditional access policy, you should at least assign one group to it. A conditional access policy that has no users and groups assigned, is never triggered.
 
 When you intend to assign several users and groups to a policy, you should start small by assigning only one user or group, and then test your configuration. If your policy works as expected, you can then add additional assignments to it.  
+
+
+### How are assignments evaluated?
 
 All assignments are logically **ANDed**. If you have more than one assignment configured, to trigger a policy, all assignments must be satisfied.  
 
@@ -154,7 +157,7 @@ In this case, both policies are enforced by Azure Active Directory and the user 
 For every sign-in, Azure Active Directory evaluates all policies and ensures that all requirements are met before granted access to the user.
 
 
-**How does conditional access work in conjunction with Exchange ActiveSync?**
+### How does conditional access work in conjunction with Exchange ActiveSync?
  
 Exchange ActiveSync only works with Exchange Online as the cloud app. So, ensure that Exchange Online is the only cloud app selected.
 
@@ -162,32 +165,33 @@ It only supports “Require compliant device” control.
 
 Exchange ActiveSync does not support all conditions. The only supported condition for Exchange ActiveSync scenario is client apps. Rest of the conditions are not supported with Exchange ActiveSync.
 
-To create policies for Exchange ActiveSync, follow the steps below:
+To create policies for Exchange ActiveSync, do:
 
-1.	Define the name for the policy
-2.	Select users
-3.	Select cloud apps
-4.	Select client apps condition and set it to Exchange ActiveSync
-5.	Select “Require compliant device” as a control
-6.	Set Enable to “Yes”
-7.	Click “Create”
+1.	Enter a name for the policy.
+2.	Select users.
+3.	Select cloud apps.
+4.	Select client apps condition and, then set it to Exchange ActiveSync.
+5.	Select **Require compliant device** as a control.
+6.	Set Enable to **Yes**.
+7.	Click **Create**.
 
 
 
 ## Common scenarios
 
-### Require mfa for an app
+### Requiring multi-factor authentication for apps
 
-Salesforce is sensitive app and requires more security than other apps
-
-
-### Require mfa when not on trusted network 
-
+Many environments have apps requiring a higher level of protection than the others.
+This is, for example, the case for apps that have access to sensitive data. 
+If you want to add another layer of protection to these apps, you can configure a conditional access policy that requires multi-factor authentication when accessing these apps.
 
 
+### Requiring multi-factor authentication for access from networks that are not trusted
 
-
-
+This scenario is similar to the previous scenario because it adds a requirement for multi-factor authentication.
+However, the main difference is the condition for this requirement.  
+While the focus of the previous scenario was on "*sensitve*" apps, the focus of this scenario is on trusted locations.  
+In other words, you might have a requirement for multi-factor authentication if the app is accessed by a user from a network you don't trust. 
 
 
 ### Only trusted devices can access Office 365 services
