@@ -500,7 +500,6 @@ The following table lists troubleshooting topics for other Azure services. It fo
 | --- | --- |
 | Automation |[Troubleshooting tips for common errors in Azure Automation](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure Stack |[Microsoft Azure Stack troubleshooting](../azure-stack/azure-stack-troubleshooting.md) |
-| Azure Stack |[Web Apps and Azure Stack](../azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) |
 | Data Factory |[Troubleshoot Data Factory issues](../data-factory/data-factory-troubleshoot.md) |
 | Service Fabric |[Troubleshoot common issues when you deploy services on Azure Service Fabric](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
 | Site Recovery |[Monitor and troubleshoot protection for virtual machines and physical servers](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |
