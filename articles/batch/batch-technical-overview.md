@@ -43,6 +43,8 @@ Batch can also perform parallel calculations with a reduce step at the end, and 
 
 For a comparison between Batch and other HPC solution options in Azure, see [Batch and HPC solutions](batch-hpc-solutions.md).
 
+[!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
+
 ## Developing with Batch
 Processing parallel workloads with Azure Batch is typically done programmatically by using one of the [Batch APIs](#batch-development-apis). Your client application or service can use the Batch APIs to communicate with the Batch service. With the Batch APIs, you can create and manage pools of compute nodes, either virtual machines or cloud services. You can then schedule jobs and tasks to run on those nodes. 
 
@@ -66,8 +68,8 @@ Your applications and services can issue direct REST API calls or use one or mor
 | API | API reference | Download | Tutorial | Code samples |
 | --- | --- | --- | --- |
 | **Batch REST** |[MSDN][batch_rest] |N/A |&nbsp; |&nbsp; |
-| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Tutorial](batch-dotnet-get-started) |[GitHub][api_sample_net] |
-| **Batch Python** |[readthedocs.io][api_python] |[PyPI][api_python_pypi] |[Tutorial]([)batch-python-tutorial)|[GitHub][api_sample_python] |
+| **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Tutorial](batch-dotnet-get-started.md) |[GitHub][api_sample_net] |
+| **Batch Python** |[readthedocs.io][api_python] |[PyPI][api_python_pypi] |[Tutorial](batch-python-tutorial.md)|[GitHub][api_sample_python] |
 | **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |&nbsp; |&nbsp; |
 | **Batch Java** (preview) |[github.io][api_java] |[Maven][api_java_jar] |&nbsp; |[GitHub][api_sample_java] |
 
