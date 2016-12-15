@@ -19,7 +19,7 @@ ms.author: seguler
 ---
 # Azure Storage Samples using Java
 
-The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on links to view the corresponding sample code in Github.
+The following table provides an overview of our samples repository and the scenarios covered in each sample. Click on the links to view the corresponding sample code in Github.
 <table style="font-size:90%"><thead><tr><th style="font-size:110%">Endpoint</th><th style="font-size:110%">Scenario</th><th style="font-size:110%">Sample Code</th></tr></thead><tbody> 
 <tr> 
 <td rowspan="16"><b>Blob</b></td>
@@ -189,12 +189,12 @@ The following table provides an overview of our samples repository and the scena
 </table>
 <br/>
 ###Azure Code Sample Library
-To view the complete sample library, please go to (The Azure Code Sample Library)[https://azure.microsoft.com/en-us/resources/samples/?service=storage] which includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
+To view the complete sample library, go to (The Azure Code Sample Library)[https://azure.microsoft.com/en-us/resources/samples/?service=storage], which includes samples for Azure Storage that you can download and run locally. The Code Sample Library provides sample code in .zip format. Alternatively, you can browse and clone the GitHub repository for each sample.
 
 [!INCLUDE [storage-java-samples-include](../../includes/storage-java-samples-include.md)]
 
 ### Getting started guides
-Check out our guides below if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
+Check out the following guides if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
 
 * [Getting Started with Azure Blob Service in .NET](storage-dotnet-how-to-use-blobs.md)
 * [Getting Started with Azure Queue Service in .NET](storage-dotnet-how-to-use-queues.md)
