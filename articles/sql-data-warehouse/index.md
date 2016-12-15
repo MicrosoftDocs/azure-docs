@@ -1,10 +1,11 @@
 ---
 layout: LandingPage
+description:Learn how to use SQL Data Warehouse, combining SQL Server with massively parallel processing. Documentation shows how to load, analyze, manage, and export data.
 ---
 
 # SQL Data Warehouse Documentation
 
-Azure SQL Data Warehouse combines the SQL Server relational database with Azure cloud scale-out capabilities.  Built on our massively parallel processing (MPP) architecture, SQL Data Warehouse can handle your enterprise workload.
+Learn how to use SQL Data Warehouse, which combines the SQL Server relational database with massively parallel processing. Tutorials and other documentation show you how to load data into the warehouse, then analyze, manage, and export it.
 
 <ul class="panelContent cardsFTitle">
     <li>
