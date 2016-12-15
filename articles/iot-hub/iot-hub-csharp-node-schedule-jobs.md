@@ -17,7 +17,7 @@ ms.date: 11/17/2016
 ms.author: juanpere
 
 ---
-# How to schedule and broadcast jobs
+# Schedule and broadcast jobs
 [!INCLUDE [iot-hub-selector-schedule-jobs](../../includes/iot-hub-selector-schedule-jobs.md)]
 
 ## Introduction

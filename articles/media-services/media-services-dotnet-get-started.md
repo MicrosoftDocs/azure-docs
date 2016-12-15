@@ -21,7 +21,7 @@ ms.author: juliako
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 > [!NOTE]
-> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). 
+> To complete this tutorial, you need an Azure account. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). 
 > 
 > 
 
@@ -47,7 +47,7 @@ The following are required to complete the tutorial.
 
 * To complete this tutorial, you need an Azure account. 
   
-    If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
+    If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F). You get credits that can be used to try out paid Azure services. Even after the credits are used up, you can keep the account and use free Azure services and features, such as the Web Apps feature in Azure App Service.
 * Operating Systems: Windows 8 or later, Windows 2008 R2, Windows 7.
 * .NET Framework 4.0 or later
 * Visual Studio 2010 SP1 (Professional, Premium, Ultimate, or Express) or later versions.

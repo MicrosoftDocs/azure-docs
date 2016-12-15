@@ -1,4 +1,4 @@
-﻿---
+---
 title: HPC Pack cluster with Azure Active Directory | Microsoft Docs
 description: Learn how to integrate an HPC Pack 2016 cluster in Azure with Azure Active Directory
 services: virtual-machines-windows

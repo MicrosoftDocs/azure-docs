@@ -3,7 +3,7 @@ title: Azure AD v2.0 iOS App | Microsoft Docs
 description: How to build an iOS app that signs in users with both personal Microsoft account and work or school accounts by using third-party libraries.
 services: active-directory
 documentationcenter: ''
-author: brandwe
+author: xerners
 manager: mbaldwin
 editor: ''
 

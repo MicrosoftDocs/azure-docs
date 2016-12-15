@@ -1,4 +1,4 @@
-﻿---
+---
 title: Routing requirements for ExpressRoute | Microsoft Docs
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 documentationcenter: na
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/01/2016
+ms.date: 12/06/2016
 ms.author: osamazia
 
 ---
@@ -145,6 +145,8 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 | **Europe** | |
 | North Europe |12076:51003 |
 | West Europe |12076:51002 |
+| UK South | 12076:51024 |
+| UK West | 12076:51025 |
 | **Asia Pacific** | |
 | East Asia |12076:51010 |
 | Southeast Asia |12076:51011 |

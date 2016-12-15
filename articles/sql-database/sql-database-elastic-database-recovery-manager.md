@@ -1,4 +1,4 @@
-﻿---
+---
 title: Using Recovery Manager to fix shard map problems | Microsoft Docs
 description: Use the RecoveryManager class to solve problems with shard maps
 services: sql-database
@@ -8,6 +8,7 @@ author: ddove
 
 ms.assetid: 45520ca3-6903-4b39-88ba-1d41b22da9fe
 ms.service: sql-database
+ms.custom: sharded databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -17,7 +18,7 @@ ms.author: ddove
 
 ---
 # Using the RecoveryManager class to fix shard map problems
-The [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) class provides ADO.Net applications the ability to easily detect and correct any inconsistencies between the global shard map (GSM) and the local shard map (LSM) in a sharded database enviroment. 
+The [RecoveryManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.aspx) class provides ADO.Net applications the ability to easily detect and correct any inconsistencies between the global shard map (GSM) and the local shard map (LSM) in a sharded database environment. 
 
 The GSM and LSM track the mapping of each database in a sharded environment. Occasionally, a break occurs between the GSM and the LSM. In that case, use the RecoveryManager class to detect and repair the break.
 
@@ -45,9 +46,11 @@ For more information about Azure SQL Database Elastic Database tools, Geo-Replic
 ## Retrieving RecoveryManager from a ShardMapManager
 The first step is to create a RecoveryManager instance. The [GetRecoveryManager method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager.aspx) returns the recovery manager for the current [ShardMapManager](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.aspx) instance. In order to address any inconsistencies in the shard map, you must first retrieve the RecoveryManager for the particular shard map. 
 
+   ```
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnnectionString,  
              ShardMapManagerLoadPolicy.Lazy);
              RecoveryManager rm = smm.GetRecoveryManager(); 
+   ```
 
 In this example, the RecoveryManager is initialized from the ShardMapManager. The ShardMapManager containing a ShardMap is also already initialized. 
 
@@ -59,11 +62,15 @@ The [DetachShard method](https://msdn.microsoft.com/library/azure/dn842083.aspx)
 * The location parameter is the shard location, specifically server name and database name, of the shard being detached. 
 * The shardMapName parameter is the shard map name. This is only required when multiple shard maps are managed by the same shard map manager. Optional. 
 
-**Important**:  Use this technique only if you are certain that the range for the updated mapping is empty. The methods above do not check data for the range being moved, so it is best to include checks in your code.
+> [!IMPORTANT]
+> Use this technique only if you are certain that the range for the updated mapping is empty. The methods above do not check data for the range being moved, so it is best to include checks in your code.
+>
 
 This example removes shards from the shard map. 
 
-    rm.DetachShard(s.Location, customerMap); 
+   ```
+   rm.DetachShard(s.Location, customerMap);
+   ``` 
 
 The map the shard location in the GSM  prior to the deletion of the shard. Because the shard was deleted, it is assumed this was intentional, and the sharding key range is no longer in use. If this is not the case, you can execute point-in time restore. to recover the shard from an earlier point-in-time. (In that case, review the section below to detect shard inconsistencies.) To recover, see [Point in time recovery](sql-database-point-in-time-restore-portal.md).
 
@@ -72,7 +79,9 @@ Since it is assumed the database deletion was intentional, the final administrat
 ## To detect mapping differences
 The [DetectMappingDifferences method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences.aspx) selects and returns one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
 
-    rm.DetectMappingDifferences(location, shardMapName);
+   ```
+   rm.DetectMappingDifferences(location, shardMapName);
+   ```
 
 * The *location* specifies the server name and database name. 
 * The *shardMapName* parameter is the shard map name. This is only required if multiple shard maps are managed by the same shard map manager. Optional. 
@@ -80,7 +89,9 @@ The [DetectMappingDifferences method](https://msdn.microsoft.com/library/azure/m
 ## To resolve mapping differences
 The [ResolveMappingDifferences method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences.aspx) selects one of the shard maps (either local or global) as the source of truth and reconciles mappings on both shard maps (GSM and LSM).
 
-    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
+   ```
+   ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
+   ```
 
 * The *RecoveryToken* parameter enumerates the differences in the mappings between the GSM and the LSM for the specific shard. 
 * The [MappingDifferenceResolution enumeration](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution.aspx) is used to indicate the method for resolving the difference between the shard mappings. 
@@ -89,19 +100,23 @@ The [ResolveMappingDifferences method](https://msdn.microsoft.com/library/azure/
 ## Attach a shard to the ShardMap after a shard is restored
 The [AttachShard method](https://msdn.microsoft.com/library/azure/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard.aspx) attaches the given shard to the shard map. It then detects any shard map inconsistencies and updates the mappings to match the shard at the point of the shard restoration. It is assumed that the database is also renamed to reflect the original database name (prior to when the shard was restored), since the point-in time restoration defaults to a new database appended with the timestamp. 
 
-    rm.AttachShard(location, shardMapName) 
+   ```
+   rm.AttachShard(location, shardMapName)
+   ``` 
 
 * The *location* parameter is the server name and database name, of the shard being attached. 
 * The *shardMapName* parameter is the shard map name. This is only required when multiple shard maps are managed by the same shard map manager. Optional. 
 
 This example adds a shard to the shard map which has been recently restored from an earlier point-in time. Since the shard (namely the mapping for the shard in the LSM) has been restored, it is potentially inconsistent with the shard entry in the GSM. Outside of this example code, the shard was restored and renamed to the original name of the database. Since it was restored, it is assumed the mapping in the LSM is the trusted mapping. 
 
-    rm.AttachShard(s.Location, customerMap); 
-    var gs = rm.DetectMappingDifferences(s.Location); 
+   ```
+   rm.AttachShard(s.Location, customerMap); 
+   var gs = rm.DetectMappingDifferences(s.Location); 
       foreach (RecoveryToken g in gs) 
        { 
        rm.ResolveMappingDifferences(g, MappingDifferenceResolution.KeepShardMapping); 
        } 
+   ```
 
 ## Updating shard locations after a geo-failover (restore) of the shards
 In the event of a geo-failover, the secondary database is made write accessible and becomes the new primary database. The name of the server, and potentially the database (depending on your configuration), may be different from the original primary. Therefore the mapping entries for the shard in the GSM and LSM must be fixed. Similarly, if the database is restored to a different name or location, or to an earlier point in time, this might cause inconsistencies in the shard maps. The Shard Map Manager handles the distribution of open connections to the correct database. Distribution is based on the data in the shard map and the value of the sharding key that is the target of the application’s request. After a geo-failover, this information must be updated with the accurate server name, database name and shard mapping of the recovered database. 
@@ -122,9 +137,10 @@ This example performs the following steps:
 3. Retrieves the recovery tokens by detecting mapping differences between the GSM and the LSM for each shard. 
 4. Resolves the inconsistencies by trusting the mapping from the LSM of each shard. 
    
-    var shards = smm.GetShards(); 
-    foreach (shard s in shards) 
-    { 
+   ```
+   var shards = smm.GetShards(); 
+   foreach (shard s in shards) 
+   { 
      if (s.Location.Server == Configuration.PrimaryServer) 
    
          { 
@@ -142,6 +158,7 @@ This example performs the following steps:
             } 
         } 
     } 
+   ```
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

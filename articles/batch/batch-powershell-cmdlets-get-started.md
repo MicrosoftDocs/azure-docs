@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Azure Batch PowerShell | Microsoft Docs
 description: Get a quick introduction to the Azure PowerShell cmdlets you can use to manage the Azure Batch service
 services: batch
@@ -27,7 +27,7 @@ This article is based on cmdlets in Azure PowerShell version 3.0.0. We recommend
 ## Prerequisites
 Perform the following operations to use Azure PowerShell to manage your Batch resources.
 
-* [Install and configure Azure PowerShell](../powershell-install-configure.md)
+* [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * Run the **Login-AzureRmAccount** cmdlet to connect to your subscription (the Azure Batch cmdlets ship in the Azure Resource Manager module):
   
     `Login-AzureRmAccount`

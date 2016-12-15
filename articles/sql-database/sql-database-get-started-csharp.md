@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Try SQL Database: Use C# to create a SQL database | Microsoft Docs'
 description: Try SQL Database for developing SQL and C# apps, and create an Azure SQL Database with C# using the SQL Database Library for .NET.
 keywords: try sql, sql c#
@@ -10,6 +10,7 @@ editor: cgronlun
 
 ms.assetid: cfff2299-a474-4054-8d99-759af1ae5188
 ms.service: sql-database
+ms.custom: overview
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: csharp

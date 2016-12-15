@@ -88,7 +88,7 @@ Azure Content Delivery Network (CDN) provides developers a global solution for d
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>CDN REST API Reference</p>
+                        <p>REST API</p>
                     </div>
                 </div>
             </div>

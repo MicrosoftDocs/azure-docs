@@ -1,4 +1,4 @@
-﻿---
+---
 title: SAP NetWeaver on Azure Virtual Machines (VMs) - High-Availability Guide | Microsoft Docs
 description: High-availability guide for SAP NetWeaver on Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
@@ -15,7 +15,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/18/2016
+ms.date: 12/07/2016
 ms.author: goraco
 
 ---
@@ -75,21 +75,21 @@ ms.author: goraco
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
 [azure-subscription-service-limits-subscription]:../azure-subscription-service-limits.md
 
-[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md (SAP NetWeaver on Azure Virtual Machines (VMs) – DBMS Deployment Guide)
-[dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f (Caching for VMs and VHDs)
-[dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 (Software RAID)
-[dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 (Microsoft Azure Storage)
-[dbms-guide-2]:virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 (Structure of a RDBMS Deployment)
-[dbms-guide-3]:virtual-machines-windows-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3 (High Availability and Disaster Recovery with Azure VMs)
-[dbms-guide-5.5.1]:virtual-machines-windows-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268 (SQL Server 2012 SP1 CU4 and later)
-[dbms-guide-5.5.2]:virtual-machines-windows-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b (SQL Server 2012 SP1 CU3 and earlier releases)
-[dbms-guide-5.6]:virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8 (Using a SQL Server images out of the Microsoft Azure Marketplace)
-[dbms-guide-5.8]:virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30 (General SQL Server for SAP on Azure Summary)
-[dbms-guide-5]:virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737 (Specifics to SQL Server RDBMS)
-[dbms-guide-8.4.1]:virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 (Storage configuration)
-[dbms-guide-8.4.2]:virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d (Backup and Restore)
-[dbms-guide-8.4.3]:virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c (Performance Considerations for Backup and Restore)
-[dbms-guide-8.4.4]:virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818 (Other)
+[dbms-guide]:virtual-machines-windows-sap-dbms-guide.md 
+[dbms-guide-2.1]:virtual-machines-windows-sap-dbms-guide.md#c7abf1f0-c927-4a7c-9c1d-c7b5b3b7212f 
+[dbms-guide-2.2]:virtual-machines-windows-sap-dbms-guide.md#c8e566f9-21b7-4457-9f7f-126036971a91 
+[dbms-guide-2.3]:virtual-machines-windows-sap-dbms-guide.md#10b041ef-c177-498a-93ed-44b3441ab152 
+[dbms-guide-2]:virtual-machines-windows-sap-dbms-guide.md#65fa79d6-a85f-47ee-890b-22e794f51a64 
+[dbms-guide-3]:virtual-machines-windows-sap-dbms-guide.md#871dfc27-e509-4222-9370-ab1de77021c3
+[dbms-guide-5.5.1]:virtual-machines-windows-sap-dbms-guide.md#0fef0e79-d3fe-4ae2-85af-73666a6f7268
+[dbms-guide-5.5.2]:virtual-machines-windows-sap-dbms-guide.md#f9071eff-9d72-4f47-9da4-1852d782087b 
+[dbms-guide-5.6]:virtual-machines-windows-sap-dbms-guide.md#1b353e38-21b3-4310-aeb6-a77e7c8e81c8
+[dbms-guide-5.8]:virtual-machines-windows-sap-dbms-guide.md#9053f720-6f3b-4483-904d-15dc54141e30
+[dbms-guide-5]:virtual-machines-windows-sap-dbms-guide.md#3264829e-075e-4d25-966e-a49dad878737
+[dbms-guide-8.4.1]:virtual-machines-windows-sap-dbms-guide.md#b48cfe3b-48e9-4f5b-a783-1d29155bd573 
+[dbms-guide-8.4.2]:virtual-machines-windows-sap-dbms-guide.md#23c78d3b-ca5a-4e72-8a24-645d141a3f5d
+[dbms-guide-8.4.3]:virtual-machines-windows-sap-dbms-guide.md#77cd2fbb-307e-4cbf-a65f-745553f72d2c
+[dbms-guide-8.4.4]:virtual-machines-windows-sap-dbms-guide.md#f77c1436-9ad8-44fb-a331-8671342de818
 [dbms-guide-900-sap-cache-server-on-premises]:virtual-machines-windows-sap-dbms-guide.md#642f746c-e4d4-489d-bf63-73e80177a0a8
 
 [dbms-guide-figure-100]:./media/virtual-machines-shared-sap-dbms-guide/100_storage_account_types.png
@@ -102,27 +102,27 @@ ms.author: goraco
 [dbms-guide-figure-800]:./media/virtual-machines-shared-sap-dbms-guide/800-azure-vm-sap-content-server.png
 [dbms-guide-figure-900]:./media/virtual-machines-shared-sap-dbms-guide/900-sap-cache-server-on-premises.png
 
-[deployment-guide]:virtual-machines-windows-sap-deployment-guide.md (SAP NetWeaver on Azure Virtual Machines (VMs) – Deployment Guide)
-[deployment-guide-2.2]:virtual-machines-windows-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 (SAP Resources)
-[deployment-guide-3.1.2]:virtual-machines-windows-sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab (Deploying a VM with a custom image)
-[deployment-guide-3.2]:virtual-machines-windows-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281 (Scenario 1: Deploying a VM out of the Azure Marketplace for SAP)
-[deployment-guide-3.3]:virtual-machines-windows-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2 (Scenario 2: Deploying a VM with a custom image for SAP)
-[deployment-guide-3.4]:virtual-machines-windows-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1 (Scenario 3: Moving a VM from on-premises using a non-generalized Azure VHD with SAP)
-[deployment-guide-3]:virtual-machines-windows-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Deployment Scenarios of VMs for SAP on Microsoft Azure)
-[deployment-guide-4.1]:virtual-machines-windows-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Deploying Azure PowerShell cmdlets)
-[deployment-guide-4.2]:virtual-machines-windows-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (Download and Import SAP relevant PowerShell cmdlets)
-[deployment-guide-4.3]:virtual-machines-windows-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Join VM into on-premises Domain - Windows only)
-[deployment-guide-4.4.2]:virtual-machines-windows-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux)
-[deployment-guide-4.4]:virtual-machines-windows-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Download, Install and enable Azure VM Agent)
-[deployment-guide-4.5.1]:virtual-machines-windows-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell)
-[deployment-guide-4.5.2]:virtual-machines-windows-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f (Azure CLI)
-[deployment-guide-4.5]:virtual-machines-windows-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca (Configure Azure Enhanced Monitoring Extension for SAP)
-[deployment-guide-5.1]:virtual-machines-windows-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 (Readiness Check for Azure Enhanced Monitoring for SAP)
-[deployment-guide-5.2]:virtual-machines-windows-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 (Health check for Azure Monitoring Infrastructure Configuration)
-[deployment-guide-5.3]:virtual-machines-windows-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8 (Further troubleshooting of Azure Monitoring infrastructure for SAP)
+[deployment-guide]:virtual-machines-windows-sap-deployment-guide.md 
+[deployment-guide-2.2]:virtual-machines-windows-sap-deployment-guide.md#42ee2bdb-1efc-4ec7-ab31-fe4c22769b94 
+[deployment-guide-3.1.2]:virtual-machines-windows-sap-deployment-guide.md#3688666f-281f-425b-a312-a77e7db2dfab
+[deployment-guide-3.2]:virtual-machines-windows-sap-deployment-guide.md#db477013-9060-4602-9ad4-b0316f8bb281
+[deployment-guide-3.3]:virtual-machines-windows-sap-deployment-guide.md#54a1fc6d-24fd-4feb-9c57-ac588a55dff2
+[deployment-guide-3.4]:virtual-machines-windows-sap-deployment-guide.md#a9a60133-a763-4de8-8986-ac0fa33aa8c1
+[deployment-guide-3]:virtual-machines-windows-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e
+[deployment-guide-4.1]:virtual-machines-windows-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 
+[deployment-guide-4.2]:virtual-machines-windows-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e
+[deployment-guide-4.3]:virtual-machines-windows-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc
+[deployment-guide-4.4.2]:virtual-machines-windows-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 
+[deployment-guide-4.4]:virtual-machines-windows-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d
+[deployment-guide-4.5.1]:virtual-machines-windows-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 
+[deployment-guide-4.5.2]:virtual-machines-windows-sap-deployment-guide.md#408f3779-f422-4413-82f8-c57a23b4fc2f 
+[deployment-guide-4.5]:virtual-machines-windows-sap-deployment-guide.md#d98edcd3-f2a1-49f7-b26a-07448ceb60ca 
+[deployment-guide-5.1]:virtual-machines-windows-sap-deployment-guide.md#bb61ce92-8c5c-461f-8c53-39f5e5ed91f2 
+[deployment-guide-5.2]:virtual-machines-windows-sap-deployment-guide.md#e2d592ff-b4ea-4a53-a91a-e5521edb6cd1 
+[deployment-guide-5.3]:virtual-machines-windows-sap-deployment-guide.md#fe25a7da-4e4e-4388-8907-8abc2d33cfd8
 
-[deployment-guide-configure-monitoring-scenario-1]:virtual-machines-windows-sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b (Configure Monitoring)
-[deployment-guide-configure-proxy]:virtual-machines-windows-sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d (Configure Proxy)
+[deployment-guide-configure-monitoring-scenario-1]:virtual-machines-windows-sap-deployment-guide.md#ec323ac3-1de9-4c3a-b770-4ff701def65b
+[deployment-guide-configure-proxy]:virtual-machines-windows-sap-deployment-guide.md#baccae00-6f79-4307-ade4-40292ce4e02d 
 [deployment-guide-figure-100]:./media/virtual-machines-shared-sap-deployment-guide/100-deploy-vm-image.png
 [deployment-guide-figure-1000]:./media/virtual-machines-shared-sap-deployment-guide/1000-service-properties.png
 [deployment-guide-figure-11]:virtual-machines-windows-sap-deployment-guide.md#figure-11
@@ -145,7 +145,7 @@ ms.author: goraco
 [deployment-guide-figure-azure-cli-installed]:virtual-machines-windows-sap-deployment-guide.md#402488e5-f9bb-4b29-8063-1c5f52a892d0
 [deployment-guide-figure-azure-cli-version]:virtual-machines-windows-sap-deployment-guide.md#0ad010e6-f9b5-4c21-9c09-bb2e5efb3fda
 [deployment-guide-install-vm-agent-windows]:virtual-machines-windows-sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
-[deployment-guide-troubleshooting-chapter]:virtual-machines-windows-sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b (Checks and Troubleshooting for End-to-End Monitoring Setup for SAP on Azure)
+[deployment-guide-troubleshooting-chapter]:virtual-machines-windows-sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b 
 
 [deploy-template-cli]:../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows
 [deploy-template-portal]:../resource-group-template-deploy.md#deploy-with-the-preview-portal
@@ -176,33 +176,33 @@ ms.author: goraco
 
 [msdn-set-azurermvmaemextension]:https://msdn.microsoft.com/library/azure/mt670598.aspx
 
-[planning-guide]:virtual-machines-windows-sap-planning-guide.md (SAP NetWeaver on Azure Virtual Machines (VMs) – Planning and Implementation Guide)
-[planning-guide-1.2]:virtual-machines-windows-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff (Resources)
-[planning-guide-11]:virtual-machines-windows-sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (High Availability (HA) and Disaster Recovery (DR) for SAP NetWeaver running on Azure Virtual Machines)
-[planning-guide-11.4.1]:virtual-machines-windows-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (High Availability for SAP Application Servers)
-[planning-guide-11.5]:virtual-machines-windows-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (Using Autostart for SAP instances)
-[planning-guide-2.1]:virtual-machines-windows-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Cloud-Only - Virtual Machine deployments into Azure without dependencies on the on-premises customer network)
-[planning-guide-2.2]:virtual-machines-windows-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Cross-Premise - Deployment of single or multiple SAP VMs into Azure with the requirement of being fully integrated into the on-premises network)
-[planning-guide-3.1]:virtual-machines-windows-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Azure Regions)
-[planning-guide-3.2.1]:virtual-machines-windows-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (Fault Domains)
-[planning-guide-3.2.2]:virtual-machines-windows-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Upgrade Domains)
-[planning-guide-3.2.3]:virtual-machines-windows-sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 (Azure Availability Sets)
-[planning-guide-3.2]:virtual-machines-windows-sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77 (The Microsoft Azure Virtual Machine Concept)
-[planning-guide-3.3.2]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure Premium Storage)
-[planning-guide-5.1.1]:virtual-machines-windows-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53 (Moving a VM from on-premises to Azure with a non-generalized disk)
-[planning-guide-5.1.2]:virtual-machines-windows-sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c (Deploying a VM with a customer specific image)
-[planning-guide-5.2.1]:virtual-machines-windows-sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef (Preparation for moving a VM from on-premises to Azure with a non-generalized disk)
-[planning-guide-5.2.2]:virtual-machines-windows-sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3 (Preparation for deploying a VM with a customer specific image for SAP)
-[planning-guide-5.2]:virtual-machines-windows-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7 (Preparing VMs with SAP for Azure)
-[planning-guide-5.3.1]:virtual-machines-windows-sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79 (Difference Between an Azure Disk and Azure Image)
-[planning-guide-5.3.2]:virtual-machines-windows-sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a (Uploading a VHD from on-premises to Azure)
-[planning-guide-5.4.2]:virtual-machines-windows-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1 (Copying disks between Azure Storage Accounts)
-[planning-guide-5.5.1]:virtual-machines-windows-sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 (VM/VHD structure for SAP deployments)
-[planning-guide-5.5.3]:virtual-machines-windows-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d (Setting automount for attached disks)
-[planning-guide-7.1]:virtual-machines-windows-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 (Single VM with SAP NetWeaver demo/training scenario)
-[planning-guide-7]:virtual-machines-windows-sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14 (Concepts of Cloud-Only deployment of SAP instances)
-[planning-guide-9.1]:virtual-machines-windows-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 (Azure Monitoring Solution for SAP)
-[planning-guide-azure-premium-storage]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 (Azure Premium Storage)
+[planning-guide]:virtual-machines-windows-sap-planning-guide.md 
+[planning-guide-1.2]:virtual-machines-windows-sap-planning-guide.md#e55d1e22-c2c8-460b-9897-64622a34fdff 
+[planning-guide-11]:virtual-machines-windows-sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058
+[planning-guide-11.4.1]:virtual-machines-windows-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 
+[planning-guide-11.5]:virtual-machines-windows-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f 
+[planning-guide-2.1]:virtual-machines-windows-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 
+[planning-guide-2.2]:virtual-machines-windows-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 
+[planning-guide-3.1]:virtual-machines-windows-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a 
+[planning-guide-3.2.1]:virtual-machines-windows-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 
+[planning-guide-3.2.2]:virtual-machines-windows-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 
+[planning-guide-3.2.3]:virtual-machines-windows-sap-planning-guide.md#18810088-f9be-4c97-958a-27996255c665 
+[planning-guide-3.2]:virtual-machines-windows-sap-planning-guide.md#8d8ad4b8-6093-4b91-ac36-ea56d80dbf77
+[planning-guide-3.3.2]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 
+[planning-guide-5.1.1]:virtual-machines-windows-sap-planning-guide.md#4d175f1b-7353-4137-9d2f-817683c26e53
+[planning-guide-5.1.2]:virtual-machines-windows-sap-planning-guide.md#e18f7839-c0e2-4385-b1e6-4538453a285c
+[planning-guide-5.2.1]:virtual-machines-windows-sap-planning-guide.md#1b287330-944b-495d-9ea7-94b83aff73ef
+[planning-guide-5.2.2]:virtual-machines-windows-sap-planning-guide.md#57f32b1c-0cba-4e57-ab6e-c39fe22b6ec3
+[planning-guide-5.2]:virtual-machines-windows-sap-planning-guide.md#6ffb9f41-a292-40bf-9e70-8204448559e7
+[planning-guide-5.3.1]:virtual-machines-windows-sap-planning-guide.md#6e835de8-40b1-4b71-9f18-d45b20959b79
+[planning-guide-5.3.2]:virtual-machines-windows-sap-planning-guide.md#a43e40e6-1acc-4633-9816-8f095d5a7b6a
+[planning-guide-5.4.2]:virtual-machines-windows-sap-planning-guide.md#9789b076-2011-4afa-b2fe-b07a8aba58a1
+[planning-guide-5.5.1]:virtual-machines-windows-sap-planning-guide.md#4efec401-91e0-40c0-8e64-f2dceadff646 
+[planning-guide-5.5.3]:virtual-machines-windows-sap-planning-guide.md#17e0d543-7e8c-4160-a7da-dd7117a1ad9d
+[planning-guide-7.1]:virtual-machines-windows-sap-planning-guide.md#3e9c3690-da67-421a-bc3f-12c520d99a30 
+[planning-guide-7]:virtual-machines-windows-sap-planning-guide.md#96a77628-a05e-475d-9df3-fb82217e8f14
+[planning-guide-9.1]:virtual-machines-windows-sap-planning-guide.md#6f0a47f3-a289-4090-a053-2521618a28c3 
+[planning-guide-azure-premium-storage]:virtual-machines-windows-sap-planning-guide.md#ff5ad0f9-f7f4-4022-9102-af07aef3bc92 
 
 [planning-guide-figure-100]:./media/virtual-machines-shared-sap-planning-guide/100-single-vm-in-azure.png
 [planning-guide-figure-1300]:./media/virtual-machines-shared-sap-planning-guide/1300-ref-config-iaas-for-sap.png
@@ -227,65 +227,67 @@ ms.author: goraco
 [planning-guide-figure-600]:./media/virtual-machines-shared-sap-planning-guide/600-s2s-details.png
 [planning-guide-figure-700]:./media/virtual-machines-shared-sap-planning-guide/700-decision-tree-deploy-to-azure.png
 [planning-guide-figure-800]:./media/virtual-machines-shared-sap-planning-guide/800-portal-vm-overview.png
-[planning-guide-microsoft-azure-networking]:virtual-machines-windows-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd (Microsoft Azure Networking)
-[planning-guide-storage-microsoft-azure-storage-and-data-disks]:virtual-machines-windows-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f (Storage: Microsoft Azure Storage and Data Disks)
+[planning-guide-microsoft-azure-networking]:virtual-machines-windows-sap-planning-guide.md#61678387-8868-435d-9f8c-450b2424f5bd 
+[planning-guide-storage-microsoft-azure-storage-and-data-disks]:virtual-machines-windows-sap-planning-guide.md#a72afa26-4bf4-4a25-8cf7-855d6032157f 
 
-[sap-ha-guide]:virtual-machines-windows-sap-high-availability-guide.md (High-availability SAP NetWeaver on Azure Virtual Machines)
-[sap-ha-guide-1]:virtual-machines-windows-sap-high-availability-guide.md#217c5479-5595-4cd8-870d-15ab00d4f84c (Prerequisites)
-[sap-ha-guide-2]:virtual-machines-windows-sap-high-availability-guide.md#42b8f600-7ba3-4606-b8a5-53c4f026da08 (Resources)
-[sap-ha-guide-3]:virtual-machines-windows-sap-high-availability-guide.md#42156640c6-01cf-45a9-b225-4baa678b24f1 (High-availability SAP with Azure Resource Manager vs. the classic deployment model)
-[sap-ha-guide-3.1]:virtual-machines-windows-sap-high-availability-guide.md#f76af273-1993-4d83-b12d-65deeae23686 (Resource groups)
-[sap-ha-guide-3.2]:virtual-machines-windows-sap-high-availability-guide.md#3e85fbe0-84b1-4892-87af-d9b65ff91860 (Clustering with Azure Resource Manager vs. the classic deployment model)
-[sap-ha-guide-4]:virtual-machines-windows-sap-high-availability-guide.md#8ecf3ba0-67c0-4495-9c14-feec1a2255b7 (Windows Server Failover Clustering)
-[sap-ha-guide-4.1]:virtual-machines-windows-sap-high-availability-guide.md#1a3c5408-b168-46d6-99f5-4219ad1b1ff2 (Quorum modes)
-[sap-ha-guide-5]:virtual-machines-windows-sap-high-availability-guide.md#fdfee875-6e66-483a-a343-14bbaee33275 (Windows Server Failover Clustering on-premises)
-[sap-ha-guide-5.1]:virtual-machines-windows-sap-high-availability-guide.md#be21cf3e-fb01-402b-9955-54fbecf66592 (Shared storage)
-[sap-ha-guide-5.2]:virtual-machines-windows-sap-high-availability-guide.md#ff7a9a06-2bc5-4b20-860a-46cdb44669cd (Networking and name resolution)
-[sap-ha-guide-6]:virtual-machines-windows-sap-high-availability-guide.md#2ddba413-a7f5-4e4e-9a51-87908879c10a (Windows Server Failover Clustering in Azure)
-[sap-ha-guide-6.1]:virtual-machines-windows-sap-high-availability-guide.md#1a464091-922b-48d7-9d08-7cecf757f341 (Shared disk in Azure with SIOS DataKeeper)
-[sap-ha-guide-6.2]:virtual-machines-windows-sap-high-availability-guide.md#44641e18-a94e-431f-95ff-303ab65e0bcb (Name resolution in Azure)
-[sap-ha-guide-7]:virtual-machines-windows-sap-high-availability-guide.md#2e3fec50-241e-441b-8708-0b1864f66dfa (SAP NetWeaver high availability in Azure infrastructure-as-a-service (IaaS))
-[sap-ha-guide-7.1]:virtual-machines-windows-sap-high-availability-guide.md#93faa747-907e-440a-b00a-1ae0a89b1c0e (High-availability SAP application servers)
-[sap-ha-guide-7.2]:virtual-machines-windows-sap-high-availability-guide.md#f559c285-ee68-4eec-add1-f60fe7b978db (High-availability SAP ASCS/SCS instance)
-[sap-ha-guide-7.2.1]:virtual-machines-windows-sap-high-availability-guide.md#b5b1fd0b-1db4-4d49-9162-de07a0132a51 (High-availability SAP ASCS/SCS instance with Windows Server Failover Clustering in Azure)
-[sap-ha-guide-7.3]:virtual-machines-windows-sap-high-availability-guide.md#ddd878a0-9c2f-4b8e-8968-26ce60be1027 (High-availability DBMS instance)
-[sap-ha-guide-7.4]:virtual-machines-windows-sap-high-availability-guide.md#045252ed-0277-4fc8-8f46-c5a29694a816 (End-to-end high-availability deployment scenarios)
-[sap-ha-guide-8]:virtual-machines-windows-sap-high-availability-guide.md#78092dbe-165b-454c-92f5-4972bdbef9bf (Prepare the infrastructure)
-[sap-ha-guide-8.1]:virtual-machines-windows-sap-high-availability-guide.md#c87a8d3f-b1dc-4d2f-b23c-da4b72977489 (Deploy virtual machines with corporate network connectivity (cross-premises) to use in production)
-[sap-ha-guide-8.2]:virtual-machines-windows-sap-high-availability-guide.md#7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310 (Cloud-only deployment of SAP instances for test and demo)
-[sap-ha-guide-8.3]:virtual-machines-windows-sap-high-availability-guide.md#47d5300a-a830-41d4-83dd-1a0d1ffdbe6a (Azure Virtual Network)
-[sap-ha-guide-8.4]:virtual-machines-windows-sap-high-availability-guide.md#b22d7b3b-4343-40ff-a319-097e13f62f9e (DNS IP addresses)
-[sap-ha-guide-8.5]:virtual-machines-windows-sap-high-availability-guide.md#9fbd43c0-5850-4965-9726-2a921d85d73f (Host names and static IP addresses for the SAP ASCS/SCS clustered instance and DBMS clustered instance)
-[sap-ha-guide-8.6]:virtual-machines-windows-sap-high-availability-guide.md#84c019fe-8c58-4dac-9e54-173efd4b2c30 (Set static IP addresses for the SAP virtual machines)
-[sap-ha-guide-8.7]:virtual-machines-windows-sap-high-availability-guide.md#7a8f3e9b-0624-4051-9e41-b73fff816a9e (Create a static IP address for the internal load balancer)
-[sap-ha-guide-8.8]:virtual-machines-windows-sap-high-availability-guide.md#f19bd997-154d-4583-a46e-7f5a69d0153c (Default ASCS/SCS load balancing rules for the Azure internal load balancer)
-[sap-ha-guide-8.9]:virtual-machines-windows-sap-high-availability-guide.md#fe0bd8b5-2b43-45e3-8295-80bee5415716 (Change the ASCS/SCS default load balancing rules for the Azure internal load balancer)
-[sap-ha-guide-8.10]:virtual-machines-windows-sap-high-availability-guide.md#e69e9a34-4601-47a3-a41c-d2e11c626c0c (Add Windows virtual machines to the domain)
-[sap-ha-guide-8.11]:virtual-machines-windows-sap-high-availability-guide.md#661035b2-4d0f-4d31-86f8-dc0a50d78158 (Add registry entries on both cluster nodes of the SAP ASCS/SCS instance)
-[sap-ha-guide-8.12]:virtual-machines-windows-sap-high-availability-guide.md#0d67f090-7928-43e0-8772-5ccbf8f59aab (Set up a Windows Server Failover Clustering cluster for an SAP ASCS/SCS instance)
-[sap-ha-guide-8.12.1]:virtual-machines-windows-sap-high-availability-guide.md#5eecb071-c703-4ccc-ba6d-fe9c6ded9d79 (Collect the cluster nodes in a cluster configuration)
-[sap-ha-guide-8.12.2]:virtual-machines-windows-sap-high-availability-guide.md#e49a4529-50c9-4dcf-bde7-15a0c21d21ca (Configure a cluster file share witness)
-[sap-ha-guide-8.12.2.1]:virtual-machines-windows-sap-high-availability-guide.md#06260b30-d697-4c4d-b1c9-d22c0bd64855 (Create a file share)
-[sap-ha-guide-8.12.2.2]:virtual-machines-windows-sap-high-availability-guide.md#4c08c387-78a0-46b1-9d27-b497b08cac3d (Set the file share witness quorum in Failover Cluster Manager)
-[sap-ha-guide-8.12.3]:virtual-machines-windows-sap-high-availability-guide.md#5c8e5482-841e-45e1-a89d-a05c0907c868 (Install SIOS DataKeeper Cluster Edition for the SAP ASCS/SCS cluster share disk)
-[sap-ha-guide-8.12.3.1]:virtual-machines-windows-sap-high-availability-guide.md#1c2788c3-3648-4e82-9e0d-e058e475e2a3 (Add the .NET Framework 3.5)
-[sap-ha-guide-8.12.3.2]:virtual-machines-windows-sap-high-availability-guide.md#dd41d5a2-8083-415b-9878-839652812102 (Install SIOS DataKeeper)
-[sap-ha-guide-8.12.3.3]:virtual-machines-windows-sap-high-availability-guide.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006 (Set up SIOS DataKeeper)
-[sap-ha-guide-9]:virtual-machines-windows-sap-high-availability-guide.md#a06f0b49-8a7a-42bf-8b0d-c12026c5746b (Install the SAP NetWeaver system)
-[sap-ha-guide-9.1]:virtual-machines-windows-sap-high-availability-guide.md#31c6bd4f-51df-4057-9fdf-3fcbc619c170 (Install SAP with a high-availability ASCS/SCS instance)
-[sap-ha-guide-9.1.1]:virtual-machines-windows-sap-high-availability-guide.md#a97ad604-9094-44fe-a364-f89cb39bf097 (Create a virtual host name for the clustered SAP ASCS/SCS instance)
-[sap-ha-guide-9.1.2]:virtual-machines-windows-sap-high-availability-guide.md#eb5af918-b42f-4803-bb50-eff41f84b0b0 (Install the SAP first cluster node)
-[sap-ha-guide-9.1.3]:virtual-machines-windows-sap-high-availability-guide.md#e4caaab2-e90f-4f2c-bc84-2cd2e12a9556 (Modify the SAP profile of the ASCS/SCS instance)
-[sap-ha-guide-9.1.4]:virtual-machines-windows-sap-high-availability-guide.md#10822f4f-32e7-4871-b63a-9b86c76ce761 (Add a probe port)
-[sap-ha-guide-9.2]:virtual-machines-windows-sap-high-availability-guide.md#85d78414-b21d-4097-92b6-34d8bcb724b7 (Install the database instance)
-[sap-ha-guide-9.3]:virtual-machines-windows-sap-high-availability-guide.md#8a276e16-f507-4071-b829-cdc0a4d36748 (Install the second cluster node)
-[sap-ha-guide-9.4]:virtual-machines-windows-sap-high-availability-guide.md#094bc895-31d4-4471-91cc-1513b64e406a (Change the start type of the SAP ERS Windows service instance)
-[sap-ha-guide-9.5]:virtual-machines-windows-sap-high-availability-guide.md#2477e58f-c5a7-4a5d-9ae3-7b91022cafb5 (Install the SAP Primary Application Server)
-[sap-ha-guide-9.6]:virtual-machines-windows-sap-high-availability-guide.md#0ba4a6c1-cc37-4bcf-a8dc-025de4263772 (Install the SAP Additional Application Server)
-[sap-ha-guide-10]:virtual-machines-windows-sap-high-availability-guide.md#18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9 (Test the SAP ASCS/SCS instance failover and SIOS replication)
-[sap-ha-guide-10.1]:virtual-machines-windows-sap-high-availability-guide.md#65fdef0f-9f94-41f9-b314-ea45bbfea445 (SAP ASCS/SCS instance is running on cluster node A)
-[sap-ha-guide-10.2]:virtual-machines-windows-sap-high-availability-guide.md#5e959fa9-8fcd-49e5-a12c-37f6ba07b916 (Failover from node A to node B)
-[sap-ha-guide-10.3]:virtual-machines-windows-sap-high-availability-guide.md#755a6b93-0099-4533-9f6d-5c9a613878b5 (SAP ASCS/SCS instance is running on cluster node B)
+[sap-ha-guide]:virtual-machines-windows-sap-high-availability-guide.md 
+[sap-ha-guide-1]:virtual-machines-windows-sap-high-availability-guide.md#217c5479-5595-4cd8-870d-15ab00d4f84c 
+[sap-ha-guide-2]:virtual-machines-windows-sap-high-availability-guide.md#42b8f600-7ba3-4606-b8a5-53c4f026da08 
+[sap-ha-guide-3]:virtual-machines-windows-sap-high-availability-guide.md#42156640c6-01cf-45a9-b225-4baa678b24f1 
+[sap-ha-guide-3.1]:virtual-machines-windows-sap-high-availability-guide.md#f76af273-1993-4d83-b12d-65deeae23686 
+[sap-ha-guide-3.2]:virtual-machines-windows-sap-high-availability-guide.md#3e85fbe0-84b1-4892-87af-d9b65ff91860 
+[sap-ha-guide-4]:virtual-machines-windows-sap-high-availability-guide.md#8ecf3ba0-67c0-4495-9c14-feec1a2255b7 
+[sap-ha-guide-4.1]:virtual-machines-windows-sap-high-availability-guide.md#1a3c5408-b168-46d6-99f5-4219ad1b1ff2 
+[sap-ha-guide-5]:virtual-machines-windows-sap-high-availability-guide.md#fdfee875-6e66-483a-a343-14bbaee33275 
+[sap-ha-guide-5.1]:virtual-machines-windows-sap-high-availability-guide.md#be21cf3e-fb01-402b-9955-54fbecf66592 
+[sap-ha-guide-5.2]:virtual-machines-windows-sap-high-availability-guide.md#ff7a9a06-2bc5-4b20-860a-46cdb44669cd 
+[sap-ha-guide-6]:virtual-machines-windows-sap-high-availability-guide.md#2ddba413-a7f5-4e4e-9a51-87908879c10a 
+[sap-ha-guide-6.1]:virtual-machines-windows-sap-high-availability-guide.md#1a464091-922b-48d7-9d08-7cecf757f341 
+[sap-ha-guide-6.2]:virtual-machines-windows-sap-high-availability-guide.md#44641e18-a94e-431f-95ff-303ab65e0bcb 
+[sap-ha-guide-7]:virtual-machines-windows-sap-high-availability-guide.md#2e3fec50-241e-441b-8708-0b1864f66dfa 
+[sap-ha-guide-7.1]:virtual-machines-windows-sap-high-availability-guide.md#93faa747-907e-440a-b00a-1ae0a89b1c0e
+[sap-ha-guide-7.2]:virtual-machines-windows-sap-high-availability-guide.md#f559c285-ee68-4eec-add1-f60fe7b978db
+[sap-ha-guide-7.2.1]:virtual-machines-windows-sap-high-availability-guide.md#b5b1fd0b-1db4-4d49-9162-de07a0132a51
+[sap-ha-guide-7.3]:virtual-machines-windows-sap-high-availability-guide.md#ddd878a0-9c2f-4b8e-8968-26ce60be1027
+[sap-ha-guide-7.4]:virtual-machines-windows-sap-high-availability-guide.md#045252ed-0277-4fc8-8f46-c5a29694a816 
+[sap-ha-guide-8]:virtual-machines-windows-sap-high-availability-guide.md#78092dbe-165b-454c-92f5-4972bdbef9bf
+[sap-ha-guide-8.1]:virtual-machines-windows-sap-high-availability-guide.md#c87a8d3f-b1dc-4d2f-b23c-da4b72977489 
+[sap-ha-guide-8.2]:virtual-machines-windows-sap-high-availability-guide.md#7fe9af0e-3cce-495b-a5ec-dcb4d8e0a310
+[sap-ha-guide-8.3]:virtual-machines-windows-sap-high-availability-guide.md#47d5300a-a830-41d4-83dd-1a0d1ffdbe6a
+[sap-ha-guide-8.4]:virtual-machines-windows-sap-high-availability-guide.md#b22d7b3b-4343-40ff-a319-097e13f62f9e
+[sap-ha-guide-8.5]:virtual-machines-windows-sap-high-availability-guide.md#9fbd43c0-5850-4965-9726-2a921d85d73f
+[sap-ha-guide-8.6]:virtual-machines-windows-sap-high-availability-guide.md#84c019fe-8c58-4dac-9e54-173efd4b2c30
+[sap-ha-guide-8.7]:virtual-machines-windows-sap-high-availability-guide.md#7a8f3e9b-0624-4051-9e41-b73fff816a9e
+[sap-ha-guide-8.8]:virtual-machines-windows-sap-high-availability-guide.md#f19bd997-154d-4583-a46e-7f5a69d0153c 
+[sap-ha-guide-8.9]:virtual-machines-windows-sap-high-availability-guide.md#fe0bd8b5-2b43-45e3-8295-80bee5415716
+[sap-ha-guide-8.10]:virtual-machines-windows-sap-high-availability-guide.md#e69e9a34-4601-47a3-a41c-d2e11c626c0c
+[sap-ha-guide-8.11]:virtual-machines-windows-sap-high-availability-guide.md#661035b2-4d0f-4d31-86f8-dc0a50d78158 
+[sap-ha-guide-8.12]:virtual-machines-windows-sap-high-availability-guide.md#0d67f090-7928-43e0-8772-5ccbf8f59aab 
+[sap-ha-guide-8.12.1]:virtual-machines-windows-sap-high-availability-guide.md#5eecb071-c703-4ccc-ba6d-fe9c6ded9d79 
+[sap-ha-guide-8.12.2]:virtual-machines-windows-sap-high-availability-guide.md#e49a4529-50c9-4dcf-bde7-15a0c21d21ca 
+[sap-ha-guide-8.12.2.1]:virtual-machines-windows-sap-high-availability-guide.md#06260b30-d697-4c4d-b1c9-d22c0bd64855 
+[sap-ha-guide-8.12.2.2]:virtual-machines-windows-sap-high-availability-guide.md#4c08c387-78a0-46b1-9d27-b497b08cac3d 
+[sap-ha-guide-8.12.3]:virtual-machines-windows-sap-high-availability-guide.md#5c8e5482-841e-45e1-a89d-a05c0907c868 
+[sap-ha-guide-8.12.3.1]:virtual-machines-windows-sap-high-availability-guide.md#1c2788c3-3648-4e82-9e0d-e058e475e2a3 
+[sap-ha-guide-8.12.3.2]:virtual-machines-windows-sap-high-availability-guide.md#dd41d5a2-8083-415b-9878-839652812102 
+[sap-ha-guide-8.12.3.3]:virtual-machines-windows-sap-high-availability-guide.md#d9c1fc8e-8710-4dff-bec2-1f535db7b006 
+[sap-ha-guide-9]:virtual-machines-windows-sap-high-availability-guide.md#a06f0b49-8a7a-42bf-8b0d-c12026c5746b 
+[sap-ha-guide-9.1]:virtual-machines-windows-sap-high-availability-guide.md#31c6bd4f-51df-4057-9fdf-3fcbc619c170 
+[sap-ha-guide-9.1.1]:virtual-machines-windows-sap-high-availability-guide.md#a97ad604-9094-44fe-a364-f89cb39bf097 
+[sap-ha-guide-9.1.2]:virtual-machines-windows-sap-high-availability-guide.md#eb5af918-b42f-4803-bb50-eff41f84b0b0 
+[sap-ha-guide-9.1.3]:virtual-machines-windows-sap-high-availability-guide.md#e4caaab2-e90f-4f2c-bc84-2cd2e12a9556 
+[sap-ha-guide-9.1.4]:virtual-machines-windows-sap-high-availability-guide.md#10822f4f-32e7-4871-b63a-9b86c76ce761 
+[sap-ha-guide-9.2]:virtual-machines-windows-sap-high-availability-guide.md#85d78414-b21d-4097-92b6-34d8bcb724b7 
+[sap-ha-guide-9.3]:virtual-machines-windows-sap-high-availability-guide.md#8a276e16-f507-4071-b829-cdc0a4d36748 
+[sap-ha-guide-9.4]:virtual-machines-windows-sap-high-availability-guide.md#094bc895-31d4-4471-91cc-1513b64e406a 
+[sap-ha-guide-9.5]:virtual-machines-windows-sap-high-availability-guide.md#2477e58f-c5a7-4a5d-9ae3-7b91022cafb5 
+[sap-ha-guide-9.6]:virtual-machines-windows-sap-high-availability-guide.md#0ba4a6c1-cc37-4bcf-a8dc-025de4263772 
+[sap-ha-guide-10]:virtual-machines-windows-sap-high-availability-guide.md#18aa2b9d-92d2-4c0e-8ddd-5acaabda99e9 
+[sap-ha-guide-10.1]:virtual-machines-windows-sap-high-availability-guide.md#65fdef0f-9f94-41f9-b314-ea45bbfea445 
+[sap-ha-guide-10.2]:virtual-machines-windows-sap-high-availability-guide.md#5e959fa9-8fcd-49e5-a12c-37f6ba07b916 
+[sap-ha-guide-10.3]:virtual-machines-windows-sap-high-availability-guide.md#755a6b93-0099-4533-9f6d-5c9a613878b5 
+
+[sap-ha-multi-sid-guide]:virtual-machines-windows-sap-high-availability-multi-sid.md (SAP Multi-SID HA configuration)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -295,6 +297,8 @@ ms.author: goraco
 [sap-ha-guide-figure-2001]:./media/virtual-machines-shared-sap-high-availability-guide/2001-wsfc-sap-ascs-ha-on-azure.png
 [sap-ha-guide-figure-2003]:./media/virtual-machines-shared-sap-high-availability-guide/2003-wsfc-sap-dbms-ha-on-azure.png
 [sap-ha-guide-figure-2004]:./media/virtual-machines-shared-sap-high-availability-guide/2004-wsfc-sap-ha-e2e-archit-template1-on-azure.png
+[sap-ha-guide-figure-2005]:./media/virtual-machines-shared-sap-high-availability-guide/2005-wsfc-sap-ha-e2e-arch-template2-on-azure.png
+
 [sap-ha-guide-figure-3000]:./media/virtual-machines-shared-sap-high-availability-guide/3000-template-parameters-sap-ha-arm-on-azure.png
 [sap-ha-guide-figure-3001]:./media/virtual-machines-shared-sap-high-availability-guide/3001-configuring-dns-servers-for-Azure-vnet.png
 [sap-ha-guide-figure-3002]:./media/virtual-machines-shared-sap-high-availability-guide/3002-configuring-static-IP-address-for-network-card-of-each-vm.png
@@ -351,6 +355,7 @@ ms.author: goraco
 [sap-ha-guide-figure-5002]:./media/virtual-machines-shared-sap-high-availability-guide/5002-wsfc-sap-sid-node-b.png
 [sap-ha-guide-figure-5003]:./media/virtual-machines-shared-sap-high-availability-guide/5003-sios-replicating-local-volume-b-to-a.png
 
+[sap-ha-guide-figure-6003]:./media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
 [powershell-install-configure]:../powershell-install-configure.md
 [resource-group-authoring-templates]:../resource-group-authoring-templates.md
@@ -379,8 +384,8 @@ ms.author: goraco
 [virtual-machines-azure-resource-manager-architecture-benefits-arm]:../azure-resource-manager/resource-group-overview.md#the-benefits-of-using-resource-manager
 [virtual-machines-azurerm-versus-azuresm]:virtual-machines-windows-compare-deployment-models.md
 [virtual-machines-windows-classic-configure-oracle-data-guard]:virtual-machines-windows-classic-configure-oracle-data-guard.md
-[virtual-machines-linux-cli-deploy-templates]:virtual-machines-linux-cli-deploy-templates.md (Deploy and manage virtual machines by using Azure Resource Manager templates and the Azure CLI)
-[virtual-machines-deploy-rmtemplates-powershell]:virtual-machines-windows-ps-manage.md (Manage virtual machines using Azure Resource Manager and PowerShell)
+[virtual-machines-linux-cli-deploy-templates]:virtual-machines-linux-cli-deploy-templates.md 
+[virtual-machines-deploy-rmtemplates-powershell]:virtual-machines-windows-ps-manage.md 
 [virtual-machines-linux-agent-user-guide]:virtual-machines-linux-agent-user-guide.md
 [virtual-machines-linux-agent-user-guide-command-line-options]:virtual-machines-linux-agent-user-guide.md#command-line-options
 [virtual-machines-linux-capture-image]:virtual-machines-linux-capture-image.md
@@ -454,7 +459,7 @@ These guides also cover SAP deployments in Azure:
 * [SAP NetWeaver on Azure Virtual Machines (VMs) – Planning and Implementation Guide][planning-guide]
 * [SAP NetWeaver on Azure Virtual Machines (VMs) – Deployment Guide][deployment-guide]
 * [SAP NetWeaver on Azure Virtual Machines (VMs) – DBMS Deployment Guide][dbms-guide]
-* [SAP NetWeaver on Azure Virtual Machines (VMs) – High-Availability Guide [this guide] ][sap-ha-guide]
+* [SAP NetWeaver on Azure Virtual Machines (VMs) – High-Availability Guide (this guide)][sap-ha-guide]
 
 > [!NOTE]
 > Whenever possible, we give you a link to the referring SAP installation guide (see [SAP installation guides][sap-installation-guides]). For prerequisites and information about the installation process, it's a good idea to read the SAP NetWeaver installation guides carefully. This article covers only specific tasks for SAP NetWeaver-based systems that you can use with Azure Virtual Machines.
@@ -470,20 +475,30 @@ These SAP notes are related to the topic of SAP in Azure:
 | [1999351] |Enhanced Azure Monitoring for SAP |
 | [2178632] |Key Monitoring Metrics for SAP on Microsoft Azure |
 | [1999351] |Virtualization on Windows: Enhanced Monitoring |
+| [2243692] |Use of Azure Premium SSD Storage for SAP DBMS Instance |
 
 Learn more about the [limitations of Azure subscriptions][azure-subscription-service-limits-subscription], including general default limitations and maximum limitations.
 
-## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>High-availability SAP with Azure Resource Manager vs. the classic deployment model
-The Azure Resource Manager and classic deployment models are different in two main ways:
+## <a name="42156640c6-01cf-45a9-b225-4baa678b24f1"></a>High-availability SAP with Azure Resource Manager vs. the Classic Deployment Model
+The Azure Resource Manager and classic deployment models are different in the following ways:
 
-* Resource groups
-* Clustering requirements
+- Resource groups
+- Azure Internal Load Balancer dependency on the Azure resource group
+- Support for SAP Multi-SID scenario
 
 ### <a name="f76af273-1993-4d83-b12d-65deeae23686"></a> Resource groups
-In Azure Resource Manager, you can use resource groups to manage all the application resources in your Azure subscription. In an integrated approach, in a resource group, all resources have the same life cycle. For example, all resources are created at the same time and deleted at the same time. You can get more information about [resource groups](../azure-resource-manager/resource-group-overview.md#resource-groups).
+In Azure Resource Manager, you can use resource groups to manage all the application resources in your Azure subscription. In an integrated approach, in a resource group, all resources have the same life cycle. For example, all resources are created at the same time and deleted at the same time. You can get more information about [resourc groups](../azure-resource-manager/resource-group-overview.md#resource-groups).
 
-### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Clustering with Azure Resource Manager vs. the classic deployment model
-In the Azure Resource Manager model, you don't need a cloud service to use Azure internal load balancing for high availability.
+### <a name="3e85fbe0-84b1-4892-87af-d9b65ff91860"></a> Azure Internal Load Balancer dependency on the Azure Resource Group
+
+In the old classical Azure deployment model, there is a dependence between Azure Internal Load Balancer (ILB) and cloud service group. Every ILB needs one cloud service group.
+
+In the Azure Resource Manager model, you don't need an Azure resource group to use Azure ILB . Therefore, the setting is more simple and more flexible.
+
+
+### Support for SAP Multi-SID scenario
+
+With new Azure resource manager model we have ability to install multiple different SAP SID ASCS/SCS instances in one cluster. This is possible through the support for multiple IPs per one Azure internal load balancer.
 
 To use the Azure classic model, follow the procedures described in [SAP NetWeaver in Azure: Clustering SAP ASCS/SCS instances by using Windows Server Failover Clustering in Azure with SIOS DataKeeper](http://go.microsoft.com/fwlink/?LinkId=613056).
 
@@ -586,7 +601,7 @@ You must place all virtual machines that host SAP application servers in the sam
 
 Learn about how to [manage the availability of virtual machines][virtual-machines-manage-availability].
 
-Because the Azure storage account is a potential single point of failure, it's important to have at least two Azure storage accounts, in which at least two virtual machines are distributed. In an ideal setup, each virtual machine that is running an SAP dialog instance would be deployed in a different storage account.
+Because the Azure storage account is a potential single point of failure, it's important to have at least two Azure storage accounts, in which at least two virtual machines are distributed. In an ideal setup, the disks of each virtual machine that is running an SAP dialog instance would be deployed in a different storage account.
 
 ### <a name="f559c285-ee68-4eec-add1-f60fe7b978db"></a> High-availability SAP ASCS/SCS instance
 ![Figure 5: High-availability SAP ASCS/SCS instance][sap-ha-guide-figure-2001]
@@ -612,16 +627,51 @@ _**Figure 7:** Example of a high-availability SAP DBMS: SQL Server Always On_
 For more information about clustering SQL Server in Azure by using the Azure Resource Manager deployment model, see these articles:
 
 * [Configure Always On availability group in Azure Virtual Machines manually by using Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
-* [Configure an internal load balancer for an Always On availability group in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
+* [Configure an Azure Internal Load Balancer for an AlwaysOn availability group in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
 ### <a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a> End-to-end high-availability deployment scenarios
-Figure 8 shows an example of an SAP NetWeaver high-availability architecture in Azure. In this scenario, we use one dedicated cluster for the SAP ASCS/SCS instance and another one for the DBMS.
 
-![Figure 8: SAP HA Architectural Template 1, with a dedicated cluster for ASCS/SCS, and a dedicated cluster for the DBMS instance][sap-ha-guide-figure-2004]
+#### Architectural Template 1
+
+Figure 8 shows an example of an SAP NetWeaver high-availability architecture in Azure for **ONE** SAP system. In this scenario, we use:
+
+
+- one dedicated cluster for the SAP ASCS/SCS instance
+- another dedicated cluster for the DBMS
+- SAP application servers are deployed in own dedicated VMs
+
+![Figure 8: SAP HA Architectural Template 1, dedicated cluster for ASCS/SCS and the DBMS instance][sap-ha-guide-figure-2004]
 
 _**Figure 8:** SAP HA Architectural Template 1: Dedicated clusters for ASCS/SCS and DBMS_
 
+#### Architectural Template 2
+
+Here we have an example of an SAP NetWeaver high-availability architecture in Azure for **ONE** SAP system. In this scenario, we use:
+
+- one dedicated cluster for **BOTH** the SAP ASCS/SCS instance and for the DBMS
+- SAP application servers are deployed in own dedicated VMs
+
+![Figure 9: SAP HA Architectural Template 2, with a dedicated cluster for ASCS/SCS, and a dedicated cluster for the DBMS instance][sap-ha-guide-figure-2005]
+
+_**Figure 9:** SAP HA Architectural Template 2, with a dedicated cluster for ASCS/SCS, and a dedicated cluster for the DBMS instance_
+
+#### Architectural Template 3
+
+![Figure 10: SAP HA Architectural Template 3, with a dedicated cluster for different ASCS/SCS instances][sap-ha-guide-figure-6003]
+
+_**Figure 10:** SAP HA Architectural Template 3, with a dedicated cluster for or different ASCS/SCS instances_
+
+
+Here we have an example of an SAP NetWeaver high-availability architecture in Azure for TWO SAP systems, with <SID1> and <SID2>. In this scenario, we use:
+
+- one dedicated cluster for **BOTH** the SAP ASCS/SCS **SID1** instance and SAP ASCS/SCS **SID2** instance
+- for each the DBMS is used own cluster -e.g. we have one dedicated cluster for DBMS SID1 and another dedicated cluster for DBMS SID2
+- SAP application servers of the SAP system SID1 have own dedicated VM
+- SAP application servers of the SAP system SID2 have own dedicated VM
+
 ## <a name="78092dbe-165b-454c-92f5-4972bdbef9bf"></a> Prepare the infrastructure
+
+### Architectural Template 1
 Azure Resource Manager templates for SAP help simplify deployment of required resources.
 
 The three-tier templates also support high-availability scenarios, like Architectural Template 1, which has two clusters. Each cluster is an SAP single point of failure for SAP ASCS/SCS and DBMS.
@@ -633,9 +683,9 @@ Here's where you can get Azure Resource Manager templates for Scenario 1:
 
 When you select the SAP three-tier Marketplace image, this screen is shown in the Azure portal:
 
-![Figure 9: Specify SAP high-availability Azure Resource Manager parameters][sap-ha-guide-figure-3000]
+![Figure 11: Specify SAP high-availability Azure Resource Manager parameters][sap-ha-guide-figure-3000]
 
-_**Figure 9:** Specify SAP high-availability Azure Resource Manager parameters_
+_**Figure 11:** Specify SAP high-availability Azure Resource Manager parameters_
 
 In **SYSTEMAVAILABILITY**, select **HA**.
 
@@ -711,6 +761,21 @@ The SAP Azure Resource Manager template automatically creates the Azure virtual 
 >
 >
 
+
+### Architectural Template 2
+
+You can use this Azure Resource Manager templates for SAP help simplify deployment of required infrastructure resources for SAP Architectural Template 2.
+
+Here's where you can get Azure Resource Manager templates for this deployment scenario:
+
+* [Azure Marketplace image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-marketplace-image-converged)  
+* [Custom image](https://github.com/Azure/azure-quickstart-templates/tree/master/sap-3-tier-user-image-converged)
+
+
+### Architectural Template 3
+
+You can prepare infrastructure and configure SAP **Multi-SID** e.g. add additional SAP ASCS/SCS instance into an **EXISTING** cluster by following this document: [Configure Additional SAP ASCS/SCS Instance into an Existing Cluster configuration to create a SAP Multi-SID configuration - Azure Resource Manager][sap-ha-multi-sid-guide].
+
 ### <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Azure Virtual Network
 In our example, the address space of the Azure virtual network is 10.0.0.0/16. There is one subnet called **Subnet**, with an address range of 10.0.0.0/24. All virtual machines and internal load balancers are deployed in this virtual network.
 
@@ -728,9 +793,9 @@ Then, select your settings based on the type of network you have:
     You can extend on-premises DNS servers to the virtual machines that are running in Azure. In that scenario, you can add the IP addresses of the Azure virtual machines on which you run the DNS service.
 * [Cloud-only deployment][planning-guide-2.1]: Deploy an additional virtual machine in the same Virtual Network instance that serves as a DNS server. Add the IP addresses of the Azure virtual machines that you've set up to run DNS service.
 
-![Figure 10: Configure DNS servers for Azure Virtual Network][sap-ha-guide-figure-3001]
+![Figure 12: Configure DNS servers for Azure Virtual Network][sap-ha-guide-figure-3001]
 
-_**Figure 10:** Configure DNS servers for Azure Virtual Network_
+_**Figure 12:** Configure DNS servers for Azure Virtual Network_
 
 > [!NOTE]
 > If you change the IP addresses of the DNS servers, you need to restart the Azure virtual machines to apply the change and propagate the new DNS servers.
@@ -769,9 +834,9 @@ Under **Assignment**, select **Static**. In the **IP address** field, enter the 
 >
 >
 
-![Figure 11: Set static IP addresses for the network card of each virtual machine][sap-ha-guide-figure-3002]
+![Figure 13: Set static IP addresses for the network card of each virtual machine][sap-ha-guide-figure-3002]
 
-_**Figure 11:** Set static IP addresses for the network card of each virtual machine_
+_**Figure 13:** Set static IP addresses for the network card of each virtual machine_
 
 Repeat this step for all network interfaces, that is, for all virtual machines, including virtual machines that you want to use for your Active Directory/DNS service.
 
@@ -808,9 +873,9 @@ In our example, we have two Azure internal load balancers that have these static
 
 In our example, we set the IP address of the internal load balancer **pr1-lb-ascs** to the IP address of the virtual host name of the SAP ASCS/SCS instance (in our example, **10.0.0.43**).
 
-![Figure 12: Set static IP addresses for the internal load balancer for the SAP ASCS/SCS instance][sap-ha-guide-figure-3003]
+![Figure 14: Set static IP addresses for the internal load balancer for the SAP ASCS/SCS instance][sap-ha-guide-figure-3003]
 
-_**Figure 12:** Set static IP addresses for the internal load balancer for the SAP ASCS/SCS instance_
+_**Figure 14:** Set static IP addresses for the internal load balancer for the SAP ASCS/SCS instance_
 
 Set the IP address of the internal load balancer **pr1-lb-dbms** to the IP address of the virtual host name of the DBMS instance (in our example, **10.0.0.33**).
 
@@ -824,7 +889,7 @@ When you install your SAP ASCS/SCS instance, you must use the default instance n
 
 Next, create these required internal load balancing endpoints for the SAP NetWeaver ABAP ASCS ports:
 
-| Service/load balancing rule name | Default port numbers | Concrete ports for (ASCS instance with instance number 00) (ERS with 10) |
+| Service/Load Balancing Rule Name | Default Port Numbers | Concrete Ports for (ASCS instance with instance number 00) (ERS with 10) |
 | --- | --- | --- |
 | Enqueue Server / *lbrule3200* |32<*InstanceNumber*> |3200 |
 | ABAP Message Server / *lbrule3600* |36<*InstanceNumber*> |3600 |
@@ -842,7 +907,7 @@ _**Table 1:** Port numbers of the SAP NetWeaver ABAP ASCS instances_
 
 Then, create these required internal load balancing endpoints for the SAP NetWeaver Java SCS ports:
 
-| Service/load balancing rule name | Default port numbers | Concrete ports for (SCS instance with instance number 01) (ERS with 11) |
+| Service/Load Balancing Rule Name | Default Port Numbers | Concrete Ports for (SCS instance with instance number 01) (ERS with 11) |
 | --- | --- | --- |
 | Enqueue Server / *lbrule3201* |32<*InstanceNumber*> |3201 |
 | Gateway Server / *lbrule3301* |33<*InstanceNumber*> |3301 |
@@ -858,14 +923,14 @@ Then, create these required internal load balancing endpoints for the SAP NetWea
 
 _**Table 2:** Port numbers of the SAP NetWeaver Java SCS instances_
 
-![Figure 13: Default ASCS/SCS load balancing rules for the Azure internal load balancer][sap-ha-guide-figure-3004]
+![Figure 15: Default ASCS/SCS load balancing rules for the Azure internal load balancer][sap-ha-guide-figure-3004]
 
-_**Figure 13:** Default ASCS/SCS load balancing rules for the Azure internal load balancer_
+_**Figure 15:** Default ASCS/SCS load balancing rules for the Azure internal load balancer_
 
 Set the IP address of the load balancer **pr1-lb-dbms** to the IP address of the virtual host name of the DBMS instance (in our example, **10.0.0.33**).
 
-### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Change the ASCS/SCS default load balancing rules for the Azure internal load balancer
-If you want to use different numbers for the SAP ASCS or SCS instances, you must update the names and values of those ports.
+### <a name="fe0bd8b5-2b43-45e3-8295-80bee5415716"></a> Change the ASCS/SCS default load balancing rules for the Azure Internal Load Balancer
+If you want to use different numbers for the SAP ASCS or SCS instances, you must update the names and values of their ports.
 
 One way to update instance numbers is by using the Azure portal:
 
@@ -881,16 +946,16 @@ For example, if you want to change the default ASCS instance number from 00 to 3
 
 Here's an example of an update for port *lbrule3200*.
 
-![Figure 14: Change the ASCS/SCS default load balancing rules for the Azure internal load balancer][sap-ha-guide-figure-3005]
+![Figure 16: Change the ASCS/SCS default load balancing rules for the Azure internal load balancer][sap-ha-guide-figure-3005]
 
-_**Figure 14:** Change the ASCS/SCS default load balancing rules for the Azure internal load balancer_
+_**Figure 16:** Change the ASCS/SCS default load balancing rules for the Azure Internal Load Balancer_
 
 ### <a name="e69e9a34-4601-47a3-a41c-d2e11c626c0c"></a> Add Windows virtual machines to the domain
 After you assign a static IP address to the virtual machines, add the virtual machines to the domain.
 
-![Figure 15: Add a virtual machine to a domain][sap-ha-guide-figure-3006]
+![Figure 17: Add a virtual machine to a domain][sap-ha-guide-figure-3006]
 
-_**Figure 15:** Add a virtual machine to a domain_
+_**Figure 17:** Add a virtual machine to a domain_
 
 ### <a name="661035b2-4d0f-4d31-86f8-dc0a50d78158"></a> Add registry entries on both cluster nodes of the SAP ASCS/SCS instance
 Azure Load Balancer has an internal load balancer that closes connections when the connections are idle for a set period of time (an idle timeout). SAP work processes in dialog instances open connections to the SAP enqueue process as soon as the first enqueue/dequeue request needs to be sent. These connections usually remain established until the work process or the enqueue process restarts. However, if the connection is idle for a period of time, the Azure internal load balancer closes the connections. This isn't a problem because the SAP work process reestablishes the connection to the enqueue process if it no longer exists. These activities are documented in the developer traces of SAP processes, but they create a large amount of extra content in those traces. It's a good idea to change the TCP/IP `KeepAliveTime` and `KeepAliveInterval` on both cluster nodes. Combine these changes in the TCP/IP parameters with SAP profile parameters, described later in the article.
@@ -925,72 +990,72 @@ The second step is to set up the failover cluster by using Failover Cluster Mana
 
 In Failover Cluster Manager, select **Create Cluster**, and then add only the name of the first cluster node A. For example, add **pr1-ascs-0**. Do not add the second node yet. You'll add the second node in a later step.
 
-![Figure 16: Add the server or virtual machine name of the first cluster node][sap-ha-guide-figure-3007]
+![Figure 18: Add the server or virtual machine name of the first cluster node][sap-ha-guide-figure-3007]
 
-_**Figure 16:** Add the server or virtual machine name of the first cluster node_
+_**Figure 18:** Add the server or virtual machine name of the first cluster node_
 
 Next, you're prompted for the network name (virtual host name) of the cluster.
 
-![Figure 17: Define the cluster name][sap-ha-guide-figure-3008]
+![Figure 19: Define the cluster name][sap-ha-guide-figure-3008]
 
-_**Figure 17:** Define the cluster name_
+_**Figure 19:** Define the cluster name_
 
 After you've created the cluster, run a cluster validation test.
 
-![Figure 18: Run the cluster validation check][sap-ha-guide-figure-3009]
+![Figure 20: Run the cluster validation check][sap-ha-guide-figure-3009]
 
-_**Figure 18:** Run the cluster validation check_
+_**Figure 20:** Run the cluster validation check_
 
-![Figure 19: No quorum disk is found][sap-ha-guide-figure-3010]
+![Figure 21: No quorum disk is found][sap-ha-guide-figure-3010]
 
-_**Figure 19:** No quorum disk is found_
+_**Figure 21:** No quorum disk is found_
 
 You can ignore any warnings about disks at this point in the process. You'll add a file share witness and the SIOS shared disks later. At this stage, you don't need to worry about having a quorum.
 
-![Figure 20: Core cluster resource needs a new IP address][sap-ha-guide-figure-3011]
+![Figure 22: Core cluster resource needs a new IP address][sap-ha-guide-figure-3011]
 
-_**Figure 20:** Core cluster resource needs a new IP address_
+_**Figure 22:** Core cluster resource needs a new IP address_
 
 The cluster can't start because the IP address of the server points to one of the virtual machine nodes. You need to change the IP address of the core cluster service.
 
-For example, we need to assign an IP address (in our example, **10.0.0.42**) for the cluster virtual host name **pr1-ascs-vir**. Do this on the property page of the core cluster service's IP resource, shown in Figure 21.
+For example, we need to assign an IP address (in our example, **10.0.0.42**) for the cluster virtual host name **pr1-ascs-vir**. Do this on the property page of the core cluster service's IP resource, shown in Figure 23.
 
-![Figure 21: In the **Properties** dialog box, change the IP address][sap-ha-guide-figure-3012]
+![Figure 23: In the **Properties** dialog box, change the IP address][sap-ha-guide-figure-3012]
 
-_**Figure 21:** In the **Properties** dialog box, change the IP address_
+_**Figure 23:** In the **Properties** dialog box, change the IP address_
 
-![Figure 22: Assign the IP address that is reserved for the cluster][sap-ha-guide-figure-3013]
+![Figure 24: Assign the IP address that is reserved for the cluster][sap-ha-guide-figure-3013]
 
-_**Figure 22:** Assign the IP address that is reserved for the cluster_
+_**Figure 24:** Assign the IP address that is reserved for the cluster_
 
 After you change the IP address, bring the cluster virtual host name online.
 
-![Figure 23: Cluster core service is up and running, and with the correct IP address][sap-ha-guide-figure-3014]
+![Figure 25: Cluster core service is up and running, and with the correct IP address][sap-ha-guide-figure-3014]
 
-_**Figure 23:** Cluster core service is up and running, and with the correct IP address_
+_**Figure 25:** Cluster core service is up and running, and with the correct IP address_
 
 Now that the core cluster service is up and running, you can add the second cluster node.
 
-![Figure 24: Add the second cluster node][sap-ha-guide-figure-3015]
+![Figure 26: Add the second cluster node][sap-ha-guide-figure-3015]
 
-_**Figure 24:** Add the second cluster node_
+_**Figure 26:** Add the second cluster node_
 
-![Figure 25: Add the second cluster node host name, for example, pr1-ascs-1][sap-ha-guide-figure-3016]
+![Figure 27: Add the second cluster node host name, for example, pr1-ascs-1][sap-ha-guide-figure-3016]
 
-_**Figure 25:** Add the second cluster node host name, for example, **pr1-ascs-1**_
+_**Figure 27:** Add the second cluster node host name, for example, **pr1-ascs-1**_
 
-![Figure 26: Do not select the check box][sap-ha-guide-figure-3017]
+![Figure 28: Do not select the check box][sap-ha-guide-figure-3017]
 
-_**Figure 26:** Do **NOT** select the check box_
+_**Figure 28:** Do **NOT** select the check box_
 
 > [!IMPORTANT]
 > Be sure that the **Add all eligible storage to the cluster** check box is *not* selected.  
 >
 >
 
-![Figure 27: Ignore warnings about the disk quorum][sap-ha-guide-figure-3018]
+![Figure 29: Ignore warnings about the disk quorum][sap-ha-guide-figure-3018]
 
-_**Figure 27:** Ignore warnings about the disk quorum_
+_**Figure 29:** Ignore warnings about the disk quorum_
 
 You can ignore warnings about quorum and disks. You'll set the quorum and share the disk later, as described in [Installing SIOS DataKeeper Cluster Edition for SAP ASCS/SCS cluster share disk][sap-ha-guide-8.12.3].
 
@@ -1009,60 +1074,60 @@ The quorum drive needs at least 1,024 MB of free space. We recommend 2,048 MB of
 
 The first step is to add the cluster name object.
 
-![Figure 28: Assign the permissions on the share for the cluster name object][sap-ha-guide-figure-3019]
+![Figure 30: Assign the permissions on the share for the cluster name object][sap-ha-guide-figure-3019]
 
-_**Figure 28:** Assign the permissions on the share for the cluster name object_
+_**Figure 30:** Assign the permissions on the share for the cluster name object_
 
-Be sure that the permissions include the authority to change data in the share for the cluster name object (in our example, **pr1-ascs-vir$**). To add the cluster name object to the list, select **Add**. Change the filter to check for computer objects, in addition to those shown in Figure 29:
+Be sure that the permissions include the authority to change data in the share for the cluster name object (in our example, **pr1-ascs-vir$**). To add the cluster name object to the list, select **Add**. Change the filter to check for computer objects, in addition to those shown in Figure 31:
 
-![Figure 29: Change the object type to include computer objects][sap-ha-guide-figure-3020]
+![Figure 31: Change the object type to include computer objects][sap-ha-guide-figure-3020]
 
-_**Figure 29:** Change the object type to include computer objects_
+_**Figure 31:** Change the object type to include computer objects_
 
-![Figure 30: Select the check box for computer objects][sap-ha-guide-figure-3021]
+![Figure 32: Select the check box for computer objects][sap-ha-guide-figure-3021]
 
-_**Figure 30:** Select the check box for computer objects_
+_**Figure 32:** Select the check box for computer objects_
 
-Then, enter the cluster name object as shown in Figure 29. Because the record has already been created, you can change the permissions, as shown in Figure 28.
+Then, enter the cluster name object as shown in Figure 31. Because the record has already been created, you can change the permissions, as shown in Figure 30.
 
 Next, select the **Security** tab of the share, and then set more detailed permissions for the cluster name object.
 
-![Figure 31: Set the security attributes for the cluster name object on the file share quorum][sap-ha-guide-figure-3022]
+![Figure 33: Set the security attributes for the cluster name object on the file share quorum][sap-ha-guide-figure-3022]
 
-_**Figure 31:** Set the security attributes for the cluster name object on the file share quorum_
+_**Figure 33:** Set the security attributes for the cluster name object on the file share quorum_
 
 ##### <a name="4c08c387-78a0-46b1-9d27-b497b08cac3d"></a> Set the file share witness quorum in Failover Cluster Manager
 In Failover Cluster Manager, change the cluster configuration to a file share witness.
 
-![Figure 32: Start the Configure Cluster Quorum Setting Wizard][sap-ha-guide-figure-3023]
+![Figure 34: Start the Configure Cluster Quorum Setting Wizard][sap-ha-guide-figure-3023]
 
-***Figure 32:** Start the Configure Cluster Quorum Setting Wizard*
+_**Figure 34:** Start the Configure Cluster Quorum Setting Wizard_
 
-![Figure 33: Quorum configurations you can choose from][sap-ha-guide-figure-3024]
+![Figure 35: Quorum configurations you can choose from][sap-ha-guide-figure-3024]
 
-_**Figure 33:** Quorum configurations you can choose from_
+_**Figure 35:** Quorum configurations you can choose from_
 
 Select **Select the quorum witness**.
 
-![Figure 34: Select the file share witness][sap-ha-guide-figure-3025]
+![Figure 36: Select the file share witness][sap-ha-guide-figure-3025]
 
-_**Figure 34:** Select the file share witness_
+_**Figure 36:** Select the file share witness_
 
 Select **Configure a file share witness**.
 
-![Figure 35: Define the file share location for the witness share][sap-ha-guide-figure-3026]
+![Figure 37: Define the file share location for the witness share][sap-ha-guide-figure-3026]
 
-_**Figure 35:** Define the file share location for the witness share_
+_**Figure 37:** Define the file share location for the witness share_
 
 Enter the UNC path to the file share (in our example, \\domcontr-0\FSW).
 
 Select **Next** to see a list of the changes you can make. Select the changes you want, and then select **Next**.
 
-![Figure 36: Confirmation that you've reconfigures the cluster][sap-ha-guide-figure-3027]
+![Figure 38: Confirmation that you've reconfigures the cluster][sap-ha-guide-figure-3027]
 
-_**Figure 36:** Confirmation that you've reconfigures the cluster_
+_**Figure 38:** Confirmation that you've reconfigures the cluster_
 
-In this last step, you need to successfully reconfigure the cluster configuration, as shown in Figure 36.  
+In this last step, you need to successfully reconfigure the cluster configuration, as shown in Figure 38.  
 
 ### <a name="5c8e5482-841e-45e1-a89d-a05c0907c868"></a> Install SIOS DataKeeper Cluster Edition for the SAP ASCS/SCS cluster share disk
 Now you have a working Windows Server Failover Clustering configuration in Azure. But, to install an SAP ASCS/SCS instance, you need a shared disk resource. You can't create the shared disk resources you need in Azure. SIOS DataKeeper Cluster Edition is a third-party solution you can use to create shared disk resources.
@@ -1070,15 +1135,15 @@ Now you have a working Windows Server Failover Clustering configuration in Azure
 #### <a name="1c2788c3-3648-4e82-9e0d-e058e475e2a3"></a> Add the .NET Framework 3.5
 The Microsoft .NET Framework 3.5 isn't automatically activated or installed on Windows Server 2012 R2. But SIOS DataKeeper requires the .NET Framework to be on all nodes that you install DataKeeper on. Because of this, you must install the .NET Framework 3.5 on the guest operating system of all virtual machines in the cluster.
 
-There are two ways to add the .NET Framework 3.5. One way is to use the Add Roles and Features Wizard in Windows, shown in Figure 37.
+There are two ways to add the .NET Framework 3.5. One way is to use the Add Roles and Features Wizard in Windows, shown in Figure 39.
 
-![Figure 37: Install the .NET Framework 3.5 by using the Add Roles and Features Wizard][sap-ha-guide-figure-3028]
+![Figure 39: Install the .NET Framework 3.5 by using the Add Roles and Features Wizard][sap-ha-guide-figure-3028]
 
-_**Figure 37:** Install the .NET Framework 3.5 by using the Add Roles and Features Wizard_
+_**Figure 39:** Install the .NET Framework 3.5 by using the Add Roles and Features Wizard_
 
-![Figure 38: Installation progress bar when you install the .NET Framework 3.5 by using the Add Roles and Features Wizard][sap-ha-guide-figure-3029]
+![Figure 40: Installation progress bar when you install the .NET Framework 3.5 by using the Add Roles and Features Wizard][sap-ha-guide-figure-3029]
 
-_**Figure 38:** Installation progress bar when you install the .NET Framework 3.5 through the Add Roles and Features Wizard_
+_**Figure 40:** Installation progress bar when you install the .NET Framework 3.5 through the Add Roles and Features Wizard_
 
 The second option to activate the .NET Framework 3.5 feature is by using the command-line tool dism.exe. For this type of installation, you need to access the SxS directory on the Windows installation media. Run this command at an elevated command prompt:
 
@@ -1100,94 +1165,94 @@ Install the SIOS software on both cluster nodes.
 
 ![SIOS installer][sap-ha-guide-figure-3030]
 
-![Figure 39: First screen of the SIOS DataKeeper installation][sap-ha-guide-figure-3031]
+![Figure 41: First screen of the SIOS DataKeeper installation][sap-ha-guide-figure-3031]
 
-_**Figure 39:** First screen of the SIOS DataKeeper installation_
+_**Figure 41:** First screen of the SIOS DataKeeper installation_
 
-![Figure 40: DataKeeper informs you that a service will be disabled][sap-ha-guide-figure-3032]
+![Figure 42: DataKeeper informs you that a service will be disabled][sap-ha-guide-figure-3032]
 
-_**Figure 40:** DataKeeper informs you that a service will be disabled_
+_**Figure 42:** DataKeeper informs you that a service will be disabled_
 
-In the dialog box shown in Figure 40, select **Yes**.
+In the dialog box shown in Figure 42, select **Yes**.
 
-![Figure 41: User selection for SIOS DataKeeper][sap-ha-guide-figure-3033]
+![Figure 43: User selection for SIOS DataKeeper][sap-ha-guide-figure-3033]
 
-***Figure 41:** User selection for SIOS DataKeeper*
+_**Figure 43:** User selection for SIOS DataKeeper_
 
-On the screen shown in Figure 41, we recommend that you select **Domain or Server account**.
+On the screen shown in Figure 43, we recommend that you select **Domain or Server account**.
 
-![Figure 42: Enter the domain user name and password for the SIOS DataKeeper installation][sap-ha-guide-figure-3034]
+![Figure 44: Enter the domain user name and password for the SIOS DataKeeper installation][sap-ha-guide-figure-3034]
 
-_**Figure 42:** Enter the domain user name and password for the SIOS DataKeeper installation_
+_**Figure 44:** Enter the domain user name and password for the SIOS DataKeeper installation_
 
 Enter the domain account user name and passwords that you created for SIOS DataKeeper.
 
-![Figure 43: Enter your SIOS DataKeeper license][sap-ha-guide-figure-3035]
+![Figure 45: Enter your SIOS DataKeeper license][sap-ha-guide-figure-3035]
 
-_**Figure 43:** Enter your SIOS DataKeeper license_
+_**Figure 45:** Enter your SIOS DataKeeper license_
 
-Install the license key for your SIOS DataKeeper instance as shown in Figure 43. At the end of the installation, you'll be asked to restart the virtual machine.
+Install the license key for your SIOS DataKeeper instance as shown in Figure 45. At the end of the installation, you'll be asked to restart the virtual machine.
 
 #### <a name="d9c1fc8e-8710-4dff-bec2-1f535db7b006"></a> Set up SIOS DataKeeper
 After you install SIOS DataKeeper on both nodes, you need to start the configuration. The goal of the configuration is to have synchronous data replication between the additional VHDs attached to each of the virtual machines. These are the steps you take to configure both nodes.
 
-![Figure 44: SIOS DataKeeper Management and Configuration tool][sap-ha-guide-figure-3036]
+![Figure 46: SIOS DataKeeper Management and Configuration tool][sap-ha-guide-figure-3036]
 
-_**Figure 44:** SIOS DataKeeper Management and Configuration tool_
+_**Figure 46:** SIOS DataKeeper Management and Configuration tool_
 
-Start the DataKeeper Management and Configuration tool, and then select **Connect Server**. (In Figure 44, this option is circled in red.)
+Start the DataKeeper Management and Configuration tool, and then select **Connect Server**. (In Figure 46, this option is circled in red.)
 
-![Figure 45: Insert the name or TCP/IP address of the first node the Management and Configuration tool should connect to, and in a second step, the second node][sap-ha-guide-figure-3037]
+![Figure 47: Insert the name or TCP/IP address of the first node the Management and Configuration tool should connect to, and in a second step, the second node][sap-ha-guide-figure-3037]
 
-_**Figure 45:** Insert the name or TCP/IP address of the first node the Management and Configuration tool should connect to, and in a second step, the second node_
+_**Figure 47:** Insert the name or TCP/IP address of the first node the Management and Configuration tool should connect to, and in a second step, the second node_
 
 The next step is to create the replication job between the two nodes.
 
-![Figure 46: Create a replication job][sap-ha-guide-figure-3038]
+![Figure 48: Create a replication job][sap-ha-guide-figure-3038]
 
-***Figure 46:** Create a replication job*
+_**Figure 48:** Create a replication job_
 
 A wizard guides you through the process of creating a replication job.
 
-![Figure 47: Define the name of the replication job][sap-ha-guide-figure-3039]
+![Figure 49: Define the name of the replication job][sap-ha-guide-figure-3039]
 
-_**Figure 47:** Define the name of the replication job_
+_**Figure 49:** Define the name of the replication job_
 
-![Figure 48: Define the base data for the node, which should be the current source node][sap-ha-guide-figure-3040]
+![Figure 50: Define the base data for the node, which should be the current source node][sap-ha-guide-figure-3040]
 
-_**Figure 48:** Define the base data for the node, which should be the current source node_
+_**Figure 50:** Define the base data for the node, which should be the current source node_
 
 In the first step, you need to define the name, the TCP/IP address, and the disk volume of the source node. The second step is to define the target node. As explained earlier, you need to define the name, TCP/IP address, and disk volume of the target node.
 
-![Figure 49: Define the base data for the node, which should be the current target node][sap-ha-guide-figure-3041]
+![Figure 51: Define the base data for the node, which should be the current target node][sap-ha-guide-figure-3041]
 
-_**Figure 49:** Define the base data for the node, which should be the current target node_
+_**Figure 51:** Define the base data for the node, which should be the current target node_
 
 Next, define the compression algorithms. In our example, we recommend that you compress the replication stream. Especially in resynchronization situations, the compression of the replication stream dramatically reduces resynchronization time. Note that compression uses the CPU and RAM resources of a virtual machine. As the compression rate increases, so does the volume of CPU resources used. You can adjust this setting later.
 
 Another setting you need to check is whether the replication occurs asynchronously or synchronously. *When you protect SAP ASCS/SCS configurations, you must use synchronous replication*.  
 
-![Figure 50: Define replication details][sap-ha-guide-figure-3042]
+![Figure 52: Define replication details][sap-ha-guide-figure-3042]
 
-_**Figure 50:** Define replication details_
+_**Figure 52:** Define replication details_
 
 The final step is to define whether the volume that is replicated by the replication job should be represented to a Windows Server Failover Clustering cluster configuration as a shared disk. For the SAP ASCS/SCS configuration, select **Yes** so that the Windows cluster sees the replicated volume as a shared disk that it can use as a cluster volume.
 
-![Figure 51: Select **Yes** to set the replicated volume as a cluster volume][sap-ha-guide-figure-3043]
+![Figure 53: Select **Yes** to set the replicated volume as a cluster volume][sap-ha-guide-figure-3043]
 
-_**Figure 51:** Select **Yes** to set the replicated volume as a cluster volume_
+_**Figure 53:** Select **Yes** to set the replicated volume as a cluster volume_
 
 After the volume is created, the DataKeeper Management and Configuration tool shows that the replication job is active.
 
-![Figure 52: DataKeeper synchronous mirroring for the SAP ASCS/SCS share disk is active][sap-ha-guide-figure-3044]
+![Figure 54: DataKeeper synchronous mirroring for the SAP ASCS/SCS share disk is active][sap-ha-guide-figure-3044]
 
-_**Figure 52:** DataKeeper synchronous mirroring for the SAP ASCS/SCS share disk is active_
+_**Figure 54:** DataKeeper synchronous mirroring for the SAP ASCS/SCS share disk is active_
 
-Now, Failover Cluster Manager shows the disk as a DataKeeper disk, as shown in Figure 53.
+Now, Failover Cluster Manager shows the disk as a DataKeeper disk, as shown in Figure 55.
 
-![Figure 53: Failover Cluster Manager shows the disk that DataKeeper replicated][sap-ha-guide-figure-3045]
+![Figure 55: Failover Cluster Manager shows the disk that DataKeeper replicated][sap-ha-guide-figure-3045]
 
-_**Figure 53:** Failover Cluster Manager shows the disk that DataKeeper replicated_
+_**Figure 55:** Failover Cluster Manager shows the disk that DataKeeper replicated_
 
 ## <a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a> Install the SAP NetWeaver system
 We won’t describe the DBMS setup because setups vary depending on the DBMS system you use. However, we assume that high-availability concerns with the DBMS are addressed with the functionalities the different DBMS vendors support for Azure. For example, Always On or database mirroring for SQL Server, and Oracle Data Guard for Oracle. In the scenario we use in this article, we didn't add more protection to the DBMS.
@@ -1222,15 +1287,15 @@ Only one SAP failover cluster role can run in one Windows Server failover cluste
 >
 >
 
-![Figure 54: Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address][sap-ha-guide-figure-3046]
+![Figure 56: Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address][sap-ha-guide-figure-3046]
 
-_**Figure 54:** Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address_
+_**Figure 56:** Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address_
 
-The entry is in DNS Manager, under the domain, as shown in Figure 55.
+The entry is in DNS Manager, under the domain, as shown in Figure 57.
 
-![Figure 55: New virtual name and TCP/IP address for SAP ASCS/SCS cluster configuration][sap-ha-guide-figure-3047]
+![Figure 57: New virtual name and TCP/IP address for SAP ASCS/SCS cluster configuration][sap-ha-guide-figure-3047]
 
-_**Figure 55:** New virtual name and TCP/IP address for SAP ASCS/SCS cluster configuration_
+_**Figure 57:** New virtual name and TCP/IP address for SAP ASCS/SCS cluster configuration_
 
 #### <a name="eb5af918-b42f-4803-bb50-eff41f84b0b0"></a> Install the SAP first cluster node
 To install the SAP first cluster, execute the first cluster node option on cluster node A. For example, on the **pr1-ascs-0** host.
@@ -1277,9 +1342,9 @@ First, check the current **ProbePort** setting with this PowerShell command. Exe
 Get-ClusterResource „SAP PR1 IP" | Get-ClusterParameter
 ```
 
-![Figure 56: The cluster configuration probe port is 0 by default][sap-ha-guide-figure-3048]
+![Figure 58: The cluster configuration probe port is 0 by default][sap-ha-guide-figure-3048]
 
-_**Figure 56:** The cluster configuration probe port is 0 by default_
+_**Figure 58:** The cluster configuration probe port is 0 by default_
 
 Then, define a probe port. The default probe port number is 0. In our example, we use probe port **62300**.
 
@@ -1305,9 +1370,9 @@ After you bring the **SAP PR1** cluster role online, verify that **ProbePort** i
 Get-ClusterResource „SAP PR1 IP" | Get-ClusterParameter
 ```
 
-![Figure 57: Probe the cluster port after you set the new value][sap-ha-guide-figure-3049]
+![Figure 59: Probe the cluster port after you set the new value][sap-ha-guide-figure-3049]
 
-_**Figure 57:** Probe the cluster port after you set the new value_
+_**Figure 59:** Probe the cluster port after you set the new value_
 
 The **ProbePort** is set to **62300**. Now you can access the file share **\\\ascsha-clsap\sapmnt** from other hosts, like **ascsha-dbas**.
 
@@ -1320,9 +1385,9 @@ To install the second cluster, follow the steps in the SAP installation guide.
 ### <a name="094bc895-31d4-4471-91cc-1513b64e406a"></a> Change the start type of the SAP ERS Windows service instance
 Change the start type of the SAP Enqueue Replication Server (ERS) Windows service to **Automatic (Delayed Start)** on both cluster nodes.
 
-![Figure 58: Change the service type for the SAP ERS instance to delayed automatic][sap-ha-guide-figure-3050]
+![Figure 60: Change the service type for the SAP ERS instance to delayed automatic][sap-ha-guide-figure-3050]
 
-_**Figure 58:** Change the service type for the SAP ERS instance to delayed automatic_
+_**Figure 60:** Change the service type for the SAP ERS instance to delayed automatic_
 
 ### <a name="2477e58f-c5a7-4a5d-9ae3-7b91022cafb5"></a> Install the SAP Primary Application Server
 Install the Primary Application Server (PAS) instance <*SID*>-di-0 on the virtual machine that you've designated to host the PAS. There are no dependencies on Azure or DataKeeper specifics.
@@ -1336,15 +1401,15 @@ It's easy to test and monitor an SAP ASCS/SCS instance failover and SIOS disk re
 ### <a name="65fdef0f-9f94-41f9-b314-ea45bbfea445"></a> SAP ASCS/SCS instance is running on cluster node A
 The **SAP WAC** cluster group is running on cluster node A. For example, on **ascsha-clna**. Assign the shared disk drive S, which is part of the **SAP WAC** cluster group, and which the ASCS/SCS instance uses, to cluster node A.
 
-![Figure 59: Failover Cluster Manager: The SAP <*SID*> cluster group is running on cluster node A][sap-ha-guide-figure-5000]
+![Figure 61: Failover Cluster Manager: The SAP <*SID*> cluster group is running on cluster node A][sap-ha-guide-figure-5000]
 
-_**Figure 59:** Failover Cluster Manager: The SAP <*SID*> cluster group is running on cluster node A_
+_**Figure 61:** Failover Cluster Manager: The SAP <*SID*> cluster group is running on cluster node A_
 
 By using the SIOS DataKeeper UI, you can see that the shared disk data is synchronously replicated from the source volume drive S on cluster node A to the target volume drive S on cluster node B. For example, from **ascsha-clna [10.0.0.41]** to **ascsha-clnb [10.0.0.42]**.
 
-![Figure 60: In SIOS DataKeeper, replicate the local volume from cluster node A to cluster node B][sap-ha-guide-figure-5001]
+![Figure 62: In SIOS DataKeeper, replicate the local volume from cluster node A to cluster node B][sap-ha-guide-figure-5001]
 
-_**Figure 60:** In SIOS DataKeeper, replicate the local volume from cluster node A to cluster node B_
+_**Figure 62:** In SIOS DataKeeper, replicate the local volume from cluster node A to cluster node B_
 
 ### <a name="5e959fa9-8fcd-49e5-a12c-37f6ba07b916"></a> Failover from node A to node B
 You can use one of these options to initiate a failover of the SAP <*SID*> cluster group from cluster node A to cluster node B:
@@ -1355,7 +1420,7 @@ You can use one of these options to initiate a failover of the SAP <*SID*> clust
   ```powershell
   Move-ClusterGroup -Name "SAP WAC"
   ```
-  
+
 * Restart cluster node A within the Windows guest operating system (initiates an automatic failover of the SAP <*SID*> cluster group from node A to node B)  
 * Restart cluster node A from the Azure portal (initiates an automatic failover of the SAP <*SID*> cluster group from node A to node B)  
 * Restart cluster node A by using Azure PowerShell (initiates an automatic failover of the SAP <*SID*> cluster group from node A to node B)
@@ -1366,12 +1431,13 @@ You can use one of these options to initiate a failover of the SAP <*SID*> clust
 
 After failover, the SAP <*SID*> cluster group is running on cluster node B. For example, on **ascsha-clnb**.
 
-![Figure 61: In Failover Cluster Manager, the SAP <*SID*> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
+![Figure 63: In Failover Cluster Manager, the SAP <*SID*> cluster group is running on cluster node B][sap-ha-guide-figure-5002]
 
-_**Figure 61**: In Failover Cluster Manager, the SAP <*SID*> cluster group is running on cluster node B_
+_**Figure 63**: In Failover Cluster Manager, the SAP <*SID*> cluster group is running on cluster node B_
 
 Now the shared disk is mounted on cluster node B. SIOS DataKeeper is replicating data from source volume drive S on cluster node B to target volume drive S on cluster node A. For example, from **ascsha-clnb [10.0.0.42]** to **ascsha-clna [10.0.0.41]**.
 
-![Figure 62: SIOS DataKeeper replicates the local volume from cluster node B to cluster node A][sap-ha-guide-figure-5003]
+![Figure 64: SIOS DataKeeper replicates the local volume from cluster node B to cluster node A][sap-ha-guide-figure-5003]
 
-_**Figure 62:** SIOS DataKeeper replicates the local volume from cluster node B to cluster node A_
+_**Figure 64:** SIOS DataKeeper replicates the local volume from cluster node B to cluster node A_
+

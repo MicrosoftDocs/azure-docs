@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to crop video | Microsoft Docs
 description: This article shows how to crop videos with Media Encoder Standard.
 services: media-services
@@ -26,7 +26,7 @@ Suppose you have as input a video that has a resolution of 1920x1080 pixels (16:
 
 Cropping in MES is a pre-processing stage, so the cropping parameters in the encoding preset apply to the original input video. Encoding is a subsequent stage, and the width/height settings apply to the *pre-processed* video, and not to the original video. When designing your preset you need to do the following: (a) select the crop parameters based on the original input video, and (b) select your encode settings based on the cropped video. If you do not match your encode settings to the cropped video, the output will not be as you expect.
 
-The [following](media-services-advanced-encoding-with-mes.md#encoding_with_dotnet) topic shows how to create an encoding job with MES and how to specify a custom preset for the encoding task. 
+The [following](media-services-custom-mes-presets-with-dotnet.md#encoding_with_dotnet) topic shows how to create an encoding job with MES and how to specify a custom preset for the encoding task. 
 
 ## Creating a custom preset
 In the example shown in the diagram:
@@ -139,4 +139,3 @@ Following constraints apply to the cropping feature. If these are not met, the e
 See Azure Media Services learning paths to help you learn about great features offered by AMS.  
 
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
-

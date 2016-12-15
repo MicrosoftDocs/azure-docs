@@ -176,7 +176,7 @@
 ## [PowerShell](/azure/machine-learning/machine-learning-powershell-module)
 ## [PowerShell module for Machine Learning](machine-learning-powershell-module.md)
 ## [Algorithm & Module reference](https://msdn.microsoft.com/library/azure/dn905974.aspx)
-## [Management REST APIs](/rest/api/machinelearning)
+## [REST](/rest/api/machinelearning)
 
 # Related
 

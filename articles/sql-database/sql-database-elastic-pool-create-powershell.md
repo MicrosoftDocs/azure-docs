@@ -9,8 +9,9 @@ editor: ''
 
 ms.assetid: 37a707ee-9223-43ae-8c35-1ccafde8b83e
 ms.service: sql-database
+ms.custom: sharded databases pool
 ms.devlang: NA
-ms.topic: get-started-article
+ms.topic: hero-article
 ms.tgt_pltfrm: powershell
 ms.workload: data-management
 ms.date: 05/27/2016
@@ -34,7 +35,7 @@ For common error codes, see [SQL error codes for SQL Database client application
 >
 >
 
-You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+You need to be running Azure PowerShell 1.0 or higher. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Create a new pool
 The [New-AzureRmSqlElasticPool](https://msdn.microsoft.com/library/azure/mt619378\(v=azure.300\).aspx) cmdlet creates a new pool. The values for eDTU per pool, min, and max Dtus are constrained by the service tier value (basic, standard, or premium). See [eDTU and storage limits for elastic pools and elastic databases](sql-database-elastic-pool.md#edtu-and-storage-limits-for-elastic-pools-and-elastic-databases).

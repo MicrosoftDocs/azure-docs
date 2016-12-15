@@ -9,17 +9,21 @@ editor: ''
 
 ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
 ms.service: sql-database
+ms.custom: db development; monitor and tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/22/2016
+ms.date: 12/07/2016
 ms.author: jodebrui
 ---
 
 # Optimize Performance using In-Memory Technologies in SQL Database
 
-In-Memory technologies in Azure SQL Database can help you achieve performance improvements with transactional (OLTP), analytics (OLAP), as well as mixed workloads (HTAP), while reducing cost at the same time. Depending on the workload, they can allow you to achieve up to 30X performance improvement for transaction processing and up to 100X performance improvement for analytical queries, compared with traditional tables and indexes. Because of the more efficient query and transaction processing, In-Memory technologies can also reduce cost: you typically do not need to upgrade the pricing tier of the database to achieve performance gains, and in some cases you could even reduce the pricing tier while still seeing performance improvements using In-Memory technologies. 
+In-Memory technologies in Azure SQL Database can help you achieve performance improvements with transactional (OLTP), analytics (OLAP), as well as mixed workloads (HTAP). Because of the more efficient query and transaction processing, In-Memory technologies can also reduce cost: you typically do not need to upgrade the pricing tier of the database to achieve performance gains, and in some cases you could even reduce the pricing tier while still seeing performance improvements with In-Memory technologies. 
+
+- [Quorum Business Solutions was able to double their workload while improving DTUs (i.e., resource consumption) by 70%](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database), by leveraging In-Memory OLTP. 
+- The following video demonstrates significant improvement in resource consumption with a sample workload: [In-Memory OLTP in Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB)
 
 In-Memory technologies are available in all database in the Premium tier, including databases in Premium elastic pools. 
 
@@ -40,9 +44,10 @@ Both Columnstore and In-Memory OLTP have been part of the SQL Server product sin
 
 This topic describes aspects of In-Memory OLTP and Columnstore indexes that are specific to Azure SQL Database, and includes samples. First you will see the impact of these technologies on storage and what are the limits on data size. Then you will see how to manage moving databases that leverage these technologies between the different pricing tiers. Finally, you will see two samples that illustrate the use of In-Memory OLTP as well as Columnstore in Azure SQL Database.
 
-In-depth information about the technologiescan be found at the following locations:
+In-depth information about the technologies can be found at the following locations:
 
-- [In-Memory OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
+- [In-Memory OLTP Overview and Usage Scenarios](https://msdn.microsoft.com/library/mt774593.aspx), including references to customer case studies and information to get started
+- [Documentation for In-Memory OLTP](http://msdn.microsoft.com/library/dn133186.aspx)
 - [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx)
 - Hybrid Transactional and Analytical Processing aka [real-time operational analytics](https://msdn.microsoft.com/library/dn817827.aspx)
 
@@ -52,6 +57,7 @@ A quick primer on In-Memory OLTP can be found here:
 
 In-depth videos about the technologies:
 
+- [In-Memory OLTP in Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB), which contains a demo of performance benefits and steps to reproduce these results yourself
 - [In-Memory OLTP Videos: What it is and When/How to use it](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/03/in-memory-oltp-video-what-it-is-and-whenhow-to-use-it/)
 - [Columnstore Index: In-Memory Analytics (i.e. columnstore index) Videos from Ignite 2016](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2016/10/04/columnstore-index-in-memory-analytics-i-e-columnstore-index-videos-from-ignite-2016/)
 

@@ -103,7 +103,7 @@ Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy a
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Virtual Machine Scale Sets REST API Reference</p>
+                        <p>Virtual Machine Scale Sets REST API</p>
                     </div>
                 </div>
             </div>

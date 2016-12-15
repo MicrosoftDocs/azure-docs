@@ -34,7 +34,7 @@ This tutorial loads data into Azure SQL Data Warehouse by using Azure Data Facto
 - You need an online SQL Data Warehouse. If you do not already have a data warehouse, learn how to [Create an Azure SQL Data Warehouse](sql-data-warehouse-get-started-provision.md). For best performance, locate the storage account and the data warehouse in the same Azure region.
 
 - Prepare your data warehouse to receive the incoming data by creating one or more table schemas. You can use [SQL Data Warehouse Migration Utility](sql-data-warehouse-migrate-migration-utility.md) to create a script for the schemas. 
-
+
 ## Configure a new data factory
 1. Log in to the [Azure portal][].
 2. Locate your data warehouse and click to open it. 

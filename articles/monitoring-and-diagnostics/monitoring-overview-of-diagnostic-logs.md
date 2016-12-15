@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Azure Diagnostic Logs | Microsoft Docs
 description: Learn what Azure Diagnostic Logs are and how you can use them to understand events occurring within an Azure resource.
 author: johnkemnetz
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 12/06/2016
 ms.author: johnkem; magoedte
 
 ---
@@ -25,7 +25,7 @@ ms.author: johnkem; magoedte
 ## What you can do with Diagnostic Logs
 Here are some of the things you can do with Diagnostic Logs:
 
-* Save them to a **Storage Account** for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
+* Save them to a [**Storage Account**](monitoring-archive-diagnostic-logs.md) for auditing or manual inspection. You can specify the retention time (in days) using the **Diagnostic Settings**.
 * [Stream them to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md) for ingestion by a third-party service or custom analytics solution such as PowerBI.
 * Analyze them with [OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
 

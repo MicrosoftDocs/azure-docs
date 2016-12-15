@@ -207,10 +207,12 @@
 ### [Troubleshoot using Visual Studio](../app-service-web/web-sites-dotnet-troubleshoot-visual-studio.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Reference
-## [.NET API](https://msdn.microsoft.com/library/azure/dn961176.aspx)
-## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
-## [App Service reference](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [.NET](https://msdn.microsoft.com/library/azure/dn961176.aspx)
+
+# Related
 ## [WebJobs SDK](../app-service-web/websites-dotnet-webjobs-sdk-get-started.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [App Service reference](../app-service-web/app-service-changes-existing-services.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
+## [Azure portal](../app-service-web/app-service-web-app-azure-portal.md?toc=%2fazure%2fapp-service-mobile%2ftoc.json)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/en-us/pricing/details/app-service/)  

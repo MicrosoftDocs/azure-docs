@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: d1822905-a11f-4c42-8940-98c6b81aed20
 ms.service: sql-database
+ms.custom: business continuity; how to
 ms.devlang: NA
 ms.date: 10/18/2016
 ms.author: sstein

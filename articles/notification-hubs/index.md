@@ -194,7 +194,7 @@ With Notification Hubs, you can easily send cross-platform, personalized push no
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Notification Hubs REST API Reference</p>
+                        <p>Notification Hubs REST API</p>
                     </div>
                 </div>
             </div>

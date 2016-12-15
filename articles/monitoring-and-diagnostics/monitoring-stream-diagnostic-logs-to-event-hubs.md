@@ -1,4 +1,4 @@
-﻿---
+---
 title: Stream Azure Diagnostic Logs to Event Hubs | Microsoft Docs
 description: Learn how to stream Azure Diagnostic Logs to Event Hubs.
 author: johnkemnetz
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 12/07/2016
 ms.author: johnkem
 
 ---
@@ -151,6 +151,9 @@ Here is sample output data from the Event Hubs:
 | properties |Properties of the event. |
 
 You can view a list of all resource providers that support streaming to Event Hub [here](monitoring-overview-of-diagnostic-logs.md).
+
+## Stream data from Compute resources
+You can also stream diagnostic logs from Compute resources using the Windows Azure Diagnositcs agent. [See this article](../event-hubs/event-hubs-streaming-azure-diags-data.md) for how to set that up.
 
 ## Next Steps
 * [Read more about Azure Diagnostic Logs](monitoring-overview-of-diagnostic-logs.md)

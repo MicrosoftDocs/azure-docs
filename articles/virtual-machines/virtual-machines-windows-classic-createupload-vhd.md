@@ -27,7 +27,7 @@ This article shows you how to upload your own generalized VM image as a virtual 
 ## Prerequisites
 This article assumes you have:
 
-* **An Azure subscription** - If you don't have one, you can [open an Azure account for free](/pricing/free-trial/?WT.mc_id=A261C142F).
+* **An Azure subscription** - If you don't have one, you can [open an Azure account for free](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
 * **[Microsoft Azure PowerShell](../powershell-install-configure.md)** - You have the Microsoft Azure PowerShell module installed and configured to use your subscription. 
 * **A .VHD file** - supported Windows operating system stored in a .vhd file and attached to a virtual machine. Check to see if the server roles running on the VHD are supported by Sysprep. For more information, see [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
