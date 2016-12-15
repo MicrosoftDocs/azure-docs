@@ -44,10 +44,10 @@ In the following examples, replace example parameter names with your own values.
 
 To create this custom environment, you need the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) installed and logged in to an Azure account using [az login](/cli/azure/#login).
 
-First, create the resource group with [az resource group create](/cli/azure/resource/group#create). The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
+First, create the resource group with [az group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
 
 ```azurecli
-az resource group create --name myResourceGroup --location westeurope
+az group create --name myResourceGroup --location westeurope
 ```
 
 Create the storage account with [az storage account create](/cli/azure/storage/account#create). The following example creates a storage account named `mystorageaccount`. (The storage account name must be unique, so provide your own unique name.)
@@ -221,10 +221,10 @@ Make sure that you have installed the latest [Azure CLI 2.0 (Preview)](/cli/azur
 In the following examples, replace example parameter names with your own values. Example parameter names include `myResourceGroup`, `mystorageaccount`, and `myVM`.
 
 ## Create resource groups and choose deployment locations
-Azure resource groups are logical deployment entities that contain configuration information and metadata to enable the logical management of resource deployments. Create the resource group with [az resource group create](/cli/azure/resource/group#create). The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
+Azure resource groups are logical deployment entities that contain configuration information and metadata to enable the logical management of resource deployments. Create the resource group with [az  group create](/cli/azure/group#create). The following example creates a resource group named `myResourceGroup` in the `westeurope` location:
 
 ```azurecli
-az resource group create --name myResourceGroup --location westeurope
+az group create --name myResourceGroup --location westeurope
 ```
 
 By default, the output is in JSON (JavaScript Object Notation). To output as a list or table, for example, use [az configure --output](/cli/azure/#configure). You can also add `--output` to any command for a one time change in output format. The following example shows the JSON output from the **az resource group create** command:
