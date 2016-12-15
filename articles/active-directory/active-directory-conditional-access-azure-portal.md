@@ -107,7 +107,7 @@ By selecting cloud apps, you define the scope of cloud apps your policy applies 
 	![Conditions](./media/active-directory-conditional-access-azure-portal/01.png)
 
 
-### Conditions
+## Conditions
 
 In the current implementation of Azure Active Directory, you can define conditions for the following areas:
 
