@@ -12,7 +12,7 @@ ms.service: sql-database
 ms.custom: overview
 ms.devlang: NA
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.date: 09/19/2016
 ms.author: carlrab
