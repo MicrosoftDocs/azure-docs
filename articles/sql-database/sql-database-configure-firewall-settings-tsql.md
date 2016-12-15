@@ -9,11 +9,11 @@ editor: ''
 
 ms.assetid: 71e692a1-5e2f-4a18-a6d6-527b849cf68e
 ms.service: sql-database
-ms.custom: auth and access
+ms.custom: authentication and authorization
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: get-started-article
 ms.date: 08/30/2016
 ms.author: rickbyh
 
