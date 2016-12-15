@@ -23,7 +23,7 @@ You can use the template validation tool to check if your Azure Resource Manager
 
  - AzureRM.CloudCapabilities.psm1 creates a cloud capabilities JSON file representing the services and versions in a cloud like Azure Stack.
  - AzureRM.TemplateValidator.psm1 uses a cloud capabilities JSON file to test templates for deployment in Azure Stack.
- - AzureStackCapabilities_TP2.json is included as a default cloud capabilities file.  You can create your own, or use this file to get started. 
+ - AzureStackCapabilities_TP2.json is a default cloud capabilities file.  You can create your own, or use this file to get started. 
 
 In this topic, you download the tool, run validation against your templates, and optionally build a cloud capabilities file.
 
@@ -73,7 +73,7 @@ Any template validation warnings or errors are logged to the PowerShell console,
 | -TemplatePath | Specifies the path to recursively find Resource Manager templates | Yes | 
 | -TemplatePattern | Specifies the name of template files to match.  The tool searches for *azuredeploy.json* by default.| No |
 | -CapabilitiesPath | Specifies the path to cloud capabilities JSON file | Yes | 
-| -IncludeComputeCapabilities | Includes evaluation of IaaS resources like VM Sizes and VM Extensions | No |
+| -IncludeComputeCapabilities| Includes evaluation of IaaS resources like VM Sizes and VM Extensions | No |
 | -Report | Specifies name of the generated HTML report | No |
 | -Verbose | Logs errors and warnings to the console | No|
 
