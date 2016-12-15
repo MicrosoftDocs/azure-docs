@@ -1,6 +1,6 @@
 ---
-title: Validate templates for Azure Stack | Microsoft Docs
-description: Prepare templates for deployment to Azure Stack
+title: Use Template Validator to check templates for Azure Stack | Microsoft Docs
+description: Check templates for deployment to Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: HeathL17
@@ -18,7 +18,7 @@ ms.author: helaw
 
 ---
 
-# Validate templates for Azure Stack
+# Check your templates for Azure Stack with Template Validator
 You can use the template validation tool to check if your Azure Resource Manager [templates](azure-stack-arm-templates.md) work with Azure Stack.  The tool consists of two PowerShell modules and a JSON file:
 
  - AzureRM.CloudCapabilities.psm1 creates a cloud capabilities JSON file representing the services and versions in a cloud like Azure Stack.
