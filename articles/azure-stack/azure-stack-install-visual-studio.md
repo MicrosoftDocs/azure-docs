@@ -28,7 +28,7 @@ You can use Visual Studio to author and deploy Azure Resource Manager [templates
 ## Install Visual Studio
 1.	Download and run the [Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx).             
 
-2.	Search for **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6**, then click **Add**, and **Install** at the bottom of the screen.
+2.	Search for **Visual Studio Community 2015 with Microsoft Azure SDK - 2.9.6**, then click **Add**, and **Install**.
 
     ![Screenshot of WebPI install steps](./media/azure-stack-install-visual-studio/image1.png) 
 
@@ -36,7 +36,7 @@ You can use Visual Studio to author and deploy Azure Resource Manager [templates
 
       ![Screenshot of add/remove programs interface for Azure PowerShell](./media/azure-stack-install-visual-studio/image2.png) 
 
-4.	Open the Web Platform Installer, search for **Microsoft Azure PowerShell - Azure Stack Technical Preview 2** and then install.
+4.	Open the Web Platform Installer, search for **Microsoft Azure PowerShell - Azure Stack Technical Preview 2**, click **Add**, and **Install**.
 
     ![Screenshot of add/remove programs interface for Azure PowerShell](./media/azure-stack-install-visual-studio/image3.png)
 
