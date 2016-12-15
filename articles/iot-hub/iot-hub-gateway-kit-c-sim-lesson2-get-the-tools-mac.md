@@ -126,5 +126,5 @@ You use Visual Studio Code later in the tutorial to edit configuration files.
 
 You’ve installed all the required tools and software on your Mac computer. Your next task is to use the Azure CLI to create an IoT hub and register your device in your IoT hub.
 
-# Next steps
+## Next steps
 [Create an IoT hub and register Device](iot-hub-gateway-kit-c-sim-lesson2-register-device.md)

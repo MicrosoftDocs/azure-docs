@@ -92,6 +92,6 @@ The messages that are being sent and received are all displayed instantly on the
 You've successfully run the sample application to send data to your IoT hub with simulated device. You've also read the messages that have been sent to your IoT hub.
 
 ## Next steps
-[Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-sim-lesson4-deploy-resouce-manager-template.md)
+[Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-sim-lesson4-deploy-resource-manager-template.md)
 
 

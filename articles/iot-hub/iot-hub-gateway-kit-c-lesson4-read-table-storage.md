@@ -36,7 +36,7 @@ How to use the gulp tool to run the sample code to read messages in your Azure T
 
 You have have successfully done the following tasks:
 
-- [Created the Azure function app and the Azure storage account](iot-hub-gateway-kit-c-lesson4-deploy-resouce-manager-template.md).
+- [Created the Azure function app and the Azure storage account](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md).
 - [Run the gateway sample application](iot-hub-gateway-kit-c-lesson3-configure-ble-app.md).
 - [Read messages from your IoT hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md).
 
@@ -73,7 +73,7 @@ Update the `config-azure.json` file so that the sample code that runs on the hos
 
    ![configuration](media/iot-hub-gateway-kit-lessons/lesson4/config_azure.png)
 
-   Replace `[Azure storage connection string]` with the Azure storage connection string that you obtained.
+2. Replace `[Azure storage connection string]` with the Azure storage connection string that you obtained.
 
    `[IoT hub connection string]` should already be replaced in section [Read messages from Azure IoT Hub](iot-hub-gateway-kit-c-lesson3-read-messages-from-hub.md) in Lesson3.
 

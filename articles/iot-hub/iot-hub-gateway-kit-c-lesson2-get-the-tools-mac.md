@@ -18,7 +18,7 @@ ms.date: 11/07/2016
 ms.author: xshi
 
 ---
-# Get the tools (macOS)
+# Get the tools (MacOS)
 > [!div class="op_single_selector"]
 > * [Windows 7 or later](iot-hub-gateway-kit-c-lesson2-get-the-tools-win32.md)
 > * [Ubuntu 16.04](iot-hub-gateway-kit-c-lesson2-get-the-tools-ubuntu.md)
@@ -126,5 +126,5 @@ You use Visual Studio Code later in the tutorial to edit configuration files.
 
 You’ve installed all the required tools and software on your Mac computer. Your next task is to use the Azure CLI to create an IoT hub and register your device in your IoT hub.
 
-# Next steps
+## Next steps
 [Create an IoT hub and register Device](iot-hub-gateway-kit-c-lesson2-register-device.md)

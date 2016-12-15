@@ -92,6 +92,6 @@ The messages that are being sent and received are all displayed instantly on the
 You've run a sample code to read messages from your IoT hub. You're ready to read the messages that are stored in your Azure table storage.
 
 ## Next steps
-[Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-lesson4-deploy-resouce-manager-template.md)
+[Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 
 

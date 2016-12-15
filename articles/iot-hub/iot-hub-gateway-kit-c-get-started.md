@@ -90,7 +90,7 @@ Use an Azure Resource Manager template to create an Azure function app and an Az
 
 *Estimated time to complete: 10 minutes*
 
-Go to [Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-lesson4-deploy-resouce-manager-template.md)
+Go to [Create an Azure function app and Azure Storage account](iot-hub-gateway-kit-c-lesson4-deploy-resource-manager-template.md)
 
 ### Read messages persisted in Azure Table storage
 Monitor the gateway-to-cloud messages as they are written to Azure Table storage.
@@ -99,7 +99,7 @@ Monitor the gateway-to-cloud messages as they are written to Azure Table storage
 
 Go to [Read messages persisted in Azure Table storage](iot-hub-gateway-kit-c-lesson4-read-table-storage.md).
 
-## Toubleshooting
+## Troubleshooting
 If you have any problems during the lessons, look for solutions in the [Troubleshooting](iot-hub-gateway-kit-c-troubleshooting.md) article.
 
 ## Explore more

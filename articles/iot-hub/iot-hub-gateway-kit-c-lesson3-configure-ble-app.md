@@ -24,7 +24,7 @@ ms.author: xshi
 
 - Clone the sample repository. 
 - Set up the connectivity between SensorTag and Intel NUC. 
-- Use the Azure CLI to get your IoT hub and SensorTag information for a BLE sample application.And configure and run the BLE sample application. 
+- Use the Azure CLI to get your IoT hub and SensorTag information for a BLE(Bluetooth Low Energy) sample application. And configure and run the BLE sample application. 
 
 If you have any problems, look for solutions on the [troubleshooting page](iot-hub-gateway-kit-c-troubleshooting.md).
 
