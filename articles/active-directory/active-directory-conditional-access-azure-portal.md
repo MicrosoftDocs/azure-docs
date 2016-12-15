@@ -196,19 +196,9 @@ In other words, you might have a requirement for multi-factor authentication if 
 
 ### Only trusted devices can access Office 365 services
 
-
 If you are using Intune in your environment, you can immediately start using the conditional access policy interface in the Azure console.
 
-
-Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services. Trusted device means that mobile devices are enrolled with Intune and meet the device compliance policies in Intune. , and that Windows PCs are joined to an on-premises domain.  A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with  with Conditional Access. 
-
-
-
-
-
-
-
-
+Many Intune customers are using conditional access to ensure that only trusted devices can access Office 365 services. This means that mobile devices are enrolled with Intune and meet compliance policy requirements, and that Windows PCs are joined to an on-premises domain.  A key improvement is that you do not have to set the same policy for each of the Office 365 services.  When you create a new policy, configure the Cloud apps to include each of the O365 apps that you wish to protect with  with Conditional Access. 
 
 ## Next steps
 
