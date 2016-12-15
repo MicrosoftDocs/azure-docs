@@ -700,9 +700,9 @@ Clicking the **Deploy to Azure** button takes you to the Azure portal and initia
 
 ![Deploy to Azure][cache-deploy-to-azure-step-2]
 
-4. Click **Review legal terms**.
-5. Read the terms on the **Purchase** blade and click **Purchase**.
-6. To begin provisioning the resources, click **Create** on the **Custom deployment** blade.
+1. Click **Review legal terms**.
+2. Read the terms on the **Purchase** blade and click **Purchase**.
+3. To begin provisioning the resources, click **Create** on the **Custom deployment** blade.
 
 To view the progress of your deployment, click the notification icon and click **Deployment started**.
 
