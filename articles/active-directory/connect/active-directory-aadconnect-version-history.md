@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure AD Connect: Version Release History | Microsoft Docs'
 description: This topic lists all releases of Azure AD Connect and Azure AD Sync
 services: active-directory
@@ -191,8 +191,8 @@ Released: 2015 November
 
 **New preview features:**
 
-* [Azure AD Connect Health for sync](active-directory-aadconnect-health-sync.md).
-* Support for [Azure AD Domain Services](active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) password synchronization.
+* [Azure AD Connect Health for sync](../connect-health/active-directory-aadconnect-health-sync.md).
+* Support for [Azure AD Domain Services](../active-directory-passwords-getting-started.md#enable-users-to-reset-or-change-their-ad-passwords) password synchronization.
 
 **New supported scenario:**
 

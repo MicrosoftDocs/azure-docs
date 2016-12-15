@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure AD Connect: Single Sign-on | Microsoft Docs'
 description: This topic provides you with the information you need to know about how single sign on from an on-premises Active Directory (AD) to cloud-based Azure Active Directory (Azure AD) and connected services.
 services: active-directory
@@ -49,7 +49,7 @@ Single sign on is supported via web browser based clients and Office clients tha
 *Requires separate configuration.
 
 >[!NOTE]
->For Windows 10 based clients, the recommendation is to use [Azure AD join](active-directory-azureadjoin-overview.md) for the best experience with Azure AD. 
+>For Windows 10 based clients, the recommendation is to use [Azure AD join](../active-directory-azureadjoin-overview.md) for the best experience with Azure AD. 
 
 ## How single sign on works
 
