@@ -67,7 +67,7 @@ The query condition can also be on a single device Id or on a list of device Ids
 
 **Examples**
 ```
-queryCondition = "deviceId='MyDevice1'";
+queryCondition = "deviceId='MyDevice1'"
 queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
 queryCondition = "deviceId IN ['MyDevice1']
 ```
