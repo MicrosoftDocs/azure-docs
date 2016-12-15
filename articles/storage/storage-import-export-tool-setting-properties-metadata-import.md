@@ -7,7 +7,7 @@ editor: tysonn
 services: storage
 documentationcenter: ''
 
-ms.assetid: e8541695-bcfb-4bf0-84d9-72c9de32a0a8
+ms.assetid:
 ms.service: storage
 ms.workload: storage
 ms.tgt_pltfrm: na
