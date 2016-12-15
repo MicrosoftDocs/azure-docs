@@ -61,7 +61,7 @@ In these steps, you validate templates using the AzureRM.TemplateValidator Power
 
     ```PowerShell
     test-azureRMTemplate -TemplatePath <path to template.json or template folder>` 
-    -CapabilitiesPath <path to cloudcapabilities.json> -Verbose -Report
+    -CapabilitiesPath <path to cloudcapabilities.json> -Verbose
     ```
 
 Any template validation warnings or errors are logged to the PowerShell console, and are also logged to an HTML file in the source directory.  
@@ -83,7 +83,7 @@ This example validates all the Azure Stack Quickstart templates downloaded local
 
 ```PowerShell
     test-AzureRMTemplate -TemplatePath C:\AzureStack-QuickStart-Templates`
-    -CapabilitiesPath C:\AzureTemplateValidator\AzureStackCapabilities_TP2.json -IncludeComputeCapabilities
+    -CapabilitiesPath C:\AzureTemplateValidator\AzureStackCapabilities_TP2.json -IncludeComputeCapabilities -Report TemplateReport.html
 ```
 
 ## Build cloud capabilities file
