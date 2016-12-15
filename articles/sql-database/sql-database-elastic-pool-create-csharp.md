@@ -1,6 +1,6 @@
 ---
-title: Create an elastic database pool with C# | Microsoft Docs
-description: Use C# database development techniques to create a scalable elastic database pool in Azure SQL Database so you can share resources across many databases.
+title: Create an elastic pool with C# | Microsoft Docs
+description: Use C# database development techniques to create a scalable elastic pool in Azure SQL Database so you can share resources across many databases.
 services: sql-database
 documentationcenter: ''
 author: stevestein
@@ -18,7 +18,7 @@ ms.date: 10/04/2016
 ms.author: sstein
 
 ---
-# Create an elastic database pool with C&#x23;
+# Create an elastic pool with C&#x23;
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-elastic-pool-create-portal.md)
 > * [PowerShell](sql-database-elastic-pool-create-powershell.md)
@@ -26,7 +26,7 @@ ms.author: sstein
 > 
 > 
 
-This article describes how to use C# to create an Azure SQL elastic database pool with the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). To create a stand-alone SQL database, see [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md).
+This article describes how to use C# to create an Azure SQL elastic pool with the [Azure SQL Database Library for .NET](https://www.nuget.org/packages/Microsoft.Azure.Management.Sql). To create a stand-alone SQL database, see [Use C# to create a SQL database with the SQL Database Library for .NET](sql-database-get-started-csharp.md).
 
 The Azure SQL Database Library for .NET provides an [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md)-based API that wraps the [Resource Manager-based SQL Database REST API](https://msdn.microsoft.com/library/azure/mt163571.aspx).
 
@@ -57,7 +57,7 @@ To create a SQL database with C#, load the required management libraries (using 
 > 
 > 
 
-## Create a SQL elastic database pool - C# example
+## Create a SQL elastic pool - C# example
 The following sample creates a resource group, server, firewall rule, elastic pool, and then creates a SQL database in the pool. See, [Create a service principal to access resources](#create-a-service-principal-to-access-resources) to get the `_subscriptionId, _tenantId, _applicationId, and _applicationSecret` variables.
 
 Replace the contents of **Program.cs** with the following, and update the `{variables}` with your app values (do not include the `{}`).

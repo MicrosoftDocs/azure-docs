@@ -20,7 +20,7 @@ ms.author: v-shysun
 
 ---
 # SQL Database performance tuning tips
-You can change the [service tier](sql-database-service-tiers.md) of a single database or increase the eDTUs of an elastic database pool at any time to improve performance, but you may want to identify opportunities to improve and optimize query performance first. Missing indexes and poorly optimized queries are common reasons for poor database performance. This article provides guidance for performance tuning in SQL Database.
+You can change the [service tier](sql-database-service-tiers.md) of a standalone database or increase the eDTUs of an elastic pool at any time to improve performance, but you may want to identify opportunities to improve and optimize query performance first. Missing indexes and poorly optimized queries are common reasons for poor database performance. This article provides guidance for performance tuning in SQL Database.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
@@ -33,6 +33,6 @@ You can change the [service tier](sql-database-service-tiers.md) of a single dat
 
 
 ## Steps to improve database performance with more resources
-1. For single databases, you can [change service tiers](sql-database-scale-up.md) on-demand to improve database performance.
-2. For multiple databases, consider using [elastic database pools](sql-database-elastic-pool-guidance.md) to scale resources automatically.
+1. For standalone databases, you can [change service tiers](sql-database-scale-up.md) on-demand to improve database performance.
+2. For multiple databases, consider using [elastic pools](sql-database-elastic-pool-guidance.md) to scale resources automatically.
 

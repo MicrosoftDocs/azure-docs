@@ -1,4 +1,4 @@
----
+﻿---
 title: Configure Additional SAP ASCS/SCS Instance into an Existing Cluster configuration to create a SAP Multi-SID configuration - Azure Resource Manager | Microsoft Docs
 description: High-availability guide for SAP NetWeaver Multi-SID on Windows Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
@@ -15,11 +15,11 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/24/2016
+ms.date: 12/09/2016
 ms.author: goraco
 
 ---
-# Configure Additional SAP ASCS/SCS Instance into an Existing Cluster configuration to create a SAP Multi-SID configuration - Azure Resource Manager
+# Configure Additional SAP ASCS/SCS Instance into an Existing Cluster to Create a SAP Multi-SID Configuration
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
 [826037]:https://launchpad.support.sap.com/#/notes/826037
@@ -69,7 +69,7 @@ ms.author: goraco
 
 [azure-cli]:../xplat-cli-install.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:../powershell-install-configure.md
+[azure-ps]:/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
@@ -358,7 +358,7 @@ ms.author: goraco
 [sap-ha-guide-figure-6005]:./media/virtual-machines-shared-sap-high-availability-guide/6005-sap-multi-sid-azure-portal.png
 [sap-ha-guide-figure-6006]:./media/virtual-machines-shared-sap-high-availability-guide/6006-sap-multi-sid-sios-replication.png
 
-[powershell-install-configure]:../powershell-install-configure.md
+[powershell-install-configure]:/powershell/azureps-cmdlets-docs
 [resource-group-authoring-templates]:../resource-group-authoring-templates.md
 [resource-group-overview]:../resource-group-overview.md
 [resource-groups-networking]:../virtual-network/resource-groups-networking.md
@@ -480,10 +480,12 @@ The big picture with complete landscape with two high available SAP systems woul
 
 _**Figure 3:** SAP High Availability Multi-SID Setup with two SAP System_
 
-Important is following:
-- The **SAP ASCS / SCS** instances **share the same WSFC cluster**.
-- Each **DBMS SID** has its **own dedicated WSFC cluster**.
-- **SAP application servers** belonging to one SAP system SID have **own dedicated VMs**.
+> [!IMPORTANT]
+> Important is following:
+> - The **SAP ASCS / SCS** instances **share the same WSFC cluster**.
+> - Each **DBMS SID** has its **own dedicated WSFC cluster**.
+>- **SAP application servers** belonging to one SAP system SID have **own dedicated VMs**.
+>
 
 ## Prepare the infrastructure
 Let’s say you want to install **additional** SAP ASCS/SCS instance with following parameters:
@@ -691,7 +693,7 @@ High-level procedure description is following:
 
 - [Test the SAP ASCS/SCS instance failover and SIOS replication][sap-ha-guide-10]
 
-## Useful Links
+## Next Steps
 
 - [Networking Limits - Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Multiple VIPs for Azure Load Balancer][load-balancer-multivip-overview]

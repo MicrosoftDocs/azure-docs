@@ -25,7 +25,7 @@ API Management helps organizations publish APIs to external, partner and interna
         </a>
     </li>
     <li>
-        <a href="https://azure.microsoft.com/en-us/documentation/videos/index/?services=api-management">
+        <a href="https://azure.microsoft.com/documentation/videos/index/?services=api-management">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -98,7 +98,7 @@ API Management helps organizations publish APIs to external, partner and interna
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -111,7 +111,7 @@ API Management helps organizations publish APIs to external, partner and interna
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
