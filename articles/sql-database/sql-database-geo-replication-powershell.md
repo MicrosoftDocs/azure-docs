@@ -65,12 +65,12 @@ You can use the **New-AzureRmSqlDatabaseSecondary** cmdlet to add a secondary da
 
 This cmdlet replaces **Start-AzureSqlDatabaseCopy** with the **–IsContinuous** parameter.  It will output an **AzureRmSqlDatabaseSecondary** object that can be used by other cmdlets to clearly identify a specific replication link. This cmdlet will return when the secondary database is created and fully seeded. Depending on the size of the database it may take from minutes to hours.
 
-The replicated database on the secondary server will have the same name as the database on the primary server and will, by default, have the same service level. The secondary database can be readable or non-readable, and can be a single database or an elastic database. For more information, see [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689\(v=azure.300\).aspx) and [Service Tiers](sql-database-service-tiers.md).
-After the secondary is created and seeded, data will begin replicating from the primary database to the new secondary database. The steps below describe how to accomplish this task using PowerShell to create non-readable and readable secondaries, either with a single database or an elastic database.
+The replicated database on the secondary server will have the same name as the database on the primary server and will, by default, have the same service level. The secondary database can be readable or non-readable, and can be a standalone database or in an elastic pool. For more information, see [New-AzureRMSqlDatabaseSecondary](https://msdn.microsoft.com/library/mt603689\(v=azure.300\).aspx) and [Service Tiers](sql-database-service-tiers.md).
+After the secondary is created and seeded, data will begin replicating from the primary database to the new secondary database. The steps below describe how to accomplish this task using PowerShell to create non-readable and readable secondaries, either as a standalone database or in an elastic pool.
 
 If the partner database already exists (for example - as a result of terminating a previous Geo-Replication relationship) the command will fail.
 
-### Add a non-readable secondary (single database)
+### Add a non-readable secondary (standalone database)
 The following command creates a non-readable secondary of database "mydb" of server "srv2" in resource group "rg2":
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
@@ -78,7 +78,7 @@ The following command creates a non-readable secondary of database "mydb" of ser
 
 
 
-### Add readable secondary (single database)
+### Add readable secondary (standalone database)
 The following command creates a readable secondary of database "mydb" of server "srv2" in resource group "rg2":
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
@@ -87,15 +87,15 @@ The following command creates a readable secondary of database "mydb" of server 
 
 
 
-### Add a non-readable secondary (elastic database)
-The following command creates a non-readable secondary of database "mydb" in the elastic database pool named "ElasticPool1" of server "srv2" in resource group "rg2":
+### Add a non-readable secondary (elastic pool)
+The following command creates a non-readable secondary of database "mydb" in the elastic pool named "ElasticPool1" of server "srv2" in resource group "rg2":
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "No"
 
 
-### Add a readable secondary (elastic database)
-The following command creates a readable secondary of database "mydb" in the elastic database pool named "ElasticPool1" of server "srv2" in resource group "rg2":
+### Add a readable secondary (elastic pool)
+The following command creates a readable secondary of database "mydb" in the elastic pool named "ElasticPool1" of server "srv2" in resource group "rg2":
 
     $database = Get-AzureRmSqlDatabase –DatabaseName "mydb" -ResourceGroupName "rg1" -ServerName "srv1"
     $secondaryLink = $database | New-AzureRmSqlDatabaseSecondary –PartnerResourceGroupName "rg2" –PartnerServerName "srv2" –SecondaryElasticPoolName "ElasticPool1" -AllowConnections "All"

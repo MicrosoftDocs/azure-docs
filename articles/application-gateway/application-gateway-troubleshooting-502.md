@@ -15,7 +15,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/16/2016
-ms.author: amitsriva
+ms.author: amsriva
 
 ---
 # Troubleshooting bad gateway errors in Application Gateway

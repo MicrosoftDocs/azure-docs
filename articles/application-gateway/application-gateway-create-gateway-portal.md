@@ -4,7 +4,7 @@ description: Learn how to create an Application Gateway by using the portal
 services: application-gateway
 documentationcenter: na
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/21/2016
+ms.date: 12/12/2016
 ms.author: gwallace
 
 ---
@@ -26,8 +26,6 @@ ms.author: gwallace
 > * [Azure Classic PowerShell](application-gateway-create-gateway.md)
 > * [Azure Resource Manager template](application-gateway-create-gateway-arm-template.md)
 > * [Azure CLI](application-gateway-create-gateway-cli.md)
-> 
-> 
 
 Azure Application Gateway is a layer-7 load balancer. It provides failover, performance-routing HTTP requests between different servers, whether they are on the cloud or on-premises. 
 Application Gateway provides many Application Delivery Controller (ADC) features including HTTP load balancing, cookie-based session affinity, Secure Sockets Layer (SSL) offload, custom health probes, support for multi-site, and many others. 
@@ -71,7 +69,7 @@ Next fill out the basic information about the application gateway. When complete
 The information needed for the basic settings is:
 
 * **Name** - The name for the application gateway.
-* **Tier** - This is the tier of the application gateway. Two tiers are available, **WAF** and **Standard**. WAF enables the web application firewall feature.
+* **Tier** - This setting is the tier of the application gateway. Two tiers are available, **WAF** and **Standard**. WAF enables the web application firewall feature.
 * **SKU size** - This setting is the size of the application gateway, available options are (**Small**, **Medium**, and **Large**). Small is not available when WAF tier is chosen.
 * **Instance count** - The number of instances, this value should be a number between 2 and 10.
 * **Resource group** - The resource group to hold the application gateway, it can be an existing resource group or a new one.
@@ -130,7 +128,7 @@ Next give the public IP address a friendly name and click **OK**
 The last setting to configure when creating an application gateway is the listener configuration.  If **http** is used, nothing is left to configure and **OK** can be clicked. To use **https**
 further configuration is required.
 
-To use **https**, a certificate is required. The private key of the certificate is needed so a .pfx export of the certificate and password need to be provided.
+To use **https**, a certificate is required. The private key of the certificate is needed, a .pfx export of the certificate and password need to be provided.
 
 ### Step 10
 
@@ -155,11 +153,11 @@ These steps create a basic application gateway with default settings for the lis
 
 ## Add servers to backend pools
 
-Once the application gateway is created, the systems that will host the application to be load balanced still need to be added to the application gateway. The IP addresses or FQDN values of these servers are added to the backend address pools.
+Once the application gateway is created, the systems that hosts the application to be load balanced still need to be added to the application gateway. The IP addresses or FQDN values of these servers are added to the backend address pools.
 
 ### Step 1
 
-Click on the application gateway you created, click **Backend pools**, and select the current backend pool.
+Click the application gateway you created, click **Backend pools**, and select the current backend pool.
 
 ![Application Gateway backend pools][11]
 
@@ -169,11 +167,11 @@ Add the IP addresses or FQDN values in the text boxes and click **Save**
 
 ![add values to application gateway backend pools][12]
 
-This saves the values in the backend pool. Once the application gateway has been updated, traffic that enters the application gateway is routed to the backend addresses added in this step.
+This action saves the values in the backend pool. Once the application gateway has been updated, traffic that enters the application gateway is routed to the backend addresses added in this step.
 
 ## Next steps
 
-This scenario creates a default application gateway. The next steps are to configure the application gateway by modifying settings, and adjusting rules in the gateway. These steps can be found by visiting the following articles.
+This scenario creates a default application gateway. The next steps are to configure the application gateway by modifying settings, and adjusting rules in the gateway. These steps can be found by visiting the following articles:
 
 Learn how to create custom health probes by visiting [Create a custom health probe](application-gateway-create-probe-portal.md)
 
