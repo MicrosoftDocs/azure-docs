@@ -198,10 +198,10 @@ For the environments that are not managed by a VMM Server or a Configuration Ser
 3. Create an Azure automation runbook to invoke the scripts on the SQL Server replica virtual machine in Azure. Use this sample script to do this. [Learn more](site-recovery-runbook-automation.md) about using automation runbooks in recovery plans.
 
 4. **Test Failover**: SQL AlwaysOn doesn’t natively support Test Failover. Therefore the recommended way to do it as follows:
-	1. Setup Azure Backup on virtual machine that hosts Availability Group replica. 
-	1. Before triggering Test Failover of the recovery plan, recover the virtual machine from the backup taken in Step-1
-	1. Where SQLAzureVM-Test is name of the virtual machine created by restoring from backup in Step-2
-	1. Do TFO of the Recovery Plan
+	1. Setup [Azure Backup](../backup/backup-azure-vms) on virtual machine that hosts Availability Group replica in Azure. 
+	1. Before triggering test failover of the recovery plan, recover the virtual machine from the backup taken in Step-1
+	1. The script below assumes that SQLAzureVM-Test is name of the restored virtual machine created in Step-2
+	1. Do test failover of the tecovery plan
 
 
 > [!NOTE]
