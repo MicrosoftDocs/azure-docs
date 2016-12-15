@@ -1,5 +1,5 @@
 ---
-title: Manage features and data volume for Application Insights | Microsoft Docs
+title: Manage pricing and data volume for Application Insights | Microsoft Docs
 description: Manage telemetry volumes and monitor costs in Application Insights.
 services: application-insights
 documentationcenter: ''
@@ -12,11 +12,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 11/16/2016
+ms.date: 12/14/2016
 ms.author: awills
 
 ---
-# Manage features and data volume in Application Insights
+# Manage pricing and data volume in Application Insights
 
 
 Pricing for [Azure Application Insights][start] is based on data volume per application. Low usage during development or for a small app is likely to be free, because there's a free monthly allowance of telemetry data.
@@ -25,7 +25,21 @@ Each Application Insights resource is charged as a separate service, and contrib
 
 There are two pricing plans. The default plan is called Basic. You can opt for the Enterprise plan, which has a daily charge, but enables certain additional features such as [continuous export](app-insights-export-telemetry.md).
 
-[See the pricing plan][pricing].
+
+## Enterprise and Basic plans
+
+
+[See the pricing plan][pricing] for current charges.
+
+* **Basic** is the default plan. 
+ * You pay a price per GB of telemetry received at the Application Insights portal.
+ * Your first 1 GB is free, so if you're just experimenting or developing, you're unlikely to have to pay.
+ * You don't get certain features such as [Continuous Export](app-insights-export-telemetry) and [Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&clcid=0x409).
+* **Enterprise** is designed for heavier users.
+ * You pay per node that is sending telemetry. A *node* is a physical or virtual server machine, or a Platform-as-a-Service role instance, that hosts your web app. Development machines and client browsers are not included in this count. Although charges are quoted per month, you're charged only for any hour in which a node sends telemetry from an app.
+ * For each node that sends telemetry from an app in any hour, the app gets a quota of telemetry. This is accumulated over the day. At the end of each day (UTC), a charge is made for any telemetry that the app has sent beyond its quota. Quota is not carried over from one day to the next.
+ * You can use all the features of Application Insights. 
+* [**Multi-step web tests**](app-insights-monitor-web-app-availability.md#multi-step-web-tests) are charged additionally. This refers to web tests that perform a sequence of actions. There is no separate charge for 'ping tests' of a single page.
 
 ## Review pricing plan for your Application Insights resource
 Open the Features + Pricing blade in the Application Insights resource for your application.
