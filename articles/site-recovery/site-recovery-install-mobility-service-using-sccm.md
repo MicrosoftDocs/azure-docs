@@ -57,7 +57,7 @@ This article provides you an example of how you can use System Center Configurat
 
 ## Step 2: Create a Package
 
-1. Log in onto your System Center Configuration Manager Console
+1. Log in to your System Center Configuration Manager Console
 2. Browse to **Software Library** > **Application Management** > **Packages**
 3. Right-click the **Packages** and select **Create Package**
 4. Provide values for the Name, Description, Manufacturer, Language, Version.
@@ -69,7 +69,7 @@ This article provides you an example of how you can use System Center Configurat
 7. In the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**
 
   ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
-8. In the **Specify information about this standard program** page, provide the following inputs and click **Next**. (The other inputs can be left to their default values)
+8. In the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can be left to their default values)
 
   ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties.png)   
 | **Parameter Name** | **Value** |
@@ -89,7 +89,7 @@ This article provides you an example of how you can use System Center Configurat
 1. In the SCCM Console, right-click your package and select **Distribute Content**
   ![distribute-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. Select the **[Distribution Points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied over to.
-3. Once you complete the wizard the package will start replicating to the specified distribution points
+3. Once you complete the wizard, the package starts replicating to the specified distribution points
 4. Once the package distribution is done, right-click the package and select **Deploy**
   ![deploy-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
 5. Select the Widows Server device collection you created in the prerequisites section as the target collection for deployment.
@@ -102,7 +102,7 @@ This article provides you an example of how you can use System Center Configurat
 8. Specify a schedule in the **Specify the schedule for this deployment**. Read more about [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx)
 
 > [!TIP]
-> To avoid un-necessary reboots, schedule the package installation during your monthly maintainance window or Software Updates windows.
+> To avoid unnecessary reboots, schedule the package installation during your monthly maintainance window or Software Updates windows.
 
 9. Configure the properties on the **Distribution Points** page as per the needs of your Datacenter and complete the wizard.
 
@@ -127,7 +127,7 @@ Mobility Service gets installed on the Windows Server Device Collection as per t
 5. Next browse to the installer repository on the Configuration Server by running the command.
 
   `cd %ProgramData%\ASR\home\svsystems\puhsinstallsvc\repository`
-6. Copy the  following files to the **MobSvcLinux** folder on your network share
+6. Copy the following files to the **MobSvcLinux** folder on your network share
   * Microsoft-ASR\_UA\_*version*\_OEL-64\_GA\_*date*\_Release.tar.gz
   * Microsoft-ASR\_UA\_*version*\_RHEL6-64\_GA\_*date*\_Release.tar.gz
   * Microsoft-ASR\_UA\_*version*\_RHEL7-64\_GA\_*date*\_Release.tar.gz
@@ -139,7 +139,7 @@ Mobility Service gets installed on the Windows Server Device Collection as per t
 
 ## Step 2: Create a Package
 
-1. Log in onto your System Center Configuration Manager Console
+1. Log in to your System Center Configuration Manager Console
 2. Browse to **Software Library** > **Application Management** > **Packages**
 3. Right-click the **Packages** and select **Create Package**
 4. Provide values for the Name, Description, Manufacturer, Language, Version.
@@ -151,7 +151,7 @@ Mobility Service gets installed on the Windows Server Device Collection as per t
 7. In the **Choose the program type that you want to create** page, select **Standard Program**, and click **Next**
 
   ![create-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm-standard-program.png)
-8. In the **Specify information about this standard program** page, provide the following inputs and click **Next**. (The other inputs can be left to their default values)
+8. In the **Specify information about this standard program** page, provide the following inputs, and click **Next**. (The other inputs can be left to their default values)
 
   ![sccm-package-properties](./media/site-recovery-install-mobility-service-using-sccm/sccm-program-properties-linux.png)   
 | **Parameter Name** | **Value** |
@@ -168,10 +168,10 @@ Mobility Service gets installed on the Windows Server Device Collection as per t
 > The script supports both new installations of Mobility Service Agents and upgrade/update of already installed Agents.
 
 ### Deploy the Package
-1. In the SCCM Console, right click your package and select **Distribute Content**
+1. In the SCCM Console, right-click your package and select **Distribute Content**
   ![distribute-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_distribute.png)
 2. Select the **[Distribution Points](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** on to which the packages should be copied over to.
-3. Once you complete the wizard the package will start replicating to the specified distribution points.
+3. Once you complete the wizard, the package starts replicating to the specified distribution points.
 4. Once the package distribution is done, right-click the package and select **Deploy**
   ![deploy-sccm-package](./media/site-recovery-install-mobility-service-using-sccm/sccm_deploy.png)
 5. Select the Linux Server device collection you created in the prerequisites section as the target collection for deployment.
