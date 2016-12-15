@@ -138,7 +138,7 @@ Datasource:
     {
         "name" : "my-blob-datasource",
         "type" : "azureblob",
-        "credentials" : { "connectionString" : "<my storage connection string>" },
+        "credentials" : { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<account name>;AccountKey=<account key>;" },
         "container" : { "name" : "my-container", "query" : "optional, my-folder" }
     }   
 
