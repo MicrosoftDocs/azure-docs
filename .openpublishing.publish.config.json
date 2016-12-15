@@ -7,7 +7,8 @@
 	"enable_pull_request_aggregation": true,	
 	"branch_target_mapping": {
 		"live": ["Publish"],
-		"master": ["Publish"]
+		"master": ["Publish"],
+		"test-pdf": ["Publish","Pdf"]
 	},
 	"docsets_to_publish": [{
 		"docset_name": "azure-documents",

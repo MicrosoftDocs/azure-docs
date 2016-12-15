@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/06/2016
 ms.author: spelluru
 
 ---
@@ -376,7 +376,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 19. Verify that an output file is created in the **apifactoryoutput** folder in the **adftutorial** container.
 
 ## Log in without popup dialog box
-The sample code in the walkthrough launches a dialog box for you to enter Azure credentials. If you need to sign in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md#create-service-principal-with-certificate). 
+The sample code in the walkthrough launches a dialog box for you to enter Azure credentials. If you need to sign in programmatically without using a dialog-box, see [Authenticating a service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate). 
 
 > [!IMPORTANT]
 > Add a Web application to Azure Active Directory and note down the client ID and client secret of the application.  

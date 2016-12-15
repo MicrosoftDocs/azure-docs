@@ -33,29 +33,29 @@ The updates in the pull request must comply with the following criteria to be me
 | Site/design functionality |If H2 headings are present, the article contains at least two H2 headings. Using one H2 heading creates a single-item article TOC. H2 headings must be used before H3 headings to ensure a TOC is created. |
 | Site/design functionality | If articles are added or deleted, the author needs to link to the PR that includes the appropriate TOC changes. If the author has not coordinated for TOC changes for a new or removed article, they should open a bug at https//aka.ms/azuretodocsbug and hold off on changes until the TOC is ready. |
 | Markdown |HTML: Source content does not contain HTML at the block level – minor inline HTML is permitted – such as superscript, subscript, special characters, and other minor things that you can’t do with markdown. HTML tables are allowed ONLY if the table contains bulleted or numbered lists, but that is usually an indication the content needs to be simplified so the source can be coded in markdown. |
-| Markdown |Custom markdown elements are used where appropriate. Ex: Notes are coded using the AZURE.NOTE extension, not as plain text. |
+| Markdown |Custom markdown elements are used where appropriate. Ex: Notes are coded using the [!NOTE] extension, not as plain text. |
 | SEO |The " &#124; Microsoft Docs" site identifier is required. We no longer use the " &#124; Microsoft Azure" site identifier |
 | SEO |The *title* metadata value must include the word "Azure" (Operations Management Suite articles are excepted) |
 | SEO |The H1 title contains sufficient information to describe the content of the article, to differentiate it from other Azure articles, and to map to likely customer keywords. For example "Overview" as the H1 title is a fail. |
 | Terminology |The use of the ARM acronym, V1, or V2 as references to the classic and Resource Manager deployment models is a blocking terminology item. |
-| Images |Animated GIFs are not accepted into the repo. |
+| Images |Animated GIFs and PDN files are not accepted into the repo. |
 | Images |Images have clear resolution, are free of misspelled words, and contain no private information |
 | Localizability | Links to pages on azure.microsoft.com, TechNet, and MSDN are coded as locale agnostic. Do not include en-us, en-gb, en-in, or any other locale in links to these sites. |
-| Staging |The article preview must be clean on staging. It cannot contain any obvious formatting issues: <br><br>- A numbered or bulleted list that appears as a paragraph <br> - Code in a code block appearing partly in the code block and partly outside it <br>- Numbered steps numbered incorrectly due to faulty indentation <br><br>- Leftover merge conflict markers |
+| Staging |The article preview must be clean on staging. It cannot contain any obvious formatting issues: <br>- A numbered or bulleted list that appears as a paragraph<br>- Code in a code block appearing partly in the code block and partly outside it<br>- Numbered steps numbered incorrectly due to faulty indentation<br>- Leftover merge conflict markers |
 
 ## Non-blocking content quality items
 For these items, pull request reviewers provide feedback and instructions for the author to follow up with fixes in a later pull request. However, this feedback does not block the decision to merge. Authors should follow up within 3 business days with fixes.
 
 | Category | Quality review item |
 | --- | --- |
-| Content |Articles should have a “Next steps” at the end with 1-3 relevant and compelling next steps. Brief text should be included that helps the customer understand why the next steps are relevant. (New articles only). Example: <https://azure.microsoft.com/en-us/documentation/articles/xplat-cli-install/><br>![](media/contributor-guide-pr-criteria/nextstepsexample.PNG) |
+| Content |Articles should have a “Next steps” at the end with 1-3 relevant and compelling next steps. Brief text should be included that helps the customer understand why the next steps are relevant. (New articles only). Example: <https://docs.microsoft.com/en-us/documentation/articles/xplat-cli-install/><br>![](media/contributor-guide-pr-criteria/nextstepsexample.PNG) |
 | Content |Spelling, grammar, and other writing issues - pull request reviewers may provide feedback on a few minor issues as non-blocking feedback. If there are more than a few editorial issues, reviewers log an edit request for the article for a post-publication edit. |
-| Images |Images use the correct callout style and color, and screenshots use the correct border and placeholder style. [See the image guidance](https://github.com/Azure/azure-content/blob/master/contributor-guide/create-images-markdown.md). |
-| Images |Images include alt text. [See the image guidance](https://github.com/Azure/azure-content/blob/master/contributor-guide/create-images-markdown.md). |
+| Images |Images use the correct callout style and color, and screenshots use the correct border and placeholder style. [See the image guidance](create-images-markdown.md). |
+| Images |Images include alt text. [See the image guidance](create-images-markdown.md). |
 | Site/design functionality |The H2 headings, when rendered in the on-page TOC, should ideally wrap to no more than 2 lines. Longer headings make the article TOC harder to scan. |
 | Style conventions |All titles and headings are sentence case, per Azure style. |
-| Process |If the pull request could have easily been reconfigured to benefit from PRmerger automation, pull request reviewers provide feedback to the author about how to use branches so the changes could be merged automatically. See [the PR etiquette article](https://github.com/Azure/azure-content/blob/master/contributor-guide/contributor-guide-pull-request-etiquette.md#in-a-hurry-submit-prs-that-can-be-accepted-automatically). |
-| Process |When you delete or rename an article, make sure you follow the process. Pull request reviewers should add the following comment and link in a comment:<br><br>*Please verify you followed the process in the contributors’ guide for deleting articles: <https://github.com/Azure/azure-content/blob/master/contributor-guide/retire-or-rename-an-article.md> .* |
+| Process |If the pull request could have easily been reconfigured to benefit from PRmerger automation, pull request reviewers provide feedback to the author about how to use branches so the changes could be merged automatically. See [the PR etiquette article](contributor-guide-pull-request-etiquette.md). |
+| Process |When you delete or rename an article, make sure you follow the process. Pull request reviewers should add the following comment and link in a comment:<br><br>*Please verify you followed the process in the contributors’ guide for deleting articles: [https://github.com/Azure/azure-docs-pr/blob/master/contributor-guide/retire-or-rename-an-article.md](retire-or-rename-an-article.md)*
 
 ## Related
 * [Pull request etiquette and best practices for Microsoft contributors](contributor-guide-pull-request-etiquette.md)

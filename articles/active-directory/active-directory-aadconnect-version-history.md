@@ -4,7 +4,7 @@ title: 'Azure AD Connect: Version Release History | Microsoft Docs'
 description: This topic lists all releases of Azure AD Connect and Azure AD Sync
 services: active-directory
 documentationcenter: ''
-author: AndKjell
+author: billmath
 manager: femila
 editor: ''
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/01/2016
+ms.date: 12/07/2016
 ms.author: billmath
 
 ---
@@ -25,11 +25,22 @@ This article is designed to help you keep track of the versions that have been r
 
 This is list of related topics:
 
-| Topic |
-| --- | --- |
-| Steps to upgrade from Azure AD Connect |
-| Required permissions |
-| Download |
+
+Topic |  
+--------- | --------- |
+Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a previous version to the latest](active-directory-aadconnect-upgrade-previous-version.md) Azure AD Connect release.
+Required permissions | For permissions required to apply an update, see [accounts and permissions](./connect/active-directory-aadconnect-accounts-permissions.md#upgrade)
+Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
+
+## 1.1.370.0
+Released: 2016 December
+
+**New Features:**
+
+* Pass-through Authentication (Preview).
+
+>[!NOTE]
+>This build will not be available to customers through the Azure AD Connect Auto Upgrade feature.
 
 ## 1.1.343.0
 Released: 2016 November

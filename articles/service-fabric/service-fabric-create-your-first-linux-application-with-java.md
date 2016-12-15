@@ -83,7 +83,7 @@ Actor projects do not do anything on their own. They require another service or 
 3. Click the node you found in the previous step, then select **Deactivate (restart)** from the Actions menu. This restarts one of the five nodes in your local cluster and force a failover to one of the secondary replicas running on another node. As you do this, pay attention to the output from the test client and note that the counter continues to increment despite the failover.
 
 ## Build and deploy an application with the Eclipse Neon plugin
-If you installed the Service Plugin for Eclipse Neon, you can use it to create, build, and deploy Service Fabric applications built with Java.  When installing Eclipse, choose the **Eclipse IDE for Java developers**.
+If you installed the [Service Fabric Plugin](https://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-get-started-linux#install-the-java-sdk-and-eclipse-neon-plugin-optional) for Eclipse Neon, you can use it to create, build, and deploy Service Fabric applications built with Java.  When installing Eclipse, choose the **Eclipse IDE for Java developers**.
 
 ### Create the application
 The Service Fabric plugin is available through Eclipse extensibility.

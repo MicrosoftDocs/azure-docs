@@ -17,7 +17,7 @@ ms.date: 09/23/2016
 ms.author: dobett
 
 ---
-# How to send cloud-to-device messages with IoT Hub (Node)
+# Send cloud-to-device messages with IoT Hub (Node)
 [!INCLUDE [iot-hub-selector-c2d](../../includes/iot-hub-selector-c2d.md)]
 
 ## Introduction

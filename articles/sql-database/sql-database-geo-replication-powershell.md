@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Active Geo-Replication for Azure SQL Database using PowerShell | Microsoft Docs
 description: Configure Active Geo-replication for Azure SQL Database using PowerShell
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: bc5e50e4-bbb2-4ce1-9ee5-9a632de6fa06
 ms.service: sql-database
+ms.custom: business continuity; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: powershell

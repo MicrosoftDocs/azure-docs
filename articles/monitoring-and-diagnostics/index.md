@@ -153,7 +153,7 @@ Monitoring and Diagnostics is a distributed systems platform that makes it easy 
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Monitoring and Diagnostics REST API Reference</p>
+                        <p>Monitoring and Diagnostics REST API</p>
                     </div>
                 </div>
             </div>

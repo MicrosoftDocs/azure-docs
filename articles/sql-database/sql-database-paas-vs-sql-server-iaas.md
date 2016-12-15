@@ -14,7 +14,7 @@ ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 09/06/2016
 ms.author: carlrab
 

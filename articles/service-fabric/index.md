@@ -154,7 +154,7 @@ Azure Service Fabric is a distributed systems platform that makes it easy to pac
                 <div class="card">
                     <div class="cardText">
                         <h3>REST</h3>
-                        <p>Service Fabric REST API Reference</p>
+                        <p>Service Fabric REST API</p>
                     </div>
                 </div>
             </div>

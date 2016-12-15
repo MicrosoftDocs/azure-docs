@@ -1,4 +1,4 @@
-﻿---
+---
 title: What is Microsoft Power BI Embedded?
 description: Power BI Embedded enables you to integrate Power BI reports into your web or mobile applications so you don't need to build custom solutions.
 services: power-bi-embedded

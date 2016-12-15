@@ -17,7 +17,7 @@ ms.date: 11/16/2016
 ms.author: dobett
 
 ---
-# How to create an IoT hub using the resource provider REST API (.NET)
+# Create an IoT hub using the resource provider REST API (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction

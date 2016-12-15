@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Geo-Replication for Azure SQL Database with Transact-SQL | Microsoft Docs
 description: Configure Geo-Replication for Azure SQL Database using Transact-SQL
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: d94d89a6-3234-46c5-8279-5eb8daad10ac
 ms.service: sql-database
+ms.custom: business continuity; how to
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

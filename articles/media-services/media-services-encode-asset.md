@@ -56,13 +56,13 @@ The encoders input metadata is described [here](http://msdn.microsoft.com/librar
 The encoders output metadata is described [here](http://msdn.microsoft.com/library/azure/dn783217.aspx).
 
 ### Generate thumbnails
-For information, see [How to generate thumbnails using Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#thumbnails).
+For information, see [How to generate thumbnails using Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).
 
 ### Trim videos (clipping)
-For information, see [How to trim videos using Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#trim_video).
+For information, see [How to trim videos using Media Encoder Standard](media-services-advanced-encoding-with-mes.md#trim_video).
 
 ### Create overlays
-For information, see [How to create overlays using Media Encoder Standard](media-services-custom-mes-presets-with-dotnet.md#overlay).
+For information, see [How to create overlays using Media Encoder Standard](media-services-advanced-encoding-with-mes.md#overlay).
 
 ### See also
 [The Media Services blog](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
@@ -77,7 +77,7 @@ Media Encoder Premium Workflow is configured using complex workflows. Workflow f
 [How to Use Premium Encoding in Azure Media Services](https://azure.microsoft.com/blog/2015/03/06/how-to-use-premium-encoding-in-azure-media-services/)
 
 ### Known issues
-If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file. 
+If your input video does not contain closed captioning, the output Asset will still contain an empty TTML file.
 
 
 ## Media Services learning paths
