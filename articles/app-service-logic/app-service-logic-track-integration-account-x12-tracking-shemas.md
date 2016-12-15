@@ -120,7 +120,7 @@ You can use these X12 tracking schemas in your Azure integration account to help
 | receiverQualifier | String | Receive partner qualifier. (Mandatory) |
 | receiverIdentifier | String | Receive partner identifier. (Mandatory) |
 | agreementName | String | Name of the X12 agreement to which the messages are resolved. (Optional) |
-| direction | Enum | Direction of the message flow, receive or send |
+| direction | Enum | Direction of the message flow, receive or send. (Mandatory) |
 | interchangeControlNumber | String | Interchange control number of the functional acknowledgement. Value populates only for the send side where functional acknowledgement is received for the messages sent to partner. (Optional) |
 | functionalGroupControlNumber | String | Functional group control number of the functional acknowledgement. Value populates only for the send side where functional acknowledgement is received for the messages sent to partner. (Optional) |
 | isaSegment | String | ISA segment of the message. Value populates only for the send side where functional acknowledgement is received for the messages sent to partner. (Optional) |
