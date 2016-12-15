@@ -76,8 +76,7 @@
 ### [Technical Concepts](active-directory-aadconnectsync-technical-concepts.md)
 ### [Service features](active-directory-aadconnectsyncservice-features.md)
 
-##Azure AD Connect Health
-###[Version Release History](active-directory-aadconnect-health-version-history.md)
+
 
 
 # Related
@@ -86,5 +85,4 @@
 
 # Resources
 ##[Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
-##[Azure AD Connect Health FAQ](active-directory-aadconnect-health-faq.md)
 ##[DirSync Deprecation](active-directory-aadconnect-dirsync-deprecated.md)
