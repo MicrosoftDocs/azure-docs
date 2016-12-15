@@ -32,7 +32,7 @@ For more information on Operations Management Suite, see [Operations Management 
 
 ### Operating System
 
-The OMS Agent extension for Windows can be run against Windows Server 2012, 2012 R2, and 2016 releases.
+The OMS Agent extension for Windows can be run against Windows Server 2008 R2, 2012, 2012 R2, and 2016 releases.
 
 ### Connectivity
 
@@ -76,7 +76,7 @@ This sample can be deployed from this document using this button:
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
-The JSON used to deploy the OMS Agent VM extension looks like the following JSON example:
+The JSON used to deploy the OMS Agent VM extension looks like the following JSON example. Make sure to provide a valid workspace Id and key in the template. These values can be hard coded into the resource provided by a template parameter or variable.
 
 ```json
 {
@@ -93,10 +93,10 @@ The JSON used to deploy the OMS Agent VM extension looks like the following JSON
 		"typeHandlerVersion": "1.0",
 		"autoUpgradeMinorVersion": true,
 		"settings": {
-			"workspaceId": "myWorkSpaceKey"
+			"workspaceId": "myWorkSpaceId"
 		},
 		"protectedSettings": {
-			"workspaceKey": "myWorkspaceId"
+			"workspaceKey": "myWorkspaceKey"
 		}
 	}
 }
