@@ -6,8 +6,6 @@ description: Learn how to securely stream on-demand or live broadcast-quality vi
 
 Learn how to stream broadcast-quality video with Media Services, an extensible cloud platform. Tutorials, API references, and other documentation show you how to securely deliver on-demand and live video or audio streams that scale to millions of users.
 
-You can build end-to-end workflows entirely using Media Services. You can also choose to use third-party components for some parts of your workflow. For example, you can encode using a third-party encoder and then upload, protect, package, and deliver using Media Services.
-
 <ul class="panelContent cardsFTitle">
      <li>
         <a href="/azure/media-services/media-services-overview">
