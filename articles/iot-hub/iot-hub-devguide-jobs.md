@@ -67,11 +67,11 @@ The query condition can also be on a single device Id or on a list of device Ids
 
 **Examples**
 ```
-queryCondition = "deviceId='MyDevice1'"
+queryCondition = "deviceId = 'MyDevice1'"
 queryCondition = "deviceId IN ['MyDevice1','MyDevice2']"
 queryCondition = "deviceId IN ['MyDevice1']
 ```
-
+[IoT Hub Query Language][lnk-query] covers IoT Hub query language in additional detail.
 
 ## Jobs to update device twin properties
 The following is the HTTP 1.1 request details for updating device twin properties using a job:
