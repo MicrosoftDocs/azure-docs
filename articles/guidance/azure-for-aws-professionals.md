@@ -1,8 +1,9 @@
 ---
-title: Azure for AWS professionals | Microsoft Docs
-description: An introduction to Azure services for AWS professionals.
+title: Introduction to Azure for AWS experts | Microsoft Docs
+description: Understand the basics of Microsoft Azure accounts, platform, and services. Also learn key similarities and differences between the AWS and Azure platforms.
 services: ''
 documentationcenter: ''
+keywords: AWS experts, Azure comparison, AWS comparison, difference between azure and aws
 author: lbrader
 manager: christb
 
@@ -17,17 +18,16 @@ ms.author: lbrader
 
 ---
 
-# Microsoft Azure for AWS Professionals
+# Introduction to Microsoft Azure accounts, platform, and services for AWS experts
 
-This article helps Amazon Web Services (AWS) professionals understand Microsoft Azure cloud services.
+This article helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. You'll also learn key similarities and differences between the AWS and Azure platforms.
 
 You'll learn:
 * How accounts and resources are organized in Azure.
 * How available solutions are structured in Azure.
-* How the major AWS services correspond to Azure services.
+* How the major Azure services differ from AWS services.
 
-Because Azure and AWS built their capabilities independently over time, each
-have important implementation and design differences. Whether you are planning a migration to Azure or a multicloud implementation with AWS and Azure, this article makes it easier to get started with Azure by clarifying the key similarities and differences between the two platforms.
+ Azure and AWS built their capabilities independently over time so that each has important implementation and design differences.
 
 ## Overview
 
@@ -42,7 +42,7 @@ While the capabilities of both platforms are similar, the resources that provide
 those capabilities are often organized differently. Exact one-to-one
 relationships between the services required to build a solution are not always
 clear. There are also cases where a particular service might be offered on one
-platform, but not the other.
+platform, but not the other. See [charts of comparable Azure and AWS services](guidance).
 
 ## Accounts and subscriptions
 
@@ -100,7 +100,7 @@ portal](https://blogs.msdn.microsoft.com/girishp/2015/09/20/increasing-core-quot
 -   [How to download your Azure billing invoice and daily usage
     data](https://azure.microsoft.com/documentation/articles/billing-download-azure-invoice-daily-usage-date/)
 
-## Managing resources
+## Manage resources
 
 The term "resource" in Azure is used in the same way as in AWS, meaning any
 compute instance, storage object, networking device, or other entity you can
@@ -177,7 +177,7 @@ Spinnaker](http://www.spinnaker.io/), are also available on Azure.
 ## Regions and zones (high availability)
 
 In AWS, availability centers around the concept of Availability Zones. In Azure,
-fault domains, and availability sets are all involved in building highly
+fault domains and availability sets are all involved in building highly
 available solutions. Paired regions provide additional disaster recovery
 capabilities.
 
@@ -200,7 +200,7 @@ domains. If a power failure or network outage occurs in one fault domain, at
 least some of the set's VMs are in another fault domain and unaffected by the
 outage.
 
-![AWS Availability Zones compared with Azure fault domains and availability sets](./media/azure-for-aws-professionals/zone-fault-domains.png "AWS Availability Zones compared with Azure fault domains and availability sets")
+![AWS Availability Zones comparison to Azure fault domains and availability sets](./media/azure-for-aws-professionals/zone-fault-domains.png "AWS Availability Zones compared with Azure fault domains and availability sets")
 <br/>*AWS Availability Zones compared with Azure fault domains and availability sets*
 <br/><br/>
 
@@ -209,8 +209,8 @@ to ensure one instance in each role is operational. For example, in a standard
 three-tier web application, you would want to create a separate availability set
 for front-end, application, and data instances.
 
-![Availability sets for each application role](./media/azure-for-aws-professionals/three-tier-example.png "Availability sets for each application role")
-<br/>*Availability sets for each application role*
+![Azure availability sets for each application role](./media/azure-for-aws-professionals/three-tier-example.png "Availability sets for each application role")
+<br/>*Azure availability sets for each application role*
 <br/><br/>
 
 When VM instances are added to availability sets, they are also assigned an
@@ -647,6 +647,8 @@ services are needed for those delivery types.
 ### Management and monitoring
 
 #### See also
+-   [Monitoring and diagnostics
+    guidance](https://azure.microsoft.com/documentation/articles/best-practices-monitoring/)
 
 -   [Best practices for creating Azure Resource Manager
     templates](https://azure.microsoft.com/documentation/articles/resource-manager-template-best-practices/)
@@ -654,8 +656,6 @@ services are needed for those delivery types.
 -   [Azure Resource Manager Quickstart
     templates](https://azure.microsoft.com/documentation/templates/)
 
--   [Monitoring and diagnostics
-    guidance](https://azure.microsoft.com/documentation/articles/best-practices-monitoring/)
 
 ## Next steps
 
