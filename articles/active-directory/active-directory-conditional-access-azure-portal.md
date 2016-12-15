@@ -147,13 +147,13 @@ If you need to configure a location condition that applies to all connections ma
 - Including **All locations**
 - Excluding **All trusted IPs** 
 
-**What happens if you have policies in the Azure classic portal and Azure portal configured?**  
+### What happens if you have policies in the Azure classic portal and Azure portal configured?  
 In this case, both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met.
 
-**What happens if you have policies in the Intune Silverlight portal and the Azure Portal?**
+### What happens if you have policies in the Intune Silverlight portal and the Azure Portal?
 In this case, both policies are enforced by Azure Active Directory and the user gets access only when all requirements are met. 
 
-**What happens if I have multiple policies for the same user configured?**  
+### What happens if I have multiple policies for the same user configured?  
 For every sign-in, Azure Active Directory evaluates all policies and ensures that all requirements are met before granted access to the user.
 
 
