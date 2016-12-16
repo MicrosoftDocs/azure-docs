@@ -83,7 +83,7 @@ In U-SQL, the standard Python modules are included. In addition, the pandas, num
 Currently, an exception in Python code will as show up as generic vertex failure. In the future, exceptions will clearly shown in the error messages.
 
 ### Input and Output size limitations
-The input DataFrame and OutputDataframe each must be less than or equal to 3 GB. This is due to restrictions placed on the memory available to the vertexes used for query execution.
+Every vertex has a limited amount of memory assigned to it. Currently, that limit is 6GB for an AU. Because the input and output dataframes must exist in memory in the Python code, the total size for the input and output cannot exceed 6GB.
 
 ## See also
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
