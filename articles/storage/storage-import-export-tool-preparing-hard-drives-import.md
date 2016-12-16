@@ -308,9 +308,9 @@ The WAImportExport tool is the drive preparation and repair tool that you can us
 
 If the data size is greater than the disk size, the WAImportExport tool will distribute the data across the disks in an optimized way. The data copy to multiple disks can be done in parallel or sequentially. There is no limit on the number of disks the data can be written to simultaneously. The tool will distribute data based on disk size and folder size. It will select the disk which is most optimized for the object-size. The data when uploaded to the storage account will be converged back to the specified directory structure.
 
-#### When should I use V1 of the tool and when should I use V2 of the tool?
+#### Where can I find previous version of WAImportExport tool?
 
-WAImportExport tool has all functionalities that WAImportExport V1 tool had. WAImportExport tool allows users to specify multiple source and write to multiple drives. You [download WAImportExport V1 Tool] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) and refer to [WAImportExport V1 Reference](storage-import-export-tool-how-to-v1.md) for help with WAImportExport V1 usage.
+WAImportExport tool has all functionalities that WAImportExport V1 tool had. WAImportExport tool allows users to specify multiple source and write to multiple drives. Additionally, one can easily manage multiple source locations from which the data needs to be copied in a single CSV file. However, in case you need SAS support or want to copy single source to single disk, you can [download WAImportExport V1 Tool] (http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409) and refer to [WAImportExport V1 Reference](storage-import-export-tool-how-to-v1.md) for help with WAImportExport V1 usage.
 
 #### What is a Session ID?
 
