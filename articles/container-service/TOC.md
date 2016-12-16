@@ -17,12 +17,14 @@
 ### [Monitor with OMS (DC/OS)](container-service-monitoring-oms.md)
 ### [Monitor with Datadog (DC/OS)](container-service-monitoring.md)
 ### [Monitor with Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
-## [Manage with Kubernetes](container-service-kubernetes-walkthrough.md)
+## Manage with Kubernetes
+### [Getting started with Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Interacting with the Kubernetes Web UI](container-service-kubernetes-ui.md)
 ## [Manage with Docker Swarm](container-service-docker-swarm.md)
 # Reference
-##[PowerShell}(/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
+## [PowerShell](/powershell/resourcemanager/azurerm.compute/v2.3.0/azurerm.compute)
 ## [.NET](/dotnet/api/microsoft.azure.management.compute.models)
-## [REST API](/rest/api/compute/containerservices)
+## [REST](/rest/api/compute/containerservices)
 # Resources
 ## [Region availability](https://azure.microsoft.com/regions/services/)
 ## [Pricing](https://azure.microsoft.com/pricing/details/container-service/)

@@ -35,7 +35,7 @@ As of September 2016, Azure has a new set of Red Hat Update Infrastructure (RHUI
 | --- | --- |
 | September 22, 2016 |RHUI servers and install directions available for use. VMs deployed using the new (September 2016 dated) RHEL PAYG marketplace images will automatically use the new RHUI servers, but existing VMs are “opt-in” |
 | November 1, 2016 |Legacy RHEL PAYG VM images (which use the old Azure RHUI servers) will be removed from the Azure Marketplace gallery |
-| December 16, 2016 (was January 16, 2017) |The old Azure RHUI servers will be decommissioned. Update all of your affected PAYG RHEL VMs by this time to maintain access to Azure RHUI |
+| January 16, 2017 |The old Azure RHUI servers will be decommissioned. Update all of your affected PAYG RHEL VMs by this time to maintain access to Azure RHUI |
 
 ### The IPs for the new RHUI content delivery servers are
 ```

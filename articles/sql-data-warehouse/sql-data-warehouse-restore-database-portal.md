@@ -25,6 +25,8 @@ ms.author: lakshmir;barbkess;sonyama
 > * [REST][REST]
 > 
 > 
+> [!NOTE]
+> As of 12/01/2016, we are actively fixing an issue when restoring from the Azure portal. Please restore via [PowerShell] (https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore-database-powershell).
 
 In this article you will learn how to restore an Azure SQL Data Warehouse using the Azure Portal.
 

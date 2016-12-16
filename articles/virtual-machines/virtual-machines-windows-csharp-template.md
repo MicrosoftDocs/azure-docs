@@ -41,13 +41,13 @@ In Visual Studio, do these steps:
 3. Right-click the project name in Solution Explorer, click **Add** > **New Item**.
 4. Click Web, select JSON File, enter *VirtualMachineTemplate.json* for the name, and then click **Add**.
 5. In the opening and closing brackets of the VirtualMachineTemplate.json file, add the required schema element and the required contentVersion element:
-   
+
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
         }
-6. [Parameters](../resource-group-authoring-templates.md#parameters) are not always required, but they provide a way to input values when the template is deployed. Add the parameters element and its child elements after the contentVersion element:
-   
+6. [Parameters](../azure-resource-manager/resource-group-authoring-templates.md#parameters) are not always required, but they provide a way to input values when the template is deployed. Add the parameters element and its child elements after the contentVersion element:
+
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
@@ -56,8 +56,8 @@ In Visual Studio, do these steps:
             "adminPassword": { "type": "securestring" }
           },
         }
-7. [Variables](../resource-group-authoring-templates.md#variables) can be used in a template to specify values that may change frequently or values that need to be created from a combination of parameter values. Add the variables element after the parameters section:
-   
+7. [Variables](../azure-resource-manager/resource-group-authoring-templates.md#variables) can be used in a template to specify values that may change frequently or values that need to be created from a combination of parameter values. Add the variables element after the parameters section:
+
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
@@ -70,8 +70,8 @@ In Visual Studio, do these steps:
             "subnetRef": "[concat(variables('vnetID'),'/subnets/mysn1')]"  
           },
         }
-8. [Resources](../resource-group-authoring-templates.md#resources) such as the virtual machine, the virtual network, and the storage account are defined next in the template. Add the resources section after the variables section:
-   
+8. [Resources](../azure-resource-manager/resource-group-authoring-templates.md#resources) such as the virtual machine, the virtual network, and the storage account are defined next in the template. Add the resources section after the variables section:
+
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
@@ -184,7 +184,7 @@ To specify values for the resource parameters that were defined in the template,
 1. Right-click the project name in Solution Explorer, click **Add** > **New Item**.
 2. Click Web, select JSON File, enter *Parameters.json* for the Name, and then click **Add**.
 3. Open the parameters.json file and then add this JSON content:
-   
+
         {
           "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
           "contentVersion": "1.0.0.0",
@@ -193,11 +193,11 @@ To specify values for the resource parameters that were defined in the template,
             "adminPassword": { "value": "mytestpass1" }
           }
         }
-   
+
    > [!NOTE]
    > This article creates a virtual machine running a version of the Windows Server operating system. To learn more about selecting other images, see [Navigate and select Azure virtual machine images with Windows PowerShell and the Azure CLI](virtual-machines-linux-cli-ps-findimage.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-   > 
-   > 
+   >
+   >
 4. Save the parameters file that you created.
 
 ## Step 2: Install the libraries
@@ -213,7 +213,7 @@ Now you're ready to start using the libraries to create your application.
 The Azure Active Directory application is created and the authentication library is installed. Now you format the application information into credentials that are used to authenticate requests to the Azure Resource Manager.
 
 1. Open the Program.cs file for the project that you created, and then add these using statements to the top of the file:
-   
+
         using Microsoft.Azure;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
         using Microsoft.Azure.Management.ResourceManager;
@@ -221,10 +221,10 @@ The Azure Active Directory application is created and the authentication library
         using Microsoft.Rest;
         using System.IO;
 2. Add this method to the Program class to get the token that's needed to create the credentials:
-   
+
      private static async Task<AuthenticationResult> GetAccessTokenAsync()
      {
-   
+
        var cc = new ClientCredential("{client-id}", "{client-secret}");
        var context = new AuthenticationContext("https://login.windows.net/{tenant-id}");
        var token = await context.AcquireTokenAsync("https://management.azure.com/", cc);
@@ -234,10 +234,10 @@ The Azure Active Directory application is created and the authentication library
        }
        return token;
      }
-   
+
    Replace {client-id} with the identifier of the Azure Active Directory application, {client-secret} with the access key of the AD application, and {tenant-id} with the tenant identifier for your subscription. You can find the tenant id by running Get-AzureRmSubscription. You can find the access key by using the Azure portal.
 3. To create the credentials, add this code to the Main method in the Program.cs file:
-   
+
         var token = GetAccessTokenAsync();
         var credential = new TokenCredentials(token.Result.AccessToken);
 4. Save the Program.cs file.
@@ -246,14 +246,14 @@ The Azure Active Directory application is created and the authentication library
 In this step, you use the resource group that you previously created, but you could also create a resource group using the [ResourceGroup](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.models.resourcegroup.aspx) and the [ResourceManagementClient](https://msdn.microsoft.com/library/azure/microsoft.azure.management.resources.resourcemanagementclient.aspx) classes.
 
 1. Add variables to the Main method of the Program class to specify the names of the resources that you previously created, the deployment name, and your subscription identifier:
-   
+
         var groupName = "resource group name";
         var subscriptionId = "subsciption id";
         var deploymentName = "deployment name";
-   
+
     Replace the value of groupName with the name of your resource group. Replace the value of deploymentName with the name that you want to use for the deployment. You can find the subscription identifier by running Get-AzureRmSubscription.
 2. Add this method to the Program class to deploy the resources to the resource group by using the template that you defined:
-   
+
         public static async Task<DeploymentExtended> CreateTemplateDeploymentAsync(
           TokenCredentials credential,
           string groupName,
@@ -268,17 +268,17 @@ In this step, you use the resource group that you previously created, but you co
             Template = File.ReadAllText("..\\..\\VirtualMachineTemplate.json"),
             Parameters = File.ReadAllText("..\\..\\Parameters.json")
           };
-          var resourceManagementClient = new ResourceManagementClient(credential) 
+          var resourceManagementClient = new ResourceManagementClient(credential)
             { SubscriptionId = subscriptionId };
           return await resourceManagementClient.Deployments.CreateOrUpdateAsync(
             groupName,
             deploymentName,
             deployment);
         }
-   
+
     If you wanted to deploy the template from a storage account, you can replace the Template property with the TemplateLink property.
 3. To call the method that you just added, add this code to the Main method:
-   
+
         var dpResult = CreateTemplateDeploymentAsync(
           credential,
           groupName,
@@ -291,23 +291,23 @@ In this step, you use the resource group that you previously created, but you co
 Because you are charged for resources used in Azure, it is always a good practice to delete resources that are no longer needed. You don’t need to delete each resource separately from a resource group. Delete the resource group and all its resources are automatically deleted.
 
 1. To delete the resource group, add this method to the Program class:
-   
+
      public static async void DeleteResourceGroupAsync(
-   
+
        TokenCredentials credential,
        string groupName,
        string subscriptionId)
      {
-   
+
        Console.WriteLine("Deleting resource group...");
        var resourceManagementClient = new ResourceManagementClient(credential)
          { SubscriptionId = subscriptionId };
        await resourceManagementClient.ResourceGroups.DeleteAsync(groupName);
      }
 2. To call the method that you just added, add this code to the Main method:
-   
+
      DeleteResourceGroupAsync(
-   
+
        credential,
        groupName,
        subscriptionId);
@@ -316,13 +316,12 @@ Because you are charged for resources used in Azure, it is always a good practic
 ## Step 6: Run the console application
 1. To run the console application, click **Start** in Visual Studio, and then sign in to Azure AD using the same credentials that you use with your subscription.
 2. Press **Enter** after the Accepted status appears.
-   
+
    It should take about five minutes for this console application to run completely from start to finish. Before you press Enter to start deleting resources, you could take a few minutes to verify the creation of the resources in the Azure portal before you delete them.
 3. To see the status of the resources, browse to the Audit Logs in the Azure portal:
-   
+
     ![Browse audit logs in Azure portal](./media/virtual-machines-windows-csharp-template/crpportal.png)
 
 ## Next Steps
 * If there were issues with the deployment, a next step would be to look at [Troubleshooting resource group deployments with Azure portal](../resource-manager-troubleshoot-deployments-portal.md).
 * Learn how to manage the virtual machine that you created by reviewing [Manage virtual machines using Azure Resource Manager and PowerShell](virtual-machines-windows-csharp-manage.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
-

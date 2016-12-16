@@ -1,4 +1,4 @@
-﻿---
+---
 title: Restore a deleted Azure SQL Database (PowerShell) | Microsoft Docs
 description: Restore a deleted Azure SQL Database (PowerShell).
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: ce7f0f3f-47a6-42af-b8a9-4a34bbbd8966
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
 ms.date: 10/12/2016
 ms.author: sstein
@@ -49,7 +50,7 @@ Restore-AzureRmSqlDatabase –FromDeletedDatabaseBackup –DeletionDate $Deleted
 ```
 
 
-## Restore your deleted database into an elastic database pool
+## Restore your deleted database into an elastic pool
 Get the deleted database backup that you want to restore by using the [Get-AzureRmSqlDeletedDatabaseBackup](https://msdn.microsoft.com/library/azure/mt693387\(v=azure.300/\).aspx) cmdlet. Then start the restore from the deleted database backup by using the [Restore-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt693390\(v=azure.300/\).aspx) cmdlet.
 
 ```

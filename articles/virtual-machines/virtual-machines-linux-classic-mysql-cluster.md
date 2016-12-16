@@ -1,4 +1,4 @@
-﻿---
+---
 title: Clusterize MySQL with load-balanced sets | Microsoft Docs
 description: Setup a load-balanced, high availability Linux MySQL cluster created with the classic deployment model on Azure
 services: virtual-machines-linux

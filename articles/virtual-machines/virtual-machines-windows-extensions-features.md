@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/17/2016
+ms.date: 12/08/2016
 ms.author: nepeters
 
 ---
@@ -47,10 +47,12 @@ The Azure VM Agent manages interaction between an Azure virtual machine and the 
 For information on supported operating systems and installation instructions, see [Azure Virtual Machine Agent](virtual-machines-windows-classic-agents-and-extensions.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 
 ## Discover VM extensions
-Many different VM extensions are available for use with Azure virtual machines. To see a complete list, run the following command with the Azure PowerShell module.
+Many different VM extensions are available for use with Azure Virtual Machines. To see a complete list, run the following command with the Azure Resource Manager PowerShell module. Make sure to specify the desired location when running this command.
 
 ```powershell
-Get-AzureVMAvailableExtension | Select ExtensionName, Version
+Get-AzureRmVmImagePublisher -Location WestUS | `
+Get-AzureRmVMExtensionImageType | `
+Get-AzureRmVMExtensionImage | Select Type, Version
 ```
 
 ## Run VM extensions
@@ -276,7 +278,7 @@ An extension can also be removed using the Azure portal. To do so:
 ## Common VM extensions reference
 | Extension name | Description | More information |
 | --- | --- | --- |
-| Custom Script extension for Windows |Run scripts against an Azure virtual machine |[Custom Script extension for Windows](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| DSC extension for Windows |PowerShell DSC (Desired State Configuration) extension. |[DSC extension for Windows](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
-| Azure Diagnostics extension |Manage Azure Diagnostics |[Azure Diagnostics extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
-| Azure VM Access extension |Manage users and credentials |[VM Access extension for Windows](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
+| Custom Script Extension for Windows |Run scripts against an Azure Virtual Machine |[Custom Script Extension for Windows](virtual-machines-windows-extensions-customscript.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| DSC Extension for Windows |PowerShell DSC (Desired State Configuration) Extension. |[DSC Extension for Windows](virtual-machines-windows-extensions-dsc-overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) |
+| Azure Diagnostics Extension |Manage Azure Diagnostics |[Azure Diagnostics Extension](https://azure.microsoft.com/blog/windows-azure-virtual-machine-monitoring-with-wad-extension/) |
+| Azure VM Access Extension |Manage users and credentials |[VM Access Extension for Linux](https://azure.microsoft.com/en-us/blog/using-vmaccess-extension-to-reset-login-credentials-for-linux-vm/) |
