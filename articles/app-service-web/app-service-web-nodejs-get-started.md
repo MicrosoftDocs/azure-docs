@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: get-started-article
-ms.date: 12/12/2016
+ms.date: 12/16/2016
 ms.author: cephalin
 
 ---
@@ -22,9 +22,7 @@ ms.author: cephalin
 
 This tutorial shows how to create a simple [Node.js] application and deploy it to [Azure App Service] from a command-line environment, such as cmd.exe or bash. The instructions in this tutorial can be followed on any operating system that can run Node.js.
 
-> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
-> 
-> 
+[!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
 
 <a name="prereq"></a>
 
@@ -84,8 +82,11 @@ You can complete the task using one of the following CLI versions:
             port: process.env.port,
         }
    
-    >[NOTE!] By default, Azure App Service runs Node.js applications with the `production` environment variables (`process.env.NODE_ENV="production"`.
-    >Therefore, your configuration here lets your Node.js app in Azure respond to web requests on the default port that iisnode listens.
+    > [!NOTE] 
+    > By default, Azure App Service runs Node.js applications with the `production` environment variables (`process.env.NODE_ENV="production"`.
+    > Therefore, your configuration here lets your Node.js app in Azure respond to web requests on the default port that iisnode listens.
+    >
+    >
 
 7. Open ./package.json and add the `engines` property to [specify the desired Node.js version](#version).
    

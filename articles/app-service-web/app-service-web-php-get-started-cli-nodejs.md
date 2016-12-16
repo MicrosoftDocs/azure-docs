@@ -36,9 +36,7 @@ app example. You will learn:
 
 You can apply what you learn here to other PHP web apps that you deploy to Azure.
 
-> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
-> 
-> 
+[!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
 
 ## CLI versions to complete the task
 

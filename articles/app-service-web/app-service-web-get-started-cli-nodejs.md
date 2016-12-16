@@ -29,9 +29,7 @@ You will:
 * See your code running live in production.
 * Update your web app the same way you would [push Git commits](https://git-scm.com/docs/git-push).
 
-> [!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
-> 
-> 
+[!INCLUDE [app-service-linux](../../includes/app-service-linux.md)]
 
 ## CLI versions to complete the task
 
