@@ -20,7 +20,7 @@ ms.author: lbrader
 
 # Introduction to Microsoft Azure accounts, platform, and services for AWS experts
 
-This article helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. You'll also learn key similarities and differences between the AWS and Azure platforms.
+This article helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. You can also learn key similarities and differences between the AWS and Azure platforms.
 
 You'll learn:
 * How accounts and resources are organized in Azure.
@@ -34,8 +34,7 @@ You'll learn:
 Like AWS, Microsoft Azure is built around a core set of compute, storage,
 database, and networking services. In many cases, both platforms offer a basic
 equivalence between the products and services they offer. Both AWS and Azure
-allow you to build highly available solutions based on Windows or Linux hosts,
-so If you're used to development using Linux and OSS technology, both platforms
+allow you to build highly available solutions based on Windows or Linux hosts. So, if you're used to development using Linux and OSS technology, both platforms
 can do the job.
 
 While the capabilities of both platforms are similar, the resources that provide
@@ -63,7 +62,7 @@ owner accounts, and can be reassigned to new owners as needed.
 
 Subscriptions are assigned three types of administrator accounts:
 
--   **Account Administrator** - This is the subscription owner, and is the
+-   **Account Administrator** - The subscription owner and the
     account billed for the resources used in the subscription. The account
     administrator can only be changed by transferring ownership of the
     subscription.
@@ -107,17 +106,12 @@ compute instance, storage object, networking device, or other entity you can
 create or configure within the platform.
 
 Azure resources are deployed and managed using one of two models: [Azure
-Resource Manager, or the older Azure Service Management
-(Classic)](https://azure.microsoft.com/documentation/articles/azure-classic-rm/).
+Resource Manager, or the older Azure [classic deployment model](../azure-resource-manager/resource-manager-deployment-model.md).
 Any new resources are created using the Resource Manager model.
 
 ### Resource groups
 
-Both Azure and AWS have entities called "resource groups" that organize
-resources such as VMs, storage, and virtual networking devices. However, [Azure
-resource
-groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/)
-are not directly comparable to AWS resource groups.
+Both Azure and AWS have entities called "resource groups" that organize resources such as VMs, storage, and virtual networking devices. However, [Azure resource groups](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-infrastructure-resource-groups-guidelines/) are not directly comparable to AWS resource groups.
 
 While AWS allows a resource to be tagged into multiple resource groups, an Azure
 resource is always associated with one resource group. A resource created in one
@@ -186,7 +180,7 @@ capabilities.
 In AWS, a region is divided into two or more Availability Zones. An Availability
 Zone corresponds with a physically isolated datacenter in the geographic region.
 If you deploy your application servers to separate Availability Zones, a
-hardware or connectivity outage affecting one zone will not impact any servers
+hardware or connectivity outage affecting one zone does not impact any servers
 hosted in other zones.
 
 In Azure, a [fault
@@ -226,13 +220,12 @@ given time.
 In Azure, you use [paired
 regions](https://azure.microsoft.com/documentation/articles/best-practices-availability-paired-regions/)
 to support redundancy across two predefined geographic regions, ensuring that
-even if an outage affects an entire Azure region, your solution will still be
+even if an outage affects an entire Azure region, your solution is still
 available.
 
 Unlike AWS Availability Zones, which are physically separate datacenters but may
 be in relatively nearby geographic areas, paired regions are usually separated
-by at least 300 miles. This is intended to ensure larger scale disasters will
-only impact one of the regions in the pair. Neighboring pairs can be set to sync
+by at least 300 miles. This is intended to ensure larger scale disasters only impact one of the regions in the pair. Neighboring pairs can be set to sync
 database and storage service data, and are configured so that platform updates
 are rolled out to only one region in the pair at a time.
 
@@ -257,7 +250,7 @@ creating a full copy of your solution in both regions.
 
 Consult the [complete AWS and Azure service comparison matrix](https://aka.ms/azure4aws-services) for a full listing of how all services map between platforms.
 
-Note that not all Azure products and
+Not all Azure products and
 services are available in all regions. Consult the [Products by
 Region](https://azure.microsoft.com/regions/services/) page for details. You can find the uptime guarantees and downtime credit policies for each Azure
 product or service on the [Service Level
@@ -427,7 +420,7 @@ The Azure equivalents of the two Elastic Load Balancing services are:
 
 #### Route 53, Azure DNS, and Azure Traffic Manager
 
-In AWS Route 53 provides both DNS name management and DNS-level traffic routing
+In AWS, Route 53 provides both DNS name management and DNS-level traffic routing
 and failover services. In Azure this is handled through two services:
 
 -   [Azure DNS](https://azure.microsoft.com/documentation/services/dns/) - provides domain and DNS management.
@@ -522,7 +515,7 @@ In addition to the [Application Gateway Web Application
 Firewall](https://azure.microsoft.com/documentation/articles/application-gateway-webapplicationfirewall-overview/),
 you can also [use web application
 firewalls](https://azure.microsoft.com/documentation/articles/application-gateway-webapplicationfirewall-overview/)
-from third party vendors like [Barracuda
+from third-party vendors like [Barracuda
 Networks](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf/).
 
 #### See also
@@ -538,7 +531,7 @@ Networks](https://azure.microsoft.com/marketplace/partners/barracudanetworks/waf
 #### Simple Email Service
 
 AWS provides the Simple Email Service (SES) for sending notification,
-transactional, or marketing emails. In Azure third party solutions like
+transactional, or marketing emails. In Azure, third-party solutions like
 [Sendgrid](https://sendgrid.com/partners/azure/) provide email services.
 
 #### Simple Queueing Service
@@ -589,10 +582,10 @@ services:
     Factory](https://azure.microsoft.com/documentation/services/data-factory/) - provides data orchestration and data pipeline functionality.
 
 -   [SQL Data
-    Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) - large scale relational data storage.
+    Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) - large-scale relational data storage.
 
 -   [Data Lake
-    Store](https://azure.microsoft.com/documentation/services/data-lake-store/) - large scale storage optimized for big data analytics workloads.
+    Store](https://azure.microsoft.com/documentation/services/data-lake-store/) - large-scale storage optimized for big data analytics workloads.
 
 -   [Machine
     Learning](https://azure.microsoft.com/documentation/services/machine-learning/) - used to build and apply predictive analytics on data.
@@ -601,7 +594,7 @@ services:
     Analytics](https://azure.microsoft.com/documentation/services/stream-analytics/) - real-time data analysis.
 
 -   [Data Lake
-    Analytics](https://azure.microsoft.com/documentation/articles/data-lake-analytics-overview/) - large scale analytics service optimized to work with Data Lake Store
+    Analytics](https://azure.microsoft.com/documentation/articles/data-lake-analytics-overview/) - large-scale analytics service optimized to work with Data Lake Store
 
 -   [PowerBI](https://powerbi.microsoft.com/) - used to power data
     visualization.
@@ -630,7 +623,7 @@ services:
 
 #### Notifications
 
-Notification Hubs do not support sending SMS or email messages, so third party
+Notification Hubs do not support sending SMS or email messages, so third-party
 services are needed for those delivery types.
 
 #### See also
