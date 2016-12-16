@@ -103,8 +103,6 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
 
           "resources": [
             {
-              // Application Insights application resource
-              //
               "apiVersion": "2014-08-01",
               "location": "[parameters('appLocation')]",
               "name": "[parameters('appName')]",
@@ -118,13 +116,10 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
               }
             },
             {
-              // Price plan resource
-              //
               "name": "[variables('billingplan')]",
               "type": "microsoft.insights/components/CurrentBillingFeatures",
               "location": "[parameters('appLocation')]",
               "apiVersion": "2015-05-01",
-              // Ensure Azure sets this up after the app:
               "dependsOn": [
                 "[resourceId('microsoft.insights/components', parameters('appName'))]"
               ],
@@ -136,15 +131,8 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                   "ResetTime": "[parameters('dailyQuotaResetTime')]"
                 }
               }
-            },
-           {
-              //web test JSON file contents
-            },
-            {
-              //alert rule JSON file contents
             }
-
-            // Any other resources go here
+           , "__comment":"web test, alert, and any other resources go here"
           ]
         }
 
@@ -170,18 +158,24 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
    * `-TemplateFile` must occur before the custom parameters.
    * `-appName` The name of the resource to create.
 
-You can add other parameters such as:
+You can add other parameters - you'll find their descriptions in the parameters section of the template.
 
+## Enterprise price plan
+
+To create an app resource with the Enterprise price plan:
 
 ```PS
    
-    -appLocation "West Europe" `
-    -pricePlan "Application Insights Enterprise" `
+
+        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+               -TemplateFile .\template1.json `
+               -appLocation "West Europe" `
+               -pricePlan "Basic", "Application Insights Enterprise" `
+               -appName myNewApp
 ```
 
-Find the descriptions of these optional parameters in the template code.
-
-The price plan resource can be omitted if you only want to use the default Basic pricing plan.
+* This template requires that the `-pricePlan` parameter has an array of two string values, as shown.
+* If you only want to use the default Basic pricing plan, you can omit the price plan resource from the template.
 
 
 ## To get the instrumentation key
