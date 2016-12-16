@@ -70,12 +70,12 @@ Any template validation warnings or errors are logged to the PowerShell console,
 
 | Parameter | Description | Required |
 | ----- | -----| ----- |
-| -TemplatePath | Specifies the path to recursively find Resource Manager templates | Yes | 
-| -TemplatePattern | Specifies the name of template files to match.  The tool searches for *azuredeploy.json* by default.| No |
-| -CapabilitiesPath | Specifies the path to cloud capabilities JSON file | Yes | 
-| -IncludeComputeCapabilities| Includes evaluation of IaaS resources like VM Sizes and VM Extensions | No |
-| -Report | Specifies name of the generated HTML report | No |
-| -Verbose | Logs errors and warnings to the console | No|
+| TemplatePath | Specifies the path to recursively find Resource Manager templates | Yes | 
+| TemplatePattern | Specifies the name of template files to match.  The tool searches for *azuredeploy.json* by default.| No |
+| CapabilitiesPath | Specifies the path to cloud capabilities JSON file | Yes | 
+| IncludeComputeCapabilities | Includes evaluation of IaaS resources like VM Sizes and VM Extensions | No |
+| Report | Specifies name of the generated HTML report | No |
+| Verbose | Logs errors and warnings to the console | No|
 
 
 ### Examples
