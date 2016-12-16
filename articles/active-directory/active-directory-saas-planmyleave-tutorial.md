@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with PlanMyLeave | Microsoft Docs'
+title: 'Tutorial: Azure Active Directory integration with PlanMyLeave' | Microsoft Docs
 description: Learn how to configure single sign-on between Azure Active Directory and PlanMyLeave.
 services: active-directory
 documentationCenter: na
@@ -13,7 +13,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 12/05/2016
-ms.author: jeedes
+ms.author:jeedes
 
 ---
 
@@ -131,12 +131,10 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
    
 5. To get SSO configured for your application, contact PlanMyLeave support team <a href=“mailto:support@planmyleave.com”>here</a>  and provide them with the following:
 
-
 	• The downloaded **metadata file**
 	
 	• The **SAML SSO URL**
 	
-
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
 	![Azure AD Single Sign-On][10]
