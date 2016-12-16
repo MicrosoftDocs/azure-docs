@@ -106,22 +106,22 @@ You can use existing tools like [DocumentDB Studio](https://github.com/mingaliu/
 
 ## Export the DocumentDB Emulator SSL certificate
 
-.Net languages and runtime use the Windows Certificate Store to securely connect to the DocumentDB local emulator. Other languages have their own method of managing and using certificates. Java uses its own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) whereas Python uses [socket wrappers](https://docs.python.org/2/library/ssl.html).
+.NET languages and runtime use the Windows Certificate Store to securely connect to the DocumentDB local emulator. Other languages have their own method of managing and using certificates. Java uses its own [certificate store](https://docs.oracle.com/cd/E19830-01/819-4712/ablqw/index.html) whereas Python uses [socket wrappers](https://docs.python.org/2/library/ssl.html).
 
-In order to obtain a certificate to use with languages and runtimes that do not integrate with the Windows Certificate Store you will need to export it using the Windows Certificate Manager. You can start it by running certlm.msc or follow the step by step instructions in the "[Export the DocumentDB Emulator Certificates](./documentdb-nosql-local-emulator-export-ssl-certificates.md)" post. Once the certificate manager is running, open the Personal Certificates as shown below and export the certificate with the friendly name "DocumentDBEmulatorCertificate" as a BASE-64 encoded X.509 (.cer) file.
+In order to obtain a certificate to use with languages and runtimes that do not integrate with the Windows Certificate Store you will need to export it using the Windows Certificate Manager. You can start it by running certlm.msc or follow the step by step instructions in [Export the DocumentDB Emulator Certificates](./documentdb-nosql-local-emulator-export-ssl-certificates.md). Once the certificate manager is running, open the Personal Certificates as shown below and export the certificate with the friendly name "DocumentDBEmulatorCertificate" as a BASE-64 encoded X.509 (.cer) file.
 
 ![DocumentDB local emulator SSL certificate](./media/documentdb-nosql-local-emulator/azure-documentdb-database-local-emulator-ssl_certificate.png)
 
-The X.509 certificate can be imported into the Java certificate store by following the instructions in the "[Adding a Certificate to the Java CA Certificates Store](https://docs.microsoft.com/en-us/azure/java-add-certificate-ca-store)" post.  Once the certificate is imported into the cacerts store Java and MongoDB applications will be able to connect to the DocumentDB Local Emulator.
+The X.509 certificate can be imported into the Java certificate store by following the instructions in [Adding a Certificate to the Java CA Certificates Store](https://docs.microsoft.com/en-us/azure/java-add-certificate-ca-store). Once the certificate is imported into the cacerts store Java and MongoDB applications will be able to connect to the DocumentDB Emulator.
 
 ## <a id="command-line"></a>DocumentDB Emulator command-line tool reference
 From the installation location, you can use the command-line to start and stop the emulator, configure options, and perform other operations.
 
 ### Command-line Syntax
 
-    DocumentDB.LocalEmulator.exe [/shutdown] [/datapath] [/port] [/mongoport] [/directports] [/key] [/?]
+    DocumentDB.Emulator.exe [/shutdown] [/datapath] [/port] [/mongoport] [/directports] [/key] [/?]
 
-To view the list of options, type `DocumentDB.LocalEmulator.exe /?` at the command prompt.
+To view the list of options, type `DocumentDB.Emulator.exe /?` at the command prompt.
 
 <table>
 <tr>
@@ -133,61 +133,61 @@ To view the list of options, type `DocumentDB.LocalEmulator.exe /?` at the comma
 <tr>
   <td>[No arguments]</td>
   <td>Starts up the DocumentDB Emulator with default settings</td>
-  <td>DocumentDB.LocalEmulator.exe</td>
+  <td>DocumentDB.Emulator.exe</td>
   <td></td>
 </tr>
 <tr>
   <td>Shutdown</td>
   <td>Shuts down the DocumentDB Emulator</td>
-  <td>DocumentDB.LocalEmulator.exe /Shutdown</td>
+  <td>DocumentDB.Emulator.exe /Shutdown</td>
   <td></td>
 </tr>
 <tr>
   <td>Help</td>
   <td>Displays the list of command-line arguments</td>
-  <td>DocumentDB.LocalEmulator.exe /?</td>
+  <td>DocumentDB.Emulator.exe /?</td>
   <td></td>
 </tr>
 <tr>
   <td>Datapath</td>
   <td>Specifies the path in which to store data files</td>
-  <td>DocumentDB.LocalEmulator.exe /datapath=&lt;datapath&gt;</td>
+  <td>DocumentDB.Emulator.exe /datapath=&lt;datapath&gt;</td>
   <td>&lt;datapath&gt;: An accessible path</td>
 </tr>
 <tr>
   <td>Port</td>
   <td>Specifies the port number to use for the emulator.  Default is 8081</td>
-  <td>DocumentDB.LocalEmulator.exe /port=&lt;port&gt;</td>
+  <td>DocumentDB.Emulator.exe /port=&lt;port&gt;</td>
   <td>&lt;port&gt;: Single port number</td>
 </tr>
 <tr>
   <td>MongoPort</td>
   <td>Specifies the port number to use for MongoDB compatibility API. Default is 10250</td>
-  <td>DocumentDB.LocalEmulator.exe /mongoport=&lt;mongoport&gt;</td>
+  <td>DocumentDB.Emulator.exe /mongoport=&lt;mongoport&gt;</td>
   <td>&lt;mongoport&gt;: Single port number</td>
 </tr>
 <tr>
   <td>DirectPorts</td>
   <td>Specifies the ports to use for direct connectivity. Defaults are 10251,10252,10253,10254</td>
-  <td>DocumentDB.LocalEmulator.exe /directports:&lt;directports&gt;</td>
+  <td>DocumentDB.Emulator.exe /directports:&lt;directports&gt;</td>
   <td>&lt;directports&gt;: Comma-delimited list of 4 ports</td>
 </tr>
 <tr>
   <td>Key</td>
   <td>Authorization key for the emulator. Key must be the base-64 encoding of a 64-byte vector</td>
-  <td>DocumentDB.LocalEmulator.exe /key:&lt;key&gt;</td>
+  <td>DocumentDB.Emulator.exe /key:&lt;key&gt;</td>
   <td>&lt;key&gt;: Key must be the base-64 encoding of a 64-byte vector</td>
 </tr>
 <tr>
   <td>EnableThrottling</td>
   <td>Specifies that request throttling behavior is enabled</td>
-  <td>DocumentDB.LocalEmulator.exe /enablethrottling</td>
+  <td>DocumentDB.Emulator.exe /enablethrottling</td>
   <td></td>
 </tr>
 <tr>
   <td>DisableThrottling</td>
   <td>Specifies that request throttling behavior is disabled</td>
-  <td>DocumentDB.LocalEmulator.exe /disablethrottling</td>
+  <td>DocumentDB.Emulator.exe /disablethrottling</td>
   <td></td>
 </tr>
 <tr>
