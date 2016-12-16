@@ -1,6 +1,6 @@
 ---
 title: Preparing hard drives for an Azure Import/Export import job | Microsoft Docs
-description: Learn how to prepare hard drives using WAImportExport tool to create an Import Job for the Azure Import/Export service.
+description: Learn how to prepare hard drives using the WAImportExport tool to create an import job for the Azure Import/Export service.
 author: renashahmsft
 manager: aungoo
 editor: tysonn
@@ -20,7 +20,7 @@ ms.author: renash
 # Preparing hard drives for an Import Job
 ## Overview
 
-The Microsoft Azure Import/Export tool is the drive preparation and repair tool that you can use with the [Microsoft Azure Import/Export Service](storage-import-export-service.md). You can use this tool to copy data to the hard drives you are going to ship to an Azure datacenter. After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs. After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives. In this article we will go over the working of this tool.
+The Microsoft Azure Import/Export tool is the drive preparation and repair tool that you can use with the [Microsoft Azure Import/Export service](storage-import-export-service.md). You can use this tool to copy data to the hard drives you are going to ship to an Azure datacenter. After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs. After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives. In this article we will go over the working of this tool.
 
 ## Prerequisites
 
