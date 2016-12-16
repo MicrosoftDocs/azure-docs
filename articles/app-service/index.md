@@ -1,6 +1,6 @@
 ---
 layout: LandingPage
-description: Learn how to use App Service to create web and mobile apps for any platform or device using tutorials, videos, API references, and other documentation. 
+description: Learn how to use App Service to create web and mobile apps for any platform or device using tutorials, videos, API references, and other documentation.
 ---
 #App Service Documentation
 

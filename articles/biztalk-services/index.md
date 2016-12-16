@@ -4,7 +4,7 @@ description: Learn how to use BizTalk services to provide cloud to on-premises a
 ---
 # Biztalk Services Documentation
 
-Learn how to use BizTalk services to provide cloud to on-premises and line-of-business application integration for SAP, Oracle EBS, SQL Server, and PeopleSoft. Tutorials and other documentation show you how to integrate the enterprise and the cloud.   
+Learn how to use BizTalk services to provide cloud to on-premises and line-of-business application integration for SAP, Oracle EBS, SQL Server, and PeopleSoft. Tutorials and other documentation show you how to integrate the enterprise and the cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>

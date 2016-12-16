@@ -5,7 +5,7 @@ description: Learn how to create and maintain container registries to store your
 
 # Azure Container Registry Documentation
 
-Learn how to use Container Registry to store and manage images for all types of container deployments. Tutorials, REST API reference, and other documentation show you how to create and maintain container registries with this managed Docker registry service. 
+Learn how to use Container Registry to store and manage images for all types of container deployments. Tutorials, REST API reference, and other documentation show you how to create and maintain container registries with this managed Docker registry service.
 
 <ul class="panelContent cardsFTitle">
     <li>
