@@ -62,7 +62,7 @@ When you develop Batch solutions, you'll use the following accounts in Microsoft
 * **Batch account** - Azure Batch resources, including pools, compute nodes, jobs, and tasks, are associated with an Azure Batch account. When your application makes a request against the Batch service, it authenticates the request using the Azure Batch account name, the URL of the account, and an access key. You can [create Batch account](batch-account-create-portal.md) in the Azure portal.
 * **Storage account** - Batch includes built-in support for working with files in [Azure Storage][azure_storage]. Nearly every Batch scenario uses Azure Blob storage for staging the programs that your tasks run and the data that they process, and for the storage of output data that they generate. To create a Storage account, see [About Azure storage accounts](../storage/storage-create-storage-account.md).
 
-### Batch development APIs and command-line tools
+### Batch development APIs
 Your applications and services can issue direct REST API calls or use one or more of the following client libraries to run and manage your Azure Batch workloads.
 
 | API | API reference | Download | Tutorial | Code samples |
@@ -72,6 +72,8 @@ Your applications and services can issue direct REST API calls or use one or mor
 | **Batch Python** |[readthedocs.io][api_python] |[PyPI][api_python_pypi] |[Tutorial](batch-python-tutorial.md)|[GitHub][api_sample_python] |
 | **Batch Node.js** |[github.io][api_nodejs] |[npm][api_nodejs_npm] |&nbsp; |&nbsp; |
 | **Batch Java** (preview) |[github.io][api_java] |[Maven][api_java_jar] |&nbsp; |[GitHub][api_sample_java] |
+
+### Batch command-line tools
 
 Functionality provided by the development APIs is also available using command-line tools: 
 

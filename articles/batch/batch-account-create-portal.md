@@ -53,13 +53,13 @@ Once the account has been created, you can open the **Batch account blade** to a
 
 ![Batch account blade in Azure portal][account_blade]
 
-* **Batch account URL**: Applications you create with the [Batch development APIs](batch-technical-overview.md#batch-development-apis) need an account URL to manage resources and run jobs in the account. A Batch account URL has the following format:
+* **Batch account URL**: When you develop an application with the [Batch APIs](batch-technical-overview.md#batch-development-apis), you'll need an account URL to access your Batch resources. A Batch account URL has the following format:
   
     `https://<account_name>.<region>.batch.azure.com`
 
 ![Batch account URL in portal][account_url]
 
-* **Access keys**: Your applications also need an access key when working with resources in your Batch account. To view or regenerate your Batch account's access keys, enter `keys` in the left menu **Search** box on the Batch account blade, then select **Keys**.
+* **Access keys**: To authenticate access to your Batch account from your application, you'll need an account access key. To view or regenerate your Batch account's access keys, enter `keys` in the left menu **Search** box on the Batch account blade, then select **Keys**.
   
     ![Batch account keys in Azure portal][account_keys]
 
