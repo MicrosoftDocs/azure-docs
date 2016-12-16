@@ -18,7 +18,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 
 ---
-# Archive an Azure SQL database to a BACPAC file using the Azure Portal
+# Archive an Azure SQL database to a BACPAC file using the Azure portal
 > [!div class="op_single_selector"]
 > * [Azure portal](sql-database-export.md)
 > * [SSMS](sql-database-cloud-migrate-compatible-export-bacpac-ssms.md)
@@ -31,7 +31,7 @@ This article provides directions for archiving your Azure SQL database to a BACP
 When you need to create an archive of an Azure SQL database, you can export the database schema and data to a BACPAC file. A BACPAC file is simply a ZIP file with an extension of BACPAC. A BACPAC file can later be stored in Azure blob storage or in local storage in an on-premises location and later imported back into Azure SQL Database or into a SQL Server on-premises installation. 
 
 > [!IMPORTANT]
-> Azure SQL Database Automated Export is now in preview and will be retired on March 1st, 2017. Starting December 1st, 2016, you will no longer be able to configure automated export on any SQL database. All your existing automated export jobs will continue to work until March 1st, 2017. After December 1st 2016, you can use [long term backup retention](sql-database-long-term-retention.md) or [Azure Automation](../automation/automation-intro.md) to archive SQL databases periodically using PowerShell periodically according to a schedule of your choice. For a sample script, you can download the [sample script from Github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
+> Azure SQL Database Automated Export is now in preview and will be retired on March 1, 2017. Starting December 1, 2016, you will no longer be able to configure automated export on any SQL database. All your existing automated export jobs will continue to work until March 1, 2017. After December 1, 2016, you can use [long-term backup retention](sql-database-long-term-retention.md) or [Azure Automation](../automation/automation-intro.md) to archive SQL databases periodically using PowerShell periodically according to a schedule of your choice. For a sample script, you can download the [sample script from Github](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export). 
 >
 
 ## Considerations
@@ -58,7 +58,7 @@ To complete this article you need the following:
 Open the SQL Database blade for the database you want to export.
 
 > [!IMPORTANT]
-> To guarantee a transactionally consistent BACPAC file you should first [create a copy of your database](sql-database-copy.md) and then export the database copy. 
+> To guarantee a transactionally consistent BACPAC file, you should first [create a copy of your database](sql-database-copy.md) and then export the database copy. 
 > 
 > 
 
@@ -68,12 +68,12 @@ Open the SQL Database blade for the database you want to export.
 4. In the SQL Database blade, click **Export** to open the **Export database** blade:
    
    ![export button][1]
-5. Click **Storage** and select your storage account and blob container where the BACPAC will be stored:
+5. Click **Storage** and select your storage account and blob container to store the BACPAC:
    
    ![export database][2]
 6. Select your authentication type. 
 7. Enter the appropriate authentication credentials for the Azure SQL server containing the database you are exporting.
-8. Click **OK** to archive the database. Clicking **OK** creates an export database request and submits it to the service. The length of time the export will take depends on the size and complexity of your database, and your service level. You will receive a notification.
+8. Click **OK** to archive the database. Clicking **OK** creates an export database request and submits it to the service. The length of time the export takes depends on the size and complexity of your database, and your service level. View the notification you recieve.
    
    ![export notification][3]
 
