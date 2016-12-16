@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 10/17/2016
+ms.date: 12/15/2016
 ms.author: spelluru
 
 ---
@@ -101,37 +101,38 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
 1. Right-click **Tables** in the **Solution Explorer**, point to **Add**, and click **New Item**.
 2. In the **Add New Item** dialog box, select **Azure Blob**, and click **Add**.   
 3. Replace the JSON text with the following text and save the **AzureBlobLocation1.json** file. 
-   
-       {
-         "name": "InputDataset",
-         "properties": {
-           "structure": [
-             {
-               "name": "FirstName",
-               "type": "String"
-             },
-             {
-               "name": "LastName",
-               "type": "String"
-             }
-           ],
-           "type": "AzureBlob",
-           "linkedServiceName": "AzureStorageLinkedService1",
-           "typeProperties": {
-             "folderPath": "adftutorial/",
-             "format": {
-               "type": "TextFormat",
-               "columnDelimiter": ","
-             }
-           },
-           "external": true,
-           "availability": {
-             "frequency": "Hour",
-             "interval": 1
-           }
-         }
-       }
-   
+
+  ```json   
+  {
+    "name": "InputDataset",
+    "properties": {
+      "structure": [
+        {
+          "name": "FirstName",
+          "type": "String"
+        },
+        {
+          "name": "LastName",
+          "type": "String"
+        }
+      ],
+      "type": "AzureBlob",
+      "linkedServiceName": "AzureStorageLinkedService1",
+      "typeProperties": {
+        "folderPath": "adftutorial/",
+        "format": {
+          "type": "TextFormat",
+          "columnDelimiter": ","
+        }
+      },
+      "external": true,
+      "availability": {
+        "frequency": "Hour",
+        "interval": 1
+      }
+    }
+  }
+  ``` 
     Note the following points: 
    
    * dataset **type** is set to **AzureBlob**.
@@ -146,16 +147,18 @@ In this step, you create a dataset named **InputDataset** that points to a blob 
    If you do not specify a **fileName** for an **output table**, the generated files in the **folderPath** are named in the following format: Data.&lt;Guid\&gt;.txt (example: Data.0a405f8a-93ff-4c6f-b3be-f69616f1df7a.txt.).
    
    To set **folderPath** and **fileName** dynamically based on the **SliceStart** time, use the **partitionedBy** property. In the following example, folderPath uses Year, Month, and Day from the SliceStart (start time of the slice being processed) and fileName uses Hour from the SliceStart. For example, if a slice is being produced for 2016-09-20T08:00:00, the folderName is set to wikidatagateway/wikisampledataout/2016/09/20 and the fileName is set to 08.csv. 
-   
-           "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
-           "fileName": "{Hour}.csv",
-           "partitionedBy": 
-           [
-               { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
-               { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
-               { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
-               { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
-
+  
+    ```json   
+    "folderPath": "wikidatagateway/wikisampledataout/{Year}/{Month}/{Day}",
+    "fileName": "{Hour}.csv",
+    "partitionedBy": 
+    [
+        { "name": "Year", "value": { "type": "DateTime", "date": "SliceStart", "format": "yyyy" } },
+        { "name": "Month", "value": { "type": "DateTime", "date": "SliceStart", "format": "MM" } }, 
+        { "name": "Day", "value": { "type": "DateTime", "date": "SliceStart", "format": "dd" } }, 
+        { "name": "Hour", "value": { "type": "DateTime", "date": "SliceStart", "format": "hh" } } 
+    ```
+            
 > [!NOTE]
 > See [Move data from/to Azure Blob](data-factory-azure-blob-connector.md#azure-blob-dataset-type-properties) for details about JSON properties.
 > 
@@ -167,31 +170,33 @@ In this step, you create an output dataset named **OutputDataset**. This dataset
 1. Right-click **Tables** in the **Solution Explorer** again, point to **Add**, and click **New Item**.
 2. In the **Add New Item** dialog box, select **Azure SQL**, and click **Add**. 
 3. Replace the JSON text with the following JSON and save the **AzureSqlTableLocation1.json** file.
-   
-       {
-         "name": "OutputDataset",
-         "properties": {
-           "structure": [
-             {
-               "name": "FirstName",
-               "type": "String"
-             },
-             {
-               "name": "LastName",
-               "type": "String"
-             }
-           ],
-           "type": "AzureSqlTable",
-           "linkedServiceName": "AzureSqlLinkedService1",
-           "typeProperties": {
-             "tableName": "emp"
-           },
-           "availability": {
-             "frequency": "Hour",
-             "interval": 1
-           }
-         }
-       }
+
+	```json
+	{
+	 "name": "OutputDataset",
+	 "properties": {
+	   "structure": [
+	     {
+	       "name": "FirstName",
+	       "type": "String"
+	     },
+	     {
+	       "name": "LastName",
+	       "type": "String"
+	     }
+	   ],
+	   "type": "AzureSqlTable",
+	   "linkedServiceName": "AzureSqlLinkedService1",
+	   "typeProperties": {
+	     "tableName": "emp"
+	   },
+	   "availability": {
+	     "frequency": "Hour",
+	     "interval": 1
+	   }
+	 }
+	}
+	```
    
     Note the following points: 
    
@@ -212,50 +217,51 @@ You have created input/output linked services and tables so far. Now, you create
 1. Right-click **Pipelines** in the **Solution Explorer**, point to **Add**, and click **New Item**.  
 2. Select **Copy Data Pipeline** in the **Add New Item** dialog box and click **Add**. 
 3. Replace the JSON with the following JSON and save the **CopyActivity1.json** file.
-   
-       {
-         "name": "ADFTutorialPipeline",
-         "properties": {
-           "description": "Copy data from a blob to Azure SQL table",
-           "activities": [
-             {
-               "name": "CopyFromBlobToSQL",
-               "type": "Copy",
-               "inputs": [
-                 {
-                   "name": "InputDataset"
-                 }
-               ],
-               "outputs": [
-                 {
-                   "name": "OutputDataset"
-                 }
-               ],
-               "typeProperties": {
-                 "source": {
-                   "type": "BlobSource"
-                 },
-                 "sink": {
-                   "type": "SqlSink",
-                   "writeBatchSize": 10000,
-                   "writeBatchTimeout": "60:00:00"
-                 }
-               },
-               "Policy": {
-                 "concurrency": 1,
-                 "executionPriorityOrder": "NewestFirst",
-                 "style": "StartOfInterval",
-                 "retry": 0,
-                 "timeout": "01:00:00"
-               }
-             }
-           ],
-           "start": "2015-07-12T00:00:00Z",
-           "end": "2015-07-13T00:00:00Z",
-           "isPaused": false
-         }
-       }
-   
+
+	```json   
+	{
+	 "name": "ADFTutorialPipeline",
+	 "properties": {
+	   "description": "Copy data from a blob to Azure SQL table",
+	   "activities": [
+	     {
+	       "name": "CopyFromBlobToSQL",
+	       "type": "Copy",
+	       "inputs": [
+	         {
+	           "name": "InputDataset"
+	         }
+	       ],
+	       "outputs": [
+	         {
+	           "name": "OutputDataset"
+	         }
+	       ],
+	       "typeProperties": {
+	         "source": {
+	           "type": "BlobSource"
+	         },
+	         "sink": {
+	           "type": "SqlSink",
+	           "writeBatchSize": 10000,
+	           "writeBatchTimeout": "60:00:00"
+	         }
+	       },
+	       "Policy": {
+	         "concurrency": 1,
+	         "executionPriorityOrder": "NewestFirst",
+	         "style": "StartOfInterval",
+	         "retry": 0,
+	         "timeout": "01:00:00"
+	       }
+	     }
+	   ],
+	   "start": "2015-07-12T00:00:00Z",
+	   "end": "2015-07-13T00:00:00Z",
+	   "isPaused": false
+	 }
+	}
+	```   
    Note the following points:
    
    * In the activities section, there is only one activity whose **type** is set to **Copy**.
@@ -311,12 +317,15 @@ In this step, you publish Data Factory entities (linked services, datasets, and 
 * If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
   
   * In Azure PowerShell, run the following command to register the Data Factory provider. 
+
+	```PowerShell    
+	Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
+    ```
+	You can run the following command to confirm that the Data Factory provider is registered. 
     
-          Register-AzureRmResourceProvider -ProviderNamespace Microsoft.DataFactory
-    
-      You can run the following command to confirm that the Data Factory provider is registered. 
-    
-          Get-AzureRmResourceProvider
+	```PowerShell
+	Get-AzureRmResourceProvider
+	```
   * Login using the Azure subscription into the [Azure portal](https://portal.azure.com) and navigate to a Data Factory blade (or) create a data factory in the Azure portal. This action automatically registers the provider for you.
 * The name of the data factory may be registered as a DNS name in the future and hence become publically visible.
 
