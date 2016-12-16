@@ -320,7 +320,9 @@ Create a JSON file named **ADFCopyTutorialARM-Parameters.json** that contains pa
 	```PowerShell   
 	New-AzureRmResourceGroupDeployment -Name MyARMDeployment -ResourceGroupName ADFTutorialResourceGroup -TemplateFile C:\ADFGetStarted\ADFCopyTutorialARM.json -TemplateParameterFile C:\ADFGetStarted\ADFCopyTutorialARM-Parameters.json
 	```
+
 ## Monitor pipeline
+
 1. Log in to the [Azure portal](https://portal.azure.com) using your Azure account.
 2. Click **Data factories** on the left menu (or) click **More services** and click **Data factories** under **INTELLIGENCE + ANALYTICS** category.
    

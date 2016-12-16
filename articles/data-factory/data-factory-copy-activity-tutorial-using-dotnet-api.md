@@ -46,6 +46,7 @@ Create an Azure Active Directory application, create a service principal for the
 
 1. Launch **PowerShell**.
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
+
 	```PowerShell
 	Login-AzureRmAccount
 	```
@@ -80,7 +81,7 @@ Create an Azure Active Directory application, create a service principal for the
 
     If you get the following error, specify a different URL and run the command again.
 	
-	```
+	```PowerShell
 	Another object with the same value for property identifierUris already exists.
 	```
 7. Create the AD service principal.
@@ -95,10 +96,9 @@ Create an Azure Active Directory application, create a service principal for the
 	```
 9. Get the application ID.
 
-	```
+	```PowerShell
 	$azureAdApplication	
 	```
-
     Note down the application ID (**applicationID** from the output).
 
 You should have following four values from these steps:
