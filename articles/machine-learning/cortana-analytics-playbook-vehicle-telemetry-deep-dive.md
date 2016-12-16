@@ -162,7 +162,8 @@ Once the pipeline executes successfully and "RawCarEventsTable" dataset is marke
 ## Partition the dataset
 The raw semi-structured vehicle signals and diagnostic dataset are partitioned in the data preparation step into a YEAR/MONTH format. This partitioning promotes more efficient querying and scalable long-term storage by enabling fault-over from one blob account to the next as the first account fills up. 
 
->[!NOTE] This step in the solution is applicable only to batch processing.
+>[!NOTE] 
+>This step in the solution is applicable only to batch processing.
 
 Input and output data data management:
 
@@ -397,7 +398,8 @@ Click [RealtimeDashboardApp download](http://go.microsoft.com/fwlink/?LinkId=717
 
 *Figure 17 – RealtimeDashboardApp: Sign-in to Power BI*
 
->[!NOTE] If you want to flush the Power BI dataset, execute the RealtimeDashboardApp with the "flushdata" parameter: 
+>[!NOTE] 
+>If you want to flush the Power BI dataset, execute the RealtimeDashboardApp with the "flushdata" parameter: 
 
     RealtimeDashboardApp.exe -flushdata
 
