@@ -118,7 +118,7 @@ You can perform the following process manually, or set up an automated system to
        "ver":1,
        "name":"Microsoft.ApplicationInsights.OpenSchema",
        "time":"<DateTime>",
-       "iKey":<instrumentation key>"
+       "iKey":"<instrumentation key>"
     }
 ```
 
