@@ -174,7 +174,7 @@ For this tutorial you will add two Small nodes.
 1. In HPC Cluster Manager, in **Node Management** (called **Resource Management** in recent versions of HPC Pack), in the **Actions** pane, click **Add Node**.
    
     ![Add Node][add_node1]
-2. In the Add Node Wizard, on the **Select Deployment Method** page, click **Add Azure nodes**, and then click **Next**.
+2. In the Add Node Wizard, on the **Select Deployment Method** page, click **Add Windows Azure nodes**, and then click **Next**.
    
     ![Add Azure Node][add_node1_1]
 3. On the **Specify New Nodes** page, select the Azure node template you created previously (called by default **Default AzureNode Template**). Then specify **2** nodes of size **Small**, and then click **Next**.
