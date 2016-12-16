@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 12/14/2016
 ms.author: anhoh
 
 ---
@@ -53,7 +53,7 @@ To start working with resources, you must [create a DocumentDB database account]
 | Trigger |Application logic written in JavaScript executed before or after either an insert, replace or delete operation. |
 | UDF |Application logic written in JavaScript. UDFs enable you to model a custom query operator and thereby extend the core DocumentDB query language. |
 | Document |User defined (arbitrary) JSON content. By default, no schema needs to be defined nor do secondary indices need to be provided for all the documents added to a collection. |
-| (Preview) Attachment |An attachment is a special document containing references and associated metadata for external blob/media. The developer can choose to have the blob managed by DocumentDB or store it with an external blob service provider such as OneDrive, Dropbox, etc. |
+| Attachment |An attachment is a special document containing references and associated metadata for external blob/media. The developer can choose to have the blob managed by DocumentDB or store it with an external blob service provider such as OneDrive, Dropbox, etc. |
 
 ## System vs. user defined resources
 Resources such as database accounts, databases, collections, users, permissions, stored procedures, triggers, and UDFs - all have a fixed schema and are called system resources. In contrast, resources such as documents and attachments have no restrictions on the schema and are examples of user defined resources. In DocumentDB, both system and user defined resources are represented and managed as standard-compliant JSON. All resources, system or user defined, have the following common properties.
