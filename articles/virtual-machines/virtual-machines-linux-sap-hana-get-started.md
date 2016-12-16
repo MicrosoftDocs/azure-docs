@@ -21,13 +21,19 @@ ms.author: hermannd
 ---
 # Quick-start guide: Manual installation of single-instance SAP HANA on Azure VMs
 ## Introduction
-This quick-start guide helps you set up a single-instance SAP HANA prototype or demo system on Azure virtual machines (VMs) when you perform a manual installation of SAP NetWeaver 7.5 and SAP HANA SP12. The guide assumes that you are familiar with such Azure IaaS basics as how to deploy virtual machines or virtual networks through either the Azure portal or PowerShell and the Azure cross-platform command-line tool (CLI), including the option to use JavaScript Object Notification (JSON) templates. The guide also assumes that you are familiar with SAP HANA and SAP NetWeaver, and how to install them on-premises.
+This quick-start guide helps you set up a single-instance SAP HANA prototype or demo system on Azure virtual machines (VMs) when you install SAP NetWeaver 7.5 and SAP HANA SP12 manually.
+
+The guide assumes that you are familiar with such Azure IaaS basics as:
+ * How to deploy virtual machines or virtual networks via either the Azure portal or PowerShell.
+ * The Azure cross-platform command-line tool (CLI), including the option to use JavaScript Object Notification (JSON) templates.
+
+The guide also assumes that you are familiar with SAP HANA and SAP NetWeaver, and how to install them on-premises.
 
 Additionally, you should be aware of the SAP Azure documentation that's mentioned in the "General information" section at the end of the guide.
 
 Because the guide's content is restricted to non-production systems, it does not cover topics such as high availability (HA), backup, disaster recovery (DR), high performance, or special security considerations.
 
-Because SAP-Linux-Azure is supported only on Azure Resource Manager and not the classic deployment model, we performed the sample setup by using two virtual machines to accomplish a distributed SAP NetWeaver installation through the Azure Resource Manager model. For more information about Resource Manager, see the "General information" section at the end of the guide.
+SAP-Linux-Azure is supported only on Azure Resource Manager and not the classic deployment model. Consequently, we performed a sample setup using two virtual machines to accomplish a distributed SAP NetWeaver installation through the Azure Resource Manager model. For more information about Resource Manager, see the "General information" section at the end of the guide.
 
 For the sample installation, we used the following two test VMs:
 
@@ -45,23 +51,23 @@ The guide describes how to manually install SAP HANA on Azure VMs in two differe
 
 You can also use SWPM and install all components (SAP HANA, SAP application server, ASCS instance, SAP GUI) in one single VM. This option isn't described in the guide, but the items that must be considered are the same.
 
-Before you start an installation, be sure to read "Prepare Azure VMs for manual installation of SAP HANA," which comes after the following two checklists. Doing so can help prevent several basic mistakes that might occur when you use only a default Azure VM configuration.
+Before you start an installation, be sure to read "Prepare Azure VMs for manual installation of SAP HANA," which comes immediately after the two checklists for SAP HANA installation. Doing so can help prevent several basic mistakes that might occur when you use only a default Azure VM configuration.
 
 ## Checklist for SAP HANA installation using SAP SWPM
-This checklist contains the key items related to a manual, single-instance SAP HANA installation for demo or prototyping purposes when you use SAP SWPM to perform a distributed SAP NetWeaver 7.5 install. The individual items are explained in more detail in screenshots that are shown throughout the guide.
+This section lists the key steps for a manual, single-instance SAP HANA installation for demo or prototyping purposes when you use SAP SWPM to perform a distributed SAP NetWeaver 7.5 installation. The individual items are explained in more detail in screenshots that are shown throughout the guide.
 
 * Create an Azure virtual network that includes the two test VMs.
 * Deploy two Azure VMs with OS SLES 12 SP1 according to the Azure Resource Manager model.
 * Attach two standard storage disks to the app server VM (for example, 75-GB or 500-GB disks).
 * Attach four disks to the HANA DB server VM: two standard storage disks (like those for the app server VM) plus two premium storage disks (for example, two 512-GB disks).
-* Depending on size or throughput requirements, attach multiple disks and create striped volumes by using either logical volume management (LVM) or a multiple devices administration utility (mdadm) at the OS level inside the VM.
+* Depending on size or throughput requirements, attach multiple disks and create striped volumes by using either logical volume management (LVM) or a multiple-devices administration utility (mdadm) at the OS level inside the VM.
 * Create XFS file systems on the attached disks/logical volumes.
 * Mount the new XFS file systems at the OS level. Use one file system to keep all the SAP software, and use the other one for, for example, the /sapmnt directory and maybe backups. On the SAP HANA DB server, mount the XFS file systems on the premium storage disks as /hana and /usr/sap. This process is necessary to prevent the root file system, which isn't large on Linux Azure VMs, from filling up.
 * Enter the local IP addresses of the test VMs in /etc/hosts.
 * Enter the nofail parameter in /etc/fstab.
 * Set kernel parameters according to the HANA-SLES-12 SAP note. For more information, see the "Kernel parameters" section.
 * Add swap space.
-* Optionally, install a graphical desktop on the test VMs. Otherwise, use a remote SAPinst install.
+* Optionally, install a graphical desktop on the test VMs. Otherwise, use a remote SAPinst installation.
 * Download the SAP software from the SAP service marketplace.
 * Install the SAP ASCS instance on the app server VM.
 * Share the /sapmnt directory among the test VMs by using NFS. The app server VM is the NFS server.
@@ -70,20 +76,20 @@ This checklist contains the key items related to a manual, single-instance SAP H
 * Start SAP management console (MC) and connect with, for example, SAP GUI/HANA Studio.
 
 ## Checklist for SAP HANA installation using hdblcm
-This checklist contains the key items related to a manual, single-instance SAP HANA installation for demo or prototyping purposes when you use SAP hdblcm to perform a distributed SAP NetWeaver 7.5 install. The individual items are explained in more detail in screenshots that are shown throughout the guide.
+This section lists the key steps for a manual, single-instance SAP HANA installation for demo or prototyping purposes when you use SAP hdblcm to perform a distributed SAP NetWeaver 7.5 installation. The individual items are explained in more detail in screenshots that are shown throughout the guide.
 
 * Create an Azure virtual network that includes the two test VMs.
 * Deploy two Azure VMs with OS SLES 12 SP1 according to the Azure Resource Manager model.
 * Attach two standard storage disks to the app server VM (for example, 75-GB or 500-GB disks).
 * Attach four disks to the HANA DB server VM: Two standard storage disks (like those for the app server VM) plus two premium storage disks (for example, two 512-GB disks).
-* Depending on size or throughput requirements, attach multiple disks and create striped volumes by using either logical volume management (LVM) or a multiple devices administration utility (mdadm) at the OS level inside the VM.
+* Depending on size or throughput requirements, attach multiple disks and create striped volumes by using either logical volume management (LVM) or a multiple-devices administration utility (mdadm) at the OS level inside the VM.
 * Create XFS file systems on the attached disks/logical volumes.
 * Mount the new XFS file systems at the OS level. Use one file system to keep all the SAP software, and use the other one for, for example, the /sapmnt directory and maybe backups. On the SAP HANA DB server, mount the XFS file systems on the premium storage disks as /hana and /usr/sap. This process is necessary to help prevent the root file system, which isn't large on Linux Azure VMs, from filling up.
 * Enter the local IP addresses of the test VMs in /etc/hosts.
 * Enter the nofail parameter in /etc/fstab.
 * Set kernel parameters according to the HANA-SLES-12 SAP note. For more information, see the "Kernel parameters" section.
 * Add swap space.
-* Optionally, install a graphical desktop on the test VMs. Otherwise, use a remote SAPinst install.
+* Optionally, install a graphical desktop on the test VMs. Otherwise, use a remote SAPinst installation.
 * Download the SAP software from the SAP service marketplace.
 * Create a group, "sapsys," with group ID 1001 on the HANA DB server VM.
 * Install SAP HANA on the DB server VM by using HANA database lifecycle manager (HDBLCM).
@@ -117,7 +123,7 @@ The "101-vm-simple-linux" template shows a basic template, which includes a stor
 
 For information about how to find a SUSE image by using PowerShell or CLI, and to understand the importance of attaching a disk by using UUID, see [Running SAP NetWeaver on Microsoft Azure SUSE Linux VMs](virtual-machines-linux-sap-on-suse-quickstart.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Depending on the size and throughput requirements of the system, it might be necessary to attach multiple disks instead of one and, later, to create a stripe set across those disks at the OS level. The reason for creating a stripe set across multiple Azure disks has two aspects:
+Depending on the size or throughput requirements of the system, you might need to attach multiple disks instead of one and, later, create a stripe set across the disks at the OS level. You'll create a stripe set across multiple Azure disks for two reasons:
 
 * You can increase throughput.
 * You need a single file system that's greater than 1 TB, because the current Azure disk-size limit is 1 TB (as of July 2016).
@@ -127,16 +133,16 @@ For more information about the two main tools for configuring striping, see the 
 * [Configure software RAID on Linux](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Configure LVM on a Linux VM in Azure](virtual-machines-linux-configure-lvm.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-In the test environment, two Azure standard storage disks were attached to the SAP app server VM, as shown in the following screenshot. One was used to store all the SAP software for installation (that is, NetWeaver 7.5, SAP GUI, SAP HANA, and so forth). The other disk was used to ensure that enough free space is available for additional requirements (for example, backup and test data) and the /sapmnt directory (that is, SAP profiles) to be shared among all VMs that belong to the same SAP landscape.
+In the test environment, two Azure standard storage disks were attached to the SAP app server VM, as shown in the following screenshot. One disk stored all the SAP software for installation (that is, NetWeaver 7.5, SAP GUI, SAP HANA, and so forth). The second disk ensured that enough free space would be available for additional requirements (for example, backup and test data) and the /sapmnt directory (that is, SAP profiles) to be shared among all VMs that belong to the same SAP landscape.
 
 ![SAP HANA app server Disks window displaying two data disks and their sizes](./media/virtual-machines-linux-sap-hana-get-started/image003.jpg)
 
-Unlike the app server VM scenario, four disks were attached to the SAP HANA server VM, as shown in the following screenshot. Two disks were used to both store the SAP software (you can also sshare the SAP software disk by using NFS) and make enough free space available for, for example, backup. The additional two disks were Azure Premium Storage disks to store SAP HANA data and log files and the /usr/sap directory.
+Unlike the app server VM scenario, four disks were attached to the SAP HANA server VM, as shown in the following screenshot. Two disks were used to store the SAP software (you can also share the SAP software disk by using NFS) and make enough free space available (for backup, for example). The additional two disks were Azure Premium Storage disks to store SAP HANA data and log files and the /usr/sap directory.
 
 ![SAP HANA app server Disks window displaying four data disks and their sizes](./media/virtual-machines-linux-sap-hana-get-started/image004.jpg)
 
 ### Kernel parameters
-SAP HANA requires specific Linux kernel settings, which are not part of the standard Azure gallery images and must be set manually. A SAP HANA note describes the recommended OS settings for SLES 12/SLES for SAP Applications 12: [SAP Note 2205917](https://launchpad.support.sap.com/#/notes/2205917).
+SAP HANA requires specific Linux kernel settings, which are not part of the standard Azure gallery images and must be set manually. An SAP HANA note describes the recommended OS settings for SLES 12/SLES for SAP Applications 12: [SAP Note 2205917](https://launchpad.support.sap.com/#/notes/2205917).
 
 For an additional page-cache topic that's related to running SAP HANA on SLES, see "6.1 Kernel: Page-Cache Limit" of the [SUSE Linux Enterprise Server for SAP Applications 12 SP1 Guide](https://www.suse.com/documentation/sles_for_sap/singlehtml/sles_for_sap_guide/sles_for_sap_guide.html#sec.s4s.configure.page-cache).
 
@@ -177,7 +183,7 @@ When you install SAP NetWeaver on a standard SLES 12 Azure gallery image, a mess
 
 Another option is to configure swap space by using the Linux VM agent. For more information, see the [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-![Pop-up message advising about insufficient swap space](./media/virtual-machines-linux-sap-hana-get-started/image010.jpg)
+![Pop-up message advising that there is insufficient swap space](./media/virtual-machines-linux-sap-hana-get-started/image010.jpg)
 
 
 ### /etc/hosts
@@ -200,7 +206,7 @@ This section covers the following topics:
 You can also use alternatives such as Xterminal or VNC but, as of September 2016, the guide describes only xrdp.
 
 ### Installing Gnome desktop and xrdp on SLES 12
-If you have a Microsoft Windows background and want to use a graphical desktop directly within the SAP Linux VMs to run Firefox, Sapinst, SAP GUI, SAP MC, or HANA Studio and connect to the VM through RDP from a Windows computer, you can easily do so. Although the procedure might not be appropriate for a production database server, it's OK for a pure prototype/demo environment. Here is how to install Gnome desktop on an Azure SLES 12 VM:
+If you have a Microsoft Windows background, you can easily use a graphical desktop directly within the SAP Linux VMs to run Firefox, Sapinst, SAP GUI, SAP MC, or HANA Studio and connect to the VM through RDP from a Windows computer. Although the procedure might not be appropriate for a production database server, it's OK for a pure prototype/demo environment. Here is how to install Gnome desktop on an Azure SLES 12 VM:
 
 Install the gnome desktop by entering the following command (for example, in a putty window):
 
@@ -252,7 +258,7 @@ One additional issue that might occur is an error message about a missing file, 
 ## Install SAP HANA manually by using SWPM as part of a NetWeaver 7.5 installation
 The series of screenshots in this section shows the key steps for installing SAP NetWeaver 7.5 and SAP HANA SP12 when you use SWPM (SAPinst). As part of a NetWeaver 7.5 installation, SWPM can also install the HANA database as a single instance.
 
-In the sample test environment, just one Advanced Business Application Programming (ABAP) app server was installed. As shown in the following screenshot, the "Distributed System" option was used to install the ASCS and primary application server instances in one Azure VM and SAP HANA as the database system in another Azure VM.
+In the sample test environment, we installed just one Advanced Business Application Programming (ABAP) app server. As shown in the following screenshot, we used the "Distributed System" option to install the ASCS and primary application server instances in one Azure VM and SAP HANA as the database system in another Azure VM.
 
 ![ASCS and primary application server instances installed by using the "Distributed System" option](./media/virtual-machines-linux-sap-hana-get-started/image012.jpg)
 
@@ -264,7 +270,7 @@ On the app server VM, the /sapmnt directory should be shared via NFS by using th
 
 ![Sharing the /sapmnt directory via NFS by using the "rw" and "no_root_squash" options](./media/virtual-machines-linux-sap-hana-get-started/image017b.jpg)
 
-As the next screenshot shows, on the SAP HANA DB server VM, the /sapmnt share from the app server VM must be configured by using **NFS Client** (with the help of YaST).
+As the next screenshot shows, the /sapmnt share from the app server VM must be configured on the SAP HANA DB server VM by using **NFS Client** (with the help of YaST).
 
 ![The /sapmnt share configured by using "NFS Client"](./media/virtual-machines-linux-sap-hana-get-started/image018b.jpg)
 
@@ -300,7 +306,7 @@ This screenshot shows the file structure of the /usr/sap directory.
 
 ![The /usr/sap directory file structure](./media/virtual-machines-linux-sap-hana-get-started/image026.jpg)
 
-The final step of the distributed ABAP installation is the "Primary Application Server Instance."
+The last step of the distributed ABAP installation is the "Primary Application Server Instance."
 
 ![ABAP installation showing Primary Application Server Instance as the final step](./media/virtual-machines-linux-sap-hana-get-started/image027b.jpg)
 
@@ -308,7 +314,7 @@ After the Primary Application Server Instance and SAP GUI are installed, use the
 
 ![DBA Cockpit window confirming successful installation](./media/virtual-machines-linux-sap-hana-get-started/image028b.jpg)
 
-As a last step, you might want to install SAP HANA Studio in the SAP app server VM and connect to the SAP HANA instance that's running on the DB server VM.
+As a final step, you might want to first install SAP HANA Studio in the SAP app server VM and then connect to the SAP HANA instance that's running on the DB server VM.
 
 ![Installing SAP HANA Studio in the SAP app server VM](./media/virtual-machines-linux-sap-hana-get-started/image038b.jpg)
 
@@ -321,7 +327,7 @@ Here are three sources of information about the HANA hdblcm tool:
 * [SAP HANA Lifecycle Management Tools](http://saphanatutorial.com/sap-hana-lifecycle-management-tools/)
 * [SAP HANA Server Installation and Update Guide](http://help.sap.com/hana/SAP_HANA_Server_Installation_Guide_en.pdf)
 
-To avoid running into problems later with a default group ID setting for the \<HANA SID\>adm user (created by the hdblcm tool), define a new group called "sapsys" by using group ID 1001 before you install SAP HANA by using hdblcm.
+To avoid problems with a default group ID setting for the \<HANA SID\>adm user (created by the hdblcm tool), define a new group called "sapsys" by using group ID 1001 before you install SAP HANA via hdblcm.
 
 ![New group "sapsys" defined by using group ID 1001](./media/virtual-machines-linux-sap-hana-get-started/image030.jpg)
 
@@ -332,7 +338,7 @@ When you start hdblcm the first time, a simple start menu is displayed. Select i
 The following screenshot displays all the key options that you selected previously.
 
 > [!IMPORTANT]
-> Directories that are named for HANA log and data volumes, as well as the installation path (/hana/shared in this sample) and /usr/sap, should not be part of the root file system. The directories belong to the Azure data disks that were attached to the VM, as described in the Azure VM setup section. This approach will help avoid the risk of having the root file system run out of space. You can also see that the HANA admin user has user ID 1005 and is part of the sapsys group (ID 1001) that was defined before the installation.
+> Directories that are named for HANA log and data volumes, as well as the installation path (/hana/shared in this sample) and /usr/sap, should not be part of the root file system. The directories belong to the Azure data disks that were attached to the VM, as described in the Azure VM setup section. This approach will help avoid the risk of having the root file system run out of space. You can also see that the HANA admin has user ID 1005 and is part of the sapsys group (ID 1001) that was defined before the installation.
 
 ![List of all key SAP HANA components selected previously](./media/virtual-machines-linux-sap-hana-get-started/image032.jpg)
 
