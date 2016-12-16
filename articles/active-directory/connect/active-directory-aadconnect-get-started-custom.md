@@ -93,9 +93,9 @@ Review every domain marked **Not Added** and **Not Verified**. Make sure those d
 By default all domains and OUs are synchronized. If there are some domains or OUs you do not want to synchronize to Azure AD, you can unselect these domains and OUs.  
 
 >[!NOTE]
->The AAD Connect wizard uses by default **negative filtering**: 
+>By default the AAD Connect wizard uses **negative filtering**: 
 >Any OUs added in Active Directory after the wizard has completed will automatically be synchronized. 
->To learn how to configure **positive filtering** for OU filtering, see [organizational-unit–based filtering](../active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
+>To learn how to synchronize only the selected OUs, see [organizational-unit–based filtering](../active-directory-aadconnectsync-configure-filtering.md#organizational-unitbased-filtering).
 
 ![DomainOU filtering](./media/active-directory-aadconnect-get-started-custom/domainoufiltering.png)
 This page in the wizard is configuring domain-based filtering. For more information, see [domain-based filtering](../active-directory-aadconnectsync-configure-filtering.md#domain-based-filtering).
