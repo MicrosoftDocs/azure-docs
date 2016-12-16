@@ -13,11 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 12/11/2016
+ms.date: 12/14/2016
 ms.author: juliako;anilmur
 
 ---
 # Azure Media Services overview and common scenarios
+
 Microsoft Azure Media Services is an extensible cloud-based platform that enables developers to build scalable media management and delivery applications. Media Services is based on REST APIs that enable you to securely upload, store, encode and package video or audio content for both on-demand and live streaming delivery to various clients (for example, TV, PC, and mobile devices).
 
 You can build end-to-end workflows using entirely Media Services. You can also choose to use third-party components for some parts of your workflow. For example, encode using a third-party encoder. Then, upload, protect, package, deliver using Media Services.
@@ -25,17 +26,28 @@ You can build end-to-end workflows using entirely Media Services. You can also c
 You can choose to stream your content live or deliver content on demand. This topic shows common scenarios for delivering your content [live](media-services-overview.md#live_scenarios) or [on demand](media-services-overview.md#vod_scenarios). The topic also links to other relevant topics.
 
 ## SDKs and tools
+
 To build Media Services solutions, you can use:
 
 * [Media Services REST API](https://msdn.microsoft.com/library/azure/hh973617.aspx)
 * One of the available client SDKs:
-* [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services),
-* [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java),
-* [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
-* [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs).
+	* [Azure Media Services SDK for .NET](https://github.com/Azure/azure-sdk-for-media-services),
+	* [Azure SDK for Java](https://github.com/Azure/azure-sdk-for-java),
+	* [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
+	* [Azure Media Services for Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js) (This is a non-Microsoft version of a Node.js SDK. It is maintained by a community and currently does not have a 100% coverage of the AMS APIs).
 * Existing tools:
-* [Azure portal](https://portal.azure.com/)
-* [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)
+	* [Azure portal](https://portal.azure.com/)
+	* [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) is a Winforms/C# application for Windows)
+
+The following image shows some of the most commonly used objects when developing against the Media Services OData model. 
+
+Click the image to view it full size.  
+
+<a href="./media/media-services-overview/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-overview/media-services-overview-object-model-small.png"></a> 
+
+
+You can view the whole model [here](https://media.windows.net/API/$metadata?api-version=2.14).  
+
 
 ## Media Services learning paths
 You can view AMS learning paths here:

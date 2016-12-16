@@ -1,4 +1,4 @@
-﻿---
+---
 title: SAP NetWeaver on Azure Virtual Machines (VMs) - High-Availability Guide | Microsoft Docs
 description: High-availability guide for SAP NetWeaver on Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
@@ -368,6 +368,9 @@ ms.author: goraco
 [sap-templates-2-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-user-image%2Fazuredeploy.json
 [sap-templates-3-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image%2Fazuredeploy.json
 [sap-templates-3-tier-user-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-user-image%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-xscs-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-xscs%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-db-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
+[sap-templates-3-tier-multisid-apps-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-apps%2Fazuredeploy.json
 [storage-azure-cli]:../storage/storage-azure-cli.md
 [storage-azure-cli-copy-blobs]:../storage/storage-azure-cli.md#copy-blobs
 [storage-introduction]:../storage/storage-introduction.md
@@ -776,6 +779,112 @@ Here's where you can get Azure Resource Manager templates for this deployment sc
 ### Architectural Template 3
 
 You can prepare infrastructure and configure SAP **Multi-SID** e.g. add additional SAP ASCS/SCS instance into an **EXISTING** cluster by following this document: [Configure Additional SAP ASCS/SCS Instance into an Existing Cluster configuration to create a SAP Multi-SID configuration - Azure Resource Manager][sap-ha-multi-sid-guide].
+
+If you want to create a new Multi-SID cluster, you can use the Multi-SID [quickstart templates on github](https://github.com/Azure/azure-quickstart-templates).
+There are three templates that you need to deploy. The following chapters contain more details on the templates and the parameter you need to provide.
+
+#### ASCS/SCS Template
+
+The ASCS/SCS template deploys two virtual machines that can be used to create a Windows Failover Cluster that hosts multiple ASCS/SCS instances. [Open the ASCS/SCS Multi-SID template][sap-templates-3-tier-multisid-xscs-marketplace-image] and provide the values for the following parameters:
+
+* Resource Prefix  
+  The resource prefix is used to prefix all resources that are created during the deployment. Since the resources do not belong to only one SAP system, the prefix of the resource is not the SID of one SAP system.
+  The prefix must be between **3 and 6 characters**.
+
+* Stack Type  
+  Select the stack type of the SAP system. Depending on the stack type, the Azure Load Balancer has one (ABAP or JAVA only) or two (ABAP+JAVA) private IP addresses per SAP system.
+
+* Os Type  
+  Select the operating system of the virtual machines.
+
+* SAP System Count  
+  The number of SAP systems you want to install in this cluster.
+
+* System Availability  
+  Select HA.
+
+* Admin Username and Admin Password  
+  A new user is created that can be used to log on to the machine.
+
+* New Or Existing Subnet  
+  Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
+
+* Subnet Id  
+  The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
+
+The template deploys one Azure Load Balancer that supports multiple SAP systems.
+
+- The ASCS instances are configured for instance number 00, 10, 20... 
+- The SCS instances are configured for instance number 01, 11, 21... 
+- The ASCS ERS (Linux only) instances are configured for instance number 02, 12, 22... 
+- The SCS ERS (Linux only) instances are configured for instance number 03, 13, 23... 
+
+The Load Balancer contains 1 (2 for Linux) VIP(s), 1x VIP for ASCS/SCS and 1x VIP for ERS (Linux only)
+The following list contains all load balancing rules (where x is the number of the SAP system, e.g. 1,2,3...)
+- Windows specific ports for every SAP System 445, 5985
+- ASCS Ports (instance number x0): 32x0, 36x0, 39x0, 81x0, 5x013, 5x014, 5x016
+- SCS Ports (instance number x1): 32x1, 33x1, 39x1, 81x1, 5x113, 5x114, 5x116
+- ASCS ERS ports on Linux (instance number x2): 33x2, 5x213, 5x214, 5x216
+- SCS ERS ports on Linux (instance number x3): 33x3, 5x313, 5x314, 5x316
+
+The Load Balancer will be configured to use the following probe ports (where x is the number of the SAP system, e.g. 1,2,3...)
+- ASCS/SCS Internal Load Balancer probe port: 620x0
+- ERS Internal Load Balancer probe port (Linux only): 621x2
+
+#### Database Template
+
+The database template deploys one or two virtual machine that can be used to install the RDBMS for one SAP system. If you e.g. deployed an ASCS/SCS template for 5 SAP systems, you need to deploy this template five times.
+[Open the Database Multi-SID template][sap-templates-3-tier-multisid-db-marketplace-image] and provide the values for the following parameters:
+
+* Sap System Id  
+  Enter the SAP system Id of the SAP system you want to install. The Id will be used as a prefix for the resources that are deployed.
+
+* Os Type  
+  Select the operating system of the virtual machines.
+
+* Dbtype  
+  Select the type of the database you want to install on the cluster. Select SQL if you want to install Microsoft SQL Server or HANA if you plan on install SAP HANA on the virtual machines. Make sure to select the correct operating system type, Windows for SQL and a Linux distribution for HANA. The Azure Load Balancer that is connected to the virtual machines will be configured to support the selected database type:
+  * SQL  
+    The load balancer will load balance port 1433. Make sure to use this port for your SQL Server Always On setup.
+  * HANA  
+    The load balance will load balance ports 35015 and 35017. Make sure to install SAP HANA with instance number 50.
+
+  The load balancer will use probe port 62550.
+
+* Sap System Size  
+  The amount of SAPS the new system will provide. If you are not sure how many SAPS the system will require, please ask your SAP Technology Partner or System Integrator
+
+* System Availability  
+  Select HA
+
+* Admin Username and Admin Password  
+  A new user is created that can be used to log on to the machine.
+
+* Subnet Id  
+  Enter the Id of the subnet that you used during the depoyment of the ASCS/SCS template or the Id of the subnet that was created as part of the ASCS/SCS template deployment.
+
+#### Application Servers Template
+
+The application servers template deploys two or more virtual machines that can be used as SAP application servers for one SAP system. If you e.g. deployed an ASCS/SCS template for 5 SAP systems, you need to deploy this template five times.
+[Open the Application Servers Multi-SID template][sap-templates-3-tier-multisid-apps-marketplace-image] and provide the values for the following parameters:
+
+* Sap System Id  
+  Enter the SAP system Id of the SAP system you want to install. The Id will be used as a prefix for the resources that are deployed.
+
+* Os Type  
+  Select the operating system of the virtual machines.
+
+* Sap System Size  
+  The amount of SAPS the new system will provide. If you are not sure how many SAPS the system will require, please ask your SAP Technology Partner or System Integrator
+
+* System Availability  
+  Select HA
+
+* Admin Username and Admin Password  
+  A new user is created that can be used to log on to the machine.
+
+* Subnet Id  
+  Enter the Id of the subnet that you used during the depoyment of the ASCS/SCS template or the Id of the subnet that was created as part of the ASCS/SCS template deployment.
 
 ### <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Azure Virtual Network
 In our example, the address space of the Azure virtual network is 10.0.0.0/16. There is one subnet called **Subnet**, with an address range of 10.0.0.0/24. All virtual machines and internal load balancers are deployed in this virtual network.

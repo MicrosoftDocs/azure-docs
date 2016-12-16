@@ -73,6 +73,10 @@ Use Active Geo-Replication if your application meets any of these criteria:
 * Has a high rate of data change is high and losing an hour of data is not acceptable.
 * The additional cost of active geo-replication is lower than the potential financial liability and associated loss of business.
 
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
+
 ## Recover a database after a user or application error
 *No one is perfect! A user might accidentally delete some data, inadvertently drop an important table, or even drop an entire database. Or, an application might accidentally overwrite good data with bad data due to an application defect. 
 

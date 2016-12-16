@@ -1,6 +1,6 @@
 ---
 layout: LandingPage
-description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities. 
+description: Learn how to synchronize directories and enable single sign-on. Documentation shows you how to integrate a full suite of identity management capabilities.
 ---
 
 # Azure Active Directory Documentation
