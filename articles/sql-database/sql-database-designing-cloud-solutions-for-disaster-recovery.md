@@ -10,7 +10,7 @@ editor: monicar
 
 ms.assetid: e8a346ac-dd08-41e7-9685-46cebca04582
 ms.service: sql-database
-ms.custom: app development
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
