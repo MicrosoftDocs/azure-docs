@@ -28,21 +28,13 @@ A Transform, which is also known as a map, consists of a Source XML schema (the 
 You can create a transform/map by using the Visual Studio [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas). When you are finished creating and testing the transform, you upload the transform into your integration account. 
 
 ## How to use a transform
-After you upload the transform into your integration account, you can use it to create a Logic app. The Logic app will then run your transformations whenever the Logic app is triggered (and there is input content that needs to be transformed).
+After you upload the transform/map into your integration account, you can use it to create a Logic app. The Logic app will then run your transformations whenever the Logic app is triggered (and there is input content that needs to be transformed).
 
 **Here are the steps to use a transform**:
 
 ### Prerequisites
-In the preview, you will need to:  
 
-* [Create an Azure Functions container](https://ms.portal.azure.com/#create/Microsoft.FunctionApp "Create an Azure Functions container")  
-* [Add a function to the Azure Functions container](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-logic-app-transform-function%2Fazuredeploy.json "This template creates a webhook based C# azure function with transform capabilities to use in logic apps integration scenarios")    
 * Create an integration account and add a map to it  
-
-> [!TIP]
-> Make a note of the the name of the Azure Functions container and the Azure function, you will need them in the next step.  
-> 
-> 
 
 Now that you've taken care of the prerequisites, it's time to create your Logic app:  
 
@@ -55,11 +47,9 @@ Now that you've taken care of the prerequisites, it's time to create your Logic 
    ![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)  
 5. Select the **Transform XML** action   
    ![](./media/app-service-logic-enterprise-integration-transforms/transform-4.png)  
-6. Select the **FUNCTION CONTAINER** that contains the function you will use. This is the name of the Azure Functions container you created earlier in these steps.
-7. Select the **FUNCTION** you want to use. This is the name of the Azure Function you created earlier.
-8. Add the XML **CONTENT** that you will transform. Note that you can use any XML data you receive in the HTTP request as the **CONTENT**. In this example, select the body of the HTTP request that triggered the Logic app.
-9. Select the name of the **MAP** that you want to use to perform the transformation. The map must already be in your integration account. In an earlier step, you already gave your Logic app access to your integration account that contains your map.
-10. Save your work  
+6. Add the XML **CONTENT** that you will transform. Note that you can use any XML data you receive in the HTTP request as the **CONTENT**. In this example, select the body of the HTTP request that triggered the Logic app.
+7. Select the name of the **MAP** that you want to use to perform the transformation. The map must already be in your integration account. In an earlier step, you already gave your Logic app access to your integration account that contains your map.
+8. Save your work  
     ![](./media/app-service-logic-enterprise-integration-transforms/transform-5.png) 
 
 At this point, you are finished setting up your map. In a real world application, you may want to store the transformed data in an LOB application such as SalesForce. You can easily as an action to send the output of the transform to Salesforce. 
