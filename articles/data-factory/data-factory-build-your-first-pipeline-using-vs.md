@@ -305,8 +305,10 @@ Important points to note:
 ### Monitor pipeline using Diagram View
 1. Log in to the [Azure portal](https://portal.azure.com/), do the following:
    1. Click **More services** and click **Data factories**.
-       ![Browse data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
+       
+		![Browse data factories](./media/data-factory-build-your-first-pipeline-using-vs/browse-datafactories.png)
    2. Select the name of your data factory (for example: **FirstDataFactoryUsingVS09152016**) from the list of data factories.
+   
        ![Select your data factory](./media/data-factory-build-your-first-pipeline-using-vs/select-first-data-factory.png)
 2. In the home page for your data factory, click **Diagram**.
 
@@ -343,7 +345,8 @@ Important points to note:
 11. Click the slice to see details about it in a **Data slice** blade.
 
     ![Data slice details](./media/data-factory-build-your-first-pipeline-using-vs/data-slice-details.png)  
-12. Click an activity run in the **Activity runs list** to see details about an activity run (Hive activity in our scenario) in an **Activity run details** window.   
+12. Click an activity run in the **Activity runs list** to see details about an activity run (Hive activity in our scenario) in an **Activity run details** window. 
+  
     ![Activity run details](./media/data-factory-build-your-first-pipeline-using-vs/activity-window-blade.png)    
 
     From the log files, you can see the Hive query that was executed and status information. These logs are useful for troubleshooting any issues.  

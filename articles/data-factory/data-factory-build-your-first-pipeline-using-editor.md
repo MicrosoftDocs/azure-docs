@@ -89,6 +89,7 @@ In this step, you link your Azure Storage account to your data factory. In this 
     ![Deploy button](./media/data-factory-build-your-first-pipeline-using-editor/deploy-button.png)
 
    After the linked service is deployed successfully, the **Draft-1** window should disappear and you see **AzureStorageLinkedService** in the tree view on the left.
+
     ![Storage Linked Service in menu](./media/data-factory-build-your-first-pipeline-using-editor/StorageLinkedServiceInTree.png)    
 
 ### Create Azure HDInsight linked service
@@ -359,6 +360,7 @@ You can also use Monitor & Manage application to monitor your pipelines. For det
 
     ![Monitor & Manage App](./media/data-factory-build-your-first-pipeline-using-editor/monitor-and-manage-app.png)
 3. Select an activity window in the **Activity Windows** list to see details about it.
+
     ![Activity window details](./media/data-factory-build-your-first-pipeline-using-editor/activity-window-details.png)
 
 ## Summary
