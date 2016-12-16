@@ -1,5 +1,5 @@
 ---
-title: Availability Set Guidelines | Microsoft Docs
+title: Azure Availability Set Guidelines | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying Availability Sets in Azure infrastructure services.
 documentationcenter: ''
 services: virtual-machines-linux
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 
 ---
-# Availability sets guidelines
+# Azure availability sets guidelines
 [!INCLUDE [virtual-machines-linux-infrastructure-guidelines-intro](../../includes/virtual-machines-linux-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding the required planning steps for availability sets to ensure your applications remains accessible during planned or unplanned events.
