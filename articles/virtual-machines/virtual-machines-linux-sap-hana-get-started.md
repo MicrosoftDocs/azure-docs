@@ -155,7 +155,7 @@ To make the SAP HANA kernel settings permanent, use grub2 on SLES 12. For more i
 
 The following screenshot shows how the kernel settings were changed in the config file and then compiled by using grub2-mkconfig.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image006.jpg)
+![Kernel settings changed in the config file and compiled by using grub2-mkconfig](./media/virtual-machines-linux-sap-hana-get-started/image006.jpg)
 
 Another option might be to change the settings by using YaST and the **Boot Loader** > **Kernel Parameters** settings.
 
@@ -166,30 +166,30 @@ The following screenshot shows two file systems that were created on the SAP app
 
 It is not mandatory to structure your file systems in this way. You have other options for structuring the disk space. The most important consideration is to prevent the root file system from running out of free space.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image008.jpg)
+![Two file systems created on the SAP app server VM](./media/virtual-machines-linux-sap-hana-get-started/image008.jpg)
 
 Regarding the SAP HANA DB VM, it's important to know that during a database installation, when you use SAPinst (SWPM) and the simple "typical" installation option, it installs everything by default under /hana and /usr/sap. The default setting for SAP HANA log backup is under /usr/sap. Again, because it's important to prevent the root file system from running out of storage space, make sure that there is enough free space under /hana and /usr/sap before you install SAP HANA by using SWPM.
 
 For a description of the standard file-system layout of SAP HANA, see the [SAP HANA Server Installation and Update Guide](http://help.sap.com/saphelp_hanaplatform/helpdata/en/4c/24d332a37b4a3caad3e634f9900a45/frameset.htm).
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image009.jpg)
+![Additional file systems created on the SAP app server VM](./media/virtual-machines-linux-sap-hana-get-started/image009.jpg)
 
 When you install SAP NetWeaver on a standard SLES 12 Azure gallery image, a message is displayed that says that there is no swap space. To dismiss this message, you can manually add a swap file by using dd, mkswap, and swapon. To learn how, search for "Adding a Swap File Manually" in the ["Using the YaST Partitioner" section of SUSE documentation](https://www.suse.com/documentation/sled-12/book_sle_deployment/data/sec_yast2_i_y2_part_expert.html).
 
 Another option is to configure swap space by using the Linux VM agent. For more information, see the [Azure Linux Agent User Guide](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image010.jpg)
+![Pop-up message advising about insufficient swap space](./media/virtual-machines-linux-sap-hana-get-started/image010.jpg)
 
 
 ### /etc/hosts
 Another important thing to keep in mind before you start to install SAP is to include host names and IP addresses of the SAP VMs in the /etc/hosts file. Deploy all the SAP VMs within one Azure virtual network, and then use the internal IP addresses.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image011.jpg)
+![Host names and IP addresses of the SAP VMs listed in the /etc/hosts file](./media/virtual-machines-linux-sap-hana-get-started/image011.jpg)
 
 ### /etc/fstab
 
-During the testing phase, we found it a good idea to add the nofail parameter to fstab. If something goes wrong with the disks, the VM still comes up and does not hang in the boot process. But pay close attention, because, as in this case, the additional disk space might not be available and processes might fill up the root file system. If /hana is missing, SAP HANA won't start.
+During the testing phase, we found it a good idea to add the nofail parameter to fstab. If something goes wrong with the disks, the VM still comes up and does not hang in the boot process. But pay close attention, because, as in this scenario, the additional disk space might not be available and processes might fill up the root file system. If /hana is missing, SAP HANA won't start.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image000c.jpg)
+![Add nofail parameter to fstab](./media/virtual-machines-linux-sap-hana-get-started/image000c.jpg)
 
 ## Install graphical Gnome desktop on SLES 12
 This section covers the following topics:
@@ -252,25 +252,25 @@ One additional issue that might occur is an error message about a missing file, 
 ## Install SAP HANA manually by using SWPM as part of a NetWeaver 7.5 installation
 The series of screenshots in this section shows the key steps for installing SAP NetWeaver 7.5 and SAP HANA SP12 when you use SWPM (SAPinst). As part of a NetWeaver 7.5 installation, SWPM can also install the HANA database as a single instance.
 
-In the sample test environment, just one Advanced Business Application Programming (ABAP) app server was installed. As shown in the following screenshot, the option "Distributed System" was used to install the ASCS and primary application server instances in one Azure VM and SAP HANA as the database system in another Azure VM.
+In the sample test environment, just one Advanced Business Application Programming (ABAP) app server was installed. As shown in the following screenshot, the "Distributed System" option was used to install the ASCS and primary application server instances in one Azure VM and SAP HANA as the database system in another Azure VM.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image012.jpg)
+![ASCS and primary application server instances installed by using the "Distributed System" option](./media/virtual-machines-linux-sap-hana-get-started/image012.jpg)
 
-After the ASCS instance is installed on the app server VM and is set to "green" in the SAP MC, the /sapmnt directory (including the SAP profile directory) must be shared with the SAP HANA DB server VM. The DB installation step needs access to this information. The best way to provide access is to use NFS, which can be configured by using YaST.
+After the ASCS instance is installed on the app server VM and is set to "green" in the SAP Management Console, the /sapmnt directory (including the SAP profile directory) must be shared with the SAP HANA DB server VM. The DB installation step needs access to this information. The best way to provide access is to use NFS, which can be configured by using YaST.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image016.jpg)
+![SAP Management Console showing the ASCS instance installed on the app server VM and set to "green"](./media/virtual-machines-linux-sap-hana-get-started/image016.jpg)
 
-On the app server VM, the /sapmnt directory should be shared through NFS by using the options **rw** and **no_root_squash**. The defaults are "ro" and "root_squash," which might lead to problems when you install the database instance.
+On the app server VM, the /sapmnt directory should be shared via NFS by using the **rw** and **no_root_squash** options. The defaults are "ro" and "root_squash," which might lead to problems when you install the database instance.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image017b.jpg)
+![Sharing the /sapmnt directory via NFS by using the "rw" and "no_root_squash" options](./media/virtual-machines-linux-sap-hana-get-started/image017b.jpg)
 
 As the next screenshot shows, on the SAP HANA DB server VM, the /sapmnt share from the app server VM must be configured by using **NFS Client** (with the help of YaST).
 
-![The /sapmnt share must be configured by using "NFS Client"](./media/virtual-machines-linux-sap-hana-get-started/image018b.jpg)
+![The /sapmnt share configured by using "NFS Client"](./media/virtual-machines-linux-sap-hana-get-started/image018b.jpg)
 
 To perform a distributed NetWeaver 7.5 installation, **Database Instance**, as shown in the following screenshot, sign in to the SAP HANA DB server VM and start SWPM.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image019.jpg)
+![Installing a database instance by signing in to the SAP HANA DB server VM and starting SWPM](./media/virtual-machines-linux-sap-hana-get-started/image019.jpg)
 
 After you select a "typical" installation and the path to the installation media, enter a DB SID, the host name, the instance number, and the DB System Administrator password.
 
@@ -308,9 +308,9 @@ After the Primary Application Server Instance and SAP GUI are installed, use the
 
 ![DBA Cockpit window confirming successful installation](./media/virtual-machines-linux-sap-hana-get-started/image028b.jpg)
 
-As a last step, you might want to install SAP HANA Studio in the SAP app server VM and connect to the SAP HANA instance running on the DB server VM.
+As a last step, you might want to install SAP HANA Studio in the SAP app server VM and connect to the SAP HANA instance that's running on the DB server VM.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image038b.jpg)
+![Installing SAP HANA Studio in the SAP app server VM](./media/virtual-machines-linux-sap-hana-get-started/image038b.jpg)
 
 ## Install SAP HANA manually by using the HANA lifecycle management tool (hdblcm)
 In addition to installing SAP HANA as part of a distributed installation by using SWPM, you can install HANA standalone first by using hdblcm. Afterward, you can install, for example, SAP NetWeaver 7.5. The following screenshots show how this process works.
@@ -323,7 +323,7 @@ Here are three sources of information about the HANA hdblcm tool:
 
 To avoid running into problems later with a default group ID setting for the \<HANA SID\>adm user (created by the hdblcm tool), define a new group called "sapsys" by using group ID 1001 before you install SAP HANA by using hdblcm.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image030.jpg)
+![New group "sapsys" defined by using group ID 1001](./media/virtual-machines-linux-sap-hana-get-started/image030.jpg)
 
 When you start hdblcm the first time, a simple start menu is displayed. Select item 1, **Install new system**, as shown in the following screenshot.
 
@@ -338,7 +338,7 @@ The following screenshot displays all the key options that you selected previous
 
 You can check the HANA \<HANA SID\>adm (azdadm in the following screenshot) user details in /etc/passwd.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image033.jpg)
+![HANA \<HANA SID\>adm user details listed in /etc/passwd](./media/virtual-machines-linux-sap-hana-get-started/image033.jpg)
 
 After you install SAP HANA by using hdblcm, you can see the file structure in SAP HANA Studio. The SAPABAP1 schema, which includes all the SAP NetWeaver tables, isn't available yet.
 
@@ -346,23 +346,23 @@ After you install SAP HANA by using hdblcm, you can see the file structure in SA
 
 After you install SAP HANA, you can install SAP NetWeaver on top of it. As shown in this screenshot, the installation was performed as a "distributed installation" by using SWPM (as described in the previous section). When you install the database instance by using SWPM, you enter the same data by using hdblcm (for example, host name, HANA SID, and instance number). SWPM then uses the existing HANA installation and adds more schemas.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image035b.jpg)
+![A distributed installation performed by using SWPM](./media/virtual-machines-linux-sap-hana-get-started/image035b.jpg)
 
 The following screenshot shows the SWPM installation step where you enter data about the DBACOCKPIT schema.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image036b.jpg)
+![The SWPM installation step where DBACOCKPIT schema data is entered](./media/virtual-machines-linux-sap-hana-get-started/image036b.jpg)
 
 Enter data about the SAPABAP1 schema.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image037b.jpg)
+![Entering data about the SAPABAP1 schema](./media/virtual-machines-linux-sap-hana-get-started/image037b.jpg)
 
 After the SWPM database instance installation is completed, you can see the SAPABAP1 schema in SAP HANA Studio.
 
 ![The SAPABAP1 schema in SAP HANA Studio](./media/virtual-machines-linux-sap-hana-get-started/image038b.jpg)
 
-Finally, after the SAP app server and SAP GUI installation is completed, you can verify the HANA DB instance with transaction "dbacockpit."
+Finally, after the SAP app server and SAP GUI installation is completed, you can verify the HANA DB instance by using the "dbacockpit" transaction.
 
-![Alt text](./media/virtual-machines-linux-sap-hana-get-started/image039b.jpg)
+![The HANA DB instance verified with "dbacockpit" transaction](./media/virtual-machines-linux-sap-hana-get-started/image039b.jpg)
 
 ## About SAP Azure certifications and running SAP HANA on Azure
 For more information, see the following documentation:
