@@ -76,8 +76,15 @@ Python Extensions for U-SQL enable developers to perform massively parallel exec
 ### Python Versions
 Only Python 3.5.1 (compiled for Windows) is supported. 
 
-### Python modules
-In U-SQL, the standard Python modules are included. In addition, the pandas, numpy, and numexpr libraries are included.
+### Standard Python modules
+All the standard Python modules are included.
+
+### Additional Python modules
+Besides the standard Python libraries, several commonly used python libraries are included:
+
+    pandas
+    numpy
+    numexpr
 
 ### Debugging Support
 Currently, an exception in Python code will as show up as generic vertex failure. In the future, Python exception messages will be clearlyvisible in the job error messages.
