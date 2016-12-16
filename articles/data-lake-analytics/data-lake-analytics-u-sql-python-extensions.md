@@ -80,10 +80,10 @@ Only Python 3.5.1 (compiled for Windows) is supported.
 In U-SQL, the standard Python modules are included. In addition, the pandas, numpy, and numexpr libraries are included.
 
 ### Debugging Support
-Currently, an exception in Python code will as show up as generic vertex failure. In the future, exceptions will clearly shown in the error messages.
+Currently, an exception in Python code will as show up as generic vertex failure. In the future, Python exception messages will be clearlyvisible in the job error messages.
 
 ### Input and Output size limitations
-Every vertex has a limited amount of memory assigned to it. Currently, that limit is 6GB for an AU. Because the input and output dataframes must exist in memory in the Python code, the total size for the input and output cannot exceed 6GB.
+Every vertex has a limited amount of memory assigned to it. Currently, that limit is 6GB for an AU. Because the input and output DataFrames must exist in memory in the Python code, the total size for the input and output cannot exceed 6GB.
 
 ## See also
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
