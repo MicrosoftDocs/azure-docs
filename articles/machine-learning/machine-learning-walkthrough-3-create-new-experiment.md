@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 12/16/2016
 ms.author: garye
 
 ---
@@ -46,7 +46,7 @@ The next step in this walkthrough is to create an experiment in Machine Learning
 ![Add the dataset to the experiment][7]
 
 ## Prepare the data
-You can view the first 100 rows of the data and some statistical information for the whole dataset by clicking the output port of the dataset (the small circle at the bottom) and selecting **Visualize**.  
+You can view the first 100 rows of the data and some statistical information for the whole dataset: Click the output port of the dataset (the small circle at the bottom) and select **Visualize**.  
 
 Because the data file didn't come with column headings, Studio has provided generic headings (Col1, Col2, *etc.*). Good headings aren't essential to creating a model, but they make it easier to work with the data in the experiment. Also, when we eventually publish this model in a web service, the headings will help identify the columns to the user of the service.  
 
@@ -55,7 +55,7 @@ You use the [Edit Metadata][edit-metadata] module to change metadata associated 
 
 To use [Edit Metadata][edit-metadata], you first specify which columns to modify (in this case, all of them.) Next, you specify the action to be performed on those columns (in this case, changing column headings.)
 
-1. In the module palette, type "metadata" in the **Search** box. You'll see [Edit Metadata][edit-metadata] appear in the module list.
+1. In the module palette, type "metadata" in the **Search** box. The [Edit Metadata][edit-metadata] appears in the module list.
 2. Click and drag the [Edit Metadata][edit-metadata] module onto the canvas and drop it below the dataset we added earlier.
 3. Connect the dataset to the [Edit Metadata][edit-metadata]: click the output port of the dataset (the small circle at the bottom of the dataset), drag to the input port of [Edit Metadata][edit-metadata] (the small circle at the top of the module), then release the mouse button. The dataset and module remain connected even if you move either around on the canvas.
    
@@ -74,17 +74,17 @@ To use [Edit Metadata][edit-metadata], you first specify which columns to modify
 5. In the **Select columns** dialog, select all the rows in **Available Columns** and click > to move them to **Selected Columns**.
    The dialog should look like this:
    ![Column Selector with all columns selected][2]
-6. Click the **OK** checkmark.
+6. Click the **OK** check mark.
 7. Back in the **Properties** pane, look for the **New column names** parameter. In this field, enter a list of names for the 21 columns in the dataset, separated by commas and in column order. You can obtain the columns names from the dataset documentation on the UCI website, or for convenience you can copy and paste the following list:  
    
        Status of checking account, Duration in months, Credit history, Purpose, Credit amount, Savings account/bond, Present employment since, Installment rate in percentage of disposable income, Personal status and sex, Other debtors, Present residence since, Property, Age in years, Other installment plans, Housing, Number of existing credits, Job, Number of people providing maintenance for, Telephone, Foreign worker, Credit risk  
    
-   The Properties pane will look like this:
+   The Properties pane looks like this:
    
    ![Properties for Edit Metadata][3]
 
 > [!TIP]
-> If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas). When it finishes running (a green checkmark will appear on [Edit Metadata][edit-metadata]), click the output port of the [Edit Metadata][edit-metadata] module, and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
+> If you want to verify the column headings, run the experiment (click **RUN** below the experiment canvas). When it finishes running (a green check mark appears on [Edit Metadata][edit-metadata]), click the output port of the [Edit Metadata][edit-metadata] module, and select **Visualize**. You can view the output of any module in the same way to view the progress of the data through the experiment.
 > 
 > 
 
@@ -94,7 +94,7 @@ The next step of the experiment is to split the dataset into two separate datase
 To do this, we use the [Split Data][split] module.  
 
 1. Find the [Split Data][split] module, drag it onto the canvas, and connect it to the [Edit Metadata][edit-metadata] module.
-2. By default, the split ratio is 0.5 and the **Randomized split** parameter is set. This means that a random half of the data is output through one port of the [Split Data][split] module, and half through the other. You can adjust these, as well as the **Random seed** parameter, to change the split between training and testing data. For this example, we'll leave them as-is.
+2. By default, the split ratio is 0.5 and the **Randomized split** parameter is set. This means that a random half of the data is output through one port of the [Split Data][split] module, and half through the other. You can adjust these parameters, as well as the **Random seed** parameter, to change the split between training and testing data. For this example, we leave them as-is.
    
    > [!TIP]
    > The property **Fraction of rows in the first output dataset** determines how much of the data is output through the left output port. For instance, if you set the ratio to 0.7, then 70% of the data is output through the left port and 30% through the right port.  
@@ -108,9 +108,10 @@ As mentioned earlier, the cost of misclassifying a high credit risk as low is fi
 
 We can do this replication using R code:  
 
-1. Find and drag the [Execute R Script][execute-r-script] module onto the experiment canvas and connect the left output port of the [Split Data][split] module to the first input port ("Dataset1") of the [Execute R Script][execute-r-script] module.
-2. Double-click the [Execute R Script][execute-r-script] module and enter the comment, "Set cost adjustment".
-3. In the **Properties** pane, delete the default text in the **R Script** parameter and enter this script:
+1. Find and drag the [Execute R Script][execute-r-script] module onto the experiment canvas. 
+2. Connect the left output port of the [Split Data][split] module to the first input port ("Dataset1") of the [Execute R Script][execute-r-script] module.
+3. Double-click the [Execute R Script][execute-r-script] module and enter the comment, "Set cost adjustment".
+4. In the **Properties** pane, delete the default text in the **R Script** parameter and enter this script:
    
        dataset1 <- maml.mapInputPort(1)
        data.set<-dataset1[dataset1[,21]==1,]
@@ -120,7 +121,7 @@ We can do this replication using R code:
 
     ![R script in the Execute R Script module][9]
 
-We need to do this same replication operation for each output of the [Split Data][split] module so that the training and testing data have the same cost adjustment. We'll do this by duplicating the [Execute R Script][execute-r-script] module we just made and connecting to the other output port of the [Split Data][split] module.
+We need to do this same replication operation for each output of the [Split Data][split] module so that the training and testing data have the same cost adjustment. We'll do this by duplicating the [Execute R Script][execute-r-script] module we just made and connecting it to the other output port of the [Split Data][split] module.
 
 1. Right-click the [Execute R Script][execute-r-script] module and select **Copy**.
 2. Right-click the experiment canvas and select **Paste**.

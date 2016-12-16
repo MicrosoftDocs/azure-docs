@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/05/2016
+ms.date: 12/16/2016
 ms.author: garye
 
 ---
@@ -39,16 +39,16 @@ This is a two-step process:
 
 But first, we need to trim this experiment down a little. We currently have two different models in the experiment, but we only want one model when we deploy this as a Web service.  
 
-Let's say we've decided that the boosted tree model was the better model to use. So the first thing to do is remove the [Two-Class Support Vector Machine][two-class-support-vector-machine] module and the modules that were used for training it. You may want to make a copy of the experiment first by clicking **Save As** at the bottom of the experiment canvas.
+Let's say we've decided that the boosted tree model performed better than the SVM model. So the first thing to do is remove the [Two-Class Support Vector Machine][two-class-support-vector-machine] module and the modules that were used for training it. You may want to make a copy of the experiment first by clicking **Save As** at the bottom of the experiment canvas.
 
 We need to delete the following modules:  
 
 * [Two-Class Support Vector Machine][two-class-support-vector-machine]
 * [Train Model][train-model] and [Score Model][score-model] modules that were connected to it
 * [Normalize Data][normalize-data] (both of them)
-* [Evaluate Model][evaluate-model]
+* [Evaluate Model][evaluate-model] (because we're finished evaluating the models)
 
-Select the module and press the Delete key, or right-click the module and select **Delete**.
+Select each module and press the Delete key, or right-click the module and select **Delete**.
 
 Now we're ready to deploy this model using the [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree].
 
@@ -59,11 +59,11 @@ Converting to a predictive experiment involves three steps:
 2. Trim the experiment to remove modules that were only needed for training
 3. Define where the Web service will accept input and where it generates the output
 
-Fortunately, all three steps can be accomplished by clicking **Set Up Web service** at the bottom of the experiment canvas (select the **Predictive Web service** option).
+We could do this manually, but fortunately all three steps can be accomplished by clicking **Set Up Web service** at the bottom of the experiment canvas (selecting the **Predictive Web service** option).
 
 When you click **Set Up Web service**, several things happen:
 
-* The trained model is saved as a single **Trained Model** module into the module palette to the left of the experiment canvas (you can find it under **Trained Models**).
+* The trained model is converted to a single **Trained Model** module and stored in the module palette to the left of the experiment canvas (you can find it under **Trained Models**).
 * Modules that were used for training are removed. Specifically:
   * [Two-Class Boosted Decision Tree][two-class-boosted-decision-tree]
   * [Train Model][train-model]
@@ -72,15 +72,12 @@ When you click **Set Up Web service**, several things happen:
 * The saved trained model is added back into the experiment.
 * **Web service input** and **Web service output** modules are added.
 
-> [!NOTE]
-> The experiment has been saved in two parts under tabs that have been added at the top of the experiment canvas: the original training experiment is under the tab **Training experiment**, and the newly created predictive experiment is under **Predictive experiment**.
-> 
-> 
+Notice that the experiment is saved in two parts under tabs that have been added at the top of the experiment canvas: the original training experiment is under the tab **Training experiment**, and the newly created predictive experiment is under **Predictive experiment**.
 
 We need to take one additional step with this particular experiment.
 We added two [Execute R Script][execute-r-script] modules to provide a weighting function to the data for training and testing. We don't need to do that in the final model.
 
-Machine Learning Studio removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module. Now we can now remove the other and connect [Metadata Editor][metadata-editor] directly to [Score Model][score-model].    
+Machine Learning Studio removed one [Execute R Script][execute-r-script] module when it removed the [Split][split] module. Now we can remove the other and connect [Metadata Editor][metadata-editor] directly to [Score Model][score-model].    
 
 Our experiment should now look like this:  
 

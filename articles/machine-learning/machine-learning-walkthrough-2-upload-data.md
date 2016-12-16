@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 12/16/2016
 ms.author: garye
 
 ---
@@ -77,7 +77,7 @@ Once the data has been converted to CSV format, we need to upload it into Machin
 
 9. Add a description if you’d like.
 
-10. Click the **OK** checkmark.  
+10. Click the **OK** check mark.  
 
     ![Upload the dataset][3]
 
