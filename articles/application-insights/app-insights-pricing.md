@@ -35,7 +35,7 @@ There are two pricing plans. The default plan is called Basic. You can opt for t
 
 **Basic** is the default plan. 
 
-* Use this plan unless you want features such as [Continuous Export](app-insights-export-telemetry) or [Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&clcid=0x409). These aren't available in the Basic plan.
+* Use this plan unless you want features such as [Continuous Export](app-insights-export-telemetry.md) or [Log Analytics connector](https://go.microsoft.com/fwlink/?LinkId=833039&clcid=0x409). These aren't available in the Basic plan.
 * In the Basic plan, you are charged per GB of telemetry received at the Application Insights portal.
 * Your first 1 GB for each app is free, so if you're just experimenting or developing, you're unlikely to have to pay.
 
