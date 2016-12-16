@@ -35,15 +35,16 @@ Learn how to create an Azure Batch account in the [Azure portal][azure_portal], 
    
     ![Create a Batch account][account_portal]
    
-    a. **Account Name**: A unique name for your Batch account. This name must be unique within the Azure region the account is created (see *Location* below). It may contain only lowercase characters, numbers, and must be 3-24 characters in length.
+    a. **Account Name**: The name for your Batch account. The name you choose must be unique within the Azure region where the new account will be created (see **Location** below). The account name may contain only lowercase characters or numbers, and must be 3-24 characters in length.
    
-    b. **Subscription**: A subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
+    b. **Subscription**: The subscription in which to create the Batch account. If you have only one subscription, it is selected by default.
    
-    c. **Resource group**: An existing resource group for your new Batch account, or optionally create a new one.
+    c. **Resource group**: Select an existing resource group for your new Batch account, or optionally create a new one.
    
-    d. **Location**: An Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group are displayed as options.
+    d. **Location**: The Azure region in which to create the Batch account. Only the regions supported by your subscription and resource group are displayed as options.
    
-    e. **Storage Account** (optional): A **General purpose** storage account you associate (link) to your new Batch account. See [Linked Azure Storage account](#linked-azure-storage-account) below for more details.
+    e. **Storage Account** (optional): A general-purpose Azure Storage account that you associate with your new Batch account. See [Linked Azure Storage account](#linked-azure-storage-account) below for more details.
+
 4. Click **Create** to create the account.
    
    The portal indicates that it is **Deploying** the account, and upon completion, a **Deployments succeeded** notification appears in *Notifications*.
@@ -66,20 +67,23 @@ Once the account has been created, you can open the **Batch account blade** to a
 [!INCLUDE [batch-pricing-include](../../includes/batch-pricing-include.md)]
 
 ## Linked Azure Storage account
-As mentioned earlier, you can (optionally) link a general-purpose Storage account to your Batch account. The [application packages](batch-application-packages.md) feature of Batch uses blob storage in a linked general-purpose Storage account, as does the [Batch File Conventions .NET](batch-task-output.md) library. These optional features assist you in deploying the applications your Batch tasks run, and persisting the data they produce.
 
-Batch currently supports *only* the general-purpose storage account type as described in step 5, [Create a storage account](../storage/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/storage-create-storage-account.md). When you link an Azure Storage account to your Batch account, be sure to link *only* a general-purpose Storage account.
+As mentioned earlier, you can optionally link a general-purpose Azure Storage account to your Batch account. The [application packages](batch-application-packages.md) feature of Batch uses Azure Blob storage, as does the [Batch File Conventions .NET](batch-task-output.md) library. These optional features assist you in deploying the applications that your Batch tasks run, and persisting the data they produce.
+
+We recommend that you create a new Storage account exclusively for use by your Batch account.
 
 ![Creating a "General purpose" storage account][storage_account]
 
-We recommend that you create a Storage account exclusively for use by your Batch account.
+> [!NOTE] Azure Batch currently supports only the general-purpose Storage account type. This account type is described in step 5, [Create a storage account] (../storage/storage-create-storage-account.md#create-a-storage-account), in [About Azure storage accounts](../storage/storage-create-storage-account.md).
+>
+>
 
 > [!WARNING]
-> Take care when regenerating the access keys of a linked Storage account. Regenerate only one Storage account key and click **Sync Keys** on the linked Storage account blade. Wait five minutes to allow the keys to propagate to the compute nodes in your pools, then regenerate and synchronize the other key if necessary. If you regenerate both keys at the same time, your compute nodes will not be able to synchronize either key, and they will lose access to the Storage account.
+> Be careful when regenerating the access keys of a linked Storage account. Regenerate only one Storage account key and click **Sync Keys** on the linked Storage account blade. Wait five minutes to allow the keys to propagate to the compute nodes in your pools, then regenerate and synchronize the other key if necessary. If you regenerate both keys at the same time, your compute nodes will not be able to synchronize either key, and they will lose access to the Storage account.
 > 
 > 
 
-  ![Regenerating storage account keys][4]
+![Regenerating storage account keys][4]
 
 ## Batch service quotas and limits
 Please be aware that as with your Azure subscription and other Azure services, certain [quotas and limits](batch-quota-limit.md) apply to Batch accounts. Current quotas for a Batch account appear in the portal in the account **Properties**.
