@@ -54,7 +54,8 @@ There are many benefits with using HDInsight with Data factory:
 >
 >
 
-## Prerequisites:
+## Prerequisites
+
 Before you begin the instructions in this article, you must have the following items:
 
 * [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).

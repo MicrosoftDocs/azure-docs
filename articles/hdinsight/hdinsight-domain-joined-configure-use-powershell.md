@@ -18,7 +18,7 @@ ms.date: 11/02/2016
 ms.author: saurinsh
 
 ---
-# Configure Domain-joined HDInsight clusters (Preview) use Azure PowerShell
+# Configure Domain-joined HDInsight clusters (Preview) using Azure PowerShell
 Learn how to set up an Azure HDInsight cluster with Azure Active Directory (Azure AD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) using Azure PowerShell. An Azure PowerShell script is provided to make the configuration faster and less error prone. Domain-joined HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md).
 
 A typical Domain-joined HDInsight cluster configuration involves the following steps:
