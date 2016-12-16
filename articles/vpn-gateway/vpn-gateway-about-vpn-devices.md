@@ -112,7 +112,7 @@ After you download the provided VPN device configuration sample, you’ll need t
 | **Property** | **PolicyBased** | **RouteBased and Standard or High Performance VPN gateway** |
 | --- | --- | --- |
 | IKE Version |IKEv1 |IKEv2 |
-| Hashing Algorithm |SHA1(SHA128) |SHA1(SHA128) |
+| Hashing Algorithm |SHA1(SHA128), SHA2(SHA256) |SHA1(SHA128), SHA2(SHA256) |
 | Phase 2 Security Association (SA) Lifetime (Time) |3,600 seconds |3,600 seconds |
 | Phase 2 Security Association (SA) Lifetime (Throughput) |102,400,000 KB |- |
 | IPsec SA Encryption & Authentication Offers (in the order of preference) |1. ESP-AES256 2. ESP-AES128 3. ESP-3DES 4. N/A |See *RouteBased Gateway IPsec Security Association (SA) Offers* (below) |
