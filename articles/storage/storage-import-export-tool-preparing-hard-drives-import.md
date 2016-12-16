@@ -1,40 +1,60 @@
-# Overview
+---
+title: Preparing Hard Drives for an Import Job | Microsoft Docs
+description: Learn how to prepare hard drives using WAImportExport tool to create an Import Job.
+author: renashahmsft
+manager: aungoo
+editor: tysonn
+services: storage
+documentationcenter: ''
+
+ms.assetid: 668f53f2-f5a4-48b5-9369-88ec5ea05eb5
+ms.service: storage
+ms.workload: storage
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 12/15/2016
+ms.author: renash
+
+---
+# Preparing Hard Drives for an Import Job
+## Overview
 
 The Microsoft Azure Import/Export tool is the drive preparation and repair tool that you can use with the [Microsoft Azure Import/Export Service](https://docs.microsoft.com/en-us/azure/storage/storage-import-export-service). You can use this tool to copy data to the hard drives you are going to ship to an Azure datacenter. After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs. After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives. In this article we will go over the working of this tool.
 
-# Prerequisites
+## Prerequisites
 
-## Prerequisites for running WAImportExport.exe
+### Prerequisites for running WAImportExport.exe
 
 - **Machine configuration**
   - Windows 7, Windows Server 2008 R2, or a newer Windows operating system
   - .NET Framework 4 must be installed. See FAQ on how to check if .Net Framework is installed on the machine.
 - **Storage account key** - You need at least one of the account keys for the storage account.
 
-## Preparing disk for Import Job
+### Preparing disk for Import Job
 
 - **BitLocker -** BitLocker must be enabled on the machine which is running WAImportExport Tool. See FAQ for how to enable bitlocker
 - **Disks** accessible from machine on which WAImportExport Tool is run. See FAQ for disk specification.
 - **Source files** - The files you plan to import must be accessible from the copy machine, whether they are on a network share or a local hard drive.
 
-## Repairing a partially failed Import Job
+### Repairing a partially failed Import Job
 
 - **Copy log files** that is generated when Microsoft copies data between Storage Account and Disk. It is located in your target storage account.
 
-## Repairing a partially failed export Job
+### Repairing a partially failed export Job
 
 - **Copy log file** that is generated when Microsoft copies data between Storage Account and Disk. It is located in your source storage account.
 - **Manifest file** - [Optional] Located on exported drive that was returned by Microsoft.
 
-# Download and install WAImportExport
+## Download and install WAImportExport
 
 Download the [latest copy of WAImportExport.exe](http://go.microsoft.com/fwlink/?LinkID=301900&amp;clcid=0x409). Extract the zipped content to a directory on your computer.
 
 Your next task is to create CSV files.
 
-# Prepare the Dataset and AdditionalDataset CSV Files
+## Prepare the Dataset and AdditionalDataset CSV Files
 
-## What is dataset CSV
+### What is dataset CSV
 
 Dataset CSV file is the value of /dataset flag is a CSV file that contains a list of directories and/or a list files to be copied to target drives. The first step to creating an import job is to determine which directories and files you are going to import. This can be a list of directories, a list of unique files, or a combination of those two. When a directory is included, all files in the directory and its subdirectories will be part of the import job. 
 
@@ -49,7 +69,7 @@ The following table shows some examples of blob targets:
 | K:\Temp\FavoriteVideo.ISO | https://mystorageaccount.blob.core.windows.net/favorite/FavoriteVideo.ISO |
 | \\myshare\john\music | https://mystorageaccount.blob.core.windows.net/music |
 
-## Sample dataset.csv
+### Sample dataset.csv
 
 ```
 BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
@@ -57,7 +77,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
 ```
 
-## Dataset CSV file fields
+### Dataset CSV file fields
 
 | Field | Description |
 | --- | --- |
@@ -68,19 +88,19 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | MetadataFile | **[Optional]** <br/>The value to this flag is the metadata file which can be provided if the one needs to preserve the metadata of the objects or provide custom metadata. Path to the metadata file for the destination blobs. See [Import-Export Service Metadata and Properties File Format](https://docs.microsoft.com/en-us/rest/api/storageservices/importexport/import-export-service-metadata-and-properties-file-format) for more information |
 | PropertiesFile | **[Optional]** <br/>Path to the property file for the destination blobs. See [Import-Export Service Metadata and Properties File Format](https://docs.microsoft.com/en-us/rest/api/storageservices/importexport/import-export-service-metadata-and-properties-file-format) for more information. |
 
-# Prepare InitialDriveSet or AdditionalDriveSet CSV File
+## Prepare InitialDriveSet or AdditionalDriveSet CSV File
 
-## What is driveset CSV
+### What is driveset CSV
 
 The value of the /InitialDriveSet or /AdditionalDriveSet flag is a CSV file which contains the list of disks to which the drive letters are mapped so that the tool can correctly pick the list of disks to be prepared. If the data size is greater than a single disk size, the client tool will distribute the data across multiple disks enlisted in this CSV file in an optimized way. 
 
 There is no limit on the number of disks the data can be written to in a single session. The tool will distribute data based on disk size and folder size. It will select the disk which is most optimized for the object-size. The data when uploaded to the storage account will be converged back to the directory structure which was specified in dataset file. In order to create a driveset CSV, follow the steps below.
 
-## Create basic volume and assign drive letter
+### Create basic volume and assign drive letter
 
 In order to create a basic volume and assign a drive letter, by following the instructions for "Simpler partition creation" given at [Overview of Disk Management](https://technet.microsoft.com/en-us/library/cc754936.aspx).
 
-## Sample InitialDriveSet and AdditionalDriveSet
+### Sample InitialDriveSet and AdditionalDriveSet
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -88,7 +108,7 @@ G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-25261
 H,Format,SilentMode,Encrypt,
 ```
 
-## Driveset CSV File Fields
+### Driveset CSV File Fields
 
 | Fields | Value |
 | --- | --- |
@@ -98,11 +118,11 @@ H,Format,SilentMode,Encrypt,
 | Encryption | **[Required]** Encrypt \| AlreadyEncrypted<br/> The value of this field decides which disk to encrypt and which not to. <br/>**Encrypt**:Tool will format the drive. If value of &quot;FormatOption&quot; field is &quot;Format&quot; then this value is required to be &quot;Encrypt&quot;. If &quot;AlreadyEncrypted&quot; is specified in this case, it will result into an error &quot;When Format is specified, Encrypt must also be specified&quot;.<br/>**AlreadyEncrypted**: Tool will decryt the drive using the BitLockerKey provided in "ExistingBitLockerKey" Field. If value of &quot;FormatOption&quot; field is &quot;AlreadyFormatted&quot;, then this value can be either &quot;Encrypt&quot; or &quot;AlreadyEncrypted&quot; |
 | ExistingBitLockerKey | **[Required]** If value of &quot;Encryption&quot; field is &quot;AlreadyEncrypted&quot;<br/> The value of this field is the BitLocker key which is associated with the particular disk. <br/>This field should be left blank if the value of &quot;Encryption&quot; field is &quot;Encrypt&quot;.  If BitLocker Key is specified in this case, it will result into an error &quot;Bitlocker Key should not be specified&quot;.<br/>  **Example**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
-#  Preparing Disk for Import Job
+##  Preparing Disk for Import Job
 
 To prepare drives for an import job, call the Azure Import/Export tool with the **PrepImport** command. Which parameters you include depends on whether this is the first copy session, or a subsequent copy session.
 
-## First session
+### First session
 
 First Copy Session to Copy a Single/Multiple Directory to a single/multiple Disk (depending on what is specified in csv file)
 Azure Import/Export client tool PrepImport command for the first copy session to copy directories and/or files with a new copy session:
@@ -117,7 +137,7 @@ WAImportExport.exe PrepImport /j:<JournalFile> /id:<SessionId> [/logdir:<LogDire
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:\*\*\*\*\*\*\*\*\*\*\*\*\* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
 ```
 
-## Add data in subsequent session
+### Add data in subsequent session
 
 In subsequent copy sessions, you do not need to specify the initial parameters. You need to use the same journal file in order for the tool to remember where it left in the previous session. The state of the copy session is written to the journal file. Here is the syntax for a subsequent copy session to copy additional directories and or files:
 
@@ -131,7 +151,7 @@ WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<DifferentSessionId>  [Da
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
 
-## Add drives to latest session
+### Add drives to latest session
 
 If the data did not fit in specified drives in InitialDriveset, one can use the tool to add additional drives to same copy session. Note: The session id should match the previous session id. Journal file should match the one specified in previous session.
 
@@ -145,7 +165,7 @@ WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /Addition
 WAImportExport.exe PrepImport /j:SameJournalTest.jrn /id:session#2  /AdditionalDriveSet:driveset-2.csv
 ```
 
-## Abort the latest session:
+### Abort the latest session:
 
 If a copy session is interrupted and it is not possible to resume (for example, if a source directory proved inaccessible), you must abort the current session so that it can be rolled back and new copy sessions can be started:
 
@@ -161,7 +181,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /AbortSession
 
 Only the last copy session, if terminated abnormally, can be aborted. Note that you cannot abort the first copy session for a drive. Instead you must restart the copy session with a new journal file.
 
-## Resume a latest interrupted session:
+### Resume a latest interrupted session:
 
 If a copy session is interrupted for any reason, you can resume it by running the tool with only the journal file specified:
 
@@ -177,7 +197,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /ResumeSession
 
 **Important:** When you resume a copy session, do not modify the source data files and directories by adding or removing files.
 
-# WAImportExport Parameters
+## WAImportExport Parameters
 
 | Parameters | Description |
 | --- | --- |
@@ -200,9 +220,9 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /ResumeSession
 |     /DataSet:&lt;dataset.csv&gt; | Required. A CSV file that contains a list of directories and/or a list files to be copied to target drives.  |
 |     /silentmode  | Optional. If not specified, it will remind you the requirement of drives and need your confirmation to continue.  |
 
-# Tool Output
+## Tool Output
 
-## Sample Drive Manifest file
+### Sample Drive Manifest file
 
 ```
 <?xml version="1.0" encoding="UTF-8"?>
@@ -242,7 +262,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /ResumeSession
 </DriveManifest>
 ```
 
-## Sample Journal file for each drive: enDING with .xml
+### Sample Journal file for each drive: enDING with .xml
 
 ```
 [BeginUpdateRecord][2016/11/01 21:22:25.379][Type:ActivityRecord]
@@ -259,7 +279,7 @@ SaveCommandOutput: Completed
 [EndUpdateRecord]
 ```
 
-## Sample Journal file for session: ended with .jrn  It records the trail of sessions
+### Sample Journal file for session: ended with .jrn  It records the trail of sessions
 
 ```
 [BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
@@ -275,23 +295,23 @@ StorageAccountKey: *******
 [EndUpdateRecord]
 ```
 
-# FAQ
+## FAQ
 
-## General
+### General
 
-#### What is WAImportExport Tool?
+##### What is WAImportExport Tool?
 
 The Microsoft Azure Import/Export tool is the drive preparation and repair tool that you can use with the Microsoft Azure Import/Export Service. You can use this tool to copy data to the hard drives you are going to ship to an Azure data center. After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs. After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives.
 
-#### How does the WAImportExport Tool V2 work on multiple sorce dir and disks?
+##### How does the WAImportExport Tool V2 work on multiple sorce dir and disks?
 
 If the data size is greater than the disk size, the client tool will distribute the data across the disks in an optimized way. The data copy to multiple disks can be done in parallel or sequentially. There is no limit on the number of disks the data can be written to simultaneously. The tool will distribute data based on disk size and folder size. It will select the disk which is most optimized for the object-size. The data when uploaded to the storage account will be converged back to the specified directory structure.
 
-#### When should I use V1 of the tool and when should I use V2 of the tool?
+##### When should I use V1 of the tool and when should I use V2 of the tool?
 
 WAImportExport tool has all functionalities that WAImportExport V1 tool had. WAImportExport tool allows users to specify multiple source and write to multiple drives.
 
-#### What is a Session Id?
+##### What is a Session Id?
 
 The tool expects the copy session (/id) parameter to be the same if the intent is to spread the data across multiple disks. Maintaining the same name of the copy session will enable user to copy data from one or multiple source locations into one or multiple destination disks/directories. Maintaining same session id enables the tool to pick up the copy of files from where it was left the last time.
 
@@ -303,23 +323,23 @@ SessionId can consist of letters, 0~9, understore (\_), dash (-) or hash (#), an
 
 e.g. session-1 or session#1 or session\_1
 
-#### What is a journal file?
+##### What is a journal file?
 
 Each time you run the Azure Import/Export tool to copy files to the hard drive, the tool creates a copy session. The state of the copy session is written to the journal file. If a copy session is interrupted (for example, due to a system power loss), it can be resumed by running the tool again and specifying the journal file on the command line.
 
 For each hard drive that you prepare with the Azure Import/Export tool, the tool will create a single journal file with name &quot;&lt;DriveID&gt;.xml&quot; where drive Id is the serial number associated to the drive that the tool reads from the disk. You will need the journal files from all of your drives to create the import job. The journal file can also be used to resume drive preparation if the tool is interrupted.
 
-#### What is a log directory?
+##### What is a log directory?
 
 The log directory specifies a directory to be used to store verbose logs as well as temporary manifest files. If not specified, the current directory will be used as the log directory. The log are verbose logs.
 
-## Prerequisites
+### Prerequisites
 
-#### What are the specifications of my disk?
+##### What are the specifications of my disk?
 
 One or more empty 2.5 or 3.5-inch SATAII or III or SSD hard drives connected to the copy machine.
 
-#### How can I enable BitLocker on my machine?
+##### How can I enable BitLocker on my machine?
 
 Simple way to check is by right-clicking on System drive. It will show you options for Bitlocker if the capability is turned on. If it is off, you wont see it.
 
@@ -329,7 +349,7 @@ Here is an article on [how to enable BitLocker](https://technet.microsoft.com/en
 
 It is possible that your machine does not have tpm chip. If you do not get an output using tpm.msc, look at the next FAQ.
 
-#### How to disable Trusted Platform Module (TPM) in BitLocker?
+##### How to disable Trusted Platform Module (TPM) in BitLocker?
 In order to disable TPM in BitLocker, go through the following steps:
 1.Launch **Group Policy Editor** by typing gpedit.msc on a command prompt.
 Note: If **Group Policy Editor** appears to be unavailable, for enabling BitLocker first. See previous FAQ.
@@ -337,44 +357,44 @@ Note: If **Group Policy Editor** appears to be unavailable, for enabling BitLock
 3. Edit **Require additional authentication at startup** policy.
 4. Set the policy to **Enabled** and make sure **Allow BitLocker without a compatible TPM** is checked.
 
-####  How to check if .Net 4 or higher version is installed on my machine?
+#####  How to check if .Net 4 or higher version is installed on my machine?
 
 All Microsoft .NET Framework versions are installed in following directory: %windir%\Microsoft.NET\Framework\
 
 Navigate to the above mentioned part on your target machine where the tool needs to run. Look for folder name starting with "v4". Absence of such a directory means .Net v4 is not installed on your machine. You can download .Net 4 on your machine using [Microsoft .NET Framework 4 (Web Installer)](https://www.microsoft.com/en-us/download/details.aspx?id=17851).
 
 
-## Limits
+### Limits
 
-#### How many drives can I Prepare/send at the same time?
+##### How many drives can I Prepare/send at the same time?
 
 There is no limit on the number of disks that the tool can prepare. However, the tool expects drive letters as inputs. That limits it to 25 simultaneous disk preparation. A single job can handle maximum of 10 disks at a time. If you prepare more than 10 disks targeting the same storage account, the disks can be distributed across multiple jobs.
 
-#### Can I target more than one storage account?
+##### Can I target more than one storage account?
 
 Only one storage account can be submitted per job and in single copy session.
 
-## Capabilities
+### Capabilities
 
-#### Does WAImportExport.exe encrypt my data?
+##### Does WAImportExport.exe encrypt my data?
 
 Yes. BitLocker encryption is enabled and required for this process.
 
-#### What will be the hierarchy of my data when it appears in the storage account?
+##### What will be the hierarchy of my data when it appears in the storage account?
 
 Although data is distributed across disks, the data when uploaded to the storage account will be converged back to the directory structure specified in the dataset CSV file.
 
-### How many of the input disks will have active IO in parallel, when copy is in progress?
+#### How many of the input disks will have active IO in parallel, when copy is in progress?
 
 The tool distributes data across the input disks based on the size of the input files. That said, the number of active disks in parallel completely delends on the nature of the input data. Depending on the size of individual files in the input dataset, one or more disks may show active IO in parallel. See next FAQ for more details.
 
-#### How does the tool distribute the files across the disks?
+##### How does the tool distribute the files across the disks?
 
 WAImportExport Tool reads and writes files batch by batch, one batch contains max of 10,0000 files. This means that max 100000 files can be written parallel. Multile disks are written to simultaneously if these 100000 files are distributed to multi drives. However whether the tool writes to multiple disk simultaneously or a single disk depends on the cumulative size of the batch. For instance, in case of smaller files, if all of 10,0000 files are able to fit in a single drive, tool will write to only one disk during the processing of this batch.
 
-## WAImportExport Output
+### WAImportExport Output
 
-#### There are two journal files. Which one should I upload to Azure Portal?
+##### There are two journal files. Which one should I upload to Azure Portal?
 
 **.xml** - For each hard drive that you prepare with the Azure Import/Export tool, the tool will create a single journal file with name &quot;&lt;DriveID&gt;.xml&quot; where drive Id is the serial number associated to the drive that the tool reads from the disk. You will need the journal files from all of your drives to create the import job in the Azure portal. This journal file can also be used to resume drive preparation if the tool is interrupted.
 
