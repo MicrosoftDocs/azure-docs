@@ -98,7 +98,7 @@ For the tutorial, you need to create an Azure Batch account with a pool of VMs. 
 ## Create the custom activity
 To create a .NET custom activity, create a **.NET Class Library** project with a class that implements that **IDotNetActivity** interface. This interface has only one method: [Execute](https://msdn.microsoft.com/library/azure/mt603945.aspx) and its signature is:
 
-```CSharp
+```csharp
 public IDictionary<string, string> Execute(
         IEnumerable<LinkedService> linkedServices,
         IEnumerable<Dataset> datasets,
@@ -143,7 +143,7 @@ The method returns a dictionary that can be used to chain custom activities toge
 	> Data Factory service launcher requires the 4.3 version of WindowsAzure.Storage. If you add a reference to a later version of Azure Storage assembly in your custom activity project, you see an error when the activity executes. To resolve the error, see [Appdomain isolation](#appdomain-isolation) section. 
 5. Add the following **using** statements to the source file in the project.
 
-	```CSharp
+	```csharp
     using System.IO;
     using System.Globalization;
     using System.Diagnostics;
@@ -157,19 +157,19 @@ The method returns a dictionary that can be used to chain custom activities toge
 	```
 6. Change the name of the **namespace** to **MyDotNetActivityNS**.
 
-	```CSharp
+	```csharp
 	namespace MyDotNetActivityNS
 	```
 7. Change the name of the class to **MyDotNetActivity** and derive it from the **IDotNetActivity** interface as shown in the following code snippet:
 
-	```CSharp
+	```csharp
 	public class MyDotNetActivity : IDotNetActivity
 	```
 8. Implement (Add) the **Execute** method of the **IDotNetActivity** interface to the **MyDotNetActivity** class and copy the following sample code to the method.
 
     The following sample counts the number of occurrences of the search term (“Microsoft”) in each blob associated with a data slice.
 
-	```CSharp
+	```csharp
 	/// <summary>
 	/// Execute method is the only method of IDotNetActivity interface you must implement.
 	/// In this sample, the method invokes the Calculate method to perform the core logic.  
@@ -272,7 +272,7 @@ The method returns a dictionary that can be used to chain custom activities toge
 	```
 9. Add the following helper methods. The **Execute** method invokes these helper methods. The **GetConnectionString** method retrieves the Azure Storage connection string and the **GetFolderPath** method retrieves the blob location. Most importantly, the **Calculate** method isolates the code that iterates through each blob.
 
-	```CSharp
+	```csharp
 	/// <summary>
 	/// Gets the folderPath value from the input/output dataset.
 	/// </summary>
@@ -375,7 +375,7 @@ This section provides more details and notes about the code in the **Execute** m
 
 1. The members for iterating through the input collection are found in the [Microsoft.WindowsAzure.Storage.Blob](https://msdn.microsoft.com/library/azure/microsoft.windowsazure.storage.blob.aspx) namespace. Iterating through the blob collection requires using the **BlobContinuationToken** class. In essence, you must use a do-while loop with the token as the mechanism for exiting the loop. For more information, see [How to use Blob storage from .NET](../storage/storage-dotnet-how-to-use-blobs.md). A basic loop is shown here:
 
-	```CSharp
+	```csharp
 	// Initialize the continuation token.
 	BlobContinuationToken continuationToken = null;
 	do
@@ -398,12 +398,12 @@ This section provides more details and notes about the code in the **Execute** m
 
    It returns the number of occurrences of the search term (**Microsoft**) in the blob passed to the **Calculate** method.
 
-	```CSharp
+	```csharp
 	output += string.Format("{0} occurrences of the search term \"{1}\" were found in the file {2}.\r\n", wordCount, searchTerm, inputBlob.Name);
 	```
 3. Once the **Calculate** method has done the work, it must be written to a new blob. So for every set of blobs processed, a new blob can be written with the results. To write to a new blob, first find the output dataset.
 	
-	```CSharp
+	```csharp
 	// Get the output dataset using the name of the dataset matched to a name in the Activity output collection.
 	Dataset outputDataset = datasets.Single(dataset => dataset.Name == activity.Outputs.Single().Name);
 	
@@ -412,33 +412,33 @@ This section provides more details and notes about the code in the **Execute** m
 	```
 4. The code also calls a helper method: **GetFolderPath** to retrieve the folder path (the storage container name).
 
-	```CSharp
+	```csharp
 	folderPath = GetFolderPath(outputDataset);
 	```
 
    The **GetFolderPath** casts the DataSet object to an AzureBlobDataSet, which has a property named FolderPath.
 
-	```CSharp
+	```csharp
 	AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 	
 	return blobDataset.FolderPath;
 	```
 5. The code calls the **GetFileName** method to retrieve the file name (blob name).  
 
-	```CSharp
+	```csharp
 	AzureBlobDataset blobDataset = dataArtifact.Properties.TypeProperties as AzureBlobDataset;
 	
 	return blobDataset.FileName;
 	```
 6. The name of the file is written by creating a URI object. The URI constructor uses the **BlobEndpoint** property to return the container name. The folder path and file name are added to construct the output blob URI.  
 
-	```CSharp
+	```csharp
 	// Write the name of the file.
 	Uri outputBlobUri = new Uri(outputStorageAccount.BlobEndpoint, folderPath + "/" + GetFileName(outputDataset));
 	```
 7. The name of the file has been written and now you can write the output string from the Calculate method to a new blob:
 
-	```CSharp
+	```csharp
 	// Create a blob and upload the output text.
 	CloudBlockBlob outputBlob = new CloudBlockBlob(outputBlobUri, outputStorageAccount.Credentials);
 	logger.Write("Writing {0} to the output blob", output);
@@ -791,7 +791,7 @@ In the code, there are two extended properties: **SliceStart** and **DataFactory
 
 To access these extended properties in the **Execute** method, use code similar to the following code:
 
-```CSharp
+```csharp
 // to get extended properties (for example: SliceStart)
 DotNetActivity dotNetActivity = (DotNetActivity)activity.TypeProperties;
 string sliceStartString = dotNetActivity.ExtendedProperties["SliceStart"];

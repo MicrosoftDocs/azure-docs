@@ -64,7 +64,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	```
 5. Add the following **using** statements to the source file (Program.cs) in the project.
 
-	```CSharp
+	```csharp
     using System.Threading;
     using System.Configuration;
     using System.Collections.ObjectModel;
@@ -78,7 +78,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	```
 6. Add the following code that creates an instance of **DataPipelineManagementClient** class to the **Main** method. You use this object to create a data factory, a linked service, input and output datasets, and a pipeline. You also use this object to monitor slices of a dataset at runtime.
 
-	```CSharp
+	```csharp
 	// create data factory management client
 	string resourceGroupName = "resourcegroupname";
 	string dataFactoryName = "APITutorialFactorySP";
@@ -97,7 +97,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
    > Replace the **resourcegroupname** with the name of your Azure resource group. You can create a resource group using the [New-AzureResourceGroup](https://msdn.microsoft.com/library/Dn654594.aspx) cmdlet.
 7. Add the following code that creates a **data factory** to the **Main** method.
 
-	```CSharp
+	```csharp
 	// create a data factory
 	Console.WriteLine("Creating a data factory");
 	client.DataFactories.CreateOrUpdate(resourceGroupName,
@@ -117,7 +117,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
    > [!NOTE]
    > Use **account name** and **account key** of your Azure storage account for the **ConnectionString**.
 
-	```CSharp
+	```csharp
 	// create a linked service
 	Console.WriteLine("Creating a linked service");
 	client.LinkedServices.CreateOrUpdate(resourceGroupName, dataFactoryName,
@@ -140,7 +140,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
     The FolderPath for the output blob is set to: **adftutorial/apifactoryoutput/{Slice}** where **Slice** is dynamically calculated based on the value of **SliceStart** (start date-time of each slice.)
 
-	```CSharp
+	```csharp
 	// create input and output datasets
 	Console.WriteLine("Creating input and output datasets");
 	string Dataset_Source = "DatasetBlobSource";
@@ -218,7 +218,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 
     The Copy Activity performs the data movement in Azure Data Factory. The activity is powered by a globally available service that can copy data between various data stores in a secure, reliable, and scalable way. See [Data Movement Activities](data-factory-data-movement-activities.md) article for details about the Copy Activity.
 
-	```CSharp
+	```csharp
 	// create a pipeline
 	Console.WriteLine("Creating a pipeline");
 	DateTime PipelineActivePeriodStartTime = new DateTime(2014, 8, 9, 0, 0, 0, 0, DateTimeKind.Utc);
@@ -275,7 +275,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	```
 11. Add the following helper method used by the **Main** method to the **Program** class. This method pops a dialog box that that lets you provide **user name** and **password** that you use to log in to Azure portal.
 
-	```CSharp
+	```csharp
     public static string GetAuthorizationHeader()
     {
         AuthenticationResult result = null;
@@ -312,7 +312,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	```
 12. Add the following code to the **Main** method to get the status of a data slice of the output dataset. There is only slice expected in this sample.
 
-	```CSharp
+	```csharp
 	// Pulling status within a timeout threshold
 	DateTime start = DateTime.Now;
 	bool done = false;
@@ -347,7 +347,7 @@ You can create, monitor, and manage Azure data factories programmatically using 
 	```
 13. **(optional)** Add the following code to get run details for a data slice to the **Main** method.
 
-	```CSharp
+	```csharp
 	Console.WriteLine("Getting run details of a data slice");
 	
 	// give it a few minutes for the output slice to be ready
@@ -404,7 +404,7 @@ The sample code in the walkthrough launches a dialog box for you to enter Azure 
 ### Example
 Create GetAuthorizationHeaderNoPopup method.
 
-```CSharp
+```csharp
 public static string GetAuthorizationHeaderNoPopup()
 {
     var authority = new Uri(new Uri("https://login.windows.net"), ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
@@ -420,7 +420,7 @@ public static string GetAuthorizationHeaderNoPopup()
 
 Replace **GetAuthorizationHeader** call with a call to **GetAuthorizationHeaderNoPopup** in the **Main** function:
 
-```CSharp
+```csharp
 TokenCloudCredentials aadTokenCredentials =
     new TokenCloudCredentials(
     ConfigurationManager.AppSettings["SubscriptionId"],
