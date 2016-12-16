@@ -58,15 +58,20 @@ Use the same instrumentation key to set up both your client and server telemetry
 
 In code:
 
+```Java
+
     TelemetryConfiguration config = TelemetryConfiguration.getActive();
     config.setTrackingIsDisabled(true);
-
+```
 
 **Or** 
 
 Update ApplicationInsights.xml (in the resources folder in your project). Add the following under the root node:
 
+```XML
+
     <DisableTelemetry>true</DisableTelemetry>
+```
 
 Using the XML method, you have to restart the application when you change the value.
 
