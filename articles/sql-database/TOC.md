@@ -26,7 +26,7 @@
 ## Databases and servers
 ### Learn
 #### [Servers](sql-database-server-overview.md)
-#### [Standalone databases](sql-database-overview.md)
+#### [Single databases](sql-database-overview.md)
 #### [Multiple databases](sql-database-elastic-scale-introduction.md)
 ##### Mapping tenants
 ###### [Shard map manager](sql-database-elastic-scale-shard-map-management.md)
@@ -51,9 +51,9 @@
 #### [Using Azure RemoteApp to connect to SQL Database](sql-database-ssms-remoteapp.md)
 #### [Managing SQL Databases using the Azure Automation service](sql-database-manage-automation.md)
 ### Do
-#### [Create a standalone database using the Azure portal](sql-database-get-started.md)
-#### [Create a standalone database using PowerShell](sql-database-get-started-powershell.md)
-#### [Create a standalone database using C#](sql-database-get-started-csharp.md)
+#### [Create a single database using the Azure portal](sql-database-get-started.md)
+#### [Create a single database using PowerShell](sql-database-get-started-powershell.md)
+#### [Create a single database using C#](sql-database-get-started-csharp.md)
 #### [Create sharded application](sql-database-elastic-scale-get-started.md)
 #### [Move data between shards](sql-database-elastic-scale-configure-deploy-split-and-merge.md)
 #### [Get started with elastic jobs](sql-database-elastic-jobs-getting-started.md)
@@ -147,9 +147,9 @@
 #### [Adopt in-memory OLTP](sql-database-in-memory-oltp-migration.md)
 ## Monitoring and Tuning
 ### Learn
-#### [Standalone databases](sql-database-single-database-monitor.md)
+#### [single databases](sql-database-single-database-monitor.md)
 #### [SQL Database Advisor overview](sql-database-advisor.md)
-#### [Standalone database guidance](sql-database-performance-guidance.md)
+#### [single database guidance](sql-database-performance-guidance.md)
 #### [Workload insights in the Azure portal](sql-database-performance.md)
 #### [Use batching](sql-database-use-batching-to-improve-performance.md)
 #### [Extended events](sql-database-xevent-db-diff-from-svr.md)
@@ -168,8 +168,8 @@
 ### Servers
 #### [Create servers](sql-database-create-servers.md)
 #### [View or update server settings](sql-database-view-update-server-settings.md)
-### Standalone databases
-#### [Create standalone databases](sql-database-create-databases.md)
+### single databases
+#### [Create single databases](sql-database-create-databases.md)
 #### [View or update database settings](sql-database-view-update-database-settings.md)
 ### Firewall rules
 #### [Create firewall rules using the Azure portal](sql-database-configure-firewall-settings.md)
