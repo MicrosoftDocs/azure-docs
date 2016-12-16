@@ -24,7 +24,7 @@ This document describes how to build partitioned tables for fast parallel bulk i
 * [Create a new database](https://technet.microsoft.com/library/ms176061.aspx) (if it doesn't exist)
 * Add database filegroups to the database which will hold the partitioned physical files
   
-  Note: This can be done with [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) if new or [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) if the database exists already
+  This can be done with [CREATE DATABASE](https://technet.microsoft.com/library/ms176061.aspx) if new or [ALTER DATABASE](https://msdn.microsoft.com/library/bb522682.aspx) if the database exists already
 * Add one or more files (as needed) to each database filegroup
   
   > [!NOTE]
@@ -73,7 +73,7 @@ Create partitioned table(s) according to the data schema, mapped to the database
         <filegroup_5>, <filegroup_6>, <filegroup_7>, <filegroup_8>,
         <filegroup_9>, <filegroup_10>, <filegroup_11>, <filegroup_12> )
   
-  Tip: To verify the ranges in effect in each partition according to the function/scheme, run the following query:
+  To verify the ranges in effect in each partition according to the function/scheme, run the following query:
   
         SELECT psch.name as PartitionScheme,
             prng.value AS ParitionValue,
