@@ -23,7 +23,7 @@ ms.author: yanacai
 ## What is data skew problem?
 
 In one word, data skew is the over represented value. Think about that if you assigned 50 tax examiners to audit tax returns – one person to each state. Then the Wyoming auditor is going home early since there are fewer populations in Wyoming State, while the California examiners are going to be working very late since there is a large population in those states. 
-    ![Data Skew Problem Example](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem-example.png) 
+    ![Data Skew Problem Example](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png) 
 
 In the case above, the data is not evenly distributed across workers which makes some workers run longer than others. During your job execution, there are usually similar cases like the example above -- one vertex get much more data compared with its peers, which makes the vertex run longer than others and slow down the whole job eventually. Worse, it may fail the job since vertices have 5-hours runtime limitation and 6 GB memory limitation.
 
