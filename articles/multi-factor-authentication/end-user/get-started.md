@@ -1,5 +1,5 @@
 ---
-title: What does Azure Multi-Factor Authentication mean for me?
+title: Get started with two-step verification | Microsoft Docs
 description: This is the Azure Multi-Factor authentication page that will assist your end users with getting going with Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 documentationcenter: ''

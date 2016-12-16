@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator app FAQ
+title: Microsoft Authenticator app FAQ | Microsoft Docs
 description: Provides a list of frequently asked questions and answers related to the Microsoft Authentication app and Azure Multi-Factor Authentication.
 services: multi-factor-authentication
 documentationcenter: ''

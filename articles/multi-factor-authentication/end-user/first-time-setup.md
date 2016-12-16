@@ -1,5 +1,5 @@
 ---
-title: Set up two-step verification for my work or school account
+title: Set up two-step verification for my work or school account | Microsoft Docs
 description: 'When your company configures Azure Multi-Factor Authentication, you will be prompted to sign up for two-step verification. Learn how to set it up. '
 services: multi-factor-authentication
 keywords: how to use azure directory, active directory in the cloud, active directory tutorial
