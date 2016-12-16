@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: b617308e-692c-4938-8fa2-070034a3ecef
 ms.service: sql-database
-ms.custom: db development; monitor and tune
+ms.custom: monitor and tune
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
