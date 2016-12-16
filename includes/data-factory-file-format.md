@@ -29,7 +29,7 @@ The following sample shows some of the format properties for TextFormat.
 "typeProperties":
 {
     "folderPath": "mycontainer/myfolder",
-    "fileName": "myblobname"
+    "fileName": "myblobname",
     "format":
     {
         "type": "TextFormat",
