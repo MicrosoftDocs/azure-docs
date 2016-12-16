@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Functions App Settings | Microsoft Docs
+title: Configure Azure Function App Settings | Microsoft Docs
 description: Learn how to configure Azure function app settings.
 services: ''
 documentationcenter: .net
