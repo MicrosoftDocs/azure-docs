@@ -54,7 +54,7 @@ If a region decides to have more than one subscription associated to a particula
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub03.png)
 
-The organization could look like the following:
+The organization could look like the following example:
 
 ![](./media/virtual-machines-common-infrastructure-service-guidelines/sub04.png)
 
