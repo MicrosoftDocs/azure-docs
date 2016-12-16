@@ -20,7 +20,7 @@ ms.author: lbrader
 
 # Introduction to Microsoft Azure accounts, platform, and services for AWS experts
 
-This article helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. You can also learn key similarities and differences between the AWS and Azure platforms.
+This article helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the AWS and Azure platforms.
 
 You'll learn:
 * How accounts and resources are organized in Azure.

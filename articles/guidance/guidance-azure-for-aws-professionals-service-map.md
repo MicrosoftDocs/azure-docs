@@ -26,7 +26,7 @@ As the leading public cloud platforms, Microsoft Azure and Amazon Web Services (
 
 In the tables following, there are multiple Azure services listed for some AWS services. The Azure services are similar to one another, but depth and breadth of capabilities vary.
 
-For an overview of Azure for AWS users, see [Introduction to Azure for AWS experts](azure-for-aws-professionals.md).
+For an overview of Azure for AWS users, see [Introduction to Azure for AWS experts](azure-for-aws-professionals.md). 
 
 
 ## Compute services
