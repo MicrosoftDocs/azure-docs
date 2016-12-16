@@ -146,7 +146,7 @@ The following example shows the HTTP request header and body used to retrieve a 
 
 **Body**:
 
-You need to proved the client_id and client_secret values in the body of this request; client_id and client_secret correspond to the AccountName and AccountKey values, respectively. These values are provided to you by Media Services when you set up your account. 
+You need to provide the client_id and client_secret values in the body of this request; client_id and client_secret correspond to the AccountName and AccountKey values, respectively. These values are provided to you by Media Services when you set up your account. 
 
 The AccountKey for your Media Services account must be URL-encoded when using it as the client_secret value in your access token request.
 
@@ -180,13 +180,14 @@ The following example shows the HTTP response that contains the access token in 
 
 
 > [!NOTE]
-> It is recommended to cache the "access_token " and "expires_in " values to an external storage. The token data could later be retrieved from the storage and re-used in your Media Services REST API calls. This is especially useful for scenarios where the token can be securely shared among multiple processes or computers.
+> It is recommended to cache the "access_token " and "expires_in" (how long the access token is valid, in seconds) values to an external storage. The token data could later be retrieved from the storage and re-used in your Media Services REST API calls. This is especially useful for scenarios where the token can be securely shared among multiple processes or computers.
 > 
 > 
 
 Make sure to monitor the "expires_in" value of the access token and update your REST API calls with new tokens as needed.
 
 ### Connecting to the Media Services URI
+
 The root URI for Media Services is https://media.windows.net/. You should initially connect to this URI, and if you get a 301 redirect back in response, you should make subsequent calls to the new URI. In addition, do not use any auto-redirect/follow logic in your requests. HTTP verbs and request bodies will not be forwarded to the new URI.
 
 The root URI for uploading and downloading Asset files is https://yourstorageaccount.blob.core.windows.net/ where the storage account name is the same one you used during your Media Services account setup.
