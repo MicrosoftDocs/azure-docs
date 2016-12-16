@@ -169,8 +169,6 @@ The following table shows the limits for Azure Biztalk Services.
 ### DocumentDB limits
 DocumentDB is a global scale database in which throughput and storage can be scaled to handle whatever your application requires. If you have any questions about the scale DocumentDB provides, please send email to askdocdb@microsoft.com.
 
-Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb/documentdb-increase-limits.md).
-
 ### Mobile Engagement limits
 [!INCLUDE [azure-mobile-engagement-limits](../includes/azure-mobile-engagement-limits.md)]
 
