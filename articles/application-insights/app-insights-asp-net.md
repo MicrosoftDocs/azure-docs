@@ -92,13 +92,10 @@ Click any tile or chart to see more detail.
 
 * [**Search**](app-insights-diagnostic-search.md) shows individual events such as requests, exceptions, and page views. You can filter by event type, term match, and property values. Click any event to see its properties and related events. 
 
-    
     ![From the Overview blade, click Search](./media/app-insights-asp-net/search.png)
 
  * In development mode, you may see a lot of dependency (AJAX) events. These are synchronizations between the browser and the server emulator. To hide them, click the Dependency filter.
 * [**Aggregated metrics**](app-insights-metrics-explorer.md) such as request and failure rates appear in the charts. Click any chart to open a blade with more detail. Click the **Edit** tag of any chart to set filters, size, and so on.
-
-    
     
     ![From the Overview blade, click any chart](./media/app-insights-asp-net/metrics.png)
 
