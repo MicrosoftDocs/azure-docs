@@ -19,7 +19,7 @@ ms.author: renash
 ---
 # Quick Reference for Frequently Used Commands for Import Jobs
 
-This section provides a quick reference for some frequently used commands. For detailed usage, see [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md).
+This section provides a quick reference for some frequently used commands. For detailed usage, see [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import.md).
 
 For the first session:
 
