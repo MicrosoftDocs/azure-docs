@@ -28,7 +28,7 @@ A Transform, which is also known as a map, consists of a Source XML schema (the 
 You can create a transform/map by using the Visual Studio [Enterprise Integration SDK](https://aka.ms/vsmapsandschemas). When you are finished creating and testing the transform, you upload the transform into your integration account. 
 
 ## How to use a transform
-After you upload the transform/map into your integration account, you can use it to create a Logic app. The Logic app will then run your transformations whenever the Logic app is triggered (and there is input content that needs to be transformed).
+After you upload the transform/map into your integration account, you can use it to create a Logic app. The Logic app runs your transformations whenever the Logic app is triggered (and there is input content that needs to be transformed).
 
 **Here are the steps to use a transform**:
 
@@ -39,16 +39,16 @@ After you upload the transform/map into your integration account, you can use it
 Now that you've taken care of the prerequisites, it's time to create your Logic app:  
 
 1. Create a Logic app and [link it to your integration account](app-service-logic-enterprise-integration-accounts.md "Learn to link an integration account to a Logic app") that contains the map.
-2. Add a **Request - When an HTTP request is received** trigger to your Logic app  
+2. Add a **Request** trigger to your Logic app  
    ![](./media/app-service-logic-enterprise-integration-transforms/transform-1.png)    
 3. Add the **Transform XML** action by first selecting **Add an action**   
    ![](./media/app-service-logic-enterprise-integration-transforms/transform-2.png)   
-4. Enter the word *transform* in the search box in order to filter all the actions to the one that you want to use  
+4. Enter the word *transform* in the search box to filter all the actions to the one that you want to use  
    ![](./media/app-service-logic-enterprise-integration-transforms/transform-3.png)  
 5. Select the **Transform XML** action   
-   ![](./media/app-service-logic-enterprise-integration-transforms/transform-4.png)  
-6. Add the XML **CONTENT** that you will transform. Note that you can use any XML data you receive in the HTTP request as the **CONTENT**. In this example, select the body of the HTTP request that triggered the Logic app.
-7. Select the name of the **MAP** that you want to use to perform the transformation. The map must already be in your integration account. In an earlier step, you already gave your Logic app access to your integration account that contains your map.
+6. Add the XML **CONTENT** that you transform. You can use any XML data you receive in the HTTP request as the **CONTENT**. In this example, select the body of the HTTP request that triggered the Logic app.
+7. Select the name of the **MAP** that you want to use to perform the transformation. The map must already be in your integration account. In an earlier step, you already gave your Logic app access to your integration account that contains your map. 
+   ![](./media/app-service-logic-enterprise-integration-transforms/transform-4.png) 
 8. Save your work  
     ![](./media/app-service-logic-enterprise-integration-transforms/transform-5.png) 
 
@@ -60,7 +60,7 @@ You can now test your transform by making a request to the HTTP endpoint.
 * The transformation created in a map can be simple, such as copying a name and address from one document to another. Or, you can create more complex transformations using the out-of-the-box map operations.  
 * Multiple map operations or functions are readily available, including strings, date time functions, and so on.  
 * You can do a direct data copy between the schemas. In the Mapper included in the SDK, this is as simple as drawing a line that connects the elements in the source schema with their counterparts in the destination schema.  
-* When creating a map, you view a graphical representation of the map, which show all the relationships and links you create.
+* When creating a map, you view a graphical representation of the map, which shows all the relationships and links you create.
 * Use the Test Map feature to add a sample XML message. With a simple click, you can test the map you created, and see the generated output.  
 * Upload existing maps  
 * Includes support for the XML format.
