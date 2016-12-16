@@ -47,41 +47,58 @@ Create an Azure Active Directory application, create a service principal for the
 1. Launch **PowerShell**.
 2. Run the following command and enter the user name and password that you use to sign in to the Azure portal.
 
-        Login-AzureRmAccount
+	```PowerShell
+	Login-AzureRmAccount
+	```
 3. Run the following command to view all the subscriptions for this account.
 
-        Get-AzureRmSubscription
+	```PowerShell
+	Get-AzureRmSubscription
+	```
 4. Run the following command to select the subscription that you want to work with. Replace **&lt;NameOfAzureSubscription**&gt; with the name of your Azure subscription.
 
-        Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+	```PowerShell
+	Get-AzureRmSubscription -SubscriptionName <NameOfAzureSubscription> | Set-AzureRmContext
+	```
 
    > [!IMPORTANT]
    > Note down **SubscriptionId** and **TenantId** from the output of this command.
 
 5. Create an Azure resource group named **ADFTutorialResourceGroup** by running the following command in the PowerShell.
 
-        New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+	```PowerShell
+	New-AzureRmResourceGroup -Name ADFTutorialResourceGroup  -Location "West US"
+	```
 
     If the resource group already exists, you specify whether to update it (Y) or keep it as (N).
 
     If you use a different resource group, you need to use the name of your resource group in place of ADFTutorialResourceGroup in this tutorial.
 6. Create an Azure Active Directory application.
 
-        $azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+	```PowerShell
+	$azureAdApplication = New-AzureRmADApplication -DisplayName "ADFCopyTutotiralApp" -HomePage "https://www.contoso.org" -IdentifierUris "https://www.adfcopytutorialapp.org/example" -Password "Pass@word1"
+	```
 
     If you get the following error, specify a different URL and run the command again.
-
-        Another object with the same value for property identifierUris already exists.
+	
+	```PowerShell
+	Another object with the same value for property identifierUris already exists.
+	```
 7. Create the AD service principal.
 
-        New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+	```PowerShell
+    New-AzureRmADServicePrincipal -ApplicationId $azureAdApplication.ApplicationId
+	```
 8. Add service principal to the **Data Factory Contributor** role.
 
-        New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+	```PowerShell
+    New-AzureRmRoleAssignment -RoleDefinitionName "Data Factory Contributor" -ServicePrincipalName $azureAdApplication.ApplicationId.Guid
+	```
 9. Get the application ID.
 
-        $azureAdApplication
-
+	```PowerShell
+	$azureAdApplication	
+	```
     Note down the application ID (**applicationID** from the output).
 
 You should have following four values from these steps:
@@ -471,8 +488,10 @@ You should have following four values from these steps:
 16. Build the console application. Click **Build** on the menu and click **Build Solution**.
 17. Confirm that there is at least one file in the **adftutorial** container in your Azure blob storage. If not, create **Emp.txt** file in Notepad with the following content and upload it to the adftutorial container.
 
-       John, Doe
-       Jane, Doe
+	```
+	John, Doe
+	Jane, Doe
+	```
 18. Run the sample by clicking **Debug** -> **Start Debugging** on the menu. When you see the **Getting run details of a data slice**, wait for a few minutes, and press **ENTER**.
 19. Use the Azure portal to verify that the data factory **APITutorialFactory** is created with the following artifacts:
    * Linked service: **LinkedService_AzureStorage**
