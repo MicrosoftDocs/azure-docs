@@ -50,7 +50,7 @@ To restore a database:
 
     ![Select Restore](./media/sql-data-warehouse-restore-database-portal/01-select-restore-from-active.png)
 6. Specify a new **Database name**.
-7. Select the latest **Restore Point**.
+7. Select the latest **Restore point**.
 
    Make sure you choose the latest restore point. Because restore points are shown in coordinated universal time (UTC), the default option might not be the latest restore point.
 
