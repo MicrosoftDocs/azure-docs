@@ -1,3 +1,3 @@
 ---
-redirect_url: /azure/active-directory/connect/active-directory-aadconnect-health
+redirect_url: /azure/active-directory/connect-health/active-directory-aadconnect-health
 ---
