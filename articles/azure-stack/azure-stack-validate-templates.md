@@ -43,7 +43,7 @@ The Azure Stack template validation files are hosted in [Azure Stack Tools](http
     foreach { Invoke-WebRequest ($uri + 'TemplateValidator/' +$_) -OutFile ($LocalPath + '\' + $_) }
 
     # Download Template Validator files
-    Invoke-WebRequest ($uri + '/CloudCapabilities/AzureRM.CloudCapabilities.psm1')` 
+    Invoke-WebRequest ($uri + '/CloudCapabilities/AzureRM.CloudCapabilities.psm1')`
     -OutFile ($LocalPath + '\' + 'AzureRM.CloudCapabilities.psm1') 
 ```
 
@@ -60,7 +60,7 @@ In these steps, you validate templates using the AzureRM.TemplateValidator Power
 2.  Run the template validator:
 
     ```PowerShell
-    test-azureRMTemplate -TemplatePath <path to template.json or template folder>` 
+    test-azureRMTemplate -TemplatePath <path to template.json or template folder>`
     -CapabilitiesPath <path to cloudcapabilities.json> -Verbose
     ```
 
