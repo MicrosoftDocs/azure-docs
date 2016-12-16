@@ -86,8 +86,8 @@ Besides the standard Python libraries, several commonly used python libraries ar
     numpy
     numexpr
 
-### Debugging Support
-Currently, an exception in Python code will as show up as generic vertex failure. In the future, Python exception messages will be clearlyvisible in the job error messages.
+### Exception Messages
+Currently, an exception in Python code will as show up as generic vertex failure. In the future, the U-SQL Job error messages will clearly show the Python exception message.
 
 ### Input and Output size limitations
 Every vertex has a limited amount of memory assigned to it. Currently, that limit is 6 GB for an AU. Because the input and output DataFrames must exist in memory in the Python code, the total size for the input and output cannot exceed 6 GB.
