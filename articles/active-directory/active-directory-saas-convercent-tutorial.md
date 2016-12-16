@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/07/2016
+ms.date: 12/14/2016
 ms.author: jeedes
 
 ---
@@ -116,9 +116,12 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_03.png) 
 
-3. On the **Configure App Settings** dialog page, click next.
+3. On the **Configure App Settings** dialog page, click next. With this you will be configuring the application in IDP initiated mode.
 
 	![Configure Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_04.png) 
+
+	>[!NOTE] 
+	>As you are configuring this application in IDP initiated mode, you need to configure the RelayState to the application. Otherwise the SSO integration will not work. Please follow the step 5 for the RelayState configuration.
 
 4. If you want to configure the application in SP initiated mode then click on **Show advanced settings** check box and perform the following steps:
 
@@ -128,7 +131,45 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 	
 	b. click **Next**
  
-5. On the **Configure single sign-on at Convercent** page, perform the following steps:
+5. If you have configured the application in IDP initiated mode then configure the RelayState value for the application. To configure the RelayState value in Azure AD, perform the following steps: 
+	
+	a. Logon to the [Azure Management Portal](https://portal.azure.com) as administrator.
+
+	b. In the left navigation pane, click **More Services**. 
+ 	
+	![Configure Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_07.png)
+
+	c. In the **Search** textbox, type **Azure Active Directory**, and then click the related link.
+	
+	![Configure Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_08.png)
+
+	d. Click **Enterprise Applications**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_09.png)
+
+	e. In the **Manage** section, click **All Applications**.
+	
+	![Configure Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_10.png)
+
+	f. In the **Search** textbox, type **ADP eTime**, and then click the related link. 
+	
+	![Configure Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_11.png)
+
+	g. In the **Manage** section, click **Single sign-on**.
+
+	![Configure Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_12.png)
+
+	h. Select **Show advanced URL settings**.
+	
+	![Configure Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_13.png)
+	
+	i. In the **Relay State** textbox, type a value using the following patterns: `https://app.convercent.com/`
+
+	![Configure Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_14.png)
+
+	j. Save the settings.
+
+6. On the **Configure single sign-on at Convercent** page, perform the following steps:
 
 	![Configure Single Sign-On](./media/active-directory-saas-convercent-tutorial/tutorial_convercent_06.png)
 
