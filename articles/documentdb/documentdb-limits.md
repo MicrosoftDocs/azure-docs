@@ -19,5 +19,4 @@ ms.author: arramac
 ---
 # Default quotas for DocumentDB
 
-Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb-increase-limits.md). Quota increases may take up to 24 hours to complete after receiving the required information. 
-
+DocumentDB is a global scale database in which throughput and storage can be scaled to handle whatever you application requires. If you have any questions about the scale DocumentDB provides, please send an email to askdocdb@microsoft.com.

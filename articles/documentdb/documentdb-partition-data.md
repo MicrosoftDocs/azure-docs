@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/14/2016
 ms.author: arramac
 
 ---
@@ -87,12 +87,10 @@ When DocumentDB stores documents, it distributes them evenly among partitions ba
 ## Single Partition and Partitioned Collections
 DocumentDB supports the creation of both single-partition and partitioned collections. 
 
-* **Partitioned collections** can span multiple partitions and support unlimited storage and throughput. You must specify a partition key for the collection.
-* **Single-partition collections** have lower price options and the ability to query and perform transactions across all collection data. They have the scalability and storage limits of a single partition. You do not have to specify a partition key for these collections. 
+* **Partitioned collections** can span multiple partitions and support unlimited storage and throughput. You must specify a partition key for the collection. 
+* **Single-partition collections** have lower price options, but they are limited in terms of maximum low storage and throughput. You do not have to specify a partition key for these collections. We recommend using partitioned collections over single-partitioned collections for all scenarios, except in situations where you expect only a small amount of data storage and requests.
 
 ![Partitioned collections in DocumentDB][2] 
-
-For scenarios that do not need large volumes of storage or throughput, single partition collections are a good fit. Note that single-partition collections have the scalability and storage limits of a single partition, i.e. up to 10 GB of storage and up to 10,000 request units per second. 
 
 Partitioned collections can support unlimited storage and throughput.
 
@@ -306,7 +304,7 @@ The choice of the partition key is an important decision that you’ll have to m
 Your choice of partition key should balance the need to enable the use of transactions against the requirement to distribute your entities across multiple partition keys to ensure a scalable solution. At one extreme, you could set the same partition key for all your documents, but this may limit the scalability of your solution. At the other extreme, you could assign a unique partition key for each document, which would be highly scalable but would prevent you from using cross document transactions via stored procedures and triggers. An ideal partition key is one that enables you to use efficient queries and that has sufficient cardinality to ensure your solution is scalable. 
 
 ### Avoiding storage and performance bottlenecks
-It is also important to pick a property which allows writes to be distributed across a number of distinct values. Requests to the same partition key cannot exceed the throughput of a single partition, and will be throttled. So it is important to pick a partition key that does not result in **"hot spots"** within your application. The total storage size for documents with the same partition key can also not exceed 10 GB in storage. 
+It is also important to pick a property which allows writes to be distributed across a number of distinct values. Requests to the same partition key cannot exceed the throughput of a single partition, and will be throttled. So it is important to pick a partition key that does not result in **"hot spots"** within your application. Since all the data for a single partition key must be stored within a partition, it is also recommended to avoid partition keys that have high volumes of data for the same value. 
 
 ### Examples of good partition keys
 Here are a few examples for how to pick the partition key for your application:
