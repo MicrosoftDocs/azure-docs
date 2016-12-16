@@ -10,7 +10,7 @@ editor: cgronlun
 
 ms.assetid: 7d99869b-cec5-4583-8c1c-4c663f4afd4d
 ms.service: sql-database
-ms.custom: overview
+ms.custom: single databases
 ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: powershell
