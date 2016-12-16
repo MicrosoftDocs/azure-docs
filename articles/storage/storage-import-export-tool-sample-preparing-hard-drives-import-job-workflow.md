@@ -100,7 +100,7 @@ To set these properties, create a text file, `c:\WAImportExport\SampleProperties
 
 Now you are ready to run the Azure Import/Export tool to prepare the two hard drives.
 
-For the first session:
+**For the first session:**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************* /InitialDriveSet:driveset-1.csv /DataSet:dataset-1.csv /logdir:F:\logs
@@ -108,7 +108,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#1  /sk:************
 
 If any more data needs to be added, create another dataset file (same format as Initialdataset).
 
-For the second session:
+**For the second session:**
 
 ```
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
