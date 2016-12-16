@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/18/2016
+ms.date: 12/14/2016
 ms.author: vakarand
 
 ---
@@ -23,29 +23,29 @@ This FAQ answers questions about Azure AD Connect Health. This FAQ covers questi
 ## General Questions
 **Q: I manage multiple Azure AD directories. How do I switch to the one with Azure Active Directory Premium?**
 
-You can switch between different Azure AD tenants by selecting the currently signed in User Name on the top right corner and choosing the appropriate account. If the account is not listed here, select Sign out and then use the global admin credentials of the Directory that has Azure Active Directory Premium enabled to sign in.
+To switch between different Azure AD tenants, select the currently signed in User Name on the top right corner and choose the appropriate account from the list. If the desired account is not listed, sign out and then sign in using the global admin credentials of the Directory that has Azure Active Directory Premium enabled.
 
 ## Installation Questions
 **Q: What is the impact of installing the Azure AD Connect Health Agent on individual servers?**
 
-The impact of installing the Microsoft Azure AD Connect Health Agents ADFS, Web Application Proxy servers, Azure AD Connect (sycn) servers, Domain Controllers is minimal with respect to the CPU, Memory consumption network bandwidth and storage.
+Installing Azure AD Connect Health Agents on servers (AD FS, Web Application Proxy, Azure AD Connect and Domain Controllers) has minimal impact regarding CPU, memory consumption, network bandwidth, and storage.
 
-The numbers below are an approximation.
+The following numbers are an approximation:
 
 * CPU consumption: ~1% increase
-* Memory consumption: Up to 10 % of the total system memory
+* Memory consumption: Up to 10% of the total system memory
 
 > [!NOTE]
-> In the event of the agent being unable to communicate to Azure, the agent stores the data locally, up to a defined maximum limit. The agent overwrites the “cached” data on a “least recently serviced” basis.
+> If the agent being is unable to communicate to Azure, the agent stores the data locally, up to a defined maximum limit. The agent overwrites the “cached” data on a “least recently serviced” basis.
 > 
 > 
 
 * Local buffer storage for Azure AD Connect Health Agents: ~20 MB
-* For AD FS servers, it is recommended that you provision a disk space of 1024 MB (1 GB) for the AD FS Audit Channel for Azure AD Connect Health Agents to process all the audit data before it is overwritten.
+* For AD FS servers, it is recommended to provision 1024 MB (1 GB) of disk space for the AD FS Audit Channel. This disk space helps Azure AD Connect Health Agents to process all the audit data before it is overwritten.
 
 **Q: Will I have to reboot my servers during the installation of the Azure AD Connect Health Agents?**
 
-No. The installation of the agents will not require you to reboot the server. However, installation of some of the prerequisite steps may require a reboot of the server.
+No. The installation of the agents does not require you to reboot the server. However, installation of some of the prerequisite steps may require a reboot of the server.
 
 For example, on Windows Server 2008 R2 the installation of .Net 4.5 Framework requires a server reboot.
 
@@ -87,8 +87,12 @@ You need to have TCP/UDP ports 443 and 5671 open for the Azure AD Connect Health
 
 When you remove an agent from a server, the server is not automatically removed from the Azure AD Connect Portal.  If you manually removed an agent from a server or removed the server itself, you need to manually delete the server entry from the Azure AD Connect Health portal. For more information, go to [delete a server or service instance.](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance)
 
-If you reimaged a server or created a new server with the same details(such as machine name) and  did not remove the already registered server from the Azure AD Connect Health portal, installed the agent on the new server, you may see two entries with the same name.  
+Two matching entries may exist, if you reimaged a server or created a new one with the same details (such as machine name) and did not first remove the registered server from the Azure AD Connect Health portal, prior to installing the agent on the new server.
 In this case, you should delete the entry belonging to the older server manually. The data for this server should be out-of-date.
+
+**Q: Why do I not see performance counters information for my Domain Controller?**
+
+If the NTDS performance counters are not loaded/enabled on the Domain Controller, Azure AD Connect Health is unable to collect and display performance counters for that particular DC. If Data Freshness alert exists for the impacted DC and the missing data type is PERFCOUNTER, follow the steps included in the alert details for troubleshooting missing performance counters. 
 
 ## Related links
 * [Azure AD Connect Health](active-directory-aadconnect-health.md)

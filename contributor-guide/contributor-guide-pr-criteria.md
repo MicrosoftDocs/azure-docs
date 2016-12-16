@@ -8,7 +8,7 @@ The updates in the pull request must comply with the following criteria to be me
 | --- | --- |
 | Prerequisites |The "ready-to-merge" label is assigned to the PR (use the #sign-off comment) and the validation status is "passed". |
 | Prerequisites |Any pull request to the Live branch should be closed. The user should be redirected to the master branch. |
-| Prerequisites |The pull request cannot be blocked by a merge conflict. |
+| Prerequisites |The pull request cannot be blocked by a merge conflict. If there is a merge conflict, refer the user to https://github.com/blog/2293-resolve-simple-merge-conflicts-on-github for instructions on how to use the GitHub UI to resolve merge conflicts. PR reviewers do not resolve conflicts. |
 | Prerequisites |The pull request contains updates only to technical articles and images. PRs that mix updates to TOC files, index files, and articles will be closed without further review. |
 | Repo integrity |Pull request contains no obvious content regressions. |
 | Repo integrity |No article-related files, images, or folders are being added to the root directory of the repo.|
@@ -22,6 +22,7 @@ The updates in the pull request must comply with the following criteria to be me
 | Metadata | The ms.date value cannot be set more than 5 days into the future. |
 | Content |The article is a technical document, and therefore in the correct content channel. See the [what goes where guidance](content-channel-guidance.md). |
 | Content |The subject matter in the technical document is appropriate for a technical article. See the [what goes where guidance](content-channel-guidance.md). |
+|Content |Bylines are not permitted; if an article calls out the name of the author or any contributor in the text, that attribution needs to be removed. Articles published from the tech content repo are considered to be authored by "Microsoft". Contributors who have committed updates to the article are recognized automatically on the contributor bar of the published article.|
 | Content |The article contains only one H1 heading. |
 | Content |The article contains an introductory paragraph, and a procedural or conceptual body of content. The article needs to contain sufficient, complete content to stand on its own as an article. It should not be a small fragment of information. (Exception: A "Limits" topic if it is in the context of a large article that lists all of the limits of a service.) |
 | Content |Elements that should be numbered lists are numbered, elements that should be unordered lists are bulleted. This is basic usability. |
