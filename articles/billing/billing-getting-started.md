@@ -50,7 +50,7 @@ If your AA is absent and you need to manage billing, [contact support](https://p
 
 ### See if you have a spending limit on 
 
-If you're on a *credit offer* - [monthly Azure credit via Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or other benefits - then the spending limit is turned on for you by default. This way, when you spend all your credits, your credit card doesn't get charged. To learn more, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/)
+If you're on a *credit offer* - [monthly Azure credit via Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or other benefits - then the spending limit is turned on for you by default. This way, when you spend all your credits, your credit card doesn't get charged. 
 
 > [!WARNING] 
 > Once you hit your spending limit, we disable you (your VMs get deallocated)! If you don't want to get disabled, then you must turn off the spending limit so any overage gets charged onto a credit card on file. 
@@ -59,7 +59,7 @@ To see if you've got spending limit on, go to the [Subscriptions view in the Acc
 
 ![You should see a warning about spending limit being on in the Account Center](./media/billing-getting-started/spending-limit-banner.PNG)
 
-To remove the spending limit, click the banner and follow prompts.
+To remove the spending limit, click the banner and follow prompts. To learn more, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/)
 
 ### Set up billing alerts
 
@@ -67,7 +67,7 @@ You can set up billing alerts for when your spend exceeds some number or if your
 
 ![Set up billing alerts in the Account Center](./media/billing-getting-started/billing-alert.png)
 
-> [!WARNING]
+> [!NOTE]
 > This feature is still in preview.
 
 Since earlier you estimated your costs using the pricing calculator, it would be a good idea to use that as a guideline for setting up your first alerts. 
@@ -80,9 +80,11 @@ There are default limits to each subscription for things Like the number of CPU 
 
 ### Note the estimated cost in the portal
 
-Typically when you add a service in the Azure portal there's a view that shows you a similar estimated cost per month. For instance, when you're choosing the size of your Windows VM you should see the estimated monthly cost:
+Typically when you add a service in the Azure portal, there's a view that shows you a similar estimated cost per month. For instance, when you're choosing the size of your Windows VM you should see the estimated monthly cost:
 
 ![Example: an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/vm-size-cost.PNG)
+
+Take note of this estimate.
 
 ### Add tags to your resources to group your billing data
 
@@ -96,7 +98,7 @@ They show up in your [usage CSV](#invoice-and-usage) later:
 
 See [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md) for details. 
 
-### Consider enabling cost-cutting features like auto- for VMs
+### Consider enabling cost-cutting features like auto-shutdown for VMs
 
 Depending on your use case, you could configure auto-shutdown for your VMs in the Azure portal. See [Auto-shutdown for VMs using Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
