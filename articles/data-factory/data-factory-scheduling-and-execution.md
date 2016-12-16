@@ -687,7 +687,7 @@ One output file is created every day in the folder for the day. Availability of 
 
 The hive activity takes the two inputs and produces an output slice every day. You can specify every day’s output slice to depend on the previous week’s input slice for weekly input as follows.
 
-```
+```json
 {  
     "name":"SamplePipeline",
     "properties":{  
@@ -810,7 +810,7 @@ Similar to datasets that are produced by Data Factory, the data slices for exter
 ## Onetime pipeline
 You can create and schedule a pipeline to run periodically (for example: hourly or daily) within the start and end times you specify in the pipeline definition. See [Scheduling activities](#scheduling-and-execution) for details. You can also create a pipeline that runs only once. To do so, you set the **pipelineMode** property in the pipeline definition to **onetime** as shown in the following JSON sample. The default value for this property is **scheduled**.
 
-```
+```json
 {
     "name": "CopyPipeline",
     "properties": {

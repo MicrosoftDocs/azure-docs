@@ -221,7 +221,7 @@ See following topics if you are new to Azure Batch service:
 
 ### Example
 
-```
+```json
 {
   "name": "AzureBatchLinkedService",
   "properties": {
