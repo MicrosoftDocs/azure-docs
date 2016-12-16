@@ -70,7 +70,7 @@ adfgetstarted/partitioneddata/year=2016/month=3/000000_0
 
 From the sample lines shown above, the first one (with 2016-01-01) is written to the 000000_0 file in the month=1 folder. Similarly, the second one is written to the file in the month=2 folder and the third one is written to the file in the month=3 folder.  
 
-## Pre-requisites
+## Prerequisites
 Before you begin this tutorial, you must have the following prerequisites:
 
 1. **Azure subscription** - If you don't have an Azure subscription, you can create a free trial account in just a couple of minutes. See the [Free Trial](https://azure.microsoft.com/pricing/free-trial/) article on how you can obtain a free trial account.
@@ -83,88 +83,88 @@ Before starting the tutorial, you need to prepare your Azure Storage account wit
 2. Upload input file to **inputdata** folder of the **adfgetstarted** blob container. 
 
 #### Create HQL script file
-1. Launch **Notepad** and paste the following HQL script. This Hive script creates two tables: **WebLogsRaw** and **WebLogsPartitioned**. Click **File** on the menu and select **Save As**. Switch to the **C:\adfgetstarted** folder on your hard drive. Select **All Files (*.*)** for the **Save as type** field. Enter **partitionweblogs.hql** for the **File name**. Confirm that the **Encoding** field at the bottom of the dialog box is set to **ANSI**. If not, set it to **ANSI**.  
+Launch **Notepad** and paste the following HQL script. This Hive script creates two tables: **WebLogsRaw** and **WebLogsPartitioned**. Click **File** on the menu and select **Save As**. Switch to the **C:\adfgetstarted** folder on your hard drive. Select **All Files (*.*)** for the **Save as type** field. Enter **partitionweblogs.hql** for the **File name**. Confirm that the **Encoding** field at the bottom of the dialog box is set to **ANSI**. If not, set it to **ANSI**.  
 
-	```SQL   
-	set hive.exec.dynamic.partition.mode=nonstrict;
-	
-	DROP TABLE IF EXISTS WebLogsRaw; 
-	CREATE TABLE WebLogsRaw (
-	  date  date,
-	  time  string,
-	  ssitename string,
-	  csmethod  string,
-	  csuristem  string,
-	  csuriquery string,
-	  sport int,
-	  susername string,
-	  cipcsUserAgent string,
-	  csCookie string,
-	  csReferer string,
-	  cshost  string,
-	  scstatus  int,
-	  scsubstatus  int,
-	  scwin32status  int,
-	  scbytes int,
-	  csbytes int,
-	  timetaken int
-	)
-	ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
-	LINES TERMINATED BY '\n' 
-	tblproperties ("skip.header.line.count"="2");
-	
-	LOAD DATA INPATH '${hiveconf:inputtable}' OVERWRITE INTO TABLE WebLogsRaw;
-	
-	DROP TABLE IF EXISTS WebLogsPartitioned ; 
-	create external table WebLogsPartitioned (  
-	  date  date,
-	  time  string,
-	  ssitename string,
-	  csmethod  string,
-	  csuristem  string,
-	  csuriquery string,
-	  sport int,
-	  susername string,
-	  cipcsUserAgent string,
-	  csCookie string,
-	  csReferer string,
-	  cshost  string,
-	  scstatus  int,
-	  scsubstatus  int,
-	  scwin32status  int,
-	  scbytes int,
-	  csbytes int,
-	  timetaken int
-	)
-	partitioned by ( year int, month int)
-	ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
-	STORED AS TEXTFILE 
-	LOCATION '${hiveconf:partitionedtable}';
-	
-	INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
-	SELECT
-	  date,
-	  time,
-	  ssitename,
-	  csmethod,
-	  csuristem,
-	  csuriquery,
-	  sport,
-	  susername,
-	  cipcsUserAgent,
-	  csCookie,
-	  csReferer,
-	  cshost,
-	  scstatus,
-	  scsubstatus,
-	  scwin32status,
-	  scbytes,
-	  csbytes,
-	  timetaken,
-	  year(date),
-	  month(date)
-	FROM WebLogsRaw
-	```
+```SQL   
+set hive.exec.dynamic.partition.mode=nonstrict;
+
+DROP TABLE IF EXISTS WebLogsRaw; 
+CREATE TABLE WebLogsRaw (
+  date  date,
+  time  string,
+  ssitename string,
+  csmethod  string,
+  csuristem  string,
+  csuriquery string,
+  sport int,
+  susername string,
+  cipcsUserAgent string,
+  csCookie string,
+  csReferer string,
+  cshost  string,
+  scstatus  int,
+  scsubstatus  int,
+  scwin32status  int,
+  scbytes int,
+  csbytes int,
+  timetaken int
+)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ' '
+LINES TERMINATED BY '\n' 
+tblproperties ("skip.header.line.count"="2");
+
+LOAD DATA INPATH '${hiveconf:inputtable}' OVERWRITE INTO TABLE WebLogsRaw;
+
+DROP TABLE IF EXISTS WebLogsPartitioned ; 
+create external table WebLogsPartitioned (  
+  date  date,
+  time  string,
+  ssitename string,
+  csmethod  string,
+  csuristem  string,
+  csuriquery string,
+  sport int,
+  susername string,
+  cipcsUserAgent string,
+  csCookie string,
+  csReferer string,
+  cshost  string,
+  scstatus  int,
+  scsubstatus  int,
+  scwin32status  int,
+  scbytes int,
+  csbytes int,
+  timetaken int
+)
+partitioned by ( year int, month int)
+ROW FORMAT DELIMITED FIELDS TERMINATED BY ',' 
+STORED AS TEXTFILE 
+LOCATION '${hiveconf:partitionedtable}';
+
+INSERT INTO TABLE WebLogsPartitioned  PARTITION( year , month) 
+SELECT
+  date,
+  time,
+  ssitename,
+  csmethod,
+  csuristem,
+  csuriquery,
+  sport,
+  susername,
+  cipcsUserAgent,
+  csCookie,
+  csReferer,
+  cshost,
+  scstatus,
+  scsubstatus,
+  scwin32status,
+  scbytes,
+  csbytes,
+  timetaken,
+  year(date),
+  month(date)
+FROM WebLogsRaw
+```
 
 At runtime, the Hive Activity in the Data Factory pipeline passes values for the **inputtable** and **partitionedtable** parameters as shown in the following snippet:  
 
