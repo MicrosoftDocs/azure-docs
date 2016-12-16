@@ -41,7 +41,7 @@ While the capabilities of both platforms are similar, the resources that provide
 those capabilities are often organized differently. Exact one-to-one
 relationships between the services required to build a solution are not always
 clear. There are also cases where a particular service might be offered on one
-platform, but not the other. See [charts of comparable Azure and AWS services](guidance).
+platform, but not the other. See [charts of comparable Azure and AWS services](guidance-azure-for-aws-professionals-service-map.md).
 
 ## Accounts and subscriptions
 
