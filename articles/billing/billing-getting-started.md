@@ -32,7 +32,7 @@ Check out the [pricing calculator](https://azure.microsoft.com/pricing/calculato
 
 ![Screenshot of the pricing calculator showing that an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/pricing-calc.PNG)
 
-For more information, see [pricing FAQ](https://azure.microsoft.com/pricing/faq/). Or if you want to talk to a person, call 1-800-867-1389 
+For more information, see [pricing FAQ](https://azure.microsoft.com/pricing/faq/). Or if you want to talk to a person, call 1-800-867-1389.
 
 ### Check your subscription and access
 
@@ -58,7 +58,7 @@ To see if you've got spending limit on, go to the [Subscriptions view in the Acc
 
 ![Screenshot that shows a warning about spending limit being on in the Account Center](./media/billing-getting-started/spending-limit-banner.PNG)
 
-Click the banner and follow prompts to remove the spending limit. For more information, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/)
+Click the banner and follow prompts to remove the spending limit. For more information, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/).
 
 ### Set up billing alerts
 
@@ -89,11 +89,11 @@ You can use tags to group billing data for supported services. For example, if y
 
 ![Screenshot that shows setting up tags in the portal](./media/billing-getting-started/tags.PNG)
 
-They show up in your [usage CSV](#invoice-and-usage) after your first billing period:
+The tags show up in your [usage CSV](#invoice-and-usage) after your first billing period:
 
 ![Screenshot that shows tags in the usage CSV](./media/billing-getting-started/csv.png)
 
-For more information, see [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md) for details. 
+For more information, see [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md).
 
 ### Consider enabling cost-cutting features like auto-shutdown for VMs
 
@@ -101,7 +101,7 @@ Depending on your scenario, you could configure auto-shutdown for your VMs in th
 
 ![Screenshot of auto-shutdown option in the portal](./media/billing-getting-started/auto-shutdown.PNG)
 
-Auto-shutdown isn't the same as when you shut down within the VM with power options. Auto-shutdown stops and deallocates your VMs. to stop additional usage charges."See pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/) to learn more about VM states.
+Auto-shutdown isn't the same as when you shut down within the VM with power options. Auto-shutdown stops and deallocates your VMs. to stop additional usage charges. See pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/) to learn more about VM states.
 
 ## <a name="cost-reporting"></a> Ways to view and analyze your costs
 
@@ -109,7 +109,7 @@ Auto-shutdown isn't the same as when you shut down within the VM with power opti
 
 After you get your services running, regularly check how much they're costing you. You can see the current spend and burn rate in Azure portal. 
 
-1. Visit the [Subscriptions blade in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
+1. Visit the [Subscriptions blade in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
 2. Select your subscription you want to see. You might only have one to select.
 
@@ -117,13 +117,15 @@ After you get your services running, regularly check how much they're costing yo
     
     ![Screenshot of burn rate and breakdown in the Azure portal](./media/billing-getting-started/burn-rate.PNG)
 
-4. We recommend to pin the view to your dashboard.
+4. You might want to pin the view to your dashboard.
+
+<!-- TODO: add small screenshot -->
 
 We recommend that you check the charges you see with the estimates you saw when you selected the services. If the charges wildly differ from the estimates, then double check the pricing plan (A1 vs A0 VM, for example) that you've selected for your services. 
 
 ### <a name="invoice-and-usage"></a> Download invoice and detail usage after your first billing period
 
-After your first billing period, you can download your Portable Document Format (.pdf) invoice and usage Comma-Separated Values (.csv) files. For more information, see [How to download your Azure billing invoice and daily usage data](https://docs.microsoft.com/azure/billing-download-azure-invoice-daily-usage-date)
+After your first billing period, you can download your Portable Document Format (.pdf) invoice and usage Comma-Separated Values (.csv) files. For more information, see [How to download your Azure billing invoice and daily usage data](https://docs.microsoft.com/azure/billing-download-azure-invoice-daily-usage-date).
 
 ![Screenshot of a PDF invoice](./media/billing-getting-started/invoice.png)
 
