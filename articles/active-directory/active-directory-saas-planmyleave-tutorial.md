@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with PlanMyLeave' | Microsoft Docs
+title: 'Tutorial: Azure Active Directory integration with PlanMyLeave | Microsoft Docs 1
 description: Learn how to configure single sign-on between Azure Active Directory and PlanMyLeave.
 services: active-directory
 documentationCenter: na
@@ -12,11 +12,10 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2016
-ms.author:jeedes
+ms.date: 12/15/2016
+ms.author: jeedes
 
 ---
-
 # Tutorial: Azure Active Directory integration with PlanMyLeave
 
 In this tutorial, you learn how to integrate PlanMyLeave with Azure Active Directory (Azure AD).
@@ -116,11 +115,11 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 
 	![Configure Single Sign-On](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_03.png) 
 
-3. On the **Configure App Settings** dialog page, perform the following steps:
+3. On the **Configure App Settings** dialog page, perform the following step:
 
 	![Configure Single Sign-On](./media/active-directory-saas-planmyleave-tutorial/tutorial_planmyleave_04.png) 
 
-    a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your PlanMyLeave application using the following pattern: `https://<company-name>.planmyleave.com/Login.aspx`.
+    - In the **Sign On URL** textbox, type the URL used by your users to sign-on to your PlanMyLeave application using the following pattern: `https://<company-name>.planmyleave.com/Login.aspx`.
 	
 	> [!NOTE]
 	> Please note that you have to update these values with the actual Sign On URL. To get these values, contact [PlanMyLeave support team](emaiLto:support@planmyleave.com).
