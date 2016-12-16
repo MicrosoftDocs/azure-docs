@@ -29,8 +29,8 @@
 #### [Single databases](sql-database-overview.md)
 #### [Multiple databases](sql-database-elastic-scale-introduction.md)
 ##### Mapping tenants
-###### [Shard map manager](sql-database-elastic-scale-shard-map-management.md)
 ###### [Elastic client library](sql-database-elastic-database-client-library.md)
+###### [Shard map manager](sql-database-elastic-scale-shard-map-management.md)
 ###### [Data-dependent routing](sql-database-elastic-scale-data-dependent-routing.md)
 ###### [Manage credentials](sql-database-elastic-scale-manage-credentials.md)
 ###### [Multishard querying](sql-database-elastic-scale-multishard-querying.md)
