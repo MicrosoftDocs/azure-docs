@@ -310,9 +310,11 @@ In this step, you publish Data Factory entities (linked services, datasets, and 
 6. Review the summary and click **Next** to start the deployment process and view the **Deployment Status**.
    
    ![Publish summary page](media/data-factory-copy-activity-tutorial-using-visual-studio/publish-summary-page.png)
-7. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done. 
+7. In the **Deployment Status** page, you should see the status of the deployment process. Click Finish after the deployment is done.
+ 
    ![Deployment status page](media/data-factory-copy-activity-tutorial-using-visual-studio/deployment-status.png)
-   Note the following points: 
+
+Note the following points: 
 
 * If you receive the error: "**This subscription is not registered to use namespace Microsoft.DataFactory**", do one of the following and try publishing again: 
   
@@ -347,8 +349,10 @@ In this tutorial, you created an Azure data factory to copy data from an Azure b
 ## Use Server Explorer to view data factories
 1. In **Visual Studio**, click **View** on the menu, and click **Server Explorer**.
 2. In the Server Explorer window, expand **Azure** and expand **Data Factory**. If you see **Sign in to Visual Studio**, enter the **account** associated with your Azure subscription and click **Continue**. Enter **password**, and click **Sign in**. Visual Studio tries to get information about all Azure data factories in your subscription. You see the status of this operation in the **Data Factory Task List** window.
+
     ![Server Explorer](./media/data-factory-copy-activity-tutorial-using-visual-studio/server-explorer.png)
 3. You can right-click on a data factory, and select Export Data Factory to New Project to create a Visual Studio project based on an existing data factory.
+
     ![Export data factory to a VS project](./media/data-factory-copy-activity-tutorial-using-visual-studio/export-data-factory-menu.png)  
 
 ## Update Data Factory tools for Visual Studio
