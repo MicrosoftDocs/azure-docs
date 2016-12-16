@@ -9,7 +9,7 @@
       - name: Connect
         tocHref: /azure/active-directory/connect/
         topicHref: /azure/active-directory/connect/
- 	- name: Connect Health
+      - name: Connect Health
         tocHref: /azure/active-directory/connect-health/
         topicHref: /azure/active-directory/connect-health/
       - name: Develop
