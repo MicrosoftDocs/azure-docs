@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
-ms.custom: sharded databases pool
+ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 12/14/2016
 ms.author: CarlRabeler

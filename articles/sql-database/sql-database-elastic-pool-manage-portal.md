@@ -10,7 +10,7 @@ editor: cgronlun
 
 ms.assetid: 3dc9b7a3-4b10-423a-8e44-9174aca5cf3d
 ms.service: sql-database
-ms.custom: sharded databases pool; how to
+ms.custom: multiple databases
 ms.devlang: NA
 ms.date: 11/17/2016
 ms.author: ninarn
