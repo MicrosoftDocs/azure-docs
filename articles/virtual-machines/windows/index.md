@@ -1,10 +1,10 @@
 ---
 layout: LandingPage
-description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud. 
+description: Learn how to create Windows virtual machines. Documentation helps you plan, deploy, and manage a virtual machine computing environment in the cloud.
 ---
 # Windows Virtual Machines Documentation
 
-Learn how to create Windows virtual machines. Tutorials, API references, and other documentation help you plan, deploy, and manage a virtual machine computing environment in the cloud. 
+Learn how to create Windows virtual machines. Tutorials, API references, and other documentation help you plan, deploy, and manage a virtual machine computing environment in the cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>

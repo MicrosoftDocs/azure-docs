@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to embed Power BI data visualizations and interactive reports into apps. Tutorials, API references, and other documentation.
 ---
 # Power BI Embedded Documentation
 
-Power BI Embedded is an Azure service that enables application developers to add interactive Power BI reports into their own applications. Power BI Embedded works with existing applications without needing redesign or changing the way users sign in.
+Learn how to add data visualizations and interactive reports to applications with Power BI Embedded. Tutorials, API references, and other documentation show you how to seamlessly embed Power BI reports and dashboards into apps.
 
 <ul class="panelContent cardsFTitle">
     <li>
