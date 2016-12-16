@@ -1,6 +1,6 @@
 ---
 title: Using import/export to transfer data to Blob Storage | Microsoft Docs
-description: Learn how to create import and export jobs in the Azure Azure portal to transfer data to blob storage.
+description: Learn how to create import and export jobs in the Azure portal to transfer data to blob storage.
 author: renashahmsft
 manager: aungoo
 editor: tysonn
@@ -21,7 +21,7 @@ ms.author: renash
 ## Overview
 Azure Import/Export Service allows you to securely transfer large amounts of data to Azure blob storage by shipping hard disk drives to an Azure data center. You can also use this service to transfer data from Azure blob storage to hard disk drives and ship to your on-premises site. This service is suitable in situations where you want to transfer several TBs of data to or from Azure, but uploading or downloading over the network is not feasible due to limited bandwidth or high network costs.
 
-The service requires that hard disk drives should be bit locker encrypted for the security of your data. The service supports the blob storage accounts present in all the regions of Public Azure. You must ship hard disk drives to one of the supported locations specified later in this article.
+The service requires that hard disk drives should be bit locker encrypted for the security of your data. The service supports the both Classic and Azure Resource Manager storage accounts (standard and cool tier) present in all the regions of Public Azure. You must ship hard disk drives to one of the supported locations specified later in this article.
 
 In this article, you will learn more about the Azure Import/Export service and how to ship drives for copying your data to and from Azure Blob storage.
 
@@ -65,7 +65,7 @@ The journal files store basic information about your job and drive such as drive
 
 The client tool is only compatible with 64-bit Windows operating system. See the [Operating System](#operating-system) section for specific OS versions supported.
 
-Download the latest version of the [Azure Import/Export client tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). For more details about using the Azure Import/Export Tool, see the [Azure Import/Export Tool Reference](http://go.microsoft.com/fwlink/?LinkId=329032).
+Download the latest version of the [Azure Import/Export client tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). For more details about using the Azure Import/Export Tool, see the [Using the Import Export Tool](http://go.microsoft.com/fwlink/?LinkId=329032).
 
 ### Hard disk drives
 Only 2.5/3.5 inch SSD/SATA II/III internal hard drives are supported for use with the Import/Export service. You can use hard drives up to 10TB.
@@ -243,16 +243,18 @@ The first step when importing data using the Azure Import/Export service is to p
 2. Determine the number of drives you will need depending on total size of the data. Procure the required number of 2.5/3.5 inch SSD/SATA II/III hard disk drives.
 3. Identify the target storage account, container, virtual directories, and blobs.
 4.	Determine the directories and/or standalone files that will be copied to each hard disk drive.
-5.	Create the csv files for dataset and driveset.
+5.	Create the CSV files for dataset and driveset.
     
     **Dataset CSV File**
     
     Below is a sample dataset csv file example:
+    
     ```
     BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
     "F:\50M_original\100M_1.csv.txt","containername/100M_1.csv.txt",BlockBlob,rename,"None",None
     "F:\50M_original\","containername/",BlockBlob,rename,"None",None 
     ```
+   
     In the above example, 100M_1.csv.txt  will be copied to the root of the container named “containername”. If the container names “containername” does not exist, one will be created. All files and folders under 50M_original will be recursively copied to containername. Folder structure will be maintained.
     
     **Remember**: By default, the data will be imported as Block Blobs. You can use the BlobType fieled-value to import data as a Page Blobs. For example, if you are importing VHD files which will be mounted as disks on an Azure VM, you must import them as Page Blobs.
@@ -262,14 +264,16 @@ The first step when importing data using the Azure Import/Export service is to p
     The value of the driveset flag is a csv file which contains the list of disks to which the drive letters are mapped in order to the tool to correctly pick the list of disks to be prepared. 
 
     Below is the example of driveset .csv file:
+    
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
     G,AlreadyFormatted,SilentMode,AlreadyEncrypted,060456-014509-132033-080300-252615-584177-672089-411631 |
     H,Format,SilentMode,Encrypt,
     ```
-    In the above example, it is assumed that two disks are attached and basic NTFS volumes with Volume-letter G:\ and H:\ have been created. The tool will format and encrypt the disk which hosts H:\ and will not format or encrypt the disk hosting volume G:\.
+
+    In the above example, it is assumed that two disks are attached and basic NTFS volumes with volume-letter G:\ and H:\ have been created. The tool will format and encrypt the disk which hosts H:\ and will not format or encrypt the disk hosting volume G:\.
 6.	Use the [Azure Import/Export Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) to copy your data to one or more hard drives.
-7.	You can specify "Ecrypt" on Encryption field in drivset csv to enable Bitlocker encryption on the hard disk drive. Alternatively, you could also enable Bitlocker encryption manually on the hard disk drive and specify "AlreadyEncrypted" and supply the key in the driveset csv while running the tool.
+7.	You can specify "Encrypt" on Encryption field in drivset csv to enable BitLocker encryption on the hard disk drive. Alternatively, you could also enable BitLocker encryption manually on the hard disk drive and specify "AlreadyEncrypted" and supply the key in the driveset csv while running the tool.
 
 8. Do not modify the data on the hard disk drives or the journal file after completing disk preparation.
 
@@ -316,9 +320,9 @@ WAImportExport PrepImport /j:<JournalFile> /id:<SessionId> /j:<JournalFile> /id:
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset-2.csv
 ```
 
-See more details about using the Azure Import/Export client tool in [Preparing Hard Drives for Import](https://msdn.microsoft.com/library/dn529089.aspx).
+See more details about using the Azure Import/Export client tool in [Preparing Hard Drives for Import](storage-import-export-tool-preparing-hard-drives-import.md).
 
-Also, refer to the [Sample Workflow to Prepare Hard Drives for an Import Job](https://msdn.microsoft.com/library/dn529097.aspx) for more detailed step-by-step instructions.  
+Also, refer to the [Sample Workflow to Prepare Hard Drives for an Import Job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md) for more detailed step-by-step instructions.  
 
 ### Create the Import Job
 1. Once you have prepared your drive, navigate to your storage account in the Azure portal and view the Dashboard. Under **Quick Glance**, click **Create an Import Job**. Review the steps and select the checkbox to indicate that you have prepared your drive and that you have the drive journal file available.
@@ -431,7 +435,7 @@ The Azure data center will return the drive that does not conform to the support
 
 You can cancel a job when its status is Creating or Shipping.
 
-**How long can I view the status of completed jobs in Azure portal?**
+**How long can I view the status of completed jobs in the Azure portal?**
 
 You can view the status for completed jobs for up to 90 days. Completed jobs will be deleted after 90 days.
 
