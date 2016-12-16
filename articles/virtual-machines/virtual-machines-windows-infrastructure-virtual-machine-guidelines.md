@@ -1,6 +1,6 @@
 ---
-title: windows Virtual Machines Guidelines | Microsoft Docs
-description: Learn about the key design and implementation guidelines for deploying windows virtual machines into Azure
+title: Azure Virtual Machines Guidelines | Microsoft Docs
+description: Learn about the key design and implementation guidelines for deploying Windows virtual machines into Azure
 documentationcenter: ''
 services: virtual-machines-windows
 author: iainfoulds
@@ -14,11 +14,11 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 
 ---
-# Virtual machines guidelines
+# Azure virtual machines guidelines for Windows
 [!INCLUDE [virtual-machines-windows-infrastructure-guidelines-intro](../../includes/virtual-machines-windows-infrastructure-guidelines-intro.md)]
 
 This article focuses on understanding the required planning steps for creating and managing virtual machines (VMs) within your Azure environment.
