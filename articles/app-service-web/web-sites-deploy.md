@@ -207,7 +207,7 @@ You can use the command line in Windows, Mac or Linux machines to deploy by usin
 
 For more information, see the following resource:
 
-* [Azure Command line tools](/downloads/#cmd-line-tools). Portal page in Azure.com for command line tool information.
+* [Azure Command line tools](https://azure.microsoft.com/downloads/). Portal page in Azure.com for command line tool information.
 
 ### <a name="webdeploy"></a>Deploy from Web Deploy command line
 [Web Deploy](http://www.iis.net/downloads/microsoft/web-deploy) is Microsoft software for deployment to IIS that not only provides intelligent file sync features but also can perform or coordinate many other deployment-related tasks that can't be automated when you use FTP. For example, Web Deploy can deploy a new database or database updates along with your web app. Web Deploy can also minimize the time required to update an existing site since it can intelligently copy only changed files. Microsoft Visual Studio and Team Foundation Server have support for Web Deploy built-in, but you can also use Web Deploy directly from the command line to automate deployment. Web Deploy commands are very powerful but the learning curve can be steep.
