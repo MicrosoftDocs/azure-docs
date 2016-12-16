@@ -23,7 +23,7 @@ ms.author: anhowe
 # Microsoft Azure Container Service Engine - Kubernetes Walkthrough
 
 ## Prerequisites
-This walkthrough assumes that you have the ['azure-cli' command line tool](https://github.com/azure/azure-cli) installed.
+This walkthrough assumes that you have the ['azure-cli' command line tool](https://github.com/azure/azure-cli#installation) installed.
 
 ## Overview
 
