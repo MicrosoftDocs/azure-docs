@@ -67,7 +67,7 @@
 #### [Transactional replication](sql-database-cloud-migrate-compatible-using-transactional-replication.md)
 #### [Data sync](sql-database-get-started-sql-data-sync.md)
 #### [Copy a SQL database](sql-database-copy.md)
-## Firewall rules, authentication and authorization
+## Firewall rules, authentication, and authorization
 ### Learn
 #### [Overview](sql-database-security.md)
 #### [Security guidelines](sql-database-security-guidelines.md)
@@ -182,7 +182,7 @@
 ##### [Security configuration](sql-database-elastic-scale-split-merge-security-configuration.md)
 ##### [Add a shard](sql-database-elastic-scale-add-a-shard.md)
 ##### [Fix shard map problems](sql-database-elastic-database-recovery-manager.md)
-##### [Migrate existing scaled-out databases to scale-out](sql-database-elastic-convert-to-use-elastic-tools.md)
+##### [Migrate existing scaled-out databases to sharded databases](sql-database-elastic-convert-to-use-elastic-tools.md)
 ##### [Create performance counters for shard map manager](sql-database-elastic-database-perf-counters.md)
 #### Elastic jobs
 ##### [How do I install the elastic jobs service?](sql-database-elastic-jobs-service-installation.md)
@@ -206,7 +206,7 @@
 ## Migrate databases
 ### Determine compatibility
 #### [Determine compatibility using the SQL Package utility](sql-database-cloud-migrate-determine-compatibility-sqlpackage.md)
-#### [Determine compatibility uisng SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
+#### [Determine compatibility using SSMS](sql-database-cloud-migrate-determine-compatibility-ssms.md)
 ### Fix compatibility issues
 #### [Fix compatibility issues using SSDT](sql-database-cloud-migrate-fix-compatibility-issues-ssdt.md)
 #### [Fix compatibility issues using SSMS](sql-database-cloud-migrate-fix-compatibility-issues-ssms.md)
