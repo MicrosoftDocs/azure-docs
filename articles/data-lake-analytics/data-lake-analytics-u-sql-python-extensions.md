@@ -59,7 +59,31 @@ Python Extensions for U-SQL enable developers to perform massively parallel exec
     OUTPUT @m
         TO "/tweetmentions.csv"
         USING Outputters.Csv();
- 
+
+## How Python Integrates with U-SQL
+
+### Datatypes
+
+* String and numeric columns from U-SQL are converted as-is between Pandas and U-SQL
+* U-SQL Nulls are converted to and from Pandas "NA" values
+
+### Schemas
+
+* Index vectors in Pandas are not supported in U-SQL. All input data frames in the Python function always have a 64-bit numerical index from 0 through the number of rows minus 1. 
+* U-SQL datasets cannot have duplicate column names
+* U-SQL datasets column names that are not strings. 
+
+### Python Versions
+Only Python 3.5.1 (compiled for Windows) is supported. 
+
+### Python modules
+In U-SQL, the standard Python modules are included. In addition, the pandas, numpy, and numexpr libraries are included.
+
+### Debugging Support
+Currently, debugging an exception in Python code will be primitive and shows as a vertex failure. In the future Data Lake Analytics will over a more integrated and simpler debugging experience.
+
+### Input and Output size limitations
+The input DataFrame and OutputDataframe each must be less than or equal to 3 GB. This is due to restrictions placed on the memory available to the vertexes used for query execution.
 
 ## See also
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
