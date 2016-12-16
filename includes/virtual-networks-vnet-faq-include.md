@@ -42,7 +42,7 @@ You can use public IP address ranges and any IP address range defined in [RFC 19
 Yes. For more information about public IP address ranges, see [Public IP address space in a Virtual Network (VNet)](../articles/virtual-network/virtual-networks-public-ip-within-vnet.md). Keep in mind that your public IPs will not be directly accessible from the Internet.
 
 ### Is there a limit to the number of subnets in my virtual network?
-There is no limit on the number of subnets you use within a VNet. All the subnets must be fully contained in the virtual network address space and should not overlap with one another.
+Yes. You can create upto 1000 subnets within a VNet. All the subnets must be fully contained in the virtual network address space and should not overlap with one another.
 
 ### Are there any restrictions on using IP addresses within these subnets?
 Azure reserves some IP addresses within each subnet. The first and last IP addresses of the subnets are reserved for protocol conformance, along with 3 more addresses used for Azure services.
