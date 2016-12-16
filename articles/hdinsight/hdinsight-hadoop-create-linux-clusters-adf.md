@@ -61,7 +61,7 @@ Before you begin the instructions in this article, you must have the following i
 * [Azure subscription](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * Azure CLI or Azure PowerShell.
 
-    [!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
+[!INCLUDE [use-latest-version](../../includes/hdinsight-use-latest-powershell-and-cli.md)]
 
 ## Prepare storage account
 You can use up to three storage accounts in this scenario:
