@@ -52,7 +52,7 @@ Download the [latest version of WAImportExport.exe](http://go.microsoft.com/fwli
 
 Your next task is to create CSV files.
 
-## Prepare the Dataset and AdditionalDataset CSV files
+## Prepare the Dataset
 
 ### What is dataset CSV
 
