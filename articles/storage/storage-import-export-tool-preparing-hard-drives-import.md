@@ -83,8 +83,8 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 | --- | --- |
 | BasePath | **[Required]**<br/>The value of this parameter represents the source where the data to be imported is located.The tool will recursively copy all data located under this path.<br><br/>**Allowed Values**: This has to be a valid path on local computer or a valid share path and should be accessible by the user. The directory path must be an absolute path (not a relative path).If the path ends with "\\", it represents a directory else a path ending without "\\" represents a file.<br/>No regex are allowed in this field. If the path contains spaces, put it in "".<br><br/>**Example**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory 1"  |
 | DstBlobPathOrPrefix | **[Required]**<br/> The path to the destination virtual directory in your Windows Azure storage account. The virtual directory may or may not already exist. If it does not exist, Import/Export Service will create one.<br/><br/>Be sure to use valid container names when specifying destination virtual directories or blobs. Keep in mind that container names must be lowercase. For container naming rules, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/fileservices/naming-and-referencing-containers--blobs--and-metadata).If only root is specified, the directory structure of the source is replicated in the destination blob container.If a different directory structure is desired than the one in source, multiple rows of mapping in CSV<br/><br/>You can specify a container, or a blob prefix like music/70s/. The destination directory must begin with the container name, followed by a forward slash "/", and optionally may include a virtual blob directory that ends with "/".<br/><br/>When the destination container is the root container, you must explicitly specify the root container, including the forward slash, as $root/. Since blobs under the root container cannot include "/" in their names, any subdirectories in the source directory will not be copied when the destination directory is the root container.<br/><br/>**Example**<br/>If the destination blob path is https://mystorageaccount.blob.core.windows.net/video, the value of this field can be video/  |
-| BlobType | **[Optional]** block &#124; page<br/>Currently Import/Export Service supports 2 kinds of Blobs. Page blobs and Block BlobsBy default all files will be imported as Block Blobs. And \*.vhd and \*.vhdx will be imported as Page BlobsThere is a limit on the block-blob and page-blob allowed size. See [Storage scalability targets](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) for more information  |
-| Disposition | **[Optional]** rename &#124; no-overwrite &#124; overwrite <br/> This field specifies the copy-behavior during import i.e when data is being uploaded to the storage account from the disk.Available options are: rename|overwite|no-overwrite.Defaults to "rename" if nothing specified.Rename: If the object with same name present, creates a copy in destination.Overwrite: overwrites the file with newer file. The file with last-modified wins. |
+| BlobType | **[Optional]** block &#124; page<br/>Currently Import/Export Service supports 2 kinds of Blobs. Page blobs and Block BlobsBy default all files will be imported as Block Blobs. And \*.vhd and \*.vhdx will be imported as Page BlobsThere is a limit on the block-blob and page-blob allowed size. See [Storage scalability targets](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) for more information.  |
+| Disposition | **[Optional]** rename &#124; no-overwrite &#124; overwrite <br/> This field specifies the copy-behavior during import i.e when data is being uploaded to the storage account from the disk.Available options are: rename&#124;overwite&#124;no-overwrite.Defaults to "rename" if nothing specified. <br/><br/>**Rename**: If the object with same name present, creates a copy in destination.<br/>Overwrite: overwrites the file with newer file. The file with last-modified wins.<br/>**No-overwrite**: Skips writing the file if already present.|
 | MetadataFile | **[Optional]** <br/>The value to this field is the metadata file which can be provided if the one needs to preserve the metadata of the objects or provide custom metadata. Path to the metadata file for the destination blobs. See [Import-Export Service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md) for more information |
 | PropertiesFile | **[Optional]** <br/>Path to the property file for the destination blobs. See [Import-Export Service Metadata and Properties File Format](/rest/api/storageservices/importexport/import-export-service-metadata-and-properties-file-format) for more information. |
 
@@ -153,8 +153,11 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2  /DataSet:dataset
 
 ### Add drives to latest session
 
-If the data did not fit in specified drives in InitialDriveset, one can use the tool to add additional drives to same copy session. [!NOTE] The session id should match the previous session id. Journal file should match the one specified in previous session.
+If the data did not fit in specified drives in InitialDriveset, one can use the tool to add additional drives to same copy session. 
 
+>[!NOTE] 
+>The session id should match the previous session id. Journal file should match the one specified in previous session.
+>
 ```
 WAImportExport.exe PrepImport /j:<SameJournalFile> /id:<SameSessionId> /AdditionalDriveSet:<newdriveset.csv>
 ```
@@ -355,11 +358,8 @@ It is possible that your machine does not have tpm chip. If you do not get an ou
 > Only if there is no TPM in their servers, you need to disable TPM policy.It is not necessary to disable TPM if there is a trusted TPM in user's server. 
 > 
 
-In order to disable TPM in BitLocker, go through the following steps:
-1.Launch **Group Policy Editor** by typing gpedit.msc on a command prompt.
-> [!NOTE]
-> If **Group Policy Editor** appears to be unavailable, for enabling BitLocker first. See previous FAQ.
->
+In order to disable TPM in BitLocker, go through the following steps:<br/>
+1. Launch **Group Policy Editor** by typing gpedit.msc on a command prompt. If **Group Policy Editor** appears to be unavailable, for enabling BitLocker first. See previous FAQ.
 2. Open **Local Computer Policy &gt; Computer Configuration &gt; Administrative Templates &gt; Windows Components&gt; BitLocker Drive Encryption &gt; Operating System Drives**.
 3. Edit **Require additional authentication at startup** policy.
 4. Set the policy to **Enabled** and make sure **Allow BitLocker without a compatible TPM** is checked.
@@ -396,7 +396,7 @@ The tool distributes data across the input disks based on the size of the input 
 
 #### How does the tool distribute the files across the disks?
 
-WAImportExport Tool reads and writes files batch by batch, one batch contains max of 10,0000 files. This means that max 100000 files can be written parallel. Multile disks are written to simultaneously if these 100000 files are distributed to multi drives. However whether the tool writes to multiple disk simultaneously or a single disk depends on the cumulative size of the batch. For instance, in case of smaller files, if all of 10,0000 files are able to fit in a single drive, tool will write to only one disk during the processing of this batch.
+WAImportExport Tool reads and writes files batch by batch, one batch contains max of 100000 files. This means that max 100000 files can be written parallel. Multile disks are written to simultaneously if these 100000 files are distributed to multi drives. However whether the tool writes to multiple disk simultaneously or a single disk depends on the cumulative size of the batch. For instance, in case of smaller files, if all of 10,0000 files are able to fit in a single drive, tool will write to only one disk during the processing of this batch.
 
 ### WAImportExport Output
 
