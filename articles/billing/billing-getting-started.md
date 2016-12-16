@@ -22,7 +22,7 @@ ms.author: jlian
 
 After you sign up for Azure, there are several things you can do to get better idea of your spend. In the Azure portal, you can see your current spend and burn rate. You can also download past invoices and detail usage files. As an advanced user, you should check out the billing API and resource tagging functionality. 
 
-If you're on Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship then information in this article may not apply to you. Talk to your account manager or Azure partner to get started.
+If you're on Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship then information in this article may not apply to you. See [Additional resources](#other-offers) and talk to your account manager or Azure partner to get started.
 
 ## Things to note before you add Azure services
 
@@ -44,7 +44,7 @@ To see if you're the AA, go to the [Subscriptions blade in the Azure portal](htt
 
 ![You should see your role in the Subscriptions view in the Azure portal](./media/billing-getting-started/sub-blade-view.PNG)
 
-If you're not the AA, then somebody probably gave you partial access via [Azure Active Directory Role-based Access Control (RBAC)](active-directory/role-based-access-control-configure.md). Ask the AA ([find out the AA is](../billing-subscription-transfer.md#whoisaa)) to perform the billing-related tasks or have them [transfer the subscription to you](../billing-subscription-transfer.md) so that you can start doing cost management.
+If you're not the AA, then somebody probably gave you partial access via [Azure Active Directory Role-based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md). Ask the AA ([find out the AA is](../billing-subscription-transfer.md#whoisaa)) to perform the billing-related tasks or have them [transfer the subscription to you](../billing-subscription-transfer.md) so that you can start doing cost management.
 
 If your AA is absent and you need to manage billing, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
@@ -53,7 +53,7 @@ If your AA is absent and you need to manage billing, [contact support](https://p
 If you're on a *credit offer* - [monthly Azure credit via Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or other benefits - then the spending limit is turned on for you by default. This way, when you spend all your credits, your credit card doesn't get charged. To learn more, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/)
 
 > [!WARNING] 
-> once you hit your spending limit, we disable you (your VMs get deallocated)! If you don't want to get disabled, then you must turn off the spending limit so any overage gets charged onto a credit card on file. 
+> Once you hit your spending limit, we disable you (your VMs get deallocated)! If you don't want to get disabled, then you must turn off the spending limit so any overage gets charged onto a credit card on file. 
 
 To see if you've got spending limit on, go to the [Subscriptions view in the Account Center](https://account.windowsazure.com/Subscriptions). A banner appears if your spending limit is on:
 
@@ -123,7 +123,7 @@ After you get your services running, you should regularly check how much they're
 
 We recommend checking what you see here against the estimates found earlier. If it's wildly out of expectations, then double check the pricing plan (A1 vs A0 VM, for example) you've selected for your services. 
 
-## <a name="invoice-and-usage"></a> Download invoice and detail usage after your first billing period
+### <a name="invoice-and-usage"></a> Download invoice and detail usage after your first billing period
 
 After your first billing period, you can download your PDF invoice and usage CSV files. See [How to download your Azure billing invoice and daily usage data](https://docs.microsoft.com/azure/billing-download-azure-invoice-daily-usage-date)
 
@@ -131,11 +131,11 @@ After your first billing period, you can download your PDF invoice and usage CSV
 
 Confused? See [Understand your bill for Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
-## Billing API
+### Billing API
 
 We have billing API for you to programmatically get usage data. Use the RateCard API together with the usage API then you can get your billed usage. See [Gain insights into your Microsoft Azure resource consumption](https://docs.microsoft.com/azure/billing-usage-rate-card-overview) for the API overview.
 
-## Additional resources
+## <a name="other-offers"></a> Additional resources for EA, CSP, and Sponsorship
 
 | Offer | Resources |
 |-------------------------------|-----------------------------------------------------------------------------------|
