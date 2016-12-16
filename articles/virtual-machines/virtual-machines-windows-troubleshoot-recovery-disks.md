@@ -1,7 +1,7 @@
 ---
 
-title: Use a Windows troubleshooting VM with PowerShell | Microsoft Docs
-description: Learn how to troubleshoot Windows VM issues by connecting the OS disk to a recovery VM using Azure PowerShell
+title: Use a Windows troubleshooting VM with Azure PowerShell | Microsoft Docs
+description: Learn how to troubleshoot Windows VM issues in Azure by connecting the OS disk to a recovery VM using Azure PowerShell
 services: virtual-machines-windows
 documentationCenter: ''
 authors: iainfoulds
@@ -19,7 +19,7 @@ ms.author: iainfou
 ---
 
 # Troubleshoot a Windows VM by attaching the OS disk to a recovery VM using Azure PowerShell
-If your Windows virtual machine (VM) encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure PowerShell to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
+If your Windows virtual machine (VM) in Azure encounters a boot or disk error, you may need to perform troubleshooting steps on the virtual hard disk itself. A common example would be a failed application update that prevents the VM from being able to boot successfully. This article details how to use Azure PowerShell to connect your virtual hard disk to another Windows VM to fix any errors, then re-create your original VM.
 
 
 ## Recovery process overview
