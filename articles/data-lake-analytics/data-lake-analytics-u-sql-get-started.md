@@ -22,7 +22,7 @@ U-SQL is a language that combines the benefits of SQL with the expressive power 
 
 U-SQL differs in some ways from ANSI SQL or T-SQL. For example, keywords such as SELECT must be in all-uppercase letters.
 
-It's type system and expression language inside select clauses, where predicates etc are in C#. This means that the data types are the C# types, they use C# NULL semantics, and the comparison operations inside a predicate follow C# syntax (for example, a == "foo"). It also means that the values are full .NET objects, so you can easily use any method to operate on the object (for example, "f o o o".Split(' ')).
+It's a type system and expression language inside select clauses, where predicates are in C#. This means that the data types are the C# types, they use C# NULL semantics, and the comparison operations inside a predicate follow C# syntax (for example, a == "foo"). It also means that the values are full .NET objects, so you can easily use any method to operate on the object (for example, "f o o o".Split(' ')).
 
 For more information about U-SQL, see the [U-SQL Language Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
