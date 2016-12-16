@@ -96,10 +96,4 @@ Every vertex has a limited amount of memory assigned to it. Currently, that limi
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-* [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
-
-## Let us know what you think
-* [Submit a feature request](http://aka.ms/adlafeedback)
-* [Get help in the forums](http://aka.ms/adlaforums)
-* [Provide feedback on U-SQL](http://aka.ms/usqldiscuss)
 
