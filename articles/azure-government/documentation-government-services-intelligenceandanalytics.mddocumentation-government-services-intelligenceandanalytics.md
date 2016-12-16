@@ -27,7 +27,7 @@ The following HDInsight features are not currently available in Azure Government
 
 * HDInsight is not available on Windows.
 * Azure Data Lake Store is not currently available in Azure Government. Azure Blob Storage is the only available storage option at this time.
-* Azure Active Directory Doman Services integration is not available. To create secure Hadoop clusters without Active Directory Domain Services, select one of the following setup scenarios:
+* Azure Active Directory Domain Services integration is not yet available. To create secure Hadoop clusters without Active Directory Domain Services, select one of the following setup scenarios:
 
 1. HDINSIGHT INTEGRATED WITH ACTIVE DIRECTORY RUNNING ON AZURE IAAS
 
