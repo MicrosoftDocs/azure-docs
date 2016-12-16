@@ -52,4 +52,4 @@ Requests to the Import/Export service must specify the `api-version` parameter a
 [Diagnostics and Error Recovery for Import-Export Jobs](storage-import-export-diagnostics-and-error-recovery.md)
 
 ## See Also
- [Storage Import/Export REST](/rest/api/storageservices/importexport/Storage-Import-Export-Service-REST-API-Reference)
+ [Storage Import/Export REST](/rest/api/storageimportexport)

@@ -59,7 +59,7 @@ Preparing your drive involves:
 
 ## Obtaining Your Shipping Location
 
-Before creating an import job, you need to obtain a shipping location name and address by calling the [List Locations](/rest/api/storageservices/importexport/List-Locations2) operation. `List Locations` will return a list of locations and their mailing addresses. You can select a location from the returned list and ship your hard drives to that address. You can also use the `Get Location` operation to obtain the shipping address for a specific location directly.
+Before creating an import job, you need to obtain a shipping location name and address by calling the [List Locations](/rest/api/storageimportexport/listlocations) operation. `List Locations` will return a list of locations and their mailing addresses. You can select a location from the returned list and ship your hard drives to that address. You can also use the `Get Location` operation to obtain the shipping address for a specific location directly.
 
  Follow the steps below to obtain the shipping location:
 
@@ -70,7 +70,7 @@ Before creating an import job, you need to obtain a shipping location name and a
 -   If the `AlternateLocations` property of the location contains the location itself, then it is okay to use this location. Otherwise, call the `Get Location` operation again with one of the alternate locations. The original location might be temporarily closed for maintenance.
 
 ## Creating the Import Job
-To create the import job, call the [Put Job](/rest/api/storageservices/importexport/Put-Job) operation. You will need to provide the following information:
+To create the import job, call the [Put Job](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) operation. You will need to provide the following information:
 
 -   A name for the job.
 
@@ -99,7 +99,7 @@ You must ship your drives to the address that you obtained from the previous ste
 >  You must ship your drives via a supported carrier service, which will provide a tracking number for your package.
 
 ## Updating the Import Job with Your Shipping Information
-After you have your tracking number, call the [Update Job Properties](/rest/api/storageservices/importexport/Update-Job-Properties) operation to update the shipping carrier name, the tracking number for the job, and the carrier account number for return shipping. You can optionally specify the number of drives and the shipping date as well.
+After you have your tracking number, call the [Update Job Properties](/api/storageimportexport/jobs#Jobs_Update) operation to update the shipping carrier name, the tracking number for the job, and the carrier account number for return shipping. You can optionally specify the number of drives and the shipping date as well.
 
 ## See Also
 [Using the Import/Export service REST API](storage-import-export-using-the-rest-api.md)
