@@ -23,7 +23,7 @@ ms.author: amsriva
 
 ## Overview
 
-After configuring an Azure Application Gateway, one of the errors which users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This may happen due to the following main reasons:
+After configuring an Azure Application Gateway, one of the errors which users may encounter is "Server Error: 502 - Web server received an invalid response while acting as a gateway or proxy server". This error may happen due to the following main reasons:
 
 * Azure Application Gateway's back-end pool is not configured or empty.
 * None of the VMs or instances in VM Scale Set are healthy.
@@ -114,11 +114,11 @@ Custom health probes allow additional flexibility to the default probing behavio
 | Probe property | Description |
 | --- | --- |
 | Name |Name of the probe. This name is used to refer to the probe in back-end HTTP settings. |
-| Protocol |Protocol used to send the probe. The probe will use the protocol defined in the back-end HTTP settings |
+| Protocol |Protocol used to send the probe. The probe uses the protocol defined in the back-end HTTP settings |
 | Host |Host name to send the probe. Applicable only when multi-site is configured on Application Gateway. This is different from VM host name. |
 | Path |Relative path of the probe. The valid path starts from '/'. The probe is sent to \<protocol\>://\<host\>:\<port\>\<path\> |
 | Interval |Probe interval in seconds. This is the time interval between two consecutive probes. |
-| Time-out |Probe time-out in seconds. The probe is marked as failed if a valid response is not received within this time-out period. |
+| Time-out |Probe time-out in seconds. If a valid response is not received within this time-out period, the probe is marked as failed. |
 | Unhealthy threshold |Probe retry count. The back-end server is marked down after the consecutive probe failure count reaches the unhealthy threshold. |
 
 ### Solution
@@ -128,7 +128,7 @@ Validate that the Custom Health Probe is configured correctly as the preceding t
 * Ensure that the probe is correctly specified as per the [guide](application-gateway-create-probe-ps.md).
 * If Application Gateway is configured for a single site, by default the Host name should be specified as '127.0.0.1', unless otherwise configured in custom probe.
 * Ensure that a call to http://\<host\>:\<port\>\<path\> returns an HTTP result code of 200.
-* Ensure that Interval, Time-out and UnhealtyThreshold are within the acceptable ranges.
+* Ensure that Interval, Time-out, and UnhealtyThreshold are within the acceptable ranges.
 
 ## Request time out
 

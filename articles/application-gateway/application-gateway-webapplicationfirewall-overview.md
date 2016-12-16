@@ -43,13 +43,13 @@ Application Gateway WAF is offered in a new SKU (WAF SKU) and comes preconfigure
 * Protection against HTTP protocol violations
 * Protection against HTTP protocol anomalies such as missing host user-agent and accept headers
 * Prevention against bots, crawlers, and scanners
-* Detection of common application misconfigurations (i.e. Apache, IIS, etc)
+* Detection of common application misconfigurations (i.e. Apache, IIS, etc.)
 
 ## WAF Modes
 
 Application Gateway WAF can be configured to run in the following two modes:
 
-* **Detection mode** – When configured to run in detection mode, Application Gateway WAF monitors and logs all threat alerts into a log file. You need to ensure that logging diagnostics for Application Gateway is turned on using the Diagnostics section. You will also need to ensure that the WAF log is selected and turned on.
+* **Detection mode** – When configured to run in detection mode, Application Gateway WAF monitors and logs all threat alerts in to a log file. You need to ensure that logging diagnostics for Application Gateway is turned on using the Diagnostics section. You also need to ensure that the WAF log is selected and turned on.
 * **Prevention mode** – When configured to run in prevention mode, Application Gateway actively blocks intrusions and attacks detected by its rules. The attacker receives a 403 unauthorized access exception and the connection is terminated. Prevention mode continues to log such attacks in the WAF logs.
 
 ## Application Gateway WAF reports
@@ -80,9 +80,9 @@ Application Gateway WAF provides detailed reporting on each threat it detects. L
 
 ## Application Gateway WAF SKU pricing
 
-During preview, there are no additional charges for Application Gateway WAF usage. You continue to be charged at existing Basic SKU charges. We will communicate the WAF SKU charges at GA time. Customers who have chosen to deploy Application Gateway in WAF SKU would start accruing WAF SKU pricing only after GA announcement.
+During preview, there are no additional charges for Application Gateway WAF usage. You continue to be charged at existing Basic SKU charges. The WAF SKU charges will be communicated at GA time. Customers who have chosen to deploy Application Gateway in WAF SKU would start accruing WAF SKU pricing only after GA announcement.
 
 ## Next steps
 
-After learning more about the capabilities of WAF, please visit [How to configure Web Application Firewall on Application Gateway](application-gateway-web-application-firewall-portal.md).
+After learning more about the capabilities of WAF, visit [How to configure Web Application Firewall on Application Gateway](application-gateway-web-application-firewall-portal.md).
 
