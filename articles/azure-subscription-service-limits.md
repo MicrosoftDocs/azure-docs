@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2016
+ms.date: 12/16/2016
 ms.author: byvinyal
 
 ---
@@ -167,7 +167,7 @@ The following table shows the limits for Azure Biztalk Services.
 [!INCLUDE [biztalk-services-service-limits](../includes/biztalk-services-service-limits.md)]
 
 ### DocumentDB limits
-[!INCLUDE [azure-documentdb-limits](../includes/azure-documentdb-limits.md)]
+DocumentDB is a global scale database in which throughput and storage can be scaled to handle whatever your application requires. If you have any questions about the scale DocumentDB provides, please send email to askdocdb@microsoft.com.
 
 Quotas listed with an asterisk (*) [can be adjusted by contacting Azure support](documentdb/documentdb-increase-limits.md).
 
