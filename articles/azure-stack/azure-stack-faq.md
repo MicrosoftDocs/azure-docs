@@ -43,7 +43,7 @@ if ($pools -ne $null) {
 ```
 
 ### Can I use all SSD disks for the storage pool in the POC installation?
-For more information, see the [requirements guide](azure-stack-deploy.md) for more information.
+For more information, see the [requirements guide](azure-stack-deploy.md).
 
 ### Can I use NVMe data disks for the Microsoft Azure Stack POC?
 While Storage Spaces Direct supports NVMe disks, Azure Stack only supports a subset of the possible drive types and combinations possible for Storage Spaces Direct.  See the [requirements guide](azure-stack-deploy.md) for more information. 
