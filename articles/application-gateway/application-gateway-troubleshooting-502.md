@@ -14,10 +14,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: amsriva
 
 ---
+
 # Troubleshooting bad gateway errors in Application Gateway
 
 ## Overview
@@ -139,7 +140,9 @@ When a user request is received, Application Gateway applies the configured rule
 
 Application Gateway allows users to configure this setting via BackendHttpSetting, which can be then applied to different pools. Different back-end pools can have different BackendHttpSetting and hence different request time out configured.
 
+```powershell
     New-AzureRmApplicationGatewayBackendHttpSettings -Name 'Setting01' -Port 80 -Protocol Http -CookieBasedAffinity Enabled -RequestTimeout 60
+```
 
 ## Next steps
 

@@ -4,7 +4,7 @@ description: This article provides guidance on how to start using web applicatio
 documentationcenter: na
 services: application-gateway
 author: georgewallace
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 670b9732-874b-43e6-843b-d2585c160982
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: gwallace
 
 ---
@@ -22,8 +22,6 @@ ms.author: gwallace
 > [!div class="op_single_selector"]
 > * [Azure portal](application-gateway-web-application-firewall-portal.md)
 > * [Azure Resource Manager PowerShell](application-gateway-web-application-firewall-powershell.md)
-> 
-> 
 
 The web application firewall (WAF) in Azure Application Gateway protects web applications from common web-based attacks like SQL injection, cross-site scripting attacks, and session hijacks.
 
@@ -145,8 +143,6 @@ In the preceding example, we created a resource group called "appgw-RG" and loca
 
 > [!NOTE]
 > If you need to configure a custom probe for your application gateway, see [Create an application gateway with custom probes by using PowerShell](application-gateway-create-probe-ps.md). Check out [custom probes and health monitoring](application-gateway-probe-overview.md) for more information.
-> 
-> 
 
 ### Step 5
 
@@ -158,8 +154,7 @@ $gwSubnet = New-AzureRmVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPr
 
 > [!NOTE]
 > A subnet for an application should have a minimum of 28 mask bits. This value leaves 10 available addresses in the subnet for Application Gateway instances. With a smaller subnet, you may not be able to add more instance of your application gateway in the future.
-> 
-> 
+
 
 ### Step 6
 
@@ -197,8 +192,7 @@ $publicip = New-AzureRmPublicIpAddress -ResourceGroupName appgw-rg -name 'appgwp
 
 > [!IMPORTANT]
 > Application Gateway does not support the use of a public IP address created with a domain label defined. Only a public IP address with a dynamically created domain label is supported. If you require a friendly dns name for the application gateway, it is recommended to use a cname record as an alias.
-> 
-> 
+
 
 ### Step 10
 
@@ -284,8 +278,6 @@ $sku = New-AzureRmApplicationGatewaySku -Name WAF_Medium -Tier WAF -Capacity 2
 
 > [!NOTE]
 > You can choose between **WAF\_Medium** and **WAF\_Large**, the tier when using WAF is always **WAF**. Capacity is any number between 1 and 10.
-> 
-> 
 
 ### Step 20
 
