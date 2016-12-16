@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with PlanMyLeave | Microsoft Docs 1
+title: 'Tutorial: Azure Active Directory integration with PlanMyLeave | Microsoft Docs'
 description: Learn how to configure single sign-on between Azure Active Directory and PlanMyLeave.
 services: active-directory
 documentationCenter: na
