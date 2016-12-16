@@ -11,7 +11,7 @@ ms.assetid: d1a46fa4-53d2-4d25-a0a7-92e8f9d70828
 ms.service: sql-database
 ms.custom: overview
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: data-management
 ms.date: 11/28/2016

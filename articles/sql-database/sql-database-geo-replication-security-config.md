@@ -9,7 +9,7 @@ editor: monicar
 
 ms.assetid: c7c898c9-69d4-4e16-8b7e-720bbb3353dd
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na

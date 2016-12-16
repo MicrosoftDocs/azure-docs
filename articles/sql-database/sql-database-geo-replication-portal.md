@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: d0b29822-714f-4633-a5ab-fb1a09d43ced
 ms.service: sql-database
-ms.custom: business continuity; how to
+ms.custom: business continuity
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
