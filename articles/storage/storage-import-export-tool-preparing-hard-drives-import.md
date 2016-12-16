@@ -37,11 +37,11 @@ The WAImportExport tool is the drive preparation and repair tool that you can us
 - **Disks** accessible from machine on which WAImportExport Tool is run. See [FAQ](#faq) for disk specification.
 - **Source files** - The files you plan to import must be accessible from the copy machine, whether they are on a network share or a local hard drive.
 
-### Repairing a partially failed Import Job
+### Repairing a partially failed import job
 
 - **Copy log files** that is generated when Azure Import/Export Service copies data between Storage Account and Disk. It is located in your target storage account.
 
-### Repairing a partially failed export Job
+### Repairing a partially failed export job
 
 - **Copy log file** that is generated when Azure Import/Export Service copies data between Storage Account and Disk. It is located in your source storage account.
 - **Manifest file** - [Optional] Located on exported drive that was returned by Microsoft.
@@ -52,7 +52,7 @@ Download the [latest version of WAImportExport.exe](http://download.microsoft.co
 
 Your next task is to create CSV files.
 
-## Prepare the Dataset CSV file
+## Prepare the dataset CSV file
 
 ### What is dataset CSV
 
@@ -81,7 +81,7 @@ BasePath,DstBlobPathOrPrefix,BlobType,Disposition,MetadataFile,PropertiesFile
 
 | Field | Description |
 | --- | --- |
-| BasePath | **[Required]**<br/>The value of this parameter represents the source where the data to be imported is located.The tool will recursively copy all data located under this path.<br>**Allowed Values**: This has to be a valid path on local computer or a valid share path and should be accessible by the user. The directory path must be an absolute path (not a relative path).If the path ends with "\\", it represents a directory else a path ending without "\\" represents a file.<br/>No regex are allowed in this field. If the path contains spaces, put it in "".<br>**Example**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory 1"  |
+| BasePath | **[Required]**<br/>The value of this parameter represents the source where the data to be imported is located.The tool will recursively copy all data located under this path.<br><br/>**Allowed Values**: This has to be a valid path on local computer or a valid share path and should be accessible by the user. The directory path must be an absolute path (not a relative path).If the path ends with "\\", it represents a directory else a path ending without "\\" represents a file.<br/>No regex are allowed in this field. If the path contains spaces, put it in "".<br><br/>**Example**: "c:\Directory\c\Directory\File.txt"<br>"\\\\FBaseFilesharePath.domain.net\sharename\directory 1"  |
 | DstBlobPathOrPrefix | **[Required]**<br/> The path to the destination virtual directory in your Windows Azure storage account. The virtual directory may or may not already exist. If it does not exist, Import/Export Service will create one.<br/><br/>Be sure to use valid container names when specifying destination virtual directories or blobs. Keep in mind that container names must be lowercase. For container naming rules, see [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/fileservices/naming-and-referencing-containers--blobs--and-metadata).If only root is specified, the directory structure of the source is replicated in the destination blob container.If a different directory structure is desired than the one in source, multiple rows of mapping in CSV<br/><br/>You can specify a container, or a blob prefix like music/70s/. The destination directory must begin with the container name, followed by a forward slash "/", and optionally may include a virtual blob directory that ends with "/".<br/><br/>When the destination container is the root container, you must explicitly specify the root container, including the forward slash, as $root/. Since blobs under the root container cannot include "/" in their names, any subdirectories in the source directory will not be copied when the destination directory is the root container.<br/><br/>**Example**<br/>If the destination blob path is https://mystorageaccount.blob.core.windows.net/video, the value of this field can be video/  |
 | BlobType | **[Optional]** block &#124; page<br/>Currently Import/Export Service supports 2 kinds of Blobs. Page blobs and Block BlobsBy default all files will be imported as Block Blobs. And \*.vhd and \*.vhdx will be imported as Page BlobsThere is a limit on the block-blob and page-blob allowed size. See [Storage scalability targets](storage-scalability-targets.md#scalability-targets-for-blobs-queues-tables-and-files) for more information  |
 | Disposition | **[Optional]** rename &#124; no-overwrite &#124; overwrite <br/> This field specifies the copy-behavior during import i.e when data is being uploaded to the storage account from the disk.Available options are: rename|overwite|no-overwrite.Defaults to "rename" if nothing specified.Rename: If the object with same name present, creates a copy in destination.Overwrite: overwrites the file with newer file. The file with last-modified wins. |
@@ -100,7 +100,7 @@ There is no limit on the number of disks the data can be written to in a single 
 
 In order to create a basic volume and assign a drive letter, by following the instructions for "Simpler partition creation" given at [Overview of Disk Management](https://technet.microsoft.com/library/cc754936.aspx).
 
-### Sample InitialDriveSet and AdditionalDriveSet
+### Sample InitialDriveSet and AdditionalDriveSet CSV file
 
 ```
 DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -112,13 +112,13 @@ H,Format,SilentMode,Encrypt,
 
 | Fields | Value |
 | --- | --- |
-| DriveLetter | **[Required]**<br/> Each drive that is being provided to the tool as the destination needs have a simple NTFS volume on it and a drive letter assigned to it.<br/> **Example**: R or r |
-| FormatOption | **[Required]** Format &#124; AlreadyFormatted<br/> **Format**: Specifying this will format all the data on the disk. <br/>**AlreadyFormatted**: The tool will skip formatting when this value is specified. |
-| SilentOrPromptOnFormat | **[Required]** SilentMode &#124; PromptOnFormat<br/>**SilentMode**: Providing this value will enable user to run the tool in Silent Mode. <br/>**PromptOnFormat**: The tool will prompt the user to confirm whether the action is really intended at every format.<br/><br/>If not set, command will abort and prompt error message: "Incorrect value for SilentOrPromptOnFormat: none" |
-| Encryption | **[Required]** Encrypt &#124; AlreadyEncrypted<br/> The value of this field decides which disk to encrypt and which not to. <br/>**Encrypt**:Tool will format the drive. If value of "FormatOption" field is "Format" then this value is required to be "Encrypt". If "AlreadyEncrypted" is specified in this case, it will result into an error "When Format is specified, Encrypt must also be specified".<br/>**AlreadyEncrypted**: Tool will decryt the drive using the BitLockerKey provided in "ExistingBitLockerKey" Field. If value of "FormatOption" field is "AlreadyFormatted", then this value can be either "Encrypt" or "AlreadyEncrypted" |
-| ExistingBitLockerKey | **[Required]** If value of "Encryption" field is "AlreadyEncrypted"<br/> The value of this field is the BitLocker key which is associated with the particular disk. <br/>This field should be left blank if the value of "Encryption" field is "Encrypt".  If BitLocker Key is specified in this case, it will result into an error "Bitlocker Key should not be specified".<br/>  **Example**: 060456-014509-132033-080300-252615-584177-672089-411631|
+| DriveLetter | **[Required]**<br/> Each drive that is being provided to the tool as the destination needs have a simple NTFS volume on it and a drive letter assigned to it.<br/> <br/>**Example**: R or r |
+| FormatOption | **[Required]** Format &#124; AlreadyFormatted<br/><br/> **Format**: Specifying this will format all the data on the disk. <br/>**AlreadyFormatted**: The tool will skip formatting when this value is specified. |
+| SilentOrPromptOnFormat | **[Required]** SilentMode &#124; PromptOnFormat<br/><br/>**SilentMode**: Providing this value will enable user to run the tool in Silent Mode. <br/>**PromptOnFormat**: The tool will prompt the user to confirm whether the action is really intended at every format.<br/><br/>If not set, command will abort and prompt error message: "Incorrect value for SilentOrPromptOnFormat: none" |
+| Encryption | **[Required]** Encrypt &#124; AlreadyEncrypted<br/> The value of this field decides which disk to encrypt and which not to. <br/><br/>**Encrypt**:Tool will format the drive. If value of "FormatOption" field is "Format" then this value is required to be "Encrypt". If "AlreadyEncrypted" is specified in this case, it will result into an error "When Format is specified, Encrypt must also be specified".<br/>**AlreadyEncrypted**: Tool will decryt the drive using the BitLockerKey provided in "ExistingBitLockerKey" Field. If value of "FormatOption" field is "AlreadyFormatted", then this value can be either "Encrypt" or "AlreadyEncrypted" |
+| ExistingBitLockerKey | **[Required]** If value of "Encryption" field is "AlreadyEncrypted"<br/> The value of this field is the BitLocker key which is associated with the particular disk. <br/><br/>This field should be left blank if the value of "Encryption" field is "Encrypt".  If BitLocker Key is specified in this case, it will result into an error "Bitlocker Key should not be specified".<br/>  **Example**: 060456-014509-132033-080300-252615-584177-672089-411631|
 
-##  Preparing disk for Import Job
+##  Preparing disk for import job
 
 To prepare drives for an import job, call the WAImportExport tool with the **PrepImport** command. Which parameters you include depends on whether this is the first copy session, or a subsequent copy session.
 
@@ -263,7 +263,7 @@ WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#2 /ResumeSession
 </DriveManifest>
 ```
 
-### Sample Journal file for each drive: ending with .xml
+### Sample journal file for each drive: ending with .xml
 
 ```xml
 [BeginUpdateRecord][2016/11/01 21:22:25.379][Type:ActivityRecord]
@@ -280,7 +280,7 @@ SaveCommandOutput: Completed
 [EndUpdateRecord]
 ```
 
-### Sample Journal file for session: ended with .jrn  It records the trail of sessions
+### Sample journal file for session: ended with .jrn  which records the trail of sessions
 
 ```
 [BeginUpdateRecord][2016/11/02 18:24:14.735][Type:NewJournalFile]
@@ -300,11 +300,11 @@ StorageAccountKey: *******
 
 ### General
 
-#### What is WAImportExport Tool?
+#### What is WAImportExport tool?
 
 The WAImportExport tool is the drive preparation and repair tool that you can use with the Microsoft Azure Import/Export Service. You can use this tool to copy data to the hard drives you are going to ship to an Azure data center. After an import job has completed, you can use this tool to repair any blobs that were corrupted, were missing, or conflicted with other blobs. After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives.
 
-#### How does the WAImportExport Tool work on multiple sorce dir and disks?
+#### How does the WAImportExport tool work on multiple sorce dir and disks?
 
 If the data size is greater than the disk size, the WAImportExport tool will distribute the data across the disks in an optimized way. The data copy to multiple disks can be done in parallel or sequentially. There is no limit on the number of disks the data can be written to simultaneously. The tool will distribute data based on disk size and folder size. It will select the disk which is most optimized for the object-size. The data when uploaded to the storage account will be converged back to the specified directory structure.
 
@@ -359,6 +359,7 @@ In order to disable TPM in BitLocker, go through the following steps:
 1.Launch **Group Policy Editor** by typing gpedit.msc on a command prompt.
 > [!NOTE]
 > If **Group Policy Editor** appears to be unavailable, for enabling BitLocker first. See previous FAQ.
+>
 2. Open **Local Computer Policy &gt; Computer Configuration &gt; Administrative Templates &gt; Windows Components&gt; BitLocker Drive Encryption &gt; Operating System Drives**.
 3. Edit **Require additional authentication at startup** policy.
 4. Set the policy to **Enabled** and make sure **Allow BitLocker without a compatible TPM** is checked.
