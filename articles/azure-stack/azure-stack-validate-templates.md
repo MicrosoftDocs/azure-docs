@@ -72,7 +72,7 @@ Any template validation warnings or errors are logged to the PowerShell console,
 | Parameter | Description | Required |
 | ----- | -----| ----- |
 | TemplatePath | Specifies the path to recursively find Resource Manager templates | Yes | 
-| TemplatePattern | Specifies the name of template files to match.  The tool searches for *azuredeploy.json* by default.| No |
+| TemplatePattern | Specifies the name of template files to match. | No |
 | CapabilitiesPath | Specifies the path to cloud capabilities JSON file | Yes | 
 | IncludeComputeCapabilities | Includes evaluation of IaaS resources like VM Sizes and VM Extensions | No |
 | Report | Specifies name of the generated HTML report | No |
@@ -85,12 +85,13 @@ This example validates all the Azure Stack Quickstart templates downloaded local
 ```PowerShell
     test-AzureRMTemplate -TemplatePath C:\AzureStack-QuickStart-Templates`
     -CapabilitiesPath C:\AzureTemplateValidator\AzureStackCapabilities_TP2.json`
+    -TemplatePattern MyStandardTemplateName.json`
     -IncludeComputeCapabilities`
     -Report TemplateReport.html
 ```
 
 ## Build cloud capabilities file
-The downloaded files include a default AzureStackCapabilities_TP2.json file, which describes the service versions available in a default installation of Azure Stack TP2.  As you install additional Resource Providers, you can use the AzureRM.CloudCapabilities PowerShell module to build a JSON file including the new capabilities.  
+The downloaded files include a default AzureStackCapabilities_TP2.json file, which describes the service versions available in a default installation of Azure Stack TP2.  As you install additional Resource Providers, you can use the AzureRM.CloudCapabilities PowerShell module to build a JSON file including the new services.  
 
 1.  Make sure you have connectivity to Azure Stack.  These steps can be performed from [MAS-CON01](azure-stack-connect-azure-stack.md#connect-with-remote-desktop), or you can use [VPN](azure-stack-connect-azure-stack.md#connect-with-vpn) to connect from your workstation. 
 2.  Import the AzureRM.CloudCapabilities PowerShell module:
