@@ -31,20 +31,20 @@ In this topic, you download the tool, run validation against your templates, and
 The Azure Stack template validation files are hosted in [Azure Stack Tools](https://github.com/Azure/AzureStack-Tools).  To retrieve the files, run the following script in an administrative PowerShell ISE session:
 
 ```PowerShell
-    # Variables
-    $Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/'
-    $LocalPath = 'c:\AzureRMTemplateValidator'
+# Variables
+$Uri = 'https://raw.githubusercontent.com/Azure/AzureStack-Tools/master/'
+$LocalPath = 'c:\AzureRMTemplateValidator'
 
-    # Create folder
-    New-Item $LocalPath -type directory
+# Create folder
+New-Item $LocalPath -type directory
 
-    # Download Template Validator files
-    ( 'AzureStackCapabilities_TP2.json', 'AzureRM.TemplateValidator.psm1') |`
-    foreach { Invoke-WebRequest ($uri + 'TemplateValidator/' +$_) -OutFile ($LocalPath + '\' + $_) }
+# Download Template Validator files
+( 'AzureStackCapabilities_TP2.json', 'AzureRM.TemplateValidator.psm1') |`
+foreach { Invoke-WebRequest ($uri + 'TemplateValidator/' +$_) -OutFile ($LocalPath + '\' + $_) }
 
-    # Download Template Validator files
-    Invoke-WebRequest ($uri + '/CloudCapabilities/AzureRM.CloudCapabilities.psm1')`
-    -OutFile ($LocalPath + '\' + 'AzureRM.CloudCapabilities.psm1') 
+# Download Template Validator files
+Invoke-WebRequest ($uri + '/CloudCapabilities/AzureRM.CloudCapabilities.psm1')`
+-OutFile ($LocalPath + '\' + 'AzureRM.CloudCapabilities.psm1') 
 ```
 
 ## Validate templates
@@ -54,7 +54,7 @@ In these steps, you validate templates using the AzureRM.TemplateValidator Power
 2.  Import the AzureRM.TemplateValidator.psm1 PowerShell module:
     
     ```PowerShell
-    import-module c:\AzureTemplateValidation\AzureRM.TemplateValidator.psm1
+    import-module c:\AzureRMTemplateValidator\AzureRM.TemplateValidator.psm1
     ```
 
 2.  Run the template validator:
@@ -83,11 +83,11 @@ Any template validation warnings or errors are logged to the PowerShell console,
 This example validates all the Azure Stack Quickstart templates downloaded locally, and also validates the VM sizes and extensions against Azure Stack TP2 capabilities.
 
 ```PowerShell
-    test-AzureRMTemplate -TemplatePath C:\AzureStack-QuickStart-Templates`
-    -CapabilitiesPath C:\AzureTemplateValidator\AzureStackCapabilities_TP2.json`
-    -TemplatePattern MyStandardTemplateName.json`
-    -IncludeComputeCapabilities`
-    -Report TemplateReport.html
+test-AzureRMTemplate -TemplatePath C:\AzureStack-QuickStart-Templates`
+-CapabilitiesPath C:\AzureTemplateValidator\AzureStackCapabilities_TP2.json`
+-TemplatePattern MyStandardTemplateName.json`
+-IncludeComputeCapabilities`
+-Report TemplateReport.html
 ```
 
 ## Build cloud capabilities file
@@ -97,7 +97,7 @@ The downloaded files include a default AzureStackCapabilities_TP2.json file, whi
 2.  Import the AzureRM.CloudCapabilities PowerShell module:
 
     ```PowerShell
-    import-module c:\AzureTemplateValidation\AzureRM.CloudCapabilities.psm1
+    import-module c:\AzureRMTemplateValidator\AzureRM.CloudCapabilities.psm1
     ``` 
 
 3.  Use the Get-CloudCapabilities cmdlet to retrieve service versions and create a cloud capabilities JSON file:
