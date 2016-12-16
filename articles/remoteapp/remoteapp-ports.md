@@ -12,7 +12,7 @@ ms.workload: compute
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 12/16/2016
 ms.author: mbaldwin
 
 ---
@@ -27,7 +27,7 @@ The following applies to Azure RemoteApp a cloud or hybrid collection if you are
 ## Azure RemoteApp subnet needs access to these endpoints and URLs:
 * *.servicebus.windows.net
 * *.servicebus.net
-* https://*.remoteapp.windwsazure.com  
+* https://*.remoteapp.windowsazure.com  
 * https://www.remoteapp.windowsazure.com 
 * https://*remoteapp.windowsazure.com  
 * https://*.core.windows.net  
