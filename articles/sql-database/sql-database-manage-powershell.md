@@ -9,11 +9,11 @@ editor: monicar
 
 ms.assetid: 3f21ad5e-ba99-4010-b244-5e5815074d31
 ms.service: sql-database
-ms.custom: how to
+ms.custom: overview
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: get-started-article
 ms.date: 11/15/2016
 ms.author: sstein
 
