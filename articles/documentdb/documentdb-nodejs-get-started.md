@@ -1,6 +1,6 @@
 ---
 title: NoSQL Node.js tutorial for DocumentDB | Microsoft Docs
-description: A NoSQL Node.js tutorial that creates a node database and console application using the DocumentDB Node.js SDK. DocumentDB is a NoSQL database for JSON.
+description: A NoSQL Node.js tutorial that creates a NoSQL database and console application using the DocumentDB Node.js SDK. DocumentDB is a NoSQL database for JSON.
 keywords: node.js tutorial, node database
 services: documentdb
 documentationcenter: node.js
@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: node
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: anhoh
 
 ---
@@ -26,7 +26,7 @@ ms.author: anhoh
 > * [C++](documentdb-cpp-get-started.md)
 > 
 
-Welcome to the Node.js tutorial for the Azure DocumentDB Node.js SDK! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources, including a Node database.
+Welcome to the Node.js tutorial for the Azure DocumentDB Node.js SDK! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources.
 
 We'll cover:
 
@@ -64,10 +64,10 @@ Let's create a DocumentDB account. If you already have an account you want to us
 3. Create two empty JavaScript files with the following commands:
    * Windows:
      * ```fsutil file createnew app.js 0```
-       * ```fsutil file createnew config.js 0```
+     * ```fsutil file createnew config.js 0```
    * Linux/OS X:
      * ```touch app.js```
-       * ```touch config.js```
+     * ```touch config.js```
 4. Install the documentdb module via npm. Use the following command:
    * ```npm install documentdb --save```
 
