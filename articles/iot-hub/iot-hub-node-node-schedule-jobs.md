@@ -173,7 +173,7 @@ In this section, you create a Node.js console app that initiates a remote **lock
     var methodParams = {
         methodName: 'lockDoor',
         payload: null,
-        timeoutInSeconds: 45
+        responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
     };
    
     var methodJobId = uuid.v4();
