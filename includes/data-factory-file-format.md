@@ -36,7 +36,7 @@ The following sample shows some of the format properties for TextFormat.
         "columnDelimiter": ",",
         "rowDelimiter": ";",
         "quoteChar": "\"",
-        "NullValue": "NaN"
+        "NullValue": "NaN",
         "firstRowAsHeader": true,
         "skipLineCount": 0,
         "treatEmptyAsNull": true

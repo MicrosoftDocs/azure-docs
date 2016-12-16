@@ -78,7 +78,7 @@ This article provides step-by-step instructions for moving data into Azure SQL D
     To achieve best possible throughput, copy needs to be performed using a SQL Data Warehouse user belonging to `xlargerc` resource class.  Learn how to do that by following [Change a user resource class example](../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md#change-a-user-resource-class-example).  
 * Create destination table schema in Azure SQL Data Warehouse database, by running the following DDL statement:
 
-	```sql  
+	```SQL  
     CREATE TABLE [dbo].[lineitem]
     (
         [L_ORDERKEY] [bigint] NOT NULL,

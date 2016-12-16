@@ -130,7 +130,7 @@ A **cloud data movement unit (DMU)** is a measure that represents the power (a c
 
 By default, Data Factory uses a single cloud DMU to perform a single Copy Activity run. To override this default, specify a value for the **cloudDataMovementUnits** property as follows. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
 
-```
+```json
 "activities":[  
     {
         "name": "Sample copy activity",

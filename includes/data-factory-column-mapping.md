@@ -87,33 +87,34 @@ In this sample, the output table has a structure and it points to a blob in an A
 
 The JSON for the activity is shown below. The columns from source mapped to columns in sink (**columnMappings**) by using **Translator** property.
 
-    {
-        "name": "CopyActivity",
-        "description": "description", 
-        "type": "Copy",
-        "inputs":  [ { "name": "AzureSQLInput"  } ],
-        "outputs":  [ { "name": "AzureBlobOutput" } ],
-        "typeProperties":    {
-            "source":
-            {
-                "type": "SqlSource"
-            },
-            "sink":
-            {
-                "type": "BlobSink"
-            },
-            "translator": 
-            {
-                "type": "TabularTranslator",
-                "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
-            }
+```json
+{
+    "name": "CopyActivity",
+    "description": "description", 
+    "type": "Copy",
+    "inputs":  [ { "name": "AzureSQLInput"  } ],
+    "outputs":  [ { "name": "AzureBlobOutput" } ],
+    "typeProperties":    {
+        "source":
+        {
+            "type": "SqlSource"
         },
-       "scheduler": {
-              "frequency": "Hour",
-              "interval": 1
-            }
-    }
-
+        "sink":
+        {
+            "type": "BlobSink"
+        },
+        "translator": 
+        {
+            "type": "TabularTranslator",
+            "ColumnMappings": "UserId: MyUserId, Group: MyGroup, Name: MyName"
+        }
+    },
+   "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        }
+}
+```
 **Column mapping flow:**
 
 ![Column mapping flow](./media/data-factory-data-stores-with-rectangular-tables/column-mapping-flow.png)
