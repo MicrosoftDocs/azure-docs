@@ -20,124 +20,122 @@ ms.author: jlian
 ---
 # Getting started with Azure billing and cost management
 
-After you sign up for Azure, there are several things you can do to get better idea of your spend. In the Azure portal, you can see your current spend and burn rate. You can also download past invoices and detail usage files. As an advanced user, you should check out the billing API and resource tagging functionality. 
+After you sign up for Azure, there are several things you can do to get better idea of your spend. In the Azure portal, you can see your current usage and burn rate. You can also download past invoices and detail usage files. If you want to group costs for resources used for different projects or teams, look at resource tagging. If your organization has a reporting system that you prefer to use, check out the billing APIs. 
 
-If you're on Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship then information in this article may not apply to you. See [Additional resources](#other-offers) and talk to your account manager or Azure partner to get started.
+If you're an Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship customer then information in this article may not apply to you. See [Additional resources](#other-offers). 
 
-## Things to note before you add Azure services
+## Before you add Azure services
 
 ### Estimate cost online using the pricing calculator
 
-Check out the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) and [total cost of ownership calculator](https://aka.ms/azure-tco-calculator) to get an estimate the monthly cost of the service you're interested in. For example, an A1 Windows Virtual Machine (VM) is estimated to cost $66.96 USD per month:
+Check out the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) and [total cost of ownership calculator](https://aka.ms/azure-tco-calculator) to get an estimate the monthly cost of the service you're interested in. For example, an A1 Windows Virtual Machine (VM) is estimated to cost $66.96 USD per month if you leave it running the whole time:
 
-![Example: an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/pricing-calc.PNG)
+![Screenshot of the pricing calculator showing that an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/pricing-calc.PNG)
 
-To learn more about pricing, see the [pricing FAQ](https://azure.microsoft.com/pricing/faq/) or call 1-800-867-1389 if you want to talk to a person.
+For more information, see [pricing FAQ](https://azure.microsoft.com/pricing/faq/). Or if you want to talk to a person, call 1-800-867-1389 
 
 ### Check your subscription and access
 
 <!-- This is very hard to explain! -->
 
-To manage billing, you have to be the Account Administrator (AA). The AA is the person who went through the sign-up process. See [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) to learn more about administrator roles.
+To manage billing, you have to be the Account admin. The Account admin is the person who went through the sign-up process. See [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md) to learn more about being an Account admin.
 
-To see if you're the AA, go to the [Subscriptions blade in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and look at the list of subscriptions you have access to. Look under **My Role**. If it says *Account admin*, then you're set. If it says something else like *Owner*, then you don't have full privileges.
+To see if you're the Account admin, go to the [Subscriptions blade in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and look at the list of subscriptions you have access to. Look under **My Role**. If it says *Account admin*, then you're ok. If it says something else like *Owner*, then you don't have full privileges.
 
-![You should see your role in the Subscriptions view in the Azure portal](./media/billing-getting-started/sub-blade-view.PNG)
+![Screenshot of your role in the Subscriptions view in the Azure portal](./media/billing-getting-started/sub-blade-view.PNG)
 
-If you're not the AA, then somebody probably gave you partial access via [Azure Active Directory Role-based Access Control (RBAC)](../active-directory/role-based-access-control-configure.md). Ask the AA ([find out the AA is](../billing-subscription-transfer.md#whoisaa)) to perform the billing-related tasks or have them [transfer the subscription to you](../billing-subscription-transfer.md) so that you can start doing cost management.
+If you're not the Account admin, then somebody probably gave you partial access via [Azure Active Directory Role-based Access Control](../active-directory/role-based-access-control-configure.md) (RBAC). [Ask the Account admin](../billing-subscription-transfer.md#whoisaa) to perform the billing-related tasks or have them [transfer the subscription to you](../billing-subscription-transfer.md) so you could start doing cost management.
 
-If your AA is absent and you need to manage billing, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+If your Account admin is no longer with your organization and you need to manage billing, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
-### See if you have a spending limit on 
+### Check if you have a spending limit on 
 
-If you're on a *credit offer* - [monthly Azure credit via Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or other benefits - then the spending limit is turned on for you by default. This way, when you spend all your credits, your credit card doesn't get charged. 
+If you're using a *credit offer*, like the [monthly Azure credit via Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), then the spending limit is turned on for you by default. This way, when you spend all your credits, your credit card doesn't get charged. 
 
-> [!WARNING] 
-> Once you hit your spending limit, we disable you (your VMs get deallocated)! If you don't want to get disabled, then you must turn off the spending limit so any overage gets charged onto a credit card on file. 
+If you hit your spending limit, your services get disabled. That means your VMs are deallocated. To avoid service downtime, you must turn off the spending limit. Any overage gets charged onto a credit card on file. 
 
 To see if you've got spending limit on, go to the [Subscriptions view in the Account Center](https://account.windowsazure.com/Subscriptions). A banner appears if your spending limit is on:
 
-![You should see a warning about spending limit being on in the Account Center](./media/billing-getting-started/spending-limit-banner.PNG)
+![Screenshot that shows a warning about spending limit being on in the Account Center](./media/billing-getting-started/spending-limit-banner.PNG)
 
-To remove the spending limit, click the banner and follow prompts. To learn more, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/)
+Click the banner and follow prompts to remove the spending limit. For more information, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/)
 
 ### Set up billing alerts
 
-You can set up billing alerts for when your spend exceeds some number or if your monthly credits drop below some number. See [Set up billing alerts for your Microsoft Azure subscriptions](https://docs.microsoft.com/azure/billing-set-up-alerts).
+Set up billing alerts to get emails when your usage costs exceed an amount that you specify. If you have monthly credits, set up alerts for when you use up a specified amount. See [Set up billing alerts for your Microsoft Azure subscriptions](https://docs.microsoft.com/azure/billing-set-up-alerts).
 
-![Set up billing alerts in the Account Center](./media/billing-getting-started/billing-alert.png)
+![Screenshot of a billing alert email](./media/billing-getting-started/billing-alert.png)
 
 > [!NOTE]
-> This feature is still in preview.
+> This feature is still in preview so you should check your usage regularly.
 
-Since earlier you estimated your costs using the pricing calculator, it would be a good idea to use that as a guideline for setting up your first alerts. 
+You might want to use the cost estimate from the pricing calculator as a guideline for your first alert.
 
 ### Understand limits and quotas for your subscription
 
-There are default limits to each subscription for things Like the number of CPU cores, IP address, etc. Be mindful of these limits. See [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). You can request an increase by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
+There are default limits to each subscription for things like the number of CPU cores, IP address, etc. Be mindful of these limits. See [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). You can request an increase to your limit or quota by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## What to do when you're adding a service
+## What to do when as you add a service
 
-### Note the estimated cost in the portal
+### Review the estimated cost in the portal
 
-Typically when you add a service in the Azure portal, there's a view that shows you a similar estimated cost per month. For instance, when you're choosing the size of your Windows VM you should see the estimated monthly cost:
+Typically when you add a service in the Azure portal, there's a view that shows you a similar estimated cost per month. For example, when you choose the size of your Windows VM you see the estimated monthly cost:
 
 ![Example: an A1 Windows VM is estimated to cost $66.96 USD per month](./media/billing-getting-started/vm-size-cost.PNG)
 
-Take note of this estimate.
-
 ### Add tags to your resources to group your billing data
 
-You can use tags to group billing data for supported services. For example, if you are running several VMs for different teams, then you can use tags to categorize costs by cost center (HR, marketing, finance) or environment (production, pre-production, test). 
+You can use tags to group billing data for supported services. For example, if you run several VMs for different teams, then you can use tags to categorize costs by cost center (HR, marketing, finance) or environment (production, pre-production, test). 
 
-![Use tags in to group your resources](./media/billing-getting-started/tags.PNG)
+![Screenshot that shows setting up tags in the portal](./media/billing-getting-started/tags.PNG)
 
-They show up in your [usage CSV](#invoice-and-usage) later:
+They show up in your [usage CSV](#invoice-and-usage) after your first billing period:
 
-![Tags can be found in the usage CSV](./media/billing-getting-started/csv.png)
+![Screenshot that shows tags in the usage CSV](./media/billing-getting-started/csv.png)
 
-See [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md) for details. 
+For more information, see [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md) for details. 
 
 ### Consider enabling cost-cutting features like auto-shutdown for VMs
 
-Depending on your use case, you could configure auto-shutdown for your VMs in the Azure portal. See [Auto-shutdown for VMs using Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
+Depending on your scenario, you could configure auto-shutdown for your VMs in the Azure portal. See [Auto-shutdown for VMs using Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
-![Set up auto-shutdown in the portal](./media/billing-getting-started/auto-shutdown.PNG)
+![Screenshot of auto-shutdown option in the portal](./media/billing-getting-started/auto-shutdown.PNG)
 
-> [!NOTE]
-> This shutdown is not the same as shutting down inside the VM (like using Windows power options). It stops and deallocates your VMs to stop billing. See pricing FAQ for [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/) VMs.
+Auto-shutdown isn't the same as when you shut down within the VM with power options. Auto-shutdown stops and deallocates your VMs. to stop additional usage charges."See pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/en-us/pricing/details/virtual-machines/windows/) to learn more about VM states.
 
-## Ways to view and analyze your costs
+## <a name="cost-reporting"></a> Ways to view and analyze your costs
 
-### View your cost breakdown and burn rate regularly
+### View your usage and costs regularly
 
-After you get your services running, you should regularly check how much they're costing you. You can see the current spend and burn rate in Azure portal. 
+After you get your services running, regularly check how much they're costing you. You can see the current spend and burn rate in Azure portal. 
 
 1. Visit the [Subscriptions blade in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
 
 2. Select your subscription you want to see. You might only have one to select.
 
-3. You should see the cost breakdown and burn rate in the popup blade. It may not be supported for your offer (a warning would be displayed near the top). Wait 24 hours for the data to populate.
+3. You should see the cost breakdown and burn rate in the popup blade. It may not be supported for your offer (a warning would be displayed near the top). Wait 24 hours after you add a service for the data to populate.
     
-    ![See the burn rate and breakdown in the Azure portal](./media/billing-getting-started/burn-rate.PNG)
+    ![Screenshot of burn rate and breakdown in the Azure portal](./media/billing-getting-started/burn-rate.PNG)
 
-4. You could pin the view to your dashboard.
+4. We recommend to pin the view to your dashboard.
 
-We recommend checking what you see here against the estimates found earlier. If it's wildly out of expectations, then double check the pricing plan (A1 vs A0 VM, for example) you've selected for your services. 
+We recommend that you check the charges you see with the estimates you saw when you selected the services. If the charges wildly differ from the estimates, then double check the pricing plan (A1 vs A0 VM, for example) that you've selected for your services. 
 
 ### <a name="invoice-and-usage"></a> Download invoice and detail usage after your first billing period
 
-After your first billing period, you can download your PDF invoice and usage CSV files. See [How to download your Azure billing invoice and daily usage data](https://docs.microsoft.com/azure/billing-download-azure-invoice-daily-usage-date)
+After your first billing period, you can download your Portable Document Format (.pdf) invoice and usage Comma-Separated Values (.csv) files. For more information, see [How to download your Azure billing invoice and daily usage data](https://docs.microsoft.com/azure/billing-download-azure-invoice-daily-usage-date)
 
-![Download to see your pdf invoice](./media/billing-getting-started/invoice.png)
+![Screenshot of a PDF invoice](./media/billing-getting-started/invoice.png)
 
-Confused? See [Understand your bill for Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
+Confused? For more information, see [Understand your bill for Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
 ### Billing API
 
-We have billing API for you to programmatically get usage data. Use the RateCard API together with the usage API then you can get your billed usage. See [Gain insights into your Microsoft Azure resource consumption](https://docs.microsoft.com/azure/billing-usage-rate-card-overview) for the API overview.
+Use our billing API to programmatically get usage data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](https://docs.microsoft.com/azure/billing-usage-rate-card-overview).
 
 ## <a name="other-offers"></a> Additional resources for EA, CSP, and Sponsorship
+
+Talk to your account manager or Azure partner to get started.
 
 | Offer | Resources |
 |-------------------------------|-----------------------------------------------------------------------------------|
