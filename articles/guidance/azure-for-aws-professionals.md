@@ -23,6 +23,7 @@ ms.author: lbrader
 This article helps Amazon Web Services (AWS) experts understand the basics of Microsoft Azure accounts, platform, and services. It also covers key similarities and differences between the AWS and Azure platforms.
 
 You'll learn:
+
 * How accounts and resources are organized in Azure.
 * How available solutions are structured in Azure.
 * How the major Azure services differ from AWS services.
@@ -99,7 +100,7 @@ portal](https://blogs.msdn.microsoft.com/girishp/2015/09/20/increasing-core-quot
 -   [How to download your Azure billing invoice and daily usage
     data](https://azure.microsoft.com/documentation/articles/billing-download-azure-invoice-daily-usage-date/)
 
-## Manage resources
+## Resource management
 
 The term "resource" in Azure is used in the same way as in AWS, meaning any
 compute instance, storage object, networking device, or other entity you can
