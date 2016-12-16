@@ -1,5 +1,5 @@
 ---
-title: Setting properties and metadata during the import process | Microsoft Docs
+title: Setting properties and metadata during the Azure Import/Export import process | Microsoft Docs
 description: Learn how to specify properties and metadata to be set on the destination blobs when running the Azure Import/Export tool to prepare your drives.
 author: renashahmsft
 manager: aungoo
@@ -18,7 +18,8 @@ ms.author: renash
 
 ---
 
-# Setting Properties and Metadata during the Import Process
+# Setting properties and metadata during the import process
+
 When you run the Microsoft Azure Import/Export tool to prepare your drives, you can specify properties and metadata to be set on the destination blobs. Follow these steps:
 
 1.  To set blob properties, create a text file on your local computer that specifies property names and values.
@@ -28,7 +29,8 @@ When you run the Microsoft Azure Import/Export tool to prepare your drives, you 
 > [!NOTE]
 >  When you specify a properties or metadata file as part of a copy session, those properties or metadata are set for every blob that is imported as part of that copy session. If you want to specify a different set of properties or metadata for some of the blobs being imported, you'll need to create a separate copy session with different properties or metadata files.
 
-## Specify Blob Properties in a Text File
+## Specify blob properties in a text file
+
 To specify blob properties, create a local text file, and include XML that specifies property names as elements, and property values as values. Here's an example that specifies some property values:
 
 ```xml
@@ -42,7 +44,8 @@ To specify blob properties, create a local text file, and include XML that speci
 
 Save the file to a local location like `C:\WAImportExport\ImportProperties.txt`.
 
-## Specify Blob Metadata in a Text File
+## Specify blob metadata in a text file
+
 Similarly, to specify blob metadata, create a local text file that specifies metadata names as elements, and metadata values as values. Here's an example that specifies some metadata values:
 
 ```xml
@@ -66,6 +69,6 @@ K:\Temp\FavoriteVideo.ISO,https://mystorageaccount.blob.core.windows.net/favorit
 \\myshare\john\music\,https://mystorageaccount.blob.core.windows.net/music/,BlockBlob,rename,None,H:\mydirectory\properties.xml
 ```
 
-## See Also
+## Next steps
 
 [Import-Export Service Metadata and Properties File Format](storage-import-export-file-format-metadata-and-properties.md)

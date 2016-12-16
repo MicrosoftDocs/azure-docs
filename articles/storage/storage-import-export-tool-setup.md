@@ -212,7 +212,7 @@ Examples:
         f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\temp\9WM35C2V_error.log
 ```
 
-## See Also
+## Next steps
 
 * [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import.md)
 * [Previewing drive usage for an export job](storage-import-export-tool-previewing-drive-usage-export-v1.md)

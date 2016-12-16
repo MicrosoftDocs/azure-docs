@@ -1,5 +1,5 @@
 ---
-title: Quick reference for frequently used commands for import jobs | Microsoft Docs
+title: Quick reference for Azure Import/Export tool import job commands | Microsoft Docs
 description: Command reference for Azure Import/Export tool commands frequently used for import jobs
 author: renashahmsft
 manager: aungoo
@@ -17,9 +17,11 @@ ms.date: 12/16/2016
 ms.author: renash
 
 ---
-# Quick Reference for Frequently Used Commands for Import Jobs
+# Quick reference for frequently used commands for import jobs
 
-This section provides a quick reference for some frequently used commands. For detailed usage, see [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import.md).
+This article provides a quick reference for some frequently used commands. For detailed usage, see [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import.md).
+
+## Import job quick reference
 
 For the first session:
 
@@ -51,6 +53,6 @@ Add drives to the latest session:
 WAImportExport.exe PrepImport /j:JournalTest.jrn /id:session#3 /AdditionalDriveSet:driveset-2.csv
 ```
 
-## See Also
+## Next steps
 
 [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
