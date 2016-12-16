@@ -94,25 +94,26 @@ For each Copy Activity run, Data Factory determines the number of parallel copie
 
 Usually, the default behavior should give you the best throughput. However, to control the load on machines that host your data stores, or to tune copy performance, you may choose to override the default value and specify a value for the **parallelCopies** property. The value must be between 1 and 32 (both inclusive). At run time, for the best performance, Copy Activity uses a value that is less than or equal to the value that you set.
 
-    "activities":[  
-        {
-            "name": "Sample copy activity",
-            "description": "",
-            "type": "Copy",
-            "inputs": [{ "name": "InputDataset" }],
-            "outputs": [{ "name": "OutputDataset" }],
-            "typeProperties": {
-                "source": {
-                    "type": "BlobSource",
-                },
-                "sink": {
-                    "type": "AzureDataLakeStoreSink"
-                },
-                "parallelCopies": 8
-            }
+```json
+"activities":[  
+    {
+        "name": "Sample copy activity",
+        "description": "",
+        "type": "Copy",
+        "inputs": [{ "name": "InputDataset" }],
+        "outputs": [{ "name": "OutputDataset" }],
+        "typeProperties": {
+            "source": {
+                "type": "BlobSource",
+            },
+            "sink": {
+                "type": "AzureDataLakeStoreSink"
+            },
+            "parallelCopies": 8
         }
-    ]
-
+    }
+]
+```
 Points to note:
 
 * When you copy data between file-based stores, the **parallelCopies** determine the parallelism at the file level. The chunking within a single file would happen underneath automatically and transparently, and it's designed to use the best suitable chunk size for a given source data store type to load data in parallel and orthogonal to parallelCopies. The actual number of parallel copies the data movement service uses for the copy operation at run time is no more than the number of files you have. If the copy behavior is **mergeFile**, Copy Activity cannot take advantage of file-level parallelism.
@@ -129,25 +130,26 @@ A **cloud data movement unit (DMU)** is a measure that represents the power (a c
 
 By default, Data Factory uses a single cloud DMU to perform a single Copy Activity run. To override this default, specify a value for the **cloudDataMovementUnits** property as follows. For information about the level of performance gain you might get when you configure more units for a specific copy source and sink, see the [performance reference](#performance-reference).
 
-    "activities":[  
-        {
-            "name": "Sample copy activity",
-            "description": "",
-            "type": "Copy",
-            "inputs": [{ "name": "InputDataset" }],
-            "outputs": [{ "name": "OutputDataset" }],
-            "typeProperties": {
-                "source": {
-                    "type": "BlobSource",
-                },
-                "sink": {
-                    "type": "AzureDataLakeStoreSink"
-                },
-                "cloudDataMovementUnits": 4
-            }
+```
+"activities":[  
+    {
+        "name": "Sample copy activity",
+        "description": "",
+        "type": "Copy",
+        "inputs": [{ "name": "InputDataset" }],
+        "outputs": [{ "name": "OutputDataset" }],
+        "typeProperties": {
+            "source": {
+                "type": "BlobSource",
+            },
+            "sink": {
+                "type": "AzureDataLakeStoreSink"
+            },
+            "cloudDataMovementUnits": 4
         }
-    ]
-
+    }
+]
+```
 The **allowed values** for the **cloudDataMovementUnits** property are 1 (default), 2, 4, and 8. The **actual number of cloud DMUs** that the copy operation uses at run time is equal to or less than the configured value, depending on your data pattern.
 
 > [!NOTE]
@@ -193,29 +195,30 @@ Configure the **enableStaging** setting in Copy Activity to specify whether you 
 
 Here's a sample definition of Copy Activity with the properties that are described in the preceding table:
 
-    "activities":[  
-    {
-        "name": "Sample copy activity",
-        "type": "Copy",
-        "inputs": [{ "name": "OnpremisesSQLServerInput" }],
-        "outputs": [{ "name": "AzureSQLDBOutput" }],
-        "typeProperties": {
-            "source": {
-                "type": "SqlSource",
-            },
-            "sink": {
-                "type": "SqlSink"
-            },
-            "enableStaging": true,
-            "stagingSettings": {
-                "linkedServiceName": "MyStagingBlob",
-                "path": "stagingcontainer/path",
-                "enableCompression": true
-            }
+```json
+"activities":[  
+{
+    "name": "Sample copy activity",
+    "type": "Copy",
+    "inputs": [{ "name": "OnpremisesSQLServerInput" }],
+    "outputs": [{ "name": "AzureSQLDBOutput" }],
+    "typeProperties": {
+        "source": {
+            "type": "SqlSource",
+        },
+        "sink": {
+            "type": "SqlSink"
+        },
+        "enableStaging": true,
+        "stagingSettings": {
+            "linkedServiceName": "MyStagingBlob",
+            "path": "stagingcontainer/path",
+            "enableCompression": true
         }
     }
-    ]
-
+}
+]
+```
 
 ### Billing impact
 You are charged based on two steps: copy duration and copy type.
