@@ -80,7 +80,7 @@ Only Python 3.5.1 (compiled for Windows) is supported.
 In U-SQL, the standard Python modules are included. In addition, the pandas, numpy, and numexpr libraries are included.
 
 ### Debugging Support
-Currently, debugging an exception in Python code will be primitive and shows as a vertex failure. In the future Data Lake Analytics will over a more integrated and simpler debugging experience.
+Currently, debugging an exception in Python code will be primitive and shows as a generic vertex failure. In the future, exceptions will clearly shown in the error messages.
 
 ### Input and Output size limitations
 The input DataFrame and OutputDataframe each must be less than or equal to 3 GB. This is due to restrictions placed on the memory available to the vertexes used for query execution.
