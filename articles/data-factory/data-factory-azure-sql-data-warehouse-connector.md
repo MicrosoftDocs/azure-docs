@@ -454,7 +454,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
     "sqlReaderStoredProcedureName": "CopyTestSrcStoredProcedureWithParameters",
     "storedProcedureParameters": {
         "stringData": { "value": "str3" },
-        "id": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
+        "identifier": { "value": "$$Text.Format('{0:yyyy}', SliceStart)", "type": "Int"}
     }
 }
 ```
@@ -464,7 +464,7 @@ If you do not specify either sqlReaderQuery or sqlReaderStoredProcedureName, the
 CREATE PROCEDURE CopyTestSrcStoredProcedureWithParameters
 (
     @stringData varchar(20),
-    @id int
+    @identifier int
 )
 AS
 SET NOCOUNT ON;
@@ -472,7 +472,7 @@ BEGIN
      select *
      from dbo.UnitTestSrcTable
      where dbo.UnitTestSrcTable.stringData != stringData
-    and dbo.UnitTestSrcTable.id != id
+    and dbo.UnitTestSrcTable.identifier != identifier
 END
 GO
 ```

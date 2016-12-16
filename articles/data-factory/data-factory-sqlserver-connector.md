@@ -569,7 +569,7 @@ create table dbo.SourceTbl
 ```SQL
 create table dbo.TargetTbl
 (
-       id int identity(1,1),
+       identifier int identity(1,1),
        name varchar(100),
        age int
 )
