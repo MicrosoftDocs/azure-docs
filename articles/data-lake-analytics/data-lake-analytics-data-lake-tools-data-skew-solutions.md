@@ -59,7 +59,10 @@ U-SQL provides the CREATE STATISTICS statement on tables to give more informatio
 
     CREATE STATISTICS IF NOT EXISTS stats_SampleTable_date ON SampleDB.dbo.SampleTable(date) WITH FULLSCAN;
 
-Note that statistics information will not be updated automatically, which means if you update the data in table but forget to re-create statistics, it may result worse query performance.
+>[!NOTE]
+>Note that statistics information will not be updated automatically, which means if you update the data in table but forget to re-create statistics, it may result worse query performance.
+>
+>
 
 #### Option 2: Use SKEWFACTOR
 
