@@ -257,7 +257,7 @@ The first step when importing data using the Azure Import/Export service is to p
    
     In the above example, 100M_1.csv.txt  will be copied to the root of the container named “containername”. If the container names “containername” does not exist, one will be created. All files and folders under 50M_original will be recursively copied to containername. Folder structure will be maintained.
 
-    Learn more about [preparing the dataset CSV file](storage-import-export-tool-preparing-hard-drives-import#prepare-the-dataset-csv-file).
+    Learn more about [preparing the dataset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-the-dataset-csv-file).
     
     **Remember**: By default, the data will be imported as Block Blobs. You can use the BlobType fieled-value to import data as a Page Blobs. For example, if you are importing VHD files which will be mounted as disks on an Azure VM, you must import them as Page Blobs.
 
@@ -275,7 +275,7 @@ The first step when importing data using the Azure Import/Export service is to p
 
     In the above example, it is assumed that two disks are attached and basic NTFS volumes with volume-letter G:\ and H:\ have been created. The tool will format and encrypt the disk which hosts H:\ and will not format or encrypt the disk hosting volume G:\.
 
-    Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import#prepare-initialdriveset-or-additionaldriveset-csv-file).
+    Learn more about [preparing the driveset CSV file](storage-import-export-tool-preparing-hard-drives-import.md#prepare-initialdriveset-or-additionaldriveset-csv-file).
 
 6.	Use the [WAImportExport Tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip) to copy your data to one or more hard drives.
 7.	You can specify "Encrypt" on Encryption field in drivset CSV to enable BitLocker encryption on the hard disk drive. Alternatively, you could also enable BitLocker encryption manually on the hard disk drive and specify "AlreadyEncrypted" and supply the key in the driveset CSV while running the tool.
