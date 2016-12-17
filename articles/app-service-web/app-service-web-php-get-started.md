@@ -69,7 +69,7 @@ You can apply what you learn here to other PHP web apps that you deploy to Azure
     If you haven't installed the tools, see [Prerequisites](#Prerequisites) for download links.
 2. Install Laravel like so:
    
-        composer global require "laravel/installer
+        composer global require "laravel/installer"
 3. `CD` into a working directory and create a new Laravel application like so:
    
         cd <working_directory>
