@@ -24,8 +24,8 @@ This topic contains the fourth step of the walkthrough, [Develop a predictive an
 2. [Upload existing data](machine-learning-walkthrough-2-upload-data.md)
 3. [Create a new experiment](machine-learning-walkthrough-3-create-new-experiment.md)
 4. **Train and evaluate the models**
-5. [Deploy the web service](machine-learning-walkthrough-5-publish-web-service.md)
-6. [Access the web service](machine-learning-walkthrough-6-access-web-service.md)
+5. [Deploy the Web service](machine-learning-walkthrough-5-publish-web-service.md)
+6. [Access the Web service](machine-learning-walkthrough-6-access-web-service.md)
 
 - - -
 One of the benefits of using Azure Machine Learning Studio for creating machine learning models is the ability to try more than one type of model at a time in a single experiment and compare the results. This type of experimentation helps you find the best solution for your problem.

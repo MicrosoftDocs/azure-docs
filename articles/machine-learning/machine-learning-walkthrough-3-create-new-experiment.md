@@ -24,8 +24,8 @@ This is the third step of the walkthrough, [Develop a predictive analytics solut
 2. [Upload existing data](machine-learning-walkthrough-2-upload-data.md)
 3. **Create a new experiment**
 4. [Train and evaluate the models](machine-learning-walkthrough-4-train-and-evaluate-models.md)
-5. [Deploy the web service](machine-learning-walkthrough-5-publish-web-service.md)
-6. [Access the web service](machine-learning-walkthrough-6-access-web-service.md)
+5. [Deploy the Web service](machine-learning-walkthrough-5-publish-web-service.md)
+6. [Access the Web service](machine-learning-walkthrough-6-access-web-service.md)
 
 - - -
 The next step in this walkthrough is to create an experiment in Machine Learning Studio that uses the dataset we uploaded.  
