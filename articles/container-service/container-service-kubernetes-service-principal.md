@@ -41,7 +41,7 @@ Provide the **client ID** and **client secret** (password) of an existing servic
 
 You can specify these parameters when [deploying the Kubernetes cluster](./container-service-deployment.md) using the portal, the Azure Command-Line Interface (CLI), or Azure PowerShell.
 
-For example, the following command shows how to pass the parameters explicitly with Azure PowerShell:
+For example, the following example shows how to pass the parameters explicitly with Azure PowerShell:
 
 ```PowerShell
 $PlainClientID="myClientID"
@@ -60,8 +60,8 @@ New-AzureRmResourceGroupDeployment -Name myClusterName -ResourceGroupName myReso
 If you have installed and set up the [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), you can run the [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) command to [create the cluster](./container-service-create-acs-cluster-cli.md). 
 
 As with other cluster creation options, you can pass the credentials of an existing service principal on the command line. However, when you omit these parameters, Azure Container Service generates the service principal automatically. This takes place transparently during the deployment. For example:
-    
-```Azure CLI 2.0
+
+```Azure CLI
 az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes
 ```
 
@@ -75,7 +75,7 @@ The following example commands show you how to do this with the [Azure CLI 2.0 (
 > [!IMPORTANT]
 > For your Kubernetes cluster, make sure to create a service principal with role as **Contributor**.
 
-```Azure CLI 2.0
+```Azure CLI
 az login
 
 az account set --subscription="mySubscriptionID"
@@ -92,7 +92,7 @@ Highlighted are the **client ID** (`appId`) and the **client secret** (`password
 
 Confirm your service principal by opening a new shell and run the following commands, substituting in `appId`, `password`, and `tenant`:
 
-```Azure CLI 2.0 
+```Azure CLI 
 az login --service-principal -u yourClientID -p yourClientSecret --tenant yourTenant
 
 az vm list-sizes --location westus
