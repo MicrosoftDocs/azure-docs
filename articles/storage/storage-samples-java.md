@@ -196,8 +196,8 @@ To view the complete sample library, go to [The Azure Code Sample Library](https
 ### Getting started guides
 Check out the following guides if you are looking for instructions on how to install and get started with the Azure Storage Client Libraries.
 
-* [Getting Started with Azure Blob Service in Java](storage-java-how-to-use-blobs.md)
-* [Getting Started with Azure Queue Service in Java](storage-java-how-to-use-queues.md)
-* [Getting Started with Azure Table Service in Java](storage-java-how-to-use-tables.md)
-* [Getting Started with Azure File Service in Java](storage-java-how-to-use-files.md)
+* [Getting Started with Azure Blob Service in Java](storage-java-how-to-use-blob-storage.md)
+* [Getting Started with Azure Queue Service in Java](storage-java-how-to-use-queue-storage.md)
+* [Getting Started with Azure Table Service in Java](storage-java-how-to-use-table-storage.md)
+* [Getting Started with Azure File Service in Java](storage-java-how-to-use-file-storage.md)
 
