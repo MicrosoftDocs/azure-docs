@@ -190,6 +190,18 @@ To view the list of options, type `DocumentDB.Emulator.exe /?` at the command pr
   <td>DocumentDB.Emulator.exe /disablethrottling</td>
   <td></td>
 </tr>
+<tr>
+  <td>NoUi</td>
+  <td>Do not show the emulator user interface.</td>
+  <td>DocumentDB.LocalEmulator.exe /noui</td>
+  <td></td>
+</tr>
+<tr>
+  <td>NoExplorer</td>
+  <td>Don't show document explorer on startup.</td>
+  <td>DocumentDB.LocalEmulator.exe /noexplorer</td>
+  <td></td>
+</tr>
 </table>
 
 ## Differences between the DocumentDB Emulator and Azure DocumentDB 

@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/03/2016
+ms.date: 12/16/2016
 ms.author: awills
 
 ---
@@ -33,8 +33,7 @@ Install the Azure Powershell module on the machine where you want to run the scr
 Create a new .json file - let's call it `template1.json` in this example. Copy this content into it:
 
 ```JSON
-
-        {
+{
           "$schema": "http://schema.management.azure.com/schemas/2014-04-01-preview/deploymentTemplate.json#",
           "contentVersion": "1.0.0.0",
           "parameters": {
@@ -60,16 +59,11 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 "description": "Enter the application location."
               }
             },
-            "pricePlan": {
-              "type": "array",
-               "defaultValue": [ "Basic" ],
-              "allowedValues": [
-                [ "Basic" ],
-                [ "Basic", "Application Insights Enterprise" ]
-              ],
-              "metadata": {
-                "description": "Enter the price plan name."
-              }
+            "priceCode": {
+              "type": "int",
+              "defaultValue": 1,
+              "allowedValues": [ 1, 2 ],
+              "metadata": {"description": "1 = Basic, 2 = Enterprise"}
             },
             "dailyQuota": {
               "type": "int",
@@ -97,14 +91,14 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
             }
           },
 
-          "variables": {
-            "billingplan": "[concat(parameters('appName'),'/', parameters('pricePlan')[0])]"
+         "variables": {
+           "priceArray": [ "Basic", "Application Insights Enterprise" ],
+           "pricePlan": "[take(variables('priceArray'),parameters('priceCode'))]",
+           "billingplan": "[concat(parameters('appName'),'/', variables('pricePlan')[0])]"
           },
 
           "resources": [
             {
-              // Application Insights application resource
-              //
               "apiVersion": "2014-08-01",
               "location": "[parameters('appLocation')]",
               "name": "[parameters('appName')]",
@@ -118,18 +112,15 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
               }
             },
             {
-              // Price plan resource
-              //
               "name": "[variables('billingplan')]",
               "type": "microsoft.insights/components/CurrentBillingFeatures",
               "location": "[parameters('appLocation')]",
               "apiVersion": "2015-05-01",
-              // Ensure Azure sets this up after the app:
               "dependsOn": [
                 "[resourceId('microsoft.insights/components', parameters('appName'))]"
               ],
               "properties": {
-                "CurrentBillingFeatures": "[parameters('pricePlan')]",
+                "CurrentBillingFeatures": "[variables('pricePlan')]",
                 "DataVolumeCap": {
                   "Cap": "[parameters('dailyQuota')]",
                   "WarningThreshold": "[parameters('warningThreshold')]",
@@ -137,14 +128,8 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
                 }
               }
             },
-           {
-              //web test JSON file contents
-            },
-            {
-              //alert rule JSON file contents
-            }
 
-            // Any other resources go here
+          "__comment":"web test, alert, and any other resources go here"
           ]
         }
 
@@ -170,18 +155,22 @@ Create a new .json file - let's call it `template1.json` in this example. Copy t
    * `-TemplateFile` must occur before the custom parameters.
    * `-appName` The name of the resource to create.
 
-You can add other parameters such as:
+You can add other parameters - you'll find their descriptions in the parameters section of the template.
 
+## Enterprise price plan
+
+To create an app resource with the Enterprise price plan, using the template above:
 
 ```PS
    
-    -appLocation "West Europe" `
-    -pricePlan "Application Insights Enterprise" `
+
+        New-AzureRmResourceGroupDeployment -ResourceGroupName Fabrikam `
+               -TemplateFile .\template1.json `
+               -priceCode 2 `
+               -appName myNewApp
 ```
 
-Find the descriptions of these optional parameters in the template code.
-
-The price plan resource can be omitted if you only want to use the default Basic pricing plan.
+* If you only want to use the default Basic pricing plan, you can omit the price plan resource from the template.
 
 
 ## To get the instrumentation key
