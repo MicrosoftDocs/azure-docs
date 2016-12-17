@@ -33,55 +33,55 @@ If you don't have a service principal set up to create a Kubernetes cluster, you
 
 ## Service principal options for a Kubernetes cluster
 
-When [creating a Kubernetes cluster](./container-service-deployment.md) in Azure Container Service, you have these options to specify an Azure Active Directory service principal:
+When creating a Kubernetes cluster in Azure Container Service, you have these options to specify an Azure Active Directory service principal:
 
-* Provide the **client ID** and **client secret** (password) of an existing service principal as parameters when you use the [Kubernetes quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/<101-acs-kubernetes></101-acs-kubernetes>) to create the Kubernetes cluster. You can specify these parameters when deploying the Kubernetes cluster using the portal, the Azure Command-Line Interface (CLI), or Azure PowerShell.
+### Option 1: Pass the service principal client ID and client secret
 
-    For example,the following command shows how to pass the parameters explicitly with Azure PowerShell:
+Provide the **client ID** and **client secret** (password) of an existing service principal as parameters when you use the [Kubernetes quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes) to create the Kubernetes cluster. 
 
-    ```PowerShell
-    $PlainClientID="myClientID"
+You can specify these parameters when [deploying the Kubernetes cluster](./container-service-deployment.md) using the portal, the Azure Command-Line Interface (CLI), or Azure PowerShell.
+
+For example, the following command shows how to pass the parameters explicitly with Azure PowerShell:
+
+```PowerShell
+$PlainClientID="myClientID"
+
+$SecureClientID = $PlainClientID | ConvertTo-SecureString -AsPlainText -Force
         
-    $SecureClientID = $PlainClientID | ConvertTo-SecureString -AsPlainText -Force
+$PlainClientSecret ="myClientSecret"
         
-    $PlainClientSecret ="myClientSecret"
+$SecureClientSecret = $PlainClientSecret | ConvertTo-SecureString -AsPlainText -Force
         
-    $SecureClientSecret = $PlainClientSecret | ConvertTo-SecureString -AsPlainText -Force
-        
-    New-AzureRmResourceGroupDeployment -Name myClusterName -ResourceGroupName myResourceGroup -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -servicePrincipalClientID $SecureClientID -servicePrincipalClientSecret $SecureClientSecret
-    ```
+New-AzureRmResourceGroupDeployment -Name myClusterName -ResourceGroupName myResourceGroup -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -servicePrincipalClientID $SecureClientID -servicePrincipalClientSecret $SecureClientSecret
+```
 
+### Option 2: Generate the service principal when creating the cluster with the Azure CLI 2.0 Preview
 
+If you have installed and set up the [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), you can run the [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) command to [create the cluster](./container-service-create-acs-cluster-cli.md). 
 
-* If you have installed and set up the [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), you can run the [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) command to create the cluster. If you don't pass the service principal credentials on the command line, Azure Container Service generates the service principal automatically. For example:
+As with other cluster creation options, you can pass the credentials of an existing service principal on the command line. However, when you omit these parameters, Azure Container Service generates the service principal automatically. This takes place transparently during the deployment. For example:
+    
+```Azure CLI 2.0
+az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes
+```
 
-    * **Specify the service principal explictly**
-
-        ```Azure CLI 2.0
-        az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes --client-secret "myClientSecret" --service-principal "myClientID"
-        ``` 
-
-    * **Generate the service principal automatically**
-
-        ```Azure CLI 2.0
-        az acs create -n myClusterName -d myDNSPrefix -g myResourceGroup --generate-ssh-keys --orchestrator-type kubernetes
-        ```
-
-
-        ``` 
 ## Create a service principal in Azure Active Directory
 
 
-There are several ways to create a service principal in Azure Active Directory. The following commands show you how to do this with the [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2). You can alternatively create a service principal using the [Azure Command-Line Interface](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md), [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), or the [classic portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
+If you want to create a service principal in Azure Active Directory for use in your Kubernetes cluster, Azure provides several methods. 
+
+The following example commands show you how to do this with the [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2). You can alternatively create a service principal using the [Azure Command-Line Interface](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md), [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), or the [classic portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 > [!IMPORTANT]
 > For your Kubernetes cluster, make sure to create a service principal with role as **Contributor**.
 
-   ```Azure CLI 2.0
-   az login
-   az account set --subscription="mySubscriptionID"
-   az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
-   ```
+```Azure CLI 2.0
+az login
+
+az account set --subscription="mySubscriptionID"
+
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/mySubscriptionID"
+```
 
 This returns output similar to the following (shown here redacted):
 
@@ -90,18 +90,19 @@ This returns output similar to the following (shown here redacted):
 Highlighted are the **client ID** (`appId`) and the **client secret** (`password`) that you need when you specify service principal parameters for cluster deployment.
 
 
-Confirm your service principal by opening a new shell and run the following commands substituting in `appId`, `password`, and `tenant`:
+Confirm your service principal by opening a new shell and run the following commands, substituting in `appId`, `password`, and `tenant`:
 
-   ```shell
-   az login --service-principal -u yourClientID -p yourClientSecret --tenant yourTenant
-   az vm list-sizes --location westus
-   ```
+```Azure CLI 2.0 
+az login --service-principal -u yourClientID -p yourClientSecret --tenant yourTenant
+
+az vm list-sizes --location westus
+```
 
 ## Additional considerations
 
-* Currently for Kubernetes in a container service cluster, the client secret for a service principal must be a password. You can't use a certificate.
+* In a container service Kubernetes cluster, the client secret for a service principal currently must be a password. You can't use a certificate.
 
-* When specifying the service principal **Client ID**, you can use either the `appId` (as shown in this article) or the service principal `name`.
+* When specifying the service principal **Client ID**, you can use the value of the `appId` (as shown in this article) or the service principal `name`.
 
 * If you use the `az acs create` command to generate the service principal automatically, the service principal credentials are written to the file ~/.azure/acsServicePrincipal.json on the machine used to run the command.
 
