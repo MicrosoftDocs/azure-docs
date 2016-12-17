@@ -130,7 +130,7 @@ You can choose a post-failover deployment model according to your need. If you c
 
 ## Toubleshooting
 
-* [Monitor and troubleshoot protection for virtual machines and physical servers](../site-recovery/site-recovery-monitoring-and-troubleshooting)
+* [Monitor and troubleshoot protection for virtual machines and physical servers](../site-recovery/site-recovery-monitoring-and-troubleshooting.md)
 * [Microsoft Azure Site Recovery forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=hypervrecovmgr)
 
 
