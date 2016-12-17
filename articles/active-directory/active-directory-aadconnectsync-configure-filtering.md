@@ -145,7 +145,7 @@ To close the **Configure Run Profiles** dialog, click **OK**.
 * To complete the configuration, [Apply and verify changes](#apply-and-verify-changes).
 
 ## Organizational-unit–based filtering
-The preferred way to change OU-based filtering is by running the installation wizard and change [domain and OUs filtering](connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). Configuring OU-based filtering using the installation wizard will set up **negative filtering**. The installation wizard is automating all the tasks documented in this topic. 
+The preferred way to change OU-based filtering is by running the installation wizard and change [domain and OUs filtering](connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). Configuring OU-based filtering using the installation wizard will set up **negative filtering** and will exclude unselected OUs. The installation wizard is automating all the tasks documented in this topic. 
 
 You should only follow these steps if you for some reason are unable to run the installation wizard.
 
