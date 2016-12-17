@@ -28,6 +28,8 @@ The Microsoft Azure storage emulator provides a local environment that emulates 
 >
 > Note that data created in one version of the storage emulator is not guaranteed to be accessible when using a different version. If you need to persist your data for the long term, it's recommended that you store that data in an Azure storage account, rather than in the storage emulator.
 >
+> The storage emulator depends on OData libraries version 5.6. Replacing the OData DLLs used by the storage emulator with higher versions is not supported and will cause unexpected behavior. However, any version of OData supported by the storage service may be used to send requests to the emulator.
+>
 >
 
 ## How the storage emulator works
@@ -173,6 +175,8 @@ Because the storage emulator is an emulated environment running in a local SQL i
 The following differences apply to Blob storage in the emulator:
 
 * The storage emulator only supports blob sizes up to 2 GB.
+* Incremental copy allows snapshots from overwritten blobs to be copied. On the service, this returns a failure.
+* Get Page Ranges Diff does not work between snapshots copied using Incremental Copy Blob.
 * A Put Blob operation may succeed against a blob that exists in the storage emulator and has an active lease, even if the lease ID has not been specified as part of the request.
 * Append Blob operations are not supported by the emulator. Attempting an operation on an append blob returns a FeatureNotSupportedByEmulator error (HTTP status code 400 - Bad Request).
 
@@ -188,6 +192,9 @@ The following differences apply to Table storage in the emulator:
 There are no differences specific to Queue storage in the emulator.
 
 ## Storage emulator release notes
+### Version 4.6
+* The storage emulator now supports version 2016-05-31 of the storage services on Blob, Queue, and Table service endpoints.
+
 ### Version 4.5
 * Fixed a bug that caused initialization and installation of the storage emulator to fail when the backing database was renamed.
 
