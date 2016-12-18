@@ -193,6 +193,8 @@ Currently, the supported aliases are:
 | Microsoft.Compute/virtualMachines/imageOffer | |
 | Microsoft.Compute/virtualMachines/imageSku | |
 | Microsoft.Compute/virtualMachines/imageVersion | |
+| Microsoft.Storage/storageAccounts/accessTier | |
+| Microsoft.Storage/storageAccounts/enableBlobEncryption | |
 | Microsoft.Cache/Redis/enableNonSslPort | |
 | Microsoft.Cache/Redis/shardCount | |
 | Microsoft.SQL/servers/version | |
@@ -455,7 +457,7 @@ With a request body similar to the following example:
         "displayName":"West US only policy assignment on the subscription ",
         "description":"Resources can only be provisioned in West US regions",
         "parameters": {
-             "listOfAllowedLocations": ["West US", "West US2"]
+             "listOfAllowedLocations": { "value": ["West US", "West US 2"] }
          },
         "policyDefinitionId":"/subscriptions/########/providers/Microsoft.Authorization/policyDefinitions/testdefinition",
         "scope":"/subscriptions/########-####-####-####-############"

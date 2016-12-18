@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 4e288e17-bc3e-4255-9fbe-0a2ac0dbd7dd
 ms.service: sql-database
-ms.custom: sharded databases pool; how to
+ms.custom: multiple databases
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
