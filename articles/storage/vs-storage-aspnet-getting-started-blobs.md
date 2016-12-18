@@ -270,17 +270,17 @@ and adds the name (or URI in the case of a **CloudBlobDirectory**) to a list tha
 	return View(blobs);
     ```
 
-	In addition to blobs, blob containers can contain directories. Let's suppose you run the preceding code against a blob container called *myblobs* with the following hierarchy:
+	In addition to blobs, blob containers can contain directories. Let's suppose you have a blob container called *test-blob-container* with the following hierarchy:
 
 		foo.png
 		dir1/bar.png
 		dir2/baz.png
 
-	The **blobs** string list would contain values similar to the following:
+	Using the preceding code example, the **blobs** string list contains values similar to the following:
 
 		foo.png
-		<storage-account-url>/myblobs/dir1
-		<storage-account-url>/myblobs/dir2
+		<storage-account-url>/test-blob-container/dir1
+		<storage-account-url>/test-blob-container/dir2
 
 	As you can see, the list includes only the top-level entities; not the nested ones (*bar.png* and *baz.png*). In order to list all the entities within a blob container, you must call the **CloudBlobContainer.ListBlobs** method and pass **true** for the **useFlatBlobListing** parameter.    
 
