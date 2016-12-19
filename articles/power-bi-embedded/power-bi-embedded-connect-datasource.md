@@ -32,6 +32,15 @@ With Power BI Embedded, you can use DirectQuery with cloud data sources but not 
 > [!NOTE]
 > The On-Premises Data Gateway is not supported with Power BI Embedded at this time. This means you cannot use DirectQuery with on-premises data sources.
 
+## Supported data sources
+
+**DirectQuery**
+* Azure SQL database
+* Azure SQL Data Warehouse
+
+**Import**
+You can import using all of the available data sources within Power BI Desktop. You will **not** be able to refresh that data within Power BI Embedded. You will have to upload changes to your PBIX file to Power BI Embedded. This is due to no available gateway.
+
 ## Benefits of using DirectQuery
 There are two primary benefits when using **DirectQuery**:
 
