@@ -27,7 +27,7 @@ Before you begin work with SQL Data Warehouse, be sure you have completed the fo
 * Set Firewall Rules
 
 ## Sign Up for Microsoft Azure
-If you don't already have a Microsoft Azure account, you must sign up for one in order to use this service. If you already have an account, please skip this step. 
+If you don't already have a Microsoft Azure account, you must sign up for one to use this service. If you already have an account, you may skip this step. 
 
 1. Navigate to the account pages [https://azure.microsoft.com/account/](https://azure.microsoft.com/account/)
 2. Create a free Azure account, or purchase an account.
@@ -35,10 +35,10 @@ If you don't already have a Microsoft Azure account, you must sign up for one in
 
 ## Install appropriate SQL Client Driver and Tools
 
-Most SQL client tools can connect to Azure SQL Data Warehouse using JDBC, ODBC, or ADO.net. Due to product complexity and large number of T-SQL features SQL DW supports, not every client applicaton may be fully compatible 
+Most SQL client tools can connect to Azure SQL Data Warehouse using JDBC, ODBC, or ADO.net. Due to product complexity and large number of T-SQL features SQL DW supports, not every client application may be fully compatible 
 with SQL DW.
 
-If you are running a Windows Operating System we recommend using either [Visual Studio] or [SQL Server Management Studio].
+If you are running a Windows Operating System, we recommend using either [Visual Studio] or [SQL Server Management Studio].
 
 
 [!INCLUDE [Create a new logical server](../../includes/sql-data-warehouse-create-logical-server.md)] 
