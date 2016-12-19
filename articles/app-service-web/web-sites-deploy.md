@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/19/2016
+ms.date: 12/19/2016
 ms.author: cephalin;dariac
 
 ---
@@ -57,6 +57,9 @@ The cons of copying files manually are:
 * Potential long deployment times because many FTP tools don't provide diff-only copying and simply copy all the files.  
 
 ### <a name="howtoftp"></a>How to deploy by copying files to Azure manually
+The [Azure Portal](https://portal.azure.com) gives you all the information you need to connect to your app using FTP or FTPS.
+
+* [Deploy your app to Azure App Service using FTP](app-service-deploy-ftp.md)
 
 ## <a name="dropbox"></a>Deploy by syncing with a cloud folder
 A good alternative to [copying files manually](#ftp) is syncing files and folders to App Service from a cloud storage service like OneDrive and Dropbox. Syncing with a cloud folder utilizes the Kudu process for deployment (see [Overview of deployment processes](#overview)).
