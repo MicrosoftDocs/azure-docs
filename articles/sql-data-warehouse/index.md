@@ -50,7 +50,8 @@ Azure SQL Data Warehouse combines the SQL Server relational database with Azure 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+
+<img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -71,7 +72,8 @@ Azure SQL Data Warehouse combines the SQL Server relational database with Azure 
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
-                    <div class="Command-Line</h3>
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
                         <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">PowerShell cmdlets</a></p>
                     </div>
                 </div>
