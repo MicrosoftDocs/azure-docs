@@ -105,7 +105,7 @@ In this section, you create a Node.js console app that responds to a direct meth
         if (err) {
             console.error('Could not connect to IotHub client.');
         }  else {
-            console.log('Client connected to IoT Hub.  Waiting for reboot direct method.');
+            console.log('Client connected to IoT Hub. Register handler for lockDoor direct method.');
             client.onDeviceMethod('lockDoor', onLockDoor);
         }
     });
@@ -143,7 +143,7 @@ In this section, you create a Node.js console app that initiates a remote **lock
    
     ```
     var connectionString = '{iothubconnectionstring}';
-    var deviceArray = ['myDeviceId'];
+    var queryCondition = "deviceId IN ['myDeviceId']";
     var startTime = new Date();
     var maxExecutionTimeInSeconds =  3600;
     var jobClient = JobClient.fromConnectionString(connectionString);
@@ -173,13 +173,13 @@ In this section, you create a Node.js console app that initiates a remote **lock
     var methodParams = {
         methodName: 'lockDoor',
         payload: null,
-        timeoutInSeconds: 45
+        responseTimeoutInSeconds: 15 // Timeout after 15 seconds if device is unable to process method
     };
    
     var methodJobId = uuid.v4();
     console.log('scheduling Device Method job with id: ' + methodJobId);
     jobClient.scheduleDeviceMethod(methodJobId,
-                                deviceArray,
+                                queryCondition,
                                 methodParams,
                                 startTime,
                                 maxExecutionTimeInSeconds,
@@ -212,7 +212,7 @@ In this section, you create a Node.js console app that initiates a remote **lock
    
     console.log('scheduling Twin Update job with id: ' + twinJobId);
     jobClient.scheduleTwinUpdate(twinJobId,
-                                deviceArray,
+                                queryCondition,
                                 twinPatch,
                                 startTime,
                                 maxExecutionTimeInSeconds,
@@ -240,7 +240,7 @@ You are now ready to run the applications.
     ```
     node simDevice.js
     ```
-2. At the command prompt in the **scheduleJobService** folder, run the following command to trigger the remote reboot and query for the device twin to find the last reboot time.
+2. At the command prompt in the **scheduleJobService** folder, run the following command to trigger the jobs to lock the door and update the twin
    
     ```
     node scheduleJobService.js

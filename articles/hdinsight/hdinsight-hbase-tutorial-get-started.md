@@ -293,7 +293,7 @@ For more information, see:
   HBase is an Apache, open-source, NoSQL database built on Hadoop that provides random access and strong consistency for large amounts of unstructured and semistructured data.
 * [Create HBase clusters on Azure Virtual Network][hdinsight-hbase-provision-vnet].
   With virtual network integration, HBase clusters can be deployed to the same virtual network as your applications so that applications can communicate with HBase directly.
-* [Configure HBase replication in HDInsight](hdinsight-hbase-geo-replication.md). Learn how to configure HBase replication across two Azure datacenters.
+* [Configure HBase replication in HDInsight](hdinsight-hbase-replication.md). Learn how to configure HBase replication across two Azure datacenters.
 * [Analyze Twitter sentiment with HBase in HDInsight][hbase-twitter-sentiment].
   Learn how to do real-time [sentiment analysis](http://en.wikipedia.org/wiki/Sentiment_analysis) of big data by using HBase in a Hadoop cluster in HDInsight.
 

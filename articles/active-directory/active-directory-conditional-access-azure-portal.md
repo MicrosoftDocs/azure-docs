@@ -157,20 +157,7 @@ For every sign-in, Azure Active Directory evaluates all policies and ensures tha
 
 ### Does conditional access work with Exchange ActiveSync?
  
-You can use Exchange ActiveSync in a conditional access policy; however the support for this scenario is limited.
-
-The following limitations apply to a policy that has Exchange ActiveSync included:
-
-- As **cloud apps** assignment, you have just **Exchange Online** selected.
-
-- If you need to set a **control**, you can only select **Require compliant device**. 
-
-	![Grant](./media/active-directory-conditional-access-azure-portal/22.png)
-
-- If you need to configure a **condition**, you can only configure **client apps**.   
-
-	![Conditions](./media/active-directory-conditional-access-azure-portal/21.png)
-
+No, you cannot use Exchange ActiveSync in a conditional access policy at this point.
 
 
 ## Common scenarios
