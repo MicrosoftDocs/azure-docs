@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/26/2016
+ms.date: 12/15/2016
 ms.author: bwren
 
 ---
@@ -170,6 +170,7 @@ This table lists the complete set of status codes that the service might return:
 | 400 |Bad request |MissingLogType |The required value log type wasn’t specified. |
 | 400 |Bad request |UnsupportedContentType |The content type was not set to **application/json**. |
 | 403 |Forbidden |InvalidAuthorization |The service failed to authenticate the request. Verify that the workspace ID and connection key are valid. |
+| 404 |Not Found | | Either the URL provided is incorrect, or the request is too large. |
 | 429 |Too Many Requests | | The service is experiencing a high volume of data from your account. Please retry the request later. |
 | 500 |Internal Server Error |UnspecifiedError |The service encountered an internal error. Please retry the request. |
 | 503 |Service Unavailable |ServiceUnavailable |The service currently is unavailable to receive requests. Please retry your request. |
@@ -414,7 +415,7 @@ def post_data(customer_id, shared_key, body, log_type):
     }
 
     response = requests.post(uri,data=body, headers=headers)
-    if (response.status_code == 200):
+    if (response.status_code >= 200 and response.status_code <= 299):
         print 'Accepted'
     else:
         print "Response code: {}".format(response.status_code)
