@@ -24,7 +24,7 @@ The Azure Import/Export tool is used to create and manage jobs for the Azure Imp
 
 This documentation is for v1 of the Azure Import/Export tool. For information about using the most recent version of the tool, please see [Using the Azure Import/Export Tool](storage-import-export-tool-how-to.md).
 
-In this section, we will see how to use the tool to do the following:  
+In these articles, you will see how to use the tool to do the following:
 
 - Install and set up the Import/Export tool.
 - Prepare your hard drives for a job where you import data from your drives to Azure Blob Storage.
