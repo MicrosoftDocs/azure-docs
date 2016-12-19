@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure AD Connect Health Operations.
 description: This article describes additional operations that can be performed once you have deployed Azure AD Connect Health.
 services: active-directory
@@ -39,7 +39,7 @@ You can configure the Azure AD Connect Health Service to send email notification
 6. To finalize the changes click on "Save". All changes will take effects only after you select "Save".
 
 ## Delete a server or service instance
-### Delete a server from Azure AD Connect Health Service
+
 In some instances, you may wish to remove a server from being monitored. Follow the instructions below to remove a server from Azure AD Connect Health Service.
 
 When deleting a server, be aware of the following:
@@ -49,7 +49,7 @@ When deleting a server, be aware of the following:
 * This action will NOT delete the data already collected from this server. That data will be deleted as per the Microsoft Azure Data Retention Policy.
 * After performing this action, if you wish to start monitoring the same server again, you will need to uninstall and re-install the health agent on this server.
 
-#### To delete a server from Azure AD Connect Health Service
+### To delete a server from Azure AD Connect Health Service
 Azure AD Connect Health for AD FS & Azure AD Connect (Sync):
 
 1. Open the Server Blade from the Server List Blade by selecting the server name to be removed.

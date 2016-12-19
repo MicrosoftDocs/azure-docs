@@ -51,7 +51,8 @@ For example, on Windows Server 2008 R2 the installation of .Net 4.5 Framework re
 
 **Q: Does Azure AD Connect Health Services work through a pass-through http proxy?**
 
-Yes.  For on going operations, you can configure the Health Agent to forward outbound http requests using an HTTP Proxy. For more information, See [Configure Azure AD Connect Health Agents to use HTTP Proxy.](active-directory-aadconnect-health-agent-install.md#configure-azure-ad-connect-health-agents-to-use-http-proxy)
+Yes.  For on going operations, you can configure the Health Agent to forward outbound http requests using an HTTP Proxy.
+
 If you need to configure a proxy during Agent registration, you may need to modify your Internet Explorer Proxy settings beforehand.
 
 1. Open Internet Explorer -> Settings -> Internet Options -> Connections -> LAN Settings.
@@ -85,7 +86,7 @@ You need to have TCP/UDP ports 443 and 5671 open for the Azure AD Connect Health
 
 **Q: Why do I see two servers with the same name in the Azure AD Connect Health Portal?**
 
-When you remove an agent from a server, the server is not automatically removed from the Azure AD Connect Portal.  If you manually removed an agent from a server or removed the server itself, you need to manually delete the server entry from the Azure AD Connect Health portal. For more information, go to [delete a server or service instance.](active-directory-aadconnect-health-operations.md#delete-a-server-or-service-instance)
+When you remove an agent from a server, the server is not automatically removed from the Azure AD Connect Portal.  If you manually removed an agent from a server or removed the server itself, you need to manually delete the server entry from the Azure AD Connect Health portal. 
 
 If you reimaged a server or created a new server with the same details(such as machine name) and  did not remove the already registered server from the Azure AD Connect Health portal, installed the agent on the new server, you may see two entries with the same name.  
 In this case, you should delete the entry belonging to the older server manually. The data for this server should be out-of-date.
