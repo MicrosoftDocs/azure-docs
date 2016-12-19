@@ -23,9 +23,9 @@ You can run your .NET Azure HDInsight application either under application's own
 
 From your non-interactive .NET application, you need:
 
-* Your Azure subscription tenant ID (A.K.A directory ID). See [Get tenant ID](../resource-group-create-service-principal-portal#get-tenant-id).
-* The Azure Directory application client ID. See [Create an Active Directory application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application), and [Get an application ID](resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
-* The Azure Directory application secret key. See [Get application authentication key](resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
+* Your Azure subscription tenant ID (A.K.A directory ID). See [Get tenant ID](../resource-group-create-service-principal-portal.md#get-tenant-id).
+* The Azure Directory application client ID. See [Create an Active Directory application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application), and [Get an application ID](../resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
+* The Azure Directory application secret key. See [Get application authentication key](../resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
 
 ## Prerequisites
 * HDInsight cluster. See [getting started tutorial](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
