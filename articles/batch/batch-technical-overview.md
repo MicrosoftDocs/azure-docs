@@ -66,7 +66,7 @@ When you develop Batch solutions, you'll use the following accounts in Microsoft
 Your applications and services can issue direct REST API calls or use one or more of the following client libraries to run and manage your Azure Batch workloads.
 
 | API | API reference | Download | Tutorial | Code samples |
-| --- | --- | --- | --- |
+| --- | --- | --- | --- | --- |
 | **Batch REST** |[MSDN][batch_rest] |N/A |&nbsp; |&nbsp; |
 | **Batch .NET** |[docs.microsoft.com][api_net] |[NuGet ][api_net_nuget] |[Tutorial](batch-dotnet-get-started.md) |[GitHub][api_sample_net] |
 | **Batch Python** |[readthedocs.io][api_python] |[PyPI][api_python_pypi] |[Tutorial](batch-python-tutorial.md)|[GitHub][api_sample_python] |
@@ -84,8 +84,8 @@ Functionality provided by the development APIs is also available using command-l
 
 The Azure Resource Manager APIs for Batch provide programmatic access to Batch accounts. Using these APIs, you can programmatically manage Batch accounts, quotas, and application packages.  
 
-| API | API reference | Download | Code samples |
-| --- | --- | --- | --- |
+| API | API reference | Download | Tutorial | Code samples |
+| --- | --- | --- | --- | --- |
 | **Batch Resource Manager REST** |[docs.microsoft.com][api_rest_mgmt] |N/A |&nbsp; |[GitHub][https://github.com/Azure-Samples/batch-dotnet-manage-batch-accounts] |
 | **Batch Resource Manager .NET** |[docs.microsoft.com][api_net_mgmt] |[NuGet ][api_net_mgmt_nuget] | [Tutorial](batch-management-dotnet.md) |[GitHub][api_sample_net] |
 
