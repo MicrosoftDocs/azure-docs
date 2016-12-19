@@ -51,11 +51,11 @@ Starting a *stopped* node using the Node Transition API will return it to functi
 **Limited Duration**
 When using the Node Transition API to stop a node, one of the required parameters, *stopNodeDurationInSeconds*, represents the amount of time in seconds to keep the node *stopped*.  This value must be in the allowed range, which has a minimum of 600, and a maximum of 14400.  After this time expires, the node will restart itself into Up state automatically.  Refer to Sample 1 below for an example of usage.
 
-[!WARNING]
-Avoid mixing Node Transition APIs and the Stop Node and Start Node APIs.  The recommendation is to  use the Node Transition API only.  If a node has been already been stopped using the Stop Node API, it should be started using the Start Node API first before using the Node Transition APIs.
+> [!WARNING]
+> Avoid mixing Node Transition APIs and the Stop Node and Start Node APIs.  The recommendation is to  use the Node Transition API only.  > If a node has been already been stopped using the Stop Node API, it should be started using the Start Node API first before using the > Node Transition APIs.
 
-[!WARNING]
-Multiple Node Transition APIs calls cannot be made on the same node in parallel.  In such a situation, the Node Transition API will throw a FabricException with an ErrorCode property value of NodeTransitionInProgress.  Once a node transition on a specific node has been started, you should wait until the operation reaches a terminal state (Completed, Faulted, or ForceCancelled) before starting a new transition on the same node.  Parallel node transition calls on different nodes are allowed.
+> [!WARNING]
+> Multiple Node Transition APIs calls cannot be made on the same node in parallel.  In such a situation, the Node Transition API will    > throw a FabricException with an ErrorCode property value of NodeTransitionInProgress.  Once a node transition on a specific node has  > been started, you should wait until the operation reaches a terminal state (Completed, Faulted, or ForceCancelled) before starting a  > new transition on the same node.  Parallel node transition calls on different nodes are allowed.
 
 
 #### Sample Usage
