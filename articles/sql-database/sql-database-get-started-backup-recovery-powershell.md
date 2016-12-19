@@ -54,7 +54,7 @@ In this section of the tutorial, you view information about the oldest restore p
 
 You can restore a database to any point-in-time between the earliest restore point, and the last available backup (6 minutes before the current time). 
 
-The following snippet uses the [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabase) cmdlet to get the earliest restore point of the database you want to restore. The time is returned as UTC, but the following snippets show how to work in local time.
+The following snippet uses the [Get-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/get-azurermsqldatabase) cmdlet to get the earliest restore point of the database you want to restore. The time is returned as UTC, but the following snippets show how to work in local time. The latest available restore point of a live database is typically about six minutes ago, so the latest restore point is simply set to the current time minus six minutes. 
 
 ```
 # Get available restore points
@@ -80,9 +80,7 @@ In this section of the tutorial, you restore the database to a new database as o
 >[!NOTE]
 >You cannot change the server to which you are restoring to a specific point in time. To restore to a different server, use [Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Also, note that you can restore into an [elastic database pool](sql-database-elastic-jobs-overview.md) or to a different pricing tier. 
 
-The following snippet uses the [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/restore-azurermsqldatabase) cmdlet to restore the $databaseToRestore that we set in the previous snippet.
-
-The **-PointInTime** parameter requires a UTC formatted time value similar to: *12/09/2016 20:00:00*. The snippet converts the local time for you.
+The following snippet uses the [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/restore-azurermsqldatabase) cmdlet to restore the $databaseToRestore that we set in the previous snippet. The **-PointInTime** parameter requires a UTC formatted time value similar to: *12/09/2016 20:00:00*. The snippet converts the local time for you.
 
 ```
 # Restore a database to a previous point in time
@@ -106,18 +104,15 @@ $restoredDb
 
 > [!NOTE]
 > From here, you can connect to the restored database using [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](sql-database-recovery-using-backups.md#point-in-time-restore).
->
 
 ## Configure long-term retention of automated backups in an Azure Recovery Services vault 
 
 In this section of the tutorial, you [configure an Azure Recovery Services vault to retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier (up to 10 years). 
 
-
 ### Create a recovery services vault
 
 > [!IMPORTANT]
 > The vault must be located in the same region as the Azure SQL logical server, and must use the same resource group as the logical server.
->
 
 The following snippet uses the [New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/new-azurermrecoveryservicesvault), and [Set-AzureRmRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/set-azurermrecoveryservicesbackupproperties) cmdlets to create a new recovery services vault, and set the redundancy level for backups in the vault. 
 
@@ -149,7 +144,7 @@ A retention policy is where you set how long to keep a database backup.
 
 The following snippet uses the [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) to get the default retention policy that we use as the template for creating new policies. We set our template to retain our backup for 2 years, and then run the [New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/new-azurermrecoveryservicesbackupprotectionpolicy) to finally create our new policy. 
 
-Note that some cmdlets require that you set the vault context prior to running ([Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/set-azurermrecoveryservicesvaultcontext)) so you see this cmedlet in a few related snippets. We set the context because the policy is part of the selected vault. You can create multiple retention policies for each vault and then apply the desired policy to specific databases. 
+Note that some cmdlets require that you set the vault context prior to running ([Set-AzureRmRecoveryServicesVaultContext](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/set-azurermrecoveryservicesvaultcontext)) so you see this cmdlet in a few related snippets. We set the context because the policy is part of the vault. You can create multiple retention policies for each vault and then apply the desired policy to specific databases. 
 
 
 ```
@@ -180,7 +175,7 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName $resour
 ```
 
 > [!IMPORTANT]
-> Once configured, backups show up in the vault within next seven days. Do not continue this tutorial until backups show up in the vault.
+> Once configured, backups show up in the vault within next seven days. Continue this tutorial after backups show up in the vault.
 
 ## View backup info, and backups in long-term retention
 
@@ -195,7 +190,7 @@ $databaseNeedingRestore = $databaseName
 
 # Set the vault context to the vault we want to restore from
 #$vault = Get-AzureRmRecoveryServicesVault -ResourceGroupName $resourceGroupName
-Set-AzureRMRecoveryServicesVaultContext -Vault $vault
+Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # the following commands find the container associated with the server 'myserver' under resource group 'myresourcegroup'
 $container = Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName $vault.Name
@@ -225,8 +220,9 @@ $restoredDatabaseName = "{new-database-name}"
 $edition = "Basic"
 $performanceLevel = "Basic"
 
-$restoredDB = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceId $availableBackups[0].Id -ResourceGroupName $resourceGroupName `
+$restoredDb = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceId $availableBackups[0].Id -ResourceGroupName $resourceGroupName `
  -ServerName $serverName -TargetDatabaseName $restoredDatabaseName -Edition $edition -ServiceObjectiveName $performanceLevel
+$restoredDb
 ```
 
 
@@ -239,10 +235,10 @@ $restoredDB = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceI
 # Sign in to Azure and set the subscription to work with
 ########################################################
 
-$SubscriptionId = "{subscription-id}"
+$subscriptionId = "{subscription-id}"
 
 Add-AzureRmAccount
-Set-AzureRmContext -SubscriptionId $SubscriptionId
+Set-AzureRmContext -SubscriptionId $subscriptionId
 
 
 # User variables
