@@ -198,31 +198,51 @@ To manually remove backups from the vault.
 ## Long-Term Retention FAQ:
 
 1. Q: Can I manually delete specific backups in the vault?
-   A: Not at this point in time, the vault automatically cleans up backups when the retention period has expired.
+
+    A: Not at this point in time, the vault automatically cleans up backups when the retention period has expired.
 2. Q: Can I register my server to store Backups to more than one vault?
-   A: No, today you can only store backups to one vault at a time.
+
+    A: No, today you can only store backups to one vault at a time.
 3. Q: Can I have a vault and server in different subscriptions?
-   A: No, currently the vault and server must be in both the same subscription and resource group.
+
+    A: No, currently the vault and server must be in both the same subscription and resource group.
 4. Q: Can I use a vault I created in a different region than my server’s region?
-   A: No, the vault and server must be in the same region to minimize the copy time and avoid the traffic charges.
+
+    A: No, the vault and server must be in the same region to minimize the copy time and avoid the traffic charges.
 5. Q: How many databases can I store in one vault?
-   A: Currently we only support up to 1000 databases per vault. 
+
+    A: Currently we only support up to 1000 databases per vault. 
 6. Q. How many vaults can I create per subscription?
-   A. You can create up to 25 vaults per subscription.
+
+    A. You can create up to 25 vaults per subscription.
 7. Q. How many databases can I configure per day per vault?
-   A. You can only set up 200 databases per day per vault.
+
+    A. You can only set up 200 databases per day per vault.
 8. Q: Does long-term retention work with elastic pools?
-   A: Yes. Any database in the pool can be configured with the retention policy.
+
+    A: Yes. Any database in the pool can be configured with the retention policy.
 9. Q: Can I choose the time at which the backup is created?
-   A: No, SQL Database controls the backups schedule to minimize the performance impact on your databases.
+
+    A: No, SQL Database controls the backups schedule to minimize the performance impact on your databases.
 10. Q: I have TDE enabled for my database. Can I use TDE with the vault? 
-   A. Yes, TDE is supported. You can restore the database from the vault even if the original database no longer exists.
+
+    A. Yes, TDE is supported. You can restore the database from the vault even if the original database no longer exists.
 11. Q. What happens with the backups in the vault if my subscription is suspended? 
-   A. If your subscription is suspended, we retain the existing databases and backups but the new backups are not be copied to the vault. After you reactivate the subscription, the service resumes copying backups to the vault. Your vault become accessibles to the restore operations using the backups that had been copied there before the subscription was suspended. 
+
+    A. If your subscription is suspended, we retain the existing databases and backups but the new backups are not be copied to the vault. After you reactivate the subscription, the service resumes copying backups to the vault. Your vault become accessibles to the restore operations using the backups that had been copied there before the subscription was suspended. 
 12. Q: Can I get access to the SQL Database backup files so I can download / restore to SQL Server?
-   A: No, not currently.
+
+    A: No, not currently.
 13. Q: Is it possible to have multiple Schedules (Daily, Weekly, Monthly, Yearly) within a SQL Retention Policy.
-   A: No, this is only available for Virtal Machine backups at this time.
+
+    A: No, this is only available for Virtal Machine backups at this time.
+14. Q. What if we set up long-term backup retention on a database that is an active geo-replication secondary?
+
+    A: Currently we don't take backups on replicas, and therefore, there is no option for long-term backup retention on secondaries. However, it is important for a customer to set up long-term backup retention on an active geo-replication secondary for these reasons:
+    - When a failover happens and the database becomes a primary, we will take a full backup and this full backup will be uploaded to vault.
+    - There is no extra cost to the customer for setting up long-term backup retention on a secondary.
+
+
 
 ## Next steps
 Database backups are an essential part of any business continuity and disaster recovery strategy because they protect your data from accidental corruption or deletion. To learn about the other Azure SQL Database business continuity solutions, see [Business continuity overview](sql-database-business-continuity.md).

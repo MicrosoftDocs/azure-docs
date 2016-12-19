@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Automation to automate processes and configuration management in order to save time and increase reliability of regular administrative tasks.
 ---
 # Automation Documentation
 
-Azure Automation provides a way for users to automate the manual, long-running, error-prone, and frequently repeated tasks that are commonly performed in a cloud environment. It saves time and increases the reliability of regular administrative tasks and even schedules them to be automatically performed at regular intervals.
+Learn how to use Automation to save time and increase the reliability of regular administrative tasks performed in a cloud environment. Tutorials, API references, and other documentation show you how to automate processes using runbooks or automate configuration management using Desired State Configuration.
 
 <ul class="panelContent cardsFTitle">
     <li>

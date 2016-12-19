@@ -18,7 +18,7 @@ ms.date: 12/07/2016
 ms.author: jodebrui
 ---
 
-# Optimize Performance using In-Memory Technologies in SQL Database
+# Optimize performance using In-Memory technologies in SQL Database
 
 In-Memory technologies in Azure SQL Database can help you achieve performance improvements with transactional (OLTP), analytics (OLAP), as well as mixed workloads (HTAP). Because of the more efficient query and transaction processing, In-Memory technologies can also reduce cost: you typically do not need to upgrade the pricing tier of the database to achieve performance gains, and in some cases you could even reduce the pricing tier while still seeing performance improvements with In-Memory technologies. 
 
@@ -220,7 +220,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 &nbsp;
 
-## Run the sample OLTP workload
+### Run the sample OLTP workload
 
 The only difference between the following two *stored procedures* is that the first procedure uses memory-optimized versions of the tables, while the second procedure uses the regular on-disk tables:
 
