@@ -13,9 +13,9 @@ ms.service: sql-database
 ms.custom: tutorial
 ms.workload: data-management
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: PowerShell
 ms.topic: hero-article
-ms.date: 12/15/2016
+ms.date: 12/19/2016
 ms.author: sstein
 
 ---
@@ -37,19 +37,16 @@ In this getting-started tutorial, you learn how to use Azure PowerShell to:
 
 * You need an Azure account. You can [open a free Azure account](/pricing/free-trial/?WT.mc_id=A261C142F) or [Activate Visual Studio subscriber benefits](/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F). 
 
-* You must be able to connect to Azure using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
+* You need to connect to Azure using an account that is a member of either the subscription owner or contributor role. For more information on role-based access control (RBAC), see [Getting started with access management in the Azure portal](../active-directory/role-based-access-control-what-is.md).
+
+* You need the latest Azure PowerShell installed and running. For detailed information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 * You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) or the equivalent [PowerShell version](sql-database-get-started-powershell.md). If you have not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](sql-database-get-started-powershell.md) before continuing.
 
-
 > [!TIP]
 > You can perform these same tasks in a getting started tutorial by using [Azure portal](sql-database-get-started-backup-recovery.md).
->
-
-
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
-
 
 ## View the oldest restore point from the service-generated backups of a database
 
@@ -82,12 +79,10 @@ In this section of the tutorial, you restore the database to a new database as o
 
 >[!NOTE]
 >You cannot change the server to which you are restoring to a specific point in time. To restore to a different server, use [Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Also, note that you can restore into an [elastic database pool](sql-database-elastic-jobs-overview.md) or to a different pricing tier. 
->
 
 The following snippet uses the [Restore-AzureRmSqlDatabase](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/restore-azurermsqldatabase) cmdlet to restore the $databaseToRestore that we set in the previous snippet.
 
 The **-PointInTime** parameter requires a UTC formatted time value similar to: *12/09/2016 20:00:00*. The snippet converts the local time for you.
-
 
 ```
 # Restore a database to a previous point in time
@@ -174,7 +169,6 @@ $policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name $retentionPoli
 $policy
 ```
 
-
 ### Configure a database to use the previously defined retention policy
 
 The following snippet uses the [Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqldatabasebackuplongtermretentionpolicy) cmdlet to apply our new policy to a specific database.
@@ -185,16 +179,14 @@ $policyState = "enabled"
 Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName $resourceGroupName –ServerName $serverName -DatabaseName $databaseName -State $policyState -ResourceId $policy.Id
 ```
 
-
 > [!IMPORTANT]
 > Once configured, backups show up in the vault within next seven days. Do not continue this tutorial until backups show up in the vault.
->
 
 ## View backup info, and backups in long-term retention
 
 In this section of the tutorial, you view information about your database backups in [long-term backup retention](sql-database-long-term-retention.md). 
 
-THe following snippets query info from the vault using the [Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupcontainer), [Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupitem), and [Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackuprecoverypoint) cmdlets.
+The following snippets query info from the vault using the [Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupcontainer), [Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupitem), and [Get-AzureRmRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/en-us/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackuprecoverypoint) cmdlets.
 
 ```
 #$resourceGroupName = "{resource-group-name}"
@@ -240,7 +232,6 @@ $restoredDB = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceI
 
 > [!NOTE]
 > From here, you can connect to the restored database using SQL Server Management Studio to perform needed tasks, such as to [extract a bit of data from the restored database to copy into the existing database or to delete the existing database and rename the restored database to the existing database name](sql-database-recovery-using-backups.md#point-in-time-restore).
->
 
 ## Complete Azure PowerShell script to restore from a previous point in time, and to configure and restore from long-term backup retention using PowerShell
 
@@ -250,8 +241,8 @@ $restoredDB = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceI
 
 $SubscriptionId = "{subscription-id}"
 
-#Add-AzureRmAccount
-#Set-AzureRmContext -SubscriptionId $SubscriptionId
+Add-AzureRmAccount
+Set-AzureRmContext -SubscriptionId $SubscriptionId
 
 
 # User variables
@@ -264,7 +255,7 @@ $myNewDatabaseRestoredFromPointInTime = "{new-database-name}"
 
 $myRecoveryServiceVaultName = "{vault-name}"
 $myRetentionPolicyDurationType = "{duration-period}" # set to Years, Months, or Weeks
-$myRetentionPolicyDuration = 2
+$myRetentionPolicyDuration = {2}
 $myRetentionPolicyName = "{retention-policy-name}"
 $myDatabaseToRestoreFromLTR = "{database-name}"
 $myNewDatabaseRestoredFromLTR = "{new-database-name}"
@@ -290,7 +281,7 @@ Write-Host "'$databaseName' on '$serverName' can be restored to any point-in-tim
 ################################################
 
 $newRestoredDatabaseName = $myDatabaseRestoredFromPointInTime
-$localTimeToRestoreTo = "12/08/2016 16:00:00" # change to a valid restore point for your database
+$localTimeToRestoreTo = "{12/08/2016 16:00:00}" # change to a valid restore point for your database
 $restorePointInTime = (Get-Date $localTimeToRestoreTo).ToUniversalTime()
 $newDatabaseEdition = "Basic"
 $newDatabaseServiceLevel = "Basic"
