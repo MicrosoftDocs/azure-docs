@@ -29,30 +29,35 @@ resources such as
 [user-defined routes](../virtual-network/virtual-networks-udr-overview.md)
 and the Layer 4 [Azure Load Balancer](../load-balancer/load-balancer-overview.md).
 
-If you don't have a service principal set up to create a Kubernetes cluster, you can follow the instructions in this article to create one.
+This article gives you more information about the service principal for a Kubernetes cluster, and the different options to create one if you haven't already done so. For example, if you installed and set up the [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2), you can run the [`az acs create`](https://docs.microsoft.com/en-us/cli/azure/acs#create) command to create the Kubernetes cluster and the service principal at the same time.
+
+
+## Requirements for the service principal
+
+Following are requirements for the Azure Active Directory service principal in a Kubernetes cluster in Azure Container Service. 
+
+* Scope: the Azure subscription in which the cluster is deployed
+
+* Role: **Contributor**
+
+* Client secret: must be a password. At this time, you can't use a service principal set up for certificate authentication.
+
+> [!NOTE] When you create a service principal, you associate it with an Azure Active Directory application. The service principal for a Kubernetes cluster can be associated with any valid Azure Active Directory application name.
+> 
+>
 
 ## Service principal options for a Kubernetes cluster
 
-When creating a Kubernetes cluster in Azure Container Service, you have these options to specify an Azure Active Directory service principal:
-
 ### Option 1: Pass the service principal client ID and client secret
 
-Provide the **client ID** and **client secret** (password) of an existing service principal as parameters when you use the [Kubernetes quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-kubernetes) to create the Kubernetes cluster. 
+Provide the **client ID** and **client secret** (password) of an existing service principal as parameters when you create the Kubernetes cluster. If you need to create a service principal in Azure Active Directory, see [Create a service principal](#create-a-service-principal-in-azure-active-directory) later in this article.
 
 You can specify these parameters when [deploying the Kubernetes cluster](./container-service-deployment.md) using the portal, the Azure Command-Line Interface (CLI), or Azure PowerShell.
 
-For example, the following example shows how to pass the parameters explicitly with Azure PowerShell:
+For example, the following example shows how to pass the parameters explicitly with the [Azure CLI](../xplat-cli-install.md) in [Resource Manager mode](../xplat-cli-connect.md):
 
-```PowerShell
-$PlainClientID="myClientID"
-
-$SecureClientID = $PlainClientID | ConvertTo-SecureString -AsPlainText -Force
-
-$PlainClientSecret ="myClientSecret"
-
-$SecureClientSecret = $PlainClientSecret | ConvertTo-SecureString -AsPlainText -Force
-
-New-AzureRmResourceGroupDeployment -Name myClusterName -ResourceGroupName myResourceGroup -TemplateUri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -servicePrincipalClientID $SecureClientID -servicePrincipalClientSecret $SecureClientSecret
+```Azure CLI
+azure group deployment create -n myClusterName -g myResourceGroup --templateuri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" {"servicePrincipalClientID":"myClientID", "servicePrincipalClientSecret":"myClientSecret"}
 ```
 
 ### Option 2: Generate the service principal when creating the cluster with the Azure CLI 2.0 Preview
@@ -74,7 +79,7 @@ If you want to create a service principal in Azure Active Directory for use in y
 The following example commands show you how to do this with the [Azure CLI 2.0 (Preview)](https://docs.microsoft.com/cli/azure/install-az-cli2). You can alternatively create a service principal using the [Azure Command-Line Interface](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md), [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md), or the [classic portal](../azure-resource-manager/resource-group-create-service-principal-portal.md).
 
 > [!IMPORTANT]
-> For your Kubernetes cluster, make sure to create a service principal with role as **Contributor**.
+> Make sure you review the requirements for the service principal earlier in this article.
 >
 
 ```console
@@ -102,7 +107,6 @@ az vm list-sizes --location westus
 
 ## Additional considerations
 
-* In a container service Kubernetes cluster, the client secret for a service principal currently must be a password. You can't use a certificate.
 
 * When specifying the service principal **Client ID**, you can use the value of the `appId` (as shown in this article) or the service principal `name`.
 
