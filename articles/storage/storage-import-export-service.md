@@ -56,7 +56,7 @@ When you create a job, you notify the Import/Export service that you will be shi
 * For an export job, you will be shipping empty hard drives.
 * You can ship up to 10 hard disk drives per job.
 
-You can create an import or export job using the Azure Portal or the [Azure Storage Import/Export REST API](http://go.microsoft.com/fwlink/?LinkID=329099).
+You can create an import or export job using the Azure Portal or the [Azure Storage Import/Export REST API](/rest/api/storageimportexport).
 
 ### WAImportExport tool
 The first step in creating an **import** job is to prepare your drives that will be shipped for import. To prepare your drives, you must connect it to a local server and run the WAImportExport Tool on the local server. This WAImportExport tool facilitates copying your data to the drive, encrypting the data on the drive with BitLocker, and generating the drive journal files.
