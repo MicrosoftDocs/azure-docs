@@ -21,7 +21,7 @@ ms.author: gwallace
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 > * [PowerShell](dns-operations-dnszones.md)
 
-This article  shows you how to manage your DNS zone by using PowerShell. To use these steps, you need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+This article  shows you how to manage your DNS zone by using PowerShell. To use these steps, you need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information about installing the PowerShell cmdlets.
 
 ## Create a DNS zone
 
@@ -33,7 +33,7 @@ The example below creates a DNS zone called *contoso.com* in the resource group 
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 ```
 
-The following example shows how to create a DNS zone with two [Azure Resource Manager tags](dns-zones-records.md#tags), *project = demo* and *env = test*. 
+The following example shows how to create a DNS zone with two [Azure Resource Manager tags](dns-zones-records.md#tags), *project = demo* and *env = test*.
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup -Tag @{ project="demo"; env="test" }
@@ -50,7 +50,7 @@ Name                  : contoso.com
 ResourceGroupName     : myresourcegroup
 Etag                  : 00000003-0000-0000-8ec2-f4879750d201
 Tags                  : {project, env}
-NameServers           : {ns1-01.azure-dns.com., ns2-01.azure-dns.net., ns3-01.azure-dns.org., 
+NameServers           : {ns1-01.azure-dns.com., ns2-01.azure-dns.net., ns3-01.azure-dns.org.,
                         ns4-01.azure-dns.info.}
 NumberOfRecordSets    : 2
 MaxNumberOfRecordSets : 5000
@@ -96,7 +96,7 @@ $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceG
 $zone.Tags.Remove("project")
 
 # Add a new tag
-$zone.Tags.Add("status","approved") 
+$zone.Tags.Add("status","approved")
 
 # Commit changes
 Set-AzureRmDnsZone -Zone $zone
@@ -148,7 +148,7 @@ Both `New-AzureRmDnsZone` and `Set-AzureRmDnsZone` will prompt for confirmation 
 
 Since the default value for `$ConfirmPreference` is `High`, only `Remove-AzureRmDnsZone` prompts for confirmation by default.
 
-You can override the current `$ConfirmPreference` setting using the `-Confirm` parameter. If you specify `-Confirm` or `-Confirm:$True` , the cmdlet prompts you for confirmation before it runs. If you specify `-Confirm:$False` , the cmdlet does not prompt you for confirmation. 
+You can override the current `$ConfirmPreference` setting using the `-Confirm` parameter. If you specify `-Confirm` or `-Confirm:$True` , the cmdlet prompts you for confirmation before it runs. If you specify `-Confirm:$False` , the cmdlet does not prompt you for confirmation.
 
 For more information about `-Confirm` and `$ConfirmPreference`, see [About Preference Variables](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
 

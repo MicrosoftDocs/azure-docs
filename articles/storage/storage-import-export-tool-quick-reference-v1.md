@@ -1,28 +1,21 @@
 ---
-title: "Quick Reference for Frequently Used Commands for Import Jobs"
-ms.custom: na
-ms.date: 05/25/2015
-ms.prod: azure
-ms.reviewer: na
+title: Quick reference for Azure Import/Export tool import job commands | Microsoft Docs
+description: Command reference for Azure Import/Export tool commands frequently used for import jobs. This refers to v1 of the Import/Export tool.
+author: renashahmsft
+manager: aungoo
+editor: tysonn
+services: storage
+documentationcenter: ''
+
+ms.assetid:
 ms.service: storage
-ms.suite: na
+ms.workload: storage
 ms.tgt_pltfrm: na
-ms.topic: reference
-ms.assetid: 1e6fe66a-083d-429f-a79f-c4cdca75877d
-caps.latest.revision: 8
-author: tamram
-manager: adinah
-translation.priority.mt: 
-  - de-de
-  - es-es
-  - fr-fr
-  - it-it
-  - ja-jp
-  - ko-kr
-  - pt-br
-  - ru-ru
-  - zh-cn
-  - zh-tw
+ms.devlang: na
+ms.topic: article
+ms.date: 12/16/2016
+ms.author: renash
+
 ---
 # Quick Reference for Frequently Used Commands for Import Jobs
 This section provides a quick references for some frequently used commands. For detailed usage, see [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md).  

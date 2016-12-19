@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 10/10/2016
+ms.date: 12/13/2016
 ms.author: raynew
 
 ---
@@ -83,6 +83,13 @@ Yes. When you create a Site Recovery vault in a region, we ensure that all metad
 For virtual machines and physical servers, replicating between on-premises sites encryption-in-transit is supported. For virtual machines and physical servers replicating to Azure, both encryption-in-transit and encryption-at-rest (in Azure) are supported.
 
 ## Replication
+
+### Can I replicate over a site-to-site VPN to Azure?
+Azure Site Recovery replicates data to an Azure storage account over a public endpoint. Therefore, replication will not go over a site-to-site VPN. You can create a site-to-site VPN with an Azure virtual network and that won't interfere with ASR replication. 
+
+### Can I use ExpressRoute to replicate virtual machines to Azure?
+Yes, ExpressRoute can be used to replicate virtual machines to Azure. Azure Site Recovery replicates data to an Azure Storage Account over a public endpoint. You would need setup [public peering](../expressroute/expressroute-circuit-peerings.md#public-peering) to use ExpressRoute for ASR replication. After the virtual machines have been failed over to an Azure virtual network you can access them using the [private peering](../expressroute/expressroute-circuit-peerings.md#private-peering) setup with the Azure virtual network. 
+
 ### Are there any prerequisites for replicating virtual machines to Azure?
 Virtual machines you want to replicate to Azure should comply with [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
 
