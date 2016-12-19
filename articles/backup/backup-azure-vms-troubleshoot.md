@@ -30,7 +30,7 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup operation | Error details | Workaround |
 | --- | --- | --- |
 | Backup |Could not perform the operation as VM no longer exists. - Stop protecting virtual machine without deleting backup data. More details at http://go.microsoft.com/fwlink/?LinkId=808124 |This happens when the primary VM is deleted, but the backup policy continues looking for a VM to back up. To fix this error: <ol><li> Recreate the virtual machine with the same name and same resource group name [cloud service name],<br>(OR)</li><li> Stop protecting virtual machine with or without deleting the backup data. [More details](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
-| Backup |Could not communicate with the VM agent for snapshot status. - Ensure that VM has internet access. Also, update the VM agent as mentioned in the troubleshooting guide at http://go.microsoft.com/fwlink/?LinkId=800034 |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. Learn more about debugging up VM snapshot issues.<br> If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues and restarting the VM resets this "bad state" |
+| Backup |Could not communicate with the VM agent for snapshot status. - Ensure that VM has internet access. Also, update the VM agent as mentioned in the troubleshooting guide at http://go.microsoft.com/fwlink/?LinkId=800034 |This error is thrown if there is a problem with the VM Agent or network access to the Azure infrastructure is blocked in some way. Learn more about debugging up VM snapshot issues.<br> If the VM agent is not causing any issues, then restart the VM. At times an incorrect VM state can cause issues, and restarting the VM resets this "bad state" |
 | Backup |Recovery services extension operation failed. - Please make sure that latest virtual machine agent is present on the virtual machine and agent service is running. Please retry backup operation and if it fails, contact Microsoft support. |This error is thrown when VM agent is out of date. Refer “Updating the VM Agent” section below to update the VM agent. |
 | Backup |Virtual machine doesn't exist. - Please make sure that virtual machine exists or select a different virtual machine. |This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform backup. To fix this error: <ol><li> Recreate the virtual machine with the same name and same resource group name [cloud service name],<br>(OR)<br></li><li>Stop protecting the virtual machine without deleting the backup data. [More details](http://go.microsoft.com/fwlink/?LinkId=808124)</li></ol> |
 | Backup |Command execution failed. - Another operation is currently in progress on this item. Please wait until the previous operation is completed, and then retry |An existing backup or restore job for the VM is running, and a new job cannot be started while the existing job is running. |
@@ -42,14 +42,14 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup |Virtual machines having virtual hard disks stored on Premium storage are not supported for backup |None. |
 | Backup |Azure Virtual Machine Not Found. |This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform back up. To fix this error: <ol><li>Recreate the virtual machine with the same name and same resource group name [cloud service name], <br>(OR) <li> Disable protection for this VM so the backup jobs will not be created. </ol> |
 | Backup |Virtual machine agent is not present on the virtual machine - Please install any prerequisite and the VM agent, and then restart the operation. |[Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
-| Backup |Snapshot operation failed due to VSS Writers in bad state |You need to restart VSS writers which are in bad state. To achieve this, from an elevated command prompt, run _vssadmin list writers_ . Output contains all Vss writers and their state. For every vss writer whose state is not "[1] Stable", restart vss writer by running following commands from an elavetd command prompt<br> _net stop serviceName_ <br> _net start serviceName_|
-| Backup |Snapshot operation failed due to a  parsing failure of the configuration |This happens due to changed permissions on the MachineKeys directory : _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Please run below command and verify that permissions on MachineKeys directory are default-ones:<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> Default permissions are :<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>If you see permissions on MachineKeys directory different than default, please follow below steps to correct permissions, delete the certificate and trigger the backup.<ol><li>Fix permissions on MachineKeys directory.<br>Using Explorer Security Properties and Advanced Security Settings on the directory, reset permissions back to the default values, remove any extra (than default) user object from the directory, and ensure that the ‘Everyone’ permissions had special access for:<br>-	List folder / read data <br>-	Read attributes <br>-	Read extended attributes <br>-	Create files / write data <br>-	Create folders / append data<br>-	Write attributes<br>-	Write extended attributes<br>-	Read permissions<br><br><li>Delete certificate with field ‘Issued To’ = Windows Azure Service Management for Extensions<ul><li>[Open Certificates console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Delete certificate (under Personal -> Certificates) with field ‘Issued To’ = “Windows Azure Service Management for Extensions”</ul><li>Trigger VM backup. </ol>|
+| Backup |Snapshot operation failed due to VSS Writers in bad state |You need to restart VSS(Volume Shadow copy Service) writers that are in bad state. To achieve this, from an elevated command prompt, run _vssadmin list writers_. Output contains all VSS writers and their state. For every VSS writer whose state is not "[1] Stable", restart VSS writer by running following commands from an elevated command prompt<br> _net stop serviceName_ <br> _net start serviceName_|
+| Backup |Snapshot operation failed due to a parsing failure of the configuration |This happens due to changed permissions on the MachineKeys directory: _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Please run below command and verify that permissions on MachineKeys directory are default-ones:<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> Default permissions are:<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>If you see permissions on MachineKeys directory different than default, please follow below steps to correct permissions, delete the certificate and trigger the backup.<ol><li>Fix permissions on MachineKeys directory.<br>Using Explorer Security Properties and Advanced Security Settings on the directory, reset permissions back to the default values, remove any extra (than default) user object from the directory, and ensure that the ‘Everyone’ permissions had special access for:<br>-List folder / read data <br>-Read attributes <br>-Read extended attributes <br>-Create files / write data <br>-Create folders / append data<br>-Write attributes<br>-Write extended attributes<br>-Read permissions<br><br><li>Delete certificate with field ‘Issued To’ = Windows Azure Service Management for Extensions<ul><li>[Open Certificates console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Delete certificate (under Personal -> Certificates) with field ‘Issued To’ = “Windows Azure Service Management for Extensions”</ul><li>Trigger VM backup. </ol>|
 
 ## Jobs
 | Operation | Error details | Workaround |
 | --- | --- | --- |
 | Cancel job |Cancellation is not supported for this job type - Please wait until the job completes. |None |
-| Cancel job |The job is not in a cancelable state - Please wait until the job completes. <br>OR<br> The selected job is not in a cancelable state - Please wait for the job to complete. |In all likelihood the job is almost completed; please wait until the job completes |
+| Cancel job |The job is not in a cancelable state - Please wait until the job completes. <br>OR<br> The selected job is not in a cancelable state - Please wait for the job to complete. |In all likelihood, the job is almost completed. Please wait until the job is completed.|
 | Cancel job |Cannot cancel the job because it is not in progress - Cancellation is only supported for jobs which are in progress. Please attempt cancel on an in progress job. |This happens due to a transitory state. Wait for a minute and retry the cancel operation |
 | Cancel job |Failed to cancel the Job - Please wait till job finishes. |None |
 
@@ -57,9 +57,9 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Operation | Error details | Workaround |
 | --- | --- | --- |
 | Restore |Restore failed with Cloud Internal error |<ol><li>Cloud service to which you are trying to restore is configured with DNS settings. You can check <br>$deployment = Get-AzureDeployment -ServiceName "ServiceName" -Slot "Production"     Get-AzureDns -DnsSettings $deployment.DnsSettings<br>If there is Address configured, this means that DNS settings are configured.<br> <li>Cloud service to which to you are trying to restore is configured with ReservedIP and existing VMs in cloud service are in stopped state.<br>You can check a cloud service has reserved IP by using following powershell cmdlets:<br>$deployment = Get-AzureDeployment -ServiceName "servicename" -Slot "Production" $dep.ReservedIPName <br><li>You are trying to restore a virtual machine with following special network configurations in to same cloud service. <br>- Virtual machines under load balancer configuration (Internal and external)<br>- Virtual machines with multiple Reserved IPs<br>- Virtual machines with multiple NICs<br>Please select a new cloud service in the UI or please refer to [restore considerations](backup-azure-arm-restore-vms.md#restoring-vms-with-special-network-configurations) for VMs with special network configurations</ol> |
-| Restore |The selected DNS name is already taken - Please specify a different DNS name and try again. |The DNS name here refers to the cloud service name (usually ending with .cloudapp.net). This needs to be unique. If you encounter this error, you need to choose a different VM name during restore. <br><br> Note that this error is shown only to users of the Azure portal. The restore operation through PowerShell will succeed because it only restores the disks and doesn't create the VM. The error will be faced when the VM is explicitly created by you after the disk restore operation. |
+| Restore |The selected DNS name is already taken - Please specify a different DNS name and try again. |The DNS name here refers to the cloud service name (usually ending with .cloudapp.net). This needs to be unique. If you encounter this error, you need to choose a different VM name during restore. <br><br> This error is shown only to users of the Azure portal. The restore operation through PowerShell will succeed because it only restores the disks and doesn't create the VM. The error will be faced when the VM is explicitly created by you after the disk restore operation. |
 | Restore |The specified virtual network configuration is not correct - Please specify a different virtual network configuration and try again. |None |
-| Restore |The specified cloud service is using a reserved IP, which doesn't match with the configuration of the virtual machine being restored - Please specify a different cloud service which is not using reserved IP, or choose another recovery point to restore from. |None |
+| Restore |The specified cloud service is using a reserved IP, which doesn't match with the configuration of the virtual machine being restored - Please specify a different cloud service, which is not using reserved IP, or choose another recovery point to restore from. |None |
 | Restore |Cloud service has reached limit on number of input end points - Retry the operation by specifying a different cloud service or by using an existing endpoint. |None |
 | Restore |Backup vault and target storage account are in two different regions - Ensure that the storage account specified in restore operation is in the same Azure region as the backup vault. |None |
 | Restore |Storage Account specified for the restore operation is not supported - Only Basic/Standard storage accounts with locally redundant or geo redundant replication settings are supported. Please select a supported storage account |None |
@@ -78,7 +78,7 @@ Typically, the VM Agent is already present in VMs that are created from the Azur
 
 For Windows VMs:
 
-* Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You will need Administrator privileges to complete the installation.
+* Download and install the [agent MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). You need Administrator privileges to complete the installation.
 * [Update the VM property](http://blogs.msdn.com/b/mast/archive/2014/04/08/install-the-vm-agent-on-an-existing-azure-vm.aspx) to indicate that the agent is installed.
 
 For Linux VMs:
@@ -94,6 +94,7 @@ For Windows VMs:
 For Linux VMs:
 
 * Follow the instructions on [Updating Linux VM Agent](../virtual-machines/virtual-machines-linux-update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+We **strongly recommend** updating agent only through distribution repository. We do not recommend downloading the agent code from directly github and updating it. If latest agent is not available for your distribution, please reach out to distribution support for instructions on how to install latest agent. You can check latest [Windows Azure Linux agent](https://github.com/Azure/WALinuxAgent/releases) information in github repository. 
 
 ### Validating VM Agent installation
 How to check for the VM Agent version on Windows VMs:
@@ -107,28 +108,28 @@ VM backup relies on issuing snapshot commands to underlying storage. Not having 
 1. Network access to Storage is blocked using NSG<br>
     Learn more on how to [enable network access](backup-azure-vms-prepare.md#network-connectivity) to Storage using either WhiteListing of IPs or through proxy server.
 2. VMs with Sql Server backup configured can cause snapshot task delay <br>
-   By default VM backup issues VSS Full backup on Windows VMs. On VMs which are running Sql Servers and Sql Server backup is configured, this might cause delay in snapshot execution. Please set following registry key if you are experiencing backup failures because of snapshot issues.
+   By default VM backup issues VSS Full backup on Windows VMs. On VMs that are running Sql Servers and if Sql Server backup is configured, this might cause delay in snapshot execution. Please set following registry key if you are experiencing backup failures because of snapshot issues.
 
    ```
    [HKEY_LOCAL_MACHINE\SOFTWARE\MICROSOFT\BCDRAGENT]
    "USEVSSCOPYBACKUP"="TRUE"
    ```
-3. VM status reported incorrectly because VM is shutdown in RDP.  <br>
-   If you have Shut down the virtual machine in RDP, please check back in the portal that VM status is reflected correctly. If not, please shutdown the VM in portal using 'Shutdown' option in VM dashboard.
-4. If more than four VM’s share the same cloud service, configure multiple backup policies to stage the backup times so no more than four VM backups are started at the same time. Try to spread the backup start times an hour apart between policies.
+3. VM status reported incorrectly because VM is shut down in RDP.  <br>
+   If you have Shut down the virtual machine in RDP, please check back in the portal that VM status is reflected correctly. If not, please shut down the VM in portal using 'Shutdown' option in VM dashboard.
+4. If more than four VMs share the same cloud service, configure multiple backup policies to stage the backup times so no more than four VM backups are started at the same time. Try to spread the backup start times an hour apart between policies.
 5. VM is running at High CPU/Memory.<br>
    If the virtual machine is running at High CPU usage(>90%) or memory, snapshot task is queued, delayed and will eventually gets timed-out. Try on-demand backup in such situations.
 
 <br>
 
 ## Networking
-Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in a variety of ways:
+Like all extensions, Backup extension need access to the public internet to work. Not having access to the public internet can manifest itself in various ways:
 
 * The extension installation can fail
 * The backup operations (like disk snapshot) can fail
 * Displaying the status of the backup operation can fail
 
-The need for resolving public internet addresses has been articulated [here](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). You will need to check the DNS configurations for the VNET and ensure that the Azure URIs can be resolved.
+The need for resolving public internet addresses has been articulated [here](http://blogs.msdn.com/b/mast/archive/2014/06/18/azure-vm-provisioning-stuck-on-quot-installing-extensions-on-virtual-machine-quot.aspx). You need to check the DNS configurations for the VNET and ensure that the Azure URIs can be resolved.
 
 Once the name resolution is done correctly, access to the Azure IPs also needs to be provided. To unblock access to the Azure infrastructure, follow one of these steps:
 
@@ -137,7 +138,7 @@ Once the name resolution is done correctly, access to the Azure IPs also needs t
    * Unblock the IPs using the [New-NetRoute](https://technet.microsoft.com/library/hh826148.aspx) cmdlet. Run this cmdlet within the Azure VM, in an elevated PowerShell window (run as Administrator).
    * Add rules to the NSG (if you have one in place) to allow access to the IPs.
 2. Create a path for HTTP traffic to flow
-   * If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy a HTTP Proxy server can found [here](backup-azure-vms-prepare.md#network-connectivity).
+   * If you have some network restriction in place (a Network Security Group, for example) deploy an HTTP proxy server to route the traffic. Steps to deploy an HTTP Proxy server can found [here](backup-azure-vms-prepare.md#network-connectivity).
    * Add rules to the NSG (if you have one in place) to allow access to the INTERNET from the HTTP Proxy.
 
 > [!NOTE]
