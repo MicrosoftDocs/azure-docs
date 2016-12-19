@@ -19,7 +19,7 @@ ms.author: anoopkv
 # Automate Mobility Service installation using Software deployment tools
 
 This article provides you an example of how you can use System Center Configuration Manager (SCCM) to deploy the Azure Site Recovery Mobility Service in your datacenter. Using a software deployment tool like SCCM gives you the following advantages
-* Scheduling deployment during your planned maintainance window for software updates.
+* Scheduling deployment -fresh installs and upgrades, during your planned maintenance window for software updates.
 * Deploy at scale to hundreds of servers simultaneously
 
 
@@ -102,7 +102,7 @@ This article provides you an example of how you can use System Center Configurat
 8. Specify a schedule in the **Specify the schedule for this deployment**. Read more about [scheduling packages](https://technet.microsoft.com/library/gg682178.aspx)
 
 > [!TIP]
-> To avoid unnecessary reboots, schedule the package installation during your monthly maintainance window or Software Updates window.
+> To avoid unnecessary reboots, schedule the package installation during your monthly maintenance window or Software Updates window.
 
 9. Configure the properties on the **Distribution Points** page as per the needs of your Datacenter and complete the wizard.
 
