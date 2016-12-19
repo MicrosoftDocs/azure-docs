@@ -1,4 +1,4 @@
-﻿---
+---
 title: Fix SQL Server database compatibility issues before migration to SQL Database | Microsoft Docs
 description: Microsoft Azure SQL Database, database migration, compatibility, SQL Azure Migration Wizard, SSDT
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 7ff52877-5b63-4adc-aa1a-689669a1146e
 ms.service: sql-database
+ms.custom: migrate and move
 ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA

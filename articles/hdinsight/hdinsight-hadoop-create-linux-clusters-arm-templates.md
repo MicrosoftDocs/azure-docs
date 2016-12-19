@@ -116,7 +116,7 @@ The following procedure creates Linux-based HDInsight cluster.
 
     The PowerShell script only configures the cluster name. The storage account name is hardcoded in the template. You will be prompted to enter the cluster user password (the default username is *admin*); and the SSH user password (the default SSH username is *sshuser*).  
 
-For more information, see  [Deploy with PowerShell](../resource-group-template-deploy.md#deploy-with-powershell).
+For more information, see  [Deploy with PowerShell](../azure-resource-manager/resource-group-template-deploy.md#deploy).
 
 ## Deploy with Azure CLI
 The following sample creates a cluster and its dependent storage account and container by calling a Resource Manager template:

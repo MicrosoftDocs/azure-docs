@@ -1,4 +1,4 @@
-﻿---
+---
 title: How to use batching to improve Azure SQL Database application performance
 description: The topic provides evidence that batching database operations greatly imroves the speed and scalability of your Azure SQL Database applications. Although these batching techniques work for any SQL Server database, the focus of the article is on Azure.
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: 563862ca-c65a-46f6-975d-10df7ff6aa9c
 ms.service: sql-database
+ms.custom: monitor and tune
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
@@ -618,5 +619,5 @@ The following list provides a summary of the batching recommendations discussed 
 * Consider buffering on size and time as a way of implementing batching for more scenarios.
 
 ## Next steps
-This article focused on how database design and coding techniques related to batching can improve your application performance and scalability. But this is just one factor in your overall strategy. For more ways to improve performance and scalability, see [Azure SQL Database performance guidance for single databases](sql-database-performance-guidance.md) and [Price and performance considerations for an elastic database pool](sql-database-elastic-pool-guidance.md).
+This article focused on how database design and coding techniques related to batching can improve your application performance and scalability. But this is just one factor in your overall strategy. For more ways to improve performance and scalability, see [Azure SQL Database performance guidance for standalone databases](sql-database-performance-guidance.md) and [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
 

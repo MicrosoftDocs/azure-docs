@@ -1,4 +1,4 @@
-﻿---
+---
 title: 'Azure AD Connect sync: Understanding Users and Contacts | Microsoft Docs'
 description: Explains users and contacts in Azure AD Connect sync.
 services: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: markusvi;andkjell
+ms.author: markvi;andkjell
 
 ---
 # Azure AD Connect sync: Understanding Users and Contacts

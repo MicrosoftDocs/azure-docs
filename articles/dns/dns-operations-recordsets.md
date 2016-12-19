@@ -1,4 +1,4 @@
-﻿---
+---
 title: Manage DNS record sets and records by using the Azure portal| Microsoft Docs
 description: Managing DNS record sets and records on Azure DNS when hosting your domain on Azure DNS. All PowerShell commands for operations on record sets and records.
 services: dns
@@ -27,7 +27,7 @@ This article shows you how to manage record sets and records for your DNS zone b
 
 It's important to understand the difference between DNS record sets and individual DNS records. A record set is the collection of records in a zone that have the same name and are the same type. For more information, see [Create DNS record sets and records by using the Azure portal](dns-getstarted-create-recordset-portal.md).
 
-To manage your record sets and records, you need the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md). For more information about working with PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
+To manage your record sets and records, you need the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs). For more information about working with PowerShell, see [Using Azure PowerShell with Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 ## Create a new record set and a record
 
@@ -125,7 +125,7 @@ $rs.Records[0].Ipv4Address = "134.170.185.46"
 Set-AzureRmDnsRecordSet -RecordSet $rs
 ```
 
-The `Set-AzureRmDnsRecordSet` cmdlet uses etag checks to ensure that concurrent changes are not overwritten. Use the *-Overwrite* flag to suppress these checks. For more information, see [About etags and tags](dns-getstarted-create-dnszone.md#tagetag).
+The `Set-AzureRmDnsRecordSet` cmdlet uses etag checks to ensure that concurrent changes are not overwritten. Use the *-Overwrite* flag to suppress these checks. For more information, see [About etags and tags](dns-zones-records.md#etags).
 
 ### To modify an SOA record
 
@@ -258,7 +258,7 @@ $rs = Get-AzureRmDnsRecordSet -Name "test-a" -RecordType A -ZoneName contoso.com
 Remove-AzureRmDnsRecordSet -RecordSet $rs [-Overwrite] [-Force]
 ```
 
-When you specify the record set by using an object, it enables etag checks to ensure that concurrent changes are not deleted. The optional *-Overwrite* flag suppresses these checks. See [Etags and tags](dns-getstarted-create-dnszone.md#tagetag) for more information.
+When you specify the record set by using an object, it enables etag checks to ensure that concurrent changes are not deleted. The optional *-Overwrite* flag suppresses these checks. See [Etags and tags](dns-zones-records.md#etags) for more information.
 
 The record set object can also be piped instead of being passed as a parameter:
 

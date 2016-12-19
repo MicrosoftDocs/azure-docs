@@ -10,8 +10,9 @@ editor: ''
 
 ms.assetid: 18e5d3f1-bfe5-4089-b6fd-76988ab29822
 ms.service: sql-database
+ms.custom: business continuity
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/13/2016
@@ -71,6 +72,10 @@ Use Active Geo-Replication if your application meets any of these criteria:
 * Downtime will result in financial liability.
 * Has a high rate of data change is high and losing an hour of data is not acceptable.
 * The additional cost of active geo-replication is lower than the potential financial liability and associated loss of business.
+
+>
+> [!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Azure-SQL-Database-protecting-important-DBs-from-regional-disasters-is-easy/player]
+>
 
 ## Recover a database after a user or application error
 *No one is perfect! A user might accidentally delete some data, inadvertently drop an important table, or even drop an entire database. Or, an application might accidentally overwrite good data with bad data due to an application defect. 

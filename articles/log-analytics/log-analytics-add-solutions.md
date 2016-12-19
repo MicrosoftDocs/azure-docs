@@ -1,4 +1,4 @@
-﻿---
+---
 title: Add Log Analytics management solutions | Microsoft Docs
 description: Log Analytics management solutions are a collection of logic, visualization and data acquisition rules that provide metrics pivoted around a particular problem area.
 services: log-analytics
