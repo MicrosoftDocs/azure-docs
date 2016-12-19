@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Scheduler to schedule and invoke jobs such as recurring application actions and routine maintenance. Tutorials, API references, and more.
 ---
 # Scheduler Documentation
 
-Azure Scheduler allows you to declaratively describe actions to run in the cloud.  It then schedules and runs those actions automatically.  Scheduler then maintains a history of job execution results that one can review.
+Learn how to use Scheduler to schedule and automatically invoke recurring jobs in the cloud. Tutorials, API references, and other documentation show you how to schedule and monitor jobs such as recurring application actions and routine maintenance.
 
 <ul class="panelContent cardsFTitle">
     <li>
