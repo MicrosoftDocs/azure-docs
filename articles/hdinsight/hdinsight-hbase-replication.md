@@ -119,7 +119,7 @@ The following steps show how to call the script action script from the Azure por
   - **Head**: Selected. Clear the other node types.
   - **Parameters**: The following sample parameters enable replication for all the existing tables and copy all the data from the source cluster to the destination cluster:
 
-        -m hn1 -s &lt;source cluster DNS name> -d &lt;destination cluster DNS name> -sp &lt;source cluster Ambari password> -dp &lt;destination cluster Ambari password> -copydata
+            -m hn1 -s &lt;source cluster DNS name> -d &lt;destination cluster DNS name> -sp &lt;source cluster Ambari password> -dp &lt;destination cluster Ambari password> -copydata
 
 6. Click **Create**. The script can take some time, especially when the -copydata argument is used.
 
@@ -185,7 +185,7 @@ The print_usage() section of the [script](https://github.com/Azure/hbase-utils/b
 
 ### Scenarios
 
-- **Copy specific tables (test1, test2 and test3) for all rows edited till now (current time stamp)**:
+- **Copy specific tables (test1, test2, and test3) for all rows edited till now (current time stamp)**:
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
   or
