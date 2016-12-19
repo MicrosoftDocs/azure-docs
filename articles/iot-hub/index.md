@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use IoT Hub to connect, monitor, and control billions of Internet of Things assets. Tutorials, API references, videos and other documentation.
 ---
 #IoT Hub Documentation
 
-Azure IoT Hub is a fully managed service that enables reliable and secure bidirectional communications between millions of IoT devices and a solution back end.  It also provides extensive monitoring for device connectivity and includes device libraries for most popular languages and platforms. 
+Learn how to use IoT Hub to connect, monitor, and control billions of Internet of Things assets. Tutorials, API references, videos and other documentation help you deploy reliable and bi-directional communication between IoT devices and a solution back end. 
 
 <ul class="panelContent cardsFTitle">
      <li>
@@ -115,7 +116,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -132,7 +133,7 @@ Azure IoT Hub is a fully managed service that enables reliable and secure bidire
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
