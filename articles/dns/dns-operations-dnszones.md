@@ -161,4 +161,6 @@ For more information about `-Confirm` and `$ConfirmPreference`, see [About Prefe
 Learn how to [manage record sets and records](dns-operations-recordsets.md) in your DNS zone.
 <br>
 Learn how to [delegate your domain to Azure DNS](dns-domain-delegation.md).
+<br>
+Review the [Azure DNS PowerShell reference documentation](/powershell/resourcemanager/azurerm.dns/v2.3.0/azurerm.dns).
 
