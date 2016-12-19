@@ -14,7 +14,7 @@ ms.workload: big-data
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2016
+ms.date: 12/16/2016
 ms.author: jgao
 
 ---
@@ -128,6 +128,10 @@ The HDInsight .NET SDK provides .NET client libraries, which makes it easier to 
         }
     ```
 4. Press **F5** to run the application.
+
+The output of the application shall be simliar to:
+
+![HDInsight Hadoop Hive job output](./media/hdinsight-hadoop-use-hive-dotnet-sdk/hdinsight-hadoop-use-hive-net-sdk-output.png)
 
 ## Next steps
 In this article, you have learned several ways to create an HDInsight cluster. To learn more, see the following articles:
