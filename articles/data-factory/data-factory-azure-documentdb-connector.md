@@ -409,7 +409,8 @@ Therefore, for schema-free data sources, the best practice is to specify the str
 ## Azure DocumentDB Copy Activity type properties
 For a full list of sections & properties available for defining activities please refer to the [Creating Pipelines](data-factory-create-pipelines.md) article. Properties such as name, description, input and output tables, and policy are available for all types of activities.
 
-**Note:** The Copy Activity takes only one input and produces only one output.
+> [!NOTE]
+> The Copy Activity takes only one input and produces only one output.
 
 Properties available in the typeProperties section of the activity on the other hand vary with each activity type and in case of Copy activity they vary depending on the types of sources and sinks.
 

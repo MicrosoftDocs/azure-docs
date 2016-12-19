@@ -139,67 +139,66 @@ In the **Properties** page:
 2. Select **Run once now** option.   
 3. Click **Next**.  
 
-![Copy Wizard - Properties page](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
+	![Copy Wizard - Properties page](media/data-factory-load-sql-data-warehouse/copy-wizard-properties-page.png)
 
 ## Step 2: Configure source
 This section shows you the steps to configure the source: Azure Blob containing the 1 TB TPC-H line item files.
 
-Select the **Azure Blob Storage** as the data store and click **Next**.
+1. Select the **Azure Blob Storage** as the data store and click **Next**.
 
-![Copy Wizard - Select source page](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
+	![Copy Wizard - Select source page](media/data-factory-load-sql-data-warehouse/select-source-connection.png)
 
-Fill in the connection information for the Azure Blob storage account, and click **Next**.
+2. Fill in the connection information for the Azure Blob storage account, and click **Next**.
 
-![Copy Wizard - Source connection information](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
+	![Copy Wizard - Source connection information](media/data-factory-load-sql-data-warehouse/source-connection-info.png)
 
-Choose the **folder** containing the TPC-H line item files and click **Next**.
+3. Choose the **folder** containing the TPC-H line item files and click **Next**.
 
-![Copy Wizard - select input folder](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
+	![Copy Wizard - select input folder](media/data-factory-load-sql-data-warehouse/select-input-folder.png)
 
-Upon clicking **Next**, the file format settings are detected automatically.  Check to make sure that column delimiter is ‘|’ instead of the default comma ‘,’.  Click **Next** after you have previewed the data.
+4. Upon clicking **Next**, the file format settings are detected automatically.  Check to make sure that column delimiter is ‘|’ instead of the default comma ‘,’.  Click **Next** after you have previewed the data.
 
-![Copy Wizard - file format settings](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
+	![Copy Wizard - file format settings](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
 ## Step 3: Configure destination
 This section shows you how to configure the destination: `lineitem` table in the Azure SQL Data Warehouse database.
 
-Choose **Azure SQL Data Warehouse** as the destination store and click **Next**.
+1. Choose **Azure SQL Data Warehouse** as the destination store and click **Next**.
 
-![Copy Wizard - select destination data store](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
+	![Copy Wizard - select destination data store](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-Fill in the connection information for Azure SQL Data Warehouse.  Make sure you specify the user that is a member of the role `xlargerc` (see the **prerequisites** section for detailed instructions), and click **Next**. 
+2. Fill in the connection information for Azure SQL Data Warehouse.  Make sure you specify the user that is a member of the role `xlargerc` (see the **prerequisites** section for detailed instructions), and click **Next**. 
 
-![Copy Wizard - destination connection info](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
+	![Copy Wizard - destination connection info](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
-Choose the destination table and click **Next**.
+3. Choose the destination table and click **Next**.
 
-![Copy Wizard - table mapping page](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
+	![Copy Wizard - table mapping page](media/data-factory-load-sql-data-warehouse/table-mapping-page.png)
 
-Accept the default settings for column mapping and click **Next**.
+4. Accept the default settings for column mapping and click **Next**.
 
-![Copy Wizard - schema mapping page](media/data-factory-load-sql-data-warehouse/schema-mapping.png)
+	![Copy Wizard - schema mapping page](media/data-factory-load-sql-data-warehouse/schema-mapping.png)
 
 ## Step 4: Performance settings
+
 **Allow polybase** is checked by default.  Click **Next**.
 
 ![Copy Wizard - schema mapping page](media/data-factory-load-sql-data-warehouse/performance-settings-page.png)
 
 ## Step 5: Deploy and monitor load results
-Click **Finish** button to deploy. 
+1. Click **Finish** button to deploy. 
 
-![Copy Wizard - summary page](media/data-factory-load-sql-data-warehouse/summary-page.png)
+	![Copy Wizard - summary page](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
-After the deployment is complete, click `Click here to monitor copy pipeline` to monitor the copy run progress.
+2. After the deployment is complete, click `Click here to monitor copy pipeline` to monitor the copy run progress. Select the copy pipeline you created in the **Activity Windows** list.
 
-Select the copy pipeline you created in the **Activity Windows** list.
+	![Copy Wizard - summary page](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
-![Copy Wizard - summary page](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
+	You can view the copy run details in the **Activity Window Explorer** in the right panel, including the data volume read from source and written into destination, duration, and the average throughput for the run.
 
-You can view the copy run details in the **Activity Window Explorer** in the right panel, including the data volume read from source and written into destination, duration, and the average throughput for the run.
+	As you can see from the following screen shot, copying 1 TB from Azure Blob Storage into SQL Data Warehouse took 14 minutes, effectively achieving 1.22 GBps throughput!
 
-As you can see from the following screen shot, copying 1 TB from Azure Blob Storage into SQL Data Warehouse took 14 minutes, effectively achieving 1.22 GBps throughput!
-
-![Copy Wizard - succeeded dialog](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
+	![Copy Wizard - succeeded dialog](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
 ## Best practices
 Here are a few best practices for running your Azure SQL Data Warehouse database:

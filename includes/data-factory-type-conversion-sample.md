@@ -51,7 +51,10 @@ Given the SQL type to .NET type mapping table above you would define the Azure S
 | name |text |
 | lastlogindate |datetime |
 
-Next you will define the Azure SQL dataset as follows. Note: You do not need to specify “structure” section with type information since the type information is already specified in the underlying data store.
+Next you will define the Azure SQL dataset as follows. 
+
+> [!NOTE]
+> You do not need to specify the **structure** section with type information as the type information is already specified in the underlying data store.
 
 ```json
 {
