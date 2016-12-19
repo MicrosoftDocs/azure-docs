@@ -22,7 +22,7 @@ ms.author: anhoh
 To migrate data to an Azure DocumentDB account with protocol support for MongoDB, you must:
 
 * Download either *mongoimport.exe* or *mongorestore.exe* from the [MongoDB Download Center](https://www.mongodb.com/download-center).
-* Get your [MongoDB connection string](documentdb-connect-mongodb-account.md).
+* Get your [DocumentDB support for MongoDB connection string](documentdb-connect-mongodb-account.md).
 
 ## Before you begin
 
@@ -41,7 +41,7 @@ The right pane contains all the information you need to successfully connect to 
 
 ## Import data to DocumentDB with protocol support for MongoDB with mongoimport
 
-To import data to your DocumentDB account, use the following template to fill in *host*, *username*, and *password* with the values that are specific to your account.  
+To import data to your DocumentDB account, use the following template to execute the import. Fill in *host*, *username*, and *password* with the values that are specific to your account.  
 
 Template:
 
@@ -53,7 +53,7 @@ Example:
 
 ## Import data to DocumentDB with protocol support for MongoDB with mongorestore
 
-To restore data to your DocumentDB account, use the following template to fill in *host*, *username*, and *password* with the values specific to your account.
+To restore data to your DocumentDB account, use the following template to execute the import. Fill in *host*, *username*, and *password* with the values specific to your account.
 
 Template:
 
@@ -64,4 +64,4 @@ Example:
     mongorestore.exe --host anhoh-host.documents.azure.com:10250 -u anhoh-host -p tkvaVkp4Nnaoirnouenrgisuner2435qwefBH0z256Na24frio34LNQasfaefarfernoimczciqisAXw== --ssl --sslAllowInvalidCertificates ./dumps/dump-2016-12-07
 
 ## Next steps
-* For more information, explore [DocumentDB protocol support for MongoDB examples](documentdb-mongodb-samples.md).
+* For more information, explore [DocumentDB protocol support for MongoDB samples](documentdb-mongodb-samples.md).
