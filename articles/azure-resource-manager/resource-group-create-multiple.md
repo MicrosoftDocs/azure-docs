@@ -426,7 +426,7 @@ In the resources section, deploy multiple instances of the template that defines
 },
 ```
 
-In the resources section, deploy multiple instances of the virtual machine. For the data disks, reference the nested deployment that contains the correct number or data disks and the correct names for data disks.
+In the resources section, deploy multiple instances of the virtual machine. For the data disks, reference the nested deployment that contains the correct number of data disks and the correct names for data disks.
 
 ```
 {

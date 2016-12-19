@@ -56,7 +56,9 @@ Open the Application Insights window in Visual Studio: Either click the Applicat
 
 ![In Visual Studio, the Application Insights button shows during debugging.](./media/app-insights-asp-net/55.png)
 
-This view shows telemetry generated in the server side of your app. Experiment with the filters, and click any event to see more detail.
+This view ('Data from debug session') shows telemetry generated in the server side of your app. Experiment with the filters, and click any event to see more detail.
+
+* *No data? Make sure the time range is correct, and click the Search icon.*
 
 [Learn more about Application Insights tools in Visual Studio](app-insights-visual-studio.md).
 
@@ -67,16 +69,35 @@ Unless you chose *Install SDK only,* you can also see the telemetry at the Appli
 
 The portal has more charts, analytic tools, and dashboards than Visual Studio. 
 
-Open your Application Insights resource in the [Azure portal](https://portal.azure.com/).
+Open your Application Insights resource - either sign in to the [Azure portal](https://portal.azure.com/) and find it there, or right-click the project in Visual Studio and let it take you there.
 
 ![Right-click your project and open the Azure portal](./media/app-insights-asp-net/appinsights-04-openPortal.png)
 
-The portal opens on a view of the telemetry from your app:
-![](./media/app-insights-asp-net/66.png)
+* *Access error? If you have more than one set of Microsoft credentials, you might be signed in with the wrong set. In the portal, sign out and sign in again.*
 
-* The first telemetry appears in [Live Metrics Stream](app-insights-metrics-explorer.md#live-metrics-stream).
-* Individual events appear in **Search** (1). Data may take a few minutes to appear. Click any event in order to see its properties. 
-* Aggregated metrics appear in the charts (2). It might take a minute or two for data to appear here. Click any chart to open a blade with more detail.
+The portal opens on a view of the telemetry from your app:
+![Application Insights Overview page](./media/app-insights-asp-net/66.png)
+
+Click any tile or chart to see more detail.
+
+### More detail in the portal
+
+* [**Live Metrics Stream**](app-insights-metrics-explorer.md#live-metrics-stream) displays telemetry almost instantly.
+
+    ![From the Overview blade, click Live Stream](./media/app-insights-asp-net/livestream.png)
+
+    Open Live Stream at the same time as your app is running, to allow them to connect.
+
+    Live Stream only shows telemetry for a minute after it is sent. For more historical investigations, use Search, Metrics Explorer, and Analytics. Data may take a few minutes to appear in these places.
+
+* [**Search**](app-insights-diagnostic-search.md) shows individual events such as requests, exceptions, and page views. You can filter by event type, term match, and property values. Click any event to see its properties and related events. 
+
+    ![From the Overview blade, click Search](./media/app-insights-asp-net/search.png)
+
+ * In development mode, you may see a lot of dependency (AJAX) events. These are synchronizations between the browser and the server emulator. To hide them, click the Dependency filter.
+* [**Aggregated metrics**](app-insights-metrics-explorer.md) such as request and failure rates appear in the charts. Click any chart to open a blade with more detail. Click the **Edit** tag of any chart to set filters, size, and so on.
+    
+    ![From the Overview blade, click any chart](./media/app-insights-asp-net/metrics.png)
 
 [Learn more about using Application Insights in the Azure portal](app-insights-dashboards.md).
 

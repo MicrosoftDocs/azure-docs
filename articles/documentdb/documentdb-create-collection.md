@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/17/2016
+ms.date: 12/13/2016
 ms.author: mimig
 
 ---
@@ -38,9 +38,9 @@ Not sure what a collection is? See [What is a DocumentDB collection?](#what-is-a
 
     A **single partition** has a reserved storage capacity of 10GB, and can have throughput levels from 400-10,000 request units/second (RU/s). One RU corresponds to the throughput of a read of a 1KB document. For more information about request units, see [Request units](documentdb-request-units.md).
 
-    A **partitioned collection** can scale to handle an unlimited amount of storage over multiple partitions, and can have throughput levels starting at 10,100 RU/s. In the portal, the largest storage you can reserve is 250 GB, and the most throughput you can reserve is 250,000 RU/s. To increase either quota, file a request as described in [Request increased DocumentDB account quotas](documentdb-increase-limits.md). For more informaiton about partitioned collections, see [Single Partition and Partitioned Collections](documentdb-partition-data.md#single-partition-and-partitioned-collections).
+    A **partitioned collection** can scale to handle an unlimited amount of storage over multiple partitions, and can have throughput levels starting at 10,100 RU/s. For more informaiton about partitioned collections, see [Single Partition and Partitioned Collections](documentdb-partition-data.md#single-partition-and-partitioned-collections).
 
-    By default, the throughput for a new single partition collection is set to 1000 RU/s with a storage capacity of 10 GB. For a partitioned collection, the collection throughput is set to 10100 RU/s with a storage capacity of 250 GB. You can change the throughput and storage for the collection after the collection is created.
+    By default, the throughput for a new single partition collection is set to 1000 RU/s with a storage capacity of 10 GB. For a partitioned collection, the collection throughput is set to 10100 RU/s with no upper limit on capacity or throughput.
 6. If you are creating a partitioned collection, select the **Partition Key** for the collection. Selecting the correct partition key is important in creating a performant collection. For more information on selecting a partition key, see [Designing for partitioning](documentdb-partition-data.md#designing-for-partitioning).
 7. In the **Database** blade, either create a new database or use an existing one. Database names must be between 1 and 255 characters, and cannot contain `/ \ # ?` or a trailing space. To validate the name, click outside the text box. When the name is validated, a green check mark appears in the box.
 8. Click **OK** at the bottom of the screen to create the new collection.
