@@ -13,7 +13,7 @@ ms.workload: storage-backup-recovery
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/28/2016
+ms.date: 12/18/2016
 ms.author: trinadhk;jimpark;
 
 ---
@@ -42,6 +42,8 @@ You can troubleshoot errors encountered while using Azure Backup with informatio
 | Backup |Virtual machines having virtual hard disks stored on Premium storage are not supported for backup |None. |
 | Backup |Azure Virtual Machine Not Found. |This happens when the primary VM is deleted but the backup policy continues to look for a VM to perform back up. To fix this error: <ol><li>Recreate the virtual machine with the same name and same resource group name [cloud service name], <br>(OR) <li> Disable protection for this VM so the backup jobs will not be created. </ol> |
 | Backup |Virtual machine agent is not present on the virtual machine - Please install any prerequisite and the VM agent, and then restart the operation. |[Read more](#vm-agent) about VM agent installation, and how to validate the VM agent installation. |
+| Backup |Snapshot operation failed due to VSS Writers in bad state |You need to restart VSS writers which are in bad state. To achieve this, from an elevated command prompt, run _vssadmin list writers_ . Output contains all Vss writers and their state. For every vss writer whose state is not "[1] Stable", restart vss writer by running following commands from an elavetd command prompt<br> _net stop serviceName_ <br> _net start serviceName_|
+| Backup |Snapshot operation failed due to a  parsing failure of the configuration |This happens due to changed permissions on the MachineKeys directory : _%systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br>Please run below command and verify that permissions on MachineKeys directory are default-ones:<br>_icacls %systemdrive%\programdata\microsoft\crypto\rsa\machinekeys_ <br><br> Default permissions are :<br>Everyone:(R,W) <br>BUILTIN\Administrators:(F)<br><br>If you see permissions on MachineKeys directory different than default, please follow below steps to correct permissions, delete the certificate and trigger the backup.<ol><li>Fix permissions on MachineKeys directory.<br>Using Explorer Security Properties and Advanced Security Settings on the directory, reset permissions back to the default values, remove any extra (than default) user object from the directory, and ensure that the ‘Everyone’ permissions had special access for:<br>-	List folder / read data <br>-	Read attributes <br>-	Read extended attributes <br>-	Create files / write data <br>-	Create folders / append data<br>-	Write attributes<br>-	Write extended attributes<br>-	Read permissions<br><br><li>Delete certificate with field ‘Issued To’ = Windows Azure Service Management for Extensions<ul><li>[Open Certificates console](https://msdn.microsoft.com/library/ms788967(v=vs.110).aspx)<li>Delete certificate (under Personal -> Certificates) with field ‘Issued To’ = “Windows Azure Service Management for Extensions”</ul><li>Trigger VM backup. </ol>|
 
 ## Jobs
 | Operation | Error details | Workaround |
