@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Content Delivery Network (CDN) to deliver content from global data centers to any device. Tutorials, API references, and other documentation.
 ---
 # CDN Documentation
 
-Azure Content Delivery Network (CDN) provides developers a global solution for delivering high-bandwidth content that is hosted in Azure or any other location.  Using the CDN you can cache publicly available objects loaded from Azure blob storage, a web application, virtual machine, application folder, or other HTTP/HTTPS location.  The CDN is typically used to deliver static content such as images, style sheets, documents, files, client-side scripts, and HTML pages.
+Learn how to use Content Delivery Network (CDN) to deliver high-bandwidth content that is hosted in Azure or elsewhere. Tutorials, API references, and other documentation show you how to use CDN to deliver content from global data centers to any device.
 
 <ul class="panelContent cardsFTitle">
     <li>
