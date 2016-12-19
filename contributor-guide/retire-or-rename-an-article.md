@@ -5,6 +5,9 @@ If you're a member of our Azure community and you think an article should be ret
 
 When authors want to retire, rename, or move articles, they need to follow specific steps to avoid bad experiences on the web site. Our goal should be to gracefully retire content so users of the website don't find broken links and receive 404 errors. 
 
+## Automated solution
+If you have to move a large number of files, or all files in one directory to another, [this tool](https://github.com/squillace/gitwork/tree/master/dotnet/move) may allow you to automate most of this work.
+
 ## Step 1: Set the article to no-index/no-follow and republish it (as appropriate)
 Do this step if you are preparing to deprecate content and do not want it to be discoverable, but you want it to remain published to support inbound links. To do this, add the following line as the last entry in the metadata section of the article:
   ```
