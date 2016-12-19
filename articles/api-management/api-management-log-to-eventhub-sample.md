@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/15/2016
+ms.date: 10/25/2016
 ms.author: darrmi
 
 ---
@@ -45,31 +45,29 @@ An alternative option was to use the `application/http` media type as described 
 
 To be able to create this message we need to take advantage of C# based [Policy expressions](https://msdn.microsoft.com/library/azure/dn910913.aspx) in Azure API Management. Here is the policy which sends a HTTP request message to Azure Event Hubs.
 
-```xml
-<log-to-eventhub logger-id="conferencelogger" partition-id="0">
-@{
-   var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
-                                               context.Request.Method,
-                                               context.Request.Url.Path + context.Request.Url.QueryString);
+       <log-to-eventhub logger-id="conferencelogger" partition-id="0">
+       @{
+           var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
+                                                       context.Request.Method,
+                                                       context.Request.Url.Path + context.Request.Url.QueryString);
 
-   var body = context.Request.Body?.As<string>(true);
-   if (body != null && body.Length > 1024)
-   {
-       body = body.Substring(0, 1024);
-   }
+           var body = context.Request.Body?.As<string>(true);
+           if (body != null && body.Length > 1024)
+           {
+               body = body.Substring(0, 1024);
+           }
 
-   var headers = context.Request.Headers
-                          .Where(h => h.Key != "Authorization" && h.Key != "Ocp-Apim-Subscription-Key")
-                          .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
-                          .ToArray<string>();
+           var headers = context.Request.Headers
+                                  .Where(h => h.Key != "Authorization" && h.Key != "Ocp-Apim-Subscription-Key")
+                                  .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
+                                  .ToArray<string>();
 
-   var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
+           var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
 
-   return "request:"   + context.Variables["message-id"] + "\n"
-                       + requestLine + headerString + "\r\n" + body;
-}
-</log-to-eventhub>
-```
+           return "request:"   + context.Variables["message-id"] + "\n"
+                               + requestLine + headerString + "\r\n" + body;
+       }
+       </log-to-eventhub>
 
 ### Policy declaration
 There a few particular things worth mentioning about this policy expression. The log-to-eventhub policy has an attribute called logger-id which refers to the name of logger that has been created within the API Management service. The details of how to setup an Event Hub logger in the API Management service can be found in the document [How to log events to Azure Event Hubs in Azure API Management](api-management-howto-log-event-hubs.md). The second attribute is an optional parameter that instructs Event Hubs which partition to store the message in. Event Hubs use partitions to enable scalabilty and require a minimum of two. The ordered delivery of messages is only guaranteed within a partition. If we do not instruct Event Hub in which partition to place the message, it will use a round-robin algorithm to distribute the load. However, that may cause some of our messages to be processed out of order.  
@@ -92,63 +90,61 @@ We could have created the request message, stored that in a variable until the r
 
 The policy to send the response HTTP message looks very similar to the request and so the complete policy configuration looks like this:
 
-```xml
-<policies>
-  <inbound>
-      <set-variable name="message-id" value="@(Guid.NewGuid())" />
-      <log-to-eventhub logger-id="conferencelogger" partition-id="0">
-      @{
-          var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
-                                                      context.Request.Method,
-                                                      context.Request.Url.Path + context.Request.Url.QueryString);
+      <policies>
+          <inbound>
+              <set-variable name="message-id" value="@(Guid.NewGuid())" />
+              <log-to-eventhub logger-id="conferencelogger" partition-id="0">
+              @{
+                  var requestLine = string.Format("{0} {1} HTTP/1.1\r\n",
+                                                              context.Request.Method,
+                                                              context.Request.Url.Path + context.Request.Url.QueryString);
 
-          var body = context.Request.Body?.As<string>(true);
-          if (body != null && body.Length > 1024)
-          {
-              body = body.Substring(0, 1024);
-          }
+                  var body = context.Request.Body?.As<string>(true);
+                  if (body != null && body.Length > 1024)
+                  {
+                      body = body.Substring(0, 1024);
+                  }
 
-          var headers = context.Request.Headers
-                               .Where(h => h.Key != "Authorization" && h.Key != "Ocp-Apim-Subscription-Key")
-                               .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
-                               .ToArray<string>();
+                  var headers = context.Request.Headers
+                                       .Where(h => h.Key != "Authorization" && h.Key != "Ocp-Apim-Subscription-Key")
+                                       .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
+                                       .ToArray<string>();
 
-          var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
+                  var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
 
-          return "request:"   + context.Variables["message-id"] + "\n"
-                              + requestLine + headerString + "\r\n" + body;
-      }
-  </log-to-eventhub>
-  </inbound>
-  <backend>
-      <forward-request follow-redirects="true" />
-  </backend>
-  <outbound>
-      <log-to-eventhub logger-id="conferencelogger" partition-id="1">
-      @{
-          var statusLine = string.Format("HTTP/1.1 {0} {1}\r\n",
-                                              context.Response.StatusCode,
-                                              context.Response.StatusReason);
+                  return "request:"   + context.Variables["message-id"] + "\n"
+                                      + requestLine + headerString + "\r\n" + body;
+              }
+          </log-to-eventhub>
+          </inbound>
+          <backend>
+              <forward-request follow-redirects="true" />
+          </backend>
+          <outbound>
+              <log-to-eventhub logger-id="conferencelogger" partition-id="1">
+              @{
+                  var statusLine = string.Format("HTTP/1.1 {0} {1}\r\n",
+                                                      context.Response.StatusCode,
+                                                      context.Response.StatusReason);
 
-          var body = context.Response.Body?.As<string>(true);
-          if (body != null && body.Length > 1024)
-          {
-              body = body.Substring(0, 1024);
-          }
+                  var body = context.Response.Body?.As<string>(true);
+                  if (body != null && body.Length > 1024)
+                  {
+                      body = body.Substring(0, 1024);
+                  }
 
-          var headers = context.Response.Headers
-                                          .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
-                                          .ToArray<string>();
+                  var headers = context.Response.Headers
+                                                  .Select(h => string.Format("{0}: {1}", h.Key, String.Join(", ", h.Value)))
+                                                  .ToArray<string>();
 
-          var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
+                  var headerString = (headers.Any()) ? string.Join("\r\n", headers) + "\r\n" : string.Empty;
 
-          return "response:"  + context.Variables["message-id"] + "\n"
-                              + statusLine + headerString + "\r\n" + body;
-     }
-  </log-to-eventhub>
-  </outbound>
-</policies>
-```
+                  return "response:"  + context.Variables["message-id"] + "\n"
+                                      + statusLine + headerString + "\r\n" + body;
+             }
+          </log-to-eventhub>
+          </outbound>
+      </policies>
 
 The `set-variable` policy creates a value that is accessible by both the `log-to-eventhub` policy in the `<inbound>` section and the `<outbound>` section.  
 
@@ -161,45 +157,41 @@ In this sample, we will use the `EventProcessorHost` for simplicity, however it 
 ### IEventProcessor
 The central concept when using `EventProcessorHost` is to create a an implementation of the `IEventProcessor` interface which contains the method `ProcessEventAsync`. The essence of that method is shown here:
 
-```c#
-async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-{
+  async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
+      {
 
-   foreach (EventData eventData in messages)
-   {
-       _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
+           foreach (EventData eventData in messages)
+           {
+               _Logger.LogInfo(string.Format("Event received from partition: {0} - {1}", context.Lease.PartitionId,eventData.PartitionKey));
 
-       try
-       {
-           var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
-           await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
-       }
-       catch (Exception ex)
-       {
-           _Logger.LogError(ex.Message);
-       }
-   }
-    ... checkpointing code snipped ...
-}
-```
+               try
+               {
+                   var httpMessage = HttpMessage.Parse(eventData.GetBodyStream());
+                   await _MessageContentProcessor.ProcessHttpMessage(httpMessage);
+               }
+               catch (Exception ex)
+               {
+                   _Logger.LogError(ex.Message);
+               }
+           }
+            ... checkpointing code snipped ...
+        }
 
 A list of EventData objects are passed into the method and we iterate over that list. The bytes of each method are parsed into a HttpMessage object and that object is passed to an instance of IHttpMessageProcessor.
 
 ### HttpMessage
 The `HttpMessage` instance contains three pieces of data:
 
-```c#
-public class HttpMessage
-{
-   public Guid MessageId { get; set; }
-   public bool IsRequest { get; set; }
-   public HttpRequestMessage HttpRequestMessage { get; set; }
-   public HttpResponseMessage HttpResponseMessage { get; set; }
+      public class HttpMessage
+       {
+           public Guid MessageId { get; set; }
+           public bool IsRequest { get; set; }
+           public HttpRequestMessage HttpRequestMessage { get; set; }
+           public HttpResponseMessage HttpResponseMessage { get; set; }
 
-   ... parsing code snipped ...
+        ... parsing code snipped ...
 
-}
-```
+      }
 
 The `HttpMessage` instance contains a `MessageId` GUID that allows us to connect the HTTP request to the corresponding HTTP response and a boolean value that identifies if the object contains an instance of a HttpRequestMessage and HttpResponseMessage. By using the built in HTTP classes from `System.Net.Http`, I was able to take advantage of the `application/http` parsing code that is included in `System.Net.Http.Formatting`.  
 
@@ -211,48 +203,46 @@ For this sample, I decided it would be interesting to push the HTTP Request over
 
 The `IHttpMessageProcessor` implementation looks like this,
 
-```c#
-public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
-{
-   private HttpClient _HttpClient;
-   private ILogger _Logger;
-   private string _BucketKey;
-   public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
-   {
-       _HttpClient = httpClient;
-       var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
-       _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
-       _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
-       _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
-       _Logger = logger;
-   }
-
-   public async Task ProcessHttpMessage(HttpMessage message)
-   {
-       var runscopeMessage = new RunscopeMessage()
+      public class RunscopeHttpMessageProcessor : IHttpMessageProcessor
        {
-           UniqueIdentifier = message.MessageId
-       };
+           private HttpClient _HttpClient;
+           private ILogger _Logger;
+           private string _BucketKey;
+           public RunscopeHttpMessageProcessor(HttpClient httpClient, ILogger logger)
+           {
+               _HttpClient = httpClient;
+               var key = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-KEY", EnvironmentVariableTarget.User);
+               _HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", key);
+               _HttpClient.BaseAddress = new Uri("https://api.runscope.com");
+               _BucketKey = Environment.GetEnvironmentVariable("APIMEVENTS-RUNSCOPE-BUCKET", EnvironmentVariableTarget.User);
+               _Logger = logger;
+           }
 
-       if (message.IsRequest)
-       {
-           _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
-           runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
+           public async Task ProcessHttpMessage(HttpMessage message)
+           {
+               var runscopeMessage = new RunscopeMessage()
+               {
+                   UniqueIdentifier = message.MessageId
+               };
+
+               if (message.IsRequest)
+               {
+                   _Logger.LogInfo("Sending HTTP request " + message.MessageId.ToString());
+                   runscopeMessage.Request = await RunscopeRequest.CreateFromAsync(message.HttpRequestMessage);
+               }
+               else
+               {
+                   _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
+                   runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
+               }
+
+               var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
+               messagesLink.BucketKey = _BucketKey;
+               messagesLink.RunscopeMessage = runscopeMessage;
+               var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
+               _Logger.LogDebug("Request sent to Runscope");
+           }
        }
-       else
-       {
-           _Logger.LogInfo("Sending HTTP response " + message.MessageId.ToString());
-           runscopeMessage.Response = await RunscopeResponse.CreateFromAsync(message.HttpResponseMessage);
-       }
-
-       var messagesLink = new MessagesLink() { Method = HttpMethod.Post };
-       messagesLink.BucketKey = _BucketKey;
-       messagesLink.RunscopeMessage = runscopeMessage;
-       var runscopeResponse = await _HttpClient.SendAsync(messagesLink.CreateRequest());
-       _Logger.LogDebug("Request sent to Runscope");
-   }
-}
-```
 
 I was able to take advantage of an [existing client library for Runscope](http://www.nuget.org/packages/Runscope.net.hapikit/0.9.0-alpha) that makes it easy to push `HttpRequestMessage` and `HttpResponseMessage` instances up into their service. In order to access the Runscope API you will need an account and an API Key. Instructions for getting an API key can be found in the [Creating Applications to Access Runscope API](http://blog.runscope.com/posts/creating-applications-to-access-the-runscope-api) screencast.
 
