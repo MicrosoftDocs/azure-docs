@@ -113,7 +113,18 @@ Now you are ready to run the Azure Import/Export tool to prepare the two hard dr
 -   The second drive is mounted as drive Y.  
   
 -   The key for the storage account `mystorageaccount` is `8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg==`.  
-  
+
+ If the data to be imported is already present on the disk, use the flag /skipwrite. Value of /t and /srcdir both should point to the disk being prepared for import. If not all the data on the disk needs to go to the same destination virtual directory or root of the storage account, run the same command for each directory separately keeping the value of /id same across all runs.
+
+>[!NOTE] 
+>Do not specify /format as it will wipe the data on the disk. You can specify /encrypt or /bk depending on whether the disk is already encrypted or not. 
+>
+
+```
+    When data is already present on the disk for each drive run the following command.
+    WAImportExport.exe PrepImport /j:FirstDrive.jrn /id:Video1 /logdir:c:\logs /sk:8ImTigJhIwvL9VEIQKB/zbqcXbxrIHbBjLIfOt0tyR98TxtFvUM/7T0KVNR6KRkJrh26u5I8hTxTLM2O1aDVqg== /t:x /format /encrypt /srcdir:x:\Video1 /dstdir:video/ /MetadataFile:c:\WAImportExport\SampleMetadata.txt /skipwrite
+```
+
 For the first drive, run the Azure Import/Export tool twice to copy the two source directories:  
   
 ```

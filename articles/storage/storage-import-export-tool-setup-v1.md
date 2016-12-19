@@ -42,9 +42,9 @@ The Microsoft Azure Import/Export tool is the drive preparation and repair tool 
   
 -   BitLocker must be enabled on the copy machine.  
   
--   You will need one or more empty 3.5-inch SATA hard drives connected to the copy machine.  
+-   You will need one or more drive that contains data to be imported or empty 3.5-inch SATA hard drives connected to the copy machine.  
   
--   The files you plan to import must be accessible from the copy machine, whether they are on a network share or a local hard drive.  
+-   The files you plan to import must be accessible from the copy machine, whether they are on a network share or a local hard drive. 
   
  If you are attempting to repair an import that has partially failed, you will need:  
   
@@ -212,7 +212,9 @@ Parameters:
         - Required. Path to the source file to be imported.  
     /dstblob:<DestinationBlobPath>  
         - Required. Destination blob path for the file to be imported.  
-  
+    /skipwrite
+        - Optional. To skip write process. Used for inplace data drive preparation.
+          Be sure to reserve enough space (3 GB per 7TB) for drive manifest file!
 Examples:  
   
     Copy a source directory to a drive:  
@@ -239,7 +241,13 @@ Examples:
     WAImportExport.exe RepairImport  
         /r:9WM35C2V.rep /d:X:\ /bk:442926-020713-108086-436744-137335-435358-242242-2795  
         98 /sn:mytestaccount /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94  
-        f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\temp\9WM35C2V_error.log  
+        f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /CopyLogFile:C:\temp\9WM35C2V_error.log 
+
+    Skip write process, inplace data drive preparation:
+    WAImportExport.exe PrepImport
+        /j:9WM35C2V.jrn /id:session#1 /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GEL
+        xmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /t:d /encrypt /srcdir:d:\movi
+        es\drama /dstdir:movies/drama/ /skipwrite
 ```  
   
 ## See Also  

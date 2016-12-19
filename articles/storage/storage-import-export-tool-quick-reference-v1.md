@@ -26,7 +26,14 @@ translation.priority.mt:
 ---
 # Quick Reference for Frequently Used Commands for Import Jobs
 This section provides a quick references for some frequently used commands. For detailed usage, see [Preparing Hard Drives for an Import Job](storage-import-export-tool-preparing-hard-drives-import-v1.md).  
+
+## Prepare the Disks when data already copied to the Disks
+ Here is a sample command to prepare a disks when data already copied to the hard drive that hasn’t been yet been encrypted with BitLocker:  
   
+```  
+  WAImportExport.exe PrepImport /j:9WM35C2V.jrn /id:session#1 /sk:VkGbrUqBWLYJ6zg1m29VOTrxpBgdNOlp+kp0C9MEdx3GELxmBw4hK94f7KysbbeKLDksg7VoN1W/a5UuM2zNgQ== /t:d /encrypt /srcdir:d:\movies\drama /dstdir:movies/drama/ /skipwrite
+```    
+
 ## Copy a Single Directory to a Hard Drive  
  Here is a sample command to copy a single source directory to a hard drive that hasn’t been yet been encrypted with BitLocker:  
   

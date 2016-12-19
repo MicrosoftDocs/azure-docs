@@ -59,13 +59,17 @@ When you create a job, you notify the Import/Export service that you will be shi
 You can create an import or export job using the Azure Portal or the [Azure Storage Import/Export REST API](http://go.microsoft.com/fwlink/?LinkID=329099).
 
 ### WAImportExport tool
-The first step in creating an **import** job is to prepare your drive that will be shipped for import. To prepare your drive, you must connect it to a local server and run the WAImportExport Tool on the local server. This WAImportExport tool facilitates copying your data to the drive, encrypting the data on the drive with BitLocker, and generating the drive journal files.
+The first step in creating an **import** job is to prepare your drives that will be shipped for import. To prepare your drives, you must connect it to a local server and run the WAImportExport Tool on the local server. This WAImportExport tool facilitates copying your data to the drive, encrypting the data on the drive with BitLocker, and generating the drive journal files.
 
 The journal files store basic information about your job and drive such as drive serial number and storage account name. This journal file is not stored on the drive. It is used during import job creation. Step by step details about job creation are provided later in this article.
 
 The WAImportExport tool is only compatible with 64-bit Windows operating system. See the [Operating System](#operating-system) section for specific OS versions supported.
 
-Download the latest version of the [WAImportExport tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). For more details about using the WAImportExport Tool, see the [Using the WAImportExport Tool](http://go.microsoft.com/fwlink/?LinkId=329032).
+Download the latest version of the [WAImportExport tool](http://download.microsoft.com/download/3/6/B/36BFF22A-91C3-4DFC-8717-7567D37D64C5/WAImportExport.zip). For more details about using the WAImportExport Tool, see the [Using the WAImportExport Tool](azure-import-export-tool-reference.md).
+
+>[!NOTE]
+>**Previous Vesion:** You can [download WAImportExpot V1](http://download.microsoft.com/download/0/C/D/0CD6ABA7-024F-4202-91A0-CE2656DCE413/WaImportExportV1.zip) version of the tool and refer to [WAImportExpot V1 usage guide](storage-import-export-tool-how-to-v1). WAImportExpot V1 version of the tool does provide support for **preparing disks when data is already pre-written to the disk**. Also you will need to use WAImportExpot V1 tool if the only key available is SAS-Key.
+>
 
 ### Hard disk drives
 Only 2.5 inch SSD or 2.5" or 3.5" SATA II or III internal hard drives are supported for use with the Import/Export service. You can use hard drives up to 10TB.
@@ -409,12 +413,6 @@ Following pre-checks are recommended for preparing your drives for an export job
 Please go through the FAQ section below as it covers the most common questions customers encounter when using this service.
 
 ## Frequently Asked Questions
-**How long will it take to copy my data after my drive(s) reaches the data center?**
-
-The time to copy varies depending on different factors like job type, type and size of data being copied, size of disks provided, and existing workload. It can vary from a couple of days to a couple of weeks, depending on these factors. Therefore, it is difficult to provide a general estimate. The service tries to optimize your job by copying multiple drives in parallel when possible. If you have a time critical import/export job, reach out to us for an estimate.
-
-**When should I use Azure Import/Export Service?**
-One should consider using Azure Import Export if uploading or downloading over network takes roughly as estimate more than 7 days. You can calculate how long it will take by using any online calculator or by [downloading](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/archive/master.zip) the one located in our Azure Import Export REST API Sample in Azure samples repository at [Data Transfer Speed Calculator](https://github.com/Azure-Samples/storage-dotnet-import-export-job-management/blob/master/DataTransferSpeedCalculator.html). This is not an exact calculation but only a rough indication.
 
 **Can I copy Azure Files using the Azure Import/Export service?**
 
@@ -496,7 +494,7 @@ Please refer to [Import PST files or SharePoint data to Office 365](https://tech
 Please refer to [Offline Backup workflow in Azure Backup](../backup/backup-azure-backup-import-export.md).
 
 ## See also:
-* [Setting up the WAImportExport tool](https://msdn.microsoft.com/library/dn529112.aspx)
+* [Setting up the WAImportExport tool](azure-import-export-tool-reference.md)
 * [Transfer data with the AzCopy command-line utility](storage-use-azcopy.md)
 * [Azure Import Export REST API Sample](https://azure.microsoft.com/documentation/samples/storage-dotnet-import-export-job-management/)
 
