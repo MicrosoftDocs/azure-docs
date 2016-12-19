@@ -18,10 +18,10 @@ ms.date: 07/14/2016
 ms.author: sstein
 
 ---
-# Configure acitve geo-replication for Azure SQL Database with PowerShell
+# Configure active geo-replication for Azure SQL Database with PowerShell
 > [!div class="op_single_selector"]
 > * [Overview](sql-database-geo-replication-overview.md)
-> * [Azure Portal](sql-database-geo-replication-portal.md)
+> * [Azure portal](sql-database-geo-replication-portal.md)
 > * [PowerShell](sql-database-geo-replication-powershell.md)
 > * [T-SQL](sql-database-geo-replication-transact-sql.md)
 > 
@@ -32,7 +32,7 @@ This article shows you how to configure active geo-replication for SQL Database 
 To initiate failover using PowerShell, see [Initiate a planned or unplanned failover for Azure SQL Database with PowerShell](sql-database-geo-replication-failover-powershell.md).
 
 > [!NOTE]
-> Active geo-replication (readable secondaries) is now available for all databases in all service tiers. In April 2017 the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
+> Active geo-replication (readable secondaries) is now available for all databases in all service tiers. In April  2017, the non-readable secondary type will be retired and existing non-readable databases will automatically be upgraded to readable secondaries.
 > 
 > 
 
@@ -54,12 +54,12 @@ To select the subscription you need your subscription Id. You can copy the subsc
 
     Select-AzureRmSubscription -SubscriptionId 4cac86b0-1e56-bbbb-aaaa-000000000000
 
-After successfully running **Select-AzureRmSubscription** you are returned to the PowerShell prompt.
+After successfully running **Select-AzureRmSubscription**, you are returned to the PowerShell prompt.
 
 ## Add secondary database
 The following steps create a new secondary database in a Geo-Replication partnership.  
 
-To enable a secondary you must be the subscription owner or co-owner. 
+To enable a secondary, you must be the subscription owner or co-owner. 
 
 You can use the **New-AzureRmSqlDatabaseSecondary** cmdlet to add a secondary database on a partner server to a local database on the server to which you are connected (the primary database). 
 
