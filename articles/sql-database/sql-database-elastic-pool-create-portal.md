@@ -96,7 +96,7 @@ After setting the pricing tier, click Configure pool where you add databases, se
 
 ## Understand pool recommendations
 
-The SQL Database service evaluates usage history and recommends one or more pools when it is more cost-effective than using standalone databases. Each recommendation is configured with a unique subset of the server's databases that best fit the pool.
+The SQL Database service evaluates usage history and recommends one or more pools when it is more cost-effective than using single databases. Each recommendation is configured with a unique subset of the server's databases that best fit the pool.
 
 ![recommended pool](./media/sql-database-elastic-pool-create-portal/recommended-pool.png)  
 
@@ -109,7 +109,7 @@ The pool recommendation comprises:
 
 The service takes the last 30 days of telemetry into account when recommending pools. For a database to be considered as a candidate for an elastic pool it must exist for at least 7 days. Databases that are already in an elastic pool are not considered as candidates for elastic pool recommendations.
 
-The service evaluates resource needs and cost effectiveness of moving the standalone databases in each service tier into pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
+The service evaluates resource needs and cost effectiveness of moving the single databases in each service tier into pools of the same tier. For example, all Standard databases on a server are assessed for their fit into a Standard Elastic Pool. This means the service does not make cross-tier recommendations such as moving a Standard database into a Premium pool.
 
 ### Dynamic recommendations
 
