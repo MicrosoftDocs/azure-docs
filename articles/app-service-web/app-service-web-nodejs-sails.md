@@ -1,5 +1,5 @@
 ---
-title: Deploy a Sails.js web app to Azure App Service
+title: Deploy a Sails.js web app to Azure App Service | Microsoft Docs 
 description: Learn how to deploy a Node.js application Azure App Service. This tutorial shows you how to deploy a Sails.js web app.
 services: app-service\web
 documentationcenter: nodejs
@@ -213,7 +213,10 @@ but you need the name of the database when you connect from Sails.js.
             ssl: true
         },
 
-    [!NOTE] The `ssl: true` option is important because [Azure DocumentDB requires it](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+    > [!NOTE] 
+    > The `ssl: true` option is important because [Azure DocumentDB requires it](../documentdb/documentdb-connect-mongodb-account.md#connection-string-requirements). 
+    >
+    >
 
 4. For each environment variable (`process.env.*`), you need to set it in App Service. To do this, run the following commands
    from your terminal. Use the connection information for your DocumentDB database.

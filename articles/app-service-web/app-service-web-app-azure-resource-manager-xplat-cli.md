@@ -171,7 +171,7 @@ To delete hostname bindings, use:
 
     azure webapp config hostnames delete --name ContosoWebApp --resource-group ContosoAzureResourceGroup --hostname www.contoso.com
 
-### Next Steps
+## Next Steps
 * To learn about Azure Resource Manager CLI support, see [Use the Azure CLI to manage Azure resources and resource groups.](../azure-resource-manager/xplat-cli-azure-resource-manager.md)
 * To learn about managing App Service using PowerShell, see [Using Azure Resource Manager-Based PowerShell to Manage Azure Web Apps.](app-service-web-app-azure-resource-manager-powershell.md)
 * To learn about Azure App Service on Linux, see [Introduction to App Service on Linux](app-service-linux-intro.md)
