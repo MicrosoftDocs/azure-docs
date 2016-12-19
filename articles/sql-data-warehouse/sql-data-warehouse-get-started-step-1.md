@@ -43,9 +43,11 @@ If you are running a Windows Operating System, we recommend using either [Visual
 
 [!INCLUDE [Create a new logical server](../../includes/sql-data-warehouse-create-logical-server.md)] 
 
+[!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
+
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
-[!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
+
 
 
 <!--Other Web references-->
