@@ -86,7 +86,7 @@ The following example shows and end-to-end use of the imaging capabilities to de
 
 ### Input data
 
-Assume that we have an input that consits of “War and Peace” by Leo Tolstoy.
+Assume that we have an input that consists of “War and Peace” by Leo Tolstoy.
 
     REFERENCE ASSEMBLY [TextCommon];
     REFERENCE ASSEMBLY [TextSentiment];
