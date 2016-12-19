@@ -32,7 +32,7 @@ The following table provides examples of the tiers best suited for different app
 | Service tier | Target workloads |
 | :--- | --- |
 | **Basic** | Best suited for a small database, supporting typically one single active operation at a given time. Examples include databases used for development or testing, or small-scale infrequently used applications. |
-| **Standard** |T he go-to option for cloud applications with low to medium IO performance requirements, supporting multiple concurrent queries. Examples include workgroup or web applications. |
+| **Standard** |The go-to option for cloud applications with low to medium IO performance requirements, supporting multiple concurrent queries. Examples include workgroup or web applications. |
 | **Premium** | Designed for high transactional volume with high IO performance requirements, supporting many concurrent users. Examples are databases supporting mission critical applications. |
 
 First decide if you want to run a single database or if you want to group databases that shares resources. Review the [elastic pool considerations](sql-database-elastic-pool-guidance.md). To decide on a service tier, start by determining the minimum database features that you need:
