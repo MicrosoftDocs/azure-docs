@@ -1,13 +1,13 @@
 ---
 title: Step 1: Prerequisites | Microsoft Docs
-description: Enterprise-class distributed database capable of processing petabyte volumes of relational and non-relational data. It is the industry's first cloud data warehouse with grow, shrink, and pause in seconds.
+description: Get Started with Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
 editor: ''
 
-ms.assetid: 4006c201-ec71-4982-b8ba-24bba879d7bb
+ms.assetid: 52DFC191-E094-4B04-893F-B64D5828A900
 ms.service: sql-data-warehouse
 ms.devlang: NA
 ms.topic: hero-article
@@ -35,8 +35,8 @@ If you don't already have a Microsoft Azure account, you must sign up for one to
 
 ## Install appropriate SQL Client Driver and Tools
 
-Most SQL client tools can connect to Azure SQL Data Warehouse using JDBC, ODBC, or ADO.net. Due to product complexity and large number of T-SQL features SQL DW supports, not every client application may be fully compatible 
-with SQL DW.
+Most SQL client tools can connect to Azure SQL Data Warehouse using JDBC, ODBC, or ADO.net. Due to product complexity and large number of T-SQL features SQL Data Warehouse supports, not every client application may be fully compatible 
+with SQL Data Warehouse.
 
 If you are running a Windows Operating System, we recommend using either [Visual Studio] or [SQL Server Management Studio].
 
@@ -45,6 +45,7 @@ If you are running a Windows Operating System, we recommend using either [Visual
 
 [!INCLUDE [Additional Resources](../../includes/sql-data-warehouse-article-footer.md)]
 
+[!INCLUDE [SQL Database create server](../../includes/sql-database-create-new-server-firewall-portal.md)]
 
 
 <!--Other Web references-->

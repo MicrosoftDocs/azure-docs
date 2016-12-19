@@ -9,8 +9,8 @@
   
 3. Click **Create** to open the new SQL Server (logical server) blade.
 
-    ![open logical server blade](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png)
-    ![logical server blade](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png)
+   <kbd> ![open logical server blade](./media/sql-data-warehouse-create-logical-server/open-logical-server-blade.png) </kbd>
+    <kbd>![logical server blade](./media/sql-data-warehouse-create-logical-server/logical-server-blade.png) </kbd>
   
 3. In the SQL Server (logical server) blade's server name text box, provide a valid name for the new logical server. A green check mark indicates that you have provided a valid name.
     
