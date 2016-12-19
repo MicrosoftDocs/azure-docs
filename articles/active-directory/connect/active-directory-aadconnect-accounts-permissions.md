@@ -26,11 +26,13 @@ The Azure AD Connect installation wizard offers two different paths:
 ## Related documentation
 If you did not read the documentation on [Integrating your on-premises identities with Azure Active Directory](../active-directory-aadconnect.md), the following table provides links to related topics.
 
-| Topic |
+|Topic |Link|  
 | --- | --- |
-| Install using Express settings |
-| Install using Customized settings |
-| Upgrade from DirSync |
+|Download Azure AD Connect | [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)|
+|Install using Express settings | [Express installation of Azure AD Connect](./active-directory-aadconnect-get-started-express.md)|
+|Install using Customized settings | [Custom installation of Azure AD Connect](./active-directory-aadconnect-get-started-custom.md)|
+|Upgrade from DirSync | [Upgrade from Azure AD sync tool (DirSync)](./active-directory-aadconnect-dirsync-upgrade-get-started.md)|
+|After installation | [Verify the installation and assign licenses ](active-directory-aadconnect-whats-next.md)|
 
 ## Express settings installation
 In Express settings, the installation wizard asks for AD DS Enterprise Admin credentials so your on-premises Active Directory can be configured with required permissions for Azure AD Connect. If you are upgrading from DirSync, the AD DS Enterprise Admins credentials are used to reset the password for the account used by DirSync. You also need Azure AD Global Administrator credentials.
