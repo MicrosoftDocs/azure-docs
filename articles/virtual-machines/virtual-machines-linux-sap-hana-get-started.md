@@ -1,5 +1,5 @@
 ---
-title: Quick-start guide: Manual installation of single-instance SAP HANA on Azure VMs | Microsoft Docs
+title: 'Quick-start guide: Manual installation of single-instance SAP HANA on Azure VMs | Microsoft Docs'
 description: A quick-start guide for manual installation of single-instance SAP HANA on Azure VMs
 services: virtual-machines-linux
 documentationcenter: ''
@@ -42,7 +42,7 @@ For the sample installation, we used the following two test VMs:
 
 Both VMs belonged to one Azure virtual network (azure-hana-test-vnet), and the OS in both cases was SLES 12 SP1.
 
-As of July 2016, SAP HANA is fully supported only for OLAP (BW) production systems on Azure VM type GS5. For testing purposes, if you are not expecting official SAP support, it's fine to use something smaller, such as GS4. For SAP HANA on Azure, always use Azure Premium Storage for HANA data and log files (see the "Disk setup" section later in the guide). For more information about which SAP products are supported on Azure, see the "General information" section at the end of the guide.
+As of July 2016, SAP HANA is fully supported only for OLAP (BW) production systems on Azure VM type GS5. For testing purposes, if you are not expecting official SAP support, it's fine to use something smaller, such as GS4. For SAP HANA on Azure, always use Azure premium storage for HANA data and log files (see the "Disk setup" section later in the guide). For more information about which SAP products are supported on Azure, see the "General information" section at the end of the guide.
 
 The guide describes how to manually install SAP HANA on Azure VMs in two different ways:
 
@@ -109,7 +109,7 @@ This section covers the following five topics:
 * /etc/fstab
 
 ### Disk setup
-The root file system in a Linux VM on Azure is of limited size. Therefore, it's necessary to attach additional disk space to a VM for running SAP. If the SAP app server VM is used in a pure prototype or demo environment, it's fine to use Azure standard storage disks. For SAP HANA DB data and log files, use Azure Premium Storage disks even in a non-production landscape.
+The root file system in a Linux VM on Azure is of limited size. Therefore, it's necessary to attach additional disk space to a VM for running SAP. If the SAP app server VM is used in a pure prototype or demo environment, it's fine to use Azure standard storage disks. For SAP HANA DB data and log files, use Azure premium storage disks even in a non-production landscape.
 
 For more information, see [how to attach disks to a Linux VM](virtual-machines-linux-add-disk.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
@@ -137,7 +137,7 @@ In the test environment, two Azure standard storage disks were attached to the S
 
 ![SAP HANA app server Disks window displaying two data disks and their sizes](./media/virtual-machines-linux-sap-hana-get-started/image003.jpg)
 
-Unlike the app server VM scenario, four disks were attached to the SAP HANA server VM, as shown in the following screenshot. Two disks were used to store the SAP software (you can also share the SAP software disk by using NFS) and make enough free space available (for backup, for example). The additional two disks were Azure Premium Storage disks to store SAP HANA data and log files and the /usr/sap directory.
+Unlike the app server VM scenario, four disks were attached to the SAP HANA server VM, as shown in the following screenshot. Two disks were used to store the SAP software (you can also share the SAP software disk by using NFS) and make enough free space available (for backup, for example). The additional two disks were Azure premium storage disks to store SAP HANA data and log files and the /usr/sap directory.
 
 ![SAP HANA app server Disks window displaying four data disks and their sizes](./media/virtual-machines-linux-sap-hana-get-started/image004.jpg)
 
