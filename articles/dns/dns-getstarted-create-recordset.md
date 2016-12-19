@@ -23,9 +23,15 @@ ms.author: gwallace
 > * [PowerShell](dns-getstarted-create-recordset.md)
 > * [Azure CLI](dns-getstarted-create-recordset-cli.md)
 
-This article walks you through the process of creating records and records sets by using Azure PowerShell. To do this, you first need to understand DNS records and record sets.
+This article walks you through the process of creating records and records sets by using Azure PowerShell.
+
+## Introduction
+
+Before creating DNS records in Azure DNS, you first need to understand how Azure DNS organizes DNS records into DNS record sets.
 
 [!INCLUDE [dns-about-records-include](../../includes/dns-about-records-include.md)]
+
+For more information about DNS records in Azure DNS, see [DNS zones and records](dns-zones-records.md).
 
 ## Create a record set and record
 

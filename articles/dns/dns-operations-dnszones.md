@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2016
+ms.date: 12/14/2016
 ms.author: gwallace
 ---
 # How to manage DNS Zones using PowerShell
@@ -21,7 +21,11 @@ ms.author: gwallace
 > * [Azure CLI](dns-operations-dnszones-cli.md)
 > * [PowerShell](dns-operations-dnszones.md)
 
-This article  shows you how to manage your DNS zone by using PowerShell. To use these steps, you need to install the latest version of the Azure Resource Manager PowerShell cmdlets. See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information about installing the PowerShell cmdlets.
+This article  shows you how to manage your DNS zones by using Azure PowerShell. You can also manage your DNS zones using the cross-platform [Azure CLI](dns-operations-dnszones-cli.md) or the Azure portal.
+
+[!INCLUDE [dns-create-zone-about](../../includes/dns-create-zone-about-include.md)]
+
+[!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)]
 
 ## Create a DNS zone
 
@@ -154,7 +158,7 @@ For more information about `-Confirm` and `$ConfirmPreference`, see [About Prefe
 
 ## Next steps
 
-Learn how to [manage record sets and records](dns-getstarted-create-recordset.md) in your DNS zone.
+Learn how to [manage record sets and records](dns-operations-recordsets.md) in your DNS zone.
 <br>
 Learn how to [delegate your domain to Azure DNS](dns-domain-delegation.md).
 
