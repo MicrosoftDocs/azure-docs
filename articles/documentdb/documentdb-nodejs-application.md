@@ -27,7 +27,9 @@ ms.author: syamk
 > 
 > 
 
-This Node.js tutorial shows you how to use the Azure DocumentDB service to store and access data from a Node.js Express application hosted on Azure Websites.
+This Node.js tutorial shows you how to use Azure DocumentDB to store and access data from a Node.js Express application hosted on Azure Websites. You will build a simple web-based task-management application, a ToDO app, that allows creating, retrieving, and completing tasks. The tasks will be stored as JSON documents in Azure DocumentDB. This tutorial will walk you through the creation and deployment of the app and explain what's happening in each snippet.
+
+![Screen shot of the My Todo List application created in this Node.js tutorial](./media/documentdb-nodejs-application/image1.png)
 
 We recommend getting started by watching the following video, where you will learn how to provision an Azure DocumentDB database account and store JSON documents in your Node.js application. 
 
@@ -35,19 +37,7 @@ We recommend getting started by watching the following video, where you will lea
 > 
 > 
 
-Then, return to this Node.js tutorial, where you'll learn the answers to the following questions:
-
-* How do I work with DocumentDB using the documentdb npm module?
-* How do I deploy the web application to Azure Websites?
-
-By following this database tutorial, you will build a simple web-based
-task-management application that allows creating, retrieving and
-completing of tasks. The tasks will be stored as JSON documents in Azure
-DocumentDB.
-
-![Screen shot of the My Todo List application created in this Node.js tutorial](./media/documentdb-nodejs-application/image1.png)
-
-Don't have time to complete the tutorial and just want to get the complete solution? Not a problem, you can get the complete sample solution from [GitHub][GitHub].
+Don't have time to complete the tutorial and just want to get the complete solution? Not a problem, you can get the complete sample solution from [GitHub][GitHub]. Just read the [Readme](https://github.com/Azure-Samples/documentdb-node-todo-app/blob/master/README.md) file for information.
 
 ## <a name="_Toc395783176"></a>Prerequisites
 > [!TIP]
@@ -58,7 +48,7 @@ Don't have time to complete the tutorial and just want to get the complete solut
 Before following the instructions in this article, you should ensure
 that you have the following:
 
-* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/)
+* An active Azure account. If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see [Azure Free Trial](https://azure.microsoft.com/pricing/free-trial/).
 
    OR
 
@@ -93,11 +83,7 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
     ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/documentdb-nodejs-application/image12.png)
 
 ## <a name="_Toc395783179"></a>Step 3: Install additional modules
-The **package.json** file is one of the files created in the root of the
-project. This file contains a list of additional modules that are
-required for your Node.js application. Later, when you deploy this
-application to an Azure Websites, this file is used to determine
-which modules need to be installed on Azure to support your application. We still need to install two more packages for this tutorial.
+The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. Later, when you deploy this application to an Azure Websites, this file is used to determine which modules need to be installed on Azure to support your  application. We still need to install two more packages for this tutorial.
 
 1. Back in the terminal, install the **async** module via npm.
    
