@@ -62,7 +62,7 @@ Let's start by creating a DocumentDB account. If you already have an account or 
 Now let's learn to create a basic Hello World Node.js project using the [Express](http://expressjs.com/) framework.
 
 1. Open your favorite terminal, such as the Node.js command prompt.
-2. Navigate to the directory in which you'd like to store the new app.
+2. Navigate to the directory in which you'd like to store the new application.
 3. Use the express generator to generate a new application called **todo**.
    
         express todo
@@ -77,7 +77,7 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
    
     ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/documentdb-nodejs-application/image12.png)
 
-    Then, to stop the application, press CTRL+C in the terminal window and then click **Y** to terminate the batch job.
+    Then, to stop the application, press CTRL+C in the terminal window and then click **y** to terminate the batch job.
 
 ## <a name="_Toc395783179"></a>Step 3: Install additional modules
 The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. Later, when you deploy this application to an Azure Websites, this file is used to determine which modules need to be installed on Azure to support your application. We still need to install two more packages for this tutorial.
