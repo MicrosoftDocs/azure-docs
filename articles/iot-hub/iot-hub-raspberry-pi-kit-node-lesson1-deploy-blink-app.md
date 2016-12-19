@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and deploy the blink application | Microsoft Docs
 description: Clone the sample Node.js application from GitHub, and gulp to deploy this application to your Raspberry Pi 3 board. This sample application blinks the LED connected to the board every two seconds.
 services: iot-hub
@@ -122,7 +122,7 @@ To configure the device connection, follow these steps:
 Congratulations! You've successfully created the first sample application for Pi.
 
 ## Deploy and run the sample application
-### Install Node.js and  on Pi
+### Install Node.js and NPM on Pi
 Install Node.js and NPM on Pi by running the following command:
 
 ```bash

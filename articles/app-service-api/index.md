@@ -117,8 +117,6 @@ API Apps is one of four app types offered by Azure App Service. API apps in Azur
     </li>     
 </ul>
 
----
-
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/app-service-api.pdf">
         <div class="img"></div>

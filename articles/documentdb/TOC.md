@@ -18,6 +18,7 @@
 ### [Java web app](documentdb-java-application.md)
 ### [Python Flask web app](documentdb-python-application.md)
 ## [Develop Locally](documentdb-nosql-local-emulator.md)
+### [Export Emulator Certificates](documentdb-nosql-local-emulator-export-ssl-certificates.md)
 ## [FAQ](documentdb-faq.md)
 
 # How To
@@ -41,21 +42,28 @@
 ### [Resource quotas](documentdb-limits.md)
 ### [Increase quotas](documentdb-increase-limits.md)
 ### [Request units](documentdb-request-units.md)
-### [Azure CLI and Azure Resource Manager](documentdb-automation-resource-manager-cli.md)
+### Azure CLI
+#### [Create an account](documentdb-automation-resource-manager-cli.md)
+#### [Add or remove regions](documentdb-automation-region-management.md)
+### [Azure PowerShell](documentdb-manage-account-with-powershell.md)
 ### [Firewall support](documentdb-firewall-support.md)
 ### [Supercharge your account](documentdb-supercharge-your-account.md)
 
 ## Develop
 ### [SQL query](documentdb-sql-query.md)
 ### [Stored procedures, triggers, and UDFs](documentdb-programming.md)
+### [Track changes with Change feed](documentdb-change-feed.md)
 ### [Performance testing](documentdb-performance-testing.md)
 ### [Performance tips](documentdb-performance-tips.md)
-### DocumentDB for MongoDB developers
-#### [Protocol support for MongoDB](documentdb-protocol-mongodb.md)
-#### [Create account](documentdb-create-mongodb-account.md)
-#### [Connect to your account](documentdb-connect-mongodb-account.md)
-#### [Use MongoChef](documentdb-mongodb-mongochef.md)
-#### [Protocol support samples](documentdb-mongodb-samples.md)
+
+## Use DocumentDB Support for MongoDB
+### [Protocol support for MongoDB](documentdb-protocol-mongodb.md)
+### [Create account](documentdb-create-mongodb-account.md)
+### [Connect to your account](documentdb-connect-mongodb-account.md)
+### [Migrate your data](documentdb-mongodb-migrate.md)
+### [Use Robomongo](documentdb-mongodb-robomongo.md)
+### [Use MongoChef](documentdb-mongodb-mongochef.md)
+### [Protocol support samples](documentdb-mongodb-samples.md)
 
 ## Use the portal
 ### [Create a database account](documentdb-create-account.md)

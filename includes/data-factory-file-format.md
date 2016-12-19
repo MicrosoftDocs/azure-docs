@@ -1,4 +1,4 @@
-﻿## Specifying formats
+## Specifying formats
 Azure Data Factory supports the following format types: 
 
 * [Text Format](#specifying-textformat)

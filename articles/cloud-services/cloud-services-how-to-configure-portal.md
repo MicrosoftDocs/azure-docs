@@ -13,7 +13,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/11/2016
+ms.date: 12/07/2016
 ms.author: adegeo
 
 ---
@@ -31,7 +31,7 @@ You can also manage the instances of your cloud service roles, or remote desktop
 Azure can only ensure 99.95 percent service availability during the configuration updates if you have at least two role instances for every role. That enables one virtual machine to process client requests while the other is being updated. For more information, see [Service Level Agreements](https://azure.microsoft.com/support/legal/sla/).
 
 ## Change a cloud service
-After opening the [Azure portal](https://portal.azure.com/), navigate to your cloud service. From here you manage many aspects of it. 
+After opening the [Azure portal](https://portal.azure.com/), navigate to your cloud service. From here, you manage many aspects of it. 
 
 ![Settings Page](./media/cloud-services-how-to-configure-portal/cloud-service.png)
 
@@ -49,7 +49,7 @@ You can add alerts to your cloud service. Click **Settings** > **Alert Rules** >
 
 ![](./media/cloud-services-how-to-configure-portal/cs-alerts.png)
 
-From here you can setup an alert. With the **Mertic** drop down box, you can setup an alert for the following types of data.
+From here, you can setup an alert. With the **Metric** drop down box, you can setup an alert for the following types of data.
 
 * Disk read
 * Disk write
@@ -73,12 +73,12 @@ First, click on the cloud service instance.
 
 ![Cloud Service Instance](./media/cloud-services-how-to-configure-portal/cs-instance.png)
 
-From the blade that opens uou can initiate a remote desktop connection, remotely reboot the instance, or remotely reimage (start with a fresh image) the instance.
+From the blade that opens you can initiate a remote desktop connection, remotely reboot the instance, or remotely reimage (start with a fresh image) the instance.
 
 ![Cloud Service Instance Buttons](./media/cloud-services-how-to-configure-portal/cs-instance-buttons.png)
 
 ## Reconfigure your .cscfg
-You may need to reconfigure you cloud service through the [service config (cscfg)](cloud-services-model-and-package.md#cscfg) file. First you need to download your .cscfg file, modify it, then upload it.
+You may need to reconfigure your cloud service through the [service config (cscfg)](cloud-services-model-and-package.md#cscfg) file. First you need to download your .cscfg file, modify it, then upload it.
 
 1. Click on the **Settings** icon or the **All settings** link to open up the **Settings** blade.
    
