@@ -123,7 +123,7 @@ Below are examples for adding, removing or modifying a certificate authority.
 1. Start Windows PowerShell with administrator privileges. 
 2. Install the Azure AD module. You need to install Version [2.0.0.33 ](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) or higher.  
    
-        Install-Module -Name AzureADPreview –RequiredVersion 2.0.0.33 
+        Install-Module -Name AzureAD –RequiredVersion 2.0.0.33 
 3. Connect to your target tenant: 
    
         Connect-AzureAD 
