@@ -31,7 +31,7 @@ The troubleshooting process is as follows:
 4. Unmount and detach the virtual hard disk from the troubleshooting VM.
 5. Create a VM using the original virtual hard disk.
 
-Make sure that you have [the latest Azure PowerShell](../powershell-install-configure.md) installed and logged in to your subscription:
+Make sure that you have [the latest Azure PowerShell](/powershell/azureps-cmdlets-docs) installed and logged in to your subscription:
 
 ```powershell
 Login-AzureRMAccount
@@ -52,7 +52,7 @@ Review the screenshot to determine why the VM is failing to boot. Note any speci
 
 
 ## View existing virtual hard disk details
-Before you can attach your virtual hard disk to another VM, you need to identify the name of the virtual hard disk (VHD). 
+Before you can attach your virtual hard disk to another VM, you need to identify the name of the virtual hard disk (VHD).
 
 The following example gets information for the VM named `myVM` in the resource group named `myResourceGroup`:
 
@@ -70,16 +70,16 @@ Id                            : /subscriptions/guid/resourceGroups/myResourceGro
 Name                          : myVM
 Type                          : Microsoft.Compute/virtualMachines
 ...
-StorageProfile                : 
-  ImageReference              : 
+StorageProfile                :
+  ImageReference              :
     Publisher                 : MicrosoftWindowsServer
     Offer                     : WindowsServer
     Sku                       : 2016-Datacenter
     Version                   : latest
-  OsDisk                      : 
+  OsDisk                      :
     OsType                    : Windows
     Name                      : myVM
-    Vhd                       : 
+    Vhd                       :
       Uri                     : https://mystorageaccount.blob.core.windows.net/vhds/myVM.vhd
     Caching                   : ReadWrite
     CreateOption              : FromImage
