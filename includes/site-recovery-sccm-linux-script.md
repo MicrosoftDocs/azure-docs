@@ -1,9 +1,9 @@
 	#!/bin/sh
-	
+
 	rm -rf /tmp/MobSvc
-	
+
 	mkdir -p /tmp/MobSvc
-	
+
 	if [ -f /etc/oracle-release ] && [ -f /etc/redhat-release ]; then
 	    if grep -q 'Oracle Linux Server release 6.*' /etc/oracle-release; then
 	        if uname -a | grep -q x86_64; then
@@ -49,18 +49,18 @@
 	fi
 	cp MobSvc.passphrase /tmp/MobSvc
 	cd /tmp/MobSvc
-	
+
 	tar -zxvf *.tar.gz
-	
-	
+
+
 	if [ -e /usr/local/.vx_version ];
 	then
 		./install -A u
 		echo "Errorcode:$?"
 		Error=$?
-	
+
 	else
-		./install -t both -a host -R Agent -d /usr/local/ASR -i 10.10.20.168 -p 443 -s y -c https -P MobSvc.passphrase >> /tmp/MobSvc/sccm.log 2>&1 && echo "Install Progress"
+		./install -t both -a host -R Agent -d /usr/local/ASR -i [CS IP] -p 443 -s y -c https -P MobSvc.passphrase >> /tmp/MobSvc/sccm.log 2>&1 && echo "Install Progress"
 		Error=$?
 	fi
 	cd /tmp

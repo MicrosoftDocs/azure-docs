@@ -53,6 +53,9 @@ This article provides you an example of how you can use System Center Configurat
 6. Copy the **Microsoft-ASR\_UA\_*version*\_Windows\_GA\_*date*\_Release.exe** to the **MobSvcWindows** folder on your network share.
 7. Copy the code listed below and save it as **install.bat** into the **MobSvcWindows** folder
 
+> [!NOTE]
+> Remember to replace the [CSIP] place holders in the below script with the actual values of the IP Address of your Configuration Server.
+
   [!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-sccm-windows-script.md)]
 
 ## Step 2: Create a Package
@@ -134,6 +137,8 @@ Mobility Service gets installed on the Windows Server Device Collection as per t
   * Microsoft-ASR\_UA\_*version*\_SLES11-SP3-64\_GA\_*date*\_Release.tar.gz
 
 7. Copy the code listed below and save it as **install_linux.sh** into the **MobSvcLinux** folder
+> [!NOTE]
+> Remember to replace the [CSIP] place holders in the below script with the actual values of the IP Address of your Configuration Server.
 
   [!INCLUDE [site-recovery-sccm-windows-script](../../includes/site-recovery-sccm-linux-script.md)]
 

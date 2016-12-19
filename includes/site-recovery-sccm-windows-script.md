@@ -27,7 +27,7 @@
 	IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UPDATE
 	:INSTALL
 		echo "Install" >> c:\Temp\logfile.log
-		UnifiedAgent.exe /Role "Agent" /CSEndpoint "10.10.20.168" /PassphraseFilePath %Temp%\MobSvc\MobSvc.passphrase
+		UnifiedAgent.exe /Role "Agent" /CSEndpoint "[CS IP]" /PassphraseFilePath %Temp%\MobSvc\MobSvc.passphrase
 		exit %ERRORLEVEL%
 	:UPDATE
 		echo "Update" >> C:\Temp\logfile.log
