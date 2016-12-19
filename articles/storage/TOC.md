@@ -111,7 +111,7 @@
 ### [Using the Import-Export Tool](storage-import-export-tool-how-to.md)
 #### [Setting up the Import-Export Tool](storage-import-export-tool-setup.md)
 #### [Preparing hard drives for an import job](storage-import-export-tool-preparing-hard-drives-import.md)
-##### [Setting Properties and Metadata during the import process](import-export-tool-setting-properties-metadata-import.md)
+##### [Setting Properties and Metadata during the import process](storage-import-export-tool-setting-properties-metadata-import.md)
 ##### [Sample workflow to prepare hard drives for an import job](storage-import-export-tool-sample-preparing-hard-drives-import-job-workflow.md)
 ##### [Quick reference for frequently used commands for import jobs](storage-import-export-tool-quick-reference.md)
 #### [Previewing drive usage for an export job](storage-import-export-tool-previewing-drive-usage-export-v1.md)
