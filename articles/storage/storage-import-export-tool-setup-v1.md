@@ -28,7 +28,7 @@ The Microsoft Azure Import/Export tool is the drive preparation and repair tool 
 -   After you receive the drives from a completed export job, you can use this tool to repair any files that were corrupted or missing on the drives.  
   
 ## Prerequisites  
- If you are preparing drives for an import job, you will need to meet the following prerequisites:  
+If you are preparing drives for an import job, you will need to meet the following prerequisites:  
   
 -   You must have an active Azure subscription.  
   
@@ -42,17 +42,17 @@ The Microsoft Azure Import/Export tool is the drive preparation and repair tool 
   
 -   BitLocker must be enabled on the copy machine.  
   
--   You will need one or more drive that contains data to be imported or empty 3.5-inch SATA hard drives connected to the copy machine.  
+-   You will need one or more drives that contains data to be imported or empty 3.5-inch SATA hard drives connected to the copy machine.  
   
 -   The files you plan to import must be accessible from the copy machine, whether they are on a network share or a local hard drive. 
   
- If you are attempting to repair an import that has partially failed, you will need:  
+If you are attempting to repair an import that has partially failed, you will need:  
   
 -   The copy log files  
   
 -   The storage account key  
   
- If you are attempting to repair an export that has partially failed, you will need:  
+  If you are attempting to repair an export that has partially failed, you will need:  
   
 -   The copy log files  
   
