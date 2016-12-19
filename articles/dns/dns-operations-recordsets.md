@@ -19,11 +19,11 @@ ms.author: gwallace
 # Manage DNS records and record sets by using PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-operations-recordsets-portal.md)
+> * [Azure portal](dns-operations-recordsets-portal.md)
 > * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
-This article shows you how to manage record sets and records for your DNS zone by using Azure PowerShell. DNS records can also be managed by using the cross-platform [Azure CLI](dns-operations-recordsets-cli.md) or the [Azure Portal](dns-operations-recordsets-portal.md).
+This article shows you how to manage record sets and records for your DNS zone by using Azure PowerShell. DNS records can also be managed by using the cross-platform [Azure CLI](dns-operations-recordsets-cli.md) or the [Azure portal](dns-operations-recordsets-portal.md).
 
 The examples in this article assume you have already [installed Azure PowerShell, signed in, and created a DNS zone](dns-getstarted-create-dnszone.md).
 
@@ -42,9 +42,9 @@ If your new record has the same name and type as an existing record, you need to
 
 ### Create A records in a new record set
 
-You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. When creating a record set, you need to specify the record set name, the zone, the time to live (TTL), the record type, and the records to be created in the record set.
+You create record sets by using the `New-AzureRmDnsRecordSet` cmdlet. When creating a record set, you need to specify the record set name, the zone, the time to live (TTL), the record type, and the records to be created.
 
-The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type "A", you need to specify the IP address using the parameter `-IPv4Address`. Other parameters are used for other record types, see [Additional record type examples](#additional-record-type-examples) for details.
+The parameters for adding records to a record set vary depending on the type of the record set. For example, when using a record set of type "A", you need to specify the IP address using the parameter `-IPv4Address`. Other parameters are used for other record types. See [Additional record type examples](#additional-record-type-examples) for details.
 
 The following example creates a new record set with the relative name "www" in the DNS Zone "contoso.com". The fully-qualified name of the record set is "www.contoso.com". The record type is "A", and the TTL is 3600 seconds. The record set contains a single record, with IP address "1.2.3.4"
 
@@ -73,7 +73,7 @@ New-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyR
 New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -IPv4Address 1.2.3.4) -Metadata @{ dept="finance"; environment="production" } 
 ```
 
-Azure DNS also supports 'empty' record sets, which can act as a placeholder to reserve a DNS name prior to creating DNS records. Empty record sets are visible in the Azure DNS control plane, but do appear on the Azure DNS name servers. The following example creates an empty record set:
+Azure DNS also supports 'empty' record sets, which can act as a placeholder to reserve a DNS name before creating DNS records. Empty record sets are visible in the Azure DNS control plane, but do appear on the Azure DNS name servers. The following example creates an empty record set:
 
 ```powershell
 New-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords @()
@@ -98,7 +98,7 @@ New-AzureRmDnsRecordSet -Name "test-aaaa" -RecordType AAAA -ZoneName contoso.com
 > [!NOTE]
 > The DNS standards do not permit CNAME records at the apex of a zone (`-Name "@"`), nor do they permit record sets containing more than one record.
 > 
-> For further information, see [CNAME records](dns-zones-records.md#cname-records).
+> For more information, see [CNAME records](dns-zones-records.md#cname-records).
 
 
 ```powershell
@@ -107,7 +107,7 @@ New-AzureRmDnsRecordSet -Name test-cname -RecordType CNAME -ZoneName contoso.com
 
 ### Create an MX record set with a single record
 
-In this example, we use the record set name "@" to create an MX record at the zone apex (in this case, "contoso.com"). This is common for MX records.
+In this example, we use the record set name "@" to create an MX record at the zone apex (in this case, "contoso.com").
 
 
 ```powershell
@@ -122,7 +122,7 @@ New-AzureRmDnsRecordSet -Name test-ns -RecordType NS -ZoneName contoso.com -Reso
 
 ### Create a PTR record set with a single record
 
-In this case 'my-arpa-zone.com' represents the ARPA zone representing your IP range. Each PTR record set in this zone corresponds to an IP address within this IP range.
+In this case, 'my-arpa-zone.com' represents the ARPA zone representing your IP range. Each PTR record set in this zone corresponds to an IP address within this IP range.
 
 ```powershell
 New-AzureRmDnsRecordSet -Name 10 -RecordType PTR -ZoneName my-arpa-zone.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Ptrdname myservice.contoso.com) 
@@ -139,7 +139,7 @@ New-AzureRmDnsRecordSet -Name _sip._tls -RecordType SRV -ZoneName contoso.com -R
 
 ### Create a TXT record set with a single record
 
-The following example shows how to create a TXT record. For more information about the maximum string length supported in TXT records, see [TXT records](dns-zones-records.md#TXT-records).
+The following example shows how to create a TXT record. For more information about the maximum string length supported in TXT records, see [TXT records](dns-zones-records.md#txt-records).
 
 ```powershell
 New-AzureRmDnsRecordSet -Name test-txt -RecordType TXT -ZoneName contoso.com -ResourceGroupName MyResourceGroup -Ttl 3600 -DnsRecords (New-AzureRmDnsRecordConfig -Value "This is a TXT record" 
@@ -152,7 +152,7 @@ To retrieve an existing record set, use `Get-AzureRmDnsRecordSet`. This cmdlet r
 
 As with `New-AzureRmDnsRecordSet`, the record set name given must be a *relative* name, meaning it must exclude the zone name. You also need to specify the record type, and the zone containing the record set.
 
-The following example shows how to retrieve a record set. In this example, the zone is specified using the the `-ZoneName` and `-ResourceGroupName` parameters.
+The following example shows how to retrieve a record set. In this example, the zone is specified using the `-ZoneName` and `-ResourceGroupName` parameters.
 
 ```powershell
 $rs = Get-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup
@@ -196,7 +196,7 @@ $recordsets = Get-AzureRmDnsRecordSet -Zone $zone
 
 ## Add a record to an existing record set
 
-To add a record to an existing record set, follow the following 3 steps:
+To add a record to an existing record set, follow the following three steps:
 
 1. Get the existing record set
 
@@ -216,7 +216,7 @@ To add a record to an existing record set, follow the following 3 steps:
 	Set-AzureRmDnsRecordSet -RecordSet $rs
 	```
 
-Using `Set-AzureRmDnsRecordSet` will *replace* the existing record set in Azure DNS (and all records it contains) with the record set specified. [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes are not overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
+Using `Set-AzureRmDnsRecordSet` *replaces* the existing record set in Azure DNS (and all records it contains) with the record set specified. [Etag checks](dns-zones-records.md#etags) are used to ensure concurrent changes are not overwritten. You can use the optional `-Overwrite` switch to suppress these checks.
 
 This sequence of operations can also be *piped*, meaning you pass the record set object by using the pipe rather than passing it as a parameter:
 
@@ -224,9 +224,9 @@ This sequence of operations can also be *piped*, meaning you pass the record set
 Get-AzureRmDnsRecordSet -Name www –ZoneName contoso.com -ResourceGroupName MyResourceGroup -RecordType A | Add-AzureRmDnsRecordConfig -Ipv4Address 5.6.7.8 | Set-AzureRmDnsRecordSet
 ```
 
-The examples above show how to add an 'A' record to an existing record set of type 'A'. A similar sequence of operations is used to add records to record sets of other types, substituting the `-Ipv4Address` parameter of `Add-AzureRmDnsRecordConfig` with other parameters specifc to each record type. The parameters for each record type are the same as for the `New-AzureRmDnsRecordConfig` cmdlet, as shown in [Additional record type examples](#additional-record-type-examples) above.
+The examples above show how to add an 'A' record to an existing record set of type 'A'. A similar sequence of operations is used to add records to record sets of other types, substituting the `-Ipv4Address` parameter of `Add-AzureRmDnsRecordConfig` with other parameters specific to each record type. The parameters for each record type are the same as for the `New-AzureRmDnsRecordConfig` cmdlet, as shown in [Additional record type examples](#additional-record-type-examples) above.
 
-Record sets of type 'CNAME' or 'SOA' cannot conntain more than one record. This constraint arises from the DNS standards; it is not a limitation of Azure DNS.
+Record sets of type 'CNAME' or 'SOA' cannot contain more than one record. This constraint arises from the DNS standards. It is not a limitation of Azure DNS.
 
 ## Remove a record from an existing record set
 
@@ -286,7 +286,7 @@ Set-AzureRmDnsRecordSet -RecordSet $rs
 
 ### To modify an SOA record
 
-You cannot add or remove records from the automatically-created SOA record set at the zone apex (`-Name "@"`, including quote marks). However, you can modify any of the parameters within the SOA record (except "Host") and the record set TTL.
+You cannot add or remove records from the automatically created SOA record set at the zone apex (`-Name "@"`, including quote marks). However, you can modify any of the parameters within the SOA record (except "Host") and the record set TTL.
 
 The following example shows how to change the *Email* property of the SOA record:
 
@@ -336,7 +336,7 @@ Record sets can be deleted by using the `Remove-AzureRmDnsRecordSet` cmdlet. Del
 > [!NOTE]
 > You cannot delete the SOA and NS record sets at the zone apex (`-Name "@"`).  These are created automatically when the zone was created, and are deleted automatically when the zone is deleted.
 
-The following example shows how to delete a record set. In this example, the record set name, record set type, zone name and resource group are each specified explicitly.
+The following example shows how to delete a record set. In this example, the record set name, record set type, zone name, and resource group are each specified explicitly.
 
 ```powershell
 Remove-AzureRmDnsRecordSet -Name www -RecordType A -ZoneName contoso.com -ResourceGroupName MyResourceGroup

@@ -17,8 +17,8 @@ Sometimes you need to create more than one DNS record with a given name and type
     www.contoso.com.        3600    IN    A    134.170.185.46
     www.contoso.com.        3600    IN    A    134.170.188.221
 
-Azure DNS manages all DNS records using *record sets*. A record set (also known as a *resource* record set) is the collection of DNS records in a zone that have the same name and are of the same type. Most record sets contain a single record, but examples like the one above, in which a record set contains more than one record, are not uncommon.
+Azure DNS manages all DNS records using *record sets*. A record set (also known as a *resource* record set) is the collection of DNS records in a zone that have the same name and are of the same type. Most record sets contain a single record. However, examples like the one above, in which a record set contains more than one record, are not uncommon.
 
 For example, suppose you have already created an A record 'www' in the zone 'contoso.com', pointing to the IP address '134.170.185.46' (the first record above).  To create the second record you would add that record to the existing record set, rather than create an additional record set.
 
-The SOA and CNAME record types are exceptions. The DNS standards don't permit multiple records with the same name for these types, thus these record sets can only contain a single record.
+The SOA and CNAME record types are exceptions. The DNS standards don't permit multiple records with the same name for these types, therefore these record sets can only contain a single record.

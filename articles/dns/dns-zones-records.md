@@ -83,7 +83,7 @@ The DNS RFCs originally introduced a new 'SPF' record type to support this scena
 
 [SRV records](https://en.wikipedia.org/wiki/SRV_record) are used by various services to specify server locations. When specifying an SRV record in Azure DNS:
 
-* The *service* and *protocol* must be specified as part of the record set name, prefixed with underscores.  For example, '\_sip.\_tcp.name'.  For a record at the zone apex, there is no need to specify '@' in the record name, simply use the service and protocol, e.g. '\_sip.\_tcp'.
+* The *service* and *protocol* must be specified as part of the record set name, prefixed with underscores.  For example, '\_sip.\_tcp.name'.  For a record at the zone apex, there is no need to specify '@' in the record name, simply use the service and protocol, for example '\_sip.\_tcp'.
 * The *priority*, *weight*, *port*, and *target* are specified as parameters of each record in the record set.
 
 ### TXT records
@@ -92,7 +92,7 @@ TXT records are used to map domain names to arbitrary text strings. They are use
 
 The DNS standards permit a single TXT record to contain multiple strings, each of which may be up to 254 characters in length. Where multiple strings are used, they are concatenated by clients and treated as a single string.
 
-When calling the Azure DNS REST API, you will need to specify each TXT string separately.  When using the Azure Portal, PowerShell or CLI interfaces, you specify a single string per record which is automatically divided into 254-character segments if necessary.
+When calling the Azure DNS REST API, you need to specify each TXT string separately.  When using the Azure portal, PowerShell or CLI interfaces you should specify a single string per record, which is automatically divided into 254-character segments if necessary.
 
 The multiple strings in a DNS record should not be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 1024 characters in each TXT record set (across all records combined). 
 

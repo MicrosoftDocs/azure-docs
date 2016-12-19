@@ -19,7 +19,7 @@ ms.author: gwallace
 # Create a DNS zone using Powershell
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](dns-getstarted-create-dnszone-portal.md)
+> * [Azure portal](dns-getstarted-create-dnszone-portal.md)
 > * [PowerShell](dns-getstarted-create-dnszone.md)
 > * [Azure CLI](dns-getstarted-create-dnszone-cli.md)
 
@@ -32,7 +32,7 @@ This article walks you through the steps to create a DNS zone using Azure PowerS
 
 ## Create a DNS zone
 
-A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet. The example below creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*. Use the example to create a DNS zone, substituting the values for your own.
+A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet. The following example creates a DNS zone called *contoso.com* in the resource group called *MyResourceGroup*. Use the example to create a DNS zone, substituting the values for your own.
 
 ```powershell
 New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
@@ -44,8 +44,8 @@ New-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceGroup
 
 Creating a DNS zone also creates the following DNS records:
 
-* The *Start of Authority* (SOA) record. This is present at the root of every DNS zone.
-* The authoritative name server (NS) records. These show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS. See [delegate a domain to Azure DNS](dns-domain-delegation.md) for more information.
+* The *Start of Authority* (SOA) record. This record is present at the root of every DNS zone.
+* The authoritative name server (NS) records. These records show which name servers are hosting the zone. Azure DNS uses a pool of name servers, and so different name servers may be assigned to different zones in Azure DNS. For more information, see [delegate a domain to Azure DNS](dns-domain-delegation.md).
 
 To view these records, use `Get-AzureRmDnsRecordSet`:
 
@@ -78,7 +78,7 @@ Metadata          :
 
 You can test your DNS zone is present on the Azure DNS name servers by using DNS tools such as nslookup, dig, or the [Resolve-DnsName PowerShell cmdlet](https://technet.microsoft.com/library/jj590781.aspx).
 
-If you haven't yet delegated your domain to use the new zone in Azure DNS, you need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by `Get-AzureRmDnsRecordSet` above. Be sure the substitute the correct values for your zone into the command below.
+If you haven't yet delegated your domain to use the new zone in Azure DNS, you need to direct the DNS query directly to one of the name servers for your zone. The name servers for your zone are given in the NS records, as listed by `Get-AzureRmDnsRecordSet` above. Be sure the substitute the correct values for your zone into the following example:
 
     nslookup
     > set type=SOA
