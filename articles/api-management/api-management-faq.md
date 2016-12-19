@@ -20,8 +20,11 @@ ms.author: mijiang
 # Azure API Management FAQs
 Get the answers to common questions, patterns, and best practices for Azure API Management.
 
-## Frequently asked questions
+## Contact us
 * [How can I ask the Microsoft Azure API Management team a question?](#how-can-i-ask-the-microsoft-azure-api-management-team-a-question)
+
+
+## Frequently asked questions
 * [What does it mean when a feature is in preview?](#what-does-it-mean-when-a-feature-is-in-preview)
 * [How can I secure the connection between the API Management gateway and my back-end services?](#how-can-i-secure-the-connection-between-the-api-management-gateway-and-my-back-end-services)
 * [How do I copy my API Management service instance to a new instance?](#how-do-i-copy-my-api-management-service-instance-to-a-new-instance)

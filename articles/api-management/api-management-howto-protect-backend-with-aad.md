@@ -385,9 +385,9 @@ Choose **Web application and/or Web API**, enter a name, and click the next arro
 
 ![New application][api-management-aad-new-application-devportal-1]
 
-For **Sign-on URL** enter the URL of your API Management service and append `/signin`. In this example **https://contoso5.portal.azure-api.net/signin **is used.
+For **Sign-on URL** enter the URL of your API Management service and append `/signin`. In this example `https://contoso5.portal.azure-api.net/signin` is used.
 
-For **App Id URL** enter the URL of your API Management service and append some unique characters. These can be any desired characters and in this example **https://contoso5.portal.azure-api.net/dp** is used. When the  desired **App properties** are configured, click the check mark to create the application.
+For **App Id URL** enter the URL of your API Management service and append some unique characters. These can be any desired characters and in this example `https://contoso5.portal.azure-api.net/dp` is used. When the  desired **App properties** are configured, click the check mark to create the application.
 
 ![New application][api-management-aad-new-application-devportal-2]
 
