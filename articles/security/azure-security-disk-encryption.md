@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2016
-ms.author: krkhan
+ms.author: kakhan
 
 ---
 # Azure Disk Encryption for Windows and Linux IaaS VMs
@@ -68,6 +68,9 @@ When you enable and deploy Azure disk encryption for Azure IaaS VMs, the followi
 * Safeguarding the encryption keys and secrets in customer Azure key vault subscription
 * Reporting encryption status of the encrypted IaaS VM
 * Removal of disk encryption configuration settings from the IaaS virtual machine
+* Backup and Restore of encrypted VMs using Azure backup service
+
+**Note**:  Backup and restore of encrypted VMs is supported only for VMs encrypted using Key Encryption Key [KEK] configuration. It is not supported for VMs encrypted without KEK. KEK is an optional parameter to enable VM encryption.
 
 The Azure disk encryption for IaaS VMS for Windows and Linux solution includes the disk encryption extension for Windows, disk encryption extension for Linux, disk encryption PowerShell cmdlets, disk encryption CLI cmdlets and disk encryption Azure Resource Manager templates. The Azure disk encryption solution is supported on IaaS VMs running Windows or Linux OS. For more details on the supported Operating Systems, see prerequisites section below.
 
@@ -150,6 +153,7 @@ The following are prerequisites to enable Azure Disk Encryption on Azure IaaS VM
   * Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager, see [here](../virtual-machines/azure-cli-arm-commands.md)
 * Azure disk encryption solution use BitLocker external key protector for Windows IaaS VMs. If your VMs are domain joined, do not push any group policies that enforce TPM protectors. Refer to [this article](https://technet.microsoft.com/library/ee706521) for details on the group policy for “Allow BitLocker without a compatible TPM”.
 * The Azure disk encryption prerequisite PowerShell script to create Azure AD application, create new key vault or setup existing key vault and enable encryption is located [here](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+* To use Azure backup service to backup and restore encrypted VMs, when encryption is enabled using Azure disk encryption, you must encrypt your VMs using Azure disk encryption key encryption key configuration. The backup service supports VMs encrypted using key encryption key [KEK] configuration only. It does not support VMs encrypted without KEK. See disk encryption deployment scenarios below to enable VM encryption using KEK option. 
 
 #### Setup the Azure AD Application in Azure Active Directory
 When encryption needs to be enabled on a running VM in Azure, Azure disk encryption generates and writes the encryption keys to your Key Vault. Managing encryption keys in Key Vault needs Azure AD authentication.

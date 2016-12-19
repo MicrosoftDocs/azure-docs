@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/05/2016
-ms.author: jtuliani
+ms.author: jonatul
 ---
 
 # DNS zones and records

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/09/2016
+ms.date: 12/15/2016
 ms.author: jgao
 
 ---
@@ -58,7 +58,7 @@ To make it easier to configure the environments, we have created some [Azure Res
 
 ### Configure the one-VNet scenario
 
-Click the following image to two HBase clusters in the same VNet. The template is stored in a public Azure Blob container. 
+Click the following image to create two HBase clusters in the same VNet. The template is stored in a public Azure Blob container. 
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
