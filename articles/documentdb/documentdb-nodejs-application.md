@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: hero-article
-ms.date: 11/16/2016
+ms.date: 12/16/2016
 ms.author: syamk
 
 ---
@@ -107,7 +107,25 @@ which modules need to be installed on Azure to support your application. We stil
         npm install documentdb --save
 3. A quick check of the **package.json** file of the application should show the additional modules. This file will tell Azure which packages to download and install when running your application. It should resemble the example below.
    
-    ![Screenshot of the package.json tab](./media/documentdb-nodejs-application/image17.png)
+        {
+          "name": "todo",
+          "version": "0.0.0",
+          "private": true,
+          "scripts": {
+            "start": "node ./bin/www"
+          },
+          "dependencies": {
+            "async": "^2.1.4",
+            "body-parser": "~1.15.2",
+            "cookie-parser": "~1.4.3",
+            "debug": "~2.2.0",
+            "documentdb": "^1.10.0",
+            "express": "~4.14.0",
+            "jade": "~1.11.0",
+            "morgan": "~1.7.0",
+            "serve-favicon": "~2.3.0"
+          }
+        }
    
     This tells Node (and Azure later) that your application depends on these additional modules.
 
@@ -115,7 +133,7 @@ which modules need to be installed on Azure to support your application. We stil
 That takes care of all the initial setup and configuration, now let’s get down to why we’re here, and that’s to write some code using Azure DocumentDB.
 
 ### Create the model
-1. In the project directory, create a new directory named **models**.
+1. In the project directory, create a new directory named **models** in the same directory as the package.json file.
 2. In the **models** directory, create a new file named **taskDao.js**. This file will contain the model for the tasks created by our application.
 3. In the same **models** directory, create another new file named **docdbUtils.js**. This file will contain some useful, reusable, code that we will use throughout our application. 
 4. Copy the following code in to **docdbUtils.js**
@@ -392,7 +410,7 @@ That takes care of all the initial setup and configuration, now let’s get down
         config.collectionId = "Items";
    
         module.exports = config;
-3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the [Microsoft Azure Portal](https://portal.azure.com):
+3. In the **config.js** file, update the values of HOST and AUTH_KEY using the values found in the Keys blade of your DocumentDB account on the [Microsoft Azure Portal](https://portal.azure.com).
 4. Save and close the **config.js** file.
 
 ### Modify app.js
@@ -406,7 +424,7 @@ That takes care of all the initial setup and configuration, now let’s get down
 3. This code defines the config file to be used, and proceeds to read values out of this file in to some variables we will use soon.
 4. Replace the following two lines in **app.js** file:
    
-        app.use('/', routes);
+        app.use('/', index);
         app.use('/users', users); 
    
       with the following snippet:
@@ -431,62 +449,62 @@ Now let’s turn our attention to building the user interface so a user can actu
 1. The **layout.jade** file in the **views** directory is used as a global template for other **.jade** files. In this step you will modify it to use [Twitter Bootstrap](https://github.com/twbs/bootstrap), which is a toolkit that makes it easy to design a nice looking website. 
 2. Open the **layout.jade** file found in the **views** folder and replace the contents with the following;
    
-        doctype html
-        html
-          head
-            title= title
-            link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
-            link(rel='stylesheet', href='/stylesheets/style.css')
-          body
-            nav.navbar.navbar-inverse.navbar-fixed-top
-              div.navbar-header
-                a.navbar-brand(href='#') My Tasks
-            block content
-            script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
-            script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
+    doctype html
+    html
+       head
+         title= title
+         link(rel='stylesheet', href='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/css/bootstrap.min.css')
+         link(rel='stylesheet', href='/stylesheets/style.css')
+       body
+         nav.navbar.navbar-inverse.navbar-fixed-top
+           div.navbar-header
+             a.navbar-brand(href='#') My Tasks
+         block content
+         script(src='//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.2.min.js')
+         script(src='//ajax.aspnetcdn.com/ajax/bootstrap/3.3.2/bootstrap.min.js')
 
     This effectively tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages.
     Save and close this **layout.jade** file.
 
 1. Now open the **index.jade** file, the view that will be used by our application, and replace the content of the file with the following:
    
-        extends layout
-   
-        block content
-          h1 #{title}
-          br
-   
-          form(action="/completetask", method="post")
-            table.table.table-striped.table-bordered
-              tr
-                td Name
-                td Category
-                td Date
-                td Complete
-              if (typeof tasks === "undefined")
-                tr
-                  td
-              else
-                each task in tasks
-                  tr
-                    td #{task.name}
-                    td #{task.category}
-                    - var date  = new Date(task.date);
-                    - var day   = date.getDate();
-                    - var month = date.getMonth() + 1;
-                    - var year  = date.getFullYear();
-                    td #{month + "/" + day + "/" + year}
-                    td
-                      input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
-            button.btn(type="submit") Update tasks
-          hr
-          form.well(action="/addtask", method="post")
-            label Item Name:
-            input(name="name", type="textbox")
-            label Item Category:
-            input(name="category", type="textbox")
-            br
-            button.btn(type="submit") Add item
+    extends layout
+
+    block content
+       h1 #{title}
+       br
+    
+       form(action="/completetask", method="post")
+         table.table.table-striped.table-bordered
+           tr
+             td Name
+             td Category
+             td Date
+             td Complete
+           if (typeof tasks === "undefined")
+             tr
+               td
+           else
+             each task in tasks
+               tr
+                 td #{task.name}
+                 td #{task.category}
+                 - var date  = new Date(task.date);
+                 - var day   = date.getDate();
+                 - var month = date.getMonth() + 1;
+                 - var year  = date.getFullYear();
+                 td #{month + "/" + day + "/" + year}
+                 td
+                   input(type="checkbox", name="#{task.id}", value="#{!task.completed}", checked=task.completed)
+         button.btn(type="submit") Update tasks
+       hr
+       form.well(action="/addtask", method="post")
+         label Item Name:
+         input(name="name", type="textbox")
+         label Item Category:
+         input(name="category", type="textbox")
+         br
+         button.btn(type="submit") Add item
    
     This extends layout, and provides content for the **content** placeholder we saw in the **layout.jade** file earlier.
    
