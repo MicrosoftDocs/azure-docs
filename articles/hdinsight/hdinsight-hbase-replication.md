@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/09/2016
+ms.date: 12/15/2016
 ms.author: jgao
 
 ---
 # Configure HBase replication
 
-Learn how to configure HBase replication within one virtual network (VNet) or between two VNets. 
+Learn how to configure HBase replication within one virtual network (VNet) or between two VNets.
 
-Cluster replication uses a source-push methodology. An HBase cluster can be a source, a destination, or can fulfill both roles at once. Replication is asynchronous, and the goal of replication is eventual consistency. When the source receives an edit to a column family with replication enabled, that edit is propagated to all destination clusters. When data is replicated from one cluster to another, the source cluster and all clusters which have already consumed the data are tracked to prevent replication loops. For more information, 
+Cluster replication uses a source-push methodology. An HBase cluster can be a source, a destination, or can fulfill both roles at once. Replication is asynchronous, and the goal of replication is eventual consistency. When the source receives an edit to a column family with replication enabled, that edit is propagated to all destination clusters. When data is replicated from one cluster to another, the source cluster and all clusters which have already consumed the data are tracked to prevent replication loops. For more information,
 In this tutorial, you will configure a source-destination replication. For other cluster topologies, see [Apache HBase Reference Guide](http://hbase.apache.org/book.html#_cluster_replication).
 
 Single-VNet HBase replication usage cases:
@@ -36,7 +36,7 @@ Two-VNet HBase replication usage cases:
 * Load balance and partition the application.
 * High availability.
 
-Cluster replication is done by using [script action](hdinsight-hadoop-customize-cluster-linux.md) scripts located at [Github](https://github.com/Azure/hbase-utils/tree/master/replication). 
+Cluster replication is done by using [script action](hdinsight-hadoop-customize-cluster-linux.md) scripts located at [Github](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## Prerequisites
 Before you begin this tutorial, you must have the following:
@@ -58,17 +58,17 @@ To make it easier to configure the environments, we have created some [Azure Res
 
 ### Configure the one-VNet scenario
 
-Click the following image to two HBase clusters in the same VNet. The template is stored in a public Azure Blob container. 
+Click the following image to create two HBase clusters in the same VNet. The template is stored in a public Azure Blob container.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-hdinsight-hbase-replication-one-vnet%2Fazuredeploy.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
 ### Configure the two-VNet in the same region scenario
 
-Click the following image to create two VNets with VNet peering and two HBase clusters in the same region. The template is stored in a public Azure Blob container. 
+Click the following image to create two VNets with VNet peering and two HBase clusters in the same region. The template is stored in a public Azure Blob container.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-replication-with-two-vnets-peering-in-one-region.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-This scenario requires [VNet peering](../virtual-network/virtual-network-peering-overview.md). VNet peering is enabled by the template.   
+This scenario requires [VNet peering](../virtual-network/virtual-network-peering-overview.md). VNet peering is enabled by the template.
 
 HBase replication uses IP addresses of the Zookeepers. You must configure static IP addresses for the destination HBase Zookeeper nodes.
 
@@ -89,7 +89,7 @@ HBase replication uses IP addresses of the Zookeepers. You must configure static
 
 ### Configure the two-vnet in two different region scenario
 
-Click the following image to create two VNets in two different regions. The template is stored in a public Azure Blob container. 
+Click the following image to create two VNets in two different regions. The template is stored in a public Azure Blob container.
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-geo-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
@@ -97,7 +97,7 @@ Create a VPN gateway between the two VNets.  For the instructions, see [Create a
 
 HBase replication uses IP addresses of the Zookeepers. You must configure static IP addresses for the destination HBase Zookeeper nodes. To configure static IP, see the Configure the one-vnet scenario section in this article.
 
-## Load test data 
+## Load test data
 
 When you replicate a cluster, you must specify the tables to replicate.  In this section, you will load some data into the source cluster. In the next section, you will enable replication between the two clusters.
 
@@ -108,19 +108,19 @@ Follow the instructions in [HBase tutorial: Get started using Apache HBase with 
 The following steps show how to call the script action script from the Azure portal. For running script action using Azure PowerShell and Azure CLI, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
 
 **To enable HBase replication from the Azure portal**
- 
-1. Sign on to the [Azure portal](https://portal.azure.com). 
+
+1. Sign on to the [Azure portal](https://portal.azure.com).
 2. Open the source HBase cluster.
 3. From the cluster menu, click **Script Actions**.
 4. Click **Submit New** from the top of the blade.
 5. Select or enter the following information:
-        
+
   - **Name**: Enable replication
   - **Bash Script URL**:  https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
   - **Head**: (Selected. And unselect the other node types.
   - **Parameters**: The following sample parameters enables replication for all the existing tables, and copy all the data from the source cluster to the destination cluster:
 
-        -m hn1 -s &lt;source cluster DNS name> -d &lt;destination cluster DNS name> -sp &lt;source cluster Ambari password> -dp &lt;destination cluster Ambari password> -copydata    
+        -m hn1 -s &lt;source cluster DNS name> -d &lt;destination cluster DNS name> -sp &lt;source cluster Ambari password> -dp &lt;destination cluster Ambari password> -copydata
 
 6. Click **Create**. The script can take some time especially when the -copydata argument is used.
 
@@ -130,7 +130,7 @@ Required arguments:
 |----|-----------|
 |-s, --src-cluster | Specify the DNS name of the source HBase cluster. For example: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | Specify the DNS name of the destination (replica) HBase cluster. For example: -s dsthbcluster, --src-cluster=dsthbcluster |
-|-sp, --src-ambari-password | Specify the admin password for Ambari of source HBase cluster. | 
+|-sp, --src-ambari-password | Specify the admin password for Ambari of source HBase cluster. |
 |-dp, --dst-ambari-password | Specify the admin password for Ambari of destination HBase cluster.|
 
 Optional arguments:
@@ -147,7 +147,7 @@ Optional arguments:
 |-h, --help | Display's usage information. |
 
 Detailed explanation of parameters is provided in print_usage() section of following script: [https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh).
- 
+
 After the script action is successfully deployed, you can use SSH to connect to the destination HBase cluster, and verify the data has been replicated.
 
 ### Replication scenarios
@@ -156,19 +156,19 @@ The following list shows you some general usage cases and their parameter settin
 
 1. **Enable replication on all tables between the two clusters**. This scenario does not require the copy/migration of existing data on the tables, and it does not use Phoenix tables. Use the following parameters:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
- 
+        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>
+
 2. **Enable replication on specific tables**. Use the following parameters to enable replication on table1, table2 and table3:
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" 
- 
+        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
+
 3. **Enable replication on specific tables and copy the existing data**. Use the following parameters to enable replication on table1, table2 and table3:
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
- 
-4. **Enable replication on all tables with replicating phoenix metadata from source to destination**. Phoenix metadata replication is not perfect and should be enabled with caution. 
 
-        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta  
+4. **Enable replication on all tables with replicating phoenix metadata from source to destination**. Phoenix metadata replication is not perfect and should be enabled with caution.
+
+        -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -replicate-phoenix-meta
 
 ## Copy and migrate data
 
@@ -177,7 +177,7 @@ There are two separate script action scripts for copying/migrating data after re
 - For small tables (few GB's in size and overall copy is expected to finish in less than 1 hour):
 
     https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_copy_table.sh
- 
+
 - For large tables (expected to take longer than 1 hour to copy):
 
     https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/nohup_hdi_copy_table.sh
@@ -185,47 +185,47 @@ There are two separate script action scripts for copying/migrating data after re
 You can follow the same procedure in [Enable replication](#enable-replication) to call the script action with the following parameters:
 
     -m hn1 -t <table1:start_timestamp:end_timestamp;table2:start_timestamp:end_timestamp;...> -p <replication_peer> [-everythingTillNow]
- 
+
 Detailed description of parameters is provided in the print_usage() section of the [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_copy_table.sh).
 
 
 ### Scenarios
 
 1. **Copy specific tables (test1, test2 and test3) for all rows edited till now (current timestamp)**:
- 
-        -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow 
+
+        -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
   or
 
-        -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow 
- 
- 
+        -m hn1 -t "test1::;test2::;test3::" --replication-peer="zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
+
+
 2. **Copy specific tables with specified time range**:
-  
-        -m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" 
+
+        -m hn1 -t "table1:0:452256397;table2:14141444:452256397" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure"
 
 
 ## Disable replication
 
 To disable replication, you use another script action script located at https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh. You can follow the same procedure in [Enable replication](#enable-replication) to call the script action with the following parameters:
 
-    -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari Password> <-all|-t "table1;table2;...">  
- 
+    -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari Password> <-all|-t "table1;table2;...">
+
 Detailed explanation of parameters is provided in print_usage() section of the [script](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh).
- 
+
 
 ### Scenarios
- 
+
 1. **Disable replication on all tables**:
- 
-        -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all 
+
+        -m hn1 -s <source cluster DNS name> -sp Mypassword\!789 -all
   or
 
         --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=&lt;source cluster Ambari username> --src-ambari-password=&lt;source cluster Ambari password>
- 
+
 2. **Disable replication on specified tables**(table1, table2 and table3):
-  
+
         -m hn1 -s <source cluster DNS name> -sp &lt;source cluster Ambari password> -t "table1;table2;table3"
- 
+
 ## Next Steps
 
 In this tutorial, you have learned how to configure HBase replication across two datacenters. To learn more about HDInsight and HBase, see:
@@ -242,7 +242,7 @@ In this tutorial, you have learned how to configure HBase replication across two
 
 [img-vnet-diagram]: ./media/hdinsight-hbase-geo-replication/HDInsight.HBase.Replication.Network.diagram.png
 
-[powershell-install]: powershell-install-configure.md
+[powershell-install]: /powershell/azureps-cmdlets-docs
 [hdinsight-hbase-get-started]: hdinsight-hbase-tutorial-get-started-linux.md
 [hdinsight-manage-portal]: hdinsight-administer-use-management-portal.md
 [hdinsight-provision]: hdinsight-provision-clusters.md

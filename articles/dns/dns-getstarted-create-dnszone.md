@@ -16,7 +16,7 @@ ms.date: 12/05/2016
 ms.author: gwallace
 ---
 
-# Create a DNS zone using Powershell
+# Create a DNS zone using PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure Portal](dns-getstarted-create-dnszone-portal.md)
@@ -32,13 +32,13 @@ This article walks you through the steps to create a DNS zone using Azure PowerS
 Verify that you have the following items before beginning your configuration.
 
 * An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* You need to install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](../powershell-install-configure.md).
+* You need to install the latest version of the Azure Resource Manager PowerShell cmdlets. For more information, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs/).
 
 ## Step 1 - Sign in and create a resource group
 
 ### Sign in to your Azure account
 
-Open your PowerShell console and connect to your account. For more information, see [Using PowerShell with Resource Manager](../powershell-azure-resource-manager.md).
+Open your PowerShell console and connect to your account. For more information, see [Using PowerShell with Resource Manager](../azure-resource-manager/powershell-azure-resource-manager.md).
 
 ```powershell
 Login-AzureRmAccount
