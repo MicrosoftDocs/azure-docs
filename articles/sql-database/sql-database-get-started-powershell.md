@@ -28,9 +28,9 @@ In this getting-started tutorial, you learn how to use PowerShell to:
 * Create an Azure SQL logical server
 * View Azure SQL server properties
 * Create a server-level firewall rule
-* Create the AdventureWorksLT sample database as a standalone database
+* Create the AdventureWorksLT sample database as a single database
 * View AdventureWorksLT sample database properties
-* Create a blank standalone database
+* Create a blank single database
 
 In this tutorial, you also:
 
