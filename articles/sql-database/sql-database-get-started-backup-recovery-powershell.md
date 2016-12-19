@@ -44,7 +44,7 @@ In this getting-started tutorial, you learn how to use Azure PowerShell to:
 * You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) or the equivalent [PowerShell version](sql-database-get-started-powershell.md). If you have not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](sql-database-get-started-powershell.md) before continuing.
 
 > [!TIP]
-> You can perform these same tasks in a getting started tutorial by using [Azure portal](sql-database-get-started-backup-recovery.md).
+> You can perform these same tasks in a getting started tutorial by using the [Azure portal](sql-database-get-started-backup-recovery.md).
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
 
@@ -247,6 +247,7 @@ Set-AzureRmContext -SubscriptionId $subscriptionId
 $myResourceGroupName = "{resource-group-name}"
 $myServerName = "{server-name}"
 $myDatabaseToRestoreFromPointInTime = "{database-name}"
+$myLocalTimeToRestoreTo = "{12/08/2016 16:00:00}" # change to a valid restore point for your database
 $myNewDatabaseRestoredFromPointInTime = "{new-database-name}"
 
 $myRecoveryServiceVaultName = "{vault-name}"
@@ -276,8 +277,8 @@ Write-Host "'$databaseName' on '$serverName' can be restored to any point-in-tim
 # Restore a database to a previous point in time
 ################################################
 
-$newRestoredDatabaseName = $myDatabaseRestoredFromPointInTime
-$localTimeToRestoreTo = "{12/08/2016 16:00:00}" # change to a valid restore point for your database
+$newRestoredDatabaseName = $myNewDatabaseRestoredFromPointInTime
+$localTimeToRestoreTo = $myLocalTimeToRestoreTo
 $restorePointInTime = (Get-Date $localTimeToRestoreTo).ToUniversalTime()
 $newDatabaseEdition = "Basic"
 $newDatabaseServiceLevel = "Basic"
