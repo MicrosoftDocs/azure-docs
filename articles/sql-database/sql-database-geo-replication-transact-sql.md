@@ -21,7 +21,7 @@ ms.author: carlrab
 # Configure active geo-replication for Azure SQL Database with Transact-SQL
 > [!div class="op_single_selector"]
 > * [Overview](sql-database-geo-replication-overview.md)
-> * [Azure Portal](sql-database-geo-replication-portal.md)
+> * [Azure portal](sql-database-geo-replication-portal.md)
 > * [PowerShell](sql-database-geo-replication-powershell.md)
 > * [T-SQL](sql-database-geo-replication-transact-sql.md)
 > 
