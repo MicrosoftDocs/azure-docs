@@ -27,7 +27,7 @@ ms.author: syamk
 > 
 > 
 
-This Node.js tutorial shows you how to use Azure DocumentDB to store and access data from a Node.js Express application hosted on Azure Websites. You will build a simple web-based task-management application, a ToDO app, that allows creating, retrieving, and completing tasks. The tasks will be stored as JSON documents in Azure DocumentDB. This tutorial will walk you through the creation and deployment of the app and explain what's happening in each snippet.
+This Node.js tutorial shows you how to use Azure DocumentDB to store and access data from a Node.js Express application hosted on Azure Websites. You will build a simple web-based task-management application, a ToDo app, that allows creating, retrieving, and completing tasks. The tasks will be stored as JSON documents in Azure DocumentDB. This tutorial will walk you through the creation and deployment of the app and explain what's happening in each snippet.
 
 ![Screen shot of the My Todo List application created in this Node.js tutorial](./media/documentdb-nodejs-application/image1.png)
 
@@ -81,6 +81,8 @@ Now let's learn to create a basic Hello World Node.js project using the [Express
 5. You can view your new application by navigating your browser to [http://localhost:3000](http://localhost:3000).
    
     ![Learn Node.js - Screenshot of the Hello World application in a browser window](./media/documentdb-nodejs-application/image12.png)
+
+    Then, to stop the application, press CTRL+C in the terminal window.
 
 ## <a name="_Toc395783179"></a>Step 3: Install additional modules
 The **package.json** file is one of the files created in the root of the project. This file contains a list of additional modules that are required for your Node.js application. Later, when you deploy this application to an Azure Websites, this file is used to determine which modules need to be installed on Azure to support your  application. We still need to install two more packages for this tutorial.
@@ -452,7 +454,7 @@ Now let’s turn our attention to building the user interface so a user can actu
     This effectively tells the **Jade** engine to render some HTML for our application and creates a **block** called **content** where we can supply the layout for our content pages.
     Save and close this **layout.jade** file.
 
-1. Now open the **index.jade** file, the view that will be used by our application, and replace the content of the file with the following:
+3. Now open the **index.jade** file, the view that will be used by our application, and replace the content of the file with the following:
    
         extends layout
 
@@ -499,7 +501,7 @@ Now let’s turn our attention to building the user interface so a user can actu
     The second form contains two input fields and a button that allows us to create a new item by posting to **/addtask** method of our controller.
    
     This should be all that we need for our application to work.
-2. Open the **style.css** file in **public\stylesheets** directory and replace the code with the following:
+4. Open the **style.css** file in **public\stylesheets** directory and replace the code with the following:
    
         body {
           padding: 50px;
@@ -522,17 +524,18 @@ Now let’s turn our attention to building the user interface so a user can actu
     Save and close this **style.css** file.
 
 ## <a name="_Toc395783181"></a>Step 6: Run your application locally
-1. To test the application on your local machine, run `npm start` in a terminal to start your application, and launch a browser with a page that looks like the image below:
+1. To test the application on your local machine, run `npm start` in the terminal to start your application, then refresh your [http://localhost:3000](http://localhost:3000) browser page. The page should now look like the image below:
    
     ![Screenshot of the MyTodo List application in a browser window](./media/documentdb-nodejs-application/image18.png)
-2. Use the provided fields for Item, Item Name and Category to enter
-   information, and then click **Add Item**.
+2. Use the Item, Item Name and Category fields to enter a new task and then click **Add Item**. This creates a document in DocumentDB with those properties. 
 3. The page should update to display the newly created item in the ToDo
    list.
    
     ![Screenshot of the application with a new item in the ToDo list](./media/documentdb-nodejs-application/image19.png)
 4. To complete a task, simply check the checkbox in the Complete column,
-   and then click **Update tasks**.
+   and then click **Update tasks**. This updates the document you already created.
+
+5. To stop the application, press CTRL+C in the terminal window.
 
 ## <a name="_Toc395783182"></a>Step 7: Deploy your application development project to Azure Websites
 1. If you haven't already, enable a git repository for your Azure Website. You can find instructions on how to do this in the [Local Git Deployment to Azure App Service](../app-service-web/app-service-deploy-local-git.md) topic.
@@ -546,13 +549,16 @@ Now let’s turn our attention to building the user interface so a user can actu
    application and launch a browser where you can see your handy work
    running in Azure!
 
+    Congratulations! You have just built your first Node.js Express Web Application using Azure DocumentDB and published it to Azure Websites.
+
+    If you want to download or refer to the complete reference application for this tutorial, it can be downloaded from [GitHub][GitHub].
+
 ## <a name="_Toc395637775"></a>Next steps
-Congratulations! You have just built your first Node.js Express Web
-Application using Azure DocumentDB and published it to Azure Websites.
 
-The source code for the complete reference application can be downloaded from [GitHub][GitHub].
-
-For more information, see the [Node.js Developer Center](https://azure.microsoft.com/develop/nodejs/).
+* Want to perform scale and performance testing with DocumentDB? See [Performance and Scale Testing with Azure DocumentDB](documentdb-performance-testing.md)
+* Learn how to [monitor a DocumentDB account](documentdb-monitor-accounts.md).
+* Run queries against our sample dataset in the [Query Playground](https://www.documentdb.com/sql/demo).
+* Explore the [DocumentDB documentation](https://docs.microsoft.com/en-us/azure/documentdb/).
 
 [Node.js]: http://nodejs.org/
 [Git]: http://git-scm.com/
