@@ -37,7 +37,7 @@ HBase replication usage cases for two virtual networks:
 * Load balancing and partitioning the application
 * High availability
 
-Cluster replication is done by using [script action](hdinsight-hadoop-customize-cluster-linux.md) scripts located at [Github](https://github.com/Azure/hbase-utils/tree/master/replication).
+You replicate clusters by using [script action](hdinsight-hadoop-customize-cluster-linux.md) scripts located at [GitHub](https://github.com/Azure/hbase-utils/tree/master/replication).
 
 ## Prerequisites
 Before you begin this tutorial, you must have an Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
@@ -52,8 +52,8 @@ There are three possible configurations:
 
 To make it easier to configure the environments, we have created some [Azure Resource Manager templates](../azure-resource-manager/resource-group-overview.md). If you prefer to configure the environments by using other methods, see:
 
-- [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md).
-- [Create HBase clusters in Azure Virtual Network](hdinsight-hbase-provision-vnet.md).
+- [Create Linux-based Hadoop clusters in HDInsight](hdinsight-hadoop-provision-linux-clusters.md)
+- [Create HBase clusters in Azure Virtual Network](hdinsight-hbase-provision-vnet.md)
 
 ### Configure one virtual network
 
@@ -92,7 +92,7 @@ Click the following image to create two virtual networks in two different region
 
 <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Fhbaseha%2Fdeploy-hbase-geo-replication.json" target="_blank"><img src="./media/hdinsight-hbase-replication/deploy-to-azure.png" alt="Deploy to Azure"></a>
 
-Create a VPN gateway between the two virtual networks. For the instructions, see [Create a VNet with a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
+Create a VPN gateway between the two virtual networks. For instructions, see [Create a VNet with a site-to-site connection](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
 HBase replication uses IP addresses of the ZooKeeper VMs. You must configure static IP addresses for the destination HBase ZooKeeper nodes. To configure static IP, see the "Configure two virtual networks in the same region" section in this article.
 
@@ -104,7 +104,7 @@ Follow the instructions in [HBase tutorial: Get started using Apache HBase with 
 
 ## Enable replication
 
-The following steps show how to call the script action script from the Azure portal. For running a script action using Azure PowerShell and Azure CLI, see [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
+The following steps show how to call the script action script from the Azure portal. For running a script action by using Azure PowerShell and the Azure command-line interface (CLI), see [Customize Linux-based HDInsight clusters using script action](hdinsight-hadoop-customize-cluster-linux.md).
 
 **To enable HBase replication from the Azure portal**
 
@@ -129,23 +129,23 @@ Required arguments:
 |----|-----------|
 |-s, --src-cluster | Specify the DNS name of the source HBase cluster. For example: -s hbsrccluster, --src-cluster=hbsrccluster |
 |-d, --dst-cluster | Specify the DNS name of the destination (replica) HBase cluster. For example: -s dsthbcluster, --src-cluster=dsthbcluster |
-|-sp, --src-ambari-password | Specify the admin password for Ambari of the source HBase cluster. |
-|-dp, --dst-ambari-password | Specify the admin password for Ambari of the destination HBase cluster.|
+|-sp, --src-ambari-password | Specify the admin password for Ambari on the source HBase cluster. |
+|-dp, --dst-ambari-password | Specify the admin password for Ambari on the destination HBase cluster.|
 
 Optional arguments:
 
 |Name|Description|
 |----|-----------|
-|-su, --src-ambari-user | Specify the admin username for Ambari of the source HBase cluster. The default value is **admin**. |
-|-du, --dst-ambari-user | Specify the admin username for Ambari of the destination HBase cluster. The default value is **admin**. |
+|-su, --src-ambari-user | Specify the admin username for Ambari on the source HBase cluster. The default value is **admin**. |
+|-du, --dst-ambari-user | Specify the admin username for Ambari on the destination HBase cluster. The default value is **admin**. |
 |-t, --table-list | Specify the tables to be replicated. For example: --table-list="table1;table2;table3". If you don't specify tables, all existing HBase tables are replicated.|
-|-m, --machine | Specify the head node where the script action will run. The value is either hn1 or hn0. Because hn0 is usually busier, we recommend using hn1. You use this option is used when you're running the $0 script as a script action from the HDInsight portal or Azure PowerShell.|
+|-m, --machine | Specify the head node where the script action will run. The value is either hn1 or hn0. Because hn0 is usually busier, we recommend using hn1. You use this option when you're running the $0 script as a script action from the HDInsight portal or Azure PowerShell.|
 |-ip | This argument is required when you're enabling replication between two virtual networks. This argument acts as a switch to use the static IPs of ZooKeeper nodes from replica clusters instead of FQDN names. The static IPs need to be preconfigured before you enable replication. |
 |-cp, -copydata | Enable the migration of existing data on the tables where replication is enabled. |
-|-rpm, -replicate-phoenix-meta | Enable replication on Phoenix system tables. NOTE: Use this option with caution. We recommend that you re-create Phoenix tables on replica clusters before you use this script. |
+|-rpm, -replicate-phoenix-meta | Enable replication on Phoenix system tables. <br><br>*Use this option with caution.* We recommend that you re-create Phoenix tables on replica clusters before you use this script. |
 |-h, --help | Display usage information. |
 
-The print_usage() section of the following script provides a detailed explanation of parameters: [https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh).
+The print_usage() section of the [script](https://github.com/Azure/hbase-utils/blob/master/replication/hdi_enable_replication.sh) provides a detailed explanation of parameters.
 
 After the script action is successfully deployed, you can use SSH to connect to the destination HBase cluster, and verify the data has been replicated.
 
@@ -157,11 +157,11 @@ The following list shows you some general usage cases and their parameter settin
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password>  
 
-- **Enable replication on specific tables**. Use the following parameters to enable replication on table1, table2 and table3:
+- **Enable replication on specific tables**. Use the following parameters to enable replication on table1, table2, and table3:
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3"
 
-- **Enable replication on specific tables and copy the existing data**. Use the following parameters to enable replication on table1, table2 and table3:
+- **Enable replication on specific tables and copy the existing data**. Use the following parameters to enable replication on table1, table2, and table3:
 
         -m hn1 -s <source cluster DNS name> -d <destination cluster DNS name> -sp <source cluster Ambari password> -dp <destination cluster Ambari password> -t "table1;table2;table3" -copydata
 
@@ -173,13 +173,9 @@ The following list shows you some general usage cases and their parameter settin
 
 There are two separate script action scripts for copying/migrating data after replication is enabled:
 
-- For small tables (few GB's in size and overall copy is expected to finish in less than 1 hour):
+- [Script for small tables](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_copy_table.sh) (a few gigabytes in size, and overall copy is expected to finish in less than one hour)
 
-    https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_copy_table.sh
-
-- For large tables (expected to take longer than 1 hour to copy):
-
-    https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/nohup_hdi_copy_table.sh
+- [Script for large tables](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/nohup_hdi_copy_table.sh) (expected to take longer than one hour to copy)
 
 You can follow the same procedure in [Enable replication](#enable-replication) to call the script action with the following parameters:
 
@@ -189,7 +185,7 @@ The print_usage() section of the [script](https://github.com/Azure/hbase-utils/b
 
 ### Scenarios
 
-- **Copy specific tables (test1, test2 and test3) for all rows edited till now (current timestamp)**:
+- **Copy specific tables (test1, test2 and test3) for all rows edited till now (current time stamp)**:
 
         -m hn1 -t "test1::;test2::;test3::" -p "zk5-hbrpl2;zk1-hbrpl2;zk5-hbrpl2:2181:/hbase-unsecure" -everythingTillNow
   or
@@ -204,7 +200,7 @@ The print_usage() section of the [script](https://github.com/Azure/hbase-utils/b
 
 ## Disable replication
 
-To disable replication, you use another script action script located at https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh. You can follow the same procedure in [Enable replication](#enable-replication) to call the script action with the following parameters:
+To disable replication, you use another script action script located at [GitHub](https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_disable_replication.sh). You can follow the same procedure in [Enable replication](#enable-replication) to call the script action with the following parameters:
 
     -m hn1 -s <source cluster DNS name> -sp <source cluster Ambari Password> <-all|-t "table1;table2;...">  
 
@@ -219,7 +215,7 @@ The print_usage() section of the [script](https://raw.githubusercontent.com/Azur
 
         --src-cluster=<source cluster DNS name> --dst-cluster=<destination cluster DNS name> --src-ambari-user=&lt;source cluster Ambari username> --src-ambari-password=&lt;source cluster Ambari password>
 
-- **Disable replication on specified tables**(table1, table2 and table3):
+- **Disable replication on specified tables (table1, table2, and table3)**:
 
         -m hn1 -s <source cluster DNS name> -sp &lt;source cluster Ambari password> -t "table1;table2;table3"
 
