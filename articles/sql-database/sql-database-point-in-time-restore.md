@@ -25,7 +25,7 @@ This How To article shows you how to restore your database to an earlier point i
 ## Restore to a previous point in time using the Azure portal
 
 > [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
+> For a tutorial, see [Get Started with Backup and Restore for data protection and recovery](sql-database-get-started-backup-recovery.md)
 >
 
 Select a database to restore in the Azure portal:
@@ -51,7 +51,7 @@ Select a database to restore in the Azure portal:
 
 [!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell-h3.md)]
 
-### Restore your database to a point in time as a standalone database
+### Restore your database to a point in time as a single database
 1. Get the database you want to restore by using the [Get-AzureRmSqlDatabase](https://msdn.microsoft.com/library/azure/mt603648\(v=azure.300\).aspx) cmdlet.
    
         $Database = Get-AzureRmSqlDatabase -ResourceGroupName "resourcegroup01" -ServerName "server01" -DatabaseName "database01"
