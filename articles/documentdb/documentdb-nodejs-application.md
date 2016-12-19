@@ -452,7 +452,6 @@ Now let’s turn our attention to building the user interface so a user can actu
 3. Now open the **index.jade** file, the view that will be used by our application, and replace the content of the file with the following:
    
         extends layout
-
         block content
            h1 #{title}
            br
@@ -522,6 +521,9 @@ Now let’s turn our attention to building the user interface so a user can actu
 1. To test the application on your local machine, run `npm start` in the terminal to start your application, then refresh your [http://localhost:3000](http://localhost:3000) browser page. The page should now look like the image below:
    
     ![Screenshot of the MyTodo List application in a browser window](./media/documentdb-nodejs-application/image18.png)
+
+    If you receive an error about the indent in the layout.jade file or the index.jade file, ensure that the first two lines in both files is left justified, with no spaces. If there are spaces before the first two lines, remove them, save both files, then refresh your browser window. 
+
 2. Use the Item, Item Name and Category fields to enter a new task and then click **Add Item**. This creates a document in DocumentDB with those properties. 
 3. The page should update to display the newly created item in the ToDo
    list.
