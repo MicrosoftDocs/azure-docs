@@ -231,6 +231,9 @@ $restoredDb
 
 ## Complete Azure PowerShell script to restore from a previous point in time, and to configure and restore from long-term backup retention using PowerShell
 
+> [!NOTE]
+> When attempting to restore the most recent backup at the end of this script, you will get a *Cannot index into a null array* exception if there is no backup in the vault.
+
 ```
 # Sign in to Azure and set the subscription to work with
 ########################################################
@@ -314,7 +317,7 @@ Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGro
 
 $retentionPolicy = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType AzureSQLDatabase
 
-# Set the retention value to two years
+# Set the retention values
 $retentionPolicy.RetentionDurationType = $myRetentionPolicyDurationType
 $retentionPolicy.RetentionCount = $myRetentionPolicyDuration
 
@@ -334,7 +337,6 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName $resour
 $databaseNeedingRestore = $myDatabaseToRestoreFromLTR
 
 # Set the vault context to the vault we want to restore from
-$vault = Get-AzureRmRecoveryServicesVault -ResourceGroupName $resourceGroupName
 Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # Get the container associated with your vault
