@@ -5,7 +5,7 @@ This article outlines a set of proven practices for running a Windows virtual ma
 > 
 > 
 
-We don't recommend using a single VM for production workloads, because there is no up-time service level agreement (SLA) for single VMs on Azure. To get the SLA, you must deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple Windows VMs on Azure][multi-vm]. 
+We don't recommend using a single VM for production workloads, because the up-time service level agreement (SLA) for single VMs on Azure is 99.9% and requires the use of premium storage for all disks. To get the 99.95% SLA, you must deploy multiple VMs in an [availability set][availability-set]. For more information, see [Running multiple Windows VMs on Azure][multi-vm]. 
 
 ## Architecture diagram
 
@@ -75,7 +75,7 @@ You can scale a VM up or down by [changing the VM size][vm-resize]. To scale out
 
 ## Availability considerations
 
-As noted above, there is no SLA for a single VM. To get the SLA, you must deploy multiple VMs into an availability set.
+As noted above, the uptime SLA for single instance VMs is 99.9% and requires the use of premium storage for all disks. To get the 99.95% SLA, you must deploy multiple VMs into an availability set.
 
 Your VM may be affected by [planned maintenance][planned-maintenance] or [unplanned maintenance][manage-vm-availability]. You can use [VM reboot logs][reboot-logs] to determine whether a VM reboot was caused by planned maintenance.
 
