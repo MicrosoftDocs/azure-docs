@@ -122,8 +122,6 @@ In the Performance configurations, you configure an Azure storage account to use
 
 	![Configure staging blob](media/sql-data-warehouse-load-with-data-factory/configure-staging-blob.png)
 
-2. Click **Next**.
-
 ## Review summary information and deploy the pipeline
 
 1. Review the configuration and click **Finish** button to deploy the pipeline.
@@ -134,11 +132,11 @@ In the Performance configurations, you configure an Azure storage account to use
 
 You can see the deployment progress and results in the **Deployment** page.
 
-1. After the deployment is done, to monitor data loading progress, click the link that says **Click here to monitor copy pipeline**.
+1. Once the deployment is done, click the link that says **Click here to monitor copy pipeline** to monitor data loading progress.
 
 	![Monitor pipeline](media/sql-data-warehouse-load-with-data-factory/monitor-pipeline.png)
 
-2. The newly created **DWLoadData-fromSQLServer** data loading pipeline is auto selected in the **Resource Explorer**.
+2. The newly created **DWLoadData-fromSQLServer** data loading pipeline is auto selected from the left-hand **Resource Explorer**.
 
 	![View pipeline](media/sql-data-warehouse-load-with-data-factory/view-pipeline.png)
 
