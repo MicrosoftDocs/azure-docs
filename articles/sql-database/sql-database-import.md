@@ -80,8 +80,7 @@ Clicking **Create** submits an import database request to the service. Depending
    ![import export history][5]
    ![import export history][6]
 
-## Verify the database is live on the server
-1. Click **SQL databases** and verify the new database is **Online**.
+4. To verify the database is live on the server, click **SQL databases** and verify the new database is **Online**.
 
 ## Next steps
 * To learn how to connect to and query an imported SQL Database, see [Connect to SQL Database with SQL Server Management Studio and perform a sample T-SQL query](sql-database-connect-query-ssms.md)
