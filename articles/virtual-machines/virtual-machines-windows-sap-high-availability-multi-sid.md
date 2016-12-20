@@ -661,7 +661,7 @@ The high-level procedure is as follows:
 
 10. [Test the SAP ASCS/SCS instance failover and SIOS replication][sap-ha-guide-10].
 
-## Additional resources
+## Next steps
 
 - [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Multiple VIPs for Azure Load Balancer][load-balancer-multivip-overview]
