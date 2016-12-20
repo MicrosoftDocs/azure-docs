@@ -90,7 +90,7 @@ The Service Bus Rule ID is a string with this format: `{service bus resource ID}
 
 To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics workspace] -Enabled $true
 
 You can obtain the resource id of your Log Analytics workspace using the following command:
 
@@ -117,9 +117,7 @@ The Service Bus Rule ID is a string with this format: `{service bus resource ID}
 
 To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
-    azure insights diagnostic set --resourceId <resourceId> --workspaceId <workspaceId> --enabled true
-
-You can obtain your Log Analytics workspace ID in the Azure portal.
+    azure insights diagnostic set --resourceId <resourceId> --workspaceId <resource id of the log analytics workspace> --enabled true
 
 You can combine these parameters to enable multiple output options.
 
