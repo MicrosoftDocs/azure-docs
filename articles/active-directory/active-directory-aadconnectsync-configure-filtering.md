@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/13/2016
+ms.date: 12/17/2016
 ms.author: andkjell;markvi
 
 ---
@@ -145,11 +145,13 @@ To close the **Configure Run Profiles** dialog, click **OK**.
 * To complete the configuration, [Apply and verify changes](#apply-and-verify-changes).
 
 ## Organizational-unit–based filtering
-The preferred way to change OU-based filtering is by running the installation wizard and change [domain and OUs filtering](connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). The installation wizard is automating all the tasks documented in this topic.
+The preferred way to change OU-based filtering is by running the installation wizard and change [domain and OUs filtering](connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering). Configuring OU-based filtering using the installation wizard will set up **negative filtering** and will exclude unselected OUs. The installation wizard is automating all the tasks documented in this topic. 
 
 You should only follow these steps if you for some reason are unable to run the installation wizard.
 
 **To configure organizational-unit–based filtering, do the following steps:**
+
+### Negative filtering, "do not sync these"
 
 1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
 2. Start **Synchronization Service** from the start menu.
@@ -158,13 +160,34 @@ You should only follow these steps if you for some reason are unable to run the 
 4. Click **Configure Directory Partitions**, select the domain you want to configure, and then click **Containers**.
 5. When prompted, provide any credentials with read access to your on-premises Active Directory. It does not have to be the user that is pre-populated in the dialog box.
 6. In the **Select Containers** dialog box, clear the OUs that you don’t want to synchronize with the cloud directory, and then click **OK**.  
-   ![OU](./media/active-directory-aadconnectsync-configure-filtering/ou.png)  
+   ![OU-NegativeFiltering](./media/active-directory-aadconnectsync-configure-filtering/OU-NegativeFiltering.png)  
    * The **Computers** container should be selected for your Windows 10 computers to be successfully synchronized to Azure AD. If your domain joined computers are located in other OUs, make sure those are selected.
    * The **ForeignSecurityPrincipals** container should be selected if you have multiple forests with trusts. This container allows cross-forest security group membership to be resolved.
    * The **RegisteredDevices** OU should be selected if you have enabled the device writeback feature. If you use another writeback feature, such as group writeback, make sure these locations are selected.
    * Select any other OU where Users, iNetOrgPersons, Groups, Contacts, and Computers are located. In the picture, all these are located in the ManagedObjects OU.
 7. When you are done, close the **Properties** dialog by clicking **OK**.
 8. To complete the configuration, [Apply and verify changes](#apply-and-verify-changes).
+
+### Positive filtering, "only sync these"
+
+1. Sign in to the server that is running Azure AD Connect sync by using an account that is a member of the **ADSyncAdmins** security group.
+2. Start **Synchronization Service** from the start menu.
+3. Select **Connectors** and in the **Connectors** list, select the Connector with the type **Active Directory Domain Services**. From **Actions**, select **Properties**.  
+   ![Connector properties](./media/active-directory-aadconnectsync-configure-filtering/connectorproperties.png)  
+4. Click **Configure Directory Partitions**, select the domain you want to configure, and then click **Containers**.
+5. When prompted, provide any credentials with read access to your on-premises Active Directory. It does not have to be the user that is pre-populated in the dialog box.
+6. In the **Select Containers** dialog box, click **Advanced**.
+7. In the **Advanced Container** dialog, remove all pre-populated containers from the **Containers to synchronize** list. 
+8. Enter the domain distinguished name in the **Add Container** textbox (e.g. DC=fabrikamonline,DC=com), and select the **Exclude container** option button. Click **Add** to exclude the entire domain from synchronization. 
+9. Now enter one by one the distinguished name for all OUs to synchronize in the **Add Container** textbox (e.g. OU=ManagedObjects,DC=fabrikamonline,DC=com), and select the **Include container** option button. Click **Add** to include the OUs for synchronization to Azure AD. 
+   ![OU-PositiveFiltering](./media/active-directory-aadconnectsync-configure-filtering/OU-PositiveFiltering.png)  
+   * The **Computers** container should be selected for your Windows 10 computers to be successfully synchronized to Azure AD. If your domain joined computers are located in other OUs, make sure those are selected.
+   * The **ForeignSecurityPrincipals** container should be selected if you have multiple forests with trusts. This container allows cross-forest security group membership to be resolved.
+   * The **RegisteredDevices** OU should be selected if you have enabled the device writeback feature. If you use another writeback feature, such as group writeback, make sure these locations are selected.
+   * Select any other OU where Users, iNetOrgPersons, Groups, Contacts, and Computers are located. In the picture, all these are located in the ManagedObjects OU.
+10. When you are done, click **OK** to close the **Advanced Container** dialog.
+11. Close the **Properties** dialog by clicking **OK**.
+12. To complete the configuration, [Apply and verify changes](#apply-and-verify-changes).
 
 ## Attribute-based filtering
 Make sure you are on the November 2015 ([1.0.9125](active-directory-aadconnect-version-history.md#1091250)) or later build for these steps to work.
