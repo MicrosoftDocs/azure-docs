@@ -1,5 +1,5 @@
 ---
-title: Migrate data to Azure DocumentDB account with protocol support for MongoDB | Microsoft Docs
+title: Migrate data to an Azure DocumentDB account with protocol support for MongoDB | Microsoft Docs
 description: Learn how to use mongoimport and mongorestore to import data to a DocumentDB account with protocol support for MongoDB, now available for preview.
 keywords: migrate
 services: documentdb
