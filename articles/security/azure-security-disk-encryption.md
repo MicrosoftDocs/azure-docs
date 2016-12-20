@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Disk Encryption for Windows and Linux IaaS VMs| Microsoft Docs
 description: The paper provides an overview of Microsoft Azure Disk Encryption for Windows and Linux IaaS VMs.
 services: security
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2016
-ms.author: krkhan
+ms.author: kakhan
 
 ---
 # Azure Disk Encryption for Windows and Linux IaaS VMs
@@ -68,6 +68,9 @@ When you enable and deploy Azure disk encryption for Azure IaaS VMs, the followi
 * Safeguarding the encryption keys and secrets in customer Azure key vault subscription
 * Reporting encryption status of the encrypted IaaS VM
 * Removal of disk encryption configuration settings from the IaaS virtual machine
+* Backup and Restore of encrypted VMs using Azure backup service
+
+**Note**:  Backup and restore of encrypted VMs is supported only for VMs encrypted using Key Encryption Key [KEK] configuration. It is not supported for VMs encrypted without KEK. KEK is an optional parameter to enable VM encryption.
 
 The Azure disk encryption for IaaS VMS for Windows and Linux solution includes the disk encryption extension for Windows, disk encryption extension for Linux, disk encryption PowerShell cmdlets, disk encryption CLI cmdlets and disk encryption Azure Resource Manager templates. The Azure disk encryption solution is supported on IaaS VMs running Windows or Linux OS. For more details on the supported Operating Systems, see prerequisites section below.
 
@@ -150,6 +153,7 @@ The following are prerequisites to enable Azure Disk Encryption on Azure IaaS VM
   * Using the Azure CLI for Mac, Linux, and Windows with Azure Resource Manager, see [here](../virtual-machines/azure-cli-arm-commands.md)
 * Azure disk encryption solution use BitLocker external key protector for Windows IaaS VMs. If your VMs are domain joined, do not push any group policies that enforce TPM protectors. Refer to [this article](https://technet.microsoft.com/library/ee706521) for details on the group policy for “Allow BitLocker without a compatible TPM”.
 * The Azure disk encryption prerequisite PowerShell script to create Azure AD application, create new key vault or setup existing key vault and enable encryption is located [here](https://github.com/Azure/azure-powershell/blob/dev/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1).
+* To use Azure backup service to backup and restore encrypted VMs, when encryption is enabled using Azure disk encryption, you must encrypt your VMs using Azure disk encryption key encryption key configuration. The backup service supports VMs encrypted using key encryption key [KEK] configuration only. It does not support VMs encrypted without KEK. See disk encryption deployment scenarios below to enable VM encryption using KEK option. 
 
 #### Setup the Azure AD Application in Azure Active Directory
 When encryption needs to be enabled on a running VM in Azure, Azure disk encryption generates and writes the encryption keys to your Key Vault. Managing encryption keys in Key Vault needs Azure AD authentication.
@@ -304,7 +308,7 @@ Use the terminology table as reference to understand some of the common terms us
 | CLI |[Azure Command-Line Interface](../xplat-cli-install.md) |
 | DM-Crypt |[DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) is the Linux-based transparent disk encryption subsystem used to enable disk encryption on Linux IaaS VMs |
 | KEK |Key Encryption Key is the asymmetric key (RSA 2048) used to protect or wrap the secret if desired. You can provide an HSM-protected key or software-protected key. For more details, refer to [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) documentation for more details |
-| PS cmdlets |[Azure PowerShell cmdlets](../powershell-install-configure.md) |
+| PS cmdlets |[Azure PowerShell cmdlets](/powershell/azureps-cmdlets-docs) |
 
 ### Setting and Configuring Azure Key Vault for Azure disk encryption usage
 Azure disk encryption safeguards the disk encryption keys and secrets in your Azure Key Vault. Follow the steps on each one of the sections below to setup Key Vault for Azure disk encryption usage.
@@ -398,9 +402,9 @@ The Resource Manager template parameters details for customer encrypted VHD scen
 | subnetName |Name of the subnet in the vNet to which the VM NIC should belong to |
 | vmSize |Size of the VM. Currently, only Standard A, D and G series are supported |
 | keyVaultResourceID |ResourceID identifying the key vault resource in ARM. You can get it using the PowerShell cmdlet: (Get-AzureRmKeyVault -VaultName &lt;yourKeyVaultName&gt; -ResourceGroupName &lt;yourResourceGroupName&gt;).ResourceId |
-| keyVaultSecretUrl |​URL of the disk encryption key provisioned in key vault |
+| keyVaultSecretUrl |?URL of the disk encryption key provisioned in key vault |
 | keyVaultKekUrl |URL of the Key Encryption Key that’s to encrypt the generated disk encryption key |
-| ​vmName |​Name of the IaaS VM |
+| ?vmName |?Name of the IaaS VM |
 
 #### Using PowerShell cmdlets
 Disk encryption can be enabled on customer encrypted VHD using the PS cmdlets published [here](https://msdn.microsoft.com/library/azure/mt603746.aspx).  
@@ -433,13 +437,13 @@ The Resource Manager template parameters details for existing/running VM scenari
 
 | Parameter | Description |
 | --- | --- |
-| ​AADClientID |​Client ID of the Azure AD app that has permissions to write secrets to Key Vault |
-| AADClientSecret |​Client Secret of the Azure AD app that has permissions to write secrets to Key Vault |
+| ?AADClientID |?Client ID of the Azure AD app that has permissions to write secrets to Key Vault |
+| AADClientSecret |?Client Secret of the Azure AD app that has permissions to write secrets to Key Vault |
 | keyVaultName |Name of the Key Vault to which BitLocker key should be uploaded to. You can get it using the cmdlet: (Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>). Vaultname |
-| ​ keyEncryptionKeyURL |URL of the Key Encryption Key that's used to encrypt the generated BitLocker key. This is optional if you select `nokek` in the UseExistingKek dropdown. If  you select `kek` in the UseExistingKek dropdown, you must input the keyEncryptionKeyURL value |
-| ​volumeType |​Type of the volume on which encryption operation is performed. Valid values are "OS", "Data" , "All" |
+| ? keyEncryptionKeyURL |URL of the Key Encryption Key that's used to encrypt the generated BitLocker key. This is optional if you select `nokek` in the UseExistingKek dropdown. If  you select `kek` in the UseExistingKek dropdown, you must input the keyEncryptionKeyURL value |
+| ?volumeType |?Type of the volume on which encryption operation is performed. Valid values are "OS", "Data" , "All" |
 | sequenceVersion |Sequence version of the BitLocker operation. Increment this version number every time a disk encryption operation is performed on the same VM |
-| ​vmName |​Name of the VM on which encryption operation is to be performed |
+| ?vmName |?Name of the VM on which encryption operation is to be performed |
 
 **Note:** KeyEncryptionKeyURL is an optional parameter. You can bring your own KEK to further safeguard the data encryption key (BitLocker encryption secret) in Key Vault.
 
@@ -467,13 +471,13 @@ The Resource Manager template parameters details for existing/running VM scenari
 
 | Parameter | Description |
 | --- | --- |
-| ​AADClientID |​Client ID of the Azure AD app that has permissions to write secrets to Key Vault |
-| AADClientSecret |​Client Secret of the Azure AD app that has permissions to write secrets to Key Vault |
+| ?AADClientID |?Client ID of the Azure AD app that has permissions to write secrets to Key Vault |
+| AADClientSecret |?Client Secret of the Azure AD app that has permissions to write secrets to Key Vault |
 | keyVaultName |Name of the Key Vault to which BitLocker key should be uploaded to. You can get it using the cmdlet: (Get-AzureRmKeyVault -ResourceGroupName <yourResourceGroupName>). Vaultname |
-| ​ keyEncryptionKeyURL |URL of the Key Encryption Key that's used to encrypt the generated BitLocker key. This is optional if you select “nokek” in the UseExistingKek dropdown. If  you select “kek” in the UseExistingKek dropdown, you must input the keyEncryptionKeyURL value |
-| ​volumeType |​Type of the volume on which encryption operation is performed. Valid supported values are "OS"/"All" (for RHEL 7.2, CentOS 7.2 & Ubuntu 16.04) and "Data" for all other distros. |
+| ? keyEncryptionKeyURL |URL of the Key Encryption Key that's used to encrypt the generated BitLocker key. This is optional if you select “nokek” in the UseExistingKek dropdown. If  you select “kek” in the UseExistingKek dropdown, you must input the keyEncryptionKeyURL value |
+| ?volumeType |?Type of the volume on which encryption operation is performed. Valid supported values are "OS"/"All" (for RHEL 7.2, CentOS 7.2 & Ubuntu 16.04) and "Data" for all other distros. |
 | sequenceVersion |Sequence version of the BitLocker operation. Increment this version number every time a disk encryption operation is performed on the same VM |
-| ​vmName |​Name of the VM on which encryption operation is to be performed |
+| ?vmName |?Name of the VM on which encryption operation is to be performed |
 | passPhrase |Type a strong passphrase as the data encryption key |
 
 **Note:** KeyEncryptionKeyURL is an optional parameter. You can bring your own KEK to further safeguard the data encryption key (Passphrase secret) in Key Vault.
@@ -561,9 +565,9 @@ For Linux VM, [this](https://aka.ms/decrypt-linuxvm) template can be used to dis
 
 Resource Manager template parameters details for disabling encryption on running IaaS VM:
 
-| ​vmName | ​Name of the VM on which encryption operation is to be performed |
+| ?vmName | ?Name of the VM on which encryption operation is to be performed |
 | --- | --- |
-| ​volumeType |​Type of the volume on which decryption operation is performed. Valid values are "OS", "Data", "All". **Note:** You cannot disable encryption on running Windows IaaS VM OS/boot volume without disabling encryption on “Data” volume. **Note**: Disabling encryption on OS disk is not allowed on Linux VMs. |
+| ?volumeType |?Type of the volume on which decryption operation is performed. Valid values are "OS", "Data", "All". **Note:** You cannot disable encryption on running Windows IaaS VM OS/boot volume without disabling encryption on “Data” volume. **Note**: Disabling encryption on OS disk is not allowed on Linux VMs. |
 | sequenceVersion |Sequence version of the BitLocker operation. Increment this version number every time a disk decryption operation is performed on the same VM |
 
 ##### Disable encryption on existing/running IaaS VM in Azure using PS cmdlet

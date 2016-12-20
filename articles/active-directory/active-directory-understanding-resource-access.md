@@ -1,4 +1,4 @@
-﻿---
+---
 title: Understanding resource access in Azure | Microsoft Docs
 description: This topic explains concepts about using subscription administrators to control resource access in the full Azure portal.
 services: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: markusvi
+ms.author: markvi
 
 ---
 # Understanding resource access in Azure

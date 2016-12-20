@@ -1,4 +1,4 @@
-﻿---
+---
 title: Routing requirements for ExpressRoute | Microsoft Docs
 description: This page provides detailed requirements for configuring and managing routing for ExpressRoute circuits.
 documentationcenter: na
@@ -13,8 +13,8 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/01/2016
-ms.author: osamazia
+ms.date: 12/12/2016
+ms.author: osamam
 
 ---
 # ExpressRoute routing requirements
@@ -114,7 +114,7 @@ Default routes are permitted only on Azure private peering sessions. In such a c
 > 
 > 
 
-## Support for BGP communities (Preview)
+## Support for BGP communities
 This section provides an overview of how BGP communities will be used with ExpressRoute. Microsoft will advertise routes in the public and Microsoft peering paths with routes tagged with appropriate community values. The rationale for doing so and the details on community values are described below. Microsoft, however, will not honor any community values tagged to routes advertised to Microsoft.
 
 If you are connecting to Microsoft through ExpressRoute at any one peering location within a geopolitical region, you will have access to all Microsoft cloud services across all regions within the geopolitical boundary. 
@@ -145,6 +145,8 @@ Microsoft will tag prefixes advertised through public peering and Microsoft peer
 | **Europe** | |
 | North Europe |12076:51003 |
 | West Europe |12076:51002 |
+| UK South | 12076:51024 |
+| UK West | 12076:51025 |
 | **Asia Pacific** | |
 | East Asia |12076:51010 |
 | Southeast Asia |12076:51011 |
@@ -180,6 +182,8 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 > Microsoft does not honor any BGP community values that you set on the routes advertised to Microsoft.
 > 
 > 
+
+### BGP Community support in National Clouds (Preview)
 
 | **National Clouds Azure Region**| **BGP community value** |
 | --- | --- |

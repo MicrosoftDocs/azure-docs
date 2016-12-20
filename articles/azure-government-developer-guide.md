@@ -19,7 +19,7 @@ ms.author: jharve
 
 ---
 # Microsoft Azure Government Developer Guide
-<p> The Azure Government environment is a physical instance that is separate from the rest of Microsoft's network.  This developers guide will provide details on the differences that application developers and administrators would need to interact and work with these seperate regions of Azure.
+<p> The Azure Government environment is a physical instance that is separate from the rest of Microsoft's network.  This developers guide will provide details on the differences that application developers and administrators would need to interact and work with these separate regions of Azure.
 
 <!--Table of contents for topic, the words in brackets must match the heading wording exactly-->
 
@@ -32,13 +32,13 @@ ms.author: jharve
 * [Next Steps](#next)
 
 ## <a name="Overview"></a>Overview
-Microsoft Azure Government is a separate instance of the Microsoft Azure service addressing the security and compliance needs of U.S. federal agencies, state and local governments and their solutions providers. Azure Government offers physical and network isolation from non-U.S. government deployments and provides screened U.S. personnel. 
+Microsoft Azure Government is a separate instance of the Microsoft Azure service addressing the security and compliance needs of U.S. federal agencies, state and local governments and their solutions providers. Azure Government offers physical and network isolation from non-U.S. government deployments and provides screened U.S. personnel.
 
 Microsoft provides a number of tools to create and deploy cloud applications to Microsoft’s global Microsoft Azure service (“Global Service”) and Microsoft Azure Government services.
 
 When creating and deploying applications to the Azure Government Services, as opposed to the Global Service, developers need to know the key differences of the two services.  Specifically around setting up and configuring their programming environment, configuring endpoints, writing applications, and deploying them as services to Azure Government.
 
-The information in this document summarizes those differences and supplements the information available on the [Azure Government](http://www.azure.com/gov "Azure Government") site and the [Microsoft Azure Technical Library](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN. Official information may also be available in many other locations such as the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center"/), [Azure Documentation Center](https://azure.microsoft.com/documentation/) and in [Azure Blogs](https://azure.microsoft.com/blog/ "Azure Blogs"/). 
+The information in this document summarizes those differences and supplements the information available on the [Azure Government](http://www.azure.com/gov "Azure Government") site and the [Microsoft Azure Technical Library](http://msdn.microsoft.com/cloud-app-development-msdn "MSDN") on MSDN. Official information may also be available in many other locations such as the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/ "Microsoft Azure Trust Center"/), [Azure Documentation Center](https://azure.microsoft.com/documentation/) and in [Azure Blogs](https://azure.microsoft.com/blog/ "Azure Blogs"/).
 
 This content is intended for partners and developers who are deploying to Microsoft Azure Government.
 
@@ -88,7 +88,7 @@ Azure Government currently has the following services available in both US GOV I
 * Automation accounts
 * Marketplace
 
-Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](https://azure.microsoft.com/regions/#services) which will highlight each available region and their services.  
+Other services are available, and more services will be added on a continuous basis.  For the most current list of services, please see the [regions page](https://azure.microsoft.com/regions/#services) which will highlight each available region and their services.
 
 Currently, US GOV Iowa and US GOV Virginia are the data centers supporting Azure Government.  Please refer to the regions page above for current data centers and services available.
 
@@ -97,7 +97,7 @@ Use the following table to guide you when mapping public Microsoft Azure and SQL
 
 | Name | Azure Government Endpoint |
 | --- | --- |
-| ActiveDirectoryServiceEndpointResourceId  | https://management.core.usgovcloudapi.net/ | 
+| ActiveDirectoryServiceEndpointResourceId  | https://management.core.usgovcloudapi.net/ |
 | GalleryUrl | https://gallery.usgovcloudapi.net/ |
 | ManagementPortalUrl | https://manage.windowsazure.us |
 | ServiceManagementUrl | https://management.core.usgovcloudapi.net/ |
@@ -106,13 +106,13 @@ Use the following table to guide you when mapping public Microsoft Azure and SQL
 | SqlDatabaseDnsSuffix | .database.usgovcloudapi.net |
 | StorageEndpointSuffix | core.usgovcloudapi.net |
 | ActiveDirectoryAuthority | https://login-us.microsoftonline.com/ |
-| GraphUrl | https://graph.windows.net/ 
+| GraphUrl | https://graph.windows.net/ |
 | GraphEndpointResourceId | https://graph.windows.net/ |
 | TrafficManagerDnsSuffix | usgovtrafficmanager.net |
 | AzureKeyVaultDnsSuffix | vault.usgovcloudapi.net |
 | AzureKeyVaultServiceEndpointResourceId | https://vault.usgovcloudapi.net |
 
-* For ARM authentication via Azure AD, please reference [Authenticating Azure Resource Manager Requests](https://msdn.microsoft.com/library/azure/dn790557.aspx)
+* For Azure Resource Manager authentication via Azure AD, please reference [Authenticating Azure Resource Manager Requests](https://msdn.microsoft.com/library/azure/dn790557.aspx)
 
 ## <a name="next"></a>Next steps
 If you are interested in learning more and about Azure Government please leverage some of the links below.

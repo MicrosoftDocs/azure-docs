@@ -17,7 +17,7 @@ ms.date: 10/05/2016
 ms.author: nberdy
 
 ---
-# How to use direct methods (Node)
+# Use direct methods (Node)
 [!INCLUDE [iot-hub-selector-c2d-methods](../../includes/iot-hub-selector-c2d-methods.md)]
 
 At the end of this tutorial, you have two Node.js console apps:

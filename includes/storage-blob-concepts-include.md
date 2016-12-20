@@ -12,7 +12,7 @@ Common uses of Blob storage include:
 ## Blob service concepts
 The Blob service contains the following components:
 
-![Blob1][Blob1]
+![Blob architecture](./media/storage-blob-concepts-include/blob1.png)
 
 * **Storage Account:** All access to Azure Storage is done through a storage account. This storage account can be a **General-purpose storage account** or a **Blob storage account** which is specialized for storing objects/blobs. For more information about storage accounts, see [Azure storage account](../articles/storage/storage-create-storage-account.md).
 * **Container:** A container provides a grouping of a set of blobs. All blobs must be in a container. An account can contain an unlimited number of containers. A container can store an unlimited number of blobs. Note that the container name must be lowercase.
@@ -24,4 +24,3 @@ The Blob service contains the following components:
   
     For details about naming containers and blobs, see [Naming and Referencing Containers, Blobs, and Metadata](https://msdn.microsoft.com/library/azure/dd135715.aspx).
 
-[Blob1]: ./media/storage-blob-concepts-include/blob1.jpg
