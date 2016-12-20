@@ -73,14 +73,14 @@ The following steps illustrate how to create a table.
         return View();
     }
     ```
-1. Within the **CreateBlobContainer** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Within the **CreateTable** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
        CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Get a **CloudBlobClient** object represents a table service client.
+1. Get a **CloudTableClient** object represents a table service client.
    
     ```csharp
     CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
@@ -132,70 +132,142 @@ The following steps illustrate how to create a table.
 
 	As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method will return **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the container can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
-
-
-
-
-
-
-
-
-
-
 ## Add an entity to a table
 
-The following steps illustrate how to programmatically add an entity to a table. In an ASP.NET MVC app, the code would go in a controller. 
+*Entities* map to C\# objects by using a custom class derived from
+**TableEntity**. To add an entity to a table, create a
+class that defines the properties of your entity. In this section, you'll 
+see how to define an entity class that uses the customer's first name as the row
+key and last name as the partition key. Together, an entity's partition
+and row key uniquely identify the entity in the table. Entities with the
+same partition key can be queried faster than those with different
+partition keys, but using diverse partition keys allows for greater scalability of parallel operations. For any property that should be stored in the table service,
+the property must be a public property of a supported type that exposes both setting and retrieving values.
+The entity class *must* declare a public parameter-less constructor.
 
-1. Add the following *using* directives:
+1. In the **Solution Explorer**, right-click **Models**, and, from the context menu, select **Add->Class**.
 
-         using Microsoft.Azure;
-         using Microsoft.WindowsAzure.Storage;
-         using Microsoft.WindowsAzure.Storage.Auth;
-         using Microsoft.WindowsAzure.Storage.Table;
+1. On the **Add New Item** dialog, name the class, **CustomerEntity**.
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Open the `CustomerEntity.cs` file, and add the following **using** directive. 
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```csharp
+	using Microsoft.WindowsAzure.Storage.Table;
+    ```
 
-3. Get a **CloudTableClient** object represents a table service client.
+1. Modify the class so that, when finished, the class is declared as in the following code. The class declares an entity class called **CustomerEntity** that uses the customer's first name as the row key and last name as the partition key.
 
-        CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+    ```csharp
+    public class CustomerEntity : TableEntity
+    {
+        public CustomerEntity(string lastName, string firstName)
+        {
+            this.PartitionKey = lastName;
+            this.RowKey = firstName;
+        }
 
+        public CustomerEntity() { }
 
-4. Get a **CloudTable** object that represents a reference to the desired table name. (Change *<table-name>* to the name of the table to which you want to add the entity.)
+        public string Email { get; set; }
+    }
+    ```
 
-		CloudTable table = tableClient.GetTableReference(<table-name>);
+1. Open the `TablesController.cs` file.
 
-5. To add an entity to a table you define a class derived from **TableEntity**. The following code defines an entity class called **CustomerEntity** that uses the customer's first name as the row key and last name as the partition key.
+1. Add the following directive so that the code in the `TablesController.cs` file can access the **CustomerEntity** class.
 
-	    public class CustomerEntity : TableEntity
-	    {
-	        public CustomerEntity(string lastName, string firstName)
-	        {
-	            this.PartitionKey = lastName;
-	            this.RowKey = firstName;
-	        }
+    ```csharp
+	using StorageAspnet.Models;
+    ```
+
+1. Add a method called **AddEntity** that returns an **ActionResult**.
+
+    ```csharp
+    public ActionResult AddEntity()
+    {
+		// The code in this section goes here.
+
+        return View();
+    }
+    ```
+
+1. Within the **AddEntity** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+   
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
+
+1. Get a **CloudTableClient** object represents a table service client.
+   
+    ```csharp
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+    ```
+
+1. Get a **CloudTable** object that represents a reference to the table to which you are going to add the new entity. 
+   
+    ```csharp
+    CloudTable table = tableClient.GetTableReference("TestTable");
+    ```
+
+1. Instantiate and initialize the **CustomerEntity** class.
+
+    ```csharp
+    CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
+    customer1.Email = "Walter@contoso.com";
+    ```
+
+1. Create a **TableOperation** object that inserts the customer entity.
+
+    ```csharp
+    TableOperation insertOperation = TableOperation.Insert(customer1);
+    ```
+
+1. Execute the insert operation by calling the **CloudTable.Execute** method. You can verify the result of the operation by inspecting the **TableResult.HttpStatusCode** property. A status code of 2xx indicates the action requested by the client was processed successfully. For example, successful insertions of new entities results in an HTTP status code of 204, meaning that the operation was successfully processed and the server did not return any content.
+
+    ```csharp
+	TableResult result = table.Execute(insertOperation);
+    ```
+
+1. Update the **ViewBag** with the table name, and the results of the insert operation.
+
+    ```csharp
+	ViewBag.TableName = table.Name;
+	ViewBag.Result = result.HttpStatusCode;
+    ```
+
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Tables**, and from the context menu, select **Add->View**.
+
+1. On the **Add View** dialog, enter **AddEntity** for the view name, and select **Add**.
+
+1. Open `AddEntity.cshtml`, and modify it so that it looks like the following.
+
+    ```csharp
+	@{
+	    ViewBag.Title = "Add entity";
+	}
 	
-	        public CustomerEntity() { }
-	
-	        public string Email { get; set; }
-	    }
+	<h2>Add entity results</h2>
 
-6. Instantiate the entity.
+	Insert of entity into @ViewBag.TableName @(ViewBag.Result == 204 ? "succeeded" : "failed")
+    ```
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
-	    CustomerEntity customer1 = new CustomerEntity("Harp", "Walter");
-	    customer1.Email = "Walter@contoso.com";
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
 
-7. Create the **TableOperation** object that inserts the customer entity.
+    ```html
+	<li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
+    ```
 
-	    TableOperation insertOperation = TableOperation.Insert(customer1);
+1. Run the application, and select **Add entity**. You will see results similar to those shown in the following screen shot. 
+  
+	![Add entity](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
-8. Execute the insert operation by calling the **CloudTable.Execute** method. You can verify the result of the operation by inspecting the **TableResult.HttpStatusCode** property. A status code of 2xx indicates the action requested by the client was processed successfully. For example, successful insertions of new entities results in an HTTP status code of 204, meaning that the operation was successfully processed and the server did not return any content.
+	You can verify that the entity was added by following the steps in the section, [Get a single entity](#get-a-single-entity). You can also use the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to view all of the entities for your tables.
 
-    	TableResult result = table.Execute(insertOperation);
 
-		// Inspect result.HttpStatusCode for success/failure.
+
+
 
 ## Add a batch of entities to a table
 
