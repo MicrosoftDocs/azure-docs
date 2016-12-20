@@ -46,9 +46,9 @@ ms.author: rnagpal
 
 ## Release Notes
 ### <a name="1.9.4"/>[1.9.4](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.4)
-* Added simple client instance-based proxy support with ConnectionPolixy.setProxy() API.
+* Added simple client instance-based proxy support with ConnectionPolicy.setProxy() API.
 * Added DocumentClient.close() API to properly shutdown DocumentClient instance.
-* Improved query performance in direct connectivity mode by the deriving query plan from native assembly instead of Gateway.
+* Improved query performance in direct connectivity mode by deriving query plan from native assembly instead of Gateway.
 * Set FAIL_ON_UNKNOWN_PROPERTIES = false so users don't need to define JsonIgnoreProperties in their POJO.
 * Refactored logging to use SLF4J.
 * Fixed a few other bugs in consistency reader.
