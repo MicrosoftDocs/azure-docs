@@ -3,7 +3,7 @@ title: Archive an Azure SQL database to a BACPAC file using the Azure Portal
 description: Archive an Azure SQL database to a BACPAC file  using the Azure Portal
 services: sql-database
 documentationcenter: ''
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
@@ -11,8 +11,8 @@ ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 08/15/2016
-ms.author: sstein
+ms.date: 12/20/2016
+ms.author: sstein;carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
