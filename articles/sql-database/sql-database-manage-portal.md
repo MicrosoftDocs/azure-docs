@@ -26,7 +26,10 @@ ms.author: carlrab
 > 
 > 
 
-The [Azure portal](https://portal.azure.com/) allows you to create, monitor, and manage Azure SQL databases and servers. This article provides a quick description and links to the details of the more common tasks.
+The [Azure portal](https://portal.azure.com/) allows you to create, monitor, and manage Azure SQL databases and servers. This article provides a quick description and links to the details of the more common tasks.!
+
+> [!TIP]
+> For a tutorial showing you how to create a server, a server-based firewall, view server properties, connect using SQL Server Management Studio, query the master database, create a sample database and a blank database, query database properties, connect using SQL Server Management Studio, and query the sample database, see [Get Started Tutorial](sql-database-get-started.md).
 
 ## View your Azure SQL databases, servers, and pools
 To view the available SQL Database services, click **More services**, and type **SQL** in the search box:
