@@ -160,7 +160,7 @@ If your connectivity provider is not listed in previous sections, you can still 
 | **[Windstream](http://www.windstreambusiness.com/solutions/cloud-services/cloud-and-managed-hosting-services)**| Equinix |Chicago, Silicon Valley, Washington DC |
 | **[XO Communications](http://www.xo.com/)** |Equinix |Silicon Valley |
 | **[Zertia](http://www.zertia.es/index.php/novedades)**| Level 3 | Madrid |
-| **[Nelite](http://nelite.com/)** |Europe |
+
 
 ## ExpressRoute system integrators
 Enabling private connectivity to fit your needs can be challenging, based on the scale of your network. You can work with any of the system integrators listed in the following table to assist you with onboarding to ExpressRoute.
@@ -170,6 +170,7 @@ Enabling private connectivity to fit your needs can be challenging, based on the
 | **[Avanade Inc.](http://www.avanade.com/)** |Asia, Europe, US |
 | **[Dotnet Solutions](http://www.dotnetsolutions.co.uk/)** |Europe |
 | **[Equinix Professional Services](http://www.equinix.com/services/consulting/)** |US |
+| **[Nelite](http://nelite.com/)** |Europe |
 | **[OneAs1a](http://www.oneas1a.com/express-connect-any-cloud-ecac)** |Asia |
 | **[Perficient](http://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** |US |
 | **[Project Leadership](http://www.projectleadership.net/azure)** |US |
