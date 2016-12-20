@@ -24,41 +24,123 @@ ms.author: tarcher
 
 Azure Table storage enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.
 
-This article describes how to programmatically manage Azure table storage entities, performing
-common tasks such as creating and deleting a table, as well as working with table entities. 
+This tutorial shows how to write ASP.NET code for some common scenarios using Azure table storage entities, performing common tasks such as creating and deleting a table, as well as working with table entities. 
 
-> [!NOTE]
-> 
-> The code sections in this article assume that you have already connected to an Azure storage account using Connected Services. Connected Services is configured by opening the Visual Studio Solution Explorer, right-clicking the project, and from the context menu, selecting the **Add->Connected Service** option. From there, follow the dialog's instructions to connect to the desired Azure storage account.      
+##Prerequisites
 
-## Create a table in code
+* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
 
-The following steps illustrate how to programmatically create a table. In an ASP.NET MVC app, the code would go in a controller.
+[!INCLUDE [storage-create-account-include](../../includes/vs-storage-aspnet-getting-started-create-azure-account.md)]
 
-1. Add the following *using* directives:
+[!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
-         using Microsoft.Azure;
-         using Microsoft.WindowsAzure.Storage;
-         using Microsoft.WindowsAzure.Storage.Auth;
-         using Microsoft.WindowsAzure.Storage.Table;
+### Create an MVC controller 
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. In the **Solution Explorer**, right-click **Controllers**, and, from the context menu, select **Add->Controller**.
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+	![Add a controller to an ASP.NET MVC app](./media/vs-storage-aspnet-getting-started-tables/add-controller-menu.png)
 
-3. Get a **CloudTableClient** object represents a table service client.
+1. On the **Add Scaffold** dialog, select **MVC 5 Controller - Empty**, and select **Add**.
 
-        CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+	![Specify MVC controller type](./media/vs-storage-aspnet-getting-started-tables/add-controller.png)
 
+1. On the **Add Controller** dialog, name the controller *TablesController*, and select **Add**.
 
-4. Get a **CloudTable** object that represents a reference to the desired table name. (Change *<table-name>* to the name of the table you want to create.)
+	![Name the MVC controller](./media/vs-storage-aspnet-getting-started-tables/add-controller-name.png)
 
-		CloudTable table = tableClient.GetTableReference(<table-name>);
+1. Add the following *using* directives to the `TablesController.cs` file.
 
-5. Call the **CloudTable.CreateIfNotExists** method to create the table if it does not yet exist.   
+    ```csharp
+	using Microsoft.Azure;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Auth;
+    using Microsoft.WindowsAzure.Storage.Table;
+	```
+## Create a table
+
+The following steps illustrate how to create a table.
+
+1. Open the `TablesController.cs` file.
+
+1. Add a method called **CreateTable** that returns an **ActionResult**.
+
+    ```csharp
+    public ActionResult CreateTable()
+    {
+		// The code in this section goes here.
+
+        return View();
+    }
+    ```
+1. Within the **CreateBlobContainer** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
-    	table.CreateIfNotExists();
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
+
+1. Get a **CloudBlobClient** object represents a table service client.
+   
+    ```csharp
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+    ```
+
+1. Get a **CloudTable** object that represents a reference to the desired table name. The **CloudTableClient.GetTableReference** method does not make a request against table storage. The reference is returned whether or not the table exists. 
+   
+    ```csharp
+    CloudTable table = tableClient.GetTableReference("TestTable");
+    ```
+1. Call the **CloudTable.CreateIfNotExists** method to create the table if it does not yet exist. The **CloudTable.CreateIfNotExists** method returns **true** if the table does not exist, and is successfully created; otherwise, **false** is returned.    
+
+    ```csharp
+	ViewBag.Success = table.CreateIfNotExists();
+    ```
+1. Update the **ViewBag** with the name of the table.
+
+    ```csharp
+	ViewBag.TableName = table.Name;
+    ```
+
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Tables**, and from the context menu, select **Add->View**.
+
+1. On the **Add View** dialog, enter **CreateTable** for the view name, and select **Add**.
+
+1. Open `CreateTable.cshtml`, and modify it so that it looks like the following.
+
+    ```csharp
+	@{
+	    ViewBag.Title = "Create table";
+	}
+	
+	<h2>Create table results</h2>
+
+	Creation of @ViewBag.TableName @(ViewBag.Success == true ? "succeeded" : "failed")
+    ```
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
+
+    ```html
+	<li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
+    ```
+
+1. Run the application, and select **Create table**. You will see results similar to those shown in the following screen shot. 
+  
+	![Create table](./media/vs-storage-aspnet-getting-started-tables/results.png)
+
+	As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method will return **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the container can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+
+
+
+
+
+
+
+
+
+
 
 ## Add an entity to a table
 
@@ -322,5 +404,7 @@ The following steps illustrate how to search for, and then delete an entity.
         }
 
 ## Next steps
-[!INCLUDE [vs-storage-dotnet-tables-next-steps](../../includes/vs-storage-dotnet-tables-next-steps.md)]
+View more feature guides to learn about additional options for storing data in Azure.
 
+  * [Get started with Azure blob storage and Visual Studio Connected Services (ASP.NET)](./vs-storage-aspnet-getting-started-blobs.md)
+  * [Get started with Azure queue storage and Visual Studio Connected Services (ASP.NET)](./vs-storage-aspnet-getting-started-queues.md)
