@@ -102,7 +102,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 
 1. [A] Register SLES to be able to use the repositories
 1. [A] Add public-cloud module
-1. [A] Install HA extension  
+1. [A] Install HA extension
     <pre>
     zypper install sle-ha-release
     <pre>
@@ -132,10 +132,9 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     <pre>
     vi /etc/hosts
     
-    # insert the following lines to /etc/hosts
-    <code><b>10.79.227.20 saphanavm1
-    10.79.227.21 saphanavm2</b></code>
-    </pre>
+    # insert the following lines to /etc/hosts<code><b>
+    10.79.227.20 saphanavm1
+    10.79.227.21 saphanavm2</b></code></pre>
 
 1. [1] Install Cluster
     <pre>
@@ -152,8 +151,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 1. [2] Add node to cluster
     <pre>
     ha-cluster-join
-    
-    WARNING: Hostname 'saphanavm2' is unresolvable - csync2 won't work. Please add an entry to /etc/hosts or configure DNS.
+        
     WARNING: NTP is not configured to start at system boot.
     WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
     Do you want to continue anyway? [y/N] -> y
@@ -162,9 +160,9 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     </pre>
 
 1. [A] Change hacluster password to the same password
-    <pre>
+    <pre><code>
     passwd hacluster
-    </pre>
+    </code></pre>
 
 1. [A] Configure corosync to use other transport and add nodelist. Cluster will not work otherwise.
     <pre>
@@ -193,14 +191,14 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 
     Then restart the corosync service
 
-    <pre>
+    <pre><code>
     service corosync restart
-    </pre>
+    </code></pre>
 
 1. [A] Install HANA HA packages  
-    <pre>
+    <pre><code>
     zypper install SAPHanaSR SAPHanaSR-do
-    </pre>
+    </code></pre>
 
 ## Installing SAP HANA
 
@@ -237,40 +235,40 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
   Validate the summary and enter y to continue
 1. [A] Upgrade SAP Host Agent  
   Download the latest SAP Host Agent archive from the [SAP Softwarecenter][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file you downloaded.
-    <pre>
+    <pre><code>
     /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <b>/usr/sap/sapcd/SAPHOSTAGENT18_18-20009394.SAR</b>
-    </pre>
+    </code></pre>
 
 1. [1] Create HANA replication (as root)  
     Run the following command. Make sure to replace bold strings (HANA System ID HDB and instance number 50) with the values of your SAP HANA installation.
-    <pre>
+    <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>50</b>/exe"
     hdbsql -u system -i <b>50</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"' 
     hdbsql -u system -i <b>50</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync' 
     hdbsql -u system -i <b>50</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
-    </pre>
+    </code></pre>
 
 1. [A] Create keystore entry (as root)
-    <pre>
+    <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>50</b>/exe"
     hdbuserstore SET <b>hdb</b>haloc localhost:3<b>50</b>15 <b>hdb</b>hasync <b>passwd</b>
-    </pre>
+    </code></pre>
 1. [1] Backup database
-    <pre>
+    <pre><code>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>50</b>/exe"
     hdbsql -u system -i <b>50</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
-    </pre>
+    </code></pre>
 1. [1] Switch to the sapsid user (for example hdbadm) and create the primary site.
-    <pre>
+    <pre><code>
     su - <b>hdb</b>adm
     hdbnsutil -sr_enable –-name=<b>SITE1</b>
-    </pre>
+    </code></pre>
 1. [1] Switch to the sapsid user (for example hdbadm) and create the secondary site.
-    <pre>
+    <pre><code>
     su - <b>hdb</b>adm
     sapcontrol -nr <b>50</b> -function StopWait 600 10
     hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE2</b> 
-    </pre>
+    </code></pre>
 
 ## Configure Cluster Framework
 
@@ -414,16 +412,24 @@ crm configure load update crm-saphana.txt
 #### Fencing Test
 
 You can test the setup of the fencing agent by disabling the network interface on one node.
-```
+<pre><code>
 ifdown eth0
-```
-The virtual machine should now get restarted.
+</code></pre>
+The virtual machine should now get restarted or stopped depending on your cluster configuration.
+If you set the stonith-action to off, the virtual machine will be stopped and the resources are migrated to the running virtual machine.
+
+Once you start the virtual machine again, the SAP HANA resource will fail to start if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
+<pre><code>
+su - <b>hdb</b>adm
+sapcontrol -nr <b>50</b> -function StopWait 600 10
+hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE2</b> 
+</code></pre>
 
 #### Testing a manual failover
 
 You can migrate the SAP HANA master node by executing the following command
-```
+<pre><code>
 crm resource migrate 
-```
+</code></pre>
 
 This should migrate the SAP HANA master node and the group that contains the virtual IP address
