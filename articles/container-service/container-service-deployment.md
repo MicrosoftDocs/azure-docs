@@ -20,7 +20,11 @@ ms.author: rogardle
 
 ---
 # Deploy an Azure Container Service cluster
-Azure Container Service provides rapid deployment of popular open-source container clustering and orchestration solutions. By using Azure Container Service, you can deploy DC/OS, Kubernetes and Docker Swarm clusters with Azure Resource Manager templates or the Azure portal. You deploy these clusters by using Azure Virtual Machine Scale Sets, and the clusters take advantage of Azure networking and storage offerings. To access Azure Container Service, you need an Azure subscription. If you don't have one, then you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+Azure Container Service provides rapid deployment of popular open-source container clustering and orchestration solutions. By using Azure Container Service, you can deploy DC/OS, Kubernetes, and Docker Swarm clusters with Azure Resource Manager templates or the Azure portal. You deploy these clusters by using Azure Virtual Machine Scale Sets, and the clusters take advantage of Azure networking and storage offerings. To access Azure Container Service, you need an Azure subscription. If you don't have one, then you can sign up for a [free trial](http://azure.microsoft.com/pricing/free-trial/?WT.mc_id=AA4C1C935).
+
+> [!NOTE]
+> Kubernetes support in Azure Container Service is currently in preview.
+>
 
 This document walks you through deploying an Azure Container Service cluster by using the [Azure portal](#creating-a-service-using-the-azure-portal), the [Azure command-line interface (CLI)](#creating-a-service-using-the-azure-cli), and the [Azure PowerShell module](#creating-a-service-using-powershell).  
 
@@ -55,8 +59,7 @@ Click **OK** when you're ready to proceed.
 
 ![Create deployment 4](media/acs-portal4-new.png)  <br />
 
-If **Kubernetes** is selected in the dropdown, you will need to enter the Service principal client id and service principal client secret.
-To learn more about how to create a service principal visit [this](https://github.com/Azure/acs-engine/blob/master/docs/serviceprincipal.md) page 
+If **Kubernetes** is selected in the dropdown, you will need to enter a service principal client id and service principal client secret. For more information, see [About the service principal for a Kubernetes cluster](container-service-kubernetes-service-principal.md).
 
 ![Create deployment 4.5](media/acs-portal10.PNG)  <br />
 

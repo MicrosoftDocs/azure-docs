@@ -31,6 +31,10 @@ The instructions below will create a Kubernetes cluster with one master and two 
 The master serves the Kubernetes REST API.  The worker nodes are grouped in an Azure availability set
 and run your containers. All VMs are in the same private VNET and are fully accessible to each other.
 
+> [!NOTE]
+> Kubernetes support in Azure Container Service is currently in preview.
+>
+
 The following image shows the architecture of a container service cluster with one master, and two agents:
 
 ![Image of Kubernetes cluster on azure](media/container-service-kubernetes-walkthrough/kubernetes.png)
