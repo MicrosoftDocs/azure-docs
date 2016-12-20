@@ -71,6 +71,9 @@ A master target server is required on-premises to recieve the data from the proc
 
 * A linux failed over VM, needs a Linux Master target server. A Windows failed over VM, requires a Windows master target server.
 
+* Install VMware tools on the master target server. Without the VMware tools, the datastores on the MT's ESXi host cannot be detected.
+
+* Enable the disk.EnableUUID = True parameter on the MT VM via the vCenter properties. !todo Needs link.
 
 Click on the below links to reads the steps on How to install a Master Target server.
 
@@ -123,6 +126,7 @@ You can also reprotect at a recovery plan level. If you have a replication group
 > A replication group should be protected back using the same Master target. If they are protected back using different Master target server, a common point in time cannot be taken for it.
 > 
 > 
+
 ## Common issues
 
 ## Next steps
