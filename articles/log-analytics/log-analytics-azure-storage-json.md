@@ -25,7 +25,7 @@ Log Analytics can collect the logs for the following Azure services that write [
 * Network Security Group (Preview)
 
 > [!NOTE]
-> This method of collecting logs is deprecated. Use [Azure diagnostics direct to Log Analytics](log-analytics-azure-storage.md) to collect logs for the above services. Once the Key Vault Analytics and Azure Network Analytics are updated to support logs collected directly from Azure diagnostics this documentation will be deleted. 
+> This method of collecting logs is deprecated. Use [Azure diagnostics direct to Log Analytics](log-analytics-azure-storage.md) to collect logs for the above services. Once the Key Vault Analytics and Azure Network Analytics management solutions are updated to support logs collected directly from Azure diagnostics this documentation will be deleted. 
 > 
 >
 
