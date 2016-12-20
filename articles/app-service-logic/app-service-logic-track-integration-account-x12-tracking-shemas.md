@@ -1,6 +1,6 @@
 ---
-title: x12 tracking schemas | Microsoft Docs
-description: Learn more about X12 tracking shema
+title: X12 tracking schemas | Microsoft Docs
+description: Learn more about X12 tracking schemas
 author: padmavc
 manager: erikre
 editor: ''
@@ -17,17 +17,17 @@ ms.date: 10/31/2016
 ms.author: padmavc
 
 ---
-# X12 Tracking Schemas
-Supported X12 tracking schemas are
+# X12 tracking schemas
+You can use these X12 tracking schemas in your Azure integration account to help you monitor business-to-business (B2B) transactions:
 
-* X12 Transaction Set Tracking Schema
-* X12 Transaction Set acknowledgement Tracking Schema
-* X12 Interchange Tracking Schema
-* X12 Interchange acknowledgement Tracking Schema
-* X12 Functional Group Tracking Schema
-* X12 Functional Group acknowledgement Tracking Schema
+* X12 transaction set tracking schema
+* X12 transaction set acknowledgement tracking schema
+* X12 interchange tracking schema
+* X12 interchange acknowledgement tracking schema
+* X12 functional group tracking schema
+* X12 functional group acknowledgement tracking schema
 
-## X12 Transaction Set Tracking Schema
+## X12 transaction set tracking schema
 ````java
 
     {
@@ -45,7 +45,7 @@ Supported X12 tracking schemas are
                 "interchangeControlNumber": "",
                 "functionalGroupControlNumber": "",
                 "transactionSetControlNumber": "",
-                "CorrelationMessageId": "", 
+                "CorrelationMessageId": "",
                 "messageType": "",
                 "isMessageFailed": "",
                 "isTechnicalAcknowledgmentExpected": "",
@@ -56,28 +56,28 @@ Supported X12 tracking schemas are
     }
 ````
 
-| Property | Description |
-| --- | --- |
-| senderPartnerName |Optional, string.  It indicates the X12 message send partner name |
-| receiverPartnerName |Optional, string.  It indicates the X12 message receive partner name |
-| senderQualifier |Mandatory, string.  It indicates the send partner qualifier |
-| senderIdentifier |Mandatory, string.  It indicates the send partner identifier |
-| receiverQualifier |Mandatory, string.  It indicates the receive partner qualifier |
-| receiverIdentifier |Mandatory, string.  It indicates the receive partner identifier |
-| agreementName |Optional, string.  Name of the X12 agreement to which the messages are resolved |
-| direction |Mandatory, enum.  It indicates the direction of the message flow.  The allowed values are receive or send |
-| interchangeControlNumber |Optional, string.  It indicates the interchange control number |
-| functionalGroupControlNumber |Optional, string.  It indicates the functional control number |
-| transactionSetControlNumber |Optional, string.  It indicates the transaction set control number |
-| CorrelationMessageId |Optional, string.  It indicates the correlation message id.  The correlation id is combination of {AgreementName}*{GroupControlNumber}*{TransactionSetControlNumber} |
-| messageType |Optional, string. It indicates the transaction set or document type |
-| isMessageFailed |Mandatory, boolean.  indicates that whether X12 message either succeeded or failed |
-| isTechnicalAcknowledgmentExpected |Mandatory, boolean.  It indicates whether the technical acknowledgement is either configured or not configured in the X12 agreement |
-| isFunctionalAcknowledgmentExpected |Mandatory, boolean.  It indicates whether the functional acknowledgement is either configured or not configured in the X12 agreement |
-| needAk2LoopForValidMessages |Mandatory, boolean.  - whether the AK2 loop is required for valid message or not. - type boolean |
-| segmentsCount |Optional, int.  It indicates the number of segments in the X12 transaction set |
+| Property | Type | Description |
+| --- | --- | --- |
+| senderPartnerName | String | X12 message sender's partner name. (Optional) |
+| receiverPartnerName | String | X12 message receiver's partner name. (Optional) |
+| senderQualifier | String | Send partner qualifier. (Mandatory) |
+| senderIdentifier | String | Send partner identifier. (Mandatory) |
+| receiverQualifier | String | Receive partner qualifier. (Mandatory) |
+| receiverIdentifier | String | Receive partner identifier. (Mandatory) |
+| agreementName | String | Name of the X12 agreement to which the messages are resolved. (Optional) |
+| direction | Enum | Direction of the message flow, receive or send. (Mandatory) |
+| interchangeControlNumber | String | Interchange control number. (Optional) |
+| functionalGroupControlNumber | String | Functional control number. (Optional) |
+| transactionSetControlNumber | String | Transaction set control number. (Optional) |
+| CorrelationMessageId | String | Correlation message ID. A combination of {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (Optional) |
+| messageType | String | Transaction set or document type. (Optional) |
+| isMessageFailed | Boolean | Whether the X12 message failed. (Mandatory) |
+| isTechnicalAcknowledgmentExpected | Boolean | Whether the technical acknowledgement is configured in the X12 agreement. (Mandatory) |
+| isFunctionalAcknowledgmentExpected | Boolean | Whether the functional acknowledgement is configured in the X12 agreement. (Mandatory) |
+| needAk2LoopForValidMessages | Boolean | Whether the AK2 loop is required for a valid message. (Mandatory) |
+| segmentsCount | Integer | Number of segments in the X12 transaction set. (Optional) |
 
-## X12 Transaction Set Acknowledgement Tracking Schema
+## X12 transaction set acknowledgement tracking schema
 ````java
 
     {
@@ -111,34 +111,34 @@ Supported X12 tracking schemas are
     }
 ````
 
-| Property | Description |
-| --- | --- |
-| senderPartnerName |Optional, string.  It indicates the X12 message sender's partner name |
-| receiverPartnerName |Optional, string.  It indicates the X12 message receiver's partner name |
-| senderQualifier |Mandatory, string.  It indicates the send partner qualifier |
-| senderIdentifier |Mandatory, string.  It indicates the send partner identifier |
-| receiverQualifier |Mandatory, string.  It indicates the receive partner qualifier |
-| receiverIdentifier |Mandatory, string.  It indicates the receive partner identifier |
-| agreementName |Optional, string.  Name of the X12 agreement to which the messages are resolved |
-| direction |Mandatory, enum.  It indicates the direction of the message flow.  The allowed values are receive or send |
-| interchangeControlNumber |Optional, string.  It indicates the interchange control number of the functional acknowledgement. The value populates only for send side where functional acknowledgement received for the messages sent to partner |
-| functionalGroupControlNumber |Optional, string.  It indicates the functional group control number of the functional acknowledgement. The value populates only for send side where functional acknowledgement received for the messages sent to partner |
-| isaSegment |Optional, string.  It indicates the ISA segment of the message. The value populates only for send side where functional acknowledgement received for the messages sent to partner |
-| gsSegment |Optional, string.  It indicates the GS segment of the message. The value populates only for send side where functional acknowledgement received for the messages sent to partner |
-| respondingfunctionalGroupControlNumber |Optional, string.  It indicates the responding interchange control number |
-| respondingFunctionalGroupId |Optional, string. It indicates the responding functional group id, that maps to AK101 in the acknowledgement |
-| respondingtransactionSetControlNumber |Optional, string.  It indicates the responding transaction set control number |
-| respondingTransactionSetId |Optional, string.  It indicates the responding transaction set id, that maps to AK201 in the acknowledgement |
-| statusCode |Mandatory, boolean.  It indicates the transaction set acknowledgement status code |
-| segmentsCount |Mandatory, enum.  It indicates the acknowledgement status code.  The allowed values are Accepted or Rejected or AccpetedWithErrros |
-| processingStatus |Mandatory, enum.  It indicates the processing status of the acknowledgement.  The allowed values are Received or Generated or Sent |
-| CorrelationMessageId |Optional, string.  It indicates the correlation message id.  The correlation id is combination of {AgreementName}*{GroupControlNumber}*{TransactionSetControlNumber} |
-| isMessageFailed |Mandatory, boolean.  indicates that whether X12 message either succeeded or failed |
-| ak2Segment |Optional, string. It indicates the ak2 segment. The ak2 segment indicates an acknowledgement for a transaction set within the received functional group |
-| ak3Segment |Optional, string. It indicates the ak3 segment.  The ak3 segment reports errors in a data segment |
-| ak5Segment |Optional, string. It indicates the ak5 segment.  The ak5 segment reports whether the transaction set identified in the AK2 segment is accepted or rejected and why |
+| Property | Type | Description |
+| --- | --- | --- |
+| senderPartnerName | String | X12 message sender's partner name. (Optional) |
+| receiverPartnerName | String | X12 message receiver's partner name. (Optional) |
+| senderQualifier | String | Send partner qualifier. (Mandatory) |
+| senderIdentifier | String | Send partner identifier. (Mandatory) |
+| receiverQualifier | String | Receive partner qualifier. (Mandatory) |
+| receiverIdentifier | String | Receive partner identifier. (Mandatory) |
+| agreementName | String | Name of the X12 agreement to which the messages are resolved. (Optional) |
+| direction | Enum | Direction of the message flow, receive or send. (Mandatory) |
+| interchangeControlNumber | String | Interchange control number of the functional acknowledgement. Value populates only for the send side where functional acknowledgement is received for the messages sent to partner. (Optional) |
+| functionalGroupControlNumber | String | Functional group control number of the functional acknowledgement. Value populates only for the send side where functional acknowledgement is received for the messages sent to partner. (Optional) |
+| isaSegment | String | ISA segment of the message. Value populates only for the send side where functional acknowledgement is received for the messages sent to partner. (Optional) |
+| gsSegment | String | GS segment of the message. Value populates only for the send side where functional acknowledgement is received for the messages sent to partner. (Optional) |
+| respondingfunctionalGroupControlNumber | String | Responding interchange control number. (Optional) |
+| respondingFunctionalGroupId | String | Responding functional group ID, which maps to AK101 in the acknowledgement. (Optional) |
+| respondingtransactionSetControlNumber | String | Responding transaction set control number. (Optional) |
+| respondingTransactionSetId | String | Responding transaction set ID, which maps to AK201 in the acknowledgement. (Optional) |
+| statusCode | Boolean | Transaction set acknowledgement status code. (Mandatory) |
+| segmentsCount | Enum | Acknowledgement status code. Allowed values are **Accepted**, **Rejected**, and **AcceptedWithErrors**. (Mandatory) |
+| processingStatus | Enum | Processing status of the acknowledgement. Allowed values are **Received**, **Generated**, and **Sent**. (Mandatory) |
+| CorrelationMessageId | String | Correlation message ID. A combination of {AgreementName}{*GroupControlNumber*}{TransactionSetControlNumber}. (Optional) |
+| isMessageFailed | Boolean | Whether the X12 message failed. (Mandatory) |
+| ak2Segment | String | Acknowledgement for a transaction set within the received functional group. (Optional) |
+| ak3Segment | String | Reports errors in a data segment. (Optional) |
+| ak5Segment | String | Reports whether the transaction set identified in the AK2 segment is accepted or rejected, and why. (Optional) |
 
-## X12 Interchange Tracking Schema
+## X12 interchange tracking schema
 ````java
 
     {
@@ -168,29 +168,29 @@ Supported X12 tracking schemas are
     }
 ````
 
-| Property | Description |
-| --- | --- |
-| senderPartnerName |Optional, string.  It indicates the X12 message sender's partner name |
-| receiverPartnerName |Optional, string.  It indicates the X12 message receiver's partner name |
-| senderQualifier |Mandatory, string.  It indicates the send partner qualifier |
-| senderIdentifier |Mandatory, string.  It indicates the send partner identifier |
-| receiverQualifier |Mandatory, string.  It indicates the receive partner qualifier |
-| receiverIdentifier |Mandatory, string.  It indicates the receive partner identifier |
-| agreementName |Optional, string.  Name of the X12 agreement to which the messages are resolved |
-| direction |Mandatory, enum.  It indicates the direction of the message flow.  The allowed values are receive or send |
-| interchangeControlNumber |Optional, string.  It indicates the interchange control number |
-| isaSegment |Optional, string.  It indicates the message ISA segment |
-| isTechnicalAcknowledgmentExpected |Mandatory, boolean.  It indicates whether the technical acknowledgement is either configured or not configured in the X12 agreement |
-| isMessageFailed |Mandatory, boolean.  indicates that whether X12 message either succeeded or failed |
-| isa09 |Optional, string.  It indicates X12 document interchange Date |
-| isa10 |Optional, string. It indicates X12 document interchange Time |
-| isa11 |Optional, string. It indicates X12 interchange Control Standards identifier |
-| isa12 |Optional, string.  It indicates X12 interchange Control Version Number |
-| isa14 |Optional, string.  It indicates X12 acknowledgement is requested |
-| isa15 |Optional, string.  It indicates indicator for test or production |
-| isa16 |Optional, string. It indicates the element separator |
+| Property | Type | Description |
+| --- | --- | --- |
+| senderPartnerName | String | X12 message sender's partner name. (Optional) |
+| receiverPartnerName | String | X12 message receiver's partner name. (Optional) |
+| senderQualifier | String | Send partner qualifier. (Mandatory) |
+| senderIdentifier | String | Send partner identifier. (Mandatory) |
+| receiverQualifier | String | Receive partner qualifier. (Mandatory) |
+| receiverIdentifier | String | Receive partner identifier. (Mandatory) |
+| agreementName | String | Name of the X12 agreement to which the messages are resolved. (Optional) |
+| direction | Enum | Direction of the message flow, receive or send. (Mandatory) |
+| interchangeControlNumber | String | Interchange control number. (Optional) |
+| isaSegment | String | Message ISA segment. (Optional) |
+| isTechnicalAcknowledgmentExpected | Boolean | Whether the technical acknowledgement is configured in the X12 agreement. (Mandatory) |
+| isMessageFailed | Boolean | Whether the X12 message failed. (Mandatory) |
+| isa09 | String | X12 document interchange date. (Optional) |
+| isa10 | String | X12 document interchange time. (Optional) |
+| isa11 | String | X12 interchange control standards identifier. (Optional) |
+| isa12 | String | X12 interchange control version number. (Optional) |
+| isa14 | String | X12 acknowledgement is requested. (Optional) |
+| isa15 | String | Indicator for test or production. (Optional) |
+| isa16 | String | Element separator. (Optional) |
 
-## X12 Interchange Acknowledgement Tracking Schema
+## X12 interchange acknowledgement tracking schema
 ````java
     {
             "agreementProperties": {
@@ -217,27 +217,27 @@ Supported X12 tracking schemas are
     }
 ````
 
-| Property | Description |
-| --- | --- |
-| senderPartnerName |Optional, string.  It indicates the X12 message sender's partner name |
-| receiverPartnerName |Optional, string.  It indicates the X12 message receiver's partner name |
-| senderQualifier |Mandatory, string.  It indicates the send partner qualifier |
-| senderIdentifier |Mandatory, string.  It indicates the send partner identifier |
-| receiverQualifier |Mandatory, string.  It indicates the receive partner qualifier |
-| receiverIdentifier |Mandatory, string.  It indicates the receive partner identifier |
-| agreementName |Optional, string.  Name of the X12 agreement to which the messages are resolved |
-| direction |Mandatory, enum.  It indicates the direction of the message flow.  The allowed values are receive or send |
-| interchangeControlNumber |Optional, string.  It indicates the interchange control number of the Technical Acknowledgement. Technical acknowledgment received from partners has this value |
-| isaSegment |Optional, string.  It indicates the ISA segment for the Technical Acknowledgement. Technical acknowledgment received from partners has this value |
-| respondingInterchangeControlNumber |Optional, string.  It indicates the interchange control number for the Technical Acknowledgement. Technical acknowledgment received from partners has this value |
-| isMessageFailed |Mandatory, boolean.  indicates whether X12 message either succeeded or failed |
-| statusCode |Mandatory, enum.  It indicates the interchange acknowledgement status code.  The allowed values are Accepted/Rejected/AccpetedWithErrros |
-| processingStatus |Mandatory, enum.  It indicates the acknowledgement status.  The allowed values are Received/Generated/Sent |
-| ta102 |Optional, string. It indicates the interchange date |
-| ta103 |Optional, string. It indicates the interchange time |
-| ta105 |Optional, string. It indicates the interchange note code |
+| Property | Type | Description |
+| --- | --- | --- |
+| senderPartnerName | String | X12 message sender's partner name. (Optional) |
+| receiverPartnerName | String | X12 message receiver's partner name. (Optional) |
+| senderQualifier | String | Send partner qualifier. (Mandatory) |
+| senderIdentifier | String | Send partner identifier. (Mandatory) |
+| receiverQualifier | String | Receive partner qualifier. (Mandatory) |
+| receiverIdentifier | String | Receive partner identifier. (Mandatory) |
+| agreementName | String | Name of the X12 agreement to which the messages are resolved. (Optional) |
+| direction | Enum | Direction of the message flow, receive or send. (Mandatory) |
+| interchangeControlNumber | String | Interchange control number of the technical acknowledgement that's received from partners. (Optional) |
+| isaSegment | String | ISA segment for the technical acknowledgement that's received from partners. (Optional) |
+| respondingInterchangeControlNumber |String | Interchange control number for the technical acknowledgement that's received from partners. (Optional) |
+| isMessageFailed | Boolean | Whether the X12 message failed. (Mandatory) |
+| statusCode | Enum | Interchange acknowledgement status code. Allowed values are **Accepted**, **Rejected**, and **AcceptedWithErrors**. (Mandatory) |
+| processingStatus | Enum | Acknowledgement status. Allowed values are **Received**, **Generated**, and **Sent**. (Mandatory) |
+| ta102 | String | Interchange date. (Optional) |
+| ta103 | String | Interchange time. (Optional) |
+| ta105 | String | Interchange note code. (Optional) |
 
-## X12 Functional Group Tracking Schema
+## X12 functional group tracking schema
 ````java
 
     {
@@ -269,31 +269,31 @@ Supported X12 tracking schemas are
     }
 ````
 
-| Property | Description |
-| --- | --- |
-| senderPartnerName |Optional, string.  It indicates the X12 message sender's partner name |
-| receiverPartnerName |Optional, string.  It indicates the X12 message receiver's partner name |
-| senderQualifier |Mandatory, string.  It indicates the send partner qualifier |
-| senderIdentifier |Mandatory, string.  It indicates the send partner identifier |
-| receiverQualifier |Mandatory, string.  It indicates the receive partner qualifier |
-| receiverIdentifier |Mandatory, string.  It indicates the receive partner identifier |
-| agreementName |Optional, string.  Name of the X12 agreement to which the messages are resolved |
-| direction |Mandatory, enum.  It indicates the direction of the message flow.  The allowed values are receive or send |
-| interchangeControlNumber |Optional, string. It indicates the interchange control number |
-| functionalGroupControlNumber |Optional - Functional control number - type string |
-| gsSegment |Optional, string.  It indicates the message GS segment |
-| isTechnicalAcknowledgmentExpected |Mandatory, boolean.  It indicates whether the technical acknowledgement is either configured or not configured in the X12 agreement |
-| isFunctionalAcknowledgmentExpected |Mandatory, boolean.  It indicates whether the functional acknowledgement is either configured or not configured in the X12 agreement |
-| isMessageFailed |Mandatory, boolean.  indicates that whether X12 message either succeeded or failed |
-| gs01 |Optional, string. It indicates the functional identifier code |
-| gs02 |Optional, string. It indicates the application sender's code |
-| gs03 |Optional, string. It indicates application receiver's code |
-| gs04 |Optional, string. It indicates the functional group date |
-| gs05 |Optional, string. It indicates the functional group time |
-| gs07 |Optional, string. It indicates the responsible agency code |
-| gs08 |Optional, string. It indicates the version/release/industry identifier code - type string |
+| Property | Type | Description |
+| --- | --- | --- |
+| senderPartnerName | String | X12 message sender's partner name. (Optional) |
+| receiverPartnerName | String | X12 message receiver's partner name. (Optional) |
+| senderQualifier | String | Send partner qualifier. (Mandatory) |
+| senderIdentifier | String | Send partner identifier. (Mandatory) |
+| receiverQualifier | String | Receive partner qualifier. (Mandatory) |
+| receiverIdentifier | String | Receive partner identifier. (Mandatory) |
+| agreementName | String | Name of the X12 agreement to which the messages are resolved. (Optional) |
+| direction | Enum | Direction of the message flow, receive or send. (Mandatory) |
+| interchangeControlNumber | String | Interchange control number. (Optional) |
+| functionalGroupControlNumber | String | Functional control number. (Optional) |
+| gsSegment | String | Message GS segment. (Optional) |
+| isTechnicalAcknowledgmentExpected | Boolean | Whether the technical acknowledgement is configured in the X12 agreement. (Mandatory) |
+| isFunctionalAcknowledgmentExpected | Boolean | Whether the functional acknowledgement is configured in the X12 agreement. (Mandatory) |
+| isMessageFailed | Boolean | Whether the X12 message failed. (Mandatory)|
+| gs01 | String | Functional identifier code. (Optional) |
+| gs02 | String | Application sender's code. (Optional) |
+| gs03 | String | Application receiver's code. (Optional) |
+| gs04 | String | Functional group date. (Optional) |
+| gs05 | String | Functional group time. (Optional) |
+| gs07 | String | Responsible agency code. (Optional) |
+| gs08 | String | Version/release/industry identifier code. (Optional) |
 
-## X12 Functional Group Acknowledgement Tracking Schema
+## X12 functional group acknowledgement tracking schema
 ````java
     {
             "agreementProperties": {
@@ -323,33 +323,32 @@ Supported X12 tracking schemas are
     }
 ````
 
-| Property | Description |
-| --- | --- |
-| senderPartnerName |Optional, string.  It indicates the X12 message sender's partner name |
-| receiverPartnerName |Optional, string.  It indicates the X12 message receiver's partner name |
-| senderQualifier |Mandatory, string.  It indicates the send partner qualifier |
-| senderIdentifier |Mandatory, string.  It indicates the send partner identifier |
-| receiverQualifier |Mandatory, string.  It indicates the receive partner qualifier |
-| receiverIdentifier |Mandatory, string.  It indicates the receive partner identifier |
-| agreementName |Optional, string.  Name of the X12 agreement to which the messages are resolved |
-| direction |Mandatory, enum.  It indicates the direction of the message flow.  The allowed values are receive or send |
-| interchangeControlNumber |Optional, string. It indicates the interchange control number. The value populates for send side when a technical acknowledgement received from partners |
-| functionalGroupControlNumber |Optional, string. It indicates the functional group control number of the technical acknowledgement. The value populates for send side when a technical acknowledgement received from partners |
-| isaSegment |Optional - Same as above interchange control number gets populated only in specific cases. - type string |
-| gsSegment |Optional - Same as above functional group control number gets populated only in specific cases. - type string |
-| respondingfunctionalGroupControlNumber |Optional - control number of the original functional group - type string |
-| respondingFunctionalGroupId |Optional - Maps to AK101 in the ack - functional group Id - type string |
-| isMessageFailed |Mandatory, boolean.  indicates that whether X12 message either succeeded or failed |
-| statusCode |Mandatory, enum.  It indicates the acknowledgement status code. The allowed values are Accepted/Rejected/AccpetedWithErrros |
-| processingStatus |Mandatory, enum.  It indicates the processing status of the acknowledgement. The allowed Values are Received/Generated/Sent |
-| ak903 |Optional, string. It indicates the number of the transaction sets received |
-| ak904 |Optional, string. It indicates the number of transaction sets accepted in the identified functional group |
-| ak9Segment |Optional, string.  Ak9 segment indicates whether the functional group identified in the AK1 segment is accepted or rejected and why |
+| Property | Type | Description |
+| --- | --- | --- |
+| senderPartnerName | String | X12 message sender's partner name. (Optional) |
+| receiverPartnerName | String | X12 message receiver's partner name. (Optional) |
+| senderQualifier | String | Send partner qualifier. (Mandatory) |
+| senderIdentifier | String | Send partner identifier. (Mandatory) |
+| receiverQualifier | String | Receive partner qualifier. (Mandatory) |
+| receiverIdentifier | String | Receive partner identifier. (Mandatory) |
+| agreementName | String | Name of the X12 agreement to which the messages are resolved. (Optional) |
+| direction | Enum | Direction of the message flow, receive or send. (Mandatory) |
+| interchangeControlNumber | String | Interchange control number, which populates for the send side when a technical acknowledgement is received from partners. (Optional) |
+| functionalGroupControlNumber | String | Functional group control number of the technical acknowledgement, which populates for the send side when a technical acknowledgement is received from partners. (Optional) |
+| isaSegment | String | Same as interchange control number, but populated only in specific cases. (Optional) |
+| gsSegment | String | Same as functional group control number, but populated only in specific cases. (Optional) |
+| respondingfunctionalGroupControlNumber | String | Control number of the original functional group. (Optional) |
+| respondingFunctionalGroupId | String | Maps to AK101 in the acknowledgement functional group ID. (Optional) |
+| isMessageFailed | Boolean | Whether the X12 message failed. (Mandatory) |
+| statusCode | Enum | Acknowledgement status code. Allowed values are **Accepted**, **Rejected**, and **AcceptedWithErrors**. (Mandatory) |
+| processingStatus | Enum | Processing status of the acknowledgement. Allowed values are **Received**, **Generated**, and **Sent**. (Mandatory) |
+| ak903 | String | Number of transaction sets received. (Optional) |
+| ak904 | String | Number of transaction sets accepted in the identified functional group. (Optional) |
+| ak9Segment | String | Whether the functional group identified in the AK1 segment is accepted or rejected, and why. (Optional) |
 
 ## Next steps
-[Learn more about monitoring B2B messages](app-service-logic-monitor-b2b-message.md "Learn more about tracking B2B messages")   
-[Tracking B2B messages in OMS Portal](app-service-logic-track-b2b-messages-omsportal.md "Tracking B2B messages")   
-[Learn more about Custom Tracking Schema](app-service-logic-track-integration-account-custom-tracking-shema.md "Learn about Custom Schema")   
-[Learn more about AS2 Tracking Schema](app-service-logic-track-integration-account-as2-tracking-shemas.md "Learn about AS2 Schema")   
-[Learn more about the Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md "Learn about Enterprise Integration Pack")  
-
+* Learn more about [monitoring B2B messages](app-service-logic-monitor-b2b-message.md).
+* Learn more about [AS2 tracking schemas](app-service-logic-track-integration-account-as2-tracking-shemas.md).
+* Learn more about [B2B custom tracking schemas](app-service-logic-track-integration-account-custom-tracking-shema.md).
+* Learn about [tracking B2B messages in the Operations Management Suite portal](app-service-logic-track-b2b-messages-omsportal.md).
+* Learn more about the [Enterprise Integration Pack](app-service-logic-enterprise-integration-overview.md).  

@@ -1,6 +1,6 @@
 ---
-title: Docker and Compose on a virtual machine | Microsoft Docs
-description: Quick introduction to working with Compose and Docker on Linux virtual machines in Azure
+title: Use Docker Compose on a Linux VM in Azure | Microsoft Docs
+description: How to use Docker and Compose on Linux virtual machines in Azure
 services: virtual-machines-linux
 documentationcenter: ''
 author: iainfoulds
@@ -14,19 +14,17 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 
 ---
-# Get Started with Docker and Compose to define and run a multi-container application on an Azure virtual machine
-Get started using Docker and [Compose](http://github.com/docker/compose) to define and run a complex application on a Linux virtual machine in Azure. With Compose, you use a simple text file to define an application consisting of multiple Docker containers. You then spin up your application in a single command that does everything to deploy your defined environment. 
-
-As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database on an Ubuntu VM. You can also use Compose to set up more complex applications.
+# Get started with Docker and Compose to define and run a multi-container application on an Azure virtual machine
+With [Compose](http://github.com/docker/compose), you use a simple text file to define an application consisting of multiple Docker containers. You then spin up your application in a single command that does everything to deploy your defined environment. As an example, this article shows you how to quickly set up a WordPress blog with a backend MariaDB SQL database on an Ubuntu VM. You can also use Compose to set up more complex applications.
 
 ## Step 1: Set up a Linux VM as a Docker host
 You can use various Azure procedures and available images or Resource Manager templates in the Azure Marketplace to create a Linux VM and set it up as a Docker host. For example, see [Using the Docker VM Extension to deploy your environment](virtual-machines-linux-dockerextension.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to quickly create an Ubuntu VM with the Azure Docker VM extension by using a [quickstart template](https://github.com/Azure/azure-quickstart-templates/tree/master/docker-simple-on-ubuntu). 
 
-When you use the Docker VM extension, your VM is automatically set up as a Docker host and Compose is already installed. The example in that article shows you how to use the [Azure command-line interface for Mac, Linux, and Windows](../xplat-cli-install.md) (the Azure CLI) in Resource Manager mode to create the VM.
+When you use the Docker VM extension, your VM is automatically set up as a Docker host and Compose is already installed. The example in that article shows you how to use the [Azure CLI 1.0](../xplat-cli-install.md) in Resource Manager mode to create the VM.
 
 The basic command from the preceding document creates a resource group named `myResourceGroup` in the `West US` location and deploys a VM with the Azure Docker VM extension installed:
 
@@ -34,6 +32,14 @@ The basic command from the preceding document creates a resource group named `my
 azure group create --name myResourceGroup --location "West US" \
   --template-uri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/docker-simple-on-ubuntu/azuredeploy.json
 ```
+
+The Azure CLI returns you to the prompt after only a few seconds, but your Docker host is still being created and configured. It takes a few minutes for the deployment to finish. You can view details about the Docker host status using the `azure vm show` command. The following example checks the status of the VM named `myDockerVM` (the default name from the template - don't change this name) in the resource group named `myResourceGroup`. Enter the name of the resource group you created in the preceding step:+
+
+```azurecli
+azure vm show --resource-group myResourceGroup --name myDockerVM
+```
+
+Near the top of the output, you see the `ProvisioningState` of the VM. When this displays `Succeeded`, the deployment has finished and you can SSH to the VM.
 
 ## Step 2: Verify that Compose is installed
 Once the deployment is finished, SSH to your new Docker host using the DNS name you provided during deployment. You can use `azure vm show -g myDockerResourceGroup -n myDockerVM` to view details of your VM, including the DNS name.
@@ -48,8 +54,7 @@ You see output similar to `docker-compose 1.6.2, build 4d72027`.
 
 > [!TIP]
 > If you used another method to create a Docker host and need to install Compose yourself, see the [Compose documentation](https://github.com/docker/compose/blob/882dc673ce84b0b29cd59b6815cb93f74a6c4134/docs/install.md).
-> 
-> 
+
 
 ## Step 3: Create a docker-compose.yml configuration file
 Next you create a `docker-compose.yml` file, which is just a text configuration file, to define the Docker containers to run on the VM. The file specifies the image to run on each container (or it could be a build from a Dockerfile), necessary environment variables and dependencies, ports, and the links between containers. For details on yml file syntax, see [Compose file reference](http://docs.docker.com/compose/yml/).
@@ -87,7 +92,6 @@ In the same directory as your `docker-compose.yml` file, run the following comma
 
 ```bash
 docker-compose up -d
-
 ```
 
 This command starts the Docker containers specified in `docker-compose.yml`. It takes a minute or two for this step to complete. You see output similar to the following example:
@@ -100,8 +104,7 @@ Creating wordpress_wordpress_1...
 
 > [!NOTE]
 > Be sure to use the **-d** option on start-up so that the containers run in the background continuously.
-> 
-> 
+
 
 To verify that the containers are up, type `docker-compose ps`. You should see something like:
 

@@ -198,7 +198,7 @@ See the .Net Core Music Store Demo for a complete example - [Music Store Demo](h
 When the Custom Script Extension runs, the script is created or downloaded into a directory similar to the following example. The command output is also saved into this directory in `stdout` and `stderr` file.
 
 ```bash
-/var/lib/azure/custom-script/download/0/
+/var/lib/waagent/custom-script/download/0/
 ```
 
 The Azure Script Extension produces a log, which can be found here.

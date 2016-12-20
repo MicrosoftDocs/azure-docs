@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/22/2016
-ms.author: suchiagicha
+ms.author: suchia
 
 ---
 # Configuring FabricTransport settings for Reliable Actors
