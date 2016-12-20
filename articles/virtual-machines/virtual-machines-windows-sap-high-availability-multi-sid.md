@@ -1,7 +1,7 @@
 
 ---
-title: Configure an additional SAP ASCS/SCS instance into an existing cluster to create an SAP multi-SID configuration - Azure Resource Manager | Microsoft Docs
-description: High-availability guide for SAP NetWeaver Multi-SID on Windows Virtual Machines
+title: 'Configure an additional SAP ASCS/SCS instance into an existing cluster to create an SAP multi-SID configuration: Azure Resource Manager | Microsoft Docs'
+description: Guide to high-availability SAP NetWeaver multi-SID configuration on Windows virtual machines
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
 author: goraco
@@ -112,7 +112,7 @@ ms.author: goraco
 [deployment-guide-3]:virtual-machines-windows-sap-deployment-guide.md#b3253ee3-d63b-4d74-a49b-185e76c4088e (Deployment Scenarios of VMs for SAP on Microsoft Azure)
 [deployment-guide-4.1]:virtual-machines-windows-sap-deployment-guide.md#604bcec2-8b6e-48d2-a944-61b0f5dee2f7 (Deploying Azure PowerShell cmdlets)
 [deployment-guide-4.2]:virtual-machines-windows-sap-deployment-guide.md#7ccf6c3e-97ae-4a7a-9c75-e82c37beb18e (Download and Import SAP relevant PowerShell cmdlets)
-[deployment-guide-4.3]:virtual-machines-windows-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Join VM into on-premises Domain - Windows only)
+[deployment-guide-4.3]:virtual-machines-windows-sap-deployment-guide.md#31d9ecd6-b136-4c73-b61e-da4a29bbc9cc (Join VM into on-premises Domain: Windows only)
 [deployment-guide-4.4.2]:virtual-machines-windows-sap-deployment-guide.md#6889ff12-eaaf-4f3c-97e1-7c9edc7f7542 (Linux)
 [deployment-guide-4.4]:virtual-machines-windows-sap-deployment-guide.md#c7cbb0dc-52a4-49db-8e03-83e7edc2927d (Download, Install and enable Azure VM Agent)
 [deployment-guide-4.5.1]:virtual-machines-windows-sap-deployment-guide.md#987cf279-d713-4b4c-8143-6b11589bb9d4 (Azure PowerShell)
@@ -182,8 +182,8 @@ ms.author: goraco
 [planning-guide-11]:virtual-machines-windows-sap-planning-guide.md#7cf991a1-badd-40a9-944e-7baae842a058 (High Availability (HA) and Disaster Recovery (DR) for SAP NetWeaver running on Azure Virtual Machines)
 [planning-guide-11.4.1]:virtual-machines-windows-sap-planning-guide.md#5d9d36f9-9058-435d-8367-5ad05f00de77 (High Availability for SAP Application Servers)
 [planning-guide-11.5]:virtual-machines-windows-sap-planning-guide.md#4e165b58-74ca-474f-a7f4-5e695a93204f (Using Autostart for SAP instances)
-[planning-guide-2.1]:virtual-machines-windows-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Cloud-Only - Virtual Machine deployments into Azure without dependencies on the on-premises customer network)
-[planning-guide-2.2]:virtual-machines-windows-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Cross-Premise - Deployment of single or multiple SAP VMs into Azure with the requirement of being fully integrated into the on-premises network)
+[planning-guide-2.1]:virtual-machines-windows-sap-planning-guide.md#1625df66-4cc6-4d60-9202-de8a0b77f803 (Cloud-Only: Virtual Machine deployments into Azure without dependencies on the on-premises customer network)
+[planning-guide-2.2]:virtual-machines-windows-sap-planning-guide.md#f5b3b18c-302c-4bd8-9ab2-c388f1ab3d10 (Cross-Premises: Deployment of single or multiple SAP VMs into Azure with the requirement of being fully integrated into the on-premises network)
 [planning-guide-3.1]:virtual-machines-windows-sap-planning-guide.md#be80d1b9-a463-4845-bd35-f4cebdb5424a (Azure Regions)
 [planning-guide-3.2.1]:virtual-machines-windows-sap-planning-guide.md#df49dc09-141b-4f34-a4a2-990913b30358 (Fault Domains)
 [planning-guide-3.2.2]:virtual-machines-windows-sap-planning-guide.md#fc1ac8b2-e54a-487c-8581-d3cc6625e560 (Upgrade Domains)
@@ -450,13 +450,13 @@ This article focuses on how to move from a single ASCS/SCS installation to an SA
 > This feature is available only in the Azure Resource Manager deployment model.
 
 ## Prerequisites
-You have already configured a WSFC that is used for one SAP ASCS/SCS instance, as discussed in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide] and as shown in this diagram.
+You have already configured a WSFC cluster that is used for one SAP ASCS/SCS instance, as discussed in the [guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide] and as shown in this diagram.
 
 ![High-availability SAP ASCS/SCS instance][sap-ha-guide-figure-6001]
 
-## Target Architecture
+## Target architecture
 
-The goal is to install multiple SAP ABAP ASCS or SAP Java SCS clustered instances in the same WSFC cluster, as illustrated in the following diagram:
+The goal is to install multiple SAP ABAP ASCS or SAP Java SCS clustered instances in the same WSFC cluster, as illustrated here:
 
 ![Multiple SAP ASCS/SCS clustered instances in Azure][sap-ha-guide-figure-6002]
 
@@ -466,9 +466,9 @@ The goal is to install multiple SAP ABAP ASCS or SAP Java SCS clustered instance
 >The maximum number of SAP ASCS/SCS instances in one WSFC cluster is equal to the maximum number of private front-end IPs for each Azure internal load balancer.
 >
 
-For more information about load-balancer limits, see "Private front end IP per load balancer" in [Networking Limits - Azure Resource Manager][networking-limits-azure-resource-manager].
+For more information about load-balancer limits, see "Private front end IP per load balancer" in [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager].
 
-The complete landscape with two high-availability SAP systems is shown in the following diagram:
+The complete landscape with two high-availability SAP systems would look like this:
 
 ![SAP high-availability multi-SID setup with two SAP system SIDs][sap-ha-guide-figure-6003]
 
@@ -480,7 +480,7 @@ The complete landscape with two high-availability SAP systems is shown in the fo
 
 
 ## Prepare the infrastructure
-To prepare your infrastructure, you can install an additional SAP ASCS/SCS instance with following parameters:
+To prepare your infrastructure, you can install an additional SAP ASCS/SCS instance with the following parameters:
 
 | Parameter name | Value |
 | --- | --- |
@@ -526,7 +526,7 @@ The procedure for creating a DNS entry is also described in detail in the main [
 
 To create more than one SAP ASCS/SCS instance in the same WSFC cluster, use PowerShell to add an IP address to an existing Azure internal load balancer. Each IP address requires its own load-balancing rules, probe port, front-end IP pool, and back-end pool.
 
-The following script adds a new IP address to an existing load balancer. Update the PowerShell variables for your environment. The script will create all required load-balancing rules for all SAP ASCS/SCS ports.
+The following script adds a new IP address to an existing load balancer. Update the PowerShell variables for your environment. The script will create all needed load-balancing rules for all SAP ASCS/SCS ports.
 
 ```powershell
 
@@ -538,8 +538,8 @@ $SubnetName = "Subnet"                        # Existing subnet name
 $ILBName = "pr2-lb-ascs"                      # Existing ILB name                      
 $ILBIP = "10.0.0.50"                          # New IP address
 $VMNames = "pr2-ascs-0","pr2-ascs-1"          # Existing cluster virtual machine names
-$SAPInstanceNumber = 50                       # SAP ASCS/SCS instance number - must be a unique value for each cluster
-[int]$ProbePort = "623$SAPInstanceNumber"     # Probe port - must be a unique value for each IP and load balancer
+$SAPInstanceNumber = 50                       # SAP ASCS/SCS instance number: must be a unique value for each cluster
+[int]$ProbePort = "623$SAPInstanceNumber"     # Probe port: must be a unique value for each IP and load balancer
 
 $ILB = Get-AzureRmLoadBalancer -Name $ILBName -ResourceGroupName $ResourceGroupName
 
@@ -623,7 +623,7 @@ This procedure assumes that you have already installed SIOS DataKeeper on the WS
 
 ### Deploy VMs for SAP application servers and DBMS cluster
 
-To finalize infrastructure preparation for the second SAP system, do the following:
+To complete the infrastructure preparation for the second SAP system, do the following:
 
 1. Deploy dedicated VMs for SAP application servers and put them in their own dedicated availability group.
 2. Deploy dedicated VMs for DBMS cluster and put them in their own dedicated availability group.
@@ -663,6 +663,6 @@ The high-level procedure is as follows:
 
 ## Additional resources
 
-- [Networking Limits - Azure Resource Manager][networking-limits-azure-resource-manager]
+- [Networking limits: Azure Resource Manager][networking-limits-azure-resource-manager]
 - [Multiple VIPs for Azure Load Balancer][load-balancer-multivip-overview]
 - [Guide for high-availability SAP NetWeaver on Windows VMs][sap-ha-guide]
