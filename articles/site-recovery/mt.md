@@ -179,7 +179,7 @@ NOTE: Make sure system has Internet connectivity before download and
 installing additional packages.
 
 ```
-\# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
 ```
 
 Above command will download below mentioned 15 packages from CentOS 6.6
@@ -224,29 +224,29 @@ download and installed on Linux Master Target prior to the protection.
 Suse11SP3 though)***
 
 ```
-\# cd /usr/local
+# cd /usr/local
 
-\# wget
+# wget
 <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/kmod-reiserfs-0.0-1.el6.elrepo.x86_64.rpm>
 
-\# wget
+# wget
 <http://elrepo.org/linux/elrepo/el6/x86_64/RPMS/reiserfs-utils-3.6.21-1.el6.elrepo.x86_64.rpm>
 
-\# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
+# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
 reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 ```
 
 ***XFS (RHEL, CentOS 7 onwards)***
 
 ```
-\# cd /usr/local
+# cd /usr/local
 
-\# wget
+# wget
 <http://archive.kernel.org/centos-vault/6.6/os/x86_64/Packages/xfsprogs-3.1.1-16.el6.x86_64.rpm>
 
-\# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
+# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
-\# yum install device-mapper-multipath 
+# yum install device-mapper-multipath 
 ```
 This is required to enable
 Multipath packages on the MT server.
@@ -263,17 +263,18 @@ To apply custom configuration changes, follow the below mentioned steps:
 2. Run the below command to untar the binary.
 
 ```
-**tar -zxvf &lt;File name&gt;**
+tar -zxvf <File name>
 ```
 
 3. Execute below command to give permission.
-
-\# **chmod 755 ./ApplyCustomChanges.sh**
+```
+# chmod 755 ./ApplyCustomChanges.sh
+```
 
 4. Execute the below command to run the script.
-
-**\# ./ApplyCustomChanges.sh**
-
+```
+# ./ApplyCustomChanges.sh
+```
 NOTE: Execute the script only once on the server. **REBOOT** the server
 after successful execution of the above script.
 
@@ -284,13 +285,12 @@ Follow the steps as mentioned below to create a retention disk.
 **Step 1:** Attach a new **1 TB** disk to the Linux MT VM and find out
 its multipath id
 
-Invoke **“multipath -ll”** command to know the retention disk’s
+Invoke **multipath -ll** command to know the retention disk's
 multipath id.
 
 ![](./media/site-recovery-how-to-install-linux-master-target/media/image22.png)
 
-**Step 2:** Invoke **“mkfs.ext4 /dev/mapper/&lt;Retention disk’s
-multipath id&gt;”** command to create a filesystem on retention disk.
+**Step 2:** Invoke **mkfs.ext4 /dev/mapper/<Retention disk's multipath id>** command to create a filesystem on retention disk.
 
 ![](./media/site-recovery-how-to-install-linux-master-target/media/image23.png)
 
@@ -299,26 +299,25 @@ to mount the retention disk.
 
 ![](./media/site-recovery-how-to-install-linux-master-target/media/image24.png)
 
-**Step 4:** Finally create the fstab entry: vi /etc/fstab and append the
-line
+**Step 4:** Finally create the fstab entry:
+```
+vi /etc/fstab 
+```
+and append the line
 
-**/dev/mapper/36000c2989daa2fe6dddcde67f2079afe  /mnt/retention  ext4 rw
-0 0  **
-
-**\
-**
+**/dev/mapper/36000c2989daa2fe6dddcde67f2079afe /mnt/retention ext4 rw
+0 0 **
 
 ## Install Master Target
 
-1\. Copy the “latest” RHEL6-64 Unified Agent binary (You can copy it from
-- ASR\_INSTALL\_DIR\\home\\svsystems\\pushinstallsvc\\repository)
+1\. Copy the "latest" RHEL6-64 Unified Agent binary (You can copy it from ASR\_INSTALL\_DIR\\home\\svsystems\\pushinstallsvc\\repository)
 
 to the newly created OS.
 
 2\. Run the below command to untar the binary.
-
-**tar -zxvf &lt;File name&gt;**
-
+```
+tar -zxvf <File name>
+```
 3\. Execute below command to install Master Target. Choose agent role as
 ‘Master Target’.
 
