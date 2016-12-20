@@ -29,5 +29,8 @@
 
 <sup>5</sup> The storage accounts must be from the same Azure subscription.
 
-<sup>6</sup> There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). You should use the same policy ID if you are always using the same days / access permissions / etc.
+<sup>6</sup> There is a limit of 1,000,000 policies for different AMS policies (for example, for Locator policy or ContentKeyAuthorizationPolicy). 
+
+>[!NOTE]
+> You should use the same policy ID if you are always using the same days / access permissions / etc.
 
