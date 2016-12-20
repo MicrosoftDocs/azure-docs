@@ -119,7 +119,7 @@ You must assign the application to a [role](../active-directory/role-based-acces
             }
         }
 
-## See also
+## Next steps
 * [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
 * [Authenticate service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
