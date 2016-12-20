@@ -1,5 +1,4 @@
-# Get started
-## [What to do first](billing-getting-started.md)
+# [Get started](billing-getting-started.md)
 ## [Sign up with Office 365 account](../billing-use-existing-office-365-account-azure-subscription.md)
 ## [Supported countries and currencies](../billing-countries-and-currencies.md)
 ## [Limits and quotas](../azure-subscription-service-limits.md)
