@@ -64,8 +64,8 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
     **Left menu**
    
    * **Activity logs**: Show and query activity logs.
-   * **Access control (IAM)**: Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../role-based-access-control-configure.md).
-   * **Tags**: Tags allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
+   * **Access control (IAM)**: Use role assignments.  See [Use role assignments to manage access to your Azure subscription resources](../active-directory/role-based-access-control-configure.md).
+   * **Tags**: Allows you to set key/value pairs to define a custom taxonomy of your cloud services. For example, you may create a key named **project**, and then use a common value for all services associated with a specific project.
    * **Diagnose and solve problems**: Display troubleshooting information.
    * **Locks**: Add lock to prevent the cluster being modified or deleted.
    * **Automation script**: Display and export the Azure Resource Manager template for the cluster. Currently, you can only export the dependent Azure storage account. See [Create Linux-based Hadoop clusters in HDInsight using Azure Resource Manager templates](hdinsight-hadoop-create-linux-clusters-arm-templates.md).
@@ -105,7 +105,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
 Delete a cluster will not delete the default storage account or any linked storage accounts. You can re-create the cluster by using the same storage accounts and the same metastores. It is recommended to use a new default Blob container when you re-create the cluster.
 
 1. Sign in to the [Portal][azure-portal].
-2. Click **HDInsight Clusters** from the left menu. If you don't see **HDInsight Clusters**, click **More servies** first.
+2. Click **HDInsight Clusters** from the left menu. If you don't see **HDInsight Clusters**, click **More services** first.
 3. Click the cluster that you want to delete.
 4. Click **Delete** from the top menu, and then follow the instructions.
 
@@ -169,7 +169,7 @@ The impact of changing the number of data nodes for each type of cluster support
 
 ## Pause/shut down clusters
 
-Most of Hadoop jobs are batch jobs that are only ran occasionally. For most Hadoop clusters, there are large periods of time that the cluster is not being used for processing. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use.
+Most of Hadoop jobs are batch jobs that are only run occasionally. For most Hadoop clusters, there are large periods of time that the cluster is not being used for processing. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use.
 You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use.
 
 There are many ways you can program the process:
@@ -201,7 +201,7 @@ You can use the Ambari Web UI to change the Cluster user password. To log into A
 Ambari then changes the password on all nodes in the cluster.
 
 ### Change the SSH user password
-1. Using a text editor, save the following as a file named **changepassword.sh**.
+1. Using a text editor, save the following text as a file named **changepassword.sh**.
    
    > [!IMPORTANT]
    > You must use an editor that uses LF as the line ending. If the editor uses CRLF, then the script will not work.
