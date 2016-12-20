@@ -20,6 +20,7 @@ ms.author: jeedes
 
 In this tutorial, you learn how to integrate SAP HANA Cloud Platform Identity Authentication with Azure Active Directory (Azure AD). SAP HANA Cloud Platform Identity Authentication is used as a proxy IdP to access SAP applications using Azure AD as the main IdP.
 
+
 Integrating SAP HANA Cloud Platform Identity Authentication with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to SAP application
