@@ -45,7 +45,8 @@ Following are requirements for the Azure Active Directory service principal in a
 
 * **Client secret** - must be a password. Currently, you can't use a service principal set up for certificate authentication.
 
-> [!NOTE] Every service principal is associated with an Azure Active Directory application. The service principal for a Kubernetes cluster can be associated with any valid Azure Active Directory application name.
+> [!NOTE] 
+> Every service principal is associated with an Azure Active Directory application. The service principal for a Kubernetes cluster can be associated with any valid Azure Active Directory application name.
 > 
 
 
@@ -71,9 +72,10 @@ The following example shows one way to pass the parameters with the [Azure CLI](
 
 3. Run the following command, using the `-e` parameter to set the path to the azuredeploy.parameters.json file. This command deploys the cluster in an existing resource group called `myResourceGroup`.
 
-    ```Azure CLI
-    azure group deployment create -n myClusterName -g myResourceGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -e azuredeploy.parameters.json
-    ```
+  ```Azure CLI
+  azure group deployment create -n myClusterName -g myResourceGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -e azuredeploy.parameters.json
+  ```
+
 
 ### Option 2: Generate the service principal when creating the cluster with the Azure CLI 2.0 Preview
 
