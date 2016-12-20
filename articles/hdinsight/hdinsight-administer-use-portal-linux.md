@@ -80,7 +80,7 @@ see [What version of Hadoop is in Azure HDInsight](hdinsight-component-versionin
    * **Script Actions**: Run Bash scripts on the cluster. See [Customize Linux-based HDInsight clusters using Script Action](hdinsight-hadoop-customize-cluster-linux.md).
    * **Applications**: Add/remove HDInsight applications.  See [Install custom HDInsight applications](hdinsight-apps-install-custom-applications.md).
    * **Properties**: View the cluster properties.
-   * ** Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
+   * **Storage accounts**: View the storage accounts and the keys. The storage accounts are configured during the cluster creation process.
    * **Cluster AAD Identity**: 
    * **New support request**: Allows you to create a support ticket with Microsoft support.
 
