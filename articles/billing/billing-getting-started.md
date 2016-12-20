@@ -14,13 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/15/2016
+ms.date: 12/20/2016
 ms.author: jlian
 
 ---
 # Getting started with Azure billing and cost management
 
-When you sign up for Azure, there are several things you can do to get a better idea of your spend. In the Azure portal, you can see your current cost breakdown and burn rate. You can also download past invoices and detail usage files. If you want to group costs for resources used for different projects or teams, look at resource tagging. If your organization has a reporting system that you prefer to use, check out the billing APIs. 
+When you sign up for Azure, there are several things you should do to get a better idea of your spend. In the Azure portal, you can see your current cost breakdown and burn rate. You can also download past invoices and detail usage files. If you want to group costs for resources used for different projects or teams, look at resource tagging. If your organization has a reporting system that you prefer to use, check out the billing APIs. 
 
 If you're an Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship customer, then many features in this article do not apply for you. Instead, we have a different set of tools you can use, see [Additional resources for EA, CSP, and Sponsorship](#other-offers). 
 
@@ -36,8 +36,6 @@ For more information, see [pricing FAQ](https://azure.microsoft.com/pricing/faq/
 
 ### Check your subscription and access
 
-<!-- This is very hard to explain! -->
-
 Viewing costs require [subscriptions-level access](../active-directory/role-based-access-control-configure.md), but only the Account admin can access the [Account Center](https://account.windowsazure.com/Home/Index), change billing info, and manage subscriptions. The Account admin is the person who went through the sign-up process. To learn more, see [How to add or change Azure administrator roles](../billing-add-change-azure-subscription-administrator.md).
 
 To see if you're the Account admin, go to the [Subscriptions blade in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) and look at the list of subscriptions you have access to. Look under **My Role**. If it says *Account admin*, then you're ok. If it says something else like *Owner*, then you don't have full privileges.
@@ -52,7 +50,7 @@ If your Account admin is no longer with your organization and you need to manage
 
 If you are using an Azure subscription that includes free credits, like the [monthly Azure credits via Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), then the spending limit is turned on for you by default. This way, when you spend all your credits, your credit card doesn't get charged. 
 
-If you hit your spending limit, your services get disabled. That means your VMs are deallocated. To avoid service downtime, you must turn off the spending limit. Any overage gets charged onto a credit card on file. 
+If you hit your spending limit, your services get disabled. That means your VMs are deallocated. To avoid service downtime, you must turn off the spending limit. Any overage gets charged onto your credit card on file. 
 
 To see if you've got spending limit on, go to the [Subscriptions view in the Account Center](https://account.windowsazure.com/Subscriptions). A banner appears if your spending limit is on:
 
@@ -62,7 +60,7 @@ Click the banner and follow prompts to remove the spending limit. For more infor
 
 ### Set up billing alerts
 
-Set up billing alerts to get emails when your usage costs exceed an amount that you specify. If you have monthly credits, set up alerts for when you use up a specified amount. See [Set up billing alerts for your Microsoft Azure subscriptions](https://docs.microsoft.com/azure/billing-set-up-alerts).
+Set up billing alerts to get emails when your usage costs exceed an amount that you specify. If you have monthly credits, set up alerts for when you use up a specified amount. To learn more, see [Set up billing alerts for your Microsoft Azure subscriptions](https://docs.microsoft.com/azure/billing-set-up-alerts).
 
 ![Screenshot of a billing alert email](./media/billing-getting-started/billing-alert.png)
 
@@ -73,7 +71,7 @@ You might want to use the cost estimate from the pricing calculator as a guideli
 
 ### Understand limits and quotas for your subscription
 
-There are default limits to each subscription for things like the number of CPU cores, IP address, etc. Be mindful of these limits. See [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). You can request an increase to your limit or quota by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+There are default limits to each subscription for things like the number of CPU cores, IP address, etc. Be mindful of these limits. To learn more, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md). You can request an increase to your limit or quota by [contacting support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## As you add services
 
@@ -95,19 +93,17 @@ For more information, see [Using tags to organize your Azure resources](../azure
 
 ### Consider enabling cost-cutting features like auto-shutdown for VMs
 
-Depending on your scenario, you could configure auto-shutdown for your VMs in the Azure portal. See [Auto-shutdown for VMs using Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
+Depending on your scenario, you could configure auto-shutdown for your VMs in the Azure portal. To learn more, see [Auto-shutdown for VMs using Azure Resource Manager](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/).
 
 ![Screenshot of auto-shutdown option in the portal](./media/billing-getting-started/auto-shutdown.PNG)
 
-Auto-shutdown isn't the same as when you shut down within the VM with power options. Auto-shutdown stops and deallocates your VMs. to stop additional usage charges. See pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) to learn more about VM states.
+Auto-shutdown isn't the same as when you shut down within the VM with power options. Auto-shutdown stops and deallocates your VMs. to stop additional usage charges. To learn more, see pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) to learn more about VM states.
 
 For more cost-cutting features for your dev-test environments, check out [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
 
-## <a name="cost-reporting"></a> Cost reporting for your services
+## <a name="cost-reporting"></a> After using services, view usage
 
-<!-- You invoice is useful for things like tax, credits, and what would be charged onto your credit card and the CSV is good for analysis and the cost by resource view in Ibiza is good for seeing trends -->
-
-### <a name="costs"></a> View your usage and costs in the Azure portal
+### <a name="costs"></a> Regularly check the portal for cost breakdown and burn rate
 
 After you get your services running, regularly check how much they're costing you. You can see the current spend and burn rate in Azure portal. 
 
