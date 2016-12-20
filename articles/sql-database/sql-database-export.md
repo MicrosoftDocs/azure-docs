@@ -3,7 +3,7 @@ title: Archive an Azure SQL database to a BACPAC file using the Azure Portal
 description: Archive an Azure SQL database to a BACPAC file  using the Azure Portal
 services: sql-database
 documentationcenter: ''
-author: stevestein
+author: CarlRabeler
 manager: jhubbard
 editor: ''
 
@@ -11,8 +11,8 @@ ms.assetid: 41d63a97-37db-4e40-b652-77c2fd1c09b7
 ms.service: sql-database
 ms.custom: migrate and move
 ms.devlang: NA
-ms.date: 08/15/2016
-ms.author: sstein
+ms.date: 12/20/2016
+ms.author: sstein;carlrab
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
@@ -48,7 +48,7 @@ When you need to create an archive of an Azure SQL database, you can export the 
 > BACPACs are not intended to be used for backup and restore operations. Azure SQL Database automatically creates backups for every user database. For details, see [Business Continuity Overview](sql-database-business-continuity.md).  
 > 
 
-To complete this article you need the following:
+To complete this article, you need the following:
 
 * An Azure subscription.
 * An Azure SQL Database. 
@@ -73,13 +73,13 @@ Open the SQL Database blade for the database you want to export.
    ![export database][2]
 6. Select your authentication type. 
 7. Enter the appropriate authentication credentials for the Azure SQL server containing the database you are exporting.
-8. Click **OK** to archive the database. Clicking **OK** creates an export database request and submits it to the service. The length of time the export takes depends on the size and complexity of your database, and your service level. View the notification you recieve.
+8. Click **OK** to archive the database. Clicking **OK** creates an export database request and submits it to the service. The length of time the export takes depends on the size and complexity of your database, and your service level. View the notification you receive.
    
    ![export notification][3]
 
 ## Monitor the progress of the export operation
 1. Click **SQL servers**.
-2. Click the server containing the original (source) database you just archived.
+2. Click the server containing the original (source) database you archived.
 3. Scroll down to Operations.
 4. In the SQL server blade click **Import/Export history**:
    
