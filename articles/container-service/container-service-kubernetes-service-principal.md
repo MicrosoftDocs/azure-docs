@@ -123,7 +123,7 @@ az vm list-sizes --location westus
 ## Additional considerations
 
 
-* When specifying the service principal **Client ID**, you can use the value of the `appId` (as shown in this article) or the service principal `name` (for example,        `https://www.contoso.org/example`).
+* When specifying the service principal **Client ID**, you can use the value of the `appId` (as shown in this article) or the corresponding service principal `name` (for example,        `https://www.contoso.org/example`).
 
 * If you use the `az acs create` command to generate the service principal automatically, the service principal credentials are written to the file ~/.azure/acsServicePrincipal.json on the machine used to run the command.
 
