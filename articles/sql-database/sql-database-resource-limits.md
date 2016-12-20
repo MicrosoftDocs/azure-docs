@@ -40,10 +40,10 @@ Resources other than CPU, Memory, Log I/O, and Data I/O are enforced by denying 
 For example, the number of connections to a SQL database as well as the number of concurrent requests that can be processed are restricted. SQL Database allows the number of connections to the database to be greater than the number of concurrent requests to support connection pooling. While the number of connections that are available can easily be controlled by the application, the number of parallel requests is often times harder to estimate and to control. Especially during peak loads when the application either sends too many requests or the database reaches its resource limits and starts piling up worker threads due to longer running queries, errors can be encountered.
 
 ## Service tiers and performance levels
-There are service tiers and performance levels for both standalone database and elastic pools.
+There are service tiers and performance levels for both single database and elastic pools.
 
-### Standalone databases
-For a standalone database, the limits of a database are defined by the database service tier and performance level. The following table describes the characteristics of Basic, Standard, and Premium databases at varying performance levels.
+### Single databases
+For a single database, the limits of a database are defined by the database service tier and performance level. The following table describes the characteristics of Basic, Standard, and Premium databases at varying performance levels.
 
 [!INCLUDE [SQL DB service tiers table](../../includes/sql-database-service-tiers-table.md)]
 

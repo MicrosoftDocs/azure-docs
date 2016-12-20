@@ -23,6 +23,11 @@ The following types of content are delivered in other Azure or Microsoft content
 * **Privacy information**: There is an all-up privacy policy for Microsoft Online Services that covers all of Azure. Privacy information specific to a service should be presented as technical content, not "privacy statements". See https://azure.microsoft.com/en-us/support/legal/.
 * **Redirect articles**:  When you delete the content of an article, do not leave the article published with a link to the replacement content. Use a real redirect.
 * **Reference content**: managed reference, REST APIs, PowerShell cmdlet help, schema reference, and error reference content is published to docs.microsoft.com, but not through this repository.
+* **Regions**: In technical articles, do not discuss, describe, or explain the regions in which a feature, product, service, or procedure applies or is available. Feature and service availability by region is documented only on the following ACOM page: https://azure.microsoft.com/regions/services/. Provide a link to the ACOM page. 
+
+  You can use specific regions in examples when you are describing procedures or tools where a customer has to work across regions. For example, this sentence is OK: 
+    "The following screenshot shows two pings from two different region client machines, one in the East Asia region and one in the West US."
 * **Release notes**: Unless it's an SDK article or a StorSimple article for a hardware update, this sort of information should just be embedded in the relevant technical content or included in the service updates channel.
+* **SLA**: Do not mention any specifics about SLAs in the technical documents. Always point to the SLA page for the service. The SLA index page is here: https://azure.microsoft.com/support/legal/sla/. Example: "For information about the SLA, see the [Azure service level agreements](https://azure.microsoft.com/support/legal/sla/) page."
 * **What's new in a release or service**:  Lists or descriptions of what is new in a release or service go to the Service Updates channel.
 

@@ -48,30 +48,33 @@ As a first step, setup the data management gateway on your on-premises machine. 
 
 **Azure Search linked service:**
 
-	{	
-		"name": "AzureSearchLinkedService",
-	   	"properties": {
-			"type": "AzureSearch",
-	   		"typeProperties": {
-				"url": "https://<service>.search.windows.net",
-            	"key": "<AdminKey>"
-			}
-	   	}
-	}
-
+```JSON
+{	
+	"name": "AzureSearchLinkedService",
+   	"properties": {
+		"type": "AzureSearch",
+   		"typeProperties": {
+			"url": "https://<service>.search.windows.net",
+        	"key": "<AdminKey>"
+		}
+   	}
+}
+```
 
 **SQL Server linked service**
 
-	{
-	  "Name": "SqlServerLinkedService",
-	  "properties": {
-	    "type": "OnPremisesSqlServer",
-	    "typeProperties": {
-	      "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
-	      "gatewayName": "<gatewayname>"
-	    }
-	  }
-	}
+```JSON
+{
+  "Name": "SqlServerLinkedService",
+  "properties": {
+    "type": "OnPremisesSqlServer",
+    "typeProperties": {
+      "connectionString": "Data Source=<servername>;Initial Catalog=<databasename>;Integrated Security=False;User ID=<username>;Password=<password>;",
+      "gatewayName": "<gatewayname>"
+    }
+  }
+}
+```
 
 **SQL Server input dataset**
 
@@ -79,98 +82,102 @@ The sample assumes you have created a table “MyTable” in SQL Server and it c
 
 Setting “external”: ”true” informs Data Factory service that the dataset is external to the data factory and is not produced by an activity in the data factory.
 
-	{
-	  "name": "SqlServerDataset",
-	  "properties": {
-	    "type": "SqlServerTable",
-	    "linkedServiceName": "SqlServerLinkedService",
-	    "typeProperties": {
-	      "tableName": "MyTable"
-	    },
-	    "external": true,
-	    "availability": {
-	      "frequency": "Hour",
-	      "interval": 1
-	    },
-	    "policy": {
-	      "externalData": {
-	        "retryInterval": "00:01:00",
-	        "retryTimeout": "00:10:00",
-	        "maximumRetry": 3
-	      }
-	    }
-	  }
-	}
+```JSON
+{
+  "name": "SqlServerDataset",
+  "properties": {
+    "type": "SqlServerTable",
+    "linkedServiceName": "SqlServerLinkedService",
+    "typeProperties": {
+      "tableName": "MyTable"
+    },
+    "external": true,
+    "availability": {
+      "frequency": "Hour",
+      "interval": 1
+    },
+    "policy": {
+      "externalData": {
+        "retryInterval": "00:01:00",
+        "retryTimeout": "00:10:00",
+        "maximumRetry": 3
+      }
+    }
+  }
+}
+```
 
 **Azure Search output dataset:**
 
 The sample copies data to an Azure Search index named **products**. Data Factory does not create the index. To test the sample, create an index with this name. Create the Azure Search index with the same number of columns as in the input dataset. New entries are added to the Azure Search index every hour.
 
-	{
-		"name": "AzureSearchIndexDataset",
-		"properties": {
-			"type": "AzureSearchIndex",
-			"linkedServiceName": "AzureSearchLinkedService",
-         	"typeProperties" : {
-				"indexName": "products",
-			},
-			"availability": {
-				"frequency": "Minute",
-				"interval": 15
-			}
-	   }
-	}
-
+```JSON
+{
+	"name": "AzureSearchIndexDataset",
+	"properties": {
+		"type": "AzureSearchIndex",
+		"linkedServiceName": "AzureSearchLinkedService",
+     	"typeProperties" : {
+			"indexName": "products",
+		},
+		"availability": {
+			"frequency": "Minute",
+			"interval": 15
+		}
+   }
+}
+```
 
 **Pipeline with a Copy activity:**
 
 The pipeline contains a Copy Activity that is configured to use the input and output datasets and is scheduled to run every hour. In the pipeline JSON definition, the **source** type is set to **SqlSource** and **sink** type is set to **AzureSearchIndexSink**. The SQL query specified for the **SqlReaderQuery** property selects the data in the past hour to copy.
 
-	{  
-	    "name":"SamplePipeline",
-	    "properties":{  
-	    "start":"2014-06-01T18:00:00",
-	    "end":"2014-06-01T19:00:00",
-	    "description":"pipeline for copy activity",
-	    "activities":[  
-	      {
-	        "name": "SqlServertoAzureSearchIndex",
-	        "description": "copy activity",
-	        "type": "Copy",
-	        "inputs": [
-	          {
-	            "name": " SqlServerInput"
-	          }
-	        ],
-	        "outputs": [
-	          {
-	            "name": "AzureSearchIndexDataset"
-	          }
-	        ],
-	        "typeProperties": {
-	          "source": {
-	            "type": "SqlSource",
-	            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
-	          },
-	          "sink": {
-	            "type": "AzureSearchIndexSink"
-	          }
-	        },
-	       "scheduler": {
-	          "frequency": "Hour",
-	          "interval": 1
-	        },
-	        "policy": {
-	          "concurrency": 1,
-	          "executionPriorityOrder": "OldestFirst",
-	          "retry": 0,
-	          "timeout": "01:00:00"
-	        }
-	      }
-	     ]
-	   }
-	}
-
+```JSON
+{  
+    "name":"SamplePipeline",
+    "properties":{  
+    "start":"2014-06-01T18:00:00",
+    "end":"2014-06-01T19:00:00",
+    "description":"pipeline for copy activity",
+    "activities":[  
+      {
+        "name": "SqlServertoAzureSearchIndex",
+        "description": "copy activity",
+        "type": "Copy",
+        "inputs": [
+          {
+            "name": " SqlServerInput"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "AzureSearchIndexDataset"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "SqlSource",
+            "SqlReaderQuery": "$$Text.Format('select * from MyTable where timestampcolumn >= \\'{0:yyyy-MM-dd HH:mm}\\' AND timestampcolumn < \\'{1:yyyy-MM-dd HH:mm}\\'', WindowStart, WindowEnd)"
+          },
+          "sink": {
+            "type": "AzureSearchIndexSink"
+          }
+        },
+       "scheduler": {
+          "frequency": "Hour",
+          "interval": 1
+        },
+        "policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "OldestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
+      }
+     ]
+   }
+}
+```
 
 
 ## Azure Search linked service properties
@@ -244,13 +251,14 @@ Each column contains the following properties:
 
 The following sample shows the structure section JSON for a table that has three columns `userid`, `name`, and `lastlogindate`.
 
-    "structure": 
-    [
-        { "name": "userid"},
-        { "name": "name"},
-        { "name": "lastlogindate"}
-    ],
-
+```JSON
+"structure": 
+[
+    { "name": "userid"},
+    { "name": "name"},
+    { "name": "lastlogindate"}
+],
+```
 Use the following guidelines for when to include “structure” information and what to include in the **structure** section.
 
 - **For structured data sources** that store data schema and type information along with the data itself (example: SQL Server, Oracle, Azure table etc.): specify the “structure” section only if you map specific source columns to specific columns in sink and their names are not the same. See details in the column mapping section. 
