@@ -38,7 +38,7 @@ To geo-restore a database in the Azure portal, do the following steps:
 
 ## Restore an Azure SQL Database from a geo-redundant backup by using PowerShell
 
-[!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell.md)]
+[!INCLUDE [Start your PowerShell session](../../includes/sql-database-powershell-h3.md)]
 
 ### Geo-restore your database into a standalone database
 1. Get the geo-redundant backup of your database that you want to restore by using the [Get-AzureRmSqlDatabaseGeoBackup](https://msdn.microsoft.com/library/azure/mt693388\(v=azure.300\).aspx) cmdlet.
