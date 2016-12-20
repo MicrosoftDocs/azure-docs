@@ -45,7 +45,7 @@ Following are requirements for the Azure Active Directory service principal in a
 
 * **Client secret** - must be a password. Currently, you can't use a service principal set up for certificate authentication.
 
-> [!NOTE] 
+> [!NOTE]
 > Every service principal is associated with an Azure Active Directory application. The service principal for a Kubernetes cluster can be associated with any valid Azure Active Directory application name.
 > 
 
