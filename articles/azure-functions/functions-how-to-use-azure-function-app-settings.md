@@ -1,5 +1,5 @@
 ---
-title: Configure Azure Functions App Settings | Microsoft Docs
+title: Configure Azure Function App Settings | Microsoft Docs
 description: Learn how to configure Azure function app settings.
 services: ''
 documentationcenter: .net
@@ -40,7 +40,7 @@ You can integrate your Function App with GitHub, Visual Studio Team Services, an
 2. Click **Setup** in the **Deployments** pane to reveal a **Deployment Source** pane with one option: Click **Choose Source** to show available sources. 
 3. Choose any of the deployment sources available: Visual Studio Team Services, OneDrive, Local Git Repository, GitHub, Bitbucket, DropBox, or an External Repository by clicking it. 
    
-    ![Configure App Function's CI](./media/functions-how-to-use-azure-function-app-settings/configure-function-ci.png)
+    ![Configure Function App's CI](./media/functions-how-to-use-azure-function-app-settings/configure-function-ci.png)
 4. Enter your credentials and information as prompted by the various deployment sources. The credentials and information requested may be slightly different depending on what source you have chosen. 
 
 Once you have setup CI, connected code you push to the configured source is automatically deployed to this function app.
@@ -51,7 +51,7 @@ For functions that use an HTTP trigger, you can require calls to be authenticate
 1. To configure authentication click the **Configure authentication** link.
 2. Toggle the **App Service Authentication** button to **On**.
 
-![Configure App Function's CI](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
+![Configure Function App's CI](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 Most authentication providers ask for an API Key/Client ID and a Secret; however, both the Microsoft Account and Facebook options also allow you to define scopes (specific authorization credentials). Active Directory has several express or advanced configuration settings you can set.
 
@@ -64,7 +64,7 @@ Normally, for security reasons, calls to your hosts (domains) from external sour
 1. To configure CORS, click the **Configure CORS** link. 
 2. Enter the domains that you want to whitelist.
 
-![Configure App Function's CORS](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
+![Configure Function App's CORS](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
 ## API definition
 Allow clients to more easily consume your HTTP-triggered functions.
@@ -72,7 +72,7 @@ Allow clients to more easily consume your HTTP-triggered functions.
 1. To set up an API, click **Configure API metadata**. 
 2. Enter the URL that points to a Swagger json file.
 
-![Configure App Function's API](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
+![Configure Function App's API](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
 For more information on creating API definitions with Swagger, visit [Get Started with API Apps, ASP.NET, and Swagger in Azure](../app-service-api/app-service-api-dotnet-get-started.md).
 

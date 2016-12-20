@@ -4,7 +4,7 @@ description: Learn how to use Scheduler to schedule and invoke jobs such as recu
 ---
 # Scheduler Documentation
 
-Learn how to use Scheduler to schedule and automatically invoke recurring jobs in the cloud. Tutorials, API references, and other documentation show you how schedule and monitor jobs such as recurring application actions and routine maintenance.
+Learn how to use Scheduler to schedule and automatically invoke recurring jobs in the cloud. Tutorials, API references, and other documentation show you how to schedule and monitor jobs such as recurring application actions and routine maintenance.
 
 <ul class="panelContent cardsFTitle">
     <li>
