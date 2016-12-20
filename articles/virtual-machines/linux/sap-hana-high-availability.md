@@ -55,11 +55,16 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
    Set max update domain
 1. Create a Load Balancer (internal)  
    Select VNET of step above
-1. Create Virtual Machines  
-  https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
-  SLES For SAP Applications 12 SP1 (BYOS)  
-  Select Storage Account 1  
-  Select Availability Set  
+1. Create Virtual Machine 1  
+   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   SLES For SAP Applications 12 SP1 (BYOS)  
+   Select Storage Account 1  
+   Select Availability Set  
+1. Create Virtual Machine 2  
+   https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+   SLES For SAP Applications 12 SP1 (BYOS)  
+   Select Storage Account 2   
+   Select Availability Set  
 1. Add Data Disks
 1. Configure the load balancer
     1. Create a frontend IP pool
@@ -101,7 +106,6 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     <pre>
     zypper install sle-ha-release
     <pre>
-        
 1. [A] Setup disk layout
     1. LVM
     1. MDADM
@@ -110,21 +114,24 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     <pre>
     fdisk /dev/sdc
     mkfs.xfs /dev/sdc1
+    
+    # write down the id of /dev/sdc1
     /sbin/blkid
     vi /etc/fstab
+    
     # insert this line to /etc/fstab
     /dev/disk/by-uuid/<b>924cedc1-81cf-4a3e-9dbc-c24dd2031357</b> /hana xfs  defaults,nofail  0  2
+    
     mkdir /hana
     mount -a
     </pre>
 
 1. [A] Setup host name resolution for all hosts  
-       You can either use a DNS server or modify the /etc/hosts on all nodes 
-    1. Setup DNS
-    1. Use /etc/hosts  
+       You can either use a DNS server or modify the /etc/hosts on all nodes. This example shows how to use the /etc/hosts file.
        Replace the IP address and the hostname in the following commands
     <pre>
     vi /etc/hosts
+    
     # insert the following lines to /etc/hosts
     <code><b>10.79.227.20 saphanavm1
     10.79.227.21 saphanavm2</b></code>
@@ -162,6 +169,7 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 1. [A] Configure corosync to use other transport and add nodelist. Cluster will not work otherwise.
     <pre>
     vi /etc/corosync/corosync.conf
+    
     # adapt the file
     <code>
     [...]
@@ -206,7 +214,7 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     * Do you want to add additional hosts to the system? (y/n) [n]: -> ENTER
     * Enter SAP HANA System ID: <SID of HANA e.g. HDB>
     * Enter Instance Number [00]:   
-  HANA Instance number. Use 50 if you used the Azure Template or followed the example above>
+  HANA Instance number. Use 50 if you used the Azure Template or followed the example above
     * Select Database Mode / Enter Index [1]: -> ENTER
     * Select System Usage / Enter Index [4]:  
   Select the system Usage
@@ -237,7 +245,7 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     Run the following command. Make sure to replace bold strings (HANA System ID HDB and instance number 50) with the values of your SAP HANA installation.
     <pre>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>50</b>/exe"
-    hdbsql -u system -i <b>50</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "< passwd >"' 
+    hdbsql -u system -i <b>50</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"' 
     hdbsql -u system -i <b>50</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync' 
     hdbsql -u system -i <b>50</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
     </pre>
@@ -245,12 +253,12 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
 1. [A] Create keystore entry (as root)
     <pre>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>50</b>/exe"
-    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>50</b>15 <b>hdb</b>hasync < passwd >
+    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>50</b>15 <b>hdb</b>hasync <b>passwd</b>
     </pre>
 1. [1] Backup database
     <pre>
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>50</b>/exe"
-    hdbsql -u system -i <b>50</b> "BACKUP DATA USING FILE ('initialbackup')" 
+    hdbsql -u system -i <b>50</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
     </pre>
 1. [1] Switch to the sapsid user (for example hdbadm) and create the primary site.
     <pre>
@@ -283,6 +291,7 @@ rsc_defaults $id="rsc-options" \
 op_defaults $id="op-options" \
   timeout="600"
 </code>
+
 # now we load the file to the cluster
 crm configure load update crm-defaults.txt
 </pre>
@@ -316,39 +325,35 @@ The Service Principal does not have permissions to access your Azure resources b
 
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
 
-```
+<pre>
  !!TODO!! required???
 zypper install fence-agents
-
 vi crm-fencing.txt
-# enter the following to crm-saphana.txt
+# enter the following to crm-fencing.txt
 # replace the bold string with your subscription id, resource group, tenant id, service principal id and password
-```
-<pre>
+<code>
 primitive rsc_st_azure_1 stonith:fence_azure_arm \
-    params subscriptionId=<b>< subscription id ></b> resourceGroup=<b>< resource group ></b> tenantId=<b>< tenant id ></b> login=<b>< login id ></b> passwd="<b>< password ></b>"
+    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
 
 primitive rsc_st_azure_2 stonith:fence_azure_arm \
-    params subscriptionId=<b>< subscription id ></b> resourceGroup=<b>< resource group ></b> tenantId=<b>< tenant id ></b> login=<b>< login id ></b> passwd="<b>< password ></b>"
+    params subscriptionId="<b>subscription id</b>" resourceGroup="<b>resource group</b>" tenantId="<b>tenant id</b>" login="<b>login id</b>" passwd="<b>password</b>"
 
 colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
-</pre>
-```
+</code>
+
 # now we load the file to the cluster
 crm configure load update crm-fencing.txt
-```
+</pre>
 
 If the fencing resource agent stonith:fence_azure_arm was not found, update the package !!TODO!! to at least !!TODO!! and try again.
 
 ### Create SAP HANA resources
 
-```
+<pre>
 vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
 # replace the bold string with your instance number and HANA system id
-```
-
-<pre>
+<code>
 primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>50</b> ocf:suse:SAPHanaTopology \
     operations $id="rsc_sap2_<b>HDB</b>_HDB<b>50</b>-operations" \
     op monitor interval="10" timeout="600" \
@@ -358,18 +363,17 @@ primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>50</b> ocf:suse:SAPHanaTopology \
 
 clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>50</b> rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>50</b> \
     meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
-</pre>
-```
+</code>
+
 # now we load the file to the cluster
 crm configure load update crm-saphanatop.txt
-```
+</pre>
 
-```
+<pre>
 vi crm-saphana.txt
 # enter the following to crm-saphana.txt
 # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
-```
-<pre>
+<code>
 primitive rsc_SAPHana_<b>HDB</b>_HDB<b>50</b> ocf:suse:SAPHana \
     operations $id="rsc_sap_<b>HDB</b>_HDB<b>50</b>-operations" \
     op start interval="0" timeout="3600" \
@@ -398,11 +402,12 @@ colocation col_saphana_ip_<b>HDB</b>_HDB<b>50</b> 2000: g_ip_<b>HDB</b>_HDB<b>50
     msl_SAPHana_<b>HDB</b>_HDB<b>50</b>:Master  
 order ord_SAPHana_<b>HDB</b>_HDB<b>50</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>50</b> \ 
     msl_SAPHana_<b>HDB</b>_HDB<b>50</b>
-</pre>
-```
+</code>
+
+
 # now we load the file to the cluster
 crm configure load update crm-saphana.txt
-```
+</pre>
 
 ### Test cluster setup
 
@@ -412,7 +417,7 @@ You can test the setup of the fencing agent by disabling the network interface o
 ```
 ifdown eth0
 ```
-The virtual machine should now get deallocated and the resources should start up on the active node.
+The virtual machine should now get restarted.
 
 #### Testing a manual failover
 
