@@ -1,6 +1,6 @@
 ---
 title: Step 1: Prerequisites | Microsoft Docs
-description: Get Started with Azure SQL Data Warehouse.
+description: Get Started Tutorial with Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
@@ -17,14 +17,9 @@ ms.date: 10/31/2016
 ms.author: elbutter
 
 ---
-# Prerequisites 
+# Step 1: Prerequisites
+TODO: Finish the introduction here at some point
 
-Before you begin work with SQL Data Warehouse, be sure you have completed the following:
-
-* Sign up for Microsoft Azure
-* Install appropriate SQL Client Driver and Tools
-* Create a logical server
-* Set Firewall Rules
 
 ## Sign Up for Microsoft Azure
 If you don't already have a Microsoft Azure account, you must sign up for one to use this service. If you already have an account, you may skip this step. 
