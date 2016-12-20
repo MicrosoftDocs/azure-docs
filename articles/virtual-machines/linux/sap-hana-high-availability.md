@@ -39,12 +39,12 @@ Read the following SAP Notes and papers first
 * SAP Note [1944799]  
   SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
 * [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide]  
-  The guide contains all required information to setup SAP HANA System Replication on-premises. Use this guide as a baseline.
+  The guide contains all required information to set up SAP HANA System Replication on-premises. Use this guide as a baseline.
 
 ## Deploying Linux
 
 The resource agent for SAP HANA is included in SUSE Linux Enterprise Server for SAP Applications.
-The Azure Markeplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 with BYOS (Bring Your Own Subscription) that you can use to deploy new virtual machines.
+The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 with BYOS (Bring Your Own Subscription) that you can use to deploy new virtual machines.
 
 ### Manual Deployment
 
@@ -62,31 +62,31 @@ The Azure Markeplace contains an image for SUSE Linux Enterprise Server for SAP 
   Select Availability Set  
 1. Add Data Disks
 1. Configure the load balancer
-    1. Create a new frontend IP pool
-        1. Open the load balancer, select frontend IP pool and click on Add
-        1. Enter the name of the new frontend IP pool (e.g. hana-frontend)
-        1. Click on OK
+    1. Create a frontend IP pool
+        1. Open the load balancer, select frontend IP pool and click Add
+        1. Enter the name of the new frontend IP pool (for example hana-frontend)
+        1. Click OK
         1. After the new frontend IP pool is created, write down its IP address
-    1. Create a new backend pool
-        1. Open the load balancer, select backend pools and click on Add
-        1. Enter the name of the new backend pool (e.g. hana-backend)
-        1. Click on Add a virtual machine
+    1. Create a backend pool
+        1. Open the load balancer, select backend pools and click Add
+        1. Enter the name of the new backend pool (for example hana-backend)
+        1. Click Add a virtual machine
         1. Select the Availability Set you created earlier
         1. Select the virtual machines of the SAP HANA cluster
-        1. Click on OK
-    1. Create a new health probe
-        1. Open the load balancer, select health probes and click on Add
-        1. Enter the name of the new health probe (e.g. hana-hp)
+        1. Click OK
+    1. Create a health probe
+        1. Open the load balancer, select health probes and click Add
+        1. Enter the name of the new health probe (for example hana-hp)
         1. Select TCP as protocol, port 625**50**, keep Interval 5 and Unhealthy threshold 2
-        1. Click on OK
-    1. Create new load balancing rules
-        1. Open the load balancer, select load balancing rules and click on Add
-        1. Enter the name of the new load balancer rule (e.g. hana-lb-3**50**15)
-        1. Select the frontend IP address, backend pool and health probe you created earlier (e.g. hana-frontend)
+        1. Click OK
+    1. Create load balancing rules
+        1. Open the load balancer, select load balancing rules and click Add
+        1. Enter the name of the new load balancer rule (for example hana-lb-3**50**15)
+        1. Select the frontend IP address, backend pool and health probe you created earlier (for example hana-frontend)
         1. Keep protocol TCP, enter port 3**50**15
-        1. Increase idle timout to 30 minutes
+        1. Increase idle timeout to 30 minutes
         1. **Make sure to enable Floating IP**
-        1. Click on OK
+        1. Click OK
         1. Repeat the steps above for port 3**50**17
 
 ### Deploy with template
@@ -106,7 +106,7 @@ The following items are prefixed with either [A] (applicable to all nodes), [1] 
     1. LVM
     1. MDADM
     1. Plain Disks  
-       For small or demo systems you can place your HANA data and log files on one disk. The following commands create a partition on /dev/sdc and format it with xfs.
+       For small or demo systems, you can place your HANA data and log files on one disk. The following commands create a partition on /dev/sdc and format it with xfs.
     <pre>
     fdisk /dev/sdc
     mkfs.xfs /dev/sdc1
@@ -228,7 +228,7 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     * Do you want to continue? (y/n):  
   Validate the summary and enter y to continue
 1. [A] Upgrade SAP Host Agent  
-  Download the lastest SAP Host Agent archive from the [SAP Softwarecenter][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file you downloaded.
+  Download the latest SAP Host Agent archive from the [SAP Softwarecenter][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file you downloaded.
     <pre>
     /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <b>/usr/sap/sapcd/SAPHOSTAGENT18_18-20009394.SAR</b>
     </pre>
@@ -252,12 +252,12 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>50</b>/exe"
     hdbsql -u system -i <b>50</b> "BACKUP DATA USING FILE ('initialbackup')" 
     </pre>
-1. [1] Switch to the sapsid user (e.g. hdbadm) and create the primary site.
+1. [1] Switch to the sapsid user (for example hdbadm) and create the primary site.
     <pre>
     su - <b>hdb</b>adm
     hdbnsutil -sr_enable –-name=<b>SITE1</b>
     </pre>
-1. [1] Switch to the sapsid user (e.g. hdbadm) and create the secondary site.
+1. [1] Switch to the sapsid user (for example hdbadm) and create the secondary site.
     <pre>
     su - <b>hdb</b>adm
     sapcontrol -nr <b>50</b> -function StopWait 600 10
@@ -294,12 +294,12 @@ The STONITH device uses a Service Principal to authorize against Microsoft Azure
 1. Go to <https://portal.azure.com>
 1. Open the Azure Active Directory blade  
    Go to Properties and write down the Directory Id. This is the **tenant id**.
-1. Click on App registrations
-1. Click on Add
-1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (e.g. http://localhost) and click on Create
+1. Click App registrations
+1. Click Add
+1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (for example http://localhost) and click Create
 1. The sign-on URL is not used and can be any valid URL
-1. Select the new App and click on Keys in the Settings tab
-1. Enter a description for a new key, select "Never expires" and click on Save
+1. Select the new App and click Keys in the Settings tab
+1. Enter a description for a new key, select "Never expires" and click Save
 1. Write down the Value. It is used as the **password** for the Service Principal
 1. Write down the Application Id. It is used as the username (**login id** in the steps below) of the Service Principal
 
@@ -308,11 +308,11 @@ The Service Principal does not have permissions to access your Azure resources b
 1. Go to https://portal.azure.com
 1. Open the All resources blade
 1. Select the virtual machine
-1. Click on Access control (IAM)
-1. Click on Add
+1. Click Access control (IAM)
+1. Click Add
 1. Select the role Owner
 1. Enter the name of the application you created above
-1. Click on OK
+1. Click OK
 
 After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
 
@@ -338,7 +338,7 @@ colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
 crm configure load update crm-fencing.txt
 ```
 
-If the fencing resource agent stonith:fence_azure_arm was not found, update the package !!TODO!! to at leat !!TODO!! and try again.
+If the fencing resource agent stonith:fence_azure_arm was not found, update the package !!TODO!! to at least !!TODO!! and try again.
 
 ### Create SAP HANA resources
 
