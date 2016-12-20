@@ -16,7 +16,7 @@ ms.date: 12/05/2016
 ms.author: gwallace
 ---
 
-# Create a DNS zone using Powershell
+# Create a DNS zone using PowerShell
 
 > [!div class="op_single_selector"]
 > * [Azure portal](dns-getstarted-create-dnszone-portal.md)
