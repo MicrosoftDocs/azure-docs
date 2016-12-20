@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/14/2016
+ms.date: 12/19/2016
 ms.author: anhoh
 
 ---
@@ -40,11 +40,11 @@ As the following diagram illustrates, the DocumentDB hierarchical **resource mod
 ![DocumentDB hierarchical resource model][1]  
 **Hierarchical resource model**   
 
-To start working with resources, you must [create a DocumentDB database account](documentdb-create-account.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in turn contain **stored procedures, triggers, UDFs, documents** and related **attachments** (preview feature). A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
+To start working with resources, you must [create a DocumentDB database account](documentdb-create-account.md) using your Azure subscription. A database account can consist of a set of **databases**, each containing multiple **collections**, each of which in turn contain **stored procedures, triggers, UDFs, documents** and related **attachments**. A database also has associated **users**, each with a set of **permissions** to access collections, stored procedures, triggers, UDFs, documents or attachments. While databases, users, permissions and collections are system-defined resources with well-known schemas, documents and attachments contain arbitrary, user defined JSON content.  
 
 | Resource | Description |
 | --- | --- |
-| Database account |A database account is associated with a set of databases and a fixed amount of blob storage for attachments (preview feature). You can create one or more database accounts using your Azure subscription. For more information, visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/). |
+| Database account |A database account is associated with a set of databases and a fixed amount of blob storage for attachments. You can create one or more database accounts using your Azure subscription. For more information, visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/). |
 | Database |A database is a logical container of document storage partitioned across collections. It is also a users container. |
 | User |The logical namespace for scoping permissions. |
 | Permission |An authorization token associated with a user for access to a specific resource. |
@@ -410,11 +410,6 @@ Being a truly open database service, DocumentDB does not invent any specialized 
 As with all other resources, documents can be created, replaced, deleted, read, enumerated and queried easily using either REST APIs or any of the [client SDKs](https://msdn.microsoft.com/library/azure/dn781482.aspx). Deleting a document instantly frees up the quota corresponding to all of the nested attachments. The read consistency level of documents follows the consistency policy on the database account. This policy can be overridden on a per-request basis depending on data consistency requirements of your application. When querying documents, the read consistency follows the indexing mode set on the collection. For “consistent”, this follows the account’s consistency policy. 
 
 ## Attachments and media
-> [!NOTE]
-> Attachment and media resources are preview features.
-> 
-> 
-
 DocumentDB allows you to store binary blobs/media either with DocumentDB or to your own remote media store. It also allows you to represent the metadata of a media in terms of a special document called attachment. An attachment in DocumentDB is a special (JSON) document that references the media/blob stored elsewhere. An attachment is simply a special document that captures the metadata (e.g. location, author etc.) of a media stored in a remote media storage. 
 
 Consider a social reading application which uses DocumentDB to store ink annotations, and metadata including comments, highlights, bookmarks, ratings, likes/dislikes etc. associated for an e-book of a given user.   
