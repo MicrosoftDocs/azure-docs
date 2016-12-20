@@ -45,6 +45,7 @@ Once you have the prerequisites installed,
 
 ## Browsing Logic Apps
 To browse Logic Apps in Cloud Explorer open the cloud explorer under View > Cloud Explorer and you can either browse by resource group or by resource type.  If browsing by resource type, select a subscription and then expand the Logic Apps section then select a Logic App.  You can either right-click one of your Logic Apps or use the Actions menu at the bottom of the cloud explorer to perform the desired action.
+
 ![Browse](./media/app-service-logic-manage-from-vs/browse.png)
 
 ## Edit Logic App with the designer
@@ -61,7 +62,7 @@ Double-clicking on one of the run instances shows the run history for that insta
 
 ![History](./media/app-service-logic-manage-from-vs/history.png)
 
-## Next Steps
+## Next steps
 * To get started with Logic Apps, follow the [create a Logic App](app-service-logic-create-a-logic-app.md) tutorial.  
 * [View common examples and scenarios](app-service-logic-examples-and-scenarios.md)
 * [You can automate business processes with Logic Apps](http://channel9.msdn.com/Events/Build/2016/T694) 
