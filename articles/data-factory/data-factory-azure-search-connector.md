@@ -20,8 +20,6 @@ ms.author: jingwang
 # Push data to an Azure Search index by using Azure Data Factory
 This article describes how to use the Copy Activity to push data from an on-premises data store supported by the Data Factory service to Azure Search index. Supported source data stores are listed in the Source column of the [supported sources and sinks](data-factory-data-movement-activities.md#supported-data-stores-and-formats) table. This article builds on the [data movement activities](data-factory-data-movement-activities.md) article, which presents a general overview of data movement with Copy Activity and supported data store combinations.
 
-Azure Data Factory currently supports only moving data to Azure Search from [supported on-premises source data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). It does not support moving data from Azure Search to other data stores.
-
 ## Enabling connectivity
 To allow Data Factory service connect to an on-premises data store, you install Data Management Gateway in your on-premises environment. You can install gateway on the same machine that hosts the source data store or on a separate machine to avoid competing for resources with the data store.
 
