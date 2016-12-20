@@ -1,3 +1,3 @@
 ---
-redirect_url: ./end-user/manage-settings
+redirect_url: ./end-user/multi-factor-authentication-end-user-manage-settings
 ---

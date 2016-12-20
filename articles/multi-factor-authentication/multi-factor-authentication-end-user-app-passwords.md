@@ -1,3 +1,3 @@
 ---
-redirect_url: ./end-user/app-passwords
+redirect_url: ./end-user/multi-factor-authentication-end-user-app-passwords
 ---

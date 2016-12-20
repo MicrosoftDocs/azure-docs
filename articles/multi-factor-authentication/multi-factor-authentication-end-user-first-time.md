@@ -1,3 +1,3 @@
 ---
-redirect_url: ./end-user/first-time-setup
+redirect_url: ./end-user/multi-factor-authentication-end-user-first-time
 ---

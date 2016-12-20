@@ -87,10 +87,10 @@ If you want to add an account to the mobile app manually, instead of using the Q
 2. The phone number box is automatically filled with your company contact information. If the number is wrong or missing, ask your admin to make changes.
 3. Select **Contact me** to verify your phone number, and we will call your number. Follow the instructions provided on the screen, then select **Verify**.
 4. At this point, you are prompted to set up app passwords for non-browser apps such as Outlook 2010 or older, or the native email app on Apple devices. This is because some apps don't support two-step verification. If you do not use these apps, click **Done** and skip the rest of the steps.
-5. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, see [What are App Passwords](app-passwords.md).
+5. If you are using these apps, copy the app password provided and paste it into your application instead of your regular password. You can use the same app password for multiple apps. For more info, see [What are App Passwords](multi-factor-authentication-end-user-app-passwords.md).
 6. Click **Done**.
 
 ## Next steps
-* Change your preferred options and [manage your settings for two-step verification](manage-settings.md)
-* Set up [app passwords](app-passwords.md) for native device apps that don't support two-step verification.
-* Check out the [Microsoft Authenticator app](authenticator-app-how-to.md) for fast, secure authentication even when you don't have cell service.
+* Change your preferred options and [manage your settings for two-step verification](multi-factor-authentication-end-user-manage-settings.md)
+* Set up [app passwords](multi-factor-authentication-end-user-app-passwords.md) for native device apps that don't support two-step verification.
+* Check out the [Microsoft Authenticator app](microsoft-authenticator-app-how-to.md) for fast, secure authentication even when you don't have cell service.

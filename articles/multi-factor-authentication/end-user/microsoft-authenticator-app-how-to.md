@@ -34,7 +34,7 @@ The Microsoft Authenticator app is available for [Windows Phone](http://go.micro
 For each account that you want to add to the Microsoft Authenticator app, use one of the following procedures.
 
 ### Add an account to the app by using the QR code scanner
-1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](manage-settings.md).
+1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md).
 2. Select **Configure**.
 
     ![The Configure button on the security verification settings screen](./media/authenticator-app-how-to/azureauthe.png)
@@ -70,7 +70,7 @@ You should now see the new account on the **accounts** screen.
 ![Accounts screen](./media/authenticator-app-how-to/accounts.png)
 
 ### Add an account to the app manually
-1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](manage-settings.md).
+1. Go to the security verification settings screen.  For information on how to get to this screen, see [Changing your security settings](multi-factor-authentication-end-user-manage-settings.md).
 2. Select **Configure**.
 
     ![The Configure button on the security verification settings screen](./media/authenticator-app-how-to/azureauthe.png)

@@ -1,3 +1,3 @@
 ---
-redirect_url: ./end-user/authenticator-app-faq
+redirect_url: ./end-user/microsoft-authenticator-app-faq
 ---

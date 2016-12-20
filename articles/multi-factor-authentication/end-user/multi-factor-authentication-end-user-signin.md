@@ -20,7 +20,7 @@ ms.author: kgremban
 ---
 # The sign in experience with Azure Multi-Factor Authentication
 > [!NOTE]
-> The following documentation provided on this page shows a typical sign-in experience.  For help with signing in see [Having trouble with Azure Multi-Factor Authentication](manage-settings.md)
+> The following documentation provided on this page shows a typical sign-in experience.  For help with signing in see [Having trouble with Azure Multi-Factor Authentication](multi-factor-authentication-end-user-manage-settings.md)
 >
 >
 

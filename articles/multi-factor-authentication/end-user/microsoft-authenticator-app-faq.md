@@ -89,5 +89,5 @@ Including this information helps us to solve your problem as quickly as possible
 
 ## Related topics
 * [About two-step verification](https://support.microsoft.com/help/12408/microsoft-account-about-two-step-verification) for Microsoft accounts
-* [Having trouble with two-step verification?](troubleshoot.md)
+* [Having trouble with two-step verification?](multi-factor-authentication-end-user-troubleshoot.md)
 
