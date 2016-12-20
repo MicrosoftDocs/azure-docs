@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 12/20/2016
 ms.author: johnkem; magoedte
 
 ---
@@ -90,9 +90,13 @@ The Service Bus Rule ID is a string with this format: `{service bus resource ID}
 
 To enable sending of Diagnostic Logs to a Log Analytics workspace, use this command:
 
-    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [log analytics workspace id] -Enabled $true
+    Set-AzureRmDiagnosticSetting -ResourceId [your resource id] -WorkspaceId [resource id of the log analytics] -Enabled $true
 
-You can obtain your Log Analytics workspace ID in the Azure portal.
+You can obtain the resource id of your Log Analytics workspace using the following command:
+
+```powershell
+(Get-AzureRmOperationalInsightsWorkspace).ResourceId
+```
 
 You can combine these parameters to enable multiple output options.
 
@@ -195,5 +199,5 @@ The schema for Diagnostic Logs varies depending on the resource and log category
 ## Next Steps
 * [Stream Diagnostic Logs to **Event Hubs**](monitoring-stream-diagnostic-logs-to-event-hubs.md)
 * [Change Diagnostic Settings using the Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn931931.aspx)
-* [Analyze the logs with OMS Log Analytics](../log-analytics/log-analytics-azure-storage-json.md)
+* [Analyze the logs with OMS Log Analytics](../log-analytics/log-analytics-azure-storage.md)
 
