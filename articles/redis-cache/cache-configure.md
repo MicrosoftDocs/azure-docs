@@ -62,19 +62,6 @@ Azure Redis Cache provides the following settings in the **Resource Menu**.
 	* [New support request](#new-support-request)
 
 
-
-* [Scale settings](#scale-settings)
-  * [Pricing tier](#pricing-tier)
-  * [Redis cluster size](#cluster-size)
-* [Data management settings](#data-management-settings)
-  * [Redis data persistence](#redis-data-persistence)
-  * [Import/Export](#importexport)
-
-* [Diagnostics settings](#diagnostics-settings)
-* [Network settings](#network-settings)
-* [Resource management settings](#resource-management-settings)
-
-
 ## Overview
 
 **Overview** provides you with basic information about your cache, such as name, ports, pricing tier, and selected cache metrics.
@@ -130,7 +117,7 @@ The following settings are configure on the **Advanced settings** blade.
 * [Keyspace notifications (advanced settings)](#keyspace-notifications-advanced-settings)
 
 #### Access Ports
-By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **No** for **Allow access only via SSL** on the **Advanced settings blade** and then click **Save**.
+By default, non-SSL access is disabled for new caches. To enable the non-SSL port, click **No** for **Allow access only via SSL** on the **Advanced settings** blade and then click **Save**.
 
 ![Redis Cache Access Ports](./media/cache-configure/redis-cache-access-ports.png)
 
@@ -261,12 +248,10 @@ To specify a maintenance window, check the desired days and specify the maintena
 
 
 ## Virtual Network
-The settings in the **Virtual Network** section allow you to access and configure the following settings for your cache.
-
-![Network](./media/cache-configure/redis-cache-network.png)
+The **Virtual Network** section allow you to configure the virtual network settings for your cache. For information on creating a premium cache with VNET support and updating its settings, see [How to configure Virtual Network Support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
 
 > [!IMPORTANT]
-> Virtual network settings are only available for premium caches that were configured with VNET support during cache creation. For information on creating a premium cache with VNET support and updating its settings, see [How to configure Virtual Network Support for a Premium Azure Redis Cache](cache-how-to-premium-vnet.md).
+> Virtual network settings are only available for premium caches that were configured with VNET support during cache creation. 
 > 
 > 
 
@@ -288,6 +273,8 @@ The settings in the **Administration** section allow you to perform the followin
 
 ![Administration](./media/cache-configure/redis-cache-administration.png)
 
+* [Import data](#importexport)
+* [Export data](#importexport)
 * [Reboot](#reboot)
 
 
@@ -330,19 +317,20 @@ To reboot one ore more nodes of your cache, select the desired nodes and click *
 The **Monitoring** section allows you to configure diagnostics and monitoring for your Redis Cache. 
 For more information on Azure Redis Cache monitoring and diagnostics, see [How to monitor Azure Redis Cache](cache-how-to-monitor.md).
 
+![Diagnostics](./media/cache-configure/redis-cache-diagnostics.png)
+
 * [Redis metrics](#redis-metrics)
 * [Alert rules](#alert-rules)
 * [Diagnostics](#diagnostics)
 
-## Redis metrics
-Click **Redis metrics** to [view metrics](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) for your cache, and **Alert rules** to [set up alert rules](cache-how-to-monitor.md#operations-and-alerts).
+### Redis metrics
+Click **Redis metrics** to [view metrics](cache-how-to-monitor.md#how-to-view-metrics-and-customize-charts) for your cache.
 
-## Alert rules
+### Alert rules
 
 Click **Alert rules**  to configure alerts based on Redis Cache metrics. For more information, see [Operations and alerts](cache-how-to-monitor.md#operations-and-alerts).
 
-## Diagnostics
-![Diagnostics](./media/cache-configure/redis-cache-diagnostics.png)
+### Diagnostics
 
 Click **Diagnostics** to [configure the storage account](cache-how-to-monitor.md#enable-cache-diagnostics) used to store cache diagnostics.
 
@@ -366,50 +354,6 @@ The settings in the **Support + troubleshooting** section provide you with optio
 
 ### New support request
 Click **New support request** to open a support request for your cache.
-
-
-$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$$
-
-
-
-
-
-
-
-
-
-
-## Scale settings
-The settings in the **Scale** section allow you to access and configure the following settings for your cache.
-
-![Network](./media/cache-configure/redis-cache-scale.png)
-
-
-
-
-
-## Data management settings
-The settings in the **Data management** section allow you to access and configure the following settings for your cache.
-
-![Data management](./media/cache-configure/redis-cache-data-management.png)
-
-
-* [Import/Export](#importexport)
-
-
-
-
-
-
-
-
-
-
-
-## Resource management settings
-![Resource management](./media/cache-configure/redis-cache-resource-management.png)
-
-The **Tags** section helps you organize your resources. For more information, see [Using tags to organize your Azure resources](../resource-group-using-tags.md).
 
 
 
