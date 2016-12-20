@@ -19,7 +19,7 @@ ms.author: gwallace
 # Manage DNS records in Azure DNS using Azure PowerShell
 
 > [!div class="op_single_selector"]
-> * [Azure portal](dns-operations-recordsets-portal.md)
+> * [Azure Portal](dns-operations-recordsets-portal.md)
 > * [Azure CLI](dns-operations-recordsets-cli.md)
 > * [PowerShell](dns-operations-recordsets.md)
 
