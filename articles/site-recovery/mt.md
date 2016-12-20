@@ -2,7 +2,7 @@
 
 # Linux MT deployment in VMWare environment (Failback) 
 
-## Install CentOS 6.6 Minimal**
+## Install CentOS 6.6 Minimal
 
 Follow the steps as mentioned below to install CentOS 6.6 - 64bit
 Operating System.
@@ -261,20 +261,19 @@ To apply custom configuration changes, follow the below mentioned steps:
 1. Copy the RHEL6-64 Unified Agent binary to the newly created OS.
 
 2. Run the below command to untar the binary.
-
-```
-tar -zxvf <File name>
-```
+	```
+	tar -zxvf <File name>
+	```
 
 3. Execute below command to give permission.
-```
-# chmod 755 ./ApplyCustomChanges.sh
-```
+	```
+	# chmod 755 ./ApplyCustomChanges.sh
+	```
 
 4. Execute the below command to run the script.
-```
-# ./ApplyCustomChanges.sh
-```
+	```
+	# ./ApplyCustomChanges.sh
+	```
 NOTE: Execute the script only once on the server. **REBOOT** the server
 after successful execution of the above script.
 
@@ -305,8 +304,7 @@ vi /etc/fstab
 ```
 and append the line
 
-**/dev/mapper/36000c2989daa2fe6dddcde67f2079afe /mnt/retention ext4 rw
-0 0 **
+** /dev/mapper/36000c2989daa2fe6dddcde67f2079afe /mnt/retention ext4 rw 0 0 **
 
 ## Install Master Target
 
@@ -319,10 +317,10 @@ to the newly created OS.
 tar -zxvf <File name>
 ```
 3\. Execute below command to install Master Target. Choose agent role as
-‘Master Target’.
-
-\# **./install**
-
+"Master Target".
+```
+# ./install
+```
 ![](./media/site-recovery-how-to-install-linux-master-target/media/image25.PNG)
 
 ![](./media/site-recovery-how-to-install-linux-master-target/media/image26.PNG)
