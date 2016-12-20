@@ -1,0 +1,424 @@
+﻿---
+title: High Availability of SAP HANA on Azure Virtual Machines (VMs) | Microsoft Docs
+description: Establish High Availability of SAP HANA on Azure Virtual Machines (VMs).
+services: virtual-machines-linux
+documentationcenter: 
+author: MSSedusch
+manager: timlt
+editor:
+
+ms.service: virtual-machines-linux
+ms.devlang: NA
+ms.topic: article
+ms.tgt_pltfrm: vm-linux
+ms.workload: infrastructure
+ms.date: 12/14/2016
+ms.author: sedusch
+
+---
+# High Availability of SAP HANA on Azure Virtual Machines (VMs)
+
+[hana-ha-guide-replication]:sap-hana-high-availability.md#14c19f65-b5aa-4856-9594-b81c7e4df73d
+[hana-ha-guide-shared-storage]:sap-hana-high-availability.md#498de331-fa04-490b-997c-b078de457c9d
+[2205917]:https://launchpad.support.sap.com/#/notes/2205917
+[1944799]:https://launchpad.support.sap.com/#/notes/1944799
+[suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
+[sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
+
+On-premises, you can use either HANA System Replication or use shared storage to establish high availability for SAP HANA.
+We currently only support setting up HANA System Replication on Azure. 
+SAP HANA Replication consists of one master node and at least one slave node. Changes to the data on the master node are replicated to the slave nodes synchronously or asynchronously.
+
+This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, install and configure SAP HANA System Replication.
+In the example configurations, installation commands etc. instance number 50 and HANA System ID HDB is used.
+
+Read the following SAP Notes and papers first
+
+* SAP Note [2205917]  
+  Recommended OS settings for SUSE Linux Enterprise Server for SAP Applications
+* SAP Note [1944799]  
+  SAP HANA Guidelines for SUSE Linux Enterprise Server for SAP Applications
+* [SAP HANA SR Performance Optimized Scenario][suse-hana-ha-guide]  
+  The guide contains all required information to setup SAP HANA System Replication on-premises. Use this guide as a baseline.
+
+## Deploying Linux
+
+The resource agent for SAP HANA is included in SUSE Linux Enterprise Server for SAP Applications.
+The Azure Markeplace contains an image for SUSE Linux Enterprise Server for SAP Applications 12 with BYOS (Bring Your Own Subscription) that you can use to deploy new virtual machines.
+
+### Manual Deployment
+
+1. Create a Resource Group
+1. Create a Virtual Network
+1. Create two Storage Accounts
+1. Create an Availability Set  
+   Set max update domain
+1. Create a Load Balancer (internal)  
+   Select VNET of step above
+1. Create Virtual Machines  
+  https://portal.azure.com/#create/suse-byos.sles-for-sap-byos12-sp1  
+  SLES For SAP Applications 12 SP1 (BYOS)  
+  Select Storage Account 1  
+  Select Availability Set  
+1. Add Data Disks
+1. Configure the load balancer
+    1. Create a new frontend IP pool
+        1. Open the load balancer, select frontend IP pool and click on Add
+        1. Enter the name of the new frontend IP pool (e.g. hana-frontend)
+        1. Click on OK
+        1. After the new frontend IP pool is created, write down its IP address
+    1. Create a new backend pool
+        1. Open the load balancer, select backend pools and click on Add
+        1. Enter the name of the new backend pool (e.g. hana-backend)
+        1. Click on Add a virtual machine
+        1. Select the Availability Set you created earlier
+        1. Select the virtual machines of the SAP HANA cluster
+        1. Click on OK
+    1. Create a new health probe
+        1. Open the load balancer, select health probes and click on Add
+        1. Enter the name of the new health probe (e.g. hana-hp)
+        1. Select TCP as protocol, port 625**50**, keep Interval 5 and Unhealthy threshold 2
+        1. Click on OK
+    1. Create new load balancing rules
+        1. Open the load balancer, select load balancing rules and click on Add
+        1. Enter the name of the new load balancer rule (e.g. hana-lb-3**50**15)
+        1. Select the frontend IP address, backend pool and health probe you created earlier (e.g. hana-frontend)
+        1. Keep protocol TCP, enter port 3**50**15
+        1. Increase idle timout to 30 minutes
+        1. **Make sure to enable Floating IP**
+        1. Click on OK
+        1. Repeat the steps above for port 3**50**17
+
+### Deploy with template
+
+## Setting up Linux HA
+
+The following items are prefixed with either [A] (applicable to all nodes), [1] (only applicable to node 1) or [2] (only applicable to node 2).
+
+1. [A] Register SLES to be able to use the repositories
+1. [A] Add public-cloud module
+1. [A] Install HA extension  
+    <pre>
+    zypper install sle-ha-release
+    <pre>
+        
+1. [A] Setup disk layout
+    1. LVM
+    1. MDADM
+    1. Plain Disks  
+       For small or demo systems you can place your HANA data and log files on one disk. The following commands create a partition on /dev/sdc and format it with xfs.
+    <pre>
+    fdisk /dev/sdc
+    mkfs.xfs /dev/sdc1
+    /sbin/blkid
+    vi /etc/fstab
+    # insert this line to /etc/fstab
+    /dev/disk/by-uuid/<b>924cedc1-81cf-4a3e-9dbc-c24dd2031357</b> /hana xfs  defaults,nofail  0  2
+    mkdir /hana
+    mount -a
+    </pre>
+
+1. [A] Setup host name resolution for all hosts  
+       You can either use a DNS server or modify the /etc/hosts on all nodes 
+    1. Setup DNS
+    1. Use /etc/hosts  
+       Replace the IP address and the hostname in the following commands
+    <pre>
+    vi /etc/hosts
+    # insert the following lines to /etc/hosts
+    <code><b>10.79.227.20 saphanavm1
+    10.79.227.21 saphanavm2</b></code>
+    </pre>
+
+1. [1] Install Cluster
+    <pre>
+    ha-cluster-init
+    
+    Do you want to continue anyway? [y/N] -> y
+    Network address to bind to (e.g.: 192.168.1.0) [10.79.227.0] -> ENTER
+    Multicast address (e.g.: 239.x.x.x) [239.174.218.125] -> ENTER
+    Multicast port [5405] -> ENTER
+    Do you wish to use SBD? [y/N] -> N
+    Do you wish to configure an administration IP? [y/N] -> N
+    </pre>
+        
+1. [2] Add node to cluster
+    <pre>
+    ha-cluster-join
+    
+    WARNING: Hostname 'saphanavm2' is unresolvable - csync2 won't work. Please add an entry to /etc/hosts or configure DNS.
+    WARNING: NTP is not configured to start at system boot.
+    WARNING: No watchdog device found. If SBD is used, the cluster will be unable to start without a watchdog.
+    Do you want to continue anyway? [y/N] -> y
+    IP address or hostname of existing node (e.g.: 192.168.1.1) [] -> IP address of node 1 e.g. 10.0.0.5
+    Enter password of node 1
+    </pre>
+
+1. [A] Change hacluster password to the same password
+    <pre>
+    passwd hacluster
+    </pre>
+
+1. [A] Configure corosync to use other transport and add nodelist. Cluster will not work otherwise.
+    <pre>
+    vi /etc/corosync/corosync.conf
+    # adapt the file
+    <code>
+    [...]
+      interface { 
+          [...] 
+      }
+      <b>transport:      udpu</b>
+    } 
+    <b>nodelist {
+      node {
+        ring0_addr:     < ip address of note 1 >
+      }
+      node {
+        ring0_addr:     < ip address of note 2 > 
+      } 
+    }</b>
+    logging {
+      [...]
+    </code>
+    </pre>
+
+    Then restart the corosync service
+
+    <pre>
+    service corosync restart
+    </pre>
+
+1. [A] Install HANA HA packages  
+    <pre>
+    zypper install SAPHanaSR SAPHanaSR-do
+    </pre>
+
+## Installing SAP HANA
+
+Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-hana-ha-guide] to install SAP HANA System Replication.
+
+1. [A] Run hdblcm from the HANA DVD
+    * Choose installation -> 1
+    * Select additional components for installation -> 1
+    * Enter Installation Path [/hana/shared]: -> ENTER
+    * Enter Local Host Name [..]: -> ENTER
+    * Do you want to add additional hosts to the system? (y/n) [n]: -> ENTER
+    * Enter SAP HANA System ID: <SID of HANA e.g. HDB>
+    * Enter Instance Number [00]:   
+  HANA Instance number. Use 50 if you used the Azure Template or followed the example above>
+    * Select Database Mode / Enter Index [1]: -> ENTER
+    * Select System Usage / Enter Index [4]:  
+  Select the system Usage
+    * Enter Location of Data Volumes [/hana/data/HDB]: -> ENTER
+    * Enter Location of Log Volumes [/hana/log/HDB]: -> ENTER
+    * Restrict maximum memory allocation? [n]: -> ENTER
+    * Enter Certificate Host Name For Host '...' [...]: -> ENTER
+    * Enter SAP Host Agent User (sapadm) Password:
+    * Confirm SAP Host Agent User (sapadm) Password:
+    * Enter System Administrator (hdbadm) Password:
+    * Confirm System Administrator (hdbadm) Password:
+    * Enter System Administrator Home Directory [/usr/sap/HDB/home]: -> ENTER
+    * Enter System Administrator Login Shell [/bin/sh]: -> ENTER
+    * Enter System Administrator User ID [1001]: -> ENTER
+    * Enter ID of User Group (sapsys) [79]: -> ENTER
+    * Enter Database User (SYSTEM) Password:
+    * Confirm Database User (SYSTEM) Password:
+    * Restart system after machine reboot? [n]: -> ENTER
+    * Do you want to continue? (y/n):  
+  Validate the summary and enter y to continue
+1. [A] Upgrade SAP Host Agent  
+  Download the lastest SAP Host Agent archive from the [SAP Softwarecenter][sap-swcenter] and run the following command to upgrade the agent. Replace the path to the archive to point to the file you downloaded.
+    <pre>
+    /usr/sap/hostctrl/exe/saphostexec -upgrade -archive <b>/usr/sap/sapcd/SAPHOSTAGENT18_18-20009394.SAR</b>
+    </pre>
+
+1. [1] Create HANA replication (as root)  
+    Run the following command. Make sure to replace bold strings (HANA System ID HDB and instance number 50) with the values of your SAP HANA installation.
+    <pre>
+    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>50</b>/exe"
+    hdbsql -u system -i <b>50</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "< passwd >"' 
+    hdbsql -u system -i <b>50</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync' 
+    hdbsql -u system -i <b>50</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
+    </pre>
+
+1. [A] Create keystore entry (as root)
+    <pre>
+    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>50</b>/exe"
+    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>50</b>15 <b>hdb</b>hasync < passwd >
+    </pre>
+1. [1] Backup database
+    <pre>
+    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>50</b>/exe"
+    hdbsql -u system -i <b>50</b> "BACKUP DATA USING FILE ('initialbackup')" 
+    </pre>
+1. [1] Switch to the sapsid user (e.g. hdbadm) and create the primary site.
+    <pre>
+    su - <b>hdb</b>adm
+    hdbnsutil -sr_enable –-name=<b>SITE1</b>
+    </pre>
+1. [1] Switch to the sapsid user (e.g. hdbadm) and create the secondary site.
+    <pre>
+    su - <b>hdb</b>adm
+    sapcontrol -nr <b>50</b> -function StopWait 600 10
+    hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE2</b> 
+    </pre>
+
+## Configure Cluster Framework
+
+Change the default settings
+
+<pre>
+vi crm-defaults.txt
+# enter the following to crm-saphana.txt
+<code>
+property $id="cib-bootstrap-options" \
+  no-quorum-policy="ignore" \
+  stonith-enabled="true" \
+  stonith-action="reboot" \
+  stonith-timeout="150s"
+rsc_defaults $id="rsc-options" \
+  resource-stickiness="1000" \
+  migration-threshold="5000"
+op_defaults $id="op-options" \
+  timeout="600"
+</code>
+# now we load the file to the cluster
+crm configure load update crm-defaults.txt
+</pre>
+
+### Create STONITH device
+
+The STONITH device uses a Service Principal to authorize against Microsoft Azure. Please follow these steps to create a Service Principal.
+
+1. Go to <https://portal.azure.com>
+1. Open the Azure Active Directory blade  
+   Go to Properties and write down the Directory Id. This is the **tenant id**.
+1. Click on App registrations
+1. Click on Add
+1. Enter a Name, select Application Type "Web app/API", enter a sign-on URL (e.g. http://localhost) and click on Create
+1. The sign-on URL is not used and can be any valid URL
+1. Select the new App and click on Keys in the Settings tab
+1. Enter a description for a new key, select "Never expires" and click on Save
+1. Write down the Value. It is used as the **password** for the Service Principal
+1. Write down the Application Id. It is used as the username (**login id** in the steps below) of the Service Principal
+
+The Service Principal does not have permissions to access your Azure resources by default. You need to give the Service Principal permissions to start and stop (deallocate) all virtual machines of the cluster.
+
+1. Go to https://portal.azure.com
+1. Open the All resources blade
+1. Select the virtual machine
+1. Click on Access control (IAM)
+1. Click on Add
+1. Select the role Owner
+1. Enter the name of the application you created above
+1. Click on OK
+
+After you edited the permissions for the virtual machines, you can configure the STONITH devices in the cluster.
+
+```
+ !!TODO!! required???
+zypper install fence-agents
+
+vi crm-fencing.txt
+# enter the following to crm-saphana.txt
+# replace the bold string with your subscription id, resource group, tenant id, service principal id and password
+```
+<pre>
+primitive rsc_st_azure_1 stonith:fence_azure_arm \
+    params subscriptionId=<b>< subscription id ></b> resourceGroup=<b>< resource group ></b> tenantId=<b>< tenant id ></b> login=<b>< login id ></b> passwd="<b>< password ></b>"
+
+primitive rsc_st_azure_2 stonith:fence_azure_arm \
+    params subscriptionId=<b>< subscription id ></b> resourceGroup=<b>< resource group ></b> tenantId=<b>< tenant id ></b> login=<b>< login id ></b> passwd="<b>< password ></b>"
+
+colocation col_st_azure -2000: rsc_st_azure_1:Started rsc_st_azure_2:Started
+</pre>
+```
+# now we load the file to the cluster
+crm configure load update crm-fencing.txt
+```
+
+If the fencing resource agent stonith:fence_azure_arm was not found, update the package !!TODO!! to at leat !!TODO!! and try again.
+
+### Create SAP HANA resources
+
+```
+vi crm-saphanatop.txt
+# enter the following to crm-saphana.txt
+# replace the bold string with your instance number and HANA system id
+```
+
+<pre>
+primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>50</b> ocf:suse:SAPHanaTopology \
+    operations $id="rsc_sap2_<b>HDB</b>_HDB<b>50</b>-operations" \
+    op monitor interval="10" timeout="600" \
+    op start interval="0" timeout="600" \
+    op stop interval="0" timeout="300" \
+    params SID="<b>HDB</b>" InstanceNumber="<b>50</b>"
+
+clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>50</b> rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>50</b> \
+    meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
+</pre>
+```
+# now we load the file to the cluster
+crm configure load update crm-saphanatop.txt
+```
+
+```
+vi crm-saphana.txt
+# enter the following to crm-saphana.txt
+# replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
+```
+<pre>
+primitive rsc_SAPHana_<b>HDB</b>_HDB<b>50</b> ocf:suse:SAPHana \
+    operations $id="rsc_sap_<b>HDB</b>_HDB<b>50</b>-operations" \
+    op start interval="0" timeout="3600" \
+    op stop interval="0" timeout="3600" \
+    op promote interval="0" timeout="3600" \
+    op monitor interval="60" role="Master" timeout="700" \
+    op monitor interval="61" role="Slave" timeout="700" \
+    params SID="<b>HDB</b>" InstanceNumber="<b>50</b>" PREFER_SITE_TAKEOVER="true" \
+    DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
+
+ms msl_SAPHana_<b>HDB</b>_HDB<b>50</b> rsc_SAPHana_<b>HDB</b>_HDB<b>50</b> \
+    meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
+    target-role="Started" interleave="true"
+
+primitive rsc_ip_<b>HDB</b>_HDB<b>50</b> ocf:heartbeat:IPaddr2 \ 
+    meta target-role="Started" is-managed="true" \ 
+    operations $id="rsc_ip_<b>HDB</b>_HDB<b>50</b>-operations" \ 
+    op monitor interval="10s" timeout="20s" \ 
+    params ip="<b>10.0.0.21</b>" 
+primitive rsc_nc_<b>HDB</b>_HDB<b>50</b> anything \ 
+    params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>50</b>" \ 
+    op monitor timeout=20s interval=10 depth=0 
+group g_ip_<b>HDB</b>_HDB<b>50</b> rsc_ip_<b>HDB</b>_HDB<b>50</b> rsc_nc_<b>HDB</b>_HDB<b>50</b>
+ 
+colocation col_saphana_ip_<b>HDB</b>_HDB<b>50</b> 2000: g_ip_<b>HDB</b>_HDB<b>50</b>:Started \ 
+    msl_SAPHana_<b>HDB</b>_HDB<b>50</b>:Master  
+order ord_SAPHana_<b>HDB</b>_HDB<b>50</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>50</b> \ 
+    msl_SAPHana_<b>HDB</b>_HDB<b>50</b>
+</pre>
+```
+# now we load the file to the cluster
+crm configure load update crm-saphana.txt
+```
+
+### Test cluster setup
+
+#### Fencing Test
+
+You can test the setup of the fencing agent by disabling the network interface on one node.
+```
+ifdown eth0
+```
+The virtual machine should now get deallocated and the resources should start up on the active node.
+
+#### Testing a manual failover
+
+You can migrate the SAP HANA master node by executing the following command
+```
+crm resource migrate 
+```
+
+This should migrate the SAP HANA master node and the group that contains the virtual IP address
