@@ -63,9 +63,9 @@ This document walks you through deploying an Azure Container Service cluster by 
 
     ![Create deployment 4.5](media/acs-portal10.PNG)  <br />
 
-7. In the **Azure Container service** settings blade, nter the following information:
+7. In the **Azure Container service** settings blade, enter the following information:
 
-    * **Master count**: The number of masters in the cluster. If 'Kubernetes' is selected, the number of masters is set to a default of 1
+    * **Master count**: The number of masters in the cluster. If Kubernetes is selected, the number of masters is set to a default of 1
     * **Agent count**: For Docker Swarm and Kubernetes, this will be the initial number of agents in the agent scale set. For DC/OS, this will be the initial number of agents in a private scale set. Additionally, a public scale set is created, which contains a predetermined number of agents. The number of agents in this public scale set is determined by how many masters have been created in the cluster--one public agent for one master, and two public agents for three or five masters.
     * **Agent virtual machine size**: The size of the agent virtual machines.
     * **DNS prefix**: A world unique name that will be used to prefix key parts of the fully qualified domain names for the service.
@@ -78,7 +78,7 @@ This document walks you through deploying an Azure Container Service cluster by 
 
     ![Create deployment 6](media/acs-portal6.png)  <br />
 
-10. Click **Create** to start the deployment process.
+10. Click **Purchase** to start the deployment process.
 
     ![Create deployment 7](media/acs-portal7.png)  <br />
 
