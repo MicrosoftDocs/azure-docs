@@ -43,7 +43,7 @@ You can then create a queue object and a messaging factory with the Service Bus 
 ```csharp
 QueueDescription myQueue;
 myQueue = namespaceClient.CreateQueue("TestQueue");
-MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", 	ServiceNamespace, string.Empty), credentials); 
+MessagingFactory factory = MessagingFactory.Create(ServiceBusEnvironment.CreateServiceUri("sb", ServiceNamespace, string.Empty), credentials); 
 QueueClient myQueueClient = factory.CreateQueueClient("TestQueue");
 ```
 
@@ -63,7 +63,7 @@ You then receive messages from the queue as follows:
 ```csharp
 while ((message = myQueueClient.Receive(new TimeSpan(hours: 0, minutes: 0, seconds: 5))) != null)
     {
-        Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, 	message.Label, message.MessageId));
+        Console.WriteLine(string.Format("Message received: {0}, {1}, {2}", message.SequenceNumber, message.Label, message.MessageId));
         message.Complete();
 
         Console.WriteLine("Processing message (sleeping...)");
@@ -123,15 +123,13 @@ Similar to queues, messages are received from a subscription using a [Subscripti
 // Create the subscription client
 MessagingFactory factory = MessagingFactory.Create(serviceUri, tokenProvider); 
 
-SubscriptionClient agentSubscriptionClient = 
-	factory.CreateSubscriptionClient("IssueTrackingTopic", "Inventory", ReceiveMode.PeekLock);
-SubscriptionClient auditSubscriptionClient = 
-	factory.CreateSubscriptionClient("IssueTrackingTopic", "Dashboard", ReceiveMode.ReceiveAndDelete); 
+SubscriptionClient agentSubscriptionClient = factory.CreateSubscriptionClient("IssueTrackingTopic", "Inventory", ReceiveMode.PeekLock);
+SubscriptionClient auditSubscriptionClient = factory.CreateSubscriptionClient("IssueTrackingTopic", "Dashboard", ReceiveMode.ReceiveAndDelete); 
 
 while ((message = agentSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != null)
 {
     Console.WriteLine("\nReceiving message from Inventory...");
-    Console.WriteLine(string.Format("Message received: Id = {0}, Body = {1}", message.MessageId, 	message.GetBody<string>()));
+    Console.WriteLine(string.Format("Message received: Id = {0}, Body = {1}", message.MessageId message.GetBody<string>()));
     message.Complete();
 }          
 
@@ -139,7 +137,7 @@ while ((message = agentSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != n
 while ((message = auditSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != null)
 {
     Console.WriteLine("\nReceiving message from Dashboard...");
-    Console.WriteLine(string.Format("Message received: Id = {0}, Body = {1}", message.MessageId, 	message.GetBody<string>()));
+    Console.WriteLine(string.Format("Message received: Id = {0}, Body = {1}", message.MessageId, message.GetBody<string>()));
 }
 ```
 
@@ -149,8 +147,7 @@ In many scenarios, messages that have specific characteristics must be processed
 Using the previous example, to filter messages coming only from **Store1**, you would create the Dashboard subscription as follows:
 
 ```csharp
-namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", 
-	new SqlFilter("StoreName = 'Store1'"));
+namespaceManager.CreateSubscription("IssueTrackingTopic", "Dashboard", new SqlFilter("StoreName = 'Store1'"));
 ```
 
 With this subscription filter in place, only messages that have the `StoreName` property set to `Store1` are copied to the virtual queue for the `Dashboard` subscription.
