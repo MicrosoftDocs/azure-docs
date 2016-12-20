@@ -116,7 +116,7 @@ Now you tell Data Factory about the on-premises SQL Server database from which y
 6. Click **Next**.
 
 ## Configure the performance settings
-In the Performance configurations, you configure an Azure storage account to use for staging the data before it loads into SQL Data Warehouse performantly using [PolyBase](sql-data-warehouse-best-practices#use-polybase-to-load-and-export-data-quickly). After the copy is done, the interim data in storage will be cleaned up automatically.
+In the Performance configurations, you configure an Azure storage account to use for staging the data before it loads into SQL Data Warehouse performantly using [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). After the copy is done, the interim data in storage will be cleaned up automatically.
 
 1. Select an existing Azure Storage account, and click **Next**.
 

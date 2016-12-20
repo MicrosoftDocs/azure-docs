@@ -177,7 +177,7 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 }
 ```
 
-If you are copying data from a cloud data store into Azure Search, `executionLocation` property is required. Below shows the change needed under Copy Activity `typeProperties` as an example. Check [Copy data between cloud data stores](data-factory-data-movement-activities#global) section for supported values and more details.
+If you are copying data from a cloud data store into Azure Search, `executionLocation` property is required. Below shows the change needed under Copy Activity `typeProperties` as an example. Check [Copy data between cloud data stores](data-factory-data-movement-activities.md#global) section for supported values and more details.
 
 ```JSON
 "typeProperties": {
@@ -249,7 +249,7 @@ The following table specifies whether an Azure Search data type is supported or 
 | GeographyPoint | N |
 
 ## Copy from a cloud source
-If you are copying data from a cloud data store into Azure Search, `executionLocation` property is required. Below shows the change needed under Copy Activity `typeProperties` as an example. Check [Copy data between cloud data stores](data-factory-data-movement-activities#global) section for supported values and more details.
+If you are copying data from a cloud data store into Azure Search, `executionLocation` property is required. Below shows the change needed under Copy Activity `typeProperties` as an example. Check [Copy data between cloud data stores](data-factory-data-movement-activities.md#global) section for supported values and more details.
 
 ```JSON
 "typeProperties": {
