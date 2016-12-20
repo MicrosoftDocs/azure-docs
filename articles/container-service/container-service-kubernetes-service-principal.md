@@ -43,7 +43,7 @@ Following are requirements for the Azure Active Directory service principal in a
 
 * **Role** - **Contributor**
 
-* **Client secret** - must be a password. At this time, you can't use a service principal set up for certificate authentication.
+* **Client secret** - must be a password. Currently, you can't use a service principal set up for certificate authentication.
 
 > [!NOTE] Every service principal is associated with an Azure Active Directory application. The service principal for a Kubernetes cluster can be associated with any valid Azure Active Directory application name.
 > 
@@ -65,7 +65,7 @@ The following example shows one way to pass the parameters with the [Azure CLI](
 
 1. [Download](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.parameters.json) the template parameters file azuredeploy.parameters.json from GitHub.
 
-2. To specify the service principal, enter values for `servicePrincipalClientId` and `servicePrincipalClientSecret` in the file. (You also need to provide your own values for `dnsNamePrefix` and `sshRSAPublicKey`; the latter is the SSH public key to access the cluster.) Save the file.
+2. To specify the service principal, enter values for `servicePrincipalClientId` and `servicePrincipalClientSecret` in the file. (You also need to provide your own values for `dnsNamePrefix` and `sshRSAPublicKey`. The latter is the SSH public key to access the cluster.) Save the file.
 
     ![Pass service principal parameters](./media/container-service-kubernetes-service-principal/service-principal-params.png)
 
@@ -128,3 +128,7 @@ az vm list-sizes --location westus
 * If you use the `az acs create` command to generate the service principal automatically, the service principal credentials are written to the file ~/.azure/acsServicePrincipal.json on the machine used to run the command.
 
 * On the master and node VMs in the Kubernetes cluster, the service principal credentials are stored in the file /etc/kubernetes/azure.json.
+
+## Next steps
+
+* [Get started with Kubernetes](container-service-kubernetes-walkthrough.md) in your container service cluster.
