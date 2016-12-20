@@ -81,7 +81,7 @@
 
 # Related
 ## [Hybrid Identity Design Guide](https://azure.microsoft.com/documentation/articles/active-directory-hybrid-identity-design-considerations-overview/)
-
+## [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md)
 
 # Resources
 ##[Azure AD Connect FAQ](active-directory-aadconnect-faq.md)
