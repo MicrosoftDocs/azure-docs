@@ -23,9 +23,9 @@ You can run your .NET Azure HDInsight application either under application's own
 
 From your non-interactive .NET application, you need:
 
-* Your Azure subscription tenant ID (A.K.A directory ID). See [Get tenant ID](../resource-group-create-service-principal-portal.md#get-tenant-id).
-* The Azure Directory application client ID. See [Create an Active Directory application](../resource-group-create-service-principal-portal.md#create-an-active-directory-application), and [Get an application ID](../resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
-* The Azure Directory application secret key. See [Get application authentication key](../resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
+* Your Azure subscription tenant ID (A.K.A directory ID). See [Get tenant ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-tenant-id).
+* The Azure Directory application client ID. See [Create an Active Directory application](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-active-directory-application), and [Get an application ID](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
+* The Azure Directory application secret key. See [Get application authentication key](../azure-resource-manager/resource-group-create-service-principal-portal.md#get-application-id-and-authentication-key)
 
 ## Prerequisites
 * HDInsight cluster. See [getting started tutorial](hdinsight-hadoop-linux-tutorial-get-started.md#create-cluster).
@@ -127,6 +127,6 @@ namespace CreateHDICluster
 }
 
 ## See also
-* [Create Active Directory application and service principal using portal](../resource-group-create-service-principal-portal.md)
-* [Authenticate service principal with Azure Resource Manager](../resource-group-authenticate-service-principal.md)
+* [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md)
+* [Authenticate service principal with Azure Resource Manager](../azure-resource-manager/resource-group-authenticate-service-principal.md)
 * [Azure Role-Based Access Control](../active-directory/role-based-access-control-configure.md)
