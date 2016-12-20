@@ -124,7 +124,7 @@ azure group create --name myResourceGroup --location WestUS \
 Once the deployment is complete, SSH to the VM. Obtain the IP address of your VM using the `azure vm show` command as in the following example:
 
 ```azurecli
-azure vm show --resource-group myResourceGroup --name myVM
+azure vm show --resource-group myResourceGroup --name myLinuxVM
 ```
 
 Near the end of the output, the `Public IP address` is displayed. SSH to your VM with the IP address of your VM:
