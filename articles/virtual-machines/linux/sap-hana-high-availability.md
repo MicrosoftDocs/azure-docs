@@ -418,18 +418,64 @@ ifdown eth0
 The virtual machine should now get restarted or stopped depending on your cluster configuration.
 If you set the stonith-action to off, the virtual machine will be stopped and the resources are migrated to the running virtual machine.
 
-Once you start the virtual machine again, the SAP HANA resource will fail to start if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
+Once you start the virtual machine again, the SAP HANA resource will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
 <pre><code>
 su - <b>hdb</b>adm
+# Stop the HANA instance just in case it is running
+sapcontrol -nr <b>50</b> -function StopWait 600 10
+hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE2</b> 
+
+# switch back to root and cleanup the failed state
+exit
+crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>50</b> <b>saphanavm1</b>
+</code></pre>
+
+#### Testing a manual failover
+You can test a manual failover by stopping the pacemaker service on one virtual machine.
+<pre><code>
+service pacemaker stop
+</code></pre>
+
+After the failover, you can start the service again. The SAP HANA resource on the old virtual machine will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
+<pre><code>
+service pacemaker start
+su - <b>hdb</b>adm
+# Stop the HANA instance just in case it is running
+sapcontrol -nr <b>50</b> -function StopWait 600 10
+hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE2</b> 
+
+# switch back to root and cleanup the failed state
+exit
+crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>50</b> <b>saphanavm1</b>
+</code></pre>
+
+#### Testing a migration
+
+You can migrate the SAP HANA master node by executing the following command
+<pre><code>
+crm resource migrate msl_SAPHana_<b>HDB</b>_HDB<b>50</b> <b>saphanavm2</b>
+crm resource migrate g_ip_<b>HDB</b>_HDB<b>50</b> <b>saphanavm2</b>
+</code></pre>
+
+This should migrate the SAP HANA master node and the group that contains the virtual IP address.
+The SAP HANA resource on the old virtual machine will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
+<pre><code>
+su - <b>hdb</b>adm
+# Stop the HANA instance just in case it is running
 sapcontrol -nr <b>50</b> -function StopWait 600 10
 hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE2</b> 
 </code></pre>
 
-#### Testing a manual failover
-
-You can migrate the SAP HANA master node by executing the following command
+The migration creates location contraints that need to be deleted again.
 <pre><code>
-crm resource migrate 
+crm configure edited
+# delete location contraints that are named like the following contraint
+location cli-prefer-g_ip_<b>HDB</b>_HDB<b>50</b> g_ip_<b>HDB</b>_HDB<b>50</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
-This should migrate the SAP HANA master node and the group that contains the virtual IP address
+You also need to cleanup the state of the secondary node resource
+<pre><code>
+# switch back to root and cleanup the failed state
+exit
+crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>50</b> <b>saphanavm1</b>
+</code></pre>
