@@ -36,7 +36,7 @@ Since you don't have to worry about the web server or application framework, dep
 Popular web development tools support one or more of these deployment processes. While the tool you choose determines the deployment processes you can leverage, the actual DevOps functionality at your disposal depends on the combination of the deployment process and the specific tools you choose. For example, if you perform Web Deploy from [Visual Studio with Azure SDK](#vspros), even though you don't get automation from Kudu, you do get package restore and MSBuild automation in Visual Studio. 
 
 > [!NOTE]
-> These deployment processes don't actually [provision the Azure resources](../resource-group-template-deploy-portal.md) that your app may need. However, most of the linked how-to articles show you how to provision the app AND deploy your code to it end-to-end. You can also find additional options for provisioning Azure resources in the [Automate deployment by using command-line tools](#automate) section.
+> These deployment processes don't actually [provision the Azure resources](../azure-resource-manager/resource-group-template-deploy-portal.md) that your app may need. However, most of the linked how-to articles show you how to provision the app AND deploy your code to it end-to-end. You can also find additional options for provisioning Azure resources in the [Automate deployment by using command-line tools](#automate) section.
 > 
 > 
 
