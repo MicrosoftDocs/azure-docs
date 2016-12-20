@@ -502,7 +502,7 @@ The partitioned vehicle signals and diagnostic data are processed in the pipelin
 
 ![Fuel-efficient driving pattern](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig19-vehicle-telematics-fuel-efficient-driving-pattern.png) 
 
-*Figure 19 – Fuel-efficient driving pattern workflow*
+*Figure 20 – Fuel-efficient driving pattern workflow*
 
 ***Fuel efficient driving pattern Hive query***
 
@@ -572,7 +572,7 @@ Once the pipeline is executed successfully, you see the following partitions gen
 
 ![FuelEfficientDrivingPatternPipeline output](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig20-vehicle-telematics-fuel-efficient-driving-pattern-output.png) 
 
-*Figure 20 – FuelEfficientDrivingPatternPipeline output*
+*Figure 21 – FuelEfficientDrivingPatternPipeline output*
 
 **Recall Predictions**
 
@@ -580,19 +580,19 @@ The machine learning experiment is provisioned and published as a web service as
 
 ![Machine Learning endpoint](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig21-vehicle-telematics-machine-learning-endpoint.png) 
 
-*Figure 21 – Machine learning endpoint registered as a linked service in data factory*
+*Figure 22 – Machine learning endpoint registered as a linked service in data factory*
 
 The registered linked service is used in the DetectAnomalyPipeline to score the data using the anomaly detection model. 
 
 ![Machine Learning batch scoring activity in data factory](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig22-vehicle-telematics-aml-batch-scoring.png) 
 
-*Figure 22 – Azure Machine Learning Batch Scoring activity in data factory* 
+*Figure 23 – Azure Machine Learning Batch Scoring activity in data factory* 
 
 There are few steps performed in this pipeline for data preparation so that it can be operationalized with the batch scoring web service. 
 
 ![DetectAnomalyPipeline for predicting vehicles requiring recalls](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig23-vehicle-telematics-pipeline-predicting-recalls.png) 
 
-*Figure 23 – DetectAnomalyPipeline for predicting vehicles requiring recalls* 
+*Figure 24 – DetectAnomalyPipeline for predicting vehicles requiring recalls* 
 
 ***Anomaly detection Hive query***
 
@@ -660,7 +660,7 @@ Once the pipeline is executed successfully, you see the following partitions gen
 
 ![DetectAnomalyPipeline output](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig24-vehicle-telematics-detect-anamoly-pipeline-output.png) 
 
-*Figure 24 – DetectAnomalyPipeline output*
+*Figure 25 – DetectAnomalyPipeline output*
 
 ## Publish
 
@@ -669,11 +669,11 @@ One of the queries in the Stream Analytics job publishes the events to an output
 
 ![Stream Analytics job publishes to an output Event Hub instance](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig25-vehicle-telematics-stream-analytics-job-publishes-output-event-hub.png)
 
-*Figure 25 – Stream Analytics job publishes to an output Event Hub instance*
+*Figure 26 – Stream Analytics job publishes to an output Event Hub instance*
 
 ![Stream Analytics query to publish to the output Event Hub instance](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig26-vehicle-telematics-stream-analytics-query-publish-output-event-hub.png)
 
-*Figure 26 – Stream Analytics query to publish to the output Event Hub instance*
+*Figure 27 – Stream Analytics query to publish to the output Event Hub instance*
 
 This stream of events is consumed by the RealTimeDashboardApp included in the solution. This application leverages the Machine Learning Request-Response web service for real-time scoring and publishes the resultant data to a Power BI dataset for consumption. 
 
@@ -682,15 +682,15 @@ The results of the batch and real-time processing are published to the Azure SQL
 
 ![Batch processing results copy to data mart workflow](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig27-vehicle-telematics-batch-processing-results-copy-to-data-mart.png)
 
-*Figure 27 – Batch processing results copy to data mart workflow*
+*Figure 28 – Batch processing results copy to data mart workflow*
 
 ![Stream Analytics job publishes to data mart](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig28-vehicle-telematics-stream-analytics-job-publishes-to-data-mart.png)
 
-*Figure 28 – Stream Analytics job publishes to data mart*
+*Figure 29 – Stream Analytics job publishes to data mart*
 
 ![Data mart setting in Stream Analytics job](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig29-vehicle-telematics-data-mart-setting-in-stream-analytics-job.png)
 
-*Figure 29 – Data mart setting in Stream Analytics job*
+*Figure 30 – Data mart setting in Stream Analytics job*
 
 ## Consume
 Power BI gives this solution a rich dashboard for real-time data and predictive analytics visualizations. 
@@ -699,7 +699,7 @@ Click here for detailed instructions on setting up the Power BI reports and the 
 
 ![Power BI dashboard](./media/cortana-analytics-playbook-vehicle-telemetry-deep-dive/fig30-vehicle-telematics-powerbi-dashboard.png)
 
-*Figure 30 - Power BI Dashboard*
+*Figure 31 - Power BI Dashboard*
 
 ## Summary
 This document contains a detailed drill-down of the Vehicle Telemetry Analytics Solution. This showcases a lambda architecture pattern for real-time and batch analytics with predictions and actions. This pattern applies to a wide range of use cases that require hot path (real-time) and cold path (batch) analytics. 
