@@ -5,7 +5,6 @@
 ## [Deploy to ACS using the Azure CLI 2.0 Preview](container-service-create-acs-cluster-cli.md)
 ## [Connect with an ACS cluster](container-service-connect.md)
 ## [Scale an ACS cluster](container-service-scale.md)
-## [Configure a service principal for Kubernetes](container-service-kubernetes-service-principal.md)
 # How To
 ## Manage with DC/OS
 ### [Container management - DC/OS web UI](container-service-mesos-marathon-ui.md)
@@ -20,8 +19,9 @@
 ### [Monitor with Sysdig (DC/OS)](container-service-monitoring-sysdig.md)
 ### [Monitor with Dynatrace (DC/OS)](container-service-monitoring-dynatrace.md)
 ## Manage with Kubernetes
-### [Getting started with Kubernetes](container-service-kubernetes-walkthrough.md)
-### [Interacting with the Kubernetes Web UI](container-service-kubernetes-ui.md)
+### [Get started with Kubernetes](container-service-kubernetes-walkthrough.md)
+### [Configure a service principal](container-service-kubernetes-service-principal.md)
+### [Interact with the Kubernetes Web UI](container-service-kubernetes-ui.md)
 ## Manage with Docker Swarm
 ### [Docker and Docker Compose](container-service-docker-swarm.md)
 ### [Docker Swarm continuous integration](container-service-docker-swarm-setup-ci-cd.md)
