@@ -93,7 +93,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
 
 ## Setting up Linux HA
 
-The following items are prefixed with either [A] (applicable to all nodes), [1] (only applicable to node 1) or [2] (only applicable to node 2).
+The following items are prefixed with either [A] - applicable to all nodes, [1] - only applicable to node 1 or [2] - only applicable to node 2.
 
 1. [A] Register SLES to be able to use the repositories
 1. [A] Add public-cloud module
