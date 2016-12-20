@@ -17,8 +17,8 @@ ms.date: 12/19/2016
 ms.author: klam
 
 ---
-# Build and Deploy Logic Apps in Visual Studio
-Although the [Azure Portal](https://portal.azure.com/) gives you a great way to design and manage your Logic apps, you may also want to design and deploy your logic app from Visual Studio instead.  Logic Apps comes with a rich Visual Studio toolset which allows you to build a logic app using the designer, configure any deployment and automation templates, and deploy into any environment.  
+# Manage Logic Apps with the Visual Studio Cloud Explorer
+Although the [Azure portal](https://portal.azure.com) gives you a great way to design and manage your Logic Apps, the Visual Studio Cloud Explorer allows you to manage many of your Azure assets from within Visual Studio including Logic Apps.  With the cloud explorer you can browse published Logic Apps, perform actions like enable, disable, edit and view run histories. 
 
 ## Installation steps
 Below are the steps to install and configure the Visual Studio tools for Logic Apps.
@@ -48,16 +48,16 @@ To browse Logic Apps in Cloud Explorer open the cloud explorer under View > Clou
 ![Browse](./media/app-service-logic-manage-from-vs/browse.png)
 
 ## Edit Logic App with the designer
-Right-click on the Logic App and select "Open with Logic App Editor".  This will open the currently deployed Logic App in the same designer that is in the Azure management portal.  With the designer you can edit the Logic App and save it back to the cloud as well as start a new run with "Run Trigger" button.
+To open the currently deployed Logic App in the same designer that is in the Azure portal, right-click on the Logic App and select "Open with Logic App Editor".  With the designer, you can edit the Logic App and save it back to the cloud and start a new run with "Run Trigger" button.
 
 ![Designer](./media/app-service-logic-manage-from-vs/designer.png)
 
 ## Browse Logic App run history
-Right-click on the Logic App and select "Open run history".  This will list the run history for the Logic App.  In this view you can order by any of the shown properties by selecting the column header.  
+To list the run history for a Logic App, right-click on the Logic App and select "Open run history".  In this view you can order by any of the shown properties by selecting the column header.  
 
 ![Runs](./media/app-service-logic-manage-from-vs/runs.png)
 
-Double-clicking on one of the run instances will show the run history for that instance where you can see the results of the run including the inputs and outputs of each step.
+Double-clicking on one of the run instances shows the run history for that instance where you can see the results of the run including the inputs and outputs of each step.
 
 ![History](./media/app-service-logic-manage-from-vs/history.png)
 
