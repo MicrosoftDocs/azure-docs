@@ -144,5 +144,5 @@ If you use Git Credential Manager, or if you're trying to clone a Git repository
 Yes. API Management works with Azure ExpressRoute.
 
 ### Can I move an API Management service from one subscription to another?
-Yes. To learn how, see [Move resources to a new resource group or subscription](../resource-group-move-resources.md).
+Yes. To learn how, see [Move resources to a new resource group or subscription](../azure-resource-manager/resource-group-move-resources.md).
 
