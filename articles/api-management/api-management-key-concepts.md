@@ -39,7 +39,7 @@ This topic provides an overview of API Management key concepts.
 > * Securing access
 > * Analytics and metrics
 > * Gaining control and insight with an API Management platform
-> * Using cloud vs on-premise solutions
+> * Using cloud vs on-premises solutions
 > * Azure API Management
 > 
 > 
