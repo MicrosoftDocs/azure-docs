@@ -108,7 +108,7 @@ kubectl expose deployments nginx --port=80 --type=LoadBalancer
 ```
 
 This will now cause Kubernetes to create an Azure Load Balancer with a public IP. The change
-takes about 2-3 minutes to propogate to the load balancer.
+takes about 2-3 minutes to propagate to the load balancer.
 
 To watch the service change from "pending" to an external ip type:
 ```console
@@ -186,5 +186,5 @@ To use pscp from [putty](http://www.chiark.greenend.org.uk/~sgtatham/putty/downl
 ### Kubernetes Community Documentation
 
 1. [Kubernetes Bootcamp](https://katacoda.com/embed/kubernetes-bootcamp/1/) - shows you how to deploy, scale, update, and debug containerized applications.
-2. [Kubernetes Userguide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
+2. [Kubernetes User Guide](http://kubernetes.io/docs/user-guide/) - provides information on running programs in an existing Kubernetes cluster.
 3. [Kubernetes Examples](https://github.com/kubernetes/kubernetes/tree/master/examples) - provides a number of examples on how to run real applications with Kubernetes.

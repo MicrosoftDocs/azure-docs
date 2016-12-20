@@ -100,11 +100,11 @@ Kubernetes is a popular open-source production grade container orchestrator tool
 
 It has a rich set of features including:
 * Horizontal scaling
-* Service dicscovery and load balancing
-* Secrets and configuration managment
+* Service discovery and load balancing
+* Secrets and configuration management
 * API based automated rollouts and rollbacks
 * Self-healing 
-* and many more..
+* and many more.
 
 
 

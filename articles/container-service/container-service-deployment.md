@@ -65,7 +65,7 @@ If **Kubernetes** is selected in the dropdown, you will need to enter a service 
 
 Enter the following information:
 
-* **Master count**: The number of masters in the cluster. If 'Kubernetes' is selected, the number of master is set to a default of 1
+* **Master count**: The number of masters in the cluster. If 'Kubernetes' is selected, the number of masters is set to a default of 1
 * **Agent count**: For Docker Swarm and Kubernetes, this will be the initial number of agents in the agent scale set. For DC/OS, this will be the initial number of agents in a private scale set. Additionally, a public scale set is created, which contains a predetermined number of agents. The number of agents in this public scale set is determined by how many masters have been created in the cluster--one public agent for one master, and two public agents for three or five masters.
 * **Agent virtual machine size**: The size of the agent virtual machines.
 * **DNS prefix**: A world unique name that will be used to prefix key parts of the fully qualified domain names for the service.
@@ -147,7 +147,7 @@ To see an example parameters file named `azuredeploy.parameters.json`, look for 
 ## Create a service by using PowerShell
 You can also deploy an Azure Container Service cluster with PowerShell. This document is based on the version 1.0 [Azure PowerShell module](https://azure.microsoft.com/blog/azps-1-0/).
 
-To deploy a DC/OS or Docker Swarm or Kubernetes cluster, select one of the following templates. Note that both of these templates are the same, with the exception of the default orchestrator selection.
+To deploy a DC/OS, Docker Swarm, or Kubernetes cluster, select one of the following templates. Note that both of these templates are the same, with the exception of the default orchestrator selection.
 
 * [DC/OS template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-dcos)
 * [Swarm template](https://github.com/Azure/azure-quickstart-templates/tree/master/101-acs-swarm)
