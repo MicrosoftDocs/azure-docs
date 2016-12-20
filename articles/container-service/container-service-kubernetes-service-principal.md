@@ -72,9 +72,9 @@ The following example shows one way to pass the parameters with the [Azure CLI](
 
 3. Run the following command, using the `-e` parameter to set the path to the azuredeploy.parameters.json file. This command deploys the cluster in an existing resource group called `myResourceGroup`.
 
-  ```Azure CLI
-  azure group deployment create -n myClusterName -g myResourceGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -e azuredeploy.parameters.json
-  ```
+    ```CLI
+    azure group deployment create -n myClusterName -g myResourceGroup --template-uri "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-acs-kubernetes/azuredeploy.json" -e azuredeploy.parameters.json
+    ```
 
 
 ### Option 2: Generate the service principal when creating the cluster with the Azure CLI 2.0 Preview
