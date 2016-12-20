@@ -297,6 +297,6 @@ Now that you've completed this tutorial, there are number of additional tutorial
 
 ## Additional resources
 
-For a technical overview see [What is SQL Database?](sql-database-technical-overview.md).
-For pricing information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
+- For a technical overview see [What is SQL Database?](sql-database-technical-overview.md).
+- For pricing information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
