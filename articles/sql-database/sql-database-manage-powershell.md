@@ -29,7 +29,7 @@ ms.author: sstein
 This topic shows the PowerShell cmdlets that are used to perform many Azure SQL database tasks. For a complete list, see [Azure SQL Database Cmdlets](https://msdn.microsoft.com/library/mt574084\(v=azure.300\).aspx).
 
 > [!TIP]
-> For a tutorial showing you how to create a server, a server-based firewall, view server properties, connect and query the master database, create a sample database and a blank database, query database properties, connect and query the sample database, see [Get Started Tutorial](sql-database-get-started-powershell.md).
+> For a tutorial showing you how to create a server, create a server-based firewall, view server properties, connect and query the master database, create a sample database and a blank database, query database properties, connect and query the sample database, see [Get Started Tutorial](sql-database-get-started-powershell.md).
 >
 
 ## How do I create a resource group?
