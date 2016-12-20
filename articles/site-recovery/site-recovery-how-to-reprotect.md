@@ -69,6 +69,14 @@ A master target server is required on-premises to recieve the data from the proc
 
 * You need a new drive added onto your existing Master target server. This drive is called a retention drive. Add a new disk and format the drive. !todo sizing guidelines of retention drive
 
+* A linux failed over VM, needs a Linux Master target server. A Windows failed over VM, requires a Windows master target server.
+
+
+Click on the below links to reads the steps on How to install a Master Target server.
+
+![How to install Windows Master Target server](site-recovery-how-to-install-windows-master-target.md)
+![How to install Linux Master Target server](site-recovery-how-to-install-linux-master-target.md)
+
 
 ### Failback policy
 To replicate back to on-premises, you will need a failback policy. This policy gets automatically created when you create a forward direction policy. Note that
