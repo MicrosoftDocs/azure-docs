@@ -1,8 +1,0 @@
-IP Filtering support in Azure DocumentDB
-DocumentDB now supports policy driven IP-based access controls for inbound firewall support. With this feature, you can configure a DocumentDB database account to be accessible only from an approved set of IP address ranges. Learn more about how to configure IP firewall rules via the Azure Portal or DocumentDB Resource Provider APIs in the documentation at http://aka.ms/documentdb-ip-filtering. 
-
-Azure DocumentDB .NET SDK now Xamarin compatible
-The latest release of the DocumentDB .NET Core SDK is fully Xamarin compatible. You can use the DocumentDB SDK to build Xamarin applications that target iOS and Android, as well as applications that run on Linux via the Mono platform. Learn more about how to work with Xamarin and DocumentDB by reading the Azure blog post at http://aka.ms/documentdb-xamarin.
-
-Aggregates support in Azure DocumentDB
-Azure DocumentDB now supports aggregates at global scale in public preview. DocumentDB's query engine has built-in support for SQL aggregate operators COUNT, MIN, MAX, AVG and SUM. Learn about the aggregation support by reading the Azure blog post at http://aka.ms/documentdb-aggregates.
