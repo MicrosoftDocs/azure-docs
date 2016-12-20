@@ -296,5 +296,7 @@ Now that you've completed this tutorial, there are number of additional tutorial
 * If you want to start creating tables and other objects, see the "To create a table" topic in [Creating a table](https://msdn.microsoft.com/library/ms365315.aspx).
 
 ## Additional resources
-[What is SQL Database?](sql-database-technical-overview.md)
+
+For a technical overview see [What is SQL Database?](sql-database-technical-overview.md).
+For pricing information, see [Azure SQL Database pricing](https://azure.microsoft.com/pricing/details/sql-database/).
 
