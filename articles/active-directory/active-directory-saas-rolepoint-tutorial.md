@@ -5,7 +5,6 @@ services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: femila
-editor: na
 
 ms.assetid: 68d37f40-15da-45f5-a9e1-d53f78e786d1
 ms.service: active-directory
@@ -13,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/01/2016
+ms.date: 12/19/2016
 ms.author: jeedes
 
 ---
@@ -146,7 +145,7 @@ RolePoint application expects the SAML assertions in a specific format. Please c
 
 	![Configure Single Sign-On](./media/active-directory-saas-rolepoint-tutorial/tutorial_rolepoint_06.png)
 
-    a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.rolepoint-qa.com/login`
+    a. In the **Sign On URL** textbox, type a URL using the following pattern: `https://<company name>.rolepoint.com/login`
 
     b. Click **Next**.
 
