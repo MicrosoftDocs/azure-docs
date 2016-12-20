@@ -178,10 +178,13 @@ NOTE: Do not add the above values along with double-quotes.
 NOTE: Make sure system has Internet connectivity before download and
 installing additional packages.
 
+```
 \# yum install -y xfsprogs perl lsscsi rsync wget kexec-tools
+```
 
 Above command will download below mentioned 15 packages from CentOS 6.6
 repository and install.
+
 
 bc-1.06.95-1.el6.x86\_64.rpm
 
@@ -220,6 +223,7 @@ download and installed on Linux Master Target prior to the protection.
 ***ReiserFS (Suse11SP3. ReiserFS is not the default filesystem in
 Suse11SP3 though)***
 
+```
 \# cd /usr/local
 
 \# wget
@@ -230,9 +234,11 @@ Suse11SP3 though)***
 
 \# rpm -ivh kmod-reiserfs-0.0-1.el6.elrepo.x86\_64.rpm
 reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
+```
 
 ***XFS (RHEL, CentOS 7 onwards)***
 
+```
 \# cd /usr/local
 
 \# wget
@@ -240,7 +246,9 @@ reiserfs-utils-3.6.21-1.el6.elrepo.x86\_64.rpm
 
 \# rpm -ivh xfsprogs-3.1.1-16.el6.x86\_64.rpm
 
-\# yum install device-mapper-multipath This is required to enable
+\# yum install device-mapper-multipath 
+```
+This is required to enable
 Multipath packages on the MT server.
 
 ### Apply Custom Configuration Changes
@@ -254,7 +262,9 @@ To apply custom configuration changes, follow the below mentioned steps:
 
 2. Run the below command to untar the binary.
 
+```
 **tar -zxvf &lt;File name&gt;**
+```
 
 3. Execute below command to give permission.
 
