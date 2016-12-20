@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/07/2016
+ms.date: 12/20/2016
 ms.author: jingwang
 ---
 
@@ -23,9 +23,9 @@ This article describes how to use the Copy Activity to push data from an on-prem
 Azure Data Factory currently supports only moving data to Azure Search from [supported on-premises source data stores](data-factory-data-movement-activities.md#supported-data-stores-and-formats). It does not support moving data from Azure Search to other data stores.
 
 ## Enabling connectivity
-To allow Data Factory service connect to an on-premises data store, you install Data Management Gateway in your on-premises environment. You can install gateway on the same machine that hosts the source data store or on a separate machine to avoid competing for resources with the data store. 
+To allow Data Factory service connect to an on-premises data store, you install Data Management Gateway in your on-premises environment. You can install gateway on the same machine that hosts the source data store or on a separate machine to avoid competing for resources with the data store.
 
-Data Management Gateway connects on-premises data sources to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway. 
+Data Management Gateway connects on-premises data sources to cloud services in a secure and managed way. See [Move data between on-premises and cloud](data-factory-move-data-between-onprem-and-cloud.md) article for details about Data Management Gateway.
 
 ## Copy Data wizard
 The easiest way to create a pipeline that copies data to Azure Search from any of the supported source data stores is to use the Copy Data wizard. See [Tutorial: Create a pipeline using Copy Wizard](data-factory-copy-data-wizard-tutorial.md) for a quick walkthrough.
@@ -42,14 +42,14 @@ The following sample shows:
 4.	An output [dataset](data-factory-create-datasets.md) of type [AzureSearchIndex](#azure-search-index-dataset-properties).
 4.	A [pipeline](data-factory-create-pipelines.md) with a Copy activity that uses [SqlSource](data-factory-sqlserver-connector.md#sql-server-copy-activity-type-properties) and [AzureSearchIndexSink](#azure-search-index-sink-properties).
 
-The sample copies time-series data from an on-premises SQL Server database to an Azure Search index hourly. The JSON properties used in this sample are described in sections following the samples. 
+The sample copies time-series data from an on-premises SQL Server database to an Azure Search index hourly. The JSON properties used in this sample are described in sections following the samples.
 
 As a first step, setup the data management gateway on your on-premises machine. The instructions are in the [moving data between on-premises locations and cloud](data-factory-move-data-between-onprem-and-cloud.md) article.
 
 **Azure Search linked service:**
 
 ```JSON
-{	
+{
 	"name": "AzureSearchLinkedService",
    	"properties": {
 		"type": "AzureSearch",
@@ -179,6 +179,19 @@ The pipeline contains a Copy Activity that is configured to use the input and ou
 }
 ```
 
+If you are copying data from a cloud data store into Azure Search, `executionLocation` property is required. Below shows the change needed under Copy Activity `typeProperties` as an example. Check [Copy data between cloud data stores](data-factory-data-movement-activities#global) section for supported values and more details.
+
+```JSON
+"typeProperties": {
+  "source": {
+	"type": "BlobSource"
+  },
+  "sink": {
+	"type": "AzureSearchIndexSink"
+  },
+  "executionLocation": "West US"
+}
+```
 
 ## Azure Search linked service properties
 
@@ -207,7 +220,7 @@ For Copy Activity, when the source is of the type **AzureSearchIndexSink**, the 
 
 | Property | Description | Allowed values | Required |
 | -------- | ----------- | -------------- | -------- |
-| WriteBehavior | Specifies whether to merge or replace when a document already exists in the index. See the [WriteBehavior property](#writebehavior-property).| Merge (default)<br/>Upload| No | 
+| WriteBehavior | Specifies whether to merge or replace when a document already exists in the index. See the [WriteBehavior property](#writebehavior-property).| Merge (default)<br/>Upload| No |
 | WriteBatchSize | Uploads data into the Azure Search index when the buffer size reaches writeBatchSize. See the [WriteBatchSize property](#writebatchsize-property) for details. | 1 to 1,000. Default value is 1000. | No |
 
 ### WriteBehavior property
@@ -223,22 +236,37 @@ The default behavior is **Merge**.
 ### WriteBatchSize Property
 Azure Search service supports writing documents as a batch. A batch can contain 1 to 1,000 Actions. An action handles one document to perform the upload/merge operation.
 
-### Data type support 
-The following table specifies whether an Azure Search data type is supported or not. 
+### Data type support
+The following table specifies whether an Azure Search data type is supported or not.
 
 | Azure Search data type | Supported in Azure Search Sink |
 | ---------------------- | ------------------------------ |
-| String | Y | 
+| String | Y |
 | Int32 | Y |
 | Int64 | Y |
 | Double | Y |
 | Boolean | Y |
-| DataTimeOffset | Y | 
-| String Array | N | 
+| DataTimeOffset | Y |
+| String Array | N |
 | GeographyPoint | N |
 
+## Copy from a cloud source
+If you are copying data from a cloud data store into Azure Search, `executionLocation` property is required. Below shows the change needed under Copy Activity `typeProperties` as an example. Check [Copy data between cloud data stores](data-factory-data-movement-activities#global) section for supported values and more details.
+
+```JSON
+"typeProperties": {
+  "source": {
+	"type": "BlobSource"
+  },
+  "sink": {
+	"type": "AzureSearchIndexSink"
+  },
+  "executionLocation": "West US"
+}
+```
+
 ## Specifying structure definition for rectangular datasets
-The structure section in the datasets JSON is an **optional** section for rectangular tables (with rows & columns) and contains a collection of columns for the table. Use the structure section for either providing type information for type conversions or doing column mappings. The following sections describe these features in detail. 
+The structure section in the datasets JSON is an **optional** section for rectangular tables (with rows & columns) and contains a collection of columns for the table. Use the structure section for either providing type information for type conversions or doing column mappings. The following sections describe these features in detail.
 
 Each column contains the following properties:
 
@@ -252,7 +280,7 @@ Each column contains the following properties:
 The following sample shows the structure section JSON for a table that has three columns `userid`, `name`, and `lastlogindate`.
 
 ```JSON
-"structure": 
+"structure":
 [
     { "name": "userid"},
     { "name": "name"},
@@ -261,27 +289,27 @@ The following sample shows the structure section JSON for a table that has three
 ```
 Use the following guidelines for when to include “structure” information and what to include in the **structure** section.
 
-- **For structured data sources** that store data schema and type information along with the data itself (example: SQL Server, Oracle, Azure table etc.): specify the “structure” section only if you map specific source columns to specific columns in sink and their names are not the same. See details in the column mapping section. 
+- **For structured data sources** that store data schema and type information along with the data itself (example: SQL Server, Oracle, Azure table etc.): specify the “structure” section only if you map specific source columns to specific columns in sink and their names are not the same. See details in the column mapping section.
 
 	As mentioned earlier, the type information is optional in “structure” section. For structured sources, type information is available as part of dataset definition in the data store, so you should not include type information when you do include the “structure” section.
 - **For schema on read data sources (specifically Azure blob)**: you can choose to store data without storing any schema or type information with the data. For these types of data sources, you should include “structure” in the following two cases:
 	- You map source columns to sink columns.
 	- When the dataset is a source in a Copy activity, you can provide type information in “structure.” Data Factory uses this type information for conversion to native types for the sink. For more information, see [Move data to and from Azure Blob](data-factory-azure-blob-connector.md) article.
 
-### Supported .NET-based types 
+### Supported .NET-based types
 Data Factory supports the following CLS-compliant .NET based type values for providing type information in “structure” for schema on read data sources like Azure blob.
 
 - Int16
-- Int32 
+- Int32
 - Int64
 - Single
 - Double
 - Decimal
 - Bool
-- String 
+- String
 - Datetime
 - Datetimeoffset
-- Timespan 
+- Timespan
 
 For Datetime and Datetimeoffset, you can also optionally specify “culture” & “format” string to facilitate parsing of your custom Datetime string. See sample for type conversion in the following section:
 
@@ -295,6 +323,6 @@ For Datetime and Datetimeoffset, you can also optionally specify “culture” &
 See the [Copy Activity performance and tuning guide](data-factory-copy-activity-performance.md) to learn about key factors that impact performance of data movement (Copy Activity) and various ways to optimize it.
 
 ## Next steps
-See the following articles: 
+See the following articles:
 
-* [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions for creating a pipeline with a Copy Activity. 
+* [Copy Activity tutorial](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) for step-by-step instructions for creating a pipeline with a Copy Activity.

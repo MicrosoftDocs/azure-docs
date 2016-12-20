@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 12/20/2016
 ms.author: jingwang
 
 ---
@@ -100,11 +100,11 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 | . | West India | Central India |
 | . | South India | Central India |
 
-
 > [!NOTE]
-> If the region of the destination data store is not in the preceding list, Copy Activity fails instead of going through an alternative region.
+> If the region of the destination data store is not in preceding list or undetectable, by default Copy Activity fails instead of going through an alternative region. The supported region list will be expanded over time.
 >
->
+
+Alternatively, you can explicitly indicate the region of Data Factory service to be used to perform the copy by specifying **executionLocation** property under Copy Activity **typeProperties**. Supported values for this property are listed in above “Region used for data movement” column. Note your data will go through that region over the wire during copy. For example, to copy between Azure stores in UK, you can specify **executionLocation** as "North Europe" to route through North Europe.
 
 ### Copy data between an on-premises data store and a cloud data store
 When data is being copied between on-premises (or Azure virtual machines/IaaS) and cloud stores, [Data Management Gateway](data-factory-data-management-gateway.md) performs data movement on an on-premises machine or virtual machine. The data does not flow through the service in the cloud, unless you use the [staged copy](data-factory-copy-activity-performance.md#staged-copy) capability. In this case, data flows through the staging Azure Blob storage before it is written into the sink data store.
