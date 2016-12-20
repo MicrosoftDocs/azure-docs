@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use BizTalk services to provide cloud to on-premises and line-of-business application integration for SAP, Oracle EBS, SQL Server, and PeopleSoft.
 ---
 # Biztalk Services Documentation
 
-BizTalk Services provides cloud to on-premises and line-of-business application integration for SAP, Oracle EBS, SQL Server, and PeopleSoft. It lets you connect with any HTTP, FTP, SFTP, or REST data source. You can route messages by using various Azure artifacts such as Service Bus queues, Topics, SQL Database, and Blob storage.   
+Learn how to use BizTalk services to provide cloud to on-premises and line-of-business application integration for SAP, Oracle EBS, SQL Server, and PeopleSoft. Tutorials and other documentation show you how to integrate the enterprise and the cloud.
 
 <ul class="panelContent cardsFTitle">
     <li>

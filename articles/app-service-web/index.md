@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use App Service Web Apps to build and host websites and web applications. Tutorials, videos, API references, and more.
 ---
 # Azure Web Apps Documentation
 
-App Service Web Apps is a fully managed compute platform that is optimized for hosting websites and web applications. This platform-as-a-service (PaaS) offering of Microsoft Azure lets you focus on your business logic while Azure takes care of the infrastructure to run and scale your apps.
+Learn how to use App Service Web Apps to build and host websites and web applications. Tutorials, videos, API references, and other documentation show you how to develop on this fully manage compute platform.
 
 <ul class="panelContent cardsFTitle">
     <li>

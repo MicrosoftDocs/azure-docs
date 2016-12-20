@@ -25,27 +25,30 @@ If the format is set to **TextFormat**, you can specify the following **optional
 #### TextFormat example
 The following sample shows some of the format properties for TextFormat.
 
-    "typeProperties":
+```json
+"typeProperties":
+{
+    "folderPath": "mycontainer/myfolder",
+    "fileName": "myblobname",
+    "format":
     {
-        "folderPath": "mycontainer/myfolder",
-        "fileName": "myblobname"
-        "format":
-        {
-            "type": "TextFormat",
-            "columnDelimiter": ",",
-            "rowDelimiter": ";",
-            "quoteChar": "\"",
-            "NullValue": "NaN"
-            "firstRowAsHeader": true,
-            "skipLineCount": 0,
-            "treatEmptyAsNull": true
-        }
-    },
+        "type": "TextFormat",
+        "columnDelimiter": ",",
+        "rowDelimiter": ";",
+        "quoteChar": "\"",
+        "NullValue": "NaN",
+        "firstRowAsHeader": true,
+        "skipLineCount": 0,
+        "treatEmptyAsNull": true
+    }
+},
+```
 
 To use an escapeChar instead of quoteChar, replace the line with quoteChar with the following escapeChar:
 
-    "escapeChar": "$",
-
+```json
+"escapeChar": "$",
+```
 
 
 ### Scenarios for using firstRowAsHeader and skipLineCount
@@ -56,10 +59,12 @@ To use an escapeChar instead of quoteChar, replace the line with quoteChar with 
 ### Specifying AvroFormat
 If the format is set to AvroFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
 
-    "format":
-    {
-        "type": "AvroFormat",
-    }
+```json
+"format":
+{
+    "type": "AvroFormat",
+}
+```
 
 To use Avro format in a Hive table, you can refer to [Apache Hive’s tutorial](https://cwiki.apache.org/confluence/display/Hive/AvroSerDe).
 
@@ -83,25 +88,61 @@ Each file contains single object, or line-delimited/concatenated multiple object
 
 **single object** 
 
-    {
-        "time": "2015-04-29T07:12:20.9100000Z",
-        "callingimsi": "466920403025604",
-        "callingnum1": "678948008",
-        "callingnum2": "567834760",
-        "switch1": "China",
-        "switch2": "Germany"
-    }
+```json
+{
+    "time": "2015-04-29T07:12:20.9100000Z",
+    "callingimsi": "466920403025604",
+    "callingnum1": "678948008",
+    "callingnum2": "567834760",
+    "switch1": "China",
+    "switch2": "Germany"
+}
+```
 
 **line-delimited JSON** 
 
+```json
     {"time":"2015-04-29T07:12:20.9100000Z","callingimsi":"466920403025604","callingnum1":"678948008","callingnum2":"567834760","switch1":"China","switch2":"Germany"}
     {"time":"2015-04-29T07:13:21.0220000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789037573","switch1":"US","switch2":"UK"}
     {"time":"2015-04-29T07:13:21.4370000Z","callingimsi":"466923101048691","callingnum1":"678901578","callingnum2":"345626404","switch1":"Germany","switch2":"UK"}
     {"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"789037573","callingnum2":"789044691","switch1":"UK","switch2":"Australia"}
     {"time":"2015-04-29T07:13:22.0960000Z","callingimsi":"466922202613463","callingnum1":"123436380","callingnum2":"789044691","switch1":"US","switch2":"Australia"}
+```
 
 **concatenated JSON**
 
+```json
+{
+    "time": "2015-04-29T07:12:20.9100000Z",
+    "callingimsi": "466920403025604",
+    "callingnum1": "678948008",
+    "callingnum2": "567834760",
+    "switch1": "China",
+    "switch2": "Germany"
+}
+{
+    "time": "2015-04-29T07:13:21.0220000Z",
+    "callingimsi": "466922202613463",
+    "callingnum1": "123436380",
+    "callingnum2": "789037573",
+    "switch1": "US",
+    "switch2": "UK"
+}
+{
+    "time": "2015-04-29T07:13:21.4370000Z",
+    "callingimsi": "466923101048691",
+    "callingnum1": "678901578",
+    "callingnum2": "345626404",
+    "switch1": "Germany",
+    "switch2": "UK"
+}
+```
+
+#### arrayOfObjects file pattern.
+Each file contains an array of objects. 
+
+```json
+[
     {
         "time": "2015-04-29T07:12:20.9100000Z",
         "callingimsi": "466920403025604",
@@ -109,7 +150,7 @@ Each file contains single object, or line-delimited/concatenated multiple object
         "callingnum2": "567834760",
         "switch1": "China",
         "switch2": "Germany"
-    }
+    },
     {
         "time": "2015-04-29T07:13:21.0220000Z",
         "callingimsi": "466922202613463",
@@ -117,7 +158,7 @@ Each file contains single object, or line-delimited/concatenated multiple object
         "callingnum2": "789037573",
         "switch1": "US",
         "switch2": "UK"
-    }
+    },
     {
         "time": "2015-04-29T07:13:21.4370000Z",
         "callingimsi": "466923101048691",
@@ -125,83 +166,54 @@ Each file contains single object, or line-delimited/concatenated multiple object
         "callingnum2": "345626404",
         "switch1": "Germany",
         "switch2": "UK"
+    },
+    {
+        "time": "2015-04-29T07:13:22.0960000Z",
+        "callingimsi": "466922202613463",
+        "callingnum1": "789037573",
+        "callingnum2": "789044691",
+        "switch1": "UK",
+        "switch2": "Australia"
+    },
+    {
+        "time": "2015-04-29T07:13:22.0960000Z",
+        "callingimsi": "466922202613463",
+        "callingnum1": "123436380",
+        "callingnum2": "789044691",
+        "switch1": "US",
+        "switch2": "Australia"
+    },
+    {
+        "time": "2015-04-29T07:13:24.2120000Z",
+        "callingimsi": "466922201102759",
+        "callingnum1": "345698602",
+        "callingnum2": "789097900",
+        "switch1": "UK",
+        "switch2": "Australia"
+    },
+    {
+        "time": "2015-04-29T07:13:25.6320000Z",
+        "callingimsi": "466923300236137",
+        "callingnum1": "567850552",
+        "callingnum2": "789086133",
+        "switch1": "China",
+        "switch2": "Germany"
     }
-
-
-#### arrayOfObjects file pattern.
-Each file contains an array of objects. 
-
-    [
-        {
-            "time": "2015-04-29T07:12:20.9100000Z",
-            "callingimsi": "466920403025604",
-            "callingnum1": "678948008",
-            "callingnum2": "567834760",
-            "switch1": "China",
-            "switch2": "Germany"
-        },
-        {
-            "time": "2015-04-29T07:13:21.0220000Z",
-            "callingimsi": "466922202613463",
-            "callingnum1": "123436380",
-            "callingnum2": "789037573",
-            "switch1": "US",
-            "switch2": "UK"
-        },
-        {
-            "time": "2015-04-29T07:13:21.4370000Z",
-            "callingimsi": "466923101048691",
-            "callingnum1": "678901578",
-            "callingnum2": "345626404",
-            "switch1": "Germany",
-            "switch2": "UK"
-        },
-        {
-            "time": "2015-04-29T07:13:22.0960000Z",
-            "callingimsi": "466922202613463",
-            "callingnum1": "789037573",
-            "callingnum2": "789044691",
-            "switch1": "UK",
-            "switch2": "Australia"
-        },
-        {
-            "time": "2015-04-29T07:13:22.0960000Z",
-            "callingimsi": "466922202613463",
-            "callingnum1": "123436380",
-            "callingnum2": "789044691",
-            "switch1": "US",
-            "switch2": "Australia"
-        },
-        {
-            "time": "2015-04-29T07:13:24.2120000Z",
-            "callingimsi": "466922201102759",
-            "callingnum1": "345698602",
-            "callingnum2": "789097900",
-            "switch1": "UK",
-            "switch2": "Australia"
-        },
-        {
-            "time": "2015-04-29T07:13:25.6320000Z",
-            "callingimsi": "466923300236137",
-            "callingnum1": "567850552",
-            "callingnum2": "789086133",
-            "switch1": "China",
-            "switch2": "Germany"
-        }
-    ]
-
+]
+```
 ### JsonFormat example
 If you have a JSON file with the following content:  
 
-    {
-        "Id": 1,
-        "Name": {
-            "First": "John",
-            "Last": "Doe"
-        },
-        "Tags": ["Data Factory”, "Azure"]
-    }
-
+```json
+{
+    "Id": 1,
+    "Name": {
+        "First": "John",
+        "Last": "Doe"
+    },
+    "Tags": ["Data Factory”, "Azure"]
+}
+```
 and you want to copy it into an Azure SQL table in the following format: 
 
 | Id | Name.First | Name.Middle | Name.Last | Tags |
@@ -210,27 +222,28 @@ and you want to copy it into an Azure SQL table in the following format:
 
 The input dataset with JsonFormat type is defined as follows: (partial definition with only the relevant parts)
 
-    "properties": {
-        "structure": [
-            {"name": "Id", "type": "Int"},
-            {"name": "Name.First", "type": "String"},
-            {"name": "Name.Middle", "type": "String"},
-            {"name": "Name.Last", "type": "String"},
-            {"name": "Tags", "type": "string"}
-        ],
-        "typeProperties":
+```json
+"properties": {
+    "structure": [
+        {"name": "Id", "type": "Int"},
+        {"name": "Name.First", "type": "String"},
+        {"name": "Name.Middle", "type": "String"},
+        {"name": "Name.Last", "type": "String"},
+        {"name": "Tags", "type": "string"}
+    ],
+    "typeProperties":
+    {
+        "folderPath": "mycontainer/myfolder",
+        "format":
         {
-            "folderPath": "mycontainer/myfolder",
-            "format":
-            {
-                "type": "JsonFormat",
-                "filePattern": "setOfObjects",
-                "encodingName": "UTF-8",
-                "nestingSeparator": "."
-            }
+            "type": "JsonFormat",
+            "filePattern": "setOfObjects",
+            "encodingName": "UTF-8",
+            "nestingSeparator": "."
         }
     }
-
+}
+```
 If the structure is not defined, the Copy Activity flattens the structure by default and copy every thing. 
 
 #### Supported JSON structure
@@ -245,10 +258,12 @@ Note the following points:
 ### Specifying OrcFormat
 If the format is set to OrcFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
 
-    "format":
-    {
-        "type": "OrcFormat"
-    }
+```json
+"format":
+{
+    "type": "OrcFormat"
+}
+```
 
 > [!IMPORTANT]
 > If you are not copying ORC files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
@@ -263,11 +278,12 @@ Note the following points:
 ### Specifying ParquetFormat
 If the format is set to ParquetFormat, you do not need to specify any properties in the Format section within the typeProperties section. Example:
 
-    "format":
-    {
-        "type": "ParquetFormat"
-    }
-
+```json
+"format":
+{
+    "type": "ParquetFormat"
+}
+```
 > [!IMPORTANT]
 > If you are not copying Parquet files **as-is** between on-premises and cloud data stores, you need to install the JRE 8 (Java Runtime Environment) on your gateway machine. A 64-bit gateway requires 64-bit JRE and 32-bit gateway requires 32-bit JRE. You can find both versions from [here](http://go.microsoft.com/fwlink/?LinkId=808605). Choose the appropriate one.
 > 

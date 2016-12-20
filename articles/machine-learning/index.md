@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Documentation, videos, and example models for Machine Learning, a cloud service for data scientists and developers using predictive analytics in applications.
 ---
 #Azure Machine Learning Documentation
 
-Azure Machine Learning provides tools to model predictive analytics as well as a fully managed service you can use to deploy your predictive models as ready-to-consume web services.
+Learn how data scientists and developers use Machine Learning to embed predictive analytics into applications. Tutorials, videos, and example models show you how to build and deploy machine learning models.
 
 <ul class="panelContent cardsFTitle">
     <li>

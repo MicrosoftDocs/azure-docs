@@ -1,11 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to send push notifications from any backend to any mobile device with Notification Hubs. Tutorials, API references, and other documentation.
 ---
 #Notification Hubs Documentation
 
-Azure Notification Hubs provide an easy-to-use, multi-platform, scaled-out push infrastructure that enables you to send mobile push notifications from any backend (in the cloud or on-premises) to any mobile platform.
-
-With Notification Hubs, you can easily send cross-platform, personalized push notifications, abstracting the details of the different platform notification systems (PNS). With a single API call, you can target individual users or entire audience segments containing millions of users, across all their devices.
+Learn how to use Notification Hubs, a multi-platform, scalable push-notification engine for quickly sending millions of messages. Tutorials, API references, and other documentation show you how to set up and send push notifications from any backend to any mobile device. 
 
 <ul class="panelContent cardsFTitle">
     <li>
