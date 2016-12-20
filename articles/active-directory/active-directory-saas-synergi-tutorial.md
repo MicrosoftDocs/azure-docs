@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/20/2016
+ms.date: 12/12/2016
 ms.author: jeedes
 
 ---
@@ -60,19 +60,25 @@ To configure the integration of Synergi into Azure AD, you need to add Synergi f
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
    
     ![Active Directory][1]
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Applications][2]
+
 4. Click **Add** at the bottom of the page.
    
     ![Applications][3]
+
 5. On the **What do you want to do** dialog, click **Add an application from the gallery**.
    
     ![Applications][4]
+
 6. In the search box, type **Synergi**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_01.png)
+
 7. In the results pane, select **Synergi**, and then click **Complete** to add the application.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_02.png)
@@ -100,9 +106,11 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
 1. In the classic portal, on the **Synergi** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
    
     ![Configure Single Sign-On][6] 
+
 2. On the **How would you like users to sign on to Synergi** page, select **Azure AD Single Sign-On**, and then click **Next**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_03.png) 
+
 3. On the **Configure App Settings** dialog page, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_04.png) 
@@ -110,6 +118,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     a. In the **Sign On URL** textbox, type the URL used by your users to sign-on to your Synergi application using the following pattern: **https://\<company name\>.irmsecurity.com/sso/\<organization id\>**.
    
     b. click **Next**
+
 4. On the **Configure single sign-on at Synergi** page, perform the following steps:
    
     ![Configure Single Sign-On](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_05.png)
@@ -117,6 +126,7 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     a. Click **Download certificate**, and then save the file on your computer.
    
     b. Click **Next**.
+
 5. To get SSO configured for your application, contact Synergi support team and provide them with the following:
    
     • The downloaded certificate
@@ -124,9 +134,11 @@ In this section, you enable Azure AD single sign-on in the classic portal and co
     • The **Entity ID**
    
     • The **Single Sign Out Service URL**
+
 6. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
    
     ![Azure AD Single Sign-On][10]
+
 7. On the **Single sign-on confirmation** page, click **Complete**.  
    
     ![Azure AD Single Sign-On][11]
@@ -141,14 +153,19 @@ In this section, you create a test user in the classic portal called Britta Simo
 1. In the **Azure classic portal**, on the left navigation pane, click **Active Directory**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_09.png) 
+
 2. From the **Directory** list, select the directory for which you want to enable directory integration.
+
 3. To display the list of users, in the menu on the top, click **Users**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_03.png) 
+
 4. To open the **Add User** dialog, in the toolbar on the bottom, click **Add User**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_04.png) 
+
 5. On the **Tell us about this user** dialog page, perform the following steps:
+
     ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_05.png) 
    
     a. As Type Of User, select New user in your organization.
@@ -156,21 +173,25 @@ In this section, you create a test user in the classic portal called Britta Simo
     b. In the User Name **textbox**, type **BrittaSimon**.
    
     c. Click **Next**.
+
 6. On the **User Profile** dialog page, perform the following steps:
-   ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_06.png) 
+
+    ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_06.png) 
    
-   a. In the **First Name** textbox, type **Britta**.  
+    a. In the **First Name** textbox, type **Britta**.  
    
-   b. In the **Last Name** textbox, type, **Simon**.
+    b. In the **Last Name** textbox, type, **Simon**.
    
-   c. In the **Display Name** textbox, type **Britta Simon**.
+    c. In the **Display Name** textbox, type **Britta Simon**.
    
-   d. In the **Role** list, select **User**.
+    d. In the **Role** list, select **User**.
    
-   e. Click **Next**.
+    e. Click **Next**.
+
 7. On the **Get temporary password** dialog page, click **create**.
    
     ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_07.png) 
+
 8. On the **Get temporary password** dialog page, perform the following steps:
    
     ![Creating an Azure AD test user](./media/active-directory-saas-synergi-tutorial/create_aaduser_08.png) 
@@ -192,13 +213,17 @@ In this section, you enable Britta Simon to use Azure single sign-on by granting
 1. On the classic portal, to open the applications view, in the directory view, click **Applications** in the top menu.
    
     ![Assign User][201] 
+
 2. In the applications list, select **Synergi**.
    
     ![Configure Single Sign-On](./media/active-directory-saas-synergi-tutorial/tutorial_synergi_50.png) 
+
 3. In the menu on the top, click **Users**.
    
     ![Assign User][203]
+
 4. In the Users list, select **Britta Simon**.
+
 5. In the toolbar on the bottom, click **Assign**.
    
     ![Assign User][205]

@@ -9,7 +9,7 @@ editor: ''
 
 ms.assetid: 250ef341-90e5-492f-b075-b4750d237c05
 ms.service: sql-database
-ms.custom: db development; monitor and tune
+ms.custom: development
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -221,7 +221,7 @@ SELECT uses_native_compilation, OBJECT_NAME(object_id), definition
 
 &nbsp;
 
-## Run the sample OLTP workload
+### Run the sample OLTP workload
 
 The only difference between the following two *stored procedures* is that the first procedure uses memory-optimized versions of the tables, while the second procedure uses the regular on-disk tables:
 

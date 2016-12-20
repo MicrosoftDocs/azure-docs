@@ -40,14 +40,14 @@ Yes, you can mix both BGP and non-BGP connections for the same Azure VPN gateway
 ### Does Azure VPN gateway support BGP transit routing?
 Yes, BGP transit routing is supported, with the exception that Azure VPN gateways will **NOT** advertise default routes to other BGP peers. To enable transit routing across multiple Azure VPN gateways, you must enable BGP on all intermediate VNet-to-VNet connections.
 
-### Can I have more than one tunnels between Azure VPN gateway and my on-premises network?
-Yes, you can establish more than one S2S VPN tunnels between an Azure VPN gateway and your on-premises network. Please note that all these tunnels will be counted against the total number of tunnels for your Azure VPN gateways. For example, if you have two redundant tunnels between your Azure VPN gateway and one of your on-premises network, they will consume 2 tunnels out of the total quota for your Azure VPN gateway (10 for Standard and 30 for HighPerformance).
+### Can I have more than one tunnel between Azure VPN gateway and my on-premises network?
+Yes, you can establish more than one S2S VPN tunnel between an Azure VPN gateway and your on-premises network. Please note that all these tunnels will be counted against the total number of tunnels for your Azure VPN gateways. For example, if you have two redundant tunnels between your Azure VPN gateway and one of your on-premises networks, they will consume 2 tunnels out of the total quota for your Azure VPN gateway (10 for Standard and 30 for HighPerformance).
 
 ### Can I have multiple tunnels between two Azure VNets with BGP?
 No, redundant tunnels between a pair of virtual networks are not supported.
 
 ### Can I use BGP for S2S VPN in an ExpressRoute/S2S VPN co-existence configuration?
-Not at this time.
+Yes. 
 
 ### What address does Azure VPN gateway use for BGP Peer IP?
 The Azure VPN gateway will allocate a single IP address from the GatewaySubnet range defined for the virtual network. By default, it is the second last address of the range. For example, if your GatewaySubnet is 10.12.255.0/27, ranging from 10.12.255.0 to 10.12.255.31, then the BGP Peer IP address on the Azure VPN gateway will be 10.12.255.30. You can find this information when you list the Azure VPN gateway information.
