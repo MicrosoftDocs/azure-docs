@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use App Service to create web and mobile apps for any platform or device using tutorials, videos, API references, and other documentation.
 ---
 #App Service Documentation
 
-App Service is a platform-as-a-service (PaaS) offering of Microsoft Azure. Create web and mobile apps for any platform or device. Integrate your apps with SaaS solutions, connect with on-premises applications, and automate your business processes.
+Learn how to use App Service to develop and host web and mobile apps for any platform or device using tutorials, videos, API references, and other documentation. Learn how to integrate apps with SaaS solutions, connect with on-premises applications, and automate your business processes.
 
 <ul class="panelContent cardsFTitle">
     <li>

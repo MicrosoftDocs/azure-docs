@@ -27,6 +27,7 @@ This article shows you how to manage your DNS zones by using Azure PowerShell. Y
 
 [!INCLUDE [dns-powershell-setup](../../includes/dns-powershell-setup-include.md)]
 
+
 ## Create a DNS zone
 
 A DNS zone is created by using the `New-AzureRmDnsZone` cmdlet.
@@ -54,7 +55,7 @@ Name                  : contoso.com
 ResourceGroupName     : myresourcegroup
 Etag                  : 00000003-0000-0000-8ec2-f4879750d201
 Tags                  : {project, env}
-NameServers           : {ns1-01.azure-dns.com., ns2-01.azure-dns.net., ns3-01.azure-dns.org., 
+NameServers           : {ns1-01.azure-dns.com., ns2-01.azure-dns.net., ns3-01.azure-dns.org.,
                         ns4-01.azure-dns.info.}
 NumberOfRecordSets    : 2
 MaxNumberOfRecordSets : 5000
@@ -100,7 +101,7 @@ $zone = Get-AzureRmDnsZone -Name contoso.com -ResourceGroupName MyAzureResourceG
 $zone.Tags.Remove("project")
 
 # Add a new tag
-$zone.Tags.Add("status","approved") 
+$zone.Tags.Add("status","approved")
 
 # Commit changes
 Set-AzureRmDnsZone -Zone $zone
@@ -152,7 +153,7 @@ Both `New-AzureRmDnsZone` and `Set-AzureRmDnsZone` prompt for confirmation if th
 
 Since the default value for `$ConfirmPreference` is `High`, only `Remove-AzureRmDnsZone` prompts for confirmation by default.
 
-You can override the current `$ConfirmPreference` setting using the `-Confirm` parameter. If you specify `-Confirm` or `-Confirm:$True` , the cmdlet prompts you for confirmation before it runs. If you specify `-Confirm:$False` , the cmdlet does not prompt you for confirmation. 
+You can override the current `$ConfirmPreference` setting using the `-Confirm` parameter. If you specify `-Confirm` or `-Confirm:$True` , the cmdlet prompts you for confirmation before it runs. If you specify `-Confirm:$False` , the cmdlet does not prompt you for confirmation.
 
 For more information about `-Confirm` and `$ConfirmPreference`, see [About Preference Variables](https://msdn.microsoft.com/powershell/reference/5.1/Microsoft.PowerShell.Core/about/about_Preference_Variables).
 

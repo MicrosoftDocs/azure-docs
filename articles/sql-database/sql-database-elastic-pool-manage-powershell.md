@@ -89,7 +89,7 @@ To retrieve the metrics:
 
 
 ## Get resource usage data for an elastic database
-These APIs are the same as the current (V12) APIs used for monitoring the resource utilization of a standalone database, except for the following semantic difference.
+These APIs are the same as the current (V12) APIs used for monitoring the resource utilization of a single database, except for the following semantic difference.
 
 For this API, metrics retrieved are expressed as a percentage of the per max eDTUs (or equivalent cap for the underlying metric like CPU, IO etc) set for that pool. For example, 50% utilization of any of these metrics indicates that the specific resource consumption is at 50% of the per database cap limit for that resource in the parent pool.
 
