@@ -31,6 +31,7 @@ ms.author: elbutter
         );
 ```
 
+
 2. Define the external file formats
 The ```CREATE EXTERNAL FILE FORMAT``` command is used to specify the
 format of the external data that you’ll be loading from. For the New York public taxi data, we’ve used the
