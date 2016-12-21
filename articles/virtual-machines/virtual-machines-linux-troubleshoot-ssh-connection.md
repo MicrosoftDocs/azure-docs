@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot SSH connection issues to a VM | Microsoft Docs
+title: Troubleshoot SSH connection issues to an Azure VM | Microsoft Docs
 description: How to troubleshoot issues such as 'SSH connection failed' or 'SSH connection refused' for an Azure VM running Linux.
 keywords: ssh connection refused, ssh error, azure ssh, SSH connection failed
 services: virtual-machines-linux
@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 
 ---
@@ -66,7 +66,7 @@ To reset the credentials of an existing user, select either `Reset SSH public ke
 
 You can also create a user with sudo privileges on the VM from this menu. Enter a new username and associated password or SSH key, and then click the **Reset** button.
 
-## Using the Azure CLI
+## Using the Azure CLI 1.0
 If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md). Make sure you using Resource Manager mode as follows:
 
 ```azurecli
@@ -93,11 +93,31 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
      --username myUsername --password myPassword
 ```
 
-If using SSH key authentication, you can reset the SSH key for a given user. The following example updates the SSH key stored in `~/.ssh/azure_id_rsa.pub` for the user named `myUsername`, on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
+If using SSH key authentication, you can reset the SSH key for a given user. The following example updates the SSH key stored in `~/.ssh/id_rsa.pub` for the user named `myUsername`, on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
 
 ```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
-    --username myUsername --ssh-key-file ~/.ssh/azure_id_rsa.pub
+    --username myUsername --ssh-key-file ~/.ssh/id_rsa.pub
+```
+
+## Using the Azure CLI 2.0 (Preview)
+If you haven't already, install the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
+
+If you created and uploaded a custom Linux disk image, make sure the [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
+
+### Reset SSH credentials for a user
+The following example uses [az vm access set-linux-user](/cli/azure/vm/access#set-linux-user) to reset the credentials for `myUsername` to the value specified in `myPassword`, on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
+
+```azurecli
+az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+     --username myUsername --password myPassword
+```
+
+If using SSH key authentication, you can reset the SSH key for a given user. The following example uses **az vm access set-linux-user** to update the SSH key stored in `~/.ssh/id_rsa.pub` for the user named `myUsername`, on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
+
+```azurecli
+az vm access set-linux-user --resource-group myResourceGroup --name myVM \
+    --username myUsername --ssh-key-value ~/.ssh/id_rsa.pub
 ```
 
 
@@ -155,11 +175,18 @@ To restart a VM using the Azure portal, select your VM and click the ***Restart*
 
 ![Restart a VM in the Azure portal](./media/virtual-machines-linux-troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
-### Azure CLI
+### Azure CLI 1.0
 The following example restarts the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
 
 ```azurecli
 azure vm restart --resource-group myResourceGroup --name myVM
+```
+
+### Azure CLI 2.0 (Preview)
+The following example uses [az vm restart](/cli/azure/vm#restart) to restart the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
+
+```azurecli
+az vm restart --resource-group myResourceGroup --name myVM
 ```
 
 
@@ -176,11 +203,18 @@ To redeploy a VM using the Azure portal, select your VM and scroll down to the *
 
 ![Redeploy a VM in the Azure portal](./media/virtual-machines-linux-troubleshoot-ssh-connection/redeploy-vm-using-portal.png)
 
-### Azure CLI
+### Azure CLI 1.0
 The following example redeploys the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
 
 ```azurecli
 azure vm redeploy --resource-group myResourceGroup --name myVM
+```
+
+### Azure CLI 2.0 (Preview)
+The following example use [az vm redeploy](/cli/azure/vm#redeploy) to redeploy the VM named `myVM` in the resource group named `myResourceGroup`. Use your own values as follows:
+
+```azurecli
+az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## VMs created by using the Classic deployment model
