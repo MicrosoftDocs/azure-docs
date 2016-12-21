@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/23/2016
+ms.date: 12/20/2016
 ms.author: jingwang
 
 ---
@@ -100,11 +100,11 @@ When both source and sink data stores are in the cloud, Data Factory uses a serv
 | . | West India | Central India |
 | . | South India | Central India |
 
-
 > [!NOTE]
-> If the region of the destination data store is not in the preceding list, Copy Activity fails instead of going through an alternative region.
+> If the region of the destination data store is not in preceding list or undetectable, by default Copy Activity fails instead of going through an alternative region. The supported region list will be expanded over time.
 >
->
+
+Alternatively, you can explicitly indicate the region of Data Factory service to be used to perform the copy by specifying `executionLocation` property under Copy Activity `typeProperties`. Supported values for this property are listed in above **Region used for data movement** column. Note your data will go through that region over the wire during copy. For example, to copy between Azure stores in UK, you can specify `executionLocation` as "North Europe" to route through North Europe.
 
 ### Copy data between an on-premises data store and a cloud data store
 When data is being copied between on-premises (or Azure virtual machines/IaaS) and cloud stores, [Data Management Gateway](data-factory-data-management-gateway.md) performs data movement on an on-premises machine or virtual machine. The data does not flow through the service in the cloud, unless you use the [staged copy](data-factory-copy-activity-performance.md#staged-copy) capability. In this case, data flows through the staging Azure Blob storage before it is written into the sink data store.
@@ -124,47 +124,48 @@ For Copy Activity, the `typeProperties` section varies depending on the types of
 
 Here's a sample JSON definition:
 
-    {
-      "name": "ADFTutorialPipeline",
-      "properties": {
-        "description": "Copy data from Azure blob to Azure SQL table",
-        "activities": [
+```json
+{
+  "name": "ADFTutorialPipeline",
+  "properties": {
+    "description": "Copy data from Azure blob to Azure SQL table",
+    "activities": [
+      {
+        "name": "CopyFromBlobToSQL",
+        "type": "Copy",
+        "inputs": [
           {
-            "name": "CopyFromBlobToSQL",
-            "type": "Copy",
-            "inputs": [
-              {
-                "name": "InputBlobTable"
-              }
-            ],
-            "outputs": [
-              {
-                "name": "OutputSQLTable"
-              }
-            ],
-            "typeProperties": {
-              "source": {
-                "type": "BlobSource"
-              },
-              "sink": {
-                "type": "SqlSink",
-                "writeBatchSize": 10000,
-                "writeBatchTimeout": "60:00:00"
-              }
-            },
-            "Policy": {
-              "concurrency": 1,
-              "executionPriorityOrder": "NewestFirst",
-              "retry": 0,
-              "timeout": "01:00:00"
-            }
+            "name": "InputBlobTable"
           }
         ],
-        "start": "2016-07-12T00:00:00Z",
-        "end": "2016-07-13T00:00:00Z"
+        "outputs": [
+          {
+            "name": "OutputSQLTable"
+          }
+        ],
+        "typeProperties": {
+          "source": {
+            "type": "BlobSource"
+          },
+          "sink": {
+            "type": "SqlSink",
+            "writeBatchSize": 10000,
+            "writeBatchTimeout": "60:00:00"
+          }
+        },
+        "Policy": {
+          "concurrency": 1,
+          "executionPriorityOrder": "NewestFirst",
+          "retry": 0,
+          "timeout": "01:00:00"
+        }
       }
-    }
-
+    ],
+    "start": "2016-07-12T00:00:00Z",
+    "end": "2016-07-13T00:00:00Z"
+  }
+}
+```
 The schedule that is defined in the output dataset determines when the activity runs (for example: **daily**, frequency as **day**, and interval as **1**). The activity copies data from an input dataset (**source**) to an output dataset (**sink**).
 
 You can specify more than one input dataset to Copy Activity. They are used to verify the dependencies before the activity is run. However, only the data from the first dataset is copied to the destination dataset. For more information, see [Scheduling and execution](data-factory-scheduling-and-execution.md).  
