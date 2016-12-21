@@ -23,7 +23,7 @@ ms.author: carlrab
 In this How To topic, you learn how to configure long-term retention of automated backups in an Azure Recovery Services vault.
 
 > [!TIP]
-> To delete backups, see [Delete long-term retention backups](sql-database-long-term-retention-delete.md).
+> To delete long-term retention backups, see [Delete long-term retention backups](sql-database-long-term-retention-delete.md).
 
 
 ## Configure long-term retention using the Azure portal
@@ -159,6 +159,6 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName $resour
 
 - To recover a database from a backup in long-term retention, see [recover from a backup in long-term retention](sql-database-restore-from-long-term-retention.md)
 - To view backups in the Azure Recovery Services vault, see [view backups in long-term retention](sql-database-view-backups-in-vault.md)
-- To learn about service-generated automatic backups, see [automatic backups](: https://azure.microsoft.com/en-us/documentation/articles/)sql-database-automated-backups.MD)
+- To learn about service-generated automatic backups, see [automatic backups](sql-database-automated-backups.md)
 - To learn about long-term backup retention, see [long-term backup retention](sql-database-long-term-retention.md)
 - To learn about restoring from backups, see [restore from backup](sql-database-recovery-using-backups.md)

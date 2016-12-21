@@ -90,32 +90,9 @@ The Recovery Service automatically handles cleanup of backups based on the provi
 > The backups already in the vault are not be impacted. They are automatically deleted by the Recovery Service when their retention period expires.
 
 
-## Removing backups from the Azure Recovery Services vault
+## Removing long-term retention backups from the Azure Recovery Services vault
 
-To manually remove backups from the vault.
-
-1. Identify the container in the vault for 'myserver'
-   
-    ```
-    Set-AzureRMRecoveryServicesVaultContext -Vault $vault 
-    $container=Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName 'myserver'
-    ```
-2. Identify the backup item to delete.
-   
-    ``` 
-    $item=Get-AzureRmRecoveryServicesBackupItem –container $container -Name 'mydb'
-    ```
-3. Delete the backup items (all backups for the database ‘mydb’)
-   
-    ```
-    $job = Disable-AzureRmRecoveryServicesBackupProtection –item $item -Removerecoverypoints 
-    Wait-AzureRmRecoveryServicesBackupJob $job
-    ```
-4. Delete the container associated with ‘myserver’
-   
-    ```
-    Unregister-AzureRmRecoveryServicesBackupContainer –Container $container $container
-    ```
+To remove long-term retention backups from the vault, see [Delete long-term retention backups](sql-database-long-term-retention-delete.md)
 
 ## Long-Term Retention FAQ:
 

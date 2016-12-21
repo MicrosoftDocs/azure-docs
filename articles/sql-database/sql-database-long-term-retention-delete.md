@@ -23,7 +23,7 @@ ms.author: sstein
 In this How To topic, you learn how to delete long-term retention backups and the Azure Recovery Services vault.
 
 >[!Warning]
->Verify that you want to delete your backups before running this code. To avoid any unwanted charges, this code snippet is for cleaning up any backups and vaults created when learning how to use [long-term backup retention](sql-database-long-term-retention.md), or backups and vaults you no longer need.
+>Verify that you want to delete your long-term retention backups before running this code. To avoid any unwanted charges, this code snippet is for cleaning up any backups and vaults created when learning how to use [long-term backup retention](sql-database-long-term-retention.md), or backups and vaults you no longer need.
 
 ## Delete long-term retention backups and the Azure Recovery Services vault using PowerShell
 
@@ -60,6 +60,6 @@ Remove-AzureRmRecoveryServicesVault -Vault $vault
 
 ## Next steps
 
-- To learn about service-generated automatic backups, see [automatic backups](: https://azure.microsoft.com/en-us/documentation/articles/)sql-database-automated-backups.MD)
+- To learn about service-generated automatic backups, see [automatic backups](sql-database-automated-backups.md)
 - To learn about long-term backup retention, see [long-term backup retention](sql-database-long-term-retention.md)
 - To learn about restoring from backups, see [restore from backup](sql-database-recovery-using-backups.md)

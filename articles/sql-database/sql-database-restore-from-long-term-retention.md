@@ -24,7 +24,7 @@ In this How To topic, you learn how to restore a database from a backup in long-
 
 
 > [!TIP]
-> To delete backups, see [Delete long-term retention backups](sql-database-long-term-retention-delete.md).
+> To delete long-term retention backups, see [Delete long-term retention backups](sql-database-long-term-retention-delete.md).
 
 
 ## Restore from long-term backup retention using the Azure portal
@@ -116,6 +116,6 @@ $restoredDb
 
 - To configure long-term retention of automated backups in an Azure Recovery Services vault, see [configure long-term backup retention](sql-database-configure-long-term-retention.md)
 - To view backups in the Azure Recovery Services vault, see [view backups in long-term retention](sql-database-view-backups-in-vault.md)
-- To learn about service-generated automatic backups, see [automatic backups](: https://azure.microsoft.com/en-us/documentation/articles/)sql-database-automated-backups.MD)
+- To learn about service-generated automatic backups, see [automatic backups](sql-database-automated-backups.md)
 - To learn about long-term backup retention, see [long-term backup retention](sql-database-long-term-retention.md)
 - To learn about restoring from backups, see [restore from backup](sql-database-recovery-using-backups.md)

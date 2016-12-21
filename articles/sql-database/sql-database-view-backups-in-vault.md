@@ -84,7 +84,8 @@ $availableBackups
 
 ## Next steps
 
-- To configure long-term retention of automated backups in an Azure Recovery Services vault, see [](sql-database-configure-long-term-retention.md)
+- To delete long-term retention backups, see [delete long-term-retention backups](sql-database-long-term-retention-delete.md)
+- To configure long-term retention of automated backups in an Azure Recovery Services vault, see [configure long-term retention](sql-database-configure-long-term-retention.md)
 - To restore a database from a backup in long-term backup retention, see [restore from long-term retention](sql-database-restore-from-long-term-retention.md)
 - To learn about service-generated automatic backups, see [automatic backups](sql-database-automated-backups.md)
 - To learn about long-term backup retention, see [long-term backup retention](sql-database-long-term-retention.md)
