@@ -62,7 +62,7 @@ In the above examples, the DNS record was either added to an existing record set
 
 Record sets are created using the `azure network dns record-set create` command. For help, see `azure network dns record-set create -h`.
 
-Creating the record set explicitly allows you to specify record set properties such as the [Time-To-Live (TTL)](dns-zones-recordsets.md#time-to-live) and metadata. [Record set metadata](dns-zones-records.md#tags-and-metadata) can be used to associate application-specific data with each record set, as key-value pairs.
+Creating the record set explicitly allows you to specify record set properties such as the [Time-To-Live (TTL)](dns-zones-records.md#time-to-live) and metadata. [Record set metadata](dns-zones-records.md#tags-and-metadata) can be used to associate application-specific data with each record set, as key-value pairs.
 
 The following example creates an empty record set with a 60-second TTL, by using the `--ttl` parameter (short form `-l`):
 
