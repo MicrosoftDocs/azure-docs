@@ -171,7 +171,7 @@ azure vm extension set myResourceGroup myVM \
 If you have reset the SSH configuration and user credentials, or encountered an error in doing so, you can try restarting the VM to address underlying compute issues.
 
 ### Azure portal
-To restart a VM using the Azure portal, select your VM and click the ***Restart** button as in the following example:
+To restart a VM using the Azure portal, select your VM and click the **Restart** button as in the following example:
 
 ![Restart a VM in the Azure portal](./media/virtual-machines-linux-troubleshoot-ssh-connection/restart-vm-using-portal.png)
 
