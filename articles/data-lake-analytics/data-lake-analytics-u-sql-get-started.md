@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Get started with Azure Data Lake Analytics U-SQL language | Microsoft Docs'
-description: Use this tutorial to learn about Azure Data Lake Analytics U-SQL language.
+title: 'Tutorial: Get started with Azure Data Lake Analytics U-SQL language' | Microsoft Docs
+description: Use this tutorial to learn about the Azure Data Lake Analytics U-SQL language.
 services: data-lake-analytics
 documentationcenter: ''
 author: edmacauley
@@ -29,7 +29,7 @@ For more information about U-SQL, see the [U-SQL Language Reference](http://go.m
 ### Prerequisites
 If you have not already done so, please read and complete [Tutorial: Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md). After you have completed the tutorial, return to this article.
 
-In the tutorial, you ran a Data Lake Analytics job with the following U-SQL script:
+In the tutorial, you ran an Azure Data Lake Analytics job with the following U-SQL script:
 
     @searchlog =
         EXTRACT UserId          int,
@@ -62,7 +62,8 @@ In the script, you'll find the following concepts and keywords:
  >[!NOTE]
  >The two paths are relative paths. You can also use absolute paths. For example:    
  >     adl://<ADLStorageAccountName>.azuredatalakestore.net:443/Samples/Data/SearchLog.tsv
- >You must use absolute path to access the files in the linked storage accounts.  The syntax for files stored in linked Azure storage account is:
+ >
+ >You must use an absolute path to access the files in the linked storage accounts.  The syntax for files stored in linked Azure storage account is:
  >     wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
 
  >[!NOTE]
@@ -149,7 +150,7 @@ U-SQL gives you the familiar ORDER BY, GROUP BY, and aggregations.
 
 The following query finds the total duration per region, and then displays the top five durations in order.
 
-U-SQL rowsets do not preserve their order for the next query. Thus, to order an output, you need to add ORDER BY to the OUTPUT statement as shown below:
+U-SQL rowsets do not preserve their order for the next query. Thus, to order an output, you need to add ORDER BY to the OUTPUT statement:
 
     DECLARE @outpref string = "/output/Searchlog-aggregation";
     DECLARE @out1    string = @outpref+"_agg.csv";
