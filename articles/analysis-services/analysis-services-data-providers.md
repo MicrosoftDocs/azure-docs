@@ -21,10 +21,11 @@ ms.author: owend
 
 ## Data providers
 
-Data providers, also known as client libraries, are typically installed by client applications that connect to Analysis Services databases, such as Power BI Desktop and Excel.
-In order for clients to connect to an Azure Analysis Services server, it may be necesssary to install the latest data providers.
+Data providers, also known as client libraries, are typically installed by client applications such as Power BI Desktop and Excel that connect to Analysis Services servers. For other interfaces, such as TOM, AsCmd, ADOMD.NET, you may need to install the latest provider data providers. 
 
-When connecting to Azure Analysis Services from Excel or other interfaces such as TOM, AsCmd, ADOMD.NET, you may need to install the latest provider client libraries. Get the latest:  
+All applications connecting to Analysis Services do so using one of these providers. ADOMD.NET and Analysis Services Management Objects (AMO), are managed data providers. The Analysis Services OLE DB provider (MSOLAP DLL) is a native data provider.
+ 
+Get the latest:  
 
 [MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)</br>
 [MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)</br>
