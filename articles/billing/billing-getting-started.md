@@ -62,7 +62,7 @@ Click the banner and follow prompts to remove the spending limit. If you didn't 
 
 ### Set up billing alerts
 
-Set up billing alerts to get emails when your usage costs exceed an amount that you specify. If you have monthly credits, set up alerts for when you use up a specified amount. For more information, see [Set up billing alerts for your Microsoft Azure subscriptions](https://docs.microsoft.com/azure/billing-set-up-alerts).
+Set up billing alerts to get emails when your usage costs exceed an amount that you specify. If you have monthly credits, set up alerts for when you use up a specified amount. For more information, see [Set up billing alerts for your Microsoft Azure subscriptions](../billing-set-up-alerts.md).
 
 ![Screenshot of a billing alert email](./media/billing-getting-started/billing-alert.png)
 
@@ -141,7 +141,7 @@ If you manage multiple subscriptions as the Account admin, you can see the aggre
 
 ### <a name="invoice-and-usage"></a> Download invoice and detail usage after your first billing period
 
-After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. These files help to understand what is ultimately billed to you after tax, discounts, and credits. If you didn't have a payment method attached to your subscription, these files might be unavailable for you. For more information, see [How to download your Azure billing invoice and daily usage data](https://docs.microsoft.com/azure/billing-download-azure-invoice-daily-usage-date) and [Understand your bill for Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
+After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. These files help to understand what is ultimately billed to you after tax, discounts, and credits. If you didn't have a payment method attached to your subscription, these files might be unavailable for you. For more information, see [How to download your Azure billing invoice and daily usage data](../billing-download-azure-invoice-daily-usage-date.md) and [Understand your bill for Microsoft Azure](/billing-understand-your-bill.md).
 
 ![Screenshot of a .pdf invoice](./media/billing-getting-started/invoice.png)
 
@@ -151,7 +151,7 @@ The tags that you set earlier show up in the detail usage .csv files:
 
 ### Billing API
 
-Use our billing API to programmatically get usage data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](https://docs.microsoft.com/azure/billing-usage-rate-card-overview).
+Use our billing API to programmatically get usage data. Use the RateCard API and the Usage API together to get your billed usage. For more information, see [Gain insights into your Microsoft Azure resource consumption](../billing-usage-rate-card-overview.md).
 
 ## <a name="other-offers"></a> Additional resources for EA, CSP, and Sponsorship
 
@@ -163,4 +163,4 @@ Talk to your account manager or Azure partner to get started.
 | Cloud Solution Provider (CSP) | Talk to your provider |
 | Azure Sponsorship | [Sponsorship portal](https://www.microsoftazuresponsorships.com/) |
 
-If you're managing IT for a large organization, we recommend reading [Azure enterprise scaffold](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance#resource-group) and the [enterprise IT white paper](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf download, English only).
+If you're managing IT for a large organization, we recommend reading [Azure enterprise scaffold](../azure-resource-manager/resource-manager-subscription-governance#resource-group.md) and the [enterprise IT white paper](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf download, English only).
