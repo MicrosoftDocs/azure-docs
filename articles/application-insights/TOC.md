@@ -128,12 +128,12 @@
 
 # Reference
 ## [.NET](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights)
-## [Java](http://dl.windowsazure.com/applicationinsights/javadoc/)
-## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
-## [Analytics reference](app-insights-analytics-reference.md)
+## [Java](/java/api/com.microsoft.applicationinsights)
 ## [REST](https://dev.applicationinsights.io/)
 
 # Resources
+## [Analytics reference](app-insights-analytics-reference.md)
+## [JavaScript](https://github.com/Microsoft/ApplicationInsights-JS/blob/master/API-reference.md)
 ## [Developer analytics: languages, platforms, and integrations](app-insights-platforms.md)
 ### [Sampling](app-insights-sampling.md)
 ### [Samples and walkthroughs](app-insights-code-samples.md)

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Understanding your bill | Microsoft Docs
 description: Learn how to read and understand the usage and bill for your Azure subscription
 services: ''
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/30/2016
+ms.date: 12/2/2016
 ms.author: erihur;genli
 
 ---
@@ -128,8 +128,11 @@ The Daily usage section of the file shows usage details that affect the billing 
 |Service Info 1 |The project name that the service belongs to on your subscription. |
 |Service Info 2 |This is a legacy field that captures optional service-specific metadata. |
 
-## Learn about consumption and rate plans
-For more information about consumption and rate plans, see [Microsoft Azure Purchase Options](https://azure.microsoft.com/pricing/purchase-options/).
+## How do I make a payment?
+If you set up a credit card or a debit card as your payment method, the payment is made automatically. If you are set up to use an [invoice method of payment](https://azure.microsoft.com/pricing/invoicing/), send your payment to the location listed at the bottom of your invoice. For more help, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
+## How do I check the status of a payment made by credit card?
+[Create a support ticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) to ask for the status of your payment. 
 
 ## What about Marketplace orders or external service charges?
 External services used to be called Marketplace orders. External Services are provided by independent service vendors, but are integrated within the Azure ecosystem. To learn more, see [Understand your Azure external service charges](../billing-understand-your-azure-marketplace-charges.md).

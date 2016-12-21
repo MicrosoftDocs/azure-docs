@@ -1,4 +1,4 @@
-﻿---
+---
 title: Install the Azure Command-Line Interface | Microsoft Docs
 description: Install the Azure Command-Line Interface (CLI) for Mac, Linux, and Windows to start using Azure services
 editor: ''
@@ -20,7 +20,7 @@ ms.author: rasquill
 ---
 # Install the Azure CLI
 > [!div class="op_single_selector"]
-> * [PowerShell](powershell-install-configure.md)
+> * [PowerShell](/powershell/azureps-cmdlets-docs)
 > * [Azure CLI](xplat-cli-install.md)
 
 Quickly install the Azure Command-Line Interface (Azure CLI) to use a set of open-source shell-based commands for creating and managing resources in Microsoft Azure. You have several options to install these cross-platform tools on your computer: 

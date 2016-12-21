@@ -1,4 +1,4 @@
-﻿---
+---
 title: What is an Azure elastic pool? | Microsoft Docs
 description: Manage hundreds or thousands of databases using a pool. One price for a set of performance units can be distributed over the pool. Move databases in or out at will.
 keywords: elastic database,sql databases
@@ -6,15 +6,16 @@ services: sql-database
 documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: cgronlun
+editor: ''
 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
+ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 11/15/2016
+ms.date: 12/14/2016
 ms.author: CarlRabeler
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 
 ---
@@ -42,7 +43,7 @@ Additional eDTUs can be added to an existing pool with no database downtime or n
 And you can add or subtract databases to the pool. If a database is predictably under-utilizing resources, move it out.
 
 ## Which databases go in a pool?
-![SQL databases sharing eDTUs in an elastic database pool.][1]
+![SQL databases sharing eDTUs in an elastic pool.][1]
 
 Databases that are great candidates for elastic pools typically have periods of activity and other periods of inactivity. In the example above you see the activity of a single database, 4 databases, and finally an elastic pool with 20 databases. Databases with varying activity over time are great candidates for elastic pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. Databases that have a more constant resource demand are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned.
 
@@ -50,7 +51,7 @@ Databases that are great candidates for elastic pools typically have periods of 
 
 ## eDTU and storage limits for elastic pools and elastic databases
 
-The following table describes the characteristics of Basic, Standard, and Premium elastic database pools.
+The following table describes the characteristics of Basic, Standard, and Premium elastic pools.
 
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
@@ -84,7 +85,7 @@ With a pool, management tasks are simplified by running scripts in **[elastic jo
 For more information about other elastic database tools, see [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md).
 
 ## Business continuity features for databases in a pool
-Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases in V12 servers.
+Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases.
 
 ### Point in time restore
 Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)

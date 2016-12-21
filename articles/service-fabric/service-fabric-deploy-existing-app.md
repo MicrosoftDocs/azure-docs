@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 10/22/2016
-ms.author: msfussell;mikhegn
+ms.author: mfussell;mikhegn
 
 ---
 # Deploy a guest executable to Service Fabric
@@ -113,7 +113,7 @@ You can start by creating the directory structure, as described in the preceding
 ### Add the application's code and configuration files
 After you have created the directory structure, you can add the application's code and configuration files under the code and config directories. You can also create additional directories or subdirectories under the code or config directories.
 
-Service Fabric does an xcopy of the content of the application root directory, so there is no predefined structure to use other than creating two top directories, code and settings. (You can pick different names if you want. More details are in the next section.)
+Service Fabric does an `xcopy` of the content of the application root directory, so there is no predefined structure to use other than creating two top directories, code and settings. (You can pick different names if you want. More details are in the next section.)
 
 > [!NOTE]
 > Make sure that you include all the files and dependencies that the application needs. Service Fabric copies the content of the application package on all nodes in the cluster where the application's services are going to be deployed. The package should contain all the code that the application needs to run. Do not assume that the dependencies are already installed.
@@ -318,6 +318,16 @@ If you navigate to the node and browse to the application, you see the essential
 If you browse to the directory by using Server Explorer, you can find the working directory and the service's log folder, as shown in the following screenshot.
 
 ![Location of log](./media/service-fabric-deploy-existing-app/loglocation.png)
+
+## Creating a guest executable using Yeoman for Service Fabric on Linux
+
+The procedure for creating and deploying a guest executable on Linux is the same as deploying a csharp or java application. 
+
+1. In a terminal, type `yo azuresfguest`.
+2. Name your application.
+3. Choose the type of your first service and name it. Choose **Guest Binary** for a guest executable (and **Guest Container** for a container), and provide the details including path of the executable and the parameters it must be invoked with.
+
+Yeoman would have created an application package with the appropriate application and manifest files along with install and uninstall scripts.
 
 ## Next steps
 In this article, you have learned how to package a guest executable and deploy it to Service Fabric. See the following articles for related information and tasks.

@@ -81,7 +81,8 @@
 ### [Glossary](iot-hub-devguide-glossary.md)
 ## Manage
 ### [Create an IoT hub using the portal](iot-hub-create-through-portal.md)
-### [Create an IoT hub using the CLI](iot-hub-create-using-cli.md)
+### [Create an IoT hub using the CLI 2.0 Preview](iot-hub-create-using-cli.md)
+### [Create an IoT hub using the CLI](iot-hub-create-using-cli-nodejs.md)
 ### [Create an IoT hub using REST](iot-hub-rm-rest.md)
 ### [Create an IoT hub using Powershell](iot-hub-rm-template-powershell.md)
 ### [Create an IoT hub using a template](iot-hub-rm-template.md)
@@ -101,7 +102,7 @@
 ### [Secure your IoT deployment](iot-hub-security-deployment.md)
 
 # Reference
-## [Azure CLI](/cli/azure/iot)
+## [Azure CLI 2.0 Preview](/cli/azure/iot)
 ## [.NET (Service)](/dotnet/api/microsoft.azure.devices)
 ## [.NET (Devices)](/dotnet/api/microsoft.azure.devices.client)
 ## [Java (Service)](/java/api/com.microsoft.azure.iot.service.auth)
