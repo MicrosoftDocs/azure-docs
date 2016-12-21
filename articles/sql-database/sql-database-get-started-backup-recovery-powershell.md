@@ -109,6 +109,11 @@ $restoredDb
 
 In this section of the tutorial, you [configure an Azure Recovery Services vault to retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier (up to 10 years). 
 
+
+> [!TIP]
+> To delete backups, see [Delete long-term retention backups](sql-database-long-term-retention-delete.md).
+
+
 ### Create a recovery services vault
 
 > [!IMPORTANT]

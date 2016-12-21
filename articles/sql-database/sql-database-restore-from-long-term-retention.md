@@ -22,6 +22,11 @@ ms.author: carlrab
 
 In this How To topic, you learn how to restore a database from a backup in long-term backup retention.
 
+
+> [!TIP]
+> To delete backups, see [Delete long-term retention backups](sql-database-long-term-retention-delete.md).
+
+
 ## Restore from long-term backup retention using the Azure portal
 
 1. On the **Azure vault backups** blade, click the backup to restore and then click **Select**.

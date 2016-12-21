@@ -177,6 +177,11 @@ In this section of the tutorial, you restore the database to a new database as o
 
 In this section of the tutorial, you [configure an Azure Recovery Services vault to retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier. 
 
+
+> [!TIP]
+> To delete backups, see [Delete long-term retention backups](sql-database-long-term-retention-delete.md).
+
+
 1. Open the **SQL Server** blade for your server, **sqldbtutorialserver**.
 
     ![sql server blade](./media/sql-database-get-started/sql-server-blade.png)
