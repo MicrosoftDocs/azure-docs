@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines high-availability guide for SAP NetWeaver | Microsoft Docs
+title: Azure Virtual Machines high availability for SAP NetWeaver | Microsoft Docs
 description: High-availability guide for SAP NetWeaver on Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -19,7 +19,7 @@ ms.date: 12/07/2016
 ms.author: goraco
 ---
 
-# Azure Virtual Machines high-availability guide for SAP NetWeaver
+# Azure Virtual Machines high availability for SAP NetWeaver
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -464,7 +464,7 @@ These articles cover SAP deployments in Azure:
 * [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide]
 * [Azure Virtual Machines deployment for SAP NetWeaver][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP NetWeaver][dbms-guide]
-* [Azure Virtual Machines high-availability guide for SAP NetWeaver (this guide)][sap-ha-guide]
+* [Azure Virtual Machines high availability for SAP NetWeaver (this guide)][sap-ha-guide]
 
 > [!NOTE]
 > Whenever possible, we give you a link to the referring SAP installation guide (see the [SAP installation guides][sap-installation-guides]). For prerequisites and information about the installation process, it's a good idea to read the SAP NetWeaver installation guides carefully. This article covers only specific tasks for SAP NetWeaver-based systems that you can use with Azure Virtual Machines.
