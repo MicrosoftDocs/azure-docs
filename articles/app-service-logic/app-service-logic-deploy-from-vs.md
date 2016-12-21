@@ -1,8 +1,8 @@
 ---
-title: Build Logic Apps in Visual Studio | Microsoft Docs
+title: Build Azure Logic Apps in Visual Studio | Microsoft Docs
 description: Create a project in Visual Studio to create and deploy your logic app.
 author: jeffhollan
-manager: erikre
+manager: anneta
 editor: ''
 services: logic-apps
 documentationcenter: ''
@@ -64,6 +64,7 @@ Once you have an Azure Resource Group project that contains a logic app, you can
 1. Right-click on the `<template>.json` file and select **Open with Logic App Designer** (or `Ctrl+L`)
 2. Choose the subscription, resource group, and location for the deployment template
    * It's important to note that designing a logic app will create **API Connection** resources to query for properties during design.  The resource group selected will be the resource group used to create those connections during design-time.  You can view or modify any API Connections by going to the Azure Portal and browsing for **API Connections**.
+   
      ![Subscription Picker](./media/app-service-logic-deploy-from-vs/designer_picker.png)
 3. The designer should render based on the definition in the `<template>.json` file.
 4. You can now create and design your logic app, and changes will be updated in the deployment template.
@@ -100,6 +101,15 @@ In the future, you can revise your Logic app in source control and use Visual St
 > If you modify the definition in the Azure Portal directly, then the next time you deploy from Visual Studio those changes will be overwritten.
 > 
 > 
+
+## Adding a Logic App to an existing Resource Group project
+If you have an existing Resource Group project then adding a logic app to it, or add another logic app along side the one you previously created, can be done through the JSON Outline window.
+1. Open the `<template>.json` file.
+2. Open the JSON Outline window.  The JSON Outline window can be found under **View** > **Other Windows** > **JSON Outline**.
+3. To add a resource to the template file either click on the Add Resource button on the top of the JSON Outline window or right-click on **resources** and select **Add New Resource**.
+    ![Json Outline](./media/app-service-logic-deploy-from-vs/jsonoutline.png)
+4. In the **Add Resource** dialog box browse and select **Logic App**, give it a name and select **OK**.
+    ![Add resource](./media/app-service-logic-deploy-from-vs/addresource.png)
 
 ## Next Steps
 * To get started with Logic Apps, follow the [create a Logic App](app-service-logic-create-a-logic-app.md) tutorial.  
