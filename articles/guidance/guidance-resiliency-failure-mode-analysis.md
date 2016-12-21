@@ -199,7 +199,8 @@ Move the message to a separate queue. Run a separate process to examine the mess
 
 Consider using Azure Service Bus Messaging queues, which provides a [dead-letter queue][sb-dead-letter-queue] functionality for this purpose.
 
-Note: If you are using Storage queues with WebJobs, the WebJobs SDK provides built-in poison message handling. See [How to use Azure queue storage with the WebJobs SDK][sb-poison-message].
+> [!NOTE]
+> If you are using Storage queues with WebJobs, the WebJobs SDK provides built-in poison message handling. See [How to use Azure queue storage with the WebJobs SDK][sb-poison-message].
 
 **Diagnostics**. Use application logging.
 

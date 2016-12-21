@@ -123,7 +123,6 @@ In general, avoid having any special characters (`-` or `_`) as the first or las
 | Networking |Azure Application Gateway |Resource Group |1-80 |Case-insensitive |Alphanumeric, dash, underscore, and period |`<service or role>-aag` |`profx-agw` |
 | Networking |Traffic Manager Profile |Resource Group |1-63 |Case-insensitive |Alphanumeric, dash, and period |`<descriptive context>` |`app1` |
 
--->
 
 ## Organizing resources with tags
 The Azure Resource Manager supports tagging entities with arbitrary
