@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Machines high-availability guide for SAP NetWeaver | Microsoft Docs
+title: Azure Virtual Machines high availability for SAP NetWeaver | Microsoft Docs
 description: High-availability guide for SAP NetWeaver on Azure Virtual Machines
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -19,7 +19,7 @@ ms.date: 12/07/2016
 ms.author: goraco
 ---
 
-# Azure Virtual Machines high-availability guide for SAP NetWeaver
+# Azure Virtual Machines high availability for SAP NetWeaver
 
 [767598]:https://launchpad.support.sap.com/#/notes/767598
 [773830]:https://launchpad.support.sap.com/#/notes/773830
@@ -464,10 +464,10 @@ These articles cover SAP deployments in Azure:
 * [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide]
 * [Azure Virtual Machines deployment for SAP NetWeaver][deployment-guide]
 * [Azure Virtual Machines DBMS deployment for SAP NetWeaver][dbms-guide]
-* [Azure Virtual Machines high-availability for SAP NetWeaver (this guide)][sap-ha-guide]
+* [Azure Virtual Machines high availability for SAP NetWeaver (this guide)][sap-ha-guide]
 
 > [!NOTE]
-> Whenever possible, we give you a link to the referring SAP installation guide (see [SAP installation guides][sap-installation-guides]). For prerequisites and information about the installation process, it's a good idea to read the SAP NetWeaver installation guides carefully. This article covers only specific tasks for SAP NetWeaver-based systems that you can use with Azure Virtual Machines.
+> Whenever possible, we give you a link to the referring SAP installation guide (see the [SAP installation guides][sap-installation-guides]). For prerequisites and information about the installation process, it's a good idea to read the SAP NetWeaver installation guides carefully. This article covers only specific tasks for SAP NetWeaver-based systems that you can use with Azure Virtual Machines.
 >
 >
 
@@ -591,7 +591,7 @@ To achieve SAP application high availability, such as for SAP software component
 * SAP ASCS/SCS instance
 * DBMS server
 
-For more information about protecting SAP components in high-availability scenarios, see [SAP NetWeaver on Azure Virtual Machines (VMs) – Planning and Implementation Guide][planning-guide-11].
+For more information about protecting SAP components in high-availability scenarios, see [Azure Virtual Machines planning and implementation for SAP NetWeaver][planning-guide-11].
 
 ### <a name="93faa747-907e-440a-b00a-1ae0a89b1c0e"></a> High-availability SAP Application Server
 You usually don't need a specific high-availability solution for the SAP Application Server and dialog instances. You achieve high availability by redundancy, and you'll configure multiple dialog instances in different instances of Azure Virtual Machines. You should have at least two SAP application instances installed in two instances of Azure Virtual Machines.
@@ -800,16 +800,16 @@ The ASCS/SCS template deploys two virtual machines that you can use to create a 
 
 In the [ASCS/SCS multi-SID template][sap-templates-3-tier-multisid-xscs-marketplace-image], enter values for the following parameters:
 
-1. **Resource Prefix**.  Set the resource prefix, which is used to prefix all resources that are created during the deployment. Because the resources do not belong to only one SAP system, the prefix of the resource is not the SID of one SAP system.  The prefix must be between **three and six characters**.
-2.  **Stack Type**. Select the stack type of the SAP system. Depending on the stack type, Azure Load Balancer has one (ABAP or Java only) or two (ABAP+Java) private IP addresses per SAP system.
-3.  **OS Type**. Select the operating system of the virtual machines.
-4.  **SAP System Count**. Select the number of SAP systems you want to install in this cluster.
-5.  **System Availability**. Select **HA**.
-6.  **Admin Username and Admin Password**. Create a new user that can be used to sign in to the machine.
-7.  **New Or Existing Subnet**. Set whether a new virtual network and subnet should be created, or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select **existing**.
-8.  **Subnet Id**. Set the ID of the subnet to which the virtual machines should be connected. Select the subnet of your virtual private network (VPN) or ExpressRoute virtual network to connect the virtual machine to your on-premises network. The ID usually looks like this:
+- **Resource Prefix**.  Set the resource prefix, which is used to prefix all resources that are created during the deployment. Because the resources do not belong to only one SAP system, the prefix of the resource is not the SID of one SAP system.  The prefix must be between **three and six characters**.
+- **Stack Type**. Select the stack type of the SAP system. Depending on the stack type, Azure Load Balancer has one (ABAP or Java only) or two (ABAP+Java) private IP addresses per SAP system.
+-  **OS Type**. Select the operating system of the virtual machines.
+-  **SAP System Count**. Select the number of SAP systems you want to install in this cluster.
+-  **System Availability**. Select **HA**.
+-  **Admin Username and Admin Password**. Create a new user that can be used to sign in to the machine.
+-  **New Or Existing Subnet**. Set whether a new virtual network and subnet should be created, or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select **existing**.
+-  **Subnet Id**. Set the ID of the subnet to which the virtual machines should be connected. Select the subnet of your virtual private network (VPN) or ExpressRoute virtual network to connect the virtual machine to your on-premises network. The ID usually looks like this:
 
- /subscriptions/<*subscription id*>/resourceGroups/<*resource group name*>/providers/Microsoft.Network/virtualNetworks/<*virtual network name*>/subnets/<*subnet name*>.
+ /subscriptions/<*subscription id*>/resourceGroups/<*resource group name*>/providers/Microsoft.Network/virtualNetworks/<*virtual network name*>/subnets/<*subnet name*>
 
 The template deploys one Azure Load Balancer instance, which supports multiple SAP systems.
 
@@ -839,16 +839,16 @@ The database template deploys one or two virtual machines that you can use to in
 
 In the [database multi-SID template][sap-templates-3-tier-multisid-db-marketplace-image], enter values for the following parameters:
 
-1.  **Sap System Id**. Enter the SAP system ID of the SAP system you want to install. The ID will be used as a prefix for the resources that are deployed.
-2.  **Os Type**. Select the operating system of the virtual machines.
-3.  **Dbtype**. Select the type of the database you want to install on the cluster. Select **SQL** if you want to install Microsoft SQL Server. Select **HANA** if you plan to install SAP HANA on the virtual machines. Make sure to select the correct operating system type: select **Windows** for SQL, and select a Linux distribution for HANA. The Azure Load Balancer that is connected to the virtual machines will be configured to support the selected database type:
+-  **Sap System Id**. Enter the SAP system ID of the SAP system you want to install. The ID will be used as a prefix for the resources that are deployed.
+-  **Os Type**. Select the operating system of the virtual machines.
+-  **Dbtype**. Select the type of the database you want to install on the cluster. Select **SQL** if you want to install Microsoft SQL Server. Select **HANA** if you plan to install SAP HANA on the virtual machines. Make sure to select the correct operating system type: select **Windows** for SQL, and select a Linux distribution for HANA. The Azure Load Balancer that is connected to the virtual machines will be configured to support the selected database type:
   * **SQL**. The load balancer will load-balance port 1433. Make sure to use this port for your SQL Server AlwaysOn setup.
   * **HANA**. The load balancer will load-balance ports 35015 and 35017. Make sure to install SAP HANA with instance number **50**.
   The load balancer will use probe port 62550.
-4.  **Sap System Size**. Set the number of SAPS the new system will provide. If you are not sure how many SAPS the system will require, ask your SAP Technology Partner or System Integrator.
-5.  **System Availability**. Select **HA**.
-6.  **Admin Username and Admin Password**. Create a new user that can be used to sign in to the machine.
-7.  **Subnet Id**. Enter the ID of the subnet that you used during the deployment of the ASCS/SCS template, or the ID of the subnet that was created as part of the ASCS/SCS template deployment.
+-  **Sap System Size**. Set the number of SAPS the new system will provide. If you are not sure how many SAPS the system will require, ask your SAP Technology Partner or System Integrator.
+-  **System Availability**. Select **HA**.
+-  **Admin Username and Admin Password**. Create a new user that can be used to sign in to the machine.
+-  **Subnet Id**. Enter the ID of the subnet that you used during the deployment of the ASCS/SCS template, or the ID of the subnet that was created as part of the ASCS/SCS template deployment.
 
 #### <a name="application-servers-template"></a> Application servers template
 
@@ -858,12 +858,12 @@ The application servers template deploys two or more virtual machines that can b
 
 In the [application servers Multi-SID template][sap-templates-3-tier-multisid-apps-marketplace-image], enter values for the following parameters:
 
-1.  **Sap System Id**. Enter the SAP system ID of the SAP system you want to install. The ID will be used as a prefix for the resources that are deployed.
-2.  **Os Type**. Select the operating system of the virtual machines.
-3.  **Sap System Size**. The number of SAPS the new system will provide. If you are not sure how many SAPS the system will require, ask your SAP Technology Partner or System Integrator.
-4.  **System Availability**. Select **HA**.
-5.  **Admin Username and Admin Password**. Create a new user that can be used to sign in to the machine.
-6.  **Subnet Id**. Enter the ID of the subnet that you used during the deployment of the ASCS/SCS template, or the ID of the subnet that was created as part of the ASCS/SCS template deployment.
+-  **Sap System Id**. Enter the SAP system ID of the SAP system you want to install. The ID will be used as a prefix for the resources that are deployed.
+-  **Os Type**. Select the operating system of the virtual machines.
+-  **Sap System Size**. The number of SAPS the new system will provide. If you are not sure how many SAPS the system will require, ask your SAP Technology Partner or System Integrator.
+-  **System Availability**. Select **HA**.
+-  **Admin Username and Admin Password**. Create a new user that can be used to sign in to the machine.
+-  **Subnet Id**. Enter the ID of the subnet that you used during the deployment of the ASCS/SCS template, or the ID of the subnet that was created as part of the ASCS/SCS template deployment.
 
 
 ### <a name="47d5300a-a830-41d4-83dd-1a0d1ffdbe6a"></a> Azure virtual network
@@ -962,9 +962,9 @@ The SAP Azure Resource Manager template creates an Azure internal load balancer 
 2.  Set the IP address of the internal load balancer **pr1-lb-ascs** to the IP address of the virtual host name of the SAP ASCS/SCS instance.
 3.  Set the IP address of the internal load balancer **pr1-lb-dbms** to the IP address of the virtual host name of the DBMS instance.
 
-![Figure 14: Set static IP addresses for the internal load balancer for the SAP ASCS/SCS instance][sap-ha-guide-figure-3003]
+  ![Figure 14: Set static IP addresses for the internal load balancer for the SAP ASCS/SCS instance][sap-ha-guide-figure-3003]
 
-_**Figure 14:** Set static IP addresses for the internal load balancer for the SAP ASCS/SCS instance_
+  _**Figure 14:** Set static IP addresses for the internal load balancer for the SAP ASCS/SCS instance_
 
 In our example, we have two Azure internal load balancers that have these static IP addresses:
 
@@ -1074,7 +1074,7 @@ First, add these Windows registry entries on both Windows cluster nodes for SAP 
 
 _**Table 3:** Change the first TCP/IP parameter_
 
-Then, add this Windows registry entries on both Windows cluster nodes for SAP ASCS/SCS**:
+Then, add this Windows registry entries on both Windows cluster nodes for SAP ASCS/SCS:
 
 | Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
 | --- | --- |
@@ -1471,7 +1471,7 @@ Installing SAP with a high-availability ASCS/SCS instance requires these steps:
 
   * **ABAP system**: **ASCS** instance number **00**
   * **Java system**: **SCS** instance number **01**
-  * **ABAP + Java system**: **ASCS** instance number **00** and **SCS** instance number **01**
+  * **ABAP+Java system**: **ASCS** instance number **00** and **SCS** instance number **01**
 
   To use instance numbers other than 00 for the ABAP ASCS instance and 01 for the Java SCS instance, first you need to change the Azure internal load balancer default load balancing rules, described in [Change the ASCS/SCS default load balancing rules for the Azure internal load balancer][sap-ha-guide-8.9].
 
