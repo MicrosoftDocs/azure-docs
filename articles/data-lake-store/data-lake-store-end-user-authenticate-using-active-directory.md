@@ -72,7 +72,7 @@ In this section we learn about how to create and configure an Azure AD web appli
 
 ### Step 1: Create an Azure Active Directory application
 > [!NOTE]
-> The steps below use the Azure Portal. You can also create an Azure AD application using [Azure PowerShell](../resource-group-authenticate-service-principal.md) or [Azure CLI](../resource-group-authenticate-service-principal-cli.md).
+> The steps below use the Azure Portal. You can also create an Azure AD application using [Azure PowerShell](../azure-resource-manager/resource-group-authenticate-service-principal.md) or [Azure CLI](../azure-resource-manager/resource-group-authenticate-service-principal-cli.md).
 > 
 > 
 
