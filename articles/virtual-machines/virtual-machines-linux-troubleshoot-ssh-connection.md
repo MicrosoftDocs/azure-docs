@@ -15,7 +15,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 12/21/2016
 ms.author: iainfou
 
 ---
@@ -45,13 +45,13 @@ Continue reading for more detailed troubleshooting steps and explanations.
 ## Available methods to troubleshoot SSH connection issues
 You can reset credentials or SSH configuration using one of the following methods:
 
-* [Azure portal](#using-the-azure-portal) - great if you need to quickly reset the SSH configuration or SSH key and you don't have the Azure tools installed.
-* [Azure CLI commands](#using-the-azure-cli) - if you are already on the command line, quickly reset the SSH configuration or credentials.
-* [Azure VMAccessForLinux extension](#using-the-vmaccess-extension) - create and reuse json definition files to reset the SSH configuration or user credentials.
+* [Azure portal](#use-the-azure-portal) - great if you need to quickly reset the SSH configuration or SSH key and you don't have the Azure tools installed.
+* [Azure CLI 1.0](#use-the-azure-cli-10) - if you are already on the command line, quickly reset the SSH configuration or credentials. You can also use the [Azure CLI 2.0 (Preview)](#use-the-azure-cli-20-preview)
+* [Azure VMAccessForLinux extension](#use-the-vmaccess-extension) - create and reuse json definition files to reset the SSH configuration or user credentials.
 
 After each troubleshooting step, try connecting to your VM again. If you still cannot connect, try the next step.
 
-## Using the Azure portal
+## Use the Azure portal
 The Azure portal provides a quick way to reset the SSH configuration or user credentials without installing any tools on your local computer.
 
 Select your VM in the Azure portal. Scroll down to the **Support + Troubleshooting** section and select **Reset password** as in the following example:
@@ -66,8 +66,8 @@ To reset the credentials of an existing user, select either `Reset SSH public ke
 
 You can also create a user with sudo privileges on the VM from this menu. Enter a new username and associated password or SSH key, and then click the **Reset** button.
 
-## Using the Azure CLI 1.0
-If you haven't already, [install the Azure CLI and connect to your Azure subscription](../xplat-cli-install.md). Make sure you using Resource Manager mode as follows:
+## Use the Azure CLI 1.0
+If you haven't already, [install the Azure CLI 1.0 and connect to your Azure subscription](../xplat-cli-install.md). Make sure that you are using Resource Manager mode as follows:
 
 ```azurecli
 azure config mode arm
@@ -100,7 +100,7 @@ azure vm reset-access --resource-group myResourceGroup --name myVM \
     --username myUsername --ssh-key-file ~/.ssh/id_rsa.pub
 ```
 
-## Using the Azure CLI 2.0 (Preview)
+## Use the Azure CLI 2.0 (Preview)
 If you haven't already, install the latest [Azure CLI 2.0 (Preview)](/cli/azure/install-az-cli2) and log in to an Azure account using [az login](/cli/azure/#login).
 
 If you created and uploaded a custom Linux disk image, make sure the [Microsoft Azure Linux Agent](virtual-machines-linux-agent-user-guide.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) version 2.0.5 or later is installed. For VMs created using Gallery images, this access extension is already installed and configured for you.
@@ -121,7 +121,7 @@ az vm access set-linux-user --resource-group myResourceGroup --name myVM \
 ```
 
 
-## Using the VMAccess extension
+## Use the VMAccess extension
 The VM Access Extension for Linux reads in a json file that defines actions to carry out. These actions include resetting SSHD, resetting an SSH key, or adding a user. You still use the Azure CLI to call the VMAccess extension, but you can reuse the json files across multiple VMs if desired. This approach allows you to create a repository of json files that can then be called for given scenarios.
 
 ### Reset SSHD
