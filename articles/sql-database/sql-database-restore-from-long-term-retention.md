@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/07/2016
+ms.date: 12/21/2016
 ms.author: carlrab
 
 ---
@@ -44,7 +44,68 @@ In this How To topic, you learn how to restore a database from a backup in long-
 
 > [!TIP]
 > For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
->
+
+
+## Restore from long-term backup retention using PowerShell
+
+For more information, see [Storing Azure SQL Database Backups for up to 10 years](sql-database-long-term-retention.md).
+
+For a step-by-step tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery using PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+
+```
+# Restore a database from long-term backup retention
+
+# User variables
+################
+
+$resourceGroupName = "{resource-group-name}"
+$serverName = "{server-name}"
+$databaseNeedingRestore = "{database-name}"
+$recoveryServiceVaultName = "{vault-name}"
+
+$restoredDatabaseName = "{restored-db-name}"
+$edition = "{restored-db-edition}"
+$performanceLevel = "{restored-db-slo}"
+
+
+# Set the vault context to the vault we want to restore from
+############################################################
+
+$vault = Get-AzureRmRecoveryServicesVault -ResourceGroupName $resourceGroupName -Name $recoveryServiceVaultName
+Set-AzureRmRecoveryServicesVaultContext -Vault $vault
+
+
+# Get the container associated with the selected vault
+######################################################
+
+$container = Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName $vault.Name
+
+# Get the long-term retention metadata associated with a specific database
+##########################################################################
+
+$item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQLDatabase -Name $databaseNeedingRestore
+
+
+# Get all available backups for the previously indicated database
+# Optionally, set the -StartDate and -EndDate parameters to return backups within a specific time period
+$availableBackups = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $item
+$availableBackups
+
+if (!$availableBackups)
+{
+    Write-Host "No backups available"
+}
+else
+{
+# Restore the most recent available backup: $availableBackups[0]
+################################################################
+
+$restoredDb = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceId $availableBackups[0].Id -ResourceGroupName $resourceGroupName `
+ -ServerName $serverName -TargetDatabaseName $restoredDatabaseName -Edition $edition -ServiceObjectiveName $performanceLevel
+$restoredDb
+}
+```
+
 
 ## Next steps
 

@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/07/2016
+ms.date: 12/21/2016
 ms.author: carlrab
 
 ---
@@ -45,6 +45,42 @@ In this How To topic, you learn how to view information about your database back
 > [!TIP]
 > For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
 >
+
+## View long-term backup retention information using the PowerShell
+
+```
+# View the available backups in long-term backup retention
+
+# User variables
+################
+
+$resourceGroupName = "{resource-group-name}"
+$serverName = "{server-name}"
+$recoveryServiceVaultName = "{vault-name}"
+
+# Set the vault context to the vault we want to query
+#####################################################
+
+$vault = Get-AzureRmRecoveryServicesVault -ResourceGroupName $resourceGroupName -Name $recoveryServiceVaultName
+Set-AzureRmRecoveryServicesVaultContext -Vault $vault
+
+
+# Get the container associated with the selected vault
+######################################################
+
+$container = Get-AzureRmRecoveryServicesBackupContainer –ContainerType AzureSQL -FriendlyName $vault.Name
+
+# Get the long-term retention metadata associated with the container
+####################################################################
+
+$item = Get-AzureRmRecoveryServicesBackupItem -Container $container -WorkloadType AzureSQLDatabase
+
+
+# Get all available backups
+# (optionally, set the -StartDate and -EndDate parameters to return backups within a specific time period)
+$availableBackups = Get-AzureRmRecoveryServicesBackupRecoveryPoint -Item $item
+$availableBackups
+```
 
 ## Next steps
 

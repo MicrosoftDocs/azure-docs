@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/07/2016
+ms.date: 12/21/2016
 ms.author: carlrab
 
 ---
@@ -88,8 +88,68 @@ In this How To topic, you learn how to configure long-term retention of automate
 
 
 > [!TIP]
-> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md)
+> For a tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery](sql-database-get-started-backup-recovery.md).
 >
+
+## Configure long-term backup retention using PowerShell
+
+To configure long-term backup retention for a database:
+
+1. Create an Azure recovery services vault in the same region, subscription, and resource group as your SQL Database server. ([New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/new-azurermrecoveryservicesvault), [Set-AzureRmRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/set-azurermrecoveryservicesbackupproperties))
+2. Register your Azure SQL server to the vault ([Set-AzureRmSqlServerBackupLongTermRetentionVault](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverbackuplongtermretentionvault))
+3. Create a retention policy ([New-AzureRmRecoveryServicesBackupProtectionPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/new-azurermrecoveryservicesbackupprotectionpolicy))
+4. Apply the protection policy to the databases that require long-term backup retention ([Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqldatabasebackuplongtermretentionpolicy))
+
+For more information, see [Storing Azure SQL Database Backups for up to 10 years](sql-database-long-term-retention.md).
+
+For a step-by-step tutorial, see [Get Started with Backup and Restore for Data Protection and Recovery using PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+
+```
+# Configure long-term backup retention
+
+# User variables
+################
+$resourceGroupName = "{resource-group-name}"
+$serverName = "{server-name}"
+$databaseToBackup = "{database-name}"
+$recoveryServiceVaultName = "{vault-name}"
+
+$serverLocation = (Get-AzureRmSqlServer -ServerName $serverName -ResourceGroupName $resourceGroupName).Location
+
+
+# Create an Azure recovery services vault
+#########################################
+$vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -ResourceGroupName $resourceGroupName -Location $serverLocation 
+Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
+
+
+# Register your Azure SQL server to the vault
+#############################################
+Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGroupName -ServerName $serverName –ResourceId $vault.Id
+
+# Create a retention policy 
+###########################
+$retentionPolicy = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType AzureSQLDatabase
+
+# Set the retention values to 1 year (set to anytime between 1 week and 10 years)
+$retentionPolicy.RetentionDurationType = "Years"
+$retentionPolicy.RetentionCount = 1
+
+$retentionPolicyName = "myOneYearRetentionPolicy"
+
+# Set the vault context to the vault you are creating the policy for
+Set-AzureRmRecoveryServicesVaultContext -Vault $vault
+
+# Create the new policy
+$policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name $retentionPolicyName –WorkloadType AzureSQLDatabase -retentionPolicy $retentionPolicy
+
+
+# Apply the retention policy to the database to backup 
+######################################################
+Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName $resourceGroupName –ServerName $serverName -DatabaseName $databaseToBackup -State "enabled" -ResourceId $policy.Id
+```
+
+
 
 ## Next steps
 
