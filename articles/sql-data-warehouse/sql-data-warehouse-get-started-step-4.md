@@ -22,7 +22,7 @@ ms.author: elbutter
 ## Why create a separate user?
 
 We will use the connection to the SQL Server (logical server) with server credentials from the previous step 
-to create a new user for our SQL Data Warehouse. There are two primary reasons why you'll want to create a separate 
+to create a new user for our SQL Data Warehouse. There are two primary reasons why you may want to create a separate 
 user/login for your SQL DW.
 
 1.  Your organization’s users should use a different account to authenticate. 
@@ -33,7 +33,7 @@ the risks of malicious activity in case your application code is vulnerable to a
 resource class. Resource classes help you control memory allocation and CPU cycles given to a query. 
 Users in **smallrc** are given a smaller amount of memory and can take advantage of higher concurrency. 
 In contrast, users assigned to **xlargerc** are given large amounts of memory, and therefore fewer of their queries can run concurrently. 
-For loading data in a way that best optimizes compression, you'll want to make sure the user loading data 
+For loading data in a way that best optimizes compression, you want to make sure the user loading data 
 is part of a larger resource class. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
 ## Creating a user of a larger resource class
@@ -69,7 +69,7 @@ GRANT CONTROL ON DATABASE::[NYT] to LoadingUser;
 EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
 ```
 
-6. Login to your database with your new credentials
+6. Log in to your database with your new credentials
 
-![Login With New Login](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
+![Log in With New Login](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
