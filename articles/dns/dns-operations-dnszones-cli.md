@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/07/2016
+ms.date: 12/21/2016
 ms.author: gwallace
 ---
 
@@ -118,7 +118,7 @@ azure network dns zone set MyResourceGroup contoso.com -t "team=support"
 DNS zones can be deleted using `azure network dns zone delete`. For help, see `azure network dns zone delete -h`.
 
 > [!NOTE]
-> Deleting a DNS zone will also delete all DNS records within the zone. This operation cannot be undone. If the DNS zone is in use, services using the zone will fail when the zone is deleted.
+> Deleting a DNS zone also deletes all DNS records within the zone. This operation cannot be undone. If the DNS zone is in use, services using the zone will fail when the zone is deleted.
 >
 >To protect against accidental zone deletion, see [How to protect DNS zones and records](dns-protect-zones-recordsets.md).
 

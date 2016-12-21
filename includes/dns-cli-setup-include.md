@@ -5,7 +5,7 @@
 Verify that you have the following items before beginning your configuration.
 
 * An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* You need to install the latest version of the Azure CLI, available for Windows, Linux, or MAC. More information is available at [Install the Azure CLI](../xplat-cli-install.md).
+* Install the latest version of the Azure CLI, available for Windows, Linux, or MAC. More information is available at [Install the Azure CLI](../xplat-cli-install.md).
 
 ### Sign in to your Azure account
 
@@ -17,7 +17,7 @@ azure login
 
 ### Switch CLI mode
 
-Azure DNS uses Azure Resource Manager. Make sure you switch CLI mode to use ARM commands.
+Azure DNS uses Azure Resource Manager. Make sure you switch CLI mode to use Azure Resource Manager commands.
 
 ```azurecli
 azure config mode arm
@@ -49,7 +49,7 @@ azure group create -n myresourcegroup --location "West US"
 
 ### Register resource provider
 
-The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription needs to be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.
+The Azure DNS service is managed by the Microsoft.Network resource provider. Your Azure subscription must be registered to use this resource provider before you can use Azure DNS. This is a one-time operation for each subscription.
 
 ```azurecli
 azure provider register --namespace Microsoft.Network

@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/19/2016
+ms.date: 12/21/2016
 ms.author: gwallace
 ---
 
@@ -43,12 +43,14 @@ The examples on this page all use the 'A' DNS record type. For other record type
 
 To create a DNS record, use the `azure network dns record-set add-record` command. For help, see `azure network dns record-set add-record -h`.
 
-When creating a record, you need to specify the resource group name, zone name, record set name, the record type, the time to live (TTL), and the details of the record being 
+When creating a record, you need to specify the resource group name, zone name, record set name, the record type, and the details of the record being 
 created.
 
-If the record set does not already exist, this command will create it for you. If the record set already exists, this command will add the record you specify to the existing record set.
+If the record set does not already exist, this command creates it for you. If the record set already exists, this command adds the record you specify to the existing record set. 
 
-The following example creates an A record called *www* in the zone *contoso.com* in the resource group *MyResourceGroup*. The TTL of the record is 3600 seconds (1 hour) and the IP address of the A record is *1.2.3.4*.
+If a new record set is created, a default time-to-live (TTL) of 3600 is used. For instructions on how to use different TTLs, see [Manage DNS records in Azure DNS using the Azure CLI](dns-operations-recordsets-cli,md).
+
+The following example creates an A record called *www* in the zone *contoso.com* in the resource group *MyResourceGroup*. The IP address of the A record is *1.2.3.4*.
 
 ```azurecli
 azure network dns record-set add-record MyResourceGroup contoso.com www A -a 1.2.3.4
