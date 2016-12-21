@@ -600,7 +600,7 @@ You are now ready to configure an availability group. Below is an outline of wha
     > 
 
 ## Configure internal load balancer
-In order to connect to the availability group directly, you need to configure a load balancer. The load balancer directs client traffic to the VM that is bound to the listener IP address and on the probe port. This tutorial use an internal load balancer, or ILB. The ILB allows traffic from within the same virtual network to connect to SQL Server. Applications that need to connect to SQL Server over the internet require an internet facing - or external - load balancer. For more information, see [Azure Load Balancer overview](../../load-balancer/load-balancer-overview.md).
+In order to connect to the availability group directly, you need to configure a load balancer. The load balancer directs client traffic to the VM that is bound to the listener IP address and on the probe port. This tutorial use an internal load balancer, or ILB. The ILB allows traffic from within the same virtual network to connect to SQL Server. Applications that need to connect to SQL Server over the internet require an internet facing - or external - load balancer. For more information, see [Azure Load Balancer overview](../../../load-balancer/load-balancer-overview.md).
 
 > [!NOTE]
 > This tutorial shows how to create a single listener - with one ILB  IP address. To create one or more listeners using one or more IP addresses, see [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md).
