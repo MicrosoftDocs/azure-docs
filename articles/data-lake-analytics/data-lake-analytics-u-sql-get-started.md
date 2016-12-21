@@ -1,5 +1,5 @@
 ---
-title: Tutorial - Get started with Azure Data Lake Analytics U-SQL language | Microsoft Docs
+title: 'Tutorial: Get started with Azure Data Lake Analytics U-SQL language | Microsoft Docs'
 description: Use this tutorial to learn about Azure Data Lake Analytics U-SQL language.
 services: data-lake-analytics
 documentationcenter: ''
@@ -22,7 +22,7 @@ U-SQL is a language that combines the benefits of SQL with the expressive power 
 
 U-SQL differs in some ways from ANSI SQL or T-SQL. For example, keywords such as SELECT must be in all-uppercase letters.
 
-It's a type system and expression language inside select clauses, where predicates are in C#. This means that the data types are the C# types, they use C# NULL semantics, and the comparison operations inside a predicate follow C# syntax (for example, a == "foo"). It also means that the values are full .NET objects, so you can easily use any method to operate on the object (for example, "f o o o".Split(' ')).
+ Its type system and expression language, inside SELECT clauses and WHERE predicates, are C#. This means that the data types are the C# types, they use C# NULL semantics, and the comparison operations inside a predicate follow C# syntax (for example, a == "foo"). It also means that the values are full .NET objects, so you can easily use any method to operate on the object (for example, "f o o o".Split(' ')).
 
 For more information about U-SQL, see the [U-SQL Language Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
@@ -145,7 +145,7 @@ The following script uses the DateTime.Parse() method and a conjunction.
  >The second query is operating on the result of the first rowset, which creates a composite of the two filters. You can also reuse a variable name, and the names are scoped lexically.
 
 ## Aggregate rowsets
-U-SQL gives you the familiar ORDER BY, GROUP BY and aggregations.
+U-SQL gives you the familiar ORDER BY, GROUP BY, and aggregations.
 
 The following query finds the total duration per region, and then displays the top five durations in order.
 
