@@ -104,9 +104,9 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
 1. [A] Register SLES to be able to use the repositories
 1. [A] Add public-cloud module
 1. [A] Install HA extension
-    <pre>
+    <pre><code>
     zypper install sle-ha-release
-    <pre>
+    </code></pre>
 1. [A] Setup disk layout
     1. LVM  
     TODO
