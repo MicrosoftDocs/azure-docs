@@ -108,8 +108,10 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     zypper install sle-ha-release
     <pre>
 1. [A] Setup disk layout
-    1. LVM
-    1. MDADM
+    1. LVM  
+    TODO
+    1. MDADM  
+    TODO
     1. Plain Disks  
        For small or demo systems, you can place your HANA data and log files on one disk. The following commands create a partition on /dev/sdc and format it with xfs.
     <pre>
@@ -133,9 +135,14 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     <pre>
     vi /etc/hosts
     
-    # insert the following lines to /etc/hosts<code><b>
+    # insert the following lines to /etc/hosts
+    <code>
+    <b>
     10.79.227.20 saphanavm1
-    10.79.227.21 saphanavm2</b></code></pre>
+    10.79.227.21 saphanavm2
+    </b>
+    </code>
+    </pre>
 
 1. [1] Install Cluster
     <pre>
