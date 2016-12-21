@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 12/09/2016
+ms.date: 12/21/2016
 ms.author: rnagpal
 
 ---
@@ -47,6 +47,9 @@ ms.author: rnagpal
 </table></br>
 
 ## Release Notes
+
+-> [!IMPORTANT]
+-> Starting with version 1.9.2 release, you may receive System.NotSupportedException when querying partitioned collections. To avoid this error, ensure that your host process is 64-bit. For Executable projects, this can be done by unchecking the "Prefer 32-bit" option in the project properties window, on the Build tab. 
 
 ### <a name="1.11.0"/>[1.11.0](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.0)
 * Support for new classes and methods to process the [change feed](documentdb-change-feed.md) of documents within a collection.
