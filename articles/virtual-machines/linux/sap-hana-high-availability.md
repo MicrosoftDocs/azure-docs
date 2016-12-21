@@ -1,4 +1,4 @@
-﻿---
+---
 title: High Availability of SAP HANA on Azure Virtual Machines (VMs) | Microsoft Docs
 description: Establish High Availability of SAP HANA on Azure Virtual Machines (VMs).
 services: virtual-machines-linux
@@ -95,6 +95,7 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
         1. Repeat the steps above for port 3**50**17
 
 ### Deploy with template
+TODO
 
 ## Setting up Linux HA
 
