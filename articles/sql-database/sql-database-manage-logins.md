@@ -168,8 +168,8 @@ GO
 ## Next steps
 
 - To learn more about firewall rules, see [Azure SQL Database Firewall](sql-database-firewall-configure.md).
-- For an overview of all of the SQL Database security feaures, see [SQL security and compliance](sql-database-security-compliance.md).
-- For a tutorial, see [Get started with SQL security](sql-datbase-get-started-security.md)
+- For an overview of all of the SQL Database security feaures, see [SQL security overview](sql-database-security-overview.md).
+- For a tutorial, see [Get started with SQL security](sql-database-get-started-security.md)
 - For information about views and stored procedures, see [Creating views and stored procedures](https://msdn.microsoft.com/library/ms365311.aspx)
 - For information about granting access to a database object, see [Granting Access to a Database Object](https://msdn.microsoft.com/library/ms365327.aspx)
 

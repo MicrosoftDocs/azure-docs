@@ -23,7 +23,7 @@ ms.author: rickbyh
 SQL Database secures your data by controlling access to your database by using firewall rules to provide connection security, authentication mechanisms requiring users to prove their identity, and authorization to data through role-based memberships and permissions, as well as through row-level security and dynamic data masking. 
 
 > [!IMPORTANT]
-> For an overview of all of the SQL Database security feaures, see [SQL security and compliance](sql-database-security-compliance.md).
+> For an overview of all of the SQL Database security feaures, see [SQL security overview](sql-database-security-overview.md).
 >
 
 ## Firewall and firewall rules
