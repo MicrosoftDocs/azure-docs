@@ -1,6 +1,6 @@
 ---
-title: Manage Logic Apps from Visual Studio Cloud Explorer | Microsoft Docs
-description: Manage Logic Apps from Visual Studio Cloud Explorer.
+title: Manage Azure Logic Apps from Visual Studio Cloud Explorer | Microsoft Docs
+description: Manage Azure Logic Apps from Visual Studio Cloud Explorer.
 author: klam
 manager: anneta
 editor: ''
