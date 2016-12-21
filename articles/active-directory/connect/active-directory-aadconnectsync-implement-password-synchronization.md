@@ -13,7 +13,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 12/21/2016
 ms.author: markvi;andkjell
 
 ---
@@ -45,8 +45,8 @@ For more details, see [Integrating your on-premises identities with Azure Active
 
 > [!NOTE]
 > For more details about Active Directory Domain Services that are configured for FIPS and password synchronization, see [Password Sync and FIPS](#password-synchronization-and-fips).
-> 
-> 
+>
+>
 
 ## How password synchronization works
 The Active Directory domain service stores passwords in form of a hash value representation of the actual user password. A hash value is a result of a one-way mathematical function (the "*hashing algorithm*"). There is no method to revert the result of a one-way function to the plain text version of a password. You cannot use a password hash to sign in to your on-premises network.
@@ -65,8 +65,8 @@ Your current cloud service session is not immediately affected by a synchronized
 
 > [!NOTE]
 > Password sync is only supported for the object type user in Active Directory. It is not supported for the iNetOrgPerson object type.
-> 
-> 
+>
+>
 
 ### How password synchronization works with Azure AD Domain Services
 You can also use the password synchronization feature to synchronize your on-premises passwords to the [Azure AD Domain Services](../../active-directory-domain-services/active-directory-ds-overview.md). This scenario allows the Azure AD Domain Services to authenticate your users in the cloud with all the methods available in your on-premises AD. The experience of this scenario is similar to using the Active Directory Migration Tool (ADMT) in an on-premises environment.
@@ -87,8 +87,8 @@ When you enable password synchronization, the password complexity policies in yo
 
 > [!NOTE]
 > Passwords for users that are created directly in the cloud are still subject to password policies as defined in the cloud.
-> 
-> 
+>
+>
 
 **Password expiration policy**  
 If a user is in the scope of password synchronization, the cloud account password is set to "*Never Expire*".
@@ -180,7 +180,7 @@ If the script shows that there is no heartbeat, then run the script in [Trigger 
 ```
 Import-Module ADSync
 $connectors = Get-ADSyncConnector
-$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Azure Active Directory (Microsoft)"}
+$aadConnectors = $connectors | Where-Object {$_.SubType -eq "Windows Azure Active Directory (Microsoft)"}
 $adConnectors = $connectors | Where-Object {$_.ConnectorTypeName -eq "AD"}
 if ($aadConnectors -ne $null -and $adConnectors -ne $null)
 {
@@ -251,4 +251,3 @@ Set-ADSyncAADPasswordSyncConfiguration -SourceConnector $adConnector -TargetConn
 ## Next steps
 * [Azure AD Connect Sync: Customizing Synchronization options](active-directory-aadconnectsync-whatis.md)
 * [Integrating your on-premises identities with Azure Active Directory](active-directory-aadconnect.md)
-
