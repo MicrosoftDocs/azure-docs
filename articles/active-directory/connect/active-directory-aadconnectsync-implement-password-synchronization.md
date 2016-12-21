@@ -141,7 +141,9 @@ If passwords are not synchronizing as expected, it can either be for a subset of
 You can easily troubleshoot password synchronization issues by reviewing the status of an object.
 
 Start in **Active Directory Users and Computers**. Find the user and verify that **User must change password at next logon** is unselected.
+
 ![Active Directory productive passwords](./media/active-directory-aadconnectsync-implement-password-synchronization/adprodpassword.png)  
+
 If it is selected, then ask the user to sign in and change the password. Temporary passwords are not synchronized to Azure AD.
 
 If it looks correct in Active Directory, then the next step is to follow the user in the sync engine. By following the user from on-premises Active Directory to Azure AD, you can see if there is a descriptive error on the object.
