@@ -89,7 +89,7 @@ You can use tags to group billing data for supported services. For example, if y
 
 ![Screenshot that shows setting up tags in the portal](./media/billing-getting-started/tags.PNG)
 
-The tags show up throughout different cost reporting views. For example, they're visible in your [cost analysis view](#costs) right away and [detail usage CSV](#invoice-and-usage) after your first billing period.
+The tags show up throughout different cost reporting views. For example, they're visible in your [cost analysis view](#costs) right away and [detail usage .csv](#invoice-and-usage) after your first billing period.
 
 For more information, see [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md).
 
@@ -99,7 +99,7 @@ Depending on your scenario, you could configure auto-shutdown for your VMs in th
 
 ![Screenshot of auto-shutdown option in the portal](./media/billing-getting-started/auto-shutdown.PNG)
 
-Auto-shutdown isn't the same as when you shut down within the VM with power options. Auto-shutdown stops and deallocates your VMs. to stop additional usage charges. For more information, see pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) about VM states.
+Auto-shutdown isn't the same as when you shut down within the VM with power options. Auto-shutdown stops and deallocates your VMs to stop additional usage charges. For more information, see pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) about VM states.
 
 For more cost-cutting features for your dev-test environments, check out [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
 
@@ -125,7 +125,7 @@ After you get your services running, regularly check how much they're costing yo
 
     ![Screenshot of the cost analysis view in Azure portal](./media/billing-getting-started/cost-analysis.PNG)
 
-6. You can filter by different properties like [tags](#tags), resource group, and timespan. Click **Apply** to confirm the filters and **Download** to export the view to a Comma Separated Values (.csv) file.
+6. You can filter by different properties like [tags](#tags), resource group, and timespan. Click **Apply** to confirm the filters and **Download** to export the view to a Comma-Separated Values (.csv) file.
 
 7. Click a resource to see spend history and how much it was costing you each day.
 
@@ -143,11 +143,11 @@ If you manage multiple subscriptions as the Account admin, you can see the aggre
 
 After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. These files help to understand what is ultimately billed to you after tax, discounts, and credits. For more information, see [How to download your Azure billing invoice and daily usage data](https://docs.microsoft.com/azure/billing-download-azure-invoice-daily-usage-date) and [Understand your bill for Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
-![Screenshot of a PDF invoice](./media/billing-getting-started/invoice.png)
+![Screenshot of a .pdf invoice](./media/billing-getting-started/invoice.png)
 
 The tags that you set earlier show up in the detail usage .csv files:
 
-![Screenshot that shows tags in the usage CSV](./media/billing-getting-started/csv.png)
+![Screenshot that shows tags in the usage .csv](./media/billing-getting-started/csv.png)
 
 ### Billing API
 
@@ -163,4 +163,4 @@ Talk to your account manager or Azure partner to get started.
 | Cloud Solution Provider (CSP) | Talk to your provider |
 | Azure Sponsorship | [Sponsorship portal](https://www.microsoftazuresponsorships.com/) |
 
-If you're managing IT for a large organization, we recommend reading [Azure enterprise scaffold](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance#resource-group) and the [enterprise IT white paper](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (PDF download, English only).
+If you're managing IT for a large organization, we recommend reading [Azure enterprise scaffold](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-subscription-governance#resource-group) and the [enterprise IT white paper](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (.pdf download, English only).
