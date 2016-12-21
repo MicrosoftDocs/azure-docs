@@ -12,7 +12,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 12/15/2016
+ms.date: 12/21/2016
 ms.author: jgao
 
 ---
@@ -86,7 +86,7 @@ HBase replication uses IP addresses of the ZooKeeper VMs. You must configure sta
 
 9. Repeat step 6 to set the static IP address for the other two ZooKeeper nodes.
 
-For the cross-VNet scenarion, you must use the **-ip** switch when calling the hdi_enable_replication.sh script action.
+For the cross-VNet scenario, you must use the **-ip** switch when calling the **hdi_enable_replication.sh** script action.
 
 ### Configure two virtual networks in two different regions
 
@@ -98,7 +98,7 @@ Create a VPN gateway between the two virtual networks. For instructions, see [Cr
 
 HBase replication uses IP addresses of the ZooKeeper VMs. You must configure static IP addresses for the destination HBase ZooKeeper nodes. To configure static IP, see the "Configure two virtual networks in the same region" section in this article.
 
-For the cross-VNet scenarion, you must use the **-ip** switch when calling the hdi_enable_replication.sh script action.
+For the cross-VNet scenario, you must use the **-ip** switch when calling the **hdi_enable_replication.sh** script action.
 
 ## Load test data
 
