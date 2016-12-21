@@ -9,7 +9,7 @@ editor: ''
 tags: acs, azure-container-service, kubernetes
 keywords: ''
 
-ms.assetid: what-goes-here?
+ms.assetid: 
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -24,6 +24,10 @@ ms.author: bburns
 
 ## Prerequisites
 This walkthrough assumes that you have [created a Kubernetes cluster using Azure Container Service](container-service-kubernetes-walkthrough.md).
+
+> [!NOTE]
+> Kubernetes support in Azure Container Service is currently in preview.
+>
 
 It also assumes that you have the azure cli and kubectl tools installed.
 
