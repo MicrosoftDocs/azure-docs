@@ -197,7 +197,7 @@ Done
 ## Manage storage accounts
 
 ### Create a new storage account
-To use Azure Storage, you need a storage account. You can create a new Azure Storage account after you have configured your computer to [connect to your subscription](#connect-to-your-azure-subscription).
+To use Azure Storage, you need a storage account. You can create a new Azure Storage account after you've configured your computer to [connect to your subscription](#connect-to-your-azure-subscription).
 
 ```azurecli
 az storage account create -l <location> -n <account_name> -g <resource_group> --sku <account_sku>
@@ -238,10 +238,10 @@ export AZURE_STORAGE_CONNECTION_STRING=<connection_string>
 >
 
 ## Create and manage blobs
-Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with the Azure Blob storage concepts. For detailed information, see [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](/rest/api/storageservices/fileservices/blob-service-concepts).
+Azure Blob storage is a service for storing large amounts of unstructured data, such as text or binary data, that can be accessed from anywhere in the world via HTTP or HTTPS. This section assumes that you are already familiar with Azure Blob storage concepts. For detailed information, see [Get started with Azure Blob storage using .NET](storage-dotnet-how-to-use-blobs.md) and [Blob Service Concepts](/rest/api/storageservices/fileservices/blob-service-concepts).
 
 ### Create a container
-Every blob in Azure storage must be in a container. You can create a private container using the `azure storage container create` command:
+Every blob in Azure storage must be in a container. You can create a container by using the `az storage container create` command:
 
 ```azurecli
 az storage container create -n <container_name>
@@ -256,15 +256,15 @@ You can set one of three levels of read access for a new container by specifying
 For more information, see [Manage anonymous read access to containers and blobs](storage-manage-access-to-resources.md).
 
 ### Upload a blob to a container
-Azure Blob storage supports block blobs and page blobs. For more information, see [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
-
-Upload blobs to a container by using the `blob upload` command:
+Azure Blob storage supports block, append, and page blobs. Upload blobs to a container by using the `blob upload` command:
 
 ```azurecli
 az storage blob upload -f <local_file_path> -c <container_name> -n <blob_name>
 ```
 
  By default, the `blob upload` command uploads *.vhd files to page blobs, or block blobs otherwise. To specify another type when you upload a blob, you can use the `--type` argument--allowed values are `append`, `block`, and `page`.
+
+ For more information on the different blob types, see [Understanding Block Blobs, Append Blobs, and Page Blobs](/rest/api/storageservices/fileservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs).
 
 ### Download blobs from a container
 This example demonstrates how to download a blob from a container:
@@ -289,7 +289,7 @@ az storage blob copy start -u https://<accountname2>.blob.core.windows.net/mycon
 The source blob URL (specified by `-u`) must either be publicly accessible, or include a shared access signature (SAS) token.
 
 ### Delete a blob
-To delete a blob, use the below command:
+To delete a blob, use the `blob delete` command:
 
 ```azurecli
 az storage blob delete -c <container_name> -n <blob_name>
