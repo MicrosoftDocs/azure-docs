@@ -416,10 +416,11 @@ crm configure load update crm-saphana.txt
 </pre>
 
 ### Test cluster setup
+The following chapter describe how you can test your setup. Every test assumes that you are root and the SAP HANA master is running on the virtual machine saphanavm1.
 
 #### Fencing Test
 
-You can test the setup of the fencing agent by disabling the network interface on one node.
+You can test the setup of the fencing agent by disabling the network interface on node saphanavm1.
 <pre><code>
 ifdown eth0
 </code></pre>
@@ -431,7 +432,7 @@ Once you start the virtual machine again, the SAP HANA resource will fail to sta
 su - <b>hdb</b>adm
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>50</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE2</b> 
+hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE1</b> 
 
 # switch back to root and cleanup the failed state
 exit
@@ -439,18 +440,18 @@ crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>50</b> <b>saphanavm1</b>
 </code></pre>
 
 #### Testing a manual failover
-You can test a manual failover by stopping the pacemaker service on one virtual machine.
+You can test a manual failover by stopping the pacemaker service on node saphanavm1.
 <pre><code>
 service pacemaker stop
 </code></pre>
 
-After the failover, you can start the service again. The SAP HANA resource on the old virtual machine will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
+After the failover, you can start the service again. The SAP HANA resource on saphanavm1 will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
 <pre><code>
 service pacemaker start
 su - <b>hdb</b>adm
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>50</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE2</b> 
+hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE1</b> 
 
 # switch back to root and cleanup the failed state
 exit
@@ -465,19 +466,19 @@ crm resource migrate msl_SAPHana_<b>HDB</b>_HDB<b>50</b> <b>saphanavm2</b>
 crm resource migrate g_ip_<b>HDB</b>_HDB<b>50</b> <b>saphanavm2</b>
 </code></pre>
 
-This should migrate the SAP HANA master node and the group that contains the virtual IP address.
-The SAP HANA resource on the old virtual machine will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
+This should migrate the SAP HANA master node and the group that contains the virtual IP address to saphanavm2.
+The SAP HANA resource on saphanavm1 will fail to start as secondary if you set AUTOMATED_REGISTER="false". In this case, you need to configure the HANA instance as secondary by executing the following command:
 <pre><code>
 su - <b>hdb</b>adm
 # Stop the HANA instance just in case it is running
 sapcontrol -nr <b>50</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE2</b> 
+hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
 The migration creates location contraints that need to be deleted again.
 <pre><code>
 crm configure edited
-# delete location contraints that are named like the following contraint
+# delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
 location cli-prefer-g_ip_<b>HDB</b>_HDB<b>50</b> g_ip_<b>HDB</b>_HDB<b>50</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
