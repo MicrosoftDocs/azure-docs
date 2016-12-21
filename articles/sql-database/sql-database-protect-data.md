@@ -20,12 +20,11 @@ ms.author: carlrab
 ---
 # Protecting data within your SQL Database
 
-SQL Database protects your data by providing through the use of encryption 
+SQL Database protects your data by using encryption.  
+
+## Overview
 
 SQL Database secures you data by providing encryption for data in motion using [Transport Layer Security](https://support.microsoft.com/en-us/kb/3135244), for data at rest using [Transparent Data Encryption](http://go.microsoft.com/fwlink/?LinkId=526242), and for data in use using [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx). For a discussion of the use of these data protection features in SQL Database, see [Data protection and security](sql-database-protect-data.md).
-
-> [!IMPORTANT]
->All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. In your application's connection string, you must specify parameters to encrypt the connection and *not* to trust the server certificate (this is done for you if you copy your connection string out of the Azure Classic Portal), otherwise the connection will not verify the identity of the server and will be susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are **Encrypt=True** and **TrustServerCertificate=False**. 
 
 For other ways to encrypt your data, consider:
 
@@ -36,17 +35,17 @@ For other ways to encrypt your data, consider:
 SQL Database secures you data by providing auditing and threat detection capabilities. 
 
 ### Auditing
-SQL Database Auditing tracks database activities and helps you to maintain regulatory compliance, by recording database events to an audit log in your Azure Storage account. Auditing enables you to understand ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For additional information, see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md).  
+SQL Database Auditing tracks database activities and helps you to maintain regulatory compliance, by recording database events to an audit log in your Azure Storage account. Auditing enables you to understand ongoing database activities, and analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For additional information, see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md).  
 
 ### Threat detection
-Threat Detection complements auditing, by providing an additional layer of security intelligence built into the Azure SQL Database service. It works around the clock to learn, profile and detect anomalous database activities. You will be alerted about suspicious activities, potential vulnerabilities, SQL injection attacks and anomalous database access patterns. You can respond to alerts by following the provided informative and actionable instructions. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).  
+Threat Detection complements auditing, by providing an additional layer of security intelligence built into the Azure SQL Database service. It works around the clock to learn, profile, and detect anomalous database activities. You are alerted about suspicious activities, potential vulnerabilities, SQL injection attacks, and anomalous database access patterns. You can respond to alerts by following the provided informative and actionable instructions. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).  
 
 ## Connection security
 Connection Security refers to how you restrict and secure connections to your database using firewall rules and connection encryption.
 
 Firewall rules are used by both the server and the database to reject connection attempts from IP addresses that have not been explicitly whitelisted. To allow your application or client machine's public IP address to attempt connecting to a new database, you must first create a server-level firewall rule using the Azure Classic Portal, REST API, or PowerShell. As a best practice, you should restrict the IP address ranges allowed through your server firewall as much as possible. For more information, see [Azure SQL Database Firewall](https://msdn.microsoft.com/library/ee621782).
 
-All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. In your application's connection string, you must specify parameters to encrypt the connection and *not* to trust the server certificate (this is done for you if you copy your connection string out of the Azure Classic Portal), otherwise the connection will not verify the identity of the server and will be susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are **Encrypt=True** and **TrustServerCertificate=False**. For more information, see [Azure SQL Database Connection Encryption and Certificate Validation](https://msdn.microsoft.com/library/azure/ff394108#encryption).
+All connections to Azure SQL Database require encryption (SSL/TLS) at all times while data is "in transit" to and from the database. In your application's connection string, you must specify parameters to encrypt the connection and *not* to trust the server certificate (this is done for you if you copy your connection string out of the Azure Classic Portal), otherwise the connection cannot verify the identity of the server and is susceptible to "man-in-the-middle" attacks. For the ADO.NET driver, for instance, these connection string parameters are **Encrypt=True** and **TrustServerCertificate=False**. For more information, see [Azure SQL Database Connection Encryption and Certificate Validation](https://msdn.microsoft.com/library/azure/ff394108#encryption).
 
 ## Authentication
 Authentication refers to how you prove your identity when connecting to the database. SQL Database supports two types of authentication:
