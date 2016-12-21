@@ -18,7 +18,7 @@ ms.date: 11/02/2016
 ms.author: saurinsh
 
 ---
-# Configure Domain-joined HDInsight clusters (Preview) use Azure PowerShell
+# Configure Domain-joined HDInsight clusters (Preview) using Azure PowerShell
 Learn how to set up an Azure HDInsight cluster with Azure Active Directory (Azure AD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) using Azure PowerShell. An Azure PowerShell script is provided to make the configuration faster and less error prone. Domain-joined HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md).
 
 A typical Domain-joined HDInsight cluster configuration involves the following steps:
@@ -54,7 +54,7 @@ You must have the following items to go through this tutorial:
 * Azure PowerShell.  See [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Create an Azure classic VNet for your Azure AD.
-For the insturctions, see [here](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
+For the instructions, see [here](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
 
 ## Create and configure Azure AD and Azure AD DS.
 For the instructions, see [here](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad).
@@ -153,7 +153,7 @@ Another option for creating Domain-joined HDInsight cluster is to use Azure Reso
 
 1. Click the following image to open a Resource Manager template in the Azure portal. The Resource Manager template is located in a public blob container. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="./media/hdinsight-domain-joined-configure-use-powershell/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. From the **Parameters** blade, enter the following values:
    
    * **Subscription**: (Select your Azure subscription).

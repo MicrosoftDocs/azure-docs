@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to develop and deploy functions in the language of your choice to run tasks in the background or on a schedule without special infrastructure.
 ---
 #Azure Functions Documentation
 
-Azure Functions is a solution for easily running small pieces of code ("functions") in the cloud. You can write the code you need for the problem at hand, without worrying about a whole application of the infrastructure to run it. You can also develop in the language of your choice, such as C#, F#, Node.js, Python, or PHP.
+Learn how to use Functions to develop and deploy small pieces of code in the language of your choice and in the cloud without setting up infrastructure. Tutorials, templates, and other documentation show you how to create functions for tasks you want to run in a background thread or on a schedule.
 
 <ul class="panelContent cardsFTitle">
    <li>
