@@ -81,7 +81,7 @@ It's also a great idea to look at the [Best practices][Best practices].
 <!--Article references-->
 [Create an Azure SQL Database logical server with the Azure portal]: ../sql-database/sql-database-get-started.md#create-logical-server-bk
 [Create an Azure SQL Database logical server with PowerShell]: ../sql-database/sql-database-get-started-powershell.md#database-setup-create-a-resource-group-server-and-firewall-rule
-[resource groups]: ../resource-group-template-deploy-portal.md
+[resource groups]: ../azure-resource-manager/resource-group-template-deploy-portal.md
 [Best practices]: sql-data-warehouse-best-practices.md
 [DWU]: sql-data-warehouse-overview-what-is.md#data-warehouse-units
 [subscription]: ../azure-glossary-cloud-terminology.md#subscription
