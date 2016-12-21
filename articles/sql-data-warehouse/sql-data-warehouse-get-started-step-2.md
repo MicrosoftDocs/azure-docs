@@ -20,9 +20,9 @@ ms.author: elbutter
 # Step 2: Create an Azure SQL Data Warehouse
 
 > [!NOTE]
-> Creating a SQL Data Warehouse might result in a new billable service.  See [SQL Data Warehouse pricing][SQL Data Warehouse pricing] for more details.
+> Creating a SQL Data Warehouse might result in a new billable service.  For more details, see [SQL Data Warehouse pricing](https://azure.microsoft.com/pricing/details/sql-data-warehouse/).
 >
->
+
 
 ## Create a SQL Data Warehouse
 1. Sign in to the [Azure portal](https://portal.azure.com).
@@ -42,7 +42,7 @@ name, region, and environments, if you have multiple, such as *mydw-westus-1-tes
 
 **Resource Group**: Create new (or use existing if you plan on using your Azure SQL Data Warehouse with other services)
 > [!NOTE]
-> Services within a resource group should have the same lifecycle. Resource groups are particularly useful for resource
+> Services within a resource group should have the same lifecycle. Resource groups are useful for resource
 > administration such as scoping access control and templated deployment. 
 > Read more about Azure resource groups and best practices [here](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)
 >
@@ -57,8 +57,8 @@ name, region, and environments, if you have multiple, such as *mydw-westus-1-tes
 
 4. Choose **Pin to dashboard**
 
-![Pin To Dashbaord](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
+![Pin To Dashboard](./media/sql-data-warehouse-get-started-tutorial/pin-to-dashboard.png)
 
 5. Sit back and wait for your Azure SQL Data Warehouse to deploy! It's normal for this process to take several minutes. 
-The portal will notifiy you when your instance is done deploying. 
+The portal will notify you when your instance is done deploying. 
 

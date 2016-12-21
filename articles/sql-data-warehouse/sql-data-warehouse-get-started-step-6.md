@@ -39,7 +39,7 @@ Before we begin, let's scale our operation down to 100 DWUs so we can get an ide
 4. Wait for your scale operation to finish.
 
 > [!NOTE]
-> Please note, scaling operations **will kill** your currently running queries and prevent new ones from being run.
+> Please note, scaling operations **kill** your currently running queries and prevent new ones from being run.
 >
  
 5. Do a scan operation on the trip data, selecting the top million entries for all the columns. If you're eager
@@ -57,7 +57,7 @@ Take note of the time it took to run this operation.
 
 > [!NOTE]
 > Azure SQL Data Warehouse is a Massively Parallel Processing (MPP) platform. Queries and
-> operations that can parallelize work among various nodes will experience the true power of
+> operations that can parallelize work among various nodes experience the true power of
 > Azure SQL Data Warehouse.
 >
 
@@ -113,7 +113,7 @@ As you might expect, the query takes much longer when you shuffle data among the
 >
 
 3. Run the query from Step 1 again and observe any performance differences. While the differences in
-query performance will not be as drastic as scaling up, you should notice a discernable speed up. 
+query performance will not be as drastic as scaling up, you should notice a discernable speed-up. 
 
 ## Next Steps
 

@@ -19,12 +19,14 @@ ms.author: elbutter
 ---
 # Step 3: Connect to Azure SQL Data Warehouse through SQL Server (logical server)
 
-This tutorial will focus on using SQL Server Management Studio to connect to our SQL Data Warehouse. However, there are a variety of tools you can use to 
-connect SQL Data Warehouse as well if it supports SQL Data Warehouse and uses our supported connectors: ADO.NET, JDBC, ODBC, and PHP.
+This tutorial uses SQL Server Management Studio to connect to our SQL Data Warehouse. Other tools can be used to connect 
+to SQL Data Warehouse through our supported connectors: ADO.NET, JDBC, ODBC, and PHP. Bear in mind, functionality may be limited for 
+tools not supported by Microsoft.
+
 
 ## Get Connection Information
 
-In order to connect to your SQL Data Warehouse, you will have to connect through the SQL Server (logical server) you created 
+To connect to your SQL Data Warehouse, you must connect through the SQL Server (logical server) you created 
 in [Step 1].
 
 1. Select your SQL Data Warehouse from the dashboard or search for it in your resources.
@@ -41,7 +43,7 @@ in [Step 1].
 
 If all goes correctly, you should now be connected to your SQL Server (logical server) instance. You can use server 
 credentials to authenticate to any database on the server as the database owner. However, as best practice, you should 
-create separate logins and users for each database. We shall explore this in the next step. 
+create separate logins and users for each database. We shall explore user creation in [Step 4](./sql-data-warehouse-get-started-step-4.md). 
 
 
 

@@ -315,7 +315,7 @@ ms.author: elbutter
 
     > [!NOTE]
     > You’re loading several GBs of data and compressing it into highly performant Cluster Columnstore Indexes. Run
-    > the DMV query below and then grab a coffee or snack while Azure SQL Data Warehouse does some heavy lifting.
+    > the DMV query following and then grab a coffee or snack while Azure SQL Data Warehouse does some heavy lifting.
     >
 
 6. Create a new query window and watch as your data come in with this Dynamic Management View (DMV)
