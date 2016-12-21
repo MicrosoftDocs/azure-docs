@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/22/2016
+ms.date: 12/21/2016
 ms.author: magoedte
 
 ---
@@ -29,61 +29,50 @@ Automation can send runbook job status and job streams to your Microsoft Operati
 ## Prerequisites and deployment considerations
 To start sending your Automation logs to Log Analytics, you must have the following:
 
-1. An OMS subscription. For additional information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md).  
-
-   > [!NOTE]
-   > The OMS workspace and Automation account need to be in the same Azure subscription in order for this configuration to work correctly.
-   >
-   >
-2. An [Azure Storage account](../storage/storage-create-storage-account.md).  
-
-   > [!NOTE]
-   > The Storage account *must* be in the same region as the Automation account.
-   >
-   >
-3. Azure PowerShell with version 1.0.8 or newer of the Operational Insights cmdlets. For information about this release and how to install it, see [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
-4. Azure Diagnostic and Log Analytics PowerShell.  For further information about this release and how to install it, see [Azure Diagnostic and Log Analytics](https://www.powershellgallery.com/packages/AzureDiagnosticsAndLogAnalytics/0.1).  
-5. Download the PowerShell script **Enable-AzureDiagnostics.ps1** from the [PowerShell Gallery](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/1.0/DisplayScript). This script will configure the following:
-   * A storage account to hold the runbook job status and stream data for an Automation account that you specify.
-   * Enable the collection of this data from your Automation account to store it in an Azure Blob storage account in JSON format.
-   * Configure collecting the data from your Blob storage account to OMS Log Analytics.
-   * Enable the Automation Log Analytics solution your OMS workspace.   
-
-The **Enable-AzureDiagnostics.ps1** script requires the following parameters during execution:
-
-* *AutomationAccountName* - the name of your Automation account
-* *LogAnalyticsWorkspaceName* - the name of your OMS workspace
+1. An OMS subscription. For additional information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md). 2. The November 2016 or later release of Azure PowerShell (v2.3.0)
 
 To find the values for *AutomationAccountName*, in the Azure portal select your Automation account from the **Automation account** blade and select **All settings**.  From the **All settings** blade, under **Account Settings** select **Properties**.  In the **Properties** blade, you can note these values.<br> ![Automation Account properties](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
 ## Setup integration with Log Analytics
 1. On your computer, start **Windows PowerShell** from the **Start** screen.  
-2. From the PowerShell command-line shell, navigate to the folder which contains the script you downloaded and execute it changing the values for parameters *-AutomationAccountName* and *-LogAnalyticsWorkspaceName*.
+2. Copy and the following PowerShell, edit the value for the `$workspaceId` and `$automationAccountId` then run it.
 
-   > [!NOTE]
-   > You will be prompted to authenticate with Azure after you execute the script.  You **must** log in with an account that is a member of the Subscription Admins role and co-administrator of the subscription.   
-   >
-   >
+```powershell
+# if you are not connected to Azure run the next command to login
+Login-AzureRmAccount
 
-        .\Enable-AzureDiagnostics -AutomationAccountName <NameofAutomationAccount> `
-        -LogAnalyticsWorkspaceName <NameofOMSWorkspace> `
-3. After running this script you should see records in Log Analytics about 30 minutes after new diagnostic data is written to storage.  If records are not available after this time refer to the troubleshooting section in [JSON files in blob storage](../log-analytics/log-analytics-azure-storage-json.md#troubleshooting-configuration-for-azure-diagnostic-logs).
+# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
+$workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
+
+$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
+
+Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId  -WorkspaceId $workspaceId -Enabled $true
+
+```
+
+After running this script you should see records in Log Analytics about 30 minutes after new diagnostic data is written to storage.
+
+To see the logs run the following query:
+`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### Verify configuration
-To confirm the script configured your Automation account and OMS wokspace successfully, you can perform the following steps in PowerShell.  Before you do that, to find the values for your OMS workspace name and resource group name, from the Azure portal, navigate to Log Analytics (OMS) and in the Log Analytics (OMS) blade, note the value for **Name** and **Resource Group**.<br> ![OMS Log Analytics Workspace List](media/automation-manage-send-joblogs-log-analytics/oms-la-workspaces-list-blade.png)  We will use these two values when we verify the configuration in your OMS workspace using the PowerShell cmdlet [Get-AzureRmOperationalInsightsStorageInsight](https://msdn.microsoft.com/library/mt603567.aspx).
+To confirm that your Automation account is sending logs to your Log Analytics workspace, perform the following steps in PowerShell.  
 
-1. From the Azure portal, navigate to Storage Accounts and search for the following storage account, which uses the naming convention - *AutomationAccountNameomsstorage*.  After a runbook job completes, shortly afterwards you should see two Blob containers created - **insights-logs-joblogs** and **insights-logs-jobstreams**.  
-2. From PowerShell, run the following PowerShell code, changing the values for the parameters **ResourceGroupName** and **WorkspaceName** that you copied or noted earlier.  
+```powershell
+# if you are not connected to Azure run the next command to login
+Login-AzureRmAccount
 
-   Login-AzureRmAccount
-   Get-AzureRmSubscription -SubscriptionName 'SubscriptionName' | Set-AzureRmContext
-   Get-AzureRmOperationalInsightsStorageInsight -ResourceGroupName "OMSResourceGroupName" `
-   -Workspace "OMSWorkspaceName"
+# if you have one Log Analytics workspace you can use the following command to get the resource id of the workspace
+$workspaceId = (Get-AzureRmOperationalInsightsWorkspace).ResourceId
 
-   This will return the storage insight for the specified OMS workspace.  We want to confirm the storage insight for the  Automation account we specified earlier exists and the **State** object shows a value of **OK**.<br> ![Results from Get-AzureRmOperationalInsightsStorageInsights cmdlet](media/automation-manage-send-joblogs-log-analytics/automation-posh-getstorageinsights-results.png).
+$automationAccountId = "/SUBSCRIPTIONS/ec11ca60-1234-491e-5678-0ea07feae25c/RESOURCEGROUPS/DEMO/PROVIDERS/MICROSOFT.AUTOMATION/ACCOUNTS/DEMO" 
+
+Get-AzureRmDiagnosticSetting -ResourceId $automationAccountId
+
+```
 
 ## Log Analytics records
-Automation creates two types of records in the OMS repository.
+Automation creates two types of records in the OMS repository. 
 
 ### Job Logs
 | Property | Description |
@@ -115,7 +104,10 @@ Automation creates two types of records in the OMS repository.
 | StreamType |The type of job stream. Possible values are:<br>-Progress<br>- Output<br>- Warning<br>- Error<br>- Debug<br>- Verbose |
 
 ## Viewing Automation Logs in Log Analytics
-Now that you have started sending your Automation job logs to Log Analytics, let’s see what you can do with these logs inside OMS.   
+Now that you have started sending your Automation job logs to Log Analytics, let’s see what you can do with these logs inside OMS.
+
+To see the logs run the following query:
+`Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### Send an email when a runbook job fails or suspends
 One of our top customer asks is for the ability to send an email or a text when something goes wrong with a runbook job.   
