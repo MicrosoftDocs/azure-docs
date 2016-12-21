@@ -138,7 +138,7 @@ text strings to identify context and streamline automation.  For example, the ta
 Each resource or resource group can have a maximum of **15** tags. The tag name is limited to 512 characters, and the tag 
 value is limited to 256 characters.
 
-For more information on resource tagging, refer to [Using tags to organize your Azure resources](../resource-group-using-tags.md).
+For more information on resource tagging, refer to [Using tags to organize your Azure resources](../azure-resource-manager/resource-group-using-tags.md).
 
 Some of the common tagging use cases are:
 

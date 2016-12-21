@@ -473,7 +473,7 @@ For more information about the FMA process, see [Resilience by design for cloud 
 [resilience-by-design-pdf]: http://download.microsoft.com/download/D/8/C/D8C599A4-4E8A-49BF-80EE-FE35F49B914D/Resilience_by_Design_for_Cloud_Services_White_Paper.pdf
 [RoleEntryPoint.OnStop]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleentrypoint.onstop.aspx
 [RoleEnvironment.Stopping]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.stopping.aspx
-[rm-locks]: ../resource-group-lock-resources.md
+[rm-locks]: ../azure-resource-manager/resource-group-lock-resources.md
 [sb-dead-letter-queue]: ../service-bus-messaging/service-bus-dead-letter-queues.md
 [sb-georeplication-sample]: https://github.com/Azure-Samples/azure-servicebus-messaging-samples/tree/master/GeoReplication
 [sb-messagingexception-class]: https://msdn.microsoft.com/library/azure/microsoft.servicebus.messaging.messagingexception.aspx
