@@ -107,8 +107,11 @@ If you have an existing Resource Group project, then adding a logic app to it, o
 1. Open the `<template>.json` file.
 2. Open the JSON Outline window.  The JSON Outline window can be found under **View** > **Other Windows** > **JSON Outline**.
 3. To add a resource to the template file, either click the Add Resource button on the top of the JSON Outline window or right-click on **resources** and select **Add New Resource**.
+
     ![Json Outline](./media/app-service-logic-deploy-from-vs/jsonoutline.png)
+    
 4. In the **Add Resource** dialog box browse and select **Logic App**, give it a name and select **OK**.
+
     ![Add resource](./media/app-service-logic-deploy-from-vs/addresource.png)
 
 ## Next Steps
