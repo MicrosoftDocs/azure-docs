@@ -17,7 +17,7 @@ ms.date: 10/31/2016
 ms.author: elbutter
 
 ---
-# Step 3: Create a User for SQL Data Warehouse
+# Step 4: Create a User for SQL Data Warehouse
 
 ## Why create a separate user?
 

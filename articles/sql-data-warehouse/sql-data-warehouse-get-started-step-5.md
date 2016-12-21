@@ -17,7 +17,7 @@ ms.date: 10/31/2016
 ms.author: elbutter
 
 ---
-# Step 4: Loading Data
+# Step 5: Loading Data
 
 ## Defining External Data
 1. Define an external data source
