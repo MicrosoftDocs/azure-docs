@@ -5,11 +5,11 @@
 Verify that you have the following items before beginning your configuration.
 
 * An Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial/).
-* Install the latest version of the Azure CLI, available for Windows, Linux, or MAC. More information is available at [Install the Azure CLI](../xplat-cli-install.md).
+* Install the latest version of the Azure CLI, available for Windows, Linux, or MAC. More information is available at [Install the Azure CLI](../articles/xplat-cli-install.md).
 
 ### Sign in to your Azure account
 
-Open a console window and authenticate with your credentials. For more information, see [Log in to Azure from the Azure CLI](../xplat-cli-connect.md)
+Open a console window and authenticate with your credentials. For more information, see [Log in to Azure from the Azure CLI](../articles/xplat-cli-connect.md)
 
 ```azurecli
 azure login

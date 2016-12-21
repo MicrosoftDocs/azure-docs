@@ -48,7 +48,7 @@ created.
 
 If the record set does not already exist, this command creates it for you. If the record set already exists, this command adds the record you specify to the existing record set. 
 
-If a new record set is created, a default time-to-live (TTL) of 3600 is used. For instructions on how to use different TTLs, see [Manage DNS records in Azure DNS using the Azure CLI](dns-operations-recordsets-cli,md).
+If a new record set is created, a default time-to-live (TTL) of 3600 is used. For instructions on how to use different TTLs, see [Manage DNS records in Azure DNS using the Azure CLI](dns-operations-recordsets-cli.md).
 
 The following example creates an A record called *www* in the zone *contoso.com* in the resource group *MyResourceGroup*. The IP address of the A record is *1.2.3.4*.
 
