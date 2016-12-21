@@ -22,17 +22,18 @@ ms.author: elbutter
 ## Defining External Data
 1. Define an external data source
 
-```sql
-        CREATE EXTERNAL DATA SOURCE NYTPublic
-        WITH
-        (
-        TYPE = Hadoop
-        , LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
-        );
-```
+    ```sql
+            CREATE EXTERNAL DATA SOURCE NYTPublic
+            WITH
+            (
+            TYPE = Hadoop
+            , LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
+            );
+    ```
 
 
 2. Define the external file formats
+
 The ```CREATE EXTERNAL FILE FORMAT``` command is used to specify the
 format of the external data that you’ll be loading from. For the New York public taxi data, we’ve used the
 two formats for storing the data in Azure Blob Storage
