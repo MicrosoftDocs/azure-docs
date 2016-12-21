@@ -8,7 +8,7 @@ manager: mattstee
 editor: ''
 tags: billing
 
-ms.assetid: 
+ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.service: billing
 ms.devlang: na
 ms.topic: article
