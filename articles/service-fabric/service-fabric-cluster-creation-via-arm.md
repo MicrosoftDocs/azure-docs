@@ -27,7 +27,7 @@ This step-by-step guide walks you through setting up a secure Azure Service Fabr
 
 The guide covers the following procedures:
 
-* Setting up Azure Key Vault to upload certificates for cluster and application security.
+* Setting up an Azure key vault to upload certificates for cluster and application security.
 * Creating a secured cluster in Azure by using Azure Resource Manager.
 * Authenticating users by using Azure Active Directory (Azure AD) for cluster management.
 
@@ -214,7 +214,7 @@ Value : https://mywestusvault.vault.azure.net:443/secrets/mycert/4d087088df974e8
 ```
 
 >[!NOTE]
->You will need the three preceding strings, CertificateThumbprint, SourceVault, and CertificateURL, to set up a secure Service Fabric cluster and to obtain any application certificates that you might be using for application security. If you do not save the three strings somewhere, it is very difficult to retrieve them by querying the key vault later.
+>You will need the three preceding strings, CertificateThumbprint, SourceVault, and CertificateURL, to set up a secure Service Fabric cluster and to obtain any application certificates that you might be using for application security. If you do not save the strings, it can be difficult to retrieve them by querying the key vault later.
 
 <a id="add-self-signed-certificate-to-key-vault"></a>
 
@@ -272,9 +272,7 @@ Value : https://westuskv1.vault.azure.net:443/secrets/chackonewcertificate1/ee24
 ```
 
 >[!NOTE]
->You will need the three preceding strings, CertificateThumbprint, SourceVault, and CertificateURL, to set up a secure Service Fabric  cluster and to obtain any application certificates that you might be using for application security. If you do not save the three strings somewhere, it is very difficult to retrieve them by querying the key vault later.
-
-
+>You will need the three preceding strings, CertificateThumbprint, SourceVault, and CertificateURL, to set up a secure Service Fabric cluster and to obtain any application certificates that you might be using for application security. If you do not save the strings, it can be difficult to retrieve them by querying the key vault later.
 
  At this point, you should have the following components set up and ready to go in Azure:
 
@@ -601,7 +599,7 @@ You can fill the parameters from the helper script in the Azure portal, as descr
 At this point, you have a secure cluster with Azure Active Directory providing management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
 
 ## Troubleshoot setting up Azure Active Directory for client authentication
-If you run into an issue while you are setting up Azure Active Directory for client authentication, review the following potential solutions.
+If you run into an issue while you are setting up Azure AD for client authentication, review the following potential solutions.
 
 ### Service Fabric Explorer prompts you to select a certificate
 #### Problem
@@ -610,46 +608,46 @@ After you sign in successfully to Azure AD in Service Fabric Explorer, the brows
 ![SFX select certificate dialog][sfx-select-certificate-dialog]
 
 #### Reason
-The user wasn’t assigned a role in the Azure AD cluster application. Thus, Azure AD authentication fails on Service Fabric cluster. Service Fabric Explorer falls back to certificate authentication.
+The user isn’t assigned a role in the Azure AD cluster application. Thus, Azure AD authentication fails on Service Fabric cluster. Service Fabric Explorer falls back to certificate authentication.
 
 #### Solution
-Follow the instructions for setting up Azure AD, and assign user roles. Also, we recommend that you turn on “USER ASSIGNMENT REQUIRED TO ACCESS APP” as `SetupApplications.ps1` does.
+Follow the instructions for setting up Azure AD, and assign user roles. Also, we recommend that you turn on “User assignment required to access app,” as `SetupApplications.ps1` does.
 
-### Connect with PowerShell fails with error: The specified credentials are invalid
+### Connection with PowerShell fails with an error: "The specified credentials are invalid"
 #### Problem
-When you use PowerShell to connect to the cluster by using “AzureActiveDirectory” security mode, after you sign in successfully to Azure AD, the connection fails with an error: "the specified credentials are invalid."
+When you use PowerShell to connect to the cluster by using “AzureActiveDirectory” security mode, after you sign in successfully to Azure AD, the connection fails with an error: "The specified credentials are invalid."
 
 #### Solution
 Same as above.
 
-### Service Fabric Explorer signing in return failure: AADSTS50011
+### Service Fabric Explorer returns a failure when you sign in: "AADSTS50011"
 #### Problem
-When you try to sign in to Azure AD in Service Fabric Explorer, the page returns a sign-in failure: "AADSTS50011: The reply address &lt;url&gt; does not match the reply addresses configured for the application: &lt;guid&gt;."
+When you try to sign in to Azure AD in Service Fabric Explorer, the page returns a failure: "AADSTS50011: The reply address &lt;url&gt; does not match the reply addresses configured for the application: &lt;guid&gt;."
 
 ![SFX reply address does not match][sfx-reply-address-not-match]
 
 #### Reason
-The cluster(web) application representing Service Fabric Explorer attempts to authenticate against Azure AD, as part of the request it provides the redirect return URL. But it is not listed in the Azure AD application ‘REPLY URL’ list.
+The cluster (web) application that represents Service Fabric Explorer attempts to authenticate against Azure AD, and as part of the request it provides the redirect return URL. But the URL is not listed in the Azure AD application **REPLY URL** list.
 
 #### Solution
-Add url of Service Fabric Explorer to ‘REPLY URL’ in the configure tab of cluster(web) application or replace one of the items in the list. Then save.
+On the **Configure** tab of the cluster (web) application, add the URL of Service Fabric Explorer to the **REPLY URL** list or replace one of the items in the list, and then save your change.
 
 ![Web application reply url][web-application-reply-url]
 
-### How to connect cluster with Azure AD authentication via PowerShell
-Use the following PowerShell command example to connect Service Fabric cluster:
+### Connect the cluster by using Azure AD authentication via PowerShell
+To connect the Service Fabric cluster, use the following PowerShell command example:
 
 ```powershell
 Connect-ServiceFabricCluster -ConnectionEndpoint <endpoint> -KeepAliveIntervalInSec 10 -AzureActiveDirectory -ServerCertThumbprint <thumbprint>
 ```
 
-To learn about Connect-ServiceFabricCluster cmdlet, see [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
+To learn about the Connect-ServiceFabricCluster cmdlet, see [Connect-ServiceFabricCluster](https://msdn.microsoft.com/library/mt125938.aspx).
 
-### Can I reuse the same Azure AD tenant for multiple clusters?
-Yes. But remember to add the URL of Service Fabric Explorer to your cluster(web) application otherwise Service Fabric Explorer won’t work.
+### Can I reuse the same Azure AD tenant in multiple clusters?
+Yes. But remember to add the URL of Service Fabric Explorer to your cluster (web) application. Otherwise, Service Fabric Explorer doesn’t work.
 
-### Why do I still need server certificate while Azure AD is enabled?
-FabricClient and FabricGateway perform mutual authentication. In case of Azure AD authentication, Azure AD integration provides client identity to server and server certificate is used to verify server identity. For more information about how certificate works on Service Fabric, check [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric]
+### Why do I still need a server certificate while Azure AD is enabled?
+FabricClient and FabricGateway perform a mutual authentication. During Azure AD authentication, Azure AD integration provides a client identity to the server, and the server certificate is used to verify the server identity. For more information about Service Fabric certificates, see [X.509 certificates and Service Fabric][x509-certificates-and-service-fabric].
 
 <!-- Links -->
 [azure-powershell]:https://azure.microsoft.com/documentation/articles/powershell-install-configure/
