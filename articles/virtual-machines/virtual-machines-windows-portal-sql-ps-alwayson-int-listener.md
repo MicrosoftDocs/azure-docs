@@ -95,7 +95,7 @@ foreach($VMName in $VMNames)
     }
 ```
 
-## Example script: Add an IP address to an existing load balancer with PowerShell
+## <a name="Add-IP"></a> Example script: Add an IP address to an existing load balancer with PowerShell
 To use more than one availability group, use PowerShell to add an additional IP address to an existing load balancer. Each IP address requires its own load balancing rule, probe port, and front port.
 
 The front end port is the port that applications use to connect to the SQL Server instance. IP addresses for different availability groups can use the same front end port.
