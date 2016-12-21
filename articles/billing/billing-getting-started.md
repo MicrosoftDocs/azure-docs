@@ -99,7 +99,7 @@ Depending on your scenario, you could configure auto-shutdown for your VMs in th
 
 ![Screenshot of auto-shutdown option in the portal](./media/billing-getting-started/auto-shutdown.PNG)
 
-Auto-shutdown isn't the same as when you shut down within the VM with power options. Auto-shutdown stops and deallocates your VMs. to stop additional usage charges. For more information, see pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) For more information about VM states.
+Auto-shutdown isn't the same as when you shut down within the VM with power options. Auto-shutdown stops and deallocates your VMs. to stop additional usage charges. For more information, see pricing FAQ for [Linux VMs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) and [Windows VMs](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) about VM states.
 
 For more cost-cutting features for your dev-test environments, check out [Azure DevTest Labs](https://azure.microsoft.com/services/devtest-lab/).
 
