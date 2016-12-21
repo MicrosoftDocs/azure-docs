@@ -22,14 +22,14 @@ ms.author: elbutter
 ## Defining External Data
 1. Define an external data source
 
-        ```sql
+```sql
         CREATE EXTERNAL DATA SOURCE NYTPublic
         WITH
         (
         TYPE = Hadoop
         , LOCATION = 'wasbs://2013@nytpublic.blob.core.windows.net/'
         );
-        ```
+```
 
 2. Define the external file formats
 The ```CREATE EXTERNAL FILE FORMAT``` command is used to specify the
