@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to add robust search capabilities, including activity monitoring, to custom web or mobile applications. API references and other documentation.
 ---
 # Azure Search Documentation
 
-Azure Search is a managed cloud search service that helps you build a powerful search experience into custom apps, and then monitor service, index, and query activity through portal views. Key capabilities include scalable full-text search over multiple languages, geo-spatial search, filtering and faceted navigation, type-ahead queries, hit highlighting, and custom analyzers.
+Learn how to add search capabilities to your custom web or mobile apps using Azure Search, a managed cloud search service. Tutorials, API references, and other documentation show you how to add scalable full-text search over multiple languages, geo-spatial search, filtering and faceted navigation, type-ahead queries, hit highlighting, and custom analyzers.
 
 <ul class="panelContent cardsFTitle">
     <li>
