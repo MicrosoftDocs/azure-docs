@@ -18,7 +18,7 @@ ms.author: magoedte
 
 ---
 # Forward job status and job streams from Automation to Log Analytics (OMS)
-Automation can send runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  While you can view this information in the Azure portal or with PowerShell by individual job status or all jobs for a particular Automation account, anything advanced to support your operational requirements requires you to create custom PowerShell scripts.  Now with Log Anaytics you can:
+Automation can send runbook job status and job streams to your Microsoft Operations Management Suite (OMS) Log Analytics workspace.  While you can view this information in the Azure portal or with PowerShell by individual job status or all jobs for a particular Automation account, anything advanced to support your operational requirements requires you to create custom PowerShell scripts.  Now with Log Analytics you can:
 
 * Get insight on your Automation jobs
 * Trigger an email or alert based on your runbook job status (e.g. failed or suspended)
@@ -29,11 +29,11 @@ Automation can send runbook job status and job streams to your Microsoft Operati
 ## Prerequisites and deployment considerations
 To start sending your Automation logs to Log Analytics, you must have the following:
 
-1. An OMS subscription. For additional information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md). 2. The November 2016 or later release of Azure PowerShell (v2.3.0)
+1. An OMS subscription. For more information, see [Get started with Log Analytics](../log-analytics/log-analytics-get-started.md). 2. The November 2016 or later release of Azure PowerShell (v2.3.0)
 
 To find the values for *AutomationAccountName*, in the Azure portal select your Automation account from the **Automation account** blade and select **All settings**.  From the **All settings** blade, under **Account Settings** select **Properties**.  In the **Properties** blade, you can note these values.<br> ![Automation Account properties](media/automation-manage-send-joblogs-log-analytics/automation-account-properties.png).
 
-## Setup integration with Log Analytics
+## Set up integration with Log Analytics
 1. On your computer, start **Windows PowerShell** from the **Start** screen.  
 2. Copy and the following PowerShell, edit the value for the `$workspaceId` and `$automationAccountId` then run it.
 
@@ -50,9 +50,9 @@ Set-AzureRmDiagnosticSetting -ResourceId $automationAccountId  -WorkspaceId $wor
 
 ```
 
-After running this script you should see records in Log Analytics about 30 minutes after new diagnostic data is written to storage.
+After running this script, you should see records in Log Analytics about 10 minutes after new diagnostic data is logged.
 
-To see the logs run the following query:
+To see the logs, run the following query:
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### Verify configuration
@@ -79,7 +79,7 @@ Automation creates two types of records in the OMS repository.
 | --- | --- |
 | Time |Date and time when the runbook job executed. |
 | resourceId |Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook. |
-| operationName |Specifies the type of operation performed in Azure.  For Automation, the value will be Job. |
+| operationName |Specifies the type of operation performed in Azure.  For Automation, the value is Job. |
 | resultType |The status of the runbook job.  Possible values are:<br>- Started<br>- Stopped<br>- Suspended<br>- Failed<br>- Succeeded |
 | resultDescription |Describes the runbook job result state.  Possible values are:<br>- Job is started<br>- Job Failed<br>- Job Completed |
 | CorrelationId |GUID that is the Correlation Id of the runbook job. |
@@ -93,7 +93,7 @@ Automation creates two types of records in the OMS repository.
 | --- | --- |
 | Time |Date and time when the runbook job executed. |
 | resourceId |Specifies the resource type in Azure.  For Automation, the value is the Automation account associated with the runbook. |
-| operationName |Specifies the type of operation performed in Azure.  For Automation, the value will be Job. |
+| operationName |Specifies the type of operation performed in Azure.  For Automation, the value is Job. |
 | resultType |The status of the runbook job.  Possible values are:<br>- InProgress |
 | resultDescription |Includes the output stream from the runbook. |
 | CorrelationId |GUID that is the Correlation Id of the runbook job. |
@@ -106,7 +106,7 @@ Automation creates two types of records in the OMS repository.
 ## Viewing Automation Logs in Log Analytics
 Now that you have started sending your Automation job logs to Log Analytics, let’s see what you can do with these logs inside OMS.
 
-To see the logs run the following query:
+To see the logs, run the following query:
 `Type=AzureDiagnostics ResourceProvider="MICROSOFT.AUTOMATION"`
 
 ### Send an email when a runbook job fails or suspends
