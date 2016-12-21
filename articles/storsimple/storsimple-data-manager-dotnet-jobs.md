@@ -83,7 +83,7 @@ Perform the following steps to use .NET to launch a data transformation job.
 
 6. The following code initializes the data transformation job instance. Add this in the **Main method**. Replace the values of configuration parameters as obtained earlier. Plug in the values of **Resource Group Name** and **Hybrid Data Resource name**. The **Resource Group Name** is the one that hosts the Hybrid Data Resource on which the job definition was configured.
 
-    ````
+    ```
     // Setup the configuration parameters.
     var configParams = new ConfigurationParams
     {
@@ -98,23 +98,23 @@ Perform the following steps to use .NET to launch a data transformation job.
     // Initialize the Data Transformation Job instance.
     DataTransformationJob dataTransformationJob = new DataTransformationJob(configParams);
 
-    ````
+    ```
 
 7. Specify the parameters with which the job definition needs to be run
 
-    ````
+    ```
     string jobDefinitionName = "job-definition-name";
 
     DataTransformationInput dataTransformationInput = dataTransformationJob.GetJobDefinitionParameters(jobDefinitionName);
 
-    ````
+    ```
 
     (OR)
 
     If you want to change the job definition parameters during run time, then add the following code:
 
 
-    ````
+    ```
     string jobDefinitionName = "job-definition-name";
     // Must start with a '\'
     var rootDirectories = new List<string> {@"\root"};
@@ -137,23 +137,23 @@ Perform the following steps to use .NET to launch a data transformation job.
         // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
-    ````
+    ```
 
 8. After the initialization, add the following code to trigger a data transformation job on the job definition. Plug in the appropriate **Job Definition Name**.
 
-    ````
+    ```
     // Trigger a job, retrieve the jobId and the retry interval for polling.
     int retryAfter;
     string jobId = dataTransformationJob.RunJobAsync(jobDefinitionName, 
     dataTransformationInput, out retryAfter);
 
-    ````
+    ```
 
 9. This job uploads the matched files present under the root directory on the StorSimple volume to the specified container. When a file is uploaded, a message is dropped in the queue (in the same storage account as the container) with the same name as the job definition. This message can be used as a trigger to initiate any further processing of the file.
 
 10. Once the job has been triggered, add the following code to track the job for completion.
 
-    ````
+    ```
     Job jobDetails = null;
 
     // Poll the job.
@@ -172,7 +172,7 @@ Perform the following steps to use .NET to launch a data transformation job.
     // To hold the console before exiting.
     Console.Read();
 
-    ````
+    ```
 
 
 ## Next steps
