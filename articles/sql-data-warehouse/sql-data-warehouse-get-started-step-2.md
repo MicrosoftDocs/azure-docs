@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
-editor: ''
+editor: 'barbkess'
 
 ms.assetid: E3705FB6-A3E1-454D-B918-562B577B8D89
 ms.service: sql-data-warehouse
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 12/21/2016
 ms.author: elbutter
 
 ---

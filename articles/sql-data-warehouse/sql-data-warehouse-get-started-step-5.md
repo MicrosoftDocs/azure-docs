@@ -1,11 +1,11 @@
 ---
-title: Step 5: Load Some Data | Microsoft Docs
+title: Step 5: Load Data | Microsoft Docs
 description: Get Started Tutorial with Azure SQL Data Warehouse.
 services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
-editor: ''
+editor: 'barbkess'
 
 ms.assetid: EF1A80BC-CF1B-4979-97A4-E86E5B611684
 ms.service: sql-data-warehouse
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 12/21/2016
 ms.author: elbutter
 
 ---

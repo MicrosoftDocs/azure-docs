@@ -5,7 +5,7 @@ services: sql-data-warehouse
 documentationcenter: NA
 author: hirokib
 manager: johnmac
-editor: ''
+editor: 'barbkess'
 
 ms.assetid: 34BADEE6-9846-4121-9979-ECA0A419B2E3
 ms.service: sql-data-warehouse
@@ -13,7 +13,7 @@ ms.devlang: NA
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: data-services
-ms.date: 10/31/2016
+ms.date: 12/21/2016
 ms.author: elbutter
 
 ---
@@ -31,8 +31,8 @@ the risks of malicious activity in case your application code is vulnerable to a
 
 2. By default, the server administrator login that you're currently connected with uses a smaller 
 resource class. Resource classes help you control memory allocation and CPU cycles given to a query. 
-Users in smallrc are given a smaller amount of memory and can take advantage of higher concurrency. 
-In contrast, users assigned to xlargerc are given large amounts of memory, and therefore fewer of their queries can run concurrently. 
+Users in **smallrc** are given a smaller amount of memory and can take advantage of higher concurrency. 
+In contrast, users assigned to **xlargerc** are given large amounts of memory, and therefore fewer of their queries can run concurrently. 
 For loading data in a way that best optimizes compression, you'll want to make sure the user loading data 
 is part of a larger resource class. Read more about resource classes [here](./sql-data-warehouse-develop-concurrency.md#resource-classes):
 
@@ -64,12 +64,12 @@ GRANT CONTROL ON DATABASE::[NYT] to LoadingUser;
 > If your database name has hyphens in it, be sure to wrap it in brackets! 
 >
 
-5. Add your database user to the xlargerc resource class role
+5. Add your database user to the **xlargerc** resource class role
 ```sql
 EXEC sp_addrolememeber 'xlargerc', 'LoadingUser';
 ```
 
-6. Login with your new login to your database
+6. Login to your database with your new credentials
 
 ![Login With New Login](./media/sql-data-warehouse-get-started-tutorial/new-login.png)
 
