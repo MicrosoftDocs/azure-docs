@@ -22,7 +22,7 @@ ms.author: jlian
 
 When you sign up for Azure, there are several things you should do to get a better idea of your spend. In the Azure portal, you can see your current cost breakdown and burn rate. You can also download past invoices and detail usage files. If you want to group costs for resources used for different projects or teams, look at resource tagging. If your organization has a reporting system that you prefer to use, check out the billing APIs. 
 
-If you're an Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship customer, then many features in this article do not apply for you. Instead, we have a different set of tools you can use for cost management, see [Additional resources for EA, CSP, and Sponsorship](#other-offers).
+If you're an Enterprise Agreement (EA), Cloud Solution Provider (CSP), or Azure Sponsorship customer, then many features in this article do not apply to you. Instead, we have a different set of tools you can use for cost management, see [Additional resources for EA, CSP, and Sponsorship](#other-offers).
 
 If you're a Free Trial, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO), or BizSpark customer, then learn about [spending limit](#spending-limit) to avoid getting disabled. 
 
@@ -48,7 +48,7 @@ If you're not the Account admin, then somebody probably gave you partial access 
 
 If your Account admin is no longer with your organization and you need to manage billing, [contact support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). 
 
-### <a name="spending-limit"></a> Check if you have a spending limit on 
+### <a name="spending-limit"></a> Check if you have a spending limit on
 
 If you have a subscription that uses credits, then the spending limit is turned on for you by default. This way, when you spend all your credits, your credit card doesn't get charged. See the [full list of Azure offers and the availability of spending limit](https://azure.microsoft.com/support/legal/offer-details/).
 
@@ -58,7 +58,7 @@ To see if you've got spending limit on, go to the [Subscriptions view in the Acc
 
 ![Screenshot that shows a warning about spending limit being on in the Account Center](./media/billing-getting-started/spending-limit-banner.PNG)
 
-Click the banner and follow prompts to remove the spending limit. For more information, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/).
+Click the banner and follow prompts to remove the spending limit. If you didn't enter credit card information when you signed up, you must enter it to remove the spending limit. For more information, see [Azure spending limit – How it works and how to enable or remove it](https://azure.microsoft.com/pricing/spending-limits/).
 
 ### Set up billing alerts
 
@@ -141,7 +141,7 @@ If you manage multiple subscriptions as the Account admin, you can see the aggre
 
 ### <a name="invoice-and-usage"></a> Download invoice and detail usage after your first billing period
 
-After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. These files help to understand what is ultimately billed to you after tax, discounts, and credits. For more information, see [How to download your Azure billing invoice and daily usage data](https://docs.microsoft.com/azure/billing-download-azure-invoice-daily-usage-date) and [Understand your bill for Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
+After your first billing period, you can download your Portable Document Format (.pdf) invoice and Comma-Separated Values (.csv) usage details. These files help to understand what is ultimately billed to you after tax, discounts, and credits. If you didn't have a payment method attached to your subscription, these files might be unavailable for you. For more information, see [How to download your Azure billing invoice and daily usage data](https://docs.microsoft.com/azure/billing-download-azure-invoice-daily-usage-date) and [Understand your bill for Microsoft Azure](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
 ![Screenshot of a .pdf invoice](./media/billing-getting-started/invoice.png)
 
