@@ -46,7 +46,7 @@ In your title:
 - Don’t use the words “free” or “sale” or include exclamation points.
 
 
-![Screenshot of an Office Store listing with an effective title and description next to one that is less effective](..\media\d9906e6a-272a-4de0-b160-a9582d6cddd9.png)
+![Screenshot of an Office Store listing with an effective title and description next to one that is less effective](..\..\images\d9906e6a-272a-4de0-b160-a9582d6cddd9.png)
 
 
 ### Use a consistent add-in name
