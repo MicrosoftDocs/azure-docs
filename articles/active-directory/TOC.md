@@ -277,7 +277,7 @@
 
 
 # Reference
-## [PowerShell cmdlets](/powershell/ )
+## [Azure AD PowerShell cmdlets](/powershell/azure%20ad%20cmdlets/)
 ## [Java API Reference](/java/api)
 ## [.NET API](/active-directory/adal/microsoft.identitymodel.clients.activedirectory)
 ## [Service limits and restrictions](active-directory-service-limits-restrictions.md)
