@@ -28,7 +28,7 @@ Azure Internal Load Balancing (ILB) provides load balancing between virtual mach
 ILB enables the following types of load balancing:
 
 * Within a cloud service, from virtual machines to a set of virtual machines that reside within the same cloud service (see Figure 1).
-* Within a virtual network, from virtual machines in the virtual network to a set of virtual machines that reside within the same cloud service of the virtual network (see Figure 2).
+* Within a virtual network, from virtual machines in the virtual network to a set of virtual machines that reside within a different cloud service (or no cloud service for ARM VMs) and are attached to the same virtual network (see Figure 2).
 * For a cross-premises virtual network, from on-premises computers to a set of virtual machines that reside within the same cloud service of the virtual network (see Figure 3).
 * Internet-facing, multi-tier applications in which the back-end tiers are not Internet-facing but require load balancing for traffic from the Internet-facing tier.
 * Load balancing for LOB applications hosted in Azure without requiring additional load balancer hardware or software. Including on-premises servers in the set of computers whose traffic is load balanced.
