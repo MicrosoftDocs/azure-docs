@@ -40,7 +40,7 @@ This tutorial shows you how to create and monitor an Azure data factory using th
 ## Prerequisites
 * Go through [Tutorial Overview](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) and complete the **prerequisite** steps.
 * Install [Curl](https://curl.haxx.se/dlwiz/) on your machine. You use the Curl tool with REST commands to create a data factory. 
-* Follow instructions from [this article](../resource-group-create-service-principal-portal.md) to: 
+* Follow instructions from [this article](../azure-resource-manager/resource-group-create-service-principal-portal.md) to: 
   1. Create a Web application named **ADFCopyTutorialApp** in Azure Active Directory.
   2. Get **client ID** and **secret key**. 
   3. Get **tenant ID**. 
