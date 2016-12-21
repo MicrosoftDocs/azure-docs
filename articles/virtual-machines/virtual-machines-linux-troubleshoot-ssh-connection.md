@@ -90,14 +90,14 @@ If SSHD appears to function correctly, you can reset the password for a giver us
 
 ```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
-     --username myUsername --password myPassword
+     --user-name myUsername --password myPassword
 ```
 
 If using SSH key authentication, you can reset the SSH key for a given user. The following example updates the SSH key stored in `~/.ssh/id_rsa.pub` for the user named `myUsername`, on the VM named `myVM` in `myResourceGroup`. Use your own values as follows:
 
 ```azurecli
 azure vm reset-access --resource-group myResourceGroup --name myVM \
-    --username myUsername --ssh-key-file ~/.ssh/id_rsa.pub
+    --user-name myUsername --ssh-key-file ~/.ssh/id_rsa.pub
 ```
 
 ## Use the Azure CLI 2.0 (Preview)
