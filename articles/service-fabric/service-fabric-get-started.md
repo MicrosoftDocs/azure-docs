@@ -13,8 +13,8 @@ ms.devlang: dotNet
 ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/13/2016
-ms.author: ryanwi
+ms.date: 12/15/2016
+ms.author: ryanwi, mikhegn
 
 ---
 # Prepare your development environment
@@ -34,6 +34,7 @@ The following operating system versions are supported for development:
 * Windows 7
 * Windows 8/Windows 8.1
 * Windows Server 2012 R2
+* Windows Server 2016
 * Windows 10
 
 > [!NOTE]
@@ -41,17 +42,21 @@ The following operating system versions are supported for development:
 > 
 > 
 
-## Install the runtime, SDK, and tools
-The Web Platform Installer offers two configurations for Service Fabric development.
+## Install the SDK and tools
+### To use Visual Studio 2017 RC
+Service Fabric Tools are part of the Azure Development and Management workload in Visual Studio 2017 RC. You need to enable this workload as part of your Visual Studio installation.
+In addition, you need to install the Microsoft Azure Service Fabric SDK, using Web Platform Installer.
 
-Visual Studio 2017 (Azure Development and Management Workload should be installed):
+* [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
-* [Install the Service Fabric runtime and SDK (no Visual Studio tools)][core-sdk]
+### To use Visual Studio 2015 (requires Visual Studio 2015 Update 2 or later)
+For Visual Studio 2015, Service Fabric tools are installed together with the SDK, using the Web Platform Installer:
 
-Visual Studio 2015 (requires Visual Studio 2015 Update 2 or later):
+* [Install the Microsoft Azure Service Fabric SDK and Tools)][full-bundle-vs2015]
 
-* [Install the Service Fabric runtime, SDK, and tools)][full-bundle-vs2015]
-* [Install the Service Fabric runtime and SDK only (no Visual Studio tools)][core-sdk]
+### SDK installation only
+If you only need the SDK, you can install this package:
+* [Install the Microsoft Azure Service Fabric SDK][core-sdk]
 
 > [!WARNING]
 > Customers have reported errors during installation when using these launch links, or when these links were used in Chrome browser. These are known issues in Web Platform Installer which are being addressed.  As a workaround, please try the following:

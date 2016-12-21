@@ -9,9 +9,9 @@ editor: ''
 
 ms.assetid: a012bb85-7fb4-4fde-a2fc-cf426c0a56bb
 ms.service: sql-database
-ms.custom: auth and access
+ms.custom: authentication and authorization
 ms.devlang: NA
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 ms.workload: data-management
 ms.date: 06/09/2016
@@ -37,7 +37,7 @@ Authentication refers to how you prove your identity when connecting to the data
 
 When you created the logical server for your database, you specified a "server admin" login with a username and password. Using these credentials, you can authenticate to any database on that server as the database owner, or "dbo." If you want to use Azure Active Directory Authentication, you must create another server admin called the "Azure AD admin," which is allowed to administer Azure AD users and groups. This admin can also perform all operations that a regular server admin can. See [Connecting to SQL Database By Using Azure Active Directory Authentication](sql-database-aad-authentication.md) for a walkthrough of how to create an Azure AD admin to enable Azure Active Directory Authentication.
 
-As a best practice your application should use a different account to authenticate -- this way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. The recommended approach is to create a [contained database user](https://msdn.microsoft.com/library/ff929188), which allows your app to authenticate directly to a single database. You can create a contained database user that uses SQL Authentication by executing the following T-SQL command while connected to your user database as the server admin login:
+As a best practice your application should use a different account to authenticate -- this way you can limit the permissions granted to the application and reduce the risks of malicious activity in case your application code is vulnerable to a SQL injection attack. The recommended approach is to create a [contained database user](https://msdn.microsoft.com/library/ff929188), which allows your app to authenticate directly to the database. You can create a contained database user that uses SQL Authentication by executing the following T-SQL command while connected to your user database as the server admin login:
 
 ```
 CREATE USER ApplicationUser WITH PASSWORD = 'strong_password'; -- SQL Authentication
@@ -87,10 +87,13 @@ For other ways to encrypt your data secrets, consider:
 * If you need a Hardware Security Module or central management of your encryption key hierarchy, consider using [Azure Key Vault with SQL Server in an Azure VM](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx).
 * [Always Encrypted](https://msdn.microsoft.com/library/mt163865.aspx) (in preview) makes encryption transparent to applications and allows clients to encrypt sensitive data inside client applications without sharing the encryption keys with SQL Database.
 
-## Auditing
-Auditing and tracking database events can help you maintain regulatory compliance and identify suspicious activity. SQL Database Auditing allows you to record events in your database to an audit log in your Azure Storage account. SQL Database Auditing also integrates with Microsoft Power BI to facilitate drill-down reports and analyses. For more information, see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md).
+## Auditing & Threat Detection 
+SQL Database Auditing tracks database activities and helps you to maintain regulatory compliance, by recording database events to an audit log in your Azure Storage account. Auditing enables you to understand ongoing database activities, as well as analyze and investigate historical activity to identify potential threats or suspected abuse and security violations. For additional information, see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md).  
 
-SQL Database Threat Detection provides an additional layer of security on top of Auditing. It enables you to respond to threats as they occur by providing security alerts on anomalous activities. For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).  
+Threat Detection complements auditing, by providing an additional layer of security intelligence built into the Azure SQL Database service. It works around the clock to learn, profile and detect anomalous database activities indicating a possible threat to the database. It immediately notifies you about any such suspicious activities, such as potential vulnerabilities and SQL injection attacks, as well as anomalous database access patterns. It enables you to respond to threats by providing an informative and actionable alert about such anomalous database activities as they occur.  For more information, see [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md). 
+
+## Data Masking 
+SQL Database Dynamic Data Masking limits sensitive data exposure by masking it to non-privileged users. Dynamic Data Masking automatically discovers potentially sensitive data in Azure SQL Database and provides actionable recommendations to mask these fields, with minimal impact on the application layer. It works by obfuscating the sensitive data in the result set of a query over designated database fields, while the data in the database is not changed. For more information, see [Get started with SQL Database Dynamic Data Masking](sql-database-dynamic-data-masking-get-started.md).
 
 ## Compliance
 In addition to the above features and functionality that can help your application meet various security compliance requirements, Azure SQL Database also participates in regular audits and has been certified against a number of compliance standards. For more information, see the [Microsoft Azure Trust Center](https://azure.microsoft.com/support/trust-center/), where you can find the most current list of [SQL Database compliance certifications](https://azure.microsoft.com/support/trust-center/services/).
