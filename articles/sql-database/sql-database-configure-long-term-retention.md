@@ -14,17 +14,13 @@ ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/21/2016
-ms.author: carlrab
+ms.date: 12/22/2016
+ms.author: carlrab; sstein
 
 ---
 # Configure long-term retention of automated backups in an Azure Recovery Services vault 
 
 In this How To topic, you learn how to configure long-term retention of automated backups in an Azure Recovery Services vault.
-
-> [!TIP]
-> To delete long-term retention backups, see [Delete long-term retention backups](sql-database-long-term-retention-delete.md).
-
 
 ## Configure long-term retention using the Azure portal
 
@@ -97,7 +93,7 @@ In this How To topic, you learn how to configure long-term retention of automate
 
 ## Configure long-term backup retention using PowerShell
 
-To configure long-term backup retention for a database:
+Configuring long-term retention requires the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), to perform the following steps:
 
 1. Create an Azure recovery services vault in the same region, subscription, and resource group as your SQL Database server. ([New-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/new-azurermrecoveryservicesvault), [Set-AzureRmRecoveryServicesBackupProperties](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/set-azurermrecoveryservicesbackupproperties))
 2. Register your Azure SQL server to the vault ([Set-AzureRmSqlServerBackupLongTermRetentionVault](https://docs.microsoft.com/powershell/resourcemanager/azurerm.sql/v2.3.0/set-azurermsqlserverbackuplongtermretentionvault))
@@ -136,15 +132,18 @@ Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGro
 $retentionPolicy = Get-AzureRmRecoveryServicesBackupRetentionPolicyObject -WorkloadType AzureSQLDatabase
 
 # Set the retention values to 1 year (set to anytime between 1 week and 10 years)
+#################################################################################
 $retentionPolicy.RetentionDurationType = "Years"
 $retentionPolicy.RetentionCount = 1
 
 $retentionPolicyName = "myOneYearRetentionPolicy"
 
 # Set the vault context to the vault you are creating the policy for
+####################################################################
 Set-AzureRmRecoveryServicesVaultContext -Vault $vault
 
 # Create the new policy
+#######################
 $policy = New-AzureRmRecoveryServicesBackupProtectionPolicy -name $retentionPolicyName –WorkloadType AzureSQLDatabase -retentionPolicy $retentionPolicy
 
 
@@ -162,3 +161,4 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy –ResourceGroupName $resour
 - To learn about service-generated automatic backups, see [automatic backups](sql-database-automated-backups.md)
 - To learn about long-term backup retention, see [long-term backup retention](sql-database-long-term-retention.md)
 - To learn about restoring from backups, see [restore from backup](sql-database-recovery-using-backups.md)
+- To delete long-term retention backups, see [delete long-term retention backups](sql-database-long-term-retention-delete.md)

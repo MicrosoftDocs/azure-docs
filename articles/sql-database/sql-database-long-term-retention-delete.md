@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.workload: data-management
 ms.topic: article
 ms.tgt_pltfrm: NA
-ms.date: 12/21/2016
+ms.date: 12/22/2016
 ms.author: sstein
 
 ---
@@ -27,10 +27,21 @@ In this How To topic, you learn how to delete long-term retention backups and th
 
 ## Delete long-term retention backups and the Azure Recovery Services vault using PowerShell
 
+Deleting backups in long-term retention requires the latest [Azure PowerShell](https://docs.microsoft.com/powershell/azureps-cmdlets-docs/), and uses the following cmdlets:
+
+- [Get-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/get-azurermrecoveryservicesvault)
+- [Get-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupcontainer)
+- [Get-AzureRmRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupitem)
+- [Disable-AzureRmRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/disable-azurermrecoveryservicesbackupprotection)
+- [Unregister-AzureRmRecoveryServicesBackupContainer](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/unregister-azurermrecoveryservicesbackupcontainer)
+- [Remove-AzureRmRecoveryServicesVault](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices/v2.3.0/remove-azurermrecoveryservicesvault)
+
+
+For more information, see [Storing Azure SQL Database Backups for up to 10 years](sql-database-long-term-retention.md).
 
 ```
-# Delete long-term backups and the vault
-########################################
+# Delete long-term backups
+##########################
 
 $resourceGroupName = "{resource-group-name}"
 $recoveryServiceVaultName = "{vault-name}"
@@ -47,12 +58,14 @@ ForEach ($container in $containers)
    ForEach ($item in $items)
    {
       # Remove the backups from the vault
+      ###################################
       Disable-AzureRmRecoveryServicesBackupProtection –item $item -RemoveRecoveryPoints -ea SilentlyContinue
    }
    
    Unregister-AzureRmRecoveryServicesBackupContainer –Container $container
 }
-
+# Delete teh recovery services vault
+####################################
 Remove-AzureRmRecoveryServicesVault -Vault $vault
 ```
 
