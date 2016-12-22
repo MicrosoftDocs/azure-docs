@@ -8,7 +8,7 @@ Learn how to understand your Azure billing, and monitor usage and costs. Tutoria
 
 <ul class="panelContent cardsFTitle">
     <li>
-        <a href="/azure/billing/billing-getting-started">
+        <a href="/azure/billing/billing-understand-your-bill">
         <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
@@ -18,7 +18,7 @@ Learn how to understand your Azure billing, and monitor usage and costs. Tutoria
                         </div>
                     </div>
                     <div class="cardText">
-                        <h3>Get started with Azure Billing</h3>
+                        <h3>Learn about Azure Billing</h3>
                     </div>
                 </div>
             </div>
