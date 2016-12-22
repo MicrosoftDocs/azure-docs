@@ -103,7 +103,7 @@ In the future, you can revise your Logic app in source control and use Visual St
 > 
 
 ## Adding a Logic App to an existing Resource Group project
-If you have an existing Resource Group project, then adding a logic app to it, or add another logic app along side the one you previously created, can be done through the JSON Outline window.
+If you have an existing Resource Group project, then adding a logic app to it, or adding another logic app along side the one you previously created, can be done through the JSON Outline window.
 1. Open the `<template>.json` file.
 2. Open the JSON Outline window.  The JSON Outline window can be found under **View** > **Other Windows** > **JSON Outline**.
 3. To add a resource to the template file, either click the Add Resource button on the top of the JSON Outline window or right-click on **resources** and select **Add New Resource**.
