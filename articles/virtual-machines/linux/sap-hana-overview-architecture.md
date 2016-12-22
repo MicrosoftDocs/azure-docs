@@ -211,7 +211,7 @@ provides the ability for SAP HANA on Azure (Large Instances) to be registered an
 > The Operating System delivered by Microsoft is not registered with Red Hat, nor is it connected to a Red Hat Subscription Manager Instance.
 
 - Red Hat Subscription Manager deployed in Azure on an Azure VM. This provides the ability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by Red Hat (as there is no direct internet access from within the tenant deployed on the Azure Large Instance stamp).
-- Servie and support Contract with the Linux provider that is either implicitely included in the specific Linux version subscription or other service and support contract that is covering the specific Linux version used and that fulfills the criteria of SAP.
+- Servie and support contract with the Linux provider that is either implicitely included in the specific Linux version subscription or other service and support contract that is covering the specific Linux version used and that fulfills the criteria of SAP.
 
 **Database:**
 
