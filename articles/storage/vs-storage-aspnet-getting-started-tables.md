@@ -57,6 +57,38 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
     using Microsoft.WindowsAzure.Storage.Auth;
     using Microsoft.WindowsAzure.Storage.Table;
 	```
+
+### Create a model class
+
+Many of the examples in this article use **TableEntity**-derived class called **CustomerEntity**. The following steps guide you through declaring this class as a model class.
+
+1. In the **Solution Explorer**, right-click **Models**, and, from the context menu, select **Add->Class**.
+
+1. On the **Add New Item** dialog, name the class, **CustomerEntity**.
+
+1. Open the `CustomerEntity.cs` file, and add the following **using** directive. 
+
+    ```csharp
+	using Microsoft.WindowsAzure.Storage.Table;
+    ```
+
+1. Modify the class so that, when finished, the class is declared as in the following code. The class declares an entity class called **CustomerEntity** that uses the customer's first name as the row key and last name as the partition key.
+
+    ```csharp
+    public class CustomerEntity : TableEntity
+    {
+        public CustomerEntity(string lastName, string firstName)
+        {
+            this.PartitionKey = lastName;
+            this.RowKey = firstName;
+        }
+
+        public CustomerEntity() { }
+
+        public string Email { get; set; }
+    }
+    ```
+
 ## Create a table
 
 The following steps illustrate how to create a table.
@@ -73,6 +105,7 @@ The following steps illustrate how to create a table.
         return View();
     }
     ```
+
 1. Within the **CreateTable** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
@@ -91,6 +124,7 @@ The following steps illustrate how to create a table.
     ```csharp
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
+
 1. Call the **CloudTable.CreateIfNotExists** method to create the table if it does not yet exist. The **CloudTable.CreateIfNotExists** method returns **true** if the table does not exist, and is successfully created; otherwise, **false** is returned.    
 
     ```csharp
@@ -145,32 +179,9 @@ partition keys, but using diverse partition keys allows for greater scalability 
 the property must be a public property of a supported type that exposes both setting and retrieving values.
 The entity class *must* declare a public parameter-less constructor.
 
-1. In the **Solution Explorer**, right-click **Models**, and, from the context menu, select **Add->Class**.
-
-1. On the **Add New Item** dialog, name the class, **CustomerEntity**.
-
-1. Open the `CustomerEntity.cs` file, and add the following **using** directive. 
-
-    ```csharp
-	using Microsoft.WindowsAzure.Storage.Table;
-    ```
-
-1. Modify the class so that, when finished, the class is declared as in the following code. The class declares an entity class called **CustomerEntity** that uses the customer's first name as the row key and last name as the partition key.
-
-    ```csharp
-    public class CustomerEntity : TableEntity
-    {
-        public CustomerEntity(string lastName, string firstName)
-        {
-            this.PartitionKey = lastName;
-            this.RowKey = firstName;
-        }
-
-        public CustomerEntity() { }
-
-        public string Email { get; set; }
-    }
-    ```
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `TablesController.cs` file.
 
@@ -271,7 +282,7 @@ In addition to being able to [add an entity to a table one at a time](#add-an-en
 
 > [!NOTE]
 > 
-> The code in this section references the **CustomerEntity** class presented in the section, [Add an entity to a table](#add-an-entity-to-a-table). 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `TablesController.cs` file.
 
@@ -391,7 +402,7 @@ This section illustrates how to get a single entity from a table using the entit
 
 > [!NOTE]
 > 
-> The code in this section references the **CustomerEntity** class and data presented in the section, [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment), and uses the data presented in the section, [Add an entity to a table](#add-an-entity-to-a-table). 
 
 1. Open the `TablesController.cs` file.
 
@@ -487,7 +498,7 @@ This section illustrates how to get a single entity from a table using the entit
 
 ## Get all entities in a partition
 
-As mentioned in the section, [Add an entity to a table](add-an-entity-to-a-table), the 
+As mentioned in the section, [Add an entity to a table](#add-an-entity-to-a-table), the 
 combination of a partition and a row key uniquely identify an entity in a table. Entities with the
 same partition key can be queried faster than those with different
 partition keys. In this section, you'll see how to query a table for all the entities from a 
@@ -495,7 +506,7 @@ specified partition.
 
 > [!NOTE]
 > 
-> The code in this section references the **CustomerEntity** class and data presented in the section, [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment), and uses the data presented in the section, [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). 
 
 1. Open the `TablesController.cs` file.
 
@@ -604,7 +615,9 @@ specified partition.
 
 In this section, you'll learn how to delete an entity.
 
-> The code in this section references the **CustomerEntity** class and data presented in the section, [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). 
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment), and uses the data presented in the section, [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). 
 
 1. Open the `TablesController.cs` file.
 
