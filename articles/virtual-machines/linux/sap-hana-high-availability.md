@@ -24,13 +24,15 @@ ms.author: sedusch
 [1944799]:https://launchpad.support.sap.com/#/notes/1944799
 [suse-hana-ha-guide]:https://www.suse.com/docrep/documents/ir8w88iwu7/suse_linux_enterprise_server_for_sap_applications_12_sp1.pdf
 [sap-swcenter]:https://launchpad.support.sap.com/#/softwarecenter
+[template-multisid-db]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-multi-sid-db%2Fazuredeploy.json
+[template-converged]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-3-tier-marketplace-image-converged%2Fazuredeploy.json
 
 On-premises, you can use either HANA System Replication or use shared storage to establish high availability for SAP HANA.
 We currently only support setting up HANA System Replication on Azure. 
 SAP HANA Replication consists of one master node and at least one slave node. Changes to the data on the master node are replicated to the slave nodes synchronously or asynchronously.
 
 This article describes how to deploy the virtual machines, configure the virtual machines, install the cluster framework, install and configure SAP HANA System Replication.
-In the example configurations, installation commands etc. instance number 50 and HANA System ID HDB is used.
+In the example configurations, installation commands etc. instance number 04 and HANA System ID HDB is used.
 
 Read the following SAP Notes and papers first
 
@@ -82,20 +84,43 @@ The Azure Marketplace contains an image for SUSE Linux Enterprise Server for SAP
     1. Create a health probe
         1. Open the load balancer, select health probes and click Add
         1. Enter the name of the new health probe (for example hana-hp)
-        1. Select TCP as protocol, port 625**50**, keep Interval 5 and Unhealthy threshold 2
+        1. Select TCP as protocol, port 625**04**, keep Interval 5 and Unhealthy threshold 2
         1. Click OK
     1. Create load balancing rules
         1. Open the load balancer, select load balancing rules and click Add
-        1. Enter the name of the new load balancer rule (for example hana-lb-3**50**15)
+        1. Enter the name of the new load balancer rule (for example hana-lb-3**04**15)
         1. Select the frontend IP address, backend pool and health probe you created earlier (for example hana-frontend)
-        1. Keep protocol TCP, enter port 3**50**15
+        1. Keep protocol TCP, enter port 3**04**15
         1. Increase idle timeout to 30 minutes
         1. **Make sure to enable Floating IP**
         1. Click OK
-        1. Repeat the steps above for port 3**50**17
+        1. Repeat the steps above for port 3**04**17
 
 ### Deploy with template
-TODO
+You can use one of the quick start templates on github to deploy all required resources. The template deploys the virtual machines, the load balancer, availability set etc.
+Follow these steps to deploy the template:
+
+1. Open the [database template][template-multisid-db] or the [converged template][template-converged] on the Azure Portal
+   The database template only creates the load-balancing rules for a database whereas the converged template also creates the load-balancing rules for an ASCS/SCS and ERS (Linux only) instance. If you plan to install an SAP NetWeaver based system and you also want to install the ASCS/SCS instance on the same machines, use the [converged template][template-converged].
+1. Enter the following parameters
+    1. Sap System Id  
+       Enter the SAP system Id of the SAP system you want to install. The Id will be used as a prefix for the resources that are deployed.
+    1. Stack Type (only applicable if you use the converged template)  
+       Select the SAP NetWeaver stack type
+    1. Os Type  
+       Select one of the Linux distributions. For this example, select SLES 12 BYOS
+    1. Db Type  
+       Select HANA
+    1. Sap System Size  
+       The amount of SAPS the new system will provide. If you are not sure how many SAPS the system will require, please ask your SAP Technology Partner or System Integrator
+    1. System Availability  
+       Select HA
+    1. Admin Username and Admin Password  
+       A new user is created that can be used to log on to the machine.
+    1. New Or Existing Subnet  
+       Determines whether a new virtual network and subnet should be created or an existing subnet should be used. If you already have a virtual network that is connected to your on-premises network, select existing.
+    1. Subnet Id  
+    The ID of the subnet to which the virtual machines should be connected to. Select the subnet of your VPN or Express Route virtual network to connect the virtual machine to your on-premises network. The ID usually looks like /subscriptions/`<subscription id`>/resourceGroups/`<resource group name`>/providers/Microsoft.Network/virtualNetworks/`<virtual network name`>/subnets/`<subnet name`>
 
 ## Setting up Linux HA
 
@@ -109,8 +134,6 @@ The following items are prefixed with either [A] - applicable to all nodes, [1] 
     </code></pre>
 1. [A] Setup disk layout
     1. LVM  
-    TODO
-    1. MDADM  
     TODO
     1. Plain Disks  
        For small or demo systems, you can place your HANA data and log files on one disk. The following commands create a partition on /dev/sdc and format it with xfs.
@@ -220,7 +243,7 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     * Do you want to add additional hosts to the system? (y/n) [n]: -> ENTER
     * Enter SAP HANA System ID: <SID of HANA e.g. HDB>
     * Enter Instance Number [00]:   
-  HANA Instance number. Use 50 if you used the Azure Template or followed the example above
+  HANA Instance number. Use 04 if you used the Azure Template or followed the example above
     * Select Database Mode / Enter Index [1]: -> ENTER
     * Select System Usage / Enter Index [4]:  
   Select the system Usage
@@ -248,23 +271,23 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
     </code></pre>
 
 1. [1] Create HANA replication (as root)  
-    Run the following command. Make sure to replace bold strings (HANA System ID HDB and instance number 50) with the values of your SAP HANA installation.
+    Run the following command. Make sure to replace bold strings (HANA System ID HDB and instance number 04) with the values of your SAP HANA installation.
     <pre><code>
-    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>50</b>/exe"
-    hdbsql -u system -i <b>50</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"' 
-    hdbsql -u system -i <b>50</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync' 
-    hdbsql -u system -i <b>50</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
+    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>04</b>/exe"
+    hdbsql -u system -i <b>04</b> 'CREATE USER <b>hdb</b>hasync PASSWORD "<b>passwd</b>"' 
+    hdbsql -u system -i <b>04</b> 'GRANT DATA ADMIN TO <b>hdb</b>hasync' 
+    hdbsql -u system -i <b>04</b> 'ALTER USER <b>hdb</b>hasync DISABLE PASSWORD LIFETIME' 
     </code></pre>
 
 1. [A] Create keystore entry (as root)
     <pre><code>
-    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>50</b>/exe"
-    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>50</b>15 <b>hdb</b>hasync <b>passwd</b>
+    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>04</b>/exe"
+    hdbuserstore SET <b>hdb</b>haloc localhost:3<b>04</b>15 <b>hdb</b>hasync <b>passwd</b>
     </code></pre>
 1. [1] Backup database
     <pre><code>
-    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>50</b>/exe"
-    hdbsql -u system -i <b>50</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
+    PATH="$PATH:/usr/sap/<b>HDB</b>/HDB<b>04</b>/exe"
+    hdbsql -u system -i <b>04</b> "BACKUP DATA USING FILE ('<b>initialbackup</b>')" 
     </code></pre>
 1. [1] Switch to the sapsid user (for example hdbadm) and create the primary site.
     <pre><code>
@@ -274,8 +297,8 @@ Follow chapter 4 of the [SAP HANA SR Performance Optimized Scenario guide][suse-
 1. [1] Switch to the sapsid user (for example hdbadm) and create the secondary site.
     <pre><code>
     su - <b>hdb</b>adm
-    sapcontrol -nr <b>50</b> -function StopWait 600 10
-    hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE2</b> 
+    sapcontrol -nr <b>04</b> -function StopWait 600 10
+    hdbnsutil -sr_register --remoteHost=<b>saphanavm1</b> --remoteInstance=<b>04</b> --replicationMode=sync --name=<b>SITE2</b> 
     </code></pre>
 
 ## Configure Cluster Framework
@@ -360,14 +383,14 @@ vi crm-saphanatop.txt
 # enter the following to crm-saphana.txt
 # replace the bold string with your instance number and HANA system id
 <code>
-primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>50</b> ocf:suse:SAPHanaTopology \
-    operations $id="rsc_sap2_<b>HDB</b>_HDB<b>50</b>-operations" \
+primitive rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>04</b> ocf:suse:SAPHanaTopology \
+    operations $id="rsc_sap2_<b>HDB</b>_HDB<b>04</b>-operations" \
     op monitor interval="10" timeout="600" \
     op start interval="0" timeout="600" \
     op stop interval="0" timeout="300" \
-    params SID="<b>HDB</b>" InstanceNumber="<b>50</b>"
+    params SID="<b>HDB</b>" InstanceNumber="<b>04</b>"
 
-clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>50</b> rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>50</b> \
+clone cln_SAPHanaTopology_<b>HDB</b>_HDB<b>04</b> rsc_SAPHanaTopology_<b>HDB</b>_HDB<b>04</b> \
     meta is-managed="true" clone-node-max="1" target-role="Started" interleave="true"
 </code>
 
@@ -380,34 +403,34 @@ vi crm-saphana.txt
 # enter the following to crm-saphana.txt
 # replace the bold string with your instance number, HANA system id and the frontend IP address of the Azure load balancer. 
 <code>
-primitive rsc_SAPHana_<b>HDB</b>_HDB<b>50</b> ocf:suse:SAPHana \
-    operations $id="rsc_sap_<b>HDB</b>_HDB<b>50</b>-operations" \
+primitive rsc_SAPHana_<b>HDB</b>_HDB<b>04</b> ocf:suse:SAPHana \
+    operations $id="rsc_sap_<b>HDB</b>_HDB<b>04</b>-operations" \
     op start interval="0" timeout="3600" \
     op stop interval="0" timeout="3600" \
     op promote interval="0" timeout="3600" \
     op monitor interval="60" role="Master" timeout="700" \
     op monitor interval="61" role="Slave" timeout="700" \
-    params SID="<b>HDB</b>" InstanceNumber="<b>50</b>" PREFER_SITE_TAKEOVER="true" \
+    params SID="<b>HDB</b>" InstanceNumber="<b>04</b>" PREFER_SITE_TAKEOVER="true" \
     DUPLICATE_PRIMARY_TIMEOUT="7200" AUTOMATED_REGISTER="false"
 
-ms msl_SAPHana_<b>HDB</b>_HDB<b>50</b> rsc_SAPHana_<b>HDB</b>_HDB<b>50</b> \
+ms msl_SAPHana_<b>HDB</b>_HDB<b>04</b> rsc_SAPHana_<b>HDB</b>_HDB<b>04</b> \
     meta is-managed="true" notify="true" clone-max="2" clone-node-max="1" \
     target-role="Started" interleave="true"
 
-primitive rsc_ip_<b>HDB</b>_HDB<b>50</b> ocf:heartbeat:IPaddr2 \ 
+primitive rsc_ip_<b>HDB</b>_HDB<b>04</b> ocf:heartbeat:IPaddr2 \ 
     meta target-role="Started" is-managed="true" \ 
-    operations $id="rsc_ip_<b>HDB</b>_HDB<b>50</b>-operations" \ 
+    operations $id="rsc_ip_<b>HDB</b>_HDB<b>04</b>-operations" \ 
     op monitor interval="10s" timeout="20s" \ 
     params ip="<b>10.0.0.21</b>" 
-primitive rsc_nc_<b>HDB</b>_HDB<b>50</b> anything \ 
-    params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>50</b>" \ 
+primitive rsc_nc_<b>HDB</b>_HDB<b>04</b> anything \ 
+    params binfile="/usr/bin/nc" cmdline_options="-l -k 625<b>04</b>" \ 
     op monitor timeout=20s interval=10 depth=0 
-group g_ip_<b>HDB</b>_HDB<b>50</b> rsc_ip_<b>HDB</b>_HDB<b>50</b> rsc_nc_<b>HDB</b>_HDB<b>50</b>
+group g_ip_<b>HDB</b>_HDB<b>04</b> rsc_ip_<b>HDB</b>_HDB<b>04</b> rsc_nc_<b>HDB</b>_HDB<b>04</b>
  
-colocation col_saphana_ip_<b>HDB</b>_HDB<b>50</b> 2000: g_ip_<b>HDB</b>_HDB<b>50</b>:Started \ 
-    msl_SAPHana_<b>HDB</b>_HDB<b>50</b>:Master  
-order ord_SAPHana_<b>HDB</b>_HDB<b>50</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>50</b> \ 
-    msl_SAPHana_<b>HDB</b>_HDB<b>50</b>
+colocation col_saphana_ip_<b>HDB</b>_HDB<b>04</b> 2000: g_ip_<b>HDB</b>_HDB<b>04</b>:Started \ 
+    msl_SAPHana_<b>HDB</b>_HDB<b>04</b>:Master  
+order ord_SAPHana_<b>HDB</b>_HDB<b>04</b> 2000: cln_SAPHanaTopology_<b>HDB</b>_HDB<b>04</b> \ 
+    msl_SAPHana_<b>HDB</b>_HDB<b>04</b>
 </code>
 
 
@@ -431,12 +454,12 @@ Once you start the virtual machine again, the SAP HANA resource will fail to sta
 <pre><code>
 su - <b>hdb</b>adm
 # Stop the HANA instance just in case it is running
-sapcontrol -nr <b>50</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE1</b> 
+sapcontrol -nr <b>04</b> -function StopWait 600 10
+hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>04</b> --replicationMode=sync --name=<b>SITE1</b> 
 
 # switch back to root and cleanup the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>50</b> <b>saphanavm1</b>
+crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>04</b> <b>saphanavm1</b>
 </code></pre>
 
 #### Testing a manual failover
@@ -450,20 +473,20 @@ After the failover, you can start the service again. The SAP HANA resource on sa
 service pacemaker start
 su - <b>hdb</b>adm
 # Stop the HANA instance just in case it is running
-sapcontrol -nr <b>50</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE1</b> 
+sapcontrol -nr <b>04</b> -function StopWait 600 10
+hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>04</b> --replicationMode=sync --name=<b>SITE1</b> 
 
 # switch back to root and cleanup the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>50</b> <b>saphanavm1</b>
+crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>04</b> <b>saphanavm1</b>
 </code></pre>
 
 #### Testing a migration
 
 You can migrate the SAP HANA master node by executing the following command
 <pre><code>
-crm resource migrate msl_SAPHana_<b>HDB</b>_HDB<b>50</b> <b>saphanavm2</b>
-crm resource migrate g_ip_<b>HDB</b>_HDB<b>50</b> <b>saphanavm2</b>
+crm resource migrate msl_SAPHana_<b>HDB</b>_HDB<b>04</b> <b>saphanavm2</b>
+crm resource migrate g_ip_<b>HDB</b>_HDB<b>04</b> <b>saphanavm2</b>
 </code></pre>
 
 This should migrate the SAP HANA master node and the group that contains the virtual IP address to saphanavm2.
@@ -471,20 +494,20 @@ The SAP HANA resource on saphanavm1 will fail to start as secondary if you set A
 <pre><code>
 su - <b>hdb</b>adm
 # Stop the HANA instance just in case it is running
-sapcontrol -nr <b>50</b> -function StopWait 600 10
-hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>50</b> --replicationMode=sync --name=<b>SITE1</b> 
+sapcontrol -nr <b>04</b> -function StopWait 600 10
+hdbnsutil -sr_register --remoteHost=<b>saphanavm2</b> --remoteInstance=<b>04</b> --replicationMode=sync --name=<b>SITE1</b> 
 </code></pre>
 
 The migration creates location contraints that need to be deleted again.
 <pre><code>
 crm configure edited
 # delete location contraints that are named like the following contraint. You should have two contraints, one for the SAP HANA resource and one for the IP address group.
-location cli-prefer-g_ip_<b>HDB</b>_HDB<b>50</b> g_ip_<b>HDB</b>_HDB<b>50</b> role=Started inf: <b>saphanavm2</b>
+location cli-prefer-g_ip_<b>HDB</b>_HDB<b>04</b> g_ip_<b>HDB</b>_HDB<b>04</b> role=Started inf: <b>saphanavm2</b>
 </code></pre>
 
 You also need to cleanup the state of the secondary node resource
 <pre><code>
 # switch back to root and cleanup the failed state
 exit
-crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>50</b> <b>saphanavm1</b>
+crm resource cleanup msl_SAPHana_<b>HDB</b>_HDB<b>04</b> <b>saphanavm1</b>
 </code></pre>
