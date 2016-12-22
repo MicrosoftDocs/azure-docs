@@ -235,9 +235,10 @@ $localCertPath = "C:\MyCertificates" # location where you want the .PFX to be st
  Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
 
 ```
+
 If you get an error, such as the one shown here, it usually means that you have a resource URL conflict. To resolve the conflict, change the key vault name, RG name, and so forth.
 
-<p><font color="red">
+```
 Set-AzureKeyVaultSecret : The remote name could not be resolved: 'westuskv.vault.azure.net'
 At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers\ServiceFabricRPHelpers.psm1:440 char:11
 + $secret = Set-AzureKeyVaultSecret -VaultName $VaultName -Name $Certif ...
@@ -245,7 +246,7 @@ At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelp
     + CategoryInfo          : CloseError: (:) [Set-AzureKeyVaultSecret], WebException
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.KeyVault.SetAzureKeyVaultSecret
 
-</font></p>
+```
 
 After the conflict is resolved, the result should resemble the following output:
 
@@ -286,7 +287,7 @@ Value : https://westuskv1.vault.azure.net:443/secrets/chackonewcertificate1/ee24
 
 ## Set up Azure Active Directory for client authentication
 
-Azure AD enables organizations (known as tenants) to manage user access to applications, which are divided into applications with a web-based sign-in UI and applications with a native client experience. In this document, we assume that you have already created a tenant. If you have not, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
+Azure AD enables organizations (known as tenants) to manage user access to applications. Applications are divided into those with a web-based sign-in UI and those with a native client experience. In this document, we assume that you have already created a tenant. If you have not, start by reading [How to get an Azure Active Directory tenant][active-directory-howto-tenant].
 
 A Service Fabric cluster offers several entry points to its management functionality, including the web-based [Service Fabric Explorer][service-fabric-visualizing-your-cluster] and [Visual Studio][service-fabric-manage-application-in-visual-studio]. As a result, you create two Azure AD applications to control access to the cluster, one web application and one native application.
 
@@ -296,7 +297,7 @@ To simplify some of the steps involved in configuring Azure AD with a Service Fa
 > You must complete the following steps before you create the cluster. Because the scripts expect cluster names and endpoints, the values should be planned and not values that you have already created.
 
 1. [Download the scripts][sf-aad-ps-script-download] to your computer.
-2. Right-click the zip file, choose **Properties**, select the **Unblock** checkbox, and then click **Apply**.
+2. Right-click the zip file, select **Properties**, select the **Unblock** checkbox, and then click **Apply**.
 3. Extract the zip file.
 4. Run `SetupApplications.ps1`, and provide the TenantId, ClusterName, and WebApplicationReplyUrl as parameters. For example:
 
@@ -317,7 +318,7 @@ To simplify some of the steps involved in configuring Azure AD with a Service Fa
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
 
-     The script prints the JSON required by the Azure Resource Manager template when you create the cluster in the next section so keep the PowerShell window open.
+   The script prints the JSON required by the Azure Resource Manager template when you create the cluster in the next section so keep the PowerShell window open.
 
 ```json
 "azureActiveDirectory": {
@@ -338,8 +339,8 @@ This guide uses the [5-node secure cluster][service-fabric-secure-cluster-5-node
 ### Add certificates
 You add certificates to a cluster Resource Manager template by referencing the key vault that contains the certificate keys. We recommend that you place the key-vault values in a Resource Manager template parameters file. Doing so keeps the Resource Manager template file reusable and free of values specific to a deployment.
 
-#### Add all certificates to the VMSS osProfile
-Every certificate that's installed in the cluster must be configured in the osProfile section of the VMSS resource (Microsoft.Compute/virtualMachineScaleSets). This action instructs the resource provider to install the certificate on the VMs. This installation includes both the cluster certificate and any application security certificates that you plan to use for your applications:
+#### Add all certificates to the virtual machine scale set osProfile
+Every certificate that's installed in the cluster must be configured in the osProfile section of the scale set resource (Microsoft.Compute/virtualMachineScaleSets). This action instructs the resource provider to install the certificate on the VMs. This installation includes both the cluster certificate and any application security certificates that you plan to use for your applications:
 
 ```json
 {
@@ -374,9 +375,9 @@ Every certificate that's installed in the cluster must be configured in the osPr
 ```
 
 #### Configure the Service Fabric cluster certificate
-The cluster authentication certificate must be configured in both the Service Fabric cluster resource (Microsoft.ServiceFabric/clusters) and the Service Fabric extension for VMSS in the VMSS resource. This arrangement allows the Service Fabric resource provider to configure it for use for cluster authentication and server authentication for management endpoints.
+The cluster authentication certificate must be configured in both the Service Fabric cluster resource (Microsoft.ServiceFabric/clusters) and the Service Fabric extension for virtual machine scale sets in the virtual machine scale set resource. This arrangement allows the Service Fabric resource provider to configure it for use for cluster authentication and server authentication for management endpoints.
 
-##### VMSS resource:
+##### Virtual machine scale set resource:
 ```json
 {
   "apiVersion": "2016-03-30",
@@ -533,10 +534,10 @@ New-AzureRmResourceGroupDeployment -ResourceGroupName "myresourcegroup" -Templat
 ## Assign users to roles
 After you have created the applications to represent your cluster, assign your users to the roles supported by Service Fabric: read-only and admin. You can assign the roles by using the [Azure classic portal][azure-classic-portal].
 
-1. In the Azure portal, go to your tenant, and then choose **Applications**.
-2. Choose the web application, which has a name like `myTestCluster_Cluster`.
+1. In the Azure portal, go to your tenant, and then select **Applications**.
+2. Select the web application, which has a name like `myTestCluster_Cluster`.
 3. Click the **Users** tab.
-4. Choose a user to assign, and then click the **Assign** button at the bottom of the screen.
+4. Select a user to assign, and then click the **Assign** button at the bottom of the screen.
 
     ![Assign users to roles button][assign-users-to-roles-button]
 5. Select the role to assign to the user.
@@ -562,9 +563,9 @@ The parameter -h prints out the help text.
 
 This command returns the following three strings as the output:
 
-* SourceVaultID, which is the ID for the new KeyVault ResourceGroup it created for you.
-* CertificateUrl for accessing the certificate.
-* CertificateThumbprint, which is used for authentication.
+* SourceVaultID, which is the ID for the new KeyVault ResourceGroup it created for you
+* CertificateUrl for accessing the certificate
+* CertificateThumbprint, which is used for authentication
 
 The following example shows how to use the command:
 
@@ -579,7 +580,7 @@ CertificateUrl: https://myvault.vault.azure.net/secrets/mycert/00000000000000000
 CertificateThumbprint: 0xfffffffffffffffffffffffffffffffffffffffff
 ```
 
-The certificate's subject name must match the domain that you use to access the Service Fabric cluster. This match is required to provide an SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
+The certificate's subject name must match the domain that you use to access the Service Fabric cluster. This match is required to provide an SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a CA for the `.cloudapp.azure.com` domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
 
 These subject names are the entries you need to create a secure Service Fabric cluster (without Azure AD), as described at [Configure Resource Manager template parameters](#configure-arm). You can connect to the secure cluster by following the instructions for [authenticating client access to a cluster](service-fabric-connect-to-secure-cluster.md). Linux preview clusters do not support Azure AD authentication. You can assign admin and client roles as described in the [Assign roles to users](#assign-roles) section. When you specify admin and client roles for a Linux preview cluster, you have to provide certificate thumbprints for authentication. (You do not provide the subject name, because no chain validation or revocation is being performed in this preview release.)
 
@@ -590,7 +591,7 @@ If you want to use a self-signed certificate for testing, you can use the same s
 ```
 This command returns the same three strings: SourceVault, CertificateUrl, and CertificateThumbprint. You can then use the strings to create both a secure Linux cluster and a location where the self-signed certificate is placed. You need the self-signed certificate to connect to the cluster. You can connect to the secure cluster by following the instructions for [authenticating client access to a cluster](service-fabric-connect-to-secure-cluster.md).
 
-The certificate's subject name must match the domain that you use to access the Service Fabric cluster. This match is required to provide an SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a certificate authority (CA) for the `.cloudapp.azure.com` domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
+The certificate's subject name must match the domain that you use to access the Service Fabric cluster. This match is required to provide an SSL for the cluster's HTTPS management endpoints and Service Fabric Explorer. You cannot obtain an SSL certificate from a CA for the `.cloudapp.azure.com` domain. You must obtain a custom domain name for your cluster. When you request a certificate from a CA, the certificate's subject name must match the custom domain name that you use for your cluster.
 
 You can fill the parameters from the helper script in the Azure portal, as described in the [Create a cluster in the Azure portal](service-fabric-cluster-creation-via-portal.md#create-cluster-in-the-azure-portal) section.
 
