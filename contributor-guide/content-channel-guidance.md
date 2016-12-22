@@ -2,13 +2,19 @@
 GitHub is a relatively easy way (once you get over the Git hump) to author and publish technical content. But we need to ensure that content stays within the boundaries of technical documentation - there are other channels for other types of information.
 
 ## Technical content that belongs in the azure-docs-pr repository
+The following types of content are authored in azure-docs-pr and published to https://docs.microsoft.com/azure. 
+
 **Technical articles about using the product** belong in the azure-docs and azure-docs-pr repositories for publication to http://docs.microsoft.com. They should contain conceptual or procedural information required to understand and use the product. The technical content channel is for technical content showing people **how** to do something. You can talk about the "what" and "why" to help customers understand intent, but the articles should focus on the actual content telling people how to do the task or complete the scenario.
+
+Specific guidance exists for certain types of content, such as customer stories and service limits.
+
+* **Case studies/customer stories**: In principle, customer stories/case studies can live either on the customer stories site (https://customers.microsoft.com/) or in the technical documentation repository, which publishes to https://docs.microsoft.com/azure. The difference is audience and technical depth. The customer stories site addresses BDM and TDM audiences, and the content is not about technical deployment or operational details. The technical content channel addresses evaluators, implementers, and users and goes into technical depth appropriate for new to advanced users. Customer stories require approval, see [the wiki for more info](https://aka.ms/custstoryaz).
+* **Service limits**: Every service where subscription and service limits, quotas, and constraints apply must have an include file that documents the most important limits, quotas, or constraints. The include must be added to the all-up ["Azure subscription and service limits, quotas, and constraints"](https://docs.microsoft.com/azure/azure-subscription-service-limits) article. Optionally, a service-specific limits article may also be published to the service-specific content; the include must be reused in that article. 
 
 ## Technical content that does not belong in the azure-docs-pr repository
 The following types of content are delivered in other Azure or Microsoft content channels; in some cases, certain types of content are not part of our content strategy.
 
 * **Blog posts**: Blog posts are typically written in the first person voice and are generally related to announcements and promotions. This sort of content typically belongs on the Azure blog. Deeply technical or procedural content does not go on the blog.
-* **Case studies/customer stories**: Case studies and customer stories are a very specific deliverable that goes through marketing, they have their own process and guidelines and are created from specific customer and partner engagements. They are published to https://customers.microsoft.com/. Don't call something a case study or customer story unless it's part of the formal case study process, and don't publish it to the tech content repository.
 * **Code and project samples**: Code and project samples go in the samples repositories and are featured in the sample gallery.
 * **Community spotlight/community resources**: Articles featuring community projects. The repo is for technical content about how to use the product from the Microsoft perspective, not about how people are using the product. That's marketing or possibly blog content. Or, let the community tell it's own story in the places that community likes best!
 * **Compliance**: Industry standards and compliance information for Azure services must be posted to https://www.microsoft.com/en-us/TrustCenter/Compliance?service=Azure#Icons. This includes certification for standards such as ISO, country-specific and government certifications, banking, health, or other certifications.
