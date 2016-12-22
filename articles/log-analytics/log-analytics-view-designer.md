@@ -63,7 +63,7 @@ To delete an existing view, open the view by clicking on its tile in the main OM
 ![Delete a view](media/log-analytics-view-designer/edit-menu-delete.png)
 
 ### Export an existing view
-You can export a view to a JSON file that you can import into another workspace or use in an [Azure Resource Manager template](../resource-group-authoring-templates.md).  To export an existing view, open the view by clicking on its tile in the main OMS dashboard.  Then click the **Export** button to create a file in the browser's download folder.  The name of the file will be the name of the view with the extension *omsview*.
+You can export a view to a JSON file that you can import into another workspace or use in an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md).  To export an existing view, open the view by clicking on its tile in the main OMS dashboard.  Then click the **Export** button to create a file in the browser's download folder.  The name of the file will be the name of the view with the extension *omsview*.
 
 ![Export a view](media/log-analytics-view-designer/edit-menu-export.png)
 
