@@ -1443,6 +1443,18 @@ Installing SAP with a high-availability ASCS/SCS instance requires these steps:
   >
   >
 
+<<<<<<< HEAD
+=======
+  The IP address of the virtual SAP ASCS/SCS host name (**pr1-ascs-sap**) is the same as the IP address of Azure Load Balancer (**pr1-lb-ascs**).
+
+  In Azure, only one SAP failover cluster role can run in one Windows Server Failover Clustering cluster. For example, one ASCS instance for the ABAP system and one SCS instance for the Java system. For ABAP+Java, it would be one ASCS instance and one SCS instance.
+
+  > [!NOTE]
+  > Currently, multi-SID clustering as described in the [SAP installation guides][sap-installation-guides] doesn't work in Azure.
+  >
+  >
+
+>>>>>>> a08b7053b67d592bbcc849b5a8c6ae15e858a7e6
   ![Figure 56: Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address][sap-ha-guide-figure-3046]
 
   _**Figure 56:** Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address_
