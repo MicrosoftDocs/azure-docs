@@ -59,7 +59,7 @@ There are two ways to create a **Template** resource in the Azure portal.
    > 
    > 
 
-### B. Method 2 : Add a new Template resource from browse
+### Method 2 : Add a new Template resource from browse
 You can also add a new **Template** from scratch using the +Add command button in **Browse > Templates**. You will need to provide a Name, Description and the Resource Manager template JSON.
 
 ![Add Template](media/add-template-portal1.PNG)  <br />
