@@ -65,7 +65,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 ``
 "contoso.azure-devices.net/MyDevice01/DeviceClientType=azure-iot-device%2F1.1.2&api-version=2016-11-14";
 ``
-> Here as an example library name is `azure-iot-device` and its version is `1.1.2`. Api version is `2016-11-14`
+>> In the above example client library name is `azure-iot-device` and its version is `1.1.2`. Azure IoT Hub service api version is `2016-11-14`
     
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTP and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
 
