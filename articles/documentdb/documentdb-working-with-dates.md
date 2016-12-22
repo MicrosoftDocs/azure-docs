@@ -64,6 +64,8 @@ Range queries are common with DateTime values. For example, if you need to find 
     collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
     await client.CreateDocumentCollectionAsync("/dbs/orderdb", collection);
 
+You can learn more about how to configure indexing policies at [DocumentDB Indexing Policies](documentdb-indexing-policies.md).
+
 ## Querying DateTimes in LINQ
 The DocumentDB .NET SDK automatically supports querying data stored in DocumentDB via LINQ. For example, the following snippet shows a LINQ query that filters orders that were shipped in the last 3 days.
 
@@ -72,6 +74,8 @@ The DocumentDB .NET SDK automatically supports querying data stored in DocumentD
           
     // Translated to the following SQL statement and executed on DocumentDB
     SELECT * FROM root WHERE (root["ShipDate"] >= "2016-12-18T21:55:03.45569Z")
+
+You can learn more about DocumentDB's SQL query language and the LINQ provider at [Querying DocumentDB](documentdb-sql-query.md).
 
 In this article, we looked at how to store, index and query DateTimes in DocumentDB.
 
