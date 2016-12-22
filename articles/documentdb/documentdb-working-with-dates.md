@@ -18,7 +18,7 @@ ms.author: arramac
 
 ---
 # Working with Dates in Azure DocumentDB
-DocumentDB delivers schema flexibility and rich indexing via a native [JSON](www.json.org) data model. All DocumentDB resources including databases, collections, users, and permissions are modeled and stored as JSON documents. As a requirement for being portable, JSON (and DocumentDB) supports only a small set of basic types: String, Number, Boolean, Array, Object, and Null. However, JSON is flexible and allow developers and frameworks to represent more complex types using these primitives and composing them as objects or arrays. 
+DocumentDB delivers schema flexibility and rich indexing via a native [JSON](http://www.json.org) data model. All DocumentDB resources including databases, collections, documents, and stored procedures are modeled and stored as JSON documents. As a requirement for being portable, JSON (and DocumentDB) supports only a small set of basic types: String, Number, Boolean, Array, Object, and Null. However, JSON is flexible and allow developers and frameworks to represent more complex types using these primitives and composing them as objects or arrays. 
 
 In addition to the basic types, many applications need the [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) type to represent dates and timestamps. This article describes how developers can store, retrieve, and query dates in DocumentDB using the .NET SDK.
 
@@ -26,7 +26,7 @@ In addition to the basic types, many applications need the [DateTime](https://ms
 By default, the [DocumentDB SDK](documentdb-sdk-dotnet.md) serializes DateTime values as [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) strings. Most applications can use the default string representation for DateTime for the following reasons:
 
 * Strings can be compared, and the relative ordering of the DateTime values is preserved when they are transformed to strings. 
-* This doesn't require any custom code or attributes for JSON conversion.
+* This approach doesn't require any custom code or attributes for JSON conversion.
 * The dates as stored in JSON are human readable.
 * This approach can take advantage of DocumentDB's index for fast query performance.
 
@@ -72,7 +72,7 @@ Range queries are common with DateTime values. For example, if you need to find 
 You can learn more about how to configure indexing policies at [DocumentDB Indexing Policies](documentdb-indexing-policies.md).
 
 ## Querying DateTimes in LINQ
-The DocumentDB .NET SDK automatically supports querying data stored in DocumentDB via LINQ. For example, the following snippet shows a LINQ query that filters orders that were shipped in the last 3 days.
+The DocumentDB .NET SDK automatically supports querying data stored in DocumentDB via LINQ. For example, the following snippet shows a LINQ query that filters orders that were shipped in the last three days.
 
     IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
