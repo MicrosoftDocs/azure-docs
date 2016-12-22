@@ -71,14 +71,14 @@ Perform the following steps to use .NET to launch a data transformation job.
 
 5. Add the following **using** statements to the source file (Program.cs) in the project.
 
-    ````
+    ```
     using System;
     using System.Collections.Generic;
     using System.Threading;
     using Microsoft.Azure.Management.HybridData.Models;
     using Microsoft.Internal.Dms.DmsWebJob;
     using Microsoft.Internal.Dms.DmsWebJob.Contracts;
-    ````
+    ```
 
 
 6. The following code initializes the data transformation job instance. Add this in the **Main method**. Replace the values of configuration parameters as obtained earlier. Plug in the values of **Resource Group Name** and **Hybrid Data Resource name**. The **Resource Group Name** is the one that hosts the Hybrid Data Resource on which the job definition was configured.
@@ -137,6 +137,7 @@ Perform the following steps to use .NET to launch a data transformation job.
         // Name of the volume on StorSimple device on which the relevant data is present. 
         VolumeNames = volumeNames
     };
+    
     ```
 
 8. After the initialization, add the following code to trigger a data transformation job on the job definition. Plug in the appropriate **Job Definition Name**.
