@@ -856,7 +856,7 @@ The application servers template deploys two or more virtual machines that can b
 
 ##### To set up the application servers multi-SID template
 
-In the [application servers Multi-SID template][sap-templates-3-tier-multisid-apps-marketplace-image], enter values for the following parameters:
+In the [application servers multi-SID template][sap-templates-3-tier-multisid-apps-marketplace-image], enter values for the following parameters:
 
 -  **Sap System Id**. Enter the SAP system ID of the SAP system you want to install. The ID will be used as a prefix for the resources that are deployed.
 -  **Os Type**. Select the operating system of the virtual machines.
@@ -910,9 +910,9 @@ For on-premises deployment, you need these reserved host names and IP addresses:
 | SAP ASCS/SCS instance virtual host name |pr1-ascs-sap |10.0.0.43 |
 | SAP DBMS second cluster virtual host name (cluster management) |pr1-dbms-vir |10.0.0.32 |
 
-When you create the cluster, create the virtual host names **pr1-ascs-vir** and **pr1-dbms-vir** and the associated IP addresses that manage the cluster itself. For information about how to do this, see [Collect cluster nodes in cluster configuration][sap-ha-guide-8.12.1].
+When you create the cluster, create the virtual host names **pr1-ascs-vir** and **pr1-dbms-vir** and the associated IP addresses that manage the cluster itself. For information about how to do this, see [Collect cluster nodes in a cluster configuration][sap-ha-guide-8.12.1].
 
-You can manually create the other two virtual host names, **pr1-ascs-sap** and **pr1-dbms-sap**, and the associated IP addresses, on the DNS server. The clustered SAP ASCS/SCS instance and the clustered DBMS instance use these resources. For information about how to do this, see [Create a virtual host name for clustered SAP ASCS/SCS][sap-ha-guide-9.1.1].
+You can manually create the other two virtual host names, **pr1-ascs-sap** and **pr1-dbms-sap**, and the associated IP addresses, on the DNS server. The clustered SAP ASCS/SCS instance and the clustered DBMS instance use these resources. For information about how to do this, see [Create a virtual host name for a clustered SAP ASCS/SCS instance][sap-ha-guide-9.1.1].
 
 ### <a name="84c019fe-8c58-4dac-9e54-173efd4b2c30"></a> Set static IP addresses for the SAP virtual machines
 After you deploy the virtual machines to use in your cluster, you need to set static IP addresses for all virtual machines. Do this in the Azure Virtual Network configuration, and not in the guest operating system.
