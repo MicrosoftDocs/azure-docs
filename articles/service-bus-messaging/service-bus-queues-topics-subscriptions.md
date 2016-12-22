@@ -129,7 +129,7 @@ SubscriptionClient auditSubscriptionClient = factory.CreateSubscriptionClient("I
 while ((message = agentSubscriptionClient.Receive(TimeSpan.FromSeconds(5))) != null)
 {
     Console.WriteLine("\nReceiving message from Inventory...");
-    Console.WriteLine(string.Format("Message received: Id = {0}, Body = {1}", message.MessageId message.GetBody<string>()));
+    Console.WriteLine(string.Format("Message received: Id = {0}, Body = {1}", message.MessageId, message.GetBody<string>()));
     message.Complete();
 }          
 

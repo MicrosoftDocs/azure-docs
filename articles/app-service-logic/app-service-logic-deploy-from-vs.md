@@ -51,7 +51,7 @@ Once installed you will be able to use the Azure Resource Group project with the
 2. In the dialog, find **Cloud**, and then select **Azure Resource Group**. Type a **Name** and then click **OK**.
     ![Add new project](./media/app-service-logic-deploy-from-vs/addnewproject.png)
 3. Select the **Logic app** template. This will create a blank logic app deployment template to start with.
-    ![Select Azure template](./media/app-service-logic-deploy-from-vs/selectazuretemplate.png)
+    ![Select Azure template](./media/app-service-logic-deploy-from-vs/selectazuretemplate1.png)
 4. Once you have selected your **Template**, hit **OK**.
    
     Now your Logic app project is added to your solution. You should see the deployment file in the Solution Explorer:  

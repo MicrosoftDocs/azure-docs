@@ -269,7 +269,7 @@ Before testing, you must start the dashboard to view the output of the topology 
 3. After verifying that this works, stop the topology using Ctrl+C. You can use Ctrl+C to stop the local web server also.
 
 ## Create a Storm and HBase cluster
-In order to run the topology on HDInsight, and to enable the HBase bolt, you must create a new Storm cluster and HBase cluster. The steps in this section use an [Azure Resource Manager template](../resource-group-template-deploy.md) to create a new Azure Virtual Network and a Storm and HBase cluster on the virtual network. The template also creates an Azure Web App and deploys a copy of the dashboard into it.
+In order to run the topology on HDInsight, and to enable the HBase bolt, you must create a new Storm cluster and HBase cluster. The steps in this section use an [Azure Resource Manager template](../azure-resource-manager/resource-group-template-deploy.md) to create a new Azure Virtual Network and a Storm and HBase cluster on the virtual network. The template also creates an Azure Web App and deploys a copy of the dashboard into it.
 
 > [!NOTE]
 > A virtual network is used so that the topology running on the Storm cluster can directly communicate with the HBase cluster using the HBase Java API.
