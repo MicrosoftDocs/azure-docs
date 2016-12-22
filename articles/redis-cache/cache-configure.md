@@ -110,7 +110,7 @@ Click **Access keys** to view or regenerate the access keys for your cache. Thes
 ![Redis Cache Access Keys](./media/cache-configure/redis-cache-manage-keys.png)
 
 ### Advanced settings
-The following settings are configure on the **Advanced settings** blade.
+The following settings are configured on the **Advanced settings** blade.
 
 * [Access Ports](#access-ports)
 * [Maxmemory-policy and maxmemory-reserved](#maxmemory-policy-and-maxmemory-reserved)
