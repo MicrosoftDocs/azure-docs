@@ -113,7 +113,7 @@ You can choose any SSH tool to connect to your virtual machine. In this example,
 ![Screenshot that shows the Connection directory hierarchy and Browse button][10]
 
 6. Click **Open**. You might be alerted by a message box. If you have configured the DNS name and port number correctly, click **Yes**.
-![Screenshot that shows the notification][11]  
+![Screenshot that shows the notification][11]
 
 7. You are prompted to enter your username.  
 ![Screenshot that shows where to enter username][12]
@@ -202,15 +202,15 @@ The Tomcat7 server automatically starts when you install it. You can also start 
 
     sudo /etc/init.d/tomcat7 start
 
-To stop Tomcat7：  
+To stop Tomcat7:
 
     sudo /etc/init.d/tomcat7 stop
 
-To view the status of Tomcat7：  
+To view the status of Tomcat7:
 
     sudo /etc/init.d/tomcat7 status
 
-To restart Tomcat services：  
+To restart Tomcat services: 
 
     sudo /etc/init.d/tomcat7 restart
 
