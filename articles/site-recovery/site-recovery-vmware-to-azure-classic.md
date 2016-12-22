@@ -246,7 +246,8 @@ If you want to replicate VMware virtual machines install the following VMware co
 >
 >
 
-[!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
+
+>[!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
 
 
 1. On the **Quick Start** page download the unified installation file to the server.
@@ -507,7 +508,7 @@ After running the wizard you can modify the IP address of the management server 
 
 **You can also install from the command line**:
 
-1. Copy the passphrase from C:\Program Files (x86)\InMage Systems\private\connection on the management server, and save it as "passphrase.txt" on the management server. Then run these commands. In our example the management server IP address is 104.40.75.37 and the HTTPS port should be 443:
+Copy the passphrase from C:\Program Files (x86)\InMage Systems\private\connection on the management server, and save it as "passphrase.txt" on the management server. Then run these commands. In our example the management server IP address is 104.40.75.37 and the HTTPS port should be 443:
 
 To install on a production server:
 

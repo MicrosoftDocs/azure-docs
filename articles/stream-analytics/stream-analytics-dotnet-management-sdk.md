@@ -82,43 +82,45 @@ To create an analytics job use the Stream Analytics API for .NET, first set up y
         using Microsoft.Azure.Management.StreamAnalytics.Models;
         using Microsoft.IdentityModel.Clients.ActiveDirectory;
 2. Add an authentication helper method:
+
+   ```   
+   public static string GetAuthorizationHeader()
+   {
    
-     public static string GetAuthorizationHeader()
-     {
+       AuthenticationResult result = null;
+       var thread = new Thread(() =>
+       {
+           try
+           {
+               var context = new AuthenticationContext(
+                   ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
+                   ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
    
-         AuthenticationResult result = null;
-         var thread = new Thread(() =>
-         {
-             try
-             {
-                 var context = new AuthenticationContext(
-                     ConfigurationManager.AppSettings["ActiveDirectoryEndpoint"] +
-                     ConfigurationManager.AppSettings["ActiveDirectoryTenantId"]);
+               result = context.AcquireToken(
+                   resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
+                   clientId: ConfigurationManager.AppSettings["AsaClientId"],
+                   redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
+                   promptBehavior: PromptBehavior.Always);
+           }
+           catch (Exception threadEx)
+           {
+               Console.WriteLine(threadEx.Message);
+           }
+       });
    
-                 result = context.AcquireToken(
-                     resource: ConfigurationManager.AppSettings["WindowsManagementUri"],
-                     clientId: ConfigurationManager.AppSettings["AsaClientId"],
-                     redirectUri: new Uri(ConfigurationManager.AppSettings["RedirectUri"]),
-                     promptBehavior: PromptBehavior.Always);
-             }
-             catch (Exception threadEx)
-             {
-                 Console.WriteLine(threadEx.Message);
-             }
-         });
+       thread.SetApartmentState(ApartmentState.STA);
+       thread.Name = "AcquireTokenThread";
+       thread.Start();
+       thread.Join();
    
-         thread.SetApartmentState(ApartmentState.STA);
-         thread.Name = "AcquireTokenThread";
-         thread.Start();
-         thread.Join();
+       if (result != null)
+       {
+           return result.AccessToken;
+       }
    
-         if (result != null)
-         {
-             return result.AccessToken;
-         }
-   
-         throw new InvalidOperationException("Failed to acquire token");
-     }  
+       throw new InvalidOperationException("Failed to acquire token");
+   }
+   ```  
 
 ## Create a Stream Analytics management client
 A **StreamAnalyticsManagementClient** object allows you to manage the job and the job components, such as input, output, and transformation.

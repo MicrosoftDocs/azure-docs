@@ -342,7 +342,6 @@ To run a test failover do the following:
    * Click **The test failover is complete**. Clean up the test environment to automatically power off and delete the test virtual machines.
    * Click **Notes** to record and save any observations associated with the test failover.
 
->
 
 ## Next steps
 Learn about [setting up recovery plans](site-recovery-create-recovery-plans.md) and [failover](site-recovery-failover.md).

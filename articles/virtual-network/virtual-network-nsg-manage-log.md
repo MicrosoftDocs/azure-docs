@@ -43,9 +43,9 @@ Audit logging is automatically enabled at all times for every Resource Manager r
 4. In the **Settings** blade, click **Diagnostics**, and then in the **Diagnostics** pane, next to **Status**, click **On**
 5. In the **Settings** blade, click **Storage Account**, and either select an existing storage account, or create a new one.  
 
-> [AZURE.INFORMATION] Audit logs do not require a separate storage account. The use of storage for event and rule logging will incur service charges.
-> 
-> 
+   > [!NOTE] 
+   > Audit logs do not require a separate storage account. The use of storage for event and rule logging will incur service charges.
+   > 
 
 1. In the drop-down list just under **Storage Account**, select whether you want to log events, counters, or both, and then click **Save**.
    
