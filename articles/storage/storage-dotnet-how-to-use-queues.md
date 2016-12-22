@@ -141,7 +141,7 @@ seconds. This saves the state of work associated with the message, and
 gives the client another minute to continue working on the message. You
 could use this technique to track multi-step workflows on queue
 messages, without having to start over from the beginning if a
-iprocessing step fails due to hardware or software failure. Typically,
+processing step fails due to hardware or software failure. Typically,
 you would keep a retry count as well, and if the message is retried more
 than *n* times, you would delete it. This protects against a message
 that triggers an application error each time it is processed.
