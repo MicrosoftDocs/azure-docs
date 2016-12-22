@@ -54,15 +54,17 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 
     For example, if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should contain `contoso.azure-devices.net/MyDevice01`.
     
-For device receiving a [direct method request][lnk-mqtt-devguide] using MQTT connection, Username should follow following format
+> For device receiving a [direct method request][lnk-methods] using **MQTT** connection, **Username** should follow following format
+
 `
 {iothubhostname}/{device_id}/DeviceClientType={library_version}&{api-version}
 `
 
-For **example** if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should be
-`
+> For **example** if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should be
+
+``
 "contoso.azure-devices.net/MyDevice01/DeviceClientType=azure-iot-device%2F1.1.2&api-version=2016-11-14";
-`
+``
     
 * For the **Password** field, use a SAS token. The format of the SAS token is the same as for both the HTTP and AMQP protocols:<br/>`SharedAccessSignature sig={signature-string}&se={expiry}&sr={URL-encoded-resourceURI}`.
 
