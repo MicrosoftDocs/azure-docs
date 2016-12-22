@@ -9,6 +9,7 @@ The following types of content are authored in azure-docs-pr and published to ht
 Specific guidance exists for certain types of content, such as customer stories and service limits.
 
 * **Case studies/customer stories**: In principle, customer stories/case studies can live either on the customer stories site (https://customers.microsoft.com/) or in the technical documentation repository, which publishes to https://docs.microsoft.com/azure. The difference is audience and technical depth. The customer stories site addresses BDM and TDM audiences, and the content is not about technical deployment or operational details. The technical content channel addresses evaluators, implementers, and users and goes into technical depth appropriate for new to advanced users. Customer stories require approval, see [the wiki for more info](https://aka.ms/custstoryaz).
+
 * **Service limits**: Every service where subscription and service limits, quotas, and constraints apply must have an include file that documents the most important limits, quotas, or constraints. The include must be added to the all-up ["Azure subscription and service limits, quotas, and constraints"](https://docs.microsoft.com/azure/azure-subscription-service-limits) article. Optionally, a service-specific limits article may also be published to the service-specific content; the include must be reused in that article. 
 
 ## Technical content that does not belong in the azure-docs-pr repository
