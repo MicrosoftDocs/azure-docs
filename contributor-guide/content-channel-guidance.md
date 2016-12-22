@@ -35,7 +35,7 @@ The following types of content are delivered in other Azure or Microsoft content
 
   You can use specific regions in examples when you are describing procedures or tools where a customer has to work across regions. For example, this sentence is OK: 
     "The following screenshot shows two pings from two different region client machines, one in the East Asia region and one in the West US."
-* **Release notes**: Unless it's an SDK article or a StorSimple article for a hardware update, this sort of information should just be embedded in the relevant technical content or included in the service updates channel.
+* **Release notes**: Unless it's an SDK article or a StorSimple article for a hardware update, this sort of information should just be embedded in the relevant technical content or included in the [service updates channel](http://acomdocs.azurewebsites.net/articles/service-updates-overview/)
 * **SLA**: Do not mention any specifics about SLAs in the technical documents. Always point to the SLA page for the service. The SLA index page is here: https://azure.microsoft.com/support/legal/sla/. Example: "For information about the SLA, see the [Azure service level agreements](https://azure.microsoft.com/support/legal/sla/) page."
-* **What's new in a release or service**:  Lists or descriptions of what is new in a release or service go to the Service Updates channel.
+* **What's new in a release or service**:  Lists or descriptions of what is new in a release or service go to the [Service Updates channel](http://acomdocs.azurewebsites.net/articles/service-updates-overview/).
 
