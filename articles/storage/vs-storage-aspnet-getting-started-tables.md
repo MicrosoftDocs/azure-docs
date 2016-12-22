@@ -664,7 +664,9 @@ This section illustrates how to delete an entity from a table.
 
 1. Execute the delete operation.   
 
+    ```csharp
     TableResult result = table.Execute(deleteOperation);
+    ```
 
 1. Pass the result to the view for display.
 
