@@ -63,7 +63,7 @@ If a device cannot use the device SDKs, it can still connect to the public devic
 > For **example** if the name of your IoT hub is **contoso.azure-devices.net** and if the name of your device is **MyDevice01**, the full **Username** field should be
 
 ``
-"contoso.azure-devices.net/MyDevice01/DeviceClientType=azure-iot-device%2F1.1.2&api-version=2016-11-14";
+"contoso.azure-devices.net/MyDevice01/DeviceClientType=azure-iot-device%2F1.1.2&api-version=2016-11-14"
 ``
 >> In the above example client library name is `azure-iot-device` and its version is `1.1.2`. Azure IoT Hub service api version is `2016-11-14`
     
