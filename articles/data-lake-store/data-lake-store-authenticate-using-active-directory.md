@@ -17,7 +17,7 @@ ms.date: 11/28/2016
 ms.author: nitinme
 
 ---
-# Service-to-serivce authentication with Data Lake Store using Azure Active Directory
+# Service-to-service authentication with Data Lake Store using Azure Active Directory
 > [!div class="op_single_selector"]
 > * [Service-to-service authentication](data-lake-store-authenticate-using-active-directory.md)
 > * [End-user authentication](data-lake-store-end-user-authenticate-using-active-directory.md)
@@ -50,7 +50,7 @@ In this section we learn about how to create and configure an Azure AD web appli
 4. To view the applications in your directory, click on **Applications**.
    
      ![view applications](./media/data-lake-store-authenticate-using-active-directory/view-applications.png)
-5. If you haven't created an application in that directory before you should see something similar to following image. Click on **ADD AN APPLICATION**
+5. If you haven't created an application in that directory before, you should see something similar to following image. Click on **ADD AN APPLICATION**
    
      ![add application](./media/data-lake-store-authenticate-using-active-directory/create-application.png)
    
@@ -103,7 +103,7 @@ When programmatically logging in, you need the id for your application. If the a
 4. The Tenant ID retrieved in step 2.5 above
 
 ### Step 3: Assign the Azure AD application to the Azure Data Lake Store account file or folder (only for service-to-service authentication)
-1. Sign on to the new [Azure Portal](https://portal.azure.com) and open the Azure Data Lake Store account that you want to associate with the Azure Active Directory application you created earlier.
+1. Sign on to the new [Azure portal](https://portal.azure.com) and open the Azure Data Lake Store account that you want to associate with the Azure Active Directory application you created earlier.
 2. In your Data Lake Store account blade, click **Data Explorer**.
    
     ![Create directories in Data Lake Store account](./media/data-lake-store-authenticate-using-active-directory/adl.start.data.explorer.png "Create directories in Data Lake account")
@@ -131,7 +131,7 @@ In this article you created an Azure AD web application and gathered the informa
 * [Get started with Azure Data Lake Store using .NET SDK](data-lake-store-get-started-net-sdk.md)
 * [Get started with Azure Data Lake Store using Java SDK](data-lake-store-get-started-java-sdk.md)
 
-This article walked you thorugh the basic steps needed to get a user pricipal up and running for your application. You can look at the following articles to get further information:
+This article walked you through the basic steps needed to get a user principal up and running for your application. You can look at the following articles to get further information:
 * [Use PowerShell to create service principal](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal)
 * [Use certificate authentication for service principal authentication](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authenticate-service-principal#create-service-principal-with-certificate)
 * [Other methods to authenticate to Azure AD](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-authentication-scenarios)
