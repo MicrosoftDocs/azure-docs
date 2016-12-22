@@ -67,7 +67,7 @@ When [Attaching to an external storage account] (../vs-azure-tools-storage-manag
 >
 
 > [!NOTE]
-> When deploying StorSimple Manager Service use https://portal.azure.us/ and https://manage.windowsazure.us/ URLs for Azure portal and Classic portal respectively. For general StorSimple documentation and deployment instructions see [What is StorSimple?] (../storsimple/storsimple-overview.md).
+> When deploying StorSimple Manager Service, use https://portal.azure.us/ and https://manage.windowsazure.us/ URLs for Azure portal and Classic portal respectively. For general StorSimple documentation and deployment instructions, see [What is StorSimple?] (../storsimple/storsimple-overview.md).
 >
 >
 
