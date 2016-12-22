@@ -63,7 +63,7 @@ This document is stored in DocumentDB as follows:
 Alternatively, you can store DateTimes as Unix timestamps, that is, as a number representing the number of elapsed seconds since January 1, 1970. DocumentDB's internal Timestamp (`_ts`) property follows this approach. You can use the [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) class to serialize DateTimes as numbers. 
 
 ## Indexing DateTimes for range queries
-Range queries are common with DateTime values. For example, if you need to find all orders created since yesterday, or find all orders shipped in the last 5 minutes, you need to perform range queries on the DateTime values stored (as strings) in DocumentDB. In order to execute these queries efficiently, you must configure your collection for Range indexing on strings.
+Range queries are common with DateTime values. For example, if you need to find all orders created since yesterday, or find all orders shipped in the last five minutes, you need to perform range queries. To execute these queries efficiently, you must configure your collection for Range indexing on strings.
 
     DocumentCollection collection = new DocumentCollection { Id = "orders" };
     collection.IndexingPolicy = new IndexingPolicy(new RangeIndex(DataType.String) { Precision = -1 });
@@ -82,7 +82,7 @@ The DocumentDB .NET SDK automatically supports querying data stored in DocumentD
 
 You can learn more about DocumentDB's SQL query language and the LINQ provider at [Querying DocumentDB](documentdb-sql-query.md).
 
-In this article, we looked at how to store, index and query DateTimes in DocumentDB.
+In this article, we looked at how to store, index, and query DateTimes in DocumentDB.
 
 ## Next Steps
 * Download and run the [Code samples on Github](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/code-samples)
