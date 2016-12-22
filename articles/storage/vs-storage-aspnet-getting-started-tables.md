@@ -24,7 +24,7 @@ ms.author: tarcher
 
 Azure Table storage enables you to store large amounts of structured data. The service is a NoSQL datastore that accepts authenticated calls from inside and outside the Azure cloud. Azure tables are ideal for storing structured, non-relational data.
 
-This tutorial shows how to write ASP.NET code for some common scenarios using Azure table storage entities, performing common tasks such as creating and deleting a table, as well as working with table entities. 
+This tutorial shows how to write ASP.NET code for some common scenarios using Azure table storage entities. These scenarios include creating a table, and adding, querying, and deleting table entities. 
 
 ##Prerequisites
 
@@ -49,7 +49,7 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
 
 	![Name the MVC controller](./media/vs-storage-aspnet-getting-started-tables/add-controller-name.png)
 
-1. Add the following *using* directives to the `TablesController.cs` file.
+1. Add the following *using* directives to the `TablesController.cs` file:
 
     ```csharp
 	using Microsoft.Azure;
@@ -60,13 +60,13 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
 
 ### Create a model class
 
-Many of the examples in this article use a **TableEntity**-derived class called **CustomerEntity**. The following steps guide you through declaring this class as a model class.
+Many of the examples in this article use a **TableEntity**-derived class called **CustomerEntity**. The following steps guide you through declaring this class as a model class:
 
 1. In the **Solution Explorer**, right-click **Models**, and, from the context menu, select **Add->Class**.
 
 1. On the **Add New Item** dialog, name the class, **CustomerEntity**.
 
-1. Open the `CustomerEntity.cs` file, and add the following **using** directive. 
+1. Open the `CustomerEntity.cs` file, and add the following **using** directive:
 
     ```csharp
 	using Microsoft.WindowsAzure.Storage.Table;
@@ -91,7 +91,7 @@ Many of the examples in this article use a **TableEntity**-derived class called 
 
 ## Create a table
 
-The following steps illustrate how to create a table.
+The following steps illustrate how to create a table:
 
 > [!NOTE]
 > 
@@ -110,7 +110,7 @@ The following steps illustrate how to create a table.
     }
     ```
 
-1. Within the **CreateTable** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Within the **CreateTable** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -129,7 +129,7 @@ The following steps illustrate how to create a table.
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Call the **CloudTable.CreateIfNotExists** method to create the table if it does not yet exist. The **CloudTable.CreateIfNotExists** method returns **true** if the table does not exist, and is successfully created; otherwise, **false** is returned.    
+1. Call the **CloudTable.CreateIfNotExists** method to create the table if it does not yet exist. The **CloudTable.CreateIfNotExists** method returns **true** if the table does not exist, and is successfully created. Otherwise, **false** is returned.    
 
     ```csharp
 	ViewBag.Success = table.CreateIfNotExists();
@@ -144,7 +144,7 @@ The following steps illustrate how to create a table.
 
 1. On the **Add View** dialog, enter **CreateTable** for the view name, and select **Add**.
 
-1. Open `CreateTable.cshtml`, and modify it so that it looks like the following.
+1. Open `CreateTable.cshtml`, and modify it so that it looks like the following:
 
     ```csharp
 	@{
@@ -158,13 +158,13 @@ The following steps illustrate how to create a table.
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
-1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
 	<li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. Run the application, and select **Create table**. You will see results similar to those shown in the following screen shot. 
+1. Run the application, and select **Create table** to see results similar to those shown in the following screen shot:
   
 	![Create table](./media/vs-storage-aspnet-getting-started-tables/results.png)
 
@@ -178,7 +178,7 @@ class that defines the properties of your entity. In this section, you'll
 see how to define an entity class that uses the customer's first name as the row
 key and last name as the partition key. Together, an entity's partition
 and row key uniquely identify the entity in the table. Entities with the
-same partition key can be queried faster than those with different
+same partition key can be queried faster than entities with different
 partition keys, but using diverse partition keys allows for greater scalability of parallel operations. For any property that should be stored in the table service,
 the property must be a public property of a supported type that exposes both setting and retrieving values.
 The entity class *must* declare a public parameter-less constructor.
@@ -189,7 +189,7 @@ The entity class *must* declare a public parameter-less constructor.
 
 1. Open the `TablesController.cs` file.
 
-1. Add the following directive so that the code in the `TablesController.cs` file can access the **CustomerEntity** class.
+1. Add the following directive so that the code in the `TablesController.cs` file can access the **CustomerEntity** class:
 
     ```csharp
 	using StorageAspnet.Models;
@@ -206,7 +206,7 @@ The entity class *must* declare a public parameter-less constructor.
     }
     ```
 
-1. Within the **AddEntity** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Within the **AddEntity** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -255,7 +255,7 @@ The entity class *must* declare a public parameter-less constructor.
 
 1. On the **Add View** dialog, enter **AddEntity** for the view name, and select **Add**.
 
-1. Open `AddEntity.cshtml`, and modify it so that it looks like the following.
+1. Open `AddEntity.cshtml`, and modify it so that it looks like the following:
 
     ```csharp
 	@{
@@ -268,21 +268,21 @@ The entity class *must* declare a public parameter-less constructor.
     ```
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
-1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
 	<li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
-1. Run the application, and select **Add entity**. You will see results similar to those shown in the following screen shot. 
+1. Run the application, and select **Add entity** to see results similar to those shown in the following screen shot:
   
 	![Add entity](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
-	You can verify that the entity was added by following the steps in the section, [Get a single entity](#get-a-single-entity). You can also use the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to view all of the entities for your tables.
+	You can verify that the entity was added by following the steps in the section, [Get a single entity](#get-a-single-entity). You can also use the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to view all the entities for your tables.
 
 ## Add a batch of entities to a table
 
-In addition to being able to [add an entity to a table one at a time](#add-an-entity-to-a-table), you can also add entities in batch. This reduces the number of round-trips between your code and the Azure table service. The following steps illustrate how to add multiple entities to a table with a single insert operation. 
+In addition to being able to [add an entity to a table one at a time](#add-an-entity-to-a-table), you can also add entities in batch, thus reduceing the round-trips between your code and the Azure table service. The following steps illustrate how to add multiple entities to a table with a single insert operation:
 
 > [!NOTE]
 > 
@@ -301,7 +301,7 @@ In addition to being able to [add an entity to a table one at a time](#add-an-en
     }
     ```
 
-1. Within the **AddEntities** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Within the **AddEntities** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -388,17 +388,17 @@ In addition to being able to [add an entity to a table one at a time](#add-an-en
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
-1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
 	<li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. Run the application, and select **Add entities**. You will see results similar to those shown in the following screen shot. 
+1. Run the application, and select **Add entities** to see results similar to those shown in the following screen shot:
   
 	![Add entities](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
-	You can verify that the entity was added by following the steps in the section, [Get a single entity](#get-a-single-entity). You can also use the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to view all of the entities for your tables.
+	You can verify that the entity was added by following the steps in the section, [Get a single entity](#get-a-single-entity). You can also use the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to view all the entities for your tables.
 
 ## Get a single entity
 
@@ -421,7 +421,7 @@ This section illustrates how to get a single entity from a table using the entit
     }
     ```
 
-1. Within the **GetSingle** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Within the **GetSingle** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -440,7 +440,7 @@ This section illustrates how to get a single entity from a table using the entit
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Create a retrieve operation object that takes an entity object derived from **TableEntity**. The first parameter is the *partitionKey*, and the second parameter is the *rowKey*. Using the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table), the following code snippet queries the table for a **CustomerEntity** entity with a *partitionKey* value of "Smith" and a *rowKey* value of "Ben".  
+1. Create a retrieve operation object that takes an entity object derived from **TableEntity**. The first parameter is the *partitionKey*, and the second parameter is the *rowKey*. Using the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table), the following code snippet queries the table for a **CustomerEntity** entity with a *partitionKey* value of "Smith" and a *rowKey* value of "Ben":
 
     ```csharp
     TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
@@ -462,7 +462,7 @@ This section illustrates how to get a single entity from a table using the entit
 
 1. On the **Add View** dialog, enter **GetSingle** for the view name, and select **Add**.
 
-1. Open `GetSingle.cshtml`, and modify it so that it looks like the following.
+1. Open `GetSingle.cshtml`, and modify it so that it looks like the following:
 
     ```csharp
 	@model Microsoft.WindowsAzure.Storage.Table.TableResult
@@ -490,13 +490,13 @@ This section illustrates how to get a single entity from a table using the entit
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
-1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
 	<li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. Run the application, and select **Get Single**. You will see results similar to those shown in the following screen shot. 
+1. Run the application, and select **Get Single** to see results similar to those shown in the following screen shot:
   
 	![Get single](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
@@ -505,7 +505,7 @@ This section illustrates how to get a single entity from a table using the entit
 As mentioned in the section, [Add an entity to a table](#add-an-entity-to-a-table), the 
 combination of a partition and a row key uniquely identify an entity in a table. Entities with the
 same partition key can be queried faster than those with different
-partition keys. In this section, you'll see how to query a table for all the entities from a 
+partition keys. This section illustrates how to query a table for all the entities from a 
 specified partition.  
 
 > [!NOTE]
@@ -525,7 +525,7 @@ specified partition.
     }
     ```
 
-1. Within the **GetPartition** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Within the **GetPartition** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -544,7 +544,7 @@ specified partition.
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Instantiate a **TableQuery** object specifying the query in the **Where** clause. Using the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table), the following code snippet queries the table for a all entities where the **PartitionKey** (customer's last name) has a value of "Smith".
+1. Instantiate a **TableQuery** object specifying the query in the **Where** clause. Using the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table), the following code snippet queries the table for a all entities where the **PartitionKey** (customer's last name) has a value of "Smith":
 
     ```csharp
     TableQuery<CustomerEntity> query = 
@@ -552,7 +552,7 @@ specified partition.
 		.Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
     ```
 
-1. Within a loop, call the **CloudTable.ExecuteQuerySegmented** method passing the query object you instantiated in the previous step.  The **CloudTable.ExecuteQuerySegmented** method returns a **TableContinuationToken** object that - when **null** - indicates that there are no more entities to retrieve. Within the loop, use another loop to iterate over the returned entities. In the following code example, each returned entity is added to a list. Once the loop ends, the list is passed to a view for display. 
+1. Within a loop, call the **CloudTable.ExecuteQuerySegmented** method passing the query object you instantiated in the previous step.  The **CloudTable.ExecuteQuerySegmented** method returns a **TableContinuationToken** object that - when **null** - indicates that there are no more entities to retrieve. Within the loop, use another loop to iterate over the returned entities. In the following code example, each returned entity is added to a list. Once the loop ends, the list is passed to a view for display: 
 
     ```csharp
     List<CustomerEntity> customers = new List<CustomerEntity>();
@@ -576,7 +576,7 @@ specified partition.
 
 1. On the **Add View** dialog, enter **GetPartition** for the view name, and select **Add**.
 
-1. Open `GetPartition.cshtml`, and modify it so that it looks like the following.
+1. Open `GetPartition.cshtml`, and modify it so that it looks like the following:
 
     ```csharp
 	@model IEnumerable<StorageAspnet.Models.CustomerEntity>
@@ -605,13 +605,13 @@ specified partition.
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
-1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
 	<li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. Run the application, and select **Get Partition**. You will see results similar to those shown in the following screen shot. 
+1. Run the application, and select **Get Partition** to see results similar to those shown in the following screen shot:
   
 	![Get Partition](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
@@ -636,7 +636,7 @@ In this section, you'll learn how to delete an entity.
     }
     ```
 
-1. Within the **DeleteEntity** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Within the **DeleteEntity** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
     ```csharp
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
@@ -655,7 +655,7 @@ In this section, you'll learn how to delete an entity.
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Create a delte operation object that takes an entity object derived from **TableEntity**. In this case, we'll use the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). Note that the entity's **ETag** must be set.  
+1. Create a delete operation object that takes an entity object derived from **TableEntity**. In this case, we'll use the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). Note that the entity's **ETag** must be set.  
 
     ```csharp
     TableOperation deleteOperation = 
@@ -676,7 +676,7 @@ In this section, you'll learn how to delete an entity.
 
 1. On the **Add View** dialog, enter **DeleteEntity** for the view name, and select **Add**.
 
-1. Open `DeleteEntity.cshtml`, and modify it so that it looks like the following.
+1. Open `DeleteEntity.cshtml`, and modify it so that it looks like the following:
 
     ```csharp
 	@model Microsoft.WindowsAzure.Storage.Table.TableResult
@@ -703,13 +703,13 @@ In this section, you'll learn how to delete an entity.
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
-1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
 
     ```html
 	<li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. Run the application, and select **Delete entity**. You will see results similar to those shown in the following screen shot. 
+1. Run the application, and select **Delete entity** to see results similar to those shown in the following screen shot:
   
 	![Get single](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 
