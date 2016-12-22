@@ -59,8 +59,11 @@ Additionally, these features can be used to limit or elevate permissions.
 * [Data Masking](sql-database-dynamic-data-masking-get-started.md) can be used to limit exposure of sensitive data.
 * [Stored procedures](https://msdn.microsoft.com/library/ms190782) can be used to limit the actions that can be taken on the database.
 
-## See also
+## Next steps
 
+- For an overview of all of the SQL Database security feaures, see [SQL security overview](sql-database-security-overview.md).
 - To learn more about firewall rules, see [Azure SQL Database Firewall](sql-database-firewall-configure.md).
 - To learn about users and logins, see [Manage logins](sql-database-manage-logins.md). 
+- For a discussion of the use of data protection features in SQL Database, see [Data protection and security](sql-database-protect-data.md).
+- For a discussion of proactive monitoring, see see [Get started with SQL Database Auditing](sql-database-auditing-get-started.md) and [Get started with SQL Database Threat Detection](sql-database-threat-detection-get-started.md).
 
