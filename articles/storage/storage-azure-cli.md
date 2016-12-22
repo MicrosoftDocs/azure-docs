@@ -21,7 +21,7 @@ ms.author: marsma
 
 ## Overview
 
-The open source, cross-platform Azure CLI 2.0 (Preview) provides a set of commands for working with the Azure platform. It provides much of the same functionality found in the [Azure portal](https://portal.azure.com), including rich data access.
+The open-source, cross-platform Azure CLI 2.0 (Preview) provides a set of commands for working with the Azure platform. It provides much of the same functionality found in the [Azure portal](https://portal.azure.com), including rich data access.
 
 In this guide, we show you how to use the [Azure CLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2) to perform several tasks working with resources in your Azure Storage account. We recommend that you download and install or upgrade to the latest version of the CLI 2.0 before using this guide.
 
@@ -110,7 +110,7 @@ Subgroups:
     table    : NoSQL key-value storage using semi-structured datasets.
 ```
 
-## Connect to your Azure subscription
+## Connect the CLI to your Azure subscription
 
 To work with the resources in your Azure subscription, you must first log in to your Azure account with `az login`. There are several ways you can log in:
 
@@ -119,9 +119,7 @@ To work with the resources in your Azure subscription, you must first log in to 
   * This doesn't work with Microsoft accounts or accounts that use multi-factor authentication.
 * **Log in with a service principal**: `az login --service-principal -u http://azure-cli-2016-08-05-14-31-15 -p VerySecret --tenant contoso.onmicrosoft.com`
 
-You only need to perform this authentication once per device.
-
-### Azure CLI sample script
+## Azure CLI 2.0 sample script
 
 Next, we'll work with a small shell script that issues a few basic Azure CLI 2.0 commands to interact with Azure Storage resources. The script first creates a new container in your storage account, then uploads an existing file (as a blob) to that container. It then lists all blobs in the container, and finally, downloads the file to a destination on your local computer that you specify.
 
@@ -213,15 +211,15 @@ az storage account create -l <location> -n <account_name> -g <resource_group> --
   * `Standard_RAGRS`
   * `Standard_ZRS`
 
-### Set a default Azure storage account in environment variables
-You can have multiple storage accounts in your subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
+### Set default Azure storage account environment variables
+You can have multiple storage accounts in your Azure subscription. To select one of them to use for all subsequent storage commands, you can set these environment variables:
 
 ```azurecli
 export AZURE_STORAGE_ACCOUNT=<account_name>
 export AZURE_STORAGE_ACCESS_KEY=<key>
 ```
 
-Another way to set a default storage account is by using connection string. First, get the connection string with the `show-connection-string` command:
+Another way to set a default storage account is by using a connection string. First, get the connection string with the `show-connection-string` command:
 
 ```azurecli
 az storage account show-connection-string -n <account_name> -g <resource_group>
@@ -329,15 +327,18 @@ az storage file upload --share-name myshare/myDir --source ~/temp/samplefile.txt
 
 A file in the share can be up to 1 TB in size.
 
-### List the files in the share root or directory
-You can list the files and subdirectories in a share root or a directory using the following command:
+### List the files in a share
+You can list files and directories in a share by using the `az storage file list` command:
 
 ```azurecli
-# List files in root of share
+# List the files in the root of a share
 az storage file list -s myshare
 
-# List files in directory within share
+# List the files in a directory within a share
 az storage file list -s myshare/myDir
+
+# List the files in a path within a share
+az storage file list -s myshare -p myDir/mySubDir/MySubDir2
 ```
 
 ### Copy files
