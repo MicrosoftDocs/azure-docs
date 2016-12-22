@@ -110,7 +110,7 @@ If you have an existing Resource Group project, then adding a logic app to it, o
 
     ![Json Outline](./media/app-service-logic-deploy-from-vs/jsonoutline.png)
     
-4. In the **Add Resource** dialog box browse and select **Logic App**, give it a name and select **OK**.
+4. In the **Add Resource** dialog box browse and select **Logic App**, give it a name and select **Add**.
 
     ![Add resource](./media/app-service-logic-deploy-from-vs/addresource.png)
 
