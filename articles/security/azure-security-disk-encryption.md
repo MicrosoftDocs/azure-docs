@@ -823,7 +823,7 @@ It is not recommended to log on to the VM while OS encryption is in progress. Th
 
     chmod +x /usr/local/sbin/azure_crypt_key.sh
 
-4.Edit */etc/initramfs-tools/modules* by appending lines:
+5.Edit */etc/initramfs-tools/modules* by appending lines:
 
     vfat
     ntfs
@@ -831,12 +831,12 @@ It is not recommended to log on to the VM while OS encryption is in progress. Th
     nls_utf8
     nls_iso8859-1
 
-5.Run `update-initramfs -u -k all` to update the initramfs to make the `keyscript` take effect.
-6.Now you can deprovision the VM.
+6.Run `update-initramfs -u -k all` to update the initramfs to make the `keyscript` take effect.
+7.Now you can deprovision the VM.
 
 ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig6.png)
 
-7.Continue to next step and [upload your VHD](#upload-encrypted-vhd-to-an-azure-storage-account) into Azure.
+8.Continue to next step and [upload your VHD](#upload-encrypted-vhd-to-an-azure-storage-account) into Azure.
 
 ##### openSUSE 13.2
 ###### Configure encryption during distro install
