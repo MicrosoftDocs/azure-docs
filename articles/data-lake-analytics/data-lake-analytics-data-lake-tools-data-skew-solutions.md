@@ -1,13 +1,13 @@
 ---
-title: Possible data skew solutions for Azure Data Lake | Microsoft Docs
+title: Possible data-skew solutions for Azure Data Lake | Microsoft Docs
 description: 'Possible data skew solutions for data skew issues troubleshooting in Azure Data Lake.'
 services: data-lake-analytics
 documentationcenter: ''
 author: yanancai
-manager: 
-editor: 
+manager:
+editor:
 
-ms.assetid: 
+ms.assetid:
 ms.service: data-lake-analytics
 ms.devlang: na
 ms.topic: article
@@ -18,11 +18,11 @@ ms.author: yanacai
 
 ---
 
-# Possible data skew solutions for Azure Data Lake
+# Possible data-skew solutions for Azure Data Lake
 
 ## What is data skew problem?
 
-In one word, data skew is the over represented value. Think about that if you assigned 50 tax examiners to audit tax returns – one person to each state. Then the Wyoming auditor is going home early since there are fewer populations in Wyoming State, while the California examiners are going to be working very late since there is a large population in those states. 
+In one word, data skew is the over represented value. Think about that if you assigned 50 tax examiners to audit tax returns – one person to each state. Then the Wyoming auditor is going home early since there are fewer populations in Wyoming State, while the California examiners are going to be working very late since there is a large population in those states.
     ![Data Skew Problem Example](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png) 
 
 In the case above, the data is not evenly distributed across workers which makes some workers run longer than others. During your job execution, there are usually similar cases like the example above -- one vertex get much more data compared with its peers, which makes the vertex run longer than others and slow down the whole job eventually. Worse, it may fail the job since vertices have 5-hours runtime limitation and 6 GB memory limitation.
@@ -77,28 +77,28 @@ Usually, you can set the parameter as 0.5 and 1, 0.5 means skew but not much ske
 **Code example:**
 
     //Adding SKEWFACTOR hint
-    @Impressions = 
-        SELECT * FROM 
+    @Impressions =
+        SELECT * FROM
         searchDM.SML.PageView(@start, @end) AS PageView
         OPTION(SKEWFACTOR(Query)=0.5)
         ;
 
     //Query 1 for key: Query, ClientId
-    @Sessions = 
-        SELECT 
-            ClientId, 
-            Query, 
+    @Sessions =
+        SELECT
+            ClientId,
+            Query,
             SUM(PageClicks) AS Clicks
-        FROM 
+        FROM
             @Impressions
         GROUP BY
             Query, ClientId
         ;
 
     // Query 2 for Key: Query
-    @Display = 
-        SELECT * FROM @Sessions 
-            INNER JOIN @Campaigns 
+    @Display =
+        SELECT * FROM @Sessions
+            INNER JOIN @Campaigns
                 ON @Sessions.Query == @Campaigns.Query
         ;   
 
@@ -111,12 +111,12 @@ In addition to SKEWFACTOR, for specific skewed key join cases, if you know that 
 **Code example:**
 
     // Unstructured (24 hours daily log impressions)
-    @Huge   = EXTRACT ClientId int, ... 
+    @Huge   = EXTRACT ClientId int, ...
                 FROM @"wasb://ads@wcentralus/2015/10/30/{*}.nif"
                 ;
 
     // Small subset (ie: ForgetMe opt out)
-    @Small  = SELECT * FROM @Huge 
+    @Small  = SELECT * FROM @Huge
                 WHERE Bing.ForgetMe(x,y,z)
                 OPTION(ROWCOUNT=500)
                 ;
@@ -132,9 +132,9 @@ Sometimes you write user defined operator to deal with complicated process logic
 
 #### Option 1: Use recursive reducer if possible
 
-By default, user defined reducer will run as non-recursive mode which means reduce work for a key will be distributed into a single vertex. But one problem is that if your data is skewed, the huge data sets may be processed in single vertex and run quite long time. 
+By default, user defined reducer will run as non-recursive mode which means reduce work for a key will be distributed into a single vertex. But one problem is that if your data is skewed, the huge data sets may be processed in single vertex and run quite long time.
 
-To improve performance, you can add an attribute in your code to define reducer as recursive mode, then the huge data sets can be distributed in to multiple vertices and run in parallelism which speeds up your job. 
+To improve performance, you can add an attribute in your code to define reducer as recursive mode, then the huge data sets can be distributed in to multiple vertices and run in parallelism which speeds up your job.
 
 One thing to note is that, to change a non-recursive reducer to recursive, you need to make sure your algorithm is associativity. For example, sum is associativity while median is not. Also, you need to make sure the input and output for reducer keep the same schema.
 
@@ -147,7 +147,7 @@ One thing to note is that, to change a non-recursive reducer to recursive, you n
     [SqlUserDefinedReducer(IsRecursive = true)]
     public class TopNReducer : IReducer
     {
-        public override IEnumerable<IRow> 
+        public override IEnumerable<IRow>
             Reduce(IRowset input, IUpdatableRow output)
         {
             // your reducer code here
@@ -161,8 +161,8 @@ Similar with ROWCOUNT hint for specific skewed key join cases, combiner mode tri
 By default, the combiner mode if Full which means both left row set and right row set cannot be separated. Setting the mode as Left/Right/Inner enables row level join and the system will separate corresponding row set and distributed them into multiple vertices and run in parallelism. However, before configure the combiner mode, you need to take care and make sure the corresponding row set can be separated.
 
 Here is an example for separated left row set below. In this case, ever output row depends on a single input row from the left, and potentially depends on all rows from the right with the same key value. In this case, if you set combiner mode as left, then the system will separate huge left row set to small ones and assign them to multiple vertices.
-![Combiner Mode Illustration](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/combiner-mode-illustration.png) 
-   
+![Combiner Mode Illustration](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/combiner-mode-illustration.png)
+
 >[!NOTE]
 >PLEASE NOTE THAT if you set wrong combiner mode, the combine will be less efficient, and the results may be wrong even worse!
 >
@@ -183,7 +183,7 @@ Here is an example for separated left row set below. In this case, ever output r
     [SqlUserDefinedCombiner(Mode = CombinerMode.Right)]
     public class WatsonDedupCombiner : ICombiner
     {
-        public override IEnumerable<IRow> 
+        public override IEnumerable<IRow>
             Combine(IRowset left, IRowset right, IUpdatableRow output)
         {
         // your combiner code here
