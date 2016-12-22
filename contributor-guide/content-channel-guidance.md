@@ -16,26 +16,45 @@ Specific guidance exists for certain types of content, such as customer stories 
 The following types of content are delivered in other Azure or Microsoft content channels; in some cases, certain types of content are not part of our content strategy.
 
 * **Blog posts**: Blog posts are typically written in the first person voice and are generally related to announcements and promotions. This sort of content typically belongs on the Azure blog. Deeply technical or procedural content does not go on the blog.
+
 * **Code and project samples**: Code and project samples go in the samples repositories and are featured in the sample gallery.
+
 * **Community spotlight/community resources**: Articles featuring community projects. The repo is for technical content about how to use the product from the Microsoft perspective, not about how people are using the product. That's marketing or possibly blog content. Or, let the community tell it's own story in the places that community likes best!
+
 * **Compliance**: Industry standards and compliance information for Azure services must be posted to https://www.microsoft.com/en-us/TrustCenter/Compliance?service=Azure#Icons. This includes certification for standards such as ISO, country-specific and government certifications, banking, health, or other certifications.
+
 * **Downloadable files**: Technical documents should be delivered as articles, not downloads. Do not create downloadable PDFs of content from the technical content repository. Other downloabable things should go to the Download Center.
+
 * **Feedback - soliciting feedback via email addresses**: The approved feedback paths for Azure content include the feedback link that appears in the site footer, the satisfaction rating and verbatim control, the Disqus comments, direct article contributions through GitHub pull requests, and the UserVoice site. Please don't add to this plethora of channels by asking people to send feedback via email.
+
 * **Future product plans**: Do not publish statements about future product plans in technical documentation. Technical documentation should describe only what is possible in the released product.
+
 * **Learning paths**: Learning paths are delivered at https://azure.microsoft.com/en-us/documentation/learning-paths/. See http://acomdocs.azurewebsites.net/articles/contributing-acom-learning-path/ for instructions.
+
 * **Legal terms**: There are all-up Azure legal terms: https://azure.microsoft.com/en-us/support/legal/
+
 * **Marketing content**: Content that provides a high-level feature/benefit description or that just lists at a high level the capabilities of a service is probably marketing content. It belongs in marketing areas of the site. To publish marketing content, file a work request for azure.microsoft.com.
+
 * **Placeholder articles for future content**: Do not publish "coming soon" articles as placeholders for future content. We only publish actual technical content articles that contain relevant, useful technical content.
+
 * **Pricing information**: You can talk about the impact technical choices have on cost in a general way, but do not quote specific pricing details in technical articles. Instead, provide a link to the pricing page for the service you're talking about.
+
 * **Pointer articles to downloads**: Instead of pointing small pages that contain nothing but a link to a download, just link to the download from the relevant technical content.
+
 * **Privacy information**: There is an all-up privacy policy for Microsoft Online Services that covers all of Azure. Privacy information specific to a service should be presented as technical content, not "privacy statements". See https://azure.microsoft.com/en-us/support/legal/.
-* **Redirect articles**:  When you delete the content of an article, do not leave the article published with a link to the replacement content. Use a real redirect.
+
+* **Redirect articles**:  Do not republish an article so that the content of the article is a link to the replacement content. Convert the article into an actual redirect so the user doesn't have to click to go the the replacement content.
+
 * **Reference content**: managed reference, REST APIs, PowerShell cmdlet help, schema reference, and error reference content is published to docs.microsoft.com, but not through this repository.
+
 * **Regions**: In technical articles, do not discuss, describe, or explain the regions in which a feature, product, service, or procedure applies or is available. Feature and service availability by region is documented only on the following ACOM page: https://azure.microsoft.com/regions/services/. Provide a link to the ACOM page. 
 
   You can use specific regions in examples when you are describing procedures or tools where a customer has to work across regions. For example, this sentence is OK: 
     "The following screenshot shows two pings from two different region client machines, one in the East Asia region and one in the West US."
-* **Release notes**: Unless it's an SDK article or a StorSimple article for a hardware update, this sort of information should just be embedded in the relevant technical content or included in the [service updates channel](http://acomdocs.azurewebsites.net/articles/service-updates-overview/)
+    
+* **Release notes**: Unless it's an SDK article or a StorSimple article for a hardware update, this sort of information should just be embedded in the relevant technical content or included in the [service updates channel](http://acomdocs.azurewebsites.net/articles/service-updates-overview/).
+
 * **SLA**: Do not mention any specifics about SLAs in the technical documents. Always point to the SLA page for the service. The SLA index page is here: https://azure.microsoft.com/support/legal/sla/. Example: "For information about the SLA, see the [Azure service level agreements](https://azure.microsoft.com/support/legal/sla/) page."
+
 * **What's new in a release or service**:  Lists or descriptions of what is new in a release or service go to the [Service Updates channel](http://acomdocs.azurewebsites.net/articles/service-updates-overview/).
 
