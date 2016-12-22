@@ -70,7 +70,7 @@ ms.author: goraco
 
 [azure-cli]:../xplat-cli-install.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs
+[azure-ps]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-subscription-service-limits]:../azure-subscription-service-limits.md
@@ -289,7 +289,7 @@ ms.author: goraco
 [sap-ha-guide-10.2]:virtual-machines-windows-sap-high-availability-guide.md#5e959fa9-8fcd-49e5-a12c-37f6ba07b916
 [sap-ha-guide-10.3]:virtual-machines-windows-sap-high-availability-guide.md#755a6b93-0099-4533-9f6d-5c9a613878b5
 
-[sap-ha-multi-sid-guide]:virtual-machines-windows-sap-high-availability-multi-sid.md (SAP Multi-SID HA configuration)
+[sap-ha-multi-sid-guide]:virtual-machines-windows-sap-high-availability-multi-sid.md (SAP multi-SID high-availability configuration)
 
 
 [sap-ha-guide-figure-1000]:./media/virtual-machines-shared-sap-high-availability-guide/1000-wsfc-for-sap-ascs-on-azure.png
@@ -359,7 +359,7 @@ ms.author: goraco
 
 [sap-ha-guide-figure-6003]:./media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
-[powershell-install-configure]:https://docs.microsoft.com/en-us/powershell/azureps-cmdlets-docs
+[powershell-install-configure]:https://docs.microsoft.com/powershell/azureps-cmdlets-docs
 [resource-group-authoring-templates]:../resource-group-authoring-templates.md
 [resource-group-overview]:../resource-group-overview.md
 [resource-groups-networking]:../virtual-network/resource-groups-networking.md
@@ -538,7 +538,7 @@ _**Figure 1:** Example of a Windows Server Failover Clustering configuration for
 Figure 1 also shows a two-node shared storage cluster. In an on-premises shared storage cluster, all nodes in the cluster detect shared storage. A locking mechanism protects the data from corruption. All nodes can detect if another node fails. If one node fails, the remaining node takes ownership of the storage resources and ensures the availability of services.
 
 > [!NOTE]
-> You don't need shared disks for high availability with some DBMS applications, like with SQL Server. SQL Server AlwaysOn replicates DBMS data and log files from the local disk of one cluster node to the local disk of another cluster node. In that case, the Windows cluster configuration doesn't need a shared disk.
+> You don't need shared disks for high availability with some DBMS applications, like with SQL Server. SQL Server Always On replicates DBMS data and log files from the local disk of one cluster node to the local disk of another cluster node. In that case, the Windows cluster configuration doesn't need a shared disk.
 >
 >
 
@@ -574,7 +574,7 @@ Get more information about [SIOS DataKeeper](http://us.sios.com/products/datakee
 _**Figure 3:** Windows Server Failover Clustering configuration in Azure with SIOS DataKeeper_
 
 > [!NOTE]
-> You don't need shared disks for high availability with some DBMS products, like SQL Server. SQL Server AlwaysOn replicates DBMS data and log files from the local disk of one cluster node to the local disk of another cluster node. In this case, the Windows cluster configuration doesn't need a shared disk.
+> You don't need shared disks for high availability with some DBMS products, like SQL Server. SQL Server Always On replicates DBMS data and log files from the local disk of one cluster node to the local disk of another cluster node. In this case, the Windows cluster configuration doesn't need a shared disk.
 >
 >
 
@@ -624,16 +624,16 @@ Compared to bare metal or private cloud deployments, Azure Virtual Machines requ
 _**Figure 6:** Windows Server Failover Clustering for an SAP ASCS/SCS configuration in Azure with SIOS DataKeeper_
 
 ### <a name="ddd878a0-9c2f-4b8e-8968-26ce60be1027"></a>High-availability DBMS instance
-The DBMS also is a single point of contact in an SAP system. You need to protect it by using a high-availability solution. Figure 7 shows a SQL Server AlwaysOn high-availability solution in Azure, with Windows Server Failover Clustering and the Azure internal load balancer. SQL Server AlwaysOn replicates DBMS data and log files by using its own DBMS replication. In this case, you don't need cluster shared disks, which simplifies the entire setup.
+The DBMS also is a single point of contact in an SAP system. You need to protect it by using a high-availability solution. Figure 7 shows a SQL Server Always On high-availability solution in Azure, with Windows Server Failover Clustering and the Azure internal load balancer. SQL Server Always On replicates DBMS data and log files by using its own DBMS replication. In this case, you don't need cluster shared disks, which simplifies the entire setup.
 
-![Figure 7: Example of a high-availability SAP DBMS, with SQL Server AlwaysOn][sap-ha-guide-figure-2003]
+![Figure 7: Example of a high-availability SAP DBMS, with SQL Server Always On][sap-ha-guide-figure-2003]
 
-_**Figure 7:** Example of a high-availability SAP DBMS, with SQL Server AlwaysOn_
+_**Figure 7:** Example of a high-availability SAP DBMS, with SQL Server Always On_
 
 For more information about clustering SQL Server in Azure by using the Azure Resource Manager deployment model, see these articles:
 
-* [Configure AlwaysOn availability group in Azure Virtual Machines manually by using Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
-* [Configure an Azure internal load balancer for an AlwaysOn availability group in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
+* [Configure Always On availability group in Azure Virtual Machines manually by using Resource Manager][virtual-machines-windows-portal-sql-alwayson-availability-groups-manual]
+* [Configure an Azure internal load balancer for an Always On availability group in Azure][virtual-machines-windows-portal-sql-alwayson-int-listener]
 
 ## <a name="045252ed-0277-4fc8-8f46-c5a29694a816"></a> End-to-end high-availability deployment scenarios
 
@@ -842,7 +842,7 @@ In the [database multi-SID template][sap-templates-3-tier-multisid-db-marketplac
 -  **Sap System Id**. Enter the SAP system ID of the SAP system you want to install. The ID will be used as a prefix for the resources that are deployed.
 -  **Os Type**. Select the operating system of the virtual machines.
 -  **Dbtype**. Select the type of the database you want to install on the cluster. Select **SQL** if you want to install Microsoft SQL Server. Select **HANA** if you plan to install SAP HANA on the virtual machines. Make sure to select the correct operating system type: select **Windows** for SQL, and select a Linux distribution for HANA. The Azure Load Balancer that is connected to the virtual machines will be configured to support the selected database type:
-  * **SQL**. The load balancer will load-balance port 1433. Make sure to use this port for your SQL Server AlwaysOn setup.
+  * **SQL**. The load balancer will load-balance port 1433. Make sure to use this port for your SQL Server Always On setup.
   * **HANA**. The load balancer will load-balance ports 35015 and 35017. Make sure to install SAP HANA with instance number **50**.
   The load balancer will use probe port 62550.
 -  **Sap System Size**. Set the number of SAPS the new system will provide. If you are not sure how many SAPS the system will require, ask your SAP Technology Partner or System Integrator.
@@ -1407,7 +1407,7 @@ After you install SIOS DataKeeper on both nodes, you need to start the configura
 
 ## <a name="a06f0b49-8a7a-42bf-8b0d-c12026c5746b"></a> Install the SAP NetWeaver system
 
-We won’t describe the DBMS setup because setups vary depending on the DBMS system you use. However, we assume that high-availability concerns with the DBMS are addressed with the functionalities the different DBMS vendors support for Azure. For example, AlwaysOn or database mirroring for SQL Server, and Oracle Data Guard for Oracle databases. In the scenario we use in this article, we didn't add more protection to the DBMS.
+We won’t describe the DBMS setup because setups vary depending on the DBMS system you use. However, we assume that high-availability concerns with the DBMS are addressed with the functionalities the different DBMS vendors support for Azure. For example, Always On or database mirroring for SQL Server, and Oracle Data Guard for Oracle databases. In the scenario we use in this article, we didn't add more protection to the DBMS.
 
 There are no special considerations when different DBMS services interact with this kind of clustered SAP ASCS/SCS configuration in Azure.
 
@@ -1440,15 +1440,6 @@ Installing SAP with a high-availability ASCS/SCS instance requires these steps:
 
   > [!IMPORTANT]
   > The IP address that you assign to the virtual host name of the ASCS/SCS instance must be the same as the IP address that you assigned to Azure Load Balancer (**<*SID*>-lb-ascs**).  
-  >
-  >
-
-  The IP address of the virtual SAP ASCS/SCS host name (**pr1-ascs-sap**) is the same as the IP address of Azure Load Balancer (**pr1-lb-ascs**).
-
-  In Azure, only one SAP failover cluster role can run in one Windows Server Failover Clustering cluster. For example, one ASCS instance for the ABAP system and one SCS instance for the Java system. For ABAP+Java, it would be one ASCS instance and one SCS instance.
-
-  > [!NOTE]
-  > Currently, multi-SID clustering as described in the SAP installation guides (see [SAP installation guides][sap-installation-guides]) doesn't work in Azure.
   >
   >
 
