@@ -26,7 +26,7 @@ Automatic scaling is an automated process that helps ease management overhead. B
 Set up automatic scaling on a scale set by using an Azure Resource Manager template, Azure PowerShell, Azure CLI, or the Azure portal.
 
 ## Set up scaling by using Resource Manager templates
-Rather than deploying and managing each resource of your application separately, use a template that deploys all resources in a single, coordinated operation. In the template, application resources are defined and deployment parameters are specified for different environments. The template consists of JSON and expressions that you can use to construct values for your deployment. To learn more, look at [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+Rather than deploying and managing each resource of your application separately, use a template that deploys all resources in a single, coordinated operation. In the template, application resources are defined and deployment parameters are specified for different environments. The template consists of JSON and expressions that you can use to construct values for your deployment. To learn more, look at [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
 In the template, you specify the capacity element:
 
