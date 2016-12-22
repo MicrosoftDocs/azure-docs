@@ -3,8 +3,8 @@ title: Scale your ACS cluster with the Azure CLI | Microsoft Docs
 description: How to scale your Azure Container Service cluster using the Azure CLI.
 services: container-service
 documentationcenter: ''
-author: Thraka
-manager: timlt
+author: sauryadas
+manager: madhana
 editor: ''
 tags: acs, azure-container-service
 keywords: Docker, Containers, Micro-services, Mesos, Azure
@@ -16,7 +16,7 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/03/2016
-ms.author: timlt
+ms.author: saudas
 
 ---
 # Scale an Azure Container Service

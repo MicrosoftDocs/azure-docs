@@ -10,7 +10,7 @@ editor: ''
 
 ms.assetid: aeb8c4c3-6ae2-45f7-b2c3-fa13e3752eed
 ms.service: sql-database
-ms.custom: tutorial
+ms.custom: business continuity
 ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -60,7 +60,7 @@ GUIDELINES for the H1
 	
 	The H1 should answer the question "What will I do in this topic?" Write the H1 heading in conversational language and use search keywords as much as possible. Since this is a "solve a problem" topic, make sure the title indicates that. Use a strong, specific verb like "Deploy."  
 		
-	Heading must use an industry standard term. If your feature is a proprietary name like "Elastic database pools", use a synonym. For example: "Learn about elastic database pools for multi-tenant databases." In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
+	Heading must use an industry standard term. If your feature is a proprietary name like "elastic pools", use a synonym. For example: "Learn about elastic pools for multi-tenant databases." In this case multi-tenant database is the industry-standard term that will be an anchor for finding the topic.
 
 -------------------->
 
@@ -101,11 +101,10 @@ In this getting-started tutorial, you learn how to use the Azure portal to:
 
 * You have completed the [Get started with Azure SQL Database servers, databases, and firewall rules by using the Azure portal and SQL Server Management Studio](sql-database-get-started.md) or the equivalent [PowerShell version](sql-database-get-started-powershell.md) of this tutorial. If you have not, either complete this prerequisite tutorial or execute the PowerShell script at the end of the [PowerShell version](sql-database-get-started-powershell.md) of this tutorial before continuing.
 
-<!------------------
+
 > [!TIP]
-> You can perform these same tasks in a getting started tutorial by using either [C#](sql-database-get-started-csharp.md) or [PowerShell](sql-database-get-started-powershell.md).
->
--------------------->
+> You can perform these same tasks in a getting started tutorial by using [PowerShell](sql-database-get-started-backup-recovery-powershell.md).
+
 
 ## Sign in by using your existing account
 Using your [existing subscription](https://account.windowsazure.com/Home/Index), follow these steps to connect to the Azure portal.
@@ -156,7 +155,7 @@ In this section of the tutorial, you restore the database to a new database as o
     ![restore point time](./media/sql-database-get-started-backup-recovery/restore-point-time.png)
 
 	>[!NOTE]
-	>Notice that the database name has changed to reflect the date and time that you selected. Notice also that you cannot change the server to which you are restoring to a specific point in time. To restore to a different server, use [Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Finally, notice that you can restore into an [elastic database pool](sql-database-elastic-jobs-overview.md) or to a different pricing tier. 
+	>Notice that the database name has changed to reflect the date and time that you selected. Notice also that you cannot change the server to which you are restoring to a specific point in time. To restore to a different server, use [Geo-Restore](sql-database-disaster-recovery.md#recover-using-geo-restore). Finally, notice that you can restore into an [elastic pool](sql-database-elastic-jobs-overview.md) or to a different pricing tier. 
     >
 
 4. Click **OK** to restore your database to an earlier point in time to the new database.
@@ -176,6 +175,11 @@ In this section of the tutorial, you restore the database to a new database as o
 ## Configure long-term retention of automated backups in an Azure Recovery Services vault 
 
 In this section of the tutorial, you [configure an Azure Recovery Services vault to retain automated backups](sql-database-long-term-retention.md) for a period longer than the retention period for your service tier. 
+
+
+> [!TIP]
+> To delete backups, see [Delete long-term retention backups](sql-database-long-term-retention-delete.md).
+
 
 1. Open the **SQL Server** blade for your server, **sqldbtutorialserver**.
 
@@ -296,6 +300,6 @@ In this section of the tutorial, you restore the database to a new database from
 
 ## Next steps
 
-- To learn about service-generated automatic backups, see [automatic backups](: https://azure.microsoft.com/en-us/documentation/articles/)sql-database-automated-backups.MD)
+- To learn about service-generated automatic backups, see [automatic backups](sql-database-automated-backups.md)
 - To learn about long-term backup retention, see [long-term backup retention](sql-database-long-term-retention.md)
 - To learn about restoring from backups, see [restore from backup](sql-database-recovery-using-backups.md)

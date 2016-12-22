@@ -1,9 +1,11 @@
 ---
 layout: LandingPage
+description: Learn how to use SQL Data Warehouse, combining SQL Server with massively parallel processing. Documentation shows how to load, analyze, manage, and export data.
 ---
+
 # SQL Data Warehouse Documentation
 
-Azure SQL Data Warehouse combines the SQL Server relational database with Azure cloud scale-out capabilities.  Built on our massively parallel processing (MPP) architecture, SQL Data Warehouse can handle your enterprise workload.
+Learn how to use SQL Data Warehouse, which combines the SQL Server relational database with massively parallel processing. Tutorials and other documentation show you how to load data into the warehouse, then analyze, manage, and export it.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -49,7 +51,8 @@ Azure SQL Data Warehouse combines the SQL Server relational database with Azure 
                 <div class="card">
                     <div class="cardImageOuter">
                         <div class="cardImage">
-                            <img src="media/index/portal.svg" alt="" />
+
+<img src="media/index/portal.svg" alt="" />
                         </div>
                     </div>
                     <div class="cardText">
@@ -63,36 +66,35 @@ Azure SQL Data Warehouse combines the SQL Server relational database with Azure 
 </ul>
 
 ---
-## Reference
 
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
-	<li>
-        <a href="/powershell/azureps-cmdlets-docs">
+    <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Azure PowerShell Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-powershell-cmdlets">PowerShell cmdlets</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	<li>
-        <a href="https://msdn.microsoft.com/library/azure/bb510741">
+    <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>T-SQL</h3>
-                        <p>T-SQL Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Languages</h3>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-service-capacity-limits">Capacity limits</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-language-elements">T-SQL language elements</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements">T-SQL statements</a></p>
+                        <p><a href="/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views">T-SQL system views</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
 

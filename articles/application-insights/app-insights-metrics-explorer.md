@@ -1,10 +1,10 @@
 ---
-title: Exploring Metrics in Azure Application Insights | Microsoft Docs
+title: Exploring Metrics in Application Insights | Microsoft Docs
 description: How to interpret charts on metric explorer, and how to customize metric explorer blades.
 services: application-insights
 documentationcenter: ''
 author: alancameronwills
-manager: carmonm
+manager: douge
 
 ms.assetid: 1f471176-38f3-40b3-bc6d-3f47d0cbaaa2
 ms.service: application-insights
@@ -12,7 +12,7 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2016
+ms.date: 12/14/2016
 ms.author: awills
 
 ---
@@ -21,13 +21,11 @@ Metrics in [Application Insights][start] are measured values and counts of event
 
 Metrics and event counts are displayed in charts of aggregated values such as sums, averages, or counts.
 
-Here's a sample chart:
+Here's a sample set of charts:
 
-![Open the overview blade of your application in the Azure portal](./media/app-insights-metrics-explorer/01-overview.png)
+![](./media/app-insights-metrics-explorer/01-overview.png)
 
-Some charts are segmented: the total height of the chart at any point is the sum of the metrics displayed. The legend by default shows the largest quantities.
-
-Dotted lines show the value of the metric one week previously.
+You find metrics charts everywhere in the Application Insights portal. In most cases, they can be customized, and you can add more charts to the blade. From the Overview blade, click through to more detailed charts (which have titles such as "Server responses"), or click **Metrics Explorer** to open a new blade where you can create custom charts.
 
 ## Time range
 You can change the Time range covered by the charts or grids on any blade.
@@ -59,33 +57,6 @@ You can adjust the granularity in the Time range blade:
 
 The granularities available depend on the time range you select. The explicit granularities are alternatives to the "automatic" granularity for the time range.
 
-## Metrics Explorer
-Click through any chart on the overview blade to see a more detailed set of related charts and grids. You can edit these charts and grids to focus on the details you're interested in.
-
-Or you can just click the Metrics Explorer button in the head of the overview blade.
-
-For example, click through the web app's Failed Requests chart:
-
-![On the overview blade, click a chart](./media/app-insights-metrics-explorer/14-trix.png)
-
-## What do the figures mean?
-The legend at the side by default usually shows the aggregated value over the period of the chart. If you hover over the chart, it shows the value at that point.
-
-Each data point on the chart is an aggregate of the data values received in the preceding sampling interval or "granularity". The granularity is shown at the top of the blade, and varies with the overall timescale of the chart.
-
-Metrics can be aggregated in different ways:
-
-* **Sum** adds up the values of all the data points received over the sampling interval, or the period of the chart.
-* **Average** divides the Sum by the number of data points received over the interval.
-* **Unique** counts are used for counts of users and accounts. Over the sampling interval, or over the period of the chart, the figure shows the count of different users seen in that time.
-
-You can change the aggregation method:
-
-![Select the chart and then select aggregation](./media/app-insights-metrics-explorer/05-aggregation.png)
-
-The default method for each metric is shown when you create a new chart or when all metrics are deselected:
-
-![Deselect all metrics to see the defaults](./media/app-insights-metrics-explorer/06-total.png)
 
 ## Editing charts and grids
 To add a new chart to the blade:
@@ -118,10 +89,29 @@ Is the chart too small for segmented data? Adjust its height:
 
 ![Adjust the slider](./media/app-insights-metrics-explorer/18-height.png)
 
-## Edit the chart type
-Notice that you can switch between grids and graphs:
+## Aggregation types
+The legend at the side by default usually shows the aggregated value over the period of the chart. If you hover over the chart, it shows the value at that point.
 
-![Select a grid or graph, then choose a chart type](./media/app-insights-metrics-explorer/16-chart-grid.png)
+Each data point on the chart is an aggregate of the data values received in the preceding sampling interval or "granularity". The granularity is shown at the top of the blade, and varies with the overall timescale of the chart.
+
+Metrics can be aggregated in different ways:
+
+* **Count** is a count of the events received in the sampling interval. It is used for events such as requests. Variations in the height of the chart indicates variations in the rate at which the events occur. But note that the numeric value changes when you change the sampling interval.
+* **Sum** adds up the values of all the data points received over the sampling interval, or the period of the chart.
+* **Average** divides the Sum by the number of data points received over the interval.
+* **Unique** counts are used for counts of users and accounts. Over the sampling interval, or over the period of the chart, the figure shows the count of different users seen in that time.
+* **%** - percentage versions of each aggregation are used only with segmented charts. The total always adds up to 100%, and the chart shows the relative contribution of different components of a total.
+
+    ![Percentage aggregation](./media/app-insights-metrics-explorer/percentage-aggregation.png)
+
+### Change the aggregation type
+
+![Edit the chart and then select Aggregation](./media/app-insights-metrics-explorer/05-aggregation.png)
+
+The default method for each metric is shown when you create a new chart or when all metrics are deselected:
+
+![Deselect all metrics to see the defaults](./media/app-insights-metrics-explorer/06-total.png)
+
 
 ## Filter your data
 To see just the metrics for a selected set of property values:
@@ -144,7 +134,10 @@ Would you like to filter telemetry on a category of your own choosing? For examp
 
 [Create your own property](app-insights-api-custom-events-metrics.md#properties). Set it in a [Telemetry Initializer](app-insights-api-custom-events-metrics.md#defaults) to have it appear in all telemetry - including the standard telemetry sent by different SDK modules.
 
+## Edit the chart type
+Notice that you can switch between grids and graphs:
 
+![Select a grid or graph, then choose a chart type](./media/app-insights-metrics-explorer/16-chart-grid.png)
 
 ## Save your metrics blade
 When you've created some charts, save them as a favorite. You can choose whether to share it with other team members, if you use an organizational account.

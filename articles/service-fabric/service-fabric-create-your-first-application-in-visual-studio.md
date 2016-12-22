@@ -13,7 +13,7 @@ ms.devlang: dotNet
 ms.topic: hero-article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 12/09/2016
+ms.date: 12/14/2016
 ms.author: ryanwi
 
 ---
@@ -130,6 +130,7 @@ Before wrapping up, it's important to remember that the local cluster is real. S
 * Try creating a service using the [Reliable Services](service-fabric-reliable-services-quick-start.md) or [Reliable Actors](service-fabric-reliable-actors-get-started.md) programming models.
 * Learn how to expose your services to the Internet with a [web service front end](service-fabric-add-a-web-frontend.md).
 * Walk through a [hands-on-lab](https://msdnshared.blob.core.windows.net/media/2016/07/SF-Lab-Part-I.docx) and create a stateless service, configure monitoring and health reports, and perform an application upgrade.
+* Learn about [Service Fabric support options](service-fabric-support.md)
 
 <!-- Image References -->
 

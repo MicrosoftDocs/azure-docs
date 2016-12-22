@@ -78,7 +78,7 @@ When a new desired configuration is received, the device app reports a pending c
             }
         }
 
-Then, at some later time, the device app will report the success of failure of this operation by updating the above property.
+Then, at some later time, the device app will report the success or failure of this operation by updating the above property.
 Note how the solution back end is able, at any time, to query the status of the configuration process across all the devices.
 
 This tutorial shows you how to:
