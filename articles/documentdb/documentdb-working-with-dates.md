@@ -18,12 +18,17 @@ ms.author: arramac
 
 ---
 # Working with Dates in Azure DocumentDB
-DocumentDB delivers schema flexibility and rich indexing via a native [JSON](www.json.org) data model. All DocumentDB resources including databases, collections, users, and permissions are modeled and stored as JSON documents. As a requirement for being portable, JSON (and DocumentDB) support only a small set of basic types: String, Number, Boolean, Array, Object and Null. However, JSON is flexible and allow developers and frameworks to represent more complex types using these primitives and composing them as objects or arrays. 
+DocumentDB delivers schema flexibility and rich indexing via a native [JSON](www.json.org) data model. All DocumentDB resources including databases, collections, users, and permissions are modeled and stored as JSON documents. As a requirement for being portable, JSON (and DocumentDB) supports only a small set of basic types: String, Number, Boolean, Array, Object, and Null. However, JSON is flexible and allow developers and frameworks to represent more complex types using these primitives and composing them as objects or arrays. 
 
 In addition to the basic types, many applications need the [DateTime](https://msdn.microsoft.com/library/system.datetime(v=vs.110).aspx) type to represent dates and timestamps. This article describes how developers can store, retrieve, and query dates in DocumentDB using the .NET SDK.
 
 ## Storing DateTimes
-By default, the [DocumentDB SDK](documentdb-sdk-dotnet.md) serializes DateTime values as [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) strings. The benefits of storing DateTimes in ISO-8601 are that the string representations of dates can be compared, and the relative ordering of the DateTime values is preserved when transformed to strings. Most applications can use the default string represenation as it doesn't require custom code or annotations, the dates as stored in JSON are human readable, and because this approach can take advantage of DocumentDB's index for fast query performance.
+By default, the [DocumentDB SDK](documentdb-sdk-dotnet.md) serializes DateTime values as [ISO 8601](http://www.iso.org/iso/catalogue_detail?csnumber=40874) strings. Most applications can use the default string representation for DateTime for the following reasons:
+
+* Strings can be compared, and the relative ordering of the DateTime values is preserved when they are transformed to strings. 
+* This doesn't require any custom code or attributes for JSON conversion.
+* The dates as stored in JSON are human readable.
+* This approach can take advantage of DocumentDB's index for fast query performance.
 
 For example, the following snippet stores an `Order` object containing two DateTime properties - `ShipDate` and `OrderDate` as a document using the .NET SDK:
 
@@ -55,7 +60,7 @@ This document is stored in DocumentDB as follows:
     }
     
 
-Alternatively, you can store DateTimes as Unix timestamps, that is, as a number representing the number of elapsed seconds since January 1, 1970. This is utilized by DocumentDB's internal Timestamp (`_ts`) property. You can use the [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) class to serialize DateTimes as numbers. 
+Alternatively, you can store DateTimes as Unix timestamps, that is, as a number representing the number of elapsed seconds since January 1, 1970. DocumentDB's internal Timestamp (`_ts`) property follows this approach. You can use the [UnixDateTimeConverter](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.unixdatetimeconverter.aspx) class to serialize DateTimes as numbers. 
 
 ## Indexing DateTimes for range queries
 Range queries are common with DateTime values. For example, if you need to find all orders created since yesterday, or find all orders shipped in the last 5 minutes, you need to perform range queries on the DateTime values stored (as strings) in DocumentDB. In order to execute these queries efficiently, you must configure your collection for Range indexing on strings.
