@@ -36,7 +36,7 @@ For example, the following snippet stores an `Order` object containing two DateT
         public double Total { get; set; }
     }
 
-    await client.CreateDocumentAsync("dbs/orderdb/colls/orders", 
+    await client.CreateDocumentAsync("/dbs/orderdb/colls/orders", 
         new Order 
         { 
             Id = "09152014101",
@@ -69,7 +69,7 @@ You can learn more about how to configure indexing policies at [DocumentDB Index
 ## Querying DateTimes in LINQ
 The DocumentDB .NET SDK automatically supports querying data stored in DocumentDB via LINQ. For example, the following snippet shows a LINQ query that filters orders that were shipped in the last 3 days.
 
-    IQueryable<Order> orders = client.CreateDocumentQuery<Order>("dbs/orderdb/colls/orders")
+    IQueryable<Order> orders = client.CreateDocumentQuery<Order>("/dbs/orderdb/colls/orders")
         .Where(o => o.ShipDate >= DateTime.UtcNow.AddDays(-3));
           
     // Translated to the following SQL statement and executed on DocumentDB
