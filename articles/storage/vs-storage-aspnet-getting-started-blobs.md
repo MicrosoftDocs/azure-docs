@@ -113,7 +113,7 @@ A blob container is a nested hierarchy of blobs and folders. The following steps
 
 1. On the **Add View** dialog, enter **CreateBlobContainer** for the view name, and select **Add**.
 
-1. Open `CreateBlobContainer.cshtml`, and modify it so that it looks like the following:
+1. Open `CreateBlobContainer.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```csharp
 	@{
@@ -141,7 +141,7 @@ A blob container is a nested hierarchy of blobs and folders. The following steps
 
 ## Upload a blob into a blob container
 
-Once you've [created a blob container](#create-a-blob-container), you can upload files into that container. This section walks you through how to upload a local file to a blob container. The steps assume you've created a blob container named *test-blob-container*. You need to change that literal to the name of your blob container. 
+Once you've [created a blob container](#create-a-blob-container), you can upload files into that container. This section walks you through how to upload a local file to a blob container. The steps assume you've created a blob container named *test-blob-container*. 
 
 1. Open the `BlobsController.cs` file.
 
@@ -175,7 +175,7 @@ Once you've [created a blob container](#create-a-blob-container), you can upload
     CloudBlobContainer container = blobClient.GetContainerReference("test-blob-container");
     ```
 
-1. As explained earlier, Azure storage supports different blob types. To retrieve a reference to a page blob, call the **CloudBlobContainer.GetPageBlobReference** method. To retrieve a reference to a block blob, call the **CloudBlobContainer.GetBlockBlobReference** method. Usually, block blob is the recommended type to use. (Change *<blob-name>* to the name you want to give the blob once uploaded.)
+1. As explained earlier, Azure storage supports different blob types. To retrieve a reference to a page blob, call the **CloudBlobContainer.GetPageBlobReference** method. To retrieve a reference to a block blob, call the **CloudBlobContainer.GetBlockBlobReference** method. Usually, block blob is the recommended type to use. (Change <blob-name>* to the name you want to give the blob once uploaded.)
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference(<blob-name>);
@@ -301,7 +301,7 @@ and its name (or URI in the case of a **CloudBlobDirectory**) is added to a list
 
 1. On the **Add View** dialog, enter **ListBlobs** for the view name, and select **Add**.
 
-1. Open `ListBlobs.cshtml`, and modify it so that it looks like the following:
+1. Open `ListBlobs.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```html
 	@model List<string>
@@ -333,7 +333,7 @@ and its name (or URI in the case of a **CloudBlobDirectory**) is added to a list
 
 ## Download blobs
 
-This section illustrate how to download a blob and either persist it to local storage or read the contents into a string. The sample code references the *test-blob-container* created in the section, [Create a blob container](#create-a-blob-container).
+This section illustrates how to download a blob and either persist it to local storage or read the contents into a string. The sample code references the *test-blob-container* created in the section, [Create a blob container](#create-a-blob-container).
 
 1. Open the `BlobsController.cs` file.
 

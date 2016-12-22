@@ -144,7 +144,7 @@ The following steps illustrate how to create a table:
 
 1. On the **Add View** dialog, enter **CreateTable** for the view name, and select **Add**.
 
-1. Open `CreateTable.cshtml`, and modify it so that it looks like the following:
+1. Open `CreateTable.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```csharp
 	@{
@@ -168,7 +168,7 @@ The following steps illustrate how to create a table:
   
 	![Create table](./media/vs-storage-aspnet-getting-started-tables/results.png)
 
-	As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method will return **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the container can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+	As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method returns **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the container can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## Add an entity to a table
 
@@ -255,7 +255,7 @@ The entity class *must* declare a public parameter-less constructor.
 
 1. On the **Add View** dialog, enter **AddEntity** for the view name, and select **Add**.
 
-1. Open `AddEntity.cshtml`, and modify it so that it looks like the following:
+1. Open `AddEntity.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```csharp
 	@{
@@ -282,7 +282,7 @@ The entity class *must* declare a public parameter-less constructor.
 
 ## Add a batch of entities to a table
 
-In addition to being able to [add an entity to a table one at a time](#add-an-entity-to-a-table), you can also add entities in batch, thus reduceing the round-trips between your code and the Azure table service. The following steps illustrate how to add multiple entities to a table with a single insert operation:
+In addition to being able to [add an entity to a table one at a time](#add-an-entity-to-a-table), you can also add entities in batch, thus reducing the round-trips between your code and the Azure table service. The following steps illustrate how to add multiple entities to a table with a single insert operation:
 
 > [!NOTE]
 > 
@@ -349,7 +349,7 @@ In addition to being able to [add an entity to a table one at a time](#add-an-en
 	IList<TableResult> results = table.ExecuteBatch(batchOperation);
     ```
 
-1. The **CloudTable.ExecuteBatch** method returns a list of **TableResult** objects where each **TableResult** object can be examined to determine the success or failure of each individual operation. For this example, we'll pass the list to a view and let the view display the results of each operation. 
+1. The **CloudTable.ExecuteBatch** method returns a list of **TableResult** objects where each **TableResult** object can be examined to determine the success or failure of each individual operation. For this example, pass the list to a view and let the view display the results of each operation. 
  
     ```csharp
 	return View(results);
@@ -462,7 +462,7 @@ This section illustrates how to get a single entity from a table using the entit
 
 1. On the **Add View** dialog, enter **GetSingle** for the view name, and select **Add**.
 
-1. Open `GetSingle.cshtml`, and modify it so that it looks like the following:
+1. Open `GetSingle.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```csharp
 	@model Microsoft.WindowsAzure.Storage.Table.TableResult
@@ -576,7 +576,7 @@ specified partition.
 
 1. On the **Add View** dialog, enter **GetPartition** for the view name, and select **Add**.
 
-1. Open `GetPartition.cshtml`, and modify it so that it looks like the following:
+1. Open `GetPartition.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```csharp
 	@model IEnumerable<StorageAspnet.Models.CustomerEntity>
@@ -617,7 +617,7 @@ specified partition.
 
 ## Delete an entity
 
-In this section, you'll learn how to delete an entity.
+This section illustrates how to delete an entity from a table.
 
 > [!NOTE]
 > 
@@ -676,7 +676,7 @@ In this section, you'll learn how to delete an entity.
 
 1. On the **Add View** dialog, enter **DeleteEntity** for the view name, and select **Add**.
 
-1. Open `DeleteEntity.cshtml`, and modify it so that it looks like the following:
+1. Open `DeleteEntity.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```csharp
 	@model Microsoft.WindowsAzure.Storage.Table.TableResult
