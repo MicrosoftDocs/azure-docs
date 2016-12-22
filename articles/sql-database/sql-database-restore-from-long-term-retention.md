@@ -103,11 +103,11 @@ if (!$availableBackups)
 }
 else
 {
-# Restore the most recent available backup: $availableBackups[0]
-################################################################
-$restoredDb = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceId $availableBackups[0].Id -ResourceGroupName $resourceGroupName `
- -ServerName $serverName -TargetDatabaseName $restoredDatabaseName -Edition $edition -ServiceObjectiveName $performanceLevel
-$restoredDb
+    # Restore the most recent available backup: $availableBackups[0]
+    ################################################################
+    $restoredDb = Restore-AzureRmSqlDatabase -FromLongTermRetentionBackup -ResourceId $availableBackups[0].Id -ResourceGroupName $resourceGroupName ` 
+     -ServerName $serverName -TargetDatabaseName $restoredDatabaseName -Edition $edition -ServiceObjectiveName $performanceLevel
+    $restoredDb
 }
 ```
 
