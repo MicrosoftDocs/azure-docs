@@ -568,7 +568,6 @@ specified partition.
         }
     } while (token != null);
 
-
     return View(customers);
     ```
 
