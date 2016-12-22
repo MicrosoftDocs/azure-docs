@@ -49,7 +49,7 @@ ms.author: rnagpal
 ## Release Notes
 
 > [!NOTE]
-> Partition routing information cannot be extracted from the query when running in a 32-bit process. To complete your query and avoid this exception, ensure that your host process is 64-bit. For more information, see [Troubleshooting](#troubleshooting)
+> Starting with version 1.9.2 release, you may receive System.NotSupportedException when running queries on partitioned collections if your host process is 32-bit. To avoid this exception, ensure that your host process is 64-bit. For more information, see [Troubleshooting](#troubleshooting).
 
 ### <a name="1.11.1"/>[1.11.1](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/1.11.1)
 * Minor performance fix for the CreateDocumentCollectionIfNotExistsAsync API introduced in 1.11.0.
