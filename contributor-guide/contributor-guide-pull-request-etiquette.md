@@ -4,7 +4,7 @@ To publish changes to documentation, you submit pull requests from your fork. Ev
 ## Creating a pull request
 See GitHub's documentation for basic information about how to create a pull request:
 
-https://help.github.com/articles/about-pull-requests/
+https://help.github.com/articles/creating-a-pull-request/
 
 ## Working with pull request reviewers
 Here's the basics you need to know about working with pull request reviewers.
