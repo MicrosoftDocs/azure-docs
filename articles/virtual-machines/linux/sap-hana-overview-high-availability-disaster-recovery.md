@@ -92,8 +92,10 @@ In addition to full database backups performed at an application-level, you can 
 There are two backup and restore options for SAP HANA on Azure (Large Instances):
 
 - DIY (Do It Yourself). After calculating and ensuring enough disk space, perform full database and log backups using disk backup methods (to those disks). Over time, the backups are copied to Azure Storage (after setting up an Azure-based file server with virtually unlimited standard storage), or use Azure Backup Vault or Azure Cold Storage. Another option could be to use a third-party data protection tool, such as Commvault, to store the backups once they are copied to Azure standard storage. The DIY backup option may also be necessary for data that needs to be stored for longer periods due to compliancy and auditing purposes.
-- Use the backup and restore functionality that the underlying infrastructure of SAP HANA on Azure (Large Instances) provides. This option fulfills the need for backups, and it makes manual backups nearly obsolete (except in cases where data backups are required for compliance purposes). The rest of this section addresses the backup and restore functionality offered with HANA Large Instances.   
-PLEASE NOTE: The snapshot technology that is used by the underlying infrastructure of HANA Large Instances has a dependency on SAP HANA Snapshots. SAP HANA Snapshots do not work in conjunction with SAP HANA Multitenant Database Containers. As a result this method of backup can not be leveraged for SAP HANA Multitenant Database Container deployments!!
+- Use the backup and restore functionality that the underlying infrastructure of SAP HANA on Azure (Large Instances) provides. This option fulfills the need for backups, and it makes manual backups nearly obsolete (except in cases where data backups are required for compliance purposes). The rest of this section addresses the backup and restore functionality offered with HANA Large Instances.
+
+> [!NOTE]
+> The snapshot technology that is used by the underlying infrastructure of HANA Large Instances has a dependency on SAP HANA Snapshots. SAP HANA Snapshots do not work in conjunction with SAP HANA Multitenant Database Containers. As a result this method of backup can not be leveraged for SAP HANA Multitenant Database Container deployments!!
 
 ### Using storage snapshots of SAP HANA on Azure (Large Instances)
 
