@@ -60,7 +60,7 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
 
 ### Create a model class
 
-Many of the examples in this article use **TableEntity**-derived class called **CustomerEntity**. The following steps guide you through declaring this class as a model class.
+Many of the examples in this article use a **TableEntity**-derived class called **CustomerEntity**. The following steps guide you through declaring this class as a model class.
 
 1. In the **Solution Explorer**, right-click **Models**, and, from the context menu, select **Add->Class**.
 
@@ -92,6 +92,10 @@ Many of the examples in this article use **TableEntity**-derived class called **
 ## Create a table
 
 The following steps illustrate how to create a table.
+
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `TablesController.cs` file.
 
