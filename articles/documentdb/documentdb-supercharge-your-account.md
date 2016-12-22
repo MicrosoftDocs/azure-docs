@@ -47,4 +47,4 @@ For more information about the changes related to user-defined and pre-defined t
 
 ## Next steps
 
-Learn more about how to partition data and achieve global scale with DocumentDB in [Partitioning and scaling in Azure DocumentDB](documentdb-partition-data).
+Learn more about how to partition data and achieve global scale with DocumentDB in [Partitioning and scaling in Azure DocumentDB](documentdb-partition-data.md).
