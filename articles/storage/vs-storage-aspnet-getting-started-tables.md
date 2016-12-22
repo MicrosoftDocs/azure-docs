@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 12/21/2016
 ms.author: tarcher
 
 ---
@@ -265,215 +265,436 @@ The entity class *must* declare a public parameter-less constructor.
 
 	You can verify that the entity was added by following the steps in the section, [Get a single entity](#get-a-single-entity). You can also use the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to view all of the entities for your tables.
 
-
-
-
-
 ## Add a batch of entities to a table
 
-In addition to being able to add an entity to a table one at a time, you can also add entities in batch. This reduces the number of round-trips between your code and the Azure table service. The following steps illustrate how to programmatically add multiple entities to a table using a single operation. In an ASP.NET MVC app, the code would go in a controller.
+In addition to being able to [add an entity to a table one at a time](#add-an-entity-to-a-table), you can also add entities in batch. This reduces the number of round-trips between your code and the Azure table service. The following steps illustrate how to add multiple entities to a table with a single insert operation. 
 
-1. Add the following *using* directives:
+> [!NOTE]
+> 
+> The code in this section references the **CustomerEntity** class presented in the section, [Add an entity to a table](#add-an-entity-to-a-table). 
 
-         using Microsoft.Azure;
-         using Microsoft.WindowsAzure.Storage;
-         using Microsoft.WindowsAzure.Storage.Auth;
-         using Microsoft.WindowsAzure.Storage.Table;
+1. Open the `TablesController.cs` file.
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Add a method called **AddEntities** that returns an **ActionResult**.
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```csharp
+    public ActionResult AddEntities()
+    {
+		// The code in this section goes here.
 
-3. Get a **CloudTableClient** object represents a table service client.
+        return View();
+    }
+    ```
 
-        CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+1. Within the **AddEntities** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+   
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
 
+1. Get a **CloudTableClient** object represents a table service client.
+   
+    ```csharp
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+    ```
 
-4. Get a **CloudTable** object that represents a reference to the desired table name. (Change *<table-name>* to the name of the table to which you want to add the entities.)
+1. Get a **CloudTable** object that represents a reference to the table to which you are going to add the new entities. 
+   
+    ```csharp
+    CloudTable table = tableClient.GetTableReference("TestTable");
+    ```
 
-		CloudTable table = tableClient.GetTableReference(<table-name>);
+1. Instantiate some customer objects based on the **CustomerEntity** model class presented in the section, [Add an entity to a table](#add-an-entity-to-a-table).
 
-5. To add an entity to a table you define a class derived from **TableEntity**. The following code defines an entity class called **CustomerEntity** that uses the customer's first name as the row key and last name as the partition key.
+    ```csharp
+    CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
+    customer1.Email = "Jeff@contoso.com";
 
-	    public class CustomerEntity : TableEntity
+    CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
+    customer2.Email = "Ben@contoso.com";
+    ```
+
+1. Get a **TableBatchOperation** object.
+
+    ```csharp
+    TableBatchOperation batchOperation = new TableBatchOperation();
+    ```
+
+1. Add entities to the batch insert operation object.
+
+    ```csharp
+    batchOperation.Insert(customer1);
+    batchOperation.Insert(customer2);
+    ```
+
+1. Execute the batch insert operation by calling the **CloudTable.ExecuteBatch** method.   
+
+    ```csharp
+	IList<TableResult> results = table.ExecuteBatch(batchOperation);
+    ```
+
+1. The **CloudTable.ExecuteBatch** method returns a list of **TableResult** objects where each **TableResult** object can be examined to determine the success or failure of each individual operation. For this example, we'll pass the list to a view and let the view display the results of each operation. 
+ 
+    ```csharp
+	return View(results);
+    ```
+
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Tables**, and from the context menu, select **Add->View**.
+
+1. On the **Add View** dialog, enter **AddEntities** for the view name, and select **Add**.
+
+1. Open `AddEntities.cshtml`, and modify it so that it looks like the following.
+
+    ```csharp
+	@model IEnumerable<Microsoft.WindowsAzure.Storage.Table.TableResult>
+	@{
+	    ViewBag.Title = "AddEntities";
+	}
+	
+	<h2>Add-entities results</h2>
+	
+	<table border="1">
+	    <tr>
+	        <th>First name</th>
+	        <th>Last name</th>
+	        <th>HTTP result</th>
+	    </tr>
+	    @foreach (var result in Model)
 	    {
-	        public CustomerEntity(string lastName, string firstName)
-	        {
-	            this.PartitionKey = lastName;
-	            this.RowKey = firstName;
-	        }
-	
-	        public CustomerEntity() { }
-	
-	        public string Email { get; set; }
+	    <tr>
+	        <td>@((result.Result as StorageAspnet.Models.CustomerEntity).RowKey)</td>
+	        <td>@((result.Result as StorageAspnet.Models.CustomerEntity).PartitionKey)</td>
+	        <td>@result.HttpStatusCode</td>
+	    </tr>
 	    }
+	</table>
+    ```
 
-6. Instantiate the entities.
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
 
-	    CustomerEntity customer1 = new CustomerEntity("Smith", "Jeff");
-	    customer1.Email = "Jeff@contoso.com";
-	
-	    CustomerEntity customer2 = new CustomerEntity("Smith", "Ben");
-	    customer2.Email = "Ben@contoso.com";
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
 
-7. Get a **TableBatchOperation** object.
+    ```html
+	<li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
+    ```
 
-	    TableBatchOperation batchOperation = new TableBatchOperation();
+1. Run the application, and select **Add entities**. You will see results similar to those shown in the following screen shot. 
+  
+	![Add entities](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
-8. Add entities to the batch insert operation.
-
-	    batchOperation.Insert(customer1);
-	    batchOperation.Insert(customer2);
-
-9. Execute the batch insert operation by calling the **CloudTable.ExecuteBatch** method. The **CloudTable.ExecuteBatch** method returns a list of **TableResult** objects. You can verify the result of the batch insert operation by inspecting the **TableResult.HttpStatusCode** property of each **TableResult** object in the list. A status code of 2xx indicates the action requested by the client was processed successfully. For example, successful insertions of new entities results in an HTTP status code of 204, meaning that the operation was successfully processed and the server did not return any content.
-    
-		IList<TableResult> results = table.ExecuteBatch(batchOperation);
-
-		// Inspect the HttpStatusCode property of each TableResult object
-		// in the results list for success/failure.
+	You can verify that the entity was added by following the steps in the section, [Get a single entity](#get-a-single-entity). You can also use the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) to view all of the entities for your tables.
 
 ## Get a single entity
 
-The following steps illustrate how to programmatically get an entity from a table. In an ASP.NET MVC app, the code would go in a controller. 
+This section illustrates how to get a single entity from a table using the entity's row key and partition key. 
 
 > [!NOTE]
 > 
 > The code in this section references the **CustomerEntity** class and data presented in the section, [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). 
 
-1. Add the following *using* directives:
+1. Open the `TablesController.cs` file.
 
-         using Microsoft.Azure;
-         using Microsoft.WindowsAzure.Storage;
-         using Microsoft.WindowsAzure.Storage.Auth;
-         using Microsoft.WindowsAzure.Storage.Table;
+1. Add a method called **GetSingle** that returns an **ActionResult**.
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+    ```csharp
+    public ActionResult GetSingle()
+    {
+		// The code in this section goes here.
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+        return View();
+    }
+    ```
 
-3. Get a **CloudTableClient** object represents a table service client.
+1. Within the **GetSingle** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+   
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
 
-        CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+1. Get a **CloudTableClient** object represents a table service client.
+   
+    ```csharp
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+    ```
 
+1. Get a **CloudTable** object that represents a reference to the table from which you are retrieving the entity. 
+   
+    ```csharp
+    CloudTable table = tableClient.GetTableReference("TestTable");
+    ```
 
-4. Get a **CloudTable** object that represents a reference to the desired table name. (Change *<table-name>* to the name of the table to which you want to add the entities.)
+1. Create a retrieve operation object that takes an entity object derived from **TableEntity**. The first parameter is the *partitionKey*, and the second parameter is the *rowKey*. Using the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table), the following code snippet queries the table for a **CustomerEntity** entity with a *partitionKey* value of "Smith" and a *rowKey* value of "Ben".  
 
-		CloudTable table = tableClient.GetTableReference(<table-name>);
+    ```csharp
+    TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+    ```
 
-5. Create a retrieve operation object that takes an entity object derived from **TableEntity**. The first parameter is the *partitionKey*, and the second parameter is the *rowKey*. Using the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table), the following code snippet queries the table for a **CustomerEntity** entity with a *partitionKey* value of "Smith" and a *rowKey* value of "Ben".  
+1. Execute the retrieve operation.   
 
-        TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+    ```csharp
+    TableResult result = table.Execute(retrieveOperation);
+    ```
 
-6. Execute the retrieve operation.   
+1. Pass the result to the view for display.
 
-	    TableResult retrievedResult = table.Execute(retrieveOperation);
+    ```csharp
+    return View(result);
+    ```
 
-7. Verify the result of the operation by inspecting the **TableOperation.HttpStatusCode** property where a status code of 200 indicates the action requested by the client was processed successfully. You can also inspect the **TableResult.Result** property that (if the operation is successful) will contain the returned entity.
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Tables**, and from the context menu, select **Add->View**.
 
-        CustomerEntity customer = null;
+1. On the **Add View** dialog, enter **GetSingle** for the view name, and select **Add**.
 
-        if (retrievedResult.HttpStatusCode == 200 && retrievedResult.Result != null)
-        {
-            // Process the customer entity.
-			customer = retrievedResult.Result as CustomerEntity;
-        }
+1. Open `GetSingle.cshtml`, and modify it so that it looks like the following.
+
+    ```csharp
+	@model Microsoft.WindowsAzure.Storage.Table.TableResult
+	@{
+	    ViewBag.Title = "GetSingle";
+	}
+	
+	<h2>Get Single results</h2>
+	
+	<table border="1">
+	    <tr>
+	        <th>HTTP result</th>
+	        <th>First name</th>
+	        <th>Last name</th>
+	        <th>Email</th>
+	    </tr>
+	    <tr>
+	        <td>@Model.HttpStatusCode</td>
+	        <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).RowKey)</td>
+	        <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).PartitionKey)</td>
+	        <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).Email)</td>
+	    </tr>
+	</table>
+	```
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
+
+    ```html
+	<li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
+    ```
+
+1. Run the application, and select **Get Single**. You will see results similar to those shown in the following screen shot. 
+  
+	![Get single](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
 ## Get all entities in a partition
 
-The following steps illustrate how to programmatically get all the entities from a partition. In an ASP.NET MVC app, the code would go in a controller. 
+As mentioned in the section, [Add an entity to a table](add-an-entity-to-a-table), the 
+combination of a partition and a row key uniquely identify an entity in a table. Entities with the
+same partition key can be queried faster than those with different
+partition keys. In this section, you'll see how to query a table for all the entities from a 
+specified partition.  
 
 > [!NOTE]
 > 
 > The code in this section references the **CustomerEntity** class and data presented in the section, [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). 
 
-1. Add the following *using* directives:
+1. Open the `TablesController.cs` file.
 
-         using Microsoft.Azure;
-         using Microsoft.WindowsAzure.Storage;
-         using Microsoft.WindowsAzure.Storage.Auth;
-         using Microsoft.WindowsAzure.Storage.Table;
+1. Add a method called **GetPartition** that returns an **ActionResult**.
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+    ```csharp
+    public ActionResult GetPartition()
+    {
+		// The code in this section goes here.
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+        return View();
+    }
+    ```
 
-3. Get a **CloudTableClient** object represents a table service client.
+1. Within the **GetPartition** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+   
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
 
-        CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+1. Get a **CloudTableClient** object represents a table service client.
+   
+    ```csharp
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+    ```
 
+1. Get a **CloudTable** object that represents a reference to the table from which you are retrieving the entities. 
+   
+    ```csharp
+    CloudTable table = tableClient.GetTableReference("TestTable");
+    ```
 
-4. Get a **CloudTable** object that represents a reference to the desired table name. (Change *<table-name>* to the name of the table to which you want to add the entities.)
+1. Instantiate a **TableQuery** object specifying the query in the **Where** clause. Using the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table), the following code snippet queries the table for a all entities where the **PartitionKey** (customer's last name) has a value of "Smith".
 
-		CloudTable table = tableClient.GetTableReference(<table-name>);
+    ```csharp
+    TableQuery<CustomerEntity> query = 
+		new TableQuery<CustomerEntity>()
+		.Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
+    ```
 
-5. Instantiate a **TableQuery** object specifying the query in the **Where** clause. Using the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table), the following code snippet queries the table for a all entities where the **PartitionKey** has a value of "Smith".
+1. Within a loop, call the **CloudTable.ExecuteQuerySegmented** method passing the query object you instantiated in the previous step.  The **CloudTable.ExecuteQuerySegmented** method returns a **TableContinuationToken** object that - when **null** - indicates that there are no more entities to retrieve. Within the loop, use another loop to iterate over the returned entities. In the following code example, each returned entity is added to a list. Once the loop ends, the list is passed to a view for display. 
 
-	    TableQuery<CustomerEntity> query = 
-			new TableQuery<CustomerEntity>()
-			.Where(TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"));
+    ```csharp
+    List<CustomerEntity> customers = new List<CustomerEntity>();
+    TableContinuationToken token = null;
+    do
+    {
+        TableQuerySegment<CustomerEntity> resultSegment = table.ExecuteQuerySegmented(query, token);
+        token = resultSegment.ContinuationToken;
 
-6. Within a loop, call the **CloudTable.ExecuteQuerySegmented** method passing the query object you instantiated in the previous step.  The **CloudTable.ExecuteQuerySegmented** method returns a **TableContinuationToken** object that - when **null** - indicates that there are no more entities to retrieve. Within the loop, use another loop to iterate over the returned entities.
-
-        TableContinuationToken token = null;
-        do
+        foreach (CustomerEntity customer in resultSegment.Results)
         {
-            TableQuerySegment<CustomerEntity>resultSegment = table.ExecuteQuerySegmented(query, token);
-            token = resultSegment.ContinuationToken;
+            customers.Add(customer);
+        }
+    } while (token != null);
 
-            foreach (CustomerEntity customer in resultSegment.Results)
-            {
-                // Process customer entity.
-            }
-        } while (token != null);
+
+    return View(customers);
+    ```
+
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Tables**, and from the context menu, select **Add->View**.
+
+1. On the **Add View** dialog, enter **GetPartition** for the view name, and select **Add**.
+
+1. Open `GetPartition.cshtml`, and modify it so that it looks like the following.
+
+    ```csharp
+	@model IEnumerable<StorageAspnet.Models.CustomerEntity>
+	@{
+	    ViewBag.Title = "GetPartition";
+	}
+	
+	<h2>Get Partition results</h2>
+	
+	<table border="1">
+	    <tr>
+	        <th>First name</th>
+	        <th>Last name</th>
+	        <th>Email</th>
+	    </tr>
+	    @foreach (var customer in Model)
+	    {
+	    <tr>
+	        <td>@(customer.RowKey)</td>
+	        <td>@(customer.PartitionKey)</td>
+	        <td>@(customer.Email)</td>
+	    </tr>
+	    }
+	</table>
+	```
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
+
+    ```html
+	<li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
+    ```
+
+1. Run the application, and select **Get Partition**. You will see results similar to those shown in the following screen shot. 
+  
+	![Get Partition](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
 ## Delete an entity
 
-The following steps illustrate how to search for, and then delete an entity.
+In this section, you'll learn how to delete an entity.
 
-1. Add the following *using* directives:
+> The code in this section references the **CustomerEntity** class and data presented in the section, [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). 
 
-         using Microsoft.Azure;
-         using Microsoft.WindowsAzure.Storage;
-         using Microsoft.WindowsAzure.Storage.Auth;
-         using Microsoft.WindowsAzure.Storage.Table;
+1. Open the `TablesController.cs` file.
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Add a method called **DeleteEntity** that returns an **ActionResult**.
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```csharp
+    public ActionResult DeleteEntity()
+    {
+		// The code in this section goes here.
 
-3. Get a **CloudTableClient** object represents a table service client.
+        return View();
+    }
+    ```
 
-        CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+1. Within the **DeleteEntity** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
+   
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
 
+1. Get a **CloudTableClient** object represents a table service client.
+   
+    ```csharp
+    CloudTableClient tableClient = storageAccount.CreateCloudTableClient();
+    ```
 
-4. Get a **CloudTable** object that represents a reference to the desired table name. (Change *<table-name>* to the name of the table to which you want to add the entities.)
+1. Get a **CloudTable** object that represents a reference to the table from which you are deleting the entity. 
+   
+    ```csharp
+    CloudTable table = tableClient.GetTableReference("TestTable");
+    ```
 
-		CloudTable table = tableClient.GetTableReference(<table-name>);
+1. Create a delte operation object that takes an entity object derived from **TableEntity**. In this case, we'll use the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). Note that the entity's **ETag** must be set.  
 
-5. Create a retrieve operation object that takes an entity object derived from **TableEntity**. The first parameter is the *partitionKey*, and the second parameter is the *rowKey*. Using the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table), the following code snippet queries the table for a **CustomerEntity** entity with a *partitionKey* value of "Smith" and a *rowKey* value of "Ben".  
+    ```csharp
+    TableOperation deleteOperation = 
+	    TableOperation.Delete(new CustomerEntity("Smith", "Ben") { ETag = "*" } );
+    ```
 
-        TableOperation retrieveOperation = TableOperation.Retrieve<CustomerEntity>("Smith", "Ben");
+1. Execute the delete operation.   
 
-6. Execute the retrieve operation.   
+    TableResult result = table.Execute(deleteOperation);
 
-	    TableResult retrievedResult = table.Execute(retrieveOperation);
+1. Pass the result to the view for display.
 
-7. Verify the result of the operation by inspecting the **TableOperation.HttpStatusCode** property where a status code of 200 indicates the action requested by the client was processed successfully. You can also inspect the **TableResult.Result** property that (if the operation is successful) will contain the returned entity. Within the conditional statement to verify that the operation succeeded, create a delete operation (passing the returned entity from the query), and execute the delete operation.
+    ```csharp
+    return View(result);
+    ```
 
-        if (retrievedResult.HttpStatusCode == 200 && retrievedResult.Result != null)
-        {
-            CustomerEntity customer = retrievedResult.Result as CustomerEntity;
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Tables**, and from the context menu, select **Add->View**.
 
-            // Create the delete operation.
-            TableOperation deleteOperation = TableOperation.Delete(customer);
+1. On the **Add View** dialog, enter **DeleteEntity** for the view name, and select **Add**.
 
-            // Execute the delete operation.
-            table.Execute(deleteOperation);
-        }
+1. Open `DeleteEntity.cshtml`, and modify it so that it looks like the following.
+
+    ```csharp
+	@model Microsoft.WindowsAzure.Storage.Table.TableResult
+	@{
+	    ViewBag.Title = "DeleteEntity";
+	}
+	
+	<h2>Delete Entity results</h2>
+	
+	<table border="1">
+	    <tr>
+	        <th>First name</th>
+	        <th>Last name</th>
+	        <th>HTTP result</th>
+	    </tr>
+	    <tr>
+	        <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).RowKey)</td>
+	        <td>@((Model.Result as StorageAspnet.Models.CustomerEntity).PartitionKey)</td>
+	        <td>@Model.HttpStatusCode</td>
+	    </tr>
+	</table>
+
+	```
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**.
+
+    ```html
+	<li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
+    ```
+
+1. Run the application, and select **Delete entity**. You will see results similar to those shown in the following screen shot. 
+  
+	![Get single](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 
 ## Next steps
 View more feature guides to learn about additional options for storing data in Azure.
