@@ -69,7 +69,7 @@ If you plan to deploy clusters in multiple regions, we suggest that you name the
 
     New-AzureRmResourceGroup -Name westus-mykeyvault -Location 'West US'
 ```
-You should see an output like this.
+The output should look like this:
 
 ```powershell
 
@@ -92,7 +92,8 @@ The key vault _must be enabled for deployment_ to allow the compute resource pro
     New-AzureRmKeyVault -VaultName 'mywestusvault' -ResourceGroupName 'westus-mykeyvault' -Location 'West US' -EnabledForDeployment
 
 ```
-You should see an output like this:
+
+The output should look like this:
 
 ```powershell
 
@@ -190,7 +191,7 @@ At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelp
 
 ```
 
-After the conflict is resolved, the result should resemble the following output:
+After the conflict is resolved, the output should look like this:
 
 ```
 
@@ -248,7 +249,7 @@ At C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelp
 
 ```
 
-After the conflict is resolved, the result should resemble the following output:
+After the conflict is resolved, the output should look like this:
 
 ```
 PS C:\Users\chackdan\Documents\GitHub\Service-Fabric\Scripts\ServiceFabricRPHelpers> Invoke-AddCertToKeyVault -SubscriptionId $SubID -ResourceGroupName $ResouceGroup -Location $locationRegion -VaultName $VName -CertificateName $newCertName -Password $certPassword -CreateSelfSignedCertificate -DnsName $dnsName -OutputPath $localCertPath
@@ -318,7 +319,7 @@ To simplify some of the steps involved in configuring Azure AD with a Service Fa
    * *ClusterName*\_Cluster
    * *ClusterName*\_Client
 
-   The script prints the JSON required by the Azure Resource Manager template when you create the cluster in the next section so keep the PowerShell window open.
+   The script prints the JSON required by the Azure Resource Manager template when you create the cluster in the next section, so it's a good idea to keep the PowerShell window open.
 
 ```json
 "azureActiveDirectory": {
@@ -557,6 +558,7 @@ To make the process easier, we have provided a [helper script](http://github.com
 ```sh
 ./cert_helper.py [-h] CERT_TYPE [-ifile INPUT_CERT_FILE] [-sub SUBSCRIPTION_ID] [-rgname RESOURCE_GROUP_NAME] [-kv KEY_VAULT_NAME] [-sname CERTIFICATE_NAME] [-l LOCATION] [-p PASSWORD]
 ```
+
 The -ifile parameter can take a .pfx file or a .pem file as input, with the certificate type (pfx or pem, or ss if it is a self-signed certificate).
 The parameter -h prints out the help text.
 
