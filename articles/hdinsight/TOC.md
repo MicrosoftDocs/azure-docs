@@ -156,6 +156,7 @@
 #### [Use the Azure CLI](hdinsight-administer-use-command-line.md)
 ### [Manage clusters using the Ambari web UI](hdinsight-hadoop-manage-ambari.md)
 #### [Use Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+### [Add storage accounts](hdinsight-hadoop-add-storage.md)
 ### [Upload data for Hadoop jobs](hdinsight-upload-data.md)
 ### [Import and export data with Sqoop](hdinsight-use-sqoop.md)
 #### [Connect with SSH](hdinsight-use-sqoop-mac-linux.md)
