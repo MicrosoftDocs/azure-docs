@@ -34,7 +34,6 @@ An eDTU is a unit of measure of the set of resources (DTUs) that can be shared b
 
 ![Intro to SQL Database: eDTUs by tier and level](./media/sql-database-what-is-a-dtu/sqldb_elastic_pools.png)
 
-A pool is given a set number of eDTUs, for a set price. Within the pool, individual databases are given the flexibility to auto-scale within the configured boundaries. Under heavy load, a database can consume more eDTUs to meet demand while a databases under light loads consume less up to the point that databases under no load consume no eDTUs. By provisioning resources for the entire pool, rather than for single database, it simplifies the management tasks and you have a predictable budget for the pool.
 
 Additional eDTUs can be added to an existing pool with no database downtime or no impact on the databases in the elastic pool. Similarly, if extra eDTUs are no longer needed they can be removed from an existing pool at any point in time. You can add or subtract databases to the pool or limit the amount of eDTUs they can use. If a database is predictably under-utilizing resources, simply move it out of the pool.
 
