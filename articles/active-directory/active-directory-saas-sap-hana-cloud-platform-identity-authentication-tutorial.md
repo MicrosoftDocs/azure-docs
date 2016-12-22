@@ -20,7 +20,6 @@ ms.author: jeedes
 
 In this tutorial, you learn how to integrate SAP HANA Cloud Platform Identity Authentication with Azure Active Directory (Azure AD). SAP HANA Cloud Platform Identity Authentication is used as a proxy IdP to access SAP applications using Azure AD as the main IdP.
 
-
 Integrating SAP HANA Cloud Platform Identity Authentication with Azure AD provides you with the following benefits:
 
 - You can control in Azure AD who has access to SAP application
@@ -121,34 +120,67 @@ This link relationship is established by assigning the value of the **user name*
 
 The objective of this section is to enable Azure AD single sign-on in the Azure classic portal and to configure single sign-on in your SAP HANA Cloud Platform Identity Authentication application.
 
+The SAP application expects specific SAML assertions that you have configured. You can manage the values of these attributes that Azure AD sends to the SAP application from the **"Atrributes"** tab. The following screenshot shows an example for this. 
+
+![Configure Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_12.png)
+
 **To configure Azure AD single sign-on with SAP HANA Cloud Platform Identity Authentication, perform the following steps:**
 
-1. In the menu on the top, click **Quick Start**.
+1. In the Azure classic portal, on the **SAP HANA Cloud Platform Identity Authentication** application integration page, in the menu on the top, click **Attributes**.
+
+	![Configure Single Sign-On][5]
+
+2. For example, if your SAP application expects an attribute "firstName". On the SAML token attributes dialog, add the "firstName" attribute.
+
+	a. Click **add user attribute** to open the **Add User Attribute** dialog. 
+	
+	![Configure Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_05.png)
+
+	b. In the **Attribute Name** textbox, type the attribute name "firstName".
+
+	c. From the **Attribute Value** list, select the attribute value "user.givenname".
+
+	d. Click **Complete**.
+ 
+3. In the menu on the top, click **Quick Start**.
 
 	![Configure Single Sign-On][6]
 
-2. In the classic portal, on the **SAP HANA Cloud Platform Identity Authentication** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
+4. In the classic portal, on the **SAP HANA Cloud Platform Identity Authentication** application integration page, click **Configure single sign-on** to open the **Configure Single Sign-On**  dialog.
 
 	![Configure Single Sign-On][7] 
 
-3. On the **How would you like users to sign on to SAP HANA Cloud Platform Identity Authentication** page, select **Azure AD Single Sign-On**, and then click **Next**.
+5. On the **How would you like users to sign on to SAP HANA Cloud Platform Identity Authentication** page, select **Azure AD Single Sign-On**, and then click **Next**.
  	
 	![Configure Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_06.png)
 
-4. On the **Configure App Settings** dialog page, you aren't required to insert any value. Then, click **Next**.
+6. On the **Configure App Settings** dialog page, perform the following steps
+
 	![Configure Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_07.png)
 
-5. On the **Configure single sign-on at SAP HANA Cloud Platform Identity Authentication** page, Click **Download metadata**, and then save the file on your computer.
+	a. In the **Identifier** textbox, type the value following pattern: `<entity-id>.accounts.ondemand.com`. If you don't know this value, please follow the SAP HANA Cloud Platform Identity Authentication documentation on [Tenant SAML 2.0 Configuration](https://help.hana.ondemand.com/cloud_identity/frameset.htm?e81a19b0067f4646982d7200a8dab3ca.html)
+	
+	b. click **Next**
+
+7. If you are configuring SAP HANA Cloud Platform Identity Authentication for accessing a single SAP application. You can add the Sign in URL for the SAP application. On the **Configure App Settings** dialog page, perform the following steps:
+
+	a. Click on **Show Advanced settings (optional)**.
+
+	b. In the **Sign On URL** textbox, type the sign in URL for the SAP application.
+
+	c. Click **Next**
+
+9.  On the **Configure single sign-on at SAP HANA Cloud Platform Identity Authentication** page, Click **Download metadata**, and then save the file on your computer.
 
 	![Configure Single Sign-On](./media/active-directory-saas-sap-hana-cloud-platform-identity-authentication-tutorial/tutorial_sap_cloud_identity_09.png)
 
-6. To get SSO configured for your application, go to SAP HANA Cloud Platform Identity Authentication Administration Console. The URL has the following pattern: `https://<tenant ID>.accounts.ondemand.com/admin`. Then, follow the documentation on SAP HANA Cloud Platform Identity Authentication to [Configure Microsoft Azure AD as Corporate Identity Provider at SAP HANA Cloud Platform Identity Authentication](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html) 
+8. To get SSO configured for your application, go to SAP HANA Cloud Platform Identity Authentication Administration Console. The URL has the following pattern: `https://<tenant-id>.accounts.ondemand.com/admin`. Then, follow the documentation on SAP HANA Cloud Platform Identity Authentication to [Configure Microsoft Azure AD as Corporate Identity Provider at SAP HANA Cloud Platform Identity Authentication](https://help.hana.ondemand.com/cloud_identity/frameset.htm?626b17331b4d4014b8790d3aea70b240.html) 
  
-7. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
+9. In the classic portal, select the single sign-on configuration confirmation, and then click **Next**.
 	
 	![Azure AD Single Sign-On][10]
 
-8. On the **Single sign-on confirmation** page, click **Complete**.  
+10. On the **Single sign-on confirmation** page, click **Complete**.  
   	
 	![Azure AD Single Sign-On][11]
 
