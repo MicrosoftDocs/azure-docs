@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Get started with Azure Data Lake Analytics U-SQL language' | Microsoft Docs
+title: 'Tutorial: Get started with Azure Data Lake Analytics U-SQL language | Microsoft Docs'
 description: Use this tutorial to learn about the Azure Data Lake Analytics U-SQL language.
 services: data-lake-analytics
 documentationcenter: ''
