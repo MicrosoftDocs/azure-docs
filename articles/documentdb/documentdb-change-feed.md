@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: rest-api
 ms.topic: article
-ms.date: 12/13/2016
+ms.date: 12/22/2016
 ms.author: b-hoedid
 
 ---
@@ -252,7 +252,10 @@ Here's a sample request to return all incremental changes in collection from the
 	Accept: application/json
 	Host: mydocumentdb.documents.azure.com
 
-Changes are ordered by time within each partition key value within the partition key range. There is no guaranteed order across partition-key values. If there are more results than can fit in a single page, you can read the next page of results by resubmitting the request with the `If-None-Match` header with value equal to the `etag` from the previous response. If multiple documents were updated transactionally within a stored procedure or trigger, they will all be returned within the same response page.
+Changes are ordered by time within each partition key value within the partition key range. There is no guaranteed order across partition-key values. If there are more results than can fit in a single page, you can read the next page of results by resubmitting the request with the `If-None-Match` header with value equal to the `etag` from the previous response. If multiple documents were inserted or updated transactionally within a stored procedure or trigger, they will all be returned within the same response page.
+
+> [!NOTE]
+> With Change Feed, you might get more items returned in a page than specified in `x-ms-max-item-count` in the case of multiple documents inserted or updated inside a stored procedures or triggers. 
 
 The .NET SDK provides the `CreateDocumentChangeFeedQuery` and `ChangeFeedOptions` helper classes to access changes made to a collection. The following snippet shows how to retrieve all changes from the beginning using the .NET SDK from a single client.
 
