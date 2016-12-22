@@ -147,7 +147,7 @@ The following list provides more detail on each of the layers and your responsib
 
 **SDDC:** The management software that is used to manage the data centers as a software defined entity. It allows Microsoft to pool resources for scale, availability and performance reasons.
 
-**O/S:** The OS you choose (SUSE Linux or Red Hat Linux) that is running on the servers. The OS images you are provided will be optimized for HANA and will require you to have a subscription with the OS vendor for the specific HANA-optimized image. Your responsibilities include registering the images with the OS vendor, as well as monitoring and capacity-planning:
+**O/S:** The OS you choose (SUSE Linux or Red Hat Linux) that is running on the servers. The OS images you are provided will be the images provided by the individual Linux vendor to Microsoft for the purpose of running SAP HANA. You are required to have a subscription with the Linux vendor for the specific SAP HANA-optimized image. Your responsibilities include registering the images with the OS vendor. From the point of handover by Microsoft, you are also responsible for any further patching of the Linux operating system. This relates to additional packages that might be necessary for a successful SAP HANA installation (please refer to SAP's HANA installation documentation and SAP Notes) and which have not been included by the specific Linux vendor in their SAP HANA optimized OS images. The responsibility of the customer also includes patching of the OS that is related to malfunction/optimization of the OS and its drivers related to the specific server hardware. Or any security or functional patching of the OS. Customer's responsibility is as well monitoring and capacity-planning of:
 
 - CPU resource consumption
 - Memory consumption
@@ -201,12 +201,17 @@ These are the requirements for running SAP HANA on Azure (Larger Instances).
 - Licenses for SUSE Linux Enterprise Server 12 for SAP Applications.
 
 > [!NOTE] 
-> The most current service pack is always installed by Microsoft prior to initial hand-over.
+> The Operating System delivered by Microsoft is not registered with SUSE, nor is it connected with an SMT instance.
 
 - SUSE Linux Subscription Management Tool (SMT) deployed in Azure on an Azure VM. This
-provides the ability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by SUSE (as there is no internet access within HANA Large Instances data center).
+provides the ability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by SUSE (as there is no internet access within HANA Large Instances data center). 
 - Licenses for Red Hat Enterprise Linux 6.7 or 7.2 for SAP HANA.
+
+> [!NOTE]
+> The Operating System delivered by Microsoft is not registered with Red Hat, nor is it connected to a Red Hat Subscription Manager Instance.
+
 - Red Hat Subscription Manager deployed in Azure on an Azure VM. This provides the ability for SAP HANA on Azure (Large Instances) to be registered and respectively updated by Red Hat (as there is no direct internet access from within the tenant deployed on the Azure Large Instance stamp).
+- Servie and support Contract with the Linux provider that is either implicitely included in the specific Linux version subscription or other service and support contract that is covering the specific Linux version used and that fulfills the criteria of SAP.
 
 **Database:**
 
