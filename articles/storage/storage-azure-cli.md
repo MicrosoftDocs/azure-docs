@@ -350,7 +350,8 @@ az storage file copy start --source-share myshare --source-path mydir/image.png 
 ```
 
 ## Next steps
-Here are some related articles and resources for learning more about Azure Storage.
+Here are some additional resources for learning more about working with the Azure CLI 2.0 (Preview).
 
-* [Azure Storage Documentation](https://azure.microsoft.com/documentation/services/storage/)
-* [Azure Storage REST API Reference](https://msdn.microsoft.com/library/azure/dd179355.aspx)
+* [Get started with Azure CLI 2.0 (Preview)](/cli/azure/get-started-with-az-cli2)
+* [Azure CLI 2.0 (Preview) command reference](/cli/azure)
+* [Azure CLI 2.0 (Preview) on GitHub](https://github.com/Azure/azure-cli)
