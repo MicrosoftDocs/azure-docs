@@ -220,7 +220,7 @@ Replace the contents of **Program.cs** with the following, and update the `{vari
 
 
 ## Create a service principal to access resources
-The following PowerShell script creates the Active Directory (AD) application and the service principal that we need to authenticate our C# app. The script outputs values we need for the preceding C# sample. For detailed information, see [Use Azure PowerShell to create a service principal to access resources](../resource-group-authenticate-service-principal.md).
+The following PowerShell script creates the Active Directory (AD) application and the service principal that we need to authenticate our C# app. The script outputs values we need for the preceding C# sample. For detailed information, see [Use Azure PowerShell to create a service principal to access resources](../azure-resource-manager/resource-group-authenticate-service-principal.md).
 
     # Sign in to Azure.
     Add-AzureRmAccount
