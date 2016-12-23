@@ -1,5 +1,5 @@
 ---
-title: Developers guide to Azure Government | Microsoft Docs
+title: Azure Government developer guide | Microsoft Docs
 description: This article compares features and provides guidance on developing applications for Azure Government.
 services: ''
 cloud: gov
@@ -18,7 +18,7 @@ ms.date: 10/29/2015
 ms.author: jharve
 
 ---
-# Developers guide to Azure Government
+# Azure Government developer guide
 The Azure Government environment is a physical instance that is separate from the rest of the Microsoft network. This guide discusses the differences that application developers and administrators must understand to interact and work with separate regions of Azure.
 
 ## Overview
@@ -80,7 +80,7 @@ The following Azure Government features and services are available in both the U
 
 Other services are available, and more services are added continually. For the most current list of services, see [Products available by region](https://azure.microsoft.com/regions/#services), a page that displays the available services in each region.
 
-Currently, US GOV Iowa and US GOV Virginia are the data centers that support Azure Government. For current data centers and available services, see [Products available by region](https://azure.microsoft.com/regions/#services).
+Currently, US GOV Iowa and US GOV Virginia are the datacenters that support Azure Government. For current datacenters and available services, see [Products available by region](https://azure.microsoft.com/regions/#services).
 
 ## Endpoint mapping
 To learn about mapping public Azure and SQL Database endpoints to Azure Government-specific endpoints, see the following table:
