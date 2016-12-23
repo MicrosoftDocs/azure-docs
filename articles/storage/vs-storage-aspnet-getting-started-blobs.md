@@ -65,6 +65,10 @@ include creating a blob container, and uploading, listing, downloading, and dele
 
 A blob container is a nested hierarchy of blobs and folders. The following steps illustrate how to create a blob container:
 
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+
 1. Open the `BlobsController.cs` file.
 
 1. Add a method called **CreateBlobContainer** that returns an **ActionResult**.
@@ -117,10 +121,10 @@ A blob container is a nested hierarchy of blobs and folders. The following steps
 
     ```csharp
 	@{
-	    ViewBag.Title = "Create blob container";
+	    ViewBag.Title = "Create Blob Container";
 	}
 	
-	<h2>Create blob container results</h2>
+	<h2>Create Blob Container results</h2>
 
 	Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
@@ -135,7 +139,7 @@ A blob container is a nested hierarchy of blobs and folders. The following steps
 
 1. Run the application, and select **Create Blob Container** to see results similar to those shown in the following screen shot:
   
-	![Create blob container](./media/vs-storage-aspnet-getting-started-blobs/results.png)
+	![Create blob container](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
 
 	As mentioned previously, the **CloudBlobContainer.CreateIfNotExists** method returns **true** only when the container doesn't exist and is created. Therefore, if you run the app when the container exists, the method returns **false**. To run the app multiple times, you must delete the container before running the app again. Deleting the container can be done via the **CloudBlobContainer.Delete** method. You can also delete the container using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 

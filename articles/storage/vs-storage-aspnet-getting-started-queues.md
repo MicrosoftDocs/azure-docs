@@ -61,31 +61,84 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
 	```
 ## Create a queue
 
-The following steps illustrate how to programmatically create a queue. In an ASP.NET MVC app, the code would go in a controller.
+The following steps illustrate how to create a table:
 
-1. Add the following *using* directives:
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+
+1. Open the `QueuesController.cs` file. 
+
+1. Add a method called **CreateQueue** that returns an **ActionResult**.
+
+    ```csharp
+    public ActionResult CreateQueue()
+    {
+		// The code in this section goes here.
+
+        return View();
+    }
+    ```
+
+1. Within the **CreateQueue** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
-        using Microsoft.Azure;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Queue;
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Get a **CloudQueueClient** object represents a queue service client.
+   
+    ```csharp
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+    ```
+1. Get a **CloudQueue** object that represents a reference to the desired queue name. The **CloudQueueClient.GetQueueReference** method does not make a request against queue storage. The reference is returned whether or not the queue exists. 
+   
+    ```csharp
+    CloudQueue queue = queueClient.GetQueueReference("test-queue");
+    ```
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+1. Call the **CloudQueue.CreateIfNotExists** method to create the queue if it does not yet exist. The **CloudQueue.CreateIfNotExists** method returns **true** if the queue does not exist, and is successfully created. Otherwise, **false** is returned.    
 
-3. Get a **CloudQueueClient** object represents a queue service client.
+    ```csharp
+	ViewBag.Success = queue.CreateIfNotExists();
+    ```
 
-        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+1. Update the **ViewBag** with the name of the queue.
 
-4. Get a **CloudQueue** object that represents a reference to the desired queue name. (Change *<queue-name>* to the name of the queue you want to create.)
+    ```csharp
+	ViewBag.QueueName = queue.Name;
+    ```
 
-        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.
 
-5. Call the **CloudQueue.CreateIfNotExists** method to create the queue if it does not yet exist. 
+1. On the **Add View** dialog, enter **CreateQueue** for the view name, and select **Add**.
 
-	    queue.CreateIfNotExists();
+1. Open `CreateQueue.cshtml`, and modify it so that it looks like the following code snippet:
 
+    ```csharp
+	@{
+	    ViewBag.Title = "Create Queue";
+	}
+	
+	<h2>Create Queue results</h2>
+
+	Creation of @ViewBag.QueueName @(ViewBag.Success == true ? "succeeded" : "failed")
+    ```
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
+
+    ```html
+	<li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
+    ```
+
+1. Run the application, and select **Create queue** to see results similar to those shown in the following screen shot:
+  
+	![Create table](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
+
+	As mentioned previously, the **CloudQueue.CreateIfNotExists** method returns **true** only when the queue doesn't exist and is created. Therefore, if you run the app when the queue exists, the method returns **false**. To run the app multiple times, you must delete the queue before running the app again. Deleting the queue can be done via the **CloudQueue.Delete** method. You can also delete the queue using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## Add a message to a queue
 

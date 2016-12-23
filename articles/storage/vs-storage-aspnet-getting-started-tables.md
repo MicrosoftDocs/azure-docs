@@ -136,6 +136,7 @@ The following steps illustrate how to create a table:
     ```csharp
 	ViewBag.Success = table.CreateIfNotExists();
     ```
+
 1. Update the **ViewBag** with the name of the table.
 
     ```csharp
@@ -150,10 +151,10 @@ The following steps illustrate how to create a table:
 
     ```csharp
 	@{
-	    ViewBag.Title = "Create table";
+	    ViewBag.Title = "Create Table";
 	}
 	
-	<h2>Create table results</h2>
+	<h2>Create Table results</h2>
 
 	Creation of @ViewBag.TableName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
@@ -168,9 +169,9 @@ The following steps illustrate how to create a table:
 
 1. Run the application, and select **Create table** to see results similar to those shown in the following screen shot:
   
-	![Create table](./media/vs-storage-aspnet-getting-started-tables/results.png)
+	![Create table](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-	As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method returns **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the container can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+	As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method returns **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the table can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## Add an entity to a table
 
