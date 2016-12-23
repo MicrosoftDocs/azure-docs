@@ -120,13 +120,13 @@ In the Performance configurations, you configure an Azure storage account used f
 
 Select an existing Azure Storage account, and click **Next**.
 
-	![Configure staging blob](media/sql-data-warehouse-load-with-data-factory/configure-staging-blob.png)
+![Configure staging blob](media/sql-data-warehouse-load-with-data-factory/configure-staging-blob.png)
 
 ## Review summary information and deploy the pipeline
 
 Review the configuration and click **Finish** button to deploy the pipeline.
 
-	![Deploy data factory](media/sql-data-warehouse-load-with-data-factory/deploy-data-factory.png)
+![Deploy data factory](media/sql-data-warehouse-load-with-data-factory/deploy-data-factory.png)
 
 ## Monitor data loading progress
 
@@ -136,19 +136,19 @@ You can see the deployment progress and results in the **Deployment** page.
 
 	![Monitor pipeline](media/sql-data-warehouse-load-with-data-factory/monitor-pipeline.png)
 
-The newly created **DWLoadData-fromSQLServer** data loading pipeline is auto selected from the left-hand **Resource Explorer**.
+2. The newly created **DWLoadData-fromSQLServer** data loading pipeline is auto selected from the left-hand **Resource Explorer**.
 
 	![View pipeline](media/sql-data-warehouse-load-with-data-factory/view-pipeline.png)
 
-2. Click into the pipeline in the middle panel to see the detailed status for each table that maps to an Activity.
+3. Click into the pipeline in the middle panel to see the detailed status for each table that maps to an Activity.
 
 	![View table activity](media/sql-data-warehouse-load-with-data-factory/view-table-activity.png)
 
-3. Further click into an activity and you see the data loading details in the right panel including data size, rows, throughput, etc.
+4. Further click into an activity and you see the data loading details in the right panel including data size, rows, throughput, etc.
 
 	![View table activity details](media/sql-data-warehouse-load-with-data-factory/view-table-activity-details.png)
 
-4. To launch this monitoring view later, go to your SQL Data Warehouse, click **Load Data > Azure Data Factory**, select your factory, and choose **Monitor existing loading tasks**.
+5. To launch this monitoring view later, go to your SQL Data Warehouse, click **Load Data > Azure Data Factory**, select your factory, and choose **Monitor existing loading tasks**.
 
 ## Next steps
 
