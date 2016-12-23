@@ -147,6 +147,10 @@ A blob container is a nested hierarchy of blobs and folders. The following steps
 
 Once you've [created a blob container](#create-a-blob-container), you can upload files into that container. This section walks you through uploading a local file to a blob container. The steps assume you've created a blob container named *test-blob-container*. 
 
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+
 1. Open the `BlobsController.cs` file.
 
 1. Add a method called **UploadBlob** that returns an **EmptyResult**.
@@ -212,6 +216,10 @@ The section - [List the blobs in a blob container](#list-the-blobs-in-a-blob-con
 ## List the blobs in a blob container
 
 This section illustrates how to list the blobs in a blob container. The sample code references the *test-blob-container* created in the section, [Create a blob container](#create-a-blob-container).
+
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `BlobsController.cs` file.
 
@@ -399,6 +407,10 @@ This section illustrates how to download a blob and either persist it to local s
 ## Delete blobs
 
 The following steps illustrate how to delete a blob:
+
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `BlobsController.cs` file.
 
