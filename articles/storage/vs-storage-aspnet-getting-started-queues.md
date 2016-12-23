@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: vs-getting-started
 ms.devlang: na
 ms.topic: article
-ms.date: 12/02/2016
+ms.date: 12/23/2016
 ms.author: tarcher
 
 ---
@@ -22,14 +22,21 @@ ms.author: tarcher
 
 ## Overview
 
-Azure queue storage is a service for storing large amounts of unstructured data that can be accessed via HTTP or HTTPS. A single queue message can be up to 64 KB in size, and a queue can contain an unlimited number of messages, up to the total capacity limit of a storage account.
+Azure queue storage provides cloud messaging between application components. In designing applications for scale, application components are often decoupled, so that they can scale independently. Queue storage delivers asynchronous messaging for communication between application components, whether they are running in the cloud, on the desktop, on an on-premises server, or on a mobile device. Queue storage also supports managing asynchronous tasks and building process work flows.
 
-This article describes how to programmatically manage Azure queue storage entities, performing
-common tasks such as creating an Azure queue, and adding, modifying, reading and removing queue messages.
+This tutorial shows how to write ASP.NET code for some common scenarios using Azure queue storage entities. These scenarios include common tasks such as creating an Azure queue, and adding, modifying, reading, and removing queue messages.
 
-> [!NOTE]
-> 
-> The code sections in this article assume that you have already connected to an Azure storage account using Connected Services. Connected Services is configured by opening the Visual Studio Solution Explorer, right-clicking the project, and from the context menu, selecting the **Add->Connected Service** option. From there, follow the dialog's instructions to connect to the desired Azure storage account.      
+##Prerequisites
+
+* [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
+* [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
+
+
+
+
+
+
+
 
 ## Create a queue
 
