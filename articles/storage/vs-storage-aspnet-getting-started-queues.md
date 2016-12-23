@@ -142,34 +142,49 @@ The following steps illustrate how to create a table:
 
 ## Add a message to a queue
 
-The following steps illustrate how to programmatically add a message to a queue. In an ASP.NET MVC app, the code would go in a controller.
+Once you've [created a queue](#create-a-queue), you can add messages to that queue. This section walks you through adding a message to a queue. The steps assume you've created a queue named *test-queue*. 
 
-1. Add the following *using* directives:
+1. Open the `QueuesController.cs` file.
+
+1. Add a method called **AddMessage** that returns an **EmptyResult**.
+
+    ```csharp
+    public EmptyResult AddMessage()
+    {
+		// The code in this section goes here.
+
+        return new EmptyResult();
+    }
+    ```
+ 
+1. Within the **AddMessage** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
-        using Microsoft.Azure;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Queue;
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
+   
+1. Get a **CloudQueueClient** object represents a queue service client.
+   
+    ```csharp
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+    ```
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Get a **CloudQueueContainer** object that represents a reference to the queue name. 
+   
+    ```csharp
+    CloudQueue queue = queueClient.GetQueueReference("test-queue");
+    ```
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+1. Create the **CloudQueueMessage** object representing the message you want to add to the queue. A **CloudQueueMessage** object can be created from either a string (in UTF-8 format) or a byte array.
 
-3. Get a **CloudQueueClient** object represents a queue service client.
+		CloudQueueMessage message = new CloudQueueMessage("Hello, Azure Queue Storage");
 
-        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
-
-4. Get a **CloudQueue** object that represents a reference to the desired queue name. (Change *<queue-name>* to the name of the queue to which you want to add the message.)
-
-        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
-
-5. Create the **CloudQueueMessage** object representing the message you want to add to the queue. A **CloudQueueMessage** object can be created from either a string (in UTF-8 format) or a byte array. (Change *<queue-message>* to the message you want to add.
-
-		CloudQueueMessage message = new CloudQueueMessage(<queue-message>);
-
-6. Call the **CloudQueue.AddMessage** method to add the messaged to the queue.
+1. Call the **CloudQueue.AddMessage** method to add the messaged to the queue.
 
     	queue.AddMessage(message);
+
+The two sections - [Read a message from a queue without removing it](#read-a-message-from-a-queue-without-removing-it) and [Read and remove a message from a queue](#read-and-remove-a-message-from-a-queue) - illustrate how to read messages from a queue. 	
 
 ## Read a message from a queue without removing it
 

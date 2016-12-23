@@ -145,7 +145,7 @@ A blob container is a nested hierarchy of blobs and folders. The following steps
 
 ## Upload a blob into a blob container
 
-Once you've [created a blob container](#create-a-blob-container), you can upload files into that container. This section walks you through how to upload a local file to a blob container. The steps assume you've created a blob container named *test-blob-container*. 
+Once you've [created a blob container](#create-a-blob-container), you can upload files into that container. This section walks you through uploading a local file to a blob container. The steps assume you've created a blob container named *test-blob-container*. 
 
 1. Open the `BlobsController.cs` file.
 
@@ -207,7 +207,7 @@ or overwrites it if it does exist. (Change *&lt;file-to-upload>* to a fully qual
 
 1. Run the application, and select **Upload blob**.  
   
-The next section will illustrate how to list the blobs in a blob container. 	
+The section - [List the blobs in a blob container](#list-the-blobs-in-a-blob-container) - illustrates how to list the blobs in a blob container. 	
 
 ## List the blobs in a blob container
 
