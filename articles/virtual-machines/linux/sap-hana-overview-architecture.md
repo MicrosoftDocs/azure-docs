@@ -94,7 +94,7 @@ The above architecture is divided into three sections:
 
 The Azure Large Instance stamp itself combines the following components:
 
-- **Computing:**  Rack-mounted servers that are based on Intel Xeon E7-8890v3 processors that provide the necessary computing capability and are SAP HANA certified.
+- **Computing:**  Servers that are based on Intel Xeon E7-8890v3 processors that provide the necessary computing capability and are SAP HANA certified.
 - **Network:**  A unified high-speed network fabric that interconnects the computing, storage, and LAN components.
 - **Storage:**  A storage infrastructure that is accessed through a unified network fabric. Specific storage capacity is provided depending on the specific SAP HANA on Azure (Large Instances) configuration being deployed (more storage capacity is available at an additional monthly cost).
 
@@ -104,7 +104,7 @@ As with Azure VMs, SAP HANA on Azure (Large Instances) is offered in multiple Az
 
 Just as you can choose between different VM types with Azure Virtual Machines, you can choose from different SKUs of HANA Large Instances that are tailored for different workload types of SAP HANA. SAP applies memory to processor socket ratios for varying workloads based on the Intel processor generations—there are four different SKU types offered:
 
-As of October 2016, SAP HANA on Azure (Large Instances) is available in four configurations:
+As of December 2016, SAP HANA on Azure (Large Instances) is available in six configurations in the Azure Regions of US West and US East:
 
 | SAP Solution | CPU | RAM | Storage |
 | --- | --- | --- | --- |
@@ -249,7 +249,7 @@ Azure networking in the context of SAP systems deployed in Azure is not complica
 - All SAP systems in Azure need to be set up in Azure VNets to communicate with each other.
 - Active Directory and DNS hosted on-premises are extended into Azure through ExpressRoute.
 
-**Recommendation:** Deploy the complete Azure landscape within a single Azure subscription. Many procedures within an SAP landscape require transparent, and possibly less, network connectivity between SAP development, test and production instances, and the SAP NetWeaver architecture has many automatisms that rely on this transparent networking between these different instances. Therefore, keeping the complete SAP landscape in one Azure subscription, even when the landscape is deployed over multiple Azure regions, is highly advisable.
+**Recommendation:** Deploy the complete SAP landscape on Azure within a single Azure subscription. Many procedures within an SAP landscape require transparent, and possibly less, network connectivity between SAP development, test and production instances, and the SAP NetWeaver architecture has many automatisms that rely on this transparent networking between these different instances. Therefore, keeping the complete SAP landscape in one Azure subscription, even when the landscape is deployed over multiple Azure regions, is highly advisable.
 
 The architecture and processes around SAP HANA on Azure (Large Instances) is built on the above recommendation.
 
@@ -303,8 +303,7 @@ For a more scalable network architecture:
 
 ![Deploying SAP application layer over multiple Azure VNets](./media/sap-hana-overview-architecture/image4-networking-architecture.png)
 
-Deploying the SAP application layer, or components, over multiple Azure VNets as shown above, may introduce unavoidable latency overhead that occurs during communication between the applications hosted in those Azure VMs. The network traffic between Azure VMs located in different VNets will occur through the MSEE Routers.
-
+Deploying the SAP application layer, or components, over multiple Azure VNets as shown above, may introduce unavoidable latency overhead that occurs during communication between the applications hosted in those Azure VMs. The network traffic between Azure VMs located in different VNets will occur through the MSEE Routers. Since Spetember 2016, there is a way to avoid this additional latency by peering Azure VNets within the same region. Even if those are in different subscriptions. Using Azure VNet peering, the communication between VMs in two different Azure Vnets can use the Azure network backbone to directly communicate with each other. Thereby showing similiar latency as if the VMs would be in the same VNet. Whereas traffic addressing IP address ranges that are connected through the Azure VNet gateway is routed through the individual VNet gateway of the VNet. You can get details about Azure VNet peering in the article [VNet peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview).
 ### Minimal deployment
 
 For a small SAP system (minimal deployment), Azure VMs host the SAP application layer in native Azure (within a single VNet) and connect to Large Instance stamp through ExpressRoute. Follow these steps to get SAP HANA on Azure (Large Instances) ready for use:
