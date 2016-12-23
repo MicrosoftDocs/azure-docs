@@ -20,7 +20,7 @@ ms.author: asabbour
 ---
 # MariaDB (MySQL) cluster--Azure tutorial
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and Classic. This article covers the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 > [!NOTE]
 > MariaDB Enterprise cluster is now available in the Azure Marketplace. The new offering will automatically deploy a MariaDB Galera cluster on Azure Resource Manager. You should use the new offering from [Azure Marketplace](https://azure.microsoft.com/en-us/marketplace/partners/mariadb/cluster-maxscale/).
@@ -38,7 +38,7 @@ This article describes how to complete the following steps:
 - Use the Azure Load Balancer to balance the load for the three nodes.
 - To minimize repetitive work, create a VM image containing MariaDB+Galera and use it to create the other cluster VMs.
 
-![System architecture](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
+![System architecture](../media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
 > This topic uses the [Azure CLI](../xplat-cli-install.md) tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, see the [Azure CLI command reference](../virtual-machines-command-line-tools.md). You will also need to [create an SSH key for authentication] and make note of the .pem file location.
@@ -215,8 +215,8 @@ This article describes how to complete the following steps:
 
     a. Shut down the machine through the portal.
     b. Click **Capture** and specify the image name as **mariadb-galera-image**. Provide a description and check "I have run waagent."
-      ![Capture the virtual machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture.png)
-      ![Capture the virtual machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
+      ![Capture the virtual machine](../media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture.png)
+      ![Capture the virtual machine](../media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
 
 ## Create the cluster
 Create three VMs with the template you created, and then configure and start the cluster.
@@ -272,7 +272,7 @@ Create three VMs with the template you created, and then configure and start the
         --connect mariadbha mariadb-galera-image azureuser
 3. You will need to get the internal IP address of each of the three VMs for the next step:
 
-    ![Getting IP address](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/IP.png)
+    ![Getting IP address](../media/virtual-machines-linux-classic-mariadb-mysql-cluster/IP.png)
 4. Use SSH to sign in to the three VMs and edit the configuration file on each of them.
 
         sudo vi /etc/my.cnf.d/server.cnf
@@ -303,15 +303,15 @@ The command parameters structure is: `azure vm endpoint create-multiple <Machine
 
 The CLI sets the load balancer probe interval to 15 seconds, which might be a bit too long. Change it in the portal under **Endpoints** for any of the VMs.
 
-![Edit endpoint](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint.PNG)
+![Edit endpoint](../media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint.PNG)
 
 Select **Reconfigure the Load-Balanced Set**.
 
-![Reconfigure the load-balanced Set](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint2.PNG)
+![Reconfigure the load-balanced Set](../media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint2.PNG)
 
 Change **Probe Interval** to 5 seconds and save your changes.
 
-![Change probe interval](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint3.PNG)
+![Change probe interval](../media/virtual-machines-linux-classic-mariadb-mysql-cluster/Endpoint3.PNG)
 
 ## Validate the cluster
 The hard work is done. The cluster should be now accessible at `mariadbha.cloudapp.net:3306`, which hits the load balancer and route requests between the three VMs smoothly and efficiently.
