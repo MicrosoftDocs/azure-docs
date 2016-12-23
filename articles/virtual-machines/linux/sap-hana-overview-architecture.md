@@ -110,8 +110,10 @@ As of October 2016, SAP HANA on Azure (Large Instances) is available in four con
 | --- | --- | --- | --- |
 | Optimized for OLAP: SAP BW, BW/4HANA<br /> or SAP HANA for generic OLAP workload | SAP HANA on Azure S72<br /> – 2 x Intel® Xeon® Processor E7-8890 v3 |  768 GB |  3 TB |
 | --- | SAP HANA on Azure S144<br /> – 4 x Intel® Xeon® Processor E7-8890 v3 |  1.5 TB |  6 TB |
+| --- | SAP HANA on Azure S192<br /> – 4 x Intel® Xeon® Processor E7-8890 v4 |  2.0 TB |  8 TB |
 | Optimized for OLTP: SAP Business Suite<br /> on SAP HANA or S/4HANA (OLTP),<br /> generic OLTP | SAP HANA on Azure S72m<br /> – 2 x Intel® Xeon® Processor E7-8890 v3 |  1.5 TB |  6 TB |
-|---| SAP HANA on Azure S144m<br /> – 4 x Intel Xeon® Processor E7-8890 v3 |  3 TB |  12 TB |
+|---| SAP HANA on Azure S144m<br /> – 4 x Intel Xeon® Processor E7-8890 v3 |  3.0 TB |  12 TB |
+|---| SAP HANA on Azure S192m<br /> – 4 x Intel Xeon® Processor E7-8890 v4 |  4.0 TB |  16 TB |
 
 The different configurations above are referenced in [SAP Support Note #2316233 – SAP HANA on Microsoft Azure (Large Instances)](https://launchpad.support.sap.com/#/notes/2316233/E).
 
