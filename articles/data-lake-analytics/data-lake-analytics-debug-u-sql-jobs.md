@@ -14,15 +14,16 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
 ms.date: 09/02/2016
-ms.author: jgao
+ms.author: yanacai
 
 ---
-# Debug C# code in U-SQL for Data Lake Analytics jobs
-Learn how to use Azure Data Lake Visual Studio tools to debug failed U-SQL jobs due to bugs inside user code. 
+# Debug user defined C# code for failed U-SQL jobs
 
-The Visual Studio tool allows you to download compiled code and necessary vertex data from  cluster to trace and debug failed jobs .
+Learn how to debug failed U-SQL jobs with user defined code bugs using Azure Data Lake Tools for Visual Studio.
 
-Big data systems usually provide extensibility model through languages such as Java, C#, Python, etc. Many these systems provide limited runtime debugging information, that makes it hard to debug runtime errors in custom code. The latest Visual Studio tools comes with a feature called “Failed Vertex Debug”. Using this feature, you can download the runtime data from Azure to local workstation so that you can debug failed custom C# code using the same runtime and exact input data from the cloud.  After the problems are fixed, you can re-run the revised code in Azure from the tools.
+## Background
+
+U-SQL provides extensibility model through C#, users can write user defined C# operators, like user defined extractor, reducer, etc. to achieve more extensibility (learn more about [U-SQL Programmability Guide](https://docs.microsoft.com/en-us/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#user-defined-functions---udf)). No developers can code without making mistakes, but debugging in big data systems is hard since many systems only provide limited runtime debugging information like logs, etc. ADL Tools for Visual Studio offers a feature called **Failed Vertex Debug**, using which you can easily clone failed environment including intermediate input data and user code, etc. from cloud to your local machine to trace and debug failed jobs with the same runtime and exact input data in cloud.
 
 For a video presentation of this feature, see [Debug your custom code in Azure Data Lake Analytics](https://mix.office.com/watch/1bt17ibztohcb).
 
@@ -35,10 +36,34 @@ For a video presentation of this feature, see [Debug your custom code in Azure D
 ## Prerequisites
 * Have gone through the [Get started](data-lake-analytics-data-lake-tools-get-started.md) article.
 
-## Create and configure debug projects
-When you open a failed job in Data Lake Visual Studio tool, you will get an alert. The detailed error info will be shown in the error tab and the yellow alert bar on the top of the window. 
+## Video tutorial
 
-![Azure Data Lake Analytics U-SQL debug visual studio download vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
+The following video demonstrates **Failed Vertex Debug** in ADL Tools for Visual Studio.
+
+> [!VIDEO https://mix.office.com/watch/1bt17ibztohcb]
+>
+>
+
+## Download failed vertex to local
+
+When you open a failed job in ADL Tools for Visual Studio, you will get an alert. The detailed error info will be shown in the error tab and the yellow alert bar on the top of the window.
+
+1. Click **Download** to download all the required resources and input streams. Click **Retry** if the download failed. 
+2. Click **Open** after the download is completed to create a local debug project. A new Visual Studio instance with a debugging solution will be created. 
+3. Debugging steps are little different between failed jobs with code behind and assembly.
+
+- debug failed job with code behind
+- debug failed job with assembly
+
+![Azure Data Lake Analytics U-SQL debug visual studio download vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-failed-vertex-debug-alert.png)
+
+## Debug failed job with code behind
+
+In the automatically generated debugging project, you can just use Visual Studio based debugging experience (watch, variables, etc.) to troubleshoot the problem.
+
+1. Just press **F5**, the code behind code will run automatically untill it is stopped by an exception.
+2. Double click 
+After clicking **Open**, a local debug project will be automatically generated and opened. Steps are a little different with code behind and assembly code debugging.
 
 **To download vertex and create a debug solution**
 
