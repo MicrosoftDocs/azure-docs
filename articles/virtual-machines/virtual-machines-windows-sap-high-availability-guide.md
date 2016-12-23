@@ -1443,7 +1443,7 @@ Installing SAP with a high-availability ASCS/SCS instance requires these steps:
   >
   >
 
-  The IP address of the virtual SAP ASCS/SCS host name (**pr1-ascs-sap**) is the same as the IP address of Azure Load Balancer (**pr1-lb-ascs**). 
+  The IP address of the virtual SAP ASCS/SCS host name (**pr1-ascs-sap**) is the same as the IP address of Azure Load Balancer (**pr1-lb-ascs**).
 
   ![Figure 56: Define the DNS entry for the SAP ASCS/SCS cluster virtual name and TCP/IP address][sap-ha-guide-figure-3046]
 
@@ -1597,15 +1597,15 @@ You need to open a Windows firewall probe port on both cluster nodes.
 
 ##### To open the Windows firewall probe port
 
-1.  Use the following script to open a Windows firewall probe port. Update the PowerShell variables for your environment.
+Use the following script to open a Windows firewall probe port. Update the PowerShell variables for your environment.
 
-  ```PowerShell
-  $ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
+```PowerShell
+$ProbePort = 62000   # ProbePort of the Azure Internal Load Balancer
 
-  New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
-  ```
+New-NetFirewallRule -Name AzureProbePort -DisplayName "Rule for Azure Probe Port" -Direction Inbound -Action Allow -Protocol TCP -LocalPort $ProbePort
+```
 
-  The **ProbePort** is set to **62000**. Now you can access the file share **\\\ascsha-clsap\sapmnt** from other hosts, such as from **ascsha-dbas**.
+The **ProbePort** is set to **62000**. Now you can access the file share **\\\ascsha-clsap\sapmnt** from other hosts, such as from **ascsha-dbas**.
 
 ### <a name="85d78414-b21d-4097-92b6-34d8bcb724b7"></a> Install the database instance
 
