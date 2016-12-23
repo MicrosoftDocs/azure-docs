@@ -31,13 +31,34 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
 * [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
 * [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
 
+[!INCLUDE [storage-queue-concepts-include](../../includes/storage-queue-concepts-include.md)]
 
+[!INCLUDE [storage-create-account-include](../../includes/vs-storage-aspnet-getting-started-create-azure-account.md)]
 
+[!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
 
+### Create an MVC controller 
 
+1. In the **Solution Explorer**, right-click **Controllers**, and, from the context menu, select **Add->Controller**.
 
+	![Add a controller to an ASP.NET MVC app](./media/vs-storage-aspnet-getting-started-queues/add-controller-menu.png)
 
+1. On the **Add Scaffold** dialog, select **MVC 5 Controller - Empty**, and select **Add**.
 
+	![Specify MVC controller type](./media/vs-storage-aspnet-getting-started-queues/add-controller.png)
+
+1. On the **Add Controller** dialog, name the controller *QueuesController*, and select **Add**.
+
+	![Name the MVC controller](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
+
+1. Add the following *using* directives to the `BlobsController.cs` file:
+
+    ```csharp
+	using Microsoft.Azure;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Auth;
+    using Microsoft.WindowsAzure.Storage.Queue;
+	```
 ## Create a queue
 
 The following steps illustrate how to programmatically create a queue. In an ASP.NET MVC app, the code would go in a controller.
