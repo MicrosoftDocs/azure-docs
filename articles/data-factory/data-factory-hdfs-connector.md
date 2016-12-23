@@ -263,12 +263,12 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 1.	Run the **Ksetup** utility to configure the Kerberos KDC server and realm.
 
-    The machine must be configured as a member of a workgroup since a Kerberos realm is not a Windows domain. This can be achieved by setting the Kerberos realm and adding a KDC server as follows. Replace *REALM.COM* your own respective realm.
+    The machine must be configured as a member of a workgroup since a Kerberos realm is different from a Windows domain. This can be achieved by setting the Kerberos realm and adding a KDC server as follows. Replace *REALM.COM* with your own respective realm as needed.
 
             C:> Ksetup /setdomain REALM.COM
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
 
-	**Restart** the machine after these 2 commands.
+	**Restart** the machine after executing these 2 commands.
 
 2.	Verify the configuration with **Ksetup** command. The output should be like below:
 
@@ -293,7 +293,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 **On KDC server:**
 
-1.	Edit the KDC configuration in *krb5.conf* file to let KDC trust Windows Domain referring to below configuration template. By default, the configuration is located at */etc/krb5.conf*.
+1.	Edit the KDC configuration in **krb5.conf** file to let KDC trust Windows Domain referring to below configuration template. By default, the configuration is located at **/etc/krb5.conf**.
 
             [logging]
              default = FILE:/var/log/krb5libs.log
@@ -335,7 +335,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3.	In *hadoop.security.auth_to_local* HDFS service configuration file, add `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
+3.	In **hadoop.security.auth_to_local** HDFS service configuration file, add `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
 
 **On Domain Controller:**
 
@@ -344,7 +344,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
             C:> Ksetup /addkdc REALM.COM <your_kdc_server_address>
             C:> ksetup /addhosttorealmmap HDFS-service-FQDN REALM.COM
 
-2.	Establish trust from Windows Domain to Kerberos Realm. [password] is the password for the principal *krbtgt/REALM.COM@AD.COM*.
+2.	Establish trust from Windows Domain to Kerberos Realm. [password] is the password for the principal **krbtgt/REALM.COM@AD.COM**.
 
             C:> netdom trust REALM.COM /Domain: AD.COM /add /realm /passwordt:[password]
 
