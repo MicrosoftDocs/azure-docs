@@ -1,4 +1,4 @@
-﻿---
+---
 title: Flighting deployment (beta testing) in Azure App Service
 description: Learn how to flight new features in your app or beta test your updates in this end-to-end tutorial. It brings together App Service features like continuous publishing, slots, traffic routing, and Application Insights integration.
 services: app-service\web
@@ -362,7 +362,7 @@ Azure App Service makes it easy for small- to medium-sized businesses to test th
 * [Agile software development with Azure App Service](app-service-agile-software-development.md)
 * [Set up staging environments for web apps in Azure App Service](web-sites-staged-publishing.md)
 * [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
-* [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
+* [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint - The JSON Validator](http://jsonlint.com/)
 * [Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [Azure PowerShell](/powershell/azureps-cmdlets-docs)

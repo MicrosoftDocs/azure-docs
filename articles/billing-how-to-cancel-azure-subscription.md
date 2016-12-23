@@ -14,7 +14,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/29/2016
+ms.date: 12/6/2016
 ms.author: genli
 
 ---
@@ -25,6 +25,7 @@ Before you cancel your subscription:
 
 * Back up your data. For example, if you're storing data in Azure storage or SQL, download a copy. If you have a virtual machine, save an image of it locally.
 * Shut down your services. Go to the [resources page in the management portal](https://ms.portal.azure.com/?flight=1#blade/HubsExtension/Resources/resourceType/Microsoft.Resources%2Fresources), and **Stop** any running virtual machines, applications, or other services.
+* Consider migrating your data. See [Move resources to new resource group or subscription](./azure-resource-manager/resource-group-move-resources.md).
 
 If you cancel a paid [Azure Support plan](https://azure.microsoft.com/support/plans/), you will still be billed monthly for the rest of the 6-months term.
 

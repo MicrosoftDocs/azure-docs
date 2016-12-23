@@ -13,7 +13,7 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/11/2016
+ms.date: 12/06/2016
 ms.author: tomfitz
 
 ---
@@ -64,7 +64,6 @@ For now, the services that enable moving to both a new resource group and subscr
 * Automation
 * Batch
 * Bing Maps
-* BizTalk Services
 * CDN
 * Cloud Services - see [Classic deployment limitations](#classic-deployment-limitations)
 * Cognitive Services
@@ -78,7 +77,7 @@ For now, the services that enable moving to both a new resource group and subscr
 * DNS
 * DocumentDB
 * Event Hubs
-* HDInsight clusters
+* HDInsight clusters - see [HDInsight limitations](#hdinsight-limitations)
 * IoT Hubs
 * Key Vault 
 * Load Balancers
@@ -105,12 +104,17 @@ For now, the services that enable moving to both a new resource group and subscr
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Networks
 
+> [!NOTE] 
+> Currently a Virtual Network containing a VPN Gateway cannot be moved until the Gateway has been removed temporarily. Once removed, the Virtual Network can be moved successfully and the Gateway can be created.
+>
+ 
 ## Services that do not enable move
 The services that currently do not enable moving a resource are:
 
 * AD Hybrid Health Service
 * Application Gateway
 * Application Insights
+* BizTalk Services
 * Express Route
 * Dynamics LCS
 * Recovery Services vault - also do not move the Compute, Network, and Storage resources associated with the Recovery Services vault, see [Recovery Services limitations](#recovery-services-limitations).
@@ -163,6 +167,12 @@ You can move an App Service Certificate to a new resource group or subscription 
 Move is not enabled for Storage, Network, or Compute resources used to set up disaster recovery with Azure Site Recovery. 
 
 For example, suppose you have set up replication of your on-premises machines to a storage account (Storage1) and want the protected machine to come up after failover to Azure as a virtual machine (VM1) attached to a virtual network (Network1). You cannot move any of these Azure resources - Storage1, VM1, and Network1 - across resource groups within the same subscription or across subscriptions.
+
+## HDInsight limitations
+
+You can move HDInsight clusters to a new subscription or resource group. However, you cannot move across subscriptions the networking resources linked to the HDInsight cluster (such as the virtual network, NIC, or load balancer). In addition, you cannot move to a new resource group a NIC that is attached to a virtual machine for the cluster.
+
+When moving an HDInsight cluster to a new subscription, first move other resources (like the storage account). Then, move the HDInsight cluster by itself.
 
 ## Classic deployment limitations
 The options for moving resources deployed through the classic model differ based on whether you are moving the resources within a subscription or to a new subscription. 

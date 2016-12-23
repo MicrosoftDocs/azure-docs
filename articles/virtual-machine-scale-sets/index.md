@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn how to use Virtual Machine Scale Sets to create auto-scaling Windows or Linux VMs for big compute, big data, and containerized solutions.
 ---
 #Virtual Machine Scale Sets Documentation
 
-Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy and manage a set of identical VMs.  With all VMs configured the same, VM scale sets are designed to support true autoscale - no pre-provisioning of VMs is required. This makes it easier to build large-scale services targeting big compute, big data, and containerized workloads.
+Learn how to use Virtual Machine Scale Sets to deploy and manage a set of identical, auto-scaling Windows or Linux VMs. Documentation shows you how to use Scale Sets to support services that target big compute, big data, and containerized solutions.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -65,53 +66,34 @@ Virtual Machine Scale Sets are an Azure Compute resource you can use to deploy a
 
 ---
 
-## Reference
-
+<h2>Reference</h2>
 <ul class="panelContent cardsW">
-	<li>
-        <a href="/powershell/azureps-cmdlets-docs">
+    <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>PowerShell</h3>
-                        <p>Virtual Machine Scale Sets PowerShell</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>Command-Line</h3>
+                        <p><a href="/powershell/azureps-cmdlets-docs">PowerShell</a></p>
+                        <p><a href="/azure/virtual-machines/azure-cli-arm-commands">Azure CLI</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
-	<li>
-        <a href="/cli/azure/vmss">
+    <li>
         <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>Azure CLI</h3>
-                        <p>Virtual Machine Scale Sets using the Azure CLI</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
-    </li>
-	<li>
-        <a href="/rest/api/compute">
-        <div class="cardSize">
-            <div class="cardPadding">
-                <div class="card">
-                    <div class="cardText">
-                        <h3>REST</h3>
-                        <p>Virtual Machine Scale Sets REST API Reference</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </a>
+            <div class="cardPadding">
+                <div class="card">
+                    <div class="cardText">
+                        <h3>REST</h3>
+                        <p><a href="/rest/api/compute/">REST API Reference</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </li>
 </ul>
-
 
 <div class="downloadHolder">
     <a href="https://opbuildstorageprod.blob.core.windows.net/output-pdf-files/en-us/Azure.azure-documents/live/virtual-machine-scale-sets.pdf">

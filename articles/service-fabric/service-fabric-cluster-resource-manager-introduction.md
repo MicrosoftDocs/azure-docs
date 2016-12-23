@@ -1,4 +1,4 @@
-﻿---
+---
 title: Introducing the Service Fabric Cluster Resource Manager | Microsoft Docs
 description: An introduction to the Service Fabric Cluster Resource Manager.
 services: service-fabric
@@ -41,6 +41,11 @@ The job of the Orchestrator within a Service Fabric cluster is handled primarily
 1. Enforcing Rules
 2. Optimizing Your Environment
 3. Assisting in Other Processes
+
+Watch the following Microsoft Virtual Academy video to see how the Cluster Resource Manager works:
+<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=d4tka66yC_5706218965">
+<img src="./media/service-fabric-cluster-resource-manager-introduction/ConceptsAndDemoVid.png" WIDTH="360" HEIGHT="244">
+</a></center>
 
 ### What it isn’t
 In traditional N tier web-apps there was always some notion of a “Load Balancer”, usually referred to as a Network Load Balancer (NLB) or an Application Load Balancer (ALB) depending on where it sat in the networking stack. Some load balancers are Hardware based like F5’s BigIP offering, others are software based such as Microsoft’s NLB. In other environments you might see something like HAProxy in this role. In these architectures the job of load balancing is to make sure that all of the different stateless front end machines or the different machines in the cluster receive (roughly) the same amount of work. Strategies for this varied, from sending each different call to a different server, to session pinning/stickiness, to actual estimation and call allocation based on its expected cost and current machine load.

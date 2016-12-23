@@ -1,4 +1,4 @@
-﻿---
+---
 title: Create and manage a standalone Azure Service Fabric cluster | Microsoft Docs
 description: Create and manage an Azure Service Fabric cluster on any machine (physical or virtual) running Windows Server, whether it's on-premises or in any cloud.
 services: service-fabric
@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 09/26/2016
+ms.date: 12/06/2016
 ms.author: dkshir;chackdan
 
 ---
@@ -23,7 +23,7 @@ You can use Azure Service Fabric to create Service Fabric clusters on any virtua
 This article walks you through the steps for creating a cluster by using the standalone package for Service Fabric on premises, though it can be easily adapted for any other environment such as other cloud providers.
 
 > [!NOTE]
-> This standalone Windows Server package may contain features that are currently in preview and are not supported for commercial use. To see the list of features that are in preview, see "Preview features included in this package." You can also [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
+> This standalone Windows Server package is commercially available and may be used for production deployments. This package may contain new Service Fabric features that are in "Preview". Scroll down to "Preview features included in this package." section for the list of the preview features. You can [download a copy of the EULA](http://go.microsoft.com/fwlink/?LinkID=733084) now.
 > 
 > 
 
@@ -32,6 +32,7 @@ This article walks you through the steps for creating a cluster by using the sta
 ## Get support for the Service Fabric standalone package
 * Ask the community about the Service Fabric standalone package for Windows Server in the [Azure Service Fabric forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureServiceFabric?).
 * Open a ticket for [Professional Support for Service Fabric](http://support.microsoft.com/oas/default.aspx?prid=16146).  Learn more about [Professional Support from Microsoft](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
+* You can get support for this package as a part of the [Microsoft premier support](https://support.microsoft.com/en-us/premier) as well 
 
 <a id="downloadpackage"></a>
 
@@ -74,7 +75,7 @@ Prerequisites for each machine that you want to add to the cluster:
 * A minimum of 40 of GB available disk space is recommended.
 * A 4 core or greater CPU is recommended.
 * Connectivity to a secure network or networks for all machines.
-* Windows Server 2012 R2 or Windows Server 2012 (you need to have [KB2858668](https://support.microsoft.com/kb/2858668) installed).
+* Windows Server 2012 R2 or Windows Server 2016. 
 * [.NET Framework 4.5.1 or higher](https://www.microsoft.com/download/details.aspx?id=40773), full install.
 * [Windows PowerShell 3.0](https://msdn.microsoft.com/powershell/scripting/setup/installing-windows-powershell).
 * The [RemoteRegistry service](https://technet.microsoft.com/library/cc754820) should be running on all the machines.
@@ -238,14 +239,16 @@ To disable telemetry, add the following to *properties* in your cluster config: 
 ## Preview features included in this package
 None.
 
+
 > [!NOTE]
-> With the new [GA version of the standalone cluster for Windows Server (version 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/), you can upgrade your cluster to future releases, manually or automatically. Because this feature is not available on the preview versions, you will need to create a cluster by using the GA version and migrate your data and applications from the preview cluster. Stay tuned for more details on this feature.
+> Starting with the new [GA version of the standalone cluster for Windows Server (version 5.3.204.x)](https://azure.microsoft.com/blog/azure-service-fabric-for-windows-server-now-ga/), you can upgrade your cluster to future releases, manually or automatically. Refer to [Upgrade a standalone Service Fabric cluster version](service-fabric-cluster-upgrade-windows-server.md) document for details.
 > 
 > 
 
 ## Next steps
 * [Configuration settings for standalone Windows cluster](service-fabric-cluster-manifest.md)
 * [Add or remove nodes to a standalone Service Fabric cluster](service-fabric-cluster-windows-server-add-remove-nodes.md)
+* [Upgrade a standalone Service Fabric cluster version](service-fabric-cluster-upgrade-windows-server.md)
 * [Create a standalone Service Fabric cluster with Azure VMs running Windows](service-fabric-cluster-creation-with-windows-azure-vms.md)
 * [Secure a standalone cluster on Windows using Windows security](service-fabric-windows-cluster-windows-security.md)
 * [Secure a standalone cluster on Windows using X509 certificates](service-fabric-windows-cluster-x509-security.md)

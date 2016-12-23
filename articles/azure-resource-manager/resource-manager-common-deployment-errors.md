@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/22/2016
+ms.date: 12/12/2016
 ms.author: tomfitz
 
 ---
@@ -44,18 +44,22 @@ Deployment errors return the code **DeploymentFailed**. However, this error code
 
 The following error codes are described in this topic:
 
-* [InvalidTemplate](#invalidtemplate)
-* [NotFound and ResourceNotFound](#notfound-and-resourcenotfound)
-* [ParentResourceNotFound](#parentresourcenotfound)
-* [StorageAccountAlreadyExists and StorageAccountAlreadyTaken](#storageaccountalreadyexists-and-storageaccountalreadytaken)
 * [AccountNameInvalid](#accountnameinvalid)
-* [BadRequest](#badrequest)
-* [NoRegisteredProviderFound](#noregisteredproviderfound)
-* [QuotaExceeded and OperationNotAllowed](#quotaexceeded-and-operationnotallowed)
-* [InvalidContentLink](#invalidcontentlink)
-* [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
 * [Authorization failed](#authorization-failed)
+* [BadRequest](#badrequest)
+* [InvalidContentLink](#invalidcontentlink)
+* [InvalidTemplate](#invalidtemplate)
+* [MissingSubscriptionRegistration](#noregisteredproviderfound)
+* [NotFound](#notfound)
+* [NoRegisteredProviderFound](#noregisteredproviderfound)
+* [OperationNotAllowed](#quotaexceeded)
+* [ParentResourceNotFound](#parentresourcenotfound)
+* [QuotaExceeded](#quotaexceeded)
+* [RequestDisallowedByPolicy](#requestdisallowedbypolicy)
+* [ResourceNotFound](#notfound)
 * [SkuNotAvailable](#skunotavailable)
+* [StorageAccountAlreadyExists](#storagenamenotunique)
+* [StorageAccountAlreadyTaken](#storagenamenotunique)
 
 ### InvalidTemplate
 This error can result from several different types of errors.
@@ -139,6 +143,7 @@ This error can result from several different types of errors.
 
    Double check the allowed values in the template, and provide one during deployment.
 
+<a id="notfound" />
 ### NotFound and ResourceNotFound
 When your template includes the name of a resource that cannot be resolved, you receive an error similar to:
 
@@ -192,6 +197,7 @@ But, if you do not specify a dependency on the parent resource, the child resour
         "[variables('databaseServerName')]"
     ]
 
+<a id="storagenamenotunique" />
 ### StorageAccountAlreadyExists and StorageAccountAlreadyTaken
 For storage accounts, you must provide a name for the resource that is unique across Azure. If you do not provide a unique name, you receive an error like:
 
@@ -212,20 +218,38 @@ You see the **AccountNameInvalid** error when attempting to give a storage accou
 
 You may encounter a BadRequest status when you provide an invalid value for a property. For example, if you provide an incorrect SKU value for a storage account, the deployment fails. 
 
-### NoRegisteredProviderFound
+<a id="noregisteredproviderfound" />
+### NoRegisteredProviderFound and MissingSubscriptionRegistration
 When deploying resource, you may receive the following error code and message:
 
     Code: NoRegisteredProviderFound
     Message: No registered resource provider found for location {ocation}
     and API version {api-version} for type {resource-type}.
 
-You receive this error for one of three reasons:
+Or, you may receive a similar message that states:
 
-1. Location not supported for the resource type
+    Code: MissingSubscriptionRegistration
+    Message: The subscription is not registered to use namespace {resource-provider-namespace}
+
+You receive these errors for one of three reasons:
+
+1. The resource provider has not been registered for your subscription
 2. API version not supported for the resource type
-3. The resource provider has not been registered for your subscription
+3. Location not supported for the resource type
 
 The error message should give you suggestions for the supported locations and API versions. You can change your template to one of the suggested values. Most providers are registered automatically by the Azure portal or the command-line interface you are using, but not all. If you have not used a particular resource provider before, you may need to register that provider. You can discover more about resource providers through PowerShell or Azure CLI.
+
+**Portal**
+
+You can see the registration status and register a resource provider namespace through the portal.
+
+1. For your subscription, select **Resource providers**.
+
+   ![select resource providers](./media/resource-manager-common-deployment-errors/select-resource-provider.png)
+
+2. Look at the list of resource providers, and if necessary, select the **Register** link to register the resource provider of the type you are trying to deploy.
+
+   ![list resource providers](./media/resource-manager-common-deployment-errors/list-resource-providers.png)
 
 **PowerShell**
 
@@ -259,6 +283,7 @@ To see the supported locations and API versions for a resource provider, use:
 
     azure provider show -n Microsoft.Compute --json > compute.json
 
+<a id="quotaexceeded" />
 ### QuotaExceeded and OperationNotAllowed
 You might have issues when deployment exceeds a quota, which could be per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you receive an error stating the quota has been exceeded.
 For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
@@ -431,6 +456,28 @@ In some cases, the easiest way to troubleshoot your template is to test parts of
 
 Or, suppose you are encountering deployment errors that you believe are related to incorrectly set dependencies. Test your template by breaking it into simplified templates. First, create a template that deploys only a single resource (like a SQL Server). When you are sure you have that resource correctly defined, add a resource that depends on it (like a SQL Database). When you have those two resources correctly defined, add other dependent resources (like auditing policies). In between each test deployment, delete the resource group to make sure you adequately testing the dependencies. 
 
+### Check deployment sequence
+
+Many deployment errors happen when resources are deployed in an unexpected sequence. These errors arise when dependencies are not correctly set. One resource attempts to use a value for another resource but the other does not yet exist. To view the order of deployment operations:
+
+1. Select the deployment history for your resource group.
+
+   ![select deployment history](./media/resource-manager-common-deployment-errors/select-deployment.png)
+
+2. Select a deployment from the history, and select **Events**.
+
+   ![select deployment events](./media/resource-manager-common-deployment-errors/select-deployment-events.png)
+
+3. Examine the sequence of events for each resource. Pay attention to the status of each operation. For example, the following image shows three storage accounts that deployed in parallel. Notice that the three storage accounts are started at the same time.
+
+   ![parallel deployment](./media/resource-manager-common-deployment-errors/deployment-events-parallel.png)
+
+   The next image shows three storage accounts that are not deployed in parallel. The second storage account is marked as dependent on the first storage account, and the third storage account is dependent on the second storage account. Therefore, the first storage account is started, accepted, and completed before the next is started.
+
+   ![sequential deployment](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
+
+Look through your deployment events to see if one resource is started earlier than you would expect. If so, check the dependencies for this resource.
+
 ## Troubleshooting other services
 If the preceding deployment error codes did not help you troubleshoot your issue, you can look for more detailed troubleshooting guidance for the particular Azure service with the error.
 
@@ -453,7 +500,6 @@ The following table lists troubleshooting topics for other Azure services. It fo
 | --- | --- |
 | Automation |[Troubleshooting tips for common errors in Azure Automation](../automation/automation-troubleshooting-automation-errors.md) |
 | Azure Stack |[Microsoft Azure Stack troubleshooting](../azure-stack/azure-stack-troubleshooting.md) |
-| Azure Stack |[Web Apps and Azure Stack](../azure-stack/azure-stack-webapps-troubleshoot-known-issues.md) |
 | Data Factory |[Troubleshoot Data Factory issues](../data-factory/data-factory-troubleshoot.md) |
 | Service Fabric |[Troubleshoot common issues when you deploy services on Azure Service Fabric](../service-fabric/service-fabric-diagnostics-troubleshoot-common-scenarios.md) |
 | Site Recovery |[Monitor and troubleshoot protection for virtual machines and physical servers](../site-recovery/site-recovery-monitoring-and-troubleshooting.md) |

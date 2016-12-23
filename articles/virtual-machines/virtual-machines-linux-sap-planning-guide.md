@@ -1,4 +1,4 @@
-﻿---
+---
 title: SAP NetWeaver on Linux virtual machines (VMs) – Planning and Implementation Guide | Microsoft Docs
 description: SAP NetWeaver on Linux virtual machines (VMs) – Planning and Implementation Guide
 services: virtual-machines-linux

@@ -81,7 +81,8 @@
 ### [Glossary](iot-hub-devguide-glossary.md)
 ## Manage
 ### [Create an IoT hub using the portal](iot-hub-create-through-portal.md)
-### [Create an IoT hub using the CLI](iot-hub-create-using-cli.md)
+### [Create an IoT hub using the CLI 2.0 Preview](iot-hub-create-using-cli.md)
+### [Create an IoT hub using the CLI](iot-hub-create-using-cli-nodejs.md)
 ### [Create an IoT hub using REST](iot-hub-rm-rest.md)
 ### [Create an IoT hub using Powershell](iot-hub-rm-template-powershell.md)
 ### [Create an IoT hub using a template](iot-hub-rm-template.md)
