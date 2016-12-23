@@ -35,7 +35,7 @@ Pass-through authentication can be configured via AAD Connect and utilizes a sim
 - Joined to a domain in the forest that users will be validated in
 
 ## Supported Clients in the preview
-Pass-through authentication is supported via web browser based clients and Office clients that support modern authentication.  For clients that are not support such as legacy Office clients, Exchange active sync (i.e. native email clients on mobile devices), customers are encouraged to use the modern authentication equivalent.  This not only allows pass-through authentication, but also allows for conditional access to be applied, such as multi-factor authentication.
+Pass-through authentication is supported via web browser based clients and Office clients that support modern authentication.  For clients that are not supported, such as legacy Office clients and Exchange active sync (i.e. native email clients on mobile devices), customers are encouraged to use the modern authentication equivalent.  This not only allows pass-through authentication, but also allows for conditional access to be applied, such as multi-factor authentication.
 
 For customers using Windows 10 joined to Azure AD, pass-through authentication is not currently supported.  However customers can utilize password hash sync as an automatic fallback for Windows 10 in addition for legacy clients mentioned above.
 >[!NOTE] 
