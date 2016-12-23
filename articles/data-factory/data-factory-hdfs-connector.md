@@ -248,10 +248,10 @@ See [Move data between on-premises sources and the cloud with Data Management Ga
 
 ## Use Kerberos authentication for HDFS connector
 There are two options to set up the on-premises environment so as to use Kerberos Authentication in HDFS connector. You can choose the one better fits your case.
-* [Option 1: Make gateway machine join Kerberos realm](##option-1-make-gateway-machine-join-kerberos-realm)
-* [Option 2: Enable mutual trust between Windows domain and Kerberos realm](##option-2-enable-mutual-trust-between-windows-domain-and-kerberos-realm)
+* Option 1: [Make gateway machine join Kerberos realm](#kerberos-join-realm)
+* Option 2: [Enable mutual trust between Windows domain and Kerberos realm](#kerberos-mutual-trust)
 
-### Option 1: Make gateway machine join Kerberos realm
+### <a name="kerberos-join-realm"></a>Option 1: Make gateway machine join Kerberos realm
 
 #### Requirement:
 
@@ -281,7 +281,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 * Configure the HDFS connector using **Windows authentication** together with your Kerberos principal name and password to connect to the HDFS data source. Check [HDFS Linked Service properties](#hdfs-linked-service-properties) section on configuration details.
 
-### Option 2: Enable mutual trust between Windows domain and Kerberos realm
+### <a name="kerberos-mutual-trust"></a>Option 2: Enable mutual trust between Windows domain and Kerberos realm
 
 #### Requirement:
 *	The gateway machine must join a Windows domain.
@@ -335,7 +335,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
             Kadmin> addprinc krbtgt/REALM.COM@AD.COM
 
-3.	In *hadoop.security.auth_to_local* HDFS service configuration file, add **"RULE:[1:$1@$0](.*@AD.COM)s/@.*//"**.
+3.	In *hadoop.security.auth_to_local* HDFS service configuration file, add `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
 
 **On Domain Controller:**
 
