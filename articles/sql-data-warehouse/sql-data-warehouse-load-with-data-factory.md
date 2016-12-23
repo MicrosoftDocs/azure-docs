@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 12/22/2016
 ms.author: jingwang;kevin;barbkess
 
 ---
@@ -116,15 +116,15 @@ Now you tell Data Factory about the on-premises SQL Server database from which y
 6. Click **Next**.
 
 ## Configure the performance settings
-In the Performance configurations, you configure an Azure storage account to use for staging the data before it loads into SQL Data Warehouse performantly using [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). After the copy is done, the interim data in storage will be cleaned up automatically.
+In the Performance configurations, you configure an Azure storage account used for staging the data before it loads into SQL Data Warehouse performantly using [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). After the copy is done, the interim data in storage will be cleaned up automatically.
 
-1. Select an existing Azure Storage account, and click **Next**.
+Select an existing Azure Storage account, and click **Next**.
 
 	![Configure staging blob](media/sql-data-warehouse-load-with-data-factory/configure-staging-blob.png)
 
 ## Review summary information and deploy the pipeline
 
-1. Review the configuration and click **Finish** button to deploy the pipeline.
+Review the configuration and click **Finish** button to deploy the pipeline.
 
 	![Deploy data factory](media/sql-data-warehouse-load-with-data-factory/deploy-data-factory.png)
 
@@ -136,19 +136,19 @@ You can see the deployment progress and results in the **Deployment** page.
 
 	![Monitor pipeline](media/sql-data-warehouse-load-with-data-factory/monitor-pipeline.png)
 
-2. The newly created **DWLoadData-fromSQLServer** data loading pipeline is auto selected from the left-hand **Resource Explorer**.
+The newly created **DWLoadData-fromSQLServer** data loading pipeline is auto selected from the left-hand **Resource Explorer**.
 
 	![View pipeline](media/sql-data-warehouse-load-with-data-factory/view-pipeline.png)
 
-3. Click into the pipeline to see the detailed status for each table that maps to an Activity.
+2. Click into the pipeline in the middle panel to see the detailed status for each table that maps to an Activity.
 
 	![View table activity](media/sql-data-warehouse-load-with-data-factory/view-table-activity.png)
 
-4. Further click into an activity and you see the data loading details in the right panel including data size, rows, throughput, etc.
+3. Further click into an activity and you see the data loading details in the right panel including data size, rows, throughput, etc.
 
 	![View table activity details](media/sql-data-warehouse-load-with-data-factory/view-table-activity-details.png)
 
-5. To launch this monitoring view later, go to your SQL Data Warehouse, click **Load Data > Azure Data Factory**, select your factory, and choose **Monitor existing loading tasks**.
+4. To launch this monitoring view later, go to your SQL Data Warehouse, click **Load Data > Azure Data Factory**, select your factory, and choose **Monitor existing loading tasks**.
 
 ## Next steps
 
