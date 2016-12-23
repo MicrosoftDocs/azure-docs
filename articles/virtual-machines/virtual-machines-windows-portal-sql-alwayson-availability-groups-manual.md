@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 10/21/2016
+ms.date: 11/28/2016
 ms.author: MikeRayMSFT
 
 ---
@@ -125,7 +125,7 @@ At this point your virtual network contains one subnet, named Subnet-1. The doma
     If **SQL-HA-RG** is not visible, find it by clicking **Resource Groups** and filtering by the resource group name.
 2. Click **autoHAVNET** on the list of resources. Azure opens the network configuration blade.
 3. On **autoHAVNET** virtual network, click **All settings.**
-4. **On the **Settings** blade, click **Subnets**.
+4. On the **Settings** blade, click **Subnets**.
    
     Notice the subnet that you already created. 
    
@@ -443,7 +443,8 @@ Follow the steps below to configure the cluster.
    | Access Point for Administering the Cluster |Type **Cluster1** in **Cluster Name** |
    | Confirmation |Use defaults unless you are using Storage Spaces. See the note following this table. |
 
-    >[AZURE.NOTE] If you are using [Storage Spaces](https://technet.microsoft.com/library/hh831739), which groups multiple disks in to storage pools, you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, Windows detatches the virtual disks during the clustering process. As a result, they will not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell.
+    >[!NOTE]
+    >If you are using Storage Spaces you must uncheck the **Add all eligible storage to the cluster** checkbox on the **Confirmation** page. If you do not uncheck this option, Windows detatches the virtual disks during the clustering process. As a result, they will not appear in Disk Manager or Explorer until the storage spaces are removed from the cluster and reattached using PowerShell. Storage Spaces groups multiple disks in to storage pools. For more information, see [Storage Spaces](https://technet.microsoft.com/library/hh831739). 
 
     Now that you have created the cluster, verify the configuration and add the remaining nodes. 
 
@@ -456,7 +457,7 @@ Follow the steps below to configure the cluster.
 5. Finally, you add the remaining nodes to the cluster. In the browser tree, right-click **Cluster1.corp.contoso.com** and click **Add Node**, as shown below.
    
     ![Add Node to the Cluster](./media/virtual-machines-windows-portal-sql-alwayson-availability-groups-manual/IC784634.png)
-6. In the **Add Node Wizard**, click **Next**. In the **Select Servers** page, add **sqlserver-1** and **cluster-fsw** to the list by typing the server name in **Enter server name** and then clicking **Add**. When you are done, click **Next**.
+6. In the **Add Node Wizard**, click **Next**. In the **Select Servers** page, add **sqlserver-1** to the list by typing the server name in **Enter server name** and then clicking **Add**. When you are done, click **Next**.
 7. In the **Validation Warning** page, click **No** (in a production scenario you should perform the validation tests). Then, click **Next**.
 8. In the **Confirmation** page, click **Next** to add the nodes.
    
@@ -602,7 +603,7 @@ You are now ready to configure an availability group. Below is an outline of wha
 In order to connect to the availability group directly, you need to configure a load balancer. The load balancer directs client traffic to the VM that is bound to the listener IP address and on the probe port. This tutorial use an internal load balancer, or ILB. The ILB allows traffic from within the same virtual network to connect to SQL Server. Applications that need to connect to SQL Server over the internet require an internet facing - or external - load balancer. For more information, see [Azure Load Balancer overview](../load-balancer/load-balancer-overview.md).
 
 > [!NOTE]
-> This tutorial shows how to create a single listener - with one ILB  IP address. To create one or more listeners using one or mor eIP addresses, see [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). 
+> This tutorial shows how to create a single listener - with one ILB  IP address. To create one or more listeners using one or more IP addresses, see [Create availability group listener and load balancer | Azure](virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 > 
 > 
 

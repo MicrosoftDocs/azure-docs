@@ -1,4 +1,4 @@
-﻿---
+---
 title: What is an Azure elastic pool? | Microsoft Docs
 description: Manage hundreds or thousands of databases using a pool. One price for a set of performance units can be distributed over the pool. Move databases in or out at will.
 keywords: elastic database,sql databases
@@ -6,15 +6,16 @@ services: sql-database
 documentationcenter: ''
 author: CarlRabeler
 manager: jhubbard
-editor: cgronlun
+editor: ''
 
 ms.assetid: b46e7fdc-2238-4b3b-a944-8ab36c5bdb8e
 ms.service: sql-database
+ms.custom: multiple databases
 ms.devlang: NA
-ms.date: 07/12/2016
+ms.date: 12/14/2016
 ms.author: CarlRabeler
 ms.workload: data-management
-ms.topic: article
+ms.topic: get-started-article
 ms.tgt_pltfrm: NA
 
 ---
@@ -42,18 +43,24 @@ Additional eDTUs can be added to an existing pool with no database downtime or n
 And you can add or subtract databases to the pool. If a database is predictably under-utilizing resources, move it out.
 
 ## Which databases go in a pool?
-![SQL databases sharing eDTUs in an elastic database pool.][1]
+![SQL databases sharing eDTUs in an elastic pool.][1]
 
 Databases that are great candidates for elastic pools typically have periods of activity and other periods of inactivity. In the example above you see the activity of a single database, 4 databases, and finally an elastic pool with 20 databases. Databases with varying activity over time are great candidates for elastic pools because they are not all active at the same time and can share eDTUs. Not all databases fit this pattern. Databases that have a more constant resource demand are better suited to the Basic, Standard, and Premium service tiers where resources are individually assigned.
 
 [Price and performance considerations for an elastic pool](sql-database-elastic-pool-guidance.md).
 
-## eDTU and storage limits for elastic pools and elastic databases.
+## eDTU and storage limits for elastic pools and elastic databases
+
+The following table describes the characteristics of Basic, Standard, and Premium elastic pools.
+
 [!INCLUDE [SQL DB service tiers table for elastic databases](../../includes/sql-database-service-tiers-table-elastic-db-pools.md)]
 
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries.  The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
 ## Elastic pool and elastic database properties
+
+The following tables describes the limits for elastic pools and elastic databases.
+
 ### Limits for elastic pools
 | Property | Description |
 |:--- |:--- |
@@ -75,10 +82,10 @@ If all DTUs of an elastic pool are used, then each database in the pool receives
 ## Elastic database jobs
 With a pool, management tasks are simplified by running scripts in **[elastic jobs](sql-database-elastic-jobs-overview.md)**. An elastic database job eliminates most of tedium associated with large numbers of databases. To begin, see [Getting started with Elastic Database jobs](sql-database-elastic-jobs-getting-started.md).
 
-For more information about other tools, see the [Elastic database tools learning map](https://azure.microsoft.com/documentation/learning-paths/sql-database-elastic-scale/).
+For more information about other elastic database tools, see [Scaling out with Azure SQL Database](sql-database-elastic-scale-introduction.md).
 
 ## Business continuity features for databases in a pool
-Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases in V12 servers.
+Elastic databases generally support the same [business continuity features](sql-database-business-continuity.md) that are available to single databases.
 
 ### Point in time restore
 Point-in-time-restore uses automatic database backups to recover a database in a pool to a specific point in time. See [Point-In-Time Restore](sql-database-recovery-using-backups.md#point-in-time-restore)

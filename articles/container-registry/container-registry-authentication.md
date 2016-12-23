@@ -32,7 +32,7 @@ To work with container images in an Azure container registry, you log in using t
 
 ## Service principal
 
-You can [assign a service principal](container-registry-get-started-azure-cli.md#assign-a-service-principal) to your registry and use it for basic Docker authentication. Provide the app ID and password of the service principal to the `docker login` command, as shown in the following example:
+You can [assign a service principal](container-registry-get-started-azure-cli.md#assign-a-service-principal) to your registry and use it for basic Docker authentication. Using a service principal is recommended for most scenarios. Provide the app ID and password of the service principal to the `docker login` command, as shown in the following example:
 
 ```
 docker login myregistry-contoso.azurecr.io -u xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx -p myPassword
@@ -45,11 +45,11 @@ Once logged in, Docker caches the credentials, so you don't need to remember the
 > 
 
 
-Service principals allow [role-based access](../active-directory/role-based-access-control-configure.md) to a registry for Read, Write, and Owner permissions. You can assign multiple service principals to allow different roles for individual users or applications. Service principals also enable "headless" connectivity to a registry in developer or DevOps scenarios such as the following:
+Service principals allow [role-based access](../active-directory/role-based-access-control-configure.md) to a registry. Available roles are Reader (pull only access), Contributor (pull and push), and Owner (pull, push, and assign roles to other users). You can assign multiple service principals to a registry, which allows you to define access for different users or applications. Service principals also enable "headless" connectivity to a registry in developer or DevOps scenarios such as the following:
 
   * Container deployments from a registry to orchestration systems including DC/OS, Docker Swarm and Kubernetes. You can also pull container registries to related Azure services such as [Container Service](../container-service/index.md), [App Service](../app-service/index.md), [Batch](../batch/index.md), and [Service Fabric](../service-fabric/index.md).
   
-  * Continuous integration and development solutions (such as Visual Studio Team Services or Jenkins) that build container images and push them to a registry.
+  * Continuous integration and deployment solutions (such as Visual Studio Team Services or Jenkins) that build container images and push them to a registry.
   
   
 
@@ -63,11 +63,12 @@ docker login myregistry-contoso.azurecr.io -u myAdminName -p myPassword
 ```
 
 > [!IMPORTANT]
-> The admin account is designed for a single user to access the registry. It is not recommended to share the admin account credentials among other users. All users appear as a single user to the registry. Changing or disabling this account disables registry access for all users who use the credentials. 
+> The admin account is designed for a single user to access the registry, mainly for test purposes. It is not recommended to share the admin account credentials among other users. All users appear as a single user to the registry. Changing or disabling this account disables registry access for all users who use the credentials. 
 > 
 
 
 ### Next steps
 * [Push your first image using the Docker CLI](container-registry-get-started-docker-cli.md).
+* For more information about authentication in the Container Registry preview, see the [blog post](https://blogs.msdn.microsoft.com/stevelasker/2016/11/17/azure-container-registry-user-accounts/). 
 
 

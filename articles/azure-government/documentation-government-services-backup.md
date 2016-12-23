@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 11/11/2016
+ms.date: 11/18/2016
 ms.author: markgal;
 
 ---
@@ -29,10 +29,10 @@ This article provides an overview of the Azure Backup service and lists the Back
 - Application-consistent backup
 - Long-term retention
 
-If you're new to Azure Backup and would like an overview of the available features, read the article, [What is Azure Backup](../backup/backup-introduction-to-azure-backup.md).
+If you're new to Azure Backup and would like an overview of the available features, read the article, [What is Azure Backup](../backup/backup-introduction-to-azure-backup.md) Azure Government Backup does not have the exact same.
 
 > [!IMPORTANT]
-> Currently, Azure Government Backup supports Service Manager deployments, also known as the classic deployment model. Resource Manager deployments are not yet supported. See the following article for the [difference between Azure Resource Manager and classic deployment models](../resource-manager-deployment-model.md).
+> Azure Government Backup does not have feature parity with the commercial Azure Backup service. Premium Storage is not supported in Azure Government Backup. Currently, Azure Government Backup only supports Service Manager deployments, also known as the classic deployment model. Resource Manager deployments are not yet supported. See the following article for the [difference between Azure Resource Manager and classic deployment models](../azure-resource-manager/resource-manager-deployment-model.md).
 
 [!INCLUDE [learn-about-backup-deployment models](../../includes/backup-deployment-models.md)]
 

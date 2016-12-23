@@ -1,4 +1,4 @@
-﻿---
+---
 title: Cache ASP.NET Session State Provider | Microsoft Docs
 description: Learn how to store ASP.NET Session State using Azure Redis Cache
 services: redis-cache
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: cache-redis
 ms.workload: tbd
-ms.date: 09/01/2016
+ms.date: 12/13/2016
 ms.author: sdanie
 
 ---
@@ -40,25 +40,27 @@ The Redis Session State Provider NuGet package has a dependency on the StackExch
 
 The NuGet package downloads and adds the required assembly references and adds the following adds the following section into your web.config file that contains the required configuration for your ASP.NET application to use the Redis Cache Session State Provider.
 
-    <sessionState mode="Custom" customProvider="MySessionStateStore">
-        <providers>
-        <!--
-        <add name="MySessionStateStore"
-               host = "127.0.0.1" [String]
-            port = "" [number]
-            accessKey = "" [String]
-            ssl = "false" [true|false]
-            throwOnError = "true" [true|false]
-            retryTimeoutInMilliseconds = "0" [number]
-            databaseId = "0" [number]
-            applicationName = "" [String]
-            connectionTimeoutInMilliseconds = "5000" [number]
-            operationTimeoutInMilliseconds = "5000" [number]
-        />
-        -->
-        <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
-        </providers>
-    </sessionState>
+```xml
+<sessionState mode="Custom" customProvider="MySessionStateStore">
+    <providers>
+    <!--
+    <add name="MySessionStateStore"
+           host = "127.0.0.1" [String]
+        port = "" [number]
+        accessKey = "" [String]
+        ssl = "false" [true|false]
+        throwOnError = "true" [true|false]
+        retryTimeoutInMilliseconds = "0" [number]
+        databaseId = "0" [number]
+        applicationName = "" [String]
+        connectionTimeoutInMilliseconds = "5000" [number]
+        operationTimeoutInMilliseconds = "5000" [number]
+    />
+    -->
+    <add name="MySessionStateStore" type="Microsoft.Web.Redis.RedisSessionStateProvider" host="127.0.0.1" accessKey="" ssl="false"/>
+    </providers>
+</sessionState>
+```
 
 The commented section provides an example of the attributes and sample settings for each attribute.
 
@@ -80,16 +82,18 @@ For more information about these properties, see the original blog post announce
 
 Don’t forget to comment out the standard InProc session state provider section in your web.config.
 
-    <!-- <sessionState mode="InProc"
-         customProvider="DefaultSessionProvider">
-         <providers>
-            <add name="DefaultSessionProvider"
-                  type="System.Web.Providers.DefaultSessionStateProvider,
-                        System.Web.Providers, Version=1.0.0.0, Culture=neutral,
-                        PublicKeyToken=31bf3856ad364e35"
-                  connectionStringName="DefaultConnection" />
-          </providers>
-    </sessionState> -->
+```xml
+<!-- <sessionState mode="InProc"
+     customProvider="DefaultSessionProvider">
+     <providers>
+        <add name="DefaultSessionProvider"
+              type="System.Web.Providers.DefaultSessionStateProvider,
+                    System.Web.Providers, Version=1.0.0.0, Culture=neutral,
+                    PublicKeyToken=31bf3856ad364e35"
+              connectionStringName="DefaultConnection" />
+      </providers>
+</sessionState> -->
+```
 
 Once these steps are performed, your application is configured to use the Redis Cache Session State Provider. When you use session state in your application, it will be stored in an Azure Redis Cache instance.
 

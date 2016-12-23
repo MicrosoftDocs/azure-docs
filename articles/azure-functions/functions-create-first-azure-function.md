@@ -65,7 +65,7 @@ This quickstart demonstrates a simple execution of a basic HTTP-triggered functi
 * [Testing Azure Functions](functions-test-a-function.md)  
   Describes various tools and techniques for testing your functions.
 * [How to scale Azure Functions](functions-scale.md)  
-  Discusses service plans available with Azure Functions, including the dynamic service plan, and how to choose the right plan. 
+  Discusses service plans available with Azure Functions, including the Consumption hosting plan, and how to choose the right plan. 
 * [What is Azure App Service?](../app-service/app-service-value-prop-what-is.md)  
   Azure Functions uses the Azure App Service platform for core functionality like deployments, environment variables, and diagnostics. 
 

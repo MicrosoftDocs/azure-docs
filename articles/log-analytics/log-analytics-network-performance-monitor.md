@@ -19,7 +19,7 @@ ms.author: banders
 ---
 # Network Performance Monitor (Preview) solution in OMS
 > [!NOTE]
-> This is a [preview solution](log-analytics-add-solutions.md#log-analytics-preview-solutions-and-features).
+> This is a [preview solution](log-analytics-add-solutions.md#preview-management-solutions-and-features).
 >
 >
 

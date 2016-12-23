@@ -15,10 +15,11 @@
 ### [Images](../azure-government-image-gallery.md?toc=%2fazure%2fazure-government%2ftoc.json)
 ### [Marketplace](documentation-government-manage-marketplace.md)
 ### [Marketplace for partners](documentation-government-manage-marketplace-partners.md)
+### [Resource Manager](documentation-government-manage-azure-resource-manager.md)
+### [Operations Management Suite](documentation-government-manage-oms.md)
 ### [Subscription](documentation-government-manage-subscriptions.md)
 
 # Reference
-## [Resource Manager](documentation-government-manage-azure-resource-manager.md)
 ## [Services](documentation-government-services.md)
 ### [Compute](documentation-government-compute.md)
 ### [Storage](documentation-government-services-storage.md)
@@ -26,9 +27,8 @@
 ### [Networking](documentation-government-networking.md)
 ### [Security + identity](documentation-government-services-securityandidentity.md)
 ### [Monitoring + management](documentation-government-services-monitoringandmanagement.md)
+### [Web + mobile](documentation-government-services-webandmobile.md)
 
 # Resources
 ## [Pricing](https://azure.microsoft.com/pricing/)
 ## [Trial](https://azuregov.microsoft.com/trial/azuregovtrial)
-
-
