@@ -112,8 +112,8 @@ As of December 2016, SAP HANA on Azure (Large Instances) is available in six con
 | --- | SAP HANA on Azure S144<br /> – 4 x Intel® Xeon® Processor E7-8890 v3 |  1.5 TB |  6 TB |
 | --- | SAP HANA on Azure S192<br /> – 4 x Intel® Xeon® Processor E7-8890 v4 |  2.0 TB |  8 TB |
 | Optimized for OLTP: SAP Business Suite<br /> on SAP HANA or S/4HANA (OLTP),<br /> generic OLTP | SAP HANA on Azure S72m<br /> – 2 x Intel® Xeon® Processor E7-8890 v3 |  1.5 TB |  6 TB |
-|---| SAP HANA on Azure S144m<br /> – 4 x Intel Xeon® Processor E7-8890 v3 |  3.0 TB |  12 TB |
-|---| SAP HANA on Azure S192m<br /> – 4 x Intel Xeon® Processor E7-8890 v4 |  4.0 TB |  16 TB |
+|---| SAP HANA on Azure S144m<br /> – 4 x Intel® Xeon® Processor E7-8890 v3 |  3.0 TB |  12 TB |
+|---| SAP HANA on Azure S192m<br /> – 4 x Intel® Xeon® Processor E7-8890 v4 |  4.0 TB |  16 TB |
 
 The different configurations above are referenced in [SAP Support Note #2316233 – SAP HANA on Microsoft Azure (Large Instances)](https://launchpad.support.sap.com/#/notes/2316233/E).
 
@@ -303,7 +303,7 @@ For a more scalable network architecture:
 
 ![Deploying SAP application layer over multiple Azure VNets](./media/sap-hana-overview-architecture/image4-networking-architecture.png)
 
-Deploying the SAP application layer, or components, over multiple Azure VNets as shown above, introduced unavoidable latency overhead that occured during communication between the applications hosted in those Azure VNets. By default, the network traffic between Azure VMs located in different VNets will occur through the MSEE Routers in this configuration. However since Spetember 2016 this can be avoided and optimized. The way to optimize and cut down the latency in communication between two VNets is by peering Azure VNets within the same region. Even if those are in different subscriptions. Using Azure VNet peering, the communication between VMs in two different Azure Vnets can use the Azure network backbone to directly communicate with each other. Thereby showing similiar latency as if the VMs would be in the same VNet. Whereas traffic addressing IP address ranges that are connected through the Azure VNet gateway is routed through the individual VNet gateway of the VNet. You can get details about Azure VNet peering in the article [VNet peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview).
+Deploying the SAP application layer, or components, over multiple Azure VNets as shown above, introduced unavoidable latency overhead that occured during communication between the applications hosted in those Azure VNets. By default, the network traffic between Azure VMs located in different VNets will occur through the MSEE Routers in this configuration. However since September 2016 this can be avoided and optimized. The way to optimize and cut down the latency in communication between two VNets is by peering Azure VNets within the same region. Even if those are in different subscriptions. Using Azure VNet peering, the communication between VMs in two different Azure Vnets can use the Azure network backbone to directly communicate with each other. Thereby showing similiar latency as if the VMs would be in the same VNet. Whereas traffic addressing IP address ranges that are connected through the Azure VNet gateway is routed through the individual VNet gateway of the VNet. You can get details about Azure VNet peering in the article [VNet peering](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-peering-overview).
 ### Minimal deployment
 
 For a small SAP system (minimal deployment), Azure VMs host the SAP application layer in native Azure (within a single VNet) and connect to Large Instance stamp through ExpressRoute. Follow these steps to get SAP HANA on Azure (Large Instances) ready for use:
