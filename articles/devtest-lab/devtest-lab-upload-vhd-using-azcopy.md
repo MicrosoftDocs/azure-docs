@@ -45,12 +45,14 @@ The following steps walk you through using the AzCopy command-line utility to up
 
 1. On the **VHD** blade, select **Upload a VHD using PowerShell**.
 
-	![Upload VHD using PowerShell][0]
+    ![Upload VHD using PowerShell](./media/devtest-lab-upload-vhd-using-azcopy/upload-image-using-psh.png)
 
 1. The **Upload an image using PowerShell** blade displays a call to the **Add-AzureVhd** cmdlet. 
 The first parameter (*Destination*) contains the URI for a blob container (*uploads*) in the following format:
 
-		https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/... 
+	```
+	https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/...
+	``` 
 
 1. Make note of the full URI as it is used in later steps.
 
@@ -74,5 +76,3 @@ The first parameter (*Destination*) contains the URI for a blob container (*uplo
 
 - [Create a custom image in Azure DevTest Labs from a VHD file using the Azure portal](devtest-lab-create-template.md)
 - [Create a custom image in Azure DevTest Labs from a VHD file using PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
-
-[0]: ./media/devtest-lab-upload-vhd-using-azcopy/upload-image-using-psh.png

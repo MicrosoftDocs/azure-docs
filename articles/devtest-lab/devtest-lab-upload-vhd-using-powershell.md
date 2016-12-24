@@ -41,7 +41,7 @@ The following steps walk you through using PowerShell to upload a VHD file to a 
 
 1. On the **VHD** blade, select **Upload a VHD using PowerShell**.
 
-    ![Upload VHD using PowerShell][0]
+    ![Upload VHD using PowerShell](./media/devtest-lab-upload-vhd-using-powershell/upload-image-using-psh.png)
 
 1. On the **Upload an image using PowerShell** blade, copy the generated PowerShell script to a text editor.
 
@@ -55,5 +55,3 @@ The following steps walk you through using PowerShell to upload a VHD file to a 
 
 - [Create a custom image in Azure DevTest Labs from a VHD file using the Azure portal](devtest-lab-create-template.md)
 - [Create a custom image in Azure DevTest Labs from a VHD file using PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
-
-[0]: ./media/devtest-lab-upload-vhd-using-powershell/upload-image-using-psh.png
