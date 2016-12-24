@@ -1,6 +1,6 @@
 ---
-title: Manage Azure DevTest Labs custom images to create VMs | Microsoft Docs
-description: Learn how to create a custom image from a VHD file, or from an existing VM in Azure DevTest Labs
+title: Create a custom image in Azure DevTest Labs from a VHD file | Microsoft Docs
+description: Learn how to create a custom image in Azure DevTest Labs from a VHD file using the Azure portal
 services: devtest-lab,virtual-machines
 documentationcenter: na
 author: tomarcher
@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/07/2016
+ms.date: 12/24/2016
 ms.author: tarcher
 
 ---
