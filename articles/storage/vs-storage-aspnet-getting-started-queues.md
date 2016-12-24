@@ -283,6 +283,16 @@ This section illustrates how to peek at a queued message (read the first message
 1. Open `PeekMessage.cshtml`, and modify it so that it looks like the following code snippet:
 
     ```csharp
+	@{
+	    ViewBag.Title = "PeekMessage";
+	}
+	
+	<h2>Peek Message results</h2>
+	
+	<table border="1">
+	    <tr><th>Queue</th><th>Peeked Message</th></tr>
+	    <tr><td>@ViewBag.QueueName</td><td>@ViewBag.Message</td></tr>
+	</table>	
 	```
 
 1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
