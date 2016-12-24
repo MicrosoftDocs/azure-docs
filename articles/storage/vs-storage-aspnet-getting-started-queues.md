@@ -51,7 +51,7 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
 
 	![Name the MVC controller](./media/vs-storage-aspnet-getting-started-queues/add-controller-name.png)
 
-1. Add the following *using* directives to the `BlobsController.cs` file:
+1. Add the following *using* directives to the `QueuesController.cs` file:
 
     ```csharp
 	using Microsoft.Azure;
@@ -61,7 +61,7 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
 	```
 ## Create a queue
 
-The following steps illustrate how to create a table:
+The following steps illustrate how to create a queue:
 
 > [!NOTE]
 > 
@@ -572,5 +572,7 @@ This section illustrates how to delete a queue.
 	![Delete queue](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
 ## Next steps
-[!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
+View more feature guides to learn about additional options for storing data in Azure.
 
+  * [Get started with Azure blob storage and Visual Studio Connected Services (ASP.NET)](./vs-storage-aspnet-getting-started-blobs.md)
+  * [Get started with Azure table storage and Visual Studio Connected Services (ASP.NET)](./vs-storage-aspnet-getting-started-tables.md)
