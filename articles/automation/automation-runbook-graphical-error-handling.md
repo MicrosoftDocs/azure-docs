@@ -13,13 +13,13 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/22/2016
+ms.date: 12/23/2016
 ms.author: magoedte
 ---
 
 # Error handling in graphical runbooks
 
-A key runbook design principal you need to consider is to identify different issues that a runbook may experience such as success, expected error states, and unexpected error conditions.  Runbooks should include error handling to detect accordingly.  With graphical runbooks, if you wanted to validate the output of an activity or handle an error in an appropriate manner, you would possibly follow with a PowerShell code activity, define conditional logic on the output link of the activity, or other apply another method.          
+A key runbook design principal you need to consider, is to identify different issues that a runbook may experience such as success, expected error states, and unexpected error conditions.  Runbooks should include error handling to detect accordingly.  With graphical runbooks, if you wanted to validate the output of an activity or handle an error in an appropriate manner, you would possibly follow with a PowerShell code activity, define conditional logic on the output link of the activity, or other apply another method.          
 
 Oftentimes when your runbooks execute, if there is a non-terminating error that occurs with an activity, any activity following it will be processed regardless.  Of course, it will likely generate an exception, but the point is the next activity is allowed to execute. The reason behind this behavior is because of how the PowerShell language is designed to handle errors.    
 
