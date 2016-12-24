@@ -493,30 +493,83 @@ This section illustrates how to get the queue length (number of messages).
 
 
 ## Delete a queue
-The following steps illustrate how to programmatically delete a queue. 
+This section illustrates how to delete a queue. 
 
-1. Add the following *using* directives:
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+
+1. Open the `QueuesController.cs` file.
+
+1. Add a method called **DeleteQueue** that returns an **ActionResult**.
+
+    ```csharp
+    public ActionResult DeleteQueue()
+    {
+		// The code in this section goes here.
+
+        return View();
+    }
+    ```
+ 
+1. Within the **DeleteQueue** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
-        using Microsoft.Azure;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Queue;
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
+   
+1. Get a **CloudQueueClient** object represents a queue service client.
+   
+    ```csharp
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+    ```
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Get a **CloudQueueContainer** object that represents a reference to the queue. 
+   
+    ```csharp
+    CloudQueue queue = queueClient.GetQueueReference("test-queue");
+    ```
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+1. Call the **CloudQueue.Delete** method to delete the queue represented by the **CloudQueue** object.
 
-3. Get a **CloudQueueClient** object represents a queue service client.
+    ```csharp
+    queue.Delete();
+    ```
 
-        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+1. Update the **ViewBag** with the name of the queue, and its length.
 
-4. Get a **CloudQueue** object that represents a reference to the queue. (Change *<queue-name>* to the name of the queue whose length you are querying.)
+    ```csharp
+    ViewBag.QueueName = queue.Name;
+    ```
+ 
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.
 
-        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+1. On the **Add View** dialog, enter **DeleteQueue** for the view name, and select **Add**.
 
-5. Call the **CloudQueue.Delete** method to delete the queue represented by the **CloudQueue** object.
+1. Open `DeleteQueue.cshtml`, and modify it so that it looks like the following code snippet:
 
-	    messageQueue.Delete();
+    ```csharp
+	@{
+	    ViewBag.Title = "DeleteQueue";
+	}
+	
+	<h2>Delete Queue results</h2>
+	
+	@ViewBag.QueueName deleted.
+	```
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
+
+    ```html
+	<li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
+    ```
+
+1. Run the application, and select **Get queue length** to see results similar to those shown in the following screen shot:
+  
+	![Delete queue](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 
 ## Next steps
 [!INCLUDE [vs-storage-dotnet-queues-next-steps](../../includes/vs-storage-dotnet-queues-next-steps.md)]
