@@ -36,9 +36,9 @@ This article describes how to complete the following steps:
 - Separate the data disks from the OS disk.
 - Create the data disks in RAID-0/striped setting to increase IOPS.
 - Use Azure Load Balancer to balance the load for the three nodes.
-- To minimize repetitive work, create a VM image that contains MariaDB + Galera and use it to create the other cluster VMs.
+- To minimize repetitive work, create a VM image that contains MariaDB + Galera and use it to create the other cluster VMs. 
 
-![System architecture](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
+![System architecture](media/virtual-machines-linux-classic-mariadb-mysql-cluster/Setup.png)
 
 > [!NOTE]
 > This topic uses the [Azure CLI](../xplat-cli-install.md) tools, so make sure to download them and connect them to your Azure subscription according to the instructions. If you need a reference to the commands available in the Azure CLI, see the [Azure CLI command reference](../virtual-machines-command-line-tools.md). You will also need to [create an SSH key for authentication] and make note of the .pem file location.
@@ -216,8 +216,8 @@ This article describes how to complete the following steps:
     a. Shut down the machine through the portal.
 
     b. Click **Capture** and specify the image name as **mariadb-galera-image**. Provide a description and check "I have run waagent."
-      ![Capture the virtual machine](../media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture.png)
-      ![Capture the virtual machine](../media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
+      ![Capture the virtual machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture.png)
+      ![Capture the virtual machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
 
 ## Create the cluster
 Create three VMs with the template you created, and then configure and start the cluster.
