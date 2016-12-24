@@ -65,7 +65,7 @@ The following steps illustrate how to create a queue:
 
 > [!NOTE]
 > 
-> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+> This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `QueuesController.cs` file. 
 
@@ -134,7 +134,7 @@ The following steps illustrate how to create a queue:
 	<li>@Html.ActionLink("Create queue", "CreateQueue", "Queues")</li>
     ```
 
-1. Run the application, and select **Create queue** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Create queue** to see results similar to the following screen shot:
   
 	![Create queue](./media/vs-storage-aspnet-getting-started-queues/create-queue-results.png)
 
@@ -146,7 +146,7 @@ Once you've [created a queue](#create-a-queue), you can add messages to that que
 
 > [!NOTE]
 > 
-> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+> This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `QueuesController.cs` file.
 
@@ -223,7 +223,7 @@ Once you've [created a queue](#create-a-queue), you can add messages to that que
 	<li>@Html.ActionLink("Add message", "AddMessage", "Queues")</li>
     ```
 
-1. Run the application, and select **Add message** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Add message** to see results similar to the following screen shot:
   
 	![Add  message](./media/vs-storage-aspnet-getting-started-queues/add-message-results.png)
 
@@ -235,7 +235,7 @@ This section illustrates how to peek at a queued message (read the first message
 
 > [!NOTE]
 > 
-> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+> This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `QueuesController.cs` file.
 
@@ -309,7 +309,7 @@ This section illustrates how to peek at a queued message (read the first message
 	<li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
     ```
 
-1. Run the application, and select **Peek message** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Peek message** to see results similar to the following screen shot:
   
 	![Peek message](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
@@ -319,7 +319,7 @@ In this section, you learn how to read and remove a message from a queue.
 
 > [!NOTE]
 > 
-> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+> This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `QueuesController.cs` file.
 
@@ -400,7 +400,7 @@ In this section, you learn how to read and remove a message from a queue.
 	<li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
     ```
 
-1. Run the application, and select **Read/Delete message** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Read/Delete message** to see results similar to the following screen shot:
   
 	![Read and delete message](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
@@ -410,7 +410,7 @@ This section illustrates how to get the queue length (number of messages).
 
 > [!NOTE]
 > 
-> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+> This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `QueuesController.cs` file.
 
@@ -487,7 +487,7 @@ This section illustrates how to get the queue length (number of messages).
 	<li>@Html.ActionLink("Get queue length", "GetQueueLength", "Queues")</li>
     ```
 
-1. Run the application, and select **Get queue length** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Get queue length** to see results similar to the following screen shot:
   
 	![Get queue length](./media/vs-storage-aspnet-getting-started-queues/get-queue-length-results.png)
 
@@ -497,7 +497,7 @@ This section illustrates how to delete a queue.
 
 > [!NOTE]
 > 
-> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+> This section assumes you have completed the steps [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `QueuesController.cs` file.
 
@@ -567,7 +567,7 @@ This section illustrates how to delete a queue.
 	<li>@Html.ActionLink("Delete queue", "DeleteQueue", "Queues")</li>
     ```
 
-1. Run the application, and select **Get queue length** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Get queue length** to see results similar to the following screen shot:
   
 	![Delete queue](./media/vs-storage-aspnet-getting-started-queues/delete-queue-results.png)
 

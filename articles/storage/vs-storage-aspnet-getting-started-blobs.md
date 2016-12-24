@@ -137,7 +137,7 @@ A blob container is a nested hierarchy of blobs and folders. The following steps
 	<li>@Html.ActionLink("Create blob container", "CreateBlobContainer", "Blobs")</li>
     ```
 
-1. Run the application, and select **Create Blob Container** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Create Blob Container** to see results similar to the following screen shot:
   
 	![Create blob container](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
 
@@ -339,7 +339,7 @@ and its name (or URI in the case of a **CloudBlobDirectory**) is added to a list
 	<li>@Html.ActionLink("List blobs", "ListBlobs", "Blobs")</li>
     ```
 
-1. Run the application, and select **List blobs** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **List blobs** to see results similar to the following screen shot:
   
 	![Blob listing](./media/vs-storage-aspnet-getting-started-blobs/listblobs.png)
 
