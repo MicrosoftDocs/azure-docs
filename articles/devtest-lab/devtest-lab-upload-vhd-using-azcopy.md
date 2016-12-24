@@ -47,7 +47,8 @@ The following steps walk you through using the AzCopy command-line utility to up
 
 	![Upload VHD using PowerShell][0]
 
-1. The **Upload an image using PowerShell** blade displays a call to the **Add-AzureVhd** cmdlet. The first parameter (*Destination*) contains the URI for a blob container (*uploads*) in the storage account associated with the lab in the following format:
+1. The **Upload an image using PowerShell** blade displays a call to the **Add-AzureVhd** cmdlet. 
+The first parameter (*Destination*) contains the URI for a blob container (*uploads*) in the following format:
 
 		https://<STORAGE-ACCOUNT-NAME>.blob.core.windows.net/uploads/... 
 
@@ -63,7 +64,7 @@ The following steps walk you through using the AzCopy command-line utility to up
 	%ProgramFiles(x86)%\Microsoft SDKs\Azure\AzCopy
 	```
 
-1. Using the storage account key and blob container URI, run the following command at the command prompt. Note that the *vhdFileName* value needs to be in quotes. The process of uploading a VHD file can be lengthy depending on the size of the VHD file and your connection speed.   
+1. Using the storage account key and blob container URI, run the following command at the command prompt. The *vhdFileName* value needs to be in quotes. The process of uploading a VHD file can be lengthy depending on the size of the VHD file and your connection speed.   
 
 	```command-line
 	AzCopy /Source:<sourceDirectory> /Dest:<blobContainerUri> /DestKey:<storageAccountKey> /Pattern:"<vhdFileName>"
