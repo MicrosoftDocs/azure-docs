@@ -269,11 +269,17 @@ This section illustrates how to peek at a queued message (read the first message
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Update the **ViewBag** with two values: the queue name and the message that was read. The latter is obtained by calling the **CloudQueue.PeekMessage** method, which reads the first message in the queue without removing it from the queue. The **CloudQueue.PeekMessage** returns a **CloudQueueMessage** object, which has two properties for getting the object's value: **CloudQueueMessage.AsBytes** and **CloudQueueMessage.AsString**. **AsBytes** returns a byte array, while **AsString** returns a string.
+1. Call the **CloudQueue.PeekMessage** method to read the first message in the queue without removing it from the queue. 
+
+    ```csharp
+	CloudQueueMessage message = queue.PeekMessage();
+    ```
+
+1. Update the **ViewBag** with two values: the queue name and the message that was read. The **CloudQueueMessage** object exposes two properties for getting the object's value: **CloudQueueMessage.AsBytes** and **CloudQueueMessage.AsString**. **AsString** (used in this example) returns a string, while **AsBytes** returns a byte array.
 
     ```csharp
     ViewBag.QueueName = queue.Name;	
-	ViewBag.Message = queue.PeekMessage().AsString;
+	ViewBag.Message = (message != null ? message.AsString : "");
     ```
 
 1. In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.
@@ -309,35 +315,94 @@ This section illustrates how to peek at a queued message (read the first message
 
 ## Read and remove a message from a queue
 
-The following steps illustrate how to programmatically read a queued message, and then delete it. In an ASP.NET MVC app, the code would go in a controller. 
+In this section, you learn how to read and remove a message from a queue. 	
 
-1. Add the following *using* directives:
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+
+1. Open the `QueuesController.cs` file.
+
+1. Add a method called **ReadMessage** that returns an **ActionResult**.
+
+    ```csharp
+    public ActionResult ReadMessage()
+    {
+		// The code in this section goes here.
+
+        return View();
+    }
+    ```
+ 
+1. Within the **ReadMessage** method, get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration: (Change *&lt;storage-account-name>* to the name of the Azure storage account you're accessing.)
    
-        using Microsoft.Azure;
-        using Microsoft.WindowsAzure.Storage;
-        using Microsoft.WindowsAzure.Storage.Queue;
+    ```csharp
+    CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
+       CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+    ```
+   
+1. Get a **CloudQueueClient** object represents a queue service client.
+   
+    ```csharp
+    CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+    ```
 
-2. Get a **CloudStorageAccount** object that represents your storage account information. Use the following code to get the storage connection string and storage account information from the Azure service configuration. (Change  *<storage-account-name>* to the name of the Azure storage account you're accessing.)
+1. Get a **CloudQueueContainer** object that represents a reference to the queue. 
+   
+    ```csharp
+    CloudQueue queue = queueClient.GetQueueReference("test-queue");
+    ```
 
-         CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
-           CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
+1. Call the **CloudQueue.GetMessage** method to read the first message in the queue. The **CloudQueue.GetMessage** method makes the message invisible for 30 seconds (by default) to any other code reading messages so that no other code can modify or delete the message while your processing it. To change the amount of time the message is invisible, modify the **visibilityTimeout** parameter being passed to the **CloudQueue.GetMessage** method.
 
-3. Get a **CloudQueueClient** object represents a queue service client.
+    ```csharp
+	// This message will be invisible to other code for 30 seconds.
+	CloudQueueMessage message = queue.GetMessage();     
+    ```
 
-        CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
+1. Call the **CloudQueueMessage.Delete** method to delete the message from the queue.
 
-4. Get a **CloudQueue** object that represents a reference to the queue. (Change *<queue-name>* to the name of the queue from which you want to read a message.)
+    ```csharp
+    queue.DeleteMessage(message);
+    ```
 
-        CloudQueue queue = queueClient.GetQueueReference(<queue-name>);
+1. Update the **ViewBag** with the message deleted, and the name of the queue.
 
-5. Call the **CloudQueue.GetMessage** method to read the first message in the queue. The **CloudQueue.GetMessage** method makes the message invisible for 30 seconds (by default) to any other code reading messages so that no other code can modify or delete the message while your processing it. To change the amount of time the message is invisible, modify the **visibilityTimeout** parameter being passed to the **CloudQueue.GetMessage** method.
+    ```csharp
+    ViewBag.QueueName = queue.Name;
+    ViewBag.Message = message.AsString;
+    ```
+ 
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.
 
-		// This message will be invisible to other code for 30 seconds.
-		CloudQueueMessage message = queue.GetMessage();     
+1. On the **Add View** dialog, enter **ReadMessage** for the view name, and select **Add**.
 
-6. Call the **CloudQueueMessage.Delete** method to delete the message from the queue.
+1. Open `ReadMessage.cshtml`, and modify it so that it looks like the following code snippet:
 
-	    queue.DeleteMessage(message);
+    ```csharp
+	@{
+	    ViewBag.Title = "ReadMessage";
+	}
+	
+	<h2>Read Message results</h2>
+	
+	<table border="1">
+	    <tr><th>Queue</th><th>Read (and Deleted) Message</th></tr>
+	    <tr><td>@ViewBag.QueueName</td><td>@ViewBag.Message</td></tr>
+	</table>
+	```
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
+
+    ```html
+	<li>@Html.ActionLink("Read/Delete message", "ReadMessage", "Queues")</li>
+    ```
+
+1. Run the application, and select **Read/Delete message** to see results similar to those shown in the following screen shot:
+  
+	![Create table](./media/vs-storage-aspnet-getting-started-queues/read-message-results.png)
 
 ## Get the queue length
 
