@@ -44,7 +44,7 @@
 ##### [Media Encoder Standard schema](media-services-mes-schema.md)
 ##### [Input metadata](media-services-input-metadata-schema.md)
 ##### [Output metadata](media-services-output-metadata-schema.md)
-#### MES Presets 
+#### [MES Presets](media-services-mes-presets-overview.md) 
 ##### [H264 Multiple Bitrate 1080p Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-1080p-Audio-5.1.md)
 ##### [H264 Multiple Bitrate 1080p](media-services-mes-preset-H264-Multiple-Bitrate-1080p.md)
 ##### [H264 Multiple Bitrate 16x9 SD Audio 5.1](media-services-mes-preset-H264-Multiple-Bitrate-16x9-SD-Audio-5.1.md)
@@ -134,8 +134,8 @@
 ### [Process with Hyperlapse](media-services-hyperlapse-content.md)
 ### [Process with Face Detector](media-services-face-and-emotion-detection.md)
 ### [Process with Motion Detector](media-services-motion-detection.md)
-### [Process with Face redaction](media-services-face-redaction.md)
-#### [Face redaction walkthrough](media-services-redactor-walkthrough.md)
+### [Process with Face Redactor](media-services-face-redaction.md)
+#### [Face Redactor walkthrough](media-services-redactor-walkthrough.md)
 ### [Process with video thumbnails](media-services-video-summarization.md)
 ### [Process with OCR](media-services-video-optical-character-recognition.md)
 
@@ -195,11 +195,13 @@
 ### [Retry logic](media-services-retry-logic-in-dotnet-sdk.md)
 
 # Reference
-## [Release notes](media-services-release-notes.md)
-## [.NET](media-services-dotnet-how-to-use.md)
-## [REST](media-services-rest-how-to-use.md)
+## [PowerShell (Resource Manager)](/powershell/resourcemanager/azurerm.media/v0.3.1/azurerm.media)
+## [PowerShell (Service Management)](/powershell/servicemanagement/azure.compute/v3.1.0/azure.compute)
+## [.NET](/dotnet/api/microsoft.windowsazure.mediaservices.client)
+## [REST](/rest/api/media)
 
 # Resources
+## [Release notes](media-services-release-notes.md)
 ## [Pricing](https://azure.microsoft.com/pricing/details/media-services/)
 ## [Azure Media Services Community](media-services-community.md)
 ## [Videos](https://azure.microsoft.com/resources/videos/index/?services=media-services)

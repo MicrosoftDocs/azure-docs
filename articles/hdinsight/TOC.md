@@ -10,11 +10,11 @@
 
 # Get Started
 ## [Start with Hadoop](hdinsight-hadoop-linux-tutorial-get-started.md)
-## [Start with Interactive Hive preview](hdinsight-hadoop-use-interactive-hive.md)
 ## [Start with R Server](hdinsight-hadoop-r-server-get-started.md)
 ## [Start with Spark](hdinsight-apache-spark-jupyter-spark-sql.md)
 ## [Start with HBase & NoSQL](hdinsight-hbase-tutorial-get-started-linux.md)
 ## [Start with Storm](hdinsight-apache-storm-tutorial-get-started-linux.md)
+## [Start with Interactive Hive preview](hdinsight-hadoop-use-interactive-hive.md)
 ## [Start with Kafka preview](hdinsight-apache-kafka-get-started.md)
 ## [Hadoop sandbox](hdinsight-hadoop-emulator-get-started.md)
 ## [Data Lake Tools with Hortonworks Sandbox](hdinsight-hadoop-emulator-visual-studio.md)
@@ -156,6 +156,7 @@
 #### [Use the Azure CLI](hdinsight-administer-use-command-line.md)
 ### [Manage clusters using the Ambari web UI](hdinsight-hadoop-manage-ambari.md)
 #### [Use Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md)
+### [Add storage accounts](hdinsight-hadoop-add-storage.md)
 ### [Upload data for Hadoop jobs](hdinsight-upload-data.md)
 ### [Import and export data with Sqoop](hdinsight-use-sqoop.md)
 #### [Connect with SSH](hdinsight-use-sqoop-mac-linux.md)
@@ -181,12 +182,12 @@
 #### [Hive query performance](https://blogs.msdn.microsoft.com/bigdatasupport/2015/08/13/troubleshooting-hive-query-performance-in-hdinsight-hadoop-cluster/)
 
 # Reference
-## [PowerShell cmdlets](/powershell/resourcemanager/azurerm.hdinsight/v2.2.0/azurerm.hdinsight)
-## [.NET SDK for Hadoop](https://msdn.microsoft.com/library/mt271028.aspx)
-## [.NET SDK for HBase](https://www.nuget.org/packages/Microsoft.HBase.Client/)
-## [.NET library for Avro](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
-## [REST API reference](/rest/api/hdinsight/)
-## [Spark REST API for remote jobs](/rest/api/hdinsightspark/)
+## [PowerShell](/powershell/resourcemanager/azurerm.hdinsight/v2.3.0/azurerm.hdinsight)
+## [.NET (Hadoop)](https://msdn.microsoft.com/library/mt271028.aspx)
+## [.NET (HBase)](https://www.nuget.org/packages/Microsoft.HBase.Client/)
+## [.NET (Avro)](https://hadoopsdk.codeplex.com/wikipage?title=Avro%20Library)
+## [REST](/rest/api/hdinsight/)
+## [REST (Spark)](/rest/api/hdinsightspark/)
 
 # Related
 ## Windows clusters

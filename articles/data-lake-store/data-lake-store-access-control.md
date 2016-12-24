@@ -1,4 +1,4 @@
-﻿---
+---
 title: Overview of Access Control in Data Lake Store | Microsoft Docs
 description: Understand how access control in Azure Data Lake Store
 services: data-lake-store
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 09/06/2016
+ms.date: 12/02/2016
 ms.author: nitinme
 
 ---
@@ -107,11 +107,11 @@ From the Data Lake Store account's **Data Explorer** blade, click **Access** to 
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
 
-After that, from the **Access** blade, click **Simple View** to see the simpler view.
+On this blade, the top section shows an overview of what permissions you have (in the screenshot, the user is Bob). Below that, the access permissions are shown.
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
 
-Click **Advanced View** to see the more advanced view.
+Click **Advanced** to see the more advanced view where the concepts of Default ACLs, Mask, and Super-user are shown.
 
 ![Data Lake Store ACLs](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
@@ -130,6 +130,10 @@ In Azure, a Data Lake Store account has several Azure roles:
 * Etc.
 
 Everyone in the **Owners** role for a Data Lake Store account is automatically a super-user for that account. To learn more about Azure Role Based Access Control (RBAC) see [Role-based access control](../active-directory/role-based-access-control-configure.md).
+
+If you would like to create a custom RBAC role that has super-user permissions. It needs to have these permissions:
+* Microsoft.DataLakeStore/accounts/Superuser/action
+* Microsoft.Authorization/roleAssignments/write
 
 ## The owning user
 The user who created the item is automatically the owning user of the item. An owning user can:
@@ -241,7 +245,11 @@ No. Access control via ACLs is always on for a Data Lake Store account.
 ### What permissions are required to recursively delete a folder and its contents?
 * The parent folder must have **Write + Execute**.
 * The folder to be deleted, and every folder within it, requires **Read + Write + Execute**.
-  >[AZURE.NOTE] Deleting the files in folders does not requires Write on those files. Also, the Root folder "/" can **never** be deleted.
+
+> [!NOTE] 
+> Deleting the files in folders does not requires Write on those files. Also, the Root folder "/" can **never** be deleted.
+>
+>
 
 ### Who is set as the owner of a file or folder?
 The creator of a file or folder becomes the owner.

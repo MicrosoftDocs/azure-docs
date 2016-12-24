@@ -1,5 +1,5 @@
 ---
-title: Example Infrastructure Walkthrough | Microsoft Docs
+title: Example Azure Infrastructure Walkthrough | Microsoft Docs
 description: Learn about the key design and implementation guidelines for deploying an example infrastructure in Azure.
 documentationcenter: ''
 services: virtual-machines-windows
@@ -14,7 +14,7 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: article
-ms.date: 09/08/2016
+ms.date: 12/16/2016
 ms.author: iainfou
 
 ---

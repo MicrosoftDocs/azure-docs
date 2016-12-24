@@ -1,5 +1,5 @@
 ---
-title: Reset a local Windows password when Azure guest agent is not installed | Microsoft Docs
+title: Reset a local Windows password without Azure agent | Microsoft Docs
 description: How to reset the password of a local Windows user account when the Azure guest agent is not installed or functioning on a VM
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/05/2016
+ms.date: 12/20/2016
 ms.author: iainfou
 
 ---
@@ -122,7 +122,7 @@ Always try to reset a password using the [Azure portal or Azure PowerShell](virt
      ![Copy disk URI](./media/virtual-machines-windows-reset-local-password-without-guest-agent/copy_source_vhd_uri.png)
 9. Create a VM from the source VM’s OS disk:
    
-   * Use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-from-specialized-vhd) to create a VM from a specialized VHD. Click the `Deploy to Azure` button to open the Azure portal with the templated details populated for you.
+   * Use [this Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-specialized-vhd) to create a VM from a specialized VHD. Click the `Deploy to Azure` button to open the Azure portal with the templated details populated for you.
    * If you want to retain all the previous settings for the VM, select *Edit template* to provide your existing VNet, subnet, network adapter, or public IP.
    * In the `OSDISKVHDURI` parameter text box, paste the URI of your source VHD obtain in the preceding step:
      

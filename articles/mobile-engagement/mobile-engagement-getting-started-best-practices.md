@@ -1,4 +1,4 @@
-﻿---
+---
 title: Azure Mobile Engagement Getting Started Guide with Best Practices
 description: Getting Started guide for Azure Mobile Engagement and Best practices for onboarding
 services: mobile-engagement

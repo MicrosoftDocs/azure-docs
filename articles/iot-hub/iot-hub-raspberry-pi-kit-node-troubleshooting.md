@@ -131,7 +131,7 @@ Configure your IoT hub connection string within this tool to use all its capabil
 
 To install the latest (prerelease) version of the iothub-explorer tool, run the following command in your command-line environment:
 
-```
+```bash
 npm install -g iothub-explorer@latest
 ```
 

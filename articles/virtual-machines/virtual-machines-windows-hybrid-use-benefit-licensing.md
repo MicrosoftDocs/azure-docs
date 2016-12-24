@@ -45,7 +45,7 @@ If you don't have an Enterprise Agreement subscription, continue reading for ins
 ## Upload a Windows Server VHD
 To deploy a Windows Server VM in Azure, you first need to create a VHD that contains your base Windows Server build. This VHD must be appropriately prepared via Sysprep before you upload it to Azure. You can [read more about the VHD requirements and Sysprep process](virtual-machines-windows-upload-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) and [Sysprep Support for Server Roles](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles). Back up the VM before running Sysprep. 
 
-Make sure you have [installed and configured the latest Azure PowerShell](../powershell-install-configure.md). Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzureRmVhd` cmdlet as follows:
+Make sure you have [installed and configured the latest Azure PowerShell](/powershell/azureps-cmdlets-docs). Once you have prepared your VHD, upload the VHD to your Azure Storage account using the `Add-AzureRmVhd` cmdlet as follows:
 
 ```powershell
 Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\myvhd.vhd" `
@@ -58,11 +58,6 @@ Add-AzureRmVhd -ResourceGroupName "myResourceGroup" -LocalFilePath "C:\Path\To\m
 >
 
 You can also read more about [uploading the VHD to Azure process](virtual-machines-windows-upload-image.md#upload-the-vhd-to-your-storage-account)
-
-> [!TIP]
-> This article focuses on deploying Windows Server VMs. You can also deploy Windows Client VMs in the same manner. In the following examples, you replace `Server` with `Client` appropriately.
->
->
 
 
 ## Deploy an uploaded VM via Resource Manager

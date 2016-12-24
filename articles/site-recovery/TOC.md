@@ -49,8 +49,9 @@
 ## [Monitor and troubleshoot](site-recovery-monitoring-and-troubleshooting.md)
 
 # Reference
-## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell classic](/powershell/servicemanagement/)
+## [PowerShell](/powershell/resourcemanager/azurerm.siterecovery/v3.2.0/azurerm.siterecovery)
+## [PowerShell classic](/powershell/servicemanagement/azure.siterecovery/v3.1.0/azure.siterecovery)
+## [REST](https://msdn.microsoft.com/en-us/library/mt750497)
 
 # Related
 ## [Azure Automation](/azure/automation/)

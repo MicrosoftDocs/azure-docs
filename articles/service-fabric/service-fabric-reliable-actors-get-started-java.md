@@ -1,4 +1,4 @@
-﻿---
+---
 title: Get started with Service Fabric Reliable Actors | Microsoft Docs
 description: This tutorial walks you through the steps of creating, debugging, and deploying a simple actor-based service using Service Fabric Reliable Actors.
 services: service-fabric

@@ -46,7 +46,7 @@ The following steps walk you through the settings necessary to configure a dynam
 ### Prerequisites
 * Both VNets have already been created.
 * The address ranges for the VNets do not overlap with each other, or overlap with any of the ranges for other connections that the gateways may be connected to.
-* You have installed the latest PowerShell cmdlets (1.0.2 or later). See [How to install and configure Azure PowerShell](../powershell-install-configure.md) for more information. Make sure you install both the Service Management (SM) and the Resource Manager (RM) cmdlets. 
+* You have installed the latest PowerShell cmdlets (1.0.2 or later). See [How to install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs) for more information. Make sure you install both the Service Management (SM) and the Resource Manager (RM) cmdlets. 
 
 ### <a name="exampleref"></a>Example settings
 You can use the example settings as a reference.
