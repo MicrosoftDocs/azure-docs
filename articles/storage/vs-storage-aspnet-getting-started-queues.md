@@ -269,14 +269,33 @@ This section illustrates how to peek at a queued message (read the first message
     CloudQueue queue = queueClient.GetQueueReference("test-queue");
     ```
 
-1. Call the **CloudQueue.PeekMessage** method to read the message at the front of a queue without removing it from the queue, place the result in the **ViewBag**.
+1. Update the **ViewBag** with two values: the queue name and the message that was read. The latter is obtained by calling the **CloudQueue.PeekMessage** method, which reads the first message in the queue without removing it from the queue. The **CloudQueue.PeekMessage** returns a **CloudQueueMessage** object, which has two properties for getting the object's value: **CloudQueueMessage.AsBytes** and **CloudQueueMessage.AsString**. **AsBytes** returns a byte array, while **AsString** returns a string.
 
-    	ViewBag.Message = queue.PeekMessage().AsString;
+    ```csharp
+    ViewBag.QueueName = queue.Name;	
+	ViewBag.Message = queue.PeekMessage().AsString;
+    ```
 
-6. Access the **CloudQueueMessage** object's value using either the **CloudQueueMessage.AsBytes** or **CloudQueueMessage.AsString** property.
+1. In the **Solution Explorer**, expand the **Views** folder, right-click **Queues**, and from the context menu, select **Add->View**.
 
-		string messageAsString = message.AsString;
-		byte[] messageAsBytes = message.AsBytes;
+1. On the **Add View** dialog, enter **PeekMessage** for the view name, and select **Add**.
+
+1. Open `PeekMessage.cshtml`, and modify it so that it looks like the following code snippet:
+
+    ```csharp
+	```
+
+1. In the **Solution Explorer**, expand the **Views->Shared** folder, and open `_Layout.cshtml`.
+
+1. After the last **Html.ActionLink**, add the following **Html.ActionLink**:
+
+    ```html
+	<li>@Html.ActionLink("Peek message", "PeekMessage", "Queues")</li>
+    ```
+
+1. Run the application, and select **Peek message** to see results similar to those shown in the following screen shot:
+  
+	![Create table](./media/vs-storage-aspnet-getting-started-queues/peek-message-results.png)
 
 ## Read and remove a message from a queue
 
