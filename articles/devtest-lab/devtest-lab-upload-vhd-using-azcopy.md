@@ -25,7 +25,7 @@ ms.author: tarcher
 In Azure DevTest Labs, VHD files can be used to create custom images, which are used to provision virtual machines. 
 The following steps walk you through using the AzCopy command-line utility to upload a VHD file to a lab's storage account. Once you've uploaded your VHD file, the [Next steps section](#next-steps) lists some articles that illustrate how to create a custom image from the uploaded VHD file.
 
-> [AZURE.NOTE] AzCopy is a Windows-only command-line utility.
+> [!NOTE] AzCopy is a Windows-only command-line utility.
 
 1. Get the name of the lab's storage account using the Azure portal:
 
