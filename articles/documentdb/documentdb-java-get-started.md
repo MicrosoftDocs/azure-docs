@@ -49,8 +49,7 @@ Now let's get started!
 ## Prerequisites
 Please make sure you have the following:
 
-* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
-    * Alternatively, you can use the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) for this tutorial.
+* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). Alternatively, you can use the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) for this tutorial.
 * [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Maven](http://maven.apache.org/download.cgi).
 
@@ -86,7 +85,7 @@ In the Azure Portal, navigate to your DocumentDB account, and then click **Keys*
 ![Screen shot of the Azure Portal used by the NoSQL tutorial to create a Java console application. Shows a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
 ## Step 4: Create a database
-Your DocumentDB [database](documentdb-resources.md#databases) can be created by using the [createDatabase]http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
+Your DocumentDB [database](documentdb-resources.md#databases) can be created by using the [createDatabase](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
 
     Database database = new Database();
     database.setId("familydb");
@@ -154,8 +153,8 @@ DocumentDB supports updating JSON documents using the [replaceDocument](http://a
     andersenFamily.Children[0].Grade = 6;
 
     this.client.replaceDocument(
-        "/dbs/familydb/colls/familycoll/docs/Andersen.1"
-        , andersenFamily,
+        "/dbs/familydb/colls/familycoll/docs/Andersen.1", 
+        andersenFamily,
         null);
 
 ## <a id="DeleteDocument"></a>Step 9: Delete JSON document
@@ -166,10 +165,10 @@ Similarly, DocumentDB supports deleting JSON documents using the [deleteDocument
 ## <a id="DeleteDatabase"></a>Step 10: Delete the database
 Deleting the created database will remove the database and all children resources (collections, documents, etc.).
 
-    this.client.deleteDatabase("/dbs/FamilyDB", null);
+    this.client.deleteDatabase("/dbs/familydb", null);
 
 ## <a id="Run"></a>Step 11: Run your Java console application all together!
-To run the application from Github, first compile using Maven
+To run the application from the console, first compile using Maven
     
     mvn package
 
