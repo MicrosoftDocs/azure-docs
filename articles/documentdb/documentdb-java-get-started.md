@@ -1,7 +1,7 @@
 ---
 title: 'NoSQL tutorial: DocumentDB Java SDK | Microsoft Docs'
 description: A NoSQL tutorial that creates an online database and Java console application using the DocumentDB Java SDK. DocumentDB is a NoSQL database for JSON.
-keywords: nosql tutorial, online database, c# console application
+keywords: nosql tutorial, online database, java console application
 services: documentdb
 documentationcenter: Java
 author: arramac
@@ -18,7 +18,7 @@ ms.date: 12/22/2016
 ms.author: arramac
 
 ---
-# NoSQL tutorial: Build a DocumentDB C# console application
+# NoSQL tutorial: Build a DocumentDB Java console application
 > [!div class="op_single_selector"]
 > * [.NET](documentdb-get-started.md)
 > * [.NET Core](documentdb-dotnetcore-get-started.md)
@@ -73,7 +73,7 @@ In the Azure Portal, navigate to your DocumentDB account, and then click **Keys*
         , new ConnectionPolicy(),
         ConsistencyLevel.Session);
 
-![Screen shot of the Azure Portal used by the NoSQL tutorial to create a C# console application. Shows a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
+![Screen shot of the Azure Portal used by the NoSQL tutorial to create a Java console application. Shows a DocumentDB account, with the ACTIVE hub highlighted, the KEYS button highlighted on the DocumentDB account blade, and the URI, PRIMARY KEY and SECONDARY KEY values highlighted on the Keys blade][keys]
 
 ## Step 4: Create a database
 Your DocumentDB [database](documentdb-resources.md#databases) can be created by using the [createDatabase]http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDatabase-com.microsoft.azure.documentdb.Database-com.microsoft.azure.documentdb.RequestOptions-) method of the **DocumentClient** class. A database is the logical container of JSON document storage partitioned across collections.
@@ -122,7 +122,7 @@ A [document](documentdb-resources.md#documents) can be created by using the [cre
 
     this.client.createDocument("/dbs/familydb/colls/familycoll", family, new RequestOptions(), true);
 
-![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents used by the NoSQL tutorial to create a C# console application](./media/documentdb-get-started/nosql-tutorial-account-database.png)
+![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents used by the NoSQL tutorial to create a Java console application](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Step 7: Query DocumentDB resources
 DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documents stored in each collection.  The following sample code shows how to query documents in DocumentDB using SQL syntaxwith the [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-) method.
