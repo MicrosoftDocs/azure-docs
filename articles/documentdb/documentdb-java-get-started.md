@@ -38,9 +38,19 @@ We'll cover:
 * Creating a collection
 * Creating JSON documents
 * Querying the collection
-* Replacing a documen
+* Creating JSON documents
+* Querying the collection
+* Replacing a document
+* Deleting a document
+* Deleting the database
 
-    A local installation of the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md).
+Now let's get started!
+
+## Prerequisites
+Please make sure you have the following:
+
+* An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). 
+    * Alternatively, you can use the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) for this tutorial.
 * [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Maven](http://maven.apache.org/download.cgi).
 
