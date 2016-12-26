@@ -211,7 +211,7 @@ This article describes how to complete the following steps:
         service mysql stop
         chkconfig mysql off
         waagent -deprovision
-11. Capture the VM through the portal. (Currently, [issue #1268 in the Azure CLI] tools describes the fact that images captured by the Azure CLI tools do not capture the attached data disks.)
+11. Capture the VM through the portal. (Currently, [issue #1268 in the Azure CLI tools] describes the fact that images captured by the Azure CLI tools do not capture the attached data disks.)
 
     a. Shut down the machine through the portal.
 
