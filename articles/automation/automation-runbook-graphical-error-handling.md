@@ -1,5 +1,5 @@
 ---
-title: Error Handling in Graphical Runbooks | Microsoft Docs
+title: Error Handling in Azure Automation Graphical Runbooks | Microsoft Docs
 description: This article describes how to implement error handling logic in Azure Automation graphical runbooks.  
 services: automation
 documentationcenter: ''
@@ -13,11 +13,11 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 12/23/2016
+ms.date: 12/26/2016
 ms.author: magoedte
 ---
 
-# Error handling in graphical runbooks
+# Error handling in Azure Automation graphical runbooks
 
 A key runbook design principal you need to consider, is to identify different issues that a runbook may experience such as success, expected error states, and unexpected error conditions.  Runbooks should include error handling to detect accordingly.  With graphical runbooks, if you wanted to validate the output of an activity or handle an error in an appropriate manner, you would possibly follow with a PowerShell code activity, define conditional logic on the output link of the activity, or other apply another method.          
 
