@@ -259,7 +259,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 #### How to configure:
 
-**On the gateway machine:**
+**On gateway machine:**
 
 1.	Run the **Ksetup** utility to configure the Kerberos KDC server and realm.
 
@@ -289,7 +289,8 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 #### How to configure:
 
-*Note: replace REALM.COM and AD.COM in below tutorial with your own respective realm and Domain Controller as needed.*
+> [!NOTE]
+> Replace REALM.COM and AD.COM in below tutorial with your own respective realm and domain controller as needed.
 
 **On KDC server:**
 
@@ -337,7 +338,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 3.	In **hadoop.security.auth_to_local** HDFS service configuration file, add `RULE:[1:$1@$0](.*@AD.COM)s/@.*//`.
 
-**On Domain Controller:**
+**On domain controller:**
 
 1.	Run below **Ksetup** commands to add a realm entry:
 
