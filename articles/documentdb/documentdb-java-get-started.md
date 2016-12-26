@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 12/22/2016
+ms.date: 12/25/2016
 ms.author: arramac
 
 ---
@@ -50,6 +50,7 @@ Now let's get started!
 Please make sure you have the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). Alternatively, you can use the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) for this tutorial.
+* [Git](https://git-scm.com/downloads)
 * [Java Development Kit (JDK) 7+](http://www.oracle.com/technetwork/java/javase/downloads/index.html).
 * [Maven](http://maven.apache.org/download.cgi).
 
@@ -63,12 +64,14 @@ You can get started by cloning the Github repository for [Get Started with Docum
 
     git clone git@github.com:arramac/documentdb-java-getting-started.git
 
+    cd documentdb-java-getting-started
+
 You will find a `pom.xml` for the project and a `src` folder containing Java source code including `Program.java` which shows how to interact with DocumentDB and perform simple operations like creating documents and querying data within a collection. The `pom.xml` includes a dependency on the [DocumentDB Java SDK on Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>azure-documentdb</artifactId>
-        <version>1.9.0</version>
+        <version>LATEST</version>
     </dependency>
 
 ## <a id="Connect"></a>Step 3: Connect to a DocumentDB account
@@ -168,11 +171,11 @@ Deleting the created database will remove the database and all children resource
     this.client.deleteDatabase("/dbs/familydb", null);
 
 ## <a id="Run"></a>Step 11: Run your Java console application all together!
-To run the application from the console, first compile using Maven
+To run the application from the console, first compile using Maven:
     
     mvn package
 
-Then run the application:
+This will download the latest DocumentDB library from Maven and produce `GetStarted-0.0.1-SNAPSHOT.jar`. Then run the app by running:
 
     mvn exec:java -D exec.mainClass=GetStarted.Program
 
