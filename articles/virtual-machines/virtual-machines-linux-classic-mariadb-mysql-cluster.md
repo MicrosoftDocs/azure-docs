@@ -199,7 +199,7 @@ This article describes how to complete the following steps:
    >
    >
 
-           innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
+           innodb_buffer_pool_size = 2508M # The buffer pool contains buffered data and the index. This is usually set to 70 percent of physical memory.
            innodb_log_file_size = 512M #  Redo logs ensure that write operations are fast, reliable, and recoverable after a crash
            max_connections = 5000 # A larger value will give the server more time to recycle idled connections
            innodb_file_per_table = 1 # Speed up the table space transmission and optimize the debris management performance
@@ -216,7 +216,7 @@ This article describes how to complete the following steps:
     a. Shut down the machine through the portal.
 
     b. Click **Capture** and specify the image name as **mariadb-galera-image**. Provide a description and check "I have run waagent."
-      ![Capture the virtual machine](media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture.png)
+      ![Capture the virtual machine]  )
       ![Capture the virtual machine](./media/virtual-machines-linux-classic-mariadb-mysql-cluster/Capture2.PNG)
 
 ## Create the cluster
