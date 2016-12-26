@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 06/14/2016
-ms.author: douglaslMS
+ms.author: douglasl
 
 ---
 # Enable Transparent Data Encryption (TDE) for Stretch Database on Azure

@@ -1,9 +1,10 @@
 ---
 layout: LandingPage
+description: Learn Hadoop on HDInsight. Documentation shows you how to use Hadoop, Spark, HBase, R-Server, and more to process, analyze, and gain insights from big data.
 ---
 #Azure HDInsight Documentation
 
-Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HDInsight makes the Hadoop components from the Hortonworks Data Platform (HDP) distribution available in the cloud, and deploys and provisions managed clusters with reliability and availability.  Azure HDInsight provides cluster configurations for Apache Hadoop, Spark, HBase, and Storm.  You can also use custom clusters with script actions.  
+Learn how to use Hadoop in the cloud on HDInsight to analyze streaming or historical data. Tutorials and other documentation show you how to create clusters, process and analyze big data, and develop solutions with Hadoop, Spark, HBase, R-Server, Storm, and other technologies in the Hadoop ecosystem.
 
 <ul class="panelContent cardsFTitle">
     <li>
@@ -134,7 +135,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
@@ -148,7 +149,7 @@ Azure HDInsight is an Apache Hadoop distribution powered by the cloud.  Azure HD
         </div>
     </li>
     <li>
-        <div class="cardSize"><p />
+        <div class="cardSize">
             <div class="cardPadding">
                 <div class="card">
                     <div class="cardText">
