@@ -13,39 +13,12 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 12/11/2016
 ms.author: willzhan;kilroyh;yanmf;juliako
 
 ---
 # CENC with Multi-DRM and Access Control: A Reference Design and Implementation on Azure and Azure Media Services
-## Key words
-Azure Active Directory, Azure Media Services, Azure Media Player, Dynamic Encryption, License Delivery,PlayReady, Widevine, FairPlay, Common Encryption(CENC), Multi-DRM, Axinom, DASH, EME, MSE, JSON Web Token (JWT), Claims, Modern Browsers,Key Rollover, Symmetric Key, Asymmetric Key, OpenID Connect, X509 certificate.
-
-## In this article
-The following topics are covered in this article:
-
-* [Introduction](media-services-cenc-with-multidrm-access-control.md#introduction)
-  * [Overview of this article](media-services-cenc-with-multidrm-access-control.md#overview-of-this-article)
-* [A reference design](media-services-cenc-with-multidrm-access-control.md#a-reference-design)
-* [Mapping design to technology for implementation](media-services-cenc-with-multidrm-access-control.md#mapping-design-to-technology-for-implementation)
-* [Implementation](media-services-cenc-with-multidrm-access-control.md#implementation)
-  * [Implementation procedures](media-services-cenc-with-multidrm-access-control.md#implementation-procedures)
-  * [Some gotchas in implementation](media-services-cenc-with-multidrm-access-control.md#some-gotchas-in-implementation)
-* [Additional Topics for Implementation](media-services-cenc-with-multidrm-access-control.md#additional-topics-for-implementation)
-  * [HTTP or HTTPS](media-services-cenc-with-multidrm-access-control.md#http-or-https)
-  * [Azure Active Directory signing key rollover](media-services-cenc-with-multidrm-access-control.md#azure-active-directory-signing-key-rollover)
-  * [Where is the Access Token?](media-services-cenc-with-multidrm-access-control.md#where-is-the-access-token)
-  * [What about Live Streaming?](media-services-cenc-with-multidrm-access-control.md#what-about-live-streaming)
-  * [What about license servers outside of Azure Media Services?](media-services-cenc-with-multidrm-access-control.md#what-about-license-servers-outside-of-azure-media-services)
-  * [What if I want to use a custom STS?](media-services-cenc-with-multidrm-access-control.md#what-if-i-want-to-use-a-custom-sts)
-* [The completed system and test](media-services-cenc-with-multidrm-access-control.md#the-completed-system-and-test)
-  * [User login](media-services-cenc-with-multidrm-access-control.md#user-login)
-  * [Using Encrypted Media Extensions for PlayReady](media-services-cenc-with-multidrm-access-control.md#using-encrypted-media-extensions-for-playready)
-  * [Using EME for Widevine](media-services-cenc-with-multidrm-access-control.md#using-eme-for-widevine)
-  * [Not entitled users](media-services-cenc-with-multidrm-access-control.md#not-entitled-users)
-  * [Running custom Secure Token Service](media-services-cenc-with-multidrm-access-control.md#running-custom-secure-token-service)
-* [Summary](media-services-cenc-with-multidrm-access-control.md#summary)
-
+ 
 ## Introduction
 It is well known that it is a complex task to design and build a DRM subsystem for an OTT or online streaming solution. And it is a common practice for operators/online video providers to outsource this part to specialized DRM service providers. The goal of this document is to present a reference design and implementation of end-to-end DRM subsystem in OTT or online streaming solution.
 
@@ -82,7 +55,7 @@ The following table summarizes the native platform/native app, and browsers supp
 | **Windows 10 devices (Windows PC, Windows Tablets, Windows Phone, Xbox)** |PlayReady |MS Edge/IE11/EME<br/><br/><br/>UWP |DASH (For HLS, PlayReady is not supported)<br/><br/>DASH, Smooth Streaming (For HLS, PlayReady is not supported) |
 | **Android devices (Phone, Tablet, TV)** |Widevine |Chrome/EME |DASH |
 | **iOS (iPhone, iPad), OS X clients and Apple TV** |FairPlay |Safari 8+/EME |HLS |
-| **Plugin: Adobe Primetime** |Primetime Access |Browser plugin |HDS, HLS |
+
 
 Considering the current state of deployment for each DRM, a service will typically want to implement 2 or 3 DRMs to make sure you address all the types of endpoints in the best way.
 
@@ -451,7 +424,7 @@ Notice that Widevine does not prevent one from making screen capture of protecte
 ![Using EME for Widevine](./media/media-services-cenc-with-multidrm-access-control/media-services-eme-for-widevine2.png)
 
 ### Not entitled users
-If a user is not a member of “Entitled Users” group, the user will not be able to pass “entitlement check” and the multi-DRM license service will refuse to issue the requested license as shown below. The detailed description is “License acquire failed”, which is as designed.
+If a user is not a member of "Entitled Users" group, the user will not be able to pass “entitlement check” and the multi-DRM license service will refuse to issue the requested license as shown below. The detailed description is “License acquire failed”, which is as designed.
 
 ![Un-entitled Users](./media/media-services-cenc-with-multidrm-access-control/media-services-unentitledusers.png)
 
@@ -480,6 +453,4 @@ In this document, we discussed CENC with multi-native-DRM and access control via
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
-
-### Acknowledgments
-William Zhang, Mingfei Yan, Roland Le Franc, Kilroy Hughes, Julia Kornich
+ 

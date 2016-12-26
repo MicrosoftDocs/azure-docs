@@ -107,7 +107,6 @@ The Service Fabric templates include a set of Gradle tasks for building and depl
 
 Your app builds and deploys within a few moments. You can monitor its status from Service Fabric Explorer.
 
-
 ## Adding more services to an existing application
 
 To add another service to an application already created using `yo`, perform the following steps: 
@@ -118,6 +117,7 @@ To add another service to an application already created using `yo`, perform the
 ## Next steps
 * [Learn more about Reliable Actors](service-fabric-reliable-actors-introduction.md)
 * [Interacting with Service Fabric clusters using the Azure CLI](service-fabric-azure-cli.md)
+* Learn about [Service Fabric support options](service-fabric-support.md)
 
 <!-- Images -->
 [sf-yeoman]: ./media/service-fabric-create-your-first-linux-application-with-java/sf-yeoman.png

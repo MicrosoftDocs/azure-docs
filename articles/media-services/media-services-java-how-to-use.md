@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: get-started-article
-ms.date: 10/19/2016
+ms.date: 12/20/2016
 ms.author: juliako
 
 ---
@@ -21,7 +21,7 @@ ms.author: juliako
 [!INCLUDE [media-services-selector-get-started](../../includes/media-services-selector-get-started.md)]
 
 ## Setting Up an Azure Account for Media Services
-To set up your Media Services account, use the Azure Classic Portal. See the topic [How to Create a Media Services Account](media-services-portal-create-account.md). After creating your account in the Azure Classic Portal, you are ready to set up your computer for Media Services development.
+To set up your Media Services account, use the Azure portal. See the topic [How to Create a Media Services Account](media-services-portal-create-account.md). After creating your account in the Azure portal, you are ready to set up your computer for Media Services development.
 
 ## Setting up for Media Services development
 This section contains general prerequisites for Media Services development using the Media Services SDK for Java.

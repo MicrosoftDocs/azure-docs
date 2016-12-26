@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/27/2016
+ms.date: 12/09/2016
 ms.author: mimig
 
 ---
@@ -105,7 +105,7 @@ The feed streams could be built using [Azure App Services’](https://azure.micr
 
 Points and likes over a post can be processed in a deferred manner using this same technique to create an eventually consistent environment.
 
-Followers are trickier. DocumentDB has a document size limit of 512Kb, so you may think about storing followers as a document with this structure:
+Followers are trickier. DocumentDB has a maximum document size limit, and reading/writing large documents can impact the scalability of your application. So you may think about storing followers as a document with this structure:
 
     {
         "id":"234d-sd23-rrf2-552d",
@@ -118,7 +118,7 @@ Followers are trickier. DocumentDB has a document size limit of 512Kb, so you ma
         ]
     }
 
-This might work for a user with a few thousands followers, but if some celebrity joins our ranks, this approach will eventually hit the document size cap.
+This might work for a user with a few thousands followers, but if some celebrity joins our ranks, this approach will lead to a large document size, and might eventually hit the document size cap.
 
 To solve this, we can use a mixed approach. As part of the User Statistics document we can store the number of followers:
 

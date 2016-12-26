@@ -576,7 +576,8 @@ When you enable replication, by default all disks on a machine are replicated. Y
 * Only basic disks can be excluded from replication. You can't exclude OS or dynamic disks.
 * After replication is enabled, you can't add or remove disks for replication. If you want to add or exclude a disk, you'll need to disable protection for the machine and then reenable it.
 * If you exclude a disk that's needed for an application to operate, after failover to Azure you’ll need to create it manually in Azure so that the replicated application can run. Alternatively, you could integrate Azure automation into a recovery plan to create the disk during failover of the machine.
-* Disks you create manually in Azure will be failed back. For example, if you fail over three disks and create two directly in Azure, all five will be failed back. You can't exclude disks created manually from failback.
+* Window VM :Disks you create manually in Azure will be not be  failed back. For example, if you fail over three disks and create two directly in Azure VM, only three disks which were failed over will be failed back. You can't include disks created manually in failback or in re-protect from On-prem to Azure.
+* Linux VM: Disks you create manually in Azure will be failed back. For example, if you fail over three disks and create two directly in Azure, all five will be failed back. You can't exclude disks created manually from failback.
 
 **Now enable replication as follows**:
 

@@ -50,18 +50,18 @@ competition's
 competition
  to invite other users to view the page.
 
-![Share this item with friends](media\\machine-learning-gallery-how-to-use-contribute-publish\\share-links.png)
+![Share this item with friends](media/machine-learning-gallery-how-to-use-contribute-publish/share-links.png)
 
-![Add your own comments](media\\machine-learning-gallery-how-to-use-contribute-publish\\comments.png)
+![Add your own comments](media/machine-learning-gallery-how-to-use-contribute-publish/comments.png)
 
 ## Enter a competition
 If the competition is open, the status on the details page will be **Active**. To enter the competition, click **Enter Competition** and you will be given instructions on the resources you need and the steps you need to take.
 
-![Competition has completed](media\\machine-learning-gallery-competitions\\open-competition.png)
+![Competition has completed](media/machine-learning-gallery-competitions/open-competition.png)
 
 If the competition is no longer open, it's status on the details page will be **Completed** and the **Enter Competition** link will be replaced with the word **Finished**.
 
-![Competition has completed](media\\machine-learning-gallery-competitions\\completed-competition.png)
+![Competition has completed](media/machine-learning-gallery-competitions/completed-competition.png)
 
 **[TAKE ME TO THE GALLERY >>](http://gallery.cortanaintelligence.com)**
 
