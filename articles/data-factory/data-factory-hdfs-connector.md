@@ -285,7 +285,7 @@ There are two options to set up the on-premises environment so as to use Kerbero
 
 #### Requirement:
 *	The gateway machine must join a Windows domain.
-*	You need permission to change the Domain Controller setting.
+*	You need permission to update the domain controller's settings.
 
 #### How to configure:
 
