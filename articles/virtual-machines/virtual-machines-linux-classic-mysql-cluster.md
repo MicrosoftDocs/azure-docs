@@ -20,13 +20,13 @@ ms.author: jparrel
 ---
 # Use load-balanced sets to clusterize MySQL on Linux
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and Classic. This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. A [Resource Manager template](https://azure.microsoft.com/documentation/templates/mysql-replication/) is available if you need to deploy a MySQL cluster.
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. A [Resource Manager template](https://azure.microsoft.com/documentation/templates/mysql-replication/) is available if you need to deploy a MySQL cluster.
 
 This article explores and illustrates the different approaches available to deploy highly available Linux-based services on Microsoft Azure, exploring MySQL Server high availability as a primer. A video illustrating this approach is available on [Channel 9](http://channel9.msdn.com/Blogs/Open/Load-balancing-highly-available-Linux-services-on-Windows-Azure-OpenLDAP-and-MySQL).
 
-We will outline a shared-nothing two-node single-master MySQL high availability solution based on DRBD, Corosync, and Pacemaker. Only one node runs MySQL at a time. Reading and writing from the DRBD resource is also limited to only one node at a time.
+We will outline a shared-nothing, two-node, single-master MySQL high availability solution based on DRBD, Corosync, and Pacemaker. Only one node runs MySQL at a time. Reading and writing from the DRBD resource is also limited to only one node at a time.
 
-There is no need for a VIP solution like LVS, because you will be using Microsoft Azure's load-balanced sets to provide round-robin functionality and endpoint detection, removal, and graceful recovery of the VIP. The VIP is a globally routable IPv4 address assigned by Microsoft Azure when you first create the cloud service.
+There is no need for a VIP solution like LVS, because you will be using load-balanced sets in Microsoft Azure to provide round-robin functionality and endpoint detection, removal, and graceful recovery of the VIP. The VIP is a globally routable IPv4 address assigned by Microsoft Azure when you first create the cloud service.
 
 There are other possible architectures for MySQL, including NBD Cluster, Percona, and Galera, as well as several middleware solutions, including at least one available as a VM on [VM Depot](http://vmdepot.msopentech.com). As long as these solutions can replicate on unicast vs. multicast or broadcast and don't rely on shared storage or multiple network interfaces, the scenarios should be easy to deploy on Microsoft Azure.
 
@@ -63,14 +63,14 @@ After both VMs have been created, take note of the SSH port for `hadb01` (TCP 22
 ### Attached storage
 Attach a new disk to both VMs and create new 5-GB disks in the process. The disks are hosted in the VHD container in use for your main operating system disks. After disks are created and attached, there is no need to restart Linux because the kernel will see the new device. This device is usually `/dev/sdc`. Check `dmesg` for the output.
 
-On each VM, create a partition by using `cfdisk` (primary, Linux partition) and write the new partition table. Do not create a filesystem on this partition.
+On each VM, create a partition by using `cfdisk` (primary, Linux partition) and write the new partition table. Do not create a file system on this partition.
 
 ## Set up the cluster
 Use APT to install Corosync, Pacemaker, and DRBD on both Ubuntu VMs. To do so with `apt-get`, run the following code:
 
     sudo apt-get install corosync pacemaker drbd8-utils.
 
-Do not install MySQL at this time. Debian and Ubuntu installation scripts will initialize a MySQL data directory on `/var/lib/mysql`, but since the directory will be superseded by a DRBD filesystem, you need to install MySQL later.
+Do not install MySQL at this time. Debian and Ubuntu installation scripts will initialize a MySQL data directory on `/var/lib/mysql`, but because the directory will be superseded by a DRBD file system, you need to install MySQL later.
 
 Verify (by using `/sbin/ifconfig`) that both VMs are using addresses in the 10.10.10.0/24 subnet and that they can ping each other by name. You can also use `ssh-keygen` and `ssh-copy-id` to make sure both VMs can communicate via SSH without requiring a password.
 
@@ -105,12 +105,12 @@ Create a DRBD resource that uses the underlying `/dev/sdc1` partition to produce
 
 If you examine the contents of /proc/drbd (`sudo cat /proc/drbd`) on both VMs, you should see `Primary/Secondary` on `hadb01` and `Secondary/Primary` on `hadb02`, consistent with the solution at this point. The 5-GB disk will be synchronized over the 10.10.10.0/24 network at no charge to customers.
 
-After the disk is synchronized, you can create the filesystem on `hadb01`. For testing purposes we used ext2, but the following code will create an ext3 filesystem:
+After the disk is synchronized, you can create the file system on `hadb01`. For testing purposes we used ext2, but the following code will create an ext3 file system:
 
     mkfs.ext3 /dev/drbd1
 
 ### Mount the DRBD resource
-You're now ready to mount the DRBD resources on `hadb01`. Debian and derivatives use `/var/lib/mysql` as MySQL's data directory. Since you haven't installed MySQL, create the directory and mount the DRBD resource. To perform this option, run the following code on `hadb01`:
+You're now ready to mount the DRBD resources on `hadb01`. Debian and derivatives use `/var/lib/mysql` as MySQL's data directory. Because you haven't installed MySQL, create the directory and mount the DRBD resource. To perform this option, run the following code on `hadb01`:
 
     sudo mkdir /var/lib/mysql
     sudo mount /dev/drbd1 /var/lib/mysql
@@ -126,7 +126,7 @@ For `hadb02`, you have two options. You can install mysql-server, which will cre
     sudo service mysql stop
     sudo rm –rf /var/lib/mysql/*
 
-The second option is to failover to `hadb02` and then install mysql-server there (installation scripts will notice the existing installation and won't touch it).
+The second option is to failover to `hadb02` and then install mysql-server there. Installation scripts will notice the existing installation and won't touch it.
 
 Run the following code on `hadb01`:
 
@@ -151,14 +151,14 @@ If you don't plan to failover DRBD now, the first option is easier although argu
 You also need to enable networking for MySQL if you want to make queries from outside the VMs, which is the purpose of this guide. On both VMs, open `/etc/mysql/my.cnf` and go to `bind-address`. Change the address from 127.0.0.1 to 0.0.0.0. After saving the file, issue a `sudo service mysql restart` on your current primary.
 
 ### Create the MySQL load-balanced set
-Go back to the portal, go to `hadb01`, and choose **Endpoints**. To create an  Endpoint, choose MySQL (TCP 3306) from the drop-down list and select **Create new load balanced set**. Name the load-balanced endpoint `lb-mysql`. Set **Time** to 5 seconds, minimum.
+Go back to the portal, go to `hadb01`, and choose **Endpoints**. To create an endpoint, choose MySQL (TCP 3306) from the drop-down list and select **Create new load balanced set**. Name the load-balanced endpoint `lb-mysql`. Set **Time** to 5 seconds, minimum.
 
 After you create the endpoint, go to `hadb02`, choose **Endpoints**, and create an endpoint. Choose `lb-mysql`, then select MySQL from the drop-down list. You can also use the Azure CLI for this step.
 
 You now have everything you need for manual operation of the cluster.
 
 ### Test the load-balanced set
-Tests can be performed from an outside machine by using any MySQL client, or by using certain applications, like phpMyAdmin running as an Azure Website. In this case, you used MySQL's command-line tool on another Linux box:
+Tests can be performed from an outside machine by using any MySQL client, or by using certain applications, like phpMyAdmin running as an Azure website. In this case, you used MySQL's command-line tool on another Linux box:
 
     mysql azureha –u root –h hadb.cloudapp.net –e "select * from things;"
 
@@ -173,17 +173,17 @@ Then, on hadb02:
 
     drbdadm primary r0 ; mount /dev/drbd1 /var/lib/mysql && service mysql start
 
-After you failover manually, you can repeat your remote query and it should work perfectly.
+After you fail over manually, you can repeat your remote query and it should work perfectly.
 
 ## Set up Corosync
 Corosync is the underlying cluster infrastructure required for Pacemaker to work. For Heartbeat (and other methodologies like Ultramonkey), Corosync is a split of the CRM functionalities, while Pacemaker remains more similar to Heartbeat in functionality.
 
 The main constraint for Corosync on Azure is that Corosync prefers multicast over broadcast over unicast communications, but Microsoft Azure networking only supports unicast.
 
-Fortunately, Corosync has a working unicast mode, and the only real constraint is that since all nodes are not communicating among themselves, you need to define the nodes in your configuration files, including their IP addresses. We can use the Corosync example files for Unicast and change bind address, node lists, and logging directories (Ubuntu uses `/var/log/corosync` while the example files use `/var/log/cluster`), and enable quorum tools.
+Fortunately, Corosync has a working unicast mode, and the only real constraint is that because all nodes are not communicating among themselves, you need to define the nodes in your configuration files, including their IP addresses. We can use the Corosync example files for Unicast and change bind address, node lists, and logging directories (Ubuntu uses `/var/log/corosync` while the example files use `/var/log/cluster`), and enable quorum tools.
 
 > [!NOTE]
-> The following `transport: udpu` directive and the manually defined IP addresses for the nodes**.
+> Use the following `transport: udpu` directive and the manually defined IP addresses for both nodes.
 
 Run the following code on `/etc/corosync/corosync.conf` for both nodes:
 
@@ -244,7 +244,7 @@ You will see output similar to the following image:
 ## Set up Pacemaker
 Pacemaker uses the cluster to monitor for resources, define when primaries go down, and switch those resources to secondaries. Resources can be defined from a set of available scripts or from LSB (init-like) scripts, among other choices.
 
-We want Pacemaker to "own" the DRBD resource, the mountpoint, and the MySQL service. If Pacemaker can turn on and off DRBD, mount and unmount it, and then start and stop MySQL in the right order when something bad happens with the primary, setup is complete.
+We want Pacemaker to "own" the DRBD resource, the mount point, and the MySQL service. If Pacemaker can turn on and off DRBD, mount and unmount it, and then start and stop MySQL in the right order when something bad happens with the primary, setup is complete.
 
 When you first install Pacemaker, your configuration should be simple enough, something like:
 
@@ -329,7 +329,7 @@ Sample code for the resource is available on [GitHub](https://github.com/bureado
 ## Limitations
 The following limitations apply:
 
-* The linbit DRBD resource script that manages DRBD as a resource in Pacemaker uses `drbdadm down` when shutting down a node, even if the node is just going on standby. This is not ideal since the slave will not be synchronizing the DRBD resource while the master gets writes. If the master does not fail graciously, the slave can take over an older filesystem state. There are two potential ways of solving this:
+* The linbit DRBD resource script that manages DRBD as a resource in Pacemaker uses `drbdadm down` when shutting down a node, even if the node is just going on standby. This is not ideal because the slave will not be synchronizing the DRBD resource while the master gets writes. If the master does not fail graciously, the slave can take over an older file system state. There are two potential ways of solving this:
   * Enforcing a `drbdadm up r0` in all cluster nodes via a local (not clusterized) watchdog.
   * Editing the linbit DRBD script, making sure that `down` is not called in `/usr/lib/ocf/resource.d/linbit/drbd`.
 * The load balancer needs at least five seconds to respond, so applications should be cluster-aware and be more tolerant of timeout. Other architectures, like in-app queues and query middlewares, can also help.
