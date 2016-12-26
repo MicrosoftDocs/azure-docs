@@ -6,7 +6,7 @@ documentationcenter: ''
 author: bureado
 manager: timlt
 editor: ''
-tags: azure-service-management
+tags: azure-service-management 
 
 ms.assetid: 6c413a16-e9b5-4ffe-a8a3-ae67046bbdf3
 ms.service: virtual-machines-linux
@@ -26,9 +26,9 @@ This article explores and illustrates the different approaches available to depl
 
 We will outline a shared-nothing, two-node, single-master MySQL high availability solution based on DRBD, Corosync, and Pacemaker. Only one node runs MySQL at a time. Reading and writing from the DRBD resource is also limited to only one node at a time.
 
-There is no need for a VIP solution like LVS, because you will be using load-balanced sets in Microsoft Azure to provide round-robin functionality and endpoint detection, removal, and graceful recovery of the VIP. The VIP is a globally routable IPv4 address assigned by Microsoft Azure when you first create the cloud service.
+There's no need for a VIP solution like LVS, because you'll use load-balanced sets in Microsoft Azure to provide round-robin functionality and endpoint detection, removal, and graceful recovery of the VIP. The VIP is a globally routable IPv4 address assigned by Microsoft Azure when you first create the cloud service.
 
-There are other possible architectures for MySQL, including NBD Cluster, Percona, and Galera, as well as several middleware solutions, including at least one available as a VM on [VM Depot](http://vmdepot.msopentech.com). As long as these solutions can replicate on unicast vs. multicast or broadcast and don't rely on shared storage or multiple network interfaces, the scenarios should be easy to deploy on Microsoft Azure.
+There are other possible architectures for MySQL, including NBD Cluster, Percona, Galera, and several middleware solutions, including at least one available as a VM on [VM Depot](http://vmdepot.msopentech.com). As long as these solutions can replicate on unicast vs. multicast or broadcast and don't rely on shared storage or multiple network interfaces, the scenarios should be easy to deploy on Microsoft Azure.
 
 These clustering architectures can be extended to other products like PostgreSQL and OpenLDAP in a similar fashion. For example, this load-balancing procedure with shared nothing was successfully tested with multi-master OpenLDAP, and you can watch it on our Channel 9 blog.
 
@@ -39,7 +39,7 @@ You need the following resources and abilities:
   - A network and a subnet
   - An affinity group
   - An availability set
-  - The ability to create new VHDs in the same region as the cloud service and attach them to the Linux VMs
+  - The ability to create VHDs in the same region as the cloud service and attach them to the Linux VMs
 
 ### Tested environment
 * Ubuntu 13.10
@@ -61,7 +61,7 @@ After the first VM is created (technically, when the cloud service is created), 
 After both VMs have been created, take note of the SSH port for `hadb01` (TCP 22) and `hadb02` (automatically assigned by Azure).
 
 ### Attached storage
-Attach a new disk to both VMs and create new 5-GB disks in the process. The disks are hosted in the VHD container in use for your main operating system disks. After disks are created and attached, there is no need to restart Linux because the kernel will see the new device. This device is usually `/dev/sdc`. Check `dmesg` for the output.
+Attach a new disk to both VMs and create 5-GB disks in the process. The disks are hosted in the VHD container in use for your main operating system disks. After disks are created and attached, there is no need to restart Linux because the kernel will see the new device. This device is usually `/dev/sdc`. Check `dmesg` for the output.
 
 On each VM, create a partition by using `cfdisk` (primary, Linux partition) and write the new partition table. Do not create a file system on this partition.
 
@@ -103,9 +103,9 @@ Create a DRBD resource that uses the underlying `/dev/sdc1` partition to produce
 
         sudo drbdadm primary --force r0
 
-If you examine the contents of /proc/drbd (`sudo cat /proc/drbd`) on both VMs, you should see `Primary/Secondary` on `hadb01` and `Secondary/Primary` on `hadb02`, consistent with the solution at this point. The 5-GB disk will be synchronized over the 10.10.10.0/24 network at no charge to customers.
+If you examine the contents of /proc/drbd (`sudo cat /proc/drbd`) on both VMs, you should see `Primary/Secondary` on `hadb01` and `Secondary/Primary` on `hadb02`, consistent with the solution at this point. The 5-GB disk is synchronized over the 10.10.10.0/24 network at no charge to customers.
 
-After the disk is synchronized, you can create the file system on `hadb01`. For testing purposes we used ext2, but the following code will create an ext3 file system:
+After the disk is synchronized, you can create the file system on `hadb01`. For testing purposes, we used ext2, but the following code will create an ext3 file system:
 
     mkfs.ext3 /dev/drbd1
 
@@ -120,7 +120,7 @@ Now you're ready to install MySQL on `hadb01`:
 
     sudo apt-get install mysql-server
 
-For `hadb02`, you have two options. You can install mysql-server, which will create /var/lib/mysql, fill it with a new data directory, and then  remove the contents. To perform this option, run the following code on `hadb02`:
+For `hadb02`, you have two options. You can install mysql-server, which will create /var/lib/mysql, fill it with a new data directory, and then remove the contents. To perform this option, run the following code on `hadb02`:
 
     sudo apt-get install mysql-server
     sudo service mysql stop
@@ -148,7 +148,7 @@ If you don't plan to failover DRBD now, the first option is easier although argu
 > [!WARNING]
 > This last statement effectively disables authentication for the root user in this table. This should be replaced by your production-grade GRANT statements and is included only for illustrative purposes.
 
-You also need to enable networking for MySQL if you want to make queries from outside the VMs, which is the purpose of this guide. On both VMs, open `/etc/mysql/my.cnf` and go to `bind-address`. Change the address from 127.0.0.1 to 0.0.0.0. After saving the file, issue a `sudo service mysql restart` on your current primary.
+If you want to make queries from outside the VMs (which is the purpose of this guide) you also need to enable networking for MySQL. On both VMs, open `/etc/mysql/my.cnf` and go to `bind-address`. Change the address from 127.0.0.1 to 0.0.0.0. After saving the file, issue a `sudo service mysql restart` on your current primary.
 
 ### Create the MySQL load-balanced set
 Go back to the portal, go to `hadb01`, and choose **Endpoints**. To create an endpoint, choose MySQL (TCP 3306) from the drop-down list and select **Create new load balanced set**. Name the load-balanced endpoint `lb-mysql`. Set **Time** to 5 seconds, minimum.
@@ -284,7 +284,7 @@ When you first install Pacemaker, your configuration should be simple enough, so
 
         property no-quorum-policy=ignore
 
-3. Load the file into the configuration (you only need to do this in one node):
+3. Load the file into the configuration. You only need to do this in one node.
 
         sudo crm configure
           load update /tmp/cluster.conf
@@ -315,7 +315,7 @@ The hard way is shutting down the primary VM (hadb01) via the portal or by chang
 ## STONITH
 It should be possible to issue a VM shutdown via the Azure CLI in lieu of a STONITH script that controls a physical device. You can use `/usr/lib/stonith/plugins/external/ssh` as a base and enable STONITH in the cluster's configuration. Azure CLI should be globally installed, and the publish settings and profile should be loaded for the cluster's user.
 
-Sample code for the resource is available on [GitHub](https://github.com/bureado/aztonith). You need to change the cluster's configuration by adding the following to `sudo crm configure`:
+Sample code for the resource is available on [GitHub](https://github.com/bureado/aztonith). Change the cluster's configuration by adding the following to `sudo crm configure`:
 
     primitive st-azure stonith:external/azure \
       params hostlist="hadb01 hadb02" \
@@ -334,4 +334,4 @@ The following limitations apply:
   * Editing the linbit DRBD script, making sure that `down` is not called in `/usr/lib/ocf/resource.d/linbit/drbd`.
 * The load balancer needs at least five seconds to respond, so applications should be cluster-aware and be more tolerant of timeout. Other architectures, like in-app queues and query middlewares, can also help.
 * MySQL tuning is necessary to ensure that writing is done at a manageable pace and caches are flushed to disk as frequently as possible to minimize memory loss.
-* Write performance will be dependent in VM interconnect in the virtual switch because this is the mechanism used by DRBD to replicate the device.
+* Write performance is dependent in VM interconnect in the virtual switch because this is the mechanism used by DRBD to replicate the device.
