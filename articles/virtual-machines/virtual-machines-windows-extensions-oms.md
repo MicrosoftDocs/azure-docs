@@ -106,11 +106,10 @@ The JSON used to deploy the OMS Agent VM extension looks like the following JSON
 
 ### Property values
 
-| Name | Required | Type | Value / Example |
-| ---- | ---- | ---- | ---- |
-| apiVersion | Yes | String | 2015-06-15 |
-| workspaceId | Yes | String | Sample - 6f680a37-00c6-41c7-a93f-1437e3462574 |
-| workspaceKey | Yes | String | Sample - z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+| Name | Example |
+| ---- | ---- | 
+| workspaceId | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 ## PowerShell deployment
 
