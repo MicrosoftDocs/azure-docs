@@ -38,7 +38,7 @@ Azure SQL Database manages the resources available to a database using two diffe
 ## Security
 Azure SQL Database provides resources for limiting access, protecting data, and monitoring activities on a SQL Database.
 
-* More Information: [Securing your SQL Database](sql-database-security.md)
+* More Information: [Securing your SQL Database](sql-database-security-overview.md)
 
 ## Authentication
 * Azure SQL Database supports both SQL Server authentication users and logins, as well as [Azure Active Directory authentication](sql-database-aad-authentication.md) users and logins.

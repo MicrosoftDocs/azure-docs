@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: article
-ms.date: 10/28/2016
+ms.date: 12/21/2016
 ms.author: rnagpal
 
 ---
@@ -136,7 +136,10 @@ Any request to DocumentDB using a retired SDK will be rejected by the service.
 
 | Version | Release Date | Retirement Date |
 | --- | --- | --- |
-| [1.9.1](#1.9.1) |October 28, 2016 |--- |
+| [1.9.4](#1.9.4) |November 24, 2016 |--- |
+| [1.9.3](#1.9.3) |October 30, 2016 |--- |
+| [1.9.2](#1.9.2) |October 28, 2016 |--- |
+| [1.9.1](#1.9.1) |October 26, 2016 |--- |
 | [1.9.0](#1.9.0) |October 03, 2016 |--- |
 | [1.8.1](#1.8.1) |June 30, 2016 |--- |
 | [1.8.0](#1.8.0) |June 14, 2016 |--- |

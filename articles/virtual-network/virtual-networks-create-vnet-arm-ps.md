@@ -4,7 +4,7 @@ description: Learn how to create a virtual network using PowerShell | Resource M
 services: virtual-network
 documentationcenter: ''
 author: jimdial
-manager: carmonm
+manager: timlt
 editor: ''
 tags: azure-resource-manager
 
@@ -14,7 +14,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/15/2016
+ms.date: 01/03/2017
 ms.author: jdial
 
 ---
