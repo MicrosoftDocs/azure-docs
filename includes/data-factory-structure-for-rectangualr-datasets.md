@@ -12,12 +12,14 @@ Each column contains the following properties:
 
 The following sample shows the structure section JSON for a table that has three columns userid, name, and lastlogindate.
 
-    "structure": 
-    [
-        { "name": "userid"},
-        { "name": "name"},
-        { "name": "lastlogindate"}
-    ],
+```json
+"structure": 
+[
+    { "name": "userid"},
+    { "name": "name"},
+    { "name": "lastlogindate"}
+],
+```
 
 Please use the following guidelines for when to include “structure” information and what to include in the **structure** section.
 

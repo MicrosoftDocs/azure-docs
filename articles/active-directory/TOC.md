@@ -66,7 +66,6 @@
 
 #### [Audit events](active-directory-reporting-audit-events.md)
 #### [Retention](active-directory-reporting-retention.md)
-#### [Backfill](active-directory-reporting-backfill.md)
 #### [Latencies](active-directory-reporting-latencies.md)
 #### [Notifications](active-directory-reporting-notifications.md)
 ### Understand reports
@@ -203,6 +202,7 @@
 #### [Group policy settings](active-directory-windows-enterprise-state-roaming-group-policy-settings.md)
 #### [Windows 10 settings](active-directory-windows-enterprise-state-roaming-windows-settings-reference.md)
 #### [FAQs](active-directory-windows-enterprise-state-roaming-faqs.md)
+#### [Troubleshoot](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 ### [Integrate partners with Azure AD B2B](active-directory-b2b-what-is-azure-ad-b2b.md)
 #### [Overview](active-directory-b2b-collaboration-overview.md)
 #### [How it works](active-directory-b2b-how-it-works.md)

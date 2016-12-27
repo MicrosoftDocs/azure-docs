@@ -24,7 +24,7 @@ For more details on the Logic app properties, see [Logic App Workflow Management
 
 For examples of the definition itself, see [Author Logic App definitions](app-service-logic-author-definitions.md). 
 
-For more information about creating templates, see [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md).
+For more information about creating templates, see [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md).
 
 For the complete template, see [Logic App template](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json).
 

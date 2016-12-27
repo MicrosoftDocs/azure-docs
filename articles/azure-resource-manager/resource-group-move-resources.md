@@ -104,6 +104,10 @@ For now, the services that enable moving to both a new resource group and subscr
 * Virtual Machines (classic) - see [Classic deployment limitations](#classic-deployment-limitations)
 * Virtual Networks
 
+> [!NOTE] 
+> Currently a Virtual Network containing a VPN Gateway cannot be moved until the Gateway has been removed temporarily. Once removed, the Virtual Network can be moved successfully and the Gateway can be created.
+>
+ 
 ## Services that do not enable move
 The services that currently do not enable moving a resource are:
 
