@@ -52,8 +52,8 @@ When opening a failed job in ADL Tools for Visual Studio, you will get an alert.
 
 3. Debugging steps are little different between failed jobs with code behind and assemblies.
 
-- [Debug job failed with code behind](##Debug job failed with code behind)
-- [Debug job failed with assemblies](##Debug job failed with assemblies)
+    - [Debug job failed with code behind](##Debug job failed with code behind)
+    - [Debug job failed with assemblies](##Debug job failed with assemblies)
 
 ![Azure Data Lake Analytics U-SQL debug visual studio download vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
@@ -69,13 +69,13 @@ Before debugging, make sure you checked **Common Language Runtime Exceptions** i
 
 2. Open **ADLTool_Codebehind.usql.cs** in project, set breakpoints then press F5 to debug code step by step.
 
-![Azure Data Lake Analytics U-SQL debug exception](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png)
+    ![Azure Data Lake Analytics U-SQL debug exception](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png)
 
 ## Debug failed job with assemblies
 
 If you use registered assemblies in U-SQL script, the system can't get the source code automatically, you need to do some configurations before debugging user defined code, that is, you must add the source code of assemblies to the automatically generated solution.
 
-**Configure the solution**
+### Configure the solution
 
 1. Right click **Solution "VertexDebug"** > **Add** > **Existing Project...** to find the assemblies' source code and add the project to the debugging solution.
 
@@ -89,7 +89,7 @@ If you use registered assemblies in U-SQL script, the system can't get the sourc
 
 4. Press **Ctrl + Alt + E**, check **Common Language Runtime Exceptions** in Exception Settings window.
 
-**Start debug**
+### Start debug
 
 1. Press **F5**, the project will run automatically untill it is stopped by an exception. You may see the following message for the first time which you can ignore. It can take up to one minute to get to the debug screen.
 
@@ -108,9 +108,9 @@ After you have completed debugging, you can resubmit the failed job.
 
 1. Register new .dll assemblies to your ADLA database.
    
-   1. From Server Explorer/Cloud Explorer in Data Lake Visual Studio Tool, expand the **Databases** node 
-   2. Right-click Assemblies to Register assemblies. 
-   3. Register your new .dll assemblies to the ADLA database.
+   a. From Server Explorer/Cloud Explorer in Data Lake Visual Studio Tool, expand the **Databases** node.
+   b. Right-click Assemblies to Register assemblies. 
+   c. Register your new .dll assemblies to the ADLA database.
 
    ![Azure Data Lake Analytics U-SQL debug register assembly](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-register-assembly.png)   
 
