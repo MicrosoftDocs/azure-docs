@@ -47,7 +47,7 @@ Azure's industry leading 99.99% availability service level agreement [(SLA)](htt
 See [Business Continuity](sql-database-business-continuity.md) for details about the different business continuity features available for different service tiers.
 
 ## Secure your data
-SQL Server has a tradition of data security that SQL Database upholds with features that limit access, protect data, and help you monitor activity. See [Securing your SQL database](sql-database-security.md) for a quick rundown of security options you have in SQL Database. See the [Security Center for SQL Server Database Engine and SQL Database](https://msdn.microsoft.com/library/bb510589) for a more comprehensive view of security features. And visit the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/) for information about Azure's platform security.
+SQL Server has a tradition of data security that SQL Database upholds with features that limit access, protect data, and help you monitor activity. See [Securing your SQL database](sql-database-security-overview.md) for a quick rundown of security options you have in SQL Database. See the [Security Center for SQL Server Database Engine and SQL Database](https://msdn.microsoft.com/library/bb510589) for a more comprehensive view of security features. And visit the [Azure Trust Center](https://azure.microsoft.com/support/trust-center/security/) for information about Azure's platform security.
 
 ## Next steps
 Now that you've read an introduction to SQL Database and answered the question "What is SQL Database?", you're ready to:
