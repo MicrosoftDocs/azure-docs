@@ -14,7 +14,7 @@ ms.workload: data-management
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/20/2016
+ms.date: 12/22/2016
 ms.author: jingwang;kevin;barbkess
 
 ---
@@ -116,17 +116,17 @@ Now you tell Data Factory about the on-premises SQL Server database from which y
 6. Click **Next**.
 
 ## Configure the performance settings
-In the Performance configurations, you configure an Azure storage account to use for staging the data before it loads into SQL Data Warehouse performantly using [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). After the copy is done, the interim data in storage will be cleaned up automatically.
+In the Performance configurations, you configure an Azure storage account used for staging the data before it loads into SQL Data Warehouse performantly using [PolyBase](sql-data-warehouse-best-practices.md#use-polybase-to-load-and-export-data-quickly). After the copy is done, the interim data in storage will be cleaned up automatically.
 
-1. Select an existing Azure Storage account, and click **Next**.
+Select an existing Azure Storage account, and click **Next**.
 
-	![Configure staging blob](media/sql-data-warehouse-load-with-data-factory/configure-staging-blob.png)
+![Configure staging blob](media/sql-data-warehouse-load-with-data-factory/configure-staging-blob.png)
 
 ## Review summary information and deploy the pipeline
 
-1. Review the configuration and click **Finish** button to deploy the pipeline.
+Review the configuration and click **Finish** button to deploy the pipeline.
 
-	![Deploy data factory](media/sql-data-warehouse-load-with-data-factory/deploy-data-factory.png)
+![Deploy data factory](media/sql-data-warehouse-load-with-data-factory/deploy-data-factory.png)
 
 ## Monitor data loading progress
 
@@ -140,7 +140,7 @@ You can see the deployment progress and results in the **Deployment** page.
 
 	![View pipeline](media/sql-data-warehouse-load-with-data-factory/view-pipeline.png)
 
-3. Click into the pipeline to see the detailed status for each table that maps to an Activity.
+3. Click into the pipeline in the middle panel to see the detailed status for each table that maps to an Activity.
 
 	![View table activity](media/sql-data-warehouse-load-with-data-factory/view-table-activity.png)
 

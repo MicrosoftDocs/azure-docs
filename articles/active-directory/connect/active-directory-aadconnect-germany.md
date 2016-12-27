@@ -47,7 +47,7 @@ Once you have signed in to the Azure portal, do the following:
 
 You should see the following:
 
-![Azure AD Connect Blade](media\\active-directory-aadconnect-germany\\germany1.png)
+![Azure AD Connect Blade](media/active-directory-aadconnect-germany/germany1.png)
 
 The following table describes the features shown in the blade.
 
