@@ -1,6 +1,6 @@
 ---
 title: Azure SQL Database In-Memory technologies | Microsoft Docs
-description: SQL In-Memory technologies greatly improve the performance of transactional and analytics workloads. Learn how to take advantage of these technologies.
+description: Azure SQL Database In-Memory technologies greatly improve the performance of transactional and analytics workloads. Learn how to take advantage of these technologies.
 services: sql-database
 documentationCenter: ''
 authors: jodebrui
@@ -20,7 +20,9 @@ ms.author: jodebrui
 
 # Optimize performance by using In-Memory technologies in SQL Database
 
-By using In-Memory technologies in Azure SQL Database, you can achieve performance improvements with various workloads: transactional (online transactional processing (OLTP)), analytics (online analytical processing (OLAP)), as well as mixed (hybrid transaction/analytical processing (HTAP)). Because of the more efficient query and transaction processing, In-Memory technologies also help you to reduce cost. You typically don't need to upgrade the pricing tier of the database to achieve performance gains. In some cases, you might even be able reduce the pricing tier, while still seeing performance improvements with In-Memory technologies.
+By using In-Memory technologies in Azure SQL Database, you can achieve performance improvements with various workloads: transactional (online transactional processing (OLTP)), analytics (online analytical processing (OLAP)), and mixed (hybrid transaction/analytical processing (HTAP)). Because of the more efficient query and transaction processing, In-Memory technologies also help you to reduce cost. You typically don't need to upgrade the pricing tier of the database to achieve performance gains. In some cases, you might even be able reduce the pricing tier, while still seeing performance improvements with In-Memory technologies.
+
+Here are two examples of how In-Memory OLTP helped to significantly improve performance:
 
 - By using In-Memory OLTP, [Quorum Business Solutions was able to double their workload while improving DTUs (i.e., resource consumption) by 70%](https://customers.microsoft.com/en-US/story/quorum-doubles-key-databases-workload-while-lowering-dtu-with-sql-database).
 - The following video demonstrates significant improvement in resource consumption with a sample workload: [In-Memory OLTP in Azure SQL Database](https://channel9.msdn.com/Shows/Data-Exposed/In-Memory-OTLP-in-Azure-SQL-DB).
@@ -37,8 +39,8 @@ Azure SQL Database has the following In-Memory technologies:
 
 - *In-Memory OLTP* increases throughput and reduces latency for transaction processing. Scenarios that benefit from In-Memory OLTP are: high-throughput transaction processing such as trading and gaming, data ingestion from events or IoT devices, caching, data load, and temporary table and table variable scenarios.
 - *Clustered columnstore indexes* reduce your storage footprint (up to 10 times) and improve performance for reporting and analytics queries. You can use it with fact tables in your data marts to fit more data in your database and improve performance. Also, you can use it with historical data in your operational database to archive and be able to query up to 10 times more data.
-- *Nonclustered columnstore indexes* for HTAP help you to gain real-time insights into your business through querying the operational database directly, without the need to run an expensive Extract, Transform, and Load (ETL) process and wait for the data warehouse to be populated. Nonclustered columnstore indexes allow very fast execution of analytics queries on the OLTP database, while reducing the impact on the operational workload.
-- You can also combine In-Memory OLTP and columnstore indexes. You can have a memory-optimized table with a columnstore index, which allows you to both perform very fast transaction processing and run analytics queries very quickly on the same data.
+- *Nonclustered columnstore indexes* for HTAP help you to gain real-time insights into your business through querying the operational database directly, without the need to run an expensive extract, transform, and load (ETL) process and wait for the data warehouse to be populated. Nonclustered columnstore indexes allow very fast execution of analytics queries on the OLTP database, while reducing the impact on the operational workload.
+- You can also combine In-Memory OLTP and columnstore indexes. You can have a memory-optimized table with a columnstore index. This allows you to both perform very fast transaction processing and run analytics queries very quickly on the same data.
 
 Both columnstore indexes and In-Memory OLTP have been part of the SQL Server product since 2012 and 2014, respectively. Azure SQL Database and SQL Server share the same implementation of In-Memory technologies. Going forward, new capabilities for these technologies are released in Azure SQL Database first, before they are released in SQL Server.
 
@@ -53,9 +55,7 @@ In-depth information about the technologies:
 - [Columnstore Indexes Guide](https://msdn.microsoft.com/library/gg492088.aspx)
 - Hybrid transactional/analytical processing (HTAP), also known as [real-time operational analytics](https://msdn.microsoft.com/library/dn817827.aspx)
 
-A quick primer on In-Memory OLTP:
-
-- [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](http://msdn.microsoft.com/library/mt694156.aspx) (another article to help you get started)
+A quick primer on In-Memory OLTP: [Quick Start 1: In-Memory OLTP Technologies for Faster T-SQL Performance](http://msdn.microsoft.com/library/mt694156.aspx) (another article to help you get started)
 
 In-depth videos about the technologies:
 
@@ -67,27 +67,25 @@ In-depth videos about the technologies:
 
 ### Data size and storage cap for In-Memory OLTP
 
-In-Memory OLTP includes memory-optimized tables, which are used for storing user data. These tables are required to fit in memory. Because you manage memory directly in the SQL Database service, we have the  concept of a quota for user data, which is referred to as *In-Memory OLTP storage*.
+In-Memory OLTP includes memory-optimized tables, which are used for storing user data. These tables are required to fit in memory. Because you manage memory directly in the SQL Database service, we have the  concept of a quota for user data. This idea is referred to as *In-Memory OLTP storage*.
 
 Each supported standalone database pricing tier and each elastic pool pricing tier includes a certain amount of In-Memory OLTP storage. At the time of writing, you get a gigabyte of storage for every 125 database transaction units (DTUs) or elastic database transaction units (eDTUs).
 
 The [SQL Database service tiers](sql-database-service-tiers.md) article has the official list of the In-Memory OLTP storage that is available for each supported standalone database and elastic pool pricing tier.
 
-The following counts towards your In-Memory OLTP storage cap:
+The following counts toward your In-Memory OLTP storage cap:
 
-- Active user data rows in memory-optimized tables and table variables. Note that old row versions don't count towards the cap.
+- Active user data rows in memory-optimized tables and table variables. Note that old row versions don't count toward the cap.
 - Indexes on memory-optimized tables.
 - Operational overhead of ALTER TABLE operations.
 
 If you hit the cap, you'll receive an out-of-quota error and will no longer be able to insert or update data. To mitigate this, delete data or increase the pricing tier of the database or pool.
 
-For details about monitoring In-Memory OLTP storage utilization and configuring alerts when you almost hit the cap, see:
-
-- [Monitor In-Memory storage](sql-database-in-memory-oltp-monitoring.md)
+For details about monitoring In-Memory OLTP storage utilization and configuring alerts when you almost hit the cap, see [Monitor In-Memory storage](sql-database-in-memory-oltp-monitoring.md).
 
 #### About elastic pools
 
-With elastic pools, the In-Memory OLTP storage is shared across all databases in the pool. Therefore, the usage in one database can potentially impact other databases. Two mitigations for this are:
+With elastic pools, the In-Memory OLTP storage is shared across all databases in the pool. Therefore, the usage in one database can potentially affect other databases. Two mitigations for this are:
 
 - Configure a Max-eDTU for databases that is lower than the eDTU count for the pool as a whole. This caps the In-Memory OLTP storage utilization in any database in the pool to the size that corresponds to the eDTU count.
 - Configure a Min-eDTU that is greater than 0. This guarantees that each database in the pool has the amount of available In-Memory OLTP storage that corresponds to the configured Min-eDTU.
@@ -110,7 +108,7 @@ You don't need to have special considerations for increasing the pricing tier fo
 
 *Downgrading to Basic/Standard*: In-Memory OLTP isn't supported in databases in the Standard or Basic tier. In addition, it isn't possible to move a database that has any In-Memory OLTP objects to the Standard or Basic tier.
 
-- Before you downgrade the database to Standard/Basic, remove all memory-optimized tables and table types, as well as all natively compiled T-SQL modules.
+Before you downgrade the database to Standard/Basic, remove all memory-optimized tables and table types, as well as all natively compiled T-SQL modules.
 
 There is a programmatic way to understand whether a given database supports In-Memory OLTP. You can execute the following Transact-SQL query:
 
@@ -127,7 +125,7 @@ If the query returns **1**, In-Memory OLTP is supported in this database.
 
 *Downgrading to Basic/Standard*: Columnstore indexes aren't supported in databases in the Standard or Basic tier. When you downgrade a database to Standard/Basic, columnstore indexes will become unavailable. If you use a clustered columnstore index, this means that the table as a whole becomes unavailable.
 
-- Before you downgrade the database to Standard/Basic, drop all clustered columnstore indexes.
+Before you downgrade the database to Standard/Basic, drop all clustered columnstore indexes.
 
 *Downgrading to a lower Premium tier*: This will succeed as long as the database as a whole fits within the maximum database size for the target pricing tier or available storage in the elastic pool. There is no specific impact from the columnstore indexes.
 
@@ -136,7 +134,7 @@ If the query returns **1**, In-Memory OLTP is supported in this database.
 
 &nbsp;
 
-## A. Install the In-Memory OLTP sample
+## 1. Install the In-Memory OLTP sample
 
 You can create the AdventureWorksLT [V12] sample database with a few clicks in the [Azure portal](https://portal.azure.com/). Then, the steps in this section explain how you can enrich your AdventureWorksLT database with In-Memory OLTP objects and demonstrate performance benefits.
 
@@ -147,16 +145,13 @@ For a more simplistic, but more visually appealing performance demo for In-Memor
 
 #### Installation steps
 
-1. In the [Azure portal](https://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database.
- - For detailed instructions, see [Create your first Azure SQL database](sql-database-get-started.md).
+1. In the [Azure portal](https://portal.azure.com/), create a Premium database on a V12 server. Set the **Source** to the AdventureWorksLT [V12] sample database. For detailed instructions, see [Create your first Azure SQL database](sql-database-get-started.md).
 
 2. Connect to the database with SQL Server Management Studio [(SSMS.exe)](http://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Copy the [In-Memory OLTP Transact-SQL script](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) to your clipboard.
- - The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database that you created in step 1.
+3. Copy the [In-Memory OLTP Transact-SQL script](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) to your clipboard. The T-SQL script creates the necessary In-Memory objects in the AdventureWorksLT sample database that you created in step 1.
 
-4. Paste the T-SQL script into SSMS, and then execute the script.
- - The `MEMORY_OPTIMIZED = ON` clause CREATE TABLE statements are crucial. For example:
+4. Paste the T-SQL script into SSMS, and then execute the script. The `MEMORY_OPTIMIZED = ON` clause CREATE TABLE statements are crucial. For example:
 
 
 ```
@@ -178,9 +173,7 @@ SELECT DatabasePropertyEx(DB_Name(), 'IsXTPSupported');
 ```
 
 
-A result of **0** means that In-Memory isn't supported, and **1** means that it is supported. To diagnose the problem:
-
-- Ensure that the database is at the Premium service tier.
+A result of **0** means that In-Memory isn't supported, and **1** means that it is supported. To diagnose the problem, ensure that the database is at the Premium service tier.
 
 
 #### About the created memory-optimized items
@@ -194,9 +187,7 @@ A result of **0** means that In-Memory isn't supported, and **1** means that it 
 - Demo.DemoSalesOrderDetailSeed
 
 
-You can inspect memory-optimized tables through the **Object Explorer** in SSMS:
-
-- Right-click **Tables** > **Filter** > **Filter Settings** > **Is Memory Optimized**. The value equals 1.
+You can inspect memory-optimized tables through the **Object Explorer** in SSMS. Right-click **Tables** > **Filter** > **Filter Settings** > **Is Memory Optimized**. The value equals 1.
 
 
 Or you can query the catalog views, such as:
@@ -229,7 +220,7 @@ The only difference between the following two *stored procedures* is that the fi
 - SalesLT**.**usp_InsertSalesOrder**_ondisk**
 
 
-In this section, you see how to use the handy **ostress.exe** utility to execute the two stored procedures at stressful levels. You can compare how long it takes for the two stress runs to complete.
+In this section, you see how to use the handy **ostress.exe** utility to execute the two stored procedures at stressful levels. You can compare how long it takes for the two stress runs to finish.
 
 
 When you run ostress.exe, we recommend that you pass parameter values designed for both of the following:
@@ -286,7 +277,7 @@ To make the *_ondisk* version of the preceding T-SQL script for ostress.exe, you
 Ideally, you would plan to run ostress.exe on an Azure virtual machine (VM). You would create an [Azure VM](https://azure.microsoft.com/documentation/services/virtual-machines/) in the same Azure geographic region where your AdventureWorksLT database resides. But you can run ostress.exe on your laptop instead.
 
 
-On the VM, or on whatever host you choose, install the Replay Markup Language (RML) utilities, which include ostress.exe.
+On the VM, or on whatever host you choose, install the Replay Markup Language (RML) utilities. The utilities include ostress.exe.
 
 For more information, see:
 - The ostress.exe discussion in [Sample Database for In-Memory OLTP](http://msdn.microsoft.com/library/mt465764.aspx).
@@ -339,7 +330,7 @@ EXECUTE Demo.usp_DemoReset;
 #### Result is a duration
 
 
-When ostress.exe completes, it writes the run duration as its final line of output in the RML Cmd window. For example, a shorter test run lasted about 1.5 minutes:
+When ostress.exe finishes, it writes the run duration as its final line of output in the RML Cmd window. For example, a shorter test run lasted about 1.5 minutes:
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
@@ -366,17 +357,14 @@ EXECUTE Demo.usp_DemoReset;
 
 Our In-Memory tests have shown that performance improved by **nine times** for this simplistic workload, with ostress running on an Azure VM in the same Azure region as the database.
 
-
-
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
 
 &nbsp;
 
+## 2. Install the In-Memory Analytics sample
 
-## B. Install the In-Memory Analytics sample
 
-
-In this section, you compare the IO and Statistics results when you're using a columnstore index versus a traditional b-tree index.
+In this section, you compare the IO and statistics results when you're using a columnstore index versus a traditional b-tree index.
 
 
 For real-time analytics on an OLTP workload, it's often best to use a nonclustered columnstore index. For details, see [Columnstore Indexes Described](http://msdn.microsoft.com/library/gg492088.aspx).
@@ -395,11 +383,11 @@ For real-time analytics on an OLTP workload, it's often best to use a noncluster
  - The script creates the Dimension table and two fact tables. The fact tables are populated with 3.5 million rows each.
  - The script might take 15 minutes to complete.
 
-3. Paste the T-SQL script into SSMS, and then execute the script.
- - The **COLUMNSTORE** keyword in the **CREATE INDEX** statement is crucial, as in:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
+3. Paste the T-SQL script into SSMS, and then execute the script. The **COLUMNSTORE** keyword in the **CREATE INDEX** statement is crucial, as in:<br/>`CREATE NONCLUSTERED COLUMNSTORE INDEX ...;`
 
 4. Set AdventureWorksLT to compatibility level 130:<br/>`ALTER DATABASE AdventureworksLT SET compatibility_level = 130;`
- - Level 130 is not directly related to In-Memory features. But level 130 generally provides faster query performance than 120.
+
+    Level 130 is not directly related to In-Memory features. But level 130 generally provides faster query performance than 120.
 
 
 #### Key tables and columnstore indexes
@@ -413,7 +401,7 @@ For real-time analytics on an OLTP workload, it's often best to use a noncluster
 #### Key queries to compare the columnstore index
 
 
-There are [several T-SQL query types that you can run](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) to see performance improvements. In Step 2 in the T-SQL script, pay attention to this pair of queries. They differ only on one line:
+There are [several T-SQL query types that you can run](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) to see performance improvements. In step 2 in the T-SQL script, pay attention to this pair of queries. They differ only on one line:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
