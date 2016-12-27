@@ -38,10 +38,10 @@ The following example shows how to deploy a Debian VM and attach your Secure She
 
 ## Create a resource group
 
-First, type [az resource group create](/cli/azure/resource/group#create) to create your resource group that contains all deployed resources:
+First, type [az group create](/cli/azure/group#create) to create your resource group that contains all deployed resources:
 
 ```azurecli
-az resource group create -n myResourceGroup -l westus
+az group create -n myResourceGroup -l westus
 ```
 
 The output looks like the following (you can choose a different `--output` option if you wish):
