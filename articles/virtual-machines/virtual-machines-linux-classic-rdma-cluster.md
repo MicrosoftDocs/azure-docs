@@ -22,16 +22,16 @@ ms.author: danlep
 Learn how to set up a Linux RDMA cluster in Azure with [H-series or compute-intensive A-series VMs](virtual-machines-linux-a8-a9-a10-a11-specs.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) to run parallel Message Passing Interface (MPI) applications. This article provides steps to prepare a Linux HPC image to run Intel MPI on a cluster. After preparation, you deploy a cluster of VMs using this image and one of the RDMA-capable Azure VM sizes (currently H16r, H16mr, A8, or A9). Use the cluster to run MPI applications that communicate efficiently over a low latency, high-throughput network based on remote direct memory access (RDMA) technology.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and Classic. This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Cluster deployment options
 Following are methods you can use to create a Linux RDMA cluster with or without a job scheduler.
 
-* **Azure CLI scripts**--As shown later in this article, use the [Azure Command-Line Interface](../xplat-cli-install.md) (CLI) to script the deployment of a cluster of RDMA-capable VMs. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so deploying many compute nodes might take several minutes. To enable the RDMA network connection when you use the classic deployment model, deploy the VMs in the same cloud service.
-* **Azure Resource Manager templates**--You can also use the Resource Manager deployment model to deploy a cluster of RDMA-capable VMs that connects to the RDMA network. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster. To enable the RDMA network connection when you use the Resource Manager deployment model, deploy the VMs in the same availability set.
-* **HPC Pack**--Create a Microsoft HPC Pack cluster in Azure and add RDMA-capable compute nodes that run a supported Linux distribution to access the RDMA network. For more information see [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
+* **Azure CLI scripts**: As shown later in this article, use the [Azure command-line interface](../xplat-cli-install.md) (CLI) to script the deployment of a cluster of RDMA-capable VMs. The CLI in Service Management mode creates the cluster nodes serially in the classic deployment model, so deploying many compute nodes might take several minutes. To enable the RDMA network connection when you use the classic deployment model, deploy the VMs in the same cloud service.
+* **Azure Resource Manager templates**: You can also use the Resource Manager deployment model to deploy a cluster of RDMA-capable VMs that connects to the RDMA network. You can [create your own template](../resource-group-authoring-templates.md), or check the [Azure quickstart templates](https://azure.microsoft.com/documentation/templates/) for templates contributed by Microsoft or the community to deploy the solution you want. Resource Manager templates can provide a fast and reliable way to deploy a Linux cluster. To enable the RDMA network connection when you use the Resource Manager deployment model, deploy the VMs in the same availability set.
+* **HPC Pack**: Create a Microsoft HPC Pack cluster in Azure and add RDMA-capable compute nodes that run a supported Linux distribution to access the RDMA network. For more information, see [Get started with Linux compute nodes in an HPC Pack cluster in Azure](virtual-machines-linux-classic-hpcpack-cluster.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json).
 
-## Sample deployment steps in classic model
+## Sample deployment steps in the classic model
 The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterprise Server (SLES) 12 SP1 HPC VM from the Azure Marketplace, customize it, and create a custom VM image. Then you can use the image to script the deployment of a cluster of RDMA-capable VMs.
 
 > [!TIP]
@@ -40,11 +40,11 @@ The following steps show how to use the Azure CLI to deploy a SUSE Linux Enterpr
 >
 
 ### Prerequisites
-* **Client computer**--You need a Mac, Linux, or Windows-based client computer to communicate with Azure. These steps assume you are using a Linux client.
-* **Azure subscription**--If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options.
-* **VM size availability**--The following instance sizes are RDMA capable: H16r, H16mr, A8, and A9. Check [Products available by region](https://azure.microsoft.com/regions/services/) for availability in Azure regions.
-* **Cores quota**--You might need to increase the quota of cores to deploy a cluster of compute-intensive VMs. For example, you need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the H-series. To request a quota increase, [open an online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
-* **Azure CLI**--[Install](../xplat-cli-install.md) the Azure CLI and [connect to your Azure subscription](../xplat-cli-connect.md) from the client computer.
+* **Client computer**: You need a Mac, Linux, or Windows-based client computer to communicate with Azure. These steps assume you are using a Linux client.
+* **Azure subscription**: If you don't have a subscription, you can create a [free account](https://azure.microsoft.com/free/) in just a couple of minutes. For larger clusters, consider a pay-as-you-go subscription or other purchase options.
+* **VM size availability**: The following instance sizes are RDMA capable: H16r, H16mr, A8, and A9. Check [Products available by region](https://azure.microsoft.com/regions/services/) for availability in Azure regions.
+* **Cores quota**: You might need to increase the quota of cores to deploy a cluster of compute-intensive VMs. For example, you need at least 128 cores if you want to deploy 8 A9 VMs as shown in this article. Your subscription might also limit the number of cores you can deploy in certain VM size families, including the H-series. To request a quota increase, [open an online customer support request](../azure-supportability/how-to-create-azure-support-request.md) at no charge.
+* **Azure CLI**: [Install](../xplat-cli-install.md) the Azure CLI and [connect to your Azure subscription](../xplat-cli-connect.md) from the client computer.
 
 ### Provision an SLES 12 SP1 HPC VM
 After signing in to Azure with the Azure CLI, run `azure config list` to confirm that the output shows Service Management mode. If it does not, set the mode by running this command:
@@ -83,16 +83,16 @@ After the VM finishes provisioning, SSH to the VM by using the VM's external IP 
 >
 >
 
-* **Updates**--Install updates by using zypper. You might also want to install NFS utilities.
+* **Updates**: Install updates by using zypper. You might also want to install NFS utilities.
 
   > [!IMPORTANT]
   > In a SLES 12 SP1 HPC VM, we recommend that you don't apply kernel updates, which can cause issues with the Linux RDMA drivers.
   >
   >
-* **Intel MPI**--Complete the installation of Intel MPI on the SLES 12 SP1 HPC VM by running the following command:
+* **Intel MPI**: Complete the installation of Intel MPI on the SLES 12 SP1 HPC VM by running the following command:
 
         sudo rpm -v -i --nodeps /opt/intelMPI/intel_mpi_packages/*.rpm
-* **Lock memory**--For MPI codes to lock the memory available for RDMA, add or change the following settings in the /etc/security/limits.conf file. You need root access to edit this file.
+* **Lock memory**: For MPI codes to lock the memory available for RDMA, add or change the following settings in the /etc/security/limits.conf file. You need root access to edit this file.
 
     ```
     <User or group name> hard    memlock <memory required for your application in KB>
@@ -104,7 +104,7 @@ After the VM finishes provisioning, SSH to the VM by using the VM's external IP 
   > For testing purposes, you can also set memlock to unlimited. For example: `<User or group name>    hard    memlock unlimited`. For more information, see [Best known methods for setting locked memory size](https://software.intel.com/en-us/blogs/2014/12/16/best-known-methods-for-setting-locked-memory-size).
   >
   >
-* **SSH keys for SLES VMs**--Generate SSH keys to establish trust for your user account among the compute nodes in the SLES cluster when running MPI jobs. If you deployed a CentOS-based HPC VM, don't follow this step. See instructions later in this article to set up passwordless SSH trust among the cluster nodes after you capture the image and deploy the cluster.
+* **SSH keys for SLES VMs**: Generate SSH keys to establish trust for your user account among the compute nodes in the SLES cluster when running MPI jobs. If you deployed a CentOS-based HPC VM, don't follow this step. See instructions later in this article to set up passwordless SSH trust among the cluster nodes after you capture the image and deploy the cluster.
 
     Run the following command to create SSH keys. When you are prompted for input, select **Enter** to generate the keys in the default location without setting a password.
 
@@ -131,10 +131,10 @@ After the VM finishes provisioning, SSH to the VM by using the VM's external IP 
     ```
 
   > [!NOTE]
-  > Configuring `StrictHostKeyChecking no` can create a potential security risk when a specific IP address or range is not specified. 
+  > Configuring `StrictHostKeyChecking no` can create a potential security risk when a specific IP address or range is not specified.
   >
   >
-* **Applications**--Install any applications you need or perform other customizations before you capture the image.
+* **Applications**: Install any applications you need or perform other customizations before you capture the image.
 
 ### Capture the image
 To capture the image, first run the following command on the Linux VM. This command deprovisions the VM but maintains user accounts and SSH keys that you set up.
