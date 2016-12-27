@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: java
 ms.topic: hero-article
-ms.date: 12/25/2016
+ms.date: 12/27/2016
 ms.author: arramac
 
 ---
@@ -30,7 +30,7 @@ ms.author: arramac
 
 Welcome to the NoSQL tutorial for the Azure DocumentDB Java SDK! After following this tutorial, you'll have a console application that creates and queries DocumentDB resources.
 
-We'll cover:
+We cover:
 
 * Creating and connecting to a DocumentDB account
 * Configuring your Visual Studio Solution
@@ -47,7 +47,7 @@ We'll cover:
 Now let's get started!
 
 ## Prerequisites
-Please make sure you have the following:
+Make sure you have the following:
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/free/). Alternatively, you can use the [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) for this tutorial.
 * [Git](https://git-scm.com/downloads)
@@ -55,18 +55,18 @@ Please make sure you have the following:
 * [Maven](http://maven.apache.org/download.cgi).
 
 ## Step 1: Create a DocumentDB account
-Let's create a DocumentDB account. If you already have an account you want to use, you can skip ahead to [Clone the Github project](#GitClone). If you are using the DocumentDB Emulator, please follow the steps at [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) to setup the emulator and skip ahead to [Clone the Github project](#GitClone).
+Let's create a DocumentDB account. If you already have an account you want to use, you can skip ahead to [Clone the Github project](#GitClone). If you are using the DocumentDB Emulator, follow the steps at [Azure DocumentDB Emulator](documentdb-nosql-local-emulator.md) to set up the emulator and skip ahead to [Clone the Github project](#GitClone).
 
 [!INCLUDE [documentdb-create-dbaccount](../../includes/documentdb-create-dbaccount.md)]
 
 ## <a id="GitClone"></a>Step 2: Clone the Github project
-You can get started by cloning the Github repository for [Get Started with DocumentDB and Java](https://github.com/arramac/documentdb-java-getting-started). For example, from a local directory run the following to retrieve the sample project locally
+You can get started by cloning the Github repository for [Get Started with DocumentDB and Java](https://github.com/arramac/documentdb-java-getting-started). For example, from a local directory run the following to retrieve the sample project locally.
 
     git clone git@github.com:arramac/documentdb-java-getting-started.git
 
     cd documentdb-java-getting-started
 
-You will find a `pom.xml` for the project and a `src` folder containing Java source code including `Program.java` which shows how to interact with DocumentDB and perform simple operations like creating documents and querying data within a collection. The `pom.xml` includes a dependency on the [DocumentDB Java SDK on Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
+The directory contains a `pom.xml` for the project and a `src` folder containing Java source code including `Program.java` which shows how perform simple operations with Azure DocumentDB like creating documents and querying data within a collection. The `pom.xml` includes a dependency on the [DocumentDB Java SDK on Maven](https://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb).
 
     <dependency>
         <groupId>com.microsoft.azure</groupId>
@@ -96,7 +96,7 @@ Your DocumentDB [database](documentdb-resources.md#databases) can be created by 
 
 ## <a id="CreateColl"></a>Step 5: Create a collection
 > [!WARNING]
-> **createCollection** will create a new collection with reserved throughput, which has pricing implications. For more details, please visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
+> **createCollection** creates a new collection with reserved throughput, which has pricing implications. For more details, visit our [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).
 > 
 > 
 
@@ -114,7 +114,7 @@ A [collection](documentdb-resources.md#collections) can be created by using the 
     this.client.createCollection("/dbs/familydb", collectionInfo, requestOptions);
 
 ## <a id="CreateDoc"></a>Step 6: Create JSON documents
-A [document](documentdb-resources.md#documents) can be created by using the [createDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDocument-java.lang.String-java.lang.Object-com.microsoft.azure.documentdb.RequestOptions-boolean-) method of the **DocumentClient** class. Documents are user defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use DocumentDB's [Data Migration tool](documentdb-import-data.md) to import the data into a database.
+A [document](documentdb-resources.md#documents) can be created by using the [createDocument](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#createDocument-java.lang.String-java.lang.Object-com.microsoft.azure.documentdb.RequestOptions-boolean-) method of the **DocumentClient** class. Documents are user-defined (arbitrary) JSON content. We can now insert one or more documents. If you already have data you'd like to store in your database, you can use DocumentDB's [Data Migration tool](documentdb-import-data.md) to import the data into a database.
 
     // Insert your Java objects as documents 
     Family andersenFamily = new Family();
@@ -137,7 +137,7 @@ A [document](documentdb-resources.md#documents) can be created by using the [cre
 ![Diagram illustrating the hierarchical relationship between the account, the online database, the collection, and the documents used by the NoSQL tutorial to create a Java console application](./media/documentdb-get-started/nosql-tutorial-account-database.png)
 
 ## <a id="Query"></a>Step 7: Query DocumentDB resources
-DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documents stored in each collection.  The following sample code shows how to query documents in DocumentDB using SQL syntaxwith the [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-) method.
+DocumentDB supports rich [queries](documentdb-sql-query.md) against JSON documents stored in each collection.  The following sample code shows how to query documents in DocumentDB using SQL syntax with the [queryDocuments](http://azure.github.io/azure-documentdb-java/com/microsoft/azure/documentdb/DocumentClient.html#queryDocuments-java.lang.String-com.microsoft.azure.documentdb.SqlQuerySpec-com.microsoft.azure.documentdb.FeedOptions-) method.
 
     FeedResponse<Document> queryResults = this.client.queryDocuments(
         "/dbs/familydb/colls/familycoll",
@@ -166,7 +166,7 @@ Similarly, DocumentDB supports deleting JSON documents using the [deleteDocument
     this.client.delete("/dbs/familydb/colls/familycoll/docs/Andersen.1", null);
 
 ## <a id="DeleteDatabase"></a>Step 10: Delete the database
-Deleting the created database will remove the database and all children resources (collections, documents, etc.).
+Deleting the created database removes the database and all children resources (collections, documents, etc.).
 
     this.client.deleteDatabase("/dbs/familydb", null);
 
@@ -175,7 +175,7 @@ To run the application from the console, first compile using Maven:
     
     mvn package
 
-This will download the latest DocumentDB library from Maven and produce `GetStarted-0.0.1-SNAPSHOT.jar`. Then run the app by running:
+Running `mvn package` downloads the latest DocumentDB library from Maven and produces `GetStarted-0.0.1-SNAPSHOT.jar`. Then run the app by running:
 
     mvn exec:java -D exec.mainClass=GetStarted.Program
 
