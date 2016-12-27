@@ -52,8 +52,8 @@ When opening a failed job in ADL Tools for Visual Studio, you will get an alert.
 
 3. Debugging steps are little different between failed jobs with code behind and assemblies.
 
-    - [Debug job failed with code behind](##Debug job failed with code behind)
-    - [Debug job failed with assemblies](##Debug job failed with assemblies)
+    - [Debug job failed with code behind](#Debug job failed with code behind)
+    - [Debug job failed with assemblies](#Debug job failed with assemblies)
 
 ![Azure Data Lake Analytics U-SQL debug visual studio download vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
