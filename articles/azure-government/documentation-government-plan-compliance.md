@@ -36,15 +36,15 @@ The Azure Blueprint CRM is designed for utility. It is a spreadsheet format that
 
 The CRM provides the explicit <a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf"> NIST SP 800-53 Revision 4 </a> controls that include a customer responsibility. This includes controls that are fully the responsibility of the customer, as well as controls that have a shared responsibility between the customer and Azure. Controls are broken down to the granularity of control sub requirements to be as explicit as possible.
 
-For example, AC-1 requires access control  policies and procedures be documented for the system seeking ATO. For this control, Azure has internal policies and procedures regarding access control mechanisms used to manage the Azure Infrastructure and Platform. Customers must also create their own Access Control policies and procedures used within their specific system built on Azure. The CRM documents control parts AC-1a, which requires the policies and procedures to include specific content, as well as AC-1b, which requires customers to review and update these documents on at least an annual basis. 
+For example, AC-1 requires access control policies and procedures be documented for the system seeking ATO. For this control, Azure has internal policies and procedures regarding access control mechanisms used to manage the Azure Infrastructure and Platform. Customers must also create their own Access Control policies and procedures used within their specific system built on Azure. The CRM documents control parts AC-1a, which requires the policies and procedures to include specific content, as well as AC-1b, which requires customers to review and update these documents on at least an annual basis. 
 
-For access to the CRM as well as the Azure Blueprint System Security Plan Template, please e-mail AzureBlueprint@microsoft.com.
+For access to the CRM as well as the Azure Blueprint System Security Plan Template, e-mail AzureBlueprint@microsoft.com.
 
 We value any feedback on the CRM as it is pivotal to our iteration of the document to make it as effective as possible in streamlining customer ATO processes.
 
 ## Azure Blueprint Implementation Guidance
-Azure Blueprint implementaiton guidance is designed to help cloud solution architects and security personnel understand how Azure Government services and features can be deployed to implement a subset of customer-responsibility FedRAMP and DoD security controls. 
-An array of documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Azure resources can be deployed using Azure Resource Manager (ARM) template [building blocks](https://github.com/mspnp/template-building-blocks), community-contributed Azure [Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/), or through use of [customer-authored](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) JSON-based ARM templates. The architecture of a basic deployment in Azure includes compute, networking, and storage resources. This deployment guide addresses how these resources can be deployed in ways that help meet security control implementation requirements.
+Azure Blueprint implementation guidance is designed to help cloud solution architects and security personnel understand how Azure Government services and features can be deployed to implement a subset of customer-responsibility FedRAMP and DoD security controls. 
+An array of documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Azure resources can be deployed using Azure Resource Manager template [building blocks](https://github.com/mspnp/template-building-blocks), community-contributed Azure [Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/), or through use of [customer-authored](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) JSON-based Resource Manager templates. The architecture of a basic deployment in Azure includes compute, networking, and storage resources. This deployment guide addresses how these resources can be deployed in ways that help meet security control implementation requirements.
 
 ### Virtual Machines
 
@@ -84,7 +84,7 @@ Several Azure virtual machine extensions can be deployed to meet security contro
 
 *Additional tools and resources*
 
-Azure Resource Manager (ARM) template [building blocks](https://github.com/mspnp/template-building-blocks) that can be customized and used to deploy Azure resources, including deployment of [virtual machines](https://github.com/mspnp/template-building-blocks/tree/master/templates/buildingBlocks/multi-vm-n-nic-m-storage) and [virtual machine extensions](https://github.com/mspnp/template-building-blocks/tree/master/templates/buildingBlocks/virtualMachine-extensions). 
+Azure Resource Manager template [building blocks](https://github.com/mspnp/template-building-blocks) that can be customized and used to deploy Azure resources, including deployment of [virtual machines](https://github.com/mspnp/template-building-blocks/tree/master/templates/buildingBlocks/multi-vm-n-nic-m-storage) and [virtual machine extensions](https://github.com/mspnp/template-building-blocks/tree/master/templates/buildingBlocks/virtualMachine-extensions). 
 
 ### Virtual Network
 
@@ -118,7 +118,7 @@ Rulesets for network security groups enable restrictions on specific network por
 
 *Additional tools and resources*
 
-Documentation for the reference architecture above is available on the Azure [documentation site](https://docs.microsoft.com/en-us/azure/guidance/guidance-compute-n-tier-vm). Azure Resource Manager (ARM) templates to deploy the reference architecture are included on the same page. The Azure documentation site also contains detailed information regarding [network security groups](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) and [user defined routes](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview).
+Documentation for the reference architecture above is available on the Azure [documentation site](https://docs.microsoft.com/en-us/azure/guidance/guidance-compute-n-tier-vm). Azure Resource Manager templates to deploy the reference architecture are included on the same page. The Azure documentation site also contains detailed information regarding [network security groups](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-nsg) and [user defined routes](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-udr-overview).
 
 ### Storage
 
@@ -150,9 +150,9 @@ Azure Active Directory security groups and directory services can help implement
 
   > AC-2 (1) example control implementation statement: *Azure Active Directory is used to manage access by implementing Role-Based Access Control with the use of Active Directory groups. There are established requirements for account management and access to accounts on the domains supported by AAD. Access to member servers of the domain is only supported by security groups. Each group has a primary and a secondary owner. These owners are responsible for maintaining accuracy of the group membership, permission, and description.*
 
-  > AC-2 (2) example control implementation statement: *Azure Active Directory is used to manage control access to information systems. Account Administrators create temporary accounts following account management policy. These temporary accounts are required be set to expire in line with policy requirements.*
+  > AC-2 (2) example control implementation statement: *Azure Active Directory is used to manage control access to information systems. Account Administrators create temporary accounts following account management policy. These temporary accounts are required to be set to expire in line with policy requirements.*
 
-  > AC-2 (3) example control implementation statement: *Azure Active Directory manages control access to information systems. Account Administrators create temporary accounts following account management policy. These temporary accounts are required be set to expire in line with policy requirements.*
+  > AC-2 (3) example control implementation statement: *Azure Active Directory manages control access to information systems. Account Administrators create temporary accounts following account management policy. These temporary accounts are required to be set to expire in line with policy requirements.*
 
   >AC-2 (7) example control implementation statement: *Azure Active Directory manages control access to information systems in accordance with a role-based access scheme, which organizes information system privileges into roles that are assigned to security groups. Security Group Administrators are responsible for granting access to users for assigning users to the correct security group. Each security group is assigned permissions with the minimum appropriate access to properly fulfill their tasks.*
 
@@ -259,7 +259,7 @@ In addition to the core Azure services described above, several built-in feature
 
 > CM-8 example control implementation statement: *All customer-controlled resources deployed within belong to the “Customer-resources” resource group. Within the Azure portal, all deployed assets are identified within the resource group blade, ensuring an accurate, current, inventory. Tags are applied to resources, as necessary, to meet tracking and reporting requirements.*
 
-Azure Resource Manager (ARM) templates, allow customers to define the configuration of resources within their Azure deployment. ARM templates are JSON-based and use declarative syntax to document resources, configuration parameters, and other aspects of an Azure environment. ARM templates are generated automatically when Azure solutions are deployed from the Azure portal and can also be authored and edited manually to meet specific customer needs. These ARM templates can serve as a representation of the baseline configuration for an information system [NIST SP 800-53 control CM-2]. Existing ARM templates, such as the building blocks referenced above, can be customized to meet the needs of any deployment.
+Azure Resource Manager templates, allow customers to define the configuration of resources within their Azure deployment. Resource Manager templates are JSON-based and use declarative syntax to document resources, configuration parameters, and other aspects of an Azure environment. Resource Manager templates are generated automatically when Azure solutions are deployed from the Azure portal and can also be authored and edited manually to meet specific customer needs. These Resource Manager templates can serve as a representation of the baseline configuration for an information system [NIST SP 800-53 control CM-2]. Existing Resource Manager templates, such as the building blocks referenced above, can be customized to meet the needs of any deployment.
 
 > CM-2 example control implementation statement: *As a component of the information system baseline configuration, Azure resource manager templates are maintained, under configuration control, representing the deployed customer-controlled resources and configuration of information system components within Azure. These templates capture deployed resources, including virtual machines, storage, and network resources (including configurations of network resources that control network traffic entering, exiting, and within the customer Azure environment.*
 
