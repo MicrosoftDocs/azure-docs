@@ -76,6 +76,8 @@ This sample can be deployed from this document using this button:
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
 
+### Template schema
+
 The JSON used to deploy the OMS Agent VM extension looks like the following JSON example. Make sure to provide a valid workspace Id and key in the template. These values can be hard coded into the resource provided by a template parameter or variable.
 
 ```json
@@ -101,6 +103,14 @@ The JSON used to deploy the OMS Agent VM extension looks like the following JSON
 	}
 }
 ```
+
+### Property values
+
+| Name | Required | Type | Value / Example |
+| ---- | ---- | ---- | ---- |
+| apiVersion | Yes | String | 2015-06-15 |
+| workspaceId | Yes | String | Sample - 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey | Yes | String | Sample - z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
 ## PowerShell deployment
 
