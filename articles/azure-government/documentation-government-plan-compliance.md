@@ -251,7 +251,7 @@ Azure Active Directory group policy configurations can include security control 
 
 *Additional tools and resources*
 
-An array of documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Get started with Azure Active Directory by visiting the Microsoft Azure Docs page located here.
+Documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Get started with Azure Active Directory by visiting [Microsoft Azure Docs](https://docs.microsoft.com/en-us/azure/active-directory/).
 
 ### Additional Guidance
 
