@@ -13,11 +13,11 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/31/2016
+ms.date: 12/27/2016
 ms.author: dugill;tomfitz
 
 ---
-# How to use Azure Active Directory and Resource Manager to manage a customer’s resources
+# Use Resource Manager authentication API to access subscriptions
 ## Introduction
 If you are a software developer who needs to create an app that manages customer's Azure resources, this topic shows you how to authenticate with the Azure Resource Manager APIs and gain access to resources in other subscriptions. 
 
