@@ -25,7 +25,7 @@ There are many factors that affect MySQL performance on Azure, both in virtual h
 > Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For information about Linux VM optimizations with the Resource Manager model, see [Optimize your Linux VM on Azure](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Utilize RAID on an Azure virtual machine
-Storage is the key factor that affects database performance in cloud environments.  Compared to a single disk, RAID can provide faster access via concurrency.  Refer to [Standard RAID levels](http://en.wikipedia.org/wiki/Standard_RAID_levels) for more information.   
+Storage is the key factor that affects database performance in cloud environments. Compared to a single disk, RAID can provide faster access via concurrency. For more information, see [Standard RAID levels](http://en.wikipedia.org/wiki/Standard_RAID_levels).   
 
 Disk I/O throughput and I/O response time in Azure can be improved through RAID. Our lab tests show that disk I/O throughput can be doubled and I/O response time can be reduced by half on average when the number of RAID disks is doubled (from two to four, four to eight, etc.). See [Appendix A](#AppendixA) for details.  
 
@@ -116,7 +116,7 @@ Prior to the kernel 2.5, the default I/O scheduling algorithm is Deadline. Start
 The following example demonstrates how to check and set the default scheduler to the NOOP algorithm in the Debian distribution family.  
 
 ### View the current I/O scheduler
-Run the following command to view the scheduler:  
+To view the scheduler run the following command:  
 
     root@mysqlnode1:~# cat /sys/block/sda/queue/scheduler
 
@@ -192,7 +192,7 @@ To increase the maximum allowed concurrent handles, add the following four lines
     * hard nproc 65536
 
 ### Update the system for the new limits
-Run the following commands to update the system:  
+To update the system run the following commands:  
 
     ulimit -SHn 65536
     ulimit -SHu 65536
@@ -261,7 +261,8 @@ The following are sample performance test data produced in a targeted lab enviro
 
     fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=5G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 
-> [!NOTE] The workload of this test uses 64 threads, trying to reach the upper limit of RAID.
+> [!NOTE]
+> The workload of this test uses 64 threads, trying to reach the upper limit of RAID.
 >
 >
 
