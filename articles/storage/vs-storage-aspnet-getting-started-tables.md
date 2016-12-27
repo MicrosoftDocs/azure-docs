@@ -31,6 +31,8 @@ This tutorial shows how to write ASP.NET code for some common scenarios using Az
 * [Microsoft Visual Studio](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)
 * [Azure storage account](storage-create-storage-account.md#create-a-storage-account)
 
+[!INCLUDE [storage-table-concepts-include](../../includes/storage-table-concepts-include.md)]
+
 [!INCLUDE [storage-create-account-include](../../includes/vs-storage-aspnet-getting-started-create-azure-account.md)]
 
 [!INCLUDE [storage-development-environment-include](../../includes/vs-storage-aspnet-getting-started-setup-dev-env.md)]
@@ -95,7 +97,7 @@ The following steps illustrate how to create a table:
 
 > [!NOTE]
 > 
-> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+> This section assumes you have completed the steps in [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `TablesController.cs` file.
 
@@ -134,6 +136,7 @@ The following steps illustrate how to create a table:
     ```csharp
 	ViewBag.Success = table.CreateIfNotExists();
     ```
+
 1. Update the **ViewBag** with the name of the table.
 
     ```csharp
@@ -148,10 +151,10 @@ The following steps illustrate how to create a table:
 
     ```csharp
 	@{
-	    ViewBag.Title = "Create table";
+	    ViewBag.Title = "Create Table";
 	}
 	
-	<h2>Create table results</h2>
+	<h2>Create Table results</h2>
 
 	Creation of @ViewBag.TableName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
@@ -164,11 +167,11 @@ The following steps illustrate how to create a table:
 	<li>@Html.ActionLink("Create table", "CreateTable", "Tables")</li>
     ```
 
-1. Run the application, and select **Create table** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Create table** to see results similar to the following screen shot:
   
-	![Create table](./media/vs-storage-aspnet-getting-started-tables/results.png)
+	![Create table](./media/vs-storage-aspnet-getting-started-tables/create-table-results.png)
 
-	As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method returns **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the container can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
+	As mentioned previously, the **CloudTable.CreateIfNotExists** method returns **true** only when the table doesn't exist and is created. Therefore, if you run the app when the table exists, the method returns **false**. To run the app multiple times, you must delete the table before running the app again. Deleting the table can be done via the **CloudTable.Delete** method. You can also delete the table using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## Add an entity to a table
 
@@ -185,7 +188,7 @@ The entity class *must* declare a public parameter-less constructor.
 
 > [!NOTE]
 > 
-> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+> This section assumes you have completed the steps in [Set up the development environment](#set-up-the-development-environment).
 
 1. Open the `TablesController.cs` file.
 
@@ -274,7 +277,7 @@ The entity class *must* declare a public parameter-less constructor.
 	<li>@Html.ActionLink("Add entity", "AddEntity", "Tables")</li>
     ```
 
-1. Run the application, and select **Add entity** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Add entity** to see results similar to the following screen shot:
   
 	![Add entity](./media/vs-storage-aspnet-getting-started-tables/add-entity-results.png)
 
@@ -282,11 +285,11 @@ The entity class *must* declare a public parameter-less constructor.
 
 ## Add a batch of entities to a table
 
-In addition to being able to [add an entity to a table one at a time](#add-an-entity-to-a-table), you can also add entities in batch, thus reducing the round-trips between your code and the Azure table service. The following steps illustrate how to add multiple entities to a table with a single insert operation:
+In addition to being able to [add an entity to a table one at a time](#add-an-entity-to-a-table), you can also add entities in batch. Adding entities in batch reduces the number of round-trips between your code and the Azure table service. The following steps illustrate how to add multiple entities to a table with a single insert operation:
 
 > [!NOTE]
 > 
-> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+> This section assumes you have completed the steps in [Set up the development environment](#set-up-the-development-environment).
 
 1. Open the `TablesController.cs` file.
 
@@ -394,7 +397,7 @@ In addition to being able to [add an entity to a table one at a time](#add-an-en
 	<li>@Html.ActionLink("Add entities", "AddEntities", "Tables")</li>
     ```
 
-1. Run the application, and select **Add entities** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Add entities** to see results similar to the following screen shot:
   
 	![Add entities](./media/vs-storage-aspnet-getting-started-tables/add-entities-results.png)
 
@@ -406,7 +409,7 @@ This section illustrates how to get a single entity from a table using the entit
 
 > [!NOTE]
 > 
-> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment), and uses the data presented in the section, [Add an entity to a table](#add-an-entity-to-a-table). 
+> This section assumes you have completed the steps in [Set up the development environment](#set-up-the-development-environment), and uses data from [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). 
 
 1. Open the `TablesController.cs` file.
 
@@ -496,7 +499,7 @@ This section illustrates how to get a single entity from a table using the entit
 	<li>@Html.ActionLink("Get single", "GetSingle", "Tables")</li>
     ```
 
-1. Run the application, and select **Get Single** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Get Single** to see results similar to the following screen shot:
   
 	![Get single](./media/vs-storage-aspnet-getting-started-tables/get-single-results.png)
 
@@ -504,13 +507,13 @@ This section illustrates how to get a single entity from a table using the entit
 
 As mentioned in the section, [Add an entity to a table](#add-an-entity-to-a-table), the 
 combination of a partition and a row key uniquely identify an entity in a table. Entities with the
-same partition key can be queried faster than those with different
+same partition key can be queried faster than entities with different
 partition keys. This section illustrates how to query a table for all the entities from a 
 specified partition.  
 
 > [!NOTE]
 > 
-> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment), and uses the data presented in the section, [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). 
+> This section assumes you have completed the steps in [Set up the development environment](#set-up-the-development-environment), and uses data from [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). 
 
 1. Open the `TablesController.cs` file.
 
@@ -610,7 +613,7 @@ specified partition.
 	<li>@Html.ActionLink("Get partition", "GetPartition", "Tables")</li>
     ```
 
-1. Run the application, and select **Get Partition** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Get Partition** to see results similar to the following screen shot:
   
 	![Get Partition](./media/vs-storage-aspnet-getting-started-tables/get-partition-results.png)
 
@@ -620,7 +623,7 @@ This section illustrates how to delete an entity from a table.
 
 > [!NOTE]
 > 
-> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment), and uses the data presented in the section, [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). 
+> This section assumes you have completed the steps in [Set up the development environment](#set-up-the-development-environment), and uses data from [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). 
 
 1. Open the `TablesController.cs` file.
 
@@ -654,7 +657,7 @@ This section illustrates how to delete an entity from a table.
     CloudTable table = tableClient.GetTableReference("TestTable");
     ```
 
-1. Create a delete operation object that takes an entity object derived from **TableEntity**. In this case, we'll use the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). Note that the entity's **ETag** must be set.  
+1. Create a delete operation object that takes an entity object derived from **TableEntity**. In this case, we use the **CustomerEntity** class and data presented in the section [Add a batch of entities to a table](#add-a-batch-of-entities-to-a-table). The entity's **ETag** must be set to a valid value.  
 
     ```csharp
     TableOperation deleteOperation = 
@@ -710,7 +713,7 @@ This section illustrates how to delete an entity from a table.
 	<li>@Html.ActionLink("Delete entity", "DeleteEntity", "Tables")</li>
     ```
 
-1. Run the application, and select **Delete entity** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Delete entity** to see results similar to the following screen shot:
   
 	![Get single](./media/vs-storage-aspnet-getting-started-tables/delete-entity-results.png)
 
