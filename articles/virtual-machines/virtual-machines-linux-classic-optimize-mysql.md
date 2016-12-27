@@ -1,5 +1,5 @@
 ---
-title: Optimize MySQL Performance on Linux VMs | Microsoft Docs
+title: Optimize MySQL performance on Linux | Microsoft Docs
 description: Learn how to optimize MySQL running on an Azure virtual machine (VM) running Linux.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -19,13 +19,13 @@ ms.author: ningk
 
 ---
 # Optimize MySQL Performance on Azure Linux VMs
-There are many factors that impact MySQL performance on Azure, both in virtual hardware selection and software configuration. This article focuses on optimizing performance through storage, system, and database configurations.
+There are many factors that affect MySQL performance on Azure, both in virtual hardware selection and software configuration. This article focuses on optimizing performance through storage, system, and database configurations.
 
 > [!IMPORTANT]
-> Azure has two different deployment models for creating and working with resources: [Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and Classic. This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For information about Linux VM optimizations with the Resource Manager model, see [Optimize your Linux VM on Azure](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+> Azure has two different deployment models for creating and working with resources: [Azure Resource Manager](../azure-resource-manager/resource-manager-deployment-model.md) and classic. This article covers using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model. For information about Linux VM optimizations with the Resource Manager model, see [Optimize your Linux VM on Azure](virtual-machines-linux-optimization.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## Utilize RAID on an Azure virtual machine
-Storage is the key factor that impacts database performance in cloud environments.  Compared to a single disk, RAID can provide faster access via concurrency.  Refer to [Standard RAID levels](http://en.wikipedia.org/wiki/Standard_RAID_levels) for more information.   
+Storage is the key factor that affects database performance in cloud environments.  Compared to a single disk, RAID can provide faster access via concurrency.  Refer to [Standard RAID levels](http://en.wikipedia.org/wiki/Standard_RAID_levels) for more information.   
 
 Disk I/O throughput and I/O response time in Azure can be improved through RAID. Our lab tests show that disk I/O throughput can be doubled and I/O response time can be reduced by half on average when the number of RAID disks is doubled (from two to four, four to eight, etc.). See [Appendix A](#AppendixA) for details.  
 
@@ -33,7 +33,7 @@ In addition to disk I/O, MySQL performance improves when you increase the RAID l
 
 You might also want to consider the chunk size. In general, when you have a larger chunk size, you get lower overhead, especially for large writes. However, when the chunk size is too large, it might add additional overhead that prevents you from taking advantage of RAID. The current default size is 512 KB, which is proven to be optimal for most general production environments. See [Appendix C](#AppendixC) for details.   
 
-There are limits on how many disks you can add for different virtual machine types. These limits are detailed in [Virtual machine and cloud service sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). You will need four attached data disks to follow the RAID example in this article, although you could choose to set up RAID with fewer disks.  
+There are limits on how many disks you can add for different virtual machine types. These limits are detailed in [Virtual machine and cloud service sizes for Azure](http://msdn.microsoft.com/library/azure/dn197896.aspx). You will need four attached data disks to follow the RAID example in this article, although you can choose to set up RAID with fewer disks.  
 
 This article assumes you have already created a Linux virtual machine and have MYSQL installed and configured. For more information on getting started, see How to install MySQL on Azure.  
 
@@ -67,7 +67,7 @@ You can see the added drives in the virtual machine by looking at the kernel mes
     sudo grep SCSI /var/log/dmesg
 
 #### Create RAID with the additional disks
-The following steps describe how to [configure software RAID on Linux](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+The following steps describe how to [configure software RAID on Linux](virtual-machines-linux-configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 > [!NOTE]
 > If you are using the XFS file system, execute the following steps after you have created RAID.
@@ -113,9 +113,7 @@ For SSD and other equipment, NOOP or Deadline can achieve better performance tha
 
 Prior to the kernel 2.5, the default I/O scheduling algorithm is Deadline. Starting with the kernel 2.6.18, CFQ became the default I/O scheduling algorithm.  You can specify this setting at kernel boot time or dynamically modify this setting when the system is running.  
 
-The following example demonstrates how to check and set the default scheduler to the NOOP algorithm.  
-
-For the Debian distribution family:
+The following example demonstrates how to check and set the default scheduler to the NOOP algorithm in the Debian distribution family.  
 
 ### View the current I/O scheduler
 Run the following command to view the scheduler:  
@@ -217,7 +215,7 @@ To optimize MySQL server settings, you can update the my.cnf file, which is the 
 
 The following configuration items are the main factors that affect MySQL performance:  
 
-* **innodb_buffer_pool_size**: The buffer pool contains buffered data and the index. This is usually set to 70% of physical memory.
+* **innodb_buffer_pool_size**: The buffer pool contains buffered data and the index. This is usually set to 70 percent of physical memory.
 * **innodb_log_file_size**: This is the redo log size. You use redo logs to ensure that write operations are fast, reliable, and recoverable after a crash. This is set to 512 MB, which will give you plenty of space for logging write operations.
 * **max_connections**: Sometimes applications do not close connections properly. A larger value will give the server more time to recycle idled connections. The maximum number of connections is 10,000, but the recommended maximum is 5,000.
 * **Innodb_file_per_table**: This setting enables or disables the ability of InnoDB to store tables in separate files. Turn on the option to ensure that several advanced administration operations can be applied efficiently. From a performance point of view, it can speed up the table space transmission and optimize the debris management performance. The recommended setting for this option is ON.</br></br>
@@ -233,13 +231,13 @@ The MySQL slow query log can help you identify the slow queries for MySQL. After
 
 By default, this is not enabled. Turning on the slow query log might consume some CPU resources. We recommend that you enable this temporarily for troubleshooting performance bottlenecks. To turn on the slow query log:
 
-1. Modify my.cnf file by adding the following lines to the end:
+1. Modify the my.cnf file by adding the following lines to the end:
 
         long_query_time = 2
         slow_query_log = 1
         slow_query_log_file = /RAID0/mysql/mysql-slow.log
 
-2. Restart mysql server.
+2. Restart the mysql server.
 
         service  mysql  restart
 
@@ -251,10 +249,10 @@ By default, this is not enabled. Turning on the slow query log might consume som
 
 In this example, you can see that the slow query feature has been turned on. You can then use the **mysqldumpslow** tool to determine performance bottlenecks and optimize performance, such as adding indexes.
 
-## Appendix
+## Appendices
 The following are sample performance test data produced in a targeted lab environment. They provide general background on the performance data trend with different performance tuning approaches. The results might vary under different environment or product versions.
 
-<a name="AppendixA"></a>Appendix A  
+### <a name="AppendixA"></a>Appendix A  
 **Disk performance (IOPS) with different RAID levels**
 
 ![Disk IOPS with different RAID levels][9]
@@ -263,11 +261,11 @@ The following are sample performance test data produced in a targeted lab enviro
 
     fio -filename=/path/test -iodepth=64 -ioengine=libaio -direct=1 -rw=randwrite -bs=4k -size=5G -numjobs=64 -runtime=30 -group_reporting -name=test-randwrite
 
-> AZURE.NOTE: The workload of this test uses 64 threads, trying to reach the upper limit of RAID.
+> [!NOTE] The workload of this test uses 64 threads, trying to reach the upper limit of RAID.
 >
 >
 
-<a name="AppendixB"></a>Appendix B  
+### <a name="AppendixB"></a>Appendix B  
 **MySQL performance (throughput) comparison with different RAID levels**   
 (XFS file system)
 
@@ -285,7 +283,7 @@ The following are sample performance test data produced in a targeted lab enviro
 
     time sysbench --test=oltp --db-driver=mysql --mysql-user=root --mysql-password=0ps.123  --mysql-table-engine=innodb --mysql-host=127.0.0.1 --mysql-port=3306 --mysql-socket=/var/run/mysqld/mysqld.sock --mysql-db=test --oltp-table-size=1000000 prepare
 
-<a name="AppendixC"></a>Appendix C   
+### <a name="AppendixC"></a>Appendix C   
 **Disk performance (IOPS) comparison for different chunk sizes**  
 (XFS file system)
 
@@ -298,7 +296,7 @@ The following are sample performance test data produced in a targeted lab enviro
 
 The file sizes used for this testing are 30 GB and 1 GB, respectively, with RAID 0 (4 disks) XFS file system.
 
-<a name="AppendixD"></a>Appendix D  
+### <a name="AppendixD"></a>Appendix D  
 **MySQL performance (throughput) comparison before and after optimization**  
 (XFS File System)
 
