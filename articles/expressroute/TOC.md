@@ -45,6 +45,7 @@
 ### [Asymmetric routing](expressroute-asymmetric-routing.md)
 
 ## Troubleshoot
+### [Verifying ExpressRoute Connectivity](expressroute-troubleshooting-expressroute-overview.md)
 ### [Getting ARP tables](expressroute-troubleshooting-arp-resource-manager.md)
 ### [Getting ARP tables (Classic)](expressroute-troubleshooting-arp-classic.md)
 
