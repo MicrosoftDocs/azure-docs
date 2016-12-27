@@ -1,5 +1,5 @@
 ---
-title:Data providers required for client connections to Azure Analysis Services | Microsoft Docs
+title: Data providers required for client connections to Azure Analysis Services | Microsoft Docs
 description: Describes data providers required for clients to connect Azure Analysis Services
 services: analysis-services
 documentationcenter: ''
@@ -14,7 +14,7 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: na
-ms.date: 12/24/2016
+ms.date: 12/27/2016
 ms.author: owend
 
 ---
