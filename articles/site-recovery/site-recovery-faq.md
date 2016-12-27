@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/13/2016
+ms.date: 12/27/2016
 ms.author: raynew
 
 ---
@@ -69,6 +69,13 @@ To protect VMware VMs you'll need a vSphere hypervisor, and virtual machines run
 ### Can I manage disaster recovery for my branch offices with Site Recovery?
 Yes. When you use Site Recovery to orchestrate replication and failover in your branch offices, you'll get a unified orchestration and view of all your branch office workloads in a central location. You can easily run failovers and administer disaster recovery of all branches from your head office, without visiting the branches.
 
+## Pricing
+
+### What charges do I incur while using Azure Site Recovery?
+While using Azure Site recovery you incur charges for Azure Site Recovery license, Azure storage, storage transactions, and u data transfer. [Learn more](https://azure.microsoft.com/pricing/details/site-recovery).
+
+
+
 ## Security
 ### Is replication data sent to the Site Recovery service?
 No, Site Recovery doesn't intercept replicated data, and doesn't have any information about what's running on your virtual machines or physical servers.
@@ -85,10 +92,10 @@ For virtual machines and physical servers, replicating between on-premises sites
 ## Replication
 
 ### Can I replicate over a site-to-site VPN to Azure?
-Azure Site Recovery replicates data to an Azure storage account over a public endpoint. Therefore, replication will not go over a site-to-site VPN. You can create a site-to-site VPN with an Azure virtual network and that won't interfere with ASR replication. 
+Azure Site Recovery replicates data to an Azure storage account over a public endpoint. Therefore, replication will not go over a site-to-site VPN. You can create a site-to-site VPN with an Azure virtual network and that won't interfere with ASR replication.
 
 ### Can I use ExpressRoute to replicate virtual machines to Azure?
-Yes, ExpressRoute can be used to replicate virtual machines to Azure. Azure Site Recovery replicates data to an Azure Storage Account over a public endpoint. You would need setup [public peering](../expressroute/expressroute-circuit-peerings.md#public-peering) to use ExpressRoute for ASR replication. After the virtual machines have been failed over to an Azure virtual network you can access them using the [private peering](../expressroute/expressroute-circuit-peerings.md#private-peering) setup with the Azure virtual network. 
+Yes, ExpressRoute can be used to replicate virtual machines to Azure. Azure Site Recovery replicates data to an Azure Storage Account over a public endpoint. You would need setup [public peering](../expressroute/expressroute-circuit-peerings.md#public-peering) to use ExpressRoute for ASR replication. After the virtual machines have been failed over to an Azure virtual network you can access them using the [private peering](../expressroute/expressroute-circuit-peerings.md#private-peering) setup with the Azure virtual network.
 
 ### Are there any prerequisites for replicating virtual machines to Azure?
 Virtual machines you want to replicate to Azure should comply with [Azure requirements](site-recovery-best-practices.md#azure-virtual-machine-requirements).
