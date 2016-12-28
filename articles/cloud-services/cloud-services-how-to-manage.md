@@ -74,13 +74,13 @@ There are two key prerequisites for a successful deployment swap:
 
 - If you would like to use a static IP address for your production slot, you must reserve one for your staging slot as well. Otherwise, the swap will fail.
 
-- All instances of your roles must be running before you can perform the swap. You can check the status of your instances in the Azure classic portal or by using [the Get-AzureRole commandlet in Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
+- All instances of your roles must be running before you can perform the swap. You can check the status of your instances in the Azure classic portal or by using [the Get-AzureRole command in Windows PowerShell](https://docs.microsoft.com/en-us/powershell/servicemanagement/azure.service/v3.1.0/get-azurerole).
 
-Note that guest OS updates and service healing operations can also cause deployment swaps to fail. See [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems) for more details.
+Note that guest OS updates and service healing operations can also cause deployment swaps to fail. See [Troubleshoot cloud service deployment problems](cloud-services-troubleshoot-deployment-problems.md) for more details.
 
 **Does a swap incur downtime for my application? How should I handle it?**
 
-As described in the last section, a deployment swap is typically very fast since it is just a configuration change in the Azure load balancer. In some cases, however, it can take ten or more seconds and result in transient connection failures. To limit impact to your customers, consider implementing [client retry logic](../best-practices-retry-general).
+As described in the last section, a deployment swap is typically very fast since it is just a configuration change in the Azure load balancer. In some cases, however, it can take ten or more seconds and result in transient connection failures. To limit impact to your customers, consider implementing [client retry logic](../best-practices-retry-general.md).
 
 ## How to: Link a resource to a cloud service
 To show your cloud service's dependencies on other resources, you can link an Azure SQL Database instance or a storage account to the cloud service. You can link and unlink resources on the **Linked Resources** page, and then monitor their usage on the cloud service dashboard. If a linked storage account has monitoring turned on, you can monitor Total Requests on the cloud service dashboard.
