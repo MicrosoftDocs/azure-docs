@@ -23,7 +23,7 @@ ms.author: mikeray
 # Create Always On Availability Group to improve availability and disaster recovery #
 > [!div class="op_single_selector"]
 > * [Resource Manager: Template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
-> * [Resource Manager: Manual Prereq](virtual-machines-windows-portal-sql-availability-groups-prereq.md)
+> * [Resource Manager: Manual Prereq](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 > * [Resource Manager: Manual Tutorial](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)
 
 This tutorial shows how to create a SQL Server Always On Availability Group on Azure Virtual Machines. The complete tutorial creates an Availability Group with a database replica on two SQL Servers. 
