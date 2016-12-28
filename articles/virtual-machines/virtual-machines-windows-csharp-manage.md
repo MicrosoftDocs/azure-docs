@@ -18,7 +18,7 @@ ms.date: 09/27/2016
 ms.author: davidmu
 
 ---
-# Manage Azure Virtual Machines using Azure Resource Manager and C\#
+# Manage Azure Virtual Machines using Azure Resource Manager and C# #
 The tasks in this article show you how to manage virtual machines, such as starting, stopping, and updating. A virtual machine must exist in a resource group to complete the tasks in this article.
 
 To complete the tasks in this article, you need:

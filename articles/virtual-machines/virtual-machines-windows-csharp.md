@@ -18,7 +18,7 @@ ms.date: 10/06/2016
 ms.author: davidmu
 
 ---
-# Deploy Azure Resources using C\#
+# Deploy Azure Resources using C# #
 This article shows you how to create Azure resources using C#.
 
 You first need to make sure you've finished these tasks:
