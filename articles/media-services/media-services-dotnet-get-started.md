@@ -13,7 +13,7 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 12/15/2016
+ms.date: 12/26/2016
 ms.author: juliako
 
 ---
@@ -321,7 +321,7 @@ After you create the locators, you can build the URLs that would be used to stre
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 
-A SAS URL used to download files has the following format:
+#### A SAS URL used to download files has the following format:
 
 {blob container name}/{asset name}/{file name}/{SAS signature}
 
@@ -446,14 +446,14 @@ For more information, see the following topics:
 ## Download sample
 The following code sample contains the code that you created in this tutorial: [sample](https://azure.microsoft.com/documentation/samples/media-services-dotnet-on-demand-encoding-with-media-encoder-standard/).
 
-## Next Steps: Media Services learning paths
+## Next Steps 
+
 [!INCLUDE [media-services-learning-paths-include](../../includes/media-services-learning-paths-include.md)]
 
 ## Provide feedback
 [!INCLUDE [media-services-user-voice-include](../../includes/media-services-user-voice-include.md)]
 
-### Looking for something else?
-If this topic didn't contain what you were expecting, is missing something, or in some other way didn't meet your needs, please provide us with your feedback using the Disqus thread below.
+
 
 <!-- Anchors. -->
 
