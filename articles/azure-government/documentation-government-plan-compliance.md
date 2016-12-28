@@ -29,7 +29,7 @@ The Azure Blueprint program is designed to facilitate the secure and compliant u
 
 ## Blueprint Customer Responsibilities Matrix
 
-The Azure Blueprint Customer Responsibilities Matrix (CRM) is designed to aid Azure Government customers implementing and documenting system-specific security controls implemented within Azure. The CRM explicitly lists all [NIST SP 800-53](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf) security control requirements for FedRAMP and DISA basslines that include a customer implementation requirement. This includes controls with a shared responsibility between Azure and Azure customers, as well as controls that must be fully implemented by Azure customers. Where appropriate, controls are delineated at a sub-control granularity to provide more specific guidance.
+The Azure Blueprint Customer Responsibilities Matrix (CRM) is designed to aid Azure Government customers implementing and documenting system-specific security controls implemented within Azure. The CRM explicitly lists all [NIST SP 800-53](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf) security control requirements for FedRAMP and DISA baselines that include a customer implementation requirement. This includes controls with a shared responsibility between Azure and Azure customers, as well as controls that must be fully implemented by Azure customers. Where appropriate, controls are delineated at a control sub-requirement granularity to provide more specific guidance.
 
 The CRM format is designed for utility and is conducive to focused documentation of only the customer portions of implemented security controls.
 
