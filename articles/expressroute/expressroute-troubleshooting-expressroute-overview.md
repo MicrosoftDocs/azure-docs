@@ -34,7 +34,7 @@ The purpose of this document is to help identify where (or even if) a connectivi
 The following diagram shows the logical connectivity of a customer network to Microsoft network using ExpressRoute.
 [![1]][1]
 
-In the preceding diagram, the numbers indicate key network points. Depending on the connectivity model to ExpressRoute (Cloud Exchange Colocation, Point-to-Point Ethernet Connection, or Any-to-any (IPVPN)) some of the network points (3 and 4 of Provider Network) may not be present. The key network points illustrated are as follows:
+In the preceding diagram, the numbers indicate key network points. The points are referenced often through this article by their associated number. Depending on the ExpressRoute connectivity model (Cloud Exchange Colocation, Point-to-Point Ethernet Connection, or Any-to-any (IPVPN)) some of the network points (3 and 4 of Provider Network) may not be present. The key network points illustrated are as follows:
 
 1.	Customer compute device (e.x. server, PC)
 2.	CEs: Customer Edge Routers 
@@ -159,7 +159,7 @@ After the service provider has completed the provisioning the ExpressRoute circu
 
 <p/>
 >[!NOTE]
->If layer 3 is provided by the service provider and the peerings are blank in the portal, PowerShell can be used to see the settings as configured by the service provider.
+>If layer 3 is provided by the service provider and the peerings are blank in the portal, PowerShell can be used to see the service provider configured settings.
 
 In the Azure portal, status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then selecting the ExpressRoute circuit. Selecting an ExpressRoute circuit listed under "All resources" would open the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials would be listed as shown in the following screen shot:
 
@@ -228,7 +228,7 @@ To get the Azure private peering configuration details, use the following comman
 
 	Get-AzureBGPPeering -AccessType Private -ServiceKey "*********************************"
 
-A sample response, for a successfully configured private peering is: ######THIS COMMAND DID NOT WORK, BUT SUGGESTED IN [Create and modify routing for an ExpressRoute circuit][CreatePeering], NEED TO DOUBLE CHECK PRIOR TO PUBLISHING THIS DOC#########
+A sample response, for a successfully configured private peering is:
 
 	AdvertisedPublicPrefixes       : 
 	AdvertisedPublicPrefixesState  : Configured
@@ -261,11 +261,10 @@ To get the Microsoft peering configuration details, use the following commands:
 >If a peering is not enabled, check if the primary and secondary peer subnets assigned match the configuration on the linked MSEE-PR. Also check if the correct *VlandId*, *AzureASN*, and *PeerASN* are used on MSEEs and if these values maps to the ones used on the linked MSEE-PR. To change the configuration on the MSEE routers, refer to [Create and modify routing for an ExpressRoute circuit][CreatePeering].
 
 ## Validate ARP between Microsoft and the service provider
-
 This section uses Powershell (Classic) commands. If you have been using Powershell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [OldPortal][Azure classic portal]
 
 >[!NOTE]
->Classic PowerShell commands work with Azure Resource Manager ExpressRoute circuits. The Azure Resource Manager commands can also be used, however if errors are encountered Classic commands work.
+>To get ARP, both the Azure portal and Azure Resource Manager PowerShell commands can be used. If errors are encountered with the Azure Resource Manager PowerShell commands, classic PowerShell commands should work as Classic PowerShell commands also work with Azure Resource Manager ExpressRoute circuits.
 
 To get the ARP table from the primary MSEE router for the private peering, use the following command:
 
@@ -286,19 +285,17 @@ Similarly, you can check the ARP table from the MSEE in the *Primary*/*Secondary
 The following example shows the response of the command for a peering does not exist.
 
 	ARP Info:
-		   
-		   
+	   
 >[!NOTE]
 >If the ARP table does not have IP addresses of the interfaces mapped to MAC addresses, review the following information:
 1. If the first IP address of the /30 subnet assigned for the link between the MSEE-PR and MSEE is used on the interface of MSEE-PR. Azure always uses the second IP address for MSEEs.
 2. Verify if the customer (CTag) and service (STag) VLAN tags match both on MSEE-PR and MSEE pair.
  	
 ##Validate BGP and routes on the MSEE
-
 This section uses PowerShell (Classic) commands. If you have been using PowerShell Azure Resource Manager commands, ensure that you have admin/co-admin access to the subscription via [OldPortal][Azure classic portal]
 
 >[!NOTE]
->Classic PowerShell commands work with Azure Resource Manager ExpressRoute circuits. The Azure Resource Manager commands can also be used, however if errors are encountered Classic commands work.
+>To get BGP information, both the Azure portal and Azure Resource Manager PowerShell commands can be used. If errors are encountered with the Azure Resource Manager PowerShell commands, classic PowerShell commands should work as classic PowerShell commands also work with Azure Resource Manager ExpressRoute circuits.
 
 To get the routing table (BGP neighbor) summary for a particular routing context, use the following command:
 
@@ -333,17 +330,13 @@ An example successful outcome for the command is:
          10.2.0.0/16            10.0.0.1                                       0    #### ##### #####
 	...
 
-
 Similarly, you can check the routing table from the MSEE in the *Primary*/*Secondary* path, for *Private*/*Public*/*Microsoft* a peering context.
 
 The following example shows the response of the command for a peering does not exist:
 
 	Route Table Info:
-		   
-		    
 
 ##Check the Traffic Statistics
-
 To get the combined primary and secondary path traffic statistics--bytes in and out--of a peering context, use the following command:
 
 	Get-AzureDedicatedCircuitStats -ServiceKey 97f85950-01dd-4d30-a73c-bf683b3a6e5c -AccessType Private
@@ -362,9 +355,6 @@ A sample output of the command for a non-existent peering is:
 	+ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     	+ CategoryInfo          : CloseError: (:) [Get-AzureDedicatedCircuitStats], CloudException
     	+ FullyQualifiedErrorId : Microsoft.WindowsAzure.Commands.ExpressRoute.GetAzureDedicatedCircuitPeeringStatsCommand
-
-	
-
 
 ## References
 ### Related websites and documentation
