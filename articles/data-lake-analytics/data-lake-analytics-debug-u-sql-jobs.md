@@ -29,7 +29,7 @@ ADL Tools for Visual Studio offers a feature called **Failed Vertex Debug**, usi
 
 The following video demonstrates **Failed Vertex Debug** in ADL Tools for Visual Studio.
 
-> [!VIDEO https://mix.office.com/watch/1bt17ibztohcb]
+> [!VIDEO https://e0d1.wpc.azureedge.net/80E0D1/OfficeMixProdMediaBlobStorage/asset-d3aeab42-6149-4ecc-b044-aa624901ab32/b0fc0373c8f94f1bb8cd39da1310adb8.mp4?sv=2012-02-12&sr=c&si=a91fad76-cfdd-4513-9668-483de39e739c&sig=K%2FR%2FdnIi9S6P%2FBlB3iLAEV5pYu6OJFBDlQy%2FQtZ7E7M%3D&se=2116-07-19T09:27:30Z&rscd=attachment%3B%20filename%3DDebugyourcustomcodeinUSQLADLA.mp4]
 >
 >
 
