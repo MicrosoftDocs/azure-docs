@@ -26,7 +26,8 @@ With ExpressRoute, extending an on-premises networks into the Microsoft cloud ov
 
 The purpose of this document is to help track down if and where a connectivity issue exists and within which zone, allowing the appropriate team to resolve the issue. If Microsoft support is needed to resolve an issue, open a support ticket with [Microsoft Support][Support].
 
-> [!IMPORTANT] This document is intended to help diagnosing and fixing simple issues. It is not intended to be a replacement for Microsoft support. Open a support ticket with [Microsoft Support][Support] if you are unable to solve the problem using the guidance described below.
+> [!IMPORTANT]
+> This document is intended to help diagnosing and fixing simple issues. It is not intended to be a replacement for Microsoft support. Open a support ticket with [Microsoft Support][Support] if you are unable to solve the problem using the guidance described below.
 
 ## Overview
 
@@ -45,7 +46,8 @@ In the above diagram, the numbers indicate key network points. Depending on the 
 
 In the case of Cloud Exchange Colocation or Point-to-Point Ethernet Connection connectivity models customer would directly peering with MSEEs via BGP. In such scenarios, often CEs themselves would also act as MSEE-PRs. Therefore, their will not be a Layer 3 PEs (3) and separate set of MSEE-PRs offered by the connectivity provider. 
 
->[!NOTE] For ExpressRoute high availability, Microsoft enforces a redundant pair of BGP sessions between MSEEs (5) and MSEE-PRs (4). A redundant pair of network paths is also encouraged between customer network and MSEE-PRs. However, in Any-to-any (IPVPN) connection model, a single CE device (2) may be connected to one or more PEs (3).
+>[!NOTE]
+>For ExpressRoute high availability, Microsoft enforces a redundant pair of BGP sessions between MSEEs (5) and MSEE-PRs (4). A redundant pair of network paths is also encouraged between customer network and MSEE-PRs. However, in Any-to-any (IPVPN) connection model, a single CE device (2) may be connected to one or more PEs (3).
 
 To validate an ExpressRoute circuit the following steps will be covered:
 1. Validate circuit provisioning and state (5)
@@ -60,7 +62,8 @@ More validations and checks will be added in the future, check back monthly!
 
 Regardless of the connectivity model, an ExpressRoute circuit has to be created and thereby a service key generated for circuit provisioning. Provisioning an ExpressRoute circuit establishes a redundant Layer 2 connections between MSEE-PRs (4) and MSEEs (5). For more information on how to create, modify, provision, and verify an ExpressRoute circuit, see the article [Create and modify an ExpressRoute circuit][CreateCircuit].
 
->[!TIP]A service key uniquely identifies an ExpressRoute circuit. Therefore, should you need assistance from Microsoft or from an ExpressRoute partner to troubleshoot an ExpressRoute issue, provide the service key to readily identify the circuit.
+>[!TIP]
+>A service key uniquely identifies an ExpressRoute circuit. Therefore, should you need assistance from Microsoft or from an ExpressRoute partner to troubleshoot an ExpressRoute issue, provide the service key to readily identify the circuit.
 
 ###Verification via Azure Portal
 In the Azure portal, the status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then by selecting the ExpressRoute circuit. Selecting a ExpressRoute circuit listed under "All resources " will open the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials will be listed as shown in the following screen shot.
@@ -71,7 +74,8 @@ In the ExpressRoute Essentials, *Circuit status* indicates the status of the cir
 
 For an ExpressRoute circuit to be operational, the *Circuit status* must be *Enabled* and the *Provider status* must be *Provisioned*.
 
->[!NOTE]If the *Circuit status* is not enabled, contact [Microsoft Support][Support]. If the *Provider status* is not provisioned, contact your service provider.
+>[!NOTE]
+>If the *Circuit status* is not enabled, contact [Microsoft Support][Support]. If the *Provider status* is not provisioned, contact your service provider.
 
 ###Verification via Powershell
 
@@ -113,7 +117,8 @@ To confirm if an ExpressRoute circuit is operational, pay particular attention t
 	CircuitProvisioningState         : Enabled
 	ServiceProviderProvisioningState : Provisioned
 
->[!NOTE]If the *CircuitProvisioningState* is not enabled, contact [Microsoft Support][Support]. If the *ServiceProviderProvisioningState* is not provisioned, contact your service provider.
+>[!NOTE]
+>If the *CircuitProvisioningState* is not enabled, contact [Microsoft Support][Support]. If the *ServiceProviderProvisioningState* is not provisioned, contact your service provider.
 
 ###Verification via Powershell (Classic)
 
@@ -141,17 +146,20 @@ To confirm if an ExpressRoute circuit is operational, pay particular attention t
 	ServiceProviderProvisioningState : Provisioned
 	Status                           : Enabled
 
->[!NOTE] If the *Status* is not enabled, contact [Microsoft Support][Support]. If the *ServiceProviderProvisioningState* is not provisioned, contact your service provider.
+>[!NOTE]
+>If the *Status* is not enabled, contact [Microsoft Support][Support]. If the *ServiceProviderProvisioningState* is not provisioned, contact your service provider.
 
 
 ##Validate Peering Configuration
 After the service provider has completed the provisioning the ExpressRoute circuit, the next step is to create and manage routing configuration over the ExpressRoute circuit between MSEE-PRs (4) and MSEEs (5). Each ExpressRoute circuit can have any or all of the three routing context supported: Azure private peering (traffic to customer's private virtual network in Azure), Azure public peering (traffic to public IP addresses in Azure), and Microsoft peering (traffic to Office 365 and CRM services). For more information on how to create and modify routing configuration, see the article [Create and modify routing for an ExpressRoute circuit][CreatePeering].
 
 ###Verification via Azure Portal
->[!IMPORTANT]There is a known bug in the Azure portal wherein ExpressRoute peerings will *NOT* be shown in the portal if configured by the service provider. If the ExpressRoute peerings are set via the portal or PowerShell this will overwrite the service provider settings breaking the routing on the ExpressRoute circuit and will require the support of the service provider to restore the settings and reestablish normal routing. Only modify the ExpressRoute peerings if it is certain that the service provider is providing layer 2 services only!
+>[!IMPORTANT]
+>There is a known bug in the Azure portal wherein ExpressRoute peerings will *NOT* be shown in the portal if configured by the service provider. If the ExpressRoute peerings are set via the portal or PowerShell this will overwrite the service provider settings breaking the routing on the ExpressRoute circuit and will require the support of the service provider to restore the settings and reestablish normal routing. Only modify the ExpressRoute peerings if it is certain that the service provider is providing layer 2 services only!
 
 <p/>
->[!NOTE] If layer 3 is provided by the service provider and the peerings are blank in the portal, PowerShell can be used to see the settings in place for the circuit as configured by the service provider.
+>[!NOTE]
+>If layer 3 is provided by the service provider and the peerings are blank in the portal, PowerShell can be used to see the settings in place for the circuit as configured by the service provider.
 
 In the Azure portal, status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then by selecting the ExpressRoute circuit. Selecting an ExpressRoute circuit listed under "All resources" would open the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials would be listed as shown in the following screen shot.	
 
@@ -159,7 +167,8 @@ In the Azure portal, status of an ExpressRoute circuit can be checked by selecti
 
 In the above example, as noted Azure private peering routing context is enabled, whereas Azure public and Microsoft peering routing contexts are not enabled. A successfully enabled peering context would also have the primary and secondary point-to-point (required for BGP) subnets listed. These are the subnets used for the interface IPs of the MSEEs and MSEE-PRs. 
 
->[!NOTE] If a peering is not enabled, check if the primary and secondary subnets assigned match the configuration on MSEE-PRs. If not, to change the configuration on MSEE routers refer to [Create and modify routing for an ExpressRoute circuit][CreatePeering]
+>[!NOTE]
+>If a peering is not enabled, check if the primary and secondary subnets assigned match the configuration on MSEE-PRs. If not, to change the configuration on MSEE routers refer to [Create and modify routing for an ExpressRoute circuit][CreatePeering]
   
 
 ###Verification via Powershell
@@ -206,10 +215,12 @@ If a peering is not configured, there would be an error message. Following is a 
     		+ CategoryInfo          : CloseError: (:) [Get-AzureRmExpr...itPeeringConfig], InvalidOperationException
     		+ FullyQualifiedErrorId : Microsoft.Azure.Commands.Network.GetAzureExpressRouteCircuitPeeringConfigCommand
 
->[!IMPORTANT]If layer 3 was set by the service provider, and the ExpressRoute peerings are set via the portal or PowerShell this will overwrite the service provider settings breaking the routing on the ExpressRoute circuit and will require the support of the service provider to restore the settings and reestablish normal routing. Only modify the ExpressRoute peerings if it is certain that the service provider is providing layer 2 services only!
+>[!IMPORTANT]
+>If layer 3 was set by the service provider, and the ExpressRoute peerings are set via the portal or PowerShell this will overwrite the service provider settings breaking the routing on the ExpressRoute circuit and will require the support of the service provider to restore the settings and reestablish normal routing. Only modify the ExpressRoute peerings if it is certain that the service provider is providing layer 2 services only!
 
 <p/>
->[!NOTE]If a peering not enabled, check if the primary and secondary subnets assigned match the configuration on the linked MSEE-PR. Also check if the correct *VlandId*, *AzureASN*, and *PeerASN* are used on MSEEs and if these values maps to the ones used on the linked MSEE-PR. If MD5 hashing is chosen, the shared key should be same on MSEE and MSEE-PR pair. To change the configuration on MSEE routers refer to [Create and modify routing for an ExpressRoute circuit][CreatePeering].  
+>[!NOTE]
+>If a peering not enabled, check if the primary and secondary subnets assigned match the configuration on the linked MSEE-PR. Also check if the correct *VlandId*, *AzureASN*, and *PeerASN* are used on MSEEs and if these values maps to the ones used on the linked MSEE-PR. If MD5 hashing is chosen, the shared key should be same on MSEE and MSEE-PR pair. To change the configuration on MSEE routers refer to [Create and modify routing for an ExpressRoute circuit][CreatePeering].  
 
 ###Verification via Powershell (Classic)
 
@@ -242,16 +253,19 @@ To get the Microsoft peering configuration details, use the following commands:
 
 	Get-AzureBGPPeering -AccessType Microsoft -ServiceKey "*********************************"
 
->[!IMPORTANT]If layer 3 was set by the service provider, and the ExpressRoute peerings are set via the portal or PowerShell this will overwrite the service provider settings breaking the routing on the ExpressRoute circuit and will require the support of the service provider to restore the settings and reestablish normal routing. Only modify the ExpressRoute peerings if it is certain that the service provider is providing layer 2 services only!
+>[!IMPORTANT]
+>If layer 3 was set by the service provider, and the ExpressRoute peerings are set via the portal or PowerShell this will overwrite the service provider settings breaking the routing on the ExpressRoute circuit and will require the support of the service provider to restore the settings and reestablish normal routing. Only modify the ExpressRoute peerings if it is certain that the service provider is providing layer 2 services only!
 
 <p/>
->[!NOTE] If a peering not enabled, check if the primary and secondary peer subnets assigned match the configuration on the linked MSEE-PR. Also check if the correct *VlandId*, *AzureASN*, and *PeerASN* are used on MSEEs and if these values maps to the ones used on the linked MSEE-PR. To change the configuration on MSEE routers refer to [Create and modify routing for an ExpressRoute circuit][CreatePeering].  
+>[!NOTE]
+>If a peering not enabled, check if the primary and secondary peer subnets assigned match the configuration on the linked MSEE-PR. Also check if the correct *VlandId*, *AzureASN*, and *PeerASN* are used on MSEEs and if these values maps to the ones used on the linked MSEE-PR. To change the configuration on MSEE routers refer to [Create and modify routing for an ExpressRoute circuit][CreatePeering].  
 
 ## Validate ARP between Microsoft and the service provider
 
 This section uses Powershell (Classic) commands. If you have been using Powershell ARM commands, ensure that you have admin/co-admin access to the subscription via [ClassicPortal][Classic Azure Portal]
 
->[!NOTE]Even though these are Classic PowerShell commands they will still work with ARM ExpressRoute circuits. The ARM commands can also be used, however if errors are encountered Classic commands will work.
+>[!NOTE]
+>Even though these are Classic PowerShell commands they will still work with ARM ExpressRoute circuits. The ARM commands can also be used, however if errors are encountered Classic commands will work.
 
 To get the ARP table from the primary MSEE router for the private peering use the following command:
 
@@ -273,7 +287,8 @@ The following example shows the response of the command for a peering does not e
 	ARP Info:
 		   
 		   
->[!NOTE]If the ARP table do not have IP address of the interfaces mapped to MAC addresses, check the following:
+>[!NOTE]
+>If the ARP table do not have IP address of the interfaces mapped to MAC addresses, check the following:
 1. If the first IP address of the /30 subnet assigned for the link between the MSEE-PR and MSEE is used on the interface of MSEE-PR. Azure always uses the second IP address for MSEEs.
 2. Verify if the customer (CTag) and service (STag) VLAN tags match both on MSEE-PR and MSEE pair.
  	
@@ -281,7 +296,8 @@ The following example shows the response of the command for a peering does not e
 
 This section uses PowerShell (Classic) commands. If you have been using PowerShell ARM commands, ensure that you have admin/co-admin access to the subscription via [ClassicPortal][Classic Azure Portal]
 
->[!NOTE]Even though these are Classic PowerShell commands they will still work with ARM ExpressRoute circuits. The ARM commands can also be used, however if errors are encountered Classic commands will work.
+>[!NOTE]
+>Even though these are Classic PowerShell commands they will still work with ARM ExpressRoute circuits. The ARM commands can also be used, however if errors are encountered Classic commands will work.
 
 To get the routing table (BGP neighbor) summary for a particular routing context, use the following command:
 
@@ -296,10 +312,12 @@ An example response is shown below:
 
 As shown in the above example, the command is useful to determine for how long the routing context exists in the current state of up or down. It also indicate number of route prefixes advertised by the peering router.
 
->[!NOTE] If the state is in Active or Idle, check if the primary and secondary peer subnets assigned match the configuration on the linked MSEE-PR. Also check if the correct *VlandId*, *AzureASN*, and *PeerASN* are used on MSEEs and if these values maps to the ones used on the linked MSEE-PR. If MD5 hashing is chosen, the shared key should be same on MSEE and MSEE-PR pair. To change the configuration on MSEE routers refer to [Create and modify routing for an ExpressRoute circuit][CreatePeering].  
+>[!NOTE]
+>If the state is in Active or Idle, check if the primary and secondary peer subnets assigned match the configuration on the linked MSEE-PR. Also check if the correct *VlandId*, *AzureASN*, and *PeerASN* are used on MSEEs and if these values maps to the ones used on the linked MSEE-PR. If MD5 hashing is chosen, the shared key should be same on MSEE and MSEE-PR pair. To change the configuration on MSEE routers refer to [Create and modify routing for an ExpressRoute circuit][CreatePeering].  
 
 <p/>
->[!NOTE]If certain destinations are not reachable over a particular peering, check the route table of the MSEEs belonging to the particular peering context. If a matching prefix (could be NATed IP) is present in the routing table, then check if there are firewalls/NSG/ACLs on the path and if they permit the traffic.
+>[!NOTE]
+>If certain destinations are not reachable over a particular peering, check the route table of the MSEEs belonging to the particular peering context. If a matching prefix (could be NATed IP) is present in the routing table, then check if there are firewalls/NSG/ACLs on the path and if they permit the traffic.
 
 To get the full routing table from MSEE on the *Primary* path for the particular *Private* routing context, use the following command:
 
