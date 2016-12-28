@@ -147,10 +147,10 @@ $BEConfig = Get-AzureRmLoadBalancerBackendAddressPoolConfig -Name $ILB.BackendAd
 $ILB | Add-AzureRmLoadBalancerRuleConfig -Name $LBConfigRuleName -FrontendIpConfiguration $FEConfig  -BackendAddressPool $BEConfig -Probe $SQLHealthProbe -Protocol tcp -FrontendPort  $ListenerPort -BackendPort $ListenerPort -LoadDistribution Default -EnableFloatingIP | Set-AzureRmLoadBalancer   
 ```
 
+## Configure the listener
 
-## Next steps
+[!INCLUDE [ag-listener-configure](../../includes/virtual-machines-ag-listener-configure.md)]
 
-- [Configure the listener](virtual-machines-windows-portal-sql-availability-group-tutorial.md#configure-listener)
 
 <!------------------------------- The content below is duplicated. Pointing to the link. Thinking about an include. 
 
@@ -242,6 +242,7 @@ Set the cluster parameters. To do this, update the following PowerShell script. 
 1. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (1433 was the default), then click **OK**.
 
 You now have a SQL Server availability group in Azure virtual machines running in Resource Manager mode. 
+-------------------------------->
 
 ## Test the connection to the listener
 
@@ -267,12 +268,12 @@ The SQLCMD connection automatically connects to whichever instance of SQL Server
 > Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. See [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx) for more information. 
 > 
 > 
--------------------------------->
 
 ## Guidelines and limitations
 Note the following guidelines on availability group listener in Azure using internal load balancer:
 
 * With an internal load balancer, you only access the listener from within the same virtual network.
+
 
 ## For more information
 For more information, see [Configure Always On availability group in Azure VM manually](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md).
@@ -286,4 +287,7 @@ Use the following PowerShell cmdlets to create an internal load balancer for Azu
 * [New-AzureRmLoadBalancerBackendAddressPoolConfig](http://msdn.microsoft.com/library/mt603791.aspx) creates a backend address pool configuration for a load balancer. 
 * [New-AzureRmLoadBalancerProbeConfig](http://msdn.microsoft.com/library/mt603847.aspx) creates a probe configuration for a load balancer.
 * [Remove-AzureRmLoadBalancer](http://msdn.microsoft.com/library/mt603862.aspx) removes a load balancer from an Azure resource group.
+
+
+## Next steps
 
