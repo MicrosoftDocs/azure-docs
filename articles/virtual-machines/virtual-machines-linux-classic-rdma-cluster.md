@@ -62,7 +62,7 @@ The current active subscription is identified with `Current` set to `true`. If t
 
 To see the publicly available SLES 12 SP1 HPC images in Azure, run a command like the following, assuming your shell environment supports **grep**:
 
-    azure vm image list | grep "sus e.*hpc"
+    azure vm image list | grep "suse.*hpc"
 
 Provision an RDMA-capable VM with a SLES 12 SP1 HPC image by running a command like the following:
 
