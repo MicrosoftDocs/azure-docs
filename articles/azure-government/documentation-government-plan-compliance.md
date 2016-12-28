@@ -1,6 +1,6 @@
 ---
 title: Azure Government Compliance | Microsoft Docs
-description: Provides and overview of the available services in Azure Government
+description: Provides and overview of the available compliance services for Azure Government
 services: Azure-Government
 cloud: gov
 documentationcenter: ''
@@ -19,32 +19,38 @@ ms.author: jomolesk
 
 ---
 # Azure Government Compliance
+
 ## Azure Blueprint
-The Azure Blueprint program is designed to facilitate the secure and compliant use of Azure for government agencies and third-party providers building on behalf of government. Azure Government customers may leverage Azure Government’s FedRAMP JAB Provisional Authority to Operate (P-ATO), reducing the scope of customer-responsibility security controls in Azure-based systems. Inheriting security control implementations from Azure Government allows customers to focus on control implementations specific to their IaaS, PaaS, or SaaS environments built in Azure. Azure Blueprint documentation includes a customer-focused SSP template and Customer Responsibility Matrix (CRM), which are designed to aid Azure Government customers in implementing and documenting these system-specific security controls implemented within Azure.
 
-
-
-## Blueprint Customer Responsibilities Matrix:  Streamlining ATO processes
-The Azure Blueprint program, allows customers to access documentation to assist their agency or system-specific authorization to operate (ATO) processes. This article provides a deeper look at the Azure Blueprint Customer Responsibilities Matrix (CRM) and how security personnel can leverage this document.
-
-The Azure Blueprint CRM is designed for utility. It is a spreadsheet format that defines ONLY the control requirements where the customer building in Azure must implement the security control.
+The Azure Blueprint program is designed to facilitate the secure and compliant use of Azure for government agencies and third-party providers building on behalf of government. Azure Government customers may leverage Azure Government’s FedRAMP JAB Provisional Authority to Operate (P-ATO) or DoD Provisional Authorization (PA), reducing the scope of customer-responsibility security controls in Azure-based systems. Inheriting security control implementations from Azure Government allows customers to focus on control implementations specific to their IaaS, PaaS, or SaaS environments built in Azure.
 
 > [!NOTE]
-> Within the context of Azure Blueprint, "customer" references the organization building directly within the Azure IaaS/PaaS environment. Azure customers could include third-party ISVs building on behalf of government or government agencies building directly on Azure.
-> 
-> 
+> Within the context of Azure Blueprint, "customer" references the organization building directly within Azure. Azure customers may include third-party ISVs building on behalf of government or government agencies building directly in Azure.
 
-The CRM provides the explicit <a href="http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf"> NIST SP 800-53 Revision 4 </a> controls that include a customer responsibility. This includes controls that are fully the responsibility of the customer, as well as controls that have a shared responsibility between the customer and Azure. Controls are broken down to the granularity of control sub requirements to be as explicit as possible.
+## Blueprint Customer Responsibilities Matrix
 
-For example, AC-1 requires access control policies and procedures be documented for the system seeking ATO. For this control, Azure has internal policies and procedures regarding access control mechanisms used to manage the Azure Infrastructure and Platform. Customers must also create their own Access Control policies and procedures used within their specific system built on Azure. The CRM documents control parts AC-1a, which requires the policies and procedures to include specific content, as well as AC-1b, which requires customers to review and update these documents on at least an annual basis. 
+The Azure Blueprint Customer Responsibilities Matrix (CRM) is designed to aid Azure Government customers implementing and documenting system-specific security controls implemented within Azure. The CRM explicitly lists all [NIST SP 800-53](http://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-53r4.pdf) security control requirements for FedRAMP and DISA basslines that include a customer implementation requirement. This includes controls with a shared responsibility between Azure and Azure customers, as well as controls that must be fully implemented by Azure customers. Where appropriate, controls are delineated at a sub-control granularity to provide more specific guidance.
 
-For access to the CRM as well as the Azure Blueprint System Security Plan Template, e-mail AzureBlueprint@microsoft.com.
+The CRM format is designed for utility and is conducive to focused documentation of only the customer portions of implemented security controls.
 
-We value any feedback on the CRM as it is pivotal to our iteration of the document to make it as effective as possible in streamlining customer ATO processes.
+For example, control AC-1 requires documented access control policies and procedures for the system seeking an ATO. For this control, Microsoft has internal Azure-specific policies and procedures regarding access control mechanisms used to manage the Azure infrastructure and platform. Customers must also create their own access control policies and procedures used within their specific system built in Azure. The CRM documents control parts AC-1a, which requires the policies and procedures to include specific content, as well as AC-1b, which requires customers to review and update these documents on an annual basis.
+
+The Blueprint CRM is available as Microsoft Excel workbook for the FedRAMP Moderate and High baselines, and the DISA Cloud Computing SRG L4 baseline.
+
+To request a copy of the Azure Blueprint CRM or to provide feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
+
+## Blueprint System Security Plan
+
+The Azure Blueprint System Security Plan (SSP) template is customer-focused and designed for use in developing an SSP that documents both customer security control implementations as well as controls inherited from Azure. Controls which include a customer responsibility, contain guidance on documenting control implementation with a thorough and compliant response. Azure inheritance sections document how security controls are implemented by Azure on behalf of the customer.
+
+The Azure Blueprint SSP is available for the FedRAMP Moderate and High baselines, and the DISA Cloud Computing SRG L4 baseline. 
+
+To request a copy of the Azure Blueprint SSP or to provide feedback, email [AzureBlueprint@microsoft.com](mailto:AzureBlueprint@microsoft.com).
 
 ## Azure Blueprint Implementation Guidance
+
 Azure Blueprint implementation guidance is designed to help cloud solution architects and security personnel understand how Azure Government services and features can be deployed to implement a subset of customer-responsibility FedRAMP and DoD security controls. 
-An array of documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Azure resources can be deployed using Azure Resource Manager template [building blocks](https://github.com/mspnp/template-building-blocks), community-contributed Azure [Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/), or through use of [customer-authored](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) JSON-based Resource Manager templates. The architecture of a basic deployment in Azure includes compute, networking, and storage resources. This deployment guide addresses how these resources can be deployed in ways that help meet security control implementation requirements.
+An array of documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Azure resources can be deployed using Azure Resource Manager template [building blocks](https://github.com/mspnp/template-building-blocks), community-contributed Azure [Quickstart Templates](https://azure.microsoft.com/en-us/resources/templates/), or through use of [customer-authored](https://docs.microsoft.com/en-us/azure/azure-resource-manager/resource-group-authoring-templates) JSON-based Resource Manager templates. The architecture of a basic deployment in Azure includes compute, networking, and storage resources. This implementation guidance addresses how these resources can be deployed in ways that help meet security control implementation requirements.
 
 ### Virtual Machines
 
@@ -253,7 +259,7 @@ Azure Active Directory group policy configurations can include security control 
 
 Documentation, tools, templates, and other resources are available to guide the secure deployment of Azure services and features. Get started with Azure Active Directory by visiting [Microsoft Azure Docs](https://docs.microsoft.com/en-us/azure/active-directory/).
 
-### Additional Guidance
+### Additional Implementation Guidance
 
 In addition to the core Azure services described above, several built-in features can help organizations meet security control compliance requirements. All Azure resources are organized into resource groups. Assets can be further organized by applying tags, which are key-value pairs that may be customer-selected to identify resources by category or any other property. Azure resource groups ensure complete identification and tracking of all customer resources deployed within Azure [NIST SP 800-53 control CM-8]. 
 
@@ -263,15 +269,11 @@ Azure Resource Manager templates, allow customers to define the configuration of
 
 > CM-2 example control implementation statement: *As a component of the information system baseline configuration, Azure Resource Manager templates are maintained, under configuration control, representing the deployed customer-controlled resources and configuration of information system components within Azure. These templates capture deployed resources, including virtual machines, storage, and network resources (including configurations of network resources that control network traffic entering, exiting, and within the customer Azure environment.*
 
-### Next Steps
-Stay tuned as the Blueprint team releases additional implementation guidance and resources in the coming months. We’ll step through Azure Government services and features one-by-one to help you achieve security compliance goals. What are your security control compliance challenges? Let us know in the comments section.
-
-
-
-
-
 ## Next Steps
-<a href="https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx"> Microsoft Trust Center </a>
 
-<a href="https://blogs.msdn.microsoft.com/azuregov/">Microsoft Azure Government Blog. </a>
+For inquiries related to Azure Blueprint, FedRAMP, DoD, or Agency ATO processes, or other compliance assistance; or to provide Blueprint feedback, email AzureBlueprint@microsoft.com.
+
+[Microsoft Trust Center](https://www.microsoft.com/en-us/trustcenter/Compliance/default.aspx)
+
+[Microsoft Azure Government Blog](https://blogs.msdn.microsoft.com/azuregov/)
 
