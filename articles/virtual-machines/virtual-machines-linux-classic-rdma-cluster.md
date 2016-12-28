@@ -106,7 +106,7 @@ After the VM finishes provisioning, SSH to the VM by using the VM's external IP 
   >
 * **SSH keys for SLES VMs**: Generate SSH keys to establish trust for your user account among the compute nodes in the SLES cluster when running MPI jobs. If you deployed a CentOS-based HPC VM, don't follow this step. See instructions later in this article to set up passwordless SSH trust among the cluster nodes after you capture the image and deploy the cluster.
 
-    Run the following command to create SSH keys. When you are prompted for input, select **Enter** to generate the keys in the default location without setting a password.
+    To create SSH keys, run the following command. When you are prompted for input, select **Enter** to generate the keys in the default location without setting a password.
 
         ssh-keygen
 
