@@ -321,7 +321,7 @@ After you create the locators, you can build the URLs that would be used to stre
 {streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
 
-A SAS URL used to download files has the following format:
+#### A SAS URL used to download files has the following format:
 
 {blob container name}/{asset name}/{file name}/{SAS signature}
 
