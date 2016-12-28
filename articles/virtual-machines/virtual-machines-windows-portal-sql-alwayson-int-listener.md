@@ -18,9 +18,9 @@ ms.author: MikeRayMSFT
 
 ---
 # Configure an internal load balancer for an Always On availability group in Azure
-This topic explains how to create an internal load balancer for a SQL Server Always On availability group in Azure virtual machines running in resource manager model. An availability group requires a load balancer when the SQL Server instances are on Azure virtual machines. The load balancer stores the IP address for the availability group listener. If an availability group spans mutliple regions, each region needs a load balancer.
+This topic explains how to create an internal load balancer for a SQL Server Always On availability group in Azure virtual machines running in Resource Manager model. An availability group requires a load balancer when the SQL Server instances are on Azure virtual machines. The load balancer stores the IP address for the availability group listener. If an availability group spans multiple regions, each region needs a load balancer.
 
-To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines in resource manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to automatically create the availability group in Azure resource manager. This template automatically creates the internal load balancer for you. 
+To complete this task, you need to have a SQL Server availability group deployed on Azure virtual machines in Resource Manager model. Both SQL Server virtual machines must belong to the same availability set. You can use the [Microsoft template](virtual-machines-windows-portal-sql-alwayson-availability-groups.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) to automatically create the availability group in Azure Resource Manager. This template automatically creates the internal load balancer for you. 
 
 If you prefer, you can [manually configure an availability group](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 
@@ -31,10 +31,10 @@ Related topics include:
 * [Configure Always On Availability Groups in Azure VM (GUI)](virtual-machines-windows-portal-sql-alwayson-availability-groups-manual.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)   
 * [Configure a VNet-to-VNet connection by using Azure Resource Manager and PowerShell](../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md)
 
-By walking through this document you will create and configure a load balancer in the Azure portal. After that is complete, you will configure the cluster to use the IP address from the load balancer for the availability group listener.
+By walking through this document you create and configure a load balancer in the Azure portal. After that is complete, you will configure the cluster to use the IP address from the load balancer for the availability group listener.
 
 ## Create and configure the load balancer in the Azure portal
-In this portion of the task you will do the following steps in the Azure portal:
+In this portion of the task, do the following steps in the Azure portal:
 
 1. Create the load balancer and configure the IP address
 2. Configure the backend pool
@@ -42,7 +42,7 @@ In this portion of the task you will do the following steps in the Azure portal:
 4. Set the load balancing rules
 
 > [!NOTE]
-> If the SQL Servers are in different resource groups and regions, you will do all of these steps twice, once in each resource group.
+> If the SQL Servers are in different resource groups and regions, you will do all these steps twice, once in each resource group.
 > 
 > 
 
@@ -51,7 +51,7 @@ The first step is to create the load balancer. In the Azure portal, open the res
 
 * Search for **load balancer**. From the search results select **Load Balancer**, which is published by **Microsoft**.
 * On the **Load Balancer** blade, click **Create**.
-* On **Create load balancer**, configure the the load balancer as follows:
+* On **Create load balancer**, configure the load balancer as follows:
 
 | Setting | Value |
 | --- | --- |
@@ -60,31 +60,31 @@ The first step is to create the load balancer. In the Azure portal, open the res
 | **Virtual network** |Choose the virtual network that the SQL Servers are in. |
 | **Subnet** |Choose the subnet that the SQL Servers are in. |
 | **IP address assignment** |**Static** |
-| **Private IP address** |Specify an available IP address from the subnet. You will use this IP address when you create a listener on the cluster. In a PowerShell script later in this article, use this address for the `$ILBIP` variable. |
-| **Subscription** |If you have multiple subscriptions, this field may appear. Select the subscription that you want associated with this resource. It is normally the same subcription as all of the resources for the availability group. |
+| **Private IP address** |Specify an available IP address from the subnet. Use this IP address when you create a listener on the cluster. In a PowerShell script later in this article, use this address for the `$ILBIP` variable. |
+| **Subscription** |If you have multiple subscriptions, this field may appear. Select the subscription that you want associated with this resource. It is normally the same subscription as all the resources for the availability group. |
 | **Resource group** |Choose the resource group that the SQL Servers are in. |
 | **Location** |Choose the Azure location that the SQL Servers are in. |
 
 * Click **Create**. 
 
-Azure creates the load balancer that you configured above. The load balancer belongs to a specific network, subnet, resource group, and location. After Azure completes, verify the load balancer settings in Azure. 
+Azure creates the load balancer. The load balancer belongs to a specific network, subnet, resource group, and location. After Azure completes, verify the load balancer settings in Azure. 
 
 ### 2. Configure the backend pool
 The next step is to create a backend address pool. Azure calls the backend address pool *backend pool*. In this case, the backend pool is the addresses of the two SQL Servers in your availability group. 
 
-* In your resource group, click on the load balancer you created. 
+* In your resource group, click the load balancer you created. 
 * On **Settings**, click **Backend pools**.
 * On **Backend pools**, click **Add** to create a backend address pool. 
 * On **Add backend pool** under **Name**, type a name for the backend pool.
-* Under **Virtual machines** click **+ Add a virtual machine**. 
-* Under **Choose virtual machines** click **Choose an availability set** and specify the availablity set that the SQL Server virtual machines belong to.
+* Under **Virtual machines**, click **+ Add a virtual machine**. 
+* Under **Choose virtual machines**, click **Choose an availability set** and specify the availability set that the SQL Server virtual machines belong to.
 * After you have chosen the availability set, click **Choose the virtual machines**. Click the two virtual machines that host the SQL Server instances in the availability group. Click **Select**. 
 * Click **OK** to close the blades for **Choose virtual machines**, and **Add backend pool**. 
 
 Azure updates the settings for the backend address pool. Now your availability set has a pool of two SQL Servers.
 
 ### 3. Create a probe
-The next step is to create a probe. The probe defines how Azure will verify which of the SQL Servers currently owns the availability group listener. Azure will probe the service based on IP address on a port that you define when you create the probe.
+The next step is to create a probe. The probe defines how Azure verifies which of the SQL Servers currently owns the availability group listener. Azure probes the service based on IP address on a port that you define when you create the probe.
 
 * On the load balancer **Settings** blade, click **Health probes**. 
 * On the **Health probes** blade, click **Add**.
@@ -101,14 +101,14 @@ The next step is to create a probe. The probe defines how Azure will verify whic
 * Click **OK**. 
 
 > [!NOTE]
-> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. See [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx) for more information. 
+> Make sure that the port you specify is open on the firewall of both SQL Servers. Both servers require an inbound rule for the TCP port that you use. For more information, see [Add or Edit Firewall Rule](http://technet.microsoft.com/library/cc753558.aspx). 
 > 
 > 
 
-Azure creates the probe. Azure will use the probe to test which SQL Server has the listener for the availability group.
+Azure creates the probe. Azure uses the probe to test which SQL Server has the listener for the availability group.
 
 ### 4. Set the load balancing rules
-Set the load balancing rules. The load balancing rules configure how the load balancer routes traffic to the SQL Servers. For this load balancer you will enable direct server return because only one of the two SQL Servers will ever own the availability group listener resource at a time.
+Set the load balancing rules. The load balancing rules configure how the load balancer routes traffic to the SQL Servers. For this load balancer, enable direct server return because only one of the two SQL Servers owns the availability group listener resource at a time.
 
 * On the load balancer **Settings** blade, click **Load balancing rules**. 
 * On the **Load balancing rules** blade, click **Add**.
@@ -119,9 +119,9 @@ Set the load balancing rules. The load balancing rules configure how the load ba
 | **Name** |A text name representing the load balancing rules. For example, **SQLAlwaysOnEndPointListener**. |
 | **Protocol** |**TCP** |
 | **Port** |*1433* |
-| **Backend Port** |*1433*. Note that this will be disabled because this rule uses **Floating IP (direct server return)**. |
+| **Backend Port** |*1433*. This value will be ignored because this rule uses **Floating IP (direct server return)**. |
 | **Probe** |Use the name of the probe that you created for this load balancer. |
-| **Session persistance** |**None** |
+| **Session persistence** |**None** |
 | **Idle timeout (minutes)** |*4* |
 | **Floating IP (direct server return)** |**Enabled** |
 
@@ -132,7 +132,7 @@ Set the load balancing rules. The load balancing rules configure how the load ba
 * Click **OK**. 
 * Azure configures the load balancing rule. Now the load balancer is configured to route traffic to the SQL Server that hosts the listener for the availability group. 
 
-At this point the resource group has a load balancer, connecting to both SQL Server machines. The load balancer also contains an IP address for the SQL Server AlwaysOn availablity group listener so that either machine can respond to requests for the availability groups.
+At this point, the resource group has a load balancer, connecting to both SQL Server machines. The load balancer also contains an IP address for the SQL Server AlwaysOn availability group listener so that either machine can respond to requests for the availability groups.
 
 > [!NOTE]
 > If your SQL Servers are in two separate regions, repeat the steps in the other region. Each region requires a load balancer. 
@@ -140,12 +140,12 @@ At this point the resource group has a load balancer, connecting to both SQL Ser
 > 
 
 ## Configure the cluster to use the load balancer IP address
-The next step is to configure the listener on the cluster, and bring the listener online. To accomplish this, do the following: 
+The next step is to configure the listener on the cluster, and bring the listener online. Do the following steps: 
 
-1. Create the availablity group listener on the failover cluster 
+1. Create the availability group listener on the failover cluster 
 2. Bring the listener online
 
-### 1. Create the availablity group listener on the failover cluster
+### 1. Create the availability group listener on the failover cluster
 In this step, you manually create the availability group listener in Failover Cluster Manager and SQL Server Management Studio (SSMS).
 
 [!INCLUDE [ag-listener-configure](../../includes/virtual-machines-ag-listener-configure.md)]
@@ -197,7 +197,7 @@ With the availability group listener resource configured, you can bring the list
 
 ------------------------------->
 
-You now have a SQL Server AlwaysOn availability group in Azure virtual machines running in resource manager mode. 
+You now have a SQL Server AlwaysOn availability group in Azure virtual machines running in Resource Manager mode. 
 
 ## Test the connection to the listener
 To test the connection:
@@ -207,11 +207,11 @@ To test the connection:
    
         sqlcmd -S <listenerName> -E
 
-The SQLCMD connection automatically connect to whichever instance of SQL Server hosts the primary replica. 
+The SQLCMD connection automatically connects to whichever instance of SQL Server hosts the primary replica. 
 
 ## Guidelines and limitations
 Note the following guidelines on availability group listener in Azure using internal load balancer:
 
-* Only one internal availability group listener is supported per cloud service because the listener is configured to the load balancer, and there is only one internal load balancer. However it is possible to create multipe external listeners. 
-* With an internal load balancer you only access the listener from within the same virtual network.
+* Only one internal availability group listener is supported per cloud service because the listener is configured to the load balancer, and there is only one internal load balancer. However it is possible to create multiple external listeners. 
+* With an internal load balancer, you only access the listener from within the same virtual network.
 
