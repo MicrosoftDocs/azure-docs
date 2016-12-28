@@ -197,6 +197,15 @@ With the availability group listener resource configured, you can bring the list
 
 ------------------------------->
 
+### Verify the configuration of the listener
+
+If the cluster resources and dependencies are correctly configured, you should be able to see the listener in SQL Server management studios. Do the following steps to set the listener port:
+
+1. Launch SQL Server Management Studio and connect to the primary replica.
+2. Navigate to **AlwaysOn High Availability** | **Availability Groups** | **Availability Group Listeners**. 
+1. You should now see the listener name that you created in Failover Cluster Manager. Right-click the listener name and click **Properties**.
+1. In the **Port** box, specify the port number for the availability group listener by using the $EndpointPort you used earlier (1433 was the default), then click **OK**.
+
 You now have a SQL Server AlwaysOn availability group in Azure virtual machines running in Resource Manager mode. 
 
 ## Test the connection to the listener
