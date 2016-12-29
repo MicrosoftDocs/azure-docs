@@ -28,7 +28,7 @@ ms.author: awills
 ## Index
 **Let** [let](#let-clause)
 
-**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
+**Queries and operators** [count](#count-operator) | [evaluate](#evaluate-operator) | [extend](#extend-operator) | [find](#find-operator) | [join](#join-operator) | [limit](#limit-operator) | [mvexpand](#mvexpand-operator) | [parse](#parse-operator) | [project](#project-operator) | [project-away](#project-away-operator) | [range](#range-operator) | [reduce](#reduce-operator) | [render directive](#render-directive) | [restrict clause](#restrict-clause) | [sort](#sort-operator) | [summarize](#summarize-operator) | [take](#take-operator) | [top](#top-operator) | [top-nested](#top-nested-operator) | [union](#union-operator) | [where](#where-operator) | [where-in](#where-in-operator)
 
 **Aggregations** [any](#any) | [argmax](#argmax) | [argmin](#argmin) | [avg](#avg) | [buildschema](#buildschema) | [count](#count) | [countif](#countif) | [dcount](#dcount) | [dcountif](#dcountif) | [makelist](#makelist) | [makeset](#makeset) | [max](#max) | [min](#min) | [percentile](#percentile) | [percentiles](#percentiles) | [percentilesw](#percentilesw) | [percentilew](#percentilew) | [stdev](#stdev) | [sum](#sum) | [variance](#variance)
 
@@ -372,15 +372,15 @@ Find rows that match a predicate across a set of tables.
 
 **Syntax**
 
-    find [withsource=SourceColumnName] in (Table, ...) where Predicate [project Column, ... [, pack(*)]]
+    find in (Table1, ...) 
+    where Predicate 
+    [project Column1, ...]
 
 **Arguments**
 
-* *SourceColumnName* Specifies the name of the column in the result that displays the name of the source table of each row. Defaults to `source_`.
-* *Table* A table name or query. It can be a let-defined table, but not a function. A table name performs better than a query.
+* *Table1* A table name or query. It can be a let-defined table, but not a function. A table name performs better than a query.
 * *Predicate* A boolean expression evaluated for every row in the specified tables.
-* *Column* The project option allows you to specify which columns must always appear in the output. 
-* `pack(*)` Specifies that columns you haven't specified should be packed into a property bag.
+* *Column1* The `project` option allows you to specify which columns must always appear in the output. 
 
 **Result**
 
@@ -402,6 +402,17 @@ Get all the requests and exceptions, excluding those from availability tests and
     find in (requests, exceptions) where isempty(operation_SyntheticSource)
 ```
 
+Find all requests and exceptions from UK, excluding those from availability tests and robots:
+
+```AIQL
+
+    let requk = requests
+    | where client_CountryOrRegion == "United Kingdom";
+    let exuk = exceptions
+    | where client_CountryOrRegion == "United Kingdom";
+    find in (requk, exuk) where isempty(operation_SyntheticSource)
+```
+
 Find most recent telemetry where any field contains the term 'test':
 
 ```AIQL
@@ -411,6 +422,10 @@ Find most recent telemetry where any field contains the term 'test':
     | top 100 by timestamp desc
 ```
 
+**Tips**
+
+* Filter the input tables using `let` before applying `find`.
+* 
 
 
 ### join operator
