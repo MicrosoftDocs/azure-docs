@@ -66,7 +66,7 @@ Pack head node by using the Resource Manager deployment model.
    
     b. For a default head node configuration, start Windows PowerShell as an administrator and type the following:
    
-    ```
+    ```PowerShell
     & $env:CCP_HOME\bin\HPCHNPrepare.ps1 –DBServerInstance ".\ComputeCluster"
     ```
    
