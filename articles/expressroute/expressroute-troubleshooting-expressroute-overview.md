@@ -38,7 +38,7 @@ In the preceding diagram, the numbers indicate key network points. The network p
 
 Depending on the ExpressRoute connectivity model (Cloud Exchange Co-location, Point-to-Point Ethernet Connection, or Any-to-any (IPVPN)) the network points 3 and 4 may be switches (Layer 2 devices). The key network points illustrated are as follows:
 
-1.	Customer compute device (e.g. server, PC)
+1.	Customer compute device (for example, a server or PC)
 2.	CEs: Customer edge routers 
 3.	PEs: Provider edge routers that are connected with the customer edge routers
 4.	MSEE-PRs: Provider edge routers/switches that are directly connected with the MSEEs
@@ -46,7 +46,9 @@ Depending on the ExpressRoute connectivity model (Cloud Exchange Co-location, Po
 6.	Virtual Network (VNet) Gateway
 7.	Compute device on the Azure VNet
 
-If Cloud Exchange Co-location or Point-to-Point Ethernet Connection connectivity models are used, the customer edge router (2) would directly peer with the MSEEs (5) on Layer 3 via BGP, going through points 3 and 4 as Layer 2 devices.
+If the Cloud Exchange Co-location or Point-to-Point Ethernet Connection connectivity models are used, the customer edge router (2) would peer with the MSEEs (5) on Layer 3 via BGP. Network points 3 and 4 would still exist but be somewhat transparent as Layer 2 devices.
+
+If the Any-to-any (IPVPN) connectivity model is used, the MSEE-PR (4) would be directly connected (Layer 2 and 1) with the MSEEs (5) and peer on Layer 3 via BGP. Routes would then propagate back to the customer network via the IPVPN service starting from point 4.
 
 >[!NOTE]
 >For ExpressRoute high availability, Microsoft requires a redundant pair of BGP sessions between MSEEs (5) and MSEE-PRs (4). A redundant pair of network paths is also encouraged between customer network and MSEE-PRs. However, in Any-to-any (IPVPN) connection model, a single CE device (2) may be connected to one or more PEs (3).
@@ -153,7 +155,7 @@ To confirm if an ExpressRoute circuit is operational, pay particular attention t
 
 
 ##Validate Peering Configuration
-After the service provider has completed the provisioning the ExpressRoute circuit, a routing configuration can be created over the ExpressRoute circuit between MSEE-PRs (4) and MSEEs (5). Each ExpressRoute circuit can have one, two, or three routing contexts enabled: Azure private peering (traffic to private virtual networks in Azure), Azure public peering (traffic to public IP addresses in Azure), and Microsoft peering (traffic to Office 365 and CRM  Online services). For more information on how to create and modify routing configuration, see the article [Create and modify routing for an ExpressRoute circuit][CreatePeering].
+After the service provider has completed the provisioning the ExpressRoute circuit, a routing configuration can be created over the ExpressRoute circuit between MSEE-PRs (4) and MSEEs (5). Each ExpressRoute circuit can have one, two, or three routing contexts enabled: Azure private peering (traffic to private virtual networks in Azure), Azure public peering (traffic to public IP addresses in Azure), and Microsoft peering (traffic to Office 365 and CRM Online). For more information on how to create and modify routing configuration, see the article [Create and modify routing for an ExpressRoute circuit][CreatePeering].
 
 ###Verification via the Azure portal
 >[!IMPORTANT]
