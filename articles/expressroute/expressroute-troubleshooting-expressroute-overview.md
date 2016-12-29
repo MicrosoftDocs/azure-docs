@@ -19,13 +19,13 @@ ms.author: rambala
 ---
 
 # Verifying ExpressRoute Connectivity
-With ExpressRoute, extending an on-premises network into the Microsoft cloud over a dedicated private connection is facilitated by a connectivity provider and involves the following three distinct network zones:
+ExpressRoute, which extends an on-premises network into the Microsoft cloud over a dedicated private connection that is facilitated by a connectivity provider, involves the following three distinct network zones:
 
 - 	Customer on-premises network
 -  	Connectivity provider network
 -  	Microsoft network
 
-The purpose of this document is to help identify where (or even if) a connectivity issue exists and within which zone, allowing the appropriate team to resolve the issue. If Microsoft support is needed to resolve an issue, open a support ticket with [Microsoft Support][Support].
+The purpose of this document is to help user to identify where (or even if) a connectivity issue exists and within which zone, thereby to seek help from appropriate team to resolve the issue. If Microsoft support is needed to resolve an issue, open a support ticket with [Microsoft Support][Support].
 
 > [!IMPORTANT]
 > This document is intended to help diagnosing and fixing simple issues. It is not intended to be a replacement for Microsoft support. Open a support ticket with [Microsoft Support][Support] if you are unable to solve the problem using the guidance provided.
