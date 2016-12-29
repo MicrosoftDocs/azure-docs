@@ -364,6 +364,54 @@ traces
     Age = now() - timestamp
 ```
 
+### find operator
+
+    find in (Table1, Table2, Table3) where id=='42'
+
+Find rows that match a predicate across a set of tables.
+
+**Syntax**
+
+    find [withsource=SourceColumnName] in (Table, ...) where Predicate [project Column, ... [, pack(*)]]
+
+**Arguments**
+
+* *SourceColumnName* Specifies the name of the column in the result that displays the name of the source table of each row. Defaults to `source_`.
+* *Table* A table name or query. It can be a let-defined table, but not a function. A table name performs better than a query.
+* *Predicate* A boolean expression evaluated for every row in the specified tables.
+* *Column* The project option allows you to specify which columns must always appear in the output. 
+* `pack(*)` Specifies that columns you haven't specified should be packed into a property bag.
+
+**Result**
+
+By default, the output table contains:
+
+* `source_` - An indicator of the source table for each row.
+* Columns explicitly mentioned in the predicate
+* Non-empty columns common to all the input tables.
+* `pack_` - A property bag containing the data from the other columns.
+
+Notice that this format can change with changes in the input data or predicate. To specify a fixed set of columns, use `project`.
+
+**Example**
+
+Get all the requests and exceptions, excluding those from availability tests and robots:
+
+```AIQL
+
+    find in (requests, exceptions) where isempty(operation_SyntheticSource)
+```
+
+Find most recent telemetry where any field contains the term 'test':
+
+```AIQL
+
+    find in (traces, requests, pageViews, dependencies, customEvents, availabilityResults, exceptions) 
+    where * has 'test' 
+    | top 100 by timestamp desc
+```
+
+
 
 ### join operator
     Table1 | join (Table2) on CommonColumn
@@ -387,10 +435,10 @@ A table with:
 
 * A column for every column in each of the two tables, including the matching keys. The columns of the right side will be automatically renamed if there are name clashes.
 * A row for every match between the input tables. A match is a row selected from one table that has the same value for all the `on` fields as a row in the other table. 
-* `Kind` unspecified
+* `Kind` unspecified or `= innerunique`
   
     Only one row from the left side is matched for each value of the `on` key. The output contains a row for each match of this row with rows from the right.
-* `Kind=inner`
+* `kind=inner`
   
      There's a row in the output for every combination of matching rows from left and right.
 * `kind=leftouter` (or `kind=rightouter` or `kind=fullouter`)
@@ -399,8 +447,10 @@ A table with:
 * `kind=leftanti`
   
      Returns all the records from the left side that do not have matches from the right. The result table just has the columns from the left side. 
+* `kind=leftsemi` (or `leftantisemi`)
 
-If there are several rows with the same values for those fields, you'll get rows for all the combinations.
+    Returns a row from the left table if there is (or is not) a match for it in the right table. The result does not include data from the right.
+
 
 **Tips**
 
@@ -974,11 +1024,13 @@ Filters a table to the subset of rows that satisfy a predicate.
 **Syntax**
 
     T | where Predicate
+    T | where * has Term
 
 **Arguments**
 
 * *T:* The tabular input whose records are to be filtered.
 * *Predicate:* A `boolean` [expression](#boolean) over the columns of *T*. It is evaluated for each row in *T*.
+* *Term* - a string that must match the whole of a word in a column.
 
 **Returns**
 
