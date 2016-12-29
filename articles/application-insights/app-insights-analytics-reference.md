@@ -422,10 +422,11 @@ Find most recent telemetry where any field contains the term 'test':
     | top 100 by timestamp desc
 ```
 
-**Tips**
+**Performance Tips**
 
-* Filter the input tables using `let` before applying `find`.
-* 
+* Add time-based terms to the `where` predicate.
+* Use `let` clauses rather than writing queries inline.
+
 
 
 ### join operator
@@ -1012,13 +1013,13 @@ This more efficient version produces the same result. It filters each table befo
 ```AIQL
 
     exceptions
-    | where Timestamp > ago(1d)
+    | where Timestamp > ago(12h)
     | union withsource=SourceTable kind=outer 
-       (Command | where Timestamp > ago(1d))
+       (Command | where Timestamp > ago(12h))
     | summarize dcount(UserId)
 ```
 
-### Forcing an order of results
+#### Forcing an order of results
 
 Union doesn't guarantee a specific ordering in the rows of results.
 To get the same order every time you run the query, append a tag column to each input table:
@@ -1028,6 +1029,9 @@ To get the same order every time you run the query, append a tag column to each 
     let r3 = (pageViews | count | extend tag = 'r3');
     r1 | union r2,r3 | sort by tag
 
+#### See also
+
+Consider the [join operator](#join-operator) as an alternative.
 
 ### where operator
      requests | where resultCode==200
