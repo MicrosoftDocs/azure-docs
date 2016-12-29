@@ -1,6 +1,6 @@
 ---
 title: PowerShell script to deploy Linux HPC cluster | Microsoft Docs
-description: Run a PowerShell script to deploy a Linux HPC Pack cluster in Azure virtual machines
+description: Run a PowerShell script to deploy a Linux HPC Pack 2012 R2 cluster in Azure virtual machines
 services: virtual-machines-linux
 documentationcenter: ''
 author: dlepow
@@ -14,15 +14,16 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: big-compute
-ms.date: 07/07/2016
+ms.date: 12/29/2016
 ms.author: danlep
 
 ---
-# Create a Linux high performance computing (HPC) cluster with the HPC Pack IaaS deployment script
-Run the HPC Pack IaaS deployment PowerShell script to deploy a complete HPC cluster for Linux workloads in Azure virtual machines. The cluster consists of an Active Directory-joined head node running Windows Server and Microsoft HPC Pack, and compute nodes that run one of the Linux distributions supported by HPC Pack. If you want to deploy an HPC Pack cluster in Azure for Windows workloads, see [Create a Windows HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). You can also use an Azure Resource Manager template to deploy an HPC Pack cluster. For an example, see [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
+# Create a Linux high-performance computing (HPC) cluster with the HPC Pack IaaS deployment script
+Run the HPC Pack IaaS deployment PowerShell script to deploy a complete HPC Pack 2012 cluster for Linux workloads in Azure virtual machines. The cluster consists of an Active Directory-joined head node running Windows Server and Microsoft HPC Pack, and compute nodes that run one of the Linux distributions supported by HPC Pack. If you want to deploy an HPC Pack cluster in Azure for Windows workloads, see [Create a Windows HPC cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json). You can also use an Azure Resource Manager template to deploy an HPC Pack cluster. For an example, see [Create an HPC cluster with Linux compute nodes](https://azure.microsoft.com/documentation/templates/create-hpc-cluster-linux-cn/).
 
 > [!IMPORTANT] 
-> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> The PowerShell script described in this article creates a Microsoft HPC Pack 2012 R2 cluster in Azure using the classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
+> In addition, the script described in this article does not support HPC Pack 2016.
 
 [!INCLUDE [virtual-machines-common-classic-hpcpack-cluster-powershell-script](../../includes/virtual-machines-common-classic-hpcpack-cluster-powershell-script.md)]
 
@@ -79,11 +80,11 @@ Substitute your own values for your subscription name and the account and servic
 </IaaSClusterConfig>
 ```
 ## Troubleshooting
-* **“VNet doesn’t exist” error** - If you run the HPC Pack IaaS deployment script to deploy multiple
+* **“VNet doesn’t exist” error**. If you run the HPC Pack IaaS deployment script to deploy multiple
   clusters in Azure concurrently under one subscription, one or more
   deployments may fail with the error “VNet *VNet\_Name* doesn't exist”.
   If this error occurs, re-run the script for the failed deployment.
-* **Problem accessing the Internet from the Azure virtual network** - If you create an HPC Pack cluster with a new domain controller by using
+* **Problem accessing the Internet from the Azure virtual network**. If you create an HPC Pack cluster with a new domain controller by using
   the deployment script, or you manually promote a head node VM to domain
   controller, you may experience problems connecting the VMs in the Azure
   virtual network to the Internet. This can occur if a forwarder DNS
