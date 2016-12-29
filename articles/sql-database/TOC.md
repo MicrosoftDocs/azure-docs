@@ -147,9 +147,9 @@
 #### [Adopt in-memory OLTP](sql-database-in-memory-oltp-migration.md)
 ## Monitoring and Tuning
 ### Learn
-#### [single databases](sql-database-single-database-monitor.md)
+#### [Single databases](sql-database-single-database-monitor.md)
 #### [SQL Database Advisor overview](sql-database-advisor.md)
-#### [single database guidance](sql-database-performance-guidance.md)
+#### [Single database guidance](sql-database-performance-guidance.md)
 #### [Workload insights in the Azure portal](sql-database-performance.md)
 #### [Use batching](sql-database-use-batching-to-improve-performance.md)
 #### [Extended events](sql-database-xevent-db-diff-from-svr.md)
@@ -168,7 +168,7 @@
 ### Servers
 #### [Create servers](sql-database-create-servers.md)
 #### [View or update server settings](sql-database-view-update-server-settings.md)
-### single databases
+### Single databases
 #### [Create single databases](sql-database-create-databases.md)
 #### [View or update database settings](sql-database-view-update-database-settings.md)
 ### Firewall rules
