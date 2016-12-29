@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: storage-backup-recovery
-ms.date: 12/27/2016
+ms.date: 12/28/2016
 ms.author: raynew
 
 ---
@@ -73,6 +73,13 @@ Yes. When you use Site Recovery to orchestrate replication and failover in your 
 
 ### What charges do I incur while using Azure Site Recovery?
 While using Azure Site recovery you incur charges for the Azure Site Recovery license, Azure storage, storage transactions, and outbound data transfer. [Learn more](https://azure.microsoft.com/pricing/details/site-recovery).
+
+The Site Recovery license is per protected instance, where an instance is a VM, or a physical server.
+
+- If a VM disk replicates to a standard storage account, the Azure storage charge is for the storage consumption. For example, if the source disk size  is 1 TB, and 400 GB is used, Site Recovery creates a 1 TB VHD in Azure, but the storage charged is 400 GB (plus the amount of storage space used for replication logs).
+- If a VM disk replicates to a premium storage account, the Azure storage charge is for the provisioned storage size, rounded out for the nearest premium storage disk option. For example, if the source disk size is 50 GB, Site Recovery creates a 50 GB disk in Azure, and Azure maps this to the nearest premium storage disk (P10).  Costs are calculated on P10, and not on the 50 GB disk size.  [Learn more](https://aka.ms/premium-storage-pricing).  If you're using premium storage, a standard storage account for replication logging is also required, and the amount of standard storage space used for these logs is also billed.
+
+Costs are also incurred during test failover, where the VM, storage, egress, and storage transactions costs will be applied.
 
 
 

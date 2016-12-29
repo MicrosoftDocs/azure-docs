@@ -147,9 +147,9 @@ ms.author: goraco
 [deployment-guide-install-vm-agent-windows]:virtual-machines-windows-sap-deployment-guide.md#b2db5c9a-a076-42c6-9835-16945868e866
 [deployment-guide-troubleshooting-chapter]:virtual-machines-windows-sap-deployment-guide.md#564adb4f-5c95-4041-9616-6635e83a810b
 
-[deploy-template-cli]:../resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows
-[deploy-template-portal]:../resource-group-template-deploy.md#deploy-with-the-preview-portal
-[deploy-template-powershell]:../resource-group-template-deploy.md#deploy-with-powershell
+[deploy-template-cli]:../azure-resource-manager/resource-group-template-deploy.md#deploy-with-azure-cli-for-mac-linux-and-windows
+[deploy-template-portal]:../azure-resource-manager/resource-group-template-deploy.md#deploy-with-the-preview-portal
+[deploy-template-powershell]:../azure-resource-manager/resource-group-template-deploy.md#deploy-with-powershell
 
 [dr-guide-classic]:http://go.microsoft.com/fwlink/?LinkID=521971
 
@@ -359,8 +359,8 @@ ms.author: goraco
 [sap-ha-guide-figure-6003]:./media/virtual-machines-shared-sap-high-availability-guide/6003-sap-multi-sid-full-landscape.png
 
 [powershell-install-configure]:/powershell/azureps-cmdlets-docs
-[resource-group-authoring-templates]:../resource-group-authoring-templates.md
-[resource-group-overview]:../resource-group-overview.md
+[resource-group-authoring-templates]:../azure-resource-manager/resource-group-authoring-templates.md
+[resource-group-overview]:../azure-resource-manager/resource-group-overview.md
 [resource-groups-networking]:../virtual-network/resource-groups-networking.md
 [sap-pam]:https://support.sap.com/pam (SAP Product Availability Matrix)
 [sap-templates-2-tier-marketplace-image]:https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsap-2-tier-marketplace-image%2Fazuredeploy.json
