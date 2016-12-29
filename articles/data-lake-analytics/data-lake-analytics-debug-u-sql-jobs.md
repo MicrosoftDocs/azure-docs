@@ -52,8 +52,8 @@ When opening a failed job in ADL Tools for Visual Studio, you will get an alert.
 
 3. Debugging steps are little different between failed jobs with code behind and assemblies.
 
-    - [Debug job failed with code behind](#Debug job failed with code behind)
-    - [Debug job failed with assemblies](#Debug job failed with assemblies)
+    - [Debug job failed with code behind](#debug-job-failed-with-code-behind)
+    - [Debug job failed with assemblies](#debug-job-failed-with-assemblies)
 
 ![Azure Data Lake Analytics U-SQL debug visual studio download vertex](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
@@ -108,9 +108,9 @@ After you have completed debugging, you can resubmit the failed job.
 
 1. Register new .dll assemblies to your ADLA database.
    
-   a. From Server Explorer/Cloud Explorer in Data Lake Visual Studio Tool, expand the **Databases** node.
-   b. Right-click Assemblies to Register assemblies. 
-   c. Register your new .dll assemblies to the ADLA database.
+   1. From Server Explorer/Cloud Explorer in Data Lake Visual Studio Tool, expand the **Databases** node.
+   2. Right-click Assemblies to Register assemblies. 
+   3. Register your new .dll assemblies to the ADLA database.
 
    ![Azure Data Lake Analytics U-SQL debug register assembly](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-register-assembly.png)   
 
