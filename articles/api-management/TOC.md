@@ -42,14 +42,13 @@
 
 # Reference
 ## [PowerShell](/powershell/azureps-cmdlets-docs)
-## [PowerShell (Classic)](https://msdn.microsoft.com/library/azure/mt613507)
 ## [REST](/rest/api/apimanagement/)
 ## [REST (original)](/rest/api/apimanagement/ApiManagementREST/API-Management-REST)
-## [Policies](https://msdn.microsoft.com/library/azure/dn894081)
-## [Templates](https://msdn.microsoft.com/library/azure/mt697540)
+
 
 # Resources
-
+## [Policies](https://msdn.microsoft.com/library/azure/dn894081)
+## [Templates](https://msdn.microsoft.com/library/azure/mt697540)
 ## [Pricing](https://azure.microsoft.com/pricing/details/api-management/)
 ## [MSDN forum](https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=azureapimgmt)
 ## [Stack Overflow](http://stackoverflow.com/questions/tagged/azure-api-management)

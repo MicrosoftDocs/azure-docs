@@ -138,6 +138,9 @@
 ##### [Use MMC actions in StorSimple Snapshot Manager](storsimple-snapshot-manager-mmc-menu.md)
 
 ### Build solutions
+#### [StorSimple with Veeam](storsimple-configure-backup-target-veeam.md)
+#### [StorSimple with Veritas Backup Exec](storsimple-configure-backup-target-using-backup-exec.md)
+#### [StorSimple with Veritas NetBackup](storsimple-configure-backuptarget-netbackup.md)
 #### [Automate file server DR to Azure](storsimple-disaster-recovery-using-azure-site-recovery.md)
 #### [StorSimple with Express Route](https://gallery.technet.microsoft.com/STORESIMPLE-CONFIGURATION-86c04c3b/view/Discussions#content)
 #### [StorSimple with VMware](https://gallery.technet.microsoft.com/VMWARE-DEPLOYMENT-WITH-2921b463)

@@ -1,4 +1,4 @@
-﻿---
+---
 title: Lexicon Based Sentiment Analysis | Microsoft Docs
 description: Lexicon Based Sentiment Analysis
 services: machine-learning
@@ -13,7 +13,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/16/2016
+ms.date: 12/15/2016
 ms.author: pengxia
 
 ---

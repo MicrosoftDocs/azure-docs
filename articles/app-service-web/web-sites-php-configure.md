@@ -13,7 +13,7 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: article
-ms.date: 11/01/2016
+ms.date: 12/16/2016
 ms.author: robmcm
 
 ---
@@ -45,10 +45,10 @@ PHP 5.5 and PHP 5.6 versions are also available, but not enabled by default. To 
         PS C:\> Login-AzureRmAccount
 2. Set the PHP version for the web app.
    
-        PS C:\> Set-AzureWebsite -PhpVersion [5.4 | 5.5 | 5.6] -Name {site-name}
+        PS C:\> Set-AzureWebsite -PhpVersion {5.4 | 5.5 | 5.6} -Name {app-name}
 3. The PHP version is now set. You can confirm these settings:
    
-        PS C:\> Get-AzureWebsite -Name {site-name} | findstr PhpVersion
+        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
 ### Azure Command-Line Interface (Linux, Mac, Windows)
 To use the Azure Command-Line Interface, you must have **Node.js** installed on your computer.
@@ -58,10 +58,20 @@ To use the Azure Command-Line Interface, you must have **Node.js** installed on 
         azure login
 2. Set the PHP version for the web app.
    
-        azure site set --php-version [5.4 | 5.5] {site-name}
+        azure site set --php-version {5.4 | 5.5 | 5.6} {app-name}
+
 3. The PHP version is now set. You can confirm these settings:
    
-        azure site show {site-name}
+        azure site show {app-name}
+
+> [!NOTE] 
+> The [Azure CLI 2.0 (Preview)](https://github.com/Azure/azure-cli) commands that are equivalent to the above are:
+>
+>
+
+    az login
+    az appservice web config update --php-version {5.5 | 5.6 | 7.0} -g {resource-group-name} -n {app-name}
+    az appservice web config show -g {resource-group-name} -n {app-name}
 
 ## How to: Change the built-in PHP configurations
 For any built-in PHP runtime, you can change any of the configuration options by following the steps below. (For information about php.ini directives, see [List of php.ini directives].)

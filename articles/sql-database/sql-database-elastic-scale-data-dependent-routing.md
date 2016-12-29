@@ -1,4 +1,4 @@
-﻿---
+---
 title: Data dependent routing | Microsoft Docs
 description: How to use the ShardMapManager class in .NET apps for data-dependent routing, a feature of elastic databases for Azure SQL Database
 services: sql-database
@@ -9,6 +9,7 @@ editor: ''
 
 ms.assetid: cad09e15-5561-4448-aa18-b38f54cda004
 ms.service: sql-database
+ms.custom: multiple databases
 ms.workload: sql-database
 ms.tgt_pltfrm: na
 ms.devlang: na

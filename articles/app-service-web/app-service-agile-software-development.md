@@ -1,4 +1,4 @@
-﻿---
+---
 title: Agile software development with Azure App Service
 description: Learn how to create high-scale complex applications with Azure App Service in a way that supports agile software development.
 services: app-service
@@ -266,12 +266,12 @@ Agile software development is a must-have for many companies who want to adopt A
 * [Deploy a complex application predictably in Azure](app-service-deploy-complex-application-predictably.md)
 * [Agile Development in Practice: Tips and Tricks for Modernized Development Cycle](http://channel9.msdn.com/Events/Ignite/2015/BRK3707)
 * [Advanced deployment strategies for Azure Web Apps using Resource Manager templates](http://channel9.msdn.com/Events/Build/2015/2-620)
-* [Authoring Azure Resource Manager Templates](../resource-group-authoring-templates.md)
+* [Authoring Azure Resource Manager Templates](../azure-resource-manager/resource-group-authoring-templates.md)
 * [JSONLint - The JSON Validator](http://jsonlint.com/)
 * [ARMClient – Set up GitHub publishing to site](https://github.com/projectKudu/ARMClient/wiki/Setup-GitHub-publishing-to-Site)
 * [Git Branching – Basic Branching and Merging](http://www.git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging)
 * [David Ebbo’s Blog](http://blog.davidebbo.com/)
-* [Azure PowerShell](../powershell-install-configure.md)
+* [Azure PowerShell](/powershell/azureps-cmdlets-docs)
 * [Azure Cross-Platform Command-Line Tools](../xplat-cli-install.md)
 * [Create or edit users in Azure AD](https://msdn.microsoft.com/library/azure/hh967632.aspx#BKMK_1)
 * [Project Kudu Wiki](https://github.com/projectkudu/kudu/wiki)
