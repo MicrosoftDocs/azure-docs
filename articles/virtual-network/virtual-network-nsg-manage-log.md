@@ -32,7 +32,7 @@ Activity logging (previously known as audit or operational logs) is enabled by d
 
 ## Enable diagnostic logging
 
-You must enable diagnostic logging for *each* NSG you want to collect data for and you must select one or more options for where you want to send the data. The [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) article explains the different data stores the data can be sent or streamed to. If you don't have an existing NSG, complete the steps in the [Create a network security group](virtual-networks-create-nsg-arm-pportal.md) article to create one. You can enable NSG diagnostic logging using any of the methods that follow.
+Diagnostic logging must be enabled for *each* NSG you want to collect data for. You must select one or more options for where you want to send the data. The [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) article explains the different data stores the data can be sent or streamed to. If you don't have an existing NSG, complete the steps in the [Create a network security group](virtual-networks-create-nsg-arm-pportal.md) article to create one. You can enable NSG diagnostic logging using any of the methods that follow.
 
 ### Azure portal
 
@@ -40,21 +40,21 @@ To use the portal to enable logging, login to the [portal](https://portal.azure.
 
 ### PowerShell
 
-To use PowerShell to enable logging, follow the instructions in the [Enable diagnostic logs via PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-powershell) article. Before entering the appropriate command from the article based on where you want to send the data, consider the following:
+To use PowerShell to enable logging, follow the instructions in the [Enable diagnostic logs via PowerShell](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-powershell) article. Evaluate the following information before entering a command from the article:
 
 - You can determine the value to use for the `-ResourceId` parameter by replacing the following [text], as appropriate, then entering the command `Get-AzureRmNetworkSecurityGroup -Name [nsg-name] -ResourceGroupName [resource-group-name]`. The ID output from the command will look similar to */subscriptions/[subscription id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*. 
-- You can add `-Categories [category]` to the end of the command in the article, where category is either *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*, if you only want to collect data from one of the log types. If you don't use the `-Categories` parameter, data collection is enabled for both log types.
+- If you only want to collect data from one of the log types, add `-Categories [category]` to the end of the command in the article, where category is either *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*. If you don't use the `-Categories` parameter, data collection is enabled for both log types.
 
 ### Azure command-line interface (CLI)
 
-To use the CLI to enable logging, follow the instructions in the [Enable diagnostic logs via CLI](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-cli) article. Before entering the appropriate command from the article based on where you want to send the data, consider the following:
+To use the CLI to enable logging, follow the instructions in the [Enable diagnostic logs via CLI](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md#enable-diagnostic-logs-via-cli) article. Evaluate the following information before entering a command from the article:
 
 - You can determine the value to use for the `-ResourceId` parameter by replacing the following [text], as appropriate, then entering the command `azure network nsg show [resource-group-name] [nsg-name]`. The ID output from the command will look similar to */subscriptions/[Subscription Id]/resourceGroups/[resource-group]/providers/Microsoft.Network/networkSecurityGroups/[NSG name]*.
-- You can add `-Categories <category>` to the end of the command in the article, where category is either *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*, if you only want to collect data from one of the log types. If you don't use the `-Categories` parameter, data collection is enabled for both log types.
+- If you only want to collect data from one of the log types, add `-Categories [category]` to the end of the command in the article, where category is either *NetworkSecurityGroupEvent* or *NetworkSecurityGroupRuleCounter*. If you don't use the `-Categories` parameter, data collection is enabled for both log types.
 
 ## Logged data
 
-JSON-formatted data is written for both logs. The specific data written for each log type is listed in the following sections.
+JSON-formatted data is written for both logs. The specific data written for each log type is listed in the following sections:
 
 ### Event log
 This log contains information about which NSG rules are applied to VMs and cloud service role instances, based on MAC address. The following example data is logged for each event:
@@ -112,4 +112,4 @@ This log contains information about each rule applied to resources. The followin
 
 ## View and analyze logs
 
-To learn how to view activity log data, read the [Overview of the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) article. To learn how to view diagnostic log data, read the [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) article. If you send diagnostics data to Log Analytics, you can use the [Azure Network Anaytics](../log-analytics/log-analytics-azure-networking-analytics.md#use-azure-networking-analytics) (preview) solution for enhanced insights. 
+To learn how to view activity log data, read the [Overview of the Azure Activity Log](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) article. To learn how to view diagnostic log data, read the [Overview of Azure Diagnostic Logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) article. If you send diagnostics data to Log Analytics, you can use the [Azure Network Analytics](../log-analytics/log-analytics-azure-networking-analytics.md#use-azure-networking-analytics) (preview) solution for enhanced insights. 
