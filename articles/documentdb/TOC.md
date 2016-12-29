@@ -10,7 +10,6 @@
 ## Write your first app
 ### [.NET console app](documentdb-get-started.md)
 ### [.NET Core console app](documentdb-dotnetcore-get-started.md)
-### [Java console app](documentdb-java-get-started.md)
 ### [Node.js console app](documentdb-nodejs-get-started.md)
 ### [C++ console app](documentdb-cpp-get-started.md)
 ## Build a web app
