@@ -39,7 +39,7 @@ When the server-level firewall is configured for an individual IP address or ran
 ### Administrator access path
 When the server-level firewall is properly configured, the SQL Database Subscriber Account and the Azure Active Directory SQL Server Administrators can connect using client tools such as SQL Server Management Studio or SQL Server Data Tools. Only the latest tools provide all the features and capabilities. The following diagram shows a typical configuration for the two administrator accounts.
 
-    ![Administrator access path](./media/sql-database-manage-logins/1sql-db-administrator-access.png)
+    ![Administrator access path](./media/sql-database-manage-logins/sql-db-administrator-access.png)
 
 When using an open port in the server-level firewall, administrators can connect to any SQL Database.
 
