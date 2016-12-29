@@ -139,7 +139,7 @@ To run mpipingpong on the cluster:
 1. On the head node or on a properly configured client computer, open a Command Prompt.
 2. To estimate latency between pairs of nodes in an Azure burst deployment of 4 nodes, type the following command to submit a job to run mpipingpong with a small packet size and a large number of iterations:
    
-    ```
+    ```Command
     job submit /nodegroup:azurenodes /numnodes:4 mpiexec -c 1 -affinity mpipingpong -p 1:100000 -op -s nul
     ```
    
@@ -147,12 +147,12 @@ To run mpipingpong on the cluster:
    
     If you deployed the HPC Pack cluster deployed on Azure VMs, specify a node group that contains compute node VMs deployed in a single cloud service, and modify the **mpiexec** command as follows:
    
-    ```
+    ```Command
     job submit /nodegroup:vmcomputenodes /numnodes:4 mpiexec -c 1 -affinity -env MSMPI_DISABLE_SOCK 1 -env MSMPI_PRECONNECT all -env MPICH_NETMASK 172.16.0.0/255.255.0.0 mpipingpong -p 1:100000 -op -s nul
     ```
 3. When the job completes, to view the output (in this case, the output of task 1 of the job), type the following
    
-    ```
+    ```Command
     task view <JobID>.1
     ```
    
@@ -163,7 +163,7 @@ To run mpipingpong on the cluster:
     ![Ping pong latency][pingpong1]
 4. To estimate throughput between pairs of Azure burst nodes, type the following command to submit a job to run **mpipingpong** with a large packet size and a small number of iterations:
    
-    ```
+    ```Command
     job submit /nodegroup:azurenodes /numnodes:4 mpiexec -c 1 -affinity mpipingpong -p 4000000:1000 -op -s nul
     ```
    
@@ -172,7 +172,7 @@ To run mpipingpong on the cluster:
     On an HPC Pack cluster deployed on Azure VMs, modify the command as noted in step 2.
 5. When the job completes, to view the output (in this case, the output of task 1 of the job), type the following:
    
-    ```
+    ```Command
     task view <JobID>.1
     ```
    
