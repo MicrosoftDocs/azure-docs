@@ -3,7 +3,7 @@ title: Task dependencies in Azure Batch | Microsoft Docs
 description: Create tasks that depend on the successful completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
 services: batch
 documentationcenter: .net
-author: mmacy
+author: tamram
 manager: timlt
 editor: ''
 
@@ -14,7 +14,7 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: big-compute
 ms.date: 09/28/2016
-ms.author: marsma
+ms.author: tamram
 
 ---
 # Task dependencies in Azure Batch

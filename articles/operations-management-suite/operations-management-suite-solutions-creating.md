@@ -31,9 +31,9 @@ Management solutions in OMS include multiple resources supporting a particular m
 For example, a management solution might include an [Azure Automation runbook](../automation/automation-intro.md) that collects data to the Log Analytics repository using a [schedule](../automation/automation-schedules.md) and a [view](../log-analytics/log-analytics-view-designer.md) that provides various visualizations of the collected data.  The same schedule might be used by another solution.  As the management solution author, you would define all three resources but specify that the runbook and view should be automatically removed when the solution is removed.    You would also define the schedule but specify that it should remain in place if the solution were removed in case it was still in use by the other solution.
 
 ## Management solution files
-Management solutions are implemented as [Resource Management templates](../resource-manager-template-walkthrough.md).  The main task in learning how to author management solutions is learning how to [author a template](../resource-group-authoring-templates.md).  This article provides unique details of templates used for solutions and how to define typical solution resources.
+Management solutions are implemented as [Resource Management templates](../resource-manager-template-walkthrough.md).  The main task in learning how to author management solutions is learning how to [author a template](../azure-resource-manager/resource-group-authoring-templates.md).  This article provides unique details of templates used for solutions and how to define typical solution resources.
 
-The basic structure of a management solution file is the same as a [Resource Manager Template](../resource-group-authoring-templates.md#template-format) which is as follows.  Each of the following sections describes the top level elements and and their contents in a solution.  
+The basic structure of a management solution file is the same as a [Resource Manager Template](../azure-resource-manager/resource-group-authoring-templates.md#template-format) which is as follows.  Each of the following sections describes the top level elements and and their contents in a solution.  
 
     {
        "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -45,7 +45,7 @@ The basic structure of a management solution file is the same as a [Resource Man
     }
 
 ## Parameters
-[Parameters](../resource-group-authoring-templates.md#parameters) are values that you require from the user when they install the management solution.  There are standard parameters that all solutions will have, and you can add additional parameters as required for your particular solution.  How users will provide parameter values when they install your solution will depend on the particular parameter and how the solution is being installed.
+[Parameters](../azure-resource-manager/resource-group-authoring-templates.md#parameters) are values that you require from the user when they install the management solution.  There are standard parameters that all solutions will have, and you can add additional parameters as required for your particular solution.  How users will provide parameter values when they install your solution will depend on the particular parameter and how the solution is being installed.
 
 When a user installs your management solution through the [Azure Marketplace](operations-management-suite-solutions.md#finding-and-installing-management-solutions) or [Azure QuickStart templates](operations-management-suite-solutions.md#finding-and-installing-management-solutions) they are prompted to select an [OMS workspace and Automation account](operations-management-suite-solutions-creating.md#oms-workspace-and-automation-account).  These are used to populate the values of each of the standard parameters.  The user is not prompted to directly provide values for the standard parameters, but they are prompted to provide values for any additional parameters.
 
@@ -255,10 +255,10 @@ You can get the details and samples of resources that are common to management s
 * [Automation resources](operations-management-suite-solutions-resources-automation.md)
 
 ## Testing a management solution
-Prior to deploying your management solution, it is recommended that you test it using [Test-AzureRmResourceGroupDeployment](../resource-group-template-deploy.md#deploy-with-powershell).  This will validate your solution file and help you identify any problems before attempting to deploy it.
+Prior to deploying your management solution, it is recommended that you test it using [Test-AzureRmResourceGroupDeployment](../azure-resource-manager/resource-group-template-deploy.md#deploy).  This will validate your solution file and help you identify any problems before attempting to deploy it.
 
 ## Next steps
-* Learn the details of [Authoring Azure Resource Manager templates](../resource-group-authoring-templates.md).
+* Learn the details of [Authoring Azure Resource Manager templates](../azure-resource-manager/resource-group-authoring-templates.md).
 * Search [Azure Quickstart Templates](https://azure.microsoft.com/documentation/templates) for samples of different Resource Manager templates.
 * View the details for [adding views to a management solution](operations-management-suite-solutions-resources-views.md).
 * View the details for [adding Automation resources to a management solution](operations-management-suite-solutions-resources-automation.md).

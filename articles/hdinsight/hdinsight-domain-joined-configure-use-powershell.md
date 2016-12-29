@@ -1,4 +1,4 @@
-﻿---
+---
 title: Configure Domain-joined HDInsight clusters using Azure PowerShell| Microsoft Docs
 description: Learn how to set up and configure Domain-joined HDInsight clusters using Azure PowerShell
 services: hdinsight
@@ -18,7 +18,7 @@ ms.date: 11/02/2016
 ms.author: saurinsh
 
 ---
-# Configure Domain-joined HDInsight clusters (Preview) use Azure PowerShell
+# Configure Domain-joined HDInsight clusters (Preview) using Azure PowerShell
 Learn how to set up an Azure HDInsight cluster with Azure Active Directory (Azure AD) and [Apache Ranger](http://hortonworks.com/apache/ranger/) using Azure PowerShell. An Azure PowerShell script is provided to make the configuration faster and less error prone. Domain-joined HDInsight can only be configured on Linux-based clusters. For more information, see [Introduce Domain-joined HDInsight clusters](hdinsight-domain-joined-introduction.md).
 
 A typical Domain-joined HDInsight cluster configuration involves the following steps:
@@ -51,10 +51,10 @@ You must have the following items to go through this tutorial:
 * Familiarize yourself with [Azure AD Domain Services](https://azure.microsoft.com/services/active-directory-ds/) its [pricing](https://azure.microsoft.com/pricing/details/active-directory-ds/) structure.
 * Ensure that your subscription is whitelisted for this public preview. You can do so by sending an email to hdipreview@microsoft.com with your subscription ID.
 * An SSL certificate that is signed by a signing authority for your domain. The certificate is required by configuring secure LDAP. Self-signed certificates cannot be used.
-* Azure PowerShell.  See [Install and configure Azure PowerShell](../powershell-install-configure.md).
+* Azure PowerShell.  See [Install and configure Azure PowerShell](/powershell/azureps-cmdlets-docs).
 
 ## Create an Azure classic VNet for your Azure AD.
-For the insturctions, see [here](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
+For the instructions, see [here](hdinsight-domain-joined-configure.md#create-an-azure-classic-vnet).
 
 ## Create and configure Azure AD and Azure AD DS.
 For the instructions, see [here](hdinsight-domain-joined-configure.md#create-and-configure-azure-ad-ds-for-your-azure-ad).
@@ -153,7 +153,7 @@ Another option for creating Domain-joined HDInsight cluster is to use Azure Reso
 
 1. Click the following image to open a Resource Manager template in the Azure portal. The Resource Manager template is located in a public blob container. 
    
-    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="https://acom.azurecomcdn.net/80C57D/cdn/mediahandler/docarticles/dpsmedia-prod/azure.microsoft.com/en-us/documentation/articles/hdinsight-hbase-tutorial-get-started-linux/20160201111850/deploy-to-azure.png" alt="Deploy to Azure"></a>
+    <a href="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fhditutorialdata.blob.core.windows.net%2Farmtemplates%2Fcreate-domain-joined-hdinsight-cluster.json" target="_blank"><img src="./media/hdinsight-domain-joined-configure-use-powershell/deploy-to-azure.png" alt="Deploy to Azure"></a>
 2. From the **Parameters** blade, enter the following values:
    
    * **Subscription**: (Select your Azure subscription).
@@ -180,6 +180,7 @@ Another option for creating Domain-joined HDInsight cluster is to use Azure Reso
 After you complete the tutorial, you might want to delete the cluster. With HDInsight, your data is stored in Azure Storage, so you can safely delete a cluster when it is not in use. You are also charged for an HDInsight cluster, even when it is not in use. Since the charges for the cluster are many times more than the charges for storage, it makes economic sense to delete clusters when they are not in use. For the instructions of deleting a cluster, see [Manage Hadoop clusters in HDInsight by using the Azure portal](hdinsight-administer-use-management-portal.md#delete-clusters).
 
 ## Next steps
+
 * For configuring Hive policies and run Hive queries, see [Configure Hive policies for Domain-joined HDInsight clusters](hdinsight-domain-joined-run-hive.md).
-* For running Hive queries using SSH on Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#a-idconnecta-connect-to-hdinsight).
+* For using SSH to connect to Domain-joined HDInsight clusters, see [Use SSH with Linux-based Hadoop on HDInsight from Linux, Unix, or OS X](hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined).
 

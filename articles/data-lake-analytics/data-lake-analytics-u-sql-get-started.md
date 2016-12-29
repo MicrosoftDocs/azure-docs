@@ -1,4 +1,4 @@
-﻿---
+---
 title: Develop U-SQL scripts using Data Lake Tools for Visual Studio | Microsoft Docs
 description: 'Learn how to install Data Lake Tools for Visual Studio, how to develop and test U-SQL scripts. '
 services: data-lake-analytics
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 05/16/2016
+ms.date: 12/05/2016
 ms.author: edmaca
 
 ---
 # Tutorial: Get started with Azure Data Lake Analytics U-SQL language
-U-SQL is a language that unifies the benefits of SQL with the expressive power of your own code to process all data at any scale. U-SQL’s scalable distributed query capability enables you to efficiently analyze data in the store and across relational stores such as Azure SQL Database.  It enables you to process unstructured data by applying schema on read, insert custom logic and UDF's, and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, please refer to this [Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
+U-SQL is a language that unifies the benefits of SQL with the expressive power of your own code to process data at any scale. U-SQL’s scalable distributed query capability enables you to efficiently analyze data across relational stores such as Azure SQL Database.  It enables you to process unstructured data by applying schema on read, insert custom logic and UDFs, and includes extensibility to enable fine grained control over how to execute at scale. To learn more about the design philosophy behind U-SQL, refer to this [Visual Studio blog post](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
 There are some differences from ANSI SQL or T-SQL. For example, its keywords such as SELECT have to be in UPPERCASE.
 
 It’s type system and expression language inside select clauses, where predicates etc are in C#.
-This means the data types are the C# types and the data types use C# NULL semantics, and the comparison operations inside a predicate follow C# syntax (e.g., a == "foo").  This also means, that the values are full .NET objects, allowing you to easily use any method to operate on the object (eg "f o o o".Split(' ')  ).
+This means the data types are the C# types and the data types use C# NULL semantics, and the comparison operations inside a predicate follow C# syntax (e.g., a == "foo").  This also means, that the values are full .NET objects, allowing you to easily use any method to operate on the object (e.g. "f o o o".Split(' ')).
 
 For more information, see [U-SQL Reference](http://go.microsoft.com/fwlink/p/?LinkId=691348).
 
 ### Prerequisites
-You must complete [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
+Complete [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md).
 
 In the tutorial, you ran a Data Lake Analytics job with the following U-SQL script:
 
@@ -54,7 +54,7 @@ Notice the question mark next to the data type of the Duration field. That means
 Some concepts and keywords found in the script:
 
 * **Rowset variables**: Each query expression that produces a rowset can be assigned to a variable. U-SQL follows the T-SQL variable naming pattern, for example, **@searchlog** in the script.
-    Note the assignment does not force execution. It merely names the expression and gives you the ability to build-up more complex expressions.
+    Note the assignment does not force execution. It merely names the expression and gives you the ability to build up more complex expressions.
 * **EXTRACT** gives you the ability to define a schema on read. The schema is specified by a column name and C# type name pair per column. It uses a so-called **Extractor**, for example, **Extractors.Tsv()** to extract tsv files. You can develop custom extractors.
 * **OUTPUT** takes a rowset and serializes it. The Outputters.Csv() output a comma-separated file into the specified location. You can also develop custom Outputters.
 * Notice the two paths are relative paths. You can also use absolute paths.  For example
@@ -66,7 +66,7 @@ Some concepts and keywords found in the script:
         wasb://<BlobContainerName>@<StorageAccountName>.blob.core.windows.net/Samples/Data/SearchLog.tsv
   
   > [!NOTE]
-  > Azure Blob container with public blobs or public containers access permissions are not currently supported.
+  > Azure Blob containers with public blobs or public containers access permissions are not currently supported.
   > 
   > 
 
@@ -148,7 +148,7 @@ Notice that the second query is operating on the result of the first rowset and 
 ## Aggregate rowsets
 U-SQL provides you with the familiar **ORDER BY**, **GROUP BY** and aggregations.
 
-The following query finds the total duration per region, and then outputs the top 5 durations in order.
+The following query finds the total duration per region, and then outputs the top five durations in order.
 
 U-SQL rowsets do not preserve their order for the next query. Thus, to order an output, you need to add ORDER BY to the OUTPUT statement as shown below:
 
@@ -218,7 +218,7 @@ U-SQL HAVING clause can be used to restrict the output to groups that satisfy th
         USING Outputters.Csv();
 
 ## Join data
-U-SQL provides common join operators such as INNER JOIN, LEFT/RIGHT/FULL OUTER JOIN, SEMI JOIN, to join not only tables but any rowsets (even those produced from files).
+U-SQL provides common join operators such as INNER JOIN, LEFT/RIGHT/FULL OUTER JOIN, SEMI JOIN, to join not only tables but any rowsets (even ones produced from files).
 
 The following script joins the searchlog with an advertisement impression log and gives us the advertisements for the query string for a given date.
 
@@ -240,7 +240,7 @@ The following script joins the searchlog with an advertisement impression log an
         USING Outputters.Csv();
 
 
-U-SQL only supports the ANSI compliant join syntax: Rowset1 JOIN Rowset2 ON predicate. The old syntax of FROM Rowset1, Rowset2 WHERE predicate is NOT supported.
+U-SQL only supports the ANSI-compliant join syntax: Rowset1 JOIN Rowset2 ON predicate. The old syntax of FROM Rowset1, Rowset2 WHERE predicate is NOT supported.
 The predicate in a JOIN has to be an equality join and no expression. If you want to use an expression, add it to a previous rowset's select clause. If you want to do a different comparison, you can move it into the WHERE clause.
 
 ## Create databases, table-valued functions, views, and tables
@@ -362,7 +362,7 @@ The following script create a database and two tables:
 
 
 ### Query tables
-You can query the tables (created in the previous script) in the same way as you query over the data files. Instead of creating a rowset using EXTRACT, you now can just refer to the table name.
+You can query the tables (created in the previous script) in the same way as you query over the data files. Instead of creating a rowset using EXTRACT, you now can refer to the table name.
 
 The transform script you used previously is modified to read from the tables:
 
@@ -389,9 +389,9 @@ Note that you currently cannot run a SELECT on a table in the same script as the
 ## Conclusion
 What is covered in the tutorial is only a small part of U-SQL. Because of the scope of this tutorial, it can't cover everything, such as:
 
-* Use CROSS APPLY to unpack parts of strings, arrays and maps into rows.
+* Use CROSS APPLY to unpack parts of strings, arrays, and maps into rows.
 * Operate partitioned sets of data (file sets and partitioned tables).
-* Develop user defined operators such as extractors, outputters, processors, user-defined aggregators in C#.
+* Develop user-defined operators such as extractors, outputters, processors, user-defined aggregators in C#.
 * Use U-SQL windowing functions.
 * Manage U-SQL code with views, table-valued functions and stored procedures.
 * Run arbitrary custom code on your processing nodes.
@@ -401,7 +401,7 @@ What is covered in the tutorial is only a small part of U-SQL. Because of the sc
 * [Overview of Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)
 * [Develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
 * [Using U-SQL window functions for Azure Data Lake Analytics jobs](data-lake-analytics-use-window-functions.md)
-* [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure Portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
+* [Monitor and troubleshoot Azure Data Lake Analytics jobs using Azure portal](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 
 ## Let us know what you think
 * [Submit a feature request](http://aka.ms/adlafeedback)

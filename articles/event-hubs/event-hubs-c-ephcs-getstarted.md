@@ -13,7 +13,7 @@ ms.workload: na
 ms.tgt_pltfrm: c
 ms.devlang: csharp
 ms.topic: article
-ms.date: 08/16/2016
+ms.date: 11/30/2016
 ms.author: jotaub;sethm
 
 ---
@@ -23,7 +23,7 @@ ms.author: jotaub;sethm
 ## Introduction
 Event Hubs is a highly scalable ingestion system that can intake millions of events per second, enabling an application to process and analyze the massive amounts of data produced by your connected devices and applications. Once collected into Event Hubs, you can transform and store data using any real-time analytics provider or storage cluster.
 
-For more information, please see [Event Hubs Overview][Event Hubs Overview].
+For more information, please see the [Event Hubs overview][Event Hubs overview].
 
 In this tutorial, you will learn how to ingest messages into an Event Hub using a console application in C, and to retrieve them in parallel using the C# [Event Processor Host][Event Processor Host] library.
 

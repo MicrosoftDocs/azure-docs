@@ -4,7 +4,7 @@ description: Azure Queues provide reliable, asynchronous messaging between appli
 services: storage
 documentationcenter: .net
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: c0f82537-a613-4f01-b2ed-fc82e5eea2a7
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/12/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 ---
 

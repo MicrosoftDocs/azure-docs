@@ -1,4 +1,3 @@
-
 ---
 title: DocumentDB Java API & SDK | Microsoft Docs
 description: Learn all about the Java API and SDK including release dates, retirement dates, and changes made between each version of the DocumentDB Java SDK.
@@ -46,6 +45,23 @@ ms.author: rnagpal
 </table></br>
 
 ## Release Notes
+### <a name="1.9.4"/>[1.9.4](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.4)
+* Added simple client instance-based proxy support with ConnectionPolicy.setProxy() API.
+* Added DocumentClient.close() API to properly shutdown DocumentClient instance.
+* Improved query performance in direct connectivity mode by deriving the query plan from the native assembly instead of the Gateway.
+* Set FAIL_ON_UNKNOWN_PROPERTIES = false so users don't need to define JsonIgnoreProperties in their POJO.
+* Refactored logging to use SLF4J.
+* Fixed a few other bugs in consistency reader.
+
+### <a name="1.9.3"/>[1.9.3](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.3)
+* Fixed a bug in the connection management to prevent connection leaks in direct connectivity mode.
+* Fixed a bug in the TOP query where it may throw NullReferenece exception.
+* Improved performance by reducing the number of network call for the internal caches.
+* Added status code, ActivityID and Request URI in DocumentClientException for better troubleshooting.
+
+### <a name="1.9.2"/>[1.9.2](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.2)
+* Fixed an issue in the connection management for stability.
+
 ### <a name="1.9.1"/>[1.9.1](http://mvnrepository.com/artifact/com.microsoft.azure/azure-documentdb/1.9.1)
 * Added support for BoundedStaleness consistency level.
 * Added support for direct connectivity for CRUD operations for partitioned collections.

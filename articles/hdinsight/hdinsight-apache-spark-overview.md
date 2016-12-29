@@ -38,7 +38,7 @@ Azure HDInsight offers a fully managed Spark service. Benefits of using Spark on
 | Feature | Description |
 | --- | --- |
 | Ease of creating clusters |You can create a new Spark cluster on HDInsight in minutes using the Azure Management Portal, Azure PowerShell, or the HDInsight .NET SDK. See [Get started with Spark cluster in HDInsight](hdinsight-apache-spark-jupyter-spark-sql.md) |
-| Ease of use |Spark in HDInsight clusters includes Jupyter notebooks pre-configured. You can use these for interactive data processing and visualization. The URLs for the is https://CLUSTERNAME.azurehdinsight.net/jupyter. Replace **CLUSTERNAME** with the name of your Spark HDInsight cluster. |
+| Ease of use |Spark in HDInsight clusters includes Jupyter notebooks pre-configured. You can use these for interactive data processing and visualization. The URL for the Jupyter notebook is https://CLUSTERNAME.azurehdinsight.net/jupyter. Replace **CLUSTERNAME** with the name of your Spark HDInsight cluster. |
 | REST APIs |Spark in HDInsight includes [Livy](https://github.com/cloudera/hue/tree/master/apps/spark/java#welcome-to-livy-the-rest-spark-server), a REST-API based Spark job server to remotely submit and monitor running jobs. |
 | Support for Azure Data Lake Store |Spark on HDInsight can be configured to use Azure Data Lake Store as an additional storage. For more information on Data Lake Store, see [Overview of Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md). |
 | Integration with Azure services |Spark on HDInsight comes with a connector to Azure Event Hubs. Customers can build streaming applications using the Event Hubs, in addition to [Kafka](http://kafka.apache.org/), which is already available as part of Spark. |
