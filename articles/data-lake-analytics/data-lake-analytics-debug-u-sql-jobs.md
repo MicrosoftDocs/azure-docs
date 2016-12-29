@@ -101,7 +101,7 @@ You can also use other Visual Studio based debugging experiences (watch, variabl
 
     The Program ‘LocalVertexHost.exe’ has exited with code 0 (0x0).
 
-    ![Azure Data Lake Analytics U-SQL debug succeed](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
+![Azure Data Lake Analytics U-SQL debug succeed](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
 ## Resubmit the job
 After you have completed debugging, you can resubmit the failed job.
