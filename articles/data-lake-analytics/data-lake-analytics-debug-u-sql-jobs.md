@@ -71,7 +71,7 @@ Before debugging, make sure you checked **Common Language Runtime Exceptions** i
 
     ![Azure Data Lake Analytics U-SQL debug exception](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png)
 
-## Debug failed job with assemblies
+## Debug job failed with assemblies
 
 If you use registered assemblies in U-SQL script, the system can't get the source code automatically, you need to do some configurations before debugging user defined code, that is, you must add the source code of assemblies to the automatically generated solution.
 
