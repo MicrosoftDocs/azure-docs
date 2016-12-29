@@ -93,7 +93,7 @@ If you use registered assemblies in U-SQL script, the system can't get the sourc
 
 1. Press **F5**, the project will run automatically untill it is stopped by an exception. You may see the following message for the first time which you can ignore. It can take up to one minute to get to the debug screen.
 
-   ![Azure Data Lake Analytics U-SQL debug visual studio warning](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-visual-studio-u-sql-debug-warning.png)
+    ![Azure Data Lake Analytics U-SQL debug visual studio warning](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-visual-studio-u-sql-debug-warning.png)
 
 2. Open you source code and set breakpoints, then press **F5** to debug code step by step.
 
@@ -101,18 +101,18 @@ You can also use other Visual Studio based debugging experiences (watch, variabl
 
     The Program ‘LocalVertexHost.exe’ has exited with code 0 (0x0).
 
-   ![Azure Data Lake Analytics U-SQL debug succeed](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
+    ![Azure Data Lake Analytics U-SQL debug succeed](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
 ## Resubmit the job
 After you have completed debugging, you can resubmit the failed job.
 
 1. Register new .dll assemblies to your ADLA database.
-   
-   1. From Server Explorer/Cloud Explorer in Data Lake Visual Studio Tool, expand the **Databases** node.
-   2. Right-click Assemblies to Register assemblies. 
-   3. Register your new .dll assemblies to the ADLA database.
 
-   ![Azure Data Lake Analytics U-SQL debug register assembly](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-register-assembly.png)   
+    1. From Server Explorer/Cloud Explorer in Data Lake Visual Studio Tool, expand the **Databases** node.
+    2. Right-click Assemblies to Register assemblies. 
+    3. Register your new .dll assemblies to the ADLA database.
+
+    ![Azure Data Lake Analytics U-SQL debug register assembly](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-register-assembly.png)   
 
 2. Or copy your C# code to script.usql.cs--C# code behind file.
 3. Resubmit your job.
