@@ -73,7 +73,13 @@ Where:
 * The size (A9 in this example) is one of the RDMA-capable VM sizes.
 * The external SSH port number (22 in this example, which is the SSH default) is any valid port number. The internal SSH port number is set to 22.
 * A new cloud service is created in the Azure region specified by the location. Specify a location in which the VM size you choose is available.
-* The SLES 12 SP1 image name currently can be `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824` or `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-priority-v20160824` for SUSE priority support (additional charges apply).
+* For SUSE priority support (which incurs additional charges), the SLES 12 SP1 image name currently can be
+
+ `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-v20160824`
+
+ or
+
+  `b4590d9e3ed742e4a1d46e5424aa335e__suse-sles-12-sp1-hpc-priority-v20160824` .
 
 ### Customize the VM
 After the VM finishes provisioning, SSH to the VM by using the VM's external IP address (or DNS name) and the external port number you configured, and then customize it. For connection details, see [How to log on to a virtual machine running Linux](virtual-machines-linux-mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Perform commands as the user you configured on the VM, unless root access is required to complete a step.
