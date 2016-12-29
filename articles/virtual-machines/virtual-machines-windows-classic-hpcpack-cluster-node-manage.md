@@ -20,7 +20,7 @@ ms.author: danlep
 ---
 # Manage the number and availability of compute nodes in an HPC Pack cluster in Azure
 If you created an HPC Pack 2012 R2 cluster in Azure VMs, you might want ways to easily add, remove,
-start (provision), or stop (deprovision) a number of compute node VMs in the
+start (provision), or stop (deprovision) some compute node VMs in the
 cluster. To do these tasks, run Azure PowerShell scripts that are
 installed on the head node VM. These scripts help you control the number
 and availability of your HPC Pack cluster resources so you can control costs.
@@ -32,7 +32,7 @@ and availability of your HPC Pack cluster resources so you can control costs.
 ## Prerequisites
 * **HPC Pack 2012 R2 cluster in Azure VMs**: Create an HPC Pack 2012 R2 cluster in the classic deployment model. For example, you can automate the deployment by using the HPC Pack 2012 R2 VM image in the Azure Marketplace and an Azure PowerShell script. For information and prerequisites, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
   
-    After deployment, find the node management scripts in the %CCP\_HOME%bin folder on the head node. You must run each of the scripts as an administrator.
+    After deployment, find the node management scripts in the %CCP\_HOME%bin folder on the head node. Run each of the scripts as an administrator.
 * **Azure publish settings file or management certificate**: You need to do one of the following on the head node:
   
   * **Import the Azure publish settings file**. To do this, run the following Azure PowerShell cmdlets on the head node:
@@ -152,6 +152,6 @@ Stop-HPCIaaSNode.ps1 –Name HPCNodeCN-* -Force
 ```
 
 ## Next steps
-* If you want a way to automatically grow or shrink the cluster nodes according to
+* To automatically grow or shrink the cluster nodes according to
   the current workload of jobs and tasks on the cluster, see [Automatically grow and shrink the HPC Pack cluster resources in Azure according to the cluster workload](virtual-machines-windows-classic-hpcpack-cluster-node-autogrowshrink.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).
 

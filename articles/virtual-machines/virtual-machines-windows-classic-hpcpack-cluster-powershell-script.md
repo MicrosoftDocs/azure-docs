@@ -37,7 +37,7 @@ the Windows Server 2012 R2 operating system. All the cloud services are
 created directly in the West US location. The head node acts as domain
 controller of the domain forest.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -83,7 +83,7 @@ and three storage accounts: *MyHPCCN-0001* to *MyHPCCN-0005* in
 an existing private image captured from a compute node. The auto grow
 and shrink service is enabled with default grow and shrink intervals.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -146,14 +146,14 @@ and shrink service is enabled with default grow and shrink intervals.
 ### Example 3
 The following configuration file deploys an HPC Pack cluster
 in an existing domain forest. The cluster contains one head node, one
-database server with a 500 GB data disk, 2 broker nodes running the Windows
+database server with a 500 GB data disk, two broker nodes running the Windows
 Server 2012 R2 operating system, and five compute nodes running the Windows
 Server 2012 R2 operating system. The cloud service MyHPCCNService is
 created in the affinity group *MyIBAffinityGroup*, and the other cloud
 services are created in the affinity group *MyAffinityGroup*. The HPC Job
 Scheduler REST API and HPC web portal are enabled on the head node.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -211,7 +211,7 @@ in an existing domain forest. The cluster has two head node with local
 databases, two Azure node templates are created, and three size Medium Azure
 nodes are created for Azure node template *AzureTemplate1*. A script file runs on the head node after the head node is configured.
 
-```
+```Xml
 <?xml version="1.0" encoding="utf-8" ?>
 <IaaSClusterConfig>
   <Subscription>
@@ -283,12 +283,10 @@ nodes are created for Azure node template *AzureTemplate1*. A script file runs o
 * **Problem accessing the Internet from the Azure virtual network** - If you create a cluster with a new domain controller by using
   the deployment script, or you manually promote a head node VM to domain
   controller, you may experience problems connecting the VMs to the Internet. This problem can occur if a forwarder DNS
-  server is automatically configured on the domain controller, and this
-  forwarder DNS server doesn’t resolve properly.
+  server is automatically configured on the domain controller, and this forwarder DNS server doesn’t resolve properly.
   
     To work around this problem, log on to the domain controller and either
-    remove the forwarder configuration setting or configure a valid
-    forwarder DNS server. To configure this setting, in Server Manager click **Tools** >
+    remove the forwarder configuration setting or configure a valid forwarder DNS server. To configure this setting, in Server Manager click **Tools** >
     **DNS** to open DNS Manager, and then double-click **Forwarders**.
 * **Problem accessing RDMA network from compute-intensive VMs** - If you add Windows Server compute or broker node VMs using an RDMA-capable size such as A8 or A9, you may experience problems
   connecting those VMs to the RDMA application network. One reason this
@@ -297,9 +295,7 @@ nodes are created for Azure node template *AzureTemplate1*. A script file runs o
   extension might be stuck in the installing state.
   
     To work around this problem, first check the state of the extension in
-    the VMs. If the extension is not properly installed, try removing the
-    nodes from the HPC cluster and then add the nodes again. For example,
-    you can add compute node VMs by running the Add-HpcIaaSNode.ps1 script on the head node.
+    the VMs. If the extension is not properly installed, try removing the nodes from the HPC cluster and then add the nodes again. For example, you can add compute node VMs by running the Add-HpcIaaSNode.ps1 script on the head node.
 
 ## Next steps
 * Try running a test workload on the cluster. For an example, see the HPC Pack [getting started guide](https://technet.microsoft.com/library/jj884144).
