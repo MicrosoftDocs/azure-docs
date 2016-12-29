@@ -1,4 +1,4 @@
-﻿---
+---
 title: Working with Reliable Collections | Microsoft Docs
 description: Learn the best practices for working with Reliable Collections.
 services: service-fabric
@@ -20,7 +20,7 @@ ms.author: jeffreyr
 # Working with Reliable Collections
 Service Fabric offers a stateful programming model available to .NET developers via Reliable Collections. Specifically, Service Fabric provides reliable dictionary and reliable queue classes. When you use these classes, your state is partitioned (for scalability), replicated (for availability), and transacted within a partition (for ACID semantics). Let’s look at a typical usage of a reliable dictionary object and see what its actually doing.
 
-~~~
+```
 retry:
 try {
    // Create a new Transaction object for this partition
@@ -41,7 +41,7 @@ try {
 catch (TimeoutException) { 
    await Task.Delay(100, cancellationToken); goto retry; 
 }
-~~~
+```
 
 All operations on reliable dictionary objects (except for ClearAsync which is not undoable), require an ITransaction object. This object has associated with it any and all changes you’re attempting to make to any reliable dictionary and/or reliable queue objects within a single partition. You acquire an ITransaction object by calling the partition’s StateManager’s CreateTransaction method.
 
@@ -58,7 +58,7 @@ If CommitAsync is not called (usually due to an exception being thrown), then th
 ## Common pitfalls and how to avoid them
 Now that you understand how the reliable collections work internally, let’s take a look at some common misuses of them. See the code below:
 
-~~~
+```
 using (ITransaction tx = StateManager.CreateTransaction()) {
    // AddAsync serializes the name/user, logs the bytes, 
    // & sends the bytes to the secondary replicas.
@@ -70,23 +70,23 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 
    await tx.CommitAsync();
 }
-~~~
+```
 
 When working with a regular .NET dictionary, you can add a key/value to the dictionary and then change the value of a property (such as LastLogin). However, this code will not work correctly with a reliable dictionary. Remember from the earlier discussion, the call to AddAsync serializes the key/value objects to byte arrays and then saves the arrays to a local file and also sends them to the secondary replicas. If you later change a property, this changes the property’s value in memory only; it does not impact the local file or the data sent to the replicas. If the process crashes, what’s in memory is thrown away. When a new process starts or if another replica becomes primary, then the old property value is what is available. 
 
 I cannot stress enough how easy it is to make the kind of mistake shown above. And, you will only learn about the mistake if/when the process goes down. The correct way to write the code is simply to reverse the two lines:
 
-~~~
+```
 using (ITransaction tx = StateManager.CreateTransaction()) {
    user.LastLogin = DateTime.UtcNow;  // Do this BEFORE calling AddAsync
    await m_dic.AddAsync(tx, name, user);
    await tx.CommitAsync(); 
 }
-~~~
+```
 
 Here is another example showing a common mistake:
 
-~~~
+```
 using (ITransaction tx = StateManager.CreateTransaction()) {
    // Use the user’s name to look up their data
    ConditionalValue<User> user = 
@@ -100,7 +100,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
       await tx.CommitAsync(); 
    }
 }
-~~~
+```
 
 Again, with regular .NET dictionaries, the code above works fine and is a common pattern: the developer uses a key to look up a value. If the value exists, the developer changes a property’s value. However, with reliable collections, this code exhibits the same problem as already discussed: **you MUST not modify an object once you have given it to a reliable collection.**
 
@@ -108,7 +108,7 @@ The correct way to update a value in a reliable collection, is to get a referenc
 
 The code below shows the correct way to update a value in a reliable collection:
 
-~~~
+```
 using (ITransaction tx = StateManager.CreateTransaction()) {
    // Use the user’s name to look up their data
    ConditionalValue<User> currentUser = 
@@ -130,14 +130,14 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
       await tx.CommitAsync(); 
    }
 }
-~~~
+```
 
 ## Define immutable data types to prevent programmer error
 Ideally, we’d like the compiler to report errors when you accidentally produce code that mutates state of an object that you are supposed to consider immutable. But, the C# compiler does not have the ability to do this. So, to avoid potential programmer bugs, we highly recommend that you define the types you use with reliable collections to be immutable types. Specifically, this means that you stick to core value types (such as numbers [Int32, UInt64, etc.], DateTime, Guid, TimeSpan, and the like). And, of course, you can also use String. It is best to avoid collection properties as serializing and deserializing them can frequently can hurt performance. However, if you want to use collection properties, we highly recommend the use of .NET’s immutable collections library (System.Collections.Immutable). This library is available for download from http://nuget.org. We also recommend sealing your classes and making fields read-only whenever possible.
 
 The UserInfo type below demonstrates how to define an immutable type taking advantage of aforementioned recommendations.
 
-~~~
+```
 [DataContract]
 // If you don’t seal, you must ensure that any derived classes are also immutable
 public sealed class UserInfo {
@@ -168,11 +168,11 @@ public sealed class UserInfo {
       return new UserInfo(Email, ((ImmutableList<ItemId>)ItemsBidding).Add(itemId));
    }
 }
-~~~
+```
 
 The ItemId type is also an immutable type as shown here:
 
-~~~
+```
 [DataContract]
 public struct ItemId {
 
@@ -183,7 +183,7 @@ public struct ItemId {
       ItemName = itemName;
    }
 }
-~~~
+```
 
 ## Schema versioning (upgrades)
 Internally, Reliable Collections serialize your objects using .NET’s DataContractSerializer. The serialized objects are persisted to the primary replica’s local disk and are also transmitted to the secondary replicas. As your service matures, it’s likely you’ll want to change the kind of data (schema) your service requires. You must approach versioning of your data with great care. First and foremost, you must always be able to deserialize old data. Specifically, this means your deserialization code must be infinitely backward compatible: Version 333 of your service code must be able to operate on data placed in a reliable collection by version 1 of your service code 5 years ago.

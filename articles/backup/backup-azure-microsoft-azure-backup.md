@@ -27,7 +27,14 @@ ms.author: jimpark;trinadhk;pullabhk;markgal
 > 
 > 
 
-This article explains how to prepare your environment to back up workloads using Azure Backup Server. With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange and Windows clients from a single console. You can also protect information as a server (IaaS) workloads such as VMs in Azure.
+This article explains how to prepare your environment to back up workloads using Azure Backup Server. With Azure Backup Server, you can protect application workloads such as Hyper-V VMs, Microsoft SQL Server, SharePoint Server, Microsoft Exchange and Windows clients from a single console. 
+
+> [!NOTE]
+> Azure Backup Server can now protect VMware VMs and provides improved security capabilities. You need to install the product as explained in the below sections and apply Update 1 and the latest Azure Backup Agent. To learn more about VMware backup using Azure Backup server please visit the [how-to blog](https://azure.microsoft.com/blog/four-simple-steps-to-backup-vmware-vms-using-azure-backup-server/). To learn about security capabilities , refer to [Azure backup security features documentation](backup-azure-security-feature.md).
+> 
+> 
+
+You can also protect information as a server (IaaS) workloads such as VMs in Azure.
 
 > [!NOTE]
 > Azure has two deployment models for creating and working with resources: [Resource Manager and classic](../azure-resource-manager/resource-manager-deployment-model.md). This article provides the information and procedures for restoring VMs deployed using the Resource Manager model.

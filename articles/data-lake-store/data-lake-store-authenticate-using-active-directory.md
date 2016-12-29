@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: big-data
-ms.date: 10/17/2016
+ms.date: 11/28/2016
 ms.author: nitinme
 
 ---
@@ -56,7 +56,7 @@ This is the recommended approach if you want your application to automatically a
 For instructions on how to create an Azure AD web application and configure it for the requirements listed above, see the section [Create an Active Directory application](#create-an-active-directory-application) below.
 
 > [!NOTE]
-> By default the Azure AD application is configured to use the client secret, which you can retrieve from the Azure AD application. However, if you want the Azure AD application to use a certificate instead, you must create the Azure AD web application using Azure PowerShell, as described at [Create a service principal with certificate](../resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
+> By default the Azure AD application is configured to use the client secret, which you can retrieve from the Azure AD application. However, if you want the Azure AD application to use a certificate instead, you must create the Azure AD web application using Azure PowerShell, as described at [Create a service principal with certificate](../azure-resource-manager/resource-group-authenticate-service-principal.md#create-service-principal-with-certificate).
 > 
 > 
 
@@ -89,6 +89,12 @@ In this section we learn about how to create and configure an Azure AD web appli
 6. Provide a name for the application and select the type of application you want to create. For this tutorial, create a **WEB APPLICATION AND/OR WEB API** and click the next button.
    
      ![name application](./media/data-lake-store-authenticate-using-active-directory/tell-us-about-your-application.png)
+
+	> [!TIP]
+	> Provide a name for the application that will be easier to search for. Later in this tutorial you will search for this application and assign it to a Data Lake Store account.
+	> 
+	> 
+
 7. Fill in the properties for your app. For **SIGN-ON URL**, provide the URI to a web site that describes your application. The existence of the web site is not validated. 
    For **APP ID URI**, provide the URI that identifies your application.
    
@@ -130,7 +136,7 @@ When programmatically logging in, you need the id for your application. If the a
 4. The **Access** blade lists the standard access and custom access already assigned to the root. Click the **Add** icon to add custom-level ACLs.
    
     ![List standard and custom access](./media/data-lake-store-authenticate-using-active-directory/adl.acl.2.png "List standard and custom access")
-5. Click the **Add** icon to open the **Add Custom Access** blade. In this blade, click **Select User or Group**, and then in **Select User or Group** blade, look for the security group you created earlier in Azure Active Directory. If you have a lot of groups to search from, use the text box at the top to filter on the group name. Click the group you want to add and then click **Select**.
+5. Click the **Add** icon to open the **Add Custom Access** blade. In this blade, click **Select User or Group**, and then in **Select User or Group** blade, look for the Azure Active Directory application you created earlier. If you have a lot of groups to search from, use the text box at the top to filter on the group name. Click the group you want to add and then click **Select**.
    
     ![Add a group](./media/data-lake-store-authenticate-using-active-directory/adl.acl.3.png "Add a group")
 6. Click **Select Permissions**, select the permissions and whether you want to assign the permissions as a default ACL, access ACL, or both. Click **OK**.

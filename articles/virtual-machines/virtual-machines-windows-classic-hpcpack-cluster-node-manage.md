@@ -25,7 +25,8 @@ cluster. To do these tasks, run Azure PowerShell scripts that are
 installed on the head node VM. These scripts help you control the number
 and availability of your HPC Pack cluster resources so you can control costs.
 
-[!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-classic-include.md)]
+> [!IMPORTANT] 
+> Azure has two different deployment models for creating and working with resources: [Resource Manager and Classic](../azure-resource-manager/resource-manager-deployment-model.md). This article covers using the Classic deployment model. Microsoft recommends that most new deployments use the Resource Manager model.
 
 ## Prerequisites
 * **HPC Pack cluster in Azure VMs** - Create an HPC Pack cluster in the classic deployment model by using at least HPC Pack 2012 R2 Update 1. For example, you can automate the deployment by using the current HPC Pack VM image in the Azure Marketplace and an Azure PowerShell script. For information and prerequisites, see [Create an HPC Cluster with the HPC Pack IaaS deployment script](virtual-machines-windows-classic-hpcpack-cluster-powershell-script.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json).

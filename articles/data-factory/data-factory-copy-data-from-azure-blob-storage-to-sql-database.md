@@ -14,7 +14,7 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2016
+ms.date: 11/29/2016
 ms.author: spelluru
 
 ---
@@ -85,27 +85,28 @@ Now, prepare your Azure blob storage and Azure SQL database for the tutorial by 
 
 1. Launch Notepad, paste the following text, and save it as **emp.txt** to **C:\ADFGetStarted** folder on your hard drive.
 
-        John, Doe
-        Jane, Doe
+	```
+    John, Doe
+    Jane, Doe
+	```
 2. Use tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/) to create the **adftutorial** container and to upload the **emp.txt** file to the container.
 
     ![Azure Storage Explorer. Copy data from Blob storage to SQL database](./media/data-factory-copy-data-from-azure-blob-storage-to-sql-database/getstarted-storage-explorer.png)
 3. Use the following SQL script to create the **emp** table in your Azure SQL Database.  
 
-        CREATE TABLE dbo.emp
-        (
-            ID int IDENTITY(1,1) NOT NULL,
-            FirstName varchar(50),
-            LastName varchar(50),
-        )
-        GO
+	```SQL
+    CREATE TABLE dbo.emp
+    (
+        ID int IDENTITY(1,1) NOT NULL,
+        FirstName varchar(50),
+        LastName varchar(50),
+    )
+    GO
 
-        CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+    CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
+	```
 
-
-    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Managing Azure SQL Database using SQL Server Management Studio
-](../sql-database/sql-database-manage-azure-ssms.md) to connect to your Azure SQL server and run the SQL script. This article uses the [classic Azure portal](http://manage.windowsazure.com), not the [new Azure portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
-
+    **If you have SQL Server 2012/2014 installed on your computer:** follow instructions from [Managing Azure SQL Database using SQL Server Management Studio](../sql-database/sql-database-manage-azure-ssms.md) to connect to your Azure SQL server and run the SQL script. This article uses the [classic Azure portal](http://manage.windowsazure.com), not the [new Azure portal](https://portal.azure.com), to configure firewall for an Azure SQL server.
 
     If your client is not allowed to access the Azure SQL server, you need to configure firewall for your Azure SQL server to allow access from your machine (IP Address). See [this article](../sql-database/sql-database-configure-firewall-settings.md) for steps to configure the firewall for your Azure SQL server.
 
