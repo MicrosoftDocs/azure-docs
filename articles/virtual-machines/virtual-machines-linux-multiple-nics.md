@@ -142,7 +142,7 @@ Azure Resource Manager templates use declarative JSON files to define your envir
 }
 ```
 
-Read more about [creating multiple instances using *copy*](../resource-group-create-multiple.md). 
+Read more about [creating multiple instances using *copy*](../azure-resource-manager/resource-group-create-multiple.md). 
 
 You can also use a `copyIndex()` to then append a number to a resource name, which allows you to create `myNic1`, `myNic2`, etc. The following shows an example of appending the index value:
 
