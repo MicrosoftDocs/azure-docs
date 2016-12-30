@@ -16,6 +16,8 @@
 ### [U-SQL](data-lake-analytics-u-sql-get-started.md)
 ### [U-SQL window functions](data-lake-analytics-use-window-functions.md)
 ### [U-SQL user-defined operators](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+### [U-SQL Python extensions](data-lake-analytics-u-sql-python-extensions.md)
+### [U-SQL Cognitive capabilities](data-lake-analytics-u-sql-cognitive.md)
 
 ## Create solutions
 ### [Analyze website logs](data-lake-analytics-analyze-weblogs.md)
