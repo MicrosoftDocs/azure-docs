@@ -30,8 +30,8 @@ Let's explore how we can get Operations Management Suite integrated into your fl
 ## Onboarding servers to Operations Management Suite
 The first step in integrating your cloud assets with Operations Management Suite is installing the Operations Management Suite agent across log sources. For virtual machines, this is very simple because you can manually download the agent from your Operations Management Suite workspace.
 
-![Figure 1: Windows Servers connected to Operations Management Suite](./media/documentation-government-oms-figure1.png)
-<p align="center">Figure 1: Windows Servers connected to Operations Management Suite</p>
+![Figure 1: Windows servers connected to Operations Management Suite](./media/documentation-government-oms-figure1.png)
+<p align="center">Figure 1: Windows servers connected to Operations Management Suite</p>
 
 You can connect Azure VMs to Operations Management Suite directly through the Azure portal. For instructions, see [New ways to enable Log Analytics on your Azure VMs](https://blogs.technet.microsoft.com/momteam/2016/02/10/new-ways-to-enable-log-analytics-oms-on-your-azure-vms/).
 
