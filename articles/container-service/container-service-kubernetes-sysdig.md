@@ -9,7 +9,7 @@ editor: ''
 tags: acs, azure-container-service, kubernetes
 keywords: ''
 
-ms.assetid: what-goes-here?
+ms.assetid: 
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -57,13 +57,13 @@ see your "Access Key."
 
 ![Sysdig API key](./media/container-service-monitoring-sysdig/sysdig2.png)
 
-##  the Sysdig agents to Kubernetes
+## Installing the Sysdig agents to Kubernetes
 To monitor your containers, Sysdig runs a process on each machine using a Kubernetes `DaemonSet`.
 DaemonSets are Kubernetes API objects that run a single instance of a container per machine.
 They're perfect for installing tools like the Sysdig's monitoring agent.
 
 To install the Sysdig daemonset, you should first download [the template](https://raw.githubusercontent.com/draios/sysdig-cloud-scripts/master/agent_deploy/kubernetes/sysdig-daemonset.yaml) 
-from sysdig. Save that file as `sysdig-daemonset.yaml`
+from sysdig. Save that file as `sysdig-daemonset.yaml`.
 
 On Linux and OS X you can run:
 
@@ -90,5 +90,5 @@ Once installed and running, the agents should pump data back to Sysdig.  Go back
 [sysdig dashboard](https://app.sysdigcloud.com) and you should see information about your
 containers.
 
-You can also install Kubernetes specific dashboards via the
-(new dashboard wizard)[https://app.sysdigcloud.com/#/dashboards/new].
+You can also install Kubernetes-specific dashboards via the
+[new dashboard wizard](https://app.sysdigcloud.com/#/dashboards/new).
