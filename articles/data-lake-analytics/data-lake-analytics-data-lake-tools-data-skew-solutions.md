@@ -1,6 +1,6 @@
 ---
-title: Resolve data-skew problems by using Azure Data Lake tools | Microsoft Docs
-description: 'Troubleshooting potential solutions for data-skew problems by using Azure Data Lake.'
+title: Resolve data-skew problems by using Azure Data Lake Tools for Visual Studio | Microsoft Docs
+description: Troubleshooting potential solutions for data-skew problems by using Azure Data Lake Tools for Visual Studio.
 services: data-lake-analytics
 documentationcenter: ''
 author: yanancai
@@ -18,7 +18,7 @@ ms.author: yanacai
 
 ---
 
-# Resolve data-skew problems by using Azure Data Lake tools
+# Resolve data-skew problems by using Azure Data Lake Tools for Visual Studio
 
 ## What is data skew?
 
@@ -29,7 +29,7 @@ In our scenario, the data is unevenly distributed across all tax examiners, whic
 
 ## Resolving data-skew problems
 
-Azure Data Lake tools help to detect whether your job has a data-skew problem. If a problem exists, you can resolve it by trying the solutions in this section.
+Azure Data Lake Tools for Visual Studio can help detect whether your job has a data-skew problem. If a problem exists, you can resolve it by trying the solutions in this section.
 
 ### Solution 1: Improve table partitioning
 
@@ -49,7 +49,7 @@ Instead of using only _State_ as a partition key, you can use more than one key 
 
 If you cannot find an appropriate key for partition and distribution, you can try to use round-robin distribution. Round-robin distribution treats all rows equally and randomly puts them into corresponding buckets. The data gets evenly distributed, but it loses locality information, a drawback that can also reduce job performance for some operations. Additionally, if you are doing aggregation for the skewed key anyway, the data-skew problem will persist. To learn more about round-robin distribution, see the U-SQL Table Distributions section in [CREATE TABLE (U-SQL): Creating a Table with Schema](https://msdn.microsoft.com/en-us/library/mt706196.aspx#dis_sch).
 
-### Case 2: Improve the query plan
+### Solution 2: Improve the query plan
 
 #### Option 1: Use the CREATE STATISTICS statement
 
@@ -124,13 +124,13 @@ Code example:
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-### Case 3: Improve the user-defined reducer and combiner
+### Solution 3: Improve the user-defined reducer and combiner
 
 You can sometimes write a user-defined operator to deal with complicated process logic, and a well-written reducer and combiner might mitigate a data-skew problem in some cases.
 
 #### Option 1: Use a recursive reducer, if possible
 
-By default, a user-defined reducer runs in non-recursive mode, which means that reduced work for a key is distributed into a single vertex. But if your data is skewed, the huge data sets might be processed in a single vertex and run for a long time.
+By default, a user-defined reducer runs in non-recursive mode, which means that reduce work for a key is distributed into a single vertex. But if your data is skewed, the huge data sets might be processed in a single vertex and run for a long time.
 
 To improve performance, you can add an attribute in your code to define reducer to run in recursive mode. Then, the huge data sets can be distributed to multiple vertices and run in parallel, which speeds up your job.
 
