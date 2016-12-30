@@ -31,10 +31,20 @@ Steps to upgrade from Azure AD Connect | Different methods to [upgrade from a pr
 Required permissions | For permissions required to apply an update, see [accounts and permissions](./active-directory-aadconnect-accounts-permissions.md#upgrade)
 Download| [Download Azure AD Connect](http://go.microsoft.com/fwlink/?LinkId=615771)
 
+## 1.1.380.0
+Released: 2016 December
+
+**Fixed issue:**
+
+* Fixed the issue where the issuerid claim rule for ADFS is missing in this build.
+
+>[!NOTE]
+>This build will not be available to customers through the Azure AD Connect Auto Upgrade feature.
+
 ## 1.1.371.0
 Released: 2016 December
 
-**Known Issue:**
+**Known issue:**
 
 * The issuerid claim rule for ADFS is missing in this build. The issuerid claim rule is required if you are federating multiple domains with Azure AD. If you are using Azure AD Connect to manage your on-premises ADFS deployment, upgrading to this build will remove the existing issuerid claim rule from your ADFS configuration. You can work around the issue by adding the issuerid claim rule after install/upgrade. For details on adding issuerid claim rule, please refer to this article on [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md).
 
@@ -48,7 +58,7 @@ Released: 2016 December
 ## 1.1.370.0
 Released: 2016 December
 
-**Known Issues:**
+**Known issues:**
 
 * The issuerid claim rule for ADFS is missing in this build. The issuerid claim rule is required if you are federating multiple domains with Azure AD. If you are using Azure AD Connect to manage your on-premises ADFS deployment, upgrading to this build will remove the existing issuerid claim rule from your ADFS configuration. You can work around the issue by adding the issuerid claim rule after install/upgrade. For details on adding issuerid claim rule, please refer to this article on [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md).
 * Port 9090 must be open outbound to complete installation.
@@ -63,7 +73,7 @@ Released: 2016 December
 ## 1.1.343.0
 Released: 2016 November
 
-**Known Issue:**
+**Known issue:**
 
 * The issuerid claim rule for ADFS is missing in this build. The issuerid claim rule is required if you are federating multiple domains with Azure AD. If you are using Azure AD Connect to manage your on-premises ADFS deployment, upgrading to this build will remove the existing issuerid claim rule from your ADFS configuration. You can work around the issue by adding the issuerid claim rule after install/upgrade. For details on adding issuerid claim rule, please refer to this article on [Multiple Domain Support for Federating with Azure AD](active-directory-aadconnect-multiple-domains.md).
 

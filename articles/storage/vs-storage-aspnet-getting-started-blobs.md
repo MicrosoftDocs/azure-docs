@@ -65,6 +65,10 @@ include creating a blob container, and uploading, listing, downloading, and dele
 
 A blob container is a nested hierarchy of blobs and folders. The following steps illustrate how to create a blob container:
 
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
+
 1. Open the `BlobsController.cs` file.
 
 1. Add a method called **CreateBlobContainer** that returns an **ActionResult**.
@@ -117,10 +121,10 @@ A blob container is a nested hierarchy of blobs and folders. The following steps
 
     ```csharp
 	@{
-	    ViewBag.Title = "Create blob container";
+	    ViewBag.Title = "Create Blob Container";
 	}
 	
-	<h2>Create blob container results</h2>
+	<h2>Create Blob Container results</h2>
 
 	Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
@@ -133,15 +137,19 @@ A blob container is a nested hierarchy of blobs and folders. The following steps
 	<li>@Html.ActionLink("Create blob container", "CreateBlobContainer", "Blobs")</li>
     ```
 
-1. Run the application, and select **Create Blob Container** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **Create Blob Container** to see results similar to the following screen shot:
   
-	![Create blob container](./media/vs-storage-aspnet-getting-started-blobs/results.png)
+	![Create blob container](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
 
 	As mentioned previously, the **CloudBlobContainer.CreateIfNotExists** method returns **true** only when the container doesn't exist and is created. Therefore, if you run the app when the container exists, the method returns **false**. To run the app multiple times, you must delete the container before running the app again. Deleting the container can be done via the **CloudBlobContainer.Delete** method. You can also delete the container using the [Azure portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) or the [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md).  
 
 ## Upload a blob into a blob container
 
-Once you've [created a blob container](#create-a-blob-container), you can upload files into that container. This section walks you through how to upload a local file to a blob container. The steps assume you've created a blob container named *test-blob-container*. 
+Once you've [created a blob container](#create-a-blob-container), you can upload files into that container. This section walks you through uploading a local file to a blob container. The steps assume you've created a blob container named *test-blob-container*. 
+
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `BlobsController.cs` file.
 
@@ -203,11 +211,15 @@ or overwrites it if it does exist. (Change *&lt;file-to-upload>* to a fully qual
 
 1. Run the application, and select **Upload blob**.  
   
-The next section will illustrate how to list the blobs in a blob container. 	
+The section - [List the blobs in a blob container](#list-the-blobs-in-a-blob-container) - illustrates how to list the blobs in a blob container. 	
 
 ## List the blobs in a blob container
 
 This section illustrates how to list the blobs in a blob container. The sample code references the *test-blob-container* created in the section, [Create a blob container](#create-a-blob-container).
+
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `BlobsController.cs` file.
 
@@ -327,7 +339,7 @@ and its name (or URI in the case of a **CloudBlobDirectory**) is added to a list
 	<li>@Html.ActionLink("List blobs", "ListBlobs", "Blobs")</li>
     ```
 
-1. Run the application, and select **List blobs** to see results similar to those shown in the following screen shot:
+1. Run the application, and select **List blobs** to see results similar to the following screen shot:
   
 	![Blob listing](./media/vs-storage-aspnet-getting-started-blobs/listblobs.png)
 
@@ -395,6 +407,10 @@ This section illustrates how to download a blob and either persist it to local s
 ## Delete blobs
 
 The following steps illustrate how to delete a blob:
+
+> [!NOTE]
+> 
+> The code in this section assumes that you have completed the steps in the section, [Set up the development environment](#set-up-the-development-environment). 
 
 1. Open the `BlobsController.cs` file.
 
