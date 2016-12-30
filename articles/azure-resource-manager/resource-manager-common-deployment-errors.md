@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/28/2016
+ms.date: 12/30/2016
 ms.author: tomfitz
 
 ---
@@ -73,7 +73,9 @@ This error can result from several different types of errors.
 
    This error is easy to make because template expressions can be intricate. For example, the following name assignment for a storage account contains one set of brackets, three functions, three sets of parentheses, one set of single quotes, and one property:
 
-      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+  ```json
+  "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+  ```
 
    If you do not provide the matching syntax, the template produces a value that is different than your intention.
 
@@ -89,44 +91,52 @@ This error can result from several different types of errors.
 
    A root level resource must have one less segment in the name than in the resource type. Each segment is differentiated by a slash. In the following example, the type has two segments and the name has one segment, so it is a **valid name**.
 
-      {
-        "type": "Microsoft.Web/serverfarms",
-        "name": "myHostingPlanName",
-        ...
-      }
+  ```json
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "name": "myHostingPlanName",
+    ...
+  }
+  ```
 
    But the next example is **not a valid name** because it has the same number of segments as the type.
 
-      {
-        "type": "Microsoft.Web/serverfarms",
-        "name": "appPlan/myHostingPlanName",
-        ...
-      }
+  ```json
+  {
+    "type": "Microsoft.Web/serverfarms",
+    "name": "appPlan/myHostingPlanName",
+    ...
+  }
+  ```
 
    For child resources, the type and name have the same number of segments. This number of segments makes sense because the full name and type for the child includes the parent name and type. Therefore, the full name still has one less segment than the full type.
 
-      "resources": [
-          {
-              "type": "Microsoft.KeyVault/vaults",
-              "name": "contosokeyvault",
-              ...
-              "resources": [
-                  {
-                      "type": "secrets",
-                      "name": "appPassword",
-                      ...
-                  }
-              ]
-          }
-      ]
+  ```json
+  "resources": [
+      {
+          "type": "Microsoft.KeyVault/vaults",
+          "name": "contosokeyvault",
+          ...
+          "resources": [
+              {
+                  "type": "secrets",
+                  "name": "appPassword",
+                  ...
+              }
+          ]
+      }
+  ]
+  ```
 
    Getting the segments right can be tricky with Resource Manager types that are applied across resource providers. For example, applying a resource lock to a web site requires a type with four segments. Therefore, the name is three segments:
 
-      {
-          "type": "Microsoft.Web/sites/providers/locks",
-          "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-          ...
-      }
+  ```json
+  {
+      "type": "Microsoft.Web/sites/providers/locks",
+      "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+      ...
+  }
+  ```
 
 - Copy index is not expected
 
@@ -145,7 +155,7 @@ This error can result from several different types of errors.
 
 - Circular dependency detected
 
-   You receive this error when resources are dependent on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resource wait for other resources that are also waiting. For example, resource1 is dependent on resource3, resource2 is dependent on resource1, and resource3 is dependent on resource2. You can usually solve this problem by removing unnecessary dependencies. For suggestions on troubleshooting dependency errors, see [Check deployment sequence](#check-deployment-sequence).
+   You receive this error when resources are dependent on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resource wait for other resources that are also waiting. For example, resource1 depends on resource3, resource2 depends on resource1, and resource3 depends on resource2. You can usually solve this problem by removing unnecessary dependencies. For suggestions on troubleshooting dependency errors, see [Check deployment sequence](#check-deployment-sequence).
 
 <a id="notfound" />
 ### NotFound and ResourceNotFound
@@ -156,23 +166,27 @@ When your template includes the name of a resource that cannot be resolved, you 
 
 If you are attempting to deploy the missing resource in the template, check whether you need to add a dependency. Resource Manager optimizes deployment by creating resources in parallel, when possible. If one resource must be deployed after another resource, you need to use the **dependsOn** element in your template to create a dependency on the other resource. For example, when deploying a web app, the App Service plan must exist. If you have not specified that the web app depends on the App Service plan, Resource Manager creates both resources at the same time. You receive an error stating that the App Service plan resource cannot be found, because it does not exist yet when attempting to set a property on the web app. You prevent this error by setting the dependency in the web app.
 
-    {
-      "apiVersion": "2015-08-01",
-      "type": "Microsoft.Web/sites",
-      "dependsOn": [
-        "[variables('hostingPlanName')]"
-      ],
-      ...
-    }
+```json
+{
+  "apiVersion": "2015-08-01",
+  "type": "Microsoft.Web/sites",
+  "dependsOn": [
+    "[variables('hostingPlanName')]"
+  ],
+  ...
+}
+```
 
 For suggestions on troubleshooting dependency errors, see [Check deployment sequence](#check-deployment-sequence).
 
 You also see this error when the resource exists in a different resource group than the one being deployed to. In that case, use the [resourceId function](resource-group-template-functions.md#resourceid) to get the fully qualified name of the resource.
 
-    "properties": {
-        "name": "[parameters('siteName')]",
-        "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
-    }
+```json
+"properties": {
+    "name": "[parameters('siteName')]",
+    "serverFarmId": "[resourceId('plangroup', 'Microsoft.Web/serverfarms', parameters('hostingPlanName'))]"
+}
+```
 
 If you attempt to use the [reference](resource-group-template-functions.md#reference) or [listKeys](resource-group-template-functions.md#listkeys) functions with a resource that cannot be resolved, you receive the following error:
 
@@ -191,16 +205,20 @@ When one resource is a parent to another resource, the parent resource must exis
 
 The name of the child resource includes the parent name. For example, a SQL Database might be defined as:
 
-    {
-      "type": "Microsoft.Sql/servers/databases",
-      "name": "[concat(variables('databaseServerName'), '/', parameters('databaseName'))]",
-      ...
+```json
+{
+  "type": "Microsoft.Sql/servers/databases",
+  "name": "[concat(variables('databaseServerName'), '/', parameters('databaseName'))]",
+  ...
+```
 
 But, if you do not specify a dependency on the parent resource, the child resource may get deployed before the parent. To resolve this error, include a dependency.
 
-    "dependsOn": [
-        "[variables('databaseServerName')]"
-    ]
+```json
+"dependsOn": [
+    "[variables('databaseServerName')]"
+]
+```
 
 <a id="storagenamenotunique" />
 ### StorageAccountAlreadyExists and StorageAccountAlreadyTaken
@@ -211,8 +229,10 @@ For storage accounts, you must provide a name for the resource that is unique ac
 
 You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions.md#uniquestring) function.
 
-    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
-    "type": "Microsoft.Storage/storageAccounts",
+```json
+"name": "[concat('storage', uniqueString(resourceGroup().id))]",
+"type": "Microsoft.Storage/storageAccounts",
+```
 
 If you deploy a storage account with the same name as an existing storage account in your subscription, but provide a different location, you receive an error indicating the storage account already exists in a different location. Either delete the existing storage account, or provide the same location as the existing storage account.
 
@@ -415,21 +435,21 @@ You can discover valuable information about how your deployment is processed by 
 
    In PowerShell, set the **DeploymentDebugLogLevel** parameter to All, ResponseContent, or RequestContent.
 
-   ```powershell
-   New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
-   ```
+  ```powershell
+  New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+  ```
 
    Examine the request content with the following cmdlet:
 
-   ```powershell
-   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
-   ```
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+  ```
 
    Or, the response content with:
 
-   ```powershell
-   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
-   ```
+  ```powershell
+  (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+  ```
 
    This information can help you determine whether a value in the template is being incorrectly set.
 
@@ -437,15 +457,15 @@ You can discover valuable information about how your deployment is processed by 
 
    In Azure CLI, set the **--debug-setting** parameter to All, ResponseContent, or RequestContent.
 
-   ```azurecli
-   azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
-   ```
+  ```azurecli
+  azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
+  ```
 
-   Examine the logged request and response content with the following:
+   Examine the logged request and response content with the following command:
 
-   ```azurecli
-   azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
-   ```
+  ```azurecli
+  azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+  ```
 
    This information can help you determine whether a value in the template is being incorrectly set.
 
@@ -453,23 +473,23 @@ You can discover valuable information about how your deployment is processed by 
 
    To log debug information for a nested template, use the **debugSetting** element.
 
-   ```json
-   {
-       "apiVersion": "2016-09-01",
-       "name": "nestedTemplate",
-       "type": "Microsoft.Resources/deployments",
-       "properties": {
-           "mode": "Incremental",
-           "templateLink": {
-               "uri": "{template-uri}",
-               "contentVersion": "1.0.0.0"
-           },
-           "debugSetting": {
-              "detailLevel": "requestContent, responseContent"
-           }
-       }
-   }
-   ```
+  ```json
+  {
+      "apiVersion": "2016-09-01",
+      "name": "nestedTemplate",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+          "mode": "Incremental",
+          "templateLink": {
+              "uri": "{template-uri}",
+              "contentVersion": "1.0.0.0"
+          },
+          "debugSetting": {
+             "detailLevel": "requestContent, responseContent"
+          }
+      }
+  }
+  ```
 
 
 ### Create a troubleshooting template
@@ -504,7 +524,7 @@ Or, suppose you are encountering deployment errors that you believe are related 
 
 Many deployment errors happen when resources are deployed in an unexpected sequence. These errors arise when dependencies are not correctly set. When you are missing a needed dependency, one resource attempts to use a value for another resource but the other does not yet exist. You get an error stating that a resource is not found. You may encounter this type of error intermittently because the deployment time for each resource can vary. For example, your first attempt to deploy your resources succeeds because a required resource randomly completes in time. However, your second attempt fails because the required resource did not complete in time. 
 
-But, you want to avoid setting dependencies that are not needed. When you have unnecessary dependencies, you prolong the duration of the deployment by preventing resources that are not dependent on each other from being deployed in parallel. In addition, you may create circular dependencies that block the deployment. The [reference](resource-group-template-functions.md#reference) function creates an implicit dependency on the resource you specify as a parameter in the function, if that resource is deployed in the same template. Therefore, you may have more dependencies than those specified in the **dependsOn** property. The [resourceId](resource-group-template-functions.md#resourceid) function does not create an implicit dependency or validate that the resource exists.
+But, you want to avoid setting dependencies that are not needed. When you have unnecessary dependencies, you prolong the duration of the deployment by preventing resources that are not dependent on each other from being deployed in parallel. In addition, you may create circular dependencies that block the deployment. The [reference](resource-group-template-functions.md#reference) function creates an implicit dependency on the resource you specify as a parameter in the function, if that resource is deployed in the same template. Therefore, you may have more dependencies than the dependencies specified in the **dependsOn** property. The [resourceId](resource-group-template-functions.md#resourceid) function does not create an implicit dependency or validate that the resource exists.
 
 When you encounter dependency problems, you need to gain insight into the order of resource deployment. To view the order of deployment operations:
 
@@ -520,11 +540,11 @@ When you encounter dependency problems, you need to gain insight into the order 
 
    ![parallel deployment](./media/resource-manager-common-deployment-errors/deployment-events-parallel.png)
 
-   The next image shows three storage accounts that are not deployed in parallel. The second storage account is marked as dependent on the first storage account, and the third storage account is dependent on the second storage account. Therefore, the first storage account is started, accepted, and completed before the next is started.
+   The next image shows three storage accounts that are not deployed in parallel. The second storage account depends on the first storage account, and the third storage account depends on the second storage account. Therefore, the first storage account is started, accepted, and completed before the next is started.
 
    ![sequential deployment](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
 
-Of course, real world scenarios can be considerably more complicated, but you can use the same technique to discover when deployment is started and completed for each resource. Look through your deployment events to see if the sequence is different than you would expect. If so, re-evaluate the dependencies for this resource.
+Real world scenarios can be considerably more complicated, but you can use the same technique to discover when deployment is started and completed for each resource. Look through your deployment events to see if the sequence is different than you would expect. If so, reevaluate the dependencies for this resource.
 
 Resource Manager identifies circular dependencies during template validation. It returns an error message that specifically states a circular dependency exists. To solve a circular dependency:
 
@@ -540,8 +560,8 @@ If that approach does not solve the circular dependency, consider moving part of
 
 1. vm1
 2. vm2
-3. Extension on vm1 is dependent on vm1 and vm2. The extension sets values on vm1 that it gets from vm2.
-4. Extension on vm2 is dependent on vm1 and vm2. The extension sets values on vm2 that it gets from vm1.
+3. Extension on vm1 depends on vm1 and vm2. The extension sets values on vm1 that it gets from vm2.
+4. Extension on vm2 depends on vm1 and vm2. The extension sets values on vm2 that it gets from vm1.
 
 ## Troubleshooting other services
 If the preceding deployment error codes did not help you troubleshoot your issue, you can look for more detailed troubleshooting guidance for the particular Azure service with the error.
