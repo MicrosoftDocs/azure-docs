@@ -13,12 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2016
-ms.author: jonor;sivae
+ms.date: 01/03/2017
+ms.author: jonor
 
 ---
 # Example 1 – Build a Simple DMZ with NSGs
 [Return to the Security Boundary Best Practices Page][HOME]
+
+> [!div class="op_single_selector"]
+> * [Resource Manager - PowerShell](virtual-networks-dmz-nsg-arm.md)
+> * [Classic - PowerShell](virtual-networks-dmz-nsg-asm.md)
+> 
+>
 
 This example will create a simple DMZ with four windows servers and Network Security Groups. It will also walk through each of the relevant commands to provide a deeper understanding of each step. There is also a Traffic Scenario section to provide an in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
 

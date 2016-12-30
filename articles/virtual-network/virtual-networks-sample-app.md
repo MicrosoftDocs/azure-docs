@@ -186,7 +186,7 @@ This PowerShell script should be run locally while RDP’d into AppVM01. PowerSh
 
 
 ## DNS01 - DNS Server Installation Script
-There is no script included in this sample application to setup the DNS server. If testing of the firewall rules, NSG, or UDR needs to include DNS traffic, the DNS01 server will need to be setup manually. The Network Configuration xml file for both examples includes DNS01 as the primary DNS server and the public DNS server hosted by Level 3 as the backup DNS server. The Level 3 DNS server would be the actual DNS server used for non-local traffic, and with DNS01 not setup, no local DNS would occur.
+There is no script included in this sample application to setup the DNS server. If testing of the firewall rules, NSG, or UDR needs to include DNS traffic, the DNS01 server will need to be setup manually. The Network Configuration xml file and Resource Manager Temaplate for both examples includes DNS01 as the primary DNS server and the public DNS server hosted by Level 3 as the backup DNS server. The Level 3 DNS server would be the actual DNS server used for non-local traffic, and with DNS01 not setup, no local network DNS would occur.
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
