@@ -9,7 +9,7 @@ editor: ''
 tags: acs, azure-container-service, kubernetes
 keywords: ''
 
-ms.assetid: what-goes-here?
+ms.assetid: 
 ms.service: container-service
 ms.devlang: na
 ms.topic: article
@@ -78,7 +78,7 @@ the account, you need to obtain your id and key by clicking
 DaemonSets are used by Kubernetes to run a single instance of a container on each host in the cluster.
 They're perfect for running monitoring agents.
 
-Here is the DaemonSet YAML file, save it to a file named `oms-daemonset.yaml` and 
+Here is the DaemonSet YAML file. Save it to a file named `oms-daemonset.yaml` and 
 replace the place-holder values for `WSID` and `KEY` below with your workspace id and key in the file.
 
 ```yaml
