@@ -766,10 +766,10 @@ You can deploy your high-availability SAP system in a cloud-only deployment mode
 
   The SAP Azure Resource Manager template automatically creates the Azure virtual network and subnet.
 
-  > [!NOTE]
-  > You also need to deploy at least one dedicated virtual machine for Active Directory and DNS in the same Azure Virtual Network instance. The template doesn't create these virtual machines.
-  >
-  >
+> [!NOTE]
+> You also need to deploy at least one dedicated virtual machine for Active Directory and DNS in the same Azure Virtual Network instance. The template doesn't create these virtual machines.
+>
+>
 
 
 ### Prepare the infrastructure for Architectural Template 2
@@ -989,45 +989,45 @@ Next, create required internal load balancing endpoints for the SAP NetWeaver po
 
 #### To create required internal load balancing endpoints
 
-  1\. Create these load balancing endpoints for the SAP NetWeaver ABAP ASCS ports:
+First, create these load balancing endpoints for the SAP NetWeaver ABAP ASCS ports:
 
-  | Service/load balancing rule name | Default port numbers | Concrete ports for (ASCS instance with instance number 00) (ERS with 10) |
-  | --- | --- | --- |
-  | Enqueue Server / *lbrule3200* |32<*InstanceNumber*> |3200 |
-  | ABAP Message Server / *lbrule3600* |36<*InstanceNumber*> |3600 |
-  | Internal ABAP Message / *lbrule3900* |39<*InstanceNumber*> |3900 |
-  | Message Server HTTP / *Lbrule8100* |81<*InstanceNumber*> |8100 |
-  | SAP Start Service ASCS HTTP / *Lbrule50013* |5<*InstanceNumber*>13 |50013 |
-  | SAP Start Service ASCS HTTPS / *Lbrule50014* |5<*InstanceNumber*>14 |50014 |
-  | Enqueue Replication / *Lbrule50016* |5<*InstanceNumber*>16 |50016 |
-  | SAP Start Service ERS HTTP *Lbrule51013* |5<*InstanceNumber*>13 |51013 |
-  | SAP Start Service ERS HTTP *Lbrule51014* |5<*InstanceNumber*>14 |51014 |
-  | Win RM *Lbrule5985* | |5985 |
-  | File Share *Lbrule445* | |445 |
+| Service/load balancing rule name | Default port numbers | Concrete ports for (ASCS instance with instance number 00) (ERS with 10) |
+| --- | --- | --- |
+| Enqueue Server / *lbrule3200* |32<*InstanceNumber*> |3200 |
+| ABAP Message Server / *lbrule3600* |36<*InstanceNumber*> |3600 |
+| Internal ABAP Message / *lbrule3900* |39<*InstanceNumber*> |3900 |
+| Message Server HTTP / *Lbrule8100* |81<*InstanceNumber*> |8100 |
+| SAP Start Service ASCS HTTP / *Lbrule50013* |5<*InstanceNumber*>13 |50013 |
+| SAP Start Service ASCS HTTPS / *Lbrule50014* |5<*InstanceNumber*>14 |50014 |
+| Enqueue Replication / *Lbrule50016* |5<*InstanceNumber*>16 |50016 |
+| SAP Start Service ERS HTTP *Lbrule51013* |5<*InstanceNumber*>13 |51013 |
+| SAP Start Service ERS HTTP *Lbrule51014* |5<*InstanceNumber*>14 |51014 |
+| Win RM *Lbrule5985* | |5985 |
+| File Share *Lbrule445* | |445 |
 
-  _**Table 1:** Port numbers of the SAP NetWeaver ABAP ASCS instances_
+_**Table 1:** Port numbers of the SAP NetWeaver ABAP ASCS instances_
 
-  2\. Create these load balancing endpoints for the SAP NetWeaver Java SCS ports:
+Then, create these load balancing endpoints for the SAP NetWeaver Java SCS ports:
 
-  | Service/load balancing rule name | Default port numbers | Concrete ports for (SCS instance with instance number 01) (ERS with 11) |
-  | --- | --- | --- |
-  | Enqueue Server / *lbrule3201* |32<*InstanceNumber*> |3201 |
-  | Gateway Server / *lbrule3301* |33<*InstanceNumber*> |3301 |
-  | Java Message Server / *lbrule3900* |39<*InstanceNumber*> |3901 |
-  | Message Server HTTP / *Lbrule8101* |81<*InstanceNumber*> |8101 |
-  | SAP Start Service SCS HTTP / *Lbrule50113* |5<*InstanceNumber*>13 |50113 |
-  | SAP Start Service SCS HTTPS / *Lbrule50114* |5<*InstanceNumber*>14 |50114 |
-  | Enqueue Replication / *Lbrule50116* |5<*InstanceNumber*>16 |50116 |
-  | SAP Start Service ERS HTTP *Lbrule51113* |5<*InstanceNumber*>13 |51113 |
-  | SAP Start Service ERS HTTP *Lbrule51114* |5<*InstanceNumber*>14 |51114 |
-  | Win RM *Lbrule5985* | |5985 |
-  | File Share *Lbrule445* | |445 |
+| Service/load balancing rule name | Default port numbers | Concrete ports for (SCS instance with instance number 01) (ERS with 11) |
+| --- | --- | --- |
+| Enqueue Server / *lbrule3201* |32<*InstanceNumber*> |3201 |
+| Gateway Server / *lbrule3301* |33<*InstanceNumber*> |3301 |
+| Java Message Server / *lbrule3900* |39<*InstanceNumber*> |3901 |
+| Message Server HTTP / *Lbrule8101* |81<*InstanceNumber*> |8101 |
+| SAP Start Service SCS HTTP / *Lbrule50113* |5<*InstanceNumber*>13 |50113 |
+| SAP Start Service SCS HTTPS / *Lbrule50114* |5<*InstanceNumber*>14 |50114 |
+| Enqueue Replication / *Lbrule50116* |5<*InstanceNumber*>16 |50116 |
+| SAP Start Service ERS HTTP *Lbrule51113* |5<*InstanceNumber*>13 |51113 |
+| SAP Start Service ERS HTTP *Lbrule51114* |5<*InstanceNumber*>14 |51114 |
+| Win RM *Lbrule5985* | |5985 |
+| File Share *Lbrule445* | |445 |
 
-  _**Table 2:** Port numbers of the SAP NetWeaver Java SCS instances_
+_**Table 2:** Port numbers of the SAP NetWeaver Java SCS instances_
 
-  ![Figure 15: Default ASCS/SCS load balancing rules for the Azure internal load balancer][sap-ha-guide-figure-3004]
+![Figure 15: Default ASCS/SCS load balancing rules for the Azure internal load balancer][sap-ha-guide-figure-3004]
 
-  _**Figure 15:** Default ASCS/SCS load balancing rules for the Azure internal load balancer_
+_**Figure 15:** Default ASCS/SCS load balancing rules for the Azure internal load balancer_
 
 Set the IP address of the load balancer **pr1-lb-dbms** to the IP address of the virtual host name of the DBMS instance.
 
@@ -1066,27 +1066,27 @@ Azure Load Balancer has an internal load balancer that closes connections when t
 
 #### To add registry entries on both cluster nodes of the SAP ASCS/SCS instance
 
-  1\. Add these Windows registry entries on both Windows cluster nodes for SAP ASCS/SCS:
+First, add these Windows registry entries on both Windows cluster nodes for SAP ASCS/SCS:
 
-  | Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
-  | --- | --- |
-  | Variable name |`KeepAliveTime` |
-  | Variable type |REG_DWORD (Decimal) |
-  | Value |120000 |
-  | Link to documentation |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
+| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| --- | --- |
+| Variable name |`KeepAliveTime` |
+| Variable type |REG_DWORD (Decimal) |
+| Value |120000 |
+| Link to documentation |[https://technet.microsoft.com/en-us/library/cc957549.aspx](https://technet.microsoft.com/en-us/library/cc957549.aspx) |
 
-  _**Table 3:** Change the first TCP/IP parameter_
+_**Table 3:** Change the first TCP/IP parameter_
 
-  2\. Add this Windows registry entries on both Windows cluster nodes for SAP ASCS/SCS:
+Then, add this Windows registry entries on both Windows cluster nodes for SAP ASCS/SCS:
 
-  | Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
-  | --- | --- |
-  | Variable name |`KeepAliveInterval` |
-  | Variable type |REG_DWORD (Decimal) |
-  | Value |120000 |
-  | Link to documentation |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
+| Path | HKLM\SYSTEM\CurrentControlSet\Services\Tcpip\Parameters |
+| --- | --- |
+| Variable name |`KeepAliveInterval` |
+| Variable type |REG_DWORD (Decimal) |
+| Value |120000 |
+| Link to documentation |[https://technet.microsoft.com/en-us/library/cc957548.aspx](https://technet.microsoft.com/en-us/library/cc957548.aspx) |
 
-  _**Table 4:** Change the second TCP/IP parameter_
+_**Table 4:** Change the second TCP/IP parameter_
 
 **To apply the changes, restart both cluster nodes.**
 
