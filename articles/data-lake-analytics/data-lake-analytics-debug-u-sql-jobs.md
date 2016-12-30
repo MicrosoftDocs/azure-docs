@@ -3,7 +3,7 @@ title: Debug U-SQL jobs | Microsoft Docs
 description: 'Learn how to debug U-SQL failed vertex using Visual Studio. '
 services: data-lake-analytics
 documentationcenter: ''
-author: mumian
+author: yanancai
 manager: jhubbard
 editor: cgronlun
 
@@ -77,7 +77,7 @@ If you use registered assemblies in U-SQL script, the system can't get the sourc
 
 ### Configure the solution
 
-1. Right click **Solution "VertexDebug"** > **Add** > **Existing Project...** to find the assemblies' source code and add the project to the debugging solution.
+1. Right click **Solution 'VertexDebug'** > **Add** > **Existing Project...** to find the assemblies' source code and add the project to the debugging solution.
 
     ![Azure Data Lake Analytics U-SQL debug add project](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-add-project-to-debug-solution.png)
 
@@ -91,13 +91,19 @@ If you use registered assemblies in U-SQL script, the system can't get the sourc
 
 ### Start debug
 
-1. Press **F5**, the project will run automatically untill it is stopped by an exception. You may see the following message for the first time which you can ignore. It can take up to one minute to get to the debug screen.
+1. Right click **assembly source code project** > **Rebuild** to output pdb files to LocalVertexHost working directory.
+
+2. Press **F5**, the project will run automatically untill it is stopped by an exception. You may see the following message for the first time which you can ignore. It can take up to one minute to get to the debug screen.
 
     ![Azure Data Lake Analytics U-SQL debug visual studio warning](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-visual-studio-u-sql-debug-warning.png)
 
-2. Open you source code and set breakpoints, then press **F5** to debug code step by step.
+3. Open you source code and set breakpoints, then press **F5** to debug code step by step.
 
-You can also use other Visual Studio based debugging experiences (watch, variables, etc.) to debug the problem. After the debug has been completed successfully, the output window shows the following massage:
+You can also use other Visual Studio based debugging experiences (watch, variables, etc.) to debug the problem. 
+
+**Note that** you need to rebuild the assembly source code project every time you modify the code to bring the new pdb files into effect.
+
+After the debug has been completed successfully, the output window shows the following massage:
 
     The Program ‘LocalVertexHost.exe’ has exited with code 0 (0x0).
 
@@ -107,18 +113,21 @@ You can also use other Visual Studio based debugging experiences (watch, variabl
 After you have completed debugging, you can resubmit the failed job.
 
 1. Register new .dll assemblies to your ADLA database.
-    
-    1. From Server Explorer/Cloud Explorer in Data Lake Visual Studio Tool, expand the **Databases** node.
-    2. Right-click Assemblies to Register assemblies.
+
+    1. From Server Explorer/Cloud Explorer, expand **ADLA account** > **Databases** node.
+    2. Right-click **Assemblies** to Register assemblies. 
     3. Register your new .dll assemblies to the ADLA database.
+    ![Azure Data Lake Analytics U-SQL debug register assembly](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-register-assembly.png)
 
-    ![Azure Data Lake Analytics U-SQL debug register assembly](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-register-assembly.png)   
+2. Or copy your C# code back to script.usql.cs--C# code behind file.
 
-2. Or copy your C# code to script.usql.cs--C# code behind file.
 3. Resubmit your job.
 
 ## Next Steps
+
+* [U-SQL programmability guide](data-lake-analytics-u-sql-programmability-guide.md)
+* [Develop U-SQL User defined operators for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 * [Tutorial: Get started with Azure Data Lake Analytics U-SQL language](data-lake-analytics-u-sql-get-started.md)
 * [Tutorial: develop U-SQL scripts using Data Lake Tools for Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Develop U-SQL User defined operators for Azure Data Lake Analytics jobs](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+
 
