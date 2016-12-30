@@ -80,7 +80,7 @@ This updates includes the following:
 **HDInsight Tools** for Visual Studio now supports HDInsight version 3.3, including showing Tez graphs and other language fixes.
 
 ## Azure Resource Manager
-This release adds [KeyVault](../resource-manager-keyvault-parameter.md) support for ARM templates.
+This release adds [KeyVault](../azure-resource-manager/resource-manager-keyvault-parameter.md) support for Resource Manager templates.
 
 ## See also
 [Azure SDK 2.9 announcement post](https://azure.microsoft.com/blog/announcing-visual-studio-azure-tools-and-sdk-2-9/)
