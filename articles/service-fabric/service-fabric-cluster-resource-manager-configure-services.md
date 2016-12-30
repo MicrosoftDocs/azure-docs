@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 12/30/2016
 ms.author: masnider
 
 ---
@@ -22,7 +22,7 @@ The Service Fabric Cluster Resource manager allows very fine grained control ove
 
 1. Configuring placement constraints
 2. Configuring metrics
-3. Configuring advanced placement policies (less common)
+3. Configuring advanced placement policies and other rules (less common)
 
 Let's talk about each of these in turn:
 
@@ -42,4 +42,3 @@ There are other types of placement rules that are mainly useful in clusters whic
 * Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
 * To find out about how the Cluster Resource Manager manages and balances load in the cluster, check out the article on [balancing load](service-fabric-cluster-resource-manager-balancing.md)
 * The Cluster Resource Manager has a lot of options for describing the cluster. To find out more about them check out this article on [describing a Service Fabric cluster](service-fabric-cluster-resource-manager-cluster-description.md)
-

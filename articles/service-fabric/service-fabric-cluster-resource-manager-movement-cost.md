@@ -13,21 +13,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 12/30/2016
 ms.author: masnider
 
 ---
 # Service movement cost for influencing Cluster Resource Manager choices
-An important factor to consider when you're trying to determine what changes to make to a cluster and the score of a solution is the overall cost of achieving that solution.
+An important factor that the Service Fabric cluster resource manager considers when trying to determine what changes to make to a cluster is the overall cost of achieving that solution. The notion of "cost" is traded off against the amount of balance that can be achieved.
 
-Moving service instances or replicas costs CPU time and network bandwidth at a minimum. For stateful services, it also costs the amount of space on disk that you need to create a copy of the state before shutting down old replicas. Clearly you’d want to minimize the cost of any solution that Azure Service Fabric Cluster Resource Manager comes up with. But you also don’t want to ignore solutions that would significantly improve the allocation of resources in the cluster.
+Moving service instances or replicas costs CPU time and network bandwidth at a minimum. For stateful services, it also costs the amount of space on disk and in memory that you need to create a copy of the state before shutting down old replicas. Clearly you’d want to minimize the cost of any solution that Azure Service Fabric Cluster Resource Manager comes up with. But you also don’t want to ignore solutions that would significantly improve the allocation of resources in the cluster.
 
-Cluster Resource Manager has two ways of computing costs and limiting them, even while it tries to manage the cluster according to its other goals. The first is that when Cluster Resource Manager is planning a new layout for the cluster, it counts every move that it would make. In a simple case, if you get two solutions with about the same overall balance (score) at the end, then take the one with the lowest cost (total number of moves).
+The Cluster Resource Manager has two ways of computing costs and limiting them, even while it tries to manage the cluster according to its other goals. The first is that when Cluster Resource Manager is planning a new layout for the cluster, it counts every move that it would make. In a simple case, if you get two solutions with about the same overall balance (score) at the end, then take the one with the lowest cost (total number of moves).
 
 This works pretty well. But as with default or static loads, it's unlikely in any complex system that all moves are equal. Some are likely to be much more expensive.
 
 ## Changing a replica's move cost and factors to consider
-As with reporting load (another feature of Cluster Resource Manager), you give the service a way of self-reporting how costly the service is to move at a particular time.
+As with reporting load (another feature of Cluster Resource Manager), you give the service a way of self-reporting how costly a given stateful service object is to move at a particular time.
 
 Code:
 
@@ -35,9 +35,13 @@ Code:
 this.ServicePartition.ReportMoveCost(MoveCost.Medium);
 ```
 
-MoveCost has four levels: Zero, Low, Medium, and High. These are relative to each other, except for Zero. Zero means that moving a replica is free and should not count against the score of the solution. Setting your move cost to High is *not* a guarantee that the replica won’t move, just that it won't be moved unless there’s a good reason to.
+A default move cost can also be specified when a service is created.
 
+MoveCost has four levels: Zero, Low, Medium, and High. These are relative to each other, except for Zero. Zero means that moving a replica is free and should not count against the score of the solution. Setting your move cost to High is *not* a guarantee that the replica won’t move, just that it won't be moved unless there’s a good reason to as a part of achieving an overall solution.
+
+<center>
 ![Move cost as a factor in selecting replicas for movement][Image1]
+</center>
 
 MoveCost helps you find the solutions that cause the least disruption overall and are easiest to achieve while still arriving at equivalent balance. A service’s notion of cost can be relative to many things. The most common factors in calculating your move cost are:
 

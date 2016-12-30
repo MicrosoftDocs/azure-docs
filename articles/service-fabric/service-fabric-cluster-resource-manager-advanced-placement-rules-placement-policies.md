@@ -13,17 +13,33 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 12/30/2016
 ms.author: masnider
 
 ---
 # Placement policies for service fabric services
-There are many different additional rules that you may end up caring about if your Service Fabric cluster is spanned across a geographic distances, say multiple datacenters or Azure regions, or if your environment spans multiple areas of geopolitical control (or some other case where you have legal or policy boundaries you care about, or the distances involved have actual performance/latency impact). Most of these could be configured via node properties and placement constraints, but some are more complicated. To make things simpler we provide these additional commmands. Just like with other placement constraints, placement policies can be configured on a per-named service instance basis.
+There are many different additional rules that you may need to configure in some rare scenarios. Some examples of those scenarios are:
+* If your Service Fabric cluster is spanned across a geographic distances, such as multiple on-premises datacenters or across Azure regions
+* If your environment spans multiple areas of geopolitical control (or some other case where you have legal or policy boundaries you care about
+* There are actual performance/latency considerations due to communication in the cluster traveling large distances or transiting certain slower or less reliable networks.
+
+In these types of situations, it may be important for a given service to always run or never run in certain regions. Similarly it may be important to try to place the primary in a certain region when possible in order to minimize end user latency.
+
+The advanced placement policies are:
+
+1. Invalid domains
+2. Required domains
+3. Preferred domains
+4. Disallowing replica packing
+
+Most of the following controls could be configured via node properties and placement constraints, but some are more complicated. To make things simpler we provide these additional placement policies. Just like with other placement constraints, placement policies can be configured on a per-named service instance basis and updated dynamically.
 
 ## Specifying invalid domains
 The InvalidDomain placement policy allows you to specify that a particular Fault Domain is invalid for this workload. This policy ensures that a particular service never runs in a particular area, for example for geopolitical or corporate policy reasons. Multiple invalid domains may be specified via separate policies.
 
+<center>
 ![Invalid Domain Example][Image1]
+</center>
 
 Code:
 
@@ -41,7 +57,9 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## Specifying required domains
 The required domain placement policy requires that all of the stateful replicas or stateless service instances for the service be present in the specified domain. Multiple required domains can be specified via separate policies.
 
+<center>
 ![Required Domain Example][Image2]
+</center>
 
 Code:
 
@@ -60,7 +78,9 @@ New-ServiceFabricService -ApplicationName $applicationName -ServiceName $service
 ## Specifying a preferred domain for the primary replicas
 The Preferred Primary Domain is an interesting control, since it allows selection of the fault domain in which the primary should be placed if it is possible to do so. When everything is healthy the primary will end up in this domain. Should the domain or the primary replica fail or be shut down for some reason the Primary will be migrated to some other location. If this location isn't in the preferred domain, then when possible the Cluster Resource Manager will move it back to the preferred domain. Naturally this setting only makes sense for stateful services. This policy is most useful in clusters which are spanned across Azure regions or multiple datacenters. In these situations you're using all the locations for redundancy, but would prefer that the primary replicas be placed in a certain location in order to provide lower latency for operations which go to the primary (writes and also by default all reads are served by the primary).
 
+<center>
 ![Preferred Primary Domains and Failover][Image3]
+</center>
 
 ```csharp
 ServicePlacementPreferPrimaryDomainPolicyDescription primaryDomain = new ServicePlacementPreferPrimaryDomainPolicyDescription();

@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 12/30/2016
 ms.author: masnider
 
 ---
 # Introduction to Application Groups
-Service Fabric's Cluster Resource Manager typically manages cluster resources by spreading the load (represented via Metrics) evenly throughout the cluster. Service Fabric also manages the capacity of the nodes in the cluster and the cluster as a whole through the notion of capacity. This works great for a lot of different types of workloads, but patterns that make heavy use of different Service Fabric Application Instances sometimes bring in additional requirements. Some additional requirements are typically:
+Service Fabric's Cluster Resource Manager typically manages cluster resources by spreading the load (represented via [Metrics](service-fabric-cluster-resource-manager-metrics.md)) evenly throughout the cluster. Service Fabric also manages the capacity of the nodes in the cluster and the cluster as a whole through the notion of [capacity](service-fabric-cluster-resource-manager-cluster-description.md). This works great for a lot of different types of workloads, but patterns that make heavy use of different Service Fabric Application Instances sometimes bring in additional requirements. Some additional requirements are typically:
 
 * Ability to reserve capacity for an Application Instance's services on some number of nodes
 * Ability to limit the total number of nodes that a given set of services within an application is allowed to run on
@@ -79,7 +79,7 @@ For each metric, there are 2 values that can be set to describe the capacity for
 * Maximum Node Capacity – Specifies the maximum total load for replicas of the applications’ services on a single node. If total load on the node goes over this capacity, Service Fabric CRM will attempt to move replicas to other nodes so that the capacity constraint is respected.
 
 ## Reserving Capacity
-Another common use for application groups is to ensure that resources within the cluster are reserved for a given application instance, even if the application instance doesn't have the services within it yet, or even if they aren't consuming the resources yet. Let's take a look at how that would work.  
+Another common use for application groups is to ensure that resources within the cluster are reserved for a given application instance, even if the application instance doesn't have the services within it yet, or even if they aren't consuming the resources yet. Let's take a look at how that would work.
 
 ### Specifying a minimum number of nodes and resource reservation
 Reserving resources for an application instance requires specifying a couple additional parameters: *MinimumNodes* and *NodeReservationCapacity*
@@ -89,7 +89,9 @@ Reserving resources for an application instance requires specifying a couple add
 
 Let's take a look at an example of capacity reservation:
 
+<center>
 ![Application Instances Defining Reserved Capacity][Image2]
+</center>
 
 In the left example, applications do not have any Application Capacity defined. Service Fabric Cluster Resource Manager will balance the application’s child services replicas and instances along with those from other services (outside of the application) to ensure balance in the cluster.
 

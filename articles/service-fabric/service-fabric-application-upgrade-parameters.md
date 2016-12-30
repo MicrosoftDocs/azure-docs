@@ -66,4 +66,3 @@ Make your application upgrades compatible by learning how to use [Data Serializa
 Learn how to use advanced functionality while upgrading your application by referring to [Advanced Topics](service-fabric-application-upgrade-advanced.md).
 
 Fix common problems in application upgrades by referring to the steps in [Troubleshooting Application Upgrades](service-fabric-application-upgrade-troubleshooting.md).
-

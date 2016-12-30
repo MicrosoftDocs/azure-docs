@@ -13,7 +13,7 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/19/2016
+ms.date: 12/30/2016
 ms.author: masnider
 
 ---
@@ -89,7 +89,7 @@ Let’s talk about each of the different constraints you can see in these health
 * ReplicaExclusionStatic and ReplicaExclusionDynamic – This is an internal constraint that indicates that during the search we ran into a situation where two stateful replicas or stateless instances from the same partition would have to be placed on the same node (which isn’t allowed). ReplicaExclusionStatic and ReplicaExclusionDynamic are almost exactly the same rule. The ReplicaExclusionDynamic constraint says “we couldn’t place this replica here because the only proposed solution already had placed a replica here”. This is different from the ReplicaExclusionStatic exclusion which indicates not a proposed conflict but an actual one – there is a replica already on the node. Is this confusing? Yes. Does it matter a lot? No. Suffice it to say that if you are seeing a constraint elimination sequence containing either the ReplicaExclusionStatic or ReplicaExclusionDynamic constraint that the Cluster Resource Manager thinks that there aren’t enough nodes to place all of the replicas. The further constraints can usually tell us how we’re ending up with too few in the first place.
 * PlacementConstraint: If you see this message, it means that we eliminated some nodes because they didn’t match the service’s placement constraints. We trace out the currently configured placement constraints as a part of this message. This is usually normal if you have any placement constraints provided, however if there is a bug in the placement constraint causing too many nodes to be eliminated this is where you could see that result.
 * NodeCapacity: If you see this constraint it means that we couldn’t place the replicas on the indicated nodes because doing so would cause the node to go over capacity
-* Affinity: This constraint indicates that we couldn’t place the replica on the affected nodes since it would cause a violation of the affinity constraint.
+* Affinity: This constraint indicates that we couldn’t place the replica on the affected nodes since it would cause a violation of the affinity constraint. More information on affinity is in [this article](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
 * FaultDomain & UpgradeDomain: This constraint eliminates nodes if placing the replica on the indicated nodes would cause packing in a particular fault or upgrade domain. Several examples discussing this constraint are presented in the topic on [fault and upgrade domain constraints and resulting behavior](service-fabric-cluster-resource-manager-cluster-description.md)
 * PreferredLocation: You shouldn’t normally see this constraint causing nodes to get removed from the solution since it is optimization only by default. Further, the preferred location constraint is usually only present during upgrades (when it is used to move replicas back to where they were when the upgrade started), however it is possible.
 
@@ -111,6 +111,42 @@ ClusterManifest.xml
             <Parameter Name="UpgradeDomainConstraintPriority" Value="1" />
             <Parameter Name="PreferredLocationConstraintPriority" Value="2" />
         </Section>
+```
+
+via ClusterConfig.json for Standalone deployments or Template.json for Azure hosted clusters:
+
+```json
+"fabricSettings": [
+  {
+    "name": "PlacementAndLoadBalancing",
+    "parameters": [
+      {
+          "name": "PlacementConstraintPriority",
+          "value": "0"
+      },
+      {
+          "name": "CapacityConstraintPriority",
+          "value": "0"
+      },
+      {
+          "name": "AffinityConstraintPriority",
+          "value": "0"
+      },
+      {
+          "name": "FaultDomainConstraintPriority",
+          "value": "0"
+      },
+      {
+          "name": "UpgradeDomainConstraintPriority",
+          "value": "1"
+      },
+      {
+          "name": "PreferredLocationConstraintPriority",
+          "value": "2"
+      }
+    ]
+  }
+]
 ```
 
 You’ll notice here that there are constraints defined for Upgrade and Fault domains, and also that Upgrade Domain constraint is Soft. Also there’s this weird “PreferredLocation” constraint with a priority. What is all this stuff?
@@ -136,4 +172,3 @@ One of the things that comes up during upgrades is generally that you want the u
 
 ## Next steps
 * Start from the beginning and [get an Introduction to the Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-
