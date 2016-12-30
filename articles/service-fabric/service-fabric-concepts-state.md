@@ -3,7 +3,7 @@ title: Defining and managing state | Microsoft Docs
 description: How to define and manage service state in Service Fabric
 services: service-fabric
 documentationcenter: .net
-author: appi101
+author: masnider
 manager: timlt
 editor: ''
 
@@ -13,8 +13,8 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/10/2016
-ms.author: aprameyr
+ms.date: 12/30/2016
+ms.author: masnider
 
 ---
 # Service state
@@ -29,7 +29,7 @@ In Azure Service Fabric, the first service is called a stateless service. The se
 ## Storing service state
 State can be either externalized or co-located with the code that is manipulating the state. Externalization of state is typically done by using an external database or store. In our calculator example, this could be a SQL database in which the current result is stored in a table. Every request to compute the sum performs an update on this row.
 
-State can also be co-located with the code that manipulates this code. Stateful services in Service Fabric are built using this model. Service Fabric provides the infrastructure to ensure that this state is highly available and fault tolerant in the event of a failure.
+State can also be co-located with the code that manipulates this code. Stateful services in Service Fabric can be built using this model. Service Fabric provides the infrastructure to ensure that this state is highly available and fault tolerant in the event of a failure.
 
 ## Next steps
 For more information on Service Fabric concepts, see the following:
@@ -37,4 +37,4 @@ For more information on Service Fabric concepts, see the following:
 * [Availability of Service Fabric services](service-fabric-availability-services.md)
 * [Scalability of Service Fabric services](service-fabric-concepts-scalability.md)
 * [Partitioning Service Fabric services](service-fabric-concepts-partitioning.md)
-
+* [Service Fabric Reliable Services](service-fabric-reliable-services-introduction.md)
