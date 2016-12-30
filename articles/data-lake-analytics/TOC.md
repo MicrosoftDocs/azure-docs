@@ -31,7 +31,7 @@
 ## Troubleshoot
 ### [Monitor and troubleshoot jobs](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md)
 ### [Access diagnostic logs](data-lake-analytics-diagnostic-logs.md)
-### [Debug C# code for failed job](data-lake-analytics-debug-u-sql-jobs.md)
+### [Debug C# code in U-SQL](data-lake-analytics-debug-u-sql-jobs.md)
 ### [Use Job Browser and Job View](data-lake-analytics-data-lake-tools-view-jobs.md)
 ### [Use Vertex Execution View](data-lake-analytics-data-lake-tools-use-vertex-execution-view.md)
 
