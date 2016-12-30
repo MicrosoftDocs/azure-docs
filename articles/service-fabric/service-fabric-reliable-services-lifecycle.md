@@ -17,7 +17,8 @@ ms.date: 12/30/2016
 ms.author: masnider;
 ---
 
-#Reliable Services Lifecycle Overview
+# Reliable Services Lifecycle Overview
+
 When thinking about the lifecycles of Reliable Services, the basics of the lifecycle are the most important. In general:
 
 * During Startup
@@ -99,6 +100,6 @@ Similarly, Service Fabric needs this replica to start listening for messages on 
 
 ## Notes on Service Lifecycle
 * Both the `RunAsync()` method and the `CreateServiceReplicaListeners/CreateServiceInstanceListeners` calls are optional. A service may have one of them, both, or neither. For example, if the service does all its work directly in response to user calls only, there is no need for it to implement `RunAsync()`, only the communication listeners and their associated code. Similarly, creating and returning communication listeners is optional, as the service may have only background work to do, and so only needs to implement `RunAsync()`
-* While there is no time limit on returning from these methods, you immediately lose the ability to write to Reliable Collections and therefore cannot complete any real work. It is recommended that you return as quickly as possible upon receiving the cancellation request.
+* While there is no time limit on returning from these methods, you immediately lose the ability to write to Reliable Collections and therefore cannot complete any real work. It is recommended that you return as quickly as possible upon receiving the cancellation request. Also Service Fabric may forcibly terminate your service if it does not respond to these API calls in a reasonable amount of time in cases such as deletion or during upgrades. This timeout is 15 minutes by default.
 * For stateful services, there's additionally an option on ServiceReplicaListeners for them to be started up on secondary replicas. This is uncommon, but the only change in lifecycles is that `CreateServiceReplicaListeners()` will be called (and the resulting listeners Opened) even if the replica is a Secondary. Similary if the replica is later converted into a primary, the listeners will be closed, destructed, and new ones created and Opened as a part of the change to Primary.
-* Failures in the `OnOpenAsync()`, and `OnCloseAsync()` paths will result in `OnAbort()` being called which is a last-chance best-effort opportunity for the service to clean up and release any resources that they have claimed.
+* Failures in the `OnCloseAsync()` path will result in `OnAbort()` being called which is a last-chance best-effort opportunity for the service to clean up and release any resources that they have claimed.
