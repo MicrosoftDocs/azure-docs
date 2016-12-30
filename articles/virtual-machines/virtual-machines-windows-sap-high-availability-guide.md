@@ -721,10 +721,10 @@ _**Figure 11:** Set SAP high-availability Azure Resource Manager parameters_
   * **Network security group**: <*SAPSystemSID*>-nsg-ascs-0  
     * With an open external Remote Desktop Protocol (RDP) port to the <*SAPSystemSID*>-ascs-0 virtual machine
 
-  > [!NOTE]
-  > All IP addresses of the network cards and Azure internal load balancers are **dynamic** by default. Change them to **static** IP addresses. We describe how to do this later in the article.
-  >
-  >
+> [!NOTE]
+> All IP addresses of the network cards and Azure internal load balancers are **dynamic** by default. Change them to **static** IP addresses. We describe how to do this later in the article.
+>
+>
 
 ### <a name="c87a8d3f-b1dc-4d2f-b23c-da4b72977489"></a> Deploy virtual machines with corporate network connectivity (cross-premises) to use in production
 For production SAP systems, deploy Azure virtual machines with [corporate network connectivity (cross-premises)][planning-guide-2.2] by using Azure Site-to-Site VPN or Azure ExpressRoute.
