@@ -21,7 +21,9 @@ ms.author: jeffreyr
 Service Fabric offers a stateful programming model available to .NET developers via Reliable Collections. Specifically, Service Fabric provides reliable dictionary and reliable queue classes. When you use these classes, your state is partitioned (for scalability), replicated (for availability), and transacted within a partition (for ACID semantics). Let’s look at a typical usage of a reliable dictionary object and see what its actually doing.
 
 ```csharp
+
 ///retry:
+
 try {
    // Create a new Transaction object for this partition
    using (ITransaction tx = base.StateManager.CreateTransaction()) {
@@ -76,7 +78,9 @@ When working with a regular .NET dictionary, you can add a key/value to the dict
 
 I cannot stress enough how easy it is to make the kind of mistake shown above. And, you will only learn about the mistake if/when the process goes down. The correct way to write the code is simply to reverse the two lines:
 
+
 ```csharp
+
 using (ITransaction tx = StateManager.CreateTransaction()) {
    user.LastLogin = DateTime.UtcNow;  // Do this BEFORE calling AddAsync
    await m_dic.AddAsync(tx, name, user);
@@ -87,6 +91,7 @@ using (ITransaction tx = StateManager.CreateTransaction()) {
 Here is another example showing a common mistake:
 
 ```csharp
+
 using (ITransaction tx = StateManager.CreateTransaction()) {
    // Use the user’s name to look up their data
    ConditionalValue<User> user =
@@ -109,6 +114,7 @@ The correct way to update a value in a reliable collection, is to get a referenc
 The code below shows the correct way to update a value in a reliable collection:
 
 ```csharp
+
 using (ITransaction tx = StateManager.CreateTransaction()) {
    // Use the user’s name to look up their data
    ConditionalValue<User> currentUser =
@@ -138,6 +144,7 @@ Ideally, we’d like the compiler to report errors when you accidentally produce
 The UserInfo type below demonstrates how to define an immutable type taking advantage of aforementioned recommendations.
 
 ```csharp
+
 [DataContract]
 // If you don’t seal, you must ensure that any derived classes are also immutable
 public sealed class UserInfo {
@@ -173,6 +180,7 @@ public sealed class UserInfo {
 The ItemId type is also an immutable type as shown here:
 
 ```csharp
+
 [DataContract]
 public struct ItemId {
 

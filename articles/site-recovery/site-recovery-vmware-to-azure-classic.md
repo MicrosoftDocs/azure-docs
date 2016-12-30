@@ -216,7 +216,7 @@ Set up an Azure network so that Azure VMs will be connected to a network after f
 [Read more](../virtual-network/virtual-networks-overview.md) about Azure networks.
 
 > [!NOTE]
-> [Migration of networks](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
+> [Migration of networks](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for networks used for deploying Site Recovery.
 >
 >
 
@@ -246,7 +246,8 @@ If you want to replicate VMware virtual machines install the following VMware co
 >
 >
 
-[!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
+
+>[!VIDEO https://channel9.msdn.com/Blogs/Windows-Azure/Enhanced-VMware-to-Azure-Setup-Registration/player]
 
 
 1. On the **Quick Start** page download the unified installation file to the server.
@@ -507,7 +508,7 @@ After running the wizard you can modify the IP address of the management server 
 
 **You can also install from the command line**:
 
-1. Copy the passphrase from C:\Program Files (x86)\InMage Systems\private\connection on the management server, and save it as "passphrase.txt" on the management server. Then run these commands. In our example the management server IP address is 104.40.75.37 and the HTTPS port should be 443:
+Copy the passphrase from C:\Program Files (x86)\InMage Systems\private\connection on the management server, and save it as "passphrase.txt" on the management server. Then run these commands. In our example the management server IP address is 104.40.75.37 and the HTTPS port should be 443:
 
 To install on a production server:
 
@@ -544,7 +545,8 @@ Add machines to a protection group:
 4. In **Specify Target Resources** select the storage account you're using for replication and select whether the settings should be used for all workloads. Note that premium storage accounts aren't currently supported.
 
    > [!NOTE]
-   > 1.We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.                           2.[Migration of storage accounts](../resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
+   > 1. We do not support the move of Storage accounts created using the [new Azure portal](../storage/storage-create-storage-account.md) across resource groups.                           
+   > 2. [Migration of storage accounts](../azure-resource-manager/resource-group-move-resources.md) across resource groups within the same subscription or across subscriptions is not supported for storage accounts used for deploying Site Recovery.
    >
    >
 

@@ -18,7 +18,7 @@ ms.author: johnkem
 
 ---
 # Automatically enable Diagnostic Settings at resource creation using a Resource Manager template
-In this article we show how you can use an [Azure Resource Manager template](../resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs, archiving them in a Storage Account, or sending them to Log Analytics when a resource is created.
+In this article we show how you can use an [Azure Resource Manager template](../azure-resource-manager/resource-group-authoring-templates.md) to configure Diagnostic Settings on a resource when it is created. This enables you to automatically start streaming your Diagnostic Logs and metrics to Event Hubs, archiving them in a Storage Account, or sending them to Log Analytics when a resource is created.
 
 The method for enabling Diagnostic Logs using a Resource Manager template depends on the resource type.
 
@@ -30,7 +30,7 @@ In this article we describe how to configure diagnostics using either method.
 The basic steps are as follows:
 
 1. Create a template as a JSON file that describes how to create the resource and enable diagnostics.
-2. [Deploy the template using any deployment method](../resource-group-template-deploy.md).
+2. [Deploy the template using any deployment method](../azure-resource-manager/resource-group-template-deploy.md).
 
 Below we give an example of the template JSON file you need to generate for non-Compute and Compute resources.
 

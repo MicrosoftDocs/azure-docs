@@ -4,7 +4,7 @@ description: Learn how to use the Azure Queue service to create and delete queue
 services: storage
 documentationcenter: java
 author: robinsh
-manager: carmonm
+manager: timlt
 editor: tysonn
 
 ms.assetid: 68cecc8e-38c9-4a24-99e8-cb722bc63cf9
@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/11/2016
+ms.date: 12/08/2016
 ms.author: robinsh
 
 ---

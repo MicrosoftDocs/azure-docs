@@ -20,10 +20,11 @@ ms.author: seanmck
 # Visualize your cluster with Service Fabric Explorer
 Service Fabric Explorer is a web-based tool for inspecting and managing applications and nodes in an Azure Service Fabric cluster. Service Fabric Explorer is hosted directly within the cluster, so it is always available, regardless of where your cluster is running.
 
+## Video tutorial
+
 Watch the following Microsoft Virtual Academy video to learn how to use Service Fabric Explorer:
-<center><a target="_blank" href="https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965">
-<img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244">
-</a></center>
+
+[<center><img src="./media/service-fabric-visualizing-your-cluster/SfxVideo.png" WIDTH="360" HEIGHT="244"></center>](https://mva.microsoft.com/en-US/training-courses/building-microservices-applications-on-azure-service-fabric-16747?l=bBTFg46yC_9806218965)
 
 ## Connect to Service Fabric Explorer
 If you have followed the instructions to [prepare your development environment](service-fabric-get-started.md), you can launch Service Fabric Explorer on your local cluster by navigating to http://localhost:19080/Explorer.
@@ -83,7 +84,7 @@ The following table lists the actions available for each entity:
 | Deactivate (restart) |Safely move all in-memory services off a node and close persistent services. Typically used when the host processes or machine need to be restarted. | |
 | Deactivate (remove data) |Safely close all services running on the node after building sufficient spare replicas. Typically used when a node (or at least its storage) is being permanently taken out of commission. | |
 | Remove node state |Remove knowledge of a node's replicas from the cluster. Typically used when an already failed node is deemed unrecoverable. | |
-| Node | Restart | Simulate a node failure by restarting the node. More information  [here](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) ||
+| Node | Restart | Simulate a node failure by restarting the node. More information [here](https://docs.microsoft.com/en-us/powershell/servicefabric/vlatest/Restart-ServiceFabricNode) ||
 
 Since many actions are destructive, you may be asked to confirm your intent before the action is completed.
 
@@ -109,7 +110,7 @@ In order to reach Service Fabric Explorer for a given cluster, simply point your
 
 http://&lt;your-cluster-endpoint&gt;:19080/Explorer
 
-The full URL is also available in the cluster essentials pane of the Azure portal.
+For Azure clusters, the full URL is also available in the cluster essentials pane of the Azure portal.
 
 ### Connect to a secure cluster
 You can control client access to your Service Fabric cluster either with certificates or using Azure Active Directory (AAD).
