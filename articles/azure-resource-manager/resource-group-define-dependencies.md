@@ -13,7 +13,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/28/2016
+ms.date: 12/29/2016
 ms.author: tomfitz
 
 ---
@@ -107,7 +107,27 @@ You can use either this element or the dependsOn element to specify dependencies
 
 To learn more, see [reference function](resource-group-template-functions.md#reference).
 
+## Recommendations for setting dependencies
+
+When deciding what dependencies to set, use the following guidelines:
+
+* Set as few dependencies as possible.
+* Set dependencies between child resources and parent resources.
+* Use the **reference** function to set implicit dependencies between resources that need to share a property.
+* Do not add a **dependsOn** property, if you have already defined the dependency through the **reference** function.
+* Set a dependency when a resource cannot be created without functionality from another resource (such as a virtual machine needing a storage account and virtual network interface).
+* Let dependencies cascade without setting them explicitly. For example, set your virtual machine as dependent on a virtual network interface, and set the virtual network interface as dependent on a virtual network and public IP addresses. So, the virtual machine is deployed after all three resources, but do not explicitly set a dependency on all three resources.
+* Do not set a dependency when the value shared between resources can be evaluated from a predeployment state. For example, you can use the name of a resource without setting a dependency.
+
+Resource Manager identifies circular dependencies during template validation. If you receive an error stating that a circular dependency exists, evaluate your template to see if any dependencies are not needed and can be removed. If removing dependencies does not work, you can avoid circular dependencies by moving some deployment operations into child resources that are deployed after the resource that have the circular dependency. For example, suppose you are deploying two virtual machines but you must set properties on each one that refer to the other. You can deploy them in the following order:
+
+1. vm1
+2. vm2
+3. Extension on vm1 is dependent on vm1 and vm2. The extension sets values on vm1 that it gets from vm2.
+4. Extension on vm2 is dependent on vm1 and vm2. The extension sets values on vm2 that it gets from vm1.
+
 ## Next steps
+* To learn about troubleshooting dependencies during deployment, see [Troubleshoot common Azure deployment errors with Azure Resource Manager](resource-manager-common-deployment-errors.md).
 * To learn about creating Azure Resource Manager templates, see [Authoring templates](resource-group-authoring-templates.md). 
 * For a list of the available functions in a template, see [Template functions](resource-group-template-functions.md).
 

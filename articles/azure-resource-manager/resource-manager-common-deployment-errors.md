@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/12/2016
+ms.date: 12/28/2016
 ms.author: tomfitz
 
 ---
@@ -68,12 +68,12 @@ This error can result from several different types of errors.
 
    If you receive an error message that indicates the template failed validation, you may have a syntax problem in your template.
 
-       Code=InvalidTemplate
-       Message=Deployment template validation failed
+      Code=InvalidTemplate
+      Message=Deployment template validation failed
 
    This error is easy to make because template expressions can be intricate. For example, the following name assignment for a storage account contains one set of brackets, three functions, three sets of parentheses, one set of single quotes, and one property:
 
-       "name": "[concat('storage', uniqueString(resourceGroup().id))]",
+      "name": "[concat('storage', uniqueString(resourceGroup().id))]",
 
    If you do not provide the matching syntax, the template produces a value that is different than your intention.
 
@@ -83,50 +83,50 @@ This error can result from several different types of errors.
 
    Another invalid template error occurs when the resource name is not in the correct format.
 
-       Code=InvalidTemplate
-       Message=Deployment template validation failed: 'The template resource {resource-name}'
-       for type {resource-type} has incorrect segment lengths.
+      Code=InvalidTemplate
+      Message=Deployment template validation failed: 'The template resource {resource-name}'
+      for type {resource-type} has incorrect segment lengths.
 
    A root level resource must have one less segment in the name than in the resource type. Each segment is differentiated by a slash. In the following example, the type has two segments and the name has one segment, so it is a **valid name**.
 
-       {
-         "type": "Microsoft.Web/serverfarms",
-         "name": "myHostingPlanName",
-         ...
-       }
+      {
+        "type": "Microsoft.Web/serverfarms",
+        "name": "myHostingPlanName",
+        ...
+      }
 
    But the next example is **not a valid name** because it has the same number of segments as the type.
 
-       {
-         "type": "Microsoft.Web/serverfarms",
-         "name": "appPlan/myHostingPlanName",
-         ...
-       }
+      {
+        "type": "Microsoft.Web/serverfarms",
+        "name": "appPlan/myHostingPlanName",
+        ...
+      }
 
    For child resources, the type and name have the same number of segments. This number of segments makes sense because the full name and type for the child includes the parent name and type. Therefore, the full name still has one less segment than the full type.
 
-       "resources": [
-           {
-               "type": "Microsoft.KeyVault/vaults",
-               "name": "contosokeyvault",
-               ...
-               "resources": [
-                   {
-                       "type": "secrets",
-                       "name": "appPassword",
-                       ...
-                   }
-               ]
-           }
-       ]
+      "resources": [
+          {
+              "type": "Microsoft.KeyVault/vaults",
+              "name": "contosokeyvault",
+              ...
+              "resources": [
+                  {
+                      "type": "secrets",
+                      "name": "appPassword",
+                      ...
+                  }
+              ]
+          }
+      ]
 
    Getting the segments right can be tricky with Resource Manager types that are applied across resource providers. For example, applying a resource lock to a web site requires a type with four segments. Therefore, the name is three segments:
 
-       {
-           "type": "Microsoft.Web/sites/providers/locks",
-           "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
-           ...
-       }
+      {
+          "type": "Microsoft.Web/sites/providers/locks",
+          "name": "[concat(variables('siteName'),'/Microsoft.Authorization/MySiteLock')]",
+          ...
+      }
 
 - Copy index is not expected
 
@@ -136,12 +136,16 @@ This error can result from several different types of errors.
 
    If the template specifies permitted values for a parameter, and you provide a value that is not one of those values, you receive a message similar to the following error:
 
-       Code=InvalidTemplate;
-       Message=Deployment template validation failed: 'The provided value {parameter value}
-       for the template parameter {parameter name} is not valid. The parameter value is not
-       part of the allowed values
+      Code=InvalidTemplate;
+      Message=Deployment template validation failed: 'The provided value {parameter value}
+      for the template parameter {parameter name} is not valid. The parameter value is not
+      part of the allowed values
 
    Double check the allowed values in the template, and provide one during deployment.
+
+- Circular dependency detected
+
+   You receive this error when resources are dependent on each other in a way that prevents the deployment from starting. A combination of interdependencies makes two or more resource wait for other resources that are also waiting. For example, resource1 is dependent on resource3, resource2 is dependent on resource1, and resource3 is dependent on resource2. You can usually solve this problem by removing unnecessary dependencies. For suggestions on troubleshooting dependency errors, see [Check deployment sequence](#check-deployment-sequence).
 
 <a id="notfound" />
 ### NotFound and ResourceNotFound
@@ -155,12 +159,13 @@ If you are attempting to deploy the missing resource in the template, check whet
     {
       "apiVersion": "2015-08-01",
       "type": "Microsoft.Web/sites",
-      ...
       "dependsOn": [
         "[variables('hostingPlanName')]"
       ],
       ...
     }
+
+For suggestions on troubleshooting dependency errors, see [Check deployment sequence](#check-deployment-sequence).
 
 You also see this error when the resource exists in a different resource group than the one being deployed to. In that case, use the [resourceId function](resource-group-template-functions.md#resourceid) to get the fully qualified name of the resource.
 
@@ -181,8 +186,8 @@ Look for an expression that includes the **reference** function. Double check th
 
 When one resource is a parent to another resource, the parent resource must exist before creating the child resource. If it does not yet exist, you receive the following error:
 
-     Code=ParentResourceNotFound;
-     Message=Can not perform requested operation on nested resource. Parent resource 'exampleserver' not found."
+    Code=ParentResourceNotFound;
+    Message=Can not perform requested operation on nested resource. Parent resource 'exampleserver' not found."
 
 The name of the child resource includes the parent name. For example, a SQL Database might be defined as:
 
@@ -206,17 +211,17 @@ For storage accounts, you must provide a name for the resource that is unique ac
 
 You can create a unique name by concatenating your naming convention with the result of the [uniqueString](resource-group-template-functions.md#uniquestring) function.
 
-    "name": "[concat('contosostorage', uniqueString(resourceGroup().id))]",
+    "name": "[concat('storage', uniqueString(resourceGroup().id))]",
     "type": "Microsoft.Storage/storageAccounts",
 
 If you deploy a storage account with the same name as an existing storage account in your subscription, but provide a different location, you receive an error indicating the storage account already exists in a different location. Either delete the existing storage account, or provide the same location as the existing storage account.
 
 ### AccountNameInvalid
-You see the **AccountNameInvalid** error when attempting to give a storage account a name that includes prohibited characters. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
+You see the **AccountNameInvalid** error when attempting to give a storage account a name that includes prohibited characters. Storage account names must be between 3 and 24 characters in length and use numbers and lower-case letters only. The [uniqueString](resource-group-template-functions.md#uniquestring) function returns 13 characters. If you concatenate a prefix to the **uniqueString** result, provide a prefix that is 11 characters or less.
 
 ### BadRequest
 
-You may encounter a BadRequest status when you provide an invalid value for a property. For example, if you provide an incorrect SKU value for a storage account, the deployment fails. 
+You may encounter a BadRequest status when you provide an invalid value for a property. For example, if you provide an incorrect SKU value for a storage account, the deployment fails. To determine valid values for property, look at the [REST API](/rest/api) for the resource type you are deploying.
 
 <a id="noregisteredproviderfound" />
 ### NoRegisteredProviderFound and MissingSubscriptionRegistration
@@ -255,52 +260,69 @@ You can see the registration status and register a resource provider namespace t
 
 To see your registration status, use **Get-AzureRmResourceProvider**.
 
-    Get-AzureRmResourceProvider -ListAvailable
+```powershell
+Get-AzureRmResourceProvider -ListAvailable
+```
 
 To register a provider, use **Register-AzureRmResourceProvider** and provide the name of the resource provider you wish to register.
 
-    Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+```powershell
+Register-AzureRmResourceProvider -ProviderNamespace Microsoft.Cdn
+```
 
 To get the supported locations for a particular type of resource, use:
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
+```
 
 To get the supported API versions for a particular type of resource, use:
 
-    ((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+```powershell
+((Get-AzureRmResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
+```
 
 **Azure CLI**
 
 To see whether the provider is registered, use the `azure provider list` command.
 
-    azure provider list
+```azurecli
+azure provider list
+```
 
 To register a resource provider, use the `azure provider register` command, and specify the *namespace* to register.
 
-    azure provider register Microsoft.Cdn
+```azurecli
+azure provider register Microsoft.Cdn
+```
 
 To see the supported locations and API versions for a resource provider, use:
 
-    azure provider show -n Microsoft.Compute --json > compute.json
+```azurecli
+azure provider show -n Microsoft.Compute --json > compute.json
+```
 
 <a id="quotaexceeded" />
 ### QuotaExceeded and OperationNotAllowed
 You might have issues when deployment exceeds a quota, which could be per resource group, subscriptions, accounts, and other scopes. For example, your subscription may be configured to limit the number of cores for a region. If you attempt to deploy a virtual machine with more cores than the permitted amount, you receive an error stating the quota has been exceeded.
 For complete quota information, see [Azure subscription and service limits, quotas, and constraints](../azure-subscription-service-limits.md).
 
-To examine your subscription's quotas for cores, you can use the `azure vm list-usage` command in the Azure CLI. The following example illustrates that the core quota for a
-free trial account is 4:
+To examine your subscription's quotas for cores, you can use the `azure vm list-usage` command in the Azure CLI. The following example illustrates that the core quota for a free trial account is 4:
 
-    azure vm list-usage
+```azurecli
+azure vm list-usage
+```
 
 Which returns:
 
-    info:    Executing command vm list-usage
-    Location: westus
-    data:    Name   Unit   CurrentValue  Limit
-    data:    -----  -----  ------------  -----
-    data:    Cores  Count  0             4
-    info:    vm list-usage command OK
+```azurecli
+info:    Executing command vm list-usage
+Location: westus
+data:    Name   Unit   CurrentValue  Limit
+data:    -----  -----  ------------  -----
+data:    Cores  Count  0             4
+info:    vm list-usage command OK
+```
 
 If you deploy a template that creates more than four cores in the West US region, you get a deployment error that looks like:
 
@@ -310,19 +332,23 @@ If you deploy a template that creates more than four cores in the West US region
 
 Or in PowerShell, you can use the **Get-AzureRmVMUsage** cmdlet.
 
-    Get-AzureRmVMUsage
+```powershell
+Get-AzureRmVMUsage
+```
 
 Which returns:
 
-    ...
-    CurrentValue : 0
-    Limit        : 4
-    Name         : {
-                     "value": "cores",
-                     "localizedValue": "Total Regional Cores"
-                   }
-    Unit         : null
-    ...
+```powershell
+...
+CurrentValue : 0
+Limit        : 4
+Name         : {
+                 "value": "cores",
+                 "localizedValue": "Total Regional Cores"
+               }
+Unit         : null
+...
+```
 
 In these cases, you should go to the portal and file a support issue to raise your quota for the region into which you want to deploy.
 
@@ -346,11 +372,15 @@ You receive this error when your subscription includes a resource policy that pr
 
 In **PowerShell**, provide that policy identifier as the **Id** parameter to retrieve details about the policy that blocked your deployment.
 
-    (Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+```powershell
+(Get-AzureRmPolicyAssignment -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
+```
 
 In **Azure CLI**, provide the name of the policy definition:
 
-    azure policy definition show regionPolicyDefinition --json
+```azurecli
+azure policy definition show regionPolicyDefinition --json
+```
 
 For more information about policies, see [Use Policy to manage resources and control access](resource-manager-policy.md).
 
@@ -385,15 +415,21 @@ You can discover valuable information about how your deployment is processed by 
 
    In PowerShell, set the **DeploymentDebugLogLevel** parameter to All, ResponseContent, or RequestContent.
 
-       New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+   ```powershell
+   New-AzureRmResourceGroupDeployment -ResourceGroupName examplegroup -TemplateFile c:\Azure\Templates\storage.json -DeploymentDebugLogLevel All
+   ```
 
    Examine the request content with the following cmdlet:
 
-       (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+   ```powershell
+   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.request | ConvertTo-Json
+   ```
 
    Or, the response content with:
 
-       (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+   ```powershell
+   (Get-AzureRmResourceGroupDeploymentOperation -DeploymentName storageonly -ResourceGroupName startgroup).Properties.response | ConvertTo-Json
+   ```
 
    This information can help you determine whether a value in the template is being incorrectly set.
 
@@ -401,11 +437,15 @@ You can discover valuable information about how your deployment is processed by 
 
    In Azure CLI, set the **--debug-setting** parameter to All, ResponseContent, or RequestContent.
 
-       azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
+   ```azurecli
+   azure group deployment create --debug-setting All -f c:\Azure\Templates\storage.json -g examplegroup -n ExampleDeployment
+   ```
 
    Examine the logged request and response content with the following:
 
-       azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+   ```azurecli
+   azure group deployment operation list --resource-group examplegroup --name ExampleDeployment --json
+   ```
 
    This information can help you determine whether a value in the template is being incorrectly set.
 
@@ -413,52 +453,60 @@ You can discover valuable information about how your deployment is processed by 
 
    To log debug information for a nested template, use the **debugSetting** element.
 
-       {
-           "apiVersion": "2016-09-01",
-           "name": "nestedTemplate",
-           "type": "Microsoft.Resources/deployments",
-           "properties": {
-               "mode": "Incremental",
-               "templateLink": {
-                   "uri": "{template-uri}",
-                   "contentVersion": "1.0.0.0"
-               },
-               "debugSetting": {
-                  "detailLevel": "requestContent, responseContent"
-               }
+   ```json
+   {
+       "apiVersion": "2016-09-01",
+       "name": "nestedTemplate",
+       "type": "Microsoft.Resources/deployments",
+       "properties": {
+           "mode": "Incremental",
+           "templateLink": {
+               "uri": "{template-uri}",
+               "contentVersion": "1.0.0.0"
+           },
+           "debugSetting": {
+              "detailLevel": "requestContent, responseContent"
            }
        }
+   }
+   ```
 
 
 ### Create a troubleshooting template
 In some cases, the easiest way to troubleshoot your template is to test parts of it. You can create a simplified template that enables you to focus on the part that you believe is causing the error. For example, suppose you are receiving an error when referencing a resource. Rather than dealing with an entire template, create a template that returns the part that may be causing your problem. It can help you determine whether you are passing in the right parameters, using template functions correctly, and getting the resource you expect.
 
-    {
-      "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-      "contentVersion": "1.0.0.0",
-      "parameters": {
-        "storageName": {
-            "type": "string"
-        },
-        "storageResourceGroup": {
-            "type": "string"
-        }
-      },
-      "variables": {},
-      "resources": [],
-      "outputs": {
-        "exampleOutput": {
-            "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
-            "type" : "object"
-        }
-      }
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageName": {
+        "type": "string"
+    },
+    "storageResourceGroup": {
+        "type": "string"
     }
+  },
+  "variables": {},
+  "resources": [],
+  "outputs": {
+    "exampleOutput": {
+        "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageName')), '2016-05-01')]",
+        "type" : "object"
+    }
+  }
+}
+```
 
 Or, suppose you are encountering deployment errors that you believe are related to incorrectly set dependencies. Test your template by breaking it into simplified templates. First, create a template that deploys only a single resource (like a SQL Server). When you are sure you have that resource correctly defined, add a resource that depends on it (like a SQL Database). When you have those two resources correctly defined, add other dependent resources (like auditing policies). In between each test deployment, delete the resource group to make sure you adequately testing the dependencies. 
 
 ### Check deployment sequence
 
-Many deployment errors happen when resources are deployed in an unexpected sequence. These errors arise when dependencies are not correctly set. One resource attempts to use a value for another resource but the other does not yet exist. To view the order of deployment operations:
+Many deployment errors happen when resources are deployed in an unexpected sequence. These errors arise when dependencies are not correctly set. When you are missing a needed dependency, one resource attempts to use a value for another resource but the other does not yet exist. You get an error stating that a resource is not found. You may encounter this type of error intermittently because the deployment time for each resource can vary. For example, your first attempt to deploy your resources succeeds because a required resource randomly completes in time. However, your second attempt fails because the required resource did not complete in time. 
+
+But, you want to avoid setting dependencies that are not needed. When you have unnecessary dependencies, you prolong the duration of the deployment by preventing resources that are not dependent on each other from being deployed in parallel. In addition, you may create circular dependencies that block the deployment. The [reference](resource-group-template-functions.md#reference) function creates an implicit dependency on the resource you specify as a parameter in the function, if that resource is deployed in the same template. Therefore, you may have more dependencies than those specified in the **dependsOn** property. The [resourceId](resource-group-template-functions.md#resourceid) function does not create an implicit dependency or validate that the resource exists.
+
+When you encounter dependency problems, you need to gain insight into the order of resource deployment. To view the order of deployment operations:
 
 1. Select the deployment history for your resource group.
 
@@ -476,7 +524,24 @@ Many deployment errors happen when resources are deployed in an unexpected seque
 
    ![sequential deployment](./media/resource-manager-common-deployment-errors/deployment-events-sequence.png)
 
-Look through your deployment events to see if one resource is started earlier than you would expect. If so, check the dependencies for this resource.
+Of course, real world scenarios can be considerably more complicated, but you can use the same technique to discover when deployment is started and completed for each resource. Look through your deployment events to see if the sequence is different than you would expect. If so, re-evaluate the dependencies for this resource.
+
+Resource Manager identifies circular dependencies during template validation. It returns an error message that specifically states a circular dependency exists. To solve a circular dependency:
+
+1. Remove all **dependsOn** properties in your template, except when defining a child resource as dependent on the parent resource.
+2. Keep all uses of the **reference** function to specify an implicit dependency.
+3. Deploy the template. 
+4. If you receive an error, add a **dependsOn** property to fix the error. 
+5. Redeploy the template.
+
+After several attempts, you have a template with the minimum number of dependencies. 
+
+If that approach does not solve the circular dependency, consider moving part of your deployment logic into child resources (such as extensions or configuration settings). Configure those child resources to deploy after the resources involved in the circular dependency. For example, suppose you are deploying two virtual machines but you must set properties on each one that refer to the other. You can deploy them in the following order:
+
+1. vm1
+2. vm2
+3. Extension on vm1 is dependent on vm1 and vm2. The extension sets values on vm1 that it gets from vm2.
+4. Extension on vm2 is dependent on vm1 and vm2. The extension sets values on vm2 that it gets from vm1.
 
 ## Troubleshooting other services
 If the preceding deployment error codes did not help you troubleshoot your issue, you can look for more detailed troubleshooting guidance for the particular Azure service with the error.
