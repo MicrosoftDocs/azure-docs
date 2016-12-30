@@ -52,4 +52,4 @@ Now set the instances to 10000000 so whenever a new node is added to the cluster
 Once you've installed the package navigate back to the Sysdig UI and you'll be able to explore the different usage metrics for the containers within your cluster. 
 
 You can also install Mesos and Marathon specific dashboards via the
-(new dashboard wizard)[https://app.sysdigcloud.com/#/dashboards/new].
+[new dashboard wizard](https://app.sysdigcloud.com/#/dashboards/new).

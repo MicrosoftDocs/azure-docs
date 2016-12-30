@@ -1,6 +1,6 @@
 ---
-title: Monitoring Kubernetes in Azure Container Service using Operations Management Suite (OMS) | Microsoft Docs
-description: Monitoring Kubernetes in Azure Container Service using Operations Management Suite (OMS)
+title: Monitoring Kubernetes in Azure Container Service using DataDog | Microsoft Docs
+description: Monitoring Kubernetes in Azure Container Service using DataDog
 services: container-service
 documentationcenter: ''
 author: bburns
