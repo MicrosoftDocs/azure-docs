@@ -17,7 +17,7 @@ ms.date: 11/16/2016
 ms.author: dobett
 
 ---
-# How to create an IoT hub using the resource provider REST API (.NET)
+# Create an IoT hub using the resource provider REST API (.NET)
 [!INCLUDE [iot-hub-resource-manager-selector](../../includes/iot-hub-resource-manager-selector.md)]
 
 ## Introduction
@@ -133,7 +133,7 @@ Use the [IoT Hub resource provider REST API][lnk-rest-api] to create an IoT hub 
 6. Add the following code to the end of the **CreateIoTHub** method to retrieve the keys of the IoT hub you created and print them to the console:
    
     ```
-    var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2015-08-15-preview", subscriptionId, rgName, iotHubName);
+    var listKeysUri = string.Format("https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Devices/IotHubs/{2}/IoTHubKeys/listkeys?api-version=2016-02-03", subscriptionId, rgName, iotHubName);
     var keysresults = client.PostAsync(listKeysUri, null).Result;
    
     Console.WriteLine("Keys: {0}", keysresults.Content.ReadAsStringAsync().Result);

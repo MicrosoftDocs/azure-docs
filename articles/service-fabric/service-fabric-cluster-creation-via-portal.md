@@ -296,7 +296,7 @@ The **Node Monitor** section on the cluster's dashboard blade indicates the numb
 Each of the NodeTypes you specify in your cluster results in a VM Scale Set getting set-up. See [Remote connect to a VM Scale Set instance][remote-connect-to-a-vm-scale-set] for details.
 
 ## Next steps
-At this point, you have a secure cluster using certificates for management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).
+At this point, you have a secure cluster using certificates for management authentication. Next, [connect to your cluster](service-fabric-connect-to-secure-cluster.md) and learn how to [manage application secrets](service-fabric-application-secret-management.md).  Also, learn about [Service Fabric support options](service-fabric-support.md).
 
 <!-- Links -->
 [azure-powershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/

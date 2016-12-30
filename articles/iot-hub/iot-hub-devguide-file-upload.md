@@ -17,7 +17,7 @@ ms.date: 09/30/2016
 ms.author: dobett
 
 ---
-# Understand file uploads with IoT Hub
+# File uploads with IoT Hub
 ## Overview
 As detailed in the [IoT Hub endpoints][lnk-endpoints] article, devices can initiate file uploads by sending a notification through a device-facing endpoint (**/devices/{deviceId}/files**).  When a device notifies IoT Hub of a completed upload, IoT Hub generates file upload notifications that you can receive through a service-facing endpoint (**/messages/servicebound/filenotifications**) as messages.
 

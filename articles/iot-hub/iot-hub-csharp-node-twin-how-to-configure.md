@@ -17,7 +17,7 @@ ms.date: 09/13/2016
 ms.author: elioda
 
 ---
-# How to use desired properties to configure devices
+# Use desired properties to configure devices
 [!INCLUDE [iot-hub-selector-twin-how-to-configure](../../includes/iot-hub-selector-twin-how-to-configure.md)]
 
 At the end of this tutorial, you will have two Node.js console apps:

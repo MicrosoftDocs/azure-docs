@@ -1,4 +1,4 @@
-﻿---
+---
 title: Analyze Azure diagnostic logs using Log Analytics | Microsoft Docs
 description: Log Analytics can read the logs from Azure services that write Azure diagnostic logs to blob storage in JSON format.
 services: log-analytics
@@ -13,17 +13,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/10/2016
+ms.date: 12/20/2016
 ms.author: banders
 
 ---
 # Analyze Azure diagnostic logs using Log Analytics
 Log Analytics can collect the logs for the following Azure services that write [Azure diagnostic logs](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md) to blob storage in JSON format:
 
-* Automation (Preview)
 * Key Vault (Preview)
 * Application Gateway (Preview)
 * Network Security Group (Preview)
+
+> [!NOTE]
+> This method of collecting logs is deprecated. Use [Azure diagnostics direct to Log Analytics](log-analytics-azure-storage.md) to collect logs for the above services. Once the Key Vault Analytics and Azure Network Analytics management solutions are updated to support logs collected directly from Azure diagnostics this documentation will be deleted. 
+> 
+>
 
 The following sections walk you through using PowerShell to:
 
@@ -53,7 +57,7 @@ The example below enables logging on all supported resources
 # format is similar to "/subscriptions/ec11ca60-ab12-345e-678d-0ea07bbae25c/resourceGroups/Default-Storage-WestUS/providers/Microsoft.Storage/storageAccounts/mystorageaccount"
 $storageAccountId = ""
 
-$supportedResourceTypes = ("Microsoft.Automation/AutomationAccounts", "Microsoft.KeyVault/Vaults", "Microsoft.Network/NetworkSecurityGroups", "Microsoft.Network/ApplicationGateways")
+$supportedResourceTypes = ("Microsoft.KeyVault/Vaults", "Microsoft.Network/NetworkSecurityGroups", "Microsoft.Network/ApplicationGateways")
 
 # update location to match your storage account location
 $resources = Get-AzureRmResource | where { $_.ResourceType -in $supportedResourceTypes -and $_.Location -eq "westus" }

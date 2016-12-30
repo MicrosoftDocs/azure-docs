@@ -1,4 +1,4 @@
-﻿---
+---
 title: Customizing Attribute Mappings | Microsoft Docs
 description: Learn what attribute mappings for SaaS apps in Azure Active Directory are how you can modify them to address your business needs.
 services: active-directory
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: markusvi
+ms.author: markvi
 
 ---
 # Customizing Attribute Mappings
