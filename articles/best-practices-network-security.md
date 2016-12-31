@@ -27,7 +27,7 @@ The following logic chart can direct you to a specific example of the many secur
 
 [Example 1: Build a perimeter network (also known as DMZ, demilitarized zone, or screened subnet) to help protect applications with network security groups (NSGs).](#example-1-build-a-perimeter-network-to-help-protect-applications-with-nsgs)</br>
 [Example 2: Build a perimeter network to help protect applications with a firewall and NSGs.](#example-2-build-a-perimeter-network-to-help-protect-applications-with-a-firewall-and-nsgs)</br>
-[Example 3: Build a perimeter network to help protect networks with a firewall, user-defined route (UDR), and NSG.](#example-3-build-a-dmz-to-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
+[Example 3: Build a perimeter network to help protect networks with a firewall, user-defined route (UDR), and NSG.](#example-3-build-a-perimeter-network-to-help-protect-networks-with-a-firewall-and-udr-and-nsg)</br>
 [Example 4: Add a hybrid connection with a site-to-site, virtual appliance virtual private network (VPN).](#example-4-add-a-hybrid-connection-with-a-site-to-site-virtual-appliance-vpn)</br>
 [Example 5: Add a hybrid connection with a site-to-site, Azure VPN gateway.](#example-5-add-a-hybrid-connection-with-a-site-to-site-azure-vpn-gateway)</br>
 [Example 6: Add a hybrid connection with ExpressRoute.](#example-6-add-a-hybrid-connection-with-expressroute)</br>
@@ -548,7 +548,7 @@ The addition of an ExpressRoute Private Peering network connection can extend th
 
 <!--Link References-->
 [TrustCenter]: https://azure.microsoft.com/support/trust-center/compliance/
-[Example1]: ./virtual-network/virtual-networks-dmz-nsg-asm.md
+[Example1]: ./virtual-network/virtual-networks-dmz-nsg-arm.md
 [Example2]: ./virtual-network/virtual-networks-dmz-nsg-fw-asm.md
 [Example3]: ./virtual-network/virtual-networks-dmz-nsg-fw-udr-asm.md
 [Example4]: ./virtual-network/virtual-networks-hybrid-s2s-nva-asm.md
