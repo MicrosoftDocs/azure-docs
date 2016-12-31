@@ -55,7 +55,7 @@ Once the script runs successfully additional optional steps may be taken, in the
 The following sections provide a detailed description of Network Security Groups and how they function for this example by walking through key lines of the PowerShell script.
 
 ## Network Security Groups (NSG)
-For this example, a NSG group is built and then loaded with six rules. 
+For this example, an NSG group is built and then loaded with six rules. 
 
 > [!TIP]
 > Generally speaking, you should create your specific “Allow” rules first and then the more generic “Deny” rules last. The assigned priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either in the inbound or outbound direction (from the perspective of the subnet).
@@ -71,7 +71,7 @@ Declaratively, the following rules are being built for inbound traffic:
 5. Any traffic (all ports) from the Internet to the entire VNet (both subnets) is Denied
 6. Any traffic (all ports) from the Frontend subnet to the Backend subnet is Denied
 
-With these rules bound to each subnet, if a HTTP request was inbound from the Internet to the web server, both rules 3 (allow) and 5 (deny) would apply, but since rule 3 has a higher priority only it would apply and rule 5 would not come into play. Thus the HTTP request would be allowed to the web server. If that same traffic was trying to reach the DNS01 server, rule 5 (Deny) would be the first to apply and the traffic would not be allowed to pass to the server. Rule 6 (Deny) blocks the Frontend subnet from talking to the Backend subnet (except for allowed traffic in rules 1 and 4), this rule-set protects the Backend network in case an attacker compromises the web application on the Frontend, the attacker would have limited access to the Backend “protected” network (only to resources exposed on the AppVM01 server).
+With these rules bound to each subnet, if an HTTP request was inbound from the Internet to the web server, both rules 3 (allow) and 5 (deny) would apply, but since rule 3 has a higher priority only it would apply and rule 5 would not come into play. Thus the HTTP request would be allowed to the web server. If that same traffic was trying to reach the DNS01 server, rule 5 (Deny) would be the first to apply and the traffic would not be allowed to pass to the server. Rule 6 (Deny) blocks the Frontend subnet from talking to the Backend subnet (except for allowed traffic in rules 1 and 4), this rule-set protects the Backend network in case an attacker compromises the web application on the Frontend, the attacker would have limited access to the Backend “protected” network (only to resources exposed on the AppVM01 server).
 
 There is a default outbound rule that allows traffic out to the internet. For this example, we’re allowing outbound traffic and not modifying any outbound rules. To lock down traffic in both directions, User Defined Routing is required and is explored in “Example 3” on the [Security Boundary Best Practices Page][HOME].
 
@@ -105,7 +105,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
          -DestinationAddressPrefix VIRTUAL_NETWORK `
          -DestinationPortRange '3389' `
          -Protocol *
-4. This rule allows inbound internet traffic to hit the web server. This does not change the routing behavior. The rule only allows traffic destined for IIS01 to pass. Thus if traffic from the Internet had the web server as its destination this rule would allow it and stop processing further rules. (In the rule at priority 140 all other inbound internet traffic is blocked). If you're only processing HTTP traffic, this rule could be further restricted to only allow Destination Port 80.
+4. This rule allows inbound internet traffic to hit the web server. This rule does not change the routing behavior. The rule only allows traffic destined for IIS01 to pass. Thus if traffic from the Internet had the web server as its destination this rule would allow it and stop processing further rules. (In the rule at priority 140 all other inbound internet traffic is blocked). If you're only processing HTTP traffic, this rule could be further restricted to only allow Destination Port 80.
    
      Get-AzureNetworkSecurityGroup -Name $NSGName | `
    
@@ -150,7 +150,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the foll
 
 ## Traffic Scenarios
 #### (*Allowed*) Web to Web Server
-1. An internet user requests a HTTP page from FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
+1. An internet user requests an HTTP page from FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
 2. Cloud service passes traffic through open endpoint on port 80 towards IIS01 (the web server)
 3. Frontend subnet begins inbound rule processing:
    1. NSG Rule 1 (DNS) doesn’t apply, move to next rule
@@ -252,7 +252,7 @@ This script will, based on the user-defined variables;
 3. Create a VNet and two subnets as defined in the Network Config file
 4. Build four windows server VMs
 5. Configure NSG including:
-   * Creating a NSG
+   * Creating an NSG
    * Populating it with rules
    * Binding the NSG to the appropriate subnets
 

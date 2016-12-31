@@ -55,10 +55,10 @@ In the references section, there is a link to an Azure Resource Manager (ARM) te
 > 
 >
 
-The following sections provides a detailed description of the Network Security Group and how it functions for this example by walking through key lines of the Azure Resource Manager Template.
+The following sections provide a detailed description of the Network Security Group and how it functions for this example by walking through key lines of the Azure Resource Manager Template.
 
 ## Network Security Groups (NSG)
-For this example, a NSG group is built and then loaded with six rules. 
+For this example, an NSG group is built and then loaded with six rules. 
 
 >[!TIP]
 >Generally speaking, you should create your specific “Allow” rules first and then the more generic “Deny” rules last. The assigned priority dictates which rules are evaluated first. Once traffic is found to apply to a specific rule, no further rules are evaluated. NSG rules can apply in either in the inbound or outbound direction (from the perspective of the subnet).
@@ -74,7 +74,7 @@ Declaratively, the following rules are being built for inbound traffic:
 5. Any traffic (all ports) from the Internet to the entire VNet (both subnets) is Denied
 6. Any traffic (all ports) from the Frontend subnet to the Backend subnet is Denied
 
-With these rules bound to each subnet, if a HTTP request was inbound from the Internet to the web server, both rules 3 (allow) and 5 (deny) would apply, but since rule 3 has a higher priority only it would apply and rule 5 would not come into play. Thus the HTTP request would be allowed to the web server. If that same traffic was trying to reach the DNS01 server, rule 5 (Deny) would be the first to apply and the traffic would not be allowed to pass to the server. Rule 6 (Deny) blocks the Frontend subnet from talking to the Backend subnet (except for allowed traffic in rules 1 and 4), this rule-set protects the Backend network in case an attacker compromises the web application on the Frontend, the attacker would have limited access to the Backend “protected” network (only to resources exposed on the AppVM01 server).
+With these rules bound to each subnet, if an HTTP request was inbound from the Internet to the web server, both rules 3 (allow) and 5 (deny) would apply, but since rule 3 has a higher priority only it would apply and rule 5 would not come into play. Thus the HTTP request would be allowed to the web server. If that same traffic was trying to reach the DNS01 server, rule 5 (Deny) would be the first to apply and the traffic would not be allowed to pass to the server. Rule 6 (Deny) blocks the Frontend subnet from talking to the Backend subnet (except for allowed traffic in rules 1 and 4), this rule-set protects the Backend network in case an attacker compromises the web application on the Frontend, the attacker would have limited access to the Backend “protected” network (only to resources exposed on the AppVM01 server).
 
 There is a default outbound rule that allows traffic out to the internet. For this example, we’re allowing outbound traffic and not modifying any outbound rules. To apply security policy to traffic in both directions, User Defined Routing is required and is explored in “Example 3” on the [Security Boundary Best Practices Page][HOME].
 
@@ -226,7 +226,7 @@ Each rule is discussed in more detail as follows:
 13. Since there are no outbound rules on the Frontend subnet, the response is allowed and the Internet User receives the web page requested.
 
 #### (*Allowed*) RDP to IIS Server
-1. A Server Admin on internet requests a RDP session to IIS01 on the public IP address of the NIC associated with the IIS01 NIC (this public IP address can be found via the Portal or PowerShell)
+1. A Server Admin on internet requests an RDP session to IIS01 on the public IP address of the NIC associated with the IIS01 NIC (this public IP address can be found via the Portal or PowerShell)
 2. The Public IP address passes traffic to the VNet towards IIS01 (the web server)
 3. Frontend subnet begins inbound rule processing:
   1. NSG Rule 1 (DNS) doesn’t apply, move to next rule
@@ -278,7 +278,7 @@ Each rule is discussed in more detail as follows:
 3. However if a Public IP address was enabled for some reason, NSG rule 2 (RDP) would allow this traffic
 
 >[!NOTE]
->To RDP to any back-end servers in this instance, the IIS server is used as a "jump box". First RDP to the IIS server and then from the IIS Server RDP to the back-end server.
+>To RDP to any back-end servers in this instance, the IIS server is used as a "jump box." First RDP to the IIS server and then from the IIS Server RDP to the back-end server.
 >
 >
 
@@ -311,9 +311,9 @@ More examples and an overview of network security boundaries can be found [here]
 ### Azure Resource Manager Template
 This example uses a predefined Azure Resource Manager template in a GitHub repository maintained by Microsoft and open to the community. This template can be deployed straight out of GitHub, or downloaded and modified to fit your needs. 
 
-The main template is in the file named "azuredeploy.json." This template can be submitted to PowerShell or CLI (with the associated "azuredeploy.parameters.json" file) to deploy this template. I find the easiest way is to use the "Deploy to Azure" button on the README.md page in GitHub as described in the following instructions.
+The main template is in the file named "azuredeploy.json." This template can be submitted via PowerShell or CLI (with the associated "azuredeploy.parameters.json" file) to deploy this template. I find the easiest way is to use the "Deploy to Azure" button on the README.md page at GitHub.
 
-To deploy the template that builds this example, follow these steps:
+To deploy the template that builds this example from GitHub and the Azure portal, follow these steps:
 
 1. From a browser, navigate to the [Template][Template]
 2. Click the "Deploy to Azure" button (or the "Visualize" button to see a graphical representation of this template)
