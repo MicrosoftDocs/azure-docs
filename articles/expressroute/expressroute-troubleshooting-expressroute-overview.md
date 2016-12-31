@@ -15,7 +15,6 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 1/3/2017
 ms.author: rambala
-
 ---
 
 # Verifying ExpressRoute Connectivity
@@ -25,7 +24,7 @@ ExpressRoute, which extends an on-premises network into the Microsoft cloud over
 -  	Provider Network
 -  	Microsoft Datacenter
 
-The purpose of this document is to help user to identify where (or even if) a connectivity issue exists and within which zone, thereby to seek help from appropriate team to resolve the issue. If Microsoft support is needed to resolve an issue, open a support ticket with [Microsoft Support][Support].
+eThe purpose of this document is to help user to identify where (or even if) a connectivity issue exists and within which zone, thereby to seek help from appropriate team to resolve the issue. If Microsoft support is needed to resolve an issue, open a support ticket with [Microsoft Support][Support].
 
 > [!IMPORTANT]
 > This document is intended to help diagnosing and fixing simple issues. It is not intended to be a replacement for Microsoft support. Open a support ticket with [Microsoft Support][Support] if you are unable to solve the problem using the guidance provided.
@@ -66,7 +65,7 @@ More validations and checks will be added in the future, check back monthly!
 Regardless of the connectivity model, an ExpressRoute circuit has to be created and thus a service key generated for circuit provisioning. Provisioning an ExpressRoute circuit establishes a redundant Layer 2 connections between MSEE-PRs (4) and MSEEs (5). For more information on how to create, modify, provision, and verify an ExpressRoute circuit, see the article [Create and modify an ExpressRoute circuit][CreateCircuit].
 
 >[!TIP]
->A service key uniquely identifies an ExpressRoute circuit. Therefore, should you need assistance from Microsoft or from an ExpressRoute partner to troubleshoot an ExpressRoute issue, provide the service key to readily identify the circuit.
+>A service key uniquely identifies an ExpressRoute circuit. This key is required for most of the powershell commands mentioned in this document. Also, should you need assistance from Microsoft or from an ExpressRoute partner to troubleshoot an ExpressRoute issue, provide the service key to readily identify the circuit.
 
 ###Verification via the Azure portal
 In the Azure portal, the status of an ExpressRoute circuit can be checked by selecting ![2][2] on the left-side-bar menu and then selecting the ExpressRoute circuit. Selecting an ExpressRoute circuit listed under "All resources" opens the ExpressRoute circuit blade. In the ![3][3] section of the blade, the ExpressRoute essentials are listed as shown in the following screen shot:
@@ -84,6 +83,9 @@ For an ExpressRoute circuit to be operational, the *Circuit status* must be *Ena
 To list all the ExpressRoute circuits in a Resource Group, use the following command:
 
 	Get-AzureRmExpressRouteCircuit -ResourceGroupName "Test-ER-RG"
+
+>[!TIP]
+>You can get your resource group name through the Azure Portal. See the previous subsection of this document and note that the resource group name is listed in the example screen shot.
 
 To select a particular ExpressRoute circuit in a Resource Group, use the following command:
 
