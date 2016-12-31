@@ -26,33 +26,33 @@ ms.author: jonor
 > 
 >
 
-This example will create a simple DMZ with four windows servers and Network Security Groups. It will also walk through each of the relevant commands to provide a deeper understanding of each step. There is also a Traffic Scenario section to provide an in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
+This example creates a primitive DMZ with four windows servers and Network Security Groups. This example describes each of the relevant PowerShell commands to provide a deeper understanding of each step. There is also a Traffic Scenario section to provide an in-depth step-by-step how traffic proceeds through the layers of defense in the DMZ. Finally, in the references section is the complete code and instruction to build this environment to test and experiment with various scenarios. 
 
 ![Inbound DMZ with NSG][1]
 
 ## Environment Description
-In this example there is a subscription that contains the following:
+In this example a subscription contains the following resources:
 
 * Two cloud services: “FrontEnd001” and “BackEnd001”
 * A Virtual Network, “CorpNetwork”, with two subnets; “FrontEnd” and “BackEnd”
 * A Network Security Group that is applied to both subnets
 * A Windows Server that represents an application web server (“IIS01”)
-* Two windows servers that represent application back end servers (“AppVM01”, “AppVM02”)
+* Two windows servers that represent application back-end servers (“AppVM01”, “AppVM02”)
 * A Windows server that represents a DNS server (“DNS01”)
 
-In the references section below there is a PowerShell script that will build most of the environment described above. Building the VMs and Virtual Networks, although are done by the example script, are not described in detail in this document. 
+In the references section, there is a PowerShell script that builds most of the environment described in this example. Building the VMs and Virtual Networks, although are done by the example script, are not described in detail in this document. 
 
 To build the environment;
 
 1. Save the network config xml file included in the references section (updated with names, location, and IP addresses to match the given scenario)
-2. Update the user variables in the script to match the environment the script is to be run against (subscriptions, service names, etc)
+2. Update the user variables in the script to match the environment the script is to be run against (subscriptions, service names, etc.)
 3. Execute the script in PowerShell
 
 **Note**: The region signified in the PowerShell script must match the region signified in the network configuration xml file.
 
 Once the script runs successfully additional optional steps may be taken, in the references section are two scripts to set up the web server and app server with a simple web application to allow testing with this DMZ configuration.
 
-The following sections will provide a detailed description of Network Security Groups and how they function for this example by walking through key lines of the PowerShell script.
+The following sections provide a detailed description of Network Security Groups and how they function for this example by walking through key lines of the PowerShell script.
 
 ## Network Security Groups (NSG)
 For this example, a NSG group is built and then loaded with six rules. 
@@ -71,21 +71,21 @@ Declaratively, the following rules are being built for inbound traffic:
 5. Any traffic (all ports) from the Internet to the entire VNet (both subnets) is Denied
 6. Any traffic (all ports) from the Frontend subnet to the Backend subnet is Denied
 
-With these rules bound to each subnet, if a HTTP request was inbound from the Internet to the web server, both rules 3 (allow) and 5 (deny) would apply, but since rule 3 has a higher priority only it would apply and rule 5 would not come into play. Thus the HTTP request would be allowed to the web server. If that same traffic was trying to reach the DNS01 server, rule 5 (Deny) would be the first to apply and the traffic would not be allowed to pass to the server. Rule 6 (Deny) blocks the Frontend subnet from talking to the Backend subnet (except for allowed traffic in rules 1 and 4), this protects the Backend network in case an attacker compromises the web application on the Frontend, the attacker would have limited access to the Backend “protected” network (only to resources exposed on the AppVM01 server).
+With these rules bound to each subnet, if a HTTP request was inbound from the Internet to the web server, both rules 3 (allow) and 5 (deny) would apply, but since rule 3 has a higher priority only it would apply and rule 5 would not come into play. Thus the HTTP request would be allowed to the web server. If that same traffic was trying to reach the DNS01 server, rule 5 (Deny) would be the first to apply and the traffic would not be allowed to pass to the server. Rule 6 (Deny) blocks the Frontend subnet from talking to the Backend subnet (except for allowed traffic in rules 1 and 4), this rule-set protects the Backend network in case an attacker compromises the web application on the Frontend, the attacker would have limited access to the Backend “protected” network (only to resources exposed on the AppVM01 server).
 
-There is a default outbound rule that allows traffic out to the internet. For this example, we’re allowing outbound traffic and not modifying any outbound rules. To lock down traffic in both directions, User Defined Routing is required, this is explored in “Example 3” below.
+There is a default outbound rule that allows traffic out to the internet. For this example, we’re allowing outbound traffic and not modifying any outbound rules. To lock down traffic in both directions, User Defined Routing is required and is explored in “Example 3” on the [Security Boundary Best Practices Page][HOME].
 
-Each rule is discussed in more detail as follows (**Note**: any item in the below list in beginning with a dollar sign (e.g.: $NSGName) is a user defined variable from the script in the reference section of this document):
+Each rule is discussed in more detail as follows (**Note**: any item in the following list beginning with a dollar sign (for example: $NSGName) is a user-defined variable from the script in the reference section of this document):
 
 1. First a Network Security Group must be built to hold the rules:
    
         New-AzureNetworkSecurityGroup -Name $NSGName `
             -Location $DeploymentLocation `
             -Label "Security group for $VNetName subnets in $DeploymentLocation"
-2. The first rule in this example will allow DNS traffic between all internal networks to the DNS server on the backend subnet. The rule has some important parameters:
+2. The first rule in this example allows DNS traffic between all internal networks to the DNS server on the backend subnet. The rule has some important parameters:
    
-   * “Type” signifies in which direction of traffic this rule will take effect; this is from the perspective of the subnet or Virtual Machine (depending on where this NSG is bound). Thus if Type is “Inbound” and traffic is entering the subnet, the rule would apply and traffic leaving the subnet would not be affected by this rule.
-   * “Priority” sets the order in which a traffic flow will be evaluated. The lower the number the higher the priority. As soon as a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
+   * “Type” signifies in which direction of traffic flow this rule takes effect. The direction is from the perspective of the subnet or Virtual Machine (depending on where this NSG is bound). Thus if Type is “Inbound” and traffic is entering the subnet, the rule would apply and traffic leaving the subnet would not be affected by this rule.
+   * “Priority” sets the order in which a traffic flow is evaluated. The lower the number the higher the priority. When a rule applies to a specific traffic flow, no further rules are processed. Thus if a rule with priority 1 allows traffic, and a rule with priority 2 denies traffic, and both rules apply to traffic then the traffic would be allowed to flow (since rule 1 had a higher priority it took effect and no further rules were applied).
    * “Action” signifies if traffic affected by this rule is blocked or allowed.
      
          Get-AzureNetworkSecurityGroup -Name $NSGName | `
@@ -95,7 +95,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the belo
              -DestinationAddressPrefix $VMIP[4] `
              -DestinationPortRange '53' `
              -Protocol *
-3. This rule will allow RDP traffic to flow from the internet to the RDP port on any server on either subnet in the VNET. This rule uses two special types of address prefixes; “VIRTUAL_NETWORK” and “INTERNET”. This is an easy way to address a larger category of address prefixes.
+3. This rule allows RDP traffic to flow from the internet to the RDP port on any server on the bound subnet. This rule uses two special types of address prefixes; “VIRTUAL_NETWORK” and “INTERNET.” These tags are an easy way to address a larger category of address prefixes.
    
      Get-AzureNetworkSecurityGroup -Name $NSGName | `
    
@@ -105,7 +105,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the belo
          -DestinationAddressPrefix VIRTUAL_NETWORK `
          -DestinationPortRange '3389' `
          -Protocol *
-4. This rule allows inbound internet traffic to hit the web server. This doesn’t change the routing behavior; it only allows traffic destined for IIS01 to pass. Thus if traffic from the Internet had the web server as its destination this rule would allow it and stop processing further rules. (In the rule at priority 140 all other inbound internet traffic is blocked). If you're only processing HTTP traffic, this rule could be further restricted to only allow Destination Port 80.
+4. This rule allows inbound internet traffic to hit the web server. This does not change the routing behavior. The rule only allows traffic destined for IIS01 to pass. Thus if traffic from the Internet had the web server as its destination this rule would allow it and stop processing further rules. (In the rule at priority 140 all other inbound internet traffic is blocked). If you're only processing HTTP traffic, this rule could be further restricted to only allow Destination Port 80.
    
      Get-AzureNetworkSecurityGroup -Name $NSGName | `
    
@@ -125,7 +125,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the belo
      -DestinationAddressPrefix $VMIP[2] `
      -DestinationPortRange '*' `
      -Protocol *
-6. This rule denies traffic from the internet to any servers on the network. In combination with the rule at priority 110 and 120, allows only inbound internet traffic to the firewall and RDP ports to other servers and blocks everything else. 
+6. This rule denies traffic from the internet to any servers on the network. With the rules at priority 110 and 120, the effect is to allow only inbound internet traffic to the firewall and RDP ports on servers and blocks everything else. This rule is a "fail-safe" rule to block all unexpected flows.
    
      Get-AzureNetworkSecurityGroup -Name $NSGName | `
    
@@ -136,7 +136,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the belo
          -DestinationAddressPrefix VIRTUAL_NETWORK `
          -DestinationPortRange '*' `
          -Protocol *
-7. The final rule denies traffic from the Frontend subnet to the Backend subnet. Since this is an Inbound only rule, reverse traffic is allowed (from the Backend to the Frontend).
+7. The final rule denies traffic from the Frontend subnet to the Backend subnet. Since this rule is an Inbound only rule, reverse traffic is allowed (from the Backend to the Frontend).
    
      Get-AzureNetworkSecurityGroup -Name $NSGName | `
    
@@ -150,7 +150,7 @@ Each rule is discussed in more detail as follows (**Note**: any item in the belo
 
 ## Traffic Scenarios
 #### (*Allowed*) Web to Web Server
-1. Internet user requests HTTP page from FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
+1. An internet user requests a HTTP page from FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
 2. Cloud service passes traffic through open endpoint on port 80 towards IIS01 (the web server)
 3. Frontend subnet begins inbound rule processing:
    1. NSG Rule 1 (DNS) doesn’t apply, move to next rule
@@ -159,30 +159,30 @@ Each rule is discussed in more detail as follows (**Note**: any item in the belo
 4. Traffic hits internal IP address of the web server IIS01 (10.0.1.5)
 5. IIS01 is listening for web traffic, receives this request and starts processing the request
 6. IIS01 asks the SQL Server on AppVM01 for information
-7. No outbound rules on Frontend subnet, traffic is allowed
+7. Since there are no outbound rules on Frontend subnet, traffic is allowed
 8. The Backend subnet begins inbound rule processing:
    1. NSG Rule 1 (DNS) doesn’t apply, move to next rule
    2. NSG Rule 2 (RDP) doesn’t apply, move to next rule
    3. NSG Rule 3 (Internet to Firewall) doesn’t apply, move to next rule
    4. NSG Rule 4 (IIS01 to AppVM01) does apply, traffic is allowed, stop rule processing
 9. AppVM01 receives the SQL Query and responds
-10. Since there are no outbound rules on the Backend subnet the response is allowed
+10. Since there are no outbound rules on the Backend subnet, the response is allowed
 11. Frontend subnet begins inbound rule processing:
     1. There is no NSG rule that applies to Inbound traffic from the Backend subnet to the Frontend subnet, so none of the NSG rules apply
     2. The default system rule allowing traffic between subnets would allow this traffic so the traffic is allowed.
 12. The IIS server receives the SQL response and completes the HTTP response and sends to the requestor
-13. Since there are no outbound rules on the Frontend subnet the response is allowed, and the Internet User receives the web page requested.
+13. Since there are no outbound rules on the Frontend subnet the response is allowed, and the internet User receives the web page requested.
 
 #### (*Allowed*) RDP to Backend
-1. Server Admin on internet requests RDP session to AppVM01 on BackEnd001.CloudApp.Net:xxxxx where xxxxx is the randomly assigned port number for RDP to AppVM01 (the assigned port can be found on the Azure Portal or via PowerShell)
+1. Server Admin on internet requests RDP session to AppVM01 on BackEnd001.CloudApp.Net:xxxxx where xxxxx is the randomly assigned port number for RDP to AppVM01 (the assigned port can be found on the Azure portal or via PowerShell)
 2. Backend subnet begins inbound rule processing:
    1. NSG Rule 1 (DNS) doesn’t apply, move to next rule
    2. NSG Rule 2 (RDP) does apply, traffic is allowed, stop rule processing
 3. With no outbound rules, default rules apply and return traffic is allowed
 4. RDP session is enabled
-5. AppVM01 prompts for user name password
+5. AppVM01 prompts for the user name and password
 
-#### (*Allowed*) Web Server DNS lookup on DNS server
+#### (*Allowed*) Web Server DNS look-up on DNS server
 1. Web Server, IIS01, needs a data feed at www.data.gov, but needs to resolve the address.
 2. The network configuration for the VNet lists DNS01 (10.0.2.4 on the Backend subnet) as the primary DNS server, IIS01 sends the DNS request to DNS01
 3. No outbound rules on Frontend subnet, traffic is allowed
@@ -208,25 +208,25 @@ Each rule is discussed in more detail as follows (**Note**: any item in the belo
    3. NSG Rule 3 (Internet to IIS01) doesn’t apply, move to next rule
    4. NSG Rule 4 (IIS01 to AppVM01) does apply, traffic is allowed, stop rule processing
 4. AppVM01 receives the request and responds with file (assuming access is authorized)
-5. Since there are no outbound rules on the Backend subnet the response is allowed
+5. Since there are no outbound rules on the Backend subnet, the response is allowed
 6. Frontend subnet begins inbound rule processing:
    1. There is no NSG rule that applies to Inbound traffic from the Backend subnet to the Frontend subnet, so none of the NSG rules apply
    2. The default system rule allowing traffic between subnets would allow this traffic so the traffic is allowed.
 7. The IIS server receives the file
 
 #### (*Denied*) Web to Backend Server
-1. Internet user tries to access a file on AppVM01 through the BackEnd001.CloudApp.Net service
-2. Since there are no endpoints open for file share, this would not pass the Cloud Service and wouldn’t reach the server
+1. An internet user tries to access a file on AppVM01 through the BackEnd001.CloudApp.Net service
+2. Since there are no endpoints open for file share, this traffic would not pass the Cloud Service and wouldn’t reach the server
 3. If the endpoints were open for some reason, NSG rule 5 (Internet to VNet) would block this traffic
 
-#### (*Denied*) Web DNS lookup on DNS server
-1. Internet user tries to lookup an internal DNS record on DNS01 through the BackEnd001.CloudApp.Net service
-2. Since there are no endpoints open for DNS, this would not pass the Cloud Service and wouldn’t reach the server
-3. If the endpoints were open for some reason, NSG rule 5 (Internet to VNet) would block this traffic (Note: that Rule 1 (DNS) would not apply for two reasons, first the source address is the internet, this rule only applies to the local VNet as the source, also this is an Allow rule, so it would never deny traffic)
+#### (*Denied*) Web DNS look-up on DNS server
+1. An internet user tries to look up an internal DNS record on DNS01 through the BackEnd001.CloudApp.Net service
+2. Since there are no endpoints open for DNS, this traffic would not pass the Cloud Service and wouldn’t reach the server
+3. If the endpoints were open for some reason, NSG rule 5 (Internet to VNet) would block this traffic (Note: that Rule 1 (DNS) would not apply for two reasons, first the source address is the internet, this rule only applies to the local VNet as the source, also this rule is an Allow rule, so it would never deny traffic)
 
 #### (*Denied*) Web to SQL access through Firewall
-1. Internet user requests SQL data from FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
-2. Since there are no endpoints open for SQL, this would not pass the Cloud Service and wouldn’t reach the firewall
+1. An internet user requests SQL data from FrontEnd001.CloudApp.Net (Internet Facing Cloud Service)
+2. Since there are no endpoints open for SQL, this traffic would not pass the Cloud Service and wouldn’t reach the firewall
 3. If endpoints were open for some reason, the Frontend subnet begins inbound rule processing:
    1. NSG Rule 1 (DNS) doesn’t apply, move to next rule
    2. NSG Rule 2 (RDP) doesn’t apply, move to next rule
@@ -235,22 +235,22 @@ Each rule is discussed in more detail as follows (**Note**: any item in the belo
 5. IIS01 isn't listening on port 1433, so no response to the request
 
 ## Conclusion
-This is a relatively simple and straight forward way of isolating the back end subnet from inbound traffic.
+This example is a relatively simple and straight forward way of isolating the back-end subnet from inbound traffic.
 
 More examples and an overview of network security boundaries can be found [here][HOME].
 
 ## References
 ### Main Script and Network Config
-Save the Full Script in a PowerShell script file. Save the Network Config into a file named “NetworkConf1.xml”.
-Modify the user defined variables as needed. Run the script, then follow the Firewall rule setup instruction contained in the Example 1 section above.
+Save the Full Script in a PowerShell script file. Save the Network Config into a file named “NetworkConf1.xml.”
+Modify the user-defined variables as needed and run the script.
 
 #### Full Script
-This script will, based on the user defined variables;
+This script will, based on the user-defined variables;
 
 1. Connect to an Azure subscription
-2. Create a new storage account
-3. Create a new VNet and two subnets as defined in the Network Config file
-4. Build 4 windows server VMs
+2. Create a storage account
+3. Create a VNet and two subnets as defined in the Network Config file
+4. Build four windows server VMs
 5. Configure NSG including:
    * Creating a NSG
    * Populating it with rules
@@ -308,7 +308,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
         $SubnetName = @()
         $VMIP = @()
 
-    # User Defined Global Variables
+    # User-Defined Global Variables
       # These should be changes to reflect your subscription and services
       # Invalid options will fail in the validation section
 
@@ -338,7 +338,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
       # NSG Details
         $NSGName = "MyVNetSG"
 
-    # User Defined VM Specific Config
+    # User-Defined VM Specific Config
         # Note: To ensure proper NSG Rule creation later in this script:
         #       - The Web Server must be VM 0
         #       - The AppVM1 Server must be VM 1
@@ -386,7 +386,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
           $VMIP += "10.0.2.4"
 
     # ----------------------------- #
-    # No User Defined Varibles or   #
+    # No User-Defined Varibles or   #
     # Configuration past this point #
     # ----------------------------- #    
 
@@ -520,7 +520,7 @@ This PowerShell script should be run locally on an internet connected PC or serv
 
 
 #### Network Config File
-Save this xml file with updated location and add the link to this file to the $NetworkConfigFile variable in the script above.
+Save this xml file with updated location and add the link to this file to the $NetworkConfigFile variable in the preceding script.
 
     <NetworkConfiguration xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/ServiceHosting/2011/07/NetworkConfiguration">
       <VirtualNetworkConfiguration>

@@ -13,25 +13,25 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/01/2016
+ms.date: 01/03/2017
 ms.author: jonor
 
 ---
 # Sample Application for Use with Security Boundary Environments
 [Return to the Security Boundary Best Practices Page][HOME]
 
-These PowerShell scripts can be run locally on the IIS01 and AppVM01 servers to install and setup a very simple web application that displays an html page from the front end IIS01 server with content from the backend AppVM01 server.
+These PowerShell scripts can be run locally on the IIS01 and AppVM01 servers to install and set up a simple web application that displays an html page from the front-end IIS01 server with content from the back-end AppVM01 server.
 
-This will app provides a simple testing environment for many of the DMZ Examples and how changes on the Endpoints, NSGs, UDR, and Firewall rules can effect traffic flows.
+This will app provides a simple testing environment for many of the DMZ Examples and how changes on the Endpoints, NSGs, UDR, and Firewall rules can affect traffic flows.
 
 ## Firewall Rule to Allow ICMP
-This simple PowerShell statement can be run on any Windows VM to allow ICMP (Ping) traffic. This will allow for easier testing and troubleshooting by allowing the ping protocol to pass through the windows firewall (for most Linux distros ICMP is on by default).
+This simple PowerShell statement can be run on any Windows VM to allow ICMP (Ping) traffic. This firewall update allows for easier testing and troubleshooting by allowing the ping protocol to pass through the windows firewall (for most Linux distros ICMP is on by default).
 
     # Turn On ICMPv4
     New-NetFirewallRule -Name Allow_ICMPv4 -DisplayName "Allow ICMPv4" `
         -Protocol ICMPv4 -Enabled True -Profile Any -Action Allow
 
-**Note:** If you use the below scripts, this firewall rule addition is the first statement.
+**Note:** If you use the following scripts, this firewall rule addition is the first statement.
 
 ## IIS01 - Web Application Installation Script
 This script will:
@@ -140,11 +140,11 @@ This PowerShell script should be run locally while RDP’d into IIS01.
 
 
 ## AppVM01 - File Server Installation Script
-This script sets up the back end for this simple application. This script will:
+This script sets up the back-end for this simple application. This script will:
 
 1. Open IMCPv4 (Ping) on the firewall for easier testing
-2. Create a new directory
-3. Create a text file to be remotely access by the web page above
+2. Create a directory for the web site
+3. Create a text file to be remotely access by the web page
 4. Set permissions on the directory and file to Anonymous to allow access
 5. Turn off IE Enhanced Security to allow easier browsing from this server 
 
@@ -181,12 +181,12 @@ This PowerShell script should be run locally while RDP’d into AppVM01. PowerSh
         Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Active Setup\Installed Components\{A509B1A7-37EF-4b3f-8CFC-4F3A74704073}" -Name "IsInstalled" -Value 0
 
         Write-Host
-        Write-Host "File Server Setup Successfull!" -ForegroundColor Green
+        Write-Host "File Server Set up Successfull!" -ForegroundColor Green
         Write-Host
 
 
 ## DNS01 - DNS Server Installation Script
-There is no script included in this sample application to setup the DNS server. If testing of the firewall rules, NSG, or UDR needs to include DNS traffic, the DNS01 server will need to be setup manually. The Network Configuration xml file and Resource Manager Temaplate for both examples includes DNS01 as the primary DNS server and the public DNS server hosted by Level 3 as the backup DNS server. The Level 3 DNS server would be the actual DNS server used for non-local traffic, and with DNS01 not setup, no local network DNS would occur.
+There is no script included in this sample application to set up the DNS server. If testing of the firewall rules, NSG, or UDR needs to include DNS traffic, the DNS01 server will need to be set up manually. The Network Configuration xml file and Resource Manager Template for both examples includes DNS01 as the primary DNS server and the public DNS server hosted by Level 3 as the backup DNS server. The Level 3 DNS server would be the actual DNS server used for non-local traffic, and with DNS01 not setup, no local network DNS would occur.
 
 <!--Link References-->
 [HOME]: ../best-practices-network-security.md
