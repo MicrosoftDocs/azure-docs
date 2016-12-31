@@ -73,7 +73,8 @@ via ClusterConfig.json for Standalone deployments or Template.json for Azure hos
       {
           "name": "CPU",
           "value": "false"
-      }    ]
+      }
+    ]
   }
 ]
 ```
