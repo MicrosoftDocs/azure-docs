@@ -21,9 +21,9 @@ ms.author: rambala
 # Verifying ExpressRoute Connectivity
 ExpressRoute, which extends an on-premises network into the Microsoft cloud over a dedicated private connection that is facilitated by a connectivity provider, involves the following three distinct network zones:
 
-- 	Customer on-premises network
--  	Connectivity provider network
--  	Microsoft network
+- 	Customer Network
+-  	Provider Network
+-  	Microsoft Datacenter
 
 The purpose of this document is to help user to identify where (or even if) a connectivity issue exists and within which zone, thereby to seek help from appropriate team to resolve the issue. If Microsoft support is needed to resolve an issue, open a support ticket with [Microsoft Support][Support].
 
@@ -40,15 +40,15 @@ Depending on the ExpressRoute connectivity model (Cloud Exchange Co-location, Po
 
 1.	Customer compute device (for example, a server or PC)
 2.	CEs: Customer edge routers 
-3.	PEs: Provider edge routers that are connected with the customer edge routers
-4.	MSEE-PRs: Provider edge routers/switches that are directly connected with the MSEEs
+3.	PEs (CE facing): Provider edge routers/switches that are facing customer edge routers
+4.	PEs (MSEE facing: Provider edge routers/switches that are facing MSEEs
 5.	MSEEs: Microsoft Enterprise Edge (MSEE) ExpressRoute routers
 6.	Virtual Network (VNet) Gateway
 7.	Compute device on the Azure VNet
 
-If the Cloud Exchange Co-location or Point-to-Point Ethernet Connection connectivity models are used, the customer edge router (2) would peer with the MSEEs (5) on Layer 3 via BGP. Network points 3 and 4 would still exist but be somewhat transparent as Layer 2 devices.
+If the Cloud Exchange Co-location or Point-to-Point Ethernet Connection connectivity models are used, the customer edge router (2) would establish BGP peering with MSEEs (5). Network points 3 and 4 would still exist but be somewhat transparent as Layer 2 devices.
 
-If the Any-to-any (IPVPN) connectivity model is used, the MSEE-PR (4) would be directly connected (Layer 2 and 1) with the MSEEs (5) and peer on Layer 3 via BGP. Routes would then propagate back to the customer network via the IPVPN service starting from point 4.
+If the Any-to-any (IPVPN) connectivity model is used, the PEs (MSEE facing) (4) would establish BGP peering with MSEEs (5). Routes would then propagate back to the customer network via the IPVPN service provider network.
 
 >[!NOTE]
 >For ExpressRoute high availability, Microsoft requires a redundant pair of BGP sessions between MSEEs (5) and MSEE-PRs (4). A redundant pair of network paths is also encouraged between customer network and MSEE-PRs. However, in Any-to-any (IPVPN) connection model, a single CE device (2) may be connected to one or more PEs (3).
