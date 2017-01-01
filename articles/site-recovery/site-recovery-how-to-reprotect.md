@@ -39,7 +39,7 @@ Th Azure VMs that you want to reprotect, send the replication data to a Process 
 
 You can deploy a process server in Azure or use the existing process server that you used during failover. The important point to consider is the latency to send the data from Azure VMs to the process server. 
 
-* If you have an express route set up, an on-premises PS can be used to send the data. This is because the latency between the VM and the PS would be very low.
+* If you have an express route set up, an on-premises PS can be used to send the data. This is because the latency between the VM and the PS would be low.
     
     ![Architecture Diagram for Expressroute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
 
