@@ -20,26 +20,26 @@ ms.author: ruturajd
 # Reprotect from Azure to On-premises
 
 ## Overview
-This articles describes how to reprotect Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
+This article describes how to reprotect Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
 
 After reprotect completes and the protected virtual machines are replicating, you can initiate a failback on the VM to bring them to on-premises.
 
 Post any comments or questions at the bottom of this article, or on the [Azure Recovery Services Forum](https://social.msdn.microsoft.com/forums/azure/home?forum=hypervrecovmgr).
 
 ## Pre-requisites
-Below are the few pre-requisite steps you need to take or consider when preparing for reprotect.
+Following are the few pre-requisite steps you need to take or consider when preparing for reprotect.
 
 ### Reprotect needs a S2S VPN or an express route to replicate data back to on-premises
-Where replication from on-premises to Azure can happen over internet or an Express route with public peering, reprotect and failback requires a S2S VPN setup to replicate data. The network should be provided such that the failed over VMs in Azure can reach the on-premises configuration server. You may be also deploying a process server in the Azure network of the failed over VM - this process server should also be able to communicate with the on-premises configuration server.
+Where replication from on-premises to Azure can happen over internet or an Express route with public peering, reprotect and failback requires a S2S VPN set up to replicate data. The network should be provided such that the failed over VMs in Azure can reach the on-premises configuration server. You may be also deploying a process server in the Azure network of the failed over VM - this process server should also be able to communicate with the on-premises configuration server.
 
 ### Process server is needed to replicate the data from source VMs to on-premises
 Read more about a process server here.!todo
 
-Th Azure VMs that you want to reprotect, send the replication data to a Process server. Your network should be setup such that the process server is reachable from the Azure VM.
+Th Azure VMs that you want to reprotect, send the replication data to a Process server. Your network should be set up such that the process server is reachable from the Azure VM.
 
 You can deploy a process server in Azure or use the existing process server that you used during failover. The important point to consider is the latency to send the data from Azure VMs to the process server. 
 
-* If you have an express route setup, an on-premises PS can be used to send the data. This is becuase the latency between the VM and the PS would be very low.
+* If you have an express route set up, an on-premises PS can be used to send the data. This is because the latency between the VM and the PS would be very low.
     
     ![Architecture Diagram for Expressroute](./media/site-recovery-failback-azure-to-vmware-classic/architecture.png)
 
@@ -56,8 +56,8 @@ Remember, that the replication will only happen over S2S VPN, or the private pee
 
 ![Failover-Failback all ports](./media/site-recovery-failback-azure-to-vmware-classic/Failover-Failback.png)
 
-### Master target needs to be available on-premises to recieve data from process server
-A master target server is required on-premises to recieve the data from the process server and then write to the on-premises VM's VMDK. If you are protecting Windows VMs, you need a Windows master target server, and here you can reuse the on-premises PS+MT!todo component. For Linux VMs, you will need to setup an additional Linux master target on-premises.
+### Master target needs to be available on-premises to receive data from process server
+A master target server is required on-premises to receive the data from the process server and then write to the on-premises VM's VMDK. If you are protecting Windows VMs, you need a Windows master target server, and here you can reuse the on-premises PS+MT!todo component. For Linux VMs, you will need to setup an additional Linux master target on-premises.
 
 #### Pre-requisites of how to setup a master target
 
@@ -75,16 +75,16 @@ A master target server is required on-premises to recieve the data from the proc
 
 * Enable the disk.EnableUUID = True parameter on the MT VM via the vCenter properties. !todo Needs link.
 
-Click on the below links to reads the steps on How to install a Master Target server.
+Click on the following links to reads the steps on How to install a Master Target server.
 
 ![How to install Windows Master Target server](site-recovery-how-to-install-windows-master-target.md)
 ![How to install Linux Master Target server](site-recovery-how-to-install-linux-master-target.md)
 
 
 ### Failback policy
-To replicate back to on-premises, you will need a failback policy. This policy gets automatically created when you create a forward direction policy. Note that
+To replicate back to on-premises, you will need a failback policy. This policy get automatically created when you create a forward direction policy. Note that
 
-1. this policy get auto associated with the configuration server during creation.
+1. this policy gets auto associated with the configuration server during creation.
 2. this policy is not editable.
 3. the set values of the policy are (RPO Threshold = 15 Mins, Recovery Point Retention = 24 Hours, App Consistency Snapshot Frequency = 60 Mins)
    ![](./media/site-recovery-failback-azure-to-vmware-new/failback-policy.png)
