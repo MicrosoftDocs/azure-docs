@@ -366,7 +366,7 @@ tar -zxvf <File name>
 
 VMware tools need to be installed on the MT so that it can discover the datastores. If the tools are not installed, the reprotect screen will not list the datastores.
 
-## Common issues
-
 ## Next steps
  
+
+## Common issues
