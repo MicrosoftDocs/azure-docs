@@ -18,7 +18,7 @@ ms.author: ruturajd
 
 ---
 # Failback from Azure to On-premises
-This articles describes how to fail back Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
+This article describes how to fail back Azure virtual machines from Azure to the on-premises site. Follow the instructions in this article, when you're ready to fail back your VMware virtual machines or Windows/Linux physical servers, after they've failed over from the on-premises site to Azure using this [tutorial](site-recovery-vmware-to-azure-classic.md).
 
 ## Overview
 Here’s how failback works:
@@ -35,7 +35,7 @@ If you failed over a VMware VM you can fail back to the same source VM if it sti
 
 * If you fail back to the original VM the following is required:
   * If the VM is managed by a vCenter server then the Master Target's ESX host should have access to the VMs datastore.
-  * If the VM is on an ESX host but isn’t managed by vCenter then the hard disk of the VM must be in a datastore accessible by the MT's host.
+  * If the VM is on an ESX host but isn’t managed by vCenter, then the hard disk of the VM must be in a datastore accessible by the MT's host.
   * If your VM is on an ESX host and doesn't use vCenter then you should complete discovery of the ESX host of the MT before you reprotect. This applies if you're failing back physical servers too.
 
   
@@ -55,8 +55,8 @@ A physical machine when failed over to Azure can only be failback as a VMware vi
 * If the VMs you want to fail back to are managed by a vCenter server, you'll need to make sure you have the required permissions for discovery of VMs on vCenter servers. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
 * If snapshots are present on a VM then reprotection will fail. You can delete the snapshots or the disks.
 * Before you fail back you’ll need to create two additional components:
-  * **Create a process server**. Process server is used to recieve the data from the protected VM in Azure and send the data on-premises. This requires it to be on a low latency network between the process server and the protected VM. Hence the process server can be on-premises (if you are using an express route connection) or on Azure if you are using a VPN.
-  * **Create a master target server**: The master target server sends and receives failback data. The management server you created on-premises has a master target server installed by default. However, depending on the volume of failed back traffic you might need to create a separate master target server for failback. 
+  * **Create a process server**. Process server is used to receive the data from the protected VM in Azure and send the data on-premises. This requires it to be on a low latency network between the process server and the protected VM. Hence the process server can be on-premises (if you are using an express route connection) or on Azure if you are using a VPN.
+  * **Create a master target server**: The master target server receives failback data. The management server you created on-premises has a master target server installed by default. However, depending on the volume of failed back traffic you might need to create a separate master target server for failback. 
 		* A linux VM needs a Linux master target server. 
 		* A windows VM needs a windows master target.
 * Configuration server is required on-premises when you do a failback. During failback, the virtual machine must exist in the Configuration server database, failing which failback won't be successful. Hence ensure that you take regular scheduled backup of your server. In case of a disaster, you will need to restore it with the same IP address so that failback will work.
@@ -67,8 +67,27 @@ A physical machine when failed over to Azure can only be failback as a VMware vi
 
 ## Steps to failback
 
-First, you need reprotect the Azure virtual machine.
+Before initiating failback, ensure that you have completed the reprotection of the virtual machines. Th virtual machines should be in protected state with their health as OK.
+
+
+1. In the replicated items page select the virtual machine and right click to select **Unplanned Failover**.
+2. In **Confirm Failover** verify the failover direction (from Azure) and select the recovery point you want to use for the failover (latest, or the latest app consistent). App consistent point would be behind the latest point in time and will cause some data loss.
+3. During failover Site Recovery will shut down the Azure VMs. After you check that failback has completed as expected you can you can check that the Azure VMs have been shut down as expected.
+
+## Next steps
+
+After failback completes, you will need to commit the virtual machine to ensure the VMs recovered in Azure are deleted.
+
+1. Right click on the protected item and click Commit. A job will trigger that will remove the former recovered virtual machines in Azure.
+
+After commit completes your data will be back on the on-premises site, but won’t be protected. To start replicating to Azure again do the following:
+
+1. In the Vault > Setting > Replicated items, select the VMs that have failed back and click **Re-Protect**.
+2. Give the value of Process server that needs to be used to send data back to Azure.
+3. Click OK to begin the re-protect job.
+
+Once the reprotect completes, the VM will be replicating back to Azure and you can do a failover.
 
 ## Common issues
-## Next steps
- T
+
+

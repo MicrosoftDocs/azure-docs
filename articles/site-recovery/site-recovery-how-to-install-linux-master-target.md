@@ -27,7 +27,12 @@ Post any comments or questions at the bottom of this article, or on the [Azure R
 
 ## Pre-requisites
 
-Q1. where to deploy the master taget
+1. To corectly choose the host on which you need to deploy the MT, determine whether the failback is going to be to an exisiting VM on-premises or to a new VM (because the on-premises VM got deleted). 
+	* For an exisiting VM, the MT's host should have access to the VM's datastores.
+	* If the VM does not exist on-premises, the failback VM will be created on the same host as the MT.
+2. MT should be on a network that can communicate with the process server and the configuration server.
+3. MT version should be lesser than or equal to the Process server and the configuration server. (example, if CS is on 9.4, the MT can be on 9.4 and 9.3 - not on 9.5)
+4. MT can only be a VMware VM, and not a physical VM.
 
 
 ## Steps to deploy the master target server
@@ -338,6 +343,8 @@ and append the line
 
 ### Install Master Target
 
+Before installing the master target server, check that the /etc/hosts file on the VM contains entries that map the local hostname to IP addresses associated with all network adapters.
+
 1\. Copy the "latest" RHEL6-64 Unified Agent binary (You can copy it from ASR\_INSTALL\_DIR\\home\\svsystems\\pushinstallsvc\\repository)
 
 to the newly created OS.
@@ -355,6 +362,9 @@ tar -zxvf <File name>
 
 ![](./media/site-recovery-how-to-install-linux-master-target/media/image26.PNG)
 
+### Install VMware tools on the master target server
+
+VMware tools need to be installed on the MT so that it can discover the datastores. If the tools are not installed, the reprotect screen will not list the datastores.
 
 ## Common issues
 
