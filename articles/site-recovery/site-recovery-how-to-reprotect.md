@@ -59,7 +59,13 @@ Remember, that the replication will only happen over S2S VPN, or the private pee
 ### Master target needs to be available on-premises to receive data from process server
 A master target server is required on-premises to receive the data from the process server and then write to the on-premises VM's VMDK. If you are protecting Windows VMs, you need a Windows master target server, and here you can reuse the on-premises PS+MT!todo component. For Linux VMs, you will need to setup an additional Linux master target on-premises.
 
-#### Pre-requisites of how to setup a master target
+Click on the following links to reads the steps on How to install a Master Target server.
+
+[How to install Windows Master Target server](site-recovery-how-to-install-windows-master-target.md)
+[How to install Linux Master Target server](site-recovery-how-to-install-linux-master-target.md)
+
+
+#### Common things to check after completing installation of Master Target
 
 * If the VM is present on-premises on the vCenter server, master target server needs access to the on-premises VM's VMDK. This is to write the replicated data to the VM's disks. For this you need to ensure that **the on-premises VM's datastore should be mounted on the MT's host with read write access**.
 
@@ -75,10 +81,6 @@ A master target server is required on-premises to receive the data from the proc
 
 * Enable the disk.EnableUUID = True parameter on the MT VM via the vCenter properties. !todo Needs link.
 
-Click on the following links to reads the steps on How to install a Master Target server.
-
-![How to install Windows Master Target server](site-recovery-how-to-install-windows-master-target.md)
-![How to install Linux Master Target server](site-recovery-how-to-install-linux-master-target.md)
 
 
 ### Failback policy

@@ -31,7 +31,7 @@ Here’s how failback works:
 ### Failback to the original or alternate location
 
 	
-If you failed over a VMware VM you can fail back to the same source VM if it still exists on-premises. In this scenario only the delta changes will be failed back. This is known as original location recovery.
+If you failed over a VMware VM you can fail back to the same source VM if it still exists on-premises. In this scenario only the delta changes will be replicated back. This is known as original location recovery.
 
 * If you fail back to the original VM the following is required:
   * If the VM is managed by a vCenter server then the Master Target's ESX host should have access to the VMs datastore.
@@ -43,8 +43,9 @@ If the on-premises VM does not exist before reprotecting the VM, then it is call
 
 * When you failback to an alternate location the data will be recovered to the same ESX host as that used by the on-premises master target server. The datastore used to create the disk will be the same datastore selected when reprotecting the VM.
 * You can only failback to a VMFS datastore. If you have a vSAN or RDM,Reprotect and Failback will not work.
+* Reprotect will involve a one large initial data transfer followed by the delta changes. This is because the VM does not exist on-premises, the complete data needs to be replicated back. This reprotect will also take more time than the original location recovery.
 
-A physical machine when failed over to Azure can only be failback as a VMware virtual machine (also referred to as P2A2V). This flow falls under the alternate location recovery.
+A physical machine when failed over to Azure can only be failed back as a VMware virtual machine (also referred to as P2A2V). This flow falls under the alternate location recovery.
 
 * A Windows Server 2008 R2 SP1 machine if protected and failed over to Azure cannot be failed back.
 * Ensure that you discover at least one Master Target server along with the necessary ESX/ESXi hosts to which you need to failback.
@@ -53,7 +54,7 @@ A physical machine when failed over to Azure can only be failback as a VMware vi
 ## Pre-requisites
 
 * If the VMs you want to fail back to are managed by a vCenter server, you'll need to make sure you have the required permissions for discovery of VMs on vCenter servers. [Read more](site-recovery-vmware-to-azure-classic.md#vmware-permissions-for-vcenter-access).
-* If snapshots are present on a VM then reprotection will fail. You can delete the snapshots or the disks.
+* If snapshots are present on the on-premises VM then reprotection will fail. You can delete the snapshots before proceeding to reprotect.
 * Before you fail back you’ll need to create two additional components:
   * **Create a process server**. Process server is used to receive the data from the protected VM in Azure and send the data on-premises. This requires it to be on a low latency network between the process server and the protected VM. Hence the process server can be on-premises (if you are using an express route connection) or on Azure if you are using a VPN.
   * **Create a master target server**: The master target server receives failback data. The management server you created on-premises has a master target server installed by default. However, depending on the volume of failed back traffic you might need to create a separate master target server for failback. 
