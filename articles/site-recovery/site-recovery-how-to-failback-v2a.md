@@ -87,7 +87,7 @@ After commit completes your VM will be back on the on-premises site, but won’t
 2. Give the value of Process server that needs to be used to send data back to Azure.
 3. Click OK to begin the re-protect job.
 
-Once the reprotect job completes, the VM will be replicating back to Azure and you can do a failover.
+Once the reprotect job completes, the VM is replicating back to Azure and you can do a failover.
 
 ## Common issues
 
