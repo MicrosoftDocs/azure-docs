@@ -35,7 +35,7 @@ Post any comments at the bottom of this article. Ask technical questions on the 
 Site Recovery can be deployed to orchestrate replication in a number of scenarios:
 
 - **Replicate VMware virtual machines**: You can replicate on-premises VMware virtual machines to Azure, or to a secondary datacenter.
-- **Replicate physical machines**: You can replicate physical machines (Windows or Linux) to Azure, or to a secondary datacenter. The process for replicating physical machines is almost the same as that used for replicating VMware VMs.
+- **Replicate physical machines**: You can replicate physical machines (Windows or Linux) to Azure, or to a secondary datacenter. The process for replicating physical machines is almost the same as that for replicating VMware VMs.
 - **Replicate Hyper-V VMs**: You can replicate Hyper-V VMs to Azure, or to a secondary VMM site. If you want to replicate them to a secondary site, they must be managed in System Center Virtual Machine Manager (VMM) clouds.
 - **Migrate VMs**: In addition to replicating (replicate, failover and failback) on-premises VMs and physical servers to Azure, you can also migrate them to Azure VMs (replicate, failover, no failback). Here's what you can migrate:
     - Migrate workloads running on on-premises Hyper-V VMs, VMware VMs, and physical servers, to run on Azure VMs.
