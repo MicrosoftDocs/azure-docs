@@ -24,10 +24,6 @@ ms.author: nepeters
 
 Operations Management Suite (OMS) provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. The OMS Agent virtual machine extension for Windows is published and supported by Microsoft. The extension installs the OMS agent on Azure virtual machines, and enrolls virtual machines into an existing OMS workspace. This document details the supported platforms, configurations, and deployment options for the OMS virtual machine extension for Windows.
 
-For general information on Azure virtual machine extensions see, [Virtual Machine extensions overview](./virtual-machines-windows-extensions-features.md).
-
-For more information on Operations Management Suite, see [Operations Management Suite overview](https://www.microsoft.com/en-us/cloud-platform/operations-management-suite).
-
 ## Prerequisites
 
 ### Operating System
@@ -41,6 +37,7 @@ The OMS Agent extension for Windows requires that the target virtual machine is 
 ## Extension configuration
 
 The OMS Agent virtual machine extension for Windows requires the workspace Id and workspace key from the target OMS workspace. Because the workspace key should be treated as sensitive data, it is stored in a protected configuration. Azure VM extension protected configuration data is encrypted, and only decrypted on the target virtual machine.
+
 ### Extension schema
 
 ```json
