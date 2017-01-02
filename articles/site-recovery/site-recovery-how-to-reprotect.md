@@ -1,5 +1,5 @@
 ---
-title: Hot to Reprotect from Azure to On-premises | Microsoft Docs
+title: How to Reprotect from Azure to On-premises | Microsoft Docs
 description: After failover of VMs to Azure, you can initiate a failback to bring VMs back to on-premises. Learn the steps how to do a reprotect before a failback.
 services: site-recovery
 documentationcenter: ''
