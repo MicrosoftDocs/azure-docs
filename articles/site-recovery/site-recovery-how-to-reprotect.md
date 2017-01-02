@@ -73,7 +73,21 @@ Click on the following links to reads the steps on How to install a Master Targe
     
 * **Master target server cannot be storage vMotioned**. This can cause the failback to fail. The VM will not come up since the disks will not be made available to it.
 
-* You need a new drive added onto your existing Master target server. This drive is called a retention drive. Add a new disk and format the drive. !todo sizing guidelines of retention drive
+* You need a new drive added onto your existing Master target server. This drive is called a retention drive. Add a new disk and format the drive. Retention Drive is used for stopping the points in time when the VM replicated back to on-premises. Some of the criteria of a retention drive are as below, without which the drive will not be listed for the master target server.
+   
+   a. Volume shouldn't be in use for any other purpose (target of replication etc.)
+
+   b. Volume shouldn't be in lock mode.
+
+   c. Volume shouldn't be cache volume. (MT installation shouldn't exist on that volume. PS+MT custom installation volume is not eligible for retention volume. Here installed PS+MT volume is cache volume of MT.)
+
+   d. The Volume File system type shouldn't be FAT and FAT32.
+
+   e. The volume capacity should be non-zero.
+
+   e. Default retention volume for Windows is R volume.
+
+   f. Default retention volume for Linux is /mnt/retention.
 
 * A linux failed over VM, needs a Linux Master target server. A Windows failed over VM, requires a Windows master target server.
 
@@ -99,22 +113,7 @@ To replicate back to on-premises, you will need a failback policy. This policy g
 2. In the blade, you can see that the direction of protection "Azure to On-premises" is already selected.
 3. In **Master Target Server** and **Process Server** select the on-premises master target server, and the process server.
 4. Select the **Datastore** to which you want to recover the disks on-premises. This option is used when the on-premises VM is deleted and new disks needs to be created. This option is ignored if the disks already exists, but you still need to specify a value.
-5. Retention Drive is used for stopping the points in time when the VM replicated back to on-premises. Some of the criteria of a retention drive are as below, without which the drive will not be listed for the master target server.
-   
-   a. Volume shouldn't be in use for any other purpose (target of replication etc.)
-
-   b. Volume shouldn't be in lock mode.
-
-   c. Volume shouldn't be cache volume. (MT installation shouldn't exist on that volume. PS+MT custom installation volume is not eligible for retention volume. Here installed PS+MT volume is cache volume of MT.)
-
-   d. The Volume File system type shouldn't be FAT and FAT32.
-
-   e. The volume capacity should be non-zero.
-
-   e. Default retention volume for Windows is R volume.
-
-   f. Default retention volume for Linux is /mnt/retention.
-
+5. Choose the retention drive. 
 6. The failback policy will be auto selected.
 7. After you click **OK** to begin reprotection a job begins to replicate the VM from Azure to the on-premises site. You can track the progress on the **Jobs** tab.
 
