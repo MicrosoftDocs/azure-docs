@@ -343,6 +343,12 @@ and append the line
 
 ### Install Master Target
 
+Download th latest Linux Master Target installation bits from here - [https://aka.ms/latestlinuxmobsvc](https://aka.ms/latestlinuxmobsvc).
+
+> [!NOTE]
+> Master target server version should be less than or equal to the process server and the configuration server. If the MT version is higher, the reprotect will succeed but replication will fail.
+> 
+
 Before installing the master target server, check that the /etc/hosts file on the VM contains entries that map the local hostname to IP addresses associated with all network adapters.
 
 1\. Copy the "latest" RHEL6-64 Unified Agent binary (You can copy it from ASR\_INSTALL\_DIR\\home\\svsystems\\pushinstallsvc\\repository)
