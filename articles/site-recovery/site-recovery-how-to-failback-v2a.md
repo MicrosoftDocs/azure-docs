@@ -24,7 +24,10 @@ This article describes how to fail back Azure virtual machines from Azure to the
 Here’s how failback works:
 
 * After you’ve failed over to Azure, you fail back to your on-premises site in a few stages:
-  * **Stage 1**: You reprotect the Azure VMs so that they start replicating back to VMware VMs running in your on-premises site. Read more about [how to reprotect](site-recovery-how-to-reprotect.md).
+  * **Stage 1**: You reprotect the Azure VMs so that they start replicating back to VMware VMs running in your on-premises site. For this you also need to 
+		1. Setup an on-premises Master target
+		2. Setup a Process server
+		3. And then initiate Reprotect
   * **Stage 2**: After your Azure VMs are replicating to your on-premises site, you run a fail over to fail back from Azure.
   * **Stage 3**: After your data has failed back, you reprotect the on-premises VMs that you failed back to, so that they start replicating to Azure.
 
@@ -68,7 +71,7 @@ A physical machine when failed over to Azure can only be failed back as a VMware
 
 ## Steps to failback
 
-Before initiating failback, ensure that you have completed the reprotection of the virtual machines. Th virtual machines should be in protected state with their health as OK.
+Before initiating failback, **ensure that you have completed the reprotection of the virtual machines**. The virtual machines should be in protected state with their health as OK. To Reprotect the virtual machines, read more on [how to reprotect](site-recovery-how-to-reprotect.md).
 
 
 1. In the replicated items page select the virtual machine and right click to select **Unplanned Failover**.
